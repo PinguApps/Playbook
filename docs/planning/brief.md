@@ -1,6 +1,6 @@
 # PinguApps.Playbook planning brief
 
-Status: discovery and planning. Round 1 is accepted; implementation awaits the completed design and Pingu's confirmation of shared understanding.
+Status: discovery and planning. Rounds 1 and 2 are recorded, with an explicit expansion to all .NET 11 author-facing changes. Publication policy remains deferred. Implementation awaits the completed design and Pingu's confirmation of shared understanding.
 
 This brief records the starting knowledge for the grill-with-docs session on 15 October 2026. It separates Pingu's requirements, earlier assistant proposals, reference observations, and decisions still to make.
 
@@ -17,9 +17,9 @@ The live index was retrieved successfully over HTTP. Browser inspection twice fa
 
 ### Product and identity
 
-- Help coding agents use .NET 11 Blazor capabilities that their existing knowledge may miss.
+- Help coding agents use .NET 11 capabilities across the .NET ecosystem that their existing knowledge may miss. The original Blazor-only scope has been superseded.
 - Explain the developer's goal, the older approach, and the .NET 11 approach.
-- Focus on changes to code developers write. Unrelated .NET features and benefits obtained solely from upgrading the runtime are outside the stated interest.
+- Cover everything in .NET 11 that changes the code developers write or how they implement a goal, including Minimal APIs, other ASP.NET Core applications, MVC, Razor Pages, desktop, and mobile. Languages, shared libraries, and data access also belong in the release-wide inventory. Benefits obtained solely from upgrading, with no different authoring approach, remain outside scope.
 - Distribute through NuGet as a locally installed .NET tool exposing MCP.
 - Project, repository, and package identity: `PinguApps.Playbook`.
 - Executable command: `playbook`, without a PinguApps prefix or year suffix.
@@ -43,7 +43,7 @@ The earlier discussion also identified agent discovery as a product risk: useful
 
 ## Content to carry into planning
 
-These are the accepted minimum launch coverage, not a claim that every topic already has a verified example. Additional worthwhile Blazor code changes may be proposed after a fresh check. A topic is not necessarily one final entry: some topics may split by goal or applicability.
+The original Blazor material below remains required minimum coverage within the expanded all-.NET-11 scope. It is not the complete product inventory or a claim that examples are verified. Build a source-backed inventory across every .NET 11 area and classify each author-facing change. A topic is not necessarily one recipe: some topics may split by goal or applicability.
 
 ### The guide's 25 topics
 
@@ -128,16 +128,16 @@ The earlier broad gap list also mentioned authentication refresh, analyzers, Mat
 
 - Identity: `PinguApps.Playbook` and `playbook`.
 - Distribution: local .NET tool published through NuGet.
-- Initial subject: .NET 11 Blazor coding guidance.
+- Initial comprehensive subject: all .NET 11 author-facing changes. Blazor is one area within it.
 - Future product: expand the same package.
-- Reference inputs: all 25 guide topics, seven additions, and three expansions.
+- Required Blazor subset: all 25 guide topics, seven additions, and three expansions. Preserve this while expanding the release-wide inventory.
 - Engineering constraints: PinguApps conventions, central package management, matching GitHub Actions, Roslynk MCP mechanics.
 
 ### Round 1: accepted by Pingu
 
 1. **Product boundary.** A small, deterministic, read-only guidance server. The calling agent inspects and edits the user's project. Playbook does not scan projects, run user builds, or apply migrations.
-2. **Version safety.** Preserve release-specific guidance with explicit applicability. Target selection and defaults remain for a later round.
-3. **Launch completeness.** All 25 guide topics, seven additions, three expansions, and other previously identified refinements form the minimum baseline. Recheck for worthwhile additions; propose new scope explicitly.
+2. **Version safety.** Preserve release-specific guidance with explicit applicability. Round 2 records Pingu's latest-version default when the target is omitted.
+3. **Launch completeness.** All 25 guide topics, seven additions, three expansions, and other previously identified refinements form the original required Blazor baseline. The later scope expansion makes this a subset of comprehensive .NET 11 coverage.
 4. **Content authorship.** Preserve the goal/older/newer structure. Write original explanations and totally unique examples from scratch; the site is inspiration only.
 5. **Evidence standard.** Official citations, exact verified SDK/package versions, compiled examples, appropriate real runtime/browser checks, and verification of the packed tool. Distinguish preview status, source claims, and actual execution evidence.
 6. **Repository baseline.** CodeStyle.Analyzers for structure, Template's generated application for current style/analyzer consumption, BlazorSitemap for modern NuGet workflows and packed-consumer verification, RazorStyle for PinguApps tool packaging, and Roslynk for MCP mechanics.
@@ -150,9 +150,9 @@ The earlier broad gap list also mentioned authentication refresh, analyzers, Mat
 - Bounded primary-source recheck identified the additional candidates below. Candidate findings do not automatically expand the scope.
 - The local machine has .NET SDK 10.0.402 and no .NET 11 SDK installed. The MCP SDK's published package supports older frameworks, so guidance for .NET 11 does not itself require a .NET 11 host. Choose the tool runtime separately from sample runtimes; no SDK installation has been performed.
 
-### Additional content candidates
+### Blazor migration additions and refinement
 
-These are research findings awaiting a scope decision, not additions to the accepted baseline.
+The CSRF and navigation migrations below were accepted in Round 2 where they meet the authoring criterion. Telemetry remains a possible refinement within the existing service-defaults topic.
 
 - **Blazor SSR CSRF migration.** The earlier broad list excluded automatic protection as an upgrade benefit. Microsoft's current migration guidance also identifies explicit changes to startup/form authoring, which makes a concrete migration entry worth reconsidering. Any example must cover when token-based protection remains necessary and prove the intended protection in real requests. [Migration guidance](https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0#automatic-csrf-protection).
 - **CSP-friendly navigation scripts.** The .NET 11 template removes inline navigation JavaScript. An original migration example could replace inline handlers with an external module while following PinguApps conventions. The published template uses `NavMenu.razor.js`; the selected PinguApps analyzer forbids that filename convention. Our example should preserve the behavior using the approved external-module organization. This is template migration guidance, not a new API that was impossible in .NET 10. [Microsoft migration recipe](https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0#adopt-inline-js-event-handler-removed-from-the-navmenu-component), [local analyzer rule](../../../CodeStyle.Analyzers/README.md).
@@ -166,27 +166,46 @@ Nested startup-option syntax belongs within browser configuration. QuickGrid lin
 - The published `ModelContextProtocol` package is 2.2.0 at inspection, includes hosting/DI for non-HTTP servers, and supports frameworks older than .NET 10. HTTP integration is a separate package. This is a researched candidate dependency, not a settled version pin. [NuGet package](https://www.nuget.org/packages/ModelContextProtocol).
 - Standard .NET runtime selection does not automatically cross major versions. A `net10.0` host needs an explicit runtime policy if it is to run on a machine with only .NET 11 installed. `Major` prefers the requested major when present and can move to a higher one when absent; `LatestMajor` always prefers the highest installed major. Choose and verify the actual packaged policy. [Runtime version selection](https://learn.microsoft.com/en-us/dotnet/core/versions/selection#control-roll-forward-behavior).
 
-### Round 2: independent decisions awaiting Pingu
+### Round 2: accepted, modified, or deferred by Pingu
 
-9. **Local process architecture.** Recommend `playbook mcp` running MCP directly over stdio as a client-launched process. A persistent HTTP daemon is unnecessary for the accepted documentation-only boundary.
-10. **Offline content delivery.** Recommend bundling all guidance in the NuGet package. Installed requests run offline without telemetry, API keys, remote content fetches, or a runtime updater; package updates deliver content updates.
-11. **Content unit and language.** Recommend calling a goal-focused guidance entry a **recipe**, rather than equating entries with framework features. One recipe answers one developer goal and can use multiple APIs. Exact entry count follows the goal breakdown.
-12. **Initial MCP surface.** Recommend two tools: a compact catalogue and full detail for one selected entry. Defer public tool names until terminology is settled. No separate search engine, MCP resources, or MCP prompts are needed for the initial scope.
-13. **Target selection.** Recommend requiring the caller to supply the application's target .NET release, with a clear response listing supported releases if it is omitted or unsupported. Never silently choose the newest guidance. Exact argument names and accepted version syntax remain to decide.
-14. **Host runtime policy.** Recommend a `net10.0` tool host, matching the current repository baseline, with `Major` roll-forward so it can use .NET 11 when .NET 10 is absent. Verify the installed package on both supported runtimes. .NET 11 examples use separately pinned sample SDKs; future runtimes are not claimed tested automatically.
-15. **Production project boundary.** Recommend one production console/tool project and one Reqnroll-based test project, plus independently buildable sample projects. No separately published core library is needed for the accepted product.
-16. **Agent adoption.** Recommend a short companion instruction telling agents to consult the catalogue before implementing Blazor work. Include it in client setup documentation; users opt into those instructions explicitly. Server descriptions and instructions help discovery but cannot guarantee an agent consults the tool.
-17. **Additional CSRF migration recipe.** Recommend adding an original Blazor SSR recipe explaining the applicable .NET 11 startup/form migration and when token protection must remain, with actual request-level checks. This is a deliberate reconsideration of an earlier automatic-benefit exclusion because there is a concrete authored migration.
-18. **Additional CSP navigation recipe.** Recommend adding an original inline-handler-to-external-module migration example, following PinguApps JavaScript conventions. Label it template migration, not a newly available JavaScript capability.
-19. **Pre-GA publication policy.** Recommend using prerelease package versions for any publication before .NET 11 GA, with stable publication requiring a fresh verification pass against GA SDK/packages. This does not relax the accepted minimum coverage for the first public package or authorize publication now.
+9. **Local process architecture — selected.** `playbook mcp` runs MCP directly over stdio as a client-launched process. Pingu delegated the choice to our technical recommendation. Each client owns its process; avoid daemon startup, ports, shared-state lifetime, and a separate HTTP service for this documentation workload. The tradeoff is a small process/content copy per client, acceptable for a bundled catalogue.
+10. **Offline content delivery — accepted.** Bundle all guidance in the NuGet package. Installed requests run offline without telemetry, API keys, remote content fetches, or a runtime updater. Package updates deliver content updates.
+11. **Content unit and language — accepted.** A goal-focused guidance entry is a **recipe**. One recipe answers one developer goal and can use several APIs. Framework feature count does not dictate recipe count.
+12. **Initial MCP surface — accepted.** Two tools: catalogue discovery and detail for one recipe. Reconsider the discovery parameters for the expanded catalogue; expansion does not itself require more tools or a search service. Public tool names remain to decide.
+13. **Target selection — modified by Pingu.** Callers should supply the target release. When omitted, assume the latest version rather than failing or asking for a selection. Explicit targets retain release-specific guidance. For an offline package, the proposed precise meaning of latest is the newest release represented in that installed catalogue; return the resolved release so agents can see the assumption. Framework/platform applicability still matters. Confirm those details in the next round; do not restore the rejected missing-version error policy.
+14. **Host runtime policy — accepted.** A `net10.0` tool host with `Major` roll-forward, verified on .NET 10 and .NET 11. Examples use separately pinned SDKs/workloads. The documentation host does not acquire desktop/mobile workload dependencies merely because it serves those recipes.
+15. **Production project boundary — accepted starting point.** One production console/tool project, one Reqnroll-based core test project, and independently buildable sample projects. Specialized platform verification projects may be needed after the scope expansion; assess separately. No separately published core library is planned.
+16. **Agent adoption — accepted.** Include a short companion instruction to consult Playbook before applicable .NET implementation work. Expand the earlier Blazor-only wording. Users choose to add those instructions through client setup; server descriptions alone cannot guarantee consultation.
+17. **CSRF migration — accepted under the authoring criterion.** Include the original recipe where the .NET 11 approach changes startup/form code and explains retained protections. Do not turn an invisible automatic benefit into a standalone recipe. This candidate has a documented concrete migration.
+18. **CSP navigation migration — accepted under the authoring criterion.** Include the original inline-handler-to-external-module example, following PinguApps JavaScript conventions. Its value is changed application markup/script/CSP authoring; label it template migration.
+19. **Pre-GA publication policy — deferred.** Pingu may publish prereleases, but wants to decide what that looks like later. No prerelease-version or GA-gating policy is accepted yet. Evidence/status labeling remains required independently of this deferred publication decision.
+
+### Scope expansion and .NET 10 question
+
+Pingu explicitly locked in all .NET 11 code-changing capabilities, with the same exclusion of invisible performance gains. Prioritization can order the work, but cannot silently narrow this coverage back to selected frameworks or headline features. See [scope ADR](../adr/0003-cover-author-facing-changes-across-dotnet.md).
+
+Pingu asked whether .NET 10 guidance adds enough value to justify the work. This is a research/advice request, not approval of a complete .NET 10 backfill. Research should identify high-value carry-forward recipes and prerequisites, and distinguish them from the comprehensive .NET 11 commitment. We have not measured the target agents' knowledge; release age does not establish that they know an API or can use it correctly.
+
+The [release-wide coverage map](coverage.md) records the researched source families, eligible candidate areas, source conflicts, completeness method, and optional .NET 10 foundations. It is not an exhaustive completed catalogue. The wider scope primarily expands content and verification; the accepted small offline server and two-tool boundary remain.
+
+### Round 3: independent decisions awaiting Pingu
+
+20. **Curated .NET 10 foundations.** Recommend a small explicitly selected set that removes substantial custom code or supports .NET 11 recipes, while comprehensive .NET 11 remains the main release commitment. Do not equate this with a complete .NET 10 backfill or claim measured agent deficiencies.
+21. **Release-family boundary.** Recommend covering the .NET 11 SDK/runtime/languages and associated first-party framework releases, including ASP.NET Core, EF Core, WPF, WinForms, and MAUI/platform workloads. Other packages and native APIs are documented when a recipe requires them; standalone coverage of their independently versioned features needs a separate scope decision. This defines the inventory boundary without narrowing the accepted .NET 11 commitment.
+22. **Catalogue contract.** Recommend naming the two tools `list_recipes` and `get_recipe`. Add deterministic area/language/target/keyword filtering and pagination to catalogue discovery, so agents can find applicable goals without retrieving the whole expanded catalogue. No AI matching service is required.
+23. **Precise latest default.** Recommend resolving an omitted target to the newest .NET release covered by the installed package and returning the resolved value. This follows Pingu's latest-version instruction without a network lookup. It changes the release assumption only; platform, framework, and preview constraints remain visible. Explicit unsupported targets get an honest coverage response rather than silently falling back.
+24. **Applicability dimensions.** Recommend separate introduction/applicability, target runtime, required SDK/language mode, framework/package versions, platform/provider constraints, and preview/experimental status. Use rendering context only where relevant. A single .NET release number is insufficient to establish every recipe's applicability.
+25. **Platform verification lanes.** Recommend extending the existing PinguApps workflow pattern with Windows/macOS and other required sample-validation lanes. Keep portable tool checks separate from native sample checks. Permit specialized verification projects where necessary, and distinguish build-only, emulator, and real-device evidence.
+26. **Content authoring and sample source.** Recommend Markdown prose, JSON metadata, and code snippets drawn from the same independently authored sample files that are built/tested. Keep one authoritative example source so tested code and MCP-delivered guidance cannot drift silently. Exact layout and packaging generation remain to design.
 
 ### Dependent branches to explore next
 
-- Product boundary -> tool versus resource surface, discovery, result contracts, errors, server instructions, companion instructions, offline behavior, and extensibility.
-- Version safety -> target-version selection, retention/support lifetime, feature evolution, applicability and stability metadata, content identifiers, backwards compatibility, and package versioning.
-- Launch coverage and evidence -> entry granularity, sample organization, valid older/newer comparisons, test matrix, source conflicts, maintenance, contribution workflow, and product evaluation.
-- Repository baseline -> exact solution/projects, SDK and runtime support, analyzer settings, Reqnroll scenarios, packaging metadata, dependencies, and actual artifact checks.
-- Release automation -> initial version, trusted-publishing setup, repository identity, draft categories, prereleases, scheduled publishing activation, and release readiness checks.
-- Supported environments -> installation methods, MCP registration, command behavior, process lifecycle, logging, cancellation, troubleshooting, and platform/client acceptance checks.
+- Release-family and .NET 10 decisions -> complete source register, approved carry-forward shortlist, recipe breakdown, language coverage, and cross-cutting recipes without duplication.
+- Catalogue and applicability -> exact input/output schemas, filter semantics, paging/budgets, identifiers, errors, stability defaults, and backwards compatibility.
+- Latest default -> target normalization, explicit unsupported targets, retained release support, superseded recipes, and package-version versus content-version rules.
+- Content source and verification lanes -> directory layout, metadata validation, snippet generation, runnable older/newer comparisons, native toolchain pinning, CI selection, and evidence records.
+- Accepted runtime/project boundary -> exact SDK/package pins, analyzer settings, installable tool artifacts, stdio shutdown/logging, CLI help/default behavior, and client setup.
+- Deferred publication policy -> initial version, prerelease/GA gates, trusted-publishing setup, repository identity, release readiness, and activation of the selected schedule.
+- Product value -> original task evaluations on named agent/model versions, with and without Playbook, and measurable behavior/correctness rather than assumed training knowledge.
 
 Update this tree after each answer. Record resolved vocabulary in [GLOSSARY.md](../../GLOSSARY.md). Offer ADRs only for consequential tradeoffs. Begin implementation only after Pingu confirms the shared understanding.

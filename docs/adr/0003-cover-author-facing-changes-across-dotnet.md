@@ -1,0 +1,3 @@
+# Cover author-facing changes across .NET
+
+Playbook covers all .NET 11 capabilities that change the code developers write or how they implement a goal, across languages, libraries, web, data, desktop, and mobile development. Pingu expanded the original Blazor scope so agents can install one general .NET playbook instead of separate framework-specific tools. The existing Blazor coverage remains a required subset; invisible performance gains and automatic upgrade benefits without a different authoring approach remain excluded. This broadens content and platform-verification work without changing the small, offline documentation-server boundary.
