@@ -2,6 +2,8 @@
 
 Read-only local inspection on 15 October 2026. These observations describe the checked-out files, including several branches other than `main`. No remote fetch, build, package install, test execution, or publishing was performed.
 
+The later [GitHub scheduling audit](publishing-schedule.md) covers the current default branches of all 35 organization repositories. Use that audit for publishing times; the local branch observations below are not the current schedule authority.
+
 ## Proposed source map
 
 - **Structure and shared MSBuild configuration:** `V:\CodeStyle.Analyzers\AGENTS.md`, `Directory.Build.props`, `Directory.Build.targets`, and `Directory.Packages.props`.

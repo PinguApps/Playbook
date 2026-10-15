@@ -21,3 +21,6 @@ _Avoid_: Latest approach
 
 **Applicability**:
 The circumstances in which guidance is relevant, including its .NET release and Blazor rendering context.
+
+**Target release**:
+The .NET release that the consuming application's code must support. This is separate from the installed Playbook package's version.
