@@ -1,6 +1,6 @@
 # PinguApps.Playbook: agreed plan
 
-Status: eight design rounds and 51 decisions recorded, 16 October 2026. Ready for Pingu's final shared-understanding check. This is a repository/package delivery plan; no tool, samples or workflows have been implemented, and nothing has been published.
+Status: shared understanding confirmed by Pingu on 16 October 2026, after eight design rounds and 51 decisions. Planning is complete. This is a repository/package delivery plan; no tool, samples or workflows have been implemented, and nothing has been published.
 
 ## Product and coverage
 
@@ -52,4 +52,4 @@ After the first manual stable release, publish stable drafts weekly at **Sunday 
 
 Exact current SDK/workload/package/action pins, generated schemas, sample details and evidence records are implementation tasks within this design. No missing proof or unresolved qualifying source item may silently disappear. Follow the [full milestones](implementation-plan.md) when implementation is requested, using an isolated implementation branch/worktree and complete-work/finish-pr. Leave merging/releasing to Pingu except the separately approved future weekly automation.
 
-The [brief](brief.md) retains the complete decision history and superseded proposals. The next conversation step is confirmation that this captures the shared understanding; implementation is a separate request.
+The [brief](brief.md) retains the complete decision history and superseded proposals. Pingu confirmed this shared understanding with “Agreed”. Implementation is a separate request.

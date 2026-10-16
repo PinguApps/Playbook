@@ -1,6 +1,6 @@
 # PinguApps.Playbook planning brief
 
-Status: all eight design rounds recorded. The [consolidated plan](README.md) is ready for Pingu's final shared-understanding check. Comprehensive .NET 11 author-facing guidance, eight selected .NET 10 foundations, experimental labels, contract/content/repository/release design, minimal CI/client checks and bounded evaluation are settled. Language-neutral filtering and native authoring cadence are accepted in Round 8. The 406-row source-disposition inventory includes 310 candidate rows; API reconciliation and original sample verification remain delivery work. No implementation has started.
+Status: planning complete; Pingu confirmed the [consolidated shared understanding](README.md) on 16 October 2026 after eight design rounds. Comprehensive .NET 11 author-facing guidance, eight selected .NET 10 foundations, experimental labels, contract/content/repository/release design, minimal CI/client checks and bounded evaluation are settled. Language-neutral filtering and native authoring cadence are accepted in Round 8. The 406-row source-disposition inventory includes 310 candidate rows; API reconciliation and original sample verification remain delivery work. No implementation has started.
 
 This brief records the knowledge for the grill-with-docs session, initially captured on 15 October 2026 and updated through Round 8 on 16 October. It separates Pingu's requirements, historical proposals, reference observations, accepted decisions, and remaining delivery work.
 
@@ -248,7 +248,7 @@ The [source/goal inventory](inventory/README.md) records the wider scope concret
 
 ### Design tree after Round 8
 
-- User frontier -> no unresolved product-policy decisions identified. Review the [consolidated shared understanding](README.md) before any implementation. Routine IDs/DTOs/pins and fictional example domains are implementation choices within the accepted design.
+- User frontier -> closed. Pingu confirmed the [consolidated shared understanding](README.md) with “Agreed” on 16 October 2026. Routine IDs/DTOs/pins and fictional example domains are implementation choices within the accepted design. Implementation awaits a separate request.
 - Content delivery -> resolve the inventory's source/API/availability gaps, consolidate shared goals, produce original older/newer examples, and complete compilation/focused evidence before publication. Language coverage, eight foundations, example-language depth and shared discovery are accepted.
 - Contract delivery -> implement the accepted tools, errors, filtering including the language-neutral exception, editions, default target and standard representations using the recorded technical defaults; expose generated schemas and verify real behavior.
 - Repository/tool delivery -> select exact current supported SDK/package/action pins and analyzer settings, implement generated/embedded assets and protocol-clean process lifecycle, and verify actual packed artifacts. Apply the accepted native authoring cadence; establish suitable authoring environments before claiming native compilation.
