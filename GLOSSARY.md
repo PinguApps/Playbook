@@ -15,6 +15,9 @@ The outcome a developer wants to achieve, such as preserving a grid's view after
 A unit of guidance for a developer goal, comparing an older approach with an approach enabled by a specified .NET release. A recipe may involve several framework features.
 _Avoid_: Feature, when referring to the unit of guidance
 
+**Recipe edition**:
+A release-specific form of a recipe, retained so guidance can match the application's target release.
+
 **Older approach**:
 The code or workaround used to achieve a goal before the newer capability was available.
 _Avoid_: Bad code, obsolete code

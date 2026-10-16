@@ -74,9 +74,9 @@ Prioritize capabilities that remove substantial custom code, underpin .NET 11 re
 
 These are candidate families, not approved recipe counts or a commitment to all .NET 10 changes. Mark introduction release accurately; a .NET 10 recipe can remain applicable to .NET 11 unless superseded.
 
-### Proposed initial eight recipes
+### Approved initial eight recipes
 
-This shortlist is researched and awaiting Pingu's selection. All examples must be authored independently from scratch.
+Pingu approved these eight goals in Round 4. All examples must be authored independently from scratch.
 
 1. **Extend a type you cannot edit with a computed property.** Replace helper-method call sites with C# 14 extension-member authoring. Check declaration restrictions and instance-member precedence. [Extension members](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods).
 2. **Validate or normalize property assignments without maintaining a backing field.** Use C# 14 field-backed accessor bodies in place of a separately declared field and full accessors. [Field keyword](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field).
@@ -87,11 +87,13 @@ This shortlist is researched and awaiting Pingu's selection. All examples must b
 7. **Filter and enrich an asynchronous stream without buffering it first.** Use the async LINQ operators in place of manual iterator plumbing, accounting for cancellation and older package migration. [AsyncEnumerable migration](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/10.0/asyncenumerable).
 8. **Run a small C# repository utility without creating a throwaway project.** Use a file-based application with pinned dependency directives, accounting for inherited build/central-package configuration and SDK-specific directives. [File-based applications](https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps).
 
-No authentication UI, mobile workload, or device setup is needed for this proposed foundation set. It remains a proposal; no samples have been created or run.
+No authentication UI, mobile workload, or device setup is needed for this foundation set. No samples have been created or run.
 
 ## Source freshness and verification impact
 
-The research baseline is .NET 11 RC2, not GA. Several official overview/download tables lag the language-specific or canonical RC notes. Resolve conflicts against the actual pinned SDK/packages before publishing recipes. [Release overview](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/overview).
+The research baseline is .NET 11 RC2, not GA. The intended guidance target is the full .NET 11 release: current RCs supply evidence while preparing it, and final notes/API behavior must be reconciled at GA with corrections/additions released afterward. Several official overview/download tables lag language-specific or canonical notes. Resolve conflicts against actual pinned SDK/packages. [Release overview](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/overview).
+
+Distinguish an API checked using RC artifacts from an API deliberately experimental after GA. Microsoft states that Blazor AI remains experimental throughout .NET 11; its inclusion is unresolved under the revised GA-focused policy. C# unions, by contrast, no longer require preview language mode in RC1, correcting the earlier blanket preview caveat. Keep QuickGrid status conflicts open until actual artifact/GA reconciliation. [Blazor AI status](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#experimental-blazor-ai-components-for-agentic-user-interfaces), [C# RC1 stabilization](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/csharp.md#c-15-stabilizes-unions-and-other-language-features).
 
 In particular, F# compiler-test builders are not automatically shipped FSharp.Core APIs, and an attribute named in a compiler note is not necessarily in the BCL. Desktop overviews can omit RC2 changes. MAUI workload/package and native toolchain versions are independent of the .NET SDK version; use the actual workload release metadata. [MAUI RC2 workload release](https://github.com/dotnet/maui/releases/tag/11.0.100-rc.2.26513.2).
 
