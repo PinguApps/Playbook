@@ -29,6 +29,9 @@ _Avoid_: Latest approach
 **Applicability**:
 The circumstances in which guidance is relevant, including its .NET release, application framework, language, and platform. Blazor recipes may also depend on rendering context.
 
+**Experimental API**:
+An API explicitly designated experimental by its publisher, whose contract can change even when the containing .NET release is generally available.
+
 **Area**:
 A named part of the .NET ecosystem used to group recipes, such as Blazor or WPF. A recipe can relate to more than one area.
 

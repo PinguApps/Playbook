@@ -1,6 +1,6 @@
 # MCP contract
 
-Status: core contract accepted through Round 4, not implemented. Deliberately experimental APIs after GA remain an open scope question. Directory layout, packaging, and final verification/release gates remain to settle.
+Status: core contract and packaging accepted through Round 5, not implemented. Experimental APIs remain included with explicit labels. Further applicability/version semantics and publication policy remain to settle.
 
 ## Catalogue discovery
 
@@ -47,9 +47,9 @@ This accepted design is based on protocol/SDK documentation and client-source in
 
 ## GA target and RC evidence
 
-Pingu rejected default preview/experimental discovery. Build for the .NET 11 full release, using what current RCs establish about the intended final contract. At GA, reconcile final notes, migrations, actual SDK/packages, and the coverage register; update recipes and release corrections/additions. This is a maintenance step, not a scheduled automation or authorization to publish now.
+Pingu replaced the earlier preview-default proposal with a GA content target. Build for the .NET 11 full release, using what current RCs establish about the intended final contract. At GA, reconcile final notes, migrations, actual SDK/packages, and the coverage register; update recipes and release corrections/additions. This is a maintenance step, not a scheduled automation or authorization to publish now.
 
-Do not present an RC-only transition as the final .NET 11 approach or label RC execution as GA-tested. APIs deliberately experimental after GA are a separate unresolved exception: the earlier required Blazor AI topic falls into this category. No opt-in experimental catalogue or status-filter implementation is approved yet. Package-version/publication timing remains deferred separately.
+Do not present an RC-only transition as the final .NET 11 approach or label RC execution as GA-tested. Round 5 confirms that deliberately experimental APIs remain included, including Blazor AI. Summaries and details must label them experimental; details explain package versions, required opt-ins, and stability limitations. Do not hide them behind an unapproved opt-in filter or call them stable because the runtime has reached GA. Package-version/publication timing remains deferred separately.
 
 ## Errors and empty results
 
@@ -69,4 +69,8 @@ MCP mode reserves stdout for protocol traffic and uses stderr for diagnostics. H
 
 Pingu's limit is already settled: one very short packaged-tool smoke per OS. Install the actual package, initialize its stdio server, call list/get, check that the body and applicability are both present, and shut down cleanly. No native UI, emulator, device, or comprehensive recipe test matrix is planned for these jobs.
 
-Core Linux validation and feasible sample build checks remain focused. Smoke checks establish tool behavior, not every example's native runtime behavior. Verification metadata records only work actually performed. The final release gate for examples lacking compile/runtime evidence still needs an explicit decision; the smoke limit alone does not authorize claiming those examples are verified or silently waive the earlier evidence standard.
+Core Linux validation and sample build checks remain focused. Round 5 requires examples to compile against their stated SDKs/dependencies, with focused behavior checks where useful rather than a broad native runtime gate. Resolve compilation gaps before an example meets that gate. Smoke checks establish tool behavior, not every example's native runtime behavior. Verification metadata records only work actually performed; compilation does not imply native execution.
+
+## Further discovery and applicability proposals
+
+[Round 6 in the brief](brief.md#round-6-independent-decisions-awaiting-pingu) proposes example-language filtering, optional shared guidance with area filters, and conditional SDK/package routes for older supported targets. These are questions, not accepted contract extensions. The existing unknown/unsupported-target errors still apply; no incompatible edition is silently substituted.

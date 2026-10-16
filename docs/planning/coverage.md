@@ -12,6 +12,8 @@ No framework gets an invented recipe just to fill a category. Record an area as 
 
 The accepted product boundary is the .NET 11 release family and explicitly related first-party components. Dependencies required to demonstrate a qualifying .NET 11 recipe are documented. Standalone coverage of independently versioned libraries, tooling, and native OS APIs needs a separate scope decision.
 
+Experimental status does not exclude an otherwise qualifying recipe. Include APIs that remain experimental after GA, with clear status in discovery and detail plus exact prerequisites and opt-ins. This retains the original Blazor AI addition without presenting its contract as stable.
+
 ## Coverage map
 
 ### Languages
@@ -59,9 +61,17 @@ Create a coverage register from official release notes across previews/RC/GA, mi
 
 Separate recipe completeness from runtime verification. Headline examples above do not replace that register, and the register does not prove samples work. Keep original runnable samples and package integration evidence tied to exact artifacts. Avoid claiming exhaustive API coverage until the register is reconciled; this session performed bounded source research, not a full API diff.
 
+Make source-family review explicit for runtime-facing APIs, shared libraries/Extensions, C#, F#, VB, SDK, MSBuild, NuGet, container images/publishing, ASP.NET Core, EF Core, WPF, WinForms, MAUI, and its platform workloads. MSBuild/NuGet/container/VB review must not disappear inside a broad overview link. Use the canonical release component index to locate current sources, and record reviewed/no-eligible-change outcomes where appropriate rather than inventing a recipe. This is outstanding inventory work within accepted scope. [RC2 component index](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/README.md), [runtime changes](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime), [VB history](https://learn.microsoft.com/en-us/dotnet/visual-basic/whats-new/).
+
+### Introduction release versus target prerequisites
+
+A newer SDK can build older targets, while supported language/runtime pairings and library-package assets impose their own limits. Microsoft's current language-version guidance associates C# 15 with .NET 11+; a syntax experiment compiling on an older target does not establish supported compatibility. Conversely, a newer library package can offer supported older-target assets, but each recipe must verify that its particular API exists in those assets. Keep introduction release, target applicability, SDK, language, packages, and platform separate. [SDK down-level targeting](https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs#down-level-targeting-support), [supported C# versions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning), [System.Text.Json 11 RC2 assets](https://www.nuget.org/packages/System.Text.Json/11.0.0-rc.2.26504.105).
+
+Round 6 asks whether catalogue discovery should expose those documented and verified conditional routes for older supported targets. The server does not inspect a consumer's installed SDK/packages. No compatibility samples have been executed for this source finding.
+
 ## Selected .NET 10 carry-forward
 
-Pingu approved a small curated foundation set in Round 3, retaining comprehensive .NET 11 as the main coverage commitment. The specific initial recipes remain to agree. Do not assume the age of a release proves agents know it. No target-agent benchmark has been performed.
+Pingu approved a small curated foundation set in Round 3 and the exact eight initial goals in Round 4, retaining comprehensive .NET 11 as the main coverage commitment. Do not assume the age of a release proves agents know it. No target-agent benchmark has been performed.
 
 Prioritize capabilities that remove substantial custom code, underpin .NET 11 recipes, or show repeated errors in later agent evaluations. Candidate families:
 
@@ -93,7 +103,7 @@ No authentication UI, mobile workload, or device setup is needed for this founda
 
 The research baseline is .NET 11 RC2, not GA. The intended guidance target is the full .NET 11 release: current RCs supply evidence while preparing it, and final notes/API behavior must be reconciled at GA with corrections/additions released afterward. Several official overview/download tables lag language-specific or canonical notes. Resolve conflicts against actual pinned SDK/packages. [Release overview](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/overview).
 
-Distinguish an API checked using RC artifacts from an API deliberately experimental after GA. Microsoft states that Blazor AI remains experimental throughout .NET 11; its inclusion is unresolved under the revised GA-focused policy. C# unions, by contrast, no longer require preview language mode in RC1, correcting the earlier blanket preview caveat. Keep QuickGrid status conflicts open until actual artifact/GA reconciliation. [Blazor AI status](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#experimental-blazor-ai-components-for-agentic-user-interfaces), [C# RC1 stabilization](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/csharp.md#c-15-stabilizes-unions-and-other-language-features).
+Distinguish an API checked using RC artifacts from an API deliberately experimental after GA. Microsoft states that Blazor AI remains experimental throughout .NET 11; Round 5 explicitly retains it with experimental labels. C# unions, by contrast, no longer require preview language mode in RC1, correcting the earlier blanket preview caveat. Keep QuickGrid status conflicts open until actual artifact/GA reconciliation; inclusion is not blocked by an experimental classification. [Blazor AI status](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#experimental-blazor-ai-components-for-agentic-user-interfaces), [C# RC1 stabilization](https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/csharp.md#c-15-stabilizes-unions-and-other-language-features).
 
 In particular, F# compiler-test builders are not automatically shipped FSharp.Core APIs, and an attribute named in a compiler note is not necessarily in the BCL. Desktop overviews can omit RC2 changes. MAUI workload/package and native toolchain versions are independent of the .NET SDK version; use the actual workload release metadata. [MAUI RC2 workload release](https://github.com/dotnet/maui/releases/tag/11.0.100-rc.2.26513.2).
 
