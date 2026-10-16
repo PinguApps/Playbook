@@ -38,6 +38,9 @@ A named part of the .NET ecosystem used to group recipes, such as Blazor or WPF.
 **Example language**:
 A programming language demonstrated by a recipe's examples. This is separate from the languages in which the underlying API can be used.
 
+**Language-neutral recipe**:
+Guidance whose configuration or build steps apply across programming languages, without relying on a particular language's syntax or project rules.
+
 **Shared guidance**:
 A recipe relevant across application frameworks, such as a language, library, or SDK technique.
 

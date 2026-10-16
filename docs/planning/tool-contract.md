@@ -24,7 +24,7 @@ Accepted semantics:
 
 - Omitted target means the newest release represented in the installed catalogue. Return the resolved target and whether it was assumed.
 - Omitted/empty area filter means all areas. Multiple requested areas match any of them. Multiple languages similarly match any requested language.
-- `languages` matches languages demonstrated by the recipe's examples. Broader API language applicability is recorded separately; a C#-only example does not satisfy an F# filter.
+- `languages` matches languages demonstrated by the recipe's examples, plus applicable genuinely language-neutral configuration/build recipes under Round 8. Broader API language applicability is recorded separately; a C#-only programming example does not satisfy an F# filter. Label neutral results explicitly. Language-specific project settings/directives are not neutral just because their files contain configuration.
 - With an area filter, `includeShared: true` also matches relevant shared language/library/SDK recipes through explicit applicability metadata. False limits area matching to directly tagged areas. Deduplicate shared matches. Without an area filter, all areas remain eligible regardless of this switch.
 - Different kinds of filters combine: for example, a recipe must match an area, a requested language, the target, and the keywords when all are supplied.
 - Keyword matching is deterministic, case-insensitive, and uses recipe titles, goals, tags, and API names. The agent interprets natural language; the server does not host an AI search system.
@@ -34,7 +34,7 @@ Accepted semantics:
 
 These are filtering rules, not a claim that an application has been inspected. A caller can request more than one area for shared language/library guidance. Retagging a recipe does not duplicate its content.
 
-Shared inclusion only broadens area matching. It does not bypass target, example-language, keyword, or explicit platform constraints and does not admit unrelated platform guidance.
+Shared inclusion only broadens area matching. It does not bypass target, the accepted language/neutral matching rules, keyword, or explicit platform constraints and does not admit unrelated platform guidance.
 
 ## Recipe identity and release editions
 
@@ -93,4 +93,4 @@ These fill in routine details of the accepted contract without adding another to
 - Keep applicability conditions explicit per verified route. A newer SDK/package route is not unconditional runtime compatibility, and future target releases are not inferred from an open-ended minimum version.
 - Use the standard SDK tool/output-schema/error mechanisms and read-only annotations. Preserve protocol-only stdout and stderr diagnostics. Exact DTOs/internal error-code names are implementation details, with public compatibility governed by the accepted SemVer policy.
 
-Round 8 asks about genuinely language-neutral configuration recipes, an explicit possible exception to the accepted example-language matching rule. Until answered, strict example-language matching remains the recorded behavior.
+Round 8 accepts applicable genuinely language-neutral configuration/build recipes as an explicit exception to strict example-language matching. No additional toggle or MCP tool is needed.

@@ -1,6 +1,6 @@
 # Verification plan
 
-Status: accepted evidence principles and minimal CI/client/evaluation boundaries, with the native authoring cadence below proposed in Round 8. No implementation or checks have run during planning.
+Status: evidence principles, minimal CI/client/evaluation boundaries and native authoring cadence accepted through Round 8. No implementation or executable checks have run during planning.
 
 ## Tool and portable checks
 
@@ -18,7 +18,7 @@ Examples must compile against their declared SDK/target/dependencies before meet
 
 Native samples need the appropriate SDK/workload/native toolchain, with a Mac and matching Xcode for affected Apple examples. A workload-free tool smoke cannot provide this evidence. Record concrete sample/source and dependency/toolchain baselines, the build performed, and its result.
 
-## Proposed native authoring cadence
+## Accepted native authoring cadence
 
 Perform native sample compilation as content-authoring verification on an appropriate machine, rather than adding native builds or UI/device suites to routine Windows/macOS CI. Reuse a recorded build baseline while the relevant example, target, dependency and toolchain inputs remain unchanged. Changes affecting that baseline require fresh compilation before publication; a previous build is not proof for new source or new pins.
 

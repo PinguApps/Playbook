@@ -73,7 +73,7 @@ Round 6 accepts exposing those documented and verified conditional routes for ol
 
 ### Example languages
 
-Use C# for canonical shared-library/framework examples, F# for F#-specific capabilities, and VB for qualifying VB-specific changes. Add translations when authoring differs materially instead of requiring three versions of every sample. Record example languages separately from broader API applicability; language filtering matches actual example languages.
+Use C# for canonical shared-library/framework examples, F# for F#-specific capabilities, and VB for qualifying VB-specific changes. Add translations when authoring differs materially instead of requiring three versions of every sample. Record example languages separately from broader API applicability; language filtering matches actual example languages plus applicable genuinely language-neutral build/configuration recipes, explicitly labelled neutral under Round 8.
 
 ## Selected .NET 10 carry-forward
 
