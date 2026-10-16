@@ -10,7 +10,7 @@ Exclude invisible JIT/GC/library speedups and other benefits obtained solely by 
 
 No framework gets an invented recipe just to fill a category. Record an area as reviewed with no eligible changes if that is what its source/API audit establishes. Prioritization orders the work; it does not remove qualifying .NET 11 coverage.
 
-The proposed product boundary is the .NET 11 release family and explicitly related first-party components. Standalone coverage of independently versioned libraries, tooling, and native OS APIs remains a decision for Pingu; dependencies required to demonstrate a qualifying .NET 11 recipe must still be documented.
+The accepted product boundary is the .NET 11 release family and explicitly related first-party components. Dependencies required to demonstrate a qualifying .NET 11 recipe are documented. Standalone coverage of independently versioned libraries, tooling, and native OS APIs needs a separate scope decision.
 
 ## Coverage map
 
@@ -59,9 +59,9 @@ Create a coverage register from official release notes across previews/RC/GA, mi
 
 Separate recipe completeness from runtime verification. Headline examples above do not replace that register, and the register does not prove samples work. Keep original runnable samples and package integration evidence tied to exact artifacts. Avoid claiming exhaustive API coverage until the register is reconciled; this session performed bounded source research, not a full API diff.
 
-## Optional .NET 10 carry-forward
+## Selected .NET 10 carry-forward
 
-Recommendation awaiting Pingu: add a small curated foundation set, retaining comprehensive .NET 11 as the main coverage commitment. Do not assume the age of a release proves agents know it. No target-agent benchmark has been performed.
+Pingu approved a small curated foundation set in Round 3, retaining comprehensive .NET 11 as the main coverage commitment. The specific initial recipes remain to agree. Do not assume the age of a release proves agents know it. No target-agent benchmark has been performed.
 
 Prioritize capabilities that remove substantial custom code, underpin .NET 11 recipes, or show repeated errors in later agent evaluations. Candidate families:
 
@@ -74,12 +74,29 @@ Prioritize capabilities that remove substantial custom code, underpin .NET 11 re
 
 These are candidate families, not approved recipe counts or a commitment to all .NET 10 changes. Mark introduction release accurately; a .NET 10 recipe can remain applicable to .NET 11 unless superseded.
 
+### Proposed initial eight recipes
+
+This shortlist is researched and awaiting Pingu's selection. All examples must be authored independently from scratch.
+
+1. **Extend a type you cannot edit with a computed property.** Replace helper-method call sites with C# 14 extension-member authoring. Check declaration restrictions and instance-member precedence. [Extension members](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods).
+2. **Validate or normalize property assignments without maintaining a backing field.** Use C# 14 field-backed accessor bodies in place of a separately declared field and full accessors. [Field keyword](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field).
+3. **Reject invalid Minimal API input before the handler runs.** Replace repeated checks/custom filters with registered model validation; prove generated metadata covers the model assembly. Keep this foundation synchronous; asynchronous validation belongs in the .NET 11 edition. [Validation](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-10.0).
+4. **Include archived records while retaining a tenant filter.** Use named EF filters and selective disabling instead of one combined filter and all-or-nothing removal. Do not present query filtering as write protection or authorization. [Named query filters](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#named-query-filters).
+5. **Join two data sets while retaining unmatched rows.** Use LeftJoin/RightJoin instead of the manual outer-join pattern, with explicit missing-side handling and EF provider applicability. [EF join support](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#support-for-the-net-10-leftjoin-and-rightjoin-operators).
+6. **Reject malformed JSON contracts at the import boundary.** Adopt strict deserialization options rather than scattered structural checks; keep business validation separate. [Strict JSON options](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/libraries#strict-json-serialization-options).
+7. **Filter and enrich an asynchronous stream without buffering it first.** Use the async LINQ operators in place of manual iterator plumbing, accounting for cancellation and older package migration. [AsyncEnumerable migration](https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/10.0/asyncenumerable).
+8. **Run a small C# repository utility without creating a throwaway project.** Use a file-based application with pinned dependency directives, accounting for inherited build/central-package configuration and SDK-specific directives. [File-based applications](https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps).
+
+No authentication UI, mobile workload, or device setup is needed for this proposed foundation set. It remains a proposal; no samples have been created or run.
+
 ## Source freshness and verification impact
 
 The research baseline is .NET 11 RC2, not GA. Several official overview/download tables lag the language-specific or canonical RC notes. Resolve conflicts against the actual pinned SDK/packages before publishing recipes. [Release overview](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/overview).
 
 In particular, F# compiler-test builders are not automatically shipped FSharp.Core APIs, and an attribute named in a compiler note is not necessarily in the BCL. Desktop overviews can omit RC2 changes. MAUI workload/package and native toolchain versions are independent of the .NET SDK version; use the actual workload release metadata. [MAUI RC2 workload release](https://github.com/dotnet/maui/releases/tag/11.0.100-rc.2.26513.2).
 
-The documentation tool remains a portable, workload-free host. Verifying native examples adds Windows desktop execution and matching Android/Apple workloads, emulators/devices, and Mac/Xcode where required. Cross-compilation is build evidence, not native behavior evidence. The exact CI lanes and any specialized test projects remain to design. [Platform setup](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?tabs=visual-studio-code), [Windows cross-targeting](https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/netsdk1100).
+The documentation tool remains a portable, workload-free host. Pingu explicitly limited Windows/macOS CI to very brief smoke checks. Plan a packed-tool install/start/initialize/list/get/shutdown check per OS, without native UI, emulator, or device suites. Keep focused Linux validation and feasible sample compilation. Do not move a broad native matrix into another workflow to bypass that limit.
+
+Checking native recipe behavior would require the corresponding platform/toolchain and, for some features, an emulator or device. The approved tool smoke does not establish that behavior. Label each example's actual evidence accurately: source-reviewed, compiled on a stated target, or executed in a stated environment. Cross-compilation is build evidence, not native behavior evidence. Any expanded native testing is a separate future decision. [Platform setup](https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?tabs=visual-studio-code), [Windows cross-targeting](https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/netsdk1100).
 
 No application samples, package installations, native toolchains, or runtime behavior were exercised in this research. The original-example requirement applies across every area.

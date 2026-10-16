@@ -26,5 +26,8 @@ _Avoid_: Latest approach
 **Applicability**:
 The circumstances in which guidance is relevant, including its .NET release, application framework, language, and platform. Blazor recipes may also depend on rendering context.
 
+**Area**:
+A named part of the .NET ecosystem used to group recipes, such as Blazor or WPF. A recipe can relate to more than one area.
+
 **Target release**:
 The .NET release that the consuming application's code must support. This is separate from the installed Playbook package's version.
