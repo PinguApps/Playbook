@@ -1,6 +1,6 @@
 # MCP contract
 
-Status: core contract, packaging, and discovery/applicability semantics accepted through Round 6, not implemented. Experimental APIs remain included with explicit labels. Package version/publication policy remains to settle.
+Status: core contract, packaging, and discovery/applicability semantics accepted through Round 6; independent package SemVer accepted in Round 7. Not implemented. Experimental APIs remain included with explicit labels. See the [release plan](release-plan.md) for accepted publication policy.
 
 ## Catalogue discovery
 
@@ -56,7 +56,7 @@ This accepted design is based on protocol/SDK documentation and client-source in
 
 Pingu replaced the earlier preview-default proposal with a GA content target. Build for the .NET 11 full release, using what current RCs establish about the intended final contract. At GA, reconcile final notes, migrations, actual SDK/packages, and the coverage register; update recipes and release corrections/additions. This is a maintenance step, not a scheduled automation or authorization to publish now.
 
-Do not present an RC-only transition as the final .NET 11 approach or label RC execution as GA-tested. Round 5 confirms that deliberately experimental APIs remain included, including Blazor AI. Summaries and details must label them experimental; details explain package versions, required opt-ins, and stability limitations. Do not hide them behind an unapproved opt-in filter or call them stable because the runtime has reached GA. Package-version/publication timing remains deferred separately.
+Do not present an RC-only transition as the final .NET 11 approach or label RC execution as GA-tested. Round 5 confirms that deliberately experimental APIs remain included, including Blazor AI. Summaries and details must label them experimental; details explain package versions, required opt-ins, and stability limitations. Do not hide them behind an unapproved opt-in filter or call them stable because the runtime has reached GA. Round 7 settles the independent package-version/channel policy in the [release plan](release-plan.md).
 
 ## Errors and empty results
 

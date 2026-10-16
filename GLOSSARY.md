@@ -43,3 +43,6 @@ A recipe relevant across application frameworks, such as a language, library, or
 
 **Target release**:
 The .NET release that the consuming application's code must support. This is separate from the installed Playbook package's version.
+
+**Package version**:
+The version of a published Playbook package, distinct from the .NET releases its guidance covers.
