@@ -67,7 +67,11 @@ Make source-family review explicit for runtime-facing APIs, shared libraries/Ext
 
 A newer SDK can build older targets, while supported language/runtime pairings and library-package assets impose their own limits. Microsoft's current language-version guidance associates C# 15 with .NET 11+; a syntax experiment compiling on an older target does not establish supported compatibility. Conversely, a newer library package can offer supported older-target assets, but each recipe must verify that its particular API exists in those assets. Keep introduction release, target applicability, SDK, language, packages, and platform separate. [SDK down-level targeting](https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs#down-level-targeting-support), [supported C# versions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning), [System.Text.Json 11 RC2 assets](https://www.nuget.org/packages/System.Text.Json/11.0.0-rc.2.26504.105).
 
-Round 6 asks whether catalogue discovery should expose those documented and verified conditional routes for older supported targets. The server does not inspect a consumer's installed SDK/packages. No compatibility samples have been executed for this source finding.
+Round 6 accepts exposing those documented and verified conditional routes for older supported targets. The server does not inspect a consumer's installed SDK/packages. No compatibility samples have been executed for this source finding.
+
+### Example languages
+
+Use C# for canonical shared-library/framework examples, F# for F#-specific capabilities, and VB for qualifying VB-specific changes. Add translations when authoring differs materially instead of requiring three versions of every sample. Record example languages separately from broader API applicability; language filtering matches actual example languages.
 
 ## Selected .NET 10 carry-forward
 

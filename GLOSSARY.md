@@ -35,5 +35,11 @@ An API explicitly designated experimental by its publisher, whose contract can c
 **Area**:
 A named part of the .NET ecosystem used to group recipes, such as Blazor or WPF. A recipe can relate to more than one area.
 
+**Example language**:
+A programming language demonstrated by a recipe's examples. This is separate from the languages in which the underlying API can be used.
+
+**Shared guidance**:
+A recipe relevant across application frameworks, such as a language, library, or SDK technique.
+
 **Target release**:
 The .NET release that the consuming application's code must support. This is separate from the installed Playbook package's version.

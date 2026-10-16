@@ -101,6 +101,14 @@ No packed-tool installation, launched stdio initialize/list/call handshake, daem
 
 Roslynk's `LICENCE` is MIT, copyright 2026 Peter Morris. It requires preserving the copyright and permission notice with copies or substantial portions. If source is adopted, retain the relevant notice and record provenance. The reference is not permission to remove its attribution or assume dependencies share the same terms.
 
+## Release-policy follow-up after Round 6
+
+The inspected BlazorSitemap and RazorStyle draft publishers gate on any published release (`draft == false`), including prereleases. A manual preview can therefore unlock weekly stable-looking draft publication. Neither guards empty changelogs or repository-only changes: new commits plus a suitable draft can publish a package. Release Drafter calculates `v$RESOLVED_VERSION` from release history and major/minor/patch labels, defaulting to patch; target framework does not determine package SemVer.
+
+BlazorSitemap verifies its packed local-feed artifacts and pushes those same paths without repacking. RazorStyle's publish workflow does not establish packed-tool stdio behavior. Preserve BlazorSitemap's artifact boundary: pack once, run the real package checks including the brief Windows/macOS smokes against that artifact, and push the verified artifact. Preview/stable gates and releasable-change rules are explicit next-round proposals, not silently inherited behavior. [Blazor release configuration](../../../BlazorSitemap/.github/release-drafter.yml), [weekly publisher](../../../BlazorSitemap/.github/workflows/publish-release-draft.yml), [package publisher](../../../BlazorSitemap/.github/workflows/publish.yml), [verification script](../../../BlazorSitemap/eng/Verify.ps1), [RazorStyle publisher](../../../RazorStyle/.github/workflows/publish-release-draft.yml).
+
+No workflows, packaging, or publication ran during this follow-up. The local snapshot commits below remain the provenance for these observations.
+
 ## Local provenance
 
 - Dashboard: branch `agent/readme-nuget-badges`, commit `2a75d15fa467b0651ca01ffdd08ad7ebcae391b7`.

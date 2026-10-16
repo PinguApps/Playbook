@@ -1,10 +1,10 @@
 # MCP contract
 
-Status: core contract and packaging accepted through Round 5, not implemented. Experimental APIs remain included with explicit labels. Further applicability/version semantics and publication policy remain to settle.
+Status: core contract, packaging, and discovery/applicability semantics accepted through Round 6, not implemented. Experimental APIs remain included with explicit labels. Package version/publication policy remains to settle.
 
 ## Catalogue discovery
 
-`list_recipes` has optional `targetVersion`, `areas`, `languages`, and `query` filters, plus `offset` and `limit` paging arguments. The earlier proposed preview/experimental status filter is not approved.
+`list_recipes` has optional `targetVersion`, `areas`, `languages`, and `query` filters, plus `includeShared` (default true) and `offset`/`limit` paging arguments. The earlier proposed preview/experimental status filter is not approved.
 
 Illustrative request shape:
 
@@ -13,6 +13,7 @@ Illustrative request shape:
   "targetVersion": "11.0",
   "areas": ["blazor", "wpf"],
   "languages": ["csharp"],
+  "includeShared": true,
   "query": "validation",
   "offset": 0,
   "limit": 20
@@ -23,6 +24,8 @@ Accepted semantics:
 
 - Omitted target means the newest release represented in the installed catalogue. Return the resolved target and whether it was assumed.
 - Omitted/empty area filter means all areas. Multiple requested areas match any of them. Multiple languages similarly match any requested language.
+- `languages` matches languages demonstrated by the recipe's examples. Broader API language applicability is recorded separately; a C#-only example does not satisfy an F# filter.
+- With an area filter, `includeShared: true` also matches relevant shared language/library/SDK recipes through explicit applicability metadata. False limits area matching to directly tagged areas. Deduplicate shared matches. Without an area filter, all areas remain eligible regardless of this switch.
 - Different kinds of filters combine: for example, a recipe must match an area, a requested language, the target, and the keywords when all are supplied.
 - Keyword matching is deterministic, case-insensitive, and uses recipe titles, goals, tags, and API names. The agent interprets natural language; the server does not host an AI search system.
 - Page size: 20 summaries by default, at most 50. Use stable ordering for identical arguments and return the next offset when more results exist.
@@ -31,11 +34,15 @@ Accepted semantics:
 
 These are filtering rules, not a claim that an application has been inspected. A caller can request more than one area for shared language/library guidance. Retagging a recipe does not duplicate its content.
 
+Shared inclusion only broadens area matching. It does not bypass target, example-language, keyword, or explicit platform constraints and does not admit unrelated platform guidance.
+
 ## Recipe identity and release editions
 
 Use stable, descriptive goal IDs, such as `aspnet-core.validate-requests`, independent of the release number. Exact names are examples, not seeded content.
 
 `get_recipe` accepts an ID and optional `targetVersion`. Select the guidance edition applicable to that target. Preserve older editions as later releases arrive. A .NET 10 recipe can remain applicable to .NET 11 when still appropriate; prefer a newer compatible edition when it supersedes the older approach. Never return an incompatible newer edition for an explicit older target.
+
+Introduction release is separate from target prerequisites. Include a .NET 11-era recipe for an older supported target when the exact SDK/package route is documented and verified. Return those requirements prominently without inferring that the caller has installed them. Do not infer supported language/runtime compatibility merely because syntax compiles. The curated .NET 10 historical backfill remains eight recipes; verified older-target routes for .NET 11-era capabilities are a distinct applicability matter.
 
 ## Complete response objects
 
@@ -71,6 +78,6 @@ Pingu's limit is already settled: one very short packaged-tool smoke per OS. Ins
 
 Core Linux validation and sample build checks remain focused. Round 5 requires examples to compile against their stated SDKs/dependencies, with focused behavior checks where useful rather than a broad native runtime gate. Resolve compilation gaps before an example meets that gate. Smoke checks establish tool behavior, not every example's native runtime behavior. Verification metadata records only work actually performed; compilation does not imply native execution.
 
-## Further discovery and applicability proposals
+## Client checks
 
-[Round 6 in the brief](brief.md#round-6-independent-decisions-awaiting-pingu) proposes example-language filtering, optional shared guidance with area filters, and conditional SDK/package routes for older supported targets. These are questions, not accepted contract extensions. The existing unknown/unsupported-target errors still apply; no incompatible edition is silently substituted.
+One brief real check per T3 Code, Codex CLI, Claude Code, and VS Code Copilot, each on an available supported OS. Confirm the recipe body and applicability both reach the agent, and record actual client/OS versions. These checks supplement the tiny Windows/macOS tool smokes; do not create a four-client-by-three-OS matrix. No such checks have run during planning.
