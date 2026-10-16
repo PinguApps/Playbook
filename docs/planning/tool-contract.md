@@ -81,3 +81,16 @@ Core Linux validation and sample build checks remain focused. Round 5 requires e
 ## Client checks
 
 One brief real check per T3 Code, Codex CLI, Claude Code, and VS Code Copilot, each on an available supported OS. Confirm the recipe body and applicability both reach the agent, and record actual client/OS versions. These checks supplement the tiny Windows/macOS tool smokes; do not create a four-client-by-three-OS matrix. No such checks have run during planning.
+
+## Technical defaults for implementation
+
+These fill in routine details of the accepted contract without adding another tool or service:
+
+- Initially support consumer targets `10.0` (curated foundations and verified conditional routes) and `11.0` (the comprehensive release-family commitment). A .NET 9 comparison sample does not add .NET 9 catalogue support. Discovery must disclose curated versus comprehensive coverage; empty results do not prove an older release has no eligible capabilities.
+- Normalize `10`/`10.0`/`net10.0` and corresponding .NET 11 aliases to the canonical release. Return a helpful invalid/unsupported-target response for patch/RC strings or platform-qualified TFMs, explaining how to choose the target release and inspect platform prerequisites. Never silently drop an explicit platform/RC condition and claim it was checked.
+- Treat blank keyword input as no keyword filter; match all whitespace-separated terms case-insensitively against the accepted title/goal/tag/API fields. Keep ordering ordinal by stable recipe ID before paging. Reject invalid negative offsets and out-of-range page limits rather than silently changing them.
+- Return supported targets, area identifiers, example-language identifiers, resolved target/assumption, total matches and next offset with discovery. All metadata describes installed content, not a probed consumer environment.
+- Keep applicability conditions explicit per verified route. A newer SDK/package route is not unconditional runtime compatibility, and future target releases are not inferred from an open-ended minimum version.
+- Use the standard SDK tool/output-schema/error mechanisms and read-only annotations. Preserve protocol-only stdout and stderr diagnostics. Exact DTOs/internal error-code names are implementation details, with public compatibility governed by the accepted SemVer policy.
+
+Round 8 asks about genuinely language-neutral configuration recipes, an explicit possible exception to the accepted example-language matching rule. Until answered, strict example-language matching remains the recorded behavior.

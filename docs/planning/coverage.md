@@ -2,6 +2,8 @@
 
 Pingu has locked in comprehensive .NET 11 coverage wherever a capability changes authored code or how a goal is implemented. The original 25 Blazor topics, seven additions, and three expansions remain required. This document is a researched coverage map, not a completed recipe inventory or a claim of tested examples.
 
+The [concrete source/goal inventory](inventory/README.md) now records 406 dispositions across three research areas, including 310 included candidate rows. These are provisional overlapping goals, not a final recipe count or a completed API-diff/compilation audit. Its per-area registers preserve the full original baseline and identify source conflicts, exclusions and remaining gaps.
+
 ## Eligibility
 
 Include new author-facing APIs, language constructs, and concrete migrations that replace or change application code. Include authored markup, scripts, project/build configuration, and platform manifests where these change how a goal is implemented. A performance-oriented API can qualify when using it requires a different implementation.

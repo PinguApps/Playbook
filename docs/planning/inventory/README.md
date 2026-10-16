@@ -1,0 +1,31 @@
+# Recipe inventory
+
+Documentation-backed planning pass, 16 October 2026, using the .NET 11 RC2 preparation baseline. Guidance targets GA, with explicitly experimental APIs included and labelled. This expands the earlier headline coverage map into proposed goals and source dispositions; it does not establish that samples compile or that every public API change has been audited.
+
+## Read by area
+
+- [Languages, shared libraries, runtime, SDK, MSBuild, NuGet and containers](01-languages-libraries-sdk.md): 163 source-disposition rows, including 118 included candidates, 17 grouped rows, 13 exclusions and 15 unresolved findings. The grouped rows include cross-references to the exact eight approved .NET 10 foundations.
+- [ASP.NET Core, the complete original Blazor baseline, and EF Core](02-web-data.md): 156 rows, including 127 included candidates, 18 grouped rows, 10 exclusions and one unresolved availability finding. Explicit G01–G25, A01–A07 and E01–E03 mappings retain the 25 guide topics, seven additions and three expansions. Blazor AI's distinct conversation/tool/approval/state goals remain included.
+- [WPF, WinForms, MAUI, Android and Apple workloads](03-desktop-mobile.md): 87 rows, including 65 included candidates, nine grouped rows, six exclusions and seven unresolved findings. Includes real VB-specific WinForms authoring rather than assuming there are no VB changes.
+
+Together these contain **406 source-disposition rows and 310 included candidate rows**. These are not 310 finalized distinct recipes: source families overlap, shared subtopics need linking, and some goals may split or merge after original samples establish the right boundary. The eight curated .NET 10 foundations remain the previously approved historical backfill, not a full additional release audit.
+
+`included` means eligible under the agreed authoring criterion, pending exact API and example evidence. `grouped` assigns coverage to another goal. `excluded` records an upgrade-only benefit, an out-of-boundary product, or another stated reason. `unresolved` records a missing source/API/availability fact. It does not mean experimental features are disallowed.
+
+## Cross-family shaping
+
+Keep one canonical explanation/sample source for shared APIs and link relevant framework integrations. Distinguish genuinely different goals, such as in-memory reconciliation versus a provider-translated database query, or direct async validation versus wiring it into an endpoint/form. Avoid cloning shared explanations merely to appear under several area filters.
+
+Consolidate validation localization, JSON union infrastructure, SDK/mobile test templates, URI/media integration and migration references before freezing IDs. The draft IDs are goal-based review labels, not published identifiers. Once published, preserve them and their release editions under the accepted compatibility policy.
+
+First-party MAUI template integration can document its required Avalonia dependency under the accepted release-family boundary. This does not add standalone Avalonia framework coverage. Fictional example domains and focused migration grouping are authoring choices within the agreed goals, not new product scope.
+
+## Current corrections and remaining evidence
+
+The web register resolves stale cumulative guidance against canonical RC2 notes for QuickGrid experimental diagnostics, validation-message formatting, browser-option names/lookup, and BasePath namespace. DBSC remains an availability finding because the canonical RC2 notes remove its implementation despite older cumulative guidance. Include genuinely experimental APIs, but do not teach unavailable RC-only contracts as GA features.
+
+Native workload evidence includes source/version conflicts and real Mac/Xcode requirements. The documented macios contributor `--no-xcode` mode is not a consumer Apple application build route. No native compilation or runtime behavior was established here.
+
+Remaining delivery work includes full linked migration/compiler-note review, earlier milestone reconciliation where noted, public API diffs, exact SDK/package/workload/native pins, older-target route verification, original previous/current examples, compilation, focused behavior checks, packed-tool/client checks, and GA reconciliation. No unresolved qualifying change may silently disappear or be labelled verified. The compatibility index itself is still evolving; each file states the actual source boundary and gaps.
+
+This is planning evidence only. No sample projects, SDK installs, native/UI/device tests, database execution, tool implementation, package publication, or remote changes were performed for this inventory.
