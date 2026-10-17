@@ -6,7 +6,7 @@ This brief records the knowledge for the grill-with-docs session, initially capt
 
 ## Sources
 
-- [Complete reference conversation: Check Guide Against .NET 11 Blazor](t3-thread://v1/372736c9-d15c-463f-a2ea-5c5f880eef79), including the final naming decision. All user and assistant messages were read.
+- [Complete reference conversation in T3 Code: Check Guide Against .NET 11 Blazor](t3-thread://v1/372736c9-d15c-463f-a2ea-5c5f880eef79), including the final naming decision (requires T3 Code and access to that conversation; unavailable to public GitHub readers). All user and assistant messages were read. The accepted decisions are recorded below and in [SPEC.md](../../SPEC.md).
 - [Practical .NET field guide](https://lab.practicaldotnet.io/guide). The current index contains 25 topics. Each has problem, demonstration, and implementation stages.
 - The reference thread's local research snapshots: `C:\Users\pingu\.t3\scratch\2026-10-15-can-you-please-take-a-880eef79\guide-chapters.json`, `guide-stages.json`, and `release-notes.json`. These preserve 25 chapter pages, 50 demonstration/implementation pages, and the release notes retrieved in that thread. They are research evidence, not committed product content.
 - Pingu's current instructions and seven local reference repositories. See [repository findings](reference-repositories.md).
