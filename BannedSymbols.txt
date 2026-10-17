@@ -1,0 +1,38 @@
+P:System.DateTime.Now;Use System.DateTime.UtcNow instead.
+P:System.DateTime.Today;Use DateOnly.FromDateTime(System.DateTime.UtcNow) for a UTC date, or explicitly convert to the required time zone.
+P:System.DateTimeOffset.Now;Use System.DateTimeOffset.UtcNow instead.
+P:System.DateTimeOffset.DateTime;Use System.DateTimeOffset.UtcDateTime instead.
+P:System.DateTimeOffset.LocalDateTime;Use UtcDateTime for UTC, or TimeZoneInfo.ConvertTime for an explicit time zone.
+
+M:System.Threading.Thread.Sleep(System.Int32);Use await Task.Delay with a cancellation token instead.
+M:System.Threading.Thread.Sleep(System.TimeSpan);Use await Task.Delay with a cancellation token instead.
+M:System.Threading.Tasks.Task.Wait;Use await instead, or await Task.WaitAsync for cancellation or a timeout.
+M:System.Threading.Tasks.Task.Wait(System.TimeSpan);Use await instead, or await Task.WaitAsync for cancellation or a timeout.
+M:System.Threading.Tasks.Task.Wait(System.TimeSpan,System.Threading.CancellationToken);Use await instead, or await Task.WaitAsync for cancellation or a timeout.
+M:System.Threading.Tasks.Task.Wait(System.Threading.CancellationToken);Use await instead, or await Task.WaitAsync for cancellation or a timeout.
+M:System.Threading.Tasks.Task.Wait(System.Int32);Use await instead, or await Task.WaitAsync for cancellation or a timeout.
+M:System.Threading.Tasks.Task.Wait(System.Int32,System.Threading.CancellationToken);Use await instead, or await Task.WaitAsync for cancellation or a timeout.
+P:System.Threading.Tasks.Task`1.Result;Use await instead.
+M:System.Threading.Tasks.Task.WaitAll(System.Threading.Tasks.Task[]);Use await Task.WhenAll instead.
+M:System.Threading.Tasks.Task.WaitAll(System.ReadOnlySpan{System.Threading.Tasks.Task});Use await Task.WhenAll instead.
+M:System.Threading.Tasks.Task.WaitAll(System.Threading.Tasks.Task[],System.TimeSpan);Use await Task.WhenAll instead.
+M:System.Threading.Tasks.Task.WaitAll(System.Threading.Tasks.Task[],System.Int32);Use await Task.WhenAll instead.
+M:System.Threading.Tasks.Task.WaitAll(System.Threading.Tasks.Task[],System.Threading.CancellationToken);Use await Task.WhenAll instead.
+M:System.Threading.Tasks.Task.WaitAll(System.Threading.Tasks.Task[],System.Int32,System.Threading.CancellationToken);Use await Task.WhenAll instead.
+M:System.Threading.Tasks.Task.WaitAll(System.Collections.Generic.IEnumerable{System.Threading.Tasks.Task},System.Threading.CancellationToken);Use await Task.WhenAll instead.
+M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[]);Use await Task.WhenAny instead.
+M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.TimeSpan);Use await Task.WhenAny instead.
+M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.Threading.CancellationToken);Use await Task.WhenAny instead.
+M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.Int32);Use await Task.WhenAny instead.
+M:System.Threading.Tasks.Task.WaitAny(System.Threading.Tasks.Task[],System.Int32,System.Threading.CancellationToken);Use await Task.WhenAny instead.
+M:System.Runtime.CompilerServices.TaskAwaiter.GetResult;Use await instead of explicitly calling GetAwaiter().GetResult().
+M:System.Runtime.CompilerServices.TaskAwaiter`1.GetResult;Use await instead of explicitly calling GetAwaiter().GetResult().
+M:System.Runtime.CompilerServices.ConfiguredTaskAwaitable.ConfiguredTaskAwaiter.GetResult;Use await instead of explicitly calling GetAwaiter().GetResult().
+M:System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult;Use await instead of explicitly calling GetAwaiter().GetResult().
+
+P:System.Net.Http.HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;Use trusted certificates and proper server certificate validation.
+
+F:System.StringComparison.InvariantCulture;InvariantCulture performs a linguistic comparison. Most of the time Ordinal is the correct one.
+F:System.StringComparison.InvariantCultureIgnoreCase;InvariantCulture performs a linguistic comparison. Most of the time OrdinalIgnoreCase is the correct one.
+P:System.StringComparer.InvariantCulture;InvariantCulture performs a linguistic comparison. Most of the time Ordinal is the correct one.
+P:System.StringComparer.InvariantCultureIgnoreCase;InvariantCulture performs a linguistic comparison. Most of the time OrdinalIgnoreCase is the correct one.

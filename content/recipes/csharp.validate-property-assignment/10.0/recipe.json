@@ -1,0 +1,63 @@
+{
+  "id": "csharp.validate-property-assignment",
+  "edition": "10.0",
+  "title": "Normalize and validate a storage bay code on assignment",
+  "goal": "Keep a storage bay code normalized and reject invalid assignments without maintaining a backing-field name.",
+  "areas": ["csharp"],
+  "exampleLanguages": ["csharp"],
+  "tags": ["property", "validation", "normalization"],
+  "apis": ["field"],
+  "introducedIn": "10.0",
+  "supportedTargets": ["10.0"],
+  "stability": "stable",
+  "applicability": {
+    "runtime": ".NET 10",
+    "sdk": "10.0.402 (verification baseline; .NET 10 SDK with C# 14 support required)",
+    "language": "C# 14",
+    "frameworks": [],
+    "packages": [],
+    "platforms": ["Any platform supported by .NET 10"],
+    "renderingModes": [],
+    "prerequisites": ["Target net10.0 with a supported .NET 10 SDK; no preview language mode or workloads required."],
+    "constraints": [
+      "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
+      "Writing Code inside its own setter recursively invokes that setter. Write field instead.",
+      "A property initializer writes the backing field directly and does not execute the setter. The constructor deliberately assigns through Code.",
+      "This example has no synchronization; concurrent mutation needs a separate design."
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft C# field keyword reference",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field"
+    },
+    {
+      "title": "C# 14 field-backed properties specification",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net9.0/PropertyAssignment/PropertyAssignment.csproj",
+      "target": "net9.0",
+      "sdk": "9.0.319",
+      "language": "13.0",
+      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
+      "scope": "Original comparison; checks constructor validation, normalization, null/blank/length rejection and retained value. Refreshed by eng/Verify.ps1."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
+      "scope": "Original field-backed implementation; executes the same checks as the .NET 9 sample. Refreshed by eng/Verify.ps1."
+    }
+  ],
+  "snippets": {
+    "older": { "path": "samples/net9.0/PropertyAssignment/StorageBay.cs", "region": "storage-bay", "language": "csharp" },
+    "newer": { "path": "samples/net10.0/PropertyAssignment/StorageBay.cs", "region": "storage-bay", "language": "csharp" }
+  }
+}
