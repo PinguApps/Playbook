@@ -15535,7 +15535,7 @@
         "Update the source-disposition register and preserve goal/edition identity. A missing API, compilation route or required Human proof remains explicit incomplete evidence and blocks publication. No package/account/resource publication or provisioning is authorized by this ticket alone.",
         "Combine complex/JSON mappings with TPT/TPC.",
         "Apply an original mapping and round-trip complex/JSON values with TPT/TPC on a supplied real relational provider supporting that path.",
-        "Publish original canonical old/new samples, metadata and full Markdown prose for ef.map-nested-values-with-inheritance; preserve these applicability constraints: EF11 relational; verify provider support for actual JSON path."
+        "Publish original canonical old/new samples, metadata and full Markdown prose for ef.map-nested-values-with-inheritance; preserve these applicability constraints: EF Core 11 relational; verify provider support for actual JSON path."
       ],
       "inventoryRefs": [
         "ef.map-nested-values-with-inheritance",
@@ -16137,7 +16137,7 @@
         "Update the source-disposition register and preserve goal/edition identity. A missing API, compilation route or required Human proof remains explicit incomplete evidence and blocks publication. No package/account/resource publication or provisioning is authorized by this ticket alone.",
         "Use translated `FullJoin`.",
         "Execute real FullJoin reconciliation and verify left-only/right-only/matched outcomes on a supporting provider; no SQLite support assumption.",
-        "Publish original canonical old/new samples, metadata and full Markdown prose for ef.reconcile-unmatched-records; explicitly preserve these applicability constraints: EF11 relational provider supporting full outer join; not blanket SQLite promise."
+        "Publish original canonical old/new samples, metadata and full Markdown prose for ef.reconcile-unmatched-records; explicitly preserve these applicability constraints: EF Core 11 relational provider supporting full outer join; not blanket SQLite promise."
       ],
       "inventoryRefs": [
         "ef.reconcile-unmatched-records",
@@ -17438,8 +17438,8 @@
         "Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.",
         "Update the source-disposition register and preserve goal/edition identity. A missing API, compilation route or required Human proof remains explicit incomplete evidence and blocks publication. No package/account/resource publication or provisioning is authorized by this ticket alone.",
         "Upgrade target or retain compatible earlier provider deliberately.",
-        "Build/run the supported Microsoft.Data.Sqlite11 net10 consumer and a documented earlier-dependency alternative; state unsupported legacy platform paths without claiming unavailable native proof.",
-        "Publish original canonical old/new samples, metadata and full Markdown prose for sqlite.retain-supported-runtime; explicitly preserve these applicability constraints: Microsoft.Data.Sqlite11 targets net10 only; separate from EF11 net11 requirement."
+        "Build/run the supported Microsoft.Data.Sqlite 11 net10 consumer and a documented earlier-dependency alternative; state unsupported legacy platform paths without claiming unavailable native proof.",
+        "Publish original canonical old/new samples, metadata and full Markdown prose for sqlite.retain-supported-runtime; explicitly preserve these applicability constraints: Microsoft.Data.Sqlite 11 targets net10 only; separate from EF Core 11 net11 requirement."
       ],
       "inventoryRefs": [
         "sqlite.retain-supported-runtime",
@@ -17639,7 +17639,7 @@
         "Update the source-disposition register and preserve goal/edition identity. A missing API, compilation route or required Human proof remains explicit incomplete evidence and blocks publication. No package/account/resource publication or provisioning is authorized by this ticket alone.",
         "Adopt Cosmos complex properties/collections and value semantics.",
         "Round-trip real Cosmos complex properties/collections and verify document shape/value semantics on supplied supported isolated resources.",
-        "Publish original canonical old/new samples, metadata and full Markdown prose for cosmos.map-embedded-values; explicitly preserve these applicability constraints: Cosmos EF11; includes repeated Complex types section."
+        "Publish original canonical old/new samples, metadata and full Markdown prose for cosmos.map-embedded-values; explicitly preserve these applicability constraints: Cosmos EF Core 11; includes repeated Complex types section."
       ],
       "inventoryRefs": [
         "cosmos.map-embedded-values",
@@ -18647,7 +18647,7 @@
         "Update the source-disposition register and preserve goal/edition identity. A missing API, compilation route or required Human proof remains explicit incomplete evidence and blocks publication. No package/account/resource publication or provisioning is authorized by this ticket alone.",
         "Replace sync I/O calls; remove obsolete opt-in assumption.",
         "Exercise actual async query/save and reproduce removed synchronous behavior; state no opt-in restores Cosmos sync I/O.",
-        "Publish original canonical old/new samples, metadata and full Markdown prose for cosmos.use-async-io; explicitly preserve these applicability constraints: Cosmos; no switch restores sync in EF11."
+        "Publish original canonical old/new samples, metadata and full Markdown prose for cosmos.use-async-io; explicitly preserve these applicability constraints: Cosmos; no switch restores sync in EF Core 11."
       ],
       "inventoryRefs": [
         "cosmos.use-async-io",
@@ -26832,7 +26832,7 @@
       "key": "GA_DATA",
       "title": "004 - Reconcile GA EF and provider guidance",
       "group": "GA reconciliation and stable launch",
-      "outcome": "Final release evidence for EF11 model/query/migrations and actual provider/service requirements is reconciled with prepared RC guidance.",
+      "outcome": "Final release evidence for EF Core 11 model/query/migrations and actual provider/service requirements is reconciled with prepared RC guidance.",
       "criteria": [
         "Wait for actual .NET 11 release-family GA notes, breaking changes and distributable artifacts; compare final API/source and supported dependencies with the retained RC baseline. Do not relabel old RC evidence as GA verification.",
         "Resolve availability/stability changes against canonical actual artifacts, retaining deliberate experimental APIs with labels. Link affected existing slices and identify exact corrections/additional goals.",
