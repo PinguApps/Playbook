@@ -7665,7 +7665,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Blockers:** [GA reconciliation and stable launch / 006 - Verify the final GA candidate and refreshed evidence](#ga-ready); [Clients and release readiness / 004 - Check the packaged tool in T3 Code](#h-client-t3); [Clients and release readiness / 005 - Check the packaged tool in Codex CLI](#h-client-codex); [Clients and release readiness / 006 - Check the packaged tool in Claude Code](#h-client-claude); [Clients and release readiness / 007 - Check the packaged tool in VS Code Copilot](#h-client-copilot)
 
-**Delivered outcome:** The owner releases1.0.0 only after the complete GA candidate is ready.
+**Delivered outcome:** The owner releases 1.0.0 only after the complete GA candidate is ready.
 
 **Acceptance criteria:**
 

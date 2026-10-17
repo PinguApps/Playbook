@@ -27141,7 +27141,7 @@
       "key": "H_STABLE",
       "title": "007 - Approve and manually publish the first stable package",
       "group": "GA reconciliation and stable launch",
-      "outcome": "The owner releases1.0.0 only after the complete GA candidate is ready.",
+      "outcome": "The owner releases 1.0.0 only after the complete GA candidate is ready.",
       "criteria": [
         "Review the final GA evidence, all four real client checks, evaluation findings and trusted-publisher identity; verify the exact previously validated package is the one published.",
         "Manually approve/perform the first stable1.0.0 release with correct SemVer and non-prerelease GitHub metadata. Record actual NuGet/GitHub artifact evidence; leave merging/releasing to Pingu unless separately authorized.",
