@@ -10,7 +10,7 @@ Verification re-read every issue, compared labels/estimate/milestone/team/projec
 
 The connector exposes no native issue-reordering mutation. Verified creation order plus contiguous DDD titles within each milestone is the approved ordering source of truth; no manual reorder is required for that fallback. No additional phase or file-overlap blockers were added.
 
-This records backlog publication and verification only. It does not claim implementation, sample compilation, package/client/native checks, product evaluation or release actions have run. Source remains [SPEC.md](../../SPEC.md) at `0a8989814ea11346354464b845c79c15bb71c5e9`. The [approved proposal](linear-proposal.md) is preserved as its historical review snapshot.
+This records backlog publication and verification only. It does not claim implementation, sample compilation, package/client/native checks, product evaluation or release actions have run. Source remains [SPEC.md](../../SPEC.md) at `0a8989814ea11346354464b845c79c15bb71c5e9`. The [approved proposal](linear-proposal.md) is retained with disclosed editorial wording corrections; its exact historical review snapshot remains at commit `b3778cc`. These corrections do not update the published Linear issues.
 
 Milestone order: Installed documentation server → Verified authoring baselines → Language and library guidance → Build and deployment guidance → Web application guidance → Data access guidance → Desktop guidance → Mobile and native guidance → Clients and release readiness → GA reconciliation and stable launch
 

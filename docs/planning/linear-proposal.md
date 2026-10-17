@@ -2,6 +2,8 @@
 
 Proposal awaiting approval; no Linear mutations performed.
 
+Editorial note (17 October 2026): display wording was clarified after publication. The original approved proposal remains at commit b3778cc. These repository edits do not update published Linear issues or change their verified metadata and dependencies.
+
 Destination: **PinguApps → PinguApps (PIN) → Playbook**, explicitly confirmed. Primary source: [SPEC.md](../../SPEC.md), source commit `0a8989814ea11346354464b845c79c15bb71c5e9`. Supporting inventories clarify the agreed scope; they do not add standalone products or features.
 
 ## Review scope
@@ -1004,7 +1006,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1030,7 +1032,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1056,7 +1058,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1082,7 +1084,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1108,7 +1110,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1134,7 +1136,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1160,7 +1162,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1186,7 +1188,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1212,7 +1214,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1238,7 +1240,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1264,7 +1266,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1290,7 +1292,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1316,7 +1318,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1342,7 +1344,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1368,7 +1370,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1394,7 +1396,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1420,7 +1422,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1446,7 +1448,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1472,7 +1474,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1498,7 +1500,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1524,7 +1526,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1550,7 +1552,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1576,7 +1578,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1602,7 +1604,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1628,7 +1630,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1654,7 +1656,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1680,7 +1682,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1706,7 +1708,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1732,7 +1734,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1758,7 +1760,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1784,7 +1786,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1810,7 +1812,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1836,7 +1838,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1862,7 +1864,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1888,7 +1890,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1914,7 +1916,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1940,7 +1942,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1966,7 +1968,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -1992,7 +1994,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2018,7 +2020,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2044,7 +2046,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2070,7 +2072,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2096,7 +2098,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2122,7 +2124,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2148,7 +2150,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2174,7 +2176,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2200,7 +2202,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2226,7 +2228,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2256,7 +2258,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2282,7 +2284,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2308,7 +2310,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2334,7 +2336,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2360,7 +2362,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2386,7 +2388,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2412,7 +2414,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2438,7 +2440,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2464,7 +2466,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2490,7 +2492,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2516,7 +2518,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2542,7 +2544,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2568,7 +2570,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2598,7 +2600,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2625,7 +2627,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2652,7 +2654,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2679,7 +2681,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2706,7 +2708,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2733,7 +2735,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2760,7 +2762,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2787,7 +2789,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2814,7 +2816,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2841,7 +2843,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2868,7 +2870,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2895,7 +2897,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2922,7 +2924,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2949,7 +2951,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -2976,7 +2978,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3003,7 +3005,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3030,7 +3032,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3057,7 +3059,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3084,7 +3086,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3111,7 +3113,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3138,7 +3140,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3165,7 +3167,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3192,7 +3194,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3219,7 +3221,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3246,7 +3248,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3273,7 +3275,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3300,7 +3302,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3327,7 +3329,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3354,7 +3356,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3381,7 +3383,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3408,7 +3410,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3435,7 +3437,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3462,7 +3464,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3489,7 +3491,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3516,7 +3518,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3543,7 +3545,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3570,7 +3572,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3597,7 +3599,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3624,7 +3626,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3651,7 +3653,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3678,7 +3680,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3705,7 +3707,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3732,7 +3734,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3759,7 +3761,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3786,7 +3788,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3813,7 +3815,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3840,7 +3842,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3866,7 +3868,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3893,7 +3895,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3920,7 +3922,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3947,7 +3949,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -3974,7 +3976,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4001,7 +4003,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4028,7 +4030,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4055,7 +4057,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4082,7 +4084,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4109,7 +4111,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4136,7 +4138,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4163,7 +4165,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4190,7 +4192,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4217,7 +4219,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4244,7 +4246,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4271,7 +4273,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4298,7 +4300,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4325,7 +4327,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4352,7 +4354,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4379,7 +4381,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4406,7 +4408,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4433,7 +4435,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4460,7 +4462,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4490,7 +4492,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4518,7 +4520,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4545,7 +4547,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4572,7 +4574,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4599,7 +4601,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4626,7 +4628,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4653,7 +4655,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4680,7 +4682,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4707,7 +4709,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4734,7 +4736,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4761,7 +4763,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4788,7 +4790,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4815,7 +4817,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4842,7 +4844,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4869,7 +4871,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4896,7 +4898,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4923,7 +4925,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4950,7 +4952,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -4977,7 +4979,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5004,7 +5006,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5031,7 +5033,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5058,7 +5060,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5085,7 +5087,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5112,7 +5114,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5139,7 +5141,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5166,7 +5168,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5193,7 +5195,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5220,7 +5222,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5247,7 +5249,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5274,7 +5276,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5301,7 +5303,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5328,7 +5330,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5355,7 +5357,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5382,7 +5384,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5409,7 +5411,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5436,7 +5438,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5463,7 +5465,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5490,7 +5492,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5517,7 +5519,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5544,7 +5546,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5571,7 +5573,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5598,7 +5600,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5624,7 +5626,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5651,7 +5653,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5678,7 +5680,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5705,7 +5707,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5732,7 +5734,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5759,7 +5761,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5789,7 +5791,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5816,7 +5818,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5843,7 +5845,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5870,7 +5872,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5897,7 +5899,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5924,7 +5926,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -5951,7 +5953,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6022,7 +6024,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6049,7 +6051,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6076,7 +6078,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6103,7 +6105,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6130,7 +6132,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6157,7 +6159,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6184,7 +6186,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6211,7 +6213,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6238,7 +6240,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6265,7 +6267,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6292,7 +6294,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6319,7 +6321,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6346,7 +6348,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6373,7 +6375,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6400,7 +6402,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6427,7 +6429,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6454,7 +6456,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6481,7 +6483,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6508,7 +6510,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6535,7 +6537,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6562,7 +6564,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6589,7 +6591,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6616,7 +6618,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6643,7 +6645,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6670,7 +6672,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6697,7 +6699,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6724,7 +6726,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6751,7 +6753,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6778,7 +6780,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6805,7 +6807,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6832,7 +6834,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6859,7 +6861,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6886,7 +6888,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6913,7 +6915,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6940,7 +6942,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
@@ -6967,7 +6969,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 
 **Acceptance criteria:**
 
-- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus10, and exactly the eight .NET 10 foundations versus9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
+- [ ] Author wholly original goal-based prose and canonical previous/current-release samples: normally .NET 11 versus .NET 10, and exactly the eight .NET 10 foundations versus .NET 9. Explain a genuinely unavailable older equivalent honestly; do not copy guide examples or disparage valid older approaches.
 - [ ] Include complete offline metadata and Markdown, canonical-source snippets, official references and explicit runtime/SDK/language/package-asset/provider/platform/rendering/stability requirements. Label experimental APIs in discovery and detail; documented older-target routes require actual compatible evidence.
 - [ ] Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.
 - [ ] Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.
