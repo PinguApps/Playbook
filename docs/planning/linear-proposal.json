@@ -3979,7 +3979,7 @@
         "Compile actual declared older/newer examples and use focused real behavior checks where the claim needs them. Record exact artifacts and distinguish source review, compilation, cross-compilation, mocks and execution; refresh proof after relevant input changes.",
         "Use the existing actual packed-tool harness with an isolated feed/cache and unrelated working directory to retrieve the new guidance through real stdio list/get. Check full body, applicability and target edition offline; reuse the harness rather than adding a new OS/client/native test matrix.",
         "Update the source-disposition register and preserve goal/edition identity. A missing API, compilation route or required Human proof remains explicit incomplete evidence and blocks publication. No package/account/resource publication or provisioning is authorized by this ticket alone.",
-        "Handle ownership and startup preparation are checked on each declared applicable platform.",
+        "Verify process-handle ownership and startup preparation on each declared applicable platform.",
         "Termination reporting distinguishes supported POSIX and Windows contracts and failure races."
       ],
       "inventoryRefs": [
