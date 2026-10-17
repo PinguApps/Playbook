@@ -4334,7 +4334,7 @@ After the first installed slice and the relevant actual access prerequisites, in
 - [ ] Update the source-disposition register and preserve goal/edition identity. A missing API, compilation route or required Human proof remains explicit incomplete evidence and blocks publication. No package/account/resource publication or provisioning is authorized by this ticket alone.
 - [ ] Replace old middleware/queue registration with rate limiting.
 - [ ] Reproduce a saturation/queue scenario using the supported rate-limiter replacement and verify admission/rejection under real concurrent requests.
-- [ ] Publish original canonical old/new samples, metadata and full Markdown prose for web.migrate-concurrency-middleware; explicitly preserve these applicability constraints: Old package may temporarily be retained; no new11 version.
+- [ ] Publish original canonical old/new samples, metadata and full Markdown prose for web.migrate-concurrency-middleware; explicitly preserve these applicability constraints: Old package may temporarily be retained; no new .NET 11 version.
 
 **Context:** Full scope includes source reconciliation, original samples and prose, actual compilation, focused claim-specific checks and installed offline MCP retrieval. No resource access is assumed.
 
