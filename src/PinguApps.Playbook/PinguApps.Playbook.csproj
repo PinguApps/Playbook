@@ -4,7 +4,6 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>playbook</ToolCommandName>
     <PackageId>PinguApps.Playbook</PackageId>
-    <Version>1.0.0-preview.1</Version>
     <RollForward>Major</RollForward>
     <Description>Original, offline .NET implementation recipes for coding agents over stdio MCP.</Description>
   </PropertyGroup>

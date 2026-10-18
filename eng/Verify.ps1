@@ -37,7 +37,10 @@ try {
   else {
     dotnet @testArgs
   }
-  Get-FileHash -Algorithm SHA256 -LiteralPath $env:PLAYBOOK_TEST_PACKAGE
+  $hash = Get-FileHash -Algorithm SHA256 -LiteralPath $env:PLAYBOOK_TEST_PACKAGE
+  "$($hash.Hash.ToLowerInvariant())  $([IO.Path]::GetFileName($env:PLAYBOOK_TEST_PACKAGE))" |
+    Set-Content -LiteralPath (Join-Path $artifacts 'package.sha256') -Encoding ascii
+  $hash
 }
 finally {
   foreach ($key in $previous.Keys) { [Environment]::SetEnvironmentVariable($key, $previous[$key]) }
