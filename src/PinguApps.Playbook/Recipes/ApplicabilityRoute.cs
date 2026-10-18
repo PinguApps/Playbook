@@ -3,6 +3,8 @@ namespace PinguApps.Playbook.Recipes;
 internal sealed record ApplicabilityRoute
 {
     public required string Target { get; init; }
+    public IReadOnlyList<string> SharedAreas { get; init; } = [];
+    public IReadOnlyList<string> NeutralLanguages { get; init; } = [];
     public required bool Conditional { get; init; }
     public required string Runtime { get; init; }
     public required string Sdk { get; init; }

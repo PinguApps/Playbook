@@ -9,6 +9,7 @@ internal sealed record RecipeSummary
     public required string IntroducedIn { get; init; }
     public required IReadOnlyList<string> Areas { get; init; }
     public required IReadOnlyList<string> ExampleLanguages { get; init; }
+    public required bool LanguageNeutral { get; init; }
     public required IReadOnlyList<string> SupportedTargets { get; init; }
     public required string Stability { get; init; }
     public required Applicability Applicability { get; init; }

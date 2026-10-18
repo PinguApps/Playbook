@@ -7,7 +7,7 @@ Requires PowerShell 7, the pinned .NET SDK 10.0.402, and Node 22.19 or later for
 From this worktree:
 
 ```powershell
-Set-Location V:\_worktrees\Playbook\t3-8d969692
+Set-Location V:\_worktrees\Playbook\t3-ec3eebc7
 dotnet build ./src/PinguApps.Playbook -c Release
 $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
 $inspector = @('--yes', '@modelcontextprotocol/inspector@2.11.0', '--cli', '--format', 'json', '--quiet')
@@ -36,6 +36,29 @@ Inspector initializes and closes each connection automatically. There is no sepa
 
 To use an installed development package instead of the built DLL, replace `dotnet $server mcp` with `./artifacts/manual-tool/playbook.exe mcp` after following [the local install instructions](contributing.md#inspect-the-development-package). An installed global tool can be launched as `playbook mcp` in the same place. Each command is short-lived and shuts the server down; nothing needs stopping afterwards.
 
+## Inspect combined filters and paging
+
+After the build/setup above, run:
+
+```powershell
+$filtered = npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'targetVersion="10.0"' --tool-arg 'areas=["csharp"]' --tool-arg 'languages=["csharp"]' --tool-arg 'query=VALIDATION field' --tool-arg includeShared=false --tool-arg offset=0 --tool-arg limit=1 -- dotnet $server mcp | ConvertFrom-Json
+$filtered.result.structuredContent | Format-List resolvedTarget, total, offset, limit, nextOffset, supportedAreas, supportedExampleLanguages
+$filtered.result.structuredContent.recipes | Format-List id, title, goal, languageNeutral, applicability
+
+# A valid combination with no keyword match succeeds empty.
+$empty = npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'areas=["csharp"]' --tool-arg query=unmatched -- dotnet $server mcp | ConvertFrom-Json
+$empty.result.structuredContent | Format-List total, nextOffset, recipes
+
+# An invalid identifier is a tool error, including corrections; it is not ignored.
+$invalidLines = @(npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'areas=["blazro"]' -- dotnet $server mcp)
+$invalid = $invalidLines[0] | ConvertFrom-Json
+$invalid.result.content[0].text | ConvertFrom-Json | Format-List code, filter, invalidValues, supportedValues
+```
+
+Expect the property recipe, `total=1`, `offset=0`, `limit=1`, `nextOffset=null` and `languageNeutral=false`. Both keywords match, and the explicitly selected .NET 10 applicability remains visible. The empty query result has `total=0`, no recipes and no next offset. The typo produces `unknown_area`, `filter=areas`, rejected `blazro`, and supported `csharp`. Inspector exits nonzero (5 in this verification) for that intentional error (see the native-command preference note below).
+
+The ordinary catalogue currently contains only this C# goal, so it cannot demonstrate a shared framework mapping, F#-applicable neutral configuration or multiple pages. The separate unpublished contract fixture and seven installed-package scenarios cover those cases, including all-term/title/goal/tag/API matching, OR within sets, AND between filters, shared inclusion disabled, unrelated Windows guidance excluded, C#-specific XML excluded from F#, and default/max-size traversal. Run the [verification commands](verification/PIN-670.md) for that evidence. Fixture metadata does not claim platform execution or additional shipped recipe coverage.
+
 ## Inspect release selection and failures
 
 Continue in the same PowerShell window:
@@ -55,7 +78,7 @@ $retained.result.structuredContent.recipe.applicability.routes | Format-List
 $newer = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=net11.0 -- dotnet $server mcp | ConvertFrom-Json
 $newer.result.structuredContent.recipe | Format-List id, edition, introducedIn
 
-# Inspector exits 1 on a tool error and emits a second diagnostic JSON line.
+# Inspector exits nonzero on a tool error and emits a diagnostic JSON line on stderr.
 # Read its first stdout line to inspect the MCP result and parseable JSON error body.
 $failureLines = @(npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=net10.0-windows -- dotnet $server mcp)
 $failure = $failureLines[0] | ConvertFrom-Json

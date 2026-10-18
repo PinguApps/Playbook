@@ -43,6 +43,8 @@ try {
     @{ Name = 'unverified conditional route'; Change = { $recipe.introducedIn = '11.0'; $recipe.edition = '11.0' }; Error = 'explicit conditional route' },
     @{ Name = 'missing source reference'; Change = { $recipe.applicability.routes[0].sourceUrls = @('https://example.invalid/missing') }; Error = 'Route source' },
     @{ Name = 'missing experimental disclosure'; Change = { $recipe.stability = 'experimental' }; Error = 'Experimental routes require' },
+    @{ Name = 'source falsely labelled neutral'; Change = { $recipe.languageNeutral = $true; $recipe.exampleLanguages = @(); $recipe.applicability.routes[0].neutralLanguages = @('fsharp') }; Error = 'Language-neutral recipes require configuration snippets' },
+    @{ Name = 'neutral languages on programming recipe'; Change = { $recipe.applicability.routes[0].neutralLanguages = @('fsharp') }; Error = 'Only language-neutral recipes require explicit neutralLanguages' },
     @{ Name = 'missing sample'; Change = { $recipe.evidence[0].sample = 'samples/missing.csproj' }; Error = 'Missing source' },
     @{ Name = 'missing canonical snippet'; Change = { $recipe.snippets.newer.region = 'missing' }; Error = 'Expected one nonempty snippet' },
     @{ Name = 'copied implementation'; Change = { $markdown = $markdown.Replace('{{snippet:newer}}', '```csharp' + "`n// copied code`n" + '```'); $recipe.snippets.Remove('newer') }; Error = 'Canonical snippet references' },

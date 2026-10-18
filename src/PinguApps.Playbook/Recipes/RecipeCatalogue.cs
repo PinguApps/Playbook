@@ -23,14 +23,42 @@ internal sealed class RecipeCatalogue
             ?? throw new InvalidOperationException("Embedded coverage disclosure is empty.");
     }
 
-    public RecipeList List(string? targetVersion)
+    public RecipeList List(string? targetVersion, string[]? areas, string[]? languages, string? query, bool includeShared, int offset, int limit)
     {
         string target = ResolveTarget(targetVersion);
+        string[] supportedAreas = [.. _editions.SelectMany(edition => edition.Areas.Concat(edition.Applicability.Routes.SelectMany(route => route.SharedAreas)))
+            .Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal)];
+        string[] supportedLanguages = [.. _editions.SelectMany(edition => edition.ExampleLanguages.Concat(edition.Applicability.Routes.SelectMany(route => route.NeutralLanguages)))
+            .Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal)];
+        ValidateFilter(areas, supportedAreas, "areas", "unknown_area");
+        ValidateFilter(languages, supportedLanguages, "languages", "unknown_language");
+        if (offset < 0 || limit is < 1 or > 50)
+        {
+            throw Failure("invalid_range", "Use offset >= 0 and limit between 1 and 50 (default 20).", targetVersion, null, []);
+        }
+
+        string[] terms = query?.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries) ?? [];
         RecipeSummary[] summaries = [.. _editions
             .Where(edition => edition.SupportedTargets.Contains(target, StringComparer.Ordinal))
             .GroupBy(edition => edition.Id, StringComparer.Ordinal)
             .OrderBy(group => group.Key, StringComparer.Ordinal)
             .Select(group => group.OrderByDescending(edition => Version.Parse(edition.Edition)).First())
+            .Where(edition => terms.All(term => edition.Title.Contains(term, StringComparison.OrdinalIgnoreCase)
+                || edition.Goal.Contains(term, StringComparison.OrdinalIgnoreCase)
+                || edition.Tags.Any(tag => tag.Contains(term, StringComparison.OrdinalIgnoreCase))
+                || edition.Apis.Any(api => api.Contains(term, StringComparison.OrdinalIgnoreCase))))
+            .Select(edition => edition with
+            {
+                Applicability = new Applicability
+                {
+                    Routes = [.. edition.Applicability.Routes.Where(route => route.Target == target
+                        && (areas is null or [] || edition.Areas.Intersect(areas, StringComparer.Ordinal).Any()
+                            || (includeShared && route.SharedAreas.Intersect(areas, StringComparer.Ordinal).Any()))
+                        && (languages is null or [] || edition.ExampleLanguages.Intersect(languages, StringComparer.Ordinal).Any()
+                            || (edition.LanguageNeutral && route.NeutralLanguages.Intersect(languages, StringComparer.Ordinal).Any())))],
+                },
+            })
+            .Where(edition => edition.Applicability.Routes.Count > 0)
             .Select(edition => new RecipeSummary
             {
                 Id = edition.Id,
@@ -40,20 +68,44 @@ internal sealed class RecipeCatalogue
                 IntroducedIn = edition.IntroducedIn,
                 Areas = edition.Areas,
                 ExampleLanguages = edition.ExampleLanguages,
+                LanguageNeutral = edition.LanguageNeutral,
                 SupportedTargets = edition.SupportedTargets,
                 Stability = edition.Stability,
-                Applicability = ForTarget(edition.Applicability, target),
+                Applicability = edition.Applicability,
             })];
+        RecipeSummary[] page = [.. summaries.Skip(offset).Take(limit)];
         return new RecipeList
         {
             ResolvedTarget = target,
             TargetAssumed = targetVersion is null,
             SupportedTargets = _targets,
-            SupportedAreas = [.. _editions.SelectMany(edition => edition.Areas).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal)],
-            SupportedExampleLanguages = [.. _editions.SelectMany(edition => edition.ExampleLanguages).Distinct(StringComparer.Ordinal).Order(StringComparer.Ordinal)],
+            SupportedAreas = supportedAreas,
+            SupportedExampleLanguages = supportedLanguages,
             Coverage = _coverage,
-            Recipes = summaries,
+            Total = summaries.Length,
+            Offset = offset,
+            Limit = limit,
+            NextOffset = offset < summaries.Length && page.Length < summaries.Length - offset ? offset + page.Length : null,
+            Recipes = page,
         };
+    }
+
+    private static void ValidateFilter(string[]? requested, string[] supported, string filter, string code)
+    {
+        string[] invalid = [.. (requested ?? []).Except(supported, StringComparer.Ordinal)];
+        if (invalid.Length > 0)
+        {
+            throw new McpException(JsonSerializer.Serialize(new RecipeFailure
+            {
+                Code = code,
+                Message = $"Unknown {filter}: {string.Join(", ", invalid)}. Choose identifiers from supportedValues.",
+                Filter = filter,
+                InvalidValues = invalid,
+                SupportedValues = supported,
+                SupportedTargets = [],
+                AvailableEditions = [],
+            }, JsonSerializerOptions.Web));
+        }
     }
 
     public RecipeDetail Get(string id, string? targetVersion)
