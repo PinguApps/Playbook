@@ -96,7 +96,9 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.True(list.GetProperty("targetAssumed").GetBoolean());
         JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
         Assert.False(summary.TryGetProperty("markdown", out _));
-        Assert.Equal("C# 14", summary.GetProperty("applicability").GetProperty("language").GetString());
+        JsonElement route = Assert.Single(summary.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        Assert.Equal("C# 14", route.GetProperty("language").GetString());
+        Assert.Equal("10.0", route.GetProperty("target").GetString());
         string id = summary.GetProperty("id").GetString()!;
         JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false));
         Assert.False(detail.GetProperty("targetAssumed").GetBoolean());
@@ -104,12 +106,17 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal(id, recipe.GetProperty("id").GetString());
         Assert.Equal("10.0", recipe.GetProperty("edition").GetString());
         Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+        Assert.Equal(summary.GetProperty("title").GetString(), recipe.GetProperty("title").GetString());
+        Assert.Equal(summary.GetProperty("goal").GetString(), recipe.GetProperty("goal").GetString());
+        Assert.True(JsonElement.DeepEquals(summary.GetProperty("applicability"), recipe.GetProperty("applicability")));
         string markdown = recipe.GetProperty("markdown").GetString()!;
         Assert.Contains("field = normalized;", markdown, StringComparison.Ordinal);
         Assert.Contains("_code = normalized;", markdown, StringComparison.Ordinal);
         Assert.Contains("does **not** run the setter", markdown, StringComparison.Ordinal);
-        Assert.NotEmpty(recipe.GetProperty("applicability").GetProperty("constraints").EnumerateArray());
-        Assert.NotEmpty(recipe.GetProperty("applicability").GetProperty("prerequisites").EnumerateArray());
+        Assert.NotEmpty(route.GetProperty("constraints").EnumerateArray());
+        Assert.NotEmpty(route.GetProperty("prerequisites").EnumerateArray());
+        Assert.NotEmpty(route.GetProperty("sourceUrls").EnumerateArray());
+        Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
         Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
         Assert.Equal(["net9.0", "net10.0"], recipe.GetProperty("evidence").EnumerateArray().Select(evidence => evidence.GetProperty("target").GetString()));
     }

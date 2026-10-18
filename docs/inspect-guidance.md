@@ -7,7 +7,7 @@ Requires PowerShell 7, the pinned .NET SDK 10.0.402, and Node 22.19 or later for
 From this worktree:
 
 ```powershell
-Set-Location V:\_worktrees\Playbook\t3-7008e9d9
+Set-Location V:\_worktrees\Playbook\t3-7406bc2b
 dotnet build ./src/PinguApps.Playbook -c Release
 $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
 $inspector = @('--yes', '@modelcontextprotocol/inspector@2.11.0', '--cli', '--format', 'json', '--quiet')
@@ -23,7 +23,7 @@ $catalogue.result.structuredContent.recipes | Format-List id, title, goal
 $response = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg 'targetVersion="10.0"' -- dotnet $server mcp | ConvertFrom-Json
 $recipe = $response.result.structuredContent.recipe
 $recipe.markdown | Show-Markdown
-$recipe.applicability | Format-List
+$recipe.applicability.routes | Format-List
 $recipe.sources | Format-Table
 $recipe.evidence | Format-List
 ```
