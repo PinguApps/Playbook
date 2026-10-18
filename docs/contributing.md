@@ -25,7 +25,7 @@ dotnet tool install PinguApps.Playbook --version 1.0.0-preview.1 --tool-path ./a
 ./artifacts/manual-tool/playbook --version
 ```
 
-Help must show `playbook mcp`; version must show `1.0.0-preview.1`. This installs locally, without publishing or changing global tools. Delete `artifacts/manual-tool` when finished. The Reqnroll checks are the shortest path to inspect real MCP responses and lifecycle results; TRX evidence is under `artifacts/TestResults`.
+Help must show `playbook mcp`; version must show `1.0.0-preview.1`. This installs locally, without publishing or changing global tools. Delete `artifacts/manual-tool` when finished. To see the actual recipe body and constraints yourself, use [the MCP Inspector walkthrough](inspect-guidance.md). The Reqnroll checks verify real MCP responses and lifecycle results; TRX evidence is under `artifacts/TestResults`.
 
 ## Author a recipe edition
 
