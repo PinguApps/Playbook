@@ -18,7 +18,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          stable=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --paginate --slurp --jq 'flatten | any(.draft == false and .prerelease == false)')
+          set -euo pipefail
+          stable=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --paginate | jq -s 'flatten | any(.draft == false and .prerelease == false)')
           if [[ "$stable" == false ]]; then echo 'initial=1.0.0' >> "$GITHUB_OUTPUT"; fi
 
       - name: Update release draft
