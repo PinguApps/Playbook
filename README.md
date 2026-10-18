@@ -2,7 +2,7 @@
 
 Original .NET guidance served offline to coding agents through a client-owned stdio MCP process.
 
-This development slice contains `csharp.validate-property-assignment`, comparing a .NET 9 explicit backing field with the .NET 10 / C# 14 `field` keyword, with retained .NET 10 and .NET 11 editions. Both tools require an explicit target release or deliberate `latest` choice; `latest` means the newest target release in the installed catalogue, not an exact SDK version or consumer compatibility. Requirements include a verified .NET 11 SDK route for .NET 10. Coverage distinguishes curated .NET 10 from the comprehensive .NET 11 launch commitment; both remain incomplete. It is not ready for public publication.
+This development slice contains `csharp.validate-property-assignment`, comparing a .NET 9 explicit backing field with the .NET 10 / C# 14 `field` keyword, using one canonical edition for explicitly verified .NET 10 and .NET 11 targets. Both tools require an explicit target release or deliberate `latest` choice; `latest` means the newest target release in the installed catalogue, not an exact SDK version or consumer compatibility. Requirements include a verified .NET 11 SDK route for .NET 10. Coverage distinguishes curated .NET 10 from the comprehensive .NET 11 launch commitment; both remain incomplete. It is not ready for public publication.
 
 ```powershell
 playbook --help

@@ -72,14 +72,15 @@ $latest = npx @inspector --method tools/call --tool-name list_recipes --tool-arg
 $latest.result.structuredContent | Format-List requestedTarget, resolvedTarget, targetAssumed, supportedTargets, supportedAreas, supportedExampleLanguages
 $latest.result.structuredContent.coverage | Format-Table target, scope, complete, description -Wrap
 
-# An explicit alias selects the retained .NET 10 edition and its conditional route.
+# An explicit alias selects the shared edition with only .NET 10 routes.
 $retained = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=net10.0 -- dotnet $server mcp | ConvertFrom-Json
 $retained.result.structuredContent.recipe | Format-List id, edition, introducedIn
 $retained.result.structuredContent.recipe.applicability.routes | Format-List
 
-# The same stable ID selects the .NET 11 edition, retaining introduction 10.0.
+# .NET 11 selects the same edition 10.0/introduction 10.0, with its own route.
 $newer = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=net11.0 -- dotnet $server mcp | ConvertFrom-Json
 $newer.result.structuredContent.recipe | Format-List id, edition, introducedIn
+$newer.result.structuredContent.recipe.applicability.routes | ConvertTo-Json -Depth 10
 
 # Detail can also deliberately request latest; it inherits nothing from discovery.
 $latestDetail = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=latest -- dotnet $server mcp | ConvertFrom-Json
@@ -110,7 +111,9 @@ Expect `requestedTarget=latest`, `resolvedTarget=11.0` and `targetAssumed=False`
 
 The last request must return `isError=True`, code `unsupported_target`, the exact rejected string and supported releases. It never strips the platform suffix. Patch and RC strings fail similarly. An unknown ID returns `unknown_recipe`. A known ID with no compatible edition returns `no_applicable_edition` with available edition labels; valid discovery with no matches succeeds empty. In a script with `$PSNativeCommandUseErrorActionPreference=$true`, temporarily set it to `$false` around the intentionally failing `npx` call.
 
-The [verification script](contributing.md) also builds a **separate, unpublished contract fixture package** to exercise overlapping retained editions, a known .NET 11-only recipe and a pre-introduction conditional route. Fixture identities never appear in the ordinary package. Synthetic introduction metadata proves routing only; actual SDK/runtime compatibility comes from compiling and executing the original samples. .NET 9 remains comparison-only. The .NET 11 baseline is RC evidence, not GA verification; broader client and platform checks remain separate work.
+The [verification script](contributing.md) also builds a **separate, unpublished contract fixture package** to exercise overlapping genuinely changed editions, a known .NET 11-only recipe and a pre-introduction conditional route. Fixture identities never appear in the ordinary package. Synthetic introduction metadata proves routing only; actual SDK/runtime compatibility comes from compiling and executing the original samples. .NET 9 remains comparison-only. The .NET 11 baseline is RC evidence, not GA verification; broader client and platform checks remain separate work.
+
+Both property requests return edition `10.0`, introduction `10.0` and identical Markdown. Only applicability is narrowed to the requested target. See [PIN-973](verification/PIN-973.md) for the tested side-by-side discovery/Markdown/applicability example. No undeclared target becomes compatible.
 
 ## Inspect reusable verification evidence from the package
 
