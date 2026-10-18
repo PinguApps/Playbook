@@ -17,4 +17,6 @@ internal sealed record ApplicabilityRoute
     public required IReadOnlyList<string> Constraints { get; init; }
     public required IReadOnlyList<string> SourceUrls { get; init; }
     public required IReadOnlyList<string> EvidenceSamples { get; init; }
+    public required IReadOnlyList<string> OptIns { get; init; }
+    public required IReadOnlyList<string> StabilityLimitations { get; init; }
 }

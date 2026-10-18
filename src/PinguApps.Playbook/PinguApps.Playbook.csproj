@@ -18,4 +18,10 @@
   <Target Name="GenerateRecipeContent" BeforeTargets="PrepareForBuild">
     <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot;" />
   </Target>
+  <Target Name="RecordCompiledRecipeContent" AfterTargets="CoreCompile">
+    <Copy SourceFiles="$(IntermediateOutputPath)Generated/catalogue.json" DestinationFiles="$(IntermediateOutputPath)Generated/compiled-catalogue.json" />
+  </Target>
+  <Target Name="ValidatePackedRecipeContent" BeforeTargets="GenerateNuspec">
+    <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/pack-catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot; -VerifyAgainst &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/compiled-catalogue.json&quot;" />
+  </Target>
 </Project>

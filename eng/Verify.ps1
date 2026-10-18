@@ -17,6 +17,7 @@ foreach ($key in @('PLAYBOOK_TEST_PACKAGE', 'PLAYBOOK_TEST_VERSION', 'PLAYBOOK_T
   $previous[$key] = [Environment]::GetEnvironmentVariable($key)
 }
 try {
+  & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   foreach ($sample in @(
     @{ Path = 'net9.0/PropertyAssignment'; Dotnet = $Net9Dotnet },
     @{ Path = 'net10.0/PropertyAssignment'; Dotnet = 'dotnet' },
@@ -34,6 +35,7 @@ try {
     finally { Pop-Location }
   }
   dotnet build PinguApps.Playbook.slnx --configuration Release -p:Version=$PackageVersion
+  & (Join-Path $PSScriptRoot 'Test-Content.ps1') -Pack
   dotnet pack src/PinguApps.Playbook --configuration Release --no-build -p:PackageVersion=$PackageVersion --output $artifacts
   & (Join-Path $PSScriptRoot 'Pack-ReleaseFixture.ps1') -PackageVersion $PackageVersion
   $env:PLAYBOOK_TEST_PACKAGE = Join-Path $artifacts "PinguApps.Playbook.$PackageVersion.nupkg"

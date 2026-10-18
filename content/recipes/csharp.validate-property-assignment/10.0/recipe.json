@@ -48,7 +48,8 @@
         "packageAssets": [],
         "providers": [],
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field"
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword"
         ],
         "evidenceSamples": [
           "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj"

@@ -18,14 +18,15 @@ try {
   # Contract-only metadata: no fictional .NET 11 API or publication evidence is claimed.
   # Reuse actual compiled property samples to test selection independently of catalogue growth.
   foreach ($case in @(
-    @{ Id = 'fixture.only-eleven'; Edition = '11.0'; Introduced = '10.0' },
-    @{ Id = 'fixture.conditional-route'; Edition = '10.0'; Introduced = '11.0' }
+    @{ Id = 'fixture.only-eleven'; Edition = '11.0'; SourceEdition = '11.0'; Introduced = '10.0' },
+    @{ Id = 'fixture.conditional-route'; Edition = '11.0'; SourceEdition = '10.0'; Introduced = '11.0' }
   )) {
-    $source = Join-Path $root "content/recipes/csharp.validate-property-assignment/$($case.Edition)"
+    $source = Join-Path $root "content/recipes/csharp.validate-property-assignment/$($case.SourceEdition)"
     $destination = Join-Path $fixture "$($case.Id)/$($case.Edition)"
     New-Item -ItemType Directory -Path $destination -Force | Out-Null
     $recipe = Get-Content (Join-Path $source 'recipe.json') -Raw | ConvertFrom-Json -AsHashtable
     $recipe.id = $case.Id
+    $recipe.edition = $case.Edition
     $recipe.introducedIn = $case.Introduced
     $recipe.title = "Contract fixture: $($case.Id)"
     $recipe.goal = 'Test release routing with actual sample evidence; not a shipped recipe or an API introduction claim.'
@@ -38,7 +39,7 @@ try {
   dotnet pack (Join-Path $root 'src/PinguApps.Playbook') -c Release -p:Version=$PackageVersion -p:PackageVersion=$PackageVersion `
     "-p:RecipeRoot=$fixture" --output (Join-Path $root 'artifacts/release-fixture')
   # The positive fixture above must build; removing its explicit conditional flag must fail.
-  $conditionalPath = Join-Path $fixture 'fixture.conditional-route/10.0/recipe.json'
+  $conditionalPath = Join-Path $fixture 'fixture.conditional-route/11.0/recipe.json'
   $invalid = Get-Content $conditionalPath -Raw | ConvertFrom-Json -AsHashtable
   $invalid.applicability.routes[0].conditional = $false
   $invalid | ConvertTo-Json -Depth 30 | Set-Content $conditionalPath -Encoding utf8
