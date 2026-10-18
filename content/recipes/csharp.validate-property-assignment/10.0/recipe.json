@@ -3,12 +3,24 @@
   "edition": "10.0",
   "title": "Normalize and validate properties with the C# field keyword",
   "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
-  "areas": ["csharp"],
-  "exampleLanguages": ["csharp"],
-  "tags": ["property", "validation", "normalization"],
-  "apis": ["field"],
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "property",
+    "validation",
+    "normalization"
+  ],
+  "apis": [
+    "field"
+  ],
   "introducedIn": "10.0",
-  "supportedTargets": ["10.0"],
+  "supportedTargets": [
+    "10.0"
+  ],
   "stability": "stable",
   "applicability": {
     "routes": [
@@ -42,6 +54,36 @@
         "evidenceSamples": [
           "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj"
         ]
+      },
+      {
+        "runtime": ".NET 10",
+        "sdk": "11.0.100-rc.2.26504.105 (RC verification baseline; .NET 11 SDK required for this alternative route)",
+        "language": "C# 14",
+        "frameworks": [],
+        "packages": [],
+        "platforms": [
+          "Any platform supported by .NET 10"
+        ],
+        "renderingModes": [],
+        "prerequisites": [
+          "Install the stated .NET 11 SDK separately, keep TargetFramework=net10.0 and LangVersion=14.0, and provide the .NET 10 targeting pack/runtime. This route is optional; the .NET 10 SDK route remains valid. No C# 15-on-.NET 10 compatibility is claimed."
+        ],
+        "constraints": [
+          "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
+          "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
+          "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
+          "This example has no synchronization; concurrent mutation needs a separate design."
+        ],
+        "target": "10.0",
+        "conditional": true,
+        "packageAssets": [],
+        "providers": [],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj"
+        ]
       }
     ]
   },
@@ -53,6 +95,10 @@
     {
       "title": "C# 14 field-backed properties specification",
       "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword"
+    },
+    {
+      "title": "Microsoft SDK backwards targeting support",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs"
     }
   ],
   "evidence": [
@@ -73,10 +119,27 @@
       "language": "14.0",
       "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
       "scope": "Original field-backed implementation; executes the same checks as the .NET 9 sample. Refreshed by eng/Verify.ps1."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj",
+      "target": "net10.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "14.0",
+      "command": "pwsh ./eng/Verify.ps1",
+      "scope": "Actual .NET 11 RC SDK compilation of the net10.0 / C# 14 sample and execution on the .NET 10 runtime; not .NET 11 GA evidence. Refreshed by eng/Verify.ps1."
     }
   ],
   "snippets": {
-    "older": { "path": "samples/net9.0/PropertyAssignment/StorageBay.cs", "region": "storage-bay", "language": "csharp" },
-    "newer": { "path": "samples/net10.0/PropertyAssignment/StorageBay.cs", "region": "storage-bay", "language": "csharp" }
+    "older": {
+      "path": "samples/net9.0/PropertyAssignment/StorageBay.cs",
+      "region": "storage-bay",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net10.0/PropertyAssignment/StorageBay.cs",
+      "region": "storage-bay",
+      "language": "csharp"
+    }
   }
 }

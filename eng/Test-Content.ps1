@@ -11,6 +11,8 @@ $narrative = Get-Content (Join-Path $root 'content/recipes/csharp.validate-prope
 try {
   if ($Pack) {
     $recipes = Join-Path $fixture 'recipes'
+    New-Item -ItemType Directory -Path $recipes -Force | Out-Null
+    Copy-Item (Join-Path $root 'content/recipes/*') $recipes -Recurse
     $edition = Join-Path $recipes 'csharp.validate-property-assignment/10.0'
     New-Item -ItemType Directory -Path $edition -Force | Out-Null
     $original | Set-Content (Join-Path $edition 'recipe.json')

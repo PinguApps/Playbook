@@ -13,11 +13,19 @@ public sealed class InstalledToolSteps : IDisposable
     private Task<string>? _diagnostics;
     private string? _executable;
     private int _requestId;
+    private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
+
+    [Given("the release contract fixture package is installed from an isolated local feed and cache")]
+    public async Task InstallFixtureAsync()
+    {
+        _packageVariable = "PLAYBOOK_TEST_RELEASE_FIXTURE";
+        await InstallPackageAsync().ConfigureAwait(false);
+    }
 
     [Given("the actual package is installed from an isolated local feed and cache")]
     public async Task InstallPackageAsync()
     {
-        string package = Environment.GetEnvironmentVariable("PLAYBOOK_TEST_PACKAGE")
+        string package = Environment.GetEnvironmentVariable(_packageVariable)
             ?? throw new InvalidOperationException("Run eng/Verify.ps1 to pack and provide PLAYBOOK_TEST_PACKAGE.");
         Assert.True(File.Exists(package), package);
         Directory.CreateDirectory(_directory);
@@ -91,12 +99,12 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("discovery and detail preserve complete structured and text results")]
     public async Task CheckContentAsync()
     {
-        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { }).ConfigureAwait(false));
+        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0" }).ConfigureAwait(false));
         Assert.Equal("10.0", list.GetProperty("resolvedTarget").GetString());
-        Assert.True(list.GetProperty("targetAssumed").GetBoolean());
+        Assert.False(list.GetProperty("targetAssumed").GetBoolean());
         JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
         Assert.False(summary.TryGetProperty("markdown", out _));
-        JsonElement route = Assert.Single(summary.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        JsonElement route = summary.GetProperty("applicability").GetProperty("routes")[0];
         Assert.Equal("C# 14", route.GetProperty("language").GetString());
         Assert.Equal("10.0", route.GetProperty("target").GetString());
         string id = summary.GetProperty("id").GetString()!;
@@ -113,12 +121,12 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("field = normalized;", markdown, StringComparison.Ordinal);
         Assert.Contains("_code = normalized;", markdown, StringComparison.Ordinal);
         Assert.Contains("does **not** run the setter", markdown, StringComparison.Ordinal);
-        Assert.NotEmpty(route.GetProperty("constraints").EnumerateArray());
-        Assert.NotEmpty(route.GetProperty("prerequisites").EnumerateArray());
+        Assert.NotEmpty(recipe.GetProperty("applicability").GetProperty("routes")[0].GetProperty("constraints").EnumerateArray());
+        Assert.NotEmpty(recipe.GetProperty("applicability").GetProperty("routes")[0].GetProperty("prerequisites").EnumerateArray());
         Assert.NotEmpty(route.GetProperty("sourceUrls").EnumerateArray());
         Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
         Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
-        Assert.Equal(["net9.0", "net10.0"], recipe.GetProperty("evidence").EnumerateArray().Select(evidence => evidence.GetProperty("target").GetString()));
+        Assert.Equal(["net9.0", "net10.0", "net10.0"], recipe.GetProperty("evidence").EnumerateArray().Select(evidence => evidence.GetProperty("target").GetString()));
     }
 
     [Then("the served examples match the canonical compiled sample sources")]
@@ -141,8 +149,106 @@ public sealed class InstalledToolSteps : IDisposable
     public async Task RejectTargetAsync()
     {
         JsonElement result = await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "9.0" }).ConfigureAwait(false);
+        AssertToolError(result, "unsupported_target");
+    }
+
+    [Then("release aliases select compatible retained editions with complete requirements")]
+    public async Task CheckReleasesAsync()
+    {
+        foreach (string release in new[] { "10", "10.0", "net10.0", "11", "11.0", "net11.0" })
+        {
+            string target = release.Contains("10", StringComparison.Ordinal) ? "10.0" : "11.0";
+            JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = release }).ConfigureAwait(false));
+            Assert.Equal(target, list.GetProperty("resolvedTarget").GetString());
+            Assert.False(list.GetProperty("targetAssumed").GetBoolean());
+            Assert.Contains("csharp", list.GetProperty("supportedAreas").EnumerateArray().Select(item => item.GetString()));
+            Assert.Contains("csharp", list.GetProperty("supportedExampleLanguages").EnumerateArray().Select(item => item.GetString()));
+            JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = release }).ConfigureAwait(false));
+            JsonElement recipe = detail.GetProperty("recipe");
+            Assert.Equal(target, recipe.GetProperty("edition").GetString());
+            Assert.Equal("10.0", recipe.GetProperty("introducedIn").GetString());
+            JsonElement routes = recipe.GetProperty("applicability").GetProperty("routes");
+            Assert.All(routes.EnumerateArray(), route => Assert.Equal(target, route.GetProperty("target").GetString()));
+            JsonElement route = routes[0];
+            foreach (string field in new[] { "runtime", "sdk", "language", "frameworks", "packages", "packageAssets", "providers", "platforms", "renderingModes", "prerequisites", "constraints", "sourceUrls", "evidenceSamples", "optIns", "stabilityLimitations" })
+            {
+                Assert.True(route.TryGetProperty(field, out _), field);
+            }
+
+            Assert.True(JsonElement.DeepEquals(routes, list.GetProperty("recipes")[0].GetProperty("applicability").GetProperty("routes")));
+            if (target == "10.0")
+            {
+                JsonElement conditional = Assert.Single(routes.EnumerateArray(), item => item.GetProperty("conditional").GetBoolean());
+                Assert.Contains("11.0.100-rc.2.26504.105", conditional.GetProperty("sdk").GetString(), StringComparison.Ordinal);
+                Assert.Contains("C# 14", conditional.GetProperty("language").GetString(), StringComparison.Ordinal);
+                Assert.Contains(".NET 11 SDK", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            }
+        }
+    }
+
+    [Then("omitted targets disclose the newest installed release and coverage limits")]
+    public async Task CheckDefaultsAsync()
+    {
+        foreach (string tool in new[] { "list_recipes", "get_recipe" })
+        {
+            JsonElement result = AssertMatchingRepresentations(await CallAsync(tool, new { id = "csharp.validate-property-assignment" }).ConfigureAwait(false));
+            Assert.Equal("11.0", result.GetProperty("resolvedTarget").GetString());
+            Assert.True(result.GetProperty("targetAssumed").GetBoolean());
+            Assert.Equal(["10.0", "11.0"], result.GetProperty("supportedTargets").EnumerateArray().Select(item => item.GetString()));
+            JsonElement[] coverage = [.. result.GetProperty("coverage").EnumerateArray()];
+            Assert.Equal(["curated", "comprehensive"], coverage.Select(item => item.GetProperty("scope").GetString()));
+            Assert.All(coverage, item => Assert.False(item.GetProperty("complete").GetBoolean()));
+        }
+    }
+
+    [Then("invalid requests return actionable machine-readable tool failures")]
+    public async Task CheckFailuresAsync()
+    {
+        foreach (string tool in new[] { "list_recipes", "get_recipe" })
+        {
+            foreach (string target in new[] { "9.0", "12.0", "10.0.1", "11.0.0-rc.2", "net10.0-windows", "", " " })
+            {
+                JsonElement error = AssertToolError(await CallAsync(tool, new { id = "csharp.validate-property-assignment", targetVersion = target }).ConfigureAwait(false), "unsupported_target");
+                Assert.Equal(target, error.GetProperty("requestedTarget").GetString());
+                Assert.Equal(["10.0", "11.0"], error.GetProperty("supportedTargets").EnumerateArray().Select(item => item.GetString()));
+                Assert.Contains("platform", error.GetProperty("message").GetString(), StringComparison.Ordinal);
+            }
+        }
+
+        JsonElement unknown = AssertToolError(await CallAsync("get_recipe", new { id = "missing.goal", targetVersion = "10" }).ConfigureAwait(false), "unknown_recipe");
+        Assert.Equal("missing.goal", unknown.GetProperty("recipeId").GetString());
+    }
+
+    private static JsonElement AssertToolError(JsonElement result, string code)
+    {
         Assert.True(result.GetProperty("isError").GetBoolean());
-        Assert.Contains("Declared targets: 10.0", result.GetProperty("content")[0].GetProperty("text").GetString(), StringComparison.Ordinal);
+        using JsonDocument document = JsonDocument.Parse(Assert.Single(result.GetProperty("content").EnumerateArray()).GetProperty("text").GetString()!);
+        JsonElement error = document.RootElement;
+        Assert.Equal(code, error.GetProperty("code").GetString());
+        Assert.False(string.IsNullOrWhiteSpace(error.GetProperty("message").GetString()));
+        Assert.False(result.TryGetProperty("structuredContent", out _));
+        return error.Clone();
+    }
+
+    [Then("a known incompatible recipe fails and a conditional older-target route stays explicit")]
+    public async Task CheckConditionalFixtureAsync()
+    {
+        JsonElement error = AssertToolError(await CallAsync("get_recipe", new { id = "fixture.only-eleven", targetVersion = "net10.0" }).ConfigureAwait(false), "no_applicable_edition");
+        Assert.Equal("net10.0", error.GetProperty("requestedTarget").GetString());
+        Assert.Equal(["11.0"], error.GetProperty("availableEditions").EnumerateArray().Select(item => item.GetString()));
+        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10" }).ConfigureAwait(false));
+        Assert.DoesNotContain(list.GetProperty("recipes").EnumerateArray(), recipe => recipe.GetProperty("id").GetString() == "fixture.only-eleven");
+        JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "fixture.conditional-route", targetVersion = "10" }).ConfigureAwait(false));
+        JsonElement recipe = detail.GetProperty("recipe");
+        Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+        Assert.Equal("10.0", detail.GetProperty("resolvedTarget").GetString());
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        Assert.True(route.GetProperty("conditional").GetBoolean());
+        Assert.Contains("11.0.100-rc.2.26504.105", route.GetProperty("sdk").GetString(), StringComparison.Ordinal);
+        Assert.NotEmpty(route.GetProperty("sourceUrls").EnumerateArray());
+        Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
+        JsonElement newest = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "11" }).ConfigureAwait(false));
+        Assert.Equal("11.0", newest.GetProperty("recipe").GetProperty("edition").GetString());
     }
 
     [When("the client closes its input")]

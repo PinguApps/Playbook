@@ -13,6 +13,7 @@
     <PackageReference Include="ModelContextProtocol" />
     <None Include="../../README.md" Pack="true" PackagePath="/" />
     <EmbeddedResource Include="$(IntermediateOutputPath)Generated/catalogue.json" LogicalName="Playbook.Catalogue" />
+    <EmbeddedResource Include="../../content/coverage.json" LogicalName="Playbook.Coverage" />
   </ItemGroup>
   <Target Name="GenerateRecipeContent" BeforeTargets="PrepareForBuild">
     <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot;" />

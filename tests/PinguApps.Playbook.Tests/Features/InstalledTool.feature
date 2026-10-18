@@ -11,9 +11,25 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
+  Scenario: Conditional routes and known recipes without a compatible edition remain explicit
+    Given the release contract fixture package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then a known incompatible recipe fails and a conditional older-target route stays explicit
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Explicit targets never retrieve an incompatible property edition
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then an explicit undeclared target fails instead of returning newer guidance
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Release aliases retain editions and disclose assumptions and coverage
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then release aliases select compatible retained editions with complete requirements
+    And omitted targets disclose the newest installed release and coverage limits
+    And invalid requests return actionable machine-readable tool failures
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

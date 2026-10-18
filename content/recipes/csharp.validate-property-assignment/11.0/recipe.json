@@ -1,0 +1,114 @@
+{
+  "id": "csharp.validate-property-assignment",
+  "edition": "11.0",
+  "title": "Normalize and validate properties with the C# field keyword",
+  "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "property",
+    "validation",
+    "normalization"
+  ],
+  "apis": [
+    "field"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "runtime": ".NET 11 (11.0.0-rc.2.26504.105 execution evidence; GA reconciliation pending)",
+        "sdk": "11.0.100-rc.2.26504.105",
+        "language": "C# 14",
+        "frameworks": [],
+        "packages": [],
+        "platforms": [
+          "Any platform supported by .NET 11"
+        ],
+        "renderingModes": [],
+        "prerequisites": [
+          "Target net11.0 with the .NET 11 SDK. This example deliberately pins C# 14; the field keyword was introduced with .NET 10 and needs no preview language mode or extra packages."
+        ],
+        "constraints": [
+          "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
+          "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
+          "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
+          "This example has no synchronization; concurrent mutation needs a separate design."
+        ],
+        "target": "11.0",
+        "conditional": false,
+        "packageAssets": [],
+        "providers": [],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/PropertyAssignment/PropertyAssignment.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft C# field keyword reference",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field"
+    },
+    {
+      "title": "C# 14 field-backed properties specification",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword"
+    },
+    {
+      "title": "Microsoft SDK backwards targeting support",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net9.0/PropertyAssignment/PropertyAssignment.csproj",
+      "target": "net9.0",
+      "sdk": "9.0.319",
+      "language": "13.0",
+      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
+      "scope": "Original comparison; checks constructor validation, normalization, null/blank/length rejection and retained value. Refreshed by eng/Verify.ps1."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/PropertyAssignment/PropertyAssignment.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "14.0",
+      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
+      "scope": "Actual .NET 11 RC target compilation and execution of the original property sample. The same checks cover .NET 9/10. Not GA verification. Refreshed by eng/Verify.ps1."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
+      "scope": "Original field-backed implementation; executes the same checks as the .NET 9 sample. Refreshed by eng/Verify.ps1."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net9.0/PropertyAssignment/StorageBay.cs",
+      "region": "storage-bay",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net10.0/PropertyAssignment/StorageBay.cs",
+      "region": "storage-bay",
+      "language": "csharp"
+    }
+  }
+}
