@@ -16,5 +16,6 @@ internal sealed record RecipeEdition
     public required Applicability Applicability { get; init; }
     public required IReadOnlyList<SourceReference> Sources { get; init; }
     public required IReadOnlyList<VerificationEvidence> Evidence { get; init; }
+    public required HumanProof HumanProof { get; init; }
     public required string Markdown { get; init; }
 }

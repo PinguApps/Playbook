@@ -3,13 +3,15 @@ param(
   [Parameter(Mandatory)][string]$OutputPath,
   [string]$RepositoryRoot = (Split-Path $PSScriptRoot -Parent),
   [string]$RecipeRoot = (Join-Path $RepositoryRoot 'content/recipes'),
-  [string]$VerifyAgainst
+  [string]$VerifyAgainst,
+  [switch]$ReleaseReady
 )
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 $root = [IO.Path]::GetFullPath($RepositoryRoot)
 $schema = Join-Path $PSScriptRoot 'recipe.schema.json'
+. (Join-Path $PSScriptRoot 'Evidence.ps1')
 
 function Resolve-Source([string]$RelativePath) {
   $path = [IO.Path]::GetFullPath((Join-Path $root $RelativePath))
@@ -26,6 +28,9 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   $json = Get-Content -LiteralPath $file.FullName -Raw
   if (-not (Test-Json -Json $json -SchemaFile $schema -ErrorAction SilentlyContinue)) { throw "Invalid recipe metadata: $($file.FullName)" }
   $recipe = ConvertFrom-Json $json -AsHashtable
+  if ($ReleaseReady -and $recipe.humanProof.status -ceq 'pending') {
+    throw "Pending Human proof blocks release readiness: $($recipe.id)/$($recipe.edition): $($recipe.humanProof.scope)"
+  }
   if ($file.Directory.Name -cne $recipe.edition -or $file.Directory.Parent.Name -cne $recipe.id) {
     throw "Recipe path must match its stable ID and edition: $($file.FullName)"
   }
@@ -44,7 +49,7 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
       if ($url -cnotin $recipe.sources.url) { throw 'Route source must reference a declared official source.' }
     }
     foreach ($sample in $route.evidenceSamples) {
-      if (-not ($recipe.evidence | Where-Object { $_.sample -ceq $sample -and $_.target -ceq "net$($route.target)" })) {
+      if (-not ($recipe.evidence | Where-Object { $_.sample -ceq $sample -and $_.target -cmatch "^net$([regex]::Escape($route.target))(-|$)" })) {
         throw 'Route evidence must reference a sample for the exact target.'
       }
     }
@@ -61,6 +66,7 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     if (-not $uri.IsAbsoluteUri -or $uri.Scheme -ne 'https') { throw "Source must be an absolute HTTPS URL: $($source.url)" }
     if (-not $sourceUrls.Add($source.url)) { throw "Duplicate source URL: $($source.url)" }
   }
+  $verified = [Collections.Generic.List[object]]::new()
   foreach ($evidence in $recipe.evidence) {
     $projectPath = Resolve-Source $evidence.sample
     [xml]$project = Get-Content -LiteralPath $projectPath -Raw
@@ -68,7 +74,14 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     if ($project.Project.PropertyGroup.TargetFramework -cne $evidence.target -or
         $project.Project.PropertyGroup.LangVersion -cne $evidence.language -or
         $pin.sdk.version -cne $evidence.sdk) { throw "Evidence baseline disagrees with sample: $($evidence.sample)" }
+    $verified.Add((Read-VerificationEvidence $root $evidence))
   }
+  foreach ($sample in ($recipe.evidence.sample | Select-Object -Unique)) {
+    if (-not ($verified | Where-Object { $_.sample -ceq $sample -and $_.kind -in @('compile', 'cross-compile', 'compile-and-run') })) {
+      throw "Missing compilation evidence: $sample. Source review, mocks and execution alone cannot satisfy compilation."
+    }
+  }
+  $recipe.evidence = $verified.ToArray()
   $markdown = Get-Content -LiteralPath (Join-Path $file.Directory.FullName 'recipe.md') -Raw
   if ($markdown -match '(?m)^\s*(`{3,}|~{3,})') { throw 'Canonical snippet references are required instead of copied fenced implementations.' }
   foreach ($section in @('Goal', 'Older approach', 'Newer approach', 'Migration', 'Constraints', 'Evidence')) {

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["additionalInputs", "buildArguments", "dependencies", "workloads", "nativeToolchains"],
+  "properties": {
+    "additionalInputs": { "$ref": "#/definitions/strings" },
+    "buildArguments": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^-p:[^=]+=.+$" } },
+    "dependencies": { "$ref": "#/definitions/versions" },
+    "workloads": { "$ref": "#/definitions/versions" },
+    "nativeToolchains": { "$ref": "#/definitions/versions" }
+  },
+  "definitions": {
+    "strings": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+    "versions": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^.+/.+$" } }
+  }
+}

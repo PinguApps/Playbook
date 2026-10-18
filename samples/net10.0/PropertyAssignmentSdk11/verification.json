@@ -1,0 +1,12 @@
+{
+  "additionalInputs": [
+    "samples/PropertyAssignmentChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/net10.0/PropertyAssignment/StorageBay.cs"
+  ],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "buildArguments": []
+}

@@ -127,6 +127,21 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
         Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
         Assert.Equal(["net9.0", "net10.0", "net10.0"], recipe.GetProperty("evidence").EnumerateArray().Select(evidence => evidence.GetProperty("target").GetString()));
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        foreach (JsonElement evidence in recipe.GetProperty("evidence").EnumerateArray())
+        {
+            Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+            Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+            Assert.Equal(40, evidence.GetProperty("sourceCommit").GetString()!.Length);
+            Assert.NotEmpty(evidence.GetProperty("recordedAt").GetString()!);
+            Assert.Contains("build PropertyAssignment.csproj --configuration Release", evidence.GetProperty("command").GetString(), StringComparison.Ordinal);
+            Assert.Contains("PASS: constructor", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            Assert.Contains("Runtime: .NET", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            Assert.Equal(64, evidence.GetProperty("inputs").GetProperty("samples/PropertyAssignmentChecks.cs").GetString()!.Length);
+            Assert.Empty(evidence.GetProperty("dependencies").EnumerateArray());
+            Assert.Empty(evidence.GetProperty("workloads").EnumerateArray());
+            Assert.Empty(evidence.GetProperty("nativeToolchains").EnumerateArray());
+        }
     }
 
     [Then("the served examples match the canonical compiled sample sources")]
@@ -241,6 +256,7 @@ public sealed class InstalledToolSteps : IDisposable
         JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "fixture.conditional-route", targetVersion = "10" }).ConfigureAwait(false));
         JsonElement recipe = detail.GetProperty("recipe");
         Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+        Assert.Equal("pending", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         Assert.Equal("10.0", detail.GetProperty("resolvedTarget").GetString());
         JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
         Assert.True(route.GetProperty("conditional").GetBoolean());

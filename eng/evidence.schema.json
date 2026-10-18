@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "sample", "target", "sdk", "language", "command", "scope", "recordedAt", "sourceCommit", "sourceDirty", "inputs", "dependencies", "workloads", "nativeToolchains", "host", "sdkInfo", "workloadInfo", "output"],
+  "properties": {
+    "kind": { "enum": ["official-review", "compile", "cross-compile", "mock", "execution", "compile-and-run"] },
+    "sample": { "$ref": "#/definitions/text" },
+    "target": { "$ref": "#/definitions/text" },
+    "sdk": { "$ref": "#/definitions/text" },
+    "language": { "$ref": "#/definitions/text" },
+    "command": { "$ref": "#/definitions/text" },
+    "scope": { "$ref": "#/definitions/text" },
+    "recordedAt": { "type": "string", "format": "date-time" },
+    "sourceCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "sourceDirty": { "type": "boolean" },
+    "inputs": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" } },
+    "dependencies": { "$ref": "#/definitions/versions" },
+    "workloads": { "$ref": "#/definitions/versions" },
+    "nativeToolchains": { "$ref": "#/definitions/versions" },
+    "host": { "$ref": "#/definitions/text" },
+    "sdkInfo": { "$ref": "#/definitions/text" },
+    "workloadInfo": { "$ref": "#/definitions/text" },
+    "output": { "$ref": "#/definitions/text" }
+  },
+  "definitions": {
+    "text": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "versions": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^.+/.+$" } }
+  }
+}
