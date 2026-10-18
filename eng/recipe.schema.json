@@ -70,25 +70,44 @@
   "definitions": {
     "route": {
       "type": "object", "additionalProperties": false,
-      "required": ["target", "conditional", "runtime", "sdk", "language", "frameworks", "packages", "packageAssets", "providers", "platforms", "renderingModes", "prerequisites", "constraints", "sourceUrls", "evidenceSamples"],
+      "required": ["target", "conditional", "usage", "requirements", "sourceUrls", "evidenceSamples"],
       "properties": {
         "target": { "$ref": "#/definitions/release" },
         "sharedAreas": { "$ref": "#/definitions/strings" },
         "neutralLanguages": { "$ref": "#/definitions/strings" },
         "conditional": { "type": "boolean" },
-        "runtime": { "$ref": "#/definitions/text" },
-        "sdk": { "$ref": "#/definitions/text" },
-        "language": { "$ref": "#/definitions/text" },
+        "usage": { "enum": ["primary", "optional-alternative"] },
+        "requirements": { "$ref": "#/definitions/requirements" },
+        "sourceUrls": { "$ref": "#/definitions/nonemptyStrings" },
+        "evidenceSamples": { "$ref": "#/definitions/nonemptyStrings" }
+      }
+    },
+    "versionRequirement": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "version", "match", "reason"],
+      "properties": {
+        "name": { "$ref": "#/definitions/text" },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)*(-[0-9A-Za-z.-]+)?$" },
+        "match": { "enum": ["exact", "release-family"] },
+        "reason": { "$ref": "#/definitions/text" }
+      }
+    },
+    "requirements": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runtime", "sdk", "language", "frameworks", "packages", "workloads", "packageAssets", "providers", "platforms", "renderingModes", "prerequisites", "constraints"],
+      "properties": {
+        "runtime": { "$ref": "#/definitions/versionRequirement" },
+        "sdk": { "$ref": "#/definitions/versionRequirement" },
+        "language": { "$ref": "#/definitions/versionRequirement" },
         "frameworks": { "$ref": "#/definitions/strings" },
-        "packages": { "$ref": "#/definitions/strings" },
+        "packages": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/versionRequirement" } },
+        "workloads": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/versionRequirement" } },
         "packageAssets": { "$ref": "#/definitions/strings" },
         "providers": { "$ref": "#/definitions/strings" },
         "platforms": { "$ref": "#/definitions/nonemptyStrings" },
         "renderingModes": { "$ref": "#/definitions/strings" },
         "prerequisites": { "$ref": "#/definitions/nonemptyStrings" },
         "constraints": { "$ref": "#/definitions/nonemptyStrings" },
-        "sourceUrls": { "$ref": "#/definitions/nonemptyStrings" },
-        "evidenceSamples": { "$ref": "#/definitions/nonemptyStrings" },
         "optIns": { "$ref": "#/definitions/strings" },
         "stabilityLimitations": { "$ref": "#/definitions/strings" }
       }

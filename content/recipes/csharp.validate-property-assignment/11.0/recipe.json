@@ -25,34 +25,59 @@
   "applicability": {
     "routes": [
       {
-        "runtime": ".NET 11 (11.0.0-rc.2.26504.105 execution evidence; GA reconciliation pending)",
-        "sdk": "11.0.100-rc.2.26504.105",
-        "language": "C# 14",
-        "frameworks": [],
-        "packages": [],
-        "platforms": [
-          "Any platform supported by .NET 11"
-        ],
-        "renderingModes": [],
-        "prerequisites": [
-          "Target net11.0 with the .NET 11 SDK. This example deliberately pins C# 14; the field keyword was introduced with .NET 10 and needs no preview language mode or extra packages."
-        ],
-        "constraints": [
-          "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
-          "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
-          "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
-          "This example has no synchronization; concurrent mutation needs a separate design."
-        ],
         "target": "11.0",
         "conditional": false,
-        "packageAssets": [],
-        "providers": [],
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field"
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword",
+          "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
         ],
         "evidenceSamples": [
           "samples/net11.0/PropertyAssignment/PropertyAssignment.csproj"
-        ]
+        ],
+        "usage": "primary",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the selected application target and its supported runtime servicing releases."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use this SDK release family with targeting support for the declared application target and C# 14."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "This route uses C# 14 language mode, where field was introduced; newer language modes are outside this route."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Target net11.0 with the .NET 11 SDK and C# 14 language mode. No preview language mode, additional packages or workloads are required."
+          ],
+          "constraints": [
+            "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
+            "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
+            "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
+            "This example has no synchronization; concurrent mutation needs a separate design."
+          ],
+          "workloads": [],
+          "stabilityLimitations": [
+            "Only .NET 11 RC artifacts were executed; GA reconciliation is pending. Stable C# 14 syntax does not establish .NET 11 GA verification."
+          ]
+        }
       }
     ]
   },
@@ -68,6 +93,10 @@
     {
       "title": "Microsoft SDK backwards targeting support",
       "url": "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs"
+    },
+    {
+      "title": "Microsoft C# language and target framework compatibility",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
     }
   ],
   "evidence": [

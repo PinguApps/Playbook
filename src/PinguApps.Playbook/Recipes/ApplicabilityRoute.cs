@@ -6,19 +6,8 @@ internal sealed record ApplicabilityRoute
     public IReadOnlyList<string> SharedAreas { get; init; } = [];
     public IReadOnlyList<string> NeutralLanguages { get; init; } = [];
     public required bool Conditional { get; init; }
-    public required string Runtime { get; init; }
-    public required string Sdk { get; init; }
-    public required string Language { get; init; }
-    public required IReadOnlyList<string> Frameworks { get; init; }
-    public required IReadOnlyList<string> Packages { get; init; }
-    public required IReadOnlyList<string> PackageAssets { get; init; }
-    public required IReadOnlyList<string> Providers { get; init; }
-    public required IReadOnlyList<string> Platforms { get; init; }
-    public required IReadOnlyList<string> RenderingModes { get; init; }
-    public required IReadOnlyList<string> Prerequisites { get; init; }
-    public required IReadOnlyList<string> Constraints { get; init; }
+    public required string Usage { get; init; }
+    public required RecipeRequirements Requirements { get; init; }
     public required IReadOnlyList<string> SourceUrls { get; init; }
     public required IReadOnlyList<string> EvidenceSamples { get; init; }
-    public required IReadOnlyList<string> OptIns { get; init; }
-    public required IReadOnlyList<string> StabilityLimitations { get; init; }
 }

@@ -35,10 +35,14 @@ The getter and setter retain the same external contract as the explicit-field ve
 
 ## Conditional .NET 11 SDK route for .NET 10
 
-A newer SDK can build an older target. The optional .NET 11 SDK route keeps `TargetFramework=net10.0` and `LangVersion=14.0`, using SDK `11.0.100-rc.2.26504.105` with the .NET 10 targeting pack/runtime. It compiles the same canonical source and runs the same checks. Select this route only when those requirements are available; Playbook has not inspected them. The .NET 10 SDK route remains valid. This does not claim supported C# 15 syntax on .NET 10, or GA verification from an RC build.
+A newer SDK can build an older target. This **optional alternative** uses the .NET 11 SDK family while keeping `TargetFramework=net10.0`, `LangVersion=14.0` and the .NET 10 targeting pack/runtime. The primary .NET 10 SDK route above needs no .NET 11 installation. Playbook has not inspected the caller's environment. This route does not claim supported C# 15 syntax on .NET 10.
+
+The exact tested SDK was `11.0.100-rc.2.26504.105`; that is a reproducibility baseline, not a mandatory installation pin or an inferred minimum version. It compiled the same canonical source and ran the same checks on .NET 10. This is RC evidence, not GA verification.
 
 ## Evidence and alternatives
 
 Both original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to refresh this evidence. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.
+
+Application requirements are under each route's `requirements`. Exact SDK, language, runtime output, dependencies and workload baselines are retained in `evidence`, linked by `evidenceSamples`; they do not require upgrading the application to those exact test versions. The normal .NET 10 route was tested with SDK `10.0.402` and C# `14.0`. No unlisted target release or future SDK compatibility is implied.
 
 Keep the explicit backing field when storage must be accessed outside the property. Prefer an immutable value type when a normalized code needs stronger identity or cannot change after creation. Official references and exact sample baselines are included in this response's metadata; no external page is required to use the example.

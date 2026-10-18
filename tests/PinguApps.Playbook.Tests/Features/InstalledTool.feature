@@ -1,6 +1,13 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  Scenario: Application requirements are distinct from reproducible verification baselines
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then property requirements keep normal and optional routes separate from exact test baselines
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Install and retrieve complete property guidance over client-owned stdio
     Given the actual package is installed from an isolated local feed and cache
     Then bare invocation help and version identify the installed command

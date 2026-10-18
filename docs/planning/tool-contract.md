@@ -47,6 +47,18 @@ Introduction release is separate from target prerequisites. Include a .NET 11-er
 
 ## Complete response objects
 
+### Requirements and verification baselines
+
+Each applicability route has a `usage` (`primary` or `optional-alternative`) and a `requirements` object. Alternatives are separate choices, not cumulative prerequisites. `conditional` retains its release-routing meaning independently of usage. Put the normal route first. The route's `target` is the selected application release; `introducedIn` identifies when the capability arrived.
+
+Runtime, SDK and language requirements have `name`, `version`, `match` and `reason`. Packages and workloads use arrays of the same objects. `match: release-family` means the named major.minor family and its supported servicing/artifact versions, including RC artifacts where explicitly disclosed. It is neither a minimum nor permission to use later families. `match: exact` means that specific version or language mode is necessary for the declared route. A reason and declared official route sources must justify the condition independently of a successful build. Do not turn a test pin into an exact requirement or infer an open-ended minimum. This contract does not resolve versions or inspect a consumer.
+
+Frameworks, package assets, providers, platforms, rendering modes, prerequisites, constraints, experimental opt-ins and stability limitations remain explicit inside `requirements`. The property recipe uses .NET 10 runtime/SDK family requirements and C# 14 mode; the newer SDK route is an optional alternative retaining the older target. Exact SDK pins are not part of these family requirements. .NET 11 routes disclose RC-only execution and pending GA reconciliation independently of stable C# syntax.
+
+`evidenceSamples` links routes to the existing complete `evidence` records in detail, labelled `role: verification-baseline`. Those records retain exact target/SDK/language, measured runtime output, dependencies/workloads/native versions, commands, input hashes, source identity and freshness. Discovery carries requirements and evidence links, not duplicate evidence records. A baseline reports what ran; it does not establish minimum versions or broaden supported targets. No freshness or evidence-identity rules are relaxed. Structured content, its generated output schema and the complete JSON-text fallback expose the same distinction.
+
+Generation rejects legacy prose requirements, malformed family pins, missing justification and SDK/language requirements contradicting linked baselines. Source review still establishes support: structural checks cannot prove prose, package assets or provider/platform claims. Replacing flat applicability fields with `requirements` is an incompatible (`major`) contract change under the accepted SemVer policy. Development packages remain unpublished candidates.
+
 Use one complete object for each response. A detailed recipe object contains identity, the resolved target, full applicability/prerequisites, API stability, evidence/verification, source references, and the full Markdown body. Narrative sections retain goal, older approach, newer approach, migration, constraints, and alternatives where needed.
 
 Use standard MCP structured content with an output schema, plus the same complete object serialized as a JSON text fallback. Do not put only metadata in structured content while leaving the recipe body exclusively in another representation. The typed C# SDK result pattern supports this without a custom output protocol. [MCP structured content](https://modelcontextprotocol.io/specification/2026-07-28/server/tools#structured-content), [C# SDK guidance](https://csharp.sdk.modelcontextprotocol.io/v2/concepts/tools/tools.html#structured-content).

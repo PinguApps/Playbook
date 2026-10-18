@@ -35,10 +35,12 @@ The getter and setter retain the same external contract as the explicit-field ve
 
 ## Retained .NET 10 guidance
 
-Request target `10.0` to retrieve the retained .NET 10 edition with its own requirements. A newer SDK can build an older target. The optional .NET 11 SDK route keeps `TargetFramework=net10.0` and `LangVersion=14.0`, using SDK `11.0.100-rc.2.26504.105` with the .NET 10 targeting pack/runtime. It compiles the same canonical source and runs the same checks. Select this route only when those requirements are available; Playbook has not inspected them. The .NET 10 SDK route remains valid. This does not claim supported C# 15 syntax on .NET 10, or GA verification from an RC build.
+The capability was introduced in .NET 10 / C# 14; this selected .NET 11 application target does not change its introduction release. Request target `10.0` for the primary .NET 10 SDK / C# 14 route, which needs no .NET 11 installation. That edition also describes an optional .NET 11 SDK alternative retaining the .NET 10 target and C# 14. Playbook has not inspected the caller's environment.
 
 ## Evidence and alternatives
 
 Both original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to refresh this evidence. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.
+
+Application requirements are under each route's `requirements`. The exact tested SDK `11.0.100-rc.2.26504.105`, C# `14.0`, runtime output, dependencies and workloads remain in the linked `evidence` records. These are reproducibility baselines, not mandatory exact installation pins or inferred minima. Execution used .NET 11 RC artifacts: this is not GA verification. GA reconciliation is pending; no unlisted target or future SDK compatibility is implied.
 
 Keep the explicit backing field when storage must be accessed outside the property. Prefer an immutable value type when a normalized code needs stronger identity or cannot change after creation. Official references and exact sample baselines are included in this response's metadata; no external page is required to use the example.
