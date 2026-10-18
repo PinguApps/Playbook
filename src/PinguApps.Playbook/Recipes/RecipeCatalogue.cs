@@ -23,7 +23,7 @@ internal sealed class RecipeCatalogue
             ?? throw new InvalidOperationException("Embedded coverage disclosure is empty.");
     }
 
-    public RecipeList List(string? targetVersion, string[]? areas, string[]? languages, string? query, bool includeShared, int offset, int limit)
+    public RecipeList List(string targetVersion, string[]? areas, string[]? languages, string? query, bool includeShared, int offset, int limit)
     {
         string target = ResolveTarget(targetVersion);
         string[] supportedAreas = [.. _editions.SelectMany(edition => edition.Areas.Concat(edition.Applicability.Routes.SelectMany(route => route.SharedAreas)))
@@ -77,7 +77,8 @@ internal sealed class RecipeCatalogue
         return new RecipeList
         {
             ResolvedTarget = target,
-            TargetAssumed = targetVersion is null,
+            RequestedTarget = targetVersion,
+            TargetAssumed = false,
             SupportedTargets = _targets,
             SupportedAreas = supportedAreas,
             SupportedExampleLanguages = supportedLanguages,
@@ -108,7 +109,7 @@ internal sealed class RecipeCatalogue
         }
     }
 
-    public RecipeDetail Get(string id, string? targetVersion)
+    public RecipeDetail Get(string id, string targetVersion)
     {
         string target = ResolveTarget(targetVersion);
         RecipeEdition[] available = [.. _editions.Where(candidate => candidate.Id == id)];
@@ -126,7 +127,8 @@ internal sealed class RecipeCatalogue
         return new RecipeDetail
         {
             ResolvedTarget = target,
-            TargetAssumed = targetVersion is null,
+            RequestedTarget = targetVersion,
+            TargetAssumed = false,
             SupportedTargets = _targets,
             Coverage = _coverage,
             Recipe = edition with { Applicability = ForTarget(edition.Applicability, target) },
@@ -135,9 +137,16 @@ internal sealed class RecipeCatalogue
 
     private string ResolveTarget(string? targetVersion)
     {
+        if (string.IsNullOrWhiteSpace(targetVersion))
+        {
+            throw Failure("required_target",
+                "targetVersion is required on every list_recipes and get_recipe call. Choose a supported target release or explicitly use latest for the newest installed catalogue release; inspect consumer prerequisites separately.",
+                targetVersion, null, []);
+        }
+
         string target = targetVersion switch
         {
-            null => _targets[^1],
+            "latest" => _targets[^1],
             "10" or "10.0" or "net10.0" => "10.0",
             "11" or "11.0" or "net11.0" => "11.0",
             _ => targetVersion,
@@ -145,7 +154,7 @@ internal sealed class RecipeCatalogue
         return _targets.Contains(target, StringComparer.Ordinal)
             ? target
             : throw Failure("unsupported_target",
-                $"Unsupported target '{targetVersion}'. Choose an installed release ({string.Join(", ", _targets)}), using 10/10.0/net10.0 or 11/11.0/net11.0. Patch, RC and platform-qualified strings are not accepted: choose the release and inspect recipe platform prerequisites separately. .NET 9 is comparison-only.",
+                $"Unsupported target '{targetVersion}'. Choose an installed release ({string.Join(", ", _targets)}), using 10/10.0/net10.0 or 11/11.0/net11.0, or explicitly choose latest. A target release is not an exact SDK version. Patch, RC and platform-qualified strings are not accepted: choose the release and inspect recipe platform prerequisites separately. .NET 9 is comparison-only.",
                 targetVersion, null, []);
     }
 

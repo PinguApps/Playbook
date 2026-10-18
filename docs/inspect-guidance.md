@@ -7,7 +7,7 @@ Requires PowerShell 7, the pinned .NET SDK 10.0.402, and Node 22.19 or later for
 From this worktree:
 
 ```powershell
-Set-Location V:\_worktrees\Playbook\t3-c6631afe
+Set-Location V:\_worktrees\Playbook\t3-85f8d35e
 dotnet build ./src/PinguApps.Playbook -c Release
 $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
 $inspector = @('--yes', '@modelcontextprotocol/inspector@2.11.0', '--cli', '--format', 'json', '--quiet')
@@ -33,7 +33,7 @@ Expect one recipe, `csharp.validate-property-assignment`, titled **Normalize and
 
 Its Markdown includes both original implementations, migration steps, recursion/initialization constraints and evidence. Applicability has explicit `routes`: the .NET 10 / C# 14 baseline, plus an optional .NET 11 SDK route retaining `net10.0` and C# 14. Each route carries runtime, SDK, language, framework, package/asset, provider, platform, rendering, prerequisite and constraint fields, with source/evidence references. These are requirements to check, not claims that Playbook inspected the consumer. `$response` retains the complete structured result and matching JSON text fallback; omit `Show-Markdown` to inspect raw Markdown.
 
-Inspector initializes and closes each connection automatically. There is no separate target-setting command. Accepted aliases are `10` / `10.0` / `net10.0` and `11` / `11.0` / `net11.0`. The inner double quotes in `'targetVersion="10.0"'` preserve a JSON string rather than Inspector converting `10.0` to a number. Use the stable recipe ID instead of a numeric ID.
+Inspector initializes and closes each connection automatically. Both tools require `targetVersion` on every call, independently of earlier calls. Inspect the application's `TargetFramework`/`TargetFrameworks`, project and `global.json` context first; an SDK build is not the target release. Accepted aliases are `10` / `10.0` / `net10.0` and `11` / `11.0` / `net11.0`, plus deliberate `latest` for exploratory/theoretical guidance or an unknown target. `latest` selects the newest release in the installed catalogue and does not establish consumer compatibility. The inner double quotes in `'targetVersion="10.0"'` preserve a JSON string rather than Inspector converting `10.0` to a number. Use the stable recipe ID instead of a numeric ID. See the [companion instruction](agent-instructions.md).
 
 To use an installed development package instead of the built DLL, replace `dotnet $server mcp` with `./artifacts/manual-tool/playbook.exe mcp` after following [the local install instructions](contributing.md#inspect-the-development-package). An installed global tool can be launched as `playbook mcp` in the same place. Each command is short-lived and shuts the server down; nothing needs stopping afterwards.
 
@@ -47,27 +47,27 @@ $filtered.result.structuredContent | Format-List resolvedTarget, total, offset, 
 $filtered.result.structuredContent.recipes | Format-List id, title, goal, languageNeutral, applicability
 
 # A valid combination with no keyword match succeeds empty.
-$empty = npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'areas=["csharp"]' --tool-arg query=unmatched -- dotnet $server mcp | ConvertFrom-Json
+$empty = npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'targetVersion="10.0"' --tool-arg 'areas=["csharp"]' --tool-arg query=unmatched -- dotnet $server mcp | ConvertFrom-Json
 $empty.result.structuredContent | Format-List total, nextOffset, recipes
 
 # An invalid identifier is a tool error, including corrections; it is not ignored.
-$invalidLines = @(npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'areas=["blazro"]' -- dotnet $server mcp)
+$invalidLines = @(npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'targetVersion="10.0"' --tool-arg 'areas=["blazro"]' -- dotnet $server mcp)
 $invalid = $invalidLines[0] | ConvertFrom-Json
 $invalid.result.content[0].text | ConvertFrom-Json | Format-List code, filter, invalidValues, supportedValues
 ```
 
 Expect the property recipe, `total=1`, `offset=0`, `limit=1`, `nextOffset=null` and `languageNeutral=false`. Both keywords match, and the explicitly selected .NET 10 applicability remains visible. The empty query result has `total=0`, no recipes and no next offset. The typo produces `unknown_area`, `filter=areas`, rejected `blazro`, and supported `csharp`. Inspector exits nonzero (5 in this verification) for that intentional error (see the native-command preference note below).
 
-The ordinary catalogue currently contains only this C# goal, so it cannot demonstrate a shared framework mapping, F#-applicable neutral configuration or multiple pages. The separate unpublished contract fixture and seven installed-package scenarios cover those cases, including all-term/title/goal/tag/API matching, OR within sets, AND between filters, shared inclusion disabled, unrelated Windows guidance excluded, C#-specific XML excluded from F#, and default/max-size traversal. Run the [verification commands](verification/PIN-670.md) for that evidence. Fixture metadata does not claim platform execution or additional shipped recipe coverage.
+The ordinary catalogue currently contains only this C# goal, so it cannot demonstrate a shared framework mapping, F#-applicable neutral configuration or multiple pages. The separate unpublished contract fixture and installed-package scenarios cover those cases, including all-term/title/goal/tag/API matching, OR within sets, AND between filters, shared inclusion disabled, unrelated Windows guidance excluded, C#-specific XML excluded from F#, and default/max-size traversal. Run the [verification commands](verification/PIN-971.md) for current evidence. Fixture metadata does not claim platform execution or additional shipped recipe coverage.
 
 ## Inspect release selection and failures
 
 Continue in the same PowerShell window:
 
 ```powershell
-# Omission selects the newest release represented in the installed catalogue.
-$latest = npx @inspector --method tools/call --tool-name list_recipes -- dotnet $server mcp | ConvertFrom-Json
-$latest.result.structuredContent | Format-List resolvedTarget, targetAssumed, supportedTargets, supportedAreas, supportedExampleLanguages
+# Explicit latest selects the newest release represented in the installed catalogue.
+$latest = npx @inspector --method tools/call --tool-name list_recipes --tool-arg targetVersion=latest -- dotnet $server mcp | ConvertFrom-Json
+$latest.result.structuredContent | Format-List requestedTarget, resolvedTarget, targetAssumed, supportedTargets, supportedAreas, supportedExampleLanguages
 $latest.result.structuredContent.coverage | Format-Table target, scope, complete, description -Wrap
 
 # An explicit alias selects the retained .NET 10 edition and its conditional route.
@@ -79,6 +79,23 @@ $retained.result.structuredContent.recipe.applicability.routes | Format-List
 $newer = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=net11.0 -- dotnet $server mcp | ConvertFrom-Json
 $newer.result.structuredContent.recipe | Format-List id, edition, introducedIn
 
+# Detail can also deliberately request latest; it inherits nothing from discovery.
+$latestDetail = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=latest -- dotnet $server mcp | ConvertFrom-Json
+$latestDetail.result.structuredContent | Format-List requestedTarget, resolvedTarget, targetAssumed
+
+# Missing, null and blank values all fail; Inspector exits nonzero for each expected error.
+$previousNativePreference = $PSNativeCommandUseErrorActionPreference
+try {
+  $PSNativeCommandUseErrorActionPreference = $false
+  foreach ($tool in @('list_recipes', 'get_recipe')) {
+    foreach ($targetArgs in @(@(), @('--tool-arg', 'targetVersion=null'), @('--tool-arg', 'targetVersion=""'))) {
+      $lines = @(npx @inspector --method tools/call --tool-name $tool --tool-arg id=csharp.validate-property-assignment @targetArgs -- dotnet $server mcp)
+      ($lines[0] | ConvertFrom-Json).result.content[0].text | ConvertFrom-Json | Format-List code, message
+    }
+  }
+}
+finally { $PSNativeCommandUseErrorActionPreference = $previousNativePreference }
+
 # Inspector exits nonzero on a tool error and emits a diagnostic JSON line on stderr.
 # Read its first stdout line to inspect the MCP result and parseable JSON error body.
 $failureLines = @(npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg targetVersion=net10.0-windows -- dotnet $server mcp)
@@ -87,7 +104,7 @@ $failure.result | Format-List isError
 $failure.result.content[0].text | ConvertFrom-Json | Format-List
 ```
 
-Expect `resolvedTarget=11.0` and `targetAssumed=True` on omission. Coverage labels .NET 10 as `curated` and .NET 11 as `comprehensive`; **both are currently incomplete**. The latter is a launch commitment, not a claim of completed coverage. An empty result cannot establish that .NET 10 lacks a capability.
+Expect `requestedTarget=latest`, `resolvedTarget=11.0` and `targetAssumed=False` for explicit `latest` on both tools. Omitted, null and blank targets return `required_target` with a corrective message; none select a release. Concrete calls echo their original alias and resolved release. Coverage labels .NET 10 as `curated` and .NET 11 as `comprehensive`; **both are currently incomplete**. The latter is a launch commitment, not a claim of completed coverage. An empty result cannot establish that .NET 10 lacks a capability.
 
 The last request must return `isError=True`, code `unsupported_target`, the exact rejected string and supported releases. It never strips the platform suffix. Patch and RC strings fail similarly. An unknown ID returns `unknown_recipe`. A known ID with no compatible edition returns `no_applicable_edition` with available edition labels; valid discovery with no matches succeeds empty. In a script with `$PSNativeCommandUseErrorActionPreference=$true`, temporarily set it to `$false` around the intentionally failing `npx` call.
 

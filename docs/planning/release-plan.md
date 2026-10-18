@@ -6,6 +6,8 @@ Status: policy accepted in Round 7, including Pingu's rejection of the additiona
 
 Use independent package SemVer: first stable `1.0.0`, with `1.0.0-preview.N` if publishing before GA. Package version is separate from the .NET release documented. Use patch for corrections, minor for compatible recipe/capability additions, and major for incompatible public tool/contract or stable recipe-ID changes. Keep the reference Release Drafter label/version mechanism.
 
+PIN-971's mandatory `targetVersion` on both MCP tools is an incompatible contract change and uses `major` classification. Clients that previously omitted it must send a supported release or deliberate `latest` on every call. Unpublished development candidates still use `1.0.0-preview.N`; this classification does not authorize a release or change the first stable/publication gates.
+
 Preview publication is manual only. First public publication, including a preview, requires accepted comprehensive coverage plus eight foundations, required example compilation, focused checks, package/client evidence, and the small manual evaluation. A preview discloses the RC evidence baseline and remaining GA uncertainty; the preview label is not a waiver of those checks. First stable publication additionally waits for the .NET 11 GA reconciliation.
 
 Weekly stable draft publication starts only after the first manual stable release, at the accepted Sunday 18:17 UTC slot. Require an existing published stable release and a stable draft, checking both SemVer and GitHub release flags. The reference workflows' any-published-release gate would also count prereleases; this narrow channel-gate adjustment was accepted in Q46.

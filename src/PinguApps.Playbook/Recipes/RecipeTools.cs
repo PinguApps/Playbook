@@ -17,9 +17,9 @@ internal sealed class RecipeTools
     }
 
     [McpServerTool(Name = "list_recipes", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true, OutputSchemaType = typeof(RecipeList))]
-    [Description("List concise installed recipe summaries and their requirements. No consumer project inspection or network access.")]
+    [Description("List concise installed recipe summaries and their requirements. Inspect the application's TargetFramework/TargetFrameworks and relevant project/global.json context; repeat targetVersion on get_recipe. No consumer inspection or network access.")]
     public CallToolResult ListRecipes(
-        [Description("Release: 10/10.0/net10.0 or 11/11.0/net11.0. Omit for the newest installed target, marked assumed. Patch, RC and platform-qualified strings fail; inspect returned prerequisites separately.")] string? targetVersion = null,
+        [Description("Required target release: 10/10.0/net10.0 or 11/11.0/net11.0; not an exact SDK version. Use latest deliberately for exploratory/theoretical guidance or an unknown target: newest installed catalogue release only, not proof of consumer compatibility. Missing/null/blank, patch, RC and platform-qualified values fail; check prerequisites separately.")] string targetVersion,
         [Description("Area identifiers from supportedAreas. Omitted/empty means all; multiple values match any. Different filter types combine with AND.")] string[]? areas = null,
         [Description("Language identifiers from supportedExampleLanguages. Match any demonstrated language or explicitly applicable language-neutral configuration. Omitted/empty means all.")] string[]? languages = null,
         [Description("All nonblank whitespace-separated terms must match title, goal, tags or API names, case-insensitively. Blank means no keyword filter.")] string? query = null,
@@ -31,10 +31,10 @@ internal sealed class RecipeTools
     }
 
     [McpServerTool(Name = "get_recipe", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true, OutputSchemaType = typeof(RecipeDetail))]
-    [Description("Get complete offline Markdown, applicability, official sources and verification evidence for a stable recipe ID.")]
+    [Description("Get complete offline Markdown, applicability, official sources and verification evidence for a stable recipe ID. Inspect the application's TargetFramework/TargetFrameworks and relevant project/global.json context; repeat the chosen targetVersion independently of list_recipes.")]
     public CallToolResult GetRecipe(
         [Description("Stable goal-based recipe ID from list_recipes.")] string id,
-        [Description("Release: 10/10.0/net10.0 or 11/11.0/net11.0. Omit for the newest installed target, marked assumed. An explicit target is never silently replaced; conditions are disclosed, not inspected.")] string? targetVersion = null)
+        [Description("Required target release: 10/10.0/net10.0 or 11/11.0/net11.0; not an exact SDK version. Use latest deliberately for exploratory/theoretical guidance or an unknown target: newest installed catalogue release only, not proof of consumer compatibility. Missing/null/blank, patch, RC and platform-qualified values fail; check prerequisites separately.")] string targetVersion)
     {
         return Invoke(() => _catalogue.Get(id, targetVersion));
     }

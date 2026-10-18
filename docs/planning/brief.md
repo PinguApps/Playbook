@@ -1,5 +1,7 @@
 # PinguApps.Playbook planning brief
 
+Current target-selection decision: [PIN-971](https://linear.app/pinguapps/issue/PIN-971), confirmed on 18 October 2026, supersedes the omission defaults recorded below in Rounds 2/3. Both tools require a supported release or explicit `latest`; the latter means the newest target release in the installed catalogue, not an SDK build or a consumer compatibility claim. The historical rounds below remain decision provenance; see the [current contract](tool-contract.md).
+
 Status: planning complete; Pingu confirmed the [consolidated shared understanding](README.md) on 16 October 2026 after eight design rounds. Comprehensive .NET 11 author-facing guidance, eight selected .NET 10 foundations, experimental labels, contract/content/repository/release design, minimal CI/client checks and bounded evaluation are settled. Language-neutral filtering and native authoring cadence are accepted in Round 8. The 406-row source-disposition inventory includes 310 candidate rows; API reconciliation and original sample verification remain delivery work. No implementation has started.
 
 This brief records the knowledge for the grill-with-docs session, initially captured on 15 October 2026 and updated through Round 8 on 16 October. It separates Pingu's requirements, historical proposals, reference observations, accepted decisions, and remaining delivery work.
