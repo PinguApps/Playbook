@@ -17,7 +17,7 @@ npx @inspector --method tools/list -- dotnet $server mcp
 
 # List the recipes declared for .NET 10.
 $catalogue = npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'targetVersion="10.0"' -- dotnet $server mcp | ConvertFrom-Json
-$catalogue.result.structuredContent.recipes | Format-List id, title
+$catalogue.result.structuredContent.recipes | Format-List id, title, goal
 
 # Retrieve the complete recipe, then display its Markdown and constraints.
 $response = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg 'targetVersion="10.0"' -- dotnet $server mcp | ConvertFrom-Json
@@ -28,7 +28,9 @@ $recipe.sources | Format-Table
 $recipe.evidence | Format-List
 ```
 
-Expect one recipe, `csharp.validate-property-assignment`, titled **Normalize and validate a storage bay code on assignment**. Its Markdown includes both original implementations, migration steps, recursion/initialization constraints and evidence. Applicability states .NET 10 / C# 14 and the SDK baseline. `$response` retains the complete structured result and the matching JSON text fallback; omit `Show-Markdown` to inspect raw Markdown.
+Expect one recipe, `csharp.validate-property-assignment`, titled **Normalize and validate properties with the C# field keyword**. Its `goal` explains when to use the feature: property setters that normalize or validate assignments without a separate backing-field declaration. The warehouse domain appears in the worked example; discovery describes the reusable capability.
+
+Its Markdown includes both original implementations, migration steps, recursion/initialization constraints and evidence. Applicability states .NET 10 / C# 14 and the SDK baseline. `$response` retains the complete structured result and the matching JSON text fallback; omit `Show-Markdown` to inspect raw Markdown.
 
 Inspector initializes and closes each connection automatically. There is no separate target-setting command: pass the canonical string `"10.0"` to each tool. The inner double quotes in `'targetVersion="10.0"'` preserve a JSON string rather than Inspector converting `10.0` to a number. Use the stable recipe ID instead of a numeric ID.
 

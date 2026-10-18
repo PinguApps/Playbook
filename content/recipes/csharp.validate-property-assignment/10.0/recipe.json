@@ -1,8 +1,8 @@
 {
   "id": "csharp.validate-property-assignment",
   "edition": "10.0",
-  "title": "Normalize and validate a storage bay code on assignment",
-  "goal": "Keep a storage bay code normalized and reject invalid assignments without maintaining a backing-field name.",
+  "title": "Normalize and validate properties with the C# field keyword",
+  "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
   "areas": ["csharp"],
   "exampleLanguages": ["csharp"],
   "tags": ["property", "validation", "normalization"],
@@ -21,8 +21,8 @@
     "prerequisites": ["Target net10.0 with a supported .NET 10 SDK; no preview language mode or workloads required."],
     "constraints": [
       "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
-      "Writing Code inside its own setter recursively invokes that setter. Write field instead.",
-      "A property initializer writes the backing field directly and does not execute the setter. The constructor deliberately assigns through Code.",
+      "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
+      "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
       "This example has no synchronization; concurrent mutation needs a separate design."
     ]
   },

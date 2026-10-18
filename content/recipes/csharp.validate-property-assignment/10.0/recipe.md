@@ -1,8 +1,10 @@
-# Normalize and validate a storage bay code on assignment
+# Normalize and validate properties with the C# field keyword
 
 ## Goal
 
-A warehouse import supplies bay codes with surrounding whitespace and mixed casing. Store the trimmed, invariant uppercase value. Reject null, blank and codes longer than 12 characters, retaining the previous code after a rejected update. Constructor input follows the same rules.
+Normalize or validate incoming values in a property setter without maintaining a separate backing-field member. C# 14's `field` keyword accesses compiler-managed storage while preserving the validation rules of an explicit-field implementation.
+
+The worked example uses a warehouse import that supplies bay codes with surrounding whitespace and mixed casing. Store the trimmed, invariant uppercase value. Reject null, blank and codes longer than 12 characters, retaining the previous code after a rejected update. Constructor input follows the same rules.
 
 ## Older approach: .NET 9 / C# 13
 
