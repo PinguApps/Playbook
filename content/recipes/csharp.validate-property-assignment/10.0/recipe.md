@@ -20,7 +20,7 @@ The contextual `field` keyword accesses compiler-created storage inside the prop
 
 ## Migration
 
-1. Target `net10.0` with the .NET 10 SDK and C# 14. No preview mode, extra packages or workloads are needed.
+1. Keep the application's selected target: `net10.0` with the .NET 10 SDK, or `net11.0` with the .NET 11 SDK. Use C# 14 language mode on either route. The feature was introduced in .NET 10 / C# 14; adopting it on .NET 10 needs no .NET 11 installation. No preview language mode, extra packages or workloads are needed.
 2. Replace the getter with `get;`, replace `_code = normalized` with `field = normalized`, then remove `_code` only after checking all its references.
 3. Keep the constructor assignment through `Code`. Copying an unvalidated constructor argument into an initializer changes the behavior.
 4. Run the same assignment checks before and after migration: `" swan-7 "` becomes `"SWAN-7"`; invalid updates throw and leave the previous code intact.
@@ -33,7 +33,9 @@ The keyword is contextual inside an accessor. If existing accessor code uses a m
 
 The getter and setter retain the same external contract as the explicit-field version. This simplification does not add thread safety, persistence validation or validation for callers bypassing the property. The .NET 9 comparison is comparison evidence, not a supported .NET 9 catalogue target.
 
-## Conditional .NET 11 SDK route for .NET 10
+## Verified targets and optional SDK route
+
+This unchanged edition serves explicitly verified .NET 10 and .NET 11 application targets with the same canonical snippets and migration. Detail returns only the selected target's applicability routes. The .NET 11 target uses its own runtime, SDK family and exact-target evidence; it does not change the feature's introduction or the .NET 10 requirements. Only .NET 11 RC artifacts were executed; GA reconciliation is pending. Stable C# 14 syntax does not establish .NET 11 GA verification.
 
 A newer SDK can build an older target. This **optional alternative** uses the .NET 11 SDK family while keeping `TargetFramework=net10.0`, `LangVersion=14.0` and the .NET 10 targeting pack/runtime. The primary .NET 10 SDK route above needs no .NET 11 installation. Playbook has not inspected the caller's environment. This route does not claim supported C# 15 syntax on .NET 10.
 
@@ -41,7 +43,7 @@ The exact tested SDK was `11.0.100-rc.2.26504.105`; that is a reproducibility ba
 
 ## Evidence and alternatives
 
-Both original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to refresh this evidence. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.
+The original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to rerun these checks. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.
 
 Application requirements are under each route's `requirements`. Exact SDK, language, runtime output, dependencies and workload baselines are retained in `evidence`, linked by `evidenceSamples`; they do not require upgrading the application to those exact test versions. The normal .NET 10 route was tested with SDK `10.0.402` and C# `14.0`. No unlisted target release or future SDK compatibility is implied.
 

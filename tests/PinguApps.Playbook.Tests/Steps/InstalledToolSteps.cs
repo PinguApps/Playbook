@@ -131,7 +131,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.NotEmpty(route.GetProperty("sourceUrls").EnumerateArray());
         Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
         Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
-        Assert.Equal(["net9.0", "net10.0", "net10.0"], recipe.GetProperty("evidence").EnumerateArray().Select(evidence => evidence.GetProperty("target").GetString()));
+        Assert.Equal(["net9.0", "net10.0", "net10.0", "net11.0"], recipe.GetProperty("evidence").EnumerateArray().Select(evidence => evidence.GetProperty("target").GetString()));
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         foreach (JsonElement evidence in recipe.GetProperty("evidence").EnumerateArray())
         {
@@ -152,16 +152,25 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("property requirements keep normal and optional routes separate from exact test baselines")]
     public async Task CheckRequirementsAndBaselinesAsync()
     {
+        string? canonicalMarkdown = null;
         foreach (string target in new[] { "10.0", "11.0" })
         {
             JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = target }).ConfigureAwait(false));
             JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
             JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = target }).ConfigureAwait(false));
             JsonElement recipe = detail.GetProperty("recipe");
+            Assert.Equal("10.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal("10.0", summary.GetProperty("edition").GetString());
+            Assert.Equal(["10.0", "11.0"], recipe.GetProperty("supportedTargets").EnumerateArray().Select(value => value.GetString()));
+            string markdown = recipe.GetProperty("markdown").GetString()!;
+            canonicalMarkdown ??= markdown;
+            Assert.Equal(canonicalMarkdown, markdown);
             Assert.Equal("10.0", recipe.GetProperty("introducedIn").GetString());
             Assert.Equal(target, detail.GetProperty("resolvedTarget").GetString());
             Assert.True(JsonElement.DeepEquals(summary.GetProperty("applicability"), recipe.GetProperty("applicability")));
             JsonElement routes = recipe.GetProperty("applicability").GetProperty("routes");
+            Assert.Equal(target == "10.0" ? 2 : 1, routes.GetArrayLength());
+            Assert.All(routes.EnumerateArray(), route => Assert.Equal(target, route.GetProperty("target").GetString()));
             JsonElement primary = routes[0];
             Assert.Equal("primary", primary.GetProperty("usage").GetString());
             JsonElement requirements = primary.GetProperty("requirements");
@@ -180,6 +189,7 @@ public sealed class InstalledToolSteps : IDisposable
                     JsonElement evidence = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString() == sample.GetString());
                     Assert.Equal("verification-baseline", evidence.GetProperty("role").GetString());
                     Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                    Assert.Equal($"net{target}", evidence.GetProperty("target").GetString());
                     Assert.Contains("Runtime: .NET", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
                     Assert.NotEmpty(evidence.GetProperty("command").GetString()!);
                     Assert.NotEmpty(evidence.GetProperty("inputs").EnumerateObject());
@@ -242,7 +252,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Contains("csharp", list.GetProperty("supportedExampleLanguages").EnumerateArray().Select(item => item.GetString()));
             JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = release }).ConfigureAwait(false));
             JsonElement recipe = detail.GetProperty("recipe");
-            Assert.Equal(target, recipe.GetProperty("edition").GetString());
+            Assert.Equal("10.0", recipe.GetProperty("edition").GetString());
             Assert.Equal("10.0", recipe.GetProperty("introducedIn").GetString());
             JsonElement routes = recipe.GetProperty("applicability").GetProperty("routes");
             Assert.All(routes.EnumerateArray(), route => Assert.Equal(target, route.GetProperty("target").GetString()));
@@ -375,10 +385,40 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.NotEmpty(route.GetProperty("sourceUrls").EnumerateArray());
         Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
         JsonElement newest = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "11" }).ConfigureAwait(false));
-        Assert.Equal("11.0", newest.GetProperty("recipe").GetProperty("edition").GetString());
+        Assert.Equal("10.0", newest.GetProperty("recipe").GetProperty("edition").GetString());
         // latest is catalogue-wide, not the newest target available for this particular recipe.
         JsonElement latestFailure = AssertToolError(await CallAsync("get_recipe", new { id = "fixture.conditional-route", targetVersion = "latest" }).ConfigureAwait(false), "no_applicable_edition");
         Assert.Equal("latest", latestFailure.GetProperty("requestedTarget").GetString());
+    }
+
+    [Then("changed guidance prefers a newer compatible edition while retaining the older guidance")]
+    public async Task CheckChangedEditionsAsync()
+    {
+        string? olderMarkdown = null;
+        foreach (string target in new[] { "10.0", "11.0" })
+        {
+            JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = target, query = "fixture.changed-guidance" }).ConfigureAwait(false));
+            JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+            JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "fixture.changed-guidance", targetVersion = target }).ConfigureAwait(false));
+            JsonElement recipe = detail.GetProperty("recipe");
+            Assert.Equal(target, recipe.GetProperty("edition").GetString());
+            Assert.Equal(target, summary.GetProperty("edition").GetString());
+            Assert.Equal("10.0", recipe.GetProperty("introducedIn").GetString());
+            Assert.True(JsonElement.DeepEquals(summary.GetProperty("applicability"), recipe.GetProperty("applicability")));
+            string markdown = recipe.GetProperty("markdown").GetString()!;
+            if (target == "10.0")
+            {
+                olderMarkdown = markdown;
+                // The retained edition also declares .NET 11: selection must prefer the changed edition there.
+                Assert.Contains("11.0", recipe.GetProperty("supportedTargets").EnumerateArray().Select(value => value.GetString()));
+                Assert.DoesNotContain("every partial declaration", markdown, StringComparison.Ordinal);
+            }
+            else
+            {
+                Assert.NotEqual(olderMarkdown, markdown);
+                Assert.Contains("every partial declaration", markdown, StringComparison.Ordinal);
+            }
+        }
     }
 
     [Then("combined filters respect shared areas demonstrated languages and neutral configuration")]

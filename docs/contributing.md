@@ -1,6 +1,6 @@
 # Verify and extend the first slice
 
-Build prerequisites: PowerShell 7, .NET SDK **10.0.402**, **9.0.319** and **11.0.100-rc.2.26504.105**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies the new edition and conditional older-target route. No optional workloads are used.
+Build prerequisites: PowerShell 7, .NET SDK **10.0.402**, **9.0.319** and **11.0.100-rc.2.26504.105**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
 
 ```powershell
 Set-Location <path-to-Playbook>
@@ -9,7 +9,7 @@ pwsh ./eng/Verify.ps1
 
 If .NET 9 or 11 is installed separately, pass its executable with `-Net9Dotnet <path-to-dotnet>` or `-Net11Dotnet <path-to-dotnet>`. The script rejects the focused invalid-content fixture, compiles and executes the real .NET 9/10/11 samples, including a .NET 11 SDK build of a .NET 10 target, then builds the solution with analyzers/warnings as errors and checks real `pack --no-build` rejection of incomplete/stale content. It packs the ordinary artifact once and tests it; its SHA-256 identifies that package. A second package under `artifacts/release-fixture/` contains contract-only identities and is never published. Fixture packing restores ordinary build output afterwards.
 
-Nine focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, exactly two read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on both tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, retained editions, conditional routes and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
+Nine focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, exactly two read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on both tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, unchanged edition reuse, retained changed editions, conditional routes and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
 
 Local checks set unusable HTTP proxies, which establishes proxy-independent operation but is **not** network isolation. On Linux use `pwsh ./eng/Verify.ps1 -IsolateNetwork`: after build/pack, the installed-consumer tests run under `sudo unshare --net` with no external network routes. Only the local package feed is available. SDK downloads/restores happen before network isolation.
 
@@ -28,6 +28,14 @@ dotnet tool install PinguApps.Playbook --version 1.0.0-preview.1 --tool-path ./a
 Help must show `playbook mcp`; version must show `1.0.0-preview.1`. This installs locally, without publishing or changing global tools. Delete `artifacts/manual-tool` when finished. To see the actual recipe body and constraints yourself, use [the MCP Inspector walkthrough](inspect-guidance.md). The Reqnroll checks verify real MCP responses and lifecycle results; TRX evidence is under `artifacts/TestResults`.
 
 ## Author a recipe edition
+
+### Reuse unchanged guidance across verified targets
+
+Keep one edition when its canonical snippets, migration and feature requirements are unchanged. Adding a supported application target is not itself a new edition: extend `supportedTargets`, add that target's explicit applicability route and preserve its exact-target sample evidence. Keep `introducedIn` at the feature's original release. Never infer target compatibility from introduction, an edition number, a newer SDK or a successful build alone.
+
+The property recipe uses edition `10.0` for targets `10.0` and `11.0`, retaining its .NET 10 / C# 14 introduction. Both serve identical offline Markdown and snippets. .NET 10 keeps its primary route and optional SDK 11 alternative; .NET 11 has its own runtime/SDK route and RC disclosure. Distinct baselines stay linked separately even when they compile the same source. Existing evidence freshness and stale-pack gates still apply to every sample and to changed metadata/Markdown.
+
+Add a newer edition only when guidance or applicable feature requirements genuinely change; retain the historical edition and its verified targets. Discovery and detail select the numerically newest edition explicitly declaring the requested target. Overlapping targets are allowed: a changed edition may supersede earlier guidance for one target while the earlier edition still serves another. Do not duplicate unchanged content just to label a new target. The unpublished `fixture.changed-guidance` tests this with an additional migration check; it is not another shipped recipe or an API claim. See the [tested two-target walkthrough](verification/PIN-973.md).
 
 ### Separate requirements from test baselines
 

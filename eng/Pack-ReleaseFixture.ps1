@@ -8,20 +8,15 @@ $fixture = Join-Path ([IO.Path]::GetTempPath()) ("playbook-release-fixture-" + [
 New-Item -ItemType Directory -Path $fixture | Out-Null
 try {
   Copy-Item (Join-Path $root 'content/recipes/*') $fixture -Recurse
-  $retainedPath = Join-Path $fixture 'csharp.validate-property-assignment/10.0/recipe.json'
-  $retained = Get-Content $retainedPath -Raw | ConvertFrom-Json -AsHashtable
-  $newer = Get-Content (Join-Path $fixture 'csharp.validate-property-assignment/11.0/recipe.json') -Raw | ConvertFrom-Json -AsHashtable
-  $retained.supportedTargets += '11.0'
-  $retained.applicability.routes += $newer.applicability.routes
-  $retained.evidence += @($newer.evidence | Where-Object { $_.target -eq 'net11.0' })
-  $retained | ConvertTo-Json -Depth 30 | Set-Content $retainedPath -Encoding utf8
   # Contract-only metadata: no fictional .NET 11 API or publication evidence is claimed.
   # Reuse actual compiled property samples to test selection independently of catalogue growth.
   foreach ($case in @(
-    @{ Id = 'fixture.only-eleven'; Edition = '11.0'; SourceEdition = '11.0'; Introduced = '10.0' },
-    @{ Id = 'fixture.conditional-route'; Edition = '11.0'; SourceEdition = '10.0'; Introduced = '11.0' }
+    @{ Id = 'fixture.only-eleven'; Edition = '11.0'; Introduced = '10.0'; Target = '11.0' },
+    @{ Id = 'fixture.conditional-route'; Edition = '11.0'; Introduced = '11.0'; Target = '10.0' },
+    @{ Id = 'fixture.changed-guidance'; Edition = '10.0'; Introduced = '10.0'; Target = $null },
+    @{ Id = 'fixture.changed-guidance'; Edition = '11.0'; Introduced = '10.0'; Target = '11.0' }
   )) {
-    $source = Join-Path $root "content/recipes/csharp.validate-property-assignment/$($case.SourceEdition)"
+    $source = Join-Path $root 'content/recipes/csharp.validate-property-assignment/10.0'
     $destination = Join-Path $fixture "$($case.Id)/$($case.Edition)"
     New-Item -ItemType Directory -Path $destination -Force | Out-Null
     $recipe = Get-Content (Join-Path $source 'recipe.json') -Raw | ConvertFrom-Json -AsHashtable
@@ -30,12 +25,21 @@ try {
     $recipe.introducedIn = $case.Introduced
     $recipe.title = "Contract fixture: $($case.Id)"
     $recipe.goal = 'Test release routing with actual sample evidence; not a shipped recipe or an API introduction claim.'
+    if ($case.Target) {
+      $recipe.supportedTargets = @($case.Target)
+      $recipe.applicability.routes = @($recipe.applicability.routes | Where-Object { $_.target -eq $case.Target })
+    }
     if ($case.Id -eq 'fixture.conditional-route') {
       $recipe.applicability.routes = @($recipe.applicability.routes | Where-Object { $_.conditional })
       $recipe.humanProof = @{ status = 'pending'; scope = 'Contract fixture only: pending targeted Human proof must remain visible.' }
     }
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $destination 'recipe.json') -Encoding utf8
-    Copy-Item (Join-Path $source 'recipe.md') $destination
+    $markdown = Get-Content (Join-Path $source 'recipe.md') -Raw
+    if ($case.Id -eq 'fixture.changed-guidance' -and $case.Edition -eq '11.0') {
+      # A real prose change in a synthetic identity tests supersession without duplicating the shipped goal.
+      $markdown = $markdown.Replace('## Constraints and initialization', "5. Review direct storage access in every partial declaration before removing the backing member. This additional migration check belongs only to the newer fixture edition.`n`n## Constraints and initialization")
+    }
+    $markdown | Set-Content (Join-Path $destination 'recipe.md') -Encoding utf8
   }
   # Discovery identities are synthetic contract cases, not additional shipped recipes or API evidence.
   $cases = @(
@@ -49,11 +53,14 @@ try {
   # Reverse creation order to ensure traversal follows stable IDs rather than authoring order.
   $cases += @(52..0 | ForEach-Object { @{ Id = ('fixture.page-{0:d2}' -f $_); Areas = @('csharp'); Shared = @(); Kind = 'page' } })
   foreach ($case in $cases) {
-    $source = Join-Path $root 'content/recipes/csharp.validate-property-assignment/11.0'
+    $source = Join-Path $root 'content/recipes/csharp.validate-property-assignment/10.0'
     $destination = Join-Path $fixture "$($case.Id)/11.0"
     New-Item -ItemType Directory -Path $destination -Force | Out-Null
     $recipe = Get-Content (Join-Path $source 'recipe.json') -Raw | ConvertFrom-Json -AsHashtable
     $recipe.id = $case.Id
+    $recipe.edition = '11.0'
+    $recipe.supportedTargets = @('11.0')
+    $recipe.applicability.routes = @($recipe.applicability.routes | Where-Object { $_.target -eq '11.0' })
     $recipe.title = 'Discovery contract fixture'
     $recipe.goal = 'Contract-only catalogue routing; not shipped guidance or verification of a new API.'
     $recipe.tags = @('reservation')

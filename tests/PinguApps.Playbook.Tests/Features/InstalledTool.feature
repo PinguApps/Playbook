@@ -22,6 +22,7 @@ Feature: Installed offline guidance
     Given the release contract fixture package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then a known incompatible recipe fails and a conditional older-target route stays explicit
+    And changed guidance prefers a newer compatible edition while retaining the older guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
