@@ -18,6 +18,27 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
+  Scenario: Combined discovery retains only applicable shared and neutral guidance
+    Given the release contract fixture package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then combined filters respect shared areas demonstrated languages and neutral configuration
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Discovery pages traverse stable identities without duplicates or omissions
+    Given the release contract fixture package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then discovery pages preserve ordinal order totals and explicit boundaries
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Invalid discovery filters are distinct from successful empty results
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then invalid filters and ranges explain corrections while zero matches succeed
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Explicit targets never retrieve an incompatible property edition
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
