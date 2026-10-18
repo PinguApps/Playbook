@@ -4,7 +4,7 @@ Status: evidence principles, minimal CI/client/evaluation boundaries and native 
 
 ## Tool and portable checks
 
-Keep the focused core Reqnroll scenarios in one test project. Cover meaningful caller behavior: explicit-target safety, assumed-target metadata, filters/shared inclusion, stable paging/editions, errors versus valid empty results, and complete structured/text responses. Avoid a broad collection of tests that mirror internal methods.
+Keep the focused core Reqnroll scenarios in one test project. Cover meaningful caller behavior: required target schemas, omitted/null/blank rejection, deliberate catalogue-only `latest` and independent list/get target safety, requested/resolved metadata, filters/shared inclusion, stable paging/editions, errors versus valid empty results, and complete structured/text responses. PIN-971 supersedes assumed-target defaults. Avoid a broad collection of tests that mirror internal methods.
 
 Pack once. Install that exact artifact through an isolated local feed/cache and exercise real stdio initialization, list/get and shutdown. Verify .NET 10 hosting and .NET 11 major roll-forward using the actual artifact with appropriate runtime isolation. Pass the same package to one brief Windows smoke and one brief macOS smoke, then publish those verified files without repacking. Linux remains the main focused core/portable lane.
 

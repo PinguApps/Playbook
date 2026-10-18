@@ -4,7 +4,7 @@ Status: core contract, packaging, and discovery/applicability semantics accepted
 
 ## Catalogue discovery
 
-`list_recipes` has optional `targetVersion`, `areas`, `languages`, and `query` filters, plus `includeShared` (default true) and `offset`/`limit` paging arguments. The earlier proposed preview/experimental status filter is not approved.
+`list_recipes` requires `targetVersion`, with optional `areas`, `languages`, and `query` filters, plus `includeShared` (default true) and `offset`/`limit` paging arguments. PIN-971 supersedes the historical omission default. The earlier proposed preview/experimental status filter is not approved.
 
 Illustrative request shape:
 
@@ -22,7 +22,8 @@ Illustrative request shape:
 
 Accepted semantics:
 
-- Omitted target means the newest release represented in the installed catalogue. Return the resolved target and whether it was assumed.
+- Every call requires a concrete supported target release or explicit `latest`; missing, null and blank values fail helpfully with `required_target`. `latest` resolves numerically to the newest target release represented in the installed catalogue, using no network, installed SDK inventory or SDK build number. Echo the original `requestedTarget` and canonical `resolvedTarget`; retain `targetAssumed: false` for existing readers. No successful target is assumed.
+- Inspect the application's `TargetFramework`/`TargetFrameworks` and relevant project/`global.json` context before selecting a release. An SDK version is not the application's target release. Repeat `targetVersion` on both tools and each page: calls share no target state. Use `latest` deliberately for exploratory/theoretical requests or an unknown target; it does not establish consumer compatibility. Retrieve full detail and check prerequisites before applying guidance.
 - Omitted/empty area filter means all areas. Multiple requested areas match any of them. Multiple languages similarly match any requested language.
 - `languages` matches languages demonstrated by the recipe's examples, plus applicable genuinely language-neutral configuration/build recipes under Round 8. Broader API language applicability is recorded separately; a C#-only programming example does not satisfy an F# filter. Label neutral results explicitly. Language-specific project settings/directives are not neutral just because their files contain configuration.
 - With an area filter, `includeShared: true` also matches relevant shared language/library/SDK recipes through explicit applicability metadata. False limits area matching to directly tagged areas. Deduplicate shared matches. Without an area filter, all areas remain eligible regardless of this switch.
@@ -40,7 +41,7 @@ Shared inclusion only broadens area matching. It does not bypass target, the acc
 
 Use stable, descriptive goal IDs, such as `aspnet-core.validate-requests`, independent of the release number. Exact names are examples, not seeded content.
 
-`get_recipe` accepts an ID and optional `targetVersion`. Select the guidance edition applicable to that target. Preserve older editions as later releases arrive. A .NET 10 recipe can remain applicable to .NET 11 when still appropriate; prefer a newer compatible edition when it supersedes the older approach. Never return an incompatible newer edition for an explicit older target.
+`get_recipe` requires an ID and `targetVersion` (a supported release alias or `latest`), independently of any discovery call. Select the guidance edition applicable to that target. Preserve older editions as later releases arrive. A .NET 10 recipe can remain applicable to .NET 11 when still appropriate; prefer a newer compatible edition when it supersedes the older approach. Never return an incompatible newer edition for an explicit older target.
 
 Introduction release is separate from target prerequisites. Include a .NET 11-era recipe for an older supported target when the exact SDK/package route is documented and verified. Return those requirements prominently without inferring that the caller has installed them. Do not infer supported language/runtime compatibility merely because syntax compiles. The curated .NET 10 historical backfill remains eight recipes; verified older-target routes for .NET 11-era capabilities are a distinct applicability matter.
 
@@ -89,8 +90,10 @@ These fill in routine details of the accepted contract without adding another to
 - Initially support consumer targets `10.0` (curated foundations and verified conditional routes) and `11.0` (the comprehensive release-family commitment). A .NET 9 comparison sample does not add .NET 9 catalogue support. Discovery must disclose curated versus comprehensive coverage; empty results do not prove an older release has no eligible capabilities.
 - Normalize `10`/`10.0`/`net10.0` and corresponding .NET 11 aliases to the canonical release. Return a helpful invalid/unsupported-target response for patch/RC strings or platform-qualified TFMs, explaining how to choose the target release and inspect platform prerequisites. Never silently drop an explicit platform/RC condition and claim it was checked.
 - Treat blank keyword input as no keyword filter; match all whitespace-separated terms case-insensitively against the accepted title/goal/tag/API fields. Keep ordering ordinal by stable recipe ID before paging. Reject invalid negative offsets and out-of-range page limits rather than silently changing them.
-- Return supported targets, area identifiers, example-language identifiers, resolved target/assumption, total matches and next offset with discovery. All metadata describes installed content, not a probed consumer environment.
+- Return supported targets, area identifiers, example-language identifiers, requested/resolved target, `targetAssumed: false`, total matches and next offset with discovery. All metadata describes installed content, not a probed consumer environment.
 - Keep applicability conditions explicit per verified route. A newer SDK/package route is not unconditional runtime compatibility, and future target releases are not inferred from an open-ended minimum version.
 - Use the standard SDK tool/output-schema/error mechanisms and read-only annotations. Preserve protocol-only stdout and stderr diagnostics. Exact DTOs/internal error-code names are implementation details, with public compatibility governed by the accepted SemVer policy.
 
 Round 8 accepts applicable genuinely language-neutral configuration/build recipes as an explicit exception to strict example-language matching. No additional toggle or MCP tool is needed.
+
+Requiring `targetVersion` is an incompatible public contract change, classified `major` under the existing independent package SemVer policy. Existing clients must repeat a concrete release or deliberate `latest` on both tools. Development packages remain unpublished `1.0.0-preview.N` candidates; this change neither publishes a package nor bypasses the first-publication gates.
