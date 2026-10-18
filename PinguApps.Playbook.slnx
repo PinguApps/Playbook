@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PinguApps.Playbook/PinguApps.Playbook.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/PinguApps.Playbook.Tests/PinguApps.Playbook.Tests.csproj" />
+  </Folder>
+</Solution>

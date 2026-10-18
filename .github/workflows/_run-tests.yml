@@ -1,0 +1,98 @@
+name: Run Tests
+
+on:
+  workflow_call:
+    inputs:
+      package_version:
+        type: string
+        default: 0.0.0-ci
+      checkout_ref:
+        type: string
+        default: ''
+      publish_test_results_to_github:
+        type: boolean
+        default: false
+      publish_test_results_comment_mode:
+        type: string
+        default: 'off'
+      publish_test_results_check_name:
+        type: string
+        default: Test Results
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  test:
+    name: Run test suite
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    env:
+      CI: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      DOTNET_NOLOGO: true
+      PACKAGE_VERSION: ${{ inputs.package_version || '0.0.0-ci' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.checkout_ref }}
+
+      - name: Setup .NET SDKs
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        with:
+          global-json-file: global.json
+          dotnet-version: 9.0.319
+
+      - name: Compile samples and verify the packed tool
+        shell: pwsh
+        run: ./eng/Verify.ps1 -PackageVersion $env:PACKAGE_VERSION
+
+      - name: Prepare offline test image
+        run: docker pull mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317
+
+      - name: Verify the same package without network or checkout access
+        shell: pwsh
+        run: ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION
+
+      - name: Publish test results
+        if: (success() || failure()) && inputs.publish_test_results_to_github
+        uses: EnricoMi/publish-unit-test-result-action/linux@7622c5bf3d112a72ab4fa3951c2aa5723d8ab92d # v2
+        with:
+          files: artifacts/TestResults/**/*.trx
+          check_name: ${{ inputs.publish_test_results_check_name }}
+          comment_mode: ${{ inputs.publish_test_results_comment_mode }}
+          job_summary: false
+
+      - name: Summarize test results
+        if: always()
+        shell: pwsh
+        run: |
+          $files = Get-ChildItem artifacts/TestResults -Filter *.trx -Recurse -ErrorAction SilentlyContinue
+          '## Test results' >> $env:GITHUB_STEP_SUMMARY
+          if (-not $files) { 'No TRX files were produced.' >> $env:GITHUB_STEP_SUMMARY }
+          foreach ($file in $files) {
+            [xml]$trx = Get-Content -LiteralPath $file.FullName
+            $counts = $trx.TestRun.ResultSummary.Counters
+            "- $($file.Name): passed $($counts.passed), failed $($counts.failed), skipped $($counts.notExecuted), total $($counts.total)" >> $env:GITHUB_STEP_SUMMARY
+          }
+          if (Test-Path artifacts/package.sha256) { Get-Content artifacts/package.sha256 >> $env:GITHUB_STEP_SUMMARY }
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: test-results
+          path: artifacts/TestResults/**/*.trx
+          if-no-files-found: warn
+
+      - name: Upload verified package
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: playbook-package
+          path: |
+            artifacts/PinguApps.Playbook.${{ env.PACKAGE_VERSION }}.nupkg
+            artifacts/package.sha256
+          if-no-files-found: error

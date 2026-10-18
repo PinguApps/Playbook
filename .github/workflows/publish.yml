@@ -1,0 +1,89 @@
+name: Publish NuGet Packages
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        required: true
+        type: string
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nuget-publish-${{ github.event.release.tag_name || inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  version:
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    outputs:
+      package_version: ${{ steps.resolve.outputs.version }}
+    steps:
+      - name: Resolve package version from the release tag
+        id: resolve
+        shell: pwsh
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          $version = $env:RELEASE_TAG -creplace '^v', ''
+          if ($version -cnotmatch '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-preview\.[1-9]\d*)?$') {
+            throw 'Expected a stable SemVer release tag or a manual preview.N release.'
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+  verify:
+    needs: version
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    uses: ./.github/workflows/_run-tests.yml
+    with:
+      checkout_ref: ${{ github.event.release.tag_name || inputs.tag }}
+      package_version: ${{ needs.version.outputs.package_version }}
+
+  publish:
+    needs: [version, verify]
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Download the exact verified package
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: playbook-package
+          path: artifacts
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        with:
+          dotnet-version: 10.0.402
+
+      - name: Check package identity and hash before publishing
+        working-directory: artifacts
+        env:
+          PACKAGE_VERSION: ${{ needs.version.outputs.package_version }}
+        run: |
+          test -f "PinguApps.Playbook.$PACKAGE_VERSION.nupkg"
+          sha256sum --check package.sha256
+
+      - name: NuGet login (OIDC to temporary API key)
+        uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Publish the verified artifact without repacking
+        env:
+          PACKAGE_VERSION: ${{ needs.version.outputs.package_version }}
+          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
+        run: dotnet nuget push "artifacts/PinguApps.Playbook.$PACKAGE_VERSION.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate

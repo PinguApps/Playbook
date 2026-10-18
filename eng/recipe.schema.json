@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "edition", "title", "goal", "areas", "exampleLanguages", "tags", "apis", "introducedIn", "supportedTargets", "stability", "applicability", "sources", "evidence", "snippets"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*\\.[a-z0-9.-]+$" },
+    "edition": { "$ref": "#/definitions/release" },
+    "title": { "$ref": "#/definitions/text" },
+    "goal": { "$ref": "#/definitions/text" },
+    "areas": { "$ref": "#/definitions/nonemptyStrings" },
+    "exampleLanguages": { "$ref": "#/definitions/nonemptyStrings" },
+    "tags": { "$ref": "#/definitions/strings" },
+    "apis": { "$ref": "#/definitions/strings" },
+    "introducedIn": { "$ref": "#/definitions/release" },
+    "supportedTargets": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/definitions/release" } },
+    "stability": { "enum": ["stable", "preview", "experimental"] },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime", "sdk", "language", "frameworks", "packages", "platforms", "renderingModes", "prerequisites", "constraints"],
+      "properties": {
+        "runtime": { "$ref": "#/definitions/text" },
+        "sdk": { "$ref": "#/definitions/text" },
+        "language": { "$ref": "#/definitions/text" },
+        "frameworks": { "$ref": "#/definitions/strings" },
+        "packages": { "$ref": "#/definitions/strings" },
+        "platforms": { "$ref": "#/definitions/nonemptyStrings" },
+        "renderingModes": { "$ref": "#/definitions/strings" },
+        "prerequisites": { "$ref": "#/definitions/nonemptyStrings" },
+        "constraints": { "$ref": "#/definitions/nonemptyStrings" }
+      }
+    },
+    "sources": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["title", "url"],
+        "properties": { "title": { "$ref": "#/definitions/text" }, "url": { "$ref": "#/definitions/text" } }
+      }
+    },
+    "evidence": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["kind", "sample", "target", "sdk", "language", "command", "scope"],
+        "properties": {
+          "kind": { "enum": ["compile", "compile-and-run"] },
+          "sample": { "$ref": "#/definitions/text" },
+          "target": { "$ref": "#/definitions/text" },
+          "sdk": { "$ref": "#/definitions/text" },
+          "language": { "$ref": "#/definitions/text" },
+          "command": { "$ref": "#/definitions/text" },
+          "scope": { "$ref": "#/definitions/text" }
+        }
+      }
+    },
+    "snippets": {
+      "type": "object", "minProperties": 1,
+      "additionalProperties": {
+        "type": "object", "additionalProperties": false, "required": ["path", "region", "language"],
+        "properties": {
+          "path": { "$ref": "#/definitions/text" },
+          "region": { "$ref": "#/definitions/text" },
+          "language": { "$ref": "#/definitions/text" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "release": { "type": "string", "pattern": "^[1-9][0-9]*\\.0$" },
+    "text": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "strings": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/text" } },
+    "nonemptyStrings": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/definitions/text" } }
+  }
+}
