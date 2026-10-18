@@ -49,6 +49,12 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     if ($target -cnotin $recipe.applicability.routes.target) { throw "Missing applicability route for target $target." }
   }
   foreach ($route in $recipe.applicability.routes) {
+    $requirements = $route.requirements
+    foreach ($requirement in @($requirements.runtime, $requirements.sdk, $requirements.language) + @($requirements.packages) + @($requirements.workloads)) {
+      if ($requirement.match -ceq 'release-family' -and $requirement.version -cnotmatch '^\d+\.\d+$') {
+        throw 'Release-family requirements use major.minor only; exact test pins belong in evidence.'
+      }
+    }
     foreach ($field in @('sharedAreas', 'neutralLanguages')) {
       if (-not $route.ContainsKey($field)) { $route[$field] = @() }
     }
@@ -63,14 +69,23 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
       if ($url -cnotin $recipe.sources.url) { throw 'Route source must reference a declared official source.' }
     }
     foreach ($sample in $route.evidenceSamples) {
-      if (-not ($recipe.evidence | Where-Object { $_.sample -ceq $sample -and $_.target -cmatch "^net$([regex]::Escape($route.target))(-|$)" })) {
+      $baseline = @($recipe.evidence | Where-Object { $_.sample -ceq $sample -and $_.target -cmatch "^net$([regex]::Escape($route.target))(-|$)" })
+      if ($baseline.Count -eq 0) {
         throw 'Route evidence must reference a sample for the exact target.'
+      }
+      foreach ($field in @('sdk', 'language')) {
+        $requirement = $requirements[$field]
+        foreach ($evidence in $baseline) {
+          $matches = if ($requirement.match -ceq 'exact') { $evidence[$field] -ceq $requirement.version }
+            else { $evidence[$field].StartsWith($requirement.version + '.', [StringComparison]::Ordinal) -or $evidence[$field] -ceq $requirement.version }
+          if (-not $matches) { throw "Route $field requirement contradicts its verification baseline: $sample." }
+        }
       }
     }
     foreach ($field in @('optIns', 'stabilityLimitations')) {
-      if (-not $route.ContainsKey($field)) { $route[$field] = @() }
+      if (-not $requirements.ContainsKey($field)) { $requirements[$field] = @() }
     }
-    if ($recipe.stability -ceq 'experimental' -and ($route.optIns.Count -eq 0 -or $route.stabilityLimitations.Count -eq 0)) {
+    if ($recipe.stability -ceq 'experimental' -and ($requirements.optIns.Count -eq 0 -or $requirements.stabilityLimitations.Count -eq 0)) {
       throw 'Experimental routes require explicit optIns and stabilityLimitations (including versioned package requirements where applicable).'
     }
   }
@@ -96,6 +111,7 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     }
   }
   $recipe.evidence = $verified.ToArray()
+  foreach ($evidence in $recipe.evidence) { $evidence.role = 'verification-baseline' }
   $markdown = Get-Content -LiteralPath (Join-Path $file.Directory.FullName 'recipe.md') -Raw
   if ($markdown -match '(?m)^\s*(`{3,}|~{3,})') { throw 'Canonical snippet references are required instead of copied fenced implementations.' }
   foreach ($section in @('Goal', 'Older approach', 'Newer approach', 'Migration', 'Constraints', 'Evidence')) {

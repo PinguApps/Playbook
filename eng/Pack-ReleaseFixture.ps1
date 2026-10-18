@@ -64,7 +64,7 @@ try {
       $route.sharedAreas = $case.Shared
       $route.neutralLanguages = @()
       if ($case.Kind -eq 'neutral') { $route.neutralLanguages = @('csharp', 'fsharp', 'vb') }
-      if ($case.Id -eq 'fixture.windows') { $route.platforms = @('Windows only; unrelated to the requested web area.') }
+      if ($case.Id -eq 'fixture.windows') { $route.requirements.platforms = @('Windows only; unrelated to the requested web area.') }
     }
     $markdown = Get-Content (Join-Path $source 'recipe.md') -Raw
     if ($case.Kind -in @('neutral', 'directive')) {
@@ -104,8 +104,16 @@ The original project is built and executed by eng/Verify.ps1; synthetic filter m
     if ($case.Id -eq 'fixture.shared') {
       $recipe.stability = 'experimental'
       foreach ($route in $recipe.applicability.routes) {
-        $route.optIns = @('Contract fixture opt-in; no experimental API is asserted.')
-        $route.stabilityLimitations = @('Synthetic status tests disclosure only.')
+        $route.requirements.sdk.match = 'exact'
+        $route.requirements.sdk.version = '11.0.100-rc.2.26504.105'
+        $route.requirements.sdk.reason = 'Synthetic exact-pin contract case, not an installation requirement of the property recipe.'
+        $route.requirements.packages = @(@{ name = 'Fixture.Contract'; version = '1.2.3'; match = 'exact'; reason = 'Synthetic package requirement for serialization only; no package/API execution is asserted.' })
+        $route.requirements.workloads = @(@{ name = 'fixture-workload'; version = '1.0.0'; match = 'exact'; reason = 'Synthetic workload requirement for serialization only; not installed or executed.' })
+        $route.requirements.packageAssets = @('lib/net11.0/Fixture.Contract.dll')
+        $route.requirements.providers = @('Fixture provider only')
+        $route.requirements.renderingModes = @('Fixture rendering mode only')
+        $route.requirements.optIns = @('Contract fixture opt-in; no experimental API is asserted.')
+        $route.requirements.stabilityLimitations = @('Synthetic status tests disclosure only.')
       }
     }
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $destination 'recipe.json') -Encoding utf8

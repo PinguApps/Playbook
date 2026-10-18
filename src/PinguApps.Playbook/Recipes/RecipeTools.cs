@@ -31,7 +31,7 @@ internal sealed class RecipeTools
     }
 
     [McpServerTool(Name = "get_recipe", ReadOnly = true, Destructive = false, Idempotent = true, OpenWorld = false, UseStructuredContent = true, OutputSchemaType = typeof(RecipeDetail))]
-    [Description("Get complete offline Markdown, applicability, official sources and verification evidence for a stable recipe ID. Inspect the application's TargetFramework/TargetFrameworks and relevant project/global.json context; repeat the chosen targetVersion independently of list_recipes.")]
+    [Description("Get complete offline Markdown, application requirements, optional alternative routes, official sources and exact verification baselines (not installation requirements) for a stable recipe ID. Inspect the application's TargetFramework/TargetFrameworks and relevant project/global.json context; repeat the chosen targetVersion independently of list_recipes.")]
     public CallToolResult GetRecipe(
         [Description("Stable goal-based recipe ID from list_recipes.")] string id,
         [Description("Required target release: 10/10.0/net10.0 or 11/11.0/net11.0; not an exact SDK version. Use latest deliberately for exploratory/theoretical guidance or an unknown target: newest installed catalogue release only, not proof of consumer compatibility. Missing/null/blank, patch, RC and platform-qualified values fail; check prerequisites separately.")] string targetVersion)

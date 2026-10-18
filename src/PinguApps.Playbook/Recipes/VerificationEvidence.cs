@@ -2,6 +2,7 @@ namespace PinguApps.Playbook.Recipes;
 
 internal sealed record VerificationEvidence
 {
+    public required string Role { get; init; }
     public required string Kind { get; init; }
     public required string Sample { get; init; }
     public required string Target { get; init; }
