@@ -77,8 +77,7 @@
       "target": "net9.0",
       "sdk": "9.0.319",
       "language": "13.0",
-      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
-      "scope": "Original comparison; checks constructor validation, normalization, null/blank/length rejection and retained value. Refreshed by eng/Verify.ps1."
+      "scope": "Original comparison; checks constructor validation, normalization, null/blank/length rejection and retained value. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1."
     },
     {
       "kind": "compile-and-run",
@@ -86,8 +85,7 @@
       "target": "net11.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "14.0",
-      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
-      "scope": "Actual .NET 11 RC target compilation and execution of the original property sample. The same checks cover .NET 9/10. Not GA verification. Refreshed by eng/Verify.ps1."
+      "scope": "Actual .NET 11 RC target compilation and execution of the original property sample. The same checks cover .NET 9/10. Not GA verification. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1."
     },
     {
       "kind": "compile-and-run",
@@ -95,8 +93,7 @@
       "target": "net10.0",
       "sdk": "10.0.402",
       "language": "14.0",
-      "command": "dotnet run --project PropertyAssignment.csproj --configuration Release",
-      "scope": "Original field-backed implementation; executes the same checks as the .NET 9 sample. Refreshed by eng/Verify.ps1."
+      "scope": "Original field-backed implementation; executes the same checks as the .NET 9 sample. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1."
     }
   ],
   "snippets": {
@@ -110,5 +107,9 @@
       "region": "storage-bay",
       "language": "csharp"
     }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable property behavior is covered by the real sample executions; no targeted native Human proof is required."
   }
 }

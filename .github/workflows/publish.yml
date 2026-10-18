@@ -49,6 +49,7 @@ jobs:
     with:
       checkout_ref: ${{ github.event.release.tag_name || inputs.tag }}
       package_version: ${{ needs.version.outputs.package_version }}
+      release_ready: true
 
   publish:
     needs: [version, verify]

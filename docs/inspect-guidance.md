@@ -7,7 +7,7 @@ Requires PowerShell 7, the pinned .NET SDK 10.0.402, and Node 22.19 or later for
 From this worktree:
 
 ```powershell
-Set-Location V:\_worktrees\Playbook\t3-ec3eebc7
+Set-Location V:\_worktrees\Playbook\t3-c6631afe
 dotnet build ./src/PinguApps.Playbook -c Release
 $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
 $inspector = @('--yes', '@modelcontextprotocol/inspector@2.11.0', '--cli', '--format', 'json', '--quiet')
@@ -26,6 +26,7 @@ $recipe.markdown | Show-Markdown
 $recipe.applicability.routes | Format-List
 $recipe.sources | Format-Table
 $recipe.evidence | Format-List
+$recipe.humanProof | Format-List
 ```
 
 Expect one recipe, `csharp.validate-property-assignment`, titled **Normalize and validate properties with the C# field keyword**. Its `goal` explains when to use the feature: property setters that normalize or validate assignments without a separate backing-field declaration. The warehouse domain appears in the worked example; discovery describes the reusable capability.
@@ -91,3 +92,7 @@ Expect `resolvedTarget=11.0` and `targetAssumed=True` on omission. Coverage labe
 The last request must return `isError=True`, code `unsupported_target`, the exact rejected string and supported releases. It never strips the platform suffix. Patch and RC strings fail similarly. An unknown ID returns `unknown_recipe`. A known ID with no compatible edition returns `no_applicable_edition` with available edition labels; valid discovery with no matches succeeds empty. In a script with `$PSNativeCommandUseErrorActionPreference=$true`, temporarily set it to `$false` around the intentionally failing `npx` call.
 
 The [verification script](contributing.md) also builds a **separate, unpublished contract fixture package** to exercise overlapping retained editions, a known .NET 11-only recipe and a pre-introduction conditional route. Fixture identities never appear in the ordinary package. Synthetic introduction metadata proves routing only; actual SDK/runtime compatibility comes from compiling and executing the original samples. .NET 9 remains comparison-only. The .NET 11 baseline is RC evidence, not GA verification; broader client and platform checks remain separate work.
+
+## Inspect reusable verification evidence from the package
+
+The [PIN-672 walkthrough](verification/PIN-672.md) installs the actual local package and calls both tools through Inspector. Detail includes the saved source commit/dirty marker, per-input SHA-256 hashes, exact target/SDK/language, commands, resolved dependencies, required workloads/native versions, authoring host, SDK information and actual output. `freshness: current` means the inputs matched when the package was built; installed use does not inspect the consumer or the current authoring checkout. `humanProof` keeps any targeted Human check visible independently of compilation. Neither freshness nor successful compilation establishes complete catalogue or product release readiness.

@@ -32,6 +32,7 @@ try {
     $recipe.goal = 'Test release routing with actual sample evidence; not a shipped recipe or an API introduction claim.'
     if ($case.Id -eq 'fixture.conditional-route') {
       $recipe.applicability.routes = @($recipe.applicability.routes | Where-Object { $_.conditional })
+      $recipe.humanProof = @{ status = 'pending'; scope = 'Contract fixture only: pending targeted Human proof must remain visible.' }
     }
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $destination 'recipe.json') -Encoding utf8
     Copy-Item (Join-Path $source 'recipe.md') $destination

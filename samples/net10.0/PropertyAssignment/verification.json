@@ -1,0 +1,11 @@
+{
+  "additionalInputs": [
+    "samples/PropertyAssignmentChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "buildArguments": []
+}

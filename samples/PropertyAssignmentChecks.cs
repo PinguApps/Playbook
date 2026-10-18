@@ -10,6 +10,7 @@ Reject<ArgumentOutOfRangeException>(() => bay.Code = "1234567890123");
 CheckCode(bay, "QUAY-2", "Rejected assignments preserve the existing value.");
 Reject<ArgumentException>(() => _ = new StorageBay(" "));
 Console.WriteLine("PASS: constructor, normalization, null/blank/length validation and retained value.");
+Console.WriteLine($"Runtime: {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}");
 
 static void CheckCode(StorageBay bay, string expected, string message)
 {

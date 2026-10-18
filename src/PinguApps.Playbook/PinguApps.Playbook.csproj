@@ -7,6 +7,8 @@
     <RollForward>Major</RollForward>
     <Description>Original, offline .NET implementation recipes for coding agents over stdio MCP.</Description>
     <RecipeRoot Condition="'$(RecipeRoot)' == ''">$(MSBuildProjectDirectory)/../../content/recipes</RecipeRoot>
+    <EvidenceRepositoryRoot Condition="'$(EvidenceRepositoryRoot)' == ''">$(MSBuildProjectDirectory)/../..</EvidenceRepositoryRoot>
+    <ReleaseEvidenceArgument Condition="'$(PlaybookReleaseReady)' == 'true'">-ReleaseReady</ReleaseEvidenceArgument>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" />
@@ -16,12 +18,12 @@
     <EmbeddedResource Include="../../content/coverage.json" LogicalName="Playbook.Coverage" />
   </ItemGroup>
   <Target Name="GenerateRecipeContent" BeforeTargets="PrepareForBuild">
-    <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot;" />
+    <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot; -RepositoryRoot &quot;$(EvidenceRepositoryRoot)&quot; $(ReleaseEvidenceArgument)" />
   </Target>
   <Target Name="RecordCompiledRecipeContent" AfterTargets="CoreCompile">
     <Copy SourceFiles="$(IntermediateOutputPath)Generated/catalogue.json" DestinationFiles="$(IntermediateOutputPath)Generated/compiled-catalogue.json" />
   </Target>
   <Target Name="ValidatePackedRecipeContent" BeforeTargets="GenerateNuspec">
-    <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/pack-catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot; -VerifyAgainst &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/compiled-catalogue.json&quot;" />
+    <Exec Command="pwsh -NoProfile -File &quot;$(MSBuildProjectDirectory)/../../eng/Build-Content.ps1&quot; -OutputPath &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/pack-catalogue.json&quot; -RecipeRoot &quot;$(RecipeRoot)&quot; -RepositoryRoot &quot;$(EvidenceRepositoryRoot)&quot; $(ReleaseEvidenceArgument) -VerifyAgainst &quot;$(MSBuildProjectDirectory)/$(IntermediateOutputPath)Generated/compiled-catalogue.json&quot;" />
   </Target>
 </Project>
