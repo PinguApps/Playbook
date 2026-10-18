@@ -46,11 +46,19 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
-  Scenario: Release aliases retain editions and disclose assumptions and coverage
+  Scenario: Every discovery and detail request requires its own explicit target release
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then both tools require a nonnullable target string
+    And omitted null and blank targets fail helpfully on both tools
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Release aliases and deliberate latest retain editions and disclose coverage
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then release aliases select compatible retained editions with complete requirements
-    And omitted targets disclose the newest installed release and coverage limits
+    And explicit latest resolves from the installed catalogue independently on every call
     And invalid requests return actionable machine-readable tool failures
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

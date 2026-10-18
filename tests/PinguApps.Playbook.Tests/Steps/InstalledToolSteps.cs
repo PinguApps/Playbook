@@ -77,6 +77,11 @@ public sealed class InstalledToolSteps : IDisposable
             clientInfo = new { name = "Playbook packed consumer", version = "1.0.0" },
         }).ConfigureAwait(false);
         Assert.True(initialized.GetProperty("capabilities").TryGetProperty("tools", out _));
+        string instructions = initialized.GetProperty("instructions").GetString()!;
+        Assert.Contains("TargetFramework", instructions, StringComparison.Ordinal);
+        Assert.Contains("global.json", instructions, StringComparison.Ordinal);
+        Assert.Contains("targetVersion", instructions, StringComparison.Ordinal);
+        Assert.Contains("latest does not establish consumer compatibility", instructions, StringComparison.Ordinal);
         await SendAsync(new { jsonrpc = "2.0", method = "notifications/initialized" }).ConfigureAwait(false);
     }
 
@@ -147,7 +152,7 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("the served examples match the canonical compiled sample sources")]
     public async Task CheckSnippetsAsync()
     {
-        JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment" }).ConfigureAwait(false));
+        JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "10.0" }).ConfigureAwait(false));
         string markdown = detail.GetProperty("recipe").GetProperty("markdown").GetString()!;
         foreach (string target in new[] { "net9.0", "net10.0" })
         {
@@ -201,19 +206,68 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("omitted targets disclose the newest installed release and coverage limits")]
-    public async Task CheckDefaultsAsync()
+    [Then("both tools require a nonnullable target string")]
+    public async Task CheckRequiredSchemasAsync()
+    {
+        JsonElement response = await RequestAsync("tools/list", new { }).ConfigureAwait(false);
+        foreach (JsonElement tool in response.GetProperty("tools").EnumerateArray())
+        {
+            JsonElement schema = tool.GetProperty("inputSchema");
+            Assert.Contains("targetVersion", schema.GetProperty("required").EnumerateArray().Select(value => value.GetString()));
+            JsonElement target = schema.GetProperty("properties").GetProperty("targetVersion");
+            Assert.Equal("string", target.GetProperty("type").GetString());
+            Assert.False(target.TryGetProperty("default", out _));
+        }
+    }
+
+    [Then("omitted null and blank targets fail helpfully on both tools")]
+    public async Task CheckRequiredTargetsAsync()
     {
         foreach (string tool in new[] { "list_recipes", "get_recipe" })
         {
-            JsonElement result = AssertMatchingRepresentations(await CallAsync(tool, new { id = "csharp.validate-property-assignment" }).ConfigureAwait(false));
-            Assert.Equal("11.0", result.GetProperty("resolvedTarget").GetString());
-            Assert.True(result.GetProperty("targetAssumed").GetBoolean());
+            foreach (object arguments in new object[]
+            {
+                new { id = "csharp.validate-property-assignment" },
+                new { id = "csharp.validate-property-assignment", targetVersion = (string?)null },
+                new { id = "csharp.validate-property-assignment", targetVersion = "" },
+                new { id = "csharp.validate-property-assignment", targetVersion = " \t\n" },
+            })
+            {
+                JsonElement result = await CallAsync(tool, arguments).ConfigureAwait(false);
+                JsonElement error = AssertToolError(result, "required_target");
+                Assert.Contains("targetVersion", error.GetProperty("message").GetString(), StringComparison.Ordinal);
+                Assert.Contains("latest", error.GetProperty("message").GetString(), StringComparison.Ordinal);
+            }
+        }
+    }
+
+    [Then("explicit latest resolves from the installed catalogue independently on every call")]
+    public async Task CheckLatestAsync()
+    {
+        // A concrete discovery must not supply the target of a later detail request.
+        AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10" }).ConfigureAwait(false));
+        AssertToolError(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment" }).ConfigureAwait(false), "required_target");
+        foreach (string tool in new[] { "list_recipes", "get_recipe" })
+        {
+            JsonElement result = AssertMatchingRepresentations(await CallAsync(tool, new { id = "csharp.validate-property-assignment", targetVersion = "latest" }).ConfigureAwait(false));
+            string newest = result.GetProperty("supportedTargets").EnumerateArray().Select(item => item.GetString()!).MaxBy(Version.Parse)!;
+            Assert.Equal(newest, result.GetProperty("resolvedTarget").GetString());
+            Assert.Equal("latest", result.GetProperty("requestedTarget").GetString());
+            Assert.False(result.GetProperty("targetAssumed").GetBoolean());
             Assert.Equal(["10.0", "11.0"], result.GetProperty("supportedTargets").EnumerateArray().Select(item => item.GetString()));
             JsonElement[] coverage = [.. result.GetProperty("coverage").EnumerateArray()];
             Assert.Equal(["curated", "comprehensive"], coverage.Select(item => item.GetProperty("scope").GetString()));
             Assert.All(coverage, item => Assert.False(item.GetProperty("complete").GetBoolean()));
         }
+
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "net10.0" }).ConfigureAwait(false));
+        Assert.Equal("net10.0", older.GetProperty("requestedTarget").GetString());
+        Assert.Equal("10.0", older.GetProperty("resolvedTarget").GetString());
+        Assert.Equal("10.0", older.GetProperty("recipe").GetProperty("edition").GetString());
+        JsonElement latest = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest" }).ConfigureAwait(false));
+        Assert.Equal("11.0", latest.GetProperty("resolvedTarget").GetString());
+        JsonElement explicitDetail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "10.0" }).ConfigureAwait(false));
+        Assert.Equal("10.0", explicitDetail.GetProperty("resolvedTarget").GetString());
     }
 
     [Then("invalid requests return actionable machine-readable tool failures")]
@@ -221,7 +275,7 @@ public sealed class InstalledToolSteps : IDisposable
     {
         foreach (string tool in new[] { "list_recipes", "get_recipe" })
         {
-            foreach (string target in new[] { "9.0", "12.0", "10.0.1", "11.0.0-rc.2", "net10.0-windows", "", " " })
+            foreach (string target in new[] { "9.0", "12.0", "10.0.1", "11.0.0-rc.2", "net10.0-windows" })
             {
                 JsonElement error = AssertToolError(await CallAsync(tool, new { id = "csharp.validate-property-assignment", targetVersion = target }).ConfigureAwait(false), "unsupported_target");
                 Assert.Equal(target, error.GetProperty("requestedTarget").GetString());
@@ -265,6 +319,9 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
         JsonElement newest = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "csharp.validate-property-assignment", targetVersion = "11" }).ConfigureAwait(false));
         Assert.Equal("11.0", newest.GetProperty("recipe").GetProperty("edition").GetString());
+        // latest is catalogue-wide, not the newest target available for this particular recipe.
+        JsonElement latestFailure = AssertToolError(await CallAsync("get_recipe", new { id = "fixture.conditional-route", targetVersion = "latest" }).ConfigureAwait(false), "no_applicable_edition");
+        Assert.Equal("latest", latestFailure.GetProperty("requestedTarget").GetString());
     }
 
     [Then("combined filters respect shared areas demonstrated languages and neutral configuration")]
@@ -290,6 +347,7 @@ public sealed class InstalledToolSteps : IDisposable
 
         JsonElement direct = AssertMatchingRepresentations(await CallAsync("list_recipes", new
         {
+            targetVersion = "latest",
             areas = (string[])["blazor", "wpf"],
             languages = (string[])["csharp", "fsharp"],
             query = "discovery reservation BeaconApi",
@@ -298,6 +356,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal(["fixture.direct"], RecipeIds(direct));
         JsonElement fsharp = AssertMatchingRepresentations(await CallAsync("list_recipes", new
         {
+            targetVersion = "latest",
             areas = (string[])["blazor"],
             languages = (string[])["fsharp"],
             query = "discovery reservation BeaconApi",
@@ -312,6 +371,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Empty(RecipeIds(older));
         JsonElement allAreas = AssertMatchingRepresentations(await CallAsync("list_recipes", new
         {
+            targetVersion = "latest",
             areas = Array.Empty<string>(),
             languages = Array.Empty<string>(),
             includeShared = false,
@@ -320,12 +380,14 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal(["fixture.direct", "fixture.directive", "fixture.neutral", "fixture.shared", "fixture.windows"], RecipeIds(allAreas));
         JsonElement forbidden = AssertMatchingRepresentations(await CallAsync("list_recipes", new
         {
+            targetVersion = "latest",
             areas = (string[])["blazor"],
             query = "discovery reservation missing",
         }).ConfigureAwait(false));
         Assert.Empty(RecipeIds(forbidden));
         JsonElement splitConditions = AssertMatchingRepresentations(await CallAsync("list_recipes", new
         {
+            targetVersion = "latest",
             areas = (string[])["blazor"],
             languages = (string[])["fsharp"],
             query = "routecoherence",
@@ -333,6 +395,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Empty(RecipeIds(splitConditions));
         JsonElement sameRoute = AssertMatchingRepresentations(await CallAsync("list_recipes", new
         {
+            targetVersion = "latest",
             areas = (string[])["wpf"],
             languages = (string[])["fsharp"],
             query = "routecoherence",
@@ -345,7 +408,7 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("discovery pages preserve ordinal order totals and explicit boundaries")]
     public async Task CheckDiscoveryPagingAsync()
     {
-        JsonElement first = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal" }).ConfigureAwait(false));
+        JsonElement first = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal" }).ConfigureAwait(false));
         Assert.Equal(20, first.GetProperty("recipes").GetArrayLength());
         Assert.Equal(0, first.GetProperty("offset").GetInt32());
         Assert.Equal(20, first.GetProperty("limit").GetInt32());
@@ -354,7 +417,7 @@ public sealed class InstalledToolSteps : IDisposable
         int offset = first.GetProperty("nextOffset").GetInt32();
         while (true)
         {
-            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", offset, limit = 20 }).ConfigureAwait(false));
+            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset, limit = 20 }).ConfigureAwait(false));
             Assert.Equal(53, page.GetProperty("total").GetInt32());
             ids.AddRange(RecipeIds(page));
             if (page.GetProperty("nextOffset").ValueKind == JsonValueKind.Null)
@@ -370,12 +433,12 @@ public sealed class InstalledToolSteps : IDisposable
 
         string[] expected = [.. Enumerable.Range(0, 53).Select(index => $"fixture.page-{index:D2}")];
         Assert.Equal(expected, ids);
-        JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", offset = 0 }).ConfigureAwait(false));
+        JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset = 0 }).ConfigureAwait(false));
         Assert.True(JsonElement.DeepEquals(first, repeated));
-        JsonElement maximum = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", limit = 50 }).ConfigureAwait(false));
+        JsonElement maximum = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", limit = 50 }).ConfigureAwait(false));
         Assert.Equal(50, maximum.GetProperty("recipes").GetArrayLength());
         Assert.Equal(50, maximum.GetProperty("nextOffset").GetInt32());
-        JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", offset = int.MaxValue }).ConfigureAwait(false));
+        JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset = int.MaxValue }).ConfigureAwait(false));
         Assert.Empty(RecipeIds(beyond));
         Assert.Equal(53, beyond.GetProperty("total").GetInt32());
         Assert.Equal(JsonValueKind.Null, beyond.GetProperty("nextOffset").ValueKind);
@@ -384,26 +447,26 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("invalid filters and ranges explain corrections while zero matches succeed")]
     public async Task CheckDiscoveryFailuresAsync()
     {
-        JsonElement area = AssertToolError(await CallAsync("list_recipes", new { areas = (string[])["csharp", "blazro"] }).ConfigureAwait(false), "unknown_area");
+        JsonElement area = AssertToolError(await CallAsync("list_recipes", new { targetVersion = "10.0", areas = (string[])["csharp", "blazro"] }).ConfigureAwait(false), "unknown_area");
         Assert.Equal("areas", area.GetProperty("filter").GetString());
         Assert.Equal(["blazro"], area.GetProperty("invalidValues").EnumerateArray().Select(value => value.GetString()));
         Assert.Contains("csharp", area.GetProperty("supportedValues").EnumerateArray().Select(value => value.GetString()));
-        JsonElement language = AssertToolError(await CallAsync("list_recipes", new { languages = (string[])["cshrap"] }).ConfigureAwait(false), "unknown_language");
+        JsonElement language = AssertToolError(await CallAsync("list_recipes", new { targetVersion = "10.0", languages = (string[])["cshrap"] }).ConfigureAwait(false), "unknown_language");
         Assert.Equal("languages", language.GetProperty("filter").GetString());
         Assert.Contains("csharp", language.GetProperty("supportedValues").EnumerateArray().Select(value => value.GetString()));
-        foreach (object arguments in new object[] { new { offset = -1 }, new { limit = 0 }, new { limit = 51 } })
+        foreach (object arguments in new object[] { new { targetVersion = "10.0", offset = -1 }, new { targetVersion = "10.0", limit = 0 }, new { targetVersion = "10.0", limit = 51 } })
         {
             JsonElement error = AssertToolError(await CallAsync("list_recipes", arguments).ConfigureAwait(false), "invalid_range");
             Assert.Contains("offset", error.GetProperty("message").GetString(), StringComparison.Ordinal);
             Assert.Contains("50", error.GetProperty("message").GetString(), StringComparison.Ordinal);
         }
 
-        JsonElement empty = AssertMatchingRepresentations(await CallAsync("list_recipes", new { areas = (string[])["csharp"], languages = (string[])["csharp"], query = "unmatched term" }).ConfigureAwait(false));
+        JsonElement empty = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", areas = (string[])["csharp"], languages = (string[])["csharp"], query = "unmatched term" }).ConfigureAwait(false));
         Assert.Empty(RecipeIds(empty));
         Assert.Equal(0, empty.GetProperty("total").GetInt32());
         Assert.Equal(JsonValueKind.Null, empty.GetProperty("nextOffset").ValueKind);
-        JsonElement blank = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = " \t\n " }).ConfigureAwait(false));
-        JsonElement omitted = AssertMatchingRepresentations(await CallAsync("list_recipes", new { }).ConfigureAwait(false));
+        JsonElement blank = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = " \t\n " }).ConfigureAwait(false));
+        JsonElement omitted = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0" }).ConfigureAwait(false));
         Assert.True(JsonElement.DeepEquals(blank, omitted));
     }
 
