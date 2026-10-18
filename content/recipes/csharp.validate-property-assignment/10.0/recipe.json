@@ -11,19 +11,38 @@
   "supportedTargets": ["10.0"],
   "stability": "stable",
   "applicability": {
-    "runtime": ".NET 10",
-    "sdk": "10.0.402 (verification baseline; .NET 10 SDK with C# 14 support required)",
-    "language": "C# 14",
-    "frameworks": [],
-    "packages": [],
-    "platforms": ["Any platform supported by .NET 10"],
-    "renderingModes": [],
-    "prerequisites": ["Target net10.0 with a supported .NET 10 SDK; no preview language mode or workloads required."],
-    "constraints": [
-      "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
-      "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
-      "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
-      "This example has no synchronization; concurrent mutation needs a separate design."
+    "routes": [
+      {
+        "runtime": ".NET 10",
+        "sdk": "10.0.402 (verification baseline; .NET 10 SDK with C# 14 support required)",
+        "language": "C# 14",
+        "frameworks": [],
+        "packages": [],
+        "platforms": [
+          "Any platform supported by .NET 10"
+        ],
+        "renderingModes": [],
+        "prerequisites": [
+          "Target net10.0 with a supported .NET 10 SDK; no preview language mode or workloads required."
+        ],
+        "constraints": [
+          "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
+          "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
+          "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
+          "This example has no synchronization; concurrent mutation needs a separate design."
+        ],
+        "target": "10.0",
+        "conditional": false,
+        "packageAssets": [],
+        "providers": [],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj"
+        ]
+      }
     ]
   },
   "sources": [
