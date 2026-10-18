@@ -8,6 +8,7 @@ internal sealed record RecipeEdition
     public required string Goal { get; init; }
     public required IReadOnlyList<string> Areas { get; init; }
     public required IReadOnlyList<string> ExampleLanguages { get; init; }
+    public bool LanguageNeutral { get; init; }
     public required IReadOnlyList<string> Tags { get; init; }
     public required IReadOnlyList<string> Apis { get; init; }
     public required string IntroducedIn { get; init; }

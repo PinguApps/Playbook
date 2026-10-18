@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <!-- snippet:target-framework -->
     <TargetFramework>net10.0</TargetFramework>
+    <!-- endsnippet:target-framework -->
+    <!-- snippet:language-version -->
     <LangVersion>14.0</LangVersion>
+    <!-- endsnippet:language-version -->
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../../PropertyAssignmentChecks.cs" Link="Program.cs" />

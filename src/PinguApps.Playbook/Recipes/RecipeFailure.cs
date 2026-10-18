@@ -8,4 +8,7 @@ internal sealed record RecipeFailure
     public string? RequestedTarget { get; init; }
     public required IReadOnlyList<string> SupportedTargets { get; init; }
     public required IReadOnlyList<string> AvailableEditions { get; init; }
+    public string? Filter { get; init; }
+    public IReadOnlyList<string> InvalidValues { get; init; } = [];
+    public IReadOnlyList<string> SupportedValues { get; init; } = [];
 }

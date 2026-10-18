@@ -9,7 +9,8 @@
     "title": { "$ref": "#/definitions/text" },
     "goal": { "$ref": "#/definitions/text" },
     "areas": { "$ref": "#/definitions/nonemptyStrings" },
-    "exampleLanguages": { "$ref": "#/definitions/nonemptyStrings" },
+    "exampleLanguages": { "$ref": "#/definitions/strings" },
+    "languageNeutral": { "type": "boolean" },
     "tags": { "$ref": "#/definitions/strings" },
     "apis": { "$ref": "#/definitions/strings" },
     "introducedIn": { "$ref": "#/definitions/release" },
@@ -72,6 +73,8 @@
       "required": ["target", "conditional", "runtime", "sdk", "language", "frameworks", "packages", "packageAssets", "providers", "platforms", "renderingModes", "prerequisites", "constraints", "sourceUrls", "evidenceSamples"],
       "properties": {
         "target": { "$ref": "#/definitions/release" },
+        "sharedAreas": { "$ref": "#/definitions/strings" },
+        "neutralLanguages": { "$ref": "#/definitions/strings" },
         "conditional": { "type": "boolean" },
         "runtime": { "$ref": "#/definitions/text" },
         "sdk": { "$ref": "#/definitions/text" },

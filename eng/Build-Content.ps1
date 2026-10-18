@@ -31,6 +31,14 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   if ($ReleaseReady -and $recipe.humanProof.status -ceq 'pending') {
     throw "Pending Human proof blocks release readiness: $($recipe.id)/$($recipe.edition): $($recipe.humanProof.scope)"
   }
+  if (-not $recipe.ContainsKey('languageNeutral')) { $recipe.languageNeutral = $false }
+  if ($recipe.languageNeutral) {
+    if ($recipe.exampleLanguages.Count -ne 0 -or
+        @($recipe.snippets.Values | Where-Object { $_.language -cnotin @('xml', 'json', 'jsonc', 'yaml', 'toml', 'ini') }).Count -ne 0) {
+      throw 'Language-neutral recipes require configuration snippets and no demonstrated programming language; language-specific directives/settings are not neutral.'
+    }
+  }
+  elseif ($recipe.exampleLanguages.Count -eq 0) { throw 'Programming recipes require demonstrated exampleLanguages.' }
   if ($file.Directory.Name -cne $recipe.edition -or $file.Directory.Parent.Name -cne $recipe.id) {
     throw "Recipe path must match its stable ID and edition: $($file.FullName)"
   }
@@ -41,6 +49,12 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     if ($target -cnotin $recipe.applicability.routes.target) { throw "Missing applicability route for target $target." }
   }
   foreach ($route in $recipe.applicability.routes) {
+    foreach ($field in @('sharedAreas', 'neutralLanguages')) {
+      if (-not $route.ContainsKey($field)) { $route[$field] = @() }
+    }
+    if ($recipe.languageNeutral -ne ($route.neutralLanguages.Count -gt 0)) {
+      throw 'Only language-neutral recipes require explicit neutralLanguages on every route.'
+    }
     if ($route.target -cnotin $recipe.supportedTargets) { throw 'Route target must be declared in supportedTargets.' }
     if ([version]$route.target -lt [version]$recipe.introducedIn -and -not $route.conditional) {
       throw 'Target predates introduction; an explicit conditional route is required.'
@@ -101,7 +115,7 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     if (-not ($sampleDirectories | Where-Object { $snippetPath.StartsWith($_, [StringComparison]::OrdinalIgnoreCase) })) { throw "Snippet '$key' must belong to a declared evidence sample." }
     $source = Get-Content -LiteralPath $snippetPath -Raw
     $region = [regex]::Escape($snippet.region)
-    $matches = [regex]::Matches($source, "(?ms)^// snippet:$region\r?\n(.*?)^// endsnippet:$region\r?$")
+    $matches = [regex]::Matches($source, "(?ms)^[ \t]*(?:// snippet:$region|<!-- snippet:$region -->)\r?\n(.*?)^[ \t]*(?:// endsnippet:$region|<!-- endsnippet:$region -->)\r?$")
     if ($matches.Count -ne 1 -or [string]::IsNullOrWhiteSpace($matches[0].Groups[1].Value)) {
       throw "Expected one nonempty snippet '$key' in $($snippet.path)."
     }

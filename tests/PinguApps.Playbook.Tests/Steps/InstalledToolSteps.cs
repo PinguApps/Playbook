@@ -267,6 +267,151 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal("11.0", newest.GetProperty("recipe").GetProperty("edition").GetString());
     }
 
+    [Then("combined filters respect shared areas demonstrated languages and neutral configuration")]
+    public async Task CheckCombinedDiscoveryAsync()
+    {
+        JsonElement combined = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            targetVersion = "11",
+            areas = (string[])["blazor", "wpf"],
+            languages = (string[])["fsharp", "csharp"],
+            query = "  DISCOVERY\treservation\nBeaconApi catalogue  ",
+        }).ConfigureAwait(false));
+        Assert.Equal(["fixture.direct", "fixture.directive", "fixture.neutral", "fixture.shared"], RecipeIds(combined));
+        Assert.Equal(4, combined.GetProperty("total").GetInt32());
+        Assert.Contains("blazor", combined.GetProperty("supportedAreas").EnumerateArray().Select(value => value.GetString()));
+        Assert.Contains("fsharp", combined.GetProperty("supportedExampleLanguages").EnumerateArray().Select(value => value.GetString()));
+        JsonElement neutral = combined.GetProperty("recipes")[2];
+        Assert.True(neutral.GetProperty("languageNeutral").GetBoolean());
+        Assert.Empty(neutral.GetProperty("exampleLanguages").EnumerateArray());
+        Assert.Equal("experimental", combined.GetProperty("recipes")[3].GetProperty("stability").GetString());
+        Assert.NotEmpty(combined.GetProperty("recipes")[3].GetProperty("applicability").GetProperty("routes")[0].GetProperty("optIns").EnumerateArray());
+        Assert.All(combined.GetProperty("recipes").EnumerateArray(), recipe => Assert.False(recipe.TryGetProperty("markdown", out _)));
+
+        JsonElement direct = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            areas = (string[])["blazor", "wpf"],
+            languages = (string[])["csharp", "fsharp"],
+            query = "discovery reservation BeaconApi",
+            includeShared = false,
+        }).ConfigureAwait(false));
+        Assert.Equal(["fixture.direct"], RecipeIds(direct));
+        JsonElement fsharp = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            areas = (string[])["blazor"],
+            languages = (string[])["fsharp"],
+            query = "discovery reservation BeaconApi",
+        }).ConfigureAwait(false));
+        Assert.Equal(["fixture.neutral"], RecipeIds(fsharp));
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            targetVersion = "10",
+            areas = (string[])["blazor"],
+            query = "discovery reservation BeaconApi",
+        }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(older));
+        JsonElement allAreas = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            areas = Array.Empty<string>(),
+            languages = Array.Empty<string>(),
+            includeShared = false,
+            query = "discovery reservation BeaconApi",
+        }).ConfigureAwait(false));
+        Assert.Equal(["fixture.direct", "fixture.directive", "fixture.neutral", "fixture.shared", "fixture.windows"], RecipeIds(allAreas));
+        JsonElement forbidden = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            areas = (string[])["blazor"],
+            query = "discovery reservation missing",
+        }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(forbidden));
+        JsonElement splitConditions = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            areas = (string[])["blazor"],
+            languages = (string[])["fsharp"],
+            query = "routecoherence",
+        }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(splitConditions));
+        JsonElement sameRoute = AssertMatchingRepresentations(await CallAsync("list_recipes", new
+        {
+            areas = (string[])["wpf"],
+            languages = (string[])["fsharp"],
+            query = "routecoherence",
+        }).ConfigureAwait(false));
+        Assert.Equal(["fixture.route-conjunction"], RecipeIds(sameRoute));
+        JsonElement matchedRoute = Assert.Single(sameRoute.GetProperty("recipes")[0].GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        Assert.Equal(["wpf"], matchedRoute.GetProperty("sharedAreas").EnumerateArray().Select(value => value.GetString()));
+    }
+
+    [Then("discovery pages preserve ordinal order totals and explicit boundaries")]
+    public async Task CheckDiscoveryPagingAsync()
+    {
+        JsonElement first = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal" }).ConfigureAwait(false));
+        Assert.Equal(20, first.GetProperty("recipes").GetArrayLength());
+        Assert.Equal(0, first.GetProperty("offset").GetInt32());
+        Assert.Equal(20, first.GetProperty("limit").GetInt32());
+        Assert.Equal(53, first.GetProperty("total").GetInt32());
+        List<string> ids = [.. RecipeIds(first)];
+        int offset = first.GetProperty("nextOffset").GetInt32();
+        while (true)
+        {
+            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", offset, limit = 20 }).ConfigureAwait(false));
+            Assert.Equal(53, page.GetProperty("total").GetInt32());
+            ids.AddRange(RecipeIds(page));
+            if (page.GetProperty("nextOffset").ValueKind == JsonValueKind.Null)
+            {
+                break;
+            }
+
+            int next = page.GetProperty("nextOffset").GetInt32();
+            Assert.True(next > offset);
+            offset = next;
+            Assert.True(ids.Count <= 53, "Paging must terminate without repeating results.");
+        }
+
+        string[] expected = [.. Enumerable.Range(0, 53).Select(index => $"fixture.page-{index:D2}")];
+        Assert.Equal(expected, ids);
+        JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", offset = 0 }).ConfigureAwait(false));
+        Assert.True(JsonElement.DeepEquals(first, repeated));
+        JsonElement maximum = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(50, maximum.GetProperty("recipes").GetArrayLength());
+        Assert.Equal(50, maximum.GetProperty("nextOffset").GetInt32());
+        JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = "traversal", offset = int.MaxValue }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(beyond));
+        Assert.Equal(53, beyond.GetProperty("total").GetInt32());
+        Assert.Equal(JsonValueKind.Null, beyond.GetProperty("nextOffset").ValueKind);
+    }
+
+    [Then("invalid filters and ranges explain corrections while zero matches succeed")]
+    public async Task CheckDiscoveryFailuresAsync()
+    {
+        JsonElement area = AssertToolError(await CallAsync("list_recipes", new { areas = (string[])["csharp", "blazro"] }).ConfigureAwait(false), "unknown_area");
+        Assert.Equal("areas", area.GetProperty("filter").GetString());
+        Assert.Equal(["blazro"], area.GetProperty("invalidValues").EnumerateArray().Select(value => value.GetString()));
+        Assert.Contains("csharp", area.GetProperty("supportedValues").EnumerateArray().Select(value => value.GetString()));
+        JsonElement language = AssertToolError(await CallAsync("list_recipes", new { languages = (string[])["cshrap"] }).ConfigureAwait(false), "unknown_language");
+        Assert.Equal("languages", language.GetProperty("filter").GetString());
+        Assert.Contains("csharp", language.GetProperty("supportedValues").EnumerateArray().Select(value => value.GetString()));
+        foreach (object arguments in new object[] { new { offset = -1 }, new { limit = 0 }, new { limit = 51 } })
+        {
+            JsonElement error = AssertToolError(await CallAsync("list_recipes", arguments).ConfigureAwait(false), "invalid_range");
+            Assert.Contains("offset", error.GetProperty("message").GetString(), StringComparison.Ordinal);
+            Assert.Contains("50", error.GetProperty("message").GetString(), StringComparison.Ordinal);
+        }
+
+        JsonElement empty = AssertMatchingRepresentations(await CallAsync("list_recipes", new { areas = (string[])["csharp"], languages = (string[])["csharp"], query = "unmatched term" }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(empty));
+        Assert.Equal(0, empty.GetProperty("total").GetInt32());
+        Assert.Equal(JsonValueKind.Null, empty.GetProperty("nextOffset").ValueKind);
+        JsonElement blank = AssertMatchingRepresentations(await CallAsync("list_recipes", new { query = " \t\n " }).ConfigureAwait(false));
+        JsonElement omitted = AssertMatchingRepresentations(await CallAsync("list_recipes", new { }).ConfigureAwait(false));
+        Assert.True(JsonElement.DeepEquals(blank, omitted));
+    }
+
+    private static string[] RecipeIds(JsonElement list)
+    {
+        return [.. list.GetProperty("recipes").EnumerateArray().Select(recipe => recipe.GetProperty("id").GetString()!)];
+    }
+
     [When("the client closes its input")]
     public void CloseInput()
     {
