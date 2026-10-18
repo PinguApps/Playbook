@@ -1,0 +1,14 @@
+[
+  {
+    "target": "10.0",
+    "scope": "curated",
+    "complete": false,
+    "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+  },
+  {
+    "target": "11.0",
+    "scope": "comprehensive",
+    "complete": false,
+    "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+  }
+]

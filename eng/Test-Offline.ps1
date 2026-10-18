@@ -19,5 +19,6 @@ docker run --rm --network none `
   --mount "type=bind,source=$suite,target=/suite,readonly" `
   -e "PLAYBOOK_TEST_PACKAGE=/artifacts/PinguApps.Playbook.$PackageVersion.nupkg" `
   -e "PLAYBOOK_TEST_VERSION=$PackageVersion" `
+  -e "PLAYBOOK_TEST_RELEASE_FIXTURE=/artifacts/release-fixture/PinguApps.Playbook.$PackageVersion.nupkg" `
   -e DOTNET_CLI_TELEMETRY_OPTOUT=1 -e DOTNET_NOLOGO=1 `
   $Image dotnet /suite/PinguApps.Playbook.Tests.dll

@@ -33,6 +33,10 @@ The keyword is contextual inside an accessor. If existing accessor code uses a m
 
 The getter and setter retain the same external contract as the explicit-field version. This simplification does not add thread safety, persistence validation or validation for callers bypassing the property. The .NET 9 comparison is comparison evidence, not a supported .NET 9 catalogue target.
 
+## Conditional .NET 11 SDK route for .NET 10
+
+A newer SDK can build an older target. The optional .NET 11 SDK route keeps `TargetFramework=net10.0` and `LangVersion=14.0`, using SDK `11.0.100-rc.2.26504.105` with the .NET 10 targeting pack/runtime. It compiles the same canonical source and runs the same checks. Select this route only when those requirements are available; Playbook has not inspected them. The .NET 10 SDK route remains valid. This does not claim supported C# 15 syntax on .NET 10, or GA verification from an RC build.
+
 ## Evidence and alternatives
 
 Both original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to refresh this evidence. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.

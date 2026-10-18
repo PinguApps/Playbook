@@ -44,7 +44,9 @@ jobs:
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         with:
           global-json-file: global.json
-          dotnet-version: 9.0.319
+          dotnet-version: |
+            9.0.319
+            11.0.100-rc.2.26504.105
 
       - name: Compile samples and verify the packed tool
         shell: pwsh

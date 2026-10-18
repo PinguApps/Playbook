@@ -16,19 +16,9 @@
     "supportedTargets": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/definitions/release" } },
     "stability": { "enum": ["stable", "preview", "experimental"] },
     "applicability": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["runtime", "sdk", "language", "frameworks", "packages", "platforms", "renderingModes", "prerequisites", "constraints"],
+      "type": "object", "additionalProperties": false, "required": ["routes"],
       "properties": {
-        "runtime": { "$ref": "#/definitions/text" },
-        "sdk": { "$ref": "#/definitions/text" },
-        "language": { "$ref": "#/definitions/text" },
-        "frameworks": { "$ref": "#/definitions/strings" },
-        "packages": { "$ref": "#/definitions/strings" },
-        "platforms": { "$ref": "#/definitions/nonemptyStrings" },
-        "renderingModes": { "$ref": "#/definitions/strings" },
-        "prerequisites": { "$ref": "#/definitions/nonemptyStrings" },
-        "constraints": { "$ref": "#/definitions/nonemptyStrings" }
+        "routes": { "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/route" } }
       }
     },
     "sources": {
@@ -67,6 +57,27 @@
     }
   },
   "definitions": {
+    "route": {
+      "type": "object", "additionalProperties": false,
+      "required": ["target", "conditional", "runtime", "sdk", "language", "frameworks", "packages", "packageAssets", "providers", "platforms", "renderingModes", "prerequisites", "constraints", "sourceUrls", "evidenceSamples"],
+      "properties": {
+        "target": { "$ref": "#/definitions/release" },
+        "conditional": { "type": "boolean" },
+        "runtime": { "$ref": "#/definitions/text" },
+        "sdk": { "$ref": "#/definitions/text" },
+        "language": { "$ref": "#/definitions/text" },
+        "frameworks": { "$ref": "#/definitions/strings" },
+        "packages": { "$ref": "#/definitions/strings" },
+        "packageAssets": { "$ref": "#/definitions/strings" },
+        "providers": { "$ref": "#/definitions/strings" },
+        "platforms": { "$ref": "#/definitions/nonemptyStrings" },
+        "renderingModes": { "$ref": "#/definitions/strings" },
+        "prerequisites": { "$ref": "#/definitions/nonemptyStrings" },
+        "constraints": { "$ref": "#/definitions/nonemptyStrings" },
+        "sourceUrls": { "$ref": "#/definitions/nonemptyStrings" },
+        "evidenceSamples": { "$ref": "#/definitions/nonemptyStrings" }
+      }
+    },
     "release": { "type": "string", "pattern": "^[1-9][0-9]*\\.0$" },
     "text": { "type": "string", "minLength": 1, "pattern": "\\S" },
     "strings": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/text" } },
