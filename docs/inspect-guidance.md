@@ -67,6 +67,8 @@ The ordinary catalogue currently contains only this C# goal, so it cannot demons
 
 ## Inspect release selection and failures
 
+For an empty search, inspect `recovery` alongside the requested/resolved target and coverage. Its optional `suggestedRequest` is a complete `list_recipes` arguments object; executing it is the agent's choice. Keyword recovery removes keywords while preserving compatibility filters. Paging recovery resets only the offset. When the non-keyword combination is empty, there is no safe suggested retry. Nonempty discovery omits recovery. See the [tested empty-search and retry walkthrough](verification/PIN-975.md), including recovered ID/title/goal, full Markdown and applicability.
+
 Continue in the same PowerShell window:
 
 ```powershell
