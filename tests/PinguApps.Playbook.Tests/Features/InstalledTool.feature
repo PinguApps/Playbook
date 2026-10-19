@@ -1,6 +1,20 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  Scenario: Empty keyword searches offer an explicit retry with unchanged compatibility filters
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then empty keyword searches preserve constraints in a useful suggested request
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Empty combinations and pages receive honest recovery guidance
+    Given the release contract fixture package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then unmatched combinations have no unsafe retry and empty pages retain their query
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Ordinary discovery has a practical response size budget
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout

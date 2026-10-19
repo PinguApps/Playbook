@@ -38,15 +38,11 @@ internal sealed class RecipeCatalogue
         }
 
         string[] terms = query?.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries) ?? [];
-        RecipeSummary[] summaries = [.. _editions
+        RecipeEdition[] candidates = [.. _editions
             .Where(edition => edition.SupportedTargets.Contains(target, StringComparer.Ordinal))
             .GroupBy(edition => edition.Id, StringComparer.Ordinal)
             .OrderBy(group => group.Key, StringComparer.Ordinal)
             .Select(group => group.OrderByDescending(edition => Version.Parse(edition.Edition)).First())
-            .Where(edition => terms.All(term => edition.Title.Contains(term, StringComparison.OrdinalIgnoreCase)
-                || edition.Goal.Contains(term, StringComparison.OrdinalIgnoreCase)
-                || edition.Tags.Any(tag => tag.Contains(term, StringComparison.OrdinalIgnoreCase))
-                || edition.Apis.Any(api => api.Contains(term, StringComparison.OrdinalIgnoreCase))))
             .Select(edition => edition with
             {
                 Applicability = new Applicability
@@ -58,7 +54,12 @@ internal sealed class RecipeCatalogue
                             || (edition.LanguageNeutral && route.NeutralLanguages.Intersect(languages, StringComparer.Ordinal).Any())))],
                 },
             })
-            .Where(edition => edition.Applicability.Routes.Count > 0)
+            .Where(edition => edition.Applicability.Routes.Count > 0)];
+        RecipeSummary[] summaries = [.. candidates
+            .Where(edition => terms.All(term => edition.Title.Contains(term, StringComparison.OrdinalIgnoreCase)
+                || edition.Goal.Contains(term, StringComparison.OrdinalIgnoreCase)
+                || edition.Tags.Any(tag => tag.Contains(term, StringComparison.OrdinalIgnoreCase))
+                || edition.Apis.Any(api => api.Contains(term, StringComparison.OrdinalIgnoreCase))))
             .Select(edition => new RecipeSummary
             {
                 Id = edition.Id,
@@ -74,6 +75,46 @@ internal sealed class RecipeCatalogue
                 Applicability = ApplicabilitySummary.From(edition.Applicability),
             })];
         RecipeSummary[] page = [.. summaries.Skip(offset).Take(limit)];
+        bool keywordRetry = summaries.Length == 0 && terms.Length > 0 && candidates.Length > 0;
+        RecipeSearchRecovery? recovery = null;
+        if (page.Length == 0)
+        {
+            string message = (summaries.Length > 0, keywordRetry) switch
+            {
+                (true, _) => "Matching recipes exist, but this offset is outside the result set. Retry from offset 0 with the same target and filters.",
+                (_, true) => "No installed recipe matches all keywords with this target and filters. You may retry without keywords; compatibility filters are unchanged. This is not proof that the capability does not exist; inspect coverage.",
+                _ => "No compatible installed recipe matches this target and filter combination, even without keywords. No safe filter retry is available. This is not proof that the capability does not exist; inspect coverage.",
+            };
+            string? effectiveQuery = terms.Length == 0 ? null : string.Join(' ', terms);
+            RecipeSearchRequest? suggestedRequest = null;
+            if (summaries.Length > 0 || keywordRetry)
+            {
+                suggestedRequest = new RecipeSearchRequest
+                {
+                    TargetVersion = targetVersion,
+                    Areas = areas ?? [],
+                    Languages = languages ?? [],
+                    Query = keywordRetry ? null : effectiveQuery,
+                    IncludeShared = includeShared,
+                    Offset = 0,
+                    Limit = limit,
+                };
+            }
+
+            recovery = new RecipeSearchRecovery
+            {
+                Reason = summaries.Length > 0 ? "offset_out_of_range" : "no_matches",
+                Message = message,
+                Filters = new RecipeSearchFilters
+                {
+                    Areas = areas ?? [],
+                    Languages = languages ?? [],
+                    Query = effectiveQuery,
+                    IncludeShared = includeShared,
+                },
+                SuggestedRequest = suggestedRequest,
+            };
+        }
         return new RecipeList
         {
             ResolvedTarget = target,
@@ -88,6 +129,7 @@ internal sealed class RecipeCatalogue
             Limit = limit,
             NextOffset = offset < summaries.Length && page.Length < summaries.Length - offset ? offset + page.Length : null,
             Recipes = page,
+            Recovery = recovery,
         };
     }
 

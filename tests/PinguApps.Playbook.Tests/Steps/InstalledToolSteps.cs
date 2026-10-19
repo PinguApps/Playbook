@@ -66,6 +66,90 @@ public sealed class InstalledToolSteps : IDisposable
 
     private static int Bytes(JsonElement value) => Encoding.UTF8.GetByteCount(value.GetRawText());
 
+    [Then("empty keyword searches preserve constraints in a useful suggested request")]
+    public async Task CheckKeywordRecoveryAsync()
+    {
+        foreach (string target in new[] { "net10.0", "latest" })
+        {
+            object arguments = new { targetVersion = target, areas = (string[])["csharp"], languages = (string[])["csharp"], query = " field\tno-such-term ", includeShared = false, offset = 7, limit = 1 };
+            JsonElement result = await CallAsync("list_recipes", arguments).ConfigureAwait(false);
+            JsonElement empty = AssertMatchingRepresentations(result);
+            Assert.Equal(0, empty.GetProperty("total").GetInt32());
+            Assert.Empty(RecipeIds(empty));
+            Assert.Contains(empty.GetProperty("coverage").EnumerateArray(), coverage => !coverage.GetProperty("complete").GetBoolean());
+            Assert.Equal(target == "latest" ? "11.0" : "10.0", empty.GetProperty("resolvedTarget").GetString());
+            JsonElement recovery = empty.GetProperty("recovery");
+            Assert.Equal("no_matches", recovery.GetProperty("reason").GetString());
+            Assert.Contains("not proof", recovery.GetProperty("message").GetString(), StringComparison.Ordinal);
+            JsonElement filters = recovery.GetProperty("filters");
+            Assert.Equal("field no-such-term", filters.GetProperty("query").GetString());
+            Assert.Equal("csharp", Assert.Single(filters.GetProperty("areas").EnumerateArray()).GetString());
+            Assert.Equal("csharp", Assert.Single(filters.GetProperty("languages").EnumerateArray()).GetString());
+            Assert.False(filters.GetProperty("includeShared").GetBoolean());
+            JsonElement retry = recovery.GetProperty("suggestedRequest");
+            Assert.Equal(target, retry.GetProperty("targetVersion").GetString());
+            foreach (string field in new[] { "areas", "languages", "includeShared" })
+            {
+                Assert.True(JsonElement.DeepEquals(filters.GetProperty(field), retry.GetProperty(field)), field);
+            }
+
+            Assert.Equal(JsonValueKind.Null, retry.GetProperty("query").ValueKind);
+            Assert.Equal(0, retry.GetProperty("offset").GetInt32());
+            Assert.Equal(1, retry.GetProperty("limit").GetInt32());
+            Assert.True(Bytes(recovery) <= 1200, $"Recovery: {Bytes(recovery)} UTF-8 bytes");
+            JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", arguments).ConfigureAwait(false));
+            Assert.True(JsonElement.DeepEquals(empty, repeated));
+            JsonElement matched = AssertMatchingRepresentations(await CallAsync("list_recipes", retry).ConfigureAwait(false));
+            Assert.Equal("csharp.validate-property-assignment", Assert.Single(RecipeIds(matched)));
+            Assert.False(matched.TryGetProperty("recovery", out _));
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = RecipeIds(matched)[0], targetVersion = target }).ConfigureAwait(false)).GetProperty("recipe");
+            Assert.NotEmpty(recipe.GetProperty("markdown").GetString()!);
+            AssertSelection(matched.GetProperty("recipes")[0], recipe);
+        }
+
+        JsonElement defaults = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10", query = "unmatched" }).ConfigureAwait(false));
+        JsonElement defaultRetry = defaults.GetProperty("recovery").GetProperty("suggestedRequest");
+        Assert.Empty(defaultRetry.GetProperty("areas").EnumerateArray());
+        Assert.Empty(defaultRetry.GetProperty("languages").EnumerateArray());
+        Assert.True(defaultRetry.GetProperty("includeShared").GetBoolean());
+        Assert.Equal(20, defaultRetry.GetProperty("limit").GetInt32());
+    }
+
+    [Then("unmatched combinations have no unsafe retry and empty pages retain their query")]
+    public async Task CheckCombinationAndPageRecoveryAsync()
+    {
+        foreach (string? query in new string?[] { null, " \t ", "unmatched" })
+        {
+            JsonElement empty = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net10.0", areas = (string[])["wpf"], languages = (string[])["fsharp"], query, includeShared = false }).ConfigureAwait(false));
+            Assert.Equal(0, empty.GetProperty("total").GetInt32());
+            JsonElement recovery = empty.GetProperty("recovery");
+            Assert.Equal("no_matches", recovery.GetProperty("reason").GetString());
+            Assert.Equal(JsonValueKind.Null, recovery.GetProperty("suggestedRequest").ValueKind);
+            Assert.Contains("no compatible", recovery.GetProperty("message").GetString(), StringComparison.OrdinalIgnoreCase);
+            Assert.Contains("not proof", recovery.GetProperty("message").GetString(), StringComparison.Ordinal);
+        }
+
+        foreach (int offset in new[] { 53, int.MaxValue })
+        {
+            JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", areas = (string[])["csharp"], languages = (string[])["csharp"], query = "traversal", includeShared = false, offset, limit = 50 }).ConfigureAwait(false));
+            Assert.Equal(53, beyond.GetProperty("total").GetInt32());
+            Assert.Empty(RecipeIds(beyond));
+            JsonElement recovery = beyond.GetProperty("recovery");
+            Assert.Equal("offset_out_of_range", recovery.GetProperty("reason").GetString());
+            JsonElement retry = recovery.GetProperty("suggestedRequest");
+            Assert.Equal("latest", retry.GetProperty("targetVersion").GetString());
+            Assert.Equal("traversal", retry.GetProperty("query").GetString());
+            Assert.Equal(0, retry.GetProperty("offset").GetInt32());
+            Assert.Equal(50, retry.GetProperty("limit").GetInt32());
+            Assert.False(retry.GetProperty("includeShared").GetBoolean());
+            Assert.Equal("csharp", Assert.Single(retry.GetProperty("areas").EnumerateArray()).GetString());
+            Assert.Equal("csharp", Assert.Single(retry.GetProperty("languages").EnumerateArray()).GetString());
+            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", retry).ConfigureAwait(false));
+            Assert.Equal(50, page.GetProperty("recipes").GetArrayLength());
+            Assert.Equal(50, page.GetProperty("nextOffset").GetInt32());
+        }
+    }
+
     [Given("the release contract fixture package is installed from an isolated local feed and cache")]
     public async Task InstallFixtureAsync()
     {

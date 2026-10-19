@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace PinguApps.Playbook.Recipes;
 
 internal sealed record RecipeList
@@ -14,4 +16,6 @@ internal sealed record RecipeList
     public required int Limit { get; init; }
     public required int? NextOffset { get; init; }
     public required IReadOnlyList<RecipeSummary> Recipes { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public RecipeSearchRecovery? Recovery { get; init; }
 }
