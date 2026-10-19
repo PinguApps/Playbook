@@ -36,6 +36,7 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
+  @HostSmoke
   Scenario: Install and retrieve complete property guidance over client-owned stdio
     Given the actual package is installed from an isolated local feed and cache
     Then bare invocation help and version identify the installed command

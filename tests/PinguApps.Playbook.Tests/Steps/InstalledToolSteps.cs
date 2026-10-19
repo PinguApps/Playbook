@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.IO.Compression;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using Reqnroll;
@@ -184,6 +186,10 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal("net10.0", runtime.GetProperty("tfm").GetString());
         Assert.Equal("Major", runtime.GetProperty("rollForward").GetString());
         Assert.Equal("Microsoft.NETCore.App", runtime.GetProperty("framework").GetProperty("name").GetString());
+        await using ZipArchive archive = await ZipFile.OpenReadAsync(package).ConfigureAwait(false);
+        await using Stream packedAssembly = await archive.GetEntry("tools/net10.0/any/PinguApps.Playbook.dll")!.OpenAsync().ConfigureAwait(false);
+        using FileStream installedAssembly = File.OpenRead(runtimeConfig.Replace(".runtimeconfig.json", ".dll", StringComparison.Ordinal));
+        Assert.Equal(await SHA256.HashDataAsync(packedAssembly).ConfigureAwait(false), await SHA256.HashDataAsync(installedAssembly).ConfigureAwait(false));
     }
 
     [Then("bare invocation help and version identify the installed command")]
@@ -203,6 +209,10 @@ public sealed class InstalledToolSteps : IDisposable
     {
         ProcessStartInfo start = CreateStartInfo(_executable!, "mcp");
         start.RedirectStandardInput = true;
+        // Trace only the installed server, not the test runner or SDK used for installation.
+        start.Environment["DOTNET_HOST_TRACE"] = "1";
+        start.Environment["DOTNET_HOST_TRACEFILE"] = Path.Combine(_directory, "host.log");
+        start.Environment.Remove("DOTNET_ROLL_FORWARD");
         _server = Process.Start(start) ?? throw new InvalidOperationException("Could not start installed tool.");
         _diagnostics = _server.StandardError.ReadToEndAsync();
         JsonElement initialized = await RequestAsync("initialize", new
@@ -802,6 +812,36 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal(0, _server.ExitCode);
         Assert.Empty(await _server.StandardOutput.ReadToEndAsync(timeout.Token).ConfigureAwait(false));
         Assert.NotEmpty(await _diagnostics!.ConfigureAwait(false));
+        string trace = await File.ReadAllTextAsync(Path.Combine(_directory, "host.log")).ConfigureAwait(false);
+        string coreClr = Assert.Single(trace.Split('\n'), line => line.StartsWith("CoreCLR path =", StringComparison.Ordinal));
+        _output.WriteLine(coreClr);
+        string? expectedRuntime = Environment.GetEnvironmentVariable("PLAYBOOK_TEST_RUNTIME_MAJOR");
+        if (expectedRuntime is not null)
+        {
+            Assert.Contains($"/shared/Microsoft.NETCore.App/{expectedRuntime}.", coreClr.Replace('\\', '/'), StringComparison.Ordinal);
+        }
+
+        string? evidenceDirectory = Environment.GetEnvironmentVariable("PLAYBOOK_TEST_EVIDENCE_DIRECTORY");
+        if (evidenceDirectory is not null)
+        {
+            Directory.CreateDirectory(evidenceDirectory);
+            string evidencePath = Path.Combine(evidenceDirectory, Path.GetFileName(_directory));
+            File.Copy(Path.Combine(_directory, "host.log"), evidencePath + ".host.log");
+            string package = Environment.GetEnvironmentVariable(_packageVariable)!;
+            using FileStream packageStream = File.OpenRead(package);
+            string packageHash = Convert.ToHexStringLower(await SHA256.HashDataAsync(packageStream).ConfigureAwait(false));
+            string evidence = JsonSerializer.Serialize(new
+            {
+                package = Path.GetFileName(package),
+                sha256 = packageHash,
+                serverProcessId = _server.Id,
+                workingDirectory = _directory,
+                coreClr = coreClr.Trim(),
+                expectedRuntime,
+                shutdownExitCode = _server.ExitCode,
+            });
+            await File.WriteAllTextAsync(evidencePath + ".json", evidence).ConfigureAwait(false);
+        }
     }
 
     public void Dispose()

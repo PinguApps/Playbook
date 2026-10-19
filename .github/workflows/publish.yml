@@ -43,6 +43,7 @@ jobs:
     needs: version
     permissions:
       contents: read
+      actions: read
       checks: write
       pull-requests: write
     uses: ./.github/workflows/_run-tests.yml
