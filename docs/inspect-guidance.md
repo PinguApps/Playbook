@@ -7,7 +7,7 @@ Requires PowerShell 7, the pinned .NET SDK 10.0.402, and Node 22.19 or later for
 From this worktree:
 
 ```powershell
-Set-Location V:\_worktrees\Playbook\t3-85f8d35e
+Set-Location V:\_worktrees\Playbook\t3-33d73aa8
 dotnet build ./src/PinguApps.Playbook -c Release
 $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
 $inspector = @('--yes', '@modelcontextprotocol/inspector@2.11.0', '--cli', '--format', 'json', '--quiet')
@@ -18,6 +18,7 @@ npx @inspector --method tools/list -- dotnet $server mcp
 # List the recipes declared for .NET 10.
 $catalogue = npx @inspector --method tools/call --tool-name list_recipes --tool-arg 'targetVersion="10.0"' -- dotnet $server mcp | ConvertFrom-Json
 $catalogue.result.structuredContent.recipes | Format-List id, title, goal
+$catalogue.result.structuredContent.recipes.applicability | ConvertTo-Json -Depth 10
 
 # Retrieve the complete recipe, then display its Markdown and constraints.
 $response = npx @inspector --method tools/call --tool-name get_recipe --tool-arg id=csharp.validate-property-assignment --tool-arg 'targetVersion="10.0"' -- dotnet $server mcp | ConvertFrom-Json
@@ -30,6 +31,8 @@ $recipe.humanProof | Format-List
 ```
 
 Expect one recipe, `csharp.validate-property-assignment`, titled **Normalize and validate properties with the C# field keyword**. Its `goal` explains when to use the feature: property setters that normalize or validate assignments without a separate backing-field declaration. The warehouse domain appears in the worked example; discovery describes the reusable capability.
+
+Discovery applicability is now a compact selection summary: separate primary/optional routes, version conditions without reasons, essential restrictions, `selectionNotes`, opt-ins and stability warnings. It omits full prerequisites/constraints, source URLs and evidence links. Those fields remain in `get_recipe`; retrieve it and check the complete conditions before applying guidance. Missing fields in a summary do not mean unrestricted compatibility. See [PIN-974 measurements, budgets and the tested example](verification/PIN-974.md). This response-shape change is classified `major` under the existing compatibility policy.
 
 Its Markdown includes both original implementations, migration steps, recursion/initialization constraints and evidence. Applicability has explicit `routes`: the primary .NET 10 / C# 14 requirements, plus an `optional-alternative` using the .NET 11 SDK while retaining `net10.0` and C# 14. Each route's `requirements` contains runtime, SDK, language, framework, package/asset, workload, provider, platform, rendering, prerequisite and constraint fields. Version conditions distinguish a `release-family` from a necessary `exact` pin. `sourceUrls` justify conditions; `evidenceSamples` links exact test records separately. These are requirements to check, not claims that Playbook inspected the consumer. `$response` retains the complete structured result and matching JSON text fallback; omit `Show-Markdown` to inspect raw Markdown.
 
