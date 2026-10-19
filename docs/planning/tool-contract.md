@@ -89,6 +89,19 @@ Use explicit, machine-readable failures for an unknown recipe ID, unsupported ta
 
 A valid filter combination matching nothing is a successful empty result. Never silently discard a filter or substitute the latest target to manufacture a match.
 
+### Empty discovery recovery (PIN-975)
+
+An empty `recipes` page includes optional `recovery` in the same complete structured object and JSON text fallback. Nonempty pages omit it, so ordinary discovery size is unchanged. Existing requested/resolved targets, coverage disclosures, totals and paging metadata remain present. Unknown area/language, missing/unsupported target and invalid range errors still fail before recovery; they are not successful empty results.
+
+`recovery` contains `reason`, a concise `message`, effective `filters` (`areas`, `languages`, whitespace-normalized `query` or null, `includeShared`) and nullable `suggestedRequest`. Empty arrays mean all areas/languages. Read the effective target from `resolvedTarget`, with the caller's original selection in `requestedTarget`.
+
+- `reason: no_matches` means `total: 0`. If there are keyword terms and compatible candidates exist under the same non-keyword filters, suggest removing all keywords. Otherwise explain that the installed target/filter combination has no compatible candidates even without keywords and return `suggestedRequest: null`. This is not evidence that a capability does not exist; coverage can be incomplete.
+- `reason: offset_out_of_range` means an empty page with a nonzero total. Suggest offset 0 with the same keywords, target selection, areas, languages, shared inclusion and limit. Do not misreport it as zero matches or remove keywords.
+
+`suggestedRequest`, when present, is a complete arguments object for the existing `list_recipes` tool: `targetVersion`, `areas`, `languages`, `query`, `includeShared`, `offset`, `limit`. It retains the caller's original alias or deliberate `latest`, set values/order, shared setting and page size. Keyword removal also resets offset to 0 for the changed result set. Blank keywords normalize to null with unchanged matching semantics. The caller decides whether to execute it. The server never retries automatically, changes compatibility filters, searches online, invents matches, or claims the consumer meets recipe requirements. Check full detail before applying a recovered recipe.
+
+Recovery is one explanation and at most one request, without candidate previews or a separate search tool. A representative ordinary recovery object must fit 1,200 UTF-8 bytes; existing discovery budgets still apply. Caller-supplied filter/query lengths remain variable: the server never truncates them or essential disclosures to fit a budget. This optional additive response capability is `minor` under the package SemVer policy. Development packages remain unpublished candidates. See the [tested Inspector recovery walkthrough](../verification/PIN-975.md).
+
 Exact error codes and transport serialization remain to design within standard MCP behavior; this is the intended caller-visible contract.
 
 ## CLI boundary

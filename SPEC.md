@@ -60,7 +60,7 @@ Prepare .NET 11 GA guidance using current RC evidence. Include genuinely experim
 31. As a coding agent, I want complete recipe content and applicability in the same structured response, so that client representation choices cannot separate essential constraints from instructions.
 32. As an MCP client, I want an output schema and a complete JSON text fallback, so that standard structured and text result handling both retain the guidance.
 33. As a coding agent, I want helpful errors for unknown IDs, unsupported targets and misspelled filters, so that I can correct a request without silent substitutions.
-34. As a coding agent, I want valid zero-match combinations to return successful empty results, so that I can distinguish absence of matches from invalid input.
+34. As a coding agent, I want valid zero-match combinations to return successful empty results, so that I can distinguish absence of matches from invalid input. Empty discovery explains the effective target/filters and incomplete coverage; it can suggest an explicit keyword-only retry preserving compatibility constraints, or an offset correction for an empty page beyond a nonzero total. It never retries or widens filters automatically. (PIN-975.)
 
 ### Content quality, applicability and provenance
 
