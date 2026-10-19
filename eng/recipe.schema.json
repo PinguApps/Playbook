@@ -70,13 +70,14 @@
   "definitions": {
     "route": {
       "type": "object", "additionalProperties": false,
-      "required": ["target", "conditional", "usage", "requirements", "sourceUrls", "evidenceSamples"],
+      "required": ["target", "conditional", "usage", "selectionNotes", "requirements", "sourceUrls", "evidenceSamples"],
       "properties": {
         "target": { "$ref": "#/definitions/release" },
         "sharedAreas": { "$ref": "#/definitions/strings" },
         "neutralLanguages": { "$ref": "#/definitions/strings" },
         "conditional": { "type": "boolean" },
         "usage": { "enum": ["primary", "optional-alternative"] },
+        "selectionNotes": { "$ref": "#/definitions/strings" },
         "requirements": { "$ref": "#/definitions/requirements" },
         "sourceUrls": { "$ref": "#/definitions/nonemptyStrings" },
         "evidenceSamples": { "$ref": "#/definitions/nonemptyStrings" }

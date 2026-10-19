@@ -71,7 +71,7 @@ internal sealed class RecipeCatalogue
                 LanguageNeutral = edition.LanguageNeutral,
                 SupportedTargets = edition.SupportedTargets,
                 Stability = edition.Stability,
-                Applicability = edition.Applicability,
+                Applicability = ApplicabilitySummary.From(edition.Applicability),
             })];
         RecipeSummary[] page = [.. summaries.Skip(offset).Take(limit)];
         return new RecipeList

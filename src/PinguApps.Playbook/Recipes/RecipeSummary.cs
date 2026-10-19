@@ -12,5 +12,5 @@ internal sealed record RecipeSummary
     public required bool LanguageNeutral { get; init; }
     public required IReadOnlyList<string> SupportedTargets { get; init; }
     public required string Stability { get; init; }
-    public required Applicability Applicability { get; init; }
+    public required ApplicabilitySummary Applicability { get; init; }
 }

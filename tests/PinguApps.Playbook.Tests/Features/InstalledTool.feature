@@ -1,6 +1,20 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  Scenario: Ordinary discovery has a practical response size budget
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then ordinary discovery fits the documented byte budgets
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Default and maximum discovery pages have practical response size budgets
+    Given the release contract fixture package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then discovery pages fit the documented byte budgets
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Application requirements are distinct from reproducible verification baselines
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout

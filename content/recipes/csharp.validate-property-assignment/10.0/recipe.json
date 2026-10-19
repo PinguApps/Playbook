@@ -76,7 +76,10 @@
           ],
           "workloads": [],
           "stabilityLimitations": []
-        }
+        },
+        "selectionNotes": [
+          "Concurrent mutation needs separate synchronization."
+        ]
       },
       {
         "target": "10.0",
@@ -131,7 +134,11 @@
           "stabilityLimitations": [
             "Only the recorded .NET 11 RC SDK was executed for this alternative; GA reconciliation is pending. The recorded SDK is a test baseline, not an exact installation requirement."
           ]
-        }
+        },
+        "selectionNotes": [
+          "Concurrent mutation needs separate synchronization.",
+          "The .NET 10 targeting pack is required; retain net10.0 and C# 14."
+        ]
       },
       {
         "target": "11.0",
@@ -186,7 +193,10 @@
           "stabilityLimitations": [
             "Only .NET 11 RC artifacts were executed; GA reconciliation is pending. Stable C# 14 syntax does not establish .NET 11 GA verification."
           ]
-        }
+        },
+        "selectionNotes": [
+          "Concurrent mutation needs separate synchronization."
+        ]
       }
     ]
   },

@@ -49,6 +49,7 @@ try {
     @{ Name = 'missing route'; Change = { $recipe.applicability.routes = @($recipe.applicability.routes | Where-Object target -ne '11.0') }; Error = 'Missing applicability route' },
     @{ Name = 'wrong target evidence'; Change = { $recipe.applicability.routes[2].evidenceSamples = @($recipe.evidence[1].sample) }; Error = 'Route evidence must reference a sample for the exact target' },
     @{ Name = 'unverified conditional route'; Change = { $recipe.introducedIn = '11.0'; $recipe.edition = '11.0' }; Error = 'explicit conditional route' },
+    @{ Name = 'missing selection declaration'; Change = { $recipe.applicability.routes[0].Remove('selectionNotes') }; Error = 'Invalid recipe metadata' },
     @{ Name = 'missing source reference'; Change = { $recipe.applicability.routes[0].sourceUrls = @('https://example.invalid/missing') }; Error = 'Route source' },
     @{ Name = 'missing experimental disclosure'; Change = { $recipe.stability = 'experimental' }; Error = 'Experimental routes require' },
     @{ Name = 'prose baseline as requirement'; Change = { $recipe.applicability.routes[0].requirements.sdk = '10.0.402 (verification baseline)' }; Error = 'Invalid recipe metadata' },
