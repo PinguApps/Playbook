@@ -41,8 +41,9 @@ try {
   dotnet @arguments
   [xml]$trx = Get-Content (Join-Path $Results 'playbook.trx')
   $counts = $trx.TestRun.ResultSummary.Counters
-  if ([int]$counts.total -lt 1 -or [int]$counts.failed -ne 0 -or ($Smoke -and [int]$counts.total -ne 1)) {
-    throw 'Expected successful installed tests (exactly one for a desktop smoke).'
+  $expectedCount = if ($Smoke) { 1 } else { 13 }
+  if ([int]$counts.total -ne $expectedCount -or [int]$counts.passed -ne $expectedCount -or [int]$counts.failed -ne 0) {
+    throw "Expected $expectedCount passing installed scenarios; received total $($counts.total), passed $($counts.passed), failed $($counts.failed)."
   }
   Write-Host "Verified $actual on .NET $RuntimeMajor; $($counts.total) scenarios passed."
 }
