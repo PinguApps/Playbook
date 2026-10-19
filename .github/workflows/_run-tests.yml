@@ -25,13 +25,15 @@ on:
 
 permissions:
   contents: read
+  actions: read
   checks: write
   pull-requests: write
 
 jobs:
   test:
-    name: Run test suite
+    name: Build and verify package
     runs-on: blacksmith-2vcpu-ubuntu-2404
+    timeout-minutes: 15
     env:
       CI: true
       DOTNET_CLI_TELEMETRY_OPTOUT: true
@@ -54,14 +56,18 @@ jobs:
 
       - name: Compile samples and verify the packed tool
         shell: pwsh
-        run: ./eng/Verify.ps1 -PackageVersion $env:PACKAGE_VERSION -ReleaseReady:([bool]::Parse($env:RELEASE_READY))
+        run: ./eng/Verify.ps1 -PackageVersion $env:PACKAGE_VERSION -ReleaseReady:([bool]::Parse($env:RELEASE_READY)) -SkipInstalledTests
 
       - name: Prepare offline test image
-        run: docker pull mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317
+        run: |
+          docker pull mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317
+          docker pull mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1
 
       - name: Verify the same package without network or checkout access
         shell: pwsh
-        run: ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION
+        run: |
+          ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -RuntimeMajor 10
+          ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -RuntimeMajor 11
 
       - name: Publish test results
         if: (success() || failure()) && inputs.publish_test_results_to_github
@@ -91,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: test-results
-          path: artifacts/TestResults/**/*.trx
+          path: artifacts/TestResults/
           if-no-files-found: warn
 
       - name: Upload verified package
@@ -102,3 +108,118 @@ jobs:
             artifacts/PinguApps.Playbook.${{ env.PACKAGE_VERSION }}.nupkg
             artifacts/package.sha256
           if-no-files-found: error
+
+      - name: Upload the compiled consumer suite
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: playbook-consumer-suite
+          path: tests/PinguApps.Playbook.Tests/bin/Release/net10.0/
+          if-no-files-found: error
+
+  desktop:
+    name: ${{ matrix.name }} installed smoke
+    needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows
+            os: windows-2025
+          - name: macOS
+            os: macos-15
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - name: Checkout consumer script only
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.checkout_ref }}
+          sparse-checkout: eng/Test-Package.ps1
+          sparse-checkout-cone-mode: false
+
+      - name: Setup .NET 10 SDK
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        env:
+          DOTNET_INSTALL_DIR: ${{ runner.temp }}/playbook-dotnet
+        with:
+          dotnet-version: 10.0.402
+
+      - name: Download the exact packed artifact
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: playbook-package
+          path: artifacts
+
+      - name: Download the compiled consumer suite
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: playbook-consumer-suite
+          path: suite
+
+      - name: Install initialize list get and shut down once
+        shell: pwsh
+        env:
+          PACKAGE_VERSION: ${{ inputs.package_version || '0.0.0-ci' }}
+          DOTNET_ROOT: ${{ runner.temp }}/playbook-dotnet
+          DOTNET_ROOT_X64: ${{ runner.temp }}/playbook-dotnet
+          DOTNET_ROOT_ARM64: ${{ runner.temp }}/playbook-dotnet
+        run: ./eng/Test-Package.ps1 -Artifacts ./artifacts -Suite ./suite -PackageVersion $env:PACKAGE_VERSION -Smoke
+
+      - name: Upload smoke results and runtime evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: smoke-${{ matrix.name }}
+          path: artifacts/TestResults/
+          if-no-files-found: error
+
+  summary:
+    name: Validation time and results
+    if: always()
+    needs: [test, desktop]
+    runs-on: blacksmith-2vcpu-ubuntu-2404
+    timeout-minutes: 2
+    steps:
+      - name: Download validation evidence
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          pattern: '*results'
+          path: evidence
+
+      - name: Download desktop evidence
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          pattern: smoke-*
+          path: evidence
+
+      - name: Report TRX runtime identity and total runner time
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          '## Validation evidence' >> $env:GITHUB_STEP_SUMMARY
+          Get-ChildItem evidence -Recurse -Filter *.trx | ForEach-Object {
+            [xml]$trx = Get-Content $_.FullName
+            $counts = $trx.TestRun.ResultSummary.Counters
+            "- $($_.Directory.Name): passed $($counts.passed), failed $($counts.failed), skipped $($counts.notExecuted), total $($counts.total)" >> $env:GITHUB_STEP_SUMMARY
+          }
+          Get-ChildItem evidence -Recurse -Filter *.json | ForEach-Object {
+            $record = Get-Content $_.FullName -Raw | ConvertFrom-Json
+            "- $($record.package) SHA-256 $($record.sha256): $($record.coreClr); exit $($record.shutdownExitCode)" >> $env:GITHUB_STEP_SUMMARY
+          }
+          $pages = gh api "repos/$env:REPOSITORY/actions/runs/$env:RUN_ID/attempts/$env:RUN_ATTEMPT/jobs?per_page=100" --paginate --slurp | ConvertFrom-Json
+          $jobs = @($pages.jobs | Where-Object { $_.name -match '(Build and verify package|Windows installed smoke|macOS installed smoke)$' -and $_.completed_at })
+          if ($jobs.Count -ne 3) { throw 'Expected timing records for all three validation runners.' }
+          $seconds = 0.0
+          foreach ($job in $jobs) {
+            $duration = ([datetimeoffset]$job.completed_at - [datetimeoffset]$job.started_at).TotalSeconds
+            $seconds += $duration
+            "- $($job.name): $duration runner seconds ($($job.conclusion))" >> $env:GITHUB_STEP_SUMMARY
+          }
+          $start = ($jobs | ForEach-Object { [datetimeoffset]$_.started_at } | Sort-Object | Select-Object -First 1)
+          $end = ($jobs | ForEach-Object { [datetimeoffset]$_.completed_at } | Sort-Object | Select-Object -Last 1)
+          "Elapsed validation: $(($end - $start).TotalSeconds) seconds. Total runner time: $seconds seconds across the three validation jobs (setup/teardown included)." >> $env:GITHUB_STEP_SUMMARY
+          'Reporting-job time is excluded. These are execution durations, not a billed-cost estimate; provider rates, discounts and rounding are not inferred. No cost-saving claim is made.' >> $env:GITHUB_STEP_SUMMARY
