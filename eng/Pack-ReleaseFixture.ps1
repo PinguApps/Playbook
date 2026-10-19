@@ -68,6 +68,7 @@ try {
     $recipe.areas = $case.Areas
     $recipe.languageNeutral = $case.Kind -eq 'neutral'
     foreach ($route in $recipe.applicability.routes) {
+      $route.selectionNotes = @('Contract-only selection conditions; no new API execution is claimed.')
       $route.sharedAreas = $case.Shared
       $route.neutralLanguages = @()
       if ($case.Kind -eq 'neutral') { $route.neutralLanguages = @('csharp', 'fsharp', 'vb') }
@@ -99,6 +100,7 @@ The target framework setting is language-neutral. The C# language version settin
 The original project is built and executed by eng/Verify.ps1; synthetic filter metadata is only contract evidence.
 '@
     }
+    if ($case.Id -eq 'fixture.direct') { $recipe.applicability.routes[0].selectionNotes = @('Keep this complete selection warning: ' + ('x' * 600) + ' END') }
     if ($case.Kind -eq 'page') { $recipe.tags = @('traversal') }
     if ($case.Id -eq 'fixture.route-conjunction') {
       $recipe.tags = @('routecoherence')

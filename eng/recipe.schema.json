@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "edition", "title", "goal", "areas", "exampleLanguages", "tags", "apis", "introducedIn", "supportedTargets", "stability", "applicability", "sources", "evidence", "humanProof", "snippets"],
@@ -70,13 +70,14 @@
   "definitions": {
     "route": {
       "type": "object", "additionalProperties": false,
-      "required": ["target", "conditional", "usage", "requirements", "sourceUrls", "evidenceSamples"],
+      "required": ["target", "conditional", "usage", "selectionNotes", "requirements", "sourceUrls", "evidenceSamples"],
       "properties": {
         "target": { "$ref": "#/definitions/release" },
         "sharedAreas": { "$ref": "#/definitions/strings" },
         "neutralLanguages": { "$ref": "#/definitions/strings" },
         "conditional": { "type": "boolean" },
         "usage": { "enum": ["primary", "optional-alternative"] },
+        "selectionNotes": { "$ref": "#/definitions/strings" },
         "requirements": { "$ref": "#/definitions/requirements" },
         "sourceUrls": { "$ref": "#/definitions/nonemptyStrings" },
         "evidenceSamples": { "$ref": "#/definitions/nonemptyStrings" }

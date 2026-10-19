@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text;
 using System.Text.Json;
 using Reqnroll;
 using Xunit;
@@ -8,12 +9,62 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    private readonly IReqnrollOutputHelper _output;
     private readonly string _directory = Path.Combine(Path.GetTempPath(), $"playbook-consumer-{Guid.NewGuid():N}");
     private Process? _server;
     private Task<string>? _diagnostics;
     private string? _executable;
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
+
+    public InstalledToolSteps(IReqnrollOutputHelper output)
+    {
+        _output = output;
+    }
+
+    [Then("ordinary discovery fits the documented byte budgets")]
+    public async Task CheckOrdinarySizeAsync()
+    {
+        List<string> measurements = [];
+        bool withinBudget = true;
+        foreach (string target in new[] { "10.0", "11.0" })
+        {
+            JsonElement result = await CallAsync("list_recipes", new { targetVersion = target }).ConfigureAwait(false);
+            JsonElement list = AssertMatchingRepresentations(result);
+            JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+            measurements.Add($"{target}: summary={Bytes(summary)}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
+            withinBudget &= Bytes(summary) <= 3000 && Bytes(result) <= 10000;
+        }
+
+        string report = string.Join(Environment.NewLine, measurements);
+        _output.WriteLine(report);
+        Assert.True(withinBudget, report);
+    }
+
+    [Then("discovery pages fit the documented byte budgets")]
+    public async Task CheckPageSizeAsync()
+    {
+        List<string> measurements = [];
+        bool withinBudget = true;
+        foreach (string? query in new string?[] { "traversal", null })
+        {
+            foreach (int limit in new[] { 20, 50 })
+            {
+                object arguments = limit == 20 ? new { targetVersion = "latest", query } : new { targetVersion = "latest", query, limit };
+                JsonElement result = await CallAsync("list_recipes", arguments).ConfigureAwait(false);
+                JsonElement list = AssertMatchingRepresentations(result);
+                Assert.Equal(limit, list.GetProperty("recipes").GetArrayLength());
+                measurements.Add($"{query ?? "all"} {limit}: summary={Bytes(list.GetProperty("recipes")[0])}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
+                withinBudget &= Bytes(result) <= (limit == 20 ? 65000 : 160000);
+            }
+        }
+
+        string report = string.Join(Environment.NewLine, measurements);
+        _output.WriteLine(report);
+        Assert.True(withinBudget, report);
+    }
+
+    private static int Bytes(JsonElement value) => Encoding.UTF8.GetByteCount(value.GetRawText());
 
     [Given("the release contract fixture package is installed from an isolated local feed and cache")]
     public async Task InstallFixtureAsync()
@@ -98,6 +149,14 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.False(annotations.GetProperty("destructiveHint").GetBoolean());
             Assert.False(annotations.GetProperty("openWorldHint").GetBoolean());
             Assert.Equal("object", tool.GetProperty("outputSchema").GetProperty("type").GetString());
+            if (tool.GetProperty("name").GetString() == "list_recipes")
+            {
+                Assert.Contains("Before applying any recipe, retrieve get_recipe", tool.GetProperty("description").GetString(), StringComparison.Ordinal);
+                string schema = tool.GetProperty("outputSchema").GetRawText();
+                Assert.Contains("selectionNotes", schema, StringComparison.Ordinal);
+                Assert.DoesNotContain("evidenceSamples", schema, StringComparison.Ordinal);
+                Assert.DoesNotContain("prerequisites", schema, StringComparison.Ordinal);
+            }
         }
     }
 
@@ -109,9 +168,9 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.False(list.GetProperty("targetAssumed").GetBoolean());
         JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
         Assert.False(summary.TryGetProperty("markdown", out _));
-        JsonElement route = summary.GetProperty("applicability").GetProperty("routes")[0];
-        Assert.Equal("14.0", route.GetProperty("requirements").GetProperty("language").GetProperty("version").GetString());
-        Assert.Equal("10.0", route.GetProperty("target").GetString());
+        JsonElement selection = summary.GetProperty("applicability").GetProperty("routes")[0];
+        Assert.Equal("14.0", selection.GetProperty("requirements").GetProperty("language").GetProperty("version").GetString());
+        Assert.Equal("10.0", selection.GetProperty("target").GetString());
         string id = summary.GetProperty("id").GetString()!;
         JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false));
         Assert.False(detail.GetProperty("targetAssumed").GetBoolean());
@@ -121,7 +180,8 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal("stable", recipe.GetProperty("stability").GetString());
         Assert.Equal(summary.GetProperty("title").GetString(), recipe.GetProperty("title").GetString());
         Assert.Equal(summary.GetProperty("goal").GetString(), recipe.GetProperty("goal").GetString());
-        Assert.True(JsonElement.DeepEquals(summary.GetProperty("applicability"), recipe.GetProperty("applicability")));
+        AssertSelection(summary, recipe);
+        JsonElement route = recipe.GetProperty("applicability").GetProperty("routes")[0];
         string markdown = recipe.GetProperty("markdown").GetString()!;
         Assert.Contains("field = normalized;", markdown, StringComparison.Ordinal);
         Assert.Contains("_code = normalized;", markdown, StringComparison.Ordinal);
@@ -167,7 +227,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(canonicalMarkdown, markdown);
             Assert.Equal("10.0", recipe.GetProperty("introducedIn").GetString());
             Assert.Equal(target, detail.GetProperty("resolvedTarget").GetString());
-            Assert.True(JsonElement.DeepEquals(summary.GetProperty("applicability"), recipe.GetProperty("applicability")));
+            AssertSelection(summary, recipe);
             JsonElement routes = recipe.GetProperty("applicability").GetProperty("routes");
             Assert.Equal(target == "10.0" ? 2 : 1, routes.GetArrayLength());
             Assert.All(routes.EnumerateArray(), route => Assert.Equal(target, route.GetProperty("target").GetString()));
@@ -262,7 +322,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.True(route.GetProperty("requirements").TryGetProperty(field, out _), field);
             }
 
-            Assert.True(JsonElement.DeepEquals(routes, list.GetProperty("recipes")[0].GetProperty("applicability").GetProperty("routes")));
+            AssertSelection(list.GetProperty("recipes")[0], recipe);
             if (target == "10.0")
             {
                 JsonElement conditional = Assert.Single(routes.EnumerateArray(), item => item.GetProperty("conditional").GetBoolean());
@@ -381,6 +441,8 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal("10.0", detail.GetProperty("resolvedTarget").GetString());
         JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
         Assert.True(route.GetProperty("conditional").GetBoolean());
+        JsonElement conditionalSummary = Assert.Single(list.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == "fixture.conditional-route");
+        AssertSelection(conditionalSummary, recipe);
         Assert.Equal("11.0", route.GetProperty("requirements").GetProperty("sdk").GetProperty("version").GetString());
         Assert.NotEmpty(route.GetProperty("sourceUrls").EnumerateArray());
         Assert.NotEmpty(route.GetProperty("evidenceSamples").EnumerateArray());
@@ -404,7 +466,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(target, recipe.GetProperty("edition").GetString());
             Assert.Equal(target, summary.GetProperty("edition").GetString());
             Assert.Equal("10.0", recipe.GetProperty("introducedIn").GetString());
-            Assert.True(JsonElement.DeepEquals(summary.GetProperty("applicability"), recipe.GetProperty("applicability")));
+            AssertSelection(summary, recipe);
             string markdown = recipe.GetProperty("markdown").GetString()!;
             if (target == "10.0")
             {
@@ -438,6 +500,13 @@ public sealed class InstalledToolSteps : IDisposable
         JsonElement neutral = combined.GetProperty("recipes")[2];
         Assert.True(neutral.GetProperty("languageNeutral").GetBoolean());
         Assert.Empty(neutral.GetProperty("exampleLanguages").EnumerateArray());
+        Assert.Equal(["csharp", "fsharp", "vb"], neutral.GetProperty("applicability").GetProperty("routes")[0].GetProperty("neutralLanguages").EnumerateArray().Select(value => value.GetString()));
+        JsonElement neutralDetail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "fixture.neutral", targetVersion = "11.0" }).ConfigureAwait(false));
+        AssertSelection(neutral, neutralDetail.GetProperty("recipe"));
+        JsonElement directDetail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "fixture.direct", targetVersion = "11.0" }).ConfigureAwait(false));
+        JsonElement directSummary = combined.GetProperty("recipes")[0];
+        AssertSelection(directSummary, directDetail.GetProperty("recipe"));
+        Assert.Equal("Keep this complete selection warning: " + new string('x', 600) + " END", Assert.Single(directSummary.GetProperty("applicability").GetProperty("routes")[0].GetProperty("selectionNotes").EnumerateArray()).GetString());
         Assert.Equal("experimental", combined.GetProperty("recipes")[3].GetProperty("stability").GetString());
         Assert.NotEmpty(combined.GetProperty("recipes")[3].GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements").GetProperty("optIns").EnumerateArray());
         JsonElement pinned = combined.GetProperty("recipes")[3].GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements");
@@ -452,7 +521,7 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.NotEmpty(pinned.GetProperty("renderingModes").EnumerateArray());
         Assert.NotEmpty(pinned.GetProperty("stabilityLimitations").EnumerateArray());
         JsonElement sharedDetail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "fixture.shared", targetVersion = "11.0" }).ConfigureAwait(false));
-        Assert.True(JsonElement.DeepEquals(pinned, sharedDetail.GetProperty("recipe").GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements")));
+        AssertSelection(combined.GetProperty("recipes")[3], sharedDetail.GetProperty("recipe"));
         Assert.All(combined.GetProperty("recipes").EnumerateArray(), recipe => Assert.False(recipe.TryGetProperty("markdown", out _)));
 
         JsonElement direct = AssertMatchingRepresentations(await CallAsync("list_recipes", new
@@ -488,6 +557,8 @@ public sealed class InstalledToolSteps : IDisposable
             query = "discovery reservation BeaconApi",
         }).ConfigureAwait(false));
         Assert.Equal(["fixture.direct", "fixture.directive", "fixture.neutral", "fixture.shared", "fixture.windows"], RecipeIds(allAreas));
+        JsonElement windows = allAreas.GetProperty("recipes")[4];
+        Assert.Equal("Windows only; unrelated to the requested web area.", Assert.Single(windows.GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements").GetProperty("platforms").EnumerateArray()).GetString());
         JsonElement forbidden = AssertMatchingRepresentations(await CallAsync("list_recipes", new
         {
             targetVersion = "latest",
@@ -578,6 +649,54 @@ public sealed class InstalledToolSteps : IDisposable
         JsonElement blank = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = " \t\n " }).ConfigureAwait(false));
         JsonElement omitted = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0" }).ConfigureAwait(false));
         Assert.True(JsonElement.DeepEquals(blank, omitted));
+    }
+
+    private static void AssertSelection(JsonElement summary, JsonElement recipe)
+    {
+        JsonElement selections = summary.GetProperty("applicability").GetProperty("routes");
+        JsonElement details = recipe.GetProperty("applicability").GetProperty("routes");
+        Assert.Equal(details.GetArrayLength(), selections.GetArrayLength());
+        for (int index = 0; index < selections.GetArrayLength(); index++)
+        {
+            JsonElement selection = selections[index];
+            JsonElement detail = details[index];
+            foreach (string field in new[] { "target", "usage", "conditional", "sharedAreas", "neutralLanguages", "selectionNotes" })
+            {
+                Assert.True(JsonElement.DeepEquals(detail.GetProperty(field), selection.GetProperty(field)), field);
+            }
+
+            Assert.False(selection.TryGetProperty("sourceUrls", out _));
+            Assert.False(selection.TryGetProperty("evidenceSamples", out _));
+            JsonElement compact = selection.GetProperty("requirements");
+            JsonElement full = detail.GetProperty("requirements");
+            Assert.False(compact.TryGetProperty("prerequisites", out _));
+            Assert.False(compact.TryGetProperty("constraints", out _));
+            foreach (string field in new[] { "runtime", "sdk", "language", "packages", "workloads" })
+            {
+                JsonElement[] expected = field is "packages" or "workloads" ? [.. full.GetProperty(field).EnumerateArray()] : [full.GetProperty(field)];
+                JsonElement[] actual = field is "packages" or "workloads" ? [.. compact.GetProperty(field).EnumerateArray()] : [compact.GetProperty(field)];
+                Assert.Equal(expected.Length, actual.Length);
+                for (int version = 0; version < expected.Length; version++)
+                {
+                    Assert.False(actual[version].TryGetProperty("reason", out _));
+                    Assert.NotEmpty(expected[version].GetProperty("reason").GetString()!);
+                    foreach (string part in new[] { "name", "version", "match" })
+                    {
+                        Assert.Equal(expected[version].GetProperty(part).GetString(), actual[version].GetProperty(part).GetString());
+                    }
+                }
+            }
+
+            foreach (string field in new[] { "frameworks", "packageAssets", "providers", "platforms", "renderingModes", "optIns", "stabilityLimitations" })
+            {
+                Assert.True(JsonElement.DeepEquals(full.GetProperty(field), compact.GetProperty(field)), field);
+            }
+
+            Assert.NotEmpty(full.GetProperty("prerequisites").EnumerateArray());
+            Assert.NotEmpty(full.GetProperty("constraints").EnumerateArray());
+            Assert.NotEmpty(detail.GetProperty("sourceUrls").EnumerateArray());
+            Assert.NotEmpty(detail.GetProperty("evidenceSamples").EnumerateArray());
+        }
     }
 
     private static string[] RecipeIds(JsonElement list)

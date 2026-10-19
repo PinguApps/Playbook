@@ -42,7 +42,7 @@ internal static class Program
             + "Choose the application's target release, not the exact SDK version; global.json selects an SDK and does not establish the target framework. "
             + "Supply targetVersion explicitly on both list_recipes and get_recipe, repeating it on every call and page; calls do not share a target. "
             + "Use latest deliberately for exploratory/theoretical requests or an unknown target: it resolves numerically to the newest target release represented in this installed catalogue, without consulting the network or installed SDKs. "
-            + "latest does not establish consumer compatibility. Retrieve full detail and check each route's requirements against the application. Primary routes and optional alternatives are separate choices. "
+            + "latest does not establish consumer compatibility. Discovery contains compact selection conditions, not complete prerequisites or evidence. Before applying any recipe, retrieve get_recipe and check each route's full requirements and limitations against the application. Primary routes and optional alternatives are separate choices. "
             + "Evidence records are exact verification baselines, not mandatory installation versions; RC evidence is not GA verification. Then apply and verify the guidance.")
             .WithStdioServerTransport().WithTools<RecipeTools>()
             .WithRequestFilters(filters => filters.AddCallToolFilter(next => async (request, cancellationToken) =>
