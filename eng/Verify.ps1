@@ -4,6 +4,7 @@ param(
   [string]$Net9Dotnet = 'dotnet',
   [string]$Net11Dotnet = 'dotnet',
   [switch]$ReleaseReady,
+  [switch]$SkipInstalledTests,
   [switch]$IsolateNetwork
 )
 
@@ -45,7 +46,10 @@ try {
   $env:PLAYBOOK_TEST_VERSION = $PackageVersion
   $env:PLAYBOOK_TEST_RELEASE_FIXTURE = Join-Path $artifacts "release-fixture/PinguApps.Playbook.$PackageVersion.nupkg"
   $testArgs = @('test', 'tests/PinguApps.Playbook.Tests', '--configuration', 'Release', '--no-build', '--no-restore', '--logger', 'trx;LogFileName=playbook.trx', '--results-directory', (Join-Path $artifacts 'TestResults'))
-  if ($IsolateNetwork) {
+  if ($SkipInstalledTests) {
+    Write-Host 'Installed tests deferred to the artifact consumers.'
+  }
+  elseif ($IsolateNetwork) {
     if (-not $IsLinux) { throw '-IsolateNetwork requires Linux network namespaces (sudo and unshare).' }
     # Installation and every installed child process inherit a namespace with no network interfaces/routes.
     sudo --preserve-env=PLAYBOOK_TEST_PACKAGE,PLAYBOOK_TEST_VERSION,PLAYBOOK_TEST_RELEASE_FIXTURE unshare --net -- dotnet @testArgs
