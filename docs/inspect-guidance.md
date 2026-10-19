@@ -8,9 +8,8 @@ From this worktree:
 
 ```powershell
 Set-Location V:\_worktrees\Playbook\t3-33d73aa8
-$powerShell = (Get-Process -Id $PID).Path
-$env:PATH = "$(Split-Path $powerShell);$env:PATH" # Process and children only.
-dotnet build ./src/PinguApps.Playbook -c Release "-p:PowerShellExecutable=$powerShell"
+$env:PATH = "$PSHOME;$env:PATH" # Process and children only.
+dotnet build ./src/PinguApps.Playbook -c Release
 $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path
 $inspector = @('--yes', '@modelcontextprotocol/inspector@2.11.0', '--cli', '--format', 'json', '--quiet')
 

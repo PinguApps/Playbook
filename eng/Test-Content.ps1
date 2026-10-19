@@ -42,6 +42,9 @@ try {
     Write-Host 'Pack --no-build rejected valid content changed since compilation; no package produced.'
     return
   }
+  # A schema-resolution failure must not masquerade as a successful rejection test.
+  & (Join-Path $PSScriptRoot 'Build-Content.ps1') -OutputPath (Join-Path $fixture 'valid-catalogue.json')
+  Write-Host 'PASS: valid catalogue and saved evidence validate without external schema fetching.'
   $cases = @(
     @{ Name = 'invalid identity'; Change = { $recipe.id = 'csharp..invalid' }; Error = 'Invalid recipe metadata' },
     @{ Name = 'duplicate edition'; Change = { $duplicate = $true }; Error = 'Duplicate recipe edition' },

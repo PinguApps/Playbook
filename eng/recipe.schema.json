@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "edition", "title", "goal", "areas", "exampleLanguages", "tags", "apis", "introducedIn", "supportedTargets", "stability", "applicability", "sources", "evidence", "humanProof", "snippets"],
