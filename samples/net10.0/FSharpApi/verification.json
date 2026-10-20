@@ -1,0 +1,13 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "dependencies": [
+    "FSharp.Core/10.1.402"
+  ],
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-FSharpBoundaries.ps1"
+  ]
+}

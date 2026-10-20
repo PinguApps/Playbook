@@ -1,0 +1,152 @@
+{
+  "id": "fsharp.require-named-arguments",
+  "edition": "11.0",
+  "title": "Require meaningful argument names at F# calls (preview)",
+  "goal": "Require names on selected F# preview calls to prevent same-typed argument swaps.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp",
+    "require-named-arguments"
+  ],
+  "apis": [
+    "System.Diagnostics.CodeAnalysis.RequireNamedArgumentsAttribute"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Preview; supply the attribute absent from RC2 BCL. Enforcement is caller-side F# only."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpApiPreview/FSharpApiPreview.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/fsharp.md",
+          "https://github.com/dotnet/fsharp/pull/20340"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use an F# net11.0 executable or library, .NET 11 SDK, FSharp.Core 11 and LangVersion=preview.",
+            "Compile supplied RequireNamedArguments.fs before the API; the RC2 BCL has no definition."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            ".NET 11 platforms"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "name": "F#",
+            "version": "preview",
+            "match": "exact",
+            "reason": "Preview is required for this compiler feature."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "RC2 evidence; GA reconciliation pending.",
+            "Preview may change."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "LangVersion=preview"
+          ],
+          "providers": [],
+          "constraints": [
+            "Experimental: enforcement depends on the calling F# compiler and preview mode; C# callers and runtime invocation are not restricted by this check.",
+            "Preserve parameter names when evolving the API because named callers depend on them. The sample supplies the exact namespace/name and method/constructor AttributeUsage; it is not a shipped framework definition."
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official F# release contract",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/fsharp.md"
+    },
+    {
+      "title": "F# implementation and tests",
+      "url": "https://github.com/dotnet/fsharp/pull/20340"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpApiPreview/FSharpApiPreview.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Actual FSharpApiPreview compilation and managed execution including named assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/FSharpApiPreview/FSharpApiPreview.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "preview",
+      "kind": "compile-and-run",
+      "scope": "Actual FSharpApiPreview compilation and managed execution including named assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "path": "samples/net10.0/FSharpApiPreview/ApiPreview.fs",
+      "region": "named"
+    },
+    "newer": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpApiPreview/ApiPreview.fs",
+      "region": "named"
+    },
+    "attribute": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpApiPreview/RequireNamedArguments.fs",
+      "region": "attribute"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed compiler/runtime and emitted XML claims need no provider or UI. IDE rendering, native deployment and GA verification are not claimed."
+  }
+}
