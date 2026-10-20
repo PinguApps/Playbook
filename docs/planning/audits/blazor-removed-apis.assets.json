@@ -1,0 +1,1148 @@
+[
+  {
+    "sdk": "10.0.402",
+    "version": "10.0.13",
+    "target": "net10.0",
+    "packages": [
+      {
+        "id": "microsoft.aspnetcore.components.webassembly",
+        "version": "10.0.13",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly/10.0.13/microsoft.aspnetcore.components.webassembly.10.0.13.nupkg",
+        "sha256": "8090d3e8a25bc8d55e77b46405da333ec7a09b09724b1c6bae4d219843be7e43"
+      },
+      {
+        "id": "microsoft.aspnetcore.components.webassembly.authentication",
+        "version": "10.0.13",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly.authentication/10.0.13/microsoft.aspnetcore.components.webassembly.authentication.10.0.13.nupkg",
+        "sha256": "b280c0ba1f70d08a0deb2cbba4e9b19e1e08926c592f75e0e14ab03de8cafe2e"
+      }
+    ],
+    "assemblies": [
+      {
+        "file": "Microsoft.AspNetCore.Components.Authorization.dll",
+        "sha256": "5cf8f4c69aad45420a62583b91357c670eddade328b1201350ab3eba556ab888"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.dll",
+        "sha256": "504431adb6b8e3e95f22dc3a0fea2ac1d8660ac8e9e8963e9cbcb81cdd342843"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Endpoints.dll",
+        "sha256": "4c11ff0428ba00da685d0e34a1a89dc7d8f7fd21c85192fe8ba9d9584dcdd36f"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Forms.dll",
+        "sha256": "fe571ad6e58ccae5a7bd50dc699df1c5026e505703f2fb16778118670e116f4e"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Server.dll",
+        "sha256": "bcba1cc5c95d9d43443d2e7e8dc5d315909022e13e30e0d94d20f66554ca083a"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Web.dll",
+        "sha256": "b4ba68627cca6b53a416d49841277bd71964ee458281c344fa16a45cea920ef3"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+        "sha256": "db910acd35b579c374052b973d088fb7a3dfada975188b8cebe21989cefbcf7b"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.WebAssembly.dll",
+        "sha256": "17552fdc934eb0105e549a1a77d08b531f91d718cd29f8af18722cd4e0f9ad9e"
+      }
+    ],
+    "types": [
+      {
+        "type": "Microsoft.AspNetCore.Components.Routing.Router",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "System.Boolean get_PreferExactMatches()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_PreferExactMatches(System.Boolean)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.ResourceAsset",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "System.Void .ctor(System.String, System.Collections.Generic.IReadOnlyList`1[Microsoft.AspNetCore.Components.ResourceAssetProperty])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": [
+              "1=null"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.EditContextDataAnnotationsExtensions",
+        "assembly": "Microsoft.AspNetCore.Components.Forms",
+        "members": [
+          {
+            "signature": "Microsoft.AspNetCore.Components.Forms.EditContext AddDataAnnotationsValidation(Microsoft.AspNetCore.Components.Forms.EditContext)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.IDisposable EnableDataAnnotationsValidation(Microsoft.AspNetCore.Components.Forms.EditContext)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.IDisposable EnableDataAnnotationsValidation(Microsoft.AspNetCore.Components.Forms.EditContext, System.IServiceProvider)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.RemoteBrowserFileStreamOptions",
+        "assembly": "Microsoft.AspNetCore.Components.Web",
+        "members": [
+          {
+            "signature": "System.Void .ctor()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Int32 get_MaxSegmentSize()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_MaxSegmentSize(System.Int32)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Int32 get_MaxBufferSize()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_MaxBufferSize(System.Int32)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.TimeSpan get_SegmentFetchTimeout()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_SegmentFetchTimeout(System.TimeSpan)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.BrowserFileStreamOptions",
+        "assembly": null,
+        "members": []
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.IBrowserFile",
+        "assembly": "Microsoft.AspNetCore.Components.Web",
+        "members": [
+          {
+            "signature": "System.IO.Stream OpenReadStream(System.Int64, System.Threading.CancellationToken)",
+            "access": "public",
+            "modifiers": [
+              "virtual"
+            ],
+            "optionalParameters": [
+              "0=512000",
+              "1=null"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Web.WebEventCallbackFactoryEventArgsExtensions",
+        "assembly": "Microsoft.AspNetCore.Components.Web",
+        "members": [
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.ClipboardEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.ClipboardEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.TouchEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.TouchEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.TouchEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.TouchEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.ProgressEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.ProgressEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.ProgressEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.ProgressEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.PointerEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.PointerEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.PointerEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.PointerEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.MouseEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.MouseEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.MouseEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.MouseEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.KeyboardEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.KeyboardEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.KeyboardEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.KeyboardEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.FocusEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.FocusEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.FocusEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.FocusEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.ErrorEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.ErrorEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.ErrorEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.ErrorEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.DragEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.DragEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.DragEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.DragEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.ClipboardEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.ClipboardEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.WheelEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Action`1[Microsoft.AspNetCore.Components.Web.WheelEventArgs])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[Microsoft.AspNetCore.Components.Web.WheelEventArgs] Create(Microsoft.AspNetCore.Components.EventCallbackFactory, System.Object, System.Func`2[Microsoft.AspNetCore.Components.Web.WheelEventArgs,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.EventCallbackFactory",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, Microsoft.AspNetCore.Components.EventCallback)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Action)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Action`1[System.Object])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Func`1[System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Func`2[System.Object,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, Microsoft.AspNetCore.Components.EventCallback)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, Microsoft.AspNetCore.Components.EventCallback`1[TValue])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Action)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Action`1[TValue])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Func`1[System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Func`2[TValue,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.NavigationManager",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "System.Void add_LocationChanged(System.EventHandler`1[Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void remove_LocationChanged(System.EventHandler`1[Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.String get_HistoryEntryState()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateTo(System.String, System.Boolean)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateTo(System.String, System.Boolean, System.Boolean)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": [
+              "1=False",
+              "2=False"
+            ]
+          },
+          {
+            "signature": "System.Void NavigateTo(System.String, Microsoft.AspNetCore.Components.NavigationOptions)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.NavigationOptions",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "System.Boolean get_ForceLoad()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_ForceLoad(System.Boolean)",
+            "access": "public",
+            "modifiers": [
+              "System.Runtime.CompilerServices.IsExternalInit"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Boolean get_ReplaceHistoryEntry()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_ReplaceHistoryEntry(System.Boolean)",
+            "access": "public",
+            "modifiers": [
+              "System.Runtime.CompilerServices.IsExternalInit"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.String get_HistoryEntryState()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_HistoryEntryState(System.String)",
+            "access": "public",
+            "modifiers": [
+              "System.Runtime.CompilerServices.IsExternalInit"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.RenderTree.WebRenderer",
+        "assembly": "Microsoft.AspNetCore.Components.Web",
+        "members": [
+          {
+            "signature": "System.Void .ctor(System.IServiceProvider, Microsoft.Extensions.Logging.ILoggerFactory, System.Text.Json.JsonSerializerOptions, Microsoft.AspNetCore.Components.Web.Infrastructure.JSComponentInterop)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Int32 get_RendererId()",
+            "access": "protected",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_RendererId(System.Int32)",
+            "access": "protected",
+            "modifiers": [
+              "System.Runtime.CompilerServices.IsExternalInit"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Int32 GetWebRendererId()",
+            "access": "protected",
+            "modifiers": [
+              "virtual"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Infrastructure.JSInteropMethods",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly",
+        "members": [
+          {
+            "signature": "System.Void NotifyLocationChanged(System.String, System.Boolean)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NotifyLocationChanged(System.String, System.String, System.Boolean)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.SignOutSessionStateManager",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void .ctor(Microsoft.JSInterop.IJSRuntime)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Threading.Tasks.ValueTask SetSignOutState()",
+            "access": "public",
+            "modifiers": [
+              "virtual"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Threading.Tasks.Task`1[System.Boolean] ValidateSignOutState()",
+            "access": "public",
+            "modifiers": [
+              "virtual"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationService`3",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void .ctor(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Options.IOptionsSnapshot`1[Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions`1[TProviderOptions]], Microsoft.AspNetCore.Components.NavigationManager, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccountClaimsPrincipalFactory`1[TAccount])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void .ctor(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Options.IOptionsSnapshot`1[Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions`1[TProviderOptions]], Microsoft.AspNetCore.Components.NavigationManager, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccountClaimsPrincipalFactory`1[TAccount], Microsoft.Extensions.Logging.ILogger`1[Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationService`3[TRemoteAuthenticationState,TAccount,TProviderOptions]])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenResult",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void .ctor(Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenResultStatus, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessToken, System.String)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void .ctor(Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenResultStatus, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessToken, System.String, Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.String get_RedirectUrl()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.String get_InteractiveRequestUrl()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions get_InteractionOptions()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenNotAvailableException",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void .ctor(Microsoft.AspNetCore.Components.NavigationManager, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenResult, System.Collections.Generic.IEnumerable`1[System.String])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void Redirect()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void Redirect(System.Action`1[Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.NavigationManagerExtensions",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void NavigateToLogout(Microsoft.AspNetCore.Components.NavigationManager, System.String)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateToLogout(Microsoft.AspNetCore.Components.NavigationManager, System.String, System.String)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateToLogin(Microsoft.AspNetCore.Components.NavigationManager, System.String, Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateToLogin(Microsoft.AspNetCore.Components.NavigationManager, System.String)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sdk": "11.0.100-rc.2.26504.105",
+    "version": "11.0.0-rc.2.26504.105",
+    "target": "net11.0",
+    "packages": [
+      {
+        "id": "microsoft.aspnetcore.components.webassembly",
+        "version": "11.0.0-rc.2.26504.105",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly/11.0.0-rc.2.26504.105/microsoft.aspnetcore.components.webassembly.11.0.0-rc.2.26504.105.nupkg",
+        "sha256": "0efce60bc57af2a3d29e53eba9920a84497106ff8f9e400bd44cdf6ebe5ea42e"
+      },
+      {
+        "id": "microsoft.aspnetcore.components.webassembly.authentication",
+        "version": "11.0.0-rc.2.26504.105",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webassembly.authentication/11.0.0-rc.2.26504.105/microsoft.aspnetcore.components.webassembly.authentication.11.0.0-rc.2.26504.105.nupkg",
+        "sha256": "d09e728c50156f4f01033ccaf84cba0e6be5985d1b5d13eb5cbade69c2841964"
+      }
+    ],
+    "assemblies": [
+      {
+        "file": "Microsoft.AspNetCore.Components.Authorization.dll",
+        "sha256": "50d67f3bc212dfecad90c7a476e6544a44ad28d9acbe4d203a60693f25a0c691"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.dll",
+        "sha256": "87c09198417e8d5973933f05e2283b55e255e13ae4cd0f23ce9940d1018f0e59"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Endpoints.dll",
+        "sha256": "1b7f2369484619a5d985d572160cb88b2519a6f71f2e397e0b69154343ecb635"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Forms.dll",
+        "sha256": "9c34bcc6c290db40162b6cc51b3c6a0e63a29185f08aaaf2f2ab3898c9f81c37"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Server.dll",
+        "sha256": "29fadc74c09d797157868d0f845ee5d9f62172060c447a3e38b58b6044a2ac25"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.Web.dll",
+        "sha256": "284b154448602c432a0bb9f900da9ed5c8b1fccd0b11ff90a893ed2d2479c4c1"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+        "sha256": "74b6a9b824e4ded26daa67e975c4ff3ab356ca4323f25408686a7ddda9a019f9"
+      },
+      {
+        "file": "Microsoft.AspNetCore.Components.WebAssembly.dll",
+        "sha256": "b245417f44d0e0c8b314876d4d4fb4b815079f100df36e235a4107a75eb9aaf0"
+      }
+    ],
+    "types": [
+      {
+        "type": "Microsoft.AspNetCore.Components.Routing.Router",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": []
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.ResourceAsset",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "System.Void .ctor(System.String, System.Collections.Generic.IReadOnlyList`1[Microsoft.AspNetCore.Components.ResourceAssetProperty])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": [
+              "1=null"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.EditContextDataAnnotationsExtensions",
+        "assembly": "Microsoft.AspNetCore.Components.Forms",
+        "members": [
+          {
+            "signature": "System.IDisposable EnableDataAnnotationsValidation(Microsoft.AspNetCore.Components.Forms.EditContext, System.IServiceProvider)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.RemoteBrowserFileStreamOptions",
+        "assembly": null,
+        "members": []
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.BrowserFileStreamOptions",
+        "assembly": null,
+        "members": []
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Forms.IBrowserFile",
+        "assembly": "Microsoft.AspNetCore.Components.Web",
+        "members": [
+          {
+            "signature": "System.IO.Stream OpenReadStream(System.Int64, System.Threading.CancellationToken)",
+            "access": "public",
+            "modifiers": [
+              "virtual"
+            ],
+            "optionalParameters": [
+              "0=512000",
+              "1=null"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.Web.WebEventCallbackFactoryEventArgsExtensions",
+        "assembly": null,
+        "members": []
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.EventCallbackFactory",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, Microsoft.AspNetCore.Components.EventCallback)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Action)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Action`1[System.Object])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Func`1[System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback Create(System.Object, System.Func`2[System.Object,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, Microsoft.AspNetCore.Components.EventCallback)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, Microsoft.AspNetCore.Components.EventCallback`1[TValue])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Action)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Action`1[TValue])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Func`1[System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.EventCallback`1[TValue] Create[TValue](System.Object, System.Func`2[TValue,System.Threading.Tasks.Task])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.NavigationManager",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "System.Void add_LocationChanged(System.EventHandler`1[Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void remove_LocationChanged(System.EventHandler`1[Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.String get_HistoryEntryState()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateTo(System.String, System.Boolean)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateTo(System.String, System.Boolean, System.Boolean)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": [
+              "1=False",
+              "2=False"
+            ]
+          },
+          {
+            "signature": "System.Void NavigateTo(System.String, Microsoft.AspNetCore.Components.NavigationOptions)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.NavigationOptions",
+        "assembly": "Microsoft.AspNetCore.Components",
+        "members": [
+          {
+            "signature": "System.Boolean get_ForceLoad()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_ForceLoad(System.Boolean)",
+            "access": "public",
+            "modifiers": [
+              "System.Runtime.CompilerServices.IsExternalInit"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Boolean get_ReplaceHistoryEntry()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_ReplaceHistoryEntry(System.Boolean)",
+            "access": "public",
+            "modifiers": [
+              "System.Runtime.CompilerServices.IsExternalInit"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.String get_HistoryEntryState()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void set_HistoryEntryState(System.String)",
+            "access": "public",
+            "modifiers": [
+              "System.Runtime.CompilerServices.IsExternalInit"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.RenderTree.WebRenderer",
+        "assembly": "Microsoft.AspNetCore.Components.Web",
+        "members": [
+          {
+            "signature": "System.Void .ctor(System.IServiceProvider, Microsoft.Extensions.Logging.ILoggerFactory, System.Text.Json.JsonSerializerOptions, Microsoft.AspNetCore.Components.Web.Infrastructure.JSComponentInterop)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Int32 get_RendererId()",
+            "access": "protected",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Int32 GetWebRendererId()",
+            "access": "protected",
+            "modifiers": [
+              "virtual"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Infrastructure.JSInteropMethods",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly",
+        "members": [
+          {
+            "signature": "System.Void NotifyLocationChanged(System.String, System.String, System.Boolean)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.SignOutSessionStateManager",
+        "assembly": null,
+        "members": []
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationService`3",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void .ctor(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Options.IOptionsSnapshot`1[Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationOptions`1[TProviderOptions]], Microsoft.AspNetCore.Components.NavigationManager, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccountClaimsPrincipalFactory`1[TAccount], Microsoft.Extensions.Logging.ILogger`1[Microsoft.AspNetCore.Components.WebAssembly.Authentication.RemoteAuthenticationService`3[TRemoteAuthenticationState,TAccount,TProviderOptions]])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenResult",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void .ctor(Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenResultStatus, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessToken, System.String, Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions)",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.String get_InteractiveRequestUrl()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions get_InteractionOptions()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenNotAvailableException",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void .ctor(Microsoft.AspNetCore.Components.NavigationManager, Microsoft.AspNetCore.Components.WebAssembly.Authentication.AccessTokenResult, System.Collections.Generic.IEnumerable`1[System.String])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void Redirect()",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void Redirect(System.Action`1[Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions])",
+            "access": "public",
+            "modifiers": [],
+            "optionalParameters": []
+          }
+        ]
+      },
+      {
+        "type": "Microsoft.AspNetCore.Components.WebAssembly.Authentication.NavigationManagerExtensions",
+        "assembly": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "members": [
+          {
+            "signature": "System.Void NavigateToLogout(Microsoft.AspNetCore.Components.NavigationManager, System.String)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateToLogout(Microsoft.AspNetCore.Components.NavigationManager, System.String, System.String)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateToLogin(Microsoft.AspNetCore.Components.NavigationManager, System.String, Microsoft.AspNetCore.Components.WebAssembly.Authentication.InteractiveRequestOptions)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          },
+          {
+            "signature": "System.Void NavigateToLogin(Microsoft.AspNetCore.Components.NavigationManager, System.String)",
+            "access": "public",
+            "modifiers": [
+              "static"
+            ],
+            "optionalParameters": []
+          }
+        ]
+      }
+    ]
+  }
+]
