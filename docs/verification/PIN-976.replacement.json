@@ -1,0 +1,37 @@
+{
+  "threadId": "mcp:c58b4263-5e51-4113-8164-2358c16b17d5",
+  "calls": [
+    {
+      "itemId": "turn-item:provider:codex:native-item:exec-e71df381-ae2a-42c0-9ddf-7207a621a166",
+      "position": 3,
+      "updatedAt": "2026-10-20T18:15:57.713Z",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "targetVersion": "10.0",
+        "query": "field",
+        "limit": 1
+      },
+      "resolvedTarget": "10.0"
+    },
+    {
+      "itemId": "turn-item:provider:codex:native-item:exec-a529d142-c7bf-4fa5-b27b-72b3d20c9d0d",
+      "position": 4,
+      "updatedAt": "2026-10-20T18:16:00.312Z",
+      "toolName": "playbook.get_recipe",
+      "input": {
+        "id": "csharp.validate-property-assignment",
+        "targetVersion": "10.0"
+      },
+      "resolvedTarget": "10.0"
+    }
+  ],
+  "markdownLength": 6286,
+  "markdownAndApplicabilityEqualToInitialReceipt": true,
+  "package": {
+    "command": "V:/_Scratch/PlaybookVerification/packages/9db0227e58da4ce6b91d05cb981d20ab/tool/playbook.exe",
+    "version": "1.0.0-preview.976.2",
+    "package": "V:\\_worktrees\\Playbook\\t3-ac9a569a\\artifacts\\pin976\\feed\\PinguApps.Playbook.1.0.0-preview.976.2.nupkg",
+    "hash": "7320CD083F3AC86C5CF415173DFCD15CF9FBB27C6C645DF53445CD3A01A8C60E",
+    "seedCommit": "766aac805f7f8e9071cb69a2e4890e8d992ad4de"
+  }
+}
