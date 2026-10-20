@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    "System.Formats.Cbor/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/BinaryDataChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

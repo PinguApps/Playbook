@@ -1,0 +1,157 @@
+{
+  "id": "process.control-native-handles",
+  "edition": "11.0",
+  "title": "Own process and redirected handles explicitly",
+  "goal": "Start and wait for a native child while retaining clear ownership of its process and standard handles.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "processexecution",
+    "handles"
+  ],
+  "apis": [
+    "SafeProcessHandle.Start",
+    "SafeProcessHandle.Open",
+    "SafeProcessHandle.TryOpen",
+    "File.OpenNullHandle"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Own returned handles and keep redirected handles alive through startup. Do not mix Handle and Redirect flags. macOS execution is unverified."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This edition uses .NET 11 library APIs; the .NET 10 code is a comparison, not a catalogue route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 sample with the .NET 11 SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical net11.0 project selects the .NET 11 default C# 15 language mode."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows",
+            "Linux",
+            "macOS (native verification pending; parent-bound lifetime unavailable)"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Use a net11.0 console project with LangVersion=15.0. Include the imports stated in the recipe."
+          ],
+          "constraints": [
+            "Disposal closes a handle; it does not kill the process. Wait before disposing when completion is required. Open/TryOpen obtain separately owned handles; permission failures and exit/PID-reuse races remain possible after a successful lookup. The sample opens its current PID, disposes that independent handle and rejects a nonexistent PID with TryOpen. InheritedHandles selects native handles for inheritance; keep all entries alive until creation completes and do not share unrelated inheritable secrets. Console.OpenStandardInputHandle/OpenStandardOutputHandle/OpenStandardErrorHandle expose standard handles for native wiring; their returned wrappers and a child’s copies have separate lifetimes. Native launch callbacks are advanced alternatives: WindowsProcessStartArguments.Start expects a callback returning the created process handle; UnixProcessStartArguments.Start expects a PID. They provide prepared arguments/environment/standard handles, not an automatic OS launcher. No custom native callback implementation or callback execution is claimed by this example."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 verification; GA reconciliation remains pending.",
+            "macOS native execution is unverified; Pingu explicitly accepted this evidence gap."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/libraries.md",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/libraries.md",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/libraries.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ProcessExecution/ProcessExecution.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Package-matched official API declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs"
+    },
+    {
+      "title": "Pinned official release notes and supporting API surface",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/libraries.md"
+    },
+    {
+      "title": "Pinned official release notes and supporting API surface",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/libraries.md"
+    },
+    {
+      "title": "Pinned official release notes and supporting API surface",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/libraries.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ProcessExecution/ProcessExecution.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual ProcessExecution compilation and focused execution on Windows. Additional Linux native execution is recorded separately; macOS has not been executed."
+    },
+    {
+      "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual ProcessExecution compilation and focused execution on Windows. Additional Linux native execution is recorded separately; macOS has not been executed."
+    },
+    {
+      "sample": "samples/net11.0/ProcessExecution/ProcessExecution.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual Linux x64 compilation/execution of native processes in a pinned network-disabled container; suspended startup is excluded on Linux. macOS has not been executed.",
+      "record": "samples/net11.0/ProcessExecution/linux.evidence.json"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/ProcessExecution/Commands.cs",
+      "region": "handles"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/ProcessExecution/Commands.cs",
+      "region": "handles"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "macOS native checks unavailable. Pingu authorized macOS support with this explicit untested limitation on 20 October 2026. Windows/Linux evidence is separate; release readiness is not claimed."
+  }
+}

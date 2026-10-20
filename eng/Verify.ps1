@@ -55,7 +55,15 @@ try {
     @{ Path = 'net10.0/FSharpRethrow'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/FSharpRethrow'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/FSharpFlags'; Dotnet = 'dotnet' },
-    @{ Path = 'net11.0/FSharpFlags'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/FSharpFlags'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/BinaryData'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/BinaryData'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/BufferAdapters'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/BufferAdapters'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/ProcessExecution'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/ProcessExecution'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/UnicodeText'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/UnicodeText'; Dotnet = $Net11Dotnet }
   )) {
     Push-Location (Join-Path $root "samples/$($sample.Path)")
     try {
