@@ -24,6 +24,58 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("enclosing loop guidance retains its full body applicability and edition")]
+    public async Task CheckEnclosingLoopsAsync()
+    {
+        const string id = "csharp.control-nested-loops";
+        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0", query = "enclosing loop" }).ConfigureAwait(false));
+        JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+        Assert.Equal(id, summary.GetProperty("id").GetString());
+        Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
+        JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false));
+        Assert.Equal("11.0", detail.GetProperty("resolvedTarget").GetString());
+        JsonElement recipe = detail.GetProperty("recipe");
+        Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+        Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+        Assert.Equal(["11.0"], recipe.GetProperty("supportedTargets").EnumerateArray().Select(value => value.GetString()));
+        Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+        AssertSelection(summary, recipe);
+        string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+        foreach ((string token, string target) in new[] { ("older", "net10.0"), ("newer", "net11.0") })
+        {
+            string source = await ReadCanonicalAsync($"{target}.Traversal.cs").ConfigureAwait(false);
+            string snippet = source.Split("// snippet:traversal\n", StringSplitOptions.None)[1]
+                .Split("// endsnippet:traversal", StringSplitOptions.None)[0].TrimEnd();
+            expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+        }
+
+        Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+        Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+        Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+        Assert.Equal("15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+        foreach (string field in new[] { "frameworks", "packages", "packageAssets", "providers", "renderingModes", "workloads", "optIns" })
+        {
+            Assert.Empty(requirements.GetProperty(field).EnumerateArray());
+        }
+
+        Assert.NotEmpty(requirements.GetProperty("platforms").EnumerateArray());
+        Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        Assert.Equal(["net10.0", "net11.0"], recipe.GetProperty("evidence").EnumerateArray().Select(value => value.GetProperty("target").GetString()));
+        Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+        {
+            Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+            Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+            Assert.Contains("PASS: nested traversal", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+        });
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "enclosing loop" }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(older));
+        AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+    }
+
     [Then("static interface helper guidance retains its full body applicability and edition")]
     public async Task CheckStaticInterfaceHelpersAsync()
     {

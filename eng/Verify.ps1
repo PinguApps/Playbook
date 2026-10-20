@@ -34,7 +34,9 @@ try {
     @{ Path = 'net10.0/CollectionLike'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/CollectionLike'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/StaticInterfaceHelpers'; Dotnet = 'dotnet' },
-    @{ Path = 'net11.0/StaticInterfaceHelpers'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/StaticInterfaceHelpers'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/EnclosingLoops'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/EnclosingLoops'; Dotnet = $Net11Dotnet }
   )) {
     Push-Location (Join-Path $root "samples/$($sample.Path)")
     try {
