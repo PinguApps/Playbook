@@ -22,6 +22,8 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [serialization API audit](../audits/serialization.md) records the bounded .NET 10 / .NET 11 RC2 asset and canonical-source comparison, including package target differences, generator diagnostics and historical obsoletions. It assigns existing goals and proposes two missing delivery slices; their content/evidence and final GA reconciliation remain outstanding.
+
 The web register resolves stale cumulative guidance against canonical RC2 notes for QuickGrid experimental diagnostics, validation-message formatting, browser-option names/lookup, and BasePath namespace. DBSC remains an availability finding because the canonical RC2 notes remove its implementation despite older cumulative guidance. Include genuinely experimental APIs, but do not teach unavailable RC-only contracts as GA features.
 
 Native workload evidence includes source/version conflicts and real Mac/Xcode requirements. The documented macios contributor `--no-xcode` mode is not a consumer Apple application build route. No native compilation or runtime behavior was established here.

@@ -100,6 +100,8 @@ Other inventory owners cover ASP.NET/Blazor, EF and desktop/mobile specifics. Sh
 
 ## Shared libraries: JSON contracts
 
+The [PIN-704 serialization audit](../audits/serialization.md) reconciles actual .NET 10 / pinned .NET 11 RC2 JSON, CBOR, XML and data-contract/schema assets, canonical notes and generator/obsolete diagnostics. Existing goals retain their delivery owners. Its CBOR nesting and custom value-classification proposals remain unimplemented; an audit does not establish recipe coverage or publication readiness.
+
 | Proposed stable ID | Goal and authoring impact | Applicability / stability / verification constraint | Official evidence | Disposition |
 | --- | --- | --- | --- | --- |
 | `json.serialize-closed-results` | Serialize C# unions and resolve ambiguous object cases deliberately. | JsonUnion structural/custom classifiers; root-property matching limits, null/default semantics, AOT context. | [L], [LR1] | included; edition 11.0 delivered with generated-metadata case/payload round trips and unknown/ambiguous/null checks; [PIN-711 evidence](../../verification/PIN-711.md). Native AOT publication and custom-factory implementation are not claimed. |
