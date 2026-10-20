@@ -19,6 +19,7 @@ foreach ($key in @('PLAYBOOK_TEST_PACKAGE', 'PLAYBOOK_TEST_VERSION', 'PLAYBOOK_T
   $previous[$key] = [Environment]::GetEnvironmentVariable($key)
 }
 try {
+  & (Join-Path $PSScriptRoot 'Test-DependencyPolicy.ps1')
   & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1')
   foreach ($sample in @(
@@ -65,7 +66,15 @@ try {
     @{ Path = 'net10.0/FSharpRethrow'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/FSharpRethrow'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/FSharpFlags'; Dotnet = 'dotnet' },
-    @{ Path = 'net11.0/FSharpFlags'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/FSharpFlags'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/BinaryData'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/BinaryData'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/BufferAdapters'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/BufferAdapters'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/ProcessExecution'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/ProcessExecution'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/UnicodeText'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/UnicodeText'; Dotnet = $Net11Dotnet }
   )) {
     Push-Location (Join-Path $root "samples/$($sample.Path)")
     try {

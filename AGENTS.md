@@ -11,3 +11,7 @@ Every copyable PowerShell example must select the task's worktree with `Set-Loca
 ## Recipe discovery
 
 Write recipe titles and goals around the reusable capability and when to apply it. Use the existing `goal` field as the explanatory discovery description, and show it alongside ID and title in inspection examples. Keep fictional domains in the worked examples; preserve stable recipe IDs when improving discovery wording.
+
+## Project and dependency changes
+
+Before creating, moving, retargeting or otherwise changing a project, its dependencies, shared build/package files, workloads, tools, containers or CI workflows, read [the dependency-update policy](docs/dependency-updates.md). Review effective inheritance and update `renovate.json` and its policy checks in the same PR when needed. Keep version-specific examples pinned and grant automated updates only to explicitly reviewed packages, locations and release lines. Verify both intended updates and protected baselines with the documented checks; account for every affected project in the PR's validation evidence.

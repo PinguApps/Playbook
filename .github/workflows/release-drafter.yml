@@ -23,7 +23,7 @@ jobs:
           if [[ "$stable" == false ]]; then echo 'initial=1.0.0' >> "$GITHUB_OUTPUT"; fi
 
       - name: Update release draft
-        uses: release-drafter/release-drafter@34d80673e067bdc0c24568d3af899c216adcfaa9 # v7
+        uses: release-drafter/release-drafter@978bb0b30c5ee8cdd332ced253758157150d43f0 # v7
         with:
           version: ${{ steps.version.outputs.initial }}
         env:
