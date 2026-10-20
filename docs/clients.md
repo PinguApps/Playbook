@@ -16,6 +16,8 @@ T3 Code's Claude provider instead uses Claude Code's configuration; follow the C
 
 Sources: T3 Code's [provider setup](https://github.com/pingdotgg/t3code/blob/main/docs/user/install.md#providers), [Codex homes](https://github.com/pingdotgg/t3code/blob/main/docs/user/providers-codex.md) and [Claude configuration](https://github.com/pingdotgg/t3code/blob/main/docs/user/providers-claude.md). T3 Code's own orchestration MCP server is separate from the Playbook server being connected here.
 
+For owner-authorized fresh-thread checks, use the [isolated verification project](t3-verification.md). Its tested project-scoped Codex connection needs trust for that specific seed repository; launching a T3 thread alone does not inject Playbook. The [setup receipt](verification/PIN-976.md) records actual calls, package identity and the initial missing-trust failure.
+
 ## Codex CLI
 
 Register the installed command, then inspect the saved entry:
