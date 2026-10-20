@@ -1,0 +1,11 @@
+{
+  "dependencies": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/CollectionLikeChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "workloads": []
+}

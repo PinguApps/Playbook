@@ -8,6 +8,20 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
+  Scenario: Static interface helper guidance retains complete canonical content and constraints offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then static interface helper guidance retains its full body applicability and edition
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Collection guidance preserves construction and extension editions offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then collection recipes retain complete canonical bodies and independent target requirements
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Closed outcome guidance retains complete canonical content and target constraints offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout

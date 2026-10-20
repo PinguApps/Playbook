@@ -1,0 +1,175 @@
+{
+  "id": "csharp.static-interface-helpers",
+  "edition": "11.0",
+  "title": "Share helpers on an interface without adding implementation requirements",
+  "goal": "Use non-virtual static interface helpers when a contract owns shared implementation code and callers need one fixed implementation without adding duties for implementing types.",
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "static",
+    "interface",
+    "helpers",
+    "non-virtual",
+    "implementation",
+    "accessibility"
+  ],
+  "apis": [
+    "static",
+    "private static",
+    "static abstract",
+    "static virtual"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Call helpers on the declaring interface, not through an instance or implementing class.",
+          "The helper surface already works on .NET 10; C# 15 removes a gate for runtimes without default interface methods. No legacy route is advertised."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/StaticInterfaceHelpers/StaticInterfaceHelpers.csproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+          "https://github.com/dotnet/roslyn/pull/83097",
+          "https://github.com/dotnet/csharplang/blob/main/meetings/2026/LDM-2026-02-11.md",
+          "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-8.0/default-interface-methods.md",
+          "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/static-abstracts-in-interfaces.md",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+        ],
+        "requirements": {
+          "packageAssets": [],
+          "prerequisites": [
+            "Target net11.0 with LangVersion 15.0 and implicit usings enabled; use the supplied System.Globalization import and namespace."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Build the declared net11.0 sample using its matching reference assemblies and C# 15 compiler."
+          },
+          "frameworks": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This edition targets net11.0. Ordinary static interface helpers already work on .NET 10; runtime 11 is not their original introduction."
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "name": "C#",
+            "reason": "C# 15 stabilizes the removal of the default-interface-method runtime gate; the helper syntax itself predates this release."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "providers": [],
+          "constraints": [
+            "Use a body on a non-virtual static helper. Implementers supply only the instance contract.",
+            "Public helpers are called on the declaring interface; private helpers remain implementation details.",
+            "Static abstract and static virtual members are separate dispatch contracts, not fixed helpers.",
+            "Preserve an existing public companion method or plan a breaking API migration when relocating it.",
+            "No .NET Framework/netstandard or newer-SDK/older-target route is declared or verified."
+          ],
+          "packages": []
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Canonical C# 15 RC1 stabilization",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+    },
+    {
+      "title": "Roslyn 83097: non-virtual static interface members without DIM runtime support",
+      "url": "https://github.com/dotnet/roslyn/pull/83097"
+    },
+    {
+      "title": "Language design: static helpers and older runtimes",
+      "url": "https://github.com/dotnet/csharplang/blob/main/meetings/2026/LDM-2026-02-11.md"
+    },
+    {
+      "title": "C# 8 default interface methods and static/private members",
+      "url": "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-8.0/default-interface-methods.md"
+    },
+    {
+      "title": "Static abstract and virtual interface contracts",
+      "url": "https://github.com/dotnet/csharplang/blob/main/proposals/csharp-11.0/static-abstracts-in-interfaces.md"
+    },
+    {
+      "title": "Microsoft C# language versioning",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Original companion utility: invariant station labels, blank/negative rejection and an implementer providing only Station. Exact saved record covers these actual executions; consumer compiler checks run separately in eng/Verify.ps1.",
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/StaticInterfaceHelpers/StaticInterfaceHelpers.csproj"
+    },
+    {
+      "scope": "Original static interface helper: identical label and validation rules; real method metadata is static, non-abstract and non-virtual. Separate consumer builds/execution and access/dispatch rejection checks run in eng/Test-StaticInterfaceHelpers.ps1; no legacy-runtime or GA proof is claimed.",
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/StaticInterfaceHelpers/StaticInterfaceHelpers.csproj"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/StaticInterfaceHelpers/Observations.cs",
+      "region": "helpers"
+    },
+    "older-consumer": {
+      "language": "csharp",
+      "path": "samples/net10.0/StaticInterfaceHelpers/Observations.cs",
+      "region": "consumer"
+    },
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/StaticInterfaceHelpers/Observations.cs",
+      "region": "helpers"
+    },
+    "newer-consumer": {
+      "language": "csharp",
+      "path": "samples/net11.0/StaticInterfaceHelpers/Observations.cs",
+      "region": "consumer"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable declared-target compiler and helper behavior is covered by actual builds and executions. No native UI or legacy runtime route is claimed."
+  }
+}
