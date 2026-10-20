@@ -12,6 +12,8 @@ The .NET 11 `csharp.static-interface-helpers` recipe explains fixed helper imple
 
 Five .NET 11 F# recipes cover record spreads, preview record constructors, built-in union JSON, explicit diagnostic cultures and reflection-free formatting. Their [original comparisons, evidence and inspection commands](docs/verification/PIN-716-718.md) keep compiler gates and serialization/deployment restrictions visible.
 
+Eleven JSON recipes cover incremental JSONL, writer reuse, generic resolution, typed metadata, generated private models/initializers/constructors, naming/ignore precedence, numeric/collection contracts, binary schema and strict imports. The [comparisons and verification walkthrough](docs/verification/PIN-726-730.md) distinguish .NET 11 RC2 evidence from the retained .NET 10 strict-import foundation and its .NET 9 comparison.
+
 ```powershell
 playbook --help
 playbook --version

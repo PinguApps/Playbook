@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For the JSON workflows in PIN-726–730, use [the tested JSON walkthrough](verification/PIN-726-730.md#inspect-what-an-agent-receives). It displays all eleven reusable discovery goals, complete canonical comparisons and target-specific applicability, including the retained .NET 10 strict-import edition.
+
 For experimental unsafe member/body/caller boundaries, use the [tested PIN-715 walkthrough](verification/PIN-715.md#inspect-what-an-agent-receives). It displays the discovery goal, complete original comparison, safe declaration and applicability, including preview flags and the measured AllowUnsafeBlocks requirement.
 
 `playbook mcp` speaks the MCP protocol over stdin/stdout; it is not a PowerShell prompt. Use [MCP Inspector](https://github.com/modelcontextprotocol/inspector/tree/main/clients/cli) as a client to initialize the connection and call its tools. This exercises the real server and its generated, embedded content.

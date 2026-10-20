@@ -36,6 +36,8 @@ The compatibility index explicitly says it is incomplete. The source manifest is
 
 ## Mechanical comparison and authoring dispositions
 
+**Delivery update — PIN-726–730:** [eleven original JSON recipes and actual managed execution/installed-tool evidence](../../verification/PIN-726-730.md) now cover the assigned streaming/writer, generic/typed metadata, encapsulated-model, naming/value/schema and strict-import goals. This supersedes the outstanding delivery wording for those rows below only within the report's measured scope. Stream/options JSONL and both writer Reset destinations are executed; other JSONL overload families remain source-reviewed. Generic resolution checks direct binding and one invalid shape; custom metadata factories, every generic shape, trimming/Native AOT and GA remain outside this proof. The two independent S1/S2 proposals and comprehensive publication gates remain outstanding.
+
 Counts below are declaration-line changes, **not** distinct API or recipe counts. Properties/accessors, constructors, enum fields, nullable attributes and type forwarders can each contribute lines. Flags, optional defaults, generic constraints, custom modifiers and attribute values are retained. Assembly hashes also expose differences outside this declaration representation. This is not a binary-compatibility certification or an implementation diff.
 
 | Actual surface comparison | Added | Removed |
