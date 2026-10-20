@@ -1,0 +1,186 @@
+{
+  "id": "csharp.audit-memory-boundaries",
+  "edition": "11.0",
+  "title": "Express and check unsafe memory boundaries (experimental)",
+  "goal": "Use experimental unsafe member contracts when a raw memory operation imposes caller obligations; review declaration accessibility and keep checked wrappers available.",
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "unsafe",
+    "memory",
+    "boundaries",
+    "caller",
+    "accessibility",
+    "experimental"
+  ],
+  "apis": [
+    "unsafe",
+    "safe",
+    "AllowUnsafeBlocks",
+    "RequiresUnsafeAttribute",
+    "MemorySafetyRulesAttribute",
+    "ReadOnlySpan<T>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "selectionNotes": [
+          "Experimental: enable LangVersion=preview, updated-memory-safety-rules and AllowUnsafeBlocks=true in projects using unsafe syntax.",
+          "public/internal/private still govern declaration accessibility; unsafe grants no access to private members.",
+          "Opted-in callers must acknowledge unsafe members; the member body separately needs an unsafe context. Legacy callers do not enforce pointer-free obligations.",
+          "RC2 pointer span construction still requires unsafe; the overview's project-setting removal claim is not reproduced."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The declared sample and framework reference assemblies target net11.0; no older-target route is claimed."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use a .NET 11 compiler with the documented preview and updated-memory-safety-rules switches; exact RC2 proof is recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "preview",
+            "match": "exact",
+            "reason": "Experimental updated rules and unsafe expressions require LangVersion=preview, not ordinary C# 15."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Enable implicit usings and nullable; use the complete BeaconFrame source and the project settings in the offline body.",
+            "Both library and callers must opt into the updated model for the demonstrated caller checking."
+          ],
+          "constraints": [
+            "A pointer alone proves neither validity nor length nor lifetime; the caller must guarantee two readable bytes.",
+            "unsafe on a member declares a caller obligation and does not authorize its body under the updated rules.",
+            "Declaration accessibility is unchanged; private/internal raw helpers remain inaccessible to unauthorized callers.",
+            "Keep pins alive through each read and reject short inputs before entering the raw reader.",
+            "Legacy-model consumers do not enforce pointer-free requires-unsafe contracts.",
+            "No AOT, native interop service, browser behavior or newer-SDK/older-target compatibility is established."
+          ],
+          "optIns": [
+            "LangVersion=preview",
+            "Features=$(Features);updated-memory-safety-rules",
+            "AllowUnsafeBlocks=true"
+          ],
+          "stabilityLimitations": [
+            "Experimental RC2 compiler behavior, not stable C# 15 or GA proof; exact flags and metadata may change.",
+            "Actual RC2 pointer span construction contradicts the cumulative annotation-removal headline; do not omit AllowUnsafeBlocks for unsafe syntax."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15#memory-safety",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/language#enable-the-updated-memory-safety-rules",
+          "https://github.com/dotnet/csharplang/blob/main/proposals/unsafe-evolution.md",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#unsafe-api-accessibility"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/UnsafeBoundaries/UnsafeBoundaries.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "C# memory safety preview",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-15#memory-safety"
+    },
+    {
+      "title": "Compiler switches and cross-assembly compatibility",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/language#enable-the-updated-memory-safety-rules"
+    },
+    {
+      "title": "C# unsafe evolution design",
+      "url": "https://github.com/dotnet/csharplang/blob/main/proposals/unsafe-evolution.md"
+    },
+    {
+      "title": "RC1 language release notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+    },
+    {
+      "title": "Library overview claim checked against actual RC2 artifacts",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#unsafe-api-accessibility"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/UnsafeBoundaries/UnsafeBoundaries.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Original beacon frame decoding with legacy unsafe contexts; exact expected readings, unchanged input and short-frame rejection executed on .NET 10."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/UnsafeBoundaries/UnsafeBoundaries.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "preview",
+      "scope": "Same real frame checks with experimental member/body/caller boundaries on RC2. Separate forced-rebuild consumer, attribute, accessibility, AllowUnsafeBlocks, pointer span and preview/legacy checks run through eng/Test-UnsafeBoundaries.ps1; its input bytes are hashed, but those compiler results are documented separately."
+    }
+  ],
+  "snippets": {
+    "layout": {
+      "path": "samples/net11.0/UnsafeBoundaries/Frames.cs",
+      "region": "layout",
+      "language": "csharp"
+    },
+    "older": {
+      "path": "samples/net10.0/UnsafeBoundaries/Frames.cs",
+      "region": "frames",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/UnsafeBoundaries/Frames.cs",
+      "region": "frames",
+      "language": "csharp"
+    },
+    "program": {
+      "path": "samples/net11.0/UnsafeBoundaries/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    },
+    "newer-project": {
+      "path": "samples/net11.0/UnsafeBoundaries/UnsafeBoundaries.csproj",
+      "region": "project",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable memory decoding and compiler contracts are covered by actual compilation/execution. No native UI, provider, external account or deployment claim needs Human proof."
+  }
+}

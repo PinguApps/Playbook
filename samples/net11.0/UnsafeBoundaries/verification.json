@@ -1,0 +1,7 @@
+{
+  "additionalInputs": ["samples/UnsafeBoundaryChecks.cs", "eng/Test-UnsafeBoundaries.ps1", "eng/Record-Evidence.ps1", "eng/Evidence.ps1"],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "buildArguments": []
+}

@@ -4,6 +4,11 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net10.0/UnsafeBoundaries/Frames.cs" LogicalName="Canonical.net10.0.Frames.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/UnsafeBoundaries/Frames.cs" LogicalName="Canonical.net11.0.Frames.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/UnsafeBoundaries/Program.cs" LogicalName="Canonical.UnsafeProgram.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/UnsafeBoundaries/UnsafeBoundaries.csproj" LogicalName="Canonical.UnsafeBoundaries.csproj" />
+    <EmbeddedResource Include="../../content/recipes/csharp.audit-memory-boundaries/11.0/recipe.md" LogicalName="Canonical.csharp.audit-memory-boundaries.md" />
     <EmbeddedResource Include="../../samples/net10.0/EnclosingLoops/Traversal.cs" LogicalName="Canonical.net10.0.Traversal.cs" />
     <EmbeddedResource Include="../../samples/net11.0/EnclosingLoops/Traversal.cs" LogicalName="Canonical.net11.0.Traversal.cs" />
     <EmbeddedResource Include="../../content/recipes/csharp.control-nested-loops/11.0/recipe.md" LogicalName="Canonical.csharp.control-nested-loops.md" />
