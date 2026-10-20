@@ -1,0 +1,143 @@
+{
+  "id": "cbor.read-chunks",
+  "edition": "11.0",
+  "title": "Read CBOR records across incoming chunks",
+  "goal": "Decode a finite CBOR measurement array while retaining only incomplete token bytes between incoming chunks.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "binarydata",
+    "cbor"
+  ],
+  "apis": [
+    "CborReaderOptions",
+    "CborReaderState.NeedsMoreData",
+    "CborReader.SlideData"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Incremental reading requires Lax mode. Retain unconsumed token bytes, mark actual final input, and bound token/result sizes separately."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This edition uses .NET 11 library APIs; the .NET 10 code is a comparison, not a catalogue route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 sample with the .NET 11 SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical net11.0 project selects the .NET 11 default C# 15 language mode."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.Formats.Cbor",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Incremental reader APIs are in System.Formats.Cbor 11; exact RC2 pins are recorded in sample evidence."
+            }
+          ],
+          "packageAssets": [
+            "System.Formats.Cbor lib/net11.0/System.Formats.Cbor.dll"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            ".NET 11 platforms (managed execution recorded on Windows)"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Use a net11.0 console project with LangVersion=15.0 and a System.Formats.Cbor 11 package reference. Include the imports stated in the recipe."
+          ],
+          "constraints": [
+            "Incremental mode requires Lax; Strict/Canonical modes reject a non-final initial block in RC2. NeedsMoreData means obtain a larger valid window, not retry the same read in a busy loop. SlideData must preserve unconsumed bytes; a chunk can end inside one token. This narrow parser accepts one definite/indefinite measurement array of Int32 values, rejects other states and trailing roots, and retains all decoded results in a List: it does not promise bounded total result memory. Bound incoming chunk/token size and total measurements at the application boundary for untrusted data. Lax is a conformance choice, not permission to trust malformed or unlimited input. Default nesting limits/options are a separate goal; this single-level parser does not change them."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 verification; GA reconciliation remains pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BinaryData/BinaryData.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Package-matched official API declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs"
+    },
+    {
+      "title": "Pinned official release notes and supporting API surface",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BinaryData/BinaryData.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual BinaryData compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/BinaryData/BinaryData.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual BinaryData compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/BinaryData/Telemetry.cs",
+      "region": "cbor"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/BinaryData/Telemetry.cs",
+      "region": "cbor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed sample behaviour has no provider/UI/native proof requirement; recorded execution does not establish every platform or GA behaviour."
+  }
+}

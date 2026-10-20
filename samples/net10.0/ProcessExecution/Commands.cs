@@ -48,7 +48,10 @@ public static class Commands
         // Managed .NET 10 has no StartSuspended/Resume pair. Prepare before launch.
         // Native post-creation/pre-execution setup would require an OS-specific launcher.
         prepare();
-        return RunOwned(start);
+        start.UseShellExecute = false;
+        using Process child = Process.Start(start) ?? throw new InvalidOperationException("No child process.");
+        child.WaitForExit();
+        return child.ExitCode;
     }
     // endsnippet:prepare
 

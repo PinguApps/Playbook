@@ -1,0 +1,133 @@
+{
+  "id": "text.compare-characters",
+  "edition": "11.0",
+  "title": "Choose a character comparison policy explicitly",
+  "goal": "Compare single UTF-16 characters or Unicode scalars using an explicit ordinal or culture-sensitive policy.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "unicodetext",
+    "compare"
+  ],
+  "apis": [
+    "Char.Equals(char,StringComparison)",
+    "Rune.Equals(Rune,StringComparison)"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Use Rune for supplementary scalars and select StringComparison explicitly. Culture-sensitive results are platform-dependent; this does not normalize Unicode."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This edition uses .NET 11 library APIs; the .NET 10 code is a comparison, not a catalogue route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 sample with the .NET 11 SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical net11.0 project selects the .NET 11 default C# 15 language mode."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            ".NET 11 platforms (managed execution recorded on Windows)"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Use a net11.0 console project with LangVersion=15.0. Include the imports stated in the recipe."
+          ],
+          "constraints": [
+            "A char can be only half of a surrogate pair; choose Rune when supplementary characters are possible. Culture-sensitive collation is not a universal identifier/security policy and can vary with ICU/NLS/platform versions. The recorded Turkish assertions are Windows globalization execution, not proof of every platform or every collation rule. Ordinal casing (ToUpperOrdinal/ToLowerOrdinal on char/string/Rune/spans) is separate from display casing or Unicode normalization; do not replace a culture-aware transform merely because both appear to uppercase ASCII."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 verification; GA reconciliation remains pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/libraries.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/UnicodeText/UnicodeText.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Package-matched official API declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "Pinned official release notes and supporting API surface",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/libraries.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/UnicodeText/UnicodeText.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual UnicodeText compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/UnicodeText/UnicodeText.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual UnicodeText compilation and focused execution on Windows. No mocks, cross-compilation, native deployment or GA proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/UnicodeText/TextRules.cs",
+      "region": "compare"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/UnicodeText/TextRules.cs",
+      "region": "compare"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed sample behaviour has no provider/UI/native proof requirement; recorded execution does not establish every platform or GA behaviour."
+  }
+}

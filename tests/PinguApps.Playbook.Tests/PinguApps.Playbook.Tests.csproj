@@ -4,6 +4,28 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net10.0/ProcessExecution/Commands.cs" LogicalName="Canonical.net10.0.Commands.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/ProcessExecution/Commands.cs" LogicalName="Canonical.net11.0.Commands.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/BufferAdapters/Adapters.cs" LogicalName="Canonical.net10.0.Adapters.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/BufferAdapters/Adapters.cs" LogicalName="Canonical.net11.0.Adapters.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/UnicodeText/TextRules.cs" LogicalName="Canonical.net10.0.TextRules.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/UnicodeText/TextRules.cs" LogicalName="Canonical.net11.0.TextRules.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/BinaryData/Telemetry.cs" LogicalName="Canonical.net10.0.Telemetry.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/BinaryData/Telemetry.cs" LogicalName="Canonical.net11.0.Telemetry.cs" />
+    <EmbeddedResource Include="../../content/recipes/cbor.read-chunks/11.0/recipe.md" LogicalName="Canonical.cbor.read-chunks.md" />
+    <EmbeddedResource Include="../../content/recipes/console.color-piped-output/11.0/recipe.md" LogicalName="Canonical.console.color-piped-output.md" />
+    <EmbeddedResource Include="../../content/recipes/io.adapt-existing-buffers/11.0/recipe.md" LogicalName="Canonical.io.adapt-existing-buffers.md" />
+    <EmbeddedResource Include="../../content/recipes/process.capture-output/11.0/recipe.md" LogicalName="Canonical.process.capture-output.md" />
+    <EmbeddedResource Include="../../content/recipes/process.control-lifetime/11.0/recipe.md" LogicalName="Canonical.process.control-lifetime.md" />
+    <EmbeddedResource Include="../../content/recipes/process.control-native-handles/11.0/recipe.md" LogicalName="Canonical.process.control-native-handles.md" />
+    <EmbeddedResource Include="../../content/recipes/process.inspect-termination/11.0/recipe.md" LogicalName="Canonical.process.inspect-termination.md" />
+    <EmbeddedResource Include="../../content/recipes/process.prepare-before-start/11.0/recipe.md" LogicalName="Canonical.process.prepare-before-start.md" />
+    <EmbeddedResource Include="../../content/recipes/regex.handle-unicode-newlines/11.0/recipe.md" LogicalName="Canonical.regex.handle-unicode-newlines.md" />
+    <EmbeddedResource Include="../../content/recipes/text.compare-characters/11.0/recipe.md" LogicalName="Canonical.text.compare-characters.md" />
+    <EmbeddedResource Include="../../content/recipes/text.encode-base64/11.0/recipe.md" LogicalName="Canonical.text.encode-base64.md" />
+    <EmbeddedResource Include="../../content/recipes/text.handle-unicode-scalars/11.0/recipe.md" LogicalName="Canonical.text.handle-unicode-scalars.md" />
+    <EmbeddedResource Include="../../content/recipes/text.locate-invalid-unicode/11.0/recipe.md" LogicalName="Canonical.text.locate-invalid-unicode.md" />
+    <EmbeddedResource Include="../../content/recipes/text.transfer-builder-content/11.0/recipe.md" LogicalName="Canonical.text.transfer-builder-content.md" />
     <EmbeddedResource Include="../../samples/net10.0/FSharpApi/Api.fs" LogicalName="Canonical.net10.0.Api.fs" />
     <EmbeddedResource Include="../../samples/net11.0/FSharpApi/Api.fs" LogicalName="Canonical.net11.0.Api.fs" />
     <EmbeddedResource Include="../../samples/net10.0/FSharpApiPreview/ApiPreview.fs" LogicalName="Canonical.net10.0.ApiPreview.fs" />
