@@ -42,4 +42,3 @@ let main _ =
     with :? NotSupportedException -> ()
     Console.WriteLine("PASS: record composition, construction and explicit-wire union round trips; built-in .NET 10 union rejected")
     0
-

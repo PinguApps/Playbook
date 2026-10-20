@@ -36,7 +36,7 @@ try {
     @{ Path = 'net10.0/StaticInterfaceHelpers'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/StaticInterfaceHelpers'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/EnclosingLoops'; Dotnet = 'dotnet' },
-    @{ Path = 'net11.0/EnclosingLoops'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/EnclosingLoops'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/FSharpModels'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/FSharpModels'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/FSharpConstructors'; Dotnet = 'dotnet' },

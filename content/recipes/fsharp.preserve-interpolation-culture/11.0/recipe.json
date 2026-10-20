@@ -1,0 +1,148 @@
+{
+  "id": "fsharp.preserve-interpolation-culture",
+  "edition": "11.0",
+  "title": "Keep an explicit display culture in F# diagnostic messages",
+  "goal": "Format dates and numbers with an explicit culture before interpolating them when diagnostic messages must retain a chosen region across F# 10 and F# 11.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp",
+    "culture",
+    "diagnostics"
+  ],
+  "apis": [
+    "CultureInfo",
+    "ToString",
+    "interpolation"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Format dates and numbers with an explicit culture before interpolating them when diagnostic messages must retain a chosen region across F# 10 and F# 11."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpDiagnostics/FSharpDiagnostics.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md",
+          "https://learn.microsoft.com/en-us/dotnet/standard/base-types/formatting-types"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package"
+          ],
+          "prerequisites": [
+            "Create an F# executable project targeting net11.0; set LangVersion to 11.0 and reference FSharp.Core 11.",
+            "For the canonical diagnostics project, add --reflectionfree to OtherFlags. Regional culture checks require globalization data.",
+            "Add `open System` and `open System.Globalization` before the definitions in both versions."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "name": "F#",
+            "version": "11.0",
+            "match": "exact",
+            "reason": "F# 11 is the declared language for this release comparison."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "providers": [],
+          "constraints": [
+            "Ordinary and .NET-formatted interpolation holes use the new lowering; printf-format holes such as %A{value} retain the printf path and must not be used to claim reflection-free behavior.",
+            "Explicit scalar formatting does not give arbitrary nested objects the requested culture. Format their members yourself or provide an appropriate formatter."
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "F# 11 interpolation lowering and invariant culture",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md"
+    },
+    {
+      "title": "Culture-aware formatting contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/base-types/formatting-types"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpDiagnostics/FSharpDiagnostics.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Original culture comparison: real compilation and execution of all assertions in FSharpDiagnostics. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/FSharpDiagnostics/FSharpDiagnostics.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "kind": "compile-and-run",
+      "scope": "Original culture comparison: real compilation and execution of all assertions in FSharpDiagnostics. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "path": "samples/net10.0/FSharpDiagnostics/Diagnostics.fs",
+      "region": "culture"
+    },
+    "newer": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpDiagnostics/Diagnostics.fs",
+      "region": "culture"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable compiler and managed runtime behavior is covered by execution. No provider, native application or UI proof is claimed."
+  }
+}

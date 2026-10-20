@@ -33,4 +33,3 @@ let main _ =
         Console.WriteLine("PASS: explicit UK/German culture, invariant holes and generated reflection-free record/union diagnostics")
         0
     finally CultureInfo.CurrentCulture <- previous
-

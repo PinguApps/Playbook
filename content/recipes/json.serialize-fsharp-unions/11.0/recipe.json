@@ -1,0 +1,149 @@
+{
+  "id": "json.serialize-fsharp-unions",
+  "edition": "11.0",
+  "title": "Round-trip F# union values with built-in JSON support",
+  "goal": "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+  "areas": [
+    "json"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp",
+    "json",
+    "models"
+  ],
+  "apis": [
+    "JsonSerializer.Serialize",
+    "JsonSerializer.Deserialize"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+          "Reflection-only; no source generation, trimming or Native AOT."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpModels/FSharpModels.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/supported-types#f-discriminated-unions",
+          "https://source.dot.net/System.Text.Json/System/Text/Json/Serialization/Converters/FSharp/FSharpUnionConverter.cs.html"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package",
+            "System.Text.Json 11.0.0-rc.2.26504.105 from Microsoft.NETCore.App; framework asset, no separate package"
+          ],
+          "prerequisites": [
+            "Create an F# executable project targeting net11.0; set LangVersion to 11.0 and reference FSharp.Core 11.",
+            "Add `open System.Text.Json` before the definitions in both versions."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "name": "F#",
+            "version": "11.0",
+            "match": "exact",
+            "reason": "F# 11 is the declared language for this release comparison."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "providers": [],
+          "constraints": [
+            "Built-in F# union support is reflection-only: no source generation, trimming or Native AOT support.",
+            "Do not add JsonUnionAttribute to this F# model or infer F# support from C# union generator results.",
+            "Case and field names form part of the default wire contract. Renaming them can break persisted messages. These checks cover public class union cases, not every supported union shape."
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official F# union support and restrictions",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/supported-types#f-discriminated-unions"
+    },
+    {
+      "title": "Built-in F# union converter",
+      "url": "https://source.dot.net/System.Text.Json/System/Text/Json/Serialization/Converters/FSharp/FSharpUnionConverter.cs.html"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpModels/FSharpModels.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Original json comparison: real compilation and execution of all assertions in FSharpModels. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/FSharpModels/FSharpModels.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "kind": "compile-and-run",
+      "scope": "Original json comparison: real compilation and execution of all assertions in FSharpModels. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "path": "samples/net10.0/FSharpModels/Models.fs",
+      "region": "json"
+    },
+    "newer": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpModels/Models.fs",
+      "region": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable compiler and managed runtime behavior is covered by execution. No provider, native application or UI proof is claimed."
+  }
+}

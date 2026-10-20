@@ -1,0 +1,149 @@
+{
+  "id": "fsharp.construct-records",
+  "edition": "11.0",
+  "title": "Construct record values with positional or named arguments (preview)",
+  "goal": "Use preview record constructor syntax when an F# record call benefits from positional arguments or reordered named arguments; retain record expressions when preview is unsuitable.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp",
+    "construct",
+    "constructors"
+  ],
+  "apis": [
+    "record constructor",
+    "LangVersion=preview"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Use preview record constructor syntax when an F# record call benefits from positional arguments or reordered named arguments; retain record expressions when preview is unsuitable.",
+          "Experimental record constructor syntax requires LangVersion=preview."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpConstructors/FSharpConstructors.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md",
+          "https://github.com/dotnet/fsharp/pull/19974"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package"
+          ],
+          "prerequisites": [
+            "Create an F# executable project targeting net11.0; set LangVersion to preview and reference FSharp.Core 11."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "name": "F#",
+            "version": "preview",
+            "match": "exact",
+            "reason": "RC2 still gates record constructor calls behind preview."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required.",
+            "Experimental compiler syntax can change; stable record expressions remain available."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "LangVersion=preview"
+          ],
+          "providers": [],
+          "constraints": [
+            "The constructor follows record representation accessibility; it does not bypass a private representation or add business validation.",
+            "Supply all fields. Positional arguments follow declaration order; record expressions remain clearer for many-field models."
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "F# record constructor preview gate",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md"
+    },
+    {
+      "title": "Synthesized all-fields constructor implementation",
+      "url": "https://github.com/dotnet/fsharp/pull/19974"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpConstructors/FSharpConstructors.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Original construct comparison: real compilation and execution of all assertions in FSharpConstructors. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/FSharpConstructors/FSharpConstructors.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "preview",
+      "kind": "compile-and-run",
+      "scope": "Original construct comparison: real compilation and execution of all assertions in FSharpConstructors. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "path": "samples/net10.0/FSharpConstructors/Constructors.fs",
+      "region": "construct"
+    },
+    "newer": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpConstructors/Constructors.fs",
+      "region": "construct"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable compiler and managed runtime behavior is covered by execution. No provider, native application or UI proof is claimed."
+  }
+}

@@ -93,13 +93,23 @@
         "reason": { "$ref": "#/definitions/text" }
       }
     },
+    "languageRequirement": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "version", "match", "reason"],
+      "properties": {
+        "name": { "$ref": "#/definitions/text" },
+        "version": { "type": "string", "pattern": "^([0-9]+\\.[0-9]+(\\.[0-9]+)*(-[0-9A-Za-z.-]+)?|preview)$" },
+        "match": { "enum": ["exact", "release-family"] },
+        "reason": { "$ref": "#/definitions/text" }
+      }
+    },
     "requirements": {
       "type": "object", "additionalProperties": false,
       "required": ["runtime", "sdk", "language", "frameworks", "packages", "workloads", "packageAssets", "providers", "platforms", "renderingModes", "prerequisites", "constraints"],
       "properties": {
         "runtime": { "$ref": "#/definitions/versionRequirement" },
         "sdk": { "$ref": "#/definitions/versionRequirement" },
-        "language": { "$ref": "#/definitions/versionRequirement" },
+        "language": { "$ref": "#/definitions/languageRequirement" },
         "frameworks": { "$ref": "#/definitions/strings" },
         "packages": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/versionRequirement" } },
         "workloads": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/versionRequirement" } },

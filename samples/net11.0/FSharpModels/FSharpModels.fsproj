@@ -11,4 +11,3 @@
     <Compile Include="Models.fs" />
   </ItemGroup>
 </Project>
-

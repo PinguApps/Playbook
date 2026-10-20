@@ -24,6 +24,76 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("F sharp guidance retains complete bodies constraints and editions")]
+    public async Task CheckFSharpGuidanceAsync()
+    {
+        string[] languages = ["fsharp"];
+        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0", languages }).ConfigureAwait(false));
+        foreach ((string id, string sample, string file, string region) in new[]
+        {
+            ("fsharp.compose-records", "FSharpModels", "Models", "compose"),
+            ("fsharp.construct-records", "FSharpConstructors", "Constructors", "construct"),
+            ("json.serialize-fsharp-unions", "FSharpModels", "Models", "json"),
+            ("fsharp.preserve-interpolation-culture", "FSharpDiagnostics", "Diagnostics", "culture"),
+            ("fsharp.format-without-reflection", "FSharpDiagnostics", "Diagnostics", "reflectionfree")
+        })
+        {
+            JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray(), value => value.GetProperty("id").GetString() == id);
+            Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
+            JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false));
+            Assert.Equal("11.0", detail.GetProperty("resolvedTarget").GetString());
+            JsonElement recipe = detail.GetProperty("recipe");
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+            AssertSelection(summary, recipe);
+            string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+            foreach ((string token, string target) in new[] { ("older", "net10.0"), ("newer", "net11.0") })
+            {
+                string source = await ReadCanonicalAsync($"{target}.{file}.fs").ConfigureAwait(false);
+                string snippet = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
+                    .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```fsharp\n{snippet}\n```", StringComparison.Ordinal);
+            }
+
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+            JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+            Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+            Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+            foreach (string field in new[] { "packages", "packageAssets", "platforms", "constraints" })
+            {
+                Assert.NotEmpty(requirements.GetProperty(field).EnumerateArray());
+            }
+
+            JsonElement core = Assert.Single(requirements.GetProperty("packages").EnumerateArray());
+            Assert.Equal("11.0", core.GetProperty("version").GetString());
+            Assert.Equal("release-family", core.GetProperty("match").GetString());
+            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                Assert.Contains(sample, evidence.GetProperty("sample").GetString(), StringComparison.Ordinal);
+            });
+            if (id == "fsharp.construct-records")
+            {
+                Assert.Equal("experimental", summary.GetProperty("stability").GetString());
+                Assert.Equal("preview", requirements.GetProperty("language").GetProperty("version").GetString());
+                Assert.Contains("LangVersion=preview", requirements.GetProperty("optIns").ToString(), StringComparison.Ordinal);
+            }
+
+            if (id == "json.serialize-fsharp-unions")
+            {
+                Assert.Contains("reflection-only", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+                Assert.Contains("Native AOT", expected, StringComparison.Ordinal);
+                Assert.Contains("source generation", expected, StringComparison.Ordinal);
+            }
+
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+        }
+    }
+
     [Then("enclosing loop guidance retains its full body applicability and edition")]
     public async Task CheckEnclosingLoopsAsync()
     {

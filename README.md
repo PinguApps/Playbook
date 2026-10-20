@@ -10,6 +10,8 @@ Four .NET 11 recipes also cover C# unions, closed hierarchies, union JSON round 
 
 The .NET 11 `csharp.static-interface-helpers` recipe explains fixed helper implementations without adding implementer obligations. Its [comparison, compiler checks and inspection commands](docs/verification/PIN-714.md) also show that ordinary static interface helpers already work on .NET 10; C# 15's change removes a restriction for runtimes without default interface methods.
 
+Five .NET 11 F# recipes cover record spreads, preview record constructors, built-in union JSON, explicit diagnostic cultures and reflection-free formatting. Their [original comparisons, evidence and inspection commands](docs/verification/PIN-716-718.md) keep compiler gates and serialization/deployment restrictions visible.
+
 ```powershell
 playbook --help
 playbook --version
