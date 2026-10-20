@@ -8,7 +8,7 @@ A beacon scheduler only needs a child’s completion code and wants to discard i
 
 Create a net10.0 / C# 14 console project. Use System.Diagnostics; newer native examples also use Microsoft.Win32.SafeHandles, System.Runtime.InteropServices and System.Runtime.Versioning; omit imports for namespaces not used by the selected snippet. All snippets belong inside a static class in namespace Playbook.Samples; System, System.IO, System.Linq, System.Collections.Generic and System.Threading.Tasks come from implicit usings.
 
-The older version keeps the Process alive while borrowing its SafeHandle. Do not dispose a borrowed SafeHandle independently; doing so can invalidate its owner’s operations.
+The older version keeps the Process alive while borrowing its SafeHandle and drains both redirected streams into Stream.Null. Do not dispose a borrowed SafeHandle independently; doing so can invalidate its owner’s operations. The newer version replaces that pipe-draining work with direct null-handle redirection.
 
 {{snippet:older}}
 

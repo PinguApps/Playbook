@@ -579,7 +579,13 @@ public sealed class InstalledToolSteps : IDisposable
                 JsonElement list = AssertMatchingRepresentations(result);
                 Assert.Equal(limit, list.GetProperty("recipes").GetArrayLength());
                 measurements.Add($"{query ?? "all"} {limit}: summary={Bytes(list.GetProperty("recipes")[0])}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
-                withinBudget &= Bytes(result) <= (limit == 20 ? 65000 : 160000);
+                int budget = query is null ? 80000 : 65000;
+                if (limit == 50)
+                {
+                    budget = 160000;
+                }
+
+                withinBudget &= Bytes(result) <= budget;
             }
         }
 

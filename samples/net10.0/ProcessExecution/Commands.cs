@@ -34,10 +34,15 @@ public static class Commands
     public static int RunOwned(ProcessStartInfo start)
     {
         start.UseShellExecute = false;
+        start.RedirectStandardOutput = true;
+        start.RedirectStandardError = true;
         using Process owner = Process.Start(start) ?? throw new InvalidOperationException("No child process.");
         // SafeHandle is borrowed from owner; do not dispose it independently.
         if (owner.SafeHandle.IsInvalid) throw new InvalidOperationException("Invalid child handle.");
+        Task output = owner.StandardOutput.BaseStream.CopyToAsync(Stream.Null);
+        Task error = owner.StandardError.BaseStream.CopyToAsync(Stream.Null);
         owner.WaitForExit();
+        Task.WaitAll(output, error);
         return owner.ExitCode;
     }
     // endsnippet:handles
