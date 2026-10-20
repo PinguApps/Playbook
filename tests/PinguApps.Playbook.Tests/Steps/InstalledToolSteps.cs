@@ -330,7 +330,17 @@ public sealed class InstalledToolSteps : IDisposable
             ?? throw new InvalidOperationException("Missing PLAYBOOK_TEST_VERSION.");
         ProcessStartInfo install = CreateStartInfo("dotnet", "tool", "install", "PinguApps.Playbook", "--version", version,
             "--tool-path", Path.Combine(_directory, "tool"), "--configfile", config, "--no-cache");
+        string? processPath = Environment.GetEnvironmentVariable("PATH");
+        string? userPath = OperatingSystem.IsWindows() ? Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User) : null;
+        string? machinePath = OperatingSystem.IsWindows() ? Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine) : null;
         (int exitCode, string stdout, string stderr) = await RunAsync(install).ConfigureAwait(false);
+        Assert.Equal(processPath, Environment.GetEnvironmentVariable("PATH"));
+        if (OperatingSystem.IsWindows())
+        {
+            Assert.Equal(userPath, Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User));
+            Assert.Equal(machinePath, Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine));
+        }
+
         Assert.True(exitCode == 0, stdout + stderr);
         _executable = Path.Combine(_directory, "tool", OperatingSystem.IsWindows() ? "playbook.exe" : "playbook");
         Assert.True(File.Exists(_executable));
@@ -1042,7 +1052,8 @@ public sealed class InstalledToolSteps : IDisposable
         info.Environment["NUGET_HTTP_CACHE_PATH"] = Path.Combine(_directory, "http-cache");
         info.Environment["DOTNET_CLI_HOME"] = _directory;
         info.Environment["DOTNET_NOLOGO"] = "1";
-        info.Environment["DOTNET_SKIP_FIRST_TIME_EXPERIENCE"] = "1";
+        // Every fresh CLI home triggers first-run setup, even with an explicit --tool-path.
+        info.Environment["DOTNET_ADD_GLOBAL_TOOLS_TO_PATH"] = "0";
         info.Environment["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1";
         info.Environment["HTTP_PROXY"] = "http://127.0.0.1:1";
         info.Environment["HTTPS_PROXY"] = "http://127.0.0.1:1";
