@@ -1,0 +1,2032 @@
+{
+  "reviewed": "2026-10-20",
+  "sources": [
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Collections.Immutable.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Collections.Immutable.md",
+      "sha256": "397849474285808316679f56a81e2d2918a96aac2047ca2fba1c3075b7f42a5a",
+      "headings": [
+        "# System.Collections.Immutable"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Collections.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Collections.md",
+      "sha256": "96bde8118a263274f79e76a216d1e0f318f4f8f9fb7a08b4fea7507bbd1015e3",
+      "headings": [
+        "# System.Collections"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Compression.Brotli.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Compression.Brotli.md",
+      "sha256": "1c7cfbd2c513f71c5e04bfa027e085d7bff50dda7253b456ced027ad36216ca1",
+      "headings": [
+        "# System.IO.Compression.Brotli"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Compression.Zstandard.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Compression.Zstandard.md",
+      "sha256": "f7f767edc7c6fbe0010fd4ee153106ce6300d8de19d5c21d7cbb680ddcc24b59",
+      "headings": [
+        "# System.IO.Compression.Zstandard"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Compression.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Compression.md",
+      "sha256": "1c86a8b3cc46065abcf59044734ac5c92e83fb1c149362a94b87fe630dfd92d7",
+      "headings": [
+        "# System.IO.Compression"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Pipes.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.IO.Pipes.md",
+      "sha256": "73bf4610025ce0ff575aec346d5cb8627617b0243c9aac07853730087a01a2c1",
+      "headings": [
+        "# System.IO.Pipes"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Linq.Expressions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Linq.Expressions.md",
+      "sha256": "46670991d93e3572bbecf33152112886b0f2ba9a35c88b79ea74650005ca210a",
+      "headings": [
+        "# System.Linq.Expressions"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Memory.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Memory.md",
+      "sha256": "cec904491440322269885c5f596e3e4e69d0e1d2f513953e621122c165af2a26",
+      "headings": [
+        "# System.Memory"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Numerics.Vectors.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Numerics.Vectors.md",
+      "sha256": "77c35f6416dc072f19de4d085ccf74f3ebf40e72dab9164c5b4519f288391d03",
+      "headings": [
+        "# System.Numerics.Vectors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Runtime.Intrinsics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Runtime.Intrinsics.md",
+      "sha256": "3559ee8cd6669486b9a73d601d7cde779aa531a53f22b74db9bb0cd14245d8f4",
+      "headings": [
+        "# System.Runtime.Intrinsics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Runtime.Numerics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Runtime.Numerics.md",
+      "sha256": "1918d3cac364b77d44228bb9b18cc3880aeb707d38b58c266aa7a0cc4c0303a1",
+      "headings": [
+        "# System.Runtime.Numerics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Runtime.md",
+      "sha256": "e6f5a8534a712b6086403ad66b8717e410a54f3e94aaef8056b30f785813096e",
+      "headings": [
+        "# System.Runtime"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/libraries.md",
+      "sha256": "87bbd1881b278782c30e2f8ace1eac8689d4a078c9707d3d9489bf3099d15318",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 1 - Release Notes",
+        "## Zstandard Compression Support",
+        "### HTTP Automatic Decompression with Zstandard",
+        "## BFloat16 Floating-Point Type",
+        "## ZipArchiveEntry Improvements",
+        "### Open with FileAccess Parameter",
+        "### ZipCompressionMethod Property",
+        "## FrozenDictionary Collection Expression Support",
+        "## TimeZone Improvements",
+        "## Rune Support Across String, StringBuilder, and TextWriter",
+        "### String",
+        "### StringBuilder",
+        "### RunePosition",
+        "### TextWriter and TextInfo",
+        "## MediaTypeMap for MIME Type Lookups",
+        "## HMAC and KMAC Verification APIs",
+        "## Hard Link Creation APIs",
+        "## DivisionRounding for Integer Division Modes",
+        "## IReadOnlySet Support in System.Text.Json",
+        "## Base64 Parity with Base64Url",
+        "## Generic Interlocked.And and Interlocked.Or Methods",
+        "## Happy Eyeballs Support in Socket.ConnectAsync",
+        "## Span-based IDN APIs for IdnMapping",
+        "## CancellationToken Overloads for TextWriter",
+        "## Process I/O Improvements",
+        "### File.OpenNullHandle",
+        "### Standard Handle APIs",
+        "## Function Pointer Support in Reflection.Emit",
+        "## CGM Extension Support in MediaTypeMap",
+        "## SOCKS5h Proxy Support in HttpClient",
+        "## Performance Improvements",
+        "### Guid.NewGuid() ~12% Faster on Linux",
+        "### BigInteger Toom-Cook Multiplication",
+        "### Vectorized BitIncrement/BitDecrement in TensorPrimitives",
+        "### Directory.GetFiles OS-Level Pattern Filtering on Windows",
+        "### BitArray.PopCount"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/runtime.md",
+      "sha256": "a34da561aefbb348fb67a0169e1f04aa7533013827fd2e1330ea86541456e7d4",
+      "headings": [
+        "# .NET Runtime in .NET 11 Preview 1 - Release Notes",
+        "## Features",
+        "## Runtime async",
+        "### What changed in Preview 1",
+        "### Impact and how to use",
+        "## WebAssembly (CoreCLR)",
+        "## Interpreter (CoreCLR)",
+        "## JIT",
+        "### Performance improvements",
+        "### New/experimental SIMD work",
+        "## GC",
+        "### New capabilities",
+        "## Threading & Synchronization (CoreCLR)",
+        "### Runtime subsystem improvements",
+        "## NativeAOT / Hosting",
+        "### New capabilities and operational improvements",
+        "## Mono Runtime",
+        "### New capabilities and performance-related configuration",
+        "## Architecture enablement",
+        "### RISC-V and s390x improvements"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Console.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Console.md",
+      "sha256": "0c70a0dc11f512f9e886374f644e461818750bd27c968a637ca53b2081012a2a",
+      "headings": [
+        "# System.Console"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Diagnostics.Process.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Diagnostics.Process.md",
+      "sha256": "53da3f993dbaaa18e2047d987a5d8fcb9c790f90eb827e70d1bb3fcee3bd441c",
+      "headings": [
+        "# System.Diagnostics.Process"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Formats.Tar.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Formats.Tar.md",
+      "sha256": "3d8c4b4068bbdaa7f5a9eb3ed455de67732efe245655667f5be1b92ba4ca637e",
+      "headings": [
+        "# System.Formats.Tar"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Runtime.Intrinsics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Runtime.Intrinsics.md",
+      "sha256": "8f34be14482c1b33cd55e0a9391720d05ec867978bf3005b1dd5cfd1964e4b06",
+      "headings": [
+        "# System.Runtime.Intrinsics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Runtime.md",
+      "sha256": "4e6a5a55579217c63232299d0ec217799bfa65db7a91372265006977cd2488f1",
+      "headings": [
+        "# System.Runtime"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/libraries.md",
+      "sha256": "4e4716ae0871ac5d0cc10efeb71aac408f3665054f6107f564b8f5f4048a46ef",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 2 - Release Notes",
+        "## Generic GetTypeInfo for System.Text.Json",
+        "## Tar Archive Format Selection",
+        "## Matrix4x4.GetDeterminant ~15% Faster",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/runtime.md",
+      "sha256": "435880772f463968992209c289ed1c4b617483beff215fca80bdee22222d01cc",
+      "headings": [
+        "# .NET Runtime in .NET 11 Preview 2",
+        "## Runtime Async (V2)",
+        "### Opting in",
+        "### Sample: cleaner live stack traces",
+        "### Debugging improvements",
+        "## JIT",
+        "### Bounds check removal for `i + cns < len` pattern",
+        "### Redundant checked context removal",
+        "### Devirtualization of non-shared generic virtual methods in R2R",
+        "### SVE2 intrinsics",
+        "## VM",
+        "### Cached interface dispatch on non-JIT platforms",
+        "### `Guid.NewGuid()` on Linux",
+        "### CoreCLR iOS-like mode"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Diagnostics.Process.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Diagnostics.Process.md",
+      "sha256": "bc2a1cfdf250e315f8d16737a0109ea42a2b8715c15eb6334bf33569cefdea3b",
+      "headings": [
+        "# System.Diagnostics.Process"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Formats.Tar.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Formats.Tar.md",
+      "sha256": "67086bed3151119d8e2d52e5064ea33dd9ca346e2c5489ecd809298adcab1d51",
+      "headings": [
+        "# System.Formats.Tar"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.IO.Compression.Zstandard.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.IO.Compression.Zstandard.md",
+      "sha256": "f364d1ff1bd12c483c831563b741948f3133c2b68c114a56a24a3818a683ce09",
+      "headings": [
+        "# System.IO.Compression.Zstandard"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.IO.Compression.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.IO.Compression.md",
+      "sha256": "d76e8a0f502831d7ca4eae12e4c850f54dc1d4039f4a2fe06b07050ecbe008be",
+      "headings": [
+        "# System.IO.Compression"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Numerics.Vectors.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Numerics.Vectors.md",
+      "sha256": "d89dbfd6edd0d0e709d767a11cbe443cefff508623aa3b3326e8db40e4ef690b",
+      "headings": [
+        "# System.Numerics.Vectors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Runtime.Intrinsics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Runtime.Intrinsics.md",
+      "sha256": "a274ea245997ad9e07f877cf847c696aeadf88749ff78a683350948b2db6a7ca",
+      "headings": [
+        "# System.Runtime.Intrinsics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Runtime.md",
+      "sha256": "219dd424a38b22030ced7c22eb8297bec354412580025a7504a478719141751c",
+      "headings": [
+        "# System.Runtime"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Text.Encoding.Extensions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Text.Encoding.Extensions.md",
+      "sha256": "e32c11e14774baedff6ca954897b6daf28b79cd4efd99b1ce31e911cbd0feb65",
+      "headings": [
+        "# System.Text.Encoding.Extensions"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Text.RegularExpressions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Text.RegularExpressions.md",
+      "sha256": "8a27a92076a988370a5b5f994968a05f5b5abc8d7b99d2960e6ed7fccaced409",
+      "headings": [
+        "# System.Text.RegularExpressions"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/libraries.md",
+      "sha256": "f1fcd349e71c8422a6f9d1d6b9ae0813f5dbef85accbb86ddfe7b5c9be269444",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 3 - Release Notes",
+        "## System.Text.Json offers more control over naming and ignore defaults",
+        "## Zstandard moved to System.IO.Compression and ZIP reads validate CRC32",
+        "## SafeFileHandle and RandomAccess expand pipe support",
+        "## Regex recognizes all Unicode newline sequences",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/runtime.md",
+      "sha256": "bdc054724cae4d30fe2fe5b657a8f73d6fe7bded68e7ea95b988ce8e28ac98dc",
+      "headings": [
+        "# .NET Runtime in .NET 11 Preview 3 - Release Notes",
+        "## Runtime async removes the preview-API opt-in requirement",
+        "## JIT optimizations improve switches, bounds checks, and casts",
+        "## Browser and WebAssembly add WebCIL and debugging improvements",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Diagnostics.Process.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Diagnostics.Process.md",
+      "sha256": "9e0cd2671d4ac22a668610391ee6a2c9c156260a2383fd58ac9f630bb0fc0210",
+      "headings": [
+        "# System.Diagnostics.Process"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.IO.Compression.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.IO.Compression.md",
+      "sha256": "ab3a52bc9ce0f3e86448aca2df14127c6eaaae27d1ddd93751e0f7ea1cc97aa0",
+      "headings": [
+        "# System.IO.Compression"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Memory.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Memory.md",
+      "sha256": "619b70fce2c577861235c163c2edb49bf3ff7feaeb8f6b35f81c087f77b32608",
+      "headings": [
+        "# System.Memory"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Runtime.Intrinsics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Runtime.Intrinsics.md",
+      "sha256": "f7afc7e5fee76d0ad76baf0e584a3ce9bddc32f1bdc900ad09290ce1ce96768d",
+      "headings": [
+        "# System.Runtime.Intrinsics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Runtime.md",
+      "sha256": "0143e6b602f8045ba3457fd87f56018ba391fe47adaebc2badfcf65afeca5c89",
+      "headings": [
+        "# System.Runtime"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/libraries.md",
+      "sha256": "9b814372eb39ad660504d6590a3364037c4831bd8371b8d8449b5f9769f0f209",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 4 - Release Notes",
+        "## Process gets a major API expansion",
+        "## Span-based Deflate, ZLib, and GZip encoder/decoder APIs",
+        "## Floating-point hex formatting and parsing",
+        "## UTF validation and invalid-subsequence search",
+        "## Rate-limiting fixes for RetryAfter, fractional permits, and ChainedRateLimiter",
+        "## System.Text.Json improvements",
+        "## Regex source generator and engine fixes",
+        "## Configuration binding and file-provider improvements",
+        "## Built-in OpenTelemetry metrics for MemoryCache",
+        "## Discriminated-union scaffolding in System.Runtime.CompilerServices",
+        "## MetadataLoadContext additions",
+        "## Console respects the FORCE_COLOR environment variable",
+        "## TarReader supports GNU sparse format 1.0",
+        "## TLS handshake hardening and certificate-validation alerts on Linux",
+        "## HTTP/2 automatic downgrade for Windows authentication",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/runtime.md",
+      "sha256": "8ddc1bfe27f26cc203f30c97c5874f7896653d2eb544f984c3d92dc0afad04bf",
+      "headings": [
+        "# .NET Runtime in .NET 11 Preview 4 - Release Notes",
+        "## Runtime libraries are now compiled with runtime-async",
+        "## JIT optimizations",
+        "### Inlining improvements",
+        "### Eliminating bounds checks after an empty-span guard",
+        "### Skipping a redundant test after a branch",
+        "## Hardware intrinsics and code generation",
+        "## ReadyToRun improvements",
+        "## Browser/WebAssembly CoreCLR enablement",
+        "## Platform support: >1024 CPUs",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Collections.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Collections.md",
+      "sha256": "eeaef9aa51279659fe8b3d140c5cc26a29ecee8e012f1acc322959ecf8e0cfb5",
+      "headings": [
+        "# System.Collections"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Diagnostics.Process.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Diagnostics.Process.md",
+      "sha256": "cbe0d5b00617fc35c58f5c10838ef13c7eeaf673083d6be49492e26f0df3d4cd",
+      "headings": [
+        "# System.Diagnostics.Process"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Linq.AsyncEnumerable.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Linq.AsyncEnumerable.md",
+      "sha256": "204f94950bf05462e1a5ea1fd923c7b6c1f10c290d8f58f7a160d5bba3d0b603",
+      "headings": [
+        "# System.Linq.AsyncEnumerable"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Linq.Queryable.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Linq.Queryable.md",
+      "sha256": "2d4d0094fe4526f28b3713dca3c7df4c33196bb5892ee08eb526f54ef007d4ef",
+      "headings": [
+        "# System.Linq.Queryable"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Linq.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Linq.md",
+      "sha256": "5fd7290bc8839c1765fa7d0c3a24bb60439b974084eaffa21572a9a63c07fba0",
+      "headings": [
+        "# System.Linq"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Numerics.Vectors.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Numerics.Vectors.md",
+      "sha256": "3cb538c3e212dd82580785895e1d547fa59e21766794dba344547d2292c2e312",
+      "headings": [
+        "# System.Numerics.Vectors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Runtime.Intrinsics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Runtime.Intrinsics.md",
+      "sha256": "41b111f3598490772b085948d024272b82689749a9f2ad42cfc86dd4e75cabac",
+      "headings": [
+        "# System.Runtime.Intrinsics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Runtime.md",
+      "sha256": "cb78862ea7cfc744cdda373f8d3d8a99f3a7bbe21814d849d1dd8a99af650dd7",
+      "headings": [
+        "# System.Runtime"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Text.Encoding.Extensions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Text.Encoding.Extensions.md",
+      "sha256": "443b8aa47a512443c1c0e3a2a076ea8e1e6507a6ae505c778e70f69eef0f4b1c",
+      "headings": [
+        "# System.Text.Encoding.Extensions"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/libraries.md",
+      "sha256": "97afdffb2aa44a5dc9e1f724b21f046cdb615144573c5dcff5196ddcf074f985",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 5 - Release Notes",
+        "## System.Text.Json supports JSON Lines serialization",
+        "## LINQ adds full outer joins",
+        "## EqualityComparer of T adds key-selector creation",
+        "## Random adds generic numeric APIs",
+        "## StringBuilder can transfer chunks without copying",
+        "## Process line reading and KillOnParentExit expand",
+        "## Reflection exposes nullable underlying types",
+        "## Network APIs add video MIME names and QUIC stream priority",
+        "## Cryptography adds X25519 key agreement",
+        "## Syndication supports trimmed and Native AOT feed loading",
+        "## Options validation accepts a validator type",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/runtime.md",
+      "sha256": "9444e9f9f86725741701c5cfadc94ae871e2da787cad9c37c08b32da7938cb60",
+      "headings": [
+        "# .NET Runtime in .NET 11 Preview 5 - Release Notes",
+        "## Runtime-async suspension is faster",
+        "## JIT optimizations",
+        "### Redundant span and null checks",
+        "### Smaller arithmetic and faster casts",
+        "## Arm intrinsics add native integer and SVE2 predicates",
+        "## GC trimming and compaction improvements",
+        "## Browser/WebAssembly CoreCLR enablement",
+        "### Try browser CoreCLR in a Blazor WebAssembly app",
+        "## Diagnostics and loader messages",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Diagnostics.Process.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Diagnostics.Process.md",
+      "sha256": "050b40308d4f8c050be4d5740c8f3fbdf731ead5457385351ffa59e74d7e36f2",
+      "headings": [
+        "# System.Diagnostics.Process"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Memory.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Memory.md",
+      "sha256": "cae4ac997864880c371af4e1c71371ca1f8c0824cd470ca5b65daa83cf759992",
+      "headings": [
+        "# System.Memory"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Numerics.Vectors.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Numerics.Vectors.md",
+      "sha256": "c34edad1441499c1a317c27cb4c624d6e537cd71c3a3da76bbad08d41a68c359",
+      "headings": [
+        "# System.Numerics.Vectors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Runtime.Intrinsics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Runtime.Intrinsics.md",
+      "sha256": "e141f2d080cf42fc5a3bc729f351a8c3104d6abcc2c80c9b0bac6c1ff0b9a409",
+      "headings": [
+        "# System.Runtime.Intrinsics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Runtime.md",
+      "sha256": "03e4a8896886ba6015f1ec12018ef1e0d97c39068ec616a6fa17c69c6562e4c0",
+      "headings": [
+        "# System.Runtime"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/libraries.md",
+      "sha256": "36d6d57b307b04d006d592e0ab7ac417c45ec60d98b6d9b1e5e5e1101f757252",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 6 - Release Notes",
+        "## Stream adapters for memory and text",
+        "## Asynchronous validation with DataAnnotations",
+        "## System.Text.Json serializes C# union types",
+        "## Configure Activity tracing with rules",
+        "## Cross-lane operations for vectors",
+        "## Start processes suspended and look them up by id",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/runtime.md",
+      "sha256": "433619b745eeb6bcbd18ed6fbf98b2abaaf0b96d89ccd7e787ae269f7b571a81",
+      "headings": [
+        "# .NET Runtime in .NET 11 Preview 6 - Release Notes",
+        "## Runtime-async performance improvements",
+        "### JIT async support",
+        "### Async continuations without ExecutionContext",
+        "## JIT improvements",
+        "### `Math.BigMul` performance on x64",
+        "### RyuJIT: single-IG prolog restriction removed",
+        "### `SELECT(cond, cns, cns)` \u2192 `cns`",
+        "### ARM64: `Vector<T>` passed by reference for SVE",
+        "## In-process crash report logging",
+        "## NativeAOT: faster interface dispatch",
+        "## SIMD: Lane construction and composition APIs",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Diagnostics.Process.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Diagnostics.Process.md",
+      "sha256": "d0636e35cb915f5c33ab22710526886f4a35c249b678d41114553fc291b7a6af",
+      "headings": [
+        "# System.Diagnostics.Process"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.IO.Compression.Brotli.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.IO.Compression.Brotli.md",
+      "sha256": "0f965f18823fa0858aa1737ba4c323c2c512346afbb799224e01b0f735ed52d0",
+      "headings": [
+        "# System.IO.Compression.Brotli"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.IO.Compression.ZipFile.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.IO.Compression.ZipFile.md",
+      "sha256": "6efc46d045c67c19981eab24f449af2a87aa8d1e40e6ef8a5702628257594b87",
+      "headings": [
+        "# System.IO.Compression.ZipFile"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.IO.Compression.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.IO.Compression.md",
+      "sha256": "12a65aa980dddaca60cd9bd868e39ff2ce2affe4a161ba9af384552a1726238e",
+      "headings": [
+        "# System.IO.Compression"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Memory.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Memory.md",
+      "sha256": "8b805a30e656856ea5080ebceed9899f315cd00129426d03cd079f1a1a045457",
+      "headings": [
+        "# System.Memory"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Runtime.Intrinsics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Runtime.Intrinsics.md",
+      "sha256": "66fa535876ef26129f8085c7049b5547a9324e1568da49dd6c4b372b2813a653",
+      "headings": [
+        "# System.Runtime.Intrinsics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Runtime.Numerics.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Runtime.Numerics.md",
+      "sha256": "0e1acaa6e39de910672732b01a2285c70001644510545ba370860be41b7d285e",
+      "headings": [
+        "# System.Runtime.Numerics"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Runtime.md",
+      "sha256": "2382493c6b7acca13ebe5c5bcc2b373aa1ca7d5f5a567718f5b089ecdbdd4bed",
+      "headings": [
+        "# System.Runtime"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/libraries.md",
+      "sha256": "ed544c0c3feaff7234ae43bc405891468a185d9c79684eb63018711e92b183e4",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 7 - Release Notes",
+        "## IEEE 754 decimal floating-point types",
+        "## Partial numeric parsing",
+        "## Generic Complex\\<T\\>",
+        "## HTTP request compression",
+        "## Configurable HTTP connection eviction",
+        "## DNS record resolution APIs",
+        "## ZIP archive password support",
+        "## More ZIP creation, extraction, and metadata APIs",
+        "## Ordinal casing APIs",
+        "## Polymorphism inference for closed type hierarchies in System.Text.Json",
+        "## Asynchronous ChangeToken.OnChange",
+        "## Options-aware HybridCache factories",
+        "## Suspended process startup on macOS",
+        "## Assembly.Location override for AssemblyLoadContext",
+        "## Reduced contention in System.IO.Pipelines",
+        "## Other API additions",
+        "## Breaking changes",
+        "## Bug fixes and performance enhancements",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/runtime.md",
+      "sha256": "36c2a2e213b65f55d0cd235195481fb5043d729594064b549301cd57b4c7513d",
+      "headings": [
+        "# .NET Runtime in .NET 11 Preview 7 - Release Notes",
+        "## Runtime-async tiering and tail-await optimizations",
+        "### Tiered compilation for async versions",
+        "### Task and ValueTask factory intrinsics and adaptation",
+        "### Implicit tailcalls for tail-awaits and `await Task.Yield()`",
+        "## CoreCLR on WebAssembly runs the libraries test suite",
+        "## JIT and code generation",
+        "### AVX-VNNI-512 hardware intrinsics",
+        "### Arm64: FEAT_CSSC `cnt`/`ctz` for `PopCount` and `TrailingZeroCount`",
+        "### Coalesce adjacent constant-address stores",
+        "### Devirtualize `Activator.CreateInstance<T>` and instantiating-stub virtuals",
+        "### Fold `insertps` chains that source scalar extractions",
+        "### Fold trivial redundant comparisons on loop induction variables",
+        "### Saturating `float`/`double` conversions to small integral types",
+        "### Tier0 `Enum.HasFlag` box elision",
+        "### Remove the 128-bit limit on `Vector<T>` for Arm64 SVE",
+        "### More if-conversion shapes are optimized",
+        "## NativeAOT",
+        "### Faster generic virtual method dispatch",
+        "### Faster ILC compiles",
+        "### `Assembly.GetCallingAssembly` on NativeAOT",
+        "### Arm64 pointer authentication for NativeAOT",
+        "### Runtime CPU feature detection via `elf_aux_info`",
+        "## Runtime diagnostics",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/libraries.md",
+      "sha256": "1e7992ffaf1c7b29cb0ada2f788df23ee9485700cb5af5c4480d2b2ffd4c102b",
+      "headings": [
+        "# .NET Libraries in .NET 11 RC 1 - Release Notes",
+        "## Signal processes and inspect termination status",
+        "## Experimental caller-driven TLS sessions",
+        "## DNS record resolution on Linux",
+        "## JSON support for new numeric types and binary schemas",
+        "## JSON closed-type polymorphism and union support",
+        "## Async options validation",
+        "## Construct BitArray values from spans",
+        "## Reuse compression encoders and decoders",
+        "## TLS channel binding on Unix",
+        "## Faster authenticated encryption on Apple platforms",
+        "## AES Key Wrap support",
+        "## Breaking changes",
+        "### Numeric conversions are now correctly rounded",
+        "### HTTP metrics are observable instruments",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/runtime.md",
+      "sha256": "7331c1664d38458cd1c2ac70c7240a96a4b392ba7856a3a095878afcc8d63824",
+      "headings": [
+        "# .NET Runtime in .NET 11 RC 1 - Release Notes",
+        "## In-process crash reporting on Unix",
+        "## Half operations use FP16 hardware instructions",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+      "sha256": "734c02c4df51d49b63e6b722426669189214f2614838b85091f141b87a65e19c",
+      "headings": [
+        "# Libraries in .NET 11 RC 2 - Release Notes",
+        "## Read CBOR incrementally",
+        "## Experimental composite ML-KEM and HPKE APIs",
+        "### Encrypt CMS messages with ML-KEM",
+        "## Format DataAnnotations messages with attribute-specific arguments",
+        "## Configure initial HTTP/2 concurrency",
+        "## Breaking changes from .NET 10",
+        "## Changes since RC 1",
+        "### MemoryCache metrics",
+        "### Improved IEEE decimal accuracy",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/release.json",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/release.json",
+      "sha256": "c99300a7acf2ac2d569a27164ac84c2066a3ba0f22da88d94bf3163f206481d9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/runtime.md",
+      "sha256": "187adb9fec68becb58366c1c2cec42b41b71fe9393dc32e0144f3f408108e7e7",
+      "headings": [
+        "# Runtime in .NET 11 RC 2 - Release Notes",
+        "## Changes since the previous preview",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/11.md",
+      "sha256": "ca69021f318729061ff084832ce85a97f277f2ddc5d419727afd35d50093b813",
+      "headings": [
+        "# Breaking changes in .NET 11",
+        "## ASP.NET Core",
+        "## Core .NET libraries",
+        "## Cryptography",
+        "## Deployment",
+        "## Entity Framework Core",
+        "## Extensions",
+        "## Globalization",
+        "## Interop",
+        "## JIT compiler",
+        "## Networking",
+        "## .NET MAUI",
+        "## SDK and MSBuild"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled.md",
+      "sha256": "1f33a6d5cde254aec6e0d9b435c84395237ba0930399b596437082e8b9c73493",
+      "headings": [
+        "# Assembly.GetCallingAssembly behavior changes when stack trace support is disabled",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/cbor-max-depth.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/cbor-max-depth.md",
+      "sha256": "b844d82e0351ebd4a835d0d63cfc6b4dab55ec2e15751bdd468ddf961721f5e2",
+      "headings": [
+        "# CborReader and CborWriter enforce a default maximum nesting depth",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md",
+      "sha256": "abff298576fae85f8fd3a0a431b2280c70257ea6b5bb621945755874d0c8b544",
+      "headings": [
+        "# System.Numerics.Complex special-value results now follow C23 Annex G",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md",
+      "sha256": "ea10bc683dc30d6cdfabc7925a07b05f89abec3aa0f7afd747c039b0ea483ace",
+      "headings": [
+        "# DateOnly and TimeOnly TryParse methods throw for invalid input",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md",
+      "sha256": "0c04251c997b6b716773d778f4686e7407536c7d09b995c0eff1b7e92828ed8d",
+      "headings": [
+        "# Decimal and BigInteger floating-point conversions are correctly rounded",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/deflatestream-gzipstream-empty-payload.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/deflatestream-gzipstream-empty-payload.md",
+      "sha256": "91da912cd5a2f59abe11ef3f23e5ddf3dd99378e3dae88b7fac09a4281000ee4",
+      "headings": [
+        "# DeflateStream and GZipStream write headers and footers for empty payload",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md",
+      "sha256": "ef70b3261c7010add552824ac32f24605c7071bc98eabcf712e4af3ccae6dc93",
+      "headings": [
+        "# Environment.GetCommandLineArgs()[0] preserves the apphost invocation name",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md",
+      "sha256": "3bf63f13c5fdf5d744cc62b8b05a766f2fb2f369c6b240f2fd8efdfd16f2dd60",
+      "headings": [
+        "# Environment.TickCount made consistent with Windows timeout behavior",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/math-round-digits.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/math-round-digits.md",
+      "sha256": "241d656be04727cde02c128debe865bccb8e885f6a557a5c3bcbc6b72fe062ae",
+      "headings": [
+        "# Math.Round and MathF.Round return correctly rounded results",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "sha256": "35f58ca22cecfb7e6e70e2d9c59a239ce4d2f0f85eaf06244fef76126d0dc2d7",
+      "headings": [
+        "# NamedPipeServerStream with PipeOptions.CurrentUserOnly tightens Unix socket file permissions",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws.md",
+      "sha256": "22442a2774a790eb9219be67808f83fe9943a8e07cf40d5324a835277cfb86b0",
+      "headings": [
+        "# Nullable.GetUnderlyingType throws for custom Type subclasses",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "sha256": "5ae71d3612ef4b297aea6aa570eaa48d7ae8347a1030974b90bd835c14b24600",
+      "headings": [
+        "# API obsoletions with non-default diagnostic IDs (.NET 11)",
+        "## Change description",
+        "## Version introduced",
+        "## Type of breaking change",
+        "## Recommended action",
+        "## Affected APIs",
+        "### SYSLIB0064",
+        "### SYSLIB0066",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md",
+      "sha256": "1bd8cbe6e2ca8e8e01218ececafcc49260899b14c3ae03ac57b2ce2cb522fdc4",
+      "headings": [
+        "# PackagePart.GetStream() returns a non-seekable stream for compressed parts in ReadWrite packages",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "sha256": "60da5762bf300135f9636c8c4c2c32bd36df3bbc267a17e6b8c4554714d3c75c",
+      "headings": [
+        "# SafeFileHandle.IsAsync and FileStream.IsAsync accurately reflect non-blocking state on Unix",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tar-checksum-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tar-checksum-validation.md",
+      "sha256": "e94dbdd18cefb08ebaa609438ba9c468e7da67f8641b3b12ed71d2889be70191",
+      "headings": [
+        "# TAR-reading APIs verify header checksums when reading",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md",
+      "sha256": "a6588fc4cb53e0b7640b2931a34ed72f3fad48caebf6608fb8106fb8731021da",
+      "headings": [
+        "# TarWriter uses HardLink entries for hard-linked files",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md",
+      "sha256": "462363150cbe72d4547039318c0c7cd616334a416089dd66aba182a8fb853096",
+      "headings": [
+        "# Tensor operations align equivalent shapes and empty tensors",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+      "sha256": "d58fe54624546da58ce8b488eb7668aac2ea95298d2f223af49a143fcc2b1097",
+      "headings": [
+        "# Tensor operations reject unsupported storage layouts",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md",
+      "sha256": "522f3fadffe3233681f0dd02d49f60938a8aebcf95f3ff1f1caa12c09edb4553",
+      "headings": [
+        "# ZipArchive.CreateAsync eagerly loads ZIP archive entries",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/ziparchive-entry-crc32-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/ziparchive-entry-crc32-validation.md",
+      "sha256": "b9309ca79f161d96e1ae2779d6d2b7825ab0b1e33355a5aa6fbcf78163a3685f",
+      "headings": [
+        "# CRC32 validation added when reading ZIP archive entries",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/globalization/11/japanese-calendar-min-date.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/globalization/11/japanese-calendar-min-date.md",
+      "sha256": "f0ed5e1b73b4159872437015de68b777d123ba04000f0a766b9c66844d36592a",
+      "headings": [
+        "# Japanese Calendar minimum supported date corrected",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/jit/11/fp-to-small-integer.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/jit/11/fp-to-small-integer.md",
+      "sha256": "4c0c520dcc15272c4cef86c64ed2c17e02e3fbf24fa51490d91423c807024539",
+      "headings": [
+        "# Floating-point conversions to small integral types are saturating",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/jit/11/minimum-hardware-requirements.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/jit/11/minimum-hardware-requirements.md",
+      "sha256": "dbb1d783f95bc39b1e0cc2acb45fd9e51d474c336efe0f93a124849fc44614f5",
+      "headings": [
+        "# Minimum hardware requirements updated",
+        "### Arm64",
+        "### x86/x64",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/whats-new/dotnet-11/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md",
+      "sha256": "66789f6faf28cdff61927df7bd9bf6c36c9fd2f438c20d059b3ddba7c07152f0",
+      "headings": [
+        "# What's new in .NET libraries for .NET 11",
+        "## Diagnostics and process execution",
+        "### Process API expansion",
+        "#### Run-and-capture helpers",
+        "#### Fire-and-forget launches",
+        "#### SafeProcessHandle lifecycle methods",
+        "#### Tighter handle control",
+        "#### Suspended starts and process lookup",
+        "#### Signal processes and inspect termination status",
+        "### Console FORCE_COLOR support",
+        "## In-memory stream adapters",
+        "## Text, serialization, and data handling",
+        "### String and character enhancements",
+        "#### Rune support in String methods",
+        "#### Char.Equals with StringComparison",
+        "#### Rune support in TextInfo",
+        "#### StringBuilder.MoveChunks",
+        "### Base64 encoding improvements",
+        "#### New Base64 APIs",
+        "### UTF validation and invalid-subsequence search",
+        "### System.Text.Json improvements",
+        "#### Union serialization",
+        "#### JSON Lines output",
+        "#### Polymorphic hierarchy support",
+        "#### Source-generation and contract metadata",
+        "#### Property names and ignore conditions",
+        "#### Converters and collection contracts",
+        "#### Writer reuse",
+        "### Regular expression improvements",
+        "#### AnyNewLine option",
+        "#### Regex engine and source generator fixes",
+        "### Read CBOR incrementally",
+        "## Compression and archive formats",
+        "### Compression enhancements",
+        "#### ZIP archive entry access modes",
+        "#### ZIP CRC32 validation",
+        "#### ZIP archive password support",
+        "#### DeflateStream and GZipStream behavior change",
+        "#### Span-based Deflate, ZLib, and GZip APIs",
+        "### Zstandard compression",
+        "### Tar archive format selection",
+        "## Collections, numerics, and low-level I/O",
+        "### LINQ join improvements",
+        "#### LeftJoin, RightJoin, and FullJoin",
+        "### IEEE 754 decimal floating-point types",
+        "### Correctly rounded decimal and BigInteger conversions",
+        "### Partial numeric parsing",
+        "### Generic Complex\\<T>",
+        "#### Tuple-returning Join and GroupJoin overloads",
+        "### BFloat16 support in BitConverter",
+        "### Floating-point hex formatting and parsing",
+        "### Numerics improvements",
+        "### Random generic methods",
+        "### Cross-lane vector operations",
+        "### Low-level I/O improvements",
+        "#### SafeFileHandle pipe support",
+        "#### RandomAccess pipe support",
+        "#### File locking on iOS and tvOS",
+        "### Collections improvements",
+        "#### BitArray span constructors",
+        "#### BitArray.PopCount",
+        "#### EqualityComparer\\<T>.Create",
+        "#### ConcurrentQueue reliability fix",
+        "## Extensions and developer platform",
+        "### Discriminated-union scaffolding",
+        "### MetadataLoadContext additions",
+        "### URI data scheme constant",
+        "### Reflection improvements",
+        "#### Type.GetNullableUnderlyingType",
+        "#### ConstructorInfo.GetGenericArguments",
+        "### Assembly.Location override for AssemblyLoadContext",
+        "### Reduced contention in System.IO.Pipelines",
+        "### StringSyntax attribute enhancements",
+        "## Caching, configuration, and logging",
+        "### Configuration binding",
+        "### MemoryCache OpenTelemetry metrics",
+        "### Options builder validation improvements",
+        "### Asynchronous ChangeToken.OnChange",
+        "### Options-aware HybridCache factories",
+        "### Asynchronous validation with DataAnnotations",
+        "### Format DataAnnotations messages",
+        "### Activity tracing configuration",
+        "### Generic source-generated logging methods",
+        "### Improved reliability for configuration file change detection",
+        "## Cryptography",
+        "### X25519 Diffie-Hellman key exchange",
+        "### CryptographicOperations.FixedTimeEquals overload",
+        "### AES Key Wrap",
+        "### Faster authenticated encryption on Apple platforms",
+        "### Experimental composite ML-KEM and HPKE APIs",
+        "### Encrypt CMS messages with ML-KEM",
+        "## Networking and transport security",
+        "### TLS handshake hardening",
+        "### Experimental caller-driven TLS sessions",
+        "### HTTP request compression",
+        "### Configurable HTTP connection eviction",
+        "### Initial HTTP/2 concurrency",
+        "### DNS record resolution APIs",
+        "### HTTP/2 automatic downgrade for Windows authentication",
+        "### QUIC stream priority",
+        "### Video MIME type constants",
+        "### HTTP metrics use observable instruments",
+        "## Unsafe API accessibility",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/whats-new/dotnet-11/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/runtime.md",
+      "sha256": "9e5d82ba828a78a7e7b50d713628983f1b0015edbc428ae932f6beca80e6d725",
+      "headings": [
+        "# What's new in the .NET 11 runtime",
+        "## Updated minimum hardware requirements",
+        "### Arm64 requirements",
+        "### x86/x64 requirements",
+        "### Impact",
+        "### Reason for change",
+        "## Runtime Async",
+        "### Cleaner live stack traces",
+        "### NativeAOT and ReadyToRun support",
+        "### Debugging improvements",
+        "### Runtime Async performance improvements",
+        "#### Async continuations without ExecutionContext",
+        "## JIT improvements",
+        "### Constant-folding SequenceEqual",
+        "### Devirtualization improvements",
+        "### Eliminating bounds checks after an empty-span guard",
+        "### Redundant branch and test elimination",
+        "## Hardware intrinsics and code generation",
+        "## ReadyToRun improvements",
+        "## VM improvements",
+        "## WebAssembly improvements",
+        "## Platform support for more than 1024 CPUs",
+        "## In-process crash report logging",
+        "## NativeAOT: faster interface dispatch",
+        "## SIMD lane construction and composition",
+        "## File locking on iOS and tvOS",
+        "## Reliability fixes",
+        "## Runtime diagnostics",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "sha256": "941c7b40230151c34bba11d2a5a0d7fc5cfb17a532111622d7854cf385e6d826",
+      "headings": [
+        "# Obsolete features in .NET 5+",
+        "## SYSLIB obsoletions",
+        "## EXTOBS obsoletions",
+        "## Suppress warnings",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0001.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0001.md",
+      "sha256": "d97833c66d97570c2056403f7f8527625452a0b31a567dfaf54e89d5aee1721e",
+      "headings": [
+        "# SYSLIB0001: The UTF-7 encoding is insecure",
+        "## Workarounds",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0005.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0005.md",
+      "sha256": "7c0191e9890d058e59231d597cac0f6c6103e3611f00b1d1a47ab3fccbd0cbed",
+      "headings": [
+        "# SYSLIB0005: The global assembly cache (GAC) is not supported",
+        "## Workarounds",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0008.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0008.md",
+      "sha256": "34974bf5cd12094234e28f9dd00f85efa68a44069c4d04db44a5b3e93da933df",
+      "headings": [
+        "# SYSLIB0008: CreatePdbGenerator is not supported",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0023.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0023.md",
+      "sha256": "b2e0fe42f0b030b24e9563175b01cb4f385907e09197746d878dcdc5e3c83709",
+      "headings": [
+        "# SYSLIB0023: RNGCryptoServiceProvider is obsolete",
+        "## Workarounds",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0033.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0033.md",
+      "sha256": "48101598035ca88f480514c429933574982caf453dbfbc5fd1d3fad2fdfca17e",
+      "headings": [
+        "# SYSLIB0033: Rfc2898DeriveBytes.CryptDeriveKey is obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0034.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0034.md",
+      "sha256": "ef163f6d9e203d9f2ff69c9833dd7903ae1116c087ebc96a16b70d55e26c5570",
+      "headings": [
+        "# SYSLIB0034: CmsSigner(CspParameters) constructor is obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0036.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0036.md",
+      "sha256": "c61cd9242cf9c82ed5b3d28af3eebd7e8f9e1e6fac395d1e45e79dfb4ce77db5",
+      "headings": [
+        "# SYSLIB0036: Regex.CompileToAssembly is obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0039.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0039.md",
+      "sha256": "1fad192fb342d5a750f412f192562a00fd94483f35c5242bf3b974c7a759e064",
+      "headings": [
+        "# SYSLIB0039: SslProtocols.Tls and SslProtocols.Tls11 are obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0041.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0041.md",
+      "sha256": "65a2ce28f9014903385933ec45fbc9d02fe40f33bb6393539c78b9893c66807a",
+      "headings": [
+        "# SYSLIB0041: Some Rfc2898DeriveBytes constructors are obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0045.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0045.md",
+      "sha256": "eb6023b28540bccf92c950639e825c2e30b255c6c1230fe1af047412f1e31987",
+      "headings": [
+        "# SYSLIB0045: Some cryptographic factory methods are obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0051.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0051.md",
+      "sha256": "9d089e17096636e769b1221bf6fa744fc3128f74405d0573268ca44c62e30e6c",
+      "headings": [
+        "# SYSLIB0051: Legacy serialization support APIs are obsolete",
+        "## Workaround",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0052.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0052.md",
+      "sha256": "c56232d2b57764248272ca2cfb5ae7a32a5f1ee32ba26d55fdaeeb158794281b",
+      "headings": [
+        "# SYSLIB0052: APIs that support obsolete mechanisms for Regex extensibility are obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0055.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0055.md",
+      "sha256": "e4bf3ae8859e4ad21dd9d0f008d97ea1e70f97d890b5a4dd2e8849aa3edab8b3",
+      "headings": [
+        "# SYSLIB0055: AdvSimd.ShiftRightLogicalRoundedNarrowingSaturate\\* methods with signed parameters are obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0060.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0060.md",
+      "sha256": "8eb89fac9821789acba98f8983e9ad87cd45bd312e126cab37572f3d35ae4b27",
+      "headings": [
+        "# SYSLIB0060: Rfc2898DeriveBytes constructors are obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0061.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0061.md",
+      "sha256": "b95b60926f4314027368f677b1ae68457730d032fa0b31ebe283991b0edf25c5",
+      "headings": [
+        "# SYSLIB0061: System.Linq.Queryable.MaxBy and System.Linq.Queryable.MinBy taking an IComparer\\<TSource\\> are obsolete",
+        "## Reason for obsoletion",
+        "### Note",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0063.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0063.md",
+      "sha256": "8ae25e0180c5b8d5348d4acd9d4a143262e6b5e348154faf8dbe3f366c2cded7",
+      "headings": [
+        "# SYSLIB0063: NamedPipeClientStream constructor with isConnected is obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Collections.Immutable/ref/System.Collections.Immutable.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Collections.Immutable/ref/System.Collections.Immutable.cs",
+      "sha256": "c30c8d4277f8929ff51f1ca2eb955ed34ea3cc751bf367a90327a3e83a87ca3c",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Collections/ref/System.Collections.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Collections/ref/System.Collections.cs",
+      "sha256": "6efa042d4273c1cdb2e14c9962bc01fcd30010e7e6ff87551f74458b5b201d21",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Console/ref/System.Console.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Console/ref/System.Console.cs",
+      "sha256": "7effb06aae6953a510a4e6e853505d3952020986e2f01b0dba6270bf58d2a5b4",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs",
+      "sha256": "6dc63879f647e55ea8d08a71d206b2007b766af3f8f0f06168c9154c2258e888",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "sha256": "0331ecfd4efd2d3182eeb8b01111dad6a9f535318d7e74351a694a4454139324",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Compression.ZipFile/ref/System.IO.Compression.ZipFile.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression.ZipFile/ref/System.IO.Compression.ZipFile.cs",
+      "sha256": "2c8ed36bce21893d8ffd48776c11fa90685da3279e8c34223c75d81659434a0f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "sha256": "fec77ff21f9d7d372fd6e8ed1467edc2afbb8cce9860c1ca09d494e529f2b666",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "sha256": "e2cf8f497e044cc54786d21b4eb5eb1573b0b90e49f2ea4a0109dbbd8ae2c51d",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Packaging/ref/System.IO.Packaging.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Packaging/ref/System.IO.Packaging.cs",
+      "sha256": "058850ebb55be715fb8625021388ff8eb49c15814648163d728bb3c06c176725",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "sha256": "05feec20580d42d872e47aaa25b3e2b3166500279bb6374da6f549c7a8de5eb7",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Linq.Expressions/ref/System.Linq.Expressions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Linq.Expressions/ref/System.Linq.Expressions.cs",
+      "sha256": "ebce681d5cc67616efd6e25b686b3affcec93035662e5fa86a92234e0d41c266",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "sha256": "96b7ed69bd03a2cb7de936490a4a91111975371d06ad6a62a76c1e961424cdfc",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.cs",
+      "sha256": "a04ccea54dd478bca099214b0b5f77ab41fbe3d045cec66662577757f43ad25c",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "sha256": "7d97e8b534d8326443983dbf410c7c13e6adf678730a18bd006be2ecbaed7d8b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs",
+      "sha256": "3204ea539d574877cecd4cb20749b2137fb0e730c3acc34248a185e3f68b360d",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "sha256": "a5e0b7408cbe2dbf930ae32d9f029da4cc50b29fd518d53a7cdb90fb886ceb77",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Text.RegularExpressions/gen/DiagnosticDescriptors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Text.RegularExpressions/gen/DiagnosticDescriptors.cs",
+      "sha256": "ccca3d7ad0b52a132bb377b5cc2b2b093c9d5bdc6ab374350c28fc10a47d3af9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Collections.Immutable/ref/System.Collections.Immutable.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Collections.Immutable/ref/System.Collections.Immutable.cs",
+      "sha256": "fdf9f4e80a6f38069cb9e3ba965281c3fe559092c388eaca519ef809a2111deb",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Collections/ref/System.Collections.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Collections/ref/System.Collections.cs",
+      "sha256": "0163a13eb9a04a5435b214cdfe431543a39a3ea7ebbd221ab03c1a8004fe0c54",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Console/ref/System.Console.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Console/ref/System.Console.cs",
+      "sha256": "d5aa37d390e2944e35cddd0d1ffb0e13386642382b634751c9910d46163a446c",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.Process/ref/System.Diagnostics.Process.cs",
+      "sha256": "ea82455d8a1e5ca226d21224376e9282dd032c2f819a54e00c5347f7e8e2f9a2",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "sha256": "327c5642a35d790de97814484c8579e9555fdc5c535d7de86b84b53d0e6d962f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Compression.ZipFile/ref/System.IO.Compression.ZipFile.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression.ZipFile/ref/System.IO.Compression.ZipFile.cs",
+      "sha256": "3ecd2adbbee0e969139963a74c8e9f6993a7e2c75844b6b19907f6e4e6d20b7f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "sha256": "46bb4bb4f25eeba46ead365dd6e0d20bb26d6dde2af1ad8172076d3ab9925a29",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "sha256": "36646e92cbc42b6e6749ad2d96b2172af9ab9b2bd35047b2e213c2b22884d1e1",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Packaging/ref/System.IO.Packaging.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/ref/System.IO.Packaging.cs",
+      "sha256": "058850ebb55be715fb8625021388ff8eb49c15814648163d728bb3c06c176725",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "sha256": "bb3af29277f41b9cd0aa5fa3c24918b439dc5578f3602f9c20cba3837f6cad6a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Linq.Expressions/ref/System.Linq.Expressions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Expressions/ref/System.Linq.Expressions.cs",
+      "sha256": "721064b78af1d12c125f0b8039c46e9f270d5e9340fded2b1b60dfb52e38ef44",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "sha256": "5e0264c13f2d275a4b735369672dcd8d5105fd6642c1320c8b064bd80db8bff9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.cs",
+      "sha256": "a04ccea54dd478bca099214b0b5f77ab41fbe3d045cec66662577757f43ad25c",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "sha256": "5fc3a3fc2c3dd3b8060df6688248b98efd11a97e41a1bd91548aa33d734a71ba",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs",
+      "sha256": "4a13a9e90bc0f8a978a559ed745c1cd8f90ffe9211b384d8533c6fcb776dc1b5",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "sha256": "7fb4edfd9785b44158e15339bb88f388bef53b17d6b9d20f1b95baa85015239b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Text.RegularExpressions/gen/DiagnosticDescriptors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.RegularExpressions/gen/DiagnosticDescriptors.cs",
+      "sha256": "ccca3d7ad0b52a132bb377b5cc2b2b093c9d5bdc6ab374350c28fc10a47d3af9",
+      "headings": []
+    }
+  ]
+}
