@@ -2,6 +2,8 @@
 
 `playbook mcp` speaks the MCP protocol over stdin/stdout; it is not a PowerShell prompt. Use [MCP Inspector](https://github.com/modelcontextprotocol/inspector/tree/main/clients/cli) as a client to initialize the connection and call its tools. This exercises the real server and its generated, embedded content.
 
+If npx fails with `'inspector' is not recognized`, it has failed to launch Inspector before Playbook starts. Use [the tested direct Node launch](verification/PIN-711.md#inspect-what-an-agent-receives): it installs Inspector locally under ignored artifacts, invokes its entry point explicitly and stops on failed native commands. Do not interpret the resulting empty response or Show-Markdown error as a server failure.
+
 Requires PowerShell 7, the pinned .NET SDK 10.0.402, and Node 22.19 or later for Inspector. The first `npx` call downloads Inspector; Playbook itself does not fetch guidance. Reading this recipe does not require the .NET 9 SDK or any workloads.
 
 From this worktree:
