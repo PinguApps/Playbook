@@ -4,6 +4,8 @@ Original .NET guidance served offline to coding agents through a client-owned st
 
 This development slice contains `csharp.validate-property-assignment`, comparing a .NET 9 explicit backing field with the .NET 10 / C# 14 `field` keyword, using one canonical edition for explicitly verified .NET 10 and .NET 11 targets. Both tools require an explicit target release or deliberate `latest` choice; `latest` means the newest target release in the installed catalogue, not an exact SDK version or consumer compatibility. Requirements include a verified .NET 11 SDK route for .NET 10. Coverage distinguishes curated .NET 10 from the comprehensive .NET 11 launch commitment; both remain incomplete. It is not ready for public publication.
 
+Four .NET 11 recipes also cover C# unions, closed hierarchies, union JSON round trips and inferred polymorphism. Their original .NET 10 comparisons and .NET 11 RC2 samples execute real matching and serializer checks. See [the evidence and inspection commands](docs/verification/PIN-711.md), including null/default handling, assembly boundaries, generated metadata and wire-contract migration limits.
+
 ```powershell
 playbook --help
 playbook --version

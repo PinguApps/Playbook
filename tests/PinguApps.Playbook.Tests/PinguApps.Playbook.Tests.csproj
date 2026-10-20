@@ -6,5 +6,11 @@
   <ItemGroup>
     <EmbeddedResource Include="../../samples/net9.0/PropertyAssignment/StorageBay.cs" LogicalName="Canonical.net9.0.StorageBay.cs" />
     <EmbeddedResource Include="../../samples/net10.0/PropertyAssignment/StorageBay.cs" LogicalName="Canonical.net10.0.StorageBay.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/ClosedOutcomes/Outcomes.cs" LogicalName="Canonical.net10.0.Outcomes.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/ClosedOutcomes/Outcomes.cs" LogicalName="Canonical.net11.0.Outcomes.cs" />
+    <EmbeddedResource Include="../../content/recipes/csharp.closed-results/11.0/recipe.md" LogicalName="Canonical.csharp.closed-results.md" />
+    <EmbeddedResource Include="../../content/recipes/csharp.closed-hierarchies/11.0/recipe.md" LogicalName="Canonical.csharp.closed-hierarchies.md" />
+    <EmbeddedResource Include="../../content/recipes/json.serialize-closed-results/11.0/recipe.md" LogicalName="Canonical.json.serialize-closed-results.md" />
+    <EmbeddedResource Include="../../content/recipes/json.infer-closed-polymorphism/11.0/recipe.md" LogicalName="Canonical.json.infer-closed-polymorphism.md" />
   </ItemGroup>
 </Project>

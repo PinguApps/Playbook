@@ -1,6 +1,13 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  Scenario: Closed outcome guidance retains complete canonical content and target constraints offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then all four closed outcome recipes retain their full body applicability and edition
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Empty keyword searches offer an explicit retry with unchanged compatibility filters
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout

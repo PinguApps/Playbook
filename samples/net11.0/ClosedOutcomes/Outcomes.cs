@@ -4,7 +4,7 @@ using System.Text.Json.Serialization.Metadata;
 
 namespace Playbook.Samples;
 
-#region outcomes
+// snippet:outcomes
 public sealed record ArchiveReceipt([property: JsonRequired] string ShelfCode);
 public sealed record ArchiveRefusal([property: JsonRequired] string ReasonCode);
 
@@ -22,12 +22,12 @@ public static class OutcomeWorkflow
         null => "unassigned"
     };
 
-    public static string Serialize(Outcome outcome) => JsonSerializer.Serialize(outcome, ArchiveJson.Default.Outcome);
-    public static Outcome Deserialize(string json) => JsonSerializer.Deserialize(json, ArchiveJson.Default.Outcome);
+    public static string Serialize(Outcome outcome) => JsonSerializer.Serialize(outcome, OutcomeJson.Default.Outcome);
+    public static Outcome Deserialize(string json) => JsonSerializer.Deserialize(json, OutcomeJson.Default.Outcome);
 }
-#endregion
+// endsnippet:outcomes
 
-#region hierarchy
+// snippet:hierarchy
 [JsonPolymorphic(InferClosedTypePolymorphism = true)]
 public closed record IntakeState;
 public sealed record Waiting(int QueueNumber) : IntakeState;
@@ -41,10 +41,10 @@ public static class StateWorkflow
         Catalogued catalogued => "catalogued:" + catalogued.ShelfCode,
         null => "absent"
     };
-    public static string Serialize(IntakeState? state) => JsonSerializer.Serialize(state, ArchiveJson.Default.IntakeState);
-    public static IntakeState? Deserialize(string json) => JsonSerializer.Deserialize(json, ArchiveJson.Default.IntakeState);
+    public static string Serialize(IntakeState? state) => JsonSerializer.Serialize(state, StateJson.Default.IntakeState);
+    public static IntakeState? Deserialize(string json) => JsonSerializer.Deserialize(json, StateJson.Default.IntakeState);
 }
-#endregion
+// endsnippet:hierarchy
 
 internal static class RestrictionChecks
 {
@@ -72,13 +72,18 @@ internal static class RestrictionChecks
     }
 }
 
-#region context
+// snippet:outcome-context
+[JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata)]
+[JsonSerializable(typeof(Outcome))]
+internal partial class OutcomeJson : JsonSerializerContext;
+// endsnippet:outcome-context
+
+// snippet:state-context
 [JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata,
     InferClosedTypePolymorphism = true)]
-[JsonSerializable(typeof(Outcome))]
 [JsonSerializable(typeof(IntakeState))]
-internal partial class ArchiveJson : JsonSerializerContext;
-#endregion
+internal partial class StateJson : JsonSerializerContext;
+// endsnippet:state-context
 
 [JsonPolymorphic(InferClosedTypePolymorphism = true)]
 [JsonDerivedType(typeof(RegisteredWaiting), "waiting")]
