@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For experimental unsafe member/body/caller boundaries, use the [tested PIN-715 walkthrough](verification/PIN-715.md#inspect-what-an-agent-receives). It displays the discovery goal, complete original comparison, safe declaration and applicability, including preview flags and the measured AllowUnsafeBlocks requirement.
+
 `playbook mcp` speaks the MCP protocol over stdin/stdout; it is not a PowerShell prompt. Use [MCP Inspector](https://github.com/modelcontextprotocol/inspector/tree/main/clients/cli) as a client to initialize the connection and call its tools. This exercises the real server and its generated, embedded content.
 
 If npx fails with `'inspector' is not recognized`, it has failed to launch Inspector before Playbook starts. Use [the tested direct Node launch](verification/PIN-711.md#inspect-what-an-agent-receives): it installs Inspector locally under ignored artifacts, invokes its entry point explicitly and stops on failed native commands. Do not interpret the resulting empty response or Show-Markdown error as a server failure.
