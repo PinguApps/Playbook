@@ -19,6 +19,7 @@ foreach ($key in @('PLAYBOOK_TEST_PACKAGE', 'PLAYBOOK_TEST_VERSION', 'PLAYBOOK_T
   $previous[$key] = [Environment]::GetEnvironmentVariable($key)
 }
 try {
+  & (Join-Path $PSScriptRoot 'Test-DependencyPolicy.ps1')
   & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1')
   foreach ($sample in @(
