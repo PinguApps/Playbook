@@ -114,7 +114,7 @@ Missing tools, startup errors, incomplete Markdown or absent routes fail the che
 
 Keep the seed/project and current installed slot for later checks. First save call evidence, confirm the specific test thread has `activeRunId: null`, and archive it through `t3_thread_organize({action:"archive", threadId:"<that-test-thread>"})`. Archiving preserves its durable receipt. Never archive another project's threads.
 
-After verifying the exact path belongs to this verification repository, remove only the completed test worktree. This example was tested for the successful initial receipt; it deliberately refuses a dirty worktree and does not use force:
+After verifying the exact path belongs to this verification repository, remove only the completed test worktree. This example removed the initial receipt's files and Git registration, then correctly reported the Windows directory lock described below. It deliberately refuses a dirty worktree and does not use force:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ac9a569a'
@@ -134,4 +134,26 @@ if (Test-Path -LiteralPath $resolved) { throw 'Worktree still exists.' }
 
 Repeat with the exact completed test worktree path, never the seed or package root. To retire an old install after all its sessions have closed, run the absolute .NET executable's `tool uninstall PinguApps.Playbook --tool-path '<exact-old-slot>/tool'`; retain the package hash/receipt. Delete residual slot/cache files only after resolving the absolute slot and checking it is beneath this seed's `packages` directory. Do not recursively delete computed/unverified paths. No global tool uninstall, PATH restoration, login removal or ordinary project configuration cleanup is needed. Full retirement of this setup also removes only its scoped trust entry and dedicated T3 project after its threads are archived; keep unrelated settings and credentials.
 
-Windows caveat: the initial probes exposed provider/MCP processes retaining open directory handles. Archiving/interrupting an idle thread does not release them. Git removed both probes' files and registrations but could not delete the empty `verify-pin-976-connection` and `verify-pin-976-trusted` directories. Do not terminate the shared provider while other threads are using it. Once the owner has finished those threads and normally restarted/closed the provider, verify each exact residual directory is empty and remove it with `Remove-Item -LiteralPath '<exact-residual-directory>'` (no recursion). Final residual-directory deletion awaits an idle provider; it has not been verified. A nonzero cleanup result must be retained as a limitation, not counted as success.
+Windows caveat: the initial probes exposed provider/MCP processes retaining open directory handles. Archiving/interrupting an idle thread did not immediately release them. Git removed both probes' files and registrations but could not delete the empty `verify-pin-976-connection` and `verify-pin-976-trusted` directories. Do not terminate the shared provider while other threads are using it. Once the owner confirmed the provider was idle, the handles had cleared naturally and both residual directories were deleted successfully without restarting or terminating any process.
+
+For that two-stage case, first confirm the test threads are idle/archived and their Git worktree registrations are gone. Then retry only the exact empty residual directories. This block was verified from an unrelated directory after the handles cleared:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ac9a569a'
+$ErrorActionPreference = 'Stop'
+foreach ($path in @(
+  'V:\_worktrees\PlaybookVerification\verify-pin-976-connection',
+  'V:\_worktrees\PlaybookVerification\verify-pin-976-trusted'
+)) {
+  if (-not (Test-Path -LiteralPath $path)) { continue }
+  $resolved = (Resolve-Path -LiteralPath $path).Path
+  if ($resolved -cne $path -or -not $resolved.StartsWith('V:\_worktrees\PlaybookVerification\', [StringComparison]::OrdinalIgnoreCase)) {
+    throw 'Unexpected cleanup path.'
+  }
+  if (@(Get-ChildItem -LiteralPath $resolved -Force).Count -ne 0) { throw 'Preserve nonempty directory.' }
+  Remove-Item -LiteralPath $resolved
+  if (Test-Path -LiteralPath $resolved) { throw 'Directory remains.' }
+}
+```
+
+For a persistent lock, wait for the owner to finish other sessions and normally close/restart the provider, then retry. Do not claim cleanup succeeded while deletion still fails. The tested idle-release route above needed no restart; provider-restart cleanup was not tested.
