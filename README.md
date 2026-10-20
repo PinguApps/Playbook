@@ -6,6 +6,8 @@ This development slice contains `csharp.validate-property-assignment`, comparing
 
 Four .NET 11 recipes also cover C# unions, closed hierarchies, union JSON round trips and inferred polymorphism. Their original .NET 10 comparisons and .NET 11 RC2 samples execute real matching and serializer checks. See [the evidence and inspection commands](docs/verification/PIN-711.md), including null/default handling, assembly boundaries, generated metadata and wire-contract migration limits.
 
+The .NET 11 `csharp.static-interface-helpers` recipe explains fixed helper implementations without adding implementer obligations. Its [comparison, compiler checks and inspection commands](docs/verification/PIN-714.md) also show that ordinary static interface helpers already work on .NET 10; C# 15's change removes a restriction for runtimes without default interface methods.
+
 ```powershell
 playbook --help
 playbook --version
