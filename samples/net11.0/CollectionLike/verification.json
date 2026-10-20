@@ -1,0 +1,12 @@
+{
+  "dependencies": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/CollectionLikeChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/net10.0/CollectionLike/CrateLabels.cs"
+  ],
+  "buildArguments": [],
+  "workloads": []
+}

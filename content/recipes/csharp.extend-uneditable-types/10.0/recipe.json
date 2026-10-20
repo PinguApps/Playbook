@@ -1,0 +1,222 @@
+{
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "introducedIn": "10.0",
+  "id": "csharp.extend-uneditable-types",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "areas": [
+    "csharp"
+  ],
+  "apis": [
+    "extension",
+    "IReadOnlyCollection<T>"
+  ],
+  "tags": [
+    "collections",
+    "property"
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "region": "property",
+      "path": "samples/net9.0/ExtensionProperties/ShelfExtensions.cs"
+    },
+    "newer": {
+      "language": "csharp",
+      "region": "property",
+      "path": "samples/net10.0/ExtensionProperties/ShelfExtensions.cs"
+    }
+  },
+  "edition": "10.0",
+  "humanProof": {
+    "scope": "Portable language/collection behavior is exercised by actual compilation and execution; no targeted native Human proof is needed.",
+    "status": "not-required"
+  },
+  "title": "Add computed properties to types you cannot edit",
+  "evidence": [
+    {
+      "sample": "samples/net9.0/ExtensionProperties/ExtensionProperties.csproj",
+      "target": "net9.0",
+      "scope": "Actual computed observation on empty/add/clear operations and null receiver rejection; net9 uses method syntax and net10/net11 use C# 14 extension properties.",
+      "kind": "compile-and-run",
+      "sdk": "9.0.319",
+      "language": "13.0"
+    },
+    {
+      "sample": "samples/net10.0/ExtensionProperties/ExtensionProperties.csproj",
+      "target": "net10.0",
+      "scope": "Actual computed observation on empty/add/clear operations and null receiver rejection; net9 uses method syntax and net10/net11 use C# 14 extension properties.",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/ExtensionProperties/ExtensionProperties.csproj",
+      "target": "net11.0",
+      "scope": "Actual computed observation on empty/add/clear operations and null receiver rejection; net9 uses method syntax and net10/net11 use C# 14 extension properties.",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "14.0"
+    }
+  ],
+  "goal": "Use a C# extension property for a cheap computed observation of an existing type. Retain method syntax for older targets or operations that behave like actions.",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-members",
+      "title": "Microsoft extension members guide"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extension",
+      "title": "Microsoft extension declaration reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+      "title": "Microsoft language and target compatibility"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+      "title": "Canonical RC1 C# stabilization"
+    }
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Computed property only: no receiver storage, caching, synchronization or private-member access.",
+          "Import the extension namespace; existing applicable instance members take precedence.",
+          "This foundation uses C# 14 independently of C# 15 collection arguments and indexers."
+        ],
+        "target": "10.0",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-members",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extension",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+        ],
+        "requirements": {
+          "optIns": [],
+          "renderingModes": [],
+          "constraints": [
+            "The containing class is top-level, static and non-generic; put generic parameters on the extension block.",
+            "Use a named receiver and preserve null rejection; ambiguous namespaces require controlled imports.",
+            "Use method syntax for expensive work, actions or asynchronous operations."
+          ],
+          "runtime": {
+            "version": "10.0",
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Use the supported target associated with this language version; no unsupported older-target language route is declared."
+          },
+          "frameworks": [],
+          "language": {
+            "version": "14.0",
+            "name": "C#",
+            "match": "exact",
+            "reason": "The canonical sample declares this stabilized language mode explicitly."
+          },
+          "stabilityLimitations": [],
+          "prerequisites": [
+            "Target net10.0 with LangVersion 14.0; enable ImplicitUsings or include the System and System.Collections.Generic imports shown in the instructions."
+          ],
+          "sdk": {
+            "version": "10.0",
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "This SDK family supplies the compiler and matching target reference assemblies."
+          },
+          "workloads": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 10.0"
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net10.0/ExtensionProperties/ExtensionProperties.csproj"
+        ],
+        "usage": "primary",
+        "conditional": false
+      },
+      {
+        "selectionNotes": [
+          "Computed property only: no receiver storage, caching, synchronization or private-member access.",
+          "Import the extension namespace; existing applicable instance members take precedence.",
+          "This foundation uses C# 14 independently of C# 15 collection arguments and indexers."
+        ],
+        "target": "11.0",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-members",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extension",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+        ],
+        "requirements": {
+          "optIns": [],
+          "renderingModes": [],
+          "constraints": [
+            "The containing class is top-level, static and non-generic; put generic parameters on the extension block.",
+            "Use a named receiver and preserve null rejection; ambiguous namespaces require controlled imports.",
+            "Use method syntax for expensive work, actions or asynchronous operations."
+          ],
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Use the supported target associated with this language version; no unsupported older-target language route is declared."
+          },
+          "frameworks": [],
+          "language": {
+            "version": "14.0",
+            "name": "C#",
+            "match": "exact",
+            "reason": "The canonical sample declares this stabilized language mode explicitly."
+          },
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+          ],
+          "prerequisites": [
+            "Target net11.0 with LangVersion 14.0; enable ImplicitUsings or include the System and System.Collections.Generic imports shown in the instructions."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "This SDK family supplies the compiler and matching target reference assemblies."
+          },
+          "workloads": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11.0"
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/ExtensionProperties/ExtensionProperties.csproj"
+        ],
+        "usage": "primary",
+        "conditional": false
+      }
+    ]
+  }
+}
