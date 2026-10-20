@@ -6,6 +6,8 @@ This development slice contains `csharp.validate-property-assignment`, comparing
 
 Four .NET 11 recipes also cover C# unions, closed hierarchies, union JSON round trips and inferred polymorphism. Their original .NET 10 comparisons and .NET 11 RC2 samples execute real matching and serializer checks. See [the evidence and inspection commands](docs/verification/PIN-711.md), including null/default handling, assembly boundaries, generated metadata and wire-contract migration limits.
 
+`csharp.control-nested-loops` covers stopping or continuing an enclosing loop with C# 15 labeled jumps. Original .NET 10 and .NET 11 traversals produce identical results and ordered cleanup traces. See [the evidence and inspection commands](docs/verification/PIN-713.md).
+
 ```powershell
 playbook --help
 playbook --version

@@ -27,7 +27,9 @@ try {
     @{ Path = 'net10.0/PropertyAssignmentSdk11'; Dotnet = $Net11Dotnet },
     @{ Path = 'net11.0/PropertyAssignment'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/ClosedOutcomes'; Dotnet = 'dotnet' },
-    @{ Path = 'net11.0/ClosedOutcomes'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/ClosedOutcomes'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/EnclosingLoops'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/EnclosingLoops'; Dotnet = $Net11Dotnet }
   )) {
     Push-Location (Join-Path $root "samples/$($sample.Path)")
     try {
@@ -36,7 +38,7 @@ try {
         dotnet ./bin/Release/net10.0/PropertyAssignment.dll
       }
       else {
-        $project = if ($sample.Path -like '*/ClosedOutcomes') { 'ClosedOutcomes.csproj' } else { 'PropertyAssignment.csproj' }
+        $project = if ($sample.Path -like '*/EnclosingLoops') { 'EnclosingLoops.csproj' } elseif ($sample.Path -like '*/ClosedOutcomes') { 'ClosedOutcomes.csproj' } else { 'PropertyAssignment.csproj' }
         & $sample.Dotnet run --project $project --configuration Release
       }
     }

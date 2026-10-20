@@ -24,6 +24,58 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("enclosing loop guidance retains its full body applicability and edition")]
+    public async Task CheckEnclosingLoopsAsync()
+    {
+        const string id = "csharp.control-nested-loops";
+        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0", query = "enclosing loop" }).ConfigureAwait(false));
+        JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+        Assert.Equal(id, summary.GetProperty("id").GetString());
+        Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
+        JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false));
+        Assert.Equal("11.0", detail.GetProperty("resolvedTarget").GetString());
+        JsonElement recipe = detail.GetProperty("recipe");
+        Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+        Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+        Assert.Equal(["11.0"], recipe.GetProperty("supportedTargets").EnumerateArray().Select(value => value.GetString()));
+        Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+        AssertSelection(summary, recipe);
+        string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+        foreach ((string token, string target) in new[] { ("older", "net10.0"), ("newer", "net11.0") })
+        {
+            string source = await ReadCanonicalAsync($"{target}.Traversal.cs").ConfigureAwait(false);
+            string snippet = source.Split("// snippet:traversal\n", StringSplitOptions.None)[1]
+                .Split("// endsnippet:traversal", StringSplitOptions.None)[0].TrimEnd();
+            expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+        }
+
+        Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+        Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+        Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+        Assert.Equal("15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+        foreach (string field in new[] { "frameworks", "packages", "packageAssets", "providers", "renderingModes", "workloads", "optIns" })
+        {
+            Assert.Empty(requirements.GetProperty(field).EnumerateArray());
+        }
+
+        Assert.NotEmpty(requirements.GetProperty("platforms").EnumerateArray());
+        Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        Assert.Equal(["net10.0", "net11.0"], recipe.GetProperty("evidence").EnumerateArray().Select(value => value.GetProperty("target").GetString()));
+        Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+        {
+            Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+            Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+            Assert.Contains("PASS: nested traversal", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+        });
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "enclosing loop" }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(older));
+        AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+    }
+
     [Then("all four closed outcome recipes retain their full body applicability and edition")]
     public async Task CheckClosedOutcomesAsync()
     {
@@ -120,7 +172,7 @@ public sealed class InstalledToolSteps : IDisposable
     {
         List<string> measurements = [];
         bool withinBudget = true;
-        foreach (string? query in new string?[] { "traversal", null })
+        foreach (string? query in new string?[] { "traversal fixture", null })
         {
             foreach (int limit in new[] { 20, 50 })
             {
@@ -205,14 +257,14 @@ public sealed class InstalledToolSteps : IDisposable
 
         foreach (int offset in new[] { 53, int.MaxValue })
         {
-            JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", areas = (string[])["csharp"], languages = (string[])["csharp"], query = "traversal", includeShared = false, offset, limit = 50 }).ConfigureAwait(false));
+            JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", areas = (string[])["csharp"], languages = (string[])["csharp"], query = "traversal fixture", includeShared = false, offset, limit = 50 }).ConfigureAwait(false));
             Assert.Equal(53, beyond.GetProperty("total").GetInt32());
             Assert.Empty(RecipeIds(beyond));
             JsonElement recovery = beyond.GetProperty("recovery");
             Assert.Equal("offset_out_of_range", recovery.GetProperty("reason").GetString());
             JsonElement retry = recovery.GetProperty("suggestedRequest");
             Assert.Equal("latest", retry.GetProperty("targetVersion").GetString());
-            Assert.Equal("traversal", retry.GetProperty("query").GetString());
+            Assert.Equal("traversal fixture", retry.GetProperty("query").GetString());
             Assert.Equal(0, retry.GetProperty("offset").GetInt32());
             Assert.Equal(50, retry.GetProperty("limit").GetInt32());
             Assert.False(retry.GetProperty("includeShared").GetBoolean());
@@ -755,7 +807,7 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("discovery pages preserve ordinal order totals and explicit boundaries")]
     public async Task CheckDiscoveryPagingAsync()
     {
-        JsonElement first = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal" }).ConfigureAwait(false));
+        JsonElement first = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture" }).ConfigureAwait(false));
         Assert.Equal(20, first.GetProperty("recipes").GetArrayLength());
         Assert.Equal(0, first.GetProperty("offset").GetInt32());
         Assert.Equal(20, first.GetProperty("limit").GetInt32());
@@ -764,7 +816,7 @@ public sealed class InstalledToolSteps : IDisposable
         int offset = first.GetProperty("nextOffset").GetInt32();
         while (true)
         {
-            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset, limit = 20 }).ConfigureAwait(false));
+            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", offset, limit = 20 }).ConfigureAwait(false));
             Assert.Equal(53, page.GetProperty("total").GetInt32());
             ids.AddRange(RecipeIds(page));
             if (page.GetProperty("nextOffset").ValueKind == JsonValueKind.Null)
@@ -780,12 +832,12 @@ public sealed class InstalledToolSteps : IDisposable
 
         string[] expected = [.. Enumerable.Range(0, 53).Select(index => $"fixture.page-{index:D2}")];
         Assert.Equal(expected, ids);
-        JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset = 0 }).ConfigureAwait(false));
+        JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", offset = 0 }).ConfigureAwait(false));
         Assert.True(JsonElement.DeepEquals(first, repeated));
-        JsonElement maximum = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", limit = 50 }).ConfigureAwait(false));
+        JsonElement maximum = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", limit = 50 }).ConfigureAwait(false));
         Assert.Equal(50, maximum.GetProperty("recipes").GetArrayLength());
         Assert.Equal(50, maximum.GetProperty("nextOffset").GetInt32());
-        JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset = int.MaxValue }).ConfigureAwait(false));
+        JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", offset = int.MaxValue }).ConfigureAwait(false));
         Assert.Empty(RecipeIds(beyond));
         Assert.Equal(53, beyond.GetProperty("total").GetInt32());
         Assert.Equal(JsonValueKind.Null, beyond.GetProperty("nextOffset").ValueKind);

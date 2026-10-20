@@ -67,6 +67,8 @@ Expect the property recipe, `total=1`, `offset=0`, `limit=1`, `nextOffset=null` 
 
 The .NET 10 catalogue retains this property goal. The .NET 11 catalogue also contains four closed-outcome recipes with shared framework mappings; inspect their complete body and applicability using [the PIN-711 walkthrough](verification/PIN-711.md). F#-applicable neutral configuration and multi-page traversal remain separate unpublished contract-fixture checks, alongside all-term/title/goal/tag/API matching, OR within sets, AND between filters, shared inclusion disabled, unrelated Windows guidance excluded and C#-specific XML excluded from F#. Run the [verification commands](verification/PIN-971.md) for the contract checks. Fixture metadata does not claim platform execution or additional shipped recipe coverage.
 
+For C# 15 labeled loop control, use [the PIN-713 walkthrough](verification/PIN-713.md#inspect-what-an-agent-receives). It displays the new goal's discovery description, full original older/newer traversal, cleanup trace and .NET 11 applicability.
+
 ## Inspect release selection and failures
 
 For an empty search, inspect `recovery` alongside the requested/resolved target and coverage. Its optional `suggestedRequest` is a complete `list_recipes` arguments object; executing it is the agent's choice. Keyword recovery removes keywords while preserving compatibility filters. Paging recovery resets only the offset. When the non-keyword combination is empty, there is no safe suggested retry. Nonempty discovery omits recovery. See the [tested empty-search and retry walkthrough](verification/PIN-975.md), including recovered ID/title/goal, full Markdown and applicability.

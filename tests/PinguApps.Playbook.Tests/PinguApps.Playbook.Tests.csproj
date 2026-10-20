@@ -4,6 +4,9 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net10.0/EnclosingLoops/Traversal.cs" LogicalName="Canonical.net10.0.Traversal.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/EnclosingLoops/Traversal.cs" LogicalName="Canonical.net11.0.Traversal.cs" />
+    <EmbeddedResource Include="../../content/recipes/csharp.control-nested-loops/11.0/recipe.md" LogicalName="Canonical.csharp.control-nested-loops.md" />
     <EmbeddedResource Include="../../samples/net9.0/PropertyAssignment/StorageBay.cs" LogicalName="Canonical.net9.0.StorageBay.cs" />
     <EmbeddedResource Include="../../samples/net10.0/PropertyAssignment/StorageBay.cs" LogicalName="Canonical.net10.0.StorageBay.cs" />
     <EmbeddedResource Include="../../samples/net10.0/ClosedOutcomes/Outcomes.cs" LogicalName="Canonical.net10.0.Outcomes.cs" />
