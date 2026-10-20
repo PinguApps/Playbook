@@ -28,6 +28,11 @@ try {
     @{ Path = 'net11.0/PropertyAssignment'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/ClosedOutcomes'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/ClosedOutcomes'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net9.0/ExtensionProperties'; Dotnet = $Net9Dotnet },
+    @{ Path = 'net10.0/ExtensionProperties'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/ExtensionProperties'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/CollectionLike'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/CollectionLike'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/StaticInterfaceHelpers'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/StaticInterfaceHelpers'; Dotnet = $Net11Dotnet }
   )) {
@@ -38,9 +43,7 @@ try {
         dotnet ./bin/Release/net10.0/PropertyAssignment.dll
       }
       else {
-        $project = if ($sample.Path -like '*/ClosedOutcomes') { 'ClosedOutcomes.csproj' }
-          elseif ($sample.Path -like '*/StaticInterfaceHelpers') { 'StaticInterfaceHelpers.csproj' }
-          else { 'PropertyAssignment.csproj' }
+        $project = ($sample.Path.Split('/')[-1]) + '.csproj'
         & $sample.Dotnet run --project $project --configuration Release
       }
     }

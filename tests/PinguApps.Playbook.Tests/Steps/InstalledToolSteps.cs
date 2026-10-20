@@ -151,6 +151,89 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("collection recipes retain complete canonical bodies and independent target requirements")]
+    public async Task CheckCollectionGuidanceAsync()
+    {
+        foreach ((string id, string region) in new[]
+        {
+            ("csharp.configure-collection-construction", "construction"),
+            ("csharp.index-existing-types", "indexer"),
+            ("csharp.extend-uneditable-types", "property"),
+        })
+        {
+            bool foundation = region == "property";
+            string edition = foundation ? "10.0" : "11.0";
+            string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+            foreach (string token in new[] { "older", "newer", "builder" })
+            {
+                if (!expected.Contains($"{{{{snippet:{token}}}}}", StringComparison.Ordinal))
+                {
+                    continue;
+                }
+
+                string olderTarget = foundation ? "net9.0" : "net10.0";
+                string newerTarget = foundation ? "net10.0" : "net11.0";
+                string target = token == "older" ? olderTarget : newerTarget;
+                string sourceFile = foundation ? "ShelfExtensions" : "Collections";
+                string name = token == "builder" ? "CrateLabels.cs" : $"{target}.{sourceFile}.cs";
+                string source = await ReadCanonicalAsync(name).ConfigureAwait(false);
+                string marker = token == "builder" ? "builder" : region;
+                string snippet = source.Split($"// snippet:{marker}\n", StringSplitOptions.None)[1]
+                    .Split($"// endsnippet:{marker}", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+            }
+
+            foreach (string target in new[] { "10.0", "11.0" })
+            {
+                JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = target }).ConfigureAwait(false));
+                if (!foundation && target == "10.0")
+                {
+                    Assert.DoesNotContain(id, RecipeIds(list));
+                    AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false), "no_applicable_edition");
+                    continue;
+                }
+
+                JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == id);
+                Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
+                JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false));
+                Assert.Equal(target, detail.GetProperty("resolvedTarget").GetString());
+                JsonElement recipe = detail.GetProperty("recipe");
+                AssertSelection(summary, recipe);
+                Assert.Equal(edition, recipe.GetProperty("edition").GetString());
+                Assert.Equal(edition, recipe.GetProperty("introducedIn").GetString());
+                Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+                Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+                Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+                JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+                Assert.Equal(target, route.GetProperty("target").GetString());
+                Assert.False(route.GetProperty("conditional").GetBoolean());
+                JsonElement requirements = route.GetProperty("requirements");
+                Assert.Equal(target, requirements.GetProperty("runtime").GetProperty("version").GetString());
+                Assert.Equal(target, requirements.GetProperty("sdk").GetProperty("version").GetString());
+                Assert.Equal(foundation ? "14.0" : "15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+                foreach (string field in new[] { "packages", "packageAssets", "workloads", "providers", "renderingModes", "optIns" })
+                {
+                    Assert.Empty(requirements.GetProperty(field).EnumerateArray());
+                }
+
+                if (target == "11.0")
+                {
+                    Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+                }
+
+                Assert.Equal(foundation ? 3 : 2, recipe.GetProperty("evidence").GetArrayLength());
+                Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+                {
+                    Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                    Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                    Assert.Contains(foundation ? "PASS: extension property" : "PASS: collection order", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                    Assert.NotEmpty(evidence.GetProperty("inputs").EnumerateObject());
+                });
+                Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            }
+        }
+    }
+
     private static async Task<string> ReadCanonicalAsync(string name)
     {
         using Stream stream = typeof(InstalledToolSteps).Assembly.GetManifestResourceStream($"Canonical.{name}")!;
@@ -182,7 +265,7 @@ public sealed class InstalledToolSteps : IDisposable
     {
         List<string> measurements = [];
         bool withinBudget = true;
-        foreach (string? query in new string?[] { "traversal", null })
+        foreach (string? query in new string?[] { "traversal fixture", null })
         {
             foreach (int limit in new[] { 20, 50 })
             {
@@ -267,14 +350,14 @@ public sealed class InstalledToolSteps : IDisposable
 
         foreach (int offset in new[] { 53, int.MaxValue })
         {
-            JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", areas = (string[])["csharp"], languages = (string[])["csharp"], query = "traversal", includeShared = false, offset, limit = 50 }).ConfigureAwait(false));
+            JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", areas = (string[])["csharp"], languages = (string[])["csharp"], query = "traversal fixture", includeShared = false, offset, limit = 50 }).ConfigureAwait(false));
             Assert.Equal(53, beyond.GetProperty("total").GetInt32());
             Assert.Empty(RecipeIds(beyond));
             JsonElement recovery = beyond.GetProperty("recovery");
             Assert.Equal("offset_out_of_range", recovery.GetProperty("reason").GetString());
             JsonElement retry = recovery.GetProperty("suggestedRequest");
             Assert.Equal("latest", retry.GetProperty("targetVersion").GetString());
-            Assert.Equal("traversal", retry.GetProperty("query").GetString());
+            Assert.Equal("traversal fixture", retry.GetProperty("query").GetString());
             Assert.Equal(0, retry.GetProperty("offset").GetInt32());
             Assert.Equal(50, retry.GetProperty("limit").GetInt32());
             Assert.False(retry.GetProperty("includeShared").GetBoolean());
@@ -309,7 +392,17 @@ public sealed class InstalledToolSteps : IDisposable
             ?? throw new InvalidOperationException("Missing PLAYBOOK_TEST_VERSION.");
         ProcessStartInfo install = CreateStartInfo("dotnet", "tool", "install", "PinguApps.Playbook", "--version", version,
             "--tool-path", Path.Combine(_directory, "tool"), "--configfile", config, "--no-cache");
+        string? processPath = Environment.GetEnvironmentVariable("PATH");
+        string? userPath = OperatingSystem.IsWindows() ? Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User) : null;
+        string? machinePath = OperatingSystem.IsWindows() ? Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine) : null;
         (int exitCode, string stdout, string stderr) = await RunAsync(install).ConfigureAwait(false);
+        Assert.Equal(processPath, Environment.GetEnvironmentVariable("PATH"));
+        if (OperatingSystem.IsWindows())
+        {
+            Assert.Equal(userPath, Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User));
+            Assert.Equal(machinePath, Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.Machine));
+        }
+
         Assert.True(exitCode == 0, stdout + stderr);
         _executable = Path.Combine(_directory, "tool", OperatingSystem.IsWindows() ? "playbook.exe" : "playbook");
         Assert.True(File.Exists(_executable));
@@ -394,7 +487,7 @@ public sealed class InstalledToolSteps : IDisposable
         JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0" }).ConfigureAwait(false));
         Assert.Equal("10.0", list.GetProperty("resolvedTarget").GetString());
         Assert.False(list.GetProperty("targetAssumed").GetBoolean());
-        JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+        JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == "csharp.validate-property-assignment");
         Assert.False(summary.TryGetProperty("markdown", out _));
         JsonElement selection = summary.GetProperty("applicability").GetProperty("routes")[0];
         Assert.Equal("14.0", selection.GetProperty("requirements").GetProperty("language").GetProperty("version").GetString());
@@ -817,7 +910,7 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("discovery pages preserve ordinal order totals and explicit boundaries")]
     public async Task CheckDiscoveryPagingAsync()
     {
-        JsonElement first = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal" }).ConfigureAwait(false));
+        JsonElement first = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture" }).ConfigureAwait(false));
         Assert.Equal(20, first.GetProperty("recipes").GetArrayLength());
         Assert.Equal(0, first.GetProperty("offset").GetInt32());
         Assert.Equal(20, first.GetProperty("limit").GetInt32());
@@ -826,7 +919,7 @@ public sealed class InstalledToolSteps : IDisposable
         int offset = first.GetProperty("nextOffset").GetInt32();
         while (true)
         {
-            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset, limit = 20 }).ConfigureAwait(false));
+            JsonElement page = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", offset, limit = 20 }).ConfigureAwait(false));
             Assert.Equal(53, page.GetProperty("total").GetInt32());
             ids.AddRange(RecipeIds(page));
             if (page.GetProperty("nextOffset").ValueKind == JsonValueKind.Null)
@@ -842,12 +935,12 @@ public sealed class InstalledToolSteps : IDisposable
 
         string[] expected = [.. Enumerable.Range(0, 53).Select(index => $"fixture.page-{index:D2}")];
         Assert.Equal(expected, ids);
-        JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset = 0 }).ConfigureAwait(false));
+        JsonElement repeated = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", offset = 0 }).ConfigureAwait(false));
         Assert.True(JsonElement.DeepEquals(first, repeated));
-        JsonElement maximum = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", limit = 50 }).ConfigureAwait(false));
+        JsonElement maximum = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", limit = 50 }).ConfigureAwait(false));
         Assert.Equal(50, maximum.GetProperty("recipes").GetArrayLength());
         Assert.Equal(50, maximum.GetProperty("nextOffset").GetInt32());
-        JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal", offset = int.MaxValue }).ConfigureAwait(false));
+        JsonElement beyond = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "latest", query = "traversal fixture", offset = int.MaxValue }).ConfigureAwait(false));
         Assert.Empty(RecipeIds(beyond));
         Assert.Equal(53, beyond.GetProperty("total").GetInt32());
         Assert.Equal(JsonValueKind.Null, beyond.GetProperty("nextOffset").ValueKind);
@@ -1021,7 +1114,8 @@ public sealed class InstalledToolSteps : IDisposable
         info.Environment["NUGET_HTTP_CACHE_PATH"] = Path.Combine(_directory, "http-cache");
         info.Environment["DOTNET_CLI_HOME"] = _directory;
         info.Environment["DOTNET_NOLOGO"] = "1";
-        info.Environment["DOTNET_SKIP_FIRST_TIME_EXPERIENCE"] = "1";
+        // Every fresh CLI home triggers first-run setup, even with an explicit --tool-path.
+        info.Environment["DOTNET_ADD_GLOBAL_TOOLS_TO_PATH"] = "0";
         info.Environment["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1";
         info.Environment["HTTP_PROXY"] = "http://127.0.0.1:1";
         info.Environment["HTTPS_PROXY"] = "http://127.0.0.1:1";
