@@ -1,0 +1,229 @@
+{
+  "reviewed": "2026-10-20",
+  "scope": "PIN-681: source and metadata only; no recipe compilation or execution",
+  "sources": [
+    {
+      "sha256": "0b9e2744af92cd845327cd5430f16fe3b2fde17e0d1bd961601db2c98c33e8c1",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi",
+      "path": "src/FSharp.Core/resumable.fsi"
+    },
+    {
+      "sha256": "4c722b0177edbbfd2da0dee262bd0260a2305d7925644e884f89fbf36d3806b7",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fs",
+      "path": "src/FSharp.Core/resumable.fs"
+    },
+    {
+      "sha256": "70ffb8eb29769f93f6e117821df807e2cb5a4654ee3c93c37301c29444d72ba5",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fs",
+      "path": "src/FSharp.Core/array2.fs"
+    },
+    {
+      "sha256": "590cdf2e5d47d92da0eac4e9899b888c340437abf2b9ed34b709195d27a18eaf",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fsi",
+      "path": "src/FSharp.Core/array2.fsi"
+    },
+    {
+      "sha256": "ab3ac435786cc43c8f4a28f5cdfb6c62eb062d20d551357debfcff3b05f7fcbb",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/tasks.fsi",
+      "path": "src/FSharp.Core/tasks.fsi"
+    },
+    {
+      "sha256": "5bb9aa0a87895ec108f7aea013d5ca9b5faa0ba185981ebb85d3bd44135dfddc",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi",
+      "path": "src/Compiler/Service/service.fsi"
+    },
+    {
+      "sha256": "c7c42918447babbabcb2a39529c2682f106df22002ff190a9f66bcdcbf50f394",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs",
+      "path": "src/Compiler/Service/service.fs"
+    },
+    {
+      "sha256": "b0ff92c106dc30ac0a0e3e2f140fe1806609d89bfd6e1dbd162c9c666845018c",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+      "path": "src/Compiler/Facilities/LanguageFeatures.fs"
+    },
+    {
+      "sha256": "96f9a6262f2a76b561d7e8da2c2aaf4649a97b2d0eb698aca1665526d14d9cd1",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md",
+      "path": "docs/runtime-async.md"
+    },
+    {
+      "sha256": "f9de3078996db98daf790548afe989f5e0cfe328a4b68224f9419bcdf1f1c6eb",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeTaskBuilder.fs",
+      "path": "tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeTaskBuilder.fs"
+    },
+    {
+      "sha256": "c774b28d1f655dd364bc55eb921a89cedcc94bc2c34fb177dec504a44c4991a1",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/fsi/fsi.targets",
+      "path": "src/fsi/fsi.targets"
+    },
+    {
+      "sha256": "92a9124b08b24c968b07046978533d122e2a5b8c96a508cadf1af9e9bbc2e8a9",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Interactive/fsi.fs",
+      "path": "src/Compiler/Interactive/fsi.fs"
+    },
+    {
+      "sha256": "673f49719358e6f376ee6be7e97308b701349a43216e6656a80225bb20f25262",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/FSharp.Core.nuspec",
+      "path": "src/FSharp.Core/FSharp.Core.nuspec"
+    },
+    {
+      "sha256": "66767b36ca75bfdab6151cd967bc33ede17510f60f723aea47ec9c95e8f039f6",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/FSharp.Compiler.Service.nuspec",
+      "path": "src/Compiler/FSharp.Compiler.Service.nuspec"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md",
+      "path": "rc2-fsharp",
+      "sha256": "27f7c7dfd80b2d9469ce6b738216fce2312008247371dbdae96695e8f0470486"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/fsharp/8de08f6371c0ee34cb516a5e32dc7cc7ffe6a626/docs/runtime-async.md",
+      "path": "current-main-runtime-async",
+      "sha256": "b1282a98326ec55dc8d2c61eee628ae3dd007d30ac1fa1a962508b1c159d50d2"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/source-manifest.json",
+      "path": "source-manifest",
+      "sha256": "40085527f7e20c99eeb394827f5c5fc89f86af485b9cd3789f9abc630dab4fd9"
+    },
+    {
+      "sha256": "78c6eef5555139c3df83148834a6fd6b936a033c489970e62e14f9395ce948da",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs",
+      "path": "src/Compiler/Driver/CompilerImports.fs"
+    },
+    {
+      "sha256": "01ba5b7cfa733c2c0780e898f411faa00434043878421cd47d1645442cbb3218",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/Directory.Build.targets",
+      "path": "Directory.Build.targets"
+    },
+    {
+      "sha256": "128e4f7ca1be829d648ca76af00e615a9e7d691a444b598c9c2a6504fa6034e5",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/release-notes/.FSharp.Compiler.Service/11.0.100.md",
+      "path": "docs/release-notes/.FSharp.Compiler.Service/11.0.100.md"
+    },
+    {
+      "sha256": "6c95d79937597389f4000a26d59b5f51023e393d4a166c272349000d83535b65",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeAsyncSequenceBuilder.fs",
+      "path": "tests/FSharp.Compiler.ComponentTests/Language/RuntimeAsync/RuntimeAsyncSequenceBuilder.fs"
+    }
+  ],
+  "packages": [
+    {
+      "assets": [
+        "lib/netstandard2.0/FSharp.Core.dll",
+        "lib/netstandard2.1/FSharp.Core.dll"
+      ],
+      "url": "https://api.nuget.org/v3-flatcontainer/fsharp.core/10.1.402/fsharp.core.10.1.402.nupkg",
+      "version": "10.1.402",
+      "id": "FSharp.Core",
+      "sha256": "daf0c4384edfe40f687e856628ad52cb5c55e5a3389d80190dc0449c758b9df7",
+      "repository": {
+        "type": "git",
+        "commit": "a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+        "url": "https://github.com/dotnet/dotnet"
+      },
+      "dependencies": [
+        {
+          "targetFramework": ".NETStandard2.0",
+          "packages": []
+        },
+        {
+          "targetFramework": ".NETStandard2.1",
+          "packages": []
+        }
+      ]
+    },
+    {
+      "assets": [
+        "lib/net10.0/FSharp.Core.dll",
+        "lib/netstandard2.0/FSharp.Core.dll",
+        "lib/netstandard2.1/FSharp.Core.dll"
+      ],
+      "url": "https://api.nuget.org/v3-flatcontainer/fsharp.core/11.0.101-rc2.26504.105/fsharp.core.11.0.101-rc2.26504.105.nupkg",
+      "version": "11.0.101-rc2.26504.105",
+      "id": "FSharp.Core",
+      "sha256": "80a0c07fd939ae86bc72edfa4415378a4e6e84951fc863352d1d902470b46527",
+      "repository": {
+        "type": "git",
+        "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+        "url": "https://github.com/dotnet/dotnet"
+      },
+      "dependencies": [
+        {
+          "targetFramework": ".NETStandard2.0",
+          "packages": []
+        },
+        {
+          "targetFramework": ".NETStandard2.1",
+          "packages": []
+        },
+        {
+          "targetFramework": "net10.0",
+          "packages": []
+        }
+      ]
+    },
+    {
+      "assets": [
+        "lib/netstandard2.0/FSharp.Compiler.Service.dll"
+      ],
+      "url": "https://api.nuget.org/v3-flatcontainer/fsharp.compiler.service/43.13.101-rc2.26504.105/fsharp.compiler.service.43.13.101-rc2.26504.105.nupkg",
+      "version": "43.13.101-rc2.26504.105",
+      "id": "FSharp.Compiler.Service",
+      "sha256": "6a6765ed03a75ef7ebefaec3d73f09bc03b8ef4400d3a7278d125f78f7d63f90",
+      "repository": {
+        "type": "git",
+        "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+        "url": "https://github.com/dotnet/dotnet"
+      },
+      "dependencies": [
+        {
+          "targetFramework": ".NETStandard2.0",
+          "packages": [
+            {
+              "version": "[11.0.101-rc2.26504.105, 11.0.101-rc2.26504.105]",
+              "id": "FSharp.Core",
+              "exclude": "Build,Analyzers"
+            },
+            {
+              "version": "4.6.1",
+              "id": "System.Buffers",
+              "exclude": "Build,Analyzers"
+            },
+            {
+              "version": "10.0.10",
+              "id": "System.Collections.Immutable",
+              "exclude": "Build,Analyzers"
+            },
+            {
+              "version": "10.0.10",
+              "id": "System.Diagnostics.DiagnosticSource",
+              "exclude": "Build,Analyzers"
+            },
+            {
+              "version": "4.6.3",
+              "id": "System.Memory",
+              "exclude": "Build,Analyzers"
+            },
+            {
+              "version": "4.7.0",
+              "id": "System.Reflection.Emit",
+              "exclude": "Build,Analyzers"
+            },
+            {
+              "version": "10.0.10",
+              "id": "System.Reflection.Metadata",
+              "exclude": "Build,Analyzers"
+            },
+            {
+              "version": "6.1.2",
+              "id": "System.Runtime.CompilerServices.Unsafe",
+              "exclude": "Build,Analyzers"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

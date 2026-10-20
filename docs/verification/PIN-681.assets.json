@@ -1,0 +1,149 @@
+[
+  {
+    "package": "FSharp.Core",
+    "version": "10.1.402",
+    "asset": "lib/netstandard2.0/FSharp.Core.dll",
+    "sha256": "bfefba2d3ed46914b63e71b20b9be8f461b58147556b1dc59b0d9feab5a8654d",
+    "assemblyVersion": "10.1.0.0",
+    "targetFramework": ".NETStandard,Version=v2.0",
+    "declarations": [
+      "Microsoft.FSharp.Collections.Array2DModule::Copy(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Create(System.Int32 length1, System.Int32 length2, T value) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::CreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, T initial) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Initialize(System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::InitializeBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Map(Microsoft.FSharp.Core.FSharpFunc`2[T,TResult] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::MapIndexed(Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[T,TResult]]] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Rebase(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreate(System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] "
+    ]
+  },
+  {
+    "package": "FSharp.Core",
+    "version": "10.1.402",
+    "asset": "lib/netstandard2.1/FSharp.Core.dll",
+    "sha256": "e6c3cadfe4adf7edb64ee23880a37ba462246d2c28e0f3495f5cb3913ea6008d",
+    "assemblyVersion": "10.1.0.0",
+    "targetFramework": ".NETStandard,Version=v2.1",
+    "declarations": [
+      "Microsoft.FSharp.Collections.Array2DModule::Copy(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Create(System.Int32 length1, System.Int32 length2, T value) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::CreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, T initial) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Initialize(System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::InitializeBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Map(Microsoft.FSharp.Core.FSharpFunc`2[T,TResult] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::MapIndexed(Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[T,TResult]]] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Rebase(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreate(System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Control.TaskBuilderBase::Using(TResource resource, Microsoft.FSharp.Core.FSharpFunc`2[TResource,Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T]] body) -> Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T] constraints=[TResource:System.IAsyncDisposable;TOverall:;T:] "
+    ]
+  },
+  {
+    "package": "FSharp.Core",
+    "version": "11.0.101-rc2.26504.105",
+    "asset": "lib/net10.0/FSharp.Core.dll",
+    "sha256": "3745f5c62bb8fa82ad8cb5070963959807239fa8c08383dc5ae609139ae76058",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETCoreApp,Version=v10.0",
+    "declarations": [
+      "Microsoft.FSharp.Collections.Array2DModule::Copy(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Create(System.Int32 length1, System.Int32 length2, T value) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::CreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, T initial) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Initialize(System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::InitializeBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Map(Microsoft.FSharp.Core.FSharpFunc`2[T,TResult] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::MapIndexed(Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[T,TResult]]] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Rebase(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreate(System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Control.TaskBuilderBase::Using(TResource resource, Microsoft.FSharp.Core.FSharpFunc`2[TResource,Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T]] body) -> Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T] constraints=[TResource:System.IAsyncDisposable;TOverall:;T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturn(T value) -> System.Threading.Tasks.Task`1[T] constraints=[T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturnUnit() -> System.Threading.Tasks.Task constraints=[] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturnValueTask(T value) -> System.Threading.Tasks.ValueTask`1[T] constraints=[T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturnValueTaskUnit() -> System.Threading.Tasks.ValueTask constraints=[] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncSequence(Microsoft.FSharp.Core.FSharpFunc`2[Microsoft.FSharp.Core.Unit,System.Collections.Generic.IEnumerable`1[T]] recipe) -> System.Collections.Generic.IAsyncEnumerable`1[T] constraints=[T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncSequenceCancellationToken() -> System.Threading.CancellationToken constraints=[] "
+    ]
+  },
+  {
+    "package": "FSharp.Core",
+    "version": "11.0.101-rc2.26504.105",
+    "asset": "lib/netstandard2.0/FSharp.Core.dll",
+    "sha256": "4d5d3f8c368a1d98d84983554b8acf22820228f02af609438947c4d96f369ff5",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETStandard,Version=v2.0",
+    "declarations": [
+      "Microsoft.FSharp.Collections.Array2DModule::Copy(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Create(System.Int32 length1, System.Int32 length2, T value) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::CreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, T initial) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Initialize(System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::InitializeBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Map(Microsoft.FSharp.Core.FSharpFunc`2[T,TResult] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::MapIndexed(Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[T,TResult]]] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Rebase(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreate(System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead."
+    ]
+  },
+  {
+    "package": "FSharp.Core",
+    "version": "11.0.101-rc2.26504.105",
+    "asset": "lib/netstandard2.1/FSharp.Core.dll",
+    "sha256": "b5193c807769bcad19edf67e302d8dfaa4e0c5f089736395111599dfafde145b",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETStandard,Version=v2.1",
+    "declarations": [
+      "Microsoft.FSharp.Collections.Array2DModule::Copy(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Create(System.Int32 length1, System.Int32 length2, T value) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::CreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, T initial) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Initialize(System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::InitializeBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Map(Microsoft.FSharp.Core.FSharpFunc`2[T,TResult] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::MapIndexed(Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[T,TResult]]] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Rebase(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreate(System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Control.TaskBuilderBase::Using(TResource resource, Microsoft.FSharp.Core.FSharpFunc`2[TResource,Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T]] body) -> Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T] constraints=[TResource:System.IAsyncDisposable;TOverall:;T:] "
+    ]
+  },
+  {
+    "package": "FSharp.Compiler.Service",
+    "version": "43.13.101-rc2.26504.105",
+    "asset": "lib/netstandard2.0/FSharp.Compiler.Service.dll",
+    "sha256": "11dc5edcc41c289ec5968f3b05b513843c7f359856e207dce47cfe0fb2630117",
+    "assemblyVersion": "43.13.101.0",
+    "targetFramework": ".NETStandard,Version=v2.0",
+    "declarations": [
+      "FSharp.Compiler.CodeAnalysis.FSharpChecker::Create(Microsoft.FSharp.Core.FSharpOption`1[System.Int32] projectCacheSize, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] keepAssemblyContents, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] keepAllBackgroundResolutions, Microsoft.FSharp.Core.FSharpOption`1[FSharp.Compiler.CodeAnalysis.LegacyReferenceResolver] legacyReferenceResolver, Microsoft.FSharp.Core.FSharpOption`1[Microsoft.FSharp.Core.FSharpFunc`2[System.Tuple`2[System.String,System.DateTime],Microsoft.FSharp.Core.FSharpOption`1[System.Tuple`3[System.Object,System.IntPtr,System.Int32]]]] tryGetMetadataSnapshot, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] suggestNamesForErrors, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] keepAllBackgroundSymbolUses, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] enableBackgroundItemKeyStoreAndSemanticClassification, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] enablePartialTypeChecking, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] parallelReferenceResolution, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] shareImportedAssemblies, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] captureIdentifiersWhenParsing, Microsoft.FSharp.Core.FSharpOption`1[FSharp.Compiler.CodeAnalysis.DocumentSource] documentSource, Microsoft.FSharp.Core.FSharpOption`1[System.Boolean] useTransparentCompiler, Microsoft.FSharp.Core.FSharpOption`1[FSharp.Compiler.CodeAnalysis.TransparentCompiler.CacheSizes] transparentCompilerCacheSizes) -> FSharp.Compiler.CodeAnalysis.FSharpChecker constraints=[] "
+    ]
+  },
+  {
+    "package": "FSharp.Core",
+    "version": "SDK-11.0.100-rc.2.26504.105",
+    "asset": "FSharp.Core.dll",
+    "sha256": "cc9140abff3283005b2418dd270c6a097e70abcb90c22af3473fafac0d2687ca",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETCoreApp,Version=v10.0",
+    "declarations": [
+      "Microsoft.FSharp.Collections.Array2DModule::Copy(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Create(System.Int32 length1, System.Int32 length2, T value) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::CreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, T initial) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Initialize(System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::InitializeBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2, Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,T]] initializer) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Collections.Array2DModule::Map(Microsoft.FSharp.Core.FSharpFunc`2[T,TResult] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::MapIndexed(Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[System.Int32,Microsoft.FSharp.Core.FSharpFunc`2[T,TResult]]] mapping, T[,] array) -> TResult[,] constraints=[T:;TResult:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::Rebase(T[,] array) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreate(System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] ",
+      "Microsoft.FSharp.Collections.Array2DModule::ZeroCreateBased(System.Int32 base1, System.Int32 base2, System.Int32 length1, System.Int32 length2) -> T[,] constraints=[T:] System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute:Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead.",
+      "Microsoft.FSharp.Control.TaskBuilderBase::Using(TResource resource, Microsoft.FSharp.Core.FSharpFunc`2[TResource,Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T]] body) -> Microsoft.FSharp.Core.CompilerServices.ResumableCode`2[Microsoft.FSharp.Control.TaskStateMachineData`1[TOverall],T] constraints=[TResource:System.IAsyncDisposable;TOverall:;T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturn(T value) -> System.Threading.Tasks.Task`1[T] constraints=[T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturnUnit() -> System.Threading.Tasks.Task constraints=[] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturnValueTask(T value) -> System.Threading.Tasks.ValueTask`1[T] constraints=[T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncReturnValueTaskUnit() -> System.Threading.Tasks.ValueTask constraints=[] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncSequence(Microsoft.FSharp.Core.FSharpFunc`2[Microsoft.FSharp.Core.Unit,System.Collections.Generic.IEnumerable`1[T]] recipe) -> System.Collections.Generic.IAsyncEnumerable`1[T] constraints=[T:] ",
+      "Microsoft.FSharp.Core.CompilerServices.StateMachineHelpers::__runtimeAsyncSequenceCancellationToken() -> System.Threading.CancellationToken constraints=[] "
+    ]
+  }
+]
