@@ -58,7 +58,7 @@ jobs:
         shell: pwsh
         env:
           GITHUB_COM_TOKEN: ${{ github.token }}
-        run: ./eng/Test-Renovate.ps1
+        run: ./eng/Test-Renovate.ps1 -IsolatedNode
 
       - name: Compile samples and verify the packed tool
         shell: pwsh

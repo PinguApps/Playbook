@@ -93,7 +93,7 @@ extracts actual dependencies and checks synthetic future-project, dependency,
 release-line and update-type cases. It uses Renovate's own version matching,
 rule evaluator and branch generation, not a substitute implementation.
 
-From PowerShell, with Node.js 24.11+ in the Node.js 24 release line and Git installed:
+From PowerShell 7, with Git installed:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a44d23d2'
@@ -102,6 +102,10 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a44d23d2'
 ```
 
 Expect two `PASS` summaries and strict configuration validation without errors.
+The wrapper reuses Node.js 24.11+ in the Node.js 24 release line when available;
+otherwise it downloads portable Node.js 24.21.0 and verifies the archive against
+the official SHA-256 manifest. CI passes `-IsolatedNode` to exercise this setup
+regardless of the runner's installed runtime. No system installation is required.
 The wrapper installs pinned Renovate 44.172.1 in a unique temporary directory,
 disables npm lifecycle scripts, installs the published RE2 artifact without a
 compiler fallback, and invokes tools by absolute path without changing PATH.

@@ -1,5 +1,5 @@
 [CmdletBinding()]
-param([string]$RenovateRoot)
+param([string]$RenovateRoot, [switch]$IsolatedNode)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
@@ -12,13 +12,43 @@ $previousGit = $env:PLAYBOOK_GIT_PATH
 try {
   $nodeCommand = Get-Command node -CommandType Application -ErrorAction SilentlyContinue
   $node = $nodeCommand.Source
-  if (-not $node -or (& $node --version) -notmatch '^v24\.(1[1-9]|[2-9][0-9])\.') {
-    throw 'The Renovate policy check requires Node.js 24.11 or later in the Node.js 24 release line.'
+  if ($IsolatedNode -or -not $node -or (& $node --version) -notmatch '^v24\.(1[1-9]|[2-9][0-9])\.') {
+    # Portable archives need no installer, PATH change or shell integration.
+    $nodeVersion = '24.21.0'
+    $platform = if ($IsWindows) { 'win' } elseif ($IsLinux) { 'linux' } elseif ($IsMacOS) { 'darwin' } else { throw 'Unsupported Node.js platform.' }
+    $architecture = [Runtime.InteropServices.RuntimeInformation]::OSArchitecture.ToString().ToLowerInvariant()
+    if ($architecture -notin @('x64', 'arm64')) { throw "Unsupported Node.js architecture: $architecture" }
+    $nodeHome = Join-Path ([IO.Path]::GetTempPath()) ('playbook-node-' + [guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory -Path $nodeHome | Out-Null
+    $distribution = "node-v$nodeVersion-$platform-$architecture"
+    $extension = if ($IsWindows) { 'zip' } else { 'tar.gz' }
+    $archiveName = "$distribution.$extension"
+    $downloadRoot = "https://nodejs.org/dist/v$nodeVersion"
+    $checksums = (Invoke-WebRequest "$downloadRoot/SHASUMS256.txt").Content
+    $checksumLine = @($checksums -split '\r?\n' | Where-Object { $_ -match ('^[a-f0-9]{64}\s+' + [regex]::Escape($archiveName) + '$') })
+    if ($checksumLine.Count -ne 1) { throw "Missing unique Node.js checksum for $archiveName" }
+    $expectedHash = ($checksumLine[0] -split '\s+')[0]
+    $archive = Join-Path $nodeHome $archiveName
+    Invoke-WebRequest "$downloadRoot/$archiveName" -OutFile $archive
+    if ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ine $expectedHash) { throw 'Node.js archive checksum mismatch.' }
+    if ($IsWindows) {
+      Expand-Archive -LiteralPath $archive -DestinationPath $nodeHome
+      $node = Join-Path $nodeHome "$distribution/node.exe"
+    }
+    else {
+      $tar = (Get-Command tar -CommandType Application).Source
+      & $tar -xzf $archive -C $nodeHome
+      $node = Join-Path $nodeHome "$distribution/bin/node"
+    }
+    if ((& $node --version) -ne "v$nodeVersion") { throw 'Unexpected portable Node.js version.' }
   }
   if (-not $RenovateRoot) {
     $tools = Join-Path ([IO.Path]::GetTempPath()) ('playbook-renovate-' + [guid]::NewGuid().ToString('N'))
     New-Item -ItemType Directory -Path $tools | Out-Null
     $npmCli = Join-Path (Split-Path $node) 'node_modules/npm/bin/npm-cli.js'
+    if (-not (Test-Path -LiteralPath $npmCli)) {
+      $npmCli = Join-Path (Split-Path (Split-Path $node)) 'lib/node_modules/npm/bin/npm-cli.js'
+    }
     if (-not (Test-Path -LiteralPath $npmCli)) {
       # Unix npm launchers resolve to npm-cli.js; Node runs it directly.
       $npmCli = (Get-Command npm -CommandType Application).Source
