@@ -176,7 +176,7 @@ Commit native authoring evidence for routine validation to consume without insta
 
 ## Review the delivered artifact
 
-After capture or an edit, follow `eng/Verify.ps1` above: content/evidence fixtures, thirteen real portable sample paths, Release solution build, real pack rejection checks, one ordinary package and the separate unpublished contract fixture, then installed stdio MCP scenarios. For manual build/pack separation:
+After capture or an edit, follow `eng/Verify.ps1` above: content/evidence fixtures, fifteen real portable sample paths, Release solution build, real pack rejection checks, one ordinary package and the separate unpublished contract fixture, then installed stdio MCP scenarios. For manual build/pack separation:
 
 ```powershell
 Set-Location <path-to-Playbook>
