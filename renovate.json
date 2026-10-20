@@ -2,5 +2,68 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>PinguApps/renovate-config"
+  ],
+  "timezone": "Europe/London",
+  "schedule": ["* 8-17 * * 1"],
+  "prConcurrentLimit": 2,
+  "prHourlyLimit": 2,
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "description": "Keep all dependency updates subject to manual merge.",
+      "matchPackageNames": ["*"],
+      "automerge": false
+    },
+    {
+      "description": "Keep proposing updates to the tool's bare NuGet versions.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "rangeStrategy": "bump"
+    },
+    {
+      "description": "Keep the host's Microsoft.Extensions.Hosting dependency on .NET 10 until the host target is deliberately upgraded.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["Microsoft.Extensions.Hosting"],
+      "allowedVersions": "[10.0.0,11.0.0)"
+    },
+    {
+      "description": "Approve major updates in the dashboard before creating PRs.",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Update the related test packages together within their current major versions.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["Microsoft.NET.Test.Sdk", "Reqnroll.xunit.v3", "xunit.v3.mtp-off", "xunit.runner.visualstudio"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "test dependencies"
+    },
+    {
+      "description": "Group routine Action updates while retaining inherited SHA pinning.",
+      "matchManagers": ["github-actions"],
+      "matchDepTypes": ["action"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "groupName": "GitHub Actions"
+    },
+    {
+      "description": "SDK and runtime baselines require coordinated CI and evidence updates.",
+      "matchDatasources": ["dotnet-version"],
+      "enabled": false
+    },
+    {
+      "description": "Keep CI runner and setup-tool versions under manual control.",
+      "matchManagers": ["github-actions"],
+      "matchDepTypes": ["github-runner", "uses-with"],
+      "enabled": false
+    },
+    {
+      "description": "Samples are verified version-specific comparisons; update their SDKs, packages and evidence intentionally.",
+      "matchFileNames": ["samples/**"],
+      "enabled": false
+    }
   ]
 }
