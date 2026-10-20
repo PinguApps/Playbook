@@ -1,0 +1,330 @@
+{
+  "reviewedOn": "2026-10-20",
+  "evidenceKind": "official-source-review",
+  "baselineRef": "7463b65f5c25bd1e4180609bf8aaaa9436833a15",
+  "baselineTag": "NET-SDK-10.0.100",
+  "candidateRef": "bd31e3f513f12c738f58ebca2400e588233f1d19",
+  "candidateKind": "observed main, not an RC2 or GA release manifest",
+  "sources": [
+    {
+      "id": "Core-Shipped-7463b65",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/7463b65f5c25bd1e4180609bf8aaaa9436833a15/src/Compilers/Core/Portable/PublicAPI.Shipped.txt",
+      "sha256": "6022e27894ffd2c9f24200db47457c4cf07cbebd2f06c6ea61e10d46aa3640ab"
+    },
+    {
+      "id": "Core-Shipped-bd31e3f",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/Core/Portable/PublicAPI.Shipped.txt",
+      "sha256": "f832eeaa743ce4512d1d7032d5818adfcd0db33b3e57f233519b358c40be5dc9"
+    },
+    {
+      "id": "Core-Unshipped-7463b65",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/7463b65f5c25bd1e4180609bf8aaaa9436833a15/src/Compilers/Core/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "712794aa65a85b0fd94b15ee74d0a5e1a1f65ee4293f06e9616f9a17d71cc489"
+    },
+    {
+      "id": "Core-Unshipped-bd31e3f",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/Core/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "7f24d3fe63c66ffcfd68be529713d990443823afe5539f4933318ce15a082bf1"
+    },
+    {
+      "id": "CSharp-Shipped-7463b65",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/7463b65f5c25bd1e4180609bf8aaaa9436833a15/src/Compilers/CSharp/Portable/PublicAPI.Shipped.txt",
+      "sha256": "3ca240a157682a7e64251a051e9e9f1a766dfe1a8f3b63beef8c3b6bf5d269b8"
+    },
+    {
+      "id": "CSharp-Shipped-bd31e3f",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/CSharp/Portable/PublicAPI.Shipped.txt",
+      "sha256": "e8418e07112ea3a93ef91edce47c2a20c7148746193a97f660a2acd59141a1cf"
+    },
+    {
+      "id": "CSharp-Unshipped-7463b65",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/7463b65f5c25bd1e4180609bf8aaaa9436833a15/src/Compilers/CSharp/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "67473467f7fac310851e50c1f04cd3fe2b1154f0187085228c2686b93d53ceaf"
+    },
+    {
+      "id": "CSharp-Unshipped-bd31e3f",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/CSharp/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "29d4418152aef32821a7a59b7baf582c91c9760efdffb0ef03aad1ece5b83b33"
+    },
+    {
+      "id": "VisualBasic-Shipped-7463b65",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/7463b65f5c25bd1e4180609bf8aaaa9436833a15/src/Compilers/VisualBasic/Portable/PublicAPI.Shipped.txt",
+      "sha256": "1e1ea88a549648d0004789db95001bcb296f2488c83da6d4795c45a515f8e6d6"
+    },
+    {
+      "id": "VisualBasic-Shipped-bd31e3f",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/VisualBasic/Portable/PublicAPI.Shipped.txt",
+      "sha256": "1e1ea88a549648d0004789db95001bcb296f2488c83da6d4795c45a515f8e6d6"
+    },
+    {
+      "id": "VisualBasic-Unshipped-7463b65",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/7463b65f5c25bd1e4180609bf8aaaa9436833a15/src/Compilers/VisualBasic/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "id": "VisualBasic-Unshipped-bd31e3f",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/VisualBasic/Portable/PublicAPI.Unshipped.txt",
+      "sha256": "991285a2bfc69357db1e802182509563f936f6a65d262001e4ae219bc6a85d8e"
+    },
+    {
+      "id": "csharp-breaking",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/docs/compilers/CSharp/Compiler%20Breaking%20Changes%20-%20DotNet%2011.md",
+      "sha256": "59550471dcf1490d458abc9060f900f660892bcf4a6260a549320292a9b9d1a5"
+    },
+    {
+      "id": "rc1-csharp",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+      "sha256": "dac046d3ba962594e3903b8052dc764dd3aa4694e1d630b7b771a634a499a98d"
+    },
+    {
+      "id": "rc2-csharp",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/csharp.md",
+      "sha256": "afdbb6a856ac81599a15eebfa6b04cbdc1937735c58fe5e6d356b2870ca61ac2"
+    },
+    {
+      "id": "rc2-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/winforms.md",
+      "sha256": "d3fe092186394ae7c92ea737e59bdc7a709aa6a7a51cc2a294b76618a8dbfa92"
+    },
+    {
+      "id": "vb-breaking",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/docs/compilers/Visual%20Basic/Compiler%20Breaking%20Changes%20-%20DotNet%2010.md",
+      "sha256": "912d8e5dd1ba6ea4f3b5a58de711c60bb2737182701bb93999ebf52e343030f3"
+    },
+    {
+      "id": "vb-conversion",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/VisualBasic/Portable/VisualBasicExtensions.vb",
+      "sha256": "d9e9ab3a35c8fb0b53dbb71060c0faa071c66fdaa01a411aa04ed777426dddff"
+    },
+    {
+      "id": "vb-history",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/7a5a9cf8549d2356a135e1686949f4f205cc4843/docs/visual-basic/whats-new/index.md",
+      "sha256": "00c6b6f4d2a215fb6e4aff2d11681beb1f6172c7aaae937c8abf07ea5d59a50f"
+    },
+    {
+      "id": "vb-language",
+      "url": "https://raw.githubusercontent.com/dotnet/roslyn/bd31e3f513f12c738f58ebca2400e588233f1d19/src/Compilers/VisualBasic/Portable/LanguageVersion.vb",
+      "sha256": "13fd46e5cb7b1c1fa3a252f7c6e3540d10fc7575bcefd0a02f2598e97c508243"
+    },
+    {
+      "id": "compatibility-index",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/7a5a9cf8549d2356a135e1686949f4f205cc4843/docs/core/compatibility/11.md",
+      "sha256": "ca69021f318729061ff084832ce85a97f277f2ddc5d419727afd35d50093b813"
+    },
+    {
+      "id": "rc2-build-metadata",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/build-metadata.json",
+      "sha256": "97dcbee9a3cc88731fc8e7a92de315369ae259d1e04554eb1d744d136f9a6eab"
+    },
+    {
+      "id": "rc2-release",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/release.json",
+      "sha256": "c99300a7acf2ac2d569a27164ac84c2066a3ba0f22da88d94bf3163f206481d9"
+    }
+  ],
+  "publicApiDiff": [
+    {
+      "surface": "Core",
+      "added": [
+        "abstract Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.RegisterSymbolAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.SymbolAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolKind> symbolKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.RegisterSyntaxNodeAction<TLanguageKindEnum>(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.CodeBlockStartAnalysisContext<TLanguageKindEnum>.RegisterSyntaxNodeAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext.RegisterSymbolAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.SymbolAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolKind> symbolKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext.RegisterSyntaxNodeAction<TLanguageKindEnum>(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.SymbolStartAnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.SymbolStartAnalysisContext.RegisterSyntaxNodeAction<TLanguageKindEnum>(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "[RSEXPERIMENTAL001]abstract Microsoft.CodeAnalysis.SemanticModel.NullableAnalysisIsDisabled.get -> bool",
+        "Microsoft.CodeAnalysis.Emit.EmitDifferenceOptions.MethodImplEntriesSupported.get -> bool",
+        "Microsoft.CodeAnalysis.Emit.EmitDifferenceOptions.MethodImplEntriesSupported.init -> void",
+        "[RSEXPERIMENTAL004]Microsoft.CodeAnalysis.GeneratorRunResult.HostOutputs.get -> System.Collections.Immutable.ImmutableDictionary<string!, object!>!",
+        "Microsoft.CodeAnalysis.IMethodSymbol.ReduceExtensionMember(Microsoft.CodeAnalysis.ITypeSymbol! receiverType) -> Microsoft.CodeAnalysis.IMethodSymbol?",
+        "Microsoft.CodeAnalysis.IPropertySymbol.ReduceExtensionMember(Microsoft.CodeAnalysis.ITypeSymbol! receiverType) -> Microsoft.CodeAnalysis.IPropertySymbol?",
+        "static Microsoft.CodeAnalysis.AssemblyMetadata.Create(params System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ModuleMetadata!> modules) -> Microsoft.CodeAnalysis.AssemblyMetadata!",
+        "virtual Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void",
+        "virtual Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, params System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void",
+        "Microsoft.CodeAnalysis.INamedTypeSymbol.TypeLayout.get -> Microsoft.CodeAnalysis.TypeLayout",
+        "Microsoft.CodeAnalysis.Text.SourceHashAlgorithm.Sha384 = 3 -> Microsoft.CodeAnalysis.Text.SourceHashAlgorithm",
+        "Microsoft.CodeAnalysis.Text.SourceHashAlgorithm.Sha512 = 4 -> Microsoft.CodeAnalysis.Text.SourceHashAlgorithm",
+        "Microsoft.CodeAnalysis.TypeLayout",
+        "Microsoft.CodeAnalysis.TypeLayout.Equals(Microsoft.CodeAnalysis.TypeLayout other) -> bool",
+        "Microsoft.CodeAnalysis.TypeLayout.Kind.get -> System.Runtime.InteropServices.LayoutKind",
+        "Microsoft.CodeAnalysis.TypeLayout.PackingSize.get -> ushort",
+        "Microsoft.CodeAnalysis.TypeLayout.Size.get -> int",
+        "Microsoft.CodeAnalysis.TypeLayout.TypeLayout() -> void",
+        "override Microsoft.CodeAnalysis.TypeLayout.Equals(object? obj) -> bool",
+        "override Microsoft.CodeAnalysis.TypeLayout.GetHashCode() -> int",
+        "static Microsoft.CodeAnalysis.TypeLayout.operator !=(Microsoft.CodeAnalysis.TypeLayout left, Microsoft.CodeAnalysis.TypeLayout right) -> bool",
+        "static Microsoft.CodeAnalysis.TypeLayout.operator ==(Microsoft.CodeAnalysis.TypeLayout left, Microsoft.CodeAnalysis.TypeLayout right) -> bool",
+        "Microsoft.CodeAnalysis.ClosedDerivedTypeInfo",
+        "Microsoft.CodeAnalysis.ClosedDerivedTypeInfo.ClosedDerivedTypeInfo() -> void",
+        "Microsoft.CodeAnalysis.ClosedDerivedTypeInfo.ClosedDerivedTypes.get -> System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.INamedTypeSymbol!>",
+        "Microsoft.CodeAnalysis.ClosedDerivedTypeInfo.IsComplete.get -> bool",
+        "Microsoft.CodeAnalysis.ITypeSymbol.GetClosedDerivedTypeInfo(System.Threading.CancellationToken cancellationToken) -> Microsoft.CodeAnalysis.ClosedDerivedTypeInfo",
+        "Microsoft.CodeAnalysis.ITypeSymbol.IsClosed.get -> bool",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.IModuleSymbol.MemorySafetyRulesVersion.get -> Microsoft.CodeAnalysis.MemorySafetyRulesVersion",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.ISymbol.RequiresUnsafeContext.get -> bool",
+        "Microsoft.CodeAnalysis.OperationKind.CollectionExpressionElementsPlaceholder = 129 -> Microsoft.CodeAnalysis.OperationKind",
+        "Microsoft.CodeAnalysis.Operations.ICollectionExpressionOperation.ConstructArguments.get -> System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.IOperation!>",
+        "Microsoft.CodeAnalysis.Operations.ICollectionExpressionElementsPlaceholderOperation",
+        "virtual Microsoft.CodeAnalysis.Operations.OperationVisitor.VisitCollectionExpressionElementsPlaceholder(Microsoft.CodeAnalysis.Operations.ICollectionExpressionElementsPlaceholderOperation! operation) -> void",
+        "virtual Microsoft.CodeAnalysis.Operations.OperationVisitor<TArgument, TResult>.VisitCollectionExpressionElementsPlaceholder(Microsoft.CodeAnalysis.Operations.ICollectionExpressionElementsPlaceholderOperation! operation, TArgument argument) -> TResult?",
+        "const Microsoft.CodeAnalysis.WellKnownMemberNames.HasValuePropertyName = \"HasValue\" -> string!",
+        "const Microsoft.CodeAnalysis.WellKnownMemberNames.TryGetValueMethodName = \"TryGetValue\" -> string!",
+        "Microsoft.CodeAnalysis.Operations.CommonConversion.IsUnion.get -> bool",
+        "Microsoft.CodeAnalysis.ITypeSymbol.IsUnion.get -> bool",
+        "Microsoft.CodeAnalysis.ITypeSymbol.UnionCaseTypes.get -> System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ITypeSymbol!>",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.MemorySafetyRulesVersion",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.MemorySafetyRulesVersion.Version1 = 1 -> Microsoft.CodeAnalysis.MemorySafetyRulesVersion",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.MemorySafetyRulesVersion.Version2 = 2 -> Microsoft.CodeAnalysis.MemorySafetyRulesVersion",
+        "[RSEXPERIMENTAL007]Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext.RegisterPreCompilationSourceOutput<TSource>(Microsoft.CodeAnalysis.IncrementalValueProvider<TSource> source, System.Action<Microsoft.CodeAnalysis.PreCompilationSourceProductionContext, TSource>! action) -> void",
+        "[RSEXPERIMENTAL007]Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext.RegisterPreCompilationSourceOutput<TSource>(Microsoft.CodeAnalysis.IncrementalValuesProvider<TSource> source, System.Action<Microsoft.CodeAnalysis.PreCompilationSourceProductionContext, TSource>! action) -> void",
+        "[RSEXPERIMENTAL007]Microsoft.CodeAnalysis.PreCompilationSourceProductionContext",
+        "[RSEXPERIMENTAL007]Microsoft.CodeAnalysis.PreCompilationSourceProductionContext.AddSource(string! hintName, Microsoft.CodeAnalysis.Text.SourceText! sourceText) -> void",
+        "[RSEXPERIMENTAL007]Microsoft.CodeAnalysis.PreCompilationSourceProductionContext.AddSource(string! hintName, string! source) -> void",
+        "[RSEXPERIMENTAL007]Microsoft.CodeAnalysis.PreCompilationSourceProductionContext.CancellationToken.get -> System.Threading.CancellationToken",
+        "[RSEXPERIMENTAL007]Microsoft.CodeAnalysis.PreCompilationSourceProductionContext.PreCompilationSourceProductionContext() -> void",
+        "Microsoft.CodeAnalysis.IncrementalGeneratorOutputKind.PreCompilation = 16 -> Microsoft.CodeAnalysis.IncrementalGeneratorOutputKind",
+        "const Microsoft.CodeAnalysis.WellKnownGeneratorOutputs.PreCompilationSourceOutput = \"PreCompilationSourceOutput\" -> string!",
+        "static Microsoft.CodeAnalysis.Operations.OperationExtensions.Descendants(this Microsoft.CodeAnalysis.IOperation? operation, System.Func<Microsoft.CodeAnalysis.IOperation!, bool>? descendIntoChildren) -> System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.IOperation!>!",
+        "static Microsoft.CodeAnalysis.Operations.OperationExtensions.DescendantsAndSelf(this Microsoft.CodeAnalysis.IOperation? operation, System.Func<Microsoft.CodeAnalysis.IOperation!, bool>? descendIntoChildren) -> System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.IOperation!>!"
+      ],
+      "removed": [
+        "abstract Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.RegisterSymbolAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.SymbolAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolKind> symbolKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.RegisterSyntaxNodeAction<TLanguageKindEnum>(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.CodeBlockStartAnalysisContext<TLanguageKindEnum>.RegisterSyntaxNodeAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext.RegisterSymbolAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.SymbolAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.SymbolKind> symbolKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext.RegisterSyntaxNodeAction<TLanguageKindEnum>(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.OperationBlockStartAnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.SymbolStartAnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.Diagnostics.SymbolStartAnalysisContext.RegisterSyntaxNodeAction<TLanguageKindEnum>(System.Action<Microsoft.CodeAnalysis.Diagnostics.SyntaxNodeAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<TLanguageKindEnum> syntaxKinds) -> void",
+        "abstract Microsoft.CodeAnalysis.SemanticModel.NullableAnalysisIsDisabled.get -> bool",
+        "Microsoft.CodeAnalysis.GeneratorRunResult.HostOutputs.get -> System.Collections.Immutable.ImmutableDictionary<string!, object!>!",
+        "static Microsoft.CodeAnalysis.AssemblyMetadata.Create(System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.ModuleMetadata!> modules) -> Microsoft.CodeAnalysis.AssemblyMetadata!",
+        "virtual Microsoft.CodeAnalysis.Diagnostics.AnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void",
+        "virtual Microsoft.CodeAnalysis.Diagnostics.CompilationStartAnalysisContext.RegisterOperationAction(System.Action<Microsoft.CodeAnalysis.Diagnostics.OperationAnalysisContext>! action, System.Collections.Immutable.ImmutableArray<Microsoft.CodeAnalysis.OperationKind> operationKinds) -> void"
+      ]
+    },
+    {
+      "surface": "CSharp",
+      "added": [
+        "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo.DisposeAwaitableInfo.get -> Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo",
+        "Microsoft.CodeAnalysis.CSharp.ForEachStatementInfo.MoveNextAwaitableInfo.get -> Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo",
+        "static Microsoft.CodeAnalysis.CSharp.CSharpExtensions.GetAwaitExpressionInfo(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.LocalDeclarationStatementSyntax! awaitUsingDeclaration) -> Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo",
+        "static Microsoft.CodeAnalysis.CSharp.CSharpExtensions.GetAwaitExpressionInfo(this Microsoft.CodeAnalysis.SemanticModel? semanticModel, Microsoft.CodeAnalysis.CSharp.Syntax.UsingStatementSyntax! awaitUsingStatement) -> Microsoft.CodeAnalysis.CSharp.AwaitExpressionInfo",
+        "Microsoft.CodeAnalysis.CSharp.LanguageVersion.CSharp15 = 1500 -> Microsoft.CodeAnalysis.CSharp.LanguageVersion",
+        "Microsoft.CodeAnalysis.CSharp.SyntaxKind.WithElement = 9081 -> Microsoft.CodeAnalysis.CSharp.SyntaxKind",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.AddArgumentListArguments(params Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentSyntax![]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.ArgumentList.get -> Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.Update(Microsoft.CodeAnalysis.SyntaxToken withKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax! argumentList) -> Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.WithArgumentList(Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax! argumentList) -> Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.WithKeyword.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.WithWithKeyword(Microsoft.CodeAnalysis.SyntaxToken withKeyword) -> Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax!",
+        "override Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter.VisitWithElement(Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax! node) -> Microsoft.CodeAnalysis.SyntaxNode?",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor! visitor) -> void",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax.Accept<TResult>(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor<TResult>! visitor) -> TResult?",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.WithElement(Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax? argumentList = null) -> Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.WithElement(Microsoft.CodeAnalysis.SyntaxToken withKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.ArgumentListSyntax! argumentList) -> Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax!",
+        "virtual Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.VisitWithElement(Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax! node) -> void",
+        "virtual Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor<TResult>.VisitWithElement(Microsoft.CodeAnalysis.CSharp.Syntax.WithElementSyntax! node) -> TResult?",
+        "Microsoft.CodeAnalysis.CSharp.Conversion.IsUnion.get -> bool",
+        "Microsoft.CodeAnalysis.CSharp.SyntaxKind.UnionKeyword = 8452 -> Microsoft.CodeAnalysis.CSharp.SyntaxKind",
+        "Microsoft.CodeAnalysis.CSharp.SyntaxKind.UnionDeclaration = 9082 -> Microsoft.CodeAnalysis.CSharp.SyntaxKind",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax.Name.get -> Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax?",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax.Update(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.SyntaxToken breakKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name, Microsoft.CodeAnalysis.SyntaxToken semicolonToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax.WithName(Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name) -> Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax.Name.get -> Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax?",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax.Update(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.SyntaxToken continueKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name, Microsoft.CodeAnalysis.SyntaxToken semicolonToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax.WithName(Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name) -> Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.BreakStatement(Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name = null) -> Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.BreakStatement(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name) -> Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.BreakStatement(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.SyntaxToken breakKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name, Microsoft.CodeAnalysis.SyntaxToken semicolonToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.BreakStatementSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.ContinueStatement(Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name = null) -> Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.ContinueStatement(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name) -> Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.ContinueStatement(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.SyntaxToken continueKeyword, Microsoft.CodeAnalysis.CSharp.Syntax.IdentifierNameSyntax? name, Microsoft.CodeAnalysis.SyntaxToken semicolonToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.ContinueStatementSyntax!",
+        "virtual Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor<TResult>.VisitUnionDeclaration(Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax! node) -> TResult?",
+        "virtual Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.VisitUnionDeclaration(Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax! node) -> void",
+        "override Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter.VisitUnionDeclaration(Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax! node) -> Microsoft.CodeAnalysis.SyntaxNode?",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AttributeLists.get -> Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!>",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.Modifiers.get -> Microsoft.CodeAnalysis.SyntaxTokenList",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.Keyword.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.Identifier.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.TypeParameterList.get -> Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax?",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.BaseList.get -> Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax?",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.ParameterList.get -> Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax?",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.ConstraintClauses.get -> Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax!>",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.Members.get -> Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax!>",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.OpenBraceToken.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.CloseBraceToken.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.SemicolonToken.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor! visitor) -> void",
+        "override Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.Accept<TResult>(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor<TResult>! visitor) -> TResult?",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.Update(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax!> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax!> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithAttributeLists(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithModifiers(Microsoft.CodeAnalysis.SyntaxTokenList modifiers) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithIdentifier(Microsoft.CodeAnalysis.SyntaxToken identifier) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithKeyword(Microsoft.CodeAnalysis.SyntaxToken keyword) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithTypeParameterList(Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithParameterList(Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithBaseList(Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithConstraintClauses(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax!> constraintClauses) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithOpenBraceToken(Microsoft.CodeAnalysis.SyntaxToken openBraceToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithMembers(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax!> members) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithCloseBraceToken(Microsoft.CodeAnalysis.SyntaxToken closeBraceToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.WithSemicolonToken(Microsoft.CodeAnalysis.SyntaxToken semicolonToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AddAttributeLists(params Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax![]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AddModifiers(params Microsoft.CodeAnalysis.SyntaxToken[]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AddTypeParameterListParameters(params Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterSyntax![]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AddParameterListParameters(params Microsoft.CodeAnalysis.CSharp.Syntax.ParameterSyntax![]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AddBaseListTypes(params Microsoft.CodeAnalysis.CSharp.Syntax.BaseTypeSyntax![]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AddMembers(params Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax![]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax.AddConstraintClauses(params Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax![]! items) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.UnionDeclaration(Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.AttributeListSyntax!> attributeLists, Microsoft.CodeAnalysis.SyntaxTokenList modifiers, Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken identifier, Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterListSyntax? typeParameterList, Microsoft.CodeAnalysis.CSharp.Syntax.ParameterListSyntax? parameterList, Microsoft.CodeAnalysis.CSharp.Syntax.BaseListSyntax? baseList, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.TypeParameterConstraintClauseSyntax!> constraintClauses, Microsoft.CodeAnalysis.SyntaxToken openBraceToken, Microsoft.CodeAnalysis.SyntaxList<Microsoft.CodeAnalysis.CSharp.Syntax.MemberDeclarationSyntax!> members, Microsoft.CodeAnalysis.SyntaxToken closeBraceToken, Microsoft.CodeAnalysis.SyntaxToken semicolonToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnionDeclarationSyntax!",
+        "Microsoft.CodeAnalysis.CSharp.SyntaxKind.ClosedKeyword = 8453 -> Microsoft.CodeAnalysis.CSharp.SyntaxKind",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.MemorySafetyRulesVersion.get -> Microsoft.CodeAnalysis.MemorySafetyRulesVersion",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions.WithMemorySafetyRulesVersion(Microsoft.CodeAnalysis.MemorySafetyRulesVersion version) -> Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions!",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.SyntaxKind.SafeKeyword = 8454 -> Microsoft.CodeAnalysis.CSharp.SyntaxKind",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.CloseParenToken.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.Expression.get -> Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax!",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.OpenParenToken.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.Keyword.get -> Microsoft.CodeAnalysis.SyntaxToken",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.Update(Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken openParenToken, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax! expression, Microsoft.CodeAnalysis.SyntaxToken closeParenToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax!",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.WithCloseParenToken(Microsoft.CodeAnalysis.SyntaxToken closeParenToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax!",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.WithExpression(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax! expression) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax!",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.WithOpenParenToken(Microsoft.CodeAnalysis.SyntaxToken openParenToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax!",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.WithKeyword(Microsoft.CodeAnalysis.SyntaxToken keyword) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax!",
+        "[RSEXPERIMENTAL006]Microsoft.CodeAnalysis.CSharp.SyntaxKind.UnsafeExpression = 8769 -> Microsoft.CodeAnalysis.CSharp.SyntaxKind",
+        "[RSEXPERIMENTAL006]override Microsoft.CodeAnalysis.CSharp.CSharpSyntaxRewriter.VisitUnsafeExpression(Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax! node) -> Microsoft.CodeAnalysis.SyntaxNode?",
+        "[RSEXPERIMENTAL006]override Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.Accept(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor! visitor) -> void",
+        "[RSEXPERIMENTAL006]override Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax.Accept<TResult>(Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor<TResult>! visitor) -> TResult?",
+        "[RSEXPERIMENTAL006]static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.UnsafeExpression(Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax! expression) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax!",
+        "[RSEXPERIMENTAL006]static Microsoft.CodeAnalysis.CSharp.SyntaxFactory.UnsafeExpression(Microsoft.CodeAnalysis.SyntaxToken keyword, Microsoft.CodeAnalysis.SyntaxToken openParenToken, Microsoft.CodeAnalysis.CSharp.Syntax.ExpressionSyntax! expression, Microsoft.CodeAnalysis.SyntaxToken closeParenToken) -> Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax!",
+        "[RSEXPERIMENTAL006]virtual Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor.VisitUnsafeExpression(Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax! node) -> void",
+        "[RSEXPERIMENTAL006]virtual Microsoft.CodeAnalysis.CSharp.CSharpSyntaxVisitor<TResult>.VisitUnsafeExpression(Microsoft.CodeAnalysis.CSharp.Syntax.UnsafeExpressionSyntax! node) -> TResult?",
+        "static Microsoft.CodeAnalysis.CSharp.CSharpExtensions.GetValueConversion(this Microsoft.CodeAnalysis.Operations.ICoalesceOperation! coalesceExpression) -> Microsoft.CodeAnalysis.CSharp.Conversion",
+        "Microsoft.CodeAnalysis.CSharp.TypedConstantFormattingOptions",
+        "Microsoft.CodeAnalysis.CSharp.TypedConstantFormattingOptions.IncludeTypeSuffix = 1 -> Microsoft.CodeAnalysis.CSharp.TypedConstantFormattingOptions",
+        "Microsoft.CodeAnalysis.CSharp.TypedConstantFormattingOptions.None = 0 -> Microsoft.CodeAnalysis.CSharp.TypedConstantFormattingOptions",
+        "static Microsoft.CodeAnalysis.CSharp.TypedConstantExtensions.ToCSharpString(this Microsoft.CodeAnalysis.TypedConstant constant, Microsoft.CodeAnalysis.CSharp.TypedConstantFormattingOptions options) -> string!"
+      ],
+      "removed": [
+        "static Microsoft.CodeAnalysis.CSharp.SymbolDisplay.FormatPrimitive(object! obj, bool quoteStrings, bool useHexadecimalNumbers) -> string!",
+        "*REMOVED*static Microsoft.CodeAnalysis.CSharp.SymbolDisplay.FormatPrimitive(object! obj, bool quoteStrings, bool useHexadecimalNumbers) -> string!"
+      ]
+    },
+    {
+      "surface": "VisualBasic",
+      "added": [
+        "Microsoft.CodeAnalysis.VisualBasic.VisualBasicExtensions.GetValueConversion(coalesceExpression As Microsoft.CodeAnalysis.Operations.ICoalesceOperation) -> Microsoft.CodeAnalysis.VisualBasic.Conversion",
+        "Microsoft.CodeAnalysis.VisualBasic.TypedConstantFormattingOptions",
+        "Microsoft.CodeAnalysis.VisualBasic.TypedConstantFormattingOptions.IncludeTypeCharacter = 1 -> Microsoft.CodeAnalysis.VisualBasic.TypedConstantFormattingOptions",
+        "Microsoft.CodeAnalysis.VisualBasic.TypedConstantFormattingOptions.None = 0 -> Microsoft.CodeAnalysis.VisualBasic.TypedConstantFormattingOptions",
+        "Microsoft.CodeAnalysis.VisualBasic.TypedConstantExtensions.ToVisualBasicString(constant As Microsoft.CodeAnalysis.TypedConstant, options As Microsoft.CodeAnalysis.VisualBasic.TypedConstantFormattingOptions) -> String"
+      ],
+      "removed": []
+    }
+  ]
+}
