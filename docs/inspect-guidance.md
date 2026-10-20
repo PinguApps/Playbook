@@ -131,3 +131,5 @@ Both property requests return edition `10.0`, introduction `10.0` and identical 
 ## Inspect reusable verification evidence from the package
 
 The [PIN-672 walkthrough](verification/PIN-672.md) installs the actual local package and calls both tools through Inspector. Detail includes the saved source commit/dirty marker, per-input SHA-256 hashes, exact target/SDK/language, commands, resolved dependencies, required workloads/native versions, authoring host, SDK information and actual output. `freshness: current` means the inputs matched when the package was built; installed use does not inspect the consumer or the current authoring checkout. `humanProof` keeps any targeted Human check visible independently of compilation. Neither freshness nor successful compilation establishes complete catalogue or product release readiness.
+
+For F# record construction, union JSON and culture-aware/reflection-free diagnostics, use [the PIN-716/PIN-718 walkthrough](verification/PIN-716-718.md#inspect-what-an-agent-receives). It displays all five reusable discovery descriptions, full canonical comparisons and the preview/reflection/deployment requirements.

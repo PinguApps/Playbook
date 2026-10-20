@@ -1,0 +1,155 @@
+{
+  "id": "fsharp.format-without-reflection",
+  "edition": "11.0",
+  "title": "Render record and union diagnostics without reflection formatting",
+  "goal": "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp",
+    "reflectionfree",
+    "diagnostics"
+  ],
+  "apis": [
+    "ToString",
+    "--reflectionfree"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpDiagnostics/FSharpDiagnostics.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md",
+          "https://fsharp.github.io/fsharp-compiler-docs/reflectionfree-printing.html",
+          "https://github.com/dotnet/fsharp/pull/19976"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package"
+          ],
+          "prerequisites": [
+            "Create an F# executable project targeting net11.0; set LangVersion to 11.0 and reference FSharp.Core 11.",
+            "For the canonical diagnostics project, add --reflectionfree to OtherFlags. Regional culture checks require globalization data.",
+            "Add `open System.Globalization` before the older definitions."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "name": "F#",
+            "version": "11.0",
+            "match": "exact",
+            "reason": "F# 11 is the declared language for this release comparison."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "OtherFlags=--reflectionfree"
+          ],
+          "providers": [],
+          "constraints": [
+            "Contained values must also have trimming/AOT-compatible ToString implementations. This flag is not a whole-application safety certificate.",
+            "Simple output is not F# source or a serialization format: strings lack quotes, arrays can show a type name, and null-represented values can print null. StructuredFormatDisplay is not honored by simple formatting.",
+            "This contribution separately compiles and executes --reflectionfree diagnostics and ordinary scalar formatting. It does not claim a trimmed or Native AOT application publish/run."
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "F# 11 reflection-free record and union formatting",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md"
+    },
+    {
+      "title": "Compiler guide: simple versus reflection printing",
+      "url": "https://fsharp.github.io/fsharp-compiler-docs/reflectionfree-printing.html"
+    },
+    {
+      "title": "Reflection-free generated ToString implementation",
+      "url": "https://github.com/dotnet/fsharp/pull/19976"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpDiagnostics/FSharpDiagnostics.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Original reflectionfree comparison: real compilation and execution of all assertions in FSharpDiagnostics. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/FSharpDiagnostics/FSharpDiagnostics.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "kind": "compile-and-run",
+      "scope": "Original reflectionfree comparison: real compilation and execution of all assertions in FSharpDiagnostics. Separate compiler and ordinary formatting probes run in eng/Test-FSharpGuidance.ps1. No mocks, native publish or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "path": "samples/net10.0/FSharpDiagnostics/Diagnostics.fs",
+      "region": "reflectionfree"
+    },
+    "newer": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpDiagnostics/Diagnostics.fs",
+      "region": "reflectionfree"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable compiler and managed runtime behavior is covered by execution. No provider, native application or UI proof is claimed."
+  }
+}
