@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><EnableDefaultCompileItems>false</EnableDefaultCompileItems><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion></PropertyGroup><ItemGroup><Compile Include="Commands.cs" /><Compile Include="../../ProcessExecutionChecks.cs" Link="Program.cs" /></ItemGroup></Project>

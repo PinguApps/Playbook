@@ -1,0 +1,12 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/ProcessExecutionChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ProcessPlatforms.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": [],
+  "nativeToolchains": []
+}

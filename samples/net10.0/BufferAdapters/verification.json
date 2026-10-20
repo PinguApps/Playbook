@@ -1,0 +1,11 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/BufferAdapterChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
