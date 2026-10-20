@@ -25,7 +25,9 @@ try {
     @{ Path = 'net9.0/PropertyAssignment'; Dotnet = $Net9Dotnet },
     @{ Path = 'net10.0/PropertyAssignment'; Dotnet = 'dotnet' },
     @{ Path = 'net10.0/PropertyAssignmentSdk11'; Dotnet = $Net11Dotnet },
-    @{ Path = 'net11.0/PropertyAssignment'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/PropertyAssignment'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/ClosedOutcomes'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/ClosedOutcomes'; Dotnet = $Net11Dotnet }
   )) {
     Push-Location (Join-Path $root "samples/$($sample.Path)")
     try {
@@ -33,10 +35,14 @@ try {
         & $sample.Dotnet build PropertyAssignment.csproj --configuration Release
         dotnet ./bin/Release/net10.0/PropertyAssignment.dll
       }
-      else { & $sample.Dotnet run --project PropertyAssignment.csproj --configuration Release }
+      else {
+        $project = if ($sample.Path -like '*/ClosedOutcomes') { 'ClosedOutcomes.csproj' } else { 'PropertyAssignment.csproj' }
+        & $sample.Dotnet run --project $project --configuration Release
+      }
     }
     finally { Pop-Location }
   }
+  & (Join-Path $PSScriptRoot 'Test-ClosedOutcomes.ps1') -Net11Dotnet $Net11Dotnet
   dotnet build PinguApps.Playbook.slnx --configuration Release -p:Version=$PackageVersion
   & (Join-Path $PSScriptRoot 'Test-Content.ps1') -Pack
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1') -Pack

@@ -93,7 +93,8 @@ try {
   & pwsh @buildArgs
   if ($LASTEXITCODE -ne 0) { throw 'Official review must be distinct from accompanying compilation.' }
   $served = Get-Content $output -Raw | ConvertFrom-Json
-  if ($served[0].evidence[-1].kind -cne 'official-review') { throw 'Official review classification was lost.' }
+  $propertyRecipe = @($served | Where-Object id -eq 'csharp.validate-property-assignment')
+  if ($propertyRecipe.Count -ne 1 -or $propertyRecipe[0].evidence[-1].kind -cne 'official-review') { throw 'Official review classification was lost.' }
   $recipe.evidence = @($recipe.evidence | Where-Object { $_.sample -cne $reference.sample }) + @($reference)
   $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
   $result = & pwsh @buildArgs 2>&1 | Out-String

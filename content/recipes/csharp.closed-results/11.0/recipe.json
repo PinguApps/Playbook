@@ -1,0 +1,173 @@
+{
+  "id": "csharp.closed-results",
+  "edition": "11.0",
+  "title": "Model distinct outcomes with a C# union",
+  "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "closed",
+    "outcomes",
+    "json"
+  ],
+  "apis": [
+    "union",
+    "IUnion"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "requirements": {
+          "runtime": {
+            "reason": "The union and closed-family runtime contracts are supplied by .NET 11.",
+            "match": "release-family",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "sdk": {
+            "reason": "Compile the net11.0 application with the SDK family providing C# 15 and matching reference assemblies.",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "language": {
+            "reason": "This route uses C# 15 union and closed declarations, stabilized in the canonical RC1 notes.",
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Target net11.0 and set LangVersion to 15.0; use framework System.Text.Json and the supplied metadata contexts."
+          ],
+          "constraints": [
+            "Default union storage has no active case; handle null explicitly.",
+            "Two object cases require deliberate classification; root-property matching does not inspect values or nested content.",
+            "Structural classification excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+          ],
+          "workloads": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj"
+        ],
+        "conditional": false,
+        "selectionNotes": [
+          "Handle null/default explicitly.",
+          "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed",
+          "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
+          "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+        ],
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft C# union reference",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union"
+    },
+    {
+      "title": "Microsoft closed modifier reference",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed"
+    },
+    {
+      "title": "Microsoft union serialization",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types"
+    },
+    {
+      "title": "Microsoft polymorphic serialization",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism"
+    },
+    {
+      "title": "Canonical RC1 C# stabilization",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+    },
+    {
+      "title": "Microsoft C# and target compatibility",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "sample": "samples/net10.0/ClosedOutcomes/ClosedOutcomes.csproj",
+      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+      "kind": "compile-and-run"
+    },
+    {
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "sample": "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj",
+      "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ClosedOutcomes/Outcomes.cs",
+      "region": "outcomes",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/ClosedOutcomes/Outcomes.cs",
+      "region": "outcomes",
+      "language": "csharp"
+    },
+    "older-context": {
+      "path": "samples/net10.0/ClosedOutcomes/Outcomes.cs",
+      "region": "outcome-context",
+      "language": "csharp"
+    },
+    "newer-context": {
+      "path": "samples/net11.0/ClosedOutcomes/Outcomes.cs",
+      "region": "outcome-context",
+      "language": "csharp"
+    },
+    "converter": {
+      "path": "samples/net10.0/ClosedOutcomes/Outcomes.cs",
+      "region": "converter",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "scope": "Portable compiler and serializer behavior is covered by real builds and executions; no targeted native Human proof is required.",
+    "status": "not-required"
+  }
+}

@@ -2,6 +2,8 @@
 
 `playbook mcp` speaks the MCP protocol over stdin/stdout; it is not a PowerShell prompt. Use [MCP Inspector](https://github.com/modelcontextprotocol/inspector/tree/main/clients/cli) as a client to initialize the connection and call its tools. This exercises the real server and its generated, embedded content.
 
+If npx fails with `'inspector' is not recognized`, it has failed to launch Inspector before Playbook starts. Use [the tested direct Node launch](verification/PIN-711.md#inspect-what-an-agent-receives): it installs Inspector locally under ignored artifacts, invokes its entry point explicitly and stops on failed native commands. Do not interpret the resulting empty response or Show-Markdown error as a server failure.
+
 Requires PowerShell 7, the pinned .NET SDK 10.0.402, and Node 22.19 or later for Inspector. The first `npx` call downloads Inspector; Playbook itself does not fetch guidance. Reading this recipe does not require the .NET 9 SDK or any workloads.
 
 From this worktree:
@@ -63,7 +65,7 @@ $invalid.result.content[0].text | ConvertFrom-Json | Format-List code, filter, i
 
 Expect the property recipe, `total=1`, `offset=0`, `limit=1`, `nextOffset=null` and `languageNeutral=false`. Both keywords match, and the explicitly selected .NET 10 applicability remains visible. The empty query result has `total=0`, no recipes and no next offset. The typo produces `unknown_area`, `filter=areas`, rejected `blazro`, and supported `csharp`. Inspector exits nonzero (5 in this verification) for that intentional error (see the native-command preference note below).
 
-The ordinary catalogue currently contains only this C# goal, so it cannot demonstrate a shared framework mapping, F#-applicable neutral configuration or multiple pages. The separate unpublished contract fixture and installed-package scenarios cover those cases, including all-term/title/goal/tag/API matching, OR within sets, AND between filters, shared inclusion disabled, unrelated Windows guidance excluded, C#-specific XML excluded from F#, and default/max-size traversal. Run the [verification commands](verification/PIN-971.md) for current evidence. Fixture metadata does not claim platform execution or additional shipped recipe coverage.
+The .NET 10 catalogue retains this property goal. The .NET 11 catalogue also contains four closed-outcome recipes with shared framework mappings; inspect their complete body and applicability using [the PIN-711 walkthrough](verification/PIN-711.md). F#-applicable neutral configuration and multi-page traversal remain separate unpublished contract-fixture checks, alongside all-term/title/goal/tag/API matching, OR within sets, AND between filters, shared inclusion disabled, unrelated Windows guidance excluded and C#-specific XML excluded from F#. Run the [verification commands](verification/PIN-971.md) for the contract checks. Fixture metadata does not claim platform execution or additional shipped recipe coverage.
 
 ## Inspect release selection and failures
 
