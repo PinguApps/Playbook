@@ -22,6 +22,14 @@ Schedules and ordinary PR limits are not security-update guarantees; Renovate's
 vulnerability-alert updates and explicit dashboard actions can bypass them.
 Excluded dependencies still need deliberate maintenance.
 
+Root `Directory.Packages.props` updates also set `skipArtifactsUpdate`. Renovate's
+NuGet artifact updater otherwise restores every descendant project, including
+samples with their own package declarations and SDK pins. Disabling sample
+updates and scheduled lock-file maintenance does not prevent that restore.
+The tool and tests have no committed lock files, so CI performs their normal
+restore/build checks instead. If lock files are added under `src/` or `tests/`,
+revisit this exemption and arrange lock-file updates for those consumers.
+
 ## Updating a baseline
 
 Samples compare specific target frameworks, language versions, SDKs and

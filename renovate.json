@@ -17,10 +17,11 @@
       "automerge": false
     },
     {
-      "description": "Keep proposing updates to the tool's bare NuGet versions.",
+      "description": "Update the tool's bare NuGet versions without restoring version-specific samples.",
       "matchManagers": ["nuget"],
       "matchFileNames": ["Directory.Packages.props"],
-      "rangeStrategy": "bump"
+      "rangeStrategy": "bump",
+      "skipArtifactsUpdate": true
     },
     {
       "description": "Keep the host's Microsoft.Extensions.Hosting dependency on .NET 10 until the host target is deliberately upgraded.",
