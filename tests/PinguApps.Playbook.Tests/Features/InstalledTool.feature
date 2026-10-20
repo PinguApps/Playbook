@@ -1,6 +1,13 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  Scenario: JSON workflows retain canonical comparisons and target safety offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then JSON workflows retain complete canonical bodies applicability and editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Unsafe boundary guidance preserves experimental obligations and complete content offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout

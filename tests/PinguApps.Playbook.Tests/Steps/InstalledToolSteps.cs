@@ -1200,6 +1200,77 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.True(JsonElement.DeepEquals(blank, omitted));
     }
 
+    [Then("JSON workflows retain complete canonical bodies applicability and editions")]
+    public async Task CheckJsonWorkflowsAsync()
+    {
+        foreach ((string goal, string sample, string file, string region) in new[]
+        {
+            ("stream-json-lines", "JsonStreaming", "Streaming", "streaming"),
+            ("reuse-writer", "JsonStreaming", "Streaming", "writer"),
+            ("configure-generic-contracts", "JsonResolution", "Contracts", "generic"),
+            ("retrieve-typed-metadata", "JsonResolution", "Contracts", "metadata"),
+            ("generate-private-contracts", "JsonModels", "Models", "private"),
+            ("preserve-omitted-initializers", "JsonModels", "Models", "initializers"),
+            ("bind-reference-constructors", "JsonModels", "Models", "constructors"),
+            ("configure-member-conventions", "JsonContracts", "Contracts", "conventions"),
+            ("use-numeric-collection-contracts", "JsonContracts", "Contracts", "values"),
+            ("describe-binary-schema", "JsonContracts", "Contracts", "schema"),
+            ("reject-malformed-contracts", "JsonImport", "Import", "import")
+        })
+        {
+            string id = $"json.{goal}";
+            bool foundation = sample == "JsonImport";
+            string edition = foundation ? "10.0" : "11.0";
+            foreach (string target in new[] { "10.0", "11.0" })
+            {
+                JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = target, query = goal }).ConfigureAwait(false));
+                if (!foundation && target == "10.0")
+                {
+                    Assert.Empty(RecipeIds(list));
+                    JsonElement failure = await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false);
+                    Assert.True(failure.GetProperty("isError").GetBoolean());
+                    continue;
+                }
+
+                JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+                Assert.Equal(id, summary.GetProperty("id").GetString());
+                Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
+                JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false));
+                JsonElement recipe = detail.GetProperty("recipe");
+                Assert.Equal(edition, recipe.GetProperty("edition").GetString());
+                Assert.Equal(edition, recipe.GetProperty("introducedIn").GetString());
+                AssertSelection(summary, recipe);
+                string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+                foreach ((string token, string release) in new[] { ("older", foundation ? "net9.0" : "net10.0"), ("newer", foundation ? "net10.0" : "net11.0") })
+                {
+                    string source = await ReadCanonicalAsync($"{release}.{sample}.{file}.cs").ConfigureAwait(false);
+                    string snippet = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
+                        .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
+                    expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+                }
+
+                Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+                Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+                JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+                Assert.Equal(target, route.GetProperty("target").GetString());
+                Assert.Equal(target, route.GetProperty("requirements").GetProperty("runtime").GetProperty("version").GetString());
+                Assert.NotEmpty(route.GetProperty("requirements").GetProperty("constraints").EnumerateArray());
+                Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
+                Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+                Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+                {
+                    Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                    Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                    Assert.Contains("PASS", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                });
+                if (goal == "use-numeric-collection-contracts")
+                {
+                    Assert.Contains("net11.0", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+                }
+            }
+        }
+    }
+
     private static void AssertSelection(JsonElement summary, JsonElement recipe)
     {
         JsonElement selections = summary.GetProperty("applicability").GetProperty("routes");

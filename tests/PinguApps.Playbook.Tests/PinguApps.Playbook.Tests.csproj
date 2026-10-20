@@ -4,6 +4,28 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../content/recipes/json.stream-json-lines/11.0/recipe.md" LogicalName="Canonical.json.stream-json-lines.md" />
+    <EmbeddedResource Include="../../content/recipes/json.reuse-writer/11.0/recipe.md" LogicalName="Canonical.json.reuse-writer.md" />
+    <EmbeddedResource Include="../../content/recipes/json.configure-generic-contracts/11.0/recipe.md" LogicalName="Canonical.json.configure-generic-contracts.md" />
+    <EmbeddedResource Include="../../content/recipes/json.retrieve-typed-metadata/11.0/recipe.md" LogicalName="Canonical.json.retrieve-typed-metadata.md" />
+    <EmbeddedResource Include="../../content/recipes/json.generate-private-contracts/11.0/recipe.md" LogicalName="Canonical.json.generate-private-contracts.md" />
+    <EmbeddedResource Include="../../content/recipes/json.preserve-omitted-initializers/11.0/recipe.md" LogicalName="Canonical.json.preserve-omitted-initializers.md" />
+    <EmbeddedResource Include="../../content/recipes/json.bind-reference-constructors/11.0/recipe.md" LogicalName="Canonical.json.bind-reference-constructors.md" />
+    <EmbeddedResource Include="../../content/recipes/json.configure-member-conventions/11.0/recipe.md" LogicalName="Canonical.json.configure-member-conventions.md" />
+    <EmbeddedResource Include="../../content/recipes/json.use-numeric-collection-contracts/11.0/recipe.md" LogicalName="Canonical.json.use-numeric-collection-contracts.md" />
+    <EmbeddedResource Include="../../content/recipes/json.describe-binary-schema/11.0/recipe.md" LogicalName="Canonical.json.describe-binary-schema.md" />
+    <EmbeddedResource Include="../../content/recipes/json.reject-malformed-contracts/10.0/recipe.md" LogicalName="Canonical.json.reject-malformed-contracts.md" />
+    <EmbeddedResource Include="../../samples/net9.0/JsonImport/Import.cs" LogicalName="Canonical.net9.0.JsonImport.Import.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/JsonImport/Import.cs" LogicalName="Canonical.net10.0.JsonImport.Import.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/JsonStreaming/Streaming.cs" LogicalName="Canonical.net10.0.JsonStreaming.Streaming.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/JsonResolution/Contracts.cs" LogicalName="Canonical.net10.0.JsonResolution.Contracts.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/JsonModels/Models.cs" LogicalName="Canonical.net10.0.JsonModels.Models.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/JsonContracts/Contracts.cs" LogicalName="Canonical.net10.0.JsonContracts.Contracts.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/JsonImport/Import.cs" LogicalName="Canonical.net11.0.JsonImport.Import.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/JsonStreaming/Streaming.cs" LogicalName="Canonical.net11.0.JsonStreaming.Streaming.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/JsonResolution/Contracts.cs" LogicalName="Canonical.net11.0.JsonResolution.Contracts.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/JsonModels/Models.cs" LogicalName="Canonical.net11.0.JsonModels.Models.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/JsonContracts/Contracts.cs" LogicalName="Canonical.net11.0.JsonContracts.Contracts.cs" />
     <EmbeddedResource Include="../../samples/net10.0/FSharpApi/Api.fs" LogicalName="Canonical.net10.0.Api.fs" />
     <EmbeddedResource Include="../../samples/net11.0/FSharpApi/Api.fs" LogicalName="Canonical.net11.0.Api.fs" />
     <EmbeddedResource Include="../../samples/net10.0/FSharpApiPreview/ApiPreview.fs" LogicalName="Canonical.net10.0.ApiPreview.fs" />
