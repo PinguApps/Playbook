@@ -8506,10 +8506,364 @@
   ],
   "dispositions": [
     {
+      "asset": "framework/System.Collections.dll",
+      "side": "added",
+      "group": "collections",
+      "count": 5
+    },
+    {
       "asset": "framework/System.Collections.Immutable.dll",
       "side": "added",
       "group": "collections",
-      "count": 6764
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Collections.Immutable.dll",
+      "side": "removed",
+      "group": "collections",
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Console.dll",
+      "side": "added",
+      "group": "processes",
+      "count": 3
+    },
+    {
+      "asset": "framework/System.Diagnostics.Process.dll",
+      "side": "added",
+      "group": "processes",
+      "count": 113
+    },
+    {
+      "asset": "framework/System.Diagnostics.Process.dll",
+      "side": "removed",
+      "group": "processes",
+      "count": 3
+    },
+    {
+      "asset": "framework/System.Formats.Tar.dll",
+      "side": "added",
+      "group": "tar",
+      "count": 33
+    },
+    {
+      "asset": "framework/System.IO.Compression.Brotli.dll",
+      "side": "added",
+      "group": "compression",
+      "count": 3
+    },
+    {
+      "asset": "framework/System.IO.Compression.dll",
+      "side": "added",
+      "group": "compression",
+      "count": 187
+    },
+    {
+      "asset": "framework/System.IO.Compression.dll",
+      "side": "added",
+      "group": "zip",
+      "count": 27
+    },
+    {
+      "asset": "framework/System.IO.Compression.ZipFile.dll",
+      "side": "added",
+      "group": "zip",
+      "count": 44
+    },
+    {
+      "asset": "framework/System.IO.Pipes.dll",
+      "side": "added",
+      "group": "pipes",
+      "count": 2
+    },
+    {
+      "asset": "framework/System.IO.Pipes.dll",
+      "side": "removed",
+      "group": "pipes",
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Linq.AsyncEnumerable.dll",
+      "side": "added",
+      "group": "linq",
+      "count": 12
+    },
+    {
+      "asset": "framework/System.Linq.dll",
+      "side": "added",
+      "group": "linq",
+      "count": 6
+    },
+    {
+      "asset": "framework/System.Linq.Expressions.dll",
+      "side": "added",
+      "group": "compiler-infrastructure",
+      "count": 4
+    },
+    {
+      "asset": "framework/System.Linq.Queryable.dll",
+      "side": "added",
+      "group": "linq",
+      "count": 6
+    },
+    {
+      "asset": "framework/System.Memory.dll",
+      "side": "added",
+      "group": "buffer-streams",
+      "count": 29
+    },
+    {
+      "asset": "framework/System.Memory.dll",
+      "side": "added",
+      "group": "memory-safety",
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Memory.dll",
+      "side": "added",
+      "group": "numeric-parsing-bits",
+      "count": 8
+    },
+    {
+      "asset": "framework/System.Memory.dll",
+      "side": "added",
+      "group": "span-extrema",
+      "count": 4
+    },
+    {
+      "asset": "framework/System.Memory.dll",
+      "side": "added",
+      "group": "unicode",
+      "count": 7
+    },
+    {
+      "asset": "framework/System.Memory.dll",
+      "side": "removed",
+      "group": "memory-safety",
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Numerics.Vectors.dll",
+      "side": "added",
+      "group": "colors",
+      "count": 52
+    },
+    {
+      "asset": "framework/System.Numerics.Vectors.dll",
+      "side": "added",
+      "group": "compiler-infrastructure",
+      "count": 29
+    },
+    {
+      "asset": "framework/System.Numerics.Vectors.dll",
+      "side": "added",
+      "group": "vectors",
+      "count": 71
+    },
+    {
+      "asset": "framework/System.Numerics.Vectors.dll",
+      "side": "removed",
+      "group": "vectors",
+      "count": 47
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "base64",
+      "count": 18
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "bfloat16",
+      "count": 210
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "buffer-streams",
+      "count": 90
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "builder-transfer",
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "cancellable-text",
+      "count": 3
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "directory-diagnostics",
+      "count": 6
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "hard-links",
+      "count": 2
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "idn",
+      "count": 2
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "integer-division",
+      "count": 10
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "integer-logarithms",
+      "count": 13
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "memory-safety",
+      "count": 27
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "null-handle",
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "numeric-parsing-bits",
+      "count": 59
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "numeric-representations",
+      "count": 664
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "numeric-styles",
+      "count": 1
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "pipes",
+      "count": 13
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "random",
+      "count": 4
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "rune-writer",
+      "count": 4
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "added",
+      "group": "unicode",
+      "count": 90
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "removed",
+      "group": "memory-safety",
+      "count": 27
+    },
+    {
+      "asset": "framework/System.Runtime.dll",
+      "side": "removed",
+      "group": "unicode",
+      "count": 2
+    },
+    {
+      "asset": "framework/System.Runtime.Intrinsics.dll",
+      "side": "added",
+      "group": "compiler-infrastructure",
+      "count": 116
+    },
+    {
+      "asset": "framework/System.Runtime.Intrinsics.dll",
+      "side": "added",
+      "group": "vectors",
+      "count": 2460
+    },
+    {
+      "asset": "framework/System.Runtime.Intrinsics.dll",
+      "side": "removed",
+      "group": "vectors",
+      "count": 1945
+    },
+    {
+      "asset": "framework/System.Runtime.Numerics.dll",
+      "side": "added",
+      "group": "numeric-parsing-bits",
+      "count": 11
+    },
+    {
+      "asset": "framework/System.Runtime.Numerics.dll",
+      "side": "added",
+      "group": "numeric-representations",
+      "count": 122
+    },
+    {
+      "asset": "framework/System.Text.RegularExpressions.dll",
+      "side": "added",
+      "group": "unicode",
+      "count": 1
+    },
+    {
+      "asset": "system.io.hashing/net10.0->lib/net10.0/System.IO.Hashing.dll",
+      "side": "added",
+      "group": "checksums",
+      "count": 57
+    },
+    {
+      "asset": "system.io.hashing/net10.0->lib/net11.0/System.IO.Hashing.dll",
+      "side": "added",
+      "group": "checksums",
+      "count": 57
+    },
+    {
+      "asset": "system.numerics.tensors/net10.0->lib/net10.0/System.Numerics.Tensors.dll",
+      "side": "added",
+      "group": "tensors",
+      "count": 12
+    },
+    {
+      "asset": "system.numerics.tensors/net10.0->lib/net10.0/System.Numerics.Tensors.dll",
+      "side": "removed",
+      "group": "tensors",
+      "count": 12
+    },
+    {
+      "asset": "system.numerics.tensors/net10.0->lib/net11.0/System.Numerics.Tensors.dll",
+      "side": "added",
+      "group": "tensors",
+      "count": 12
+    },
+    {
+      "asset": "system.numerics.tensors/net10.0->lib/net11.0/System.Numerics.Tensors.dll",
+      "side": "removed",
+      "group": "tensors",
+      "count": 12
     }
   ]
 }

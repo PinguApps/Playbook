@@ -80,10 +80,12 @@ Other inventory owners cover ASP.NET/Blazor, EF and desktop/mobile specifics. Sh
 
 ## Shared libraries: processes, buffers and text
 
+The [PIN-703 audit](../audits/data-io.md) compares actual .NET 10/pinned .NET 11 RC2 artifacts, all canonical library/runtime notes, the full bounded compatibility sources and obsolete diagnostics. Its declaration ownership and ten estimated delivery proposals supplement this historical inventory. Grouped goals retain their existing delivery owners; neither metadata nor this audit proves recipe/runtime behavior.
+
 | Proposed stable ID | Goal and authoring impact | Applicability / stability / verification constraint | Official evidence | Disposition |
 | --- | --- | --- | --- | --- |
 | `process.capture-output` | Launch a child and collect/stream stdout, stderr and exit status without manual event plumbing. | Run/RunAndCaptureText/ReadAllLines APIs; cancellation, buffering and exit semantics need exact artifacts. | [L] | included |
-| `process.control-lifetime` | Choose detached, forgotten or parent-bound child lifetime deliberately. | StartAndForget/StartDetached; KillOnParentExit Windows-only. | [L] | included |
+| `process.control-lifetime` | Choose detached, forgotten or parent-bound child lifetime deliberately. | StartAndForget/StartDetached; canonical Preview 5 extends KillOnParentExit to Linux/Android, contradicting the cumulative Windows-only claim. Verify each declared RC2 platform in PIN-721; signatures alone do not settle support. | [L], [PIN-703 audit](../audits/data-io.md) | included |
 | `process.control-native-handles` | Launch/wait/kill through SafeProcessHandle and choose inherited/redirection handles. | Advanced OS-specific handles; own/dispose handles correctly. | [L] | included |
 | `process.prepare-before-start` | Start suspended, finish setup, then resume; locate/open existing processes without throwing. | StartSuspended Windows/macOS; TryGetProcessById/TryOpen; permissions/races apply. | [L] | included |
 | `process.inspect-termination` | Send a signal and distinguish signal termination from normal exit. | Process.Signal and ProcessExitStatus; POSIX platform applicability. | [LR1] | included |
@@ -143,6 +145,25 @@ The [PIN-704 serialization audit](../audits/serialization.md) reconciles actual 
 | `collections.count-and-build-bits` | Build bit sets from spans and count enabled positions without manual iteration. | BitArray span constructors/PopCount; existing span lifetime is not retained as mutable backing memory. | [L], [LR1] | included |
 | `collections.compare-by-key` | Create equality semantics from a key selector instead of a bespoke comparer class. | EqualityComparer<T>.Create; optional key comparer, hash/equality consistency. | [L] | included |
 | `numerics.automatic-speedups` | Faster determinant/Half arithmetic, more accurate IEEE-decimal functions and queue reliability. | No new implementation needed; numeric correctness migrations remain separately reviewed. | [L], [LR2], [R] | excluded |
+
+### Additional goals found in actual artifacts
+
+These are proposed delivery boundaries, not created tickets or implemented recipes. Exact prerequisites, native-scale estimates, same-goal comparisons and real behavior/installed-tool acceptance are in [PIN-703's D1–D10 proposals](../audits/data-io.md#proposed-fully-verified-recipe-tickets-for-review). New .NET 11 goals compare with .NET 10; no historical foundation is added.
+
+| Proposed stable ID | Authoring impact | Disposition |
+| --- | --- | --- |
+| `collections.find-span-extrema` | Use Min/Max directly on existing spans with explicit comparer/empty contracts. | included candidate; D6, S (2) |
+| `io.cancel-text-output` | Pass cancellation to the actual new TextWriter string/newline APIs; retain valid older memory/token routes. | included candidate; D7, S (2) |
+| `io.compute-format-checksums` | Choose Adler32 or the intended CRC polynomial/reflection/initial/final parameters. | included candidate; D4, M (3) |
+| `io.create-hard-links` | Create filesystem aliases without copying data or maintaining a native wrapper. | included candidate; D1, M (3); TAR migration remains PIN-684 |
+| `io.report-directory-failures` | Consume DirectoryPath without parsing localized messages. | included candidate; D9, S (2) |
+| `numerics.choose-bfloat16` | Choose binary precision/range deliberately; bit encoding remains PIN-737. | included candidate; D10, M (3) |
+| `numerics.choose-integer-division` | Select quotient/remainder rounding rules for signed coordinates. | included candidate; D2, M (3) |
+| `numerics.measure-integer-magnitude` | Compute integer decimal magnitude without floating conversion. | included candidate; D3, S (2) |
+| `numerics.preserve-color-channels` | Preserve RGBA/ARGB component order and packed endianness. | included candidate; D5, M (3); no native UI claim |
+| `text.convert-domain-labels` | Convert IDN labels into caller-owned spans. | included candidate; D8, S (2) |
+
+The [obsolete review](../audits/data-io.md#obsolete-index-ownership) assigns newly obsolete pipe constructor diagnostic **SYSLIB0063** to PIN-741, despite its omission from the pinned .NET 11 obsolete-summary article. Historical diagnostics are retained separately; PIN-689 still owns the overall index map. Numeric and archive compatibility analysis remains with PIN-683/PIN-684 rather than being duplicated by this artifact audit.
 
 ## Shared libraries: extensions, security and networking
 

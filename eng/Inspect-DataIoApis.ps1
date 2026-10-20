@@ -195,13 +195,19 @@ try {
       foreach ($line in $diff.diff[$side]) {
         $rule = @($rules.groups | Where-Object { $line -cmatch $_.pattern } | Select-Object -First 1)
         if ($rule.Count -ne 1) { throw "Unowned API difference in $($diff.asset): $line" }
-        $assignments += [ordered]@{ asset = $diff.asset; side = $side; group = $rule[0].id }
+        $assignments += [PSCustomObject]@{ asset = $diff.asset; side = $side; group = $rule[0].id }
       }
     }
   }
   $counts = @($assignments | Group-Object asset, side, group | Sort-Object Name | ForEach-Object {
     [ordered]@{ asset = $_.Group[0].asset; side = $_.Group[0].side; group = $_.Group[0].group; count = $_.Count }
   })
+  foreach ($diff in $diffs) {
+    foreach ($side in @('added', 'removed')) {
+      $assigned = ($counts | Where-Object { $_.asset -ceq $diff.asset -and $_.side -ceq $side } | ForEach-Object { $_.count } | Measure-Object -Sum).Sum
+      if ([int]$assigned -ne $diff.diff[$side].Count) { throw "Incomplete disposition counts: $($diff.asset) $side" }
+    }
+  }
   $report = [ordered]@{ schemaVersion = 1; sourceManifestSha256 = Get-Hash $SourceManifest; dispositionManifestSha256 = Get-Hash $DispositionManifest; baselines = $results; publicApiDiff = $diffs; dispositions = $counts }
   New-Item -ItemType Directory -Path (Split-Path $output -Parent) -Force | Out-Null
   $json = ConvertTo-Json -InputObject $report -Depth 40
