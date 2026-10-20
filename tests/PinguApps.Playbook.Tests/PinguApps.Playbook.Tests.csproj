@@ -4,6 +4,9 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net10.0/StaticInterfaceHelpers/Observations.cs" LogicalName="Canonical.net10.0.Observations.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/StaticInterfaceHelpers/Observations.cs" LogicalName="Canonical.net11.0.Observations.cs" />
+    <EmbeddedResource Include="../../content/recipes/csharp.static-interface-helpers/11.0/recipe.md" LogicalName="Canonical.csharp.static-interface-helpers.md" />
     <EmbeddedResource Include="../../samples/net9.0/ExtensionProperties/ShelfExtensions.cs" LogicalName="Canonical.net9.0.ShelfExtensions.cs" />
     <EmbeddedResource Include="../../samples/net10.0/ExtensionProperties/ShelfExtensions.cs" LogicalName="Canonical.net10.0.ShelfExtensions.cs" />
     <EmbeddedResource Include="../../samples/net10.0/CollectionLike/Collections.cs" LogicalName="Canonical.net10.0.Collections.cs" />

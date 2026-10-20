@@ -69,6 +69,8 @@ The .NET 10 catalogue retains this property goal and the independent C# 14 exten
 
 ## Inspect release selection and failures
 
+For static interface helpers, use [the PIN-714 inspection commands](verification/PIN-714.md#inspect-what-an-agent-receives). They display the reusable discovery goal, complete original .NET 10/11 examples and .NET 11 applicability, including the distinction between fixed helpers and static abstract/virtual contracts. Ordinary helpers already work on .NET 10; no legacy-runtime route is claimed.
+
 For an empty search, inspect `recovery` alongside the requested/resolved target and coverage. Its optional `suggestedRequest` is a complete `list_recipes` arguments object; executing it is the agent's choice. Keyword recovery removes keywords while preserving compatibility filters. Paging recovery resets only the offset. When the non-keyword combination is empty, there is no safe suggested retry. Nonempty discovery omits recovery. See the [tested empty-search and retry walkthrough](verification/PIN-975.md), including recovered ID/title/goal, full Markdown and applicability.
 
 Continue in the same PowerShell window:

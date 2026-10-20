@@ -24,6 +24,68 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("static interface helper guidance retains its full body applicability and edition")]
+    public async Task CheckStaticInterfaceHelpersAsync()
+    {
+        const string id = "csharp.static-interface-helpers";
+        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0", query = "static interface helpers" }).ConfigureAwait(false));
+        JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+        Assert.Equal(id, summary.GetProperty("id").GetString());
+        Assert.Contains("without adding implementation requirements", summary.GetProperty("title").GetString(), StringComparison.Ordinal);
+        Assert.Contains("non-virtual", summary.GetProperty("goal").GetString(), StringComparison.Ordinal);
+        JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11" }).ConfigureAwait(false));
+        Assert.Equal("11.0", detail.GetProperty("resolvedTarget").GetString());
+        JsonElement recipe = detail.GetProperty("recipe");
+        Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+        Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+        Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+        Assert.Equal(["11.0"], recipe.GetProperty("supportedTargets").EnumerateArray().Select(value => value.GetString()));
+        AssertSelection(summary, recipe);
+
+        string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+        foreach ((string token, string target, string region) in new[]
+        {
+            ("older", "net10.0", "helpers"), ("newer", "net11.0", "helpers"),
+            ("older-consumer", "net10.0", "consumer"), ("newer-consumer", "net11.0", "consumer")
+        })
+        {
+            string source = await ReadCanonicalAsync($"{target}.Observations.cs").ConfigureAwait(false);
+            string snippet = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
+                .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
+            expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+        }
+
+        Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+        Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+        Assert.Contains("also legal on .NET 10", expected, StringComparison.Ordinal);
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        Assert.Equal("11.0", route.GetProperty("target").GetString());
+        Assert.False(route.GetProperty("conditional").GetBoolean());
+        JsonElement requirements = route.GetProperty("requirements");
+        Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+        Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+        Assert.Equal("15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+        foreach (string field in new[] { "packages", "packageAssets", "workloads", "providers", "renderingModes", "optIns" })
+        {
+            Assert.Empty(requirements.GetProperty(field).EnumerateArray());
+        }
+
+        Assert.Contains("RC2", Assert.Single(requirements.GetProperty("stabilityLimitations").EnumerateArray()).GetString(), StringComparison.Ordinal);
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+        Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+        {
+            Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+            Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+            Assert.Contains("PASS: static interface helper", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            Assert.NotEmpty(evidence.GetProperty("inputs").EnumerateObject());
+        });
+
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0" }).ConfigureAwait(false));
+        Assert.DoesNotContain(id, RecipeIds(older));
+        AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+    }
+
     [Then("all four closed outcome recipes retain their full body applicability and edition")]
     public async Task CheckClosedOutcomesAsync()
     {
