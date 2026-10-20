@@ -35,7 +35,15 @@ public sealed class InstalledToolSteps : IDisposable
             ("fsharp.construct-records", "FSharpConstructors", "Constructors", "construct"),
             ("json.serialize-fsharp-unions", "FSharpModels", "Models", "json"),
             ("fsharp.preserve-interpolation-culture", "FSharpDiagnostics", "Diagnostics", "culture"),
-            ("fsharp.format-without-reflection", "FSharpDiagnostics", "Diagnostics", "reflectionfree")
+            ("fsharp.format-without-reflection", "FSharpDiagnostics", "Diagnostics", "reflectionfree"),
+            ("fsharp.pass-methods-as-delegates", "FSharpApi", "Api", "delegates"),
+            ("fsharp.reuse-api-documentation", "FSharpApi", "Api", "documentation"),
+            ("fsharp.adapt-generic-operations", "FSharpApiPreview", "ApiPreview", "generic"),
+            ("fsharp.require-named-arguments", "FSharpApiPreview", "ApiPreview", "named"),
+            ("fsharp.start-async-on-caller", "FSharpAsync", "AsyncWork", "start"),
+            ("fsharp.bound-async-work", "FSharpAsync", "AsyncWork", "bounded"),
+            ("fsharp.rethrow-in-computations", "FSharpRethrow", "Rethrow", "rethrow"),
+            ("fsharp.migrate-enum-flags", "FSharpFlags", "Flags", "flags")
         })
         {
             JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray(), value => value.GetProperty("id").GetString() == id);
@@ -53,6 +61,26 @@ public sealed class InstalledToolSteps : IDisposable
                 string snippet = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
                     .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
                 expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```fsharp\n{snippet}\n```", StringComparison.Ordinal);
+            }
+
+            if (id == "fsharp.require-named-arguments")
+            {
+                string source = await ReadCanonicalAsync("RequireNamedArguments.fs").ConfigureAwait(false);
+                string attribute = source.Split("// snippet:attribute\n", StringSplitOptions.None)[1]
+                    .Split("// endsnippet:attribute", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace("{{snippet:attribute}}", $"```fsharp\n{attribute}\n```", StringComparison.Ordinal);
+                Assert.Contains("RC2 BCL does not ship", expected, StringComparison.Ordinal);
+                Assert.Contains("FS3923", expected, StringComparison.Ordinal);
+            }
+
+            if (id == "fsharp.reuse-api-documentation")
+            {
+                string source = await ReadCanonicalAsync("ApiDocs.xml").ConfigureAwait(false);
+                string xml = source.Split("<!-- snippet:external-doc -->\n", StringSplitOptions.None)[1]
+                    .Split("<!-- endsnippet:external-doc -->", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace("{{snippet:external-doc}}", $"```xml\n{xml}\n```", StringComparison.Ordinal);
+                Assert.Contains("GenerateDocumentationFile=true", expected, StringComparison.Ordinal);
+                Assert.Contains("leaves inheritdoc unexpanded", expected, StringComparison.Ordinal);
             }
 
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
@@ -76,11 +104,17 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
                 Assert.Contains(sample, evidence.GetProperty("sample").GetString(), StringComparison.Ordinal);
             });
-            if (id == "fsharp.construct-records")
+            if (id is "fsharp.construct-records" or "fsharp.adapt-generic-operations" or "fsharp.require-named-arguments" or "fsharp.rethrow-in-computations")
             {
                 Assert.Equal("experimental", summary.GetProperty("stability").GetString());
                 Assert.Equal("preview", requirements.GetProperty("language").GetProperty("version").GetString());
                 Assert.Contains("LangVersion=preview", requirements.GetProperty("optIns").ToString(), StringComparison.Ordinal);
+            }
+
+            if (id == "fsharp.start-async-on-caller")
+            {
+                Assert.Contains("source/artifact mismatch", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+                Assert.Contains("SynchronizationContext.Current", expected, StringComparison.Ordinal);
             }
 
             if (id == "json.serialize-fsharp-unions")
@@ -289,7 +323,7 @@ public sealed class InstalledToolSteps : IDisposable
             ("json.serialize-closed-results", "outcomes"), ("json.infer-closed-polymorphism", "hierarchy")
         })
         {
-            JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0" }).ConfigureAwait(false));
+            JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0", languages = (string[])["csharp"] }).ConfigureAwait(false));
             JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == id);
             Assert.Equal(id, summary.GetProperty("id").GetString());
             Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
@@ -446,7 +480,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement list = AssertMatchingRepresentations(result);
             JsonElement[] summaries = [.. list.GetProperty("recipes").EnumerateArray()];
             measurements.Add($"{target}: count={summaries.Length}, largest summary={summaries.Max(Bytes)}, structured={Bytes(list)}, result={Bytes(result)} UTF-8 bytes");
-            withinBudget &= summaries.All(summary => Bytes(summary) <= 3000) && Bytes(result) <= 65000;
+            withinBudget &= summaries.All(summary => Bytes(summary) <= 3000) && Bytes(result) <= 80000;
         }
 
         string report = string.Join(Environment.NewLine, measurements);

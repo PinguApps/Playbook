@@ -1,0 +1,144 @@
+{
+  "id": "fsharp.start-async-on-caller",
+  "edition": "11.0",
+  "title": "Start an asynchronous computation on the caller",
+  "goal": "Start a blocking async prefix on the caller, outside a SynchronizationContext.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp",
+    "start-async-on-caller"
+  ],
+  "apis": [
+    "Async.RunSynchronouslyImmediate"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Blocking; reject an ambient SynchronizationContext. RC2 can post continuations to it."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpAsync/FSharpAsync.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md",
+          "https://github.com/dotnet/fsharp/pull/19804"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use an F# net11.0 executable or library, .NET 11 SDK, FSharp.Core 11 and LangVersion=11.0."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            ".NET 11 platforms"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "name": "F#",
+            "version": "11.0",
+            "match": "exact",
+            "reason": "Compiled in stable F# 11 language mode."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "RC2 evidence; GA reconciliation pending."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "providers": [],
+          "constraints": [
+            "Blocks the caller for the whole operation; never use it to make a UI responsive. Context-affine continuations can deadlock a blocked thread.",
+            "Actual pinned RC2 execution posts to a supplied recording context after suspension. The context probe and guard address this source/artifact mismatch; they do not establish safety for every UI framework.",
+            "Only the prefix before suspension is guaranteed to start on the caller. Later execution can move threads."
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official F# release contract",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/fsharp.md"
+    },
+    {
+      "title": "F# implementation and tests",
+      "url": "https://github.com/dotnet/fsharp/pull/19804"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpAsync/FSharpAsync.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Actual FSharpAsync compilation and managed execution including start assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/FSharpAsync/FSharpAsync.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "kind": "compile-and-run",
+      "scope": "Actual FSharpAsync compilation and managed execution including start assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "path": "samples/net10.0/FSharpAsync/AsyncWork.fs",
+      "region": "start"
+    },
+    "newer": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpAsync/AsyncWork.fs",
+      "region": "start"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed compiler/runtime and emitted XML claims need no provider or UI. IDE rendering, native deployment and GA verification are not claimed."
+  }
+}

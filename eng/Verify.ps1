@@ -44,7 +44,17 @@ try {
     @{ Path = 'net10.0/FSharpDiagnostics'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/FSharpDiagnostics'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/UnsafeBoundaries'; Dotnet = 'dotnet' },
-    @{ Path = 'net11.0/UnsafeBoundaries'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/UnsafeBoundaries'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/FSharpApi'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/FSharpApi'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/FSharpApiPreview'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/FSharpApiPreview'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/FSharpAsync'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/FSharpAsync'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/FSharpRethrow'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/FSharpRethrow'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/FSharpFlags'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/FSharpFlags'; Dotnet = $Net11Dotnet }
   )) {
     Push-Location (Join-Path $root "samples/$($sample.Path)")
     try {
@@ -63,6 +73,7 @@ try {
   & (Join-Path $PSScriptRoot 'Test-ClosedOutcomes.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-StaticInterfaceHelpers.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-FSharpGuidance.ps1') -Net11Dotnet $Net11Dotnet
+  & (Join-Path $PSScriptRoot 'Test-FSharpBoundaries.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-UnsafeBoundaries.ps1') -Net11Dotnet $Net11Dotnet
   dotnet build PinguApps.Playbook.slnx --configuration Release -p:Version=$PackageVersion
   & (Join-Path $PSScriptRoot 'Test-Content.ps1') -Pack

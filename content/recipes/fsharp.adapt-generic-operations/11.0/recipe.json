@@ -1,0 +1,146 @@
+{
+  "id": "fsharp.adapt-generic-operations",
+  "edition": "11.0",
+  "title": "Adapt existing types to generic operations (preview)",
+  "goal": "Use preview SRTP resolution to adapt an existing type to a generic F# operation.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp",
+    "adapt-generic-operations"
+  ],
+  "apis": [
+    "SRTP extension members"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Preview; open the public extension module at the consuming call site."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpApiPreview/FSharpApiPreview.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/fsharp.md",
+          "https://github.com/dotnet/fsharp/pull/19602"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use an F# net11.0 executable or library, .NET 11 SDK, FSharp.Core 11 and LangVersion=preview."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            ".NET 11 platforms"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "name": "F#",
+            "version": "preview",
+            "match": "exact",
+            "reason": "Preview is required for this compiler feature."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "RC2 evidence; GA reconciliation pending.",
+            "Preview may change."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "LangVersion=preview"
+          ],
+          "providers": [],
+          "constraints": [
+            "Experimental preview resolution can change. Only public extensions satisfy this contract; ordinary extension calls do not themselves require preview.",
+            "The defining module must be in scope. Real or built-in members take precedence; avoid conflicting extensions. This recipe verifies an instance method, not every operator or overload-resolution case."
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "FSharp.Core 11 is the library dependency for this edition; the exact compiled RC2 version is recorded separately in evidence."
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official F# release contract",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/fsharp.md"
+    },
+    {
+      "title": "F# implementation and tests",
+      "url": "https://github.com/dotnet/fsharp/pull/19602"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpApiPreview/FSharpApiPreview.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Actual FSharpApiPreview compilation and managed execution including generic assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/FSharpApiPreview/FSharpApiPreview.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "preview",
+      "kind": "compile-and-run",
+      "scope": "Actual FSharpApiPreview compilation and managed execution including generic assertions; separate compiler/external-consumer probes in eng/Test-FSharpBoundaries.ps1. No mocks, cross-compilation, native/AOT deployment or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "path": "samples/net10.0/FSharpApiPreview/ApiPreview.fs",
+      "region": "generic"
+    },
+    "newer": {
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpApiPreview/ApiPreview.fs",
+      "region": "generic"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed compiler/runtime and emitted XML claims need no provider or UI. IDE rendering, native deployment and GA verification are not claimed."
+  }
+}

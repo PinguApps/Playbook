@@ -31,6 +31,7 @@ let dockLabel (number: int) = $"Berth {number}"
 let main _ =
     if freeSlots <> 11 || HarbourPolicy().Limit() <> 240 || dockLabel 6 <> "Berth 6" then
         failwith "API result changed"
+    if remaining.Method.DeclaringType <> typeof<DockMath> then failwith "Expected the RC2 direct method binding"
     let xml = XDocument.Load(Path.Combine(AppContext.BaseDirectory, "FSharpApi.xml"))
     let members = xml.Descendants(XName.Get "member") |> Seq.toArray
     let inherited = members |> Array.find (fun m -> (m.Attribute(XName.Get "name") |> Option.ofObj |> Option.map (fun attribute -> attribute.Value) |> Option.defaultValue "") = "M:Playbook.Samples.Api.HarbourPolicy.Limit")
@@ -38,5 +39,5 @@ let main _ =
     let included = members |> Array.find (fun m -> (m.Attribute(XName.Get "name") |> Option.ofObj |> Option.map (fun attribute -> attribute.Value) |> Option.defaultValue "") = "M:Playbook.Samples.Api.dockLabel(System.Int32)")
     if included.Value.Trim() <> "Formats a numbered harbour berth." || not (isNull (included.Element(XName.Get "include"))) then
         failwith "External XML was not expanded"
-    printfn "PASS: delegate result; emitted inheritdoc retained; include expanded at compile time"
+    printfn "PASS: delegate result and direct binding=%s; emitted inheritdoc retained; include expanded at compile time" remaining.Method.Name
     0

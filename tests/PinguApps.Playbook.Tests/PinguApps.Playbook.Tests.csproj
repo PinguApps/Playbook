@@ -4,6 +4,26 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net10.0/FSharpApi/Api.fs" LogicalName="Canonical.net10.0.Api.fs" />
+    <EmbeddedResource Include="../../samples/net11.0/FSharpApi/Api.fs" LogicalName="Canonical.net11.0.Api.fs" />
+    <EmbeddedResource Include="../../samples/net10.0/FSharpApiPreview/ApiPreview.fs" LogicalName="Canonical.net10.0.ApiPreview.fs" />
+    <EmbeddedResource Include="../../samples/net11.0/FSharpApiPreview/ApiPreview.fs" LogicalName="Canonical.net11.0.ApiPreview.fs" />
+    <EmbeddedResource Include="../../samples/net10.0/FSharpAsync/AsyncWork.fs" LogicalName="Canonical.net10.0.AsyncWork.fs" />
+    <EmbeddedResource Include="../../samples/net11.0/FSharpAsync/AsyncWork.fs" LogicalName="Canonical.net11.0.AsyncWork.fs" />
+    <EmbeddedResource Include="../../samples/net10.0/FSharpRethrow/Rethrow.fs" LogicalName="Canonical.net10.0.Rethrow.fs" />
+    <EmbeddedResource Include="../../samples/net11.0/FSharpRethrow/Rethrow.fs" LogicalName="Canonical.net11.0.Rethrow.fs" />
+    <EmbeddedResource Include="../../samples/net10.0/FSharpFlags/Flags.fs" LogicalName="Canonical.net10.0.Flags.fs" />
+    <EmbeddedResource Include="../../samples/net11.0/FSharpFlags/Flags.fs" LogicalName="Canonical.net11.0.Flags.fs" />
+    <EmbeddedResource Include="../../samples/net11.0/FSharpApiPreview/RequireNamedArguments.fs" LogicalName="Canonical.RequireNamedArguments.fs" />
+    <EmbeddedResource Include="../../samples/net11.0/FSharpApi/ApiDocs.xml" LogicalName="Canonical.ApiDocs.xml" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.pass-methods-as-delegates/11.0/recipe.md" LogicalName="Canonical.fsharp.pass-methods-as-delegates.md" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.adapt-generic-operations/11.0/recipe.md" LogicalName="Canonical.fsharp.adapt-generic-operations.md" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.require-named-arguments/11.0/recipe.md" LogicalName="Canonical.fsharp.require-named-arguments.md" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.reuse-api-documentation/11.0/recipe.md" LogicalName="Canonical.fsharp.reuse-api-documentation.md" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.start-async-on-caller/11.0/recipe.md" LogicalName="Canonical.fsharp.start-async-on-caller.md" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.bound-async-work/11.0/recipe.md" LogicalName="Canonical.fsharp.bound-async-work.md" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.rethrow-in-computations/11.0/recipe.md" LogicalName="Canonical.fsharp.rethrow-in-computations.md" />
+    <EmbeddedResource Include="../../content/recipes/fsharp.migrate-enum-flags/11.0/recipe.md" LogicalName="Canonical.fsharp.migrate-enum-flags.md" />
     <EmbeddedResource Include="../../samples/net10.0/FSharpModels/Models.fs" LogicalName="Canonical.net10.0.Models.fs" />
     <EmbeddedResource Include="../../samples/net10.0/FSharpConstructors/Constructors.fs" LogicalName="Canonical.net10.0.Constructors.fs" />
     <EmbeddedResource Include="../../samples/net10.0/FSharpDiagnostics/Diagnostics.fs" LogicalName="Canonical.net10.0.Diagnostics.fs" />

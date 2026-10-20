@@ -10,6 +10,9 @@ type DockMath =
 
 let remaining = Func<int, int, int>(fun capacity occupied -> DockMath.Remaining capacity occupied)
 let freeSlots = remaining.Invoke(18, 7)
+// This direct spelling is already accepted by F# 10 as well.
+let direct = Func<int, int, int>(DockMath.Remaining)
+let directFreeSlots = direct.Invoke(18, 7)
 // endsnippet:delegates
 
 // snippet:documentation
@@ -29,11 +32,11 @@ let dockLabel (number: int) = $"Berth {number}"
 
 [<EntryPoint>]
 let main _ =
-    if freeSlots <> 11 || HarbourPolicy().Limit() <> 240 || dockLabel 6 <> "Berth 6" then failwith "API result changed"
+    if freeSlots <> 11 || directFreeSlots <> 11 || HarbourPolicy().Limit() <> 240 || dockLabel 6 <> "Berth 6" then failwith "API result changed"
     let xml = XDocument.Load(Path.Combine(AppContext.BaseDirectory, "FSharpApi.xml"))
     let summaries = xml.Descendants(XName.Get "summary") |> Seq.map (fun s -> s.Value.Trim()) |> Seq.toArray
     if summaries |> Array.filter ((=) "Returns the permitted loading mass in kilograms.") |> Array.length <> 2 then
         failwith "Explicit summaries were not emitted"
     if not (Array.contains "Formats a numbered harbour berth." summaries) then failwith "Label summary missing"
-    printfn "PASS: explicit delegate adapter and emitted repeated documentation"
+    printfn "PASS: explicit and already-supported direct delegate spellings; direct binding=%s; emitted repeated documentation" direct.Method.Name
     0

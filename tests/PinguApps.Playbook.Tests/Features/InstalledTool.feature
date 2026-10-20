@@ -135,7 +135,7 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
-  Scenario: F sharp recipes preserve models cultures and deployment constraints
+  Scenario: F sharp recipes preserve models APIs asynchronous work migrations and deployment constraints
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then F sharp guidance retains complete bodies constraints and editions
