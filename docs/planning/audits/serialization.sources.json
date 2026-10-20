@@ -1,0 +1,1289 @@
+{
+  "reviewed": "2026-10-20",
+  "sources": [
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Text.Json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/api-diff/Microsoft.NETCore.App/11.0-preview1_System.Text.Json.md",
+      "sha256": "0c72a2fed6b44ea30fd25442f7a71488bdc13775d0cf2f2d2e658e6a4f7d5f3a",
+      "headings": [
+        "# System.Text.Json"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/libraries.md",
+      "sha256": "87bbd1881b278782c30e2f8ace1eac8689d4a078c9707d3d9489bf3099d15318",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 1 - Release Notes",
+        "## Zstandard Compression Support",
+        "### HTTP Automatic Decompression with Zstandard",
+        "## BFloat16 Floating-Point Type",
+        "## ZipArchiveEntry Improvements",
+        "### Open with FileAccess Parameter",
+        "### ZipCompressionMethod Property",
+        "## FrozenDictionary Collection Expression Support",
+        "## TimeZone Improvements",
+        "## Rune Support Across String, StringBuilder, and TextWriter",
+        "### String",
+        "### StringBuilder",
+        "### RunePosition",
+        "### TextWriter and TextInfo",
+        "## MediaTypeMap for MIME Type Lookups",
+        "## HMAC and KMAC Verification APIs",
+        "## Hard Link Creation APIs",
+        "## DivisionRounding for Integer Division Modes",
+        "## IReadOnlySet Support in System.Text.Json",
+        "## Base64 Parity with Base64Url",
+        "## Generic Interlocked.And and Interlocked.Or Methods",
+        "## Happy Eyeballs Support in Socket.ConnectAsync",
+        "## Span-based IDN APIs for IdnMapping",
+        "## CancellationToken Overloads for TextWriter",
+        "## Process I/O Improvements",
+        "### File.OpenNullHandle",
+        "### Standard Handle APIs",
+        "## Function Pointer Support in Reflection.Emit",
+        "## CGM Extension Support in MediaTypeMap",
+        "## SOCKS5h Proxy Support in HttpClient",
+        "## Performance Improvements",
+        "### Guid.NewGuid() ~12% Faster on Linux",
+        "### BigInteger Toom-Cook Multiplication",
+        "### Vectorized BitIncrement/BitDecrement in TensorPrimitives",
+        "### Directory.GetFiles OS-Level Pattern Filtering on Windows",
+        "### BitArray.PopCount"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Text.Json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/api-diff/Microsoft.NETCore.App/11.0-preview2_System.Text.Json.md",
+      "sha256": "f143038b02e63b40c21e5c3f4465c35127bf3004f3d9661132e79138d9113798",
+      "headings": [
+        "# System.Text.Json"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/libraries.md",
+      "sha256": "4e4716ae0871ac5d0cc10efeb71aac408f3665054f6107f564b8f5f4048a46ef",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 2 - Release Notes",
+        "## Generic GetTypeInfo for System.Text.Json",
+        "## Tar Archive Format Selection",
+        "## Matrix4x4.GetDeterminant ~15% Faster",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Text.Json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/api-diff/Microsoft.NETCore.App/11.0-preview3_System.Text.Json.md",
+      "sha256": "00ed3a83f7b67c78510b713acc70ff4ed3e338e15f70b9eda54930bc4862f178",
+      "headings": [
+        "# System.Text.Json"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/libraries.md",
+      "sha256": "f1fcd349e71c8422a6f9d1d6b9ae0813f5dbef85accbb86ddfe7b5c9be269444",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 3 - Release Notes",
+        "## System.Text.Json offers more control over naming and ignore defaults",
+        "## Zstandard moved to System.IO.Compression and ZIP reads validate CRC32",
+        "## SafeFileHandle and RandomAccess expand pipe support",
+        "## Regex recognizes all Unicode newline sequences",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Text.Json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/api-diff/Microsoft.NETCore.App/11.0-preview4_System.Text.Json.md",
+      "sha256": "017cd40ba7fd30d262abc9ad71bea5a54c2d653691b7f7a69afd7cd00fe456a9",
+      "headings": [
+        "# System.Text.Json"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/libraries.md",
+      "sha256": "9b814372eb39ad660504d6590a3364037c4831bd8371b8d8449b5f9769f0f209",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 4 - Release Notes",
+        "## Process gets a major API expansion",
+        "## Span-based Deflate, ZLib, and GZip encoder/decoder APIs",
+        "## Floating-point hex formatting and parsing",
+        "## UTF validation and invalid-subsequence search",
+        "## Rate-limiting fixes for RetryAfter, fractional permits, and ChainedRateLimiter",
+        "## System.Text.Json improvements",
+        "## Regex source generator and engine fixes",
+        "## Configuration binding and file-provider improvements",
+        "## Built-in OpenTelemetry metrics for MemoryCache",
+        "## Discriminated-union scaffolding in System.Runtime.CompilerServices",
+        "## MetadataLoadContext additions",
+        "## Console respects the FORCE_COLOR environment variable",
+        "## TarReader supports GNU sparse format 1.0",
+        "## TLS handshake hardening and certificate-validation alerts on Linux",
+        "## HTTP/2 automatic downgrade for Windows authentication",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Text.Json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/api-diff/Microsoft.NETCore.App/11.0-preview5_System.Text.Json.md",
+      "sha256": "e26f007200d68351b8228b727a2c7c34ff301861d630cc60faa956b2d77e6399",
+      "headings": [
+        "# System.Text.Json"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/libraries.md",
+      "sha256": "97afdffb2aa44a5dc9e1f724b21f046cdb615144573c5dcff5196ddcf074f985",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 5 - Release Notes",
+        "## System.Text.Json supports JSON Lines serialization",
+        "## LINQ adds full outer joins",
+        "## EqualityComparer of T adds key-selector creation",
+        "## Random adds generic numeric APIs",
+        "## StringBuilder can transfer chunks without copying",
+        "## Process line reading and KillOnParentExit expand",
+        "## Reflection exposes nullable underlying types",
+        "## Network APIs add video MIME names and QUIC stream priority",
+        "## Cryptography adds X25519 key agreement",
+        "## Syndication supports trimmed and Native AOT feed loading",
+        "## Options validation accepts a validator type",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/api-diff/Microsoft.AspNetCore.App/11.0-preview6_System.Formats.Cbor.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/api-diff/Microsoft.AspNetCore.App/11.0-preview6_System.Formats.Cbor.md",
+      "sha256": "14f06ecc2562a28b8bc368b47aadbb0a21ea8395d33417b87a5d0680e0ea6c7e",
+      "headings": [
+        "# System.Formats.Cbor"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Text.Json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/api-diff/Microsoft.NETCore.App/11.0-preview6_System.Text.Json.md",
+      "sha256": "32291a99c011c4aefbff831e3eae41b49e2acae5af2f3cba02d071401d0d329e",
+      "headings": [
+        "# System.Text.Json"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/libraries.md",
+      "sha256": "36d6d57b307b04d006d592e0ab7ac417c45ec60d98b6d9b1e5e5e1101f757252",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 6 - Release Notes",
+        "## Stream adapters for memory and text",
+        "## Asynchronous validation with DataAnnotations",
+        "## System.Text.Json serializes C# union types",
+        "## Configure Activity tracing with rules",
+        "## Cross-lane operations for vectors",
+        "## Start processes suspended and look them up by id",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Text.Json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/api-diff/Microsoft.NETCore.App/11.0-preview7_System.Text.Json.md",
+      "sha256": "b93c94ce8cebd73420bcf47b972b624d8503d115a8af9ab81ddc6c833eec5a09",
+      "headings": [
+        "# System.Text.Json"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/libraries.md",
+      "sha256": "ed544c0c3feaff7234ae43bc405891468a185d9c79684eb63018711e92b183e4",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 7 - Release Notes",
+        "## IEEE 754 decimal floating-point types",
+        "## Partial numeric parsing",
+        "## Generic Complex\\<T\\>",
+        "## HTTP request compression",
+        "## Configurable HTTP connection eviction",
+        "## DNS record resolution APIs",
+        "## ZIP archive password support",
+        "## More ZIP creation, extraction, and metadata APIs",
+        "## Ordinal casing APIs",
+        "## Polymorphism inference for closed type hierarchies in System.Text.Json",
+        "## Asynchronous ChangeToken.OnChange",
+        "## Options-aware HybridCache factories",
+        "## Suspended process startup on macOS",
+        "## Assembly.Location override for AssemblyLoadContext",
+        "## Reduced contention in System.IO.Pipelines",
+        "## Other API additions",
+        "## Breaking changes",
+        "## Bug fixes and performance enhancements",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/libraries.md",
+      "sha256": "1e7992ffaf1c7b29cb0ada2f788df23ee9485700cb5af5c4480d2b2ffd4c102b",
+      "headings": [
+        "# .NET Libraries in .NET 11 RC 1 - Release Notes",
+        "## Signal processes and inspect termination status",
+        "## Experimental caller-driven TLS sessions",
+        "## DNS record resolution on Linux",
+        "## JSON support for new numeric types and binary schemas",
+        "## JSON closed-type polymorphism and union support",
+        "## Async options validation",
+        "## Construct BitArray values from spans",
+        "## Reuse compression encoders and decoders",
+        "## TLS channel binding on Unix",
+        "## Faster authenticated encryption on Apple platforms",
+        "## AES Key Wrap support",
+        "## Breaking changes",
+        "### Numeric conversions are now correctly rounded",
+        "### HTTP metrics are observable instruments",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+      "sha256": "734c02c4df51d49b63e6b722426669189214f2614838b85091f141b87a65e19c",
+      "headings": [
+        "# Libraries in .NET 11 RC 2 - Release Notes",
+        "## Read CBOR incrementally",
+        "## Experimental composite ML-KEM and HPKE APIs",
+        "### Encrypt CMS messages with ML-KEM",
+        "## Format DataAnnotations messages with attribute-specific arguments",
+        "## Configure initial HTTP/2 concurrency",
+        "## Breaking changes from .NET 10",
+        "## Changes since RC 1",
+        "### MemoryCache metrics",
+        "### Improved IEEE decimal accuracy",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/release.json",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/release.json",
+      "sha256": "c99300a7acf2ac2d569a27164ac84c2066a3ba0f22da88d94bf3163f206481d9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/whats-new/dotnet-11/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md",
+      "sha256": "66789f6faf28cdff61927df7bd9bf6c36c9fd2f438c20d059b3ddba7c07152f0",
+      "headings": [
+        "# What's new in .NET libraries for .NET 11",
+        "## Diagnostics and process execution",
+        "### Process API expansion",
+        "#### Run-and-capture helpers",
+        "#### Fire-and-forget launches",
+        "#### SafeProcessHandle lifecycle methods",
+        "#### Tighter handle control",
+        "#### Suspended starts and process lookup",
+        "#### Signal processes and inspect termination status",
+        "### Console FORCE_COLOR support",
+        "## In-memory stream adapters",
+        "## Text, serialization, and data handling",
+        "### String and character enhancements",
+        "#### Rune support in String methods",
+        "#### Char.Equals with StringComparison",
+        "#### Rune support in TextInfo",
+        "#### StringBuilder.MoveChunks",
+        "### Base64 encoding improvements",
+        "#### New Base64 APIs",
+        "### UTF validation and invalid-subsequence search",
+        "### System.Text.Json improvements",
+        "#### Union serialization",
+        "#### JSON Lines output",
+        "#### Polymorphic hierarchy support",
+        "#### Source-generation and contract metadata",
+        "#### Property names and ignore conditions",
+        "#### Converters and collection contracts",
+        "#### Writer reuse",
+        "### Regular expression improvements",
+        "#### AnyNewLine option",
+        "#### Regex engine and source generator fixes",
+        "### Read CBOR incrementally",
+        "## Compression and archive formats",
+        "### Compression enhancements",
+        "#### ZIP archive entry access modes",
+        "#### ZIP CRC32 validation",
+        "#### ZIP archive password support",
+        "#### DeflateStream and GZipStream behavior change",
+        "#### Span-based Deflate, ZLib, and GZip APIs",
+        "### Zstandard compression",
+        "### Tar archive format selection",
+        "## Collections, numerics, and low-level I/O",
+        "### LINQ join improvements",
+        "#### LeftJoin, RightJoin, and FullJoin",
+        "### IEEE 754 decimal floating-point types",
+        "### Correctly rounded decimal and BigInteger conversions",
+        "### Partial numeric parsing",
+        "### Generic Complex\\<T>",
+        "#### Tuple-returning Join and GroupJoin overloads",
+        "### BFloat16 support in BitConverter",
+        "### Floating-point hex formatting and parsing",
+        "### Numerics improvements",
+        "### Random generic methods",
+        "### Cross-lane vector operations",
+        "### Low-level I/O improvements",
+        "#### SafeFileHandle pipe support",
+        "#### RandomAccess pipe support",
+        "#### File locking on iOS and tvOS",
+        "### Collections improvements",
+        "#### BitArray span constructors",
+        "#### BitArray.PopCount",
+        "#### EqualityComparer\\<T>.Create",
+        "#### ConcurrentQueue reliability fix",
+        "## Extensions and developer platform",
+        "### Discriminated-union scaffolding",
+        "### MetadataLoadContext additions",
+        "### URI data scheme constant",
+        "### Reflection improvements",
+        "#### Type.GetNullableUnderlyingType",
+        "#### ConstructorInfo.GetGenericArguments",
+        "### Assembly.Location override for AssemblyLoadContext",
+        "### Reduced contention in System.IO.Pipelines",
+        "### StringSyntax attribute enhancements",
+        "## Caching, configuration, and logging",
+        "### Configuration binding",
+        "### MemoryCache OpenTelemetry metrics",
+        "### Options builder validation improvements",
+        "### Asynchronous ChangeToken.OnChange",
+        "### Options-aware HybridCache factories",
+        "### Asynchronous validation with DataAnnotations",
+        "### Format DataAnnotations messages",
+        "### Activity tracing configuration",
+        "### Generic source-generated logging methods",
+        "### Improved reliability for configuration file change detection",
+        "## Cryptography",
+        "### X25519 Diffie-Hellman key exchange",
+        "### CryptographicOperations.FixedTimeEquals overload",
+        "### AES Key Wrap",
+        "### Faster authenticated encryption on Apple platforms",
+        "### Experimental composite ML-KEM and HPKE APIs",
+        "### Encrypt CMS messages with ML-KEM",
+        "## Networking and transport security",
+        "### TLS handshake hardening",
+        "### Experimental caller-driven TLS sessions",
+        "### HTTP request compression",
+        "### Configurable HTTP connection eviction",
+        "### Initial HTTP/2 concurrency",
+        "### DNS record resolution APIs",
+        "### HTTP/2 automatic downgrade for Windows authentication",
+        "### QUIC stream priority",
+        "### Video MIME type constants",
+        "### HTTP metrics use observable instruments",
+        "## Unsafe API accessibility",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/11.md",
+      "sha256": "ca69021f318729061ff084832ce85a97f277f2ddc5d419727afd35d50093b813",
+      "headings": [
+        "# Breaking changes in .NET 11",
+        "## ASP.NET Core",
+        "## Core .NET libraries",
+        "## Cryptography",
+        "## Deployment",
+        "## Entity Framework Core",
+        "## Extensions",
+        "## Globalization",
+        "## Interop",
+        "## JIT compiler",
+        "## Networking",
+        "## .NET MAUI",
+        "## SDK and MSBuild"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "sha256": "941c7b40230151c34bba11d2a5a0d7fc5cfb17a532111622d7854cf385e6d826",
+      "headings": [
+        "# Obsolete features in .NET 5+",
+        "## SYSLIB obsoletions",
+        "## EXTOBS obsoletions",
+        "## Suppress warnings",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0011.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0011.md",
+      "sha256": "f662a278c27bc4f10ac8f14308238380bdfb1e30cdde2f4da11d494871a1ee11",
+      "headings": [
+        "# SYSLIB0011: BinaryFormatter serialization is obsolete",
+        "## Workarounds",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0020.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0020.md",
+      "sha256": "6b7abe4aff6384ce051c7648e30ed08879f484f0227cd6a549a81d6b6cb03d75",
+      "headings": [
+        "# SYSLIB0020: IgnoreNullValues is obsolete",
+        "## Workarounds",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0038.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0038.md",
+      "sha256": "910fbc0af10a1acd2371836cc8e623e0eba7396499f2b86038a93b34db2e51cc",
+      "headings": [
+        "# SYSLIB0038: SerializationFormat.Binary is obsolete",
+        "## Workaround",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0047.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0047.md",
+      "sha256": "5d09bf0eb6e7a7af7193326a8c358aaea9e3ff788aca191e858051df05193086",
+      "headings": [
+        "# SYSLIB0047: XmlSecureResolver is obsolete",
+        "## Workaround",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0049.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0049.md",
+      "sha256": "7c493fd6b999c9a2ae5922e37ccfa3e6ef1dbf1b837a7617365fa1ef3ba9d136",
+      "headings": [
+        "# SYSLIB0049: JsonSerializerOptions.AddContext is obsolete",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0050.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0050.md",
+      "sha256": "04a8b855c83ee7cfefa5f014985b447eec395ac668b8d46c2a3b5c57cb35391c",
+      "headings": [
+        "# SYSLIB0050: Formatter-based serialization is obsolete",
+        "## Workaround",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0051.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib0051.md",
+      "sha256": "9d089e17096636e769b1221bf6fa744fc3128f74405d0573268ca44c62e30e6c",
+      "headings": [
+        "# SYSLIB0051: Legacy serialization support APIs are obsolete",
+        "## Workaround",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib1220-1229.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib1220-1229.md",
+      "sha256": "4a411a2f36d0da96fa67dd3e3a87eadc04f1bdfa5ff0711a28515dceda5a0de2",
+      "headings": [
+        "# SYSLIB diagnostics for System.Text.Json source generation"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib1230.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/fundamentals/syslib-diagnostics/syslib1230.md",
+      "sha256": "69d8f9fd8b778154ebb8271b9cd252f67f34b1bcf5cfea6649538e23d0421032",
+      "headings": [
+        "# SYSLIB1230: Deriving from a `GeneratedComInterface`-attributed interface defined in another assembly is not supported",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled.md",
+      "sha256": "1f33a6d5cde254aec6e0d9b435c84395237ba0930399b596437082e8b9c73493",
+      "headings": [
+        "# Assembly.GetCallingAssembly behavior changes when stack trace support is disabled",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/cbor-max-depth.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/cbor-max-depth.md",
+      "sha256": "b844d82e0351ebd4a835d0d63cfc6b4dab55ec2e15751bdd468ddf961721f5e2",
+      "headings": [
+        "# CborReader and CborWriter enforce a default maximum nesting depth",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md",
+      "sha256": "abff298576fae85f8fd3a0a431b2280c70257ea6b5bb621945755874d0c8b544",
+      "headings": [
+        "# System.Numerics.Complex special-value results now follow C23 Annex G",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md",
+      "sha256": "ea10bc683dc30d6cdfabc7925a07b05f89abec3aa0f7afd747c039b0ea483ace",
+      "headings": [
+        "# DateOnly and TimeOnly TryParse methods throw for invalid input",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md",
+      "sha256": "0c04251c997b6b716773d778f4686e7407536c7d09b995c0eff1b7e92828ed8d",
+      "headings": [
+        "# Decimal and BigInteger floating-point conversions are correctly rounded",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/deflatestream-gzipstream-empty-payload.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/deflatestream-gzipstream-empty-payload.md",
+      "sha256": "91da912cd5a2f59abe11ef3f23e5ddf3dd99378e3dae88b7fac09a4281000ee4",
+      "headings": [
+        "# DeflateStream and GZipStream write headers and footers for empty payload",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md",
+      "sha256": "ef70b3261c7010add552824ac32f24605c7071bc98eabcf712e4af3ccae6dc93",
+      "headings": [
+        "# Environment.GetCommandLineArgs()[0] preserves the apphost invocation name",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md",
+      "sha256": "3bf63f13c5fdf5d744cc62b8b05a766f2fb2f369c6b240f2fd8efdfd16f2dd60",
+      "headings": [
+        "# Environment.TickCount made consistent with Windows timeout behavior",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/math-round-digits.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/math-round-digits.md",
+      "sha256": "241d656be04727cde02c128debe865bccb8e885f6a557a5c3bcbc6b72fe062ae",
+      "headings": [
+        "# Math.Round and MathF.Round return correctly rounded results",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "sha256": "35f58ca22cecfb7e6e70e2d9c59a239ce4d2f0f85eaf06244fef76126d0dc2d7",
+      "headings": [
+        "# NamedPipeServerStream with PipeOptions.CurrentUserOnly tightens Unix socket file permissions",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws.md",
+      "sha256": "22442a2774a790eb9219be67808f83fe9943a8e07cf40d5324a835277cfb86b0",
+      "headings": [
+        "# Nullable.GetUnderlyingType throws for custom Type subclasses",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "sha256": "5ae71d3612ef4b297aea6aa570eaa48d7ae8347a1030974b90bd835c14b24600",
+      "headings": [
+        "# API obsoletions with non-default diagnostic IDs (.NET 11)",
+        "## Change description",
+        "## Version introduced",
+        "## Type of breaking change",
+        "## Recommended action",
+        "## Affected APIs",
+        "### SYSLIB0064",
+        "### SYSLIB0066",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md",
+      "sha256": "1bd8cbe6e2ca8e8e01218ececafcc49260899b14c3ae03ac57b2ce2cb522fdc4",
+      "headings": [
+        "# PackagePart.GetStream() returns a non-seekable stream for compressed parts in ReadWrite packages",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "sha256": "60da5762bf300135f9636c8c4c2c32bd36df3bbc267a17e6b8c4554714d3c75c",
+      "headings": [
+        "# SafeFileHandle.IsAsync and FileStream.IsAsync accurately reflect non-blocking state on Unix",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tar-checksum-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tar-checksum-validation.md",
+      "sha256": "e94dbdd18cefb08ebaa609438ba9c468e7da67f8641b3b12ed71d2889be70191",
+      "headings": [
+        "# TAR-reading APIs verify header checksums when reading",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md",
+      "sha256": "a6588fc4cb53e0b7640b2931a34ed72f3fad48caebf6608fb8106fb8731021da",
+      "headings": [
+        "# TarWriter uses HardLink entries for hard-linked files",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md",
+      "sha256": "462363150cbe72d4547039318c0c7cd616334a416089dd66aba182a8fb853096",
+      "headings": [
+        "# Tensor operations align equivalent shapes and empty tensors",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+      "sha256": "d58fe54624546da58ce8b488eb7668aac2ea95298d2f223af49a143fcc2b1097",
+      "headings": [
+        "# Tensor operations reject unsupported storage layouts",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md",
+      "sha256": "522f3fadffe3233681f0dd02d49f60938a8aebcf95f3ff1f1caa12c09edb4553",
+      "headings": [
+        "# ZipArchive.CreateAsync eagerly loads ZIP archive entries",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/compatibility/core-libraries/11/ziparchive-entry-crc32-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/ziparchive-entry-crc32-validation.md",
+      "sha256": "b9309ca79f161d96e1ae2779d6d2b7825ab0b1e33355a5aa6fbcf78163a3685f",
+      "headings": [
+        "# CRC32 validation added when reading ZIP archive entries",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/converters-how-to.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/converters-how-to.md",
+      "sha256": "6b323e09973fbccc1d9e298b403ddcfdd0cc8f2a674d603f6683d85d01105211",
+      "headings": [
+        "# How to write custom converters for JSON serialization (marshalling) in .NET",
+        "## Custom converter patterns",
+        "## Sample basic converter",
+        "## Sample factory pattern converter",
+        "## Steps to follow the basic pattern",
+        "## Steps to follow the factory pattern",
+        "## Use open generic converters with [JsonConverter]",
+        "### Define the generic type",
+        "### Implement the converter",
+        "### Serialize and deserialize",
+        "### How it works",
+        "### When to use the factory pattern versus open generic converters",
+        "## The use of `Utf8JsonReader` in the `Read` method",
+        "## Error handling",
+        "### JsonException",
+        "### NotSupportedException",
+        "### When to throw which exception type",
+        "## Register a custom converter",
+        "## Registration sample - Converters collection",
+        "## Registration sample - [JsonConverter] on a property",
+        "## Registration sample - [JsonConverter] on a type",
+        "## Converter registration precedence",
+        "## Converter samples for common scenarios",
+        "### Deserialize inferred types to object properties",
+        "### Support polymorphic deserialization",
+        "### An alternative way to do polymorphic deserialization",
+        "### Support round trip for `Stack` types",
+        "### Use default system converter",
+        "## Handle null values",
+        "## Preserve references",
+        "### ReferenceResolver limitations with custom converters",
+        "## Other custom converter samples",
+        "## Additional resources"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/custom-contracts.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/custom-contracts.md",
+      "sha256": "2be5397dc378f92d9dea7faac59fff62e79302d08e791d4f9d67845505ff2d14",
+      "headings": [
+        "# Customize a JSON contract",
+        "## How to opt in",
+        "## Get strongly typed metadata",
+        "## Configurable aspects",
+        "## Modifiers",
+        "## Example: Increment a property's value",
+        "## Example: Serialize private fields",
+        "## Example: Ignore properties with a specific type",
+        "## Example: Allow int values to be strings",
+        "## Other ways to customize serialization",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/customize-properties.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/customize-properties.md",
+      "sha256": "1e864a14ff19d214145a5eaf7947b1368d3d6a466327116778969bd157b92a07",
+      "headings": [
+        "# How to customize property names and values with System.Text.Json",
+        "## Customize individual property names",
+        "## Use a built-in naming policy",
+        "## Apply a naming policy to a type or member",
+        "## Use a custom JSON property naming policy",
+        "## Use a naming policy for dictionary keys",
+        "## Enums as strings",
+        "### JsonConverterAttribute",
+        "### Custom enum member names",
+        "### Source generation",
+        "## Configure the order of serialized properties",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/handle-overflow.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/handle-overflow.md",
+      "sha256": "5efb4a1c0400d08b054b1f5dfa2cbb374cbaa4f4a4d2ea83823470b776dfb1d2",
+      "headings": [
+        "# How to handle overflow JSON or use JsonElement or JsonNode",
+        "## Handle overflow JSON",
+        "## Deserialize into JsonElement or JsonNode",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/ignore-properties.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/ignore-properties.md",
+      "sha256": "1bbb56b63f277ddf7a907eecd18f20c494240c73125cfe00be4caeb4f4ddf004",
+      "headings": [
+        "# How to ignore properties with System.Text.Json",
+        "## Ignore individual properties",
+        "## Ignore properties based on a type-level condition",
+        "## Ignore all read-only properties",
+        "## Ignore all null-value properties",
+        "## Ignore all default-value properties",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/immutability.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/immutability.md",
+      "sha256": "19d997fbf77747ea12c6d923b006c0de4f10f469992ce534b8b433015845f5f2",
+      "headings": [
+        "# Use immutable types and properties",
+        "## Parameterized constructors",
+        "## By-reference constructor parameters",
+        "## Records",
+        "## Non-public members and property accessors",
+        "## Init-only properties",
+        "## Read-only properties",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/polymorphism.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/polymorphism.md",
+      "sha256": "de450ddc8b714ac54193015164e2937da02adab611884f5525cc2e1332c20974",
+      "headings": [
+        "# How to serialize properties of derived classes with System.Text.Json",
+        "## Serialize properties of derived classes",
+        "## Polymorphic type discriminators",
+        "### Mix and match type discriminator formats",
+        "### Customize the type discriminator name",
+        "### Handle unknown derived types",
+        "## Infer polymorphism from a closed hierarchy",
+        "## Configure open generic derived types",
+        "## Configure polymorphism with the contract model",
+        "### Additional polymorphic serialization details",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/source-generation-modes.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/source-generation-modes.md",
+      "sha256": "d7909ebb2f279538c1bfffd6d08936b6dd38a53cafc4f8eaab71c170c97ba26c",
+      "headings": [
+        "# Source-generation modes in System.Text.Json",
+        "## Metadata-based mode",
+        "### Non-public members and constructors",
+        "### Known issues",
+        "## Serialization-optimization (fast path) mode",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/supported-types.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/supported-types.md",
+      "sha256": "a2e8edfa4784906368d1058f4d02be6e9d66c4335fec59558cc49b33332bc05c",
+      "headings": [
+        "# Supported types in System.Text.Json",
+        "## Types that serialize as JSON objects",
+        "## Types that serialize as JSON arrays",
+        "### System.Array namespace",
+        "### System.Collections namespace",
+        "### System.Collections.Generic namespace",
+        "#### IAsyncEnumerable\\<T>",
+        "### System.Collections.Immutable namespace",
+        "### System.Collections.Specialized namespace",
+        "### System.Collections.Concurrent namespace",
+        "### System.Collections.ObjectModel namespace",
+        "### Custom collections",
+        "#### Deserialization support",
+        "#### Known issues",
+        "### Supported key types",
+        "## BFloat16 and decimal floating-point types",
+        "## F# discriminated unions",
+        "## Unsupported types",
+        "### System.Data namespace",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/union-types.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/union-types.md",
+      "sha256": "25bddfe373f0a7a06f50cb147372b307c59df2c979bf588ee4bfe983e69b0d77",
+      "headings": [
+        "# Serialize union types with System.Text.Json",
+        "## Serialize and deserialize union values",
+        "## Distinguish cases with the same JSON token type",
+        "## Choose unions or closed hierarchies",
+        "## Provide a custom classifier",
+        "## Handle null and default union values",
+        "## Customize a union contract",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/standard/serialization/system-text-json/use-utf8jsonwriter.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/standard/serialization/system-text-json/use-utf8jsonwriter.md",
+      "sha256": "d4e1da664ca4c56642ede421288db9f288531657006af00a5b726c00927bad3c",
+      "headings": [
+        "# How to use Utf8JsonWriter in System.Text.Json",
+        "## Reuse a writer",
+        "## Write with UTF-8 text",
+        "## Write raw JSON",
+        "## Customize character escaping",
+        "## Write null values",
+        "## Write Timespan, Uri, or char values",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Text.Json/gen/JsonSourceGenerator.DiagnosticDescriptors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Text.Json/gen/JsonSourceGenerator.DiagnosticDescriptors.cs",
+      "sha256": "4384069add8769575447f9e5f4acddeb13dbfd5bff9781c4c9505506109270f4",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+      "sha256": "8620be4d68261a182be0a92aa136fe9233c95c5c8bd1cf7dd3192893d228687b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "sha256": "65a36a54c37baa991baffb74c61e219ae16bc435c4e9ff88d7d29836f2b99c42",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime.Serialization.Schema/ref/System.Runtime.Serialization.Schema.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.Serialization.Schema/ref/System.Runtime.Serialization.Schema.cs",
+      "sha256": "af9730499c1866798577b5249fd62ae429a19e10c28102e956de565e4d184eff",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Text.Json/gen/JsonSourceGenerator.DiagnosticDescriptors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/gen/JsonSourceGenerator.DiagnosticDescriptors.cs",
+      "sha256": "ac49a3a934f3fc4715bd7726af9805d98ec7d71469d84233ae5359fc1fab4c14",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+      "sha256": "5cd315a88d553a8322af6d3ecb49c2b97d95ede49678f122f170cf39a99059cb",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "sha256": "c53869234ad1ca3f8f6d0914cc32886b0bed6f9c30641ea3d69793de13d24843",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime.Serialization.Schema/ref/System.Runtime.Serialization.Schema.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Serialization.Schema/ref/System.Runtime.Serialization.Schema.cs",
+      "sha256": "af9730499c1866798577b5249fd62ae429a19e10c28102e956de565e4d184eff",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs",
+      "sha256": "ed1b41a7584818f448239880d9878cd8b97ae90581c02909e4bda78438fb394b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriterOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriterOptions.cs",
+      "sha256": "a061cbb574865eeeae66e374ec5539f4e720b5c7585452c8ca2d3e55aeb4fd48",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierFactory.cs",
+      "sha256": "37ac10ffa3a900e06cf6cf2225866dc442af57aab528ae451175e7fdea4a5503",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.net11.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.net11.cs",
+      "sha256": "a9c9e279046cef94ee304e6df6e58e888c707f37ae93053fea60a419d790c186",
+      "headings": []
+    }
+  ],
+  "sourceGeneratorDiagnostics": [
+    {
+      "entries": [
+        "public static DiagnosticDescriptor TypeNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1030\",\n                title: new LocalizableResourceString(nameof(SR.TypeNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.TypeNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DuplicateTypeName { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1031\",\n                title: new LocalizableResourceString(nameof(SR.DuplicateTypeNameTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DuplicateTypeNameMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor ContextClassesMustBePartial { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1032\",\n                title: new LocalizableResourceString(nameof(SR.ContextClassesMustBePartialTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.ContextClassesMustBePartialMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor MultipleJsonConstructorAttribute { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1033\",\n                title: new LocalizableResourceString(nameof(SR.MultipleJsonConstructorAttributeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.MultipleJsonConstructorAttributeFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonStringEnumConverterNotSupportedInAot { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1034\",\n                title: new LocalizableResourceString(nameof(SR.JsonStringEnumConverterNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonStringEnumConverterNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor MultipleJsonExtensionDataAttribute { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1035\",\n                title: new LocalizableResourceString(nameof(SR.MultipleJsonExtensionDataAttributeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.MultipleJsonExtensionDataAttributeFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DataExtensionPropertyInvalid { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1036\",\n                title: new LocalizableResourceString(nameof(SR.DataExtensionPropertyInvalidTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DataExtensionPropertyInvalidFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor InaccessibleJsonIncludePropertiesNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1038\",\n                title: new LocalizableResourceString(nameof(SR.InaccessibleJsonIncludePropertiesNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.InaccessibleJsonIncludePropertiesNotSupportedFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor PolymorphismNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1039\",\n                title: new LocalizableResourceString(nameof(SR.FastPathPolymorphismNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.FastPathPolymorphismNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonConverterAttributeInvalidType { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1220\",\n                title: new LocalizableResourceString(nameof(SR.JsonConverterAttributeInvalidTypeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonConverterAttributeInvalidTypeMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonUnsupportedLanguageVersion { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1221\",\n                title: new LocalizableResourceString(nameof(SR.JsonUnsupportedLanguageVersionTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonUnsupportedLanguageVersionMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonConstructorInaccessible { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1222\",\n                title: new LocalizableResourceString(nameof(SR.JsonConstructorInaccessibleTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonConstructorInaccessibleMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DerivedJsonConverterAttributesNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1223\",\n                title: new LocalizableResourceString(nameof(SR.DerivedJsonConverterAttributesNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DerivedJsonConverterAttributesNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonSerializableAttributeOnNonContextType { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1224\",\n                title: new LocalizableResourceString(nameof(SR.JsonSerializableAttributeOnNonContextTypeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonSerializableAttributeOnNonContextTypeMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor TypeContainsRefLikeMember { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1225\",\n                title: new LocalizableResourceString(nameof(SR.TypeContainsRefLikeMemberTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.TypeContainsRefLikeMemberFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);"
+      ],
+      "baseline": "10.0.13"
+    },
+    {
+      "entries": [
+        "public static DiagnosticDescriptor TypeNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1030\",\n                title: new LocalizableResourceString(nameof(SR.TypeNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.TypeNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DuplicateTypeName { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1031\",\n                title: new LocalizableResourceString(nameof(SR.DuplicateTypeNameTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DuplicateTypeNameMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor ContextClassesMustBePartial { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1032\",\n                title: new LocalizableResourceString(nameof(SR.ContextClassesMustBePartialTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.ContextClassesMustBePartialMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor MultipleJsonConstructorAttribute { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1033\",\n                title: new LocalizableResourceString(nameof(SR.MultipleJsonConstructorAttributeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.MultipleJsonConstructorAttributeFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonStringEnumConverterNotSupportedInAot { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1034\",\n                title: new LocalizableResourceString(nameof(SR.JsonStringEnumConverterNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonStringEnumConverterNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor MultipleJsonExtensionDataAttribute { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1035\",\n                title: new LocalizableResourceString(nameof(SR.MultipleJsonExtensionDataAttributeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.MultipleJsonExtensionDataAttributeFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DataExtensionPropertyInvalid { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1036\",\n                title: new LocalizableResourceString(nameof(SR.DataExtensionPropertyInvalidTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DataExtensionPropertyInvalidFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor PolymorphismNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1039\",\n                title: new LocalizableResourceString(nameof(SR.FastPathPolymorphismNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.FastPathPolymorphismNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonConverterAttributeInvalidType { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1220\",\n                title: new LocalizableResourceString(nameof(SR.JsonConverterAttributeInvalidTypeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonConverterAttributeInvalidTypeMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonUnsupportedLanguageVersion { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1221\",\n                title: new LocalizableResourceString(nameof(SR.JsonUnsupportedLanguageVersionTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonUnsupportedLanguageVersionMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DerivedJsonConverterAttributesNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1223\",\n                title: new LocalizableResourceString(nameof(SR.DerivedJsonConverterAttributesNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DerivedJsonConverterAttributesNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonSerializableAttributeOnNonContextType { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1224\",\n                title: new LocalizableResourceString(nameof(SR.JsonSerializableAttributeOnNonContextTypeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonSerializableAttributeOnNonContextTypeMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor TypeContainsRefLikeMember { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1225\",\n                title: new LocalizableResourceString(nameof(SR.TypeContainsRefLikeMemberTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.TypeContainsRefLikeMemberFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor JsonIgnoreConditionAlwaysInvalidOnType { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1226\",\n                title: new LocalizableResourceString(nameof(SR.JsonIgnoreConditionAlwaysInvalidOnTypeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.JsonIgnoreConditionAlwaysInvalidOnTypeFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor UnionCaseTypesNotClassifiable { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1227\",\n                title: new LocalizableResourceString(nameof(SR.UnionCaseTypesNotClassifiableTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.UnionCaseTypesNotClassifiableMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor UnionTypeShapeNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1228\",\n                title: new LocalizableResourceString(nameof(SR.UnionTypeShapeNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.UnionTypeShapeNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor OpenGenericDerivedTypeCouldNotBeResolved { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1229\",\n                title: new LocalizableResourceString(nameof(SR.OpenGenericDerivedTypeCouldNotBeResolvedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.OpenGenericDerivedTypeCouldNotBeResolvedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DerivedTypeIsNotSupported { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1240\",\n                title: new LocalizableResourceString(nameof(SR.DerivedTypeIsNotSupportedTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DerivedTypeIsNotSupportedMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor InferredDerivedTypeIsNotAccessible { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1241\",\n                title: new LocalizableResourceString(nameof(SR.InferredDerivedTypeIsNotAccessibleTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.InferredDerivedTypeIsNotAccessibleMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor DerivedTypeDiscriminatorCollision { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1242\",\n                title: new LocalizableResourceString(nameof(SR.DerivedTypeDiscriminatorCollisionTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.DerivedTypeDiscriminatorCollisionMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor InferClosedTypePolymorphismOnNonClosedType { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1243\",\n                title: new LocalizableResourceString(nameof(SR.InferClosedTypePolymorphismOnNonClosedTypeTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.InferClosedTypePolymorphismOnNonClosedTypeMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Error,\n                isEnabledByDefault: true);",
+        "public static DiagnosticDescriptor InferClosedTypePolymorphismWithExplicitDerivedTypes { get; } = DiagnosticDescriptorHelper.Create(\n                id: \"SYSLIB1244\",\n                title: new LocalizableResourceString(nameof(SR.InferClosedTypePolymorphismWithExplicitDerivedTypesTitle), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                messageFormat: new LocalizableResourceString(nameof(SR.InferClosedTypePolymorphismWithExplicitDerivedTypesMessageFormat), SR.ResourceManager, typeof(FxResources.System.Text.Json.SourceGeneration.SR)),\n                category: JsonConstants.SystemTextJsonSourceGenerationName,\n                defaultSeverity: DiagnosticSeverity.Warning,\n                isEnabledByDefault: true);"
+      ],
+      "baseline": "11.0.0-rc.2.26504.105"
+    }
+  ]
+}
