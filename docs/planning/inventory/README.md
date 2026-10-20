@@ -8,7 +8,7 @@ Documentation-backed planning pass, 16 October 2026, using the .NET 11 RC2 prepa
 - [ASP.NET Core, the complete original Blazor baseline, and EF Core](02-web-data.md): 156 rows, including 127 included candidates, 18 grouped rows, 10 exclusions and one unresolved availability finding. Explicit G01–G25, A01–A07 and E01–E03 mappings retain the 25 guide topics, seven additions and three expansions. Blazor AI's distinct conversation/tool/approval/state goals remain included.
 - [WPF, WinForms, MAUI, Android and Apple workloads](03-desktop-mobile.md): 87 rows, including 65 included candidates, nine grouped rows, six exclusions and seven unresolved findings. Includes real VB-specific WinForms authoring rather than assuming there are no VB changes.
 
-Together these contain **406 source-disposition rows and 310 included candidate rows**. These are not 310 finalized distinct recipes: source families overlap, shared subtopics need linking, and some goals may split or merge after original samples establish the right boundary. The eight curated .NET 10 foundations remain the previously approved historical backfill, not a full additional release audit.
+The initial planning pass recorded **406 source-disposition rows and 310 included candidate rows**. Later audit additions are identified separately below and in the area registers; those historical counts are not a current delivery total. These are not 310 finalized distinct recipes: source families overlap, shared subtopics need linking, and some goals may split or merge after original samples establish the right boundary. The eight curated .NET 10 foundations remain the previously approved historical backfill, not a full additional release audit.
 
 `included` means eligible under the agreed authoring criterion, pending exact API and example evidence. `grouped` assigns coverage to another goal. `excluded` records an upgrade-only benefit, an out-of-boundary product, or another stated reason. `unresolved` records a missing source/API/availability fact. It does not mean experimental features are disallowed.
 
@@ -21,6 +21,8 @@ Consolidate validation localization, JSON union infrastructure, SDK/mobile test 
 First-party MAUI template integration can document its required Avalonia dependency under the accepted release-family boundary. This does not add standalone Avalonia framework coverage. Fictional example domains and focused migration grouping are authoring choices within the agreed goals, not new product scope.
 
 ## Current corrections and remaining evidence
+
+The [data/text/numerics/I/O API audit](../audits/data-io.md) records actual .NET 10 / pinned .NET 11 RC2 reference, package and regex-tooling differences against complete canonical notes and compatibility sources. Every changed declaration has an audit owner. Ten additional delivery proposals await review; existing numeric/archive migration and recipe owners retain their obligations. The audit does not deliver content or clear publication gates.
 
 The [serialization API audit](../audits/serialization.md) records the bounded .NET 10 / .NET 11 RC2 asset and canonical-source comparison, including package target differences, generator diagnostics and historical obsoletions. It assigns existing goals and proposes two missing delivery slices; their content/evidence and final GA reconciliation remain outstanding.
 
