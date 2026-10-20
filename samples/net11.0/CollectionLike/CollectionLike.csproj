@@ -5,6 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../../CollectionLikeChecks.cs" Link="Program.cs" />
-    <Compile Include="../../CrateLabels.cs" Link="CrateLabels.cs" />
+    <Compile Include="../../net10.0/CollectionLike/CrateLabels.cs" Link="CrateLabels.cs" />
   </ItemGroup>
 </Project>

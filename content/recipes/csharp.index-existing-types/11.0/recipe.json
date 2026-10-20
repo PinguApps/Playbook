@@ -1,0 +1,150 @@
+{
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "introducedIn": "11.0",
+  "id": "csharp.index-existing-types",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "areas": [
+    "csharp"
+  ],
+  "apis": [
+    "extension",
+    "this[]",
+    "LinkedList<T>"
+  ],
+  "tags": [
+    "collections",
+    "indexer"
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "region": "indexer",
+      "path": "samples/net10.0/CollectionLike/Collections.cs"
+    },
+    "newer": {
+      "language": "csharp",
+      "region": "indexer",
+      "path": "samples/net11.0/CollectionLike/Collections.cs"
+    }
+  },
+  "edition": "11.0",
+  "humanProof": {
+    "scope": "Portable language/collection behavior is exercised by actual compilation and execution; no targeted native Human proof is needed.",
+    "status": "not-required"
+  },
+  "title": "Add indexed access without editing a collection type",
+  "evidence": [
+    {
+      "sample": "samples/net10.0/CollectionLike/CollectionLike.csproj",
+      "target": "net10.0",
+      "scope": "Actual positional reads, node replacement, preserved sequence/length and null/negative/past-end rejection, including unchanged state after rejected writes.",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/CollectionLike/CollectionLike.csproj",
+      "target": "net11.0",
+      "scope": "Actual positional reads, node replacement, preserved sequence/length and null/negative/past-end rejection, including unchanged state after rejected writes.",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0"
+    }
+  ],
+  "goal": "Use extension indexers when a type you cannot edit needs bracket reads or writes. Define bounds, null handling and traversal cost explicitly.",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extension",
+      "title": "Microsoft extension member declaration reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/extension-indexers",
+      "title": "Extension indexers specification"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+      "title": "Microsoft language and target compatibility"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+      "title": "Canonical RC1 C# stabilization"
+    }
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Linked-list positional access is O(n), with no concurrent-mutation guarantee.",
+          "Only zero-based integer indexing is supplied; invalid slots and null receivers throw.",
+          "Use a named receiver and import the extension namespace; existing applicable instance members win."
+        ],
+        "target": "11.0",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extension",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/extension-indexers",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+        ],
+        "requirements": {
+          "optIns": [],
+          "renderingModes": [],
+          "constraints": [
+            "The containing class is top-level, static and non-generic; the receiver must be named.",
+            "No private-member access, receiver storage or interface implementation is added.",
+            "Competing extension namespaces may make lookup ambiguous; control imports or retain helper methods.",
+            "Writes preserve count/order and reject invalid slots before mutation."
+          ],
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Use the supported target associated with this language version; no unsupported older-target language route is declared."
+          },
+          "frameworks": [],
+          "language": {
+            "version": "15.0",
+            "name": "C#",
+            "match": "exact",
+            "reason": "The canonical sample declares this stabilized language mode explicitly."
+          },
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+          ],
+          "prerequisites": [
+            "Target net11.0 with LangVersion 15.0; enable ImplicitUsings or include the System and System.Collections.Generic imports shown in the instructions."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "This SDK family supplies the compiler and matching target reference assemblies."
+          },
+          "workloads": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11.0"
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/CollectionLike/CollectionLike.csproj"
+        ],
+        "usage": "primary",
+        "conditional": false
+      }
+    ]
+  }
+}

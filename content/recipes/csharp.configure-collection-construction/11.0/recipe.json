@@ -1,0 +1,156 @@
+{
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "introducedIn": "11.0",
+  "id": "csharp.configure-collection-construction",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "areas": [
+    "csharp"
+  ],
+  "apis": [
+    "with",
+    "CollectionBuilderAttribute",
+    "List<T>",
+    "HashSet<T>"
+  ],
+  "tags": [
+    "collections",
+    "construction"
+  ],
+  "snippets": {
+    "builder": {
+      "language": "csharp",
+      "region": "builder",
+      "path": "samples/net10.0/CollectionLike/CrateLabels.cs"
+    },
+    "older": {
+      "language": "csharp",
+      "region": "construction",
+      "path": "samples/net10.0/CollectionLike/Collections.cs"
+    },
+    "newer": {
+      "language": "csharp",
+      "region": "construction",
+      "path": "samples/net11.0/CollectionLike/Collections.cs"
+    }
+  },
+  "edition": "11.0",
+  "humanProof": {
+    "scope": "Portable language/collection behavior is exercised by actual compilation and execution; no targeted native Human proof is needed.",
+    "status": "not-required"
+  },
+  "title": "Construct collections with deliberate capacity and comparison",
+  "evidence": [
+    {
+      "sample": "samples/net10.0/CollectionLike/CollectionLike.csproj",
+      "target": "net10.0",
+      "scope": "Actual comparer-sensitive lookup/addition, list order/duplicates and capacity, custom configured/default builder overloads, escaped with invocation and indexer read/write/rejection checks.",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/CollectionLike/CollectionLike.csproj",
+      "target": "net11.0",
+      "scope": "Actual comparer-sensitive lookup/addition, list order/duplicates and capacity, custom configured/default builder overloads, escaped with invocation and indexer read/write/rejection checks.",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0"
+    }
+  ],
+  "goal": "Use collection-expression arguments when constructor or builder configuration must accompany the elements. Preserve capacity, ordering and comparison semantics.",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/collection-expressions",
+      "title": "Microsoft collection expressions reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/collection-expression-arguments",
+      "title": "Collection expression arguments specification"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+      "title": "Microsoft language and target compatibility"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+      "title": "Canonical RC1 C# stabilization"
+    }
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Keep the original comparer and element semantics; capacity is storage headroom, not Count.",
+          "Use a first-position with element and a supported constructor or builder overload.",
+          "Escape @with(...) when invoking a method to produce an element."
+        ],
+        "target": "11.0",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/collection-expressions",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-15.0/collection-expression-arguments",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+        ],
+        "requirements": {
+          "optIns": [],
+          "renderingModes": [],
+          "constraints": [
+            "Arrays and spans do not support a with element; dynamic arguments are unsupported.",
+            "Read-only sequence interfaces accept only an empty with element; ICollection<T>/IList<T> additionally accept capacity.",
+            "Builder configuration parameters precede the final ReadOnlySpan<T>; preserve overload defaults.",
+            "CollectionLike demonstrates constructor and custom string-builder forms, not arbitrary third-party builders."
+          ],
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Use the supported target associated with this language version; no unsupported older-target language route is declared."
+          },
+          "frameworks": [],
+          "language": {
+            "version": "15.0",
+            "name": "C#",
+            "match": "exact",
+            "reason": "The canonical sample declares this stabilized language mode explicitly."
+          },
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+          ],
+          "prerequisites": [
+            "Target net11.0 with LangVersion 15.0; enable ImplicitUsings or include the System and System.Collections.Generic imports shown in the instructions."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "This SDK family supplies the compiler and matching target reference assemblies."
+          },
+          "workloads": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11.0"
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/CollectionLike/CollectionLike.csproj"
+        ],
+        "usage": "primary",
+        "conditional": false
+      }
+    ]
+  }
+}

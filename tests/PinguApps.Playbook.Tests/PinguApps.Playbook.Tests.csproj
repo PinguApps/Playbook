@@ -4,6 +4,14 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net9.0/ExtensionProperties/ShelfExtensions.cs" LogicalName="Canonical.net9.0.ShelfExtensions.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/ExtensionProperties/ShelfExtensions.cs" LogicalName="Canonical.net10.0.ShelfExtensions.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/CollectionLike/Collections.cs" LogicalName="Canonical.net10.0.Collections.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/CollectionLike/Collections.cs" LogicalName="Canonical.net11.0.Collections.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/CollectionLike/CrateLabels.cs" LogicalName="Canonical.CrateLabels.cs" />
+    <EmbeddedResource Include="../../content/recipes/csharp.configure-collection-construction/11.0/recipe.md" LogicalName="Canonical.csharp.configure-collection-construction.md" />
+    <EmbeddedResource Include="../../content/recipes/csharp.index-existing-types/11.0/recipe.md" LogicalName="Canonical.csharp.index-existing-types.md" />
+    <EmbeddedResource Include="../../content/recipes/csharp.extend-uneditable-types/10.0/recipe.md" LogicalName="Canonical.csharp.extend-uneditable-types.md" />
     <EmbeddedResource Include="../../samples/net9.0/PropertyAssignment/StorageBay.cs" LogicalName="Canonical.net9.0.StorageBay.cs" />
     <EmbeddedResource Include="../../samples/net10.0/PropertyAssignment/StorageBay.cs" LogicalName="Canonical.net10.0.StorageBay.cs" />
     <EmbeddedResource Include="../../samples/net10.0/ClosedOutcomes/Outcomes.cs" LogicalName="Canonical.net10.0.Outcomes.cs" />

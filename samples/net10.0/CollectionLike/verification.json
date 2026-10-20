@@ -3,7 +3,6 @@
   "nativeToolchains": [],
   "additionalInputs": [
     "samples/CollectionLikeChecks.cs",
-    "samples/CrateLabels.cs",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1"
   ],
