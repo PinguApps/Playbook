@@ -3,6 +3,8 @@
   "extends": [
     "local>PinguApps/renovate-config"
   ],
+  "enabledManagers": ["github-actions", "nuget"],
+  "configMigration": false,
   "timezone": "Europe/London",
   "schedule": ["* 8-17 * * 1"],
   "prConcurrentLimit": 2,
@@ -10,11 +12,18 @@
   "lockFileMaintenance": {
     "enabled": false
   },
+  "vulnerabilityAlerts": {
+    "enabled": false
+  },
+  "osvVulnerabilityAlerts": false,
   "packageRules": [
     {
-      "description": "Keep all dependency updates subject to manual merge.",
+      "description": "New dependencies and locations require an explicit update policy; keep all merges manual.",
       "matchPackageNames": ["*"],
-      "automerge": false
+      "enabled": false,
+      "automerge": false,
+      "ignoreDeprecated": true,
+      "ignoreUnstable": true
     },
     {
       "description": "Update the tool's bare NuGet versions without restoring version-specific samples.",
@@ -24,16 +33,74 @@
       "skipArtifactsUpdate": true
     },
     {
-      "description": "Keep the host's Microsoft.Extensions.Hosting dependency on .NET 10 until the host target is deliberately upgraded.",
+      "description": "Maintain reviewed .NET 10 host packages within their approved release line.",
       "matchManagers": ["nuget"],
       "matchFileNames": ["Directory.Packages.props"],
-      "matchPackageNames": ["Microsoft.Extensions.Hosting"],
-      "allowedVersions": "[10.0.0,11.0.0)"
+      "matchPackageNames": ["Microsoft.Extensions.Hosting", "Microsoft.SourceLink.GitHub"],
+      "enabled": true,
+      "allowedVersions": "[10.0.0,11.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
     },
     {
-      "description": "Approve major updates in the dashboard before creating PRs.",
-      "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true
+      "description": "Maintain the reviewed test SDK within its approved release line.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["Microsoft.NET.Test.Sdk"],
+      "enabled": true,
+      "allowedVersions": "[18.0.0,19.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
+      "description": "Maintain the reviewed MCP dependency within its approved release line.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["ModelContextProtocol"],
+      "enabled": true,
+      "allowedVersions": "[2.0.0,3.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
+      "description": "Maintain the reviewed code-style analyzer within its approved release line.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["PinguApps.CodeStyle.Analyzers"],
+      "enabled": true,
+      "allowedVersions": "[1.0.0,2.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
+      "description": "Maintain the reviewed BDD integration within its approved release line.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["Reqnroll.xunit.v3"],
+      "enabled": true,
+      "allowedVersions": "[3.0.0,4.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
+      "description": "Maintain the reviewed xUnit packages within their approved release line.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["xunit.v3.mtp-off", "xunit.runner.visualstudio"],
+      "enabled": true,
+      "allowedVersions": "[4.0.0,5.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
+      "description": "Maintain the reviewed banned-API analyzer within its approved release line.",
+      "matchManagers": ["nuget"],
+      "matchFileNames": ["Directory.Packages.props"],
+      "matchPackageNames": ["Microsoft.CodeAnalysis.BannedApiAnalyzers"],
+      "enabled": true,
+      "allowedVersions": "[5.0.0,6.0.0)",
+      "matchDepTypes": ["nuget"],
+      "matchCurrentValue": "/^\\d+\\.\\d+\\.\\d+$/"
     },
     {
       "description": "Update the related test packages together within their current major versions.",
@@ -44,11 +111,24 @@
       "groupName": "test dependencies"
     },
     {
-      "description": "Group routine Action updates while retaining inherited SHA pinning.",
+      "description": "Maintain only reviewed Action references in reviewed workflows, retaining inherited SHA pinning.",
       "matchManagers": ["github-actions"],
+      "matchFileNames": [".github/workflows/_run-tests.yml", ".github/workflows/pr-labels.yml", ".github/workflows/publish-release-draft.yml", ".github/workflows/publish.yml", ".github/workflows/release-drafter.yml"],
+      "matchPackageNames": ["actions/checkout", "actions/download-artifact", "actions/setup-dotnet", "actions/upload-artifact", "EnricoMi/publish-unit-test-result-action", "NuGet/login", "release-drafter/release-drafter"],
       "matchDepTypes": ["action"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "groupName": "GitHub Actions"
+      "enabled": true,
+      "groupName": "GitHub Actions",
+      "matchCurrentValue": "/^v?\\d+(?:\\.\\d+){0,2}$/"
+    },
+    {
+      "description": "Major upgrades, package replacements, rollbacks and lock-file maintenance require deliberate changes.",
+      "matchUpdateTypes": ["major", "replacement", "rollback", "bump", "lockFileMaintenance"],
+      "enabled": false
+    },
+    {
+      "description": "Preview and pre-1.0 dependencies require an explicit stability and compatibility review.",
+      "matchCurrentValue": "/^(?:\\[?v?0(?:\\.|$)|.*-)/",
+      "enabled": false
     },
     {
       "description": "SDK and runtime baselines require coordinated CI and evidence updates.",

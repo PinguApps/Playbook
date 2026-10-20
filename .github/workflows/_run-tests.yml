@@ -54,6 +54,12 @@ jobs:
             9.0.319
             11.0.100-rc.2.26504.105
 
+      - name: Verify Renovate update permissions
+        shell: pwsh
+        env:
+          GITHUB_COM_TOKEN: ${{ github.token }}
+        run: ./eng/Test-Renovate.ps1
+
       - name: Compile samples and verify the packed tool
         shell: pwsh
         run: ./eng/Verify.ps1 -PackageVersion $env:PACKAGE_VERSION -ReleaseReady:([bool]::Parse($env:RELEASE_READY)) -SkipInstalledTests
