@@ -95,6 +95,19 @@ public static class Program {
       }
       Write-Host "PASS: $($case.Name)"
     }
+
+    # Build the exact offline setup without the repository's shared sample properties or test program.
+    $projectSource = Get-Content (Join-Path $sample 'UnsafeBoundaries.csproj') -Raw
+    $properties = [regex]::Match($projectSource, '(?s)<!-- snippet:project -->\r?\n(.*?)\s*<!-- endsnippet:project -->').Groups[1].Value
+    '<Project Sdk="Microsoft.NET.Sdk">' + $properties + '</Project>' | Set-Content Probe.csproj
+    Copy-Item (Join-Path $sample 'Frames.cs') Frames.cs
+    $programSource = Get-Content (Join-Path $sample 'Program.cs') -Raw
+    [regex]::Match($programSource, '(?s)// snippet:program\r?\n(.*?)// endsnippet:program').Groups[1].Value | Set-Content Probe.cs
+    $output = & $Net11Dotnet build Probe.csproj -t:Rebuild -c Release --nologo 2>&1 | Out-String
+    if ($LASTEXITCODE -ne 0) { throw "Offline setup did not compile: $output" }
+    $result = & $Net11Dotnet ./bin/Release/net11.0/Probe.dll | Out-String
+    if ($LASTEXITCODE -ne 0 -or $result.Trim() -cne '4661') { throw "Offline setup returned unexpected result: $result" }
+    Write-Host 'PASS: exact offline project, implementation and program compile and return 4661 outside the repository'
   }
   finally { Pop-Location }
 }

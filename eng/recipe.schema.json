@@ -99,7 +99,19 @@
       "properties": {
         "runtime": { "$ref": "#/definitions/versionRequirement" },
         "sdk": { "$ref": "#/definitions/versionRequirement" },
-        "language": { "$ref": "#/definitions/versionRequirement" },
+        "language": { "anyOf": [
+          { "$ref": "#/definitions/versionRequirement" },
+          {
+            "type": "object", "additionalProperties": false,
+            "required": ["name", "version", "match", "reason"],
+            "properties": {
+              "name": { "$ref": "#/definitions/text" },
+              "version": { "const": "preview" },
+              "match": { "const": "exact" },
+              "reason": { "$ref": "#/definitions/text" }
+            }
+          }
+        ] },
         "frameworks": { "$ref": "#/definitions/strings" },
         "packages": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/versionRequirement" } },
         "workloads": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/definitions/versionRequirement" } },

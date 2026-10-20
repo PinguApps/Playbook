@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <!-- snippet:project -->
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net11.0</TargetFramework>
     <LangVersion>preview</LangVersion>
     <Features>$(Features);updated-memory-safety-rules</Features>

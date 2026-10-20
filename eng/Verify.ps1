@@ -36,7 +36,9 @@ try {
     @{ Path = 'net10.0/StaticInterfaceHelpers'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/StaticInterfaceHelpers'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/EnclosingLoops'; Dotnet = 'dotnet' },
-    @{ Path = 'net11.0/EnclosingLoops'; Dotnet = $Net11Dotnet }
+    @{ Path = 'net11.0/EnclosingLoops'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/UnsafeBoundaries'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/UnsafeBoundaries'; Dotnet = $Net11Dotnet }
   )) {
     Push-Location (Join-Path $root "samples/$($sample.Path)")
     try {
@@ -53,6 +55,7 @@ try {
   }
   & (Join-Path $PSScriptRoot 'Test-ClosedOutcomes.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-StaticInterfaceHelpers.ps1') -Net11Dotnet $Net11Dotnet
+  & (Join-Path $PSScriptRoot 'Test-UnsafeBoundaries.ps1') -Net11Dotnet $Net11Dotnet
   dotnet build PinguApps.Playbook.slnx --configuration Release -p:Version=$PackageVersion
   & (Join-Path $PSScriptRoot 'Test-Content.ps1') -Pack
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1') -Pack

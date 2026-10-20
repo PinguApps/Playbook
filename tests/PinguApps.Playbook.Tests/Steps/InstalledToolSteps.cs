@@ -24,6 +24,78 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("unsafe boundary guidance retains its full body applicability and edition")]
+    public async Task CheckUnsafeBoundariesAsync()
+    {
+        const string id = "csharp.audit-memory-boundaries";
+        JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0", query = "unsafe memory boundaries" }).ConfigureAwait(false));
+        JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+        Assert.Equal(id, summary.GetProperty("id").GetString());
+        Assert.Contains("experimental", summary.GetProperty("title").GetString(), StringComparison.Ordinal);
+        Assert.Contains("caller", summary.GetProperty("goal").GetString(), StringComparison.Ordinal);
+        JsonElement detail = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false));
+        Assert.Equal("11.0", detail.GetProperty("resolvedTarget").GetString());
+        JsonElement recipe = detail.GetProperty("recipe");
+        Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+        Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+        Assert.Equal("experimental", recipe.GetProperty("stability").GetString());
+        Assert.Equal(["11.0"], recipe.GetProperty("supportedTargets").EnumerateArray().Select(value => value.GetString()));
+        AssertSelection(summary, recipe);
+        string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+        foreach ((string token, string file, string region, string language, bool xml) in new[]
+        {
+            ("older", "net10.0.Frames.cs", "frames", "csharp", false),
+            ("newer", "net11.0.Frames.cs", "frames", "csharp", false),
+            ("layout", "net11.0.Frames.cs", "layout", "csharp", false),
+            ("program", "UnsafeProgram.cs", "program", "csharp", false),
+            ("newer-project", "UnsafeBoundaries.csproj", "project", "xml", true)
+        })
+        {
+            string source = await ReadCanonicalAsync(file).ConfigureAwait(false);
+            string start = xml ? $"<!-- snippet:{region} -->\n" : $"// snippet:{region}\n";
+            string end = xml ? $"<!-- endsnippet:{region} -->" : $"// endsnippet:{region}";
+            string snippet = source.Split(start, StringSplitOptions.None)[1].Split(end, StringSplitOptions.None)[0].TrimEnd();
+            expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```{language}\n{snippet}\n```", StringComparison.Ordinal);
+        }
+
+        Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+        Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+        Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+        Assert.Equal("preview", requirements.GetProperty("language").GetProperty("version").GetString());
+        foreach (string field in new[] { "frameworks", "packages", "packageAssets", "providers", "renderingModes", "workloads" })
+        {
+            Assert.Empty(requirements.GetProperty(field).EnumerateArray());
+        }
+
+        foreach (string term in new[] { "LangVersion=preview", "updated-memory-safety-rules", "AllowUnsafeBlocks=true" })
+        {
+            Assert.Contains(term, requirements.GetProperty("optIns").ToString(), StringComparison.Ordinal);
+            Assert.Contains(term, summary.GetProperty("applicability").ToString(), StringComparison.Ordinal);
+        }
+
+        foreach (string term in new[] { "private", "caller", "RC2" })
+        {
+            Assert.Contains(term, summary.GetProperty("applicability").ToString(), StringComparison.Ordinal);
+            Assert.Contains(term, expected, StringComparison.Ordinal);
+        }
+
+        Assert.NotEmpty(requirements.GetProperty("platforms").EnumerateArray());
+        Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        Assert.Equal(["net10.0", "net11.0"], recipe.GetProperty("evidence").EnumerateArray().Select(value => value.GetProperty("target").GetString()));
+        Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+        {
+            Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+            Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+            Assert.Contains("PASS: unsafe boundary", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+        });
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "unsafe memory boundaries" }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(older));
+        AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+    }
+
     [Then("enclosing loop guidance retains its full body applicability and edition")]
     public async Task CheckEnclosingLoopsAsync()
     {
