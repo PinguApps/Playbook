@@ -22,6 +22,17 @@ try {
   & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1')
   foreach ($sample in @(
+    @{ Path = 'net9.0/JsonImport'; Dotnet = $Net9Dotnet },
+    @{ Path = 'net10.0/JsonImport'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/JsonImport'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/JsonStreaming'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/JsonStreaming'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/JsonResolution'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/JsonResolution'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/JsonModels'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/JsonModels'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/JsonContracts'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/JsonContracts'; Dotnet = $Net11Dotnet },
     @{ Path = 'net9.0/PropertyAssignment'; Dotnet = $Net9Dotnet },
     @{ Path = 'net10.0/PropertyAssignment'; Dotnet = 'dotnet' },
     @{ Path = 'net10.0/PropertyAssignmentSdk11'; Dotnet = $Net11Dotnet },
@@ -70,6 +81,7 @@ try {
     }
     finally { Pop-Location }
   }
+  & (Join-Path $PSScriptRoot 'Test-JsonContracts.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-ClosedOutcomes.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-StaticInterfaceHelpers.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-FSharpGuidance.ps1') -Net11Dotnet $Net11Dotnet
