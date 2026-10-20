@@ -1,0 +1,150 @@
+{
+  "id": "csharp.control-nested-loops",
+  "edition": "11.0",
+  "title": "Stop or continue an enclosing loop directly",
+  "goal": "Use labeled break and continue in C# 15 when a nested traversal must stop an enclosing loop or skip its remaining work while preserving cleanup.",
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "loops",
+    "control-flow",
+    "cleanup"
+  ],
+  "apis": [
+    "break",
+    "continue",
+    "finally",
+    "IDisposable"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "requirements": {
+          "runtime": {
+            "reason": "This documented application route targets net11.0; labeled jumps do not introduce a separate library dependency.",
+            "match": "release-family",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "sdk": {
+            "reason": "Use the .NET 11 SDK family providing C# 15 and the target reference assemblies.",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "language": {
+            "reason": "Labeled break and continue are C# 15 syntax, stabilized in the canonical RC1 notes.",
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Target net11.0 with LangVersion 15.0, implicit usings enabled and nullable enabled."
+          ],
+          "constraints": [
+            "The label must immediately mark an enclosing target; continue can target only a loop.",
+            "A jump cannot cross a function boundary or leave a finally block; cleanup runs for scopes actually exited.",
+            "No supported C# 15 route for an older target is claimed."
+          ],
+          "workloads": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/EnclosingLoops/EnclosingLoops.csproj"
+        ],
+        "conditional": false,
+        "selectionNotes": [
+          "Targets an enclosing labeled construct; continue requires a loop. Function and finally boundaries still apply.",
+          "No supported older-target C# 15 route is claimed."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/statements",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+        ],
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/jump-statements",
+      "title": "Microsoft jump statement reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/statements",
+      "title": "Microsoft statement specification and cleanup semantics"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+      "title": "Canonical C# 15 stabilization notes"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning",
+      "title": "Microsoft language and target compatibility"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "sample": "samples/net10.0/EnclosingLoops/EnclosingLoops.csproj",
+      "scope": "Actual builds and executions of identical checks for batch skipping, early termination, ordinary/empty traversal and ordered finally/using cleanup. No mocks or cross-compilation; exact commands, inputs and output are retained in the saved records.",
+      "kind": "compile-and-run"
+    },
+    {
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "sample": "samples/net11.0/EnclosingLoops/EnclosingLoops.csproj",
+      "scope": "Actual builds and executions of identical checks for batch skipping, early termination, ordinary/empty traversal and ordered finally/using cleanup. No mocks or cross-compilation; exact commands, inputs and output are retained in the saved records.",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "region": "traversal",
+      "path": "samples/net10.0/EnclosingLoops/Traversal.cs"
+    },
+    "newer": {
+      "language": "csharp",
+      "region": "traversal",
+      "path": "samples/net11.0/EnclosingLoops/Traversal.cs"
+    }
+  },
+  "humanProof": {
+    "scope": "Portable loop control and cleanup are exercised in actual executions; no targeted Human proof is required.",
+    "status": "not-required"
+  }
+}

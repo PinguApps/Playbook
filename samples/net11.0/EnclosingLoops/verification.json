@@ -1,0 +1,8 @@
+{
+  "additionalInputs": ["samples/EnclosingLoopChecks.cs", "eng/Record-Evidence.ps1", "eng/Evidence.ps1"],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "buildArguments": []
+}
+
