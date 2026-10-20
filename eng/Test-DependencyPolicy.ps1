@@ -3,7 +3,7 @@ param([string]$RepositoryRoot = (Split-Path $PSScriptRoot -Parent))
 
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath($RepositoryRoot)
-$git = (Get-Command git -CommandType Application).Source
+$git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
 $files = @(& $git -C $root ls-files --cached --others --exclude-standard)
 if ($LASTEXITCODE -ne 0) { throw 'Could not inspect the dependency-policy inventory.' }
 

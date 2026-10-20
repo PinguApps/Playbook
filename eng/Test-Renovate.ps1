@@ -10,7 +10,7 @@ foreach ($scope in @('Process', 'User', 'Machine')) {
 }
 $previousGit = $env:PLAYBOOK_GIT_PATH
 try {
-  $nodeCommand = Get-Command node -CommandType Application -ErrorAction SilentlyContinue
+  $nodeCommand = Get-Command node -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
   $node = $nodeCommand.Source
   if ($IsolatedNode -or -not $node -or (& $node --version) -notmatch '^v24\.(1[1-9]|[2-9][0-9])\.') {
     # Portable archives need no installer, PATH change or shell integration.
@@ -36,7 +36,7 @@ try {
       $node = Join-Path $nodeHome "$distribution/node.exe"
     }
     else {
-      $tar = (Get-Command tar -CommandType Application).Source
+      $tar = (Get-Command tar -CommandType Application | Select-Object -First 1).Source
       & $tar -xzf $archive -C $nodeHome
       $node = Join-Path $nodeHome "$distribution/bin/node"
     }
@@ -51,7 +51,7 @@ try {
     }
     if (-not (Test-Path -LiteralPath $npmCli)) {
       # Unix npm launchers resolve to npm-cli.js; Node runs it directly.
-      $npmCli = (Get-Command npm -CommandType Application).Source
+      $npmCli = (Get-Command npm -CommandType Application | Select-Object -First 1).Source
     }
     & $node $npmCli install --prefix $tools --ignore-scripts --no-audit --no-fund --package-lock=false renovate@44.172.1
     # Download the native artifact directly: installer helpers may fall back to npm rebuild.
@@ -78,7 +78,7 @@ if (!new RE2('^ready$').test('ready')) throw new Error('RE2 binary verification 
   $RenovateRoot = [IO.Path]::GetFullPath($RenovateRoot)
   $manifest = Get-Content -LiteralPath (Join-Path $RenovateRoot 'package.json') -Raw | ConvertFrom-Json
   if ($manifest.version -ne '44.172.1') { throw 'Use the tested Renovate 44.172.1 installation for these policy checks.' }
-  $env:PLAYBOOK_GIT_PATH = (Get-Command git -CommandType Application).Source
+  $env:PLAYBOOK_GIT_PATH = (Get-Command git -CommandType Application | Select-Object -First 1).Source
   & $node (Join-Path $RenovateRoot 'dist/config-validator.js') --strict --no-global (Join-Path $root 'renovate.json')
   & $node (Join-Path $PSScriptRoot 'Test-Renovate.mjs') $RenovateRoot
 }
