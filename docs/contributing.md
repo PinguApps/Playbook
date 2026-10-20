@@ -1,33 +1,86 @@
-# Verify and extend the first slice
+# Contribute and verify an original recipe
+
+A complete contribution includes original comparison samples, metadata, offline instructions and fresh compilation evidence, plus focused execution evidence for claims that need it. A source audit or inventory entry does not deliver a recipe. Missing compilation blocks build/pack and publication; pending targeted Human proof blocks release readiness. Passing these gates alone does not establish the separate catalogue, client, evaluation or GA launch requirements.
+
+The host remains a workload-free .NET 10 tool. Keep sample SDKs, provider dependencies and native workloads under `samples/` and on suitable authoring machines, outside the host's project and solution. Installed Playbook reads embedded guidance; it neither inspects the consumer nor builds its application.
+
+## Delivery order
+
+1. Establish the reusable goal, official source support, older/newer comparison and actual application requirements.
+2. Author the independent samples and claim-specific checks. Pin their verification inputs, compile them and capture evidence on suitable machines.
+3. Add the recipe metadata and complete Markdown using canonical snippet references. Reuse an edition only when guidance and feature requirements are unchanged.
+4. Validate content, build, run pack rejection checks and pack the ordinary tool. Install that exact artifact and inspect discovery, full Markdown, applicability and evidence.
+5. Review the full contribution against its goal and source register. Record what actually ran and any remaining proof. Publish only after all applicable release gates are satisfied; leave merging/releasing to the owner.
+
+The seed workflow below follows these steps using `csharp.validate-property-assignment`. [The verification record](verification/PIN-674.md) records the commands exercised for this guide.
+
+## Verify the seed recipe
 
 Build prerequisites: PowerShell 7, .NET SDK **10.0.402**, **9.0.319** and **11.0.100-rc.2.26504.105**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
 
 ```powershell
 Set-Location <path-to-Playbook>
-pwsh ./eng/Verify.ps1
+pwsh -NoProfile -File ./eng/Verify.ps1
 ```
 
 If .NET 9 or 11 is installed separately, pass its executable with `-Net9Dotnet <path-to-dotnet>` or `-Net11Dotnet <path-to-dotnet>`. The script rejects the focused invalid-content fixture, compiles and executes the real .NET 9/10/11 samples, including a .NET 11 SDK build of a .NET 10 target, then builds the solution with analyzers/warnings as errors and checks real `pack --no-build` rejection of incomplete/stale content. It packs the ordinary artifact once and tests it; its SHA-256 identifies that package. A second package under `artifacts/release-fixture/` contains contract-only identities and is never published. Fixture packing restores ordinary build output afterwards.
 
-Thirteen focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, exactly two read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on both tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, unchanged edition reuse, retained changed editions, conditional routes and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
+The `Rejected ...` and `Pack --no-build rejected ...` messages are expected passing checks. Temporary fixtures deliberately contain invalid content or stale/missing evidence; these messages confirm the guards refuse them. They do not mean your authored recipe or final package was rejected. A successful run ends with all 13 scenarios passing, zero failures/skips and a package SHA-256. `NETSDK1057` is informational for the pinned RC SDK; a TRX overwrite warning replaces the previous report. An unhandled error, nonzero script exit or failed test indicates failure.
 
-Local checks set unusable HTTP proxies, which establishes proxy-independent operation but is **not** network isolation. On Linux use `pwsh ./eng/Verify.ps1 -IsolateNetwork`: after build/pack, the installed-consumer tests run under `sudo unshare --net` with no external network routes. Only the local package feed is available. SDK downloads/restores happen before network isolation.
+Thirteen focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, exactly two read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on both tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, unchanged edition reuse, retained changed editions, conditional routes, response-size budgets, empty-search recovery and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
 
-With Docker available, run `pwsh ./eng/Test-Offline.ps1 -RuntimeMajor 10` and `pwsh ./eng/Test-Offline.ps1 -RuntimeMajor 11` after verification. Each reruns all 13 Reqnroll scenarios against the exact package with `--network none`. Only package artifacts, test binaries and the artifact-consumer script are mounted; no recipe or sample source is accessible. Canonical sample text is embedded independently in the test assembly for comparison. Both images are digest-pinned, with only runtime 10.0.12 or 11.0.0-rc.2.26504.105 available; pulling them is an online preparation step. Host traces assert the installed server's actual CoreCLR path. The .NET 11 lane explicitly permits prerelease selection and verifies the package's own major roll-forward policy. CI also downloads the same package and compiled suite for one brief Windows and one brief macOS smoke. See [packed-host evidence and commands](verification/PIN-673.md).
+Local checks set unusable HTTP proxies, which establishes proxy-independent operation but is **not** network isolation. On Linux use `pwsh -NoProfile -File ./eng/Verify.ps1 -IsolateNetwork`: after build/pack, the installed-consumer tests run under `sudo unshare --net` with no external network routes. Only the local package feed is available. SDK downloads/restores happen before network isolation.
+
+With Docker available, run `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 10` and `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 11` after verification. Each reruns all 13 Reqnroll scenarios against the exact package with `--network none`. Only package artifacts, test binaries and the artifact-consumer script are mounted; no recipe or sample source is accessible. Canonical sample text is embedded independently in the test assembly for comparison. Both images are digest-pinned, with only runtime 10.0.12 or 11.0.0-rc.2.26504.105 available; pulling them is an online preparation step. Host traces assert the installed server's actual CoreCLR path. The .NET 11 lane explicitly permits prerelease selection and verifies the package's own major roll-forward policy. CI also downloads the same package and compiled suite for one brief Windows and one brief macOS smoke. See [packed-host evidence and commands](verification/PIN-673.md).
 
 ## Inspect the development package
 
 From the repository root after verification:
 
 ```powershell
-dotnet tool install PinguApps.Playbook --version 1.0.0-preview.1 --tool-path ./artifacts/manual-tool --add-source ./artifacts
+Set-Location <path-to-Playbook>
+# Use fresh directories; if these exist from an earlier run, choose new names.
+New-Item -ItemType Directory ./artifacts/manual-feed | Out-Null
+Copy-Item ./artifacts/PinguApps.Playbook.1.0.0-preview.1.nupkg ./artifacts/manual-feed/
+$feed = (Resolve-Path ./artifacts/manual-feed).Path
+$config = Join-Path $feed 'NuGet.Config'
+'<configuration><packageSources><clear/><add key="local" value="{0}"/></packageSources></configuration>' -f [Security.SecurityElement]::Escape($feed) | Set-Content $config
+$previousPackages = $env:NUGET_PACKAGES
+try {
+    $env:NUGET_PACKAGES = Join-Path $feed 'cache'
+    dotnet tool install PinguApps.Playbook --version 1.0.0-preview.1 --tool-path ./artifacts/manual-tool --configfile $config --no-cache
+}
+finally { $env:NUGET_PACKAGES = $previousPackages }
 ./artifacts/manual-tool/playbook --help
 ./artifacts/manual-tool/playbook --version
 ```
 
-Help must show `playbook mcp`; version must show `1.0.0-preview.1`. This installs locally, without publishing or changing global tools. Delete `artifacts/manual-tool` when finished. To see the actual recipe body and constraints yourself, use [the MCP Inspector walkthrough](inspect-guidance.md). The Reqnroll checks verify real MCP responses and lifecycle results; TRX evidence is under `artifacts/TestResults`.
+Help must show `playbook mcp`; version must show `1.0.0-preview.1`. The fresh local-only feed/cache ensures the installation consumes this artifact instead of a cached or remote package. This installs locally, without publishing or changing global tools. Delete `artifacts/manual-tool` and `artifacts/manual-feed` when finished. To see the actual recipe body and constraints yourself, use [the MCP Inspector walkthrough](inspect-guidance.md). The Reqnroll checks verify real MCP responses and lifecycle results; TRX evidence is under `artifacts/TestResults`.
 
 ## Author a recipe edition
+
+### Write original comparisons and preserve attribution
+
+Choose the developer outcome first. Write the discovery `title` and `goal` around the reusable capability and when to apply it; keep fictional domains in the worked example. The seed's warehouse bay codes demonstrate property validation, while its discovery wording explains normalization and validation with `field`.
+
+Write prose and examples independently from scratch. Changing names in a guide's demonstration is not an original example. Official documentation, release notes, language proposals and API/package artifacts establish facts; they are not a supply of recipe implementations or explanations to copy. Both implementations must solve the same realistic goal with the same observable rules. Compare .NET 11 with .NET 10 normally, and the [exact eight .NET 10 foundations](planning/coverage.md#approved-initial-eight-recipes) with .NET 9. .NET 9 is comparison-only, not a catalogue target. Explain a genuinely unavailable older equivalent without inventing one, and describe valid older approaches fairly.
+
+Use C# for shared framework/library examples, F# for F# capabilities and VB for qualifying VB changes. Add translations only when authoring differs materially. Include the essential configuration, code, numbered migration instructions, constraints and useful alternatives offline. An external link cannot supply a missing implementation step.
+
+Add official HTTPS references to `sources` with meaningful titles, and connect route conditions through `sourceUrls`. Check the actual API and target-specific package assets, not just a release headline. If substantial reference-source implementation is legitimately reused, preserve its license, copyright and attribution separately; do not present it as an original recipe example. Shared explanations should have one canonical source with framework integrations linked rather than copied.
+
+Update the relevant [source-disposition register](planning/inventory/README.md): source, introduction, authoring impact, applicability, included recipe/grouping, exclusion reason or unresolved fact. Keep unresolved facts visible. A reviewed inventory row, synthetic contract fixture or API audit is not evidence of a completed or compiled recipe. Keep `content/coverage.json` honest; one seed recipe does not fulfil comprehensive coverage.
+
+### Assemble the authoring files
+
+Use the [seed metadata](../content/recipes/csharp.validate-property-assignment/10.0/recipe.json), [seed Markdown](../content/recipes/csharp.validate-property-assignment/10.0/recipe.md) and [schema](../eng/recipe.schema.json) as a structural reference. Author the new content independently; do not copy the seed's claims, baselines or successful evidence into another goal.
+
+- **Identity/discovery:** `id`, `edition`, `title`, `goal`, `areas`, `exampleLanguages`, `tags`, `apis`, `introducedIn`, `supportedTargets` and `stability`. Preserve published stable IDs. `edition` identifies guidance; `introducedIn` identifies the feature; neither automatically establishes compatibility.
+- **Applicability:** each route declares `target`, `usage`, `conditional`, `requirements`, `selectionNotes`, `sourceUrls` and `evidenceSamples`. Separate primary and optional routes. List runtime, SDK, language, framework, packages/assets, provider, platform, rendering mode, workloads, opt-ins and stability limits explicitly, using empty arrays where none apply. The rules below cover shared areas and neutral languages.
+- **Provenance/proof:** `sources`, per-sample `evidence` entries with exact `kind`, `sample`, `target`, `sdk`, `language` and bounded `scope`, plus `humanProof.status` and `scope`. Optional `record` selects a separate saved record. Every declared sample needs fresh compilation; every target route needs exact-target evidence.
+- **Canonical content:** `snippets` maps each Markdown token to a repository-relative sample `path`, named `region` and language. Add `recipe.md`, independently pinned sample projects, `global.json`, `verification.json` and captured `verification-evidence.json`. Dependency samples also need a reviewed `packages.lock.json`.
+
+The following rules explain the supported metadata and current validation boundary. Structural validation helps catch omissions; it cannot establish originality, factual support or that arbitrary prose achieves the goal.
 
 ### Reuse unchanged guidance across verified targets
 
@@ -65,8 +118,76 @@ Add independently pinned original comparison samples under `samples/`, targeting
 
 Include exactly one nonempty Goal, Older approach, Newer approach, Migration, Constraints and Evidence section (descriptive heading suffixes are allowed). Newer approach requires a canonical snippet; Migration requires numbered offline implementation steps. A missing, empty or link-only section is rejected. Explain an unavailable older equivalent honestly. Review the full recipe for essential configuration and instructions: structural validation cannot prove that arbitrary prose implements its stated goal.
 
-Content validation also runs during `dotnet pack --no-build`. It compares the freshly generated content with the catalogue recorded during compilation and rejects changes since that build, even when the changed metadata is otherwise valid. Rebuild before packing modified content. Run `pwsh ./eng/Test-Content.ps1` for the small negative fixture, and after a Release build run `pwsh ./eng/Test-Content.ps1 -Pack` to check both incomplete and stale content through the real pack target. These use temporary copies and never edit authored recipes or publish packages.
+Content validation also runs during `dotnet pack --no-build`. It compares the freshly generated content with the catalogue recorded during compilation and rejects changes since that build, even when the changed metadata is otherwise valid. Rebuild before packing modified content. Run `pwsh -NoProfile -File ./eng/Test-Content.ps1` for the small negative fixture, and after a Release build run `pwsh -NoProfile -File ./eng/Test-Content.ps1 -Pack` to check both incomplete and stale content through the real pack target. These use temporary copies and never edit authored recipes or publish packages.
 
-Build metadata checks do not perform compilation or execution. Each declared sample needs saved compilation evidence; follow [the evidence workflow](verification/PIN-672.md). Add portable checks to `eng/Verify.ps1` where useful. Native samples are compiled on suitable authoring machines, with their records committed; do not add a recurring native CI matrix. Include essential configuration and instructions offline. Keep comparisons fair and original. Extending content with a new stable ID/edition requires no host, transport or tool-registration changes.
+Build metadata checks do not perform compilation or execution. Each declared sample needs saved compilation evidence; follow the capture and refresh workflow below. Add portable checks to `eng/Verify.ps1` where useful. Native samples are compiled on suitable authoring machines, with their records committed; do not add a recurring native CI matrix. Include essential configuration and instructions offline. Keep comparisons fair and original. Extending content with a new stable ID/edition requires no host, transport or tool-registration changes.
+
+## Capture and refresh sample evidence
+
+### Declare inputs, then run the real commands
+
+Give each sample its own exact SDK pin in `global.json` and explicit target/language mode in its project. Application requirements remain separate from these test baselines. Follow [the manifest schema](../eng/verification.schema.json) for `verification.json`:
+
+- `additionalInputs`: linked sources, imported configuration, referenced-project input directories and other verification inputs outside the sample, including the capture scripts. Include transitive inputs explicitly. Dynamic project includes are rejected rather than guessed.
+- `buildArguments`: explicit `-p:Name=Value` properties, including required native target/RID configuration.
+- `dependencies`: sorted exact resolved `name/version` entries, including transitive packages/projects. Generate and review `packages.lock.json` before capture when dependencies exist; the helper builds with locked restore.
+- `workloads`: required `id/manifest-version` entries measured by `dotnet workload list`, not every installed workload.
+- `nativeToolchains`: required measured `name/version` entries. Keep the native version commands/results in a linked report; the helper checks the supplied declaration, not the tool's authenticity.
+
+Run from the repository root in PowerShell 7. These seed commands use the normal .NET 10 executable and the separate .NET 9/11 installations on this authoring machine. Substitute your actual executables, or `dotnet` when the pins are available in one installation. Do not change persistent PATH or environment variables.
+
+```powershell
+Set-Location <path-to-Playbook>
+$net9 = 'C:\Users\pingu\.dotnet-playbook-9\dotnet.exe'
+$net11 = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net9.0/PropertyAssignment/PropertyAssignment.csproj -Dotnet $net9
+pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net10.0/PropertyAssignment/PropertyAssignment.csproj
+pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj -Dotnet $net11 -RuntimeDotnet dotnet
+pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net11.0/PropertyAssignment/PropertyAssignment.csproj -Dotnet $net11
+```
+
+Expect four successful builds and executions of the same property behavior checks: construction, normalization, null/blank/length rejection and retention after a rejected update. The SDK 11 / `net10.0` path executes on .NET 10. The actual runtime is recorded in program output; the SDK host runtime alone is not proof of the sample's runtime. .NET 11 RC execution is not GA verification.
+
+The helper writes `verification-evidence.json` only after successful commands, exact SDK/dependency/workload checks and unchanged before/after inputs. It records source commit/dirty state, per-input SHA-256, sample/target/language, commands/output, dependencies, workloads/native versions, host and SDK/workload inventory. Review and commit the record with the sample. Capture changes embedded content, so rebuild before `pack --no-build`. `eng/Verify.ps1` reruns portable checks but does **not** refresh saved records.
+
+Use `-Kind compile` for build-only proof and `-Kind cross-compile` for an actual cross-compilation. Neither executes the DLL. Default `compile-and-run` runs the built DLL; it is suitable for these console samples, not a generic browser, database, UI or device test runner. Separate records selected by `record` may use `official-review`, `mock` or `execution`; those classifications do not replace compilation. See [the full evidence contract and capture limits](verification/PIN-672.md).
+
+### Decide when proof must be refreshed
+
+Reuse unchanged evidence. Freshness compares exact input bytes and the input set, not the age of a record or the current Git HEAD. It covers the sample directory, declared external inputs and nearest effective `Directory.Build.props`, `Directory.Build.targets`, `Directory.Packages.props`, `NuGet.Config` and `global.json`. New files or nearer overrides invalidate proof; declare additional imported ancestors/nonstandard configuration yourself. `bin`, `obj` and evidence records are excluded. Preserve LF files so checkout line endings do not change hashes.
+
+Refresh every affected record after changing sample/shared source, target, language, SDK pin, resolved dependencies/lock, workload/native declarations or build inputs. Changing the actual authoring SDK/workload/native baseline also requires measured recapture and any appropriate pin/declaration updates; build validation does not inspect installed tool versions. Do not edit hashes or relabel old output to make new inputs appear verified. A different source commit or unrelated documentation edit alone needs no recompilation. Recipe prose/metadata changes still need content review and rebuild; rerun the claim-specific check if the assertion changes even when sample hashes do not.
+
+Run `pwsh -NoProfile -File ./eng/Test-Evidence.ps1` to check unchanged reuse and rejection of changed/missing proof in temporary copies. After a Release build, run `pwsh -NoProfile -File ./eng/Test-Evidence.ps1 -Pack` to prove real pack rejection. Expect `PASS` messages; a missing record reports `Missing compilation evidence`, a changed input reports stale evidence, and no invalid package may be produced. `freshness: current` in an installed response means the inputs matched at package build time; it neither checks the consumer nor guarantees current upstream APIs.
+
+### Hand off provider and native checks
+
+Before handing work to another authoring machine or a Human, agree the exact recipe/edition/route, source commit and input hashes, samples, pins, commands and observable claim. Record who will capture and refresh proof when those inputs change, the required access and any unmet check. Return the saved compilation record, measured versions, focused execution report and limitations; review them before linking them into recipe metadata. Keep credentials in the appropriate secret store, outside the repository and reports.
+
+For database claims, use an isolated real provider/service at the stated package, target asset, server version and configuration. Record the setup and cleanup, request/query inputs, actual execution and expected result. A translated SQL string or mocked repository does not establish provider execution, transactions or persistence. Match browser/request checks to rendering modes, authentication and other claimed conditions; a successful build or HTTP response alone does not prove an interactive browser claim.
+
+For native claims, use a suitable authoring OS and installed workloads/native SDKs; affected Apple builds require a Mac with matching Xcode. Measure and declare native versions, then pass matching values with `-NativeToolchains` when capturing compilation. Cross-compiling establishes build output only. UI, device/emulator, permissions and lifecycle claims need their focused real checks and reports; do not call a workload-free tool smoke native behavior evidence. If the helper cannot perform the required deployment/run, capture compilation separately and link the actual execution report rather than pretending DLL execution covers it.
+
+Use `humanProof.status: pending` with an exact scope for targeted Human checks still owed; set `verified` only after recording traceable results, or `not-required` with a defensible reason. Pending proof may be served in incremental packages but fails `pwsh -NoProfile -File ./eng/Verify.ps1 -ReleaseReady` and `dotnet pack -p:PlaybookReleaseReady=true`. Missing compilation blocks ordinary build/pack too. Report access or toolchain blockers explicitly; audits, mocks and unavailable-machine placeholders cannot satisfy delivery.
+
+Commit native authoring evidence for routine validation to consume without installing native workloads. Keep broad native builds, UI/device/emulator suites and recurring native matrices out of CI, including separate manual-dispatch matrices. Routine Windows/macOS checks remain tiny installed-tool smokes; the Linux/core lane remains portable. Reuse unchanged native proof and refresh it on the appropriate authoring machine when relevant inputs change.
+
+## Review the delivered artifact
+
+After capture or an edit, follow `eng/Verify.ps1` above: content/evidence fixtures, four real portable paths, Release solution build, real pack rejection checks, one ordinary package and the separate unpublished contract fixture, then installed stdio MCP scenarios. For manual build/pack separation:
+
+```powershell
+Set-Location <path-to-Playbook>
+pwsh -NoProfile -File ./eng/Test-Content.ps1
+pwsh -NoProfile -File ./eng/Test-Evidence.ps1
+dotnet build PinguApps.Playbook.slnx -c Release
+pwsh -NoProfile -File ./eng/Test-Content.ps1 -Pack
+pwsh -NoProfile -File ./eng/Test-Evidence.ps1 -Pack
+dotnet pack ./src/PinguApps.Playbook -c Release --no-build -p:PackageVersion=1.0.0-preview.1 --output ./artifacts
+```
+
+Use the installed-package scenarios from `Verify.ps1` for the final artifact check, and the [Inspector walkthrough](inspect-guidance.md) to read ID/title/goal, full rendered Markdown, selected applicability and evidence yourself. Do not substitute `dotnet run` or synthetic fixtures for the actual ordinary package. `pack --no-build` rejects content changed since compilation; rebuild and repeat affected checks. Keep the tested package hash and publish that artifact without repacking when publication is separately authorized.
+
+Before handoff, account for each recipe claim with official source support, current compilation and the specific execution check it needs. Check original authorship, fair previous-release behavior, complete offline steps, snippet identity, stable IDs/editions, requirements versus test pins, target-specific routes, experimental labels, register disposition and unresolved gaps. Passing schema or tool tests does not establish native/provider behavior or comprehensive release readiness. Report exact commands, versions, actual results and unverified scope.
 
 Shared style and analyzer configuration adapts the MIT-licensed PinguApps Template's generated-app configuration. The [reference map](planning/reference-repositories.md) records the layout, packaging and scenario conventions used. Recipe prose and samples were authored independently; no guide example implementation was reused.
