@@ -19,6 +19,7 @@ public static class Compression
     }
     // endsnippet:empty
 
+    // snippet:restore
     public static byte[] Restore(byte[] bytes, string format)
     {
         using MemoryStream input = new(bytes);
@@ -34,6 +35,8 @@ public static class Compression
         decoder.CopyTo(output);
         return output.ToArray();
     }
+    // endsnippet:restore
+
     // snippet:buffers
     public static byte[][] EncodeDeflateMessages(byte[][] messages)
     {

@@ -17,6 +17,7 @@ public static class Archives
         return output.ToArray();
     }
 
+    // snippet:zipread
     public static byte[] ReadEntry(byte[] zip)
     {
         using MemoryStream input = new(zip);
@@ -26,6 +27,8 @@ public static class Archives
         entry.CopyTo(output);
         return output.ToArray();
     }
+
+    // endsnippet:zipread
 
     public static byte[] ReplaceEntry(byte[] zip, byte[] replacement)
     {

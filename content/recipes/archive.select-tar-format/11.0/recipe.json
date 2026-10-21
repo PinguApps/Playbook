@@ -1,0 +1,153 @@
+{
+  "id": "archive.select-tar-format",
+  "edition": "11.0",
+  "title": "Choose a TAR format the receiver can read",
+  "goal": "Select V7, Ustar, PAX or GNU when creating TAR archives and distinguish sparse-file representation from logical content.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "archives-compression",
+    "archive",
+    "select-tar-format"
+  ],
+  "apis": [
+    "TarFile.CreateFromDirectory",
+    "TarEntryFormat",
+    "TarReader"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Select V7, Ustar, PAX or GNU when creating TAR archives and distinguish sparse-file representation from logical content. Desktop/server examples; inspect complete constraints before use."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This edition uses or relies on .NET 11 framework APIs/behaviour; .NET 10 is comparison-only."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 comparison with its matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects its supported C# 15 default."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0/System.IO.Compression.dll",
+            "Microsoft.NETCore.App.Ref ref/net11.0/System.Formats.Tar.dll"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET platforms; authoring execution recorded on Windows. Browser/WASI excluded from these samples."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Use a net11.0 console project with LangVersion=15.0, implicit usings and the namespaces stated in the complete recipe. No additional package, workload, account or provider is required."
+          ],
+          "constraints": [
+            "TAR stores entries without compressing them. V7 has the oldest/narrowest metadata/name representation; Ustar improves compatibility with constrained legacy readers; PAX carries extended names/metadata; GNU uses GNU extensions. Choose from receiver requirements, not operating-system branding. The earlier directory convenience overload still defaults to PAX. Format limits can reject data rather than preserving every name/metadata field. GNU sparse 1.0 is a PAX representation: RC2 TarReader reconstructs logical content and holes from its map automatically. This does not mean selecting TarEntryFormat.Gnu creates sparse 1.0 output or preserves physical filesystem allocation. The original fixture exposes 517 stored map/data bytes on .NET 10, but 16 logical bytes on RC2. For older receivers request a compatible/materialised representation; do not treat raw sparse map bytes as the file. General hard-link preservation/extraction policy is separate migration work (PIN-684). No sparse writer or physical sparse-file allocation claim is made."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with SDK 11.0.100-rc.2.26504.105; RC2 execution is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchiveEntry.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarHeader.Read.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/Archives/Archives.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Package-matched official API declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs"
+    },
+    {
+      "title": "Pinned official .NET 11 RC2 library notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+    },
+    {
+      "title": "Official archive integrity, access and encryption implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchiveEntry.cs"
+    },
+    {
+      "title": "Official TAR checksum and sparse-header reader",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarHeader.Read.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/Archives/Archives.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual .NET 10 Windows compilation/execution: plain ZIP access/replacement, stored-CRC and TAR-header corruption acceptance baseline, four TAR formats and raw sparse body. Encryption is explicitly unavailable and its stub is tested. No mocks, cross-compilation or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/Archives/Archives.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Both actual target projects create/read all four formats and restore identical contents. An independently authored GNU sparse 1.0 PAX fixture with two extents verifies RC2 logical size, data and zero-filled holes, alongside the older stored-byte behaviour. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/Archives/Archives.cs",
+      "region": "tar"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/Archives/Archives.cs",
+      "region": "tar"
+    },
+    "reader": {
+      "language": "csharp",
+      "path": "samples/net11.0/Archives/Archives.cs",
+      "region": "corruption"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded desktop/server archive and codec checks run locally without external providers or UI. No extra native/device or external-tool interoperability claim."
+  }
+}
