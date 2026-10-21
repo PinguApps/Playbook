@@ -44,7 +44,7 @@ Fresh `DOTNET_CLI_HOME` directories trigger SDK first-run setup. Every harness c
 
 Local checks set unusable HTTP proxies, which establishes proxy-independent operation but is **not** network isolation. On Linux use `pwsh -NoProfile -File ./eng/Verify.ps1 -IsolateNetwork`: after build/pack, the installed-consumer tests run under `sudo unshare --net` with no external network routes. Only the local package feed is available. SDK downloads/restores happen before network isolation.
 
-With Docker available, run `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 10` and `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 11` after verification. Each reruns all 24 Reqnroll scenarios against the exact package with `--network none`. Only package artifacts, test binaries and the artifact-consumer script are mounted; no recipe or sample source is accessible. Canonical sample text is embedded independently in the test assembly for comparison. Both images are digest-pinned, with only runtime 10.0.12 or 11.0.0-rc.2.26504.105 available; pulling them is an online preparation step. Host traces assert the installed server's actual CoreCLR path. The .NET 11 lane explicitly permits prerelease selection and verifies the package's own major roll-forward policy. CI also downloads the same package and compiled suite for one brief Windows and one brief macOS smoke. See [packed-host evidence and commands](verification/PIN-673.md).
+With Docker available, run `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 10` and `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 11` after verification. Each reruns all 25 Reqnroll scenarios against the exact package with `--network none`. Only package artifacts, test binaries and the artifact-consumer script are mounted; no recipe or sample source is accessible. Canonical sample text is embedded independently in the test assembly for comparison. Both images are digest-pinned, with only runtime 10.0.12 or 11.0.0-rc.2.26504.105 available; pulling them is an online preparation step. Host traces assert the installed server's actual CoreCLR path. The .NET 11 lane explicitly permits prerelease selection and verifies the package's own major roll-forward policy. CI also downloads the same package and compiled suite for one brief Windows and one brief macOS smoke. See [packed-host evidence and commands](verification/PIN-673.md).
 
 ## Inspect the development package
 
@@ -192,7 +192,7 @@ Commit native authoring evidence for routine validation to consume without insta
 
 ## Review the delivered artifact
 
-After capture or an edit, follow `eng/Verify.ps1` above: content/evidence fixtures, sixty-four real portable sample paths, Release solution build, real pack rejection checks, one ordinary package and the separate unpublished contract fixture, then installed stdio MCP scenarios. For manual build/pack separation:
+After capture or an edit, follow `eng/Verify.ps1` above: content/evidence fixtures, seventy real portable sample paths, Release solution build, real pack rejection checks, one ordinary package and the separate unpublished contract fixture, then installed stdio MCP scenarios. For manual build/pack separation:
 
 ```powershell
 Set-Location <path-to-Playbook>

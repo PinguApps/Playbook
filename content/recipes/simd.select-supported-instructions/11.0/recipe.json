@@ -1,0 +1,164 @@
+{
+  "id": "simd.select-supported-instructions",
+  "edition": "11.0",
+  "title": "Select supported vector instructions with a correct scalar fallback",
+  "goal": "Select exact supported instruction families and signed SVE loop predicates while preserving a scalar numeric fallback; experimental SVE and advanced-hardware proof remains pending.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "simd",
+    "select-supported-instructions"
+  ],
+  "apis": [
+    "Sve.IsSupported",
+    "Sve.CreateWhileLessThanMaskInt32",
+    "Sve2.IsSupported",
+    "SveSha3.IsSupported",
+    "SveSm4.IsSupported",
+    "AvxVnni.V512.IsSupported",
+    "AvxVnni.V512.MultiplyWideningAndAdd",
+    "Avx2.IsSupported"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Experimental Arm SVE requires scoped SYSLIB5003 opt-in and AllowUnsafeBlocks=true for masked memory operations.",
+          "Exact IsSupported flags guard all ISA-specific calls; architecture or vector width alone is insufficient.",
+          "SVE/SVE2 and AVX-VNNI-512 execution remain pending because suitable CPUs are unavailable. PR delivery is authorized with this limitation; compilation and x64 fallback do not establish native behavior."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the .NET 11 vector and instruction contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode; SVE is an experimental library API rather than preview C# syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any supported .NET 11 platform for scalar fallback; x86/x64 AVX2 or exact AVX512-VNNI support for the corresponding path; Arm64 SVE exposed by OS/runtime for SVE"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with ImplicitUsings=enable, Nullable=enable and namespace Playbook.Samples; include all supplied canonical declarations and imports.",
+            "AllowUnsafeBlocks=true for SVE pointers; scoped #pragma warning disable SYSLIB5003 and restore as supplied."
+          ],
+          "constraints": [
+            "Experimental Arm SVE requires scoped SYSLIB5003 opt-in and AllowUnsafeBlocks=true for masked memory operations.",
+            "Exact IsSupported flags guard all ISA-specific calls; architecture or vector width alone is insufficient.",
+            "SVE/SVE2 and AVX-VNNI-512 execution remain pending because suitable CPUs are unavailable. PR delivery is authorized with this limitation; compilation and x64 fallback do not establish native behavior.",
+            "No extra NuGet package/assets, provider, workload or rendering mode. No older-target package route or general performance guarantee is established."
+          ],
+          "optIns": [
+            "#pragma warning disable SYSLIB5003 around experimental SVE usage, restored afterward; AllowUnsafeBlocks=true for SVE pointer access."
+          ],
+          "stabilityLimitations": [
+            "Arm SVE/SVE2/SveSha3/SveSm4 contracts are publisher-designated experimental and may change. RC2 is not GA evidence.",
+            "SVE/SVE2 and AVX-VNNI-512 native execution proof remains pending as an accepted PR-delivery limitation. Release-readiness checks still reject pending proof."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Arm/Sve.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/X86/AvxVnni.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SupportedInstructions/SupportedInstructions.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft vector/instruction contract and release source",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime"
+    },
+    {
+      "title": "Microsoft vector/instruction contract and release source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Intrinsics/ref/System.Runtime.Intrinsics.cs"
+    },
+    {
+      "title": "Microsoft vector/instruction contract and release source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Arm/Sve.cs"
+    },
+    {
+      "title": "Microsoft vector/instruction contract and release source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/X86/AvxVnni.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/SupportedInstructions/SupportedInstructions.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Both actual target builds compile all declared sample code and execute only x64 AVX2 dispatch with scalar agreement, lengths/tails and overflow. SVE and AVX-VNNI-512 paths remain unexecuted; required-mode checks explicitly fail on this host. No mocks, cross-compilation or GA verification."
+    },
+    {
+      "sample": "samples/net11.0/SupportedInstructions/SupportedInstructions.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Both actual target builds compile all declared sample code and execute only x64 AVX2 dispatch with scalar agreement, lengths/tails and overflow. SVE and AVX-VNNI-512 paths remain unexecuted; required-mode checks explicitly fail on this host. No mocks, cross-compilation or GA verification."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/SupportedInstructions/Instructions.cs",
+      "region": "dispatch",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/SupportedInstructions/Instructions.cs",
+      "region": "dispatch",
+      "language": "csharp"
+    },
+    "fallback": {
+      "region": "fallback",
+      "path": "samples/net11.0/SupportedInstructions/Fallbacks.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "scope": "Pingu has only the current x64 AVX2 host and explicitly accepts PR delivery without SVE/SVE2 or AVX-VNNI-512 execution. Native proof remains pending. If suitable hardware becomes available, run the exact canonical sample with --require-sve or --require-vnni512 and record SDK/runtime/ISA flags and scalar agreement before marking it verified.",
+    "status": "pending"
+  }
+}

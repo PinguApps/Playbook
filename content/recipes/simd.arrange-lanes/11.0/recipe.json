@@ -1,0 +1,145 @@
+{
+  "id": "simd.arrange-lanes",
+  "edition": "11.0",
+  "title": "Arrange planar and interleaved vector lanes portably",
+  "goal": "Interleave and recover independent channels, select vector halves and construct numeric lane patterns using portable vector operations.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "simd",
+    "arrange-lanes"
+  ],
+  "apis": [
+    "Vector128.Zip",
+    "Vector128.Unzip",
+    "Vector128.ConcatLowerLower",
+    "Vector128.ConcatLowerUpper",
+    "Vector128.ConcatUpperLower",
+    "Vector128.ConcatUpperUpper",
+    "Vector128.Reverse",
+    "Vector128.CreateGeometricSequence",
+    "Vector128.CreateAlternatingSequence",
+    "Vector128.CreateHarmonicSequence"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Portable vector APIs provide software fallback; no ISA-specific prerequisite is required for these operations.",
+          "Behavior evidence covers Vector128<int> and Vector128<float> on Windows x64, including a forced-disabled hardware-intrinsic process."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the .NET 11 vector and instruction contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with ImplicitUsings=enable, Nullable=enable and namespace Playbook.Samples; include all supplied canonical declarations and imports."
+          ],
+          "constraints": [
+            "Portable vector APIs provide software fallback; no ISA-specific prerequisite is required for these operations.",
+            "Behavior evidence covers Vector128<int> and Vector128<float> on Windows x64, including a forced-disabled hardware-intrinsic process.",
+            "No extra NuGet package/assets, provider, workload or rendering mode. No older-target package route or general performance guarantee is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector128.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/VectorLanes/VectorLanes.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft vector/instruction contract and release source",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Microsoft vector/instruction contract and release source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Intrinsics/Vector128.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/VectorLanes/VectorLanes.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Both actual target builds execute exact zip/unzip order, all concat halves, reverse and patterned lanes. Supplementary forced-disabled execution verifies the software route. No Arm/AVX-512 native or GA verification."
+    },
+    {
+      "sample": "samples/net11.0/VectorLanes/VectorLanes.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Both actual target builds execute exact zip/unzip order, all concat halves, reverse and patterned lanes. Supplementary forced-disabled execution verifies the software route. No Arm/AVX-512 native or GA verification."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/VectorLanes/Lanes.cs",
+      "region": "lanes",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/VectorLanes/Lanes.cs",
+      "region": "lanes",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable managed lane operations execute locally, including the software route; no special native instruction execution is claimed."
+  }
+}
