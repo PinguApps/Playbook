@@ -23,6 +23,12 @@ try {
   & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1')
   foreach ($sample in @(
+    @{ Path = 'net10.0/BitCollections'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/BitCollections'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/VectorLanes'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/VectorLanes'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/SupportedInstructions'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/SupportedInstructions'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/NumericGuidance'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/NumericGuidance'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/Archives'; Dotnet = 'dotnet' },
@@ -103,6 +109,7 @@ try {
     finally { Pop-Location }
   }
   & (Join-Path $PSScriptRoot 'Test-AsyncLinqMigration.ps1') -Net9Dotnet $Net9Dotnet
+  & (Join-Path $PSScriptRoot 'Test-SimdGuidance.ps1') -Net10Dotnet (Get-Command dotnet).Definition -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-JsonContracts.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-ClosedOutcomes.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-StaticInterfaceHelpers.ps1') -Net11Dotnet $Net11Dotnet
