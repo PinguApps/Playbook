@@ -3,6 +3,10 @@ name: Run Tests
 on:
   workflow_call:
     inputs:
+      smoke:
+        description: Run only the installed MCP smoke test; releases always use full validation.
+        type: boolean
+        default: false
       package_version:
         type: string
         default: 0.0.0-ci
@@ -33,11 +37,12 @@ jobs:
   test:
     name: Build and verify package
     runs-on: blacksmith-2vcpu-ubuntu-2404
-    timeout-minutes: 15
+    timeout-minutes: ${{ inputs.smoke && !inputs.release_ready && 5 || 15 }}
     env:
       CI: true
       DOTNET_CLI_TELEMETRY_OPTOUT: true
       DOTNET_NOLOGO: true
+      DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: '0'
       PACKAGE_VERSION: ${{ inputs.package_version || '0.0.0-ci' }}
       RELEASE_READY: ${{ inputs.release_ready || false }}
     steps:
@@ -46,30 +51,61 @@ jobs:
         with:
           ref: ${{ inputs.checkout_ref }}
 
-      - name: Setup .NET SDKs
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         with:
           global-json-file: global.json
+
+      - name: Setup sample SDKs for full validation
+        if: '!inputs.smoke || inputs.release_ready'
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
+        with:
           dotnet-version: |
             9.0.319
             11.0.100-rc.2.26504.105
 
+      - name: Identify dependency policy changes
+        id: dependency_changes
+        if: inputs.smoke && !inputs.release_ready && github.event_name == 'pull_request'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $PSNativeCommandUseErrorActionPreference = $true
+          $gh = (Get-Command gh -CommandType Application).Source
+          $files = @(& $gh api "repos/$env:REPOSITORY/pulls/$env:PR_NUMBER/files?per_page=100" --paginate --jq '.[] | .filename, (.previous_filename // empty)')
+          if (-not $files.Count) { throw 'Could not identify changed files.' }
+          $required = @($files | Where-Object { $_ -match '(^\.github/workflows/|^eng/|^renovate\.json$|^docs/dependency-updates\.md$|(^|/)(Directory\.[^/]+|global\.json|NuGet\.[Cc]onfig|packages\.lock\.json|dotnet-tools\.json)$|\.(csproj|fsproj|vbproj|props|targets|slnx?)$)' }).Count -gt 0
+          "required=$($required.ToString().ToLowerInvariant())" >> $env:GITHUB_OUTPUT
+
       - name: Verify Renovate update permissions
+        if: '!inputs.smoke || inputs.release_ready || steps.dependency_changes.outputs.required != ''false'''
         shell: pwsh
         env:
           GITHUB_COM_TOKEN: ${{ github.token }}
         run: ./eng/Test-Renovate.ps1 -IsolatedNode
 
       - name: Compile samples and verify the packed tool
+        if: '!inputs.smoke || inputs.release_ready'
         shell: pwsh
         run: ./eng/Verify.ps1 -PackageVersion $env:PACKAGE_VERSION -ReleaseReady:([bool]::Parse($env:RELEASE_READY)) -SkipInstalledTests
 
+      - name: Build pack install list get and shut down once
+        if: inputs.smoke && !inputs.release_ready
+        shell: pwsh
+        run: ./eng/Test-Smoke.ps1 -PackageVersion $env:PACKAGE_VERSION
+
       - name: Prepare offline test image
+        if: '!inputs.smoke || inputs.release_ready'
         run: |
           docker pull mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317
           docker pull mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1
 
       - name: Verify the same package without network or checkout access
+        if: '!inputs.smoke || inputs.release_ready'
         shell: pwsh
         run: |
           ./eng/Test-Offline.ps1 -PackageVersion $env:PACKAGE_VERSION -RuntimeMajor 10
@@ -116,6 +152,7 @@ jobs:
           if-no-files-found: error
 
       - name: Upload the compiled consumer suite
+        if: '!inputs.smoke || inputs.release_ready'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: playbook-consumer-suite
@@ -124,6 +161,7 @@ jobs:
 
   desktop:
     name: ${{ matrix.name }} installed smoke
+    if: '!inputs.smoke || inputs.release_ready'
     needs: test
     strategy:
       fail-fast: false
@@ -181,7 +219,7 @@ jobs:
 
   summary:
     name: Validation time and results
-    if: always()
+    if: always() && (!inputs.smoke || inputs.release_ready)
     needs: [test, desktop]
     runs-on: blacksmith-2vcpu-ubuntu-2404
     timeout-minutes: 2
