@@ -1,0 +1,11 @@
+{
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-SdkDelivery.ps1"
+  ]
+}

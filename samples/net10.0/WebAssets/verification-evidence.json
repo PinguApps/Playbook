@@ -1,0 +1,48 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/WebAssets/WebAssets.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Program Files\\dotnet\\dotnet.exe build WebAssets.csproj --configuration Release -p:RestoreLockedMode=true -p:NodePath=C:/Program Files/nodejs/node.exe",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-21T17:40:43.8467105+00:00",
+  "sourceCommit": "6bf6e4ec5e6c66b7822d08fa5485e887cc42b74c",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Test-SdkDelivery.ps1": "8d8bbb924ede4e01d6a67262757339ece294447286d27883cb5fd6fbff1d99fc",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net10.0/RclAssets/Directory.Packages.props": "2d5bfd4d93d6ed857b76d40c1de99f10f316c0cd5d5cf8cf241f9f9790d12648",
+    "samples/net10.0/RclAssets/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+    "samples/net10.0/RclAssets/packages.lock.json": "4a8c8897a43530211d28ade0df9f4a107017ead8cc0b1ad3ae8c968d223c8c19",
+    "samples/net10.0/RclAssets/RclAssets.csproj": "6c2229a3e7006f0aa261ffc86c5de56b2cb2b4422cbb704f162a4486f7a081f4",
+    "samples/net10.0/RclAssets/Scripts/deck.ts": "d7b8f1cd03c7848335be5202762adb520641a2b520780ab1bb93f30a4c81fd51",
+    "samples/net10.0/RclAssets/tsconfig.json": "fe12b7367f7e2d260851f8d9b89b731a3f69a9877dd9d77c13777c415ee31afe",
+    "samples/net10.0/RclAssets/verification.json": "891386767f671344a15fbead935a999a0171329dea0982bb3b7884209e6df0d1",
+    "samples/net10.0/WebAssets/Directory.Packages.props": "2d5bfd4d93d6ed857b76d40c1de99f10f316c0cd5d5cf8cf241f9f9790d12648",
+    "samples/net10.0/WebAssets/global.json": "6cac8ed8559756539f2db0e8cbf6d545ccc81d3d4b1ebbfcf3ee204d218847b4",
+    "samples/net10.0/WebAssets/packages.lock.json": "8a95feee7853cdf4ebd5ad92f95d391df9f46da0db8a14ca59802a8ea09e2733",
+    "samples/net10.0/WebAssets/Program.cs": "f73254cf42825cc7bb0b4c13844f5f304139df7144621a847f8fa7be0f6536b1",
+    "samples/net10.0/WebAssets/Scripts/berths.ts": "dd2a30e3c04d8ed696567b327b74893fd687073e03919d91aa7fc989118f6384",
+    "samples/net10.0/WebAssets/tsconfig.json": "2d4d84c9f444e0a113a6f2a0bf502f5344f70126b2ee0e4c1854aac9d32217c9",
+    "samples/net10.0/WebAssets/verification.json": "adc053540356a106eba61f251cf36874a25f5ca9b5da363b75fe58d6f8cea215",
+    "samples/net10.0/WebAssets/WebAssets.csproj": "cd66054f284f920423ee9842c951919918382962c2bdaa1306e4acb735c002f3",
+    "samples/net10.0/WebAssets/wwwroot/crew/index.html": "896fad1ece08fc47dec3a89678f80880ff2ce4d57e3232c9b73d3276c5e7c687"
+  },
+  "dependencies": [
+    "Microsoft.TypeScript.MSBuild/5.9.3",
+    "Pier.Deck.Assets/1.0.0"
+  ],
+  "workloads": [],
+  "nativeToolchains": [
+    "Node.js/24.21.0"
+  ],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-749d4ec1\\samples\\net10.0\\WebAssets\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  Restored V:\\_worktrees\\Playbook\\t3-749d4ec1\\samples\\net10.0\\WebAssets\\WebAssets.csproj (in 321 ms).\r\n  1 of 2 projects are up-to-date for restore.\r\n  RclAssets -> V:\\_worktrees\\Playbook\\t3-749d4ec1\\samples\\net10.0\\RclAssets\\bin\\Release\\net10.0\\RclAssets.dll\r\n  WebAssets -> V:\\_worktrees\\Playbook\\t3-749d4ec1\\samples\\net10.0\\WebAssets\\bin\\Release\\net10.0\\WebAssets.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.83"
+}

@@ -1,0 +1,18 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <OutputType>Library</OutputType>
+    <PackageId>Pier.Deck.Assets</PackageId>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <EnableTypeScriptNuGetTarget>true</EnableTypeScriptNuGetTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <ConfigFiles Include="tsconfig.json" />
+    <Content Remove="global.json;tsconfig.json;verification*.json;*.evidence.json;packages.lock.json" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.9.3" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->

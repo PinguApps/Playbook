@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.TypeScript.MSBuild": {
+        "type": "Direct",
+        "requested": "[5.9.3, )",
+        "resolved": "5.9.3",
+        "contentHash": "zWwWVvtPYBM/j/mICB0e1/71P1mPzECatHZNxYiu4mmmFOc+pQ1JU14famcyiTl8LQ5Yg8k6Ha4d6vEwVay/2g=="
+      }
+    }
+  }
+}
