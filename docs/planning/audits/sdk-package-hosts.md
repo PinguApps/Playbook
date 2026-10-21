@@ -60,7 +60,7 @@ PIN-761's CLI template installation and PIN-771's NuGet-client host are adjacent
 
 The downloaded Microsoft.NET.Test.Sdk **18.7.0 / 18.11.0** nuspecs depend on matching TestHost for net8.0; the old TestHost directly depends on Newtonsoft **13.0.3**, the new one does not. This is actual package evidence, not an assumption that package version 11 corresponds to .NET 11. The installed .NET 11 RC2 SDK's `vstest.console.deps.json` / `testhost.deps.json` use **18.11.0-release-26504-105** platform components without Newtonsoft. Its SDK-root `dotnet.deps.json` still has Newtonsoft **13.0.4** for other tooling. Finding that DLL somewhere in the SDK does not make it a test project's dependency. The downloaded 18.11.0 package and SDK-bundled release-build identity are recorded separately, not asserted byte-identical.
 
-PIN-762's runner/project selection does not deliver either migration, and PR #52's tracker comment is evidence of separate work awaiting review, not content present on this audit's base. No changes from that PR were copied.
+PIN-762's runner/project selection does not deliver either migration. At discovery, PR #52's tracker comment described separate work awaiting review. That PR subsequently merged into main and was retained during this branch's conflict resolution. Its runner/package/static-asset recipes remain separate from these dependency and communication-API migrations; their presence does not satisfy G or H.
 
 ## Affected-test availability reconciliation
 
