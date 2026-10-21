@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><NoWarn>$(NoWarn);NU1510</NoWarn></PropertyGroup>
+  <ItemGroup><FrameworkReference Include="Microsoft.AspNetCore.App" /><Compile Include="../../CacheEntriesChecks.cs" Link="Program.cs" /><PackageReference Include="Microsoft.Extensions.Caching.Hybrid" /><PackageReference Include="Microsoft.Extensions.Caching.Abstractions" /></ItemGroup>
+</Project>
+

@@ -24,6 +24,65 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("configuration options and cache guidance retains complete bodies applicability and RC limitations")]
+    public async Task CheckConfigurationOptionsCacheAsync()
+    {
+        string[] ids = ["configuration.exclude-properties", "configuration.await-change-callback", "options.validate-with-di", "options.validate-asynchronously", "cache.observe-memory-cache", "cache.select-options-from-value"];
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "configuration-options-cache", limit = 50 }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(older));
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "configuration-options-cache", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(ids.Length, catalogue.GetProperty("total").GetInt32());
+        foreach (string id in ids)
+        {
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+            string path = $"content/recipes/{id}/11.0";
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+            string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+            foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+            {
+                string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                string region = snippet.Value.GetProperty("region").GetString()!;
+                string body = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
+                    .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```csharp\n{body}\n```", StringComparison.Ordinal);
+            }
+
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == id);
+            Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+            AssertSelection(summary, recipe);
+            JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+            Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+            Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+            Assert.NotEmpty(requirements.GetProperty("frameworks").EnumerateArray());
+            Assert.Empty(requirements.GetProperty("optIns").EnumerateArray());
+            Assert.Equal("stable", summary.GetProperty("stability").GetString());
+            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                Assert.Contains("PASS", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            });
+            if (id == "cache.select-options-from-value")
+            {
+                Assert.Contains("ignores LocalSize", summary.ToString(), StringComparison.Ordinal);
+                Assert.Contains("requests 24 units", expected, StringComparison.Ordinal);
+                Assert.Contains("GA reconciliation", expected, StringComparison.Ordinal);
+                Assert.Contains("10.11.0", requirements.GetProperty("packages").ToString(), StringComparison.Ordinal);
+            }
+            else if (id == "options.validate-asynchronously")
+            {
+                Assert.Contains("SYSLIB1205", expected, StringComparison.Ordinal);
+                Assert.Contains("snapshot", expected, StringComparison.Ordinal);
+                Assert.Contains("reload", expected, StringComparison.Ordinal);
+            }
+        }
+    }
+
     [Then("SDK workflow guidance retains complete bodies editions and honest proof boundaries")]
     public async Task CheckSdkWorkflowsAsync()
     {

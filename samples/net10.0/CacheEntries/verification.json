@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    "Microsoft.Extensions.Caching.Hybrid/10.11.0"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/CacheEntriesChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ]
+}

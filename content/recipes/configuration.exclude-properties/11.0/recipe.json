@@ -1,0 +1,137 @@
+{
+  "id": "configuration.exclude-properties",
+  "edition": "11.0",
+  "title": "Keep runtime-owned properties out of configuration binding",
+  "goal": "Bind configuration into a model while preserving selected runtime-owned properties, even when matching input keys are present.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "exclude-properties",
+    "configuration-options-cache"
+  ],
+  "apis": [
+    "ConfigurationIgnoreAttribute",
+    "ConfigurationBinder.Bind"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "ConfigurationIgnore governs configuration binding only; it does not redact providers or affect JSON serialization."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer comparison uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; the exact RC2 SDK is a verification baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is used."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11 shared framework; full implementations, not only base-framework abstractions."
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supporting the declared .NET/shared-framework combination; managed checks executed on Windows x64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: TargetFramework=net11.0, LangVersion=15.0, Nullable=enable, ImplicitUsings=enable, FrameworkReference Microsoft.AspNetCore.App. Exact imports and registration steps are in the body."
+          ],
+          "constraints": [
+            "ConfigurationIgnore governs configuration binding only; it does not redact providers or affect JSON serialization.",
+            "No external account, provisioning, rendering integration, optional workload or unverified older-target package route is required or advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified against .NET 11 RC2, not GA. These APIs are not publisher-designated experimental; no experimental opt-in is required."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.Abstractions/src/ConfigurationIgnoreAttribute.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 library contracts"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.Abstractions/src/ConfigurationIgnoreAttribute.cs",
+      "title": "Pinned official configuration.exclude-properties contract 1"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real selective input binding and application-owned serialized reload worker; success, coalescing and caught failure."
+    },
+    {
+      "sample": "samples/net11.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real ignored property and serialized Func<Task> callbacks, coalescing, caught async failure, synchronous propagation and completion after disposal."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ConfigurationLifecycle/Configuration.cs",
+      "region": "binding",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/ConfigurationLifecycle/Configuration.cs",
+      "region": "binding",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed in-process claims need no Human-only proof. External services, distributed backends, browser/native behavior and GA reconciliation are not claimed. The LocalSize RC gap is explicit where applicable."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "id": "options.validate-with-di",
+  "edition": "11.0",
+  "title": "Validate settings with a dependency-injected validator",
+  "goal": "Register a reusable settings validator by type and resolve its policy dependencies through DI before startup accepts work.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "validate-with-di",
+    "configuration-options-cache"
+  ],
+  "apis": [
+    "OptionsBuilder.Validate<TValidator>",
+    "IValidateOptions",
+    "ValidateOnStart"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Validate<TValidator> remains synchronous unless the validator implements the asynchronous contract.",
+          "Choose dependency lifetimes suitable for options registration; do not capture scoped services in singleton consumers."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer comparison uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; the exact RC2 SDK is a verification baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is used."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11 shared framework; full implementations, not only base-framework abstractions."
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supporting the declared .NET/shared-framework combination; managed checks executed on Windows x64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: TargetFramework=net11.0, LangVersion=15.0, Nullable=enable, ImplicitUsings=enable, FrameworkReference Microsoft.AspNetCore.App. Exact imports and registration steps are in the body."
+          ],
+          "constraints": [
+            "Validate<TValidator> remains synchronous unless the validator implements the asynchronous contract.",
+            "Choose dependency lifetimes suitable for options registration; do not capture scoped services in singleton consumers.",
+            "No external account, provisioning, rendering integration, optional workload or unverified older-target package route is required or advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified against .NET 11 RC2, not GA. These APIs are not publisher-designated experimental; no experimental opt-in is required."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsBuilder.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/OptionsStartup/OptionsStartup.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 library contracts"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsBuilder.cs",
+      "title": "Pinned official options.validate-with-di contract 1"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/OptionsStartup/OptionsStartup.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real DI-backed crew validation and ordered hosted startup permit gate, acceptance and rejection."
+    },
+    {
+      "sample": "samples/net11.0/OptionsStartup/OptionsStartup.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real DI/generic/async startup, named dual and generated validators; seeded caches, synchronous access/reload failures. Separate script checks real SYSLIB1205 failing/fixed builds."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/OptionsStartup/Startup.cs",
+      "region": "di",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/OptionsStartup/Startup.cs",
+      "region": "di",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed in-process claims need no Human-only proof. External services, distributed backends, browser/native behavior and GA reconciliation are not claimed. The LocalSize RC gap is explicit where applicable."
+  }
+}

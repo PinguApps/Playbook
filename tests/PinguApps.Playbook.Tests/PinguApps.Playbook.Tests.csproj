@@ -162,4 +162,8 @@
     <EmbeddedResource Include="../../content/recipes/json.serialize-closed-results/11.0/recipe.md" LogicalName="Canonical.json.serialize-closed-results.md" />
     <EmbeddedResource Include="../../content/recipes/json.infer-closed-polymorphism/11.0/recipe.md" LogicalName="Canonical.json.infer-closed-polymorphism.md" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../content/recipes/configuration.*/**/recipe.json;../../content/recipes/configuration.*/**/recipe.md;../../content/recipes/options.*/**/recipe.json;../../content/recipes/options.*/**/recipe.md;../../content/recipes/cache.*/**/recipe.json;../../content/recipes/cache.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/ConfigurationLifecycle/*.cs;../../samples/net*/OptionsStartup/*.cs;../../samples/net*/CacheEntries/*.cs" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
 </Project>
