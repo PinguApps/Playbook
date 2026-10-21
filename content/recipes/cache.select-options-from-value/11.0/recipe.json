@@ -30,7 +30,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). Pingu accepts this for GA-targeted PR delivery; GA verification remains required.",
+          "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA verification remains required.",
           "Local-only workload, no distributed backend proof. Do not mix direct MemoryCache application units with this HybridCache implementation estimate."
         ],
         "requirements": {
@@ -82,14 +82,14 @@
             "Console project: TargetFramework=net11.0, LangVersion=15.0, Nullable=enable, ImplicitUsings=enable, FrameworkReference Microsoft.AspNetCore.App. Exact imports and registration steps are in the body."
           ],
           "constraints": [
-            "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). Pingu accepts this for GA-targeted PR delivery; GA verification remains required.",
+            "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA verification remains required.",
             "Local-only workload, no distributed backend proof. Do not mix direct MemoryCache application units with this HybridCache implementation estimate.",
             "No external account, provisioning, rendering integration, optional workload or unverified older-target package route is required or advertised."
           ],
           "optIns": [],
           "stabilityLimitations": [
             "Verified against .NET 11 RC2, not GA. These APIs are not publisher-designated experimental; no experimental opt-in is required.",
-            "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). Pingu accepts this for GA-targeted PR delivery; GA verification remains required."
+            "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA verification remains required."
           ]
         },
         "sourceUrls": [
@@ -139,7 +139,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Real built-in cache statistics/four metrics and value-derived Hybrid local expiry; LocalSize remains a known requested-24/observed-12 RC gap accepted by Pingu for GA-targeted PR delivery."
+      "scope": "Real built-in cache statistics/four metrics and value-derived Hybrid local expiry; LocalSize remains a known requested-24/observed-12 RC gap."
     }
   ],
   "snippets": {

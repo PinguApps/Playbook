@@ -16,7 +16,7 @@ The documented .NET 11 overload supplies a mutable HybridCacheEntryContext to th
 
 {{snippet:newer}}
 
-**Known RC implementation gap:** the tested Microsoft.Extensions.Caching.Hybrid 10.11.0 net10.0 implementation with .NET 11 RC2 abstractions honours the derived local lifetime but ignores LocalSize. The sample requests 24 units and measures an actual L1 size of 12. The setter illustrates the documented .NET 11 contract; it is not verified custom sizing on this implementation. Do not depend on it to enforce an RC cache budget. Pingu accepts this explicit RC evidence gap for the GA-targeted recipe's PR delivery. GA reconciliation must recheck actual package behavior; a future fix is not assumed to have happened.
+**Known RC implementation gap:** the tested Microsoft.Extensions.Caching.Hybrid 10.11.0 net10.0 implementation with .NET 11 RC2 abstractions honours the derived local lifetime but ignores LocalSize. The sample requests 24 units and measures an actual L1 size of 12. The setter illustrates the documented .NET 11 contract; it is not verified custom sizing on this implementation. Do not depend on it to enforce an RC cache budget. GA reconciliation must recheck actual package behavior; a future fix is not assumed to have happened.
 
 ## Migration
 
@@ -36,4 +36,4 @@ There is no distributed backend in this workload. Local expiration causes a new 
 
 ## Evidence
 
-Actual .NET 10 and .NET 11 RC2 projects compile and execute the same original value/expiration goal. The newer path verifies a local hit, no duplicate factory call for that hit, another load after local expiry, and the explicit requested-24/observed-12 LocalSize discrepancy. Exact packages, resolved assets, SDK/framework baseline and source hashes are saved. The documented custom LocalSize contract remains unverified on the selected RC implementation, accepted by Pingu for this PR and still owed at GA. No GA, external backend or native execution is claimed.
+Actual .NET 10 and .NET 11 RC2 projects compile and execute the same original value/expiration goal. The newer path verifies a local hit, no duplicate factory call for that hit, another load after local expiry, and the explicit requested-24/observed-12 LocalSize discrepancy. Exact packages, resolved assets, SDK/framework baseline and source hashes are saved. The documented custom LocalSize contract remains unverified on the selected RC implementation, still owed at GA. No GA, external backend or native execution is claimed.

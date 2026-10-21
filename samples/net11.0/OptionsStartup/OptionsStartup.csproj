@@ -2,4 +2,3 @@
   <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><NoWarn>$(NoWarn);NU1510</NoWarn></PropertyGroup>
   <ItemGroup><FrameworkReference Include="Microsoft.AspNetCore.App" /><Compile Include="../../OptionsStartupChecks.cs" Link="Program.cs" /><PackageReference Include="Microsoft.Extensions.Options" PrivateAssets="all" /></ItemGroup>
 </Project>
-
