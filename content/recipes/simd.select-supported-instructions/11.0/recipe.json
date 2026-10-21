@@ -37,7 +37,7 @@
         "selectionNotes": [
           "Experimental Arm SVE requires scoped SYSLIB5003 opt-in and AllowUnsafeBlocks=true for masked memory operations.",
           "Exact IsSupported flags guard all ISA-specific calls; architecture or vector width alone is insufficient.",
-          "Pending required native proof: SVE/SVE2 and AVX-VNNI-512 execution are unavailable; compilation and x64 AVX2/scalar execution do not satisfy publication."
+          "SVE/SVE2 and AVX-VNNI-512 execution remain pending because suitable CPUs are unavailable. PR delivery is authorized with this limitation; compilation and x64 fallback do not establish native behavior."
         ],
         "requirements": {
           "runtime": {
@@ -74,7 +74,7 @@
           "constraints": [
             "Experimental Arm SVE requires scoped SYSLIB5003 opt-in and AllowUnsafeBlocks=true for masked memory operations.",
             "Exact IsSupported flags guard all ISA-specific calls; architecture or vector width alone is insufficient.",
-            "Pending required native proof: SVE/SVE2 and AVX-VNNI-512 execution are unavailable; compilation and x64 AVX2/scalar execution do not satisfy publication.",
+            "SVE/SVE2 and AVX-VNNI-512 execution remain pending because suitable CPUs are unavailable. PR delivery is authorized with this limitation; compilation and x64 fallback do not establish native behavior.",
             "No extra NuGet package/assets, provider, workload or rendering mode. No older-target package route or general performance guarantee is established."
           ],
           "optIns": [
@@ -82,7 +82,7 @@
           ],
           "stabilityLimitations": [
             "Arm SVE/SVE2/SveSha3/SveSm4 contracts are publisher-designated experimental and may change. RC2 is not GA evidence.",
-            "Required SVE/SVE2 and AVX-VNNI-512 native execution proof remains pending; publication is blocked."
+            "SVE/SVE2 and AVX-VNNI-512 native execution proof remains pending as an accepted PR-delivery limitation. Release-readiness checks still reject pending proof."
           ]
         },
         "sourceUrls": [
@@ -158,7 +158,7 @@
     }
   },
   "humanProof": {
-    "scope": "Pingu has only the current x64 AVX2 host. No suitable Arm/SVE/SVE2 or AVX-VNNI-512 route is available. Run the exact canonical sample with --require-sve or --require-vnni512 on measured supported hardware, record SDK/runtime/ISA flags and scalar agreement, and review evidence before publication.",
+    "scope": "Pingu has only the current x64 AVX2 host and explicitly accepts PR delivery without SVE/SVE2 or AVX-VNNI-512 execution. Native proof remains pending. If suitable hardware becomes available, run the exact canonical sample with --require-sve or --require-vnni512 and record SDK/runtime/ISA flags and scalar agreement before marking it verified.",
     "status": "pending"
   }
 }

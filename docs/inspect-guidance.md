@@ -3,7 +3,7 @@
 For bit collections, key equality and ordering, portable vector lanes and guarded
 instruction selection, use the [PIN-739/740 walkthrough](verification/PIN-739-740.md#inspect-what-an-agent-receives).
 The instruction recipe explicitly retains experimental SVE opt-ins and pending
-native execution proof; this combined change is not published as complete.
+native execution proof; Pingu accepts the unavailable CPUs as a PR-delivery limitation.
 
 For decimal/complex precision, numeric conversion and partial parsing, exact bit encodings and generic random values, use the [tested PIN-736–738 walkthrough](verification/PIN-736-738.md#inspect-what-an-agent-receives). It displays all six discovery goals, complete .NET 10/11 comparisons and target-11 applicability, including NaN payload limits and the cryptographic distinction.
 
