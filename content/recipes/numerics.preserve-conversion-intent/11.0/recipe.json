@@ -1,0 +1,139 @@
+{
+  "id": "numerics.preserve-conversion-intent",
+  "edition": "11.0",
+  "title": "Preserve decimal intent across numeric conversions",
+  "goal": "Separate decimal source values from binary measurements when an upgrade changes conversion rounding, and choose an explicit rounding rule for displayed amounts.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "preserve-conversion-intent"
+  ],
+  "apis": [
+    "Decimal",
+    "BigInteger",
+    "MidpointRounding.ToEven",
+    "Decimal.Parse"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          ".NET 11 conversions round the exact source once; binary and decimal literals with similar text need not agree.",
+          "Compiler-folded conversions can change after an SDK rebuild even when the target framework is retained."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the selected numeric runtime contracts and behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with ImplicitUsings=enable and Nullable=enable. Import System.Globalization and System.Numerics; place the supplied partial class in namespace Playbook.Samples."
+          ],
+          "constraints": [
+            ".NET 11 conversions round the exact source once; binary and decimal literals with similar text need not agree.",
+            "Compiler-folded conversions can change after an SDK rebuild even when the target framework is retained.",
+            "Framework-provided managed APIs; no additional NuGet package/assets, workload, provider or rendering mode. No older-target package route, AOT or native-device execution is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NumericGuidance/NumericGuidance.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft .NET 11 library release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real target executions assert exact decimal values, both original BigInteger destination bit patterns, ties-to-even, and exceptions for NaN/infinity. This is not a full audit of every conversion direction, Math.Round migration or older-target/newer-SDK route. Actual managed execution; no mocks, cross-compilation or GA verification."
+    },
+    {
+      "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real target executions assert exact decimal values, both original BigInteger destination bit patterns, ties-to-even, and exceptions for NaN/infinity. This is not a full audit of every conversion direction, Math.Round migration or older-target/newer-SDK route. Actual managed execution; no mocks, cross-compilation or GA verification."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/NumericGuidance/Numbers.cs",
+      "region": "conversion",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/NumericGuidance/Numbers.cs",
+      "region": "conversion",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Direct managed numeric behavior and actual installed MCP retrieval need no native UI/device/provider Human action."
+  }
+}

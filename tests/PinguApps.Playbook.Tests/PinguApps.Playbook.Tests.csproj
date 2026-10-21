@@ -4,6 +4,14 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net10.0/NumericGuidance/Numbers.cs" LogicalName="Canonical.net10.0.NumericGuidance.Numbers.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/NumericGuidance/Numbers.cs" LogicalName="Canonical.net11.0.NumericGuidance.Numbers.cs" />
+    <EmbeddedResource Include="../../content/recipes/numerics.choose-ieee-decimal/11.0/recipe.md" LogicalName="Canonical.numerics.choose-ieee-decimal.md" />
+    <EmbeddedResource Include="../../content/recipes/numerics.select-complex-precision/11.0/recipe.md" LogicalName="Canonical.numerics.select-complex-precision.md" />
+    <EmbeddedResource Include="../../content/recipes/numerics.preserve-conversion-intent/11.0/recipe.md" LogicalName="Canonical.numerics.preserve-conversion-intent.md" />
+    <EmbeddedResource Include="../../content/recipes/numerics.parse-delimited-values/11.0/recipe.md" LogicalName="Canonical.numerics.parse-delimited-values.md" />
+    <EmbeddedResource Include="../../content/recipes/numerics.roundtrip-float-bits/11.0/recipe.md" LogicalName="Canonical.numerics.roundtrip-float-bits.md" />
+    <EmbeddedResource Include="../../content/recipes/numerics.generate-generic-random/11.0/recipe.md" LogicalName="Canonical.numerics.generate-generic-random.md" />
     <EmbeddedResource Include="../../samples/net10.0/Archives/Archives.cs" LogicalName="Canonical.net10.0.Archives.cs" />
     <EmbeddedResource Include="../../samples/net10.0/Compression/Compression.cs" LogicalName="Canonical.net10.0.Compression.cs" />
     <EmbeddedResource Include="../../samples/net11.0/Archives/Archives.cs" LogicalName="Canonical.net11.0.Archives.cs" />

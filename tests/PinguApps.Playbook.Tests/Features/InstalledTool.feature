@@ -163,6 +163,13 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
+  Scenario: Numeric recipes preserve representation parsing conversion and random range intent
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then numeric guidance retains complete canonical bodies applicability and editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Archive and compression recipes preserve access integrity formats and codec lifecycle
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
