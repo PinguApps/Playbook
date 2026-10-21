@@ -1,0 +1,12 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/ArchiveChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/TarSparseFixture.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
