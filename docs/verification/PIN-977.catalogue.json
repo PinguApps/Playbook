@@ -1,0 +1,495 @@
+[
+  {
+    "id": "cbor.read-chunks",
+    "title": "Read CBOR records across incoming chunks",
+    "goal": "Decode a finite CBOR measurement array while retaining only incomplete token bytes between incoming chunks.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "console.color-piped-output",
+    "title": "Choose colour policy for redirected console output",
+    "goal": "Request ANSI colour for a piped Unix console application, or disable it without changing persistent environment settings.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.audit-memory-boundaries",
+    "title": "Express and check unsafe memory boundaries (experimental)",
+    "goal": "Use experimental unsafe member contracts when a raw memory operation imposes caller obligations; review declaration accessibility and keep checked wrappers available.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental"
+  },
+  {
+    "id": "csharp.closed-hierarchies",
+    "title": "Match every permitted state in an inheritance family",
+    "goal": "Use a closed C# hierarchy when one assembly owns the direct states and consumers should match every permitted case. Seal leaves to bound further inheritance.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.closed-results",
+    "title": "Model distinct outcomes with a C# union",
+    "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.configure-collection-construction",
+    "title": "Construct collections with deliberate capacity and comparison",
+    "goal": "Use collection-expression arguments when constructor or builder configuration must accompany the elements. Preserve capacity, ordering and comparison semantics.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.control-nested-loops",
+    "title": "Stop or continue an enclosing loop directly",
+    "goal": "Use labeled break and continue in C# 15 when a nested traversal must stop an enclosing loop or skip its remaining work while preserving cleanup.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.extend-uneditable-types",
+    "title": "Add computed properties to types you cannot edit",
+    "goal": "Use a C# extension property for a cheap computed observation of an existing type. Retain method syntax for older targets or operations that behave like actions.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.index-existing-types",
+    "title": "Add indexed access without editing a collection type",
+    "goal": "Use extension indexers when a type you cannot edit needs bracket reads or writes. Define bounds, null handling and traversal cost explicitly.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.static-interface-helpers",
+    "title": "Share helpers on an interface without adding implementation requirements",
+    "goal": "Use non-virtual static interface helpers when a contract owns shared implementation code and callers need one fixed implementation without adding duties for implementing types.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "csharp.validate-property-assignment",
+    "title": "Normalize and validate properties with the C# field keyword",
+    "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.adapt-generic-operations",
+    "title": "Adapt existing types to generic operations (preview)",
+    "goal": "Use preview SRTP resolution to adapt an existing type to a generic F# operation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental"
+  },
+  {
+    "id": "fsharp.bound-async-work",
+    "title": "Bound asynchronous work before it starts",
+    "goal": "Bound async workflows or task starts while retaining batch results in input order.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.compose-records",
+    "title": "Compose record fields without repeating declarations and copies",
+    "goal": "Use record spreads when a new named or anonymous F# record reuses existing fields and needs explicit additions or replacements.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.construct-records",
+    "title": "Construct record values with positional or named arguments (preview)",
+    "goal": "Use preview record constructor syntax when an F# record call benefits from positional arguments or reordered named arguments; retain record expressions when preview is unsuitable.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental"
+  },
+  {
+    "id": "fsharp.format-without-reflection",
+    "title": "Render record and union diagnostics without reflection formatting",
+    "goal": "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.migrate-enum-flags",
+    "title": "Migrate unsupported enum flag operations",
+    "goal": "Replace rejected non-integer enum bit operations with integer-backed permissions.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.pass-methods-as-delegates",
+    "title": "Pass compatible methods directly to delegates",
+    "goal": "Pass a compatible F# method to a .NET delegate; retain adapters when arguments need transformation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.preserve-interpolation-culture",
+    "title": "Keep an explicit display culture in F# diagnostic messages",
+    "goal": "Format dates and numbers with an explicit culture before interpolating them when diagnostic messages must retain a chosen region across F# 10 and F# 11.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.require-named-arguments",
+    "title": "Require meaningful argument names at F# calls (preview)",
+    "goal": "Require names on selected F# preview calls to prevent same-typed argument swaps.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental"
+  },
+  {
+    "id": "fsharp.rethrow-in-computations",
+    "title": "Preserve failure stacks in computations (preview)",
+    "goal": "Preserve an original failure stack inside F# async or task handlers with preview reraise.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental"
+  },
+  {
+    "id": "fsharp.reuse-api-documentation",
+    "title": "Reuse inherited and external API documentation",
+    "goal": "Reuse shared F# API summaries through inherited or external XML documentation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "fsharp.start-async-on-caller",
+    "title": "Start an asynchronous computation on the caller",
+    "goal": "Start a blocking async prefix on the caller, outside a SynchronizationContext.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "io.adapt-existing-buffers",
+    "title": "Pass existing buffers to stream consumers",
+    "goal": "Adapt borrowed memory, segmented bytes or encoded text to a Stream reader without first flattening the whole input.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.bind-reference-constructors",
+    "title": "Bind JSON to constructors with reference parameters",
+    "goal": "Deserialize models with in/ref/ref readonly constructors and distinguish out outputs from writable-property assignment.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.configure-generic-contracts",
+    "title": "Resolve generic JSON converters and derived contracts",
+    "goal": "Resolve reusable generic JSON contracts without per-closure registration or converter factories; reject incompatible shapes.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.configure-member-conventions",
+    "title": "Define JSON naming and omission rules at the type boundary",
+    "goal": "Apply type and member naming/ignore conventions with explicit precedence and stable wire contracts.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.describe-binary-schema",
+    "title": "Export JSON schema for binary buffer values",
+    "goal": "Export byte-array and memory-buffer schema annotations without a redundant base64 transform.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.generate-private-contracts",
+    "title": "Generate JSON contracts for deliberately included private state",
+    "goal": "Generate serialization metadata for intentionally included private members and constructors without exposing public model state.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.infer-closed-polymorphism",
+    "title": "Infer JSON contracts for a closed state family",
+    "goal": "Infer JSON derived contracts for an owned closed hierarchy when type-driven discriminators suit the data contract. Check source-generation settings and retain explicit registrations for stable wire names.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.preserve-omitted-initializers",
+    "title": "Preserve initialized values when generated JSON omits a member",
+    "goal": "Keep init-property defaults during generated deserialization while distinguishing omission from explicit values or null.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.reject-malformed-contracts",
+    "title": "Reject malformed JSON at an import boundary",
+    "goal": "Reject structurally malformed imported JSON before applying separate business validation.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.retrieve-typed-metadata",
+    "title": "Retrieve typed JSON metadata and distinguish resolution misses",
+    "goal": "Retrieve typed serializer metadata and distinguish an unregistered contract from resolver or configuration failures.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.reuse-writer",
+    "title": "Reuse a flushed JSON writer with different options",
+    "goal": "Reuse a completed JSON writer across output targets and options while preserving stream ownership.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.serialize-closed-results",
+    "title": "Preserve a union's distinct cases through JSON",
+    "goal": "Persist and restore C# union outcomes with generated metadata and deliberate case selection. Apply structural classification when required root property names distinguish object payloads.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.serialize-fsharp-unions",
+    "title": "Round-trip F# union values with built-in JSON support",
+    "goal": "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.stream-json-lines",
+    "title": "Stream JSON records without collecting the input",
+    "goal": "Write and read independent JSON Lines records while an asynchronous producer is still running.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "json.use-numeric-collection-contracts",
+    "title": "Serialize numeric values and read-only collection contracts",
+    "goal": "Use supported numeric, read-only-set and extension-data contracts on the .NET 11 target asset; preserve numeric representation choices.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "process.capture-output",
+    "title": "Capture command output and cancel its execution",
+    "goal": "Run a command that produces both output and diagnostics, and terminate it when the caller cancels.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "process.control-lifetime",
+    "title": "Choose child lifetime independently of process bookkeeping",
+    "goal": "Choose whether a worker survives its launcher, detaches from its console or is terminated when its parent exits.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "process.control-native-handles",
+    "title": "Own process and redirected handles explicitly",
+    "goal": "Start and wait for a native child while retaining clear ownership of its process and standard handles.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "process.inspect-termination",
+    "title": "Distinguish normal exit from signal termination",
+    "goal": "Report a native worker’s exit status without treating a POSIX signal as an ordinary application exit code.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "process.prepare-before-start",
+    "title": "Prepare a suspended child before allowing execution",
+    "goal": "Perform post-creation setup before a worker executes, and terminate it if setup fails.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "regex.handle-unicode-newlines",
+    "title": "Match mixed newline conventions deliberately",
+    "goal": "Apply regex anchors and dot to CRLF, CR, LF and Unicode line separators with an explicit newline policy.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "text.compare-characters",
+    "title": "Choose a character comparison policy explicitly",
+    "goal": "Compare single UTF-16 characters or Unicode scalars using an explicit ordinal or culture-sensitive policy.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "text.encode-base64",
+    "title": "Encode binary data directly into Base64 buffers",
+    "goal": "Round-trip binary payloads as standard padded Base64 characters or UTF-8 while retaining buffer and final-block contracts.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "text.handle-unicode-scalars",
+    "title": "Transform text without splitting Unicode scalars",
+    "goal": "Search or replace supplementary characters and retain explicit UTF-16 positions and replacement information.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "text.locate-invalid-unicode",
+    "title": "Report the first malformed Unicode subsequence",
+    "goal": "Locate invalid UTF-8 or UTF-16 input with offsets in the original encoding before decoding or transforming it.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  },
+  {
+    "id": "text.transfer-builder-content",
+    "title": "Transfer accumulated text and empty its builder",
+    "goal": "Hand accumulated text to a new StringBuilder while reusing an emptied source for the next batch.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable"
+  }
+]

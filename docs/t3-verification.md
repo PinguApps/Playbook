@@ -2,6 +2,8 @@
 
 Use this owner-authorized setup for fresh Playbook agent checks outside CI. It uses the [documented Codex connection](clients.md#t3-code), a dedicated Git repository/T3 project, and an explicit installed-tool path. It adds no service, schedule or model matrix. The [PIN-976 receipt](verification/PIN-976.md) records the actual configuration, package and calls.
 
+For recipe-selection and application checks, use the [bounded usability runbook](agent-usability.md) and [first checkpoint report](verification/PIN-977.md). These preserve the separate launch with/without evaluation.
+
 ## Prepared environment
 
 On Pingu's `PINGU-SERVER` environment:
