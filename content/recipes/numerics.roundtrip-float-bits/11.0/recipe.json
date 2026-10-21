@@ -1,0 +1,144 @@
+{
+  "id": "numerics.roundtrip-float-bits",
+  "edition": "11.0",
+  "title": "Round-trip floating values and raw BFloat16 payloads",
+  "goal": "Persist finite floating-point values in readable hexadecimal form, or use explicit-endian raw bits when signed zeros and NaN payloads must survive unchanged.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "roundtrip-float-bits"
+  ],
+  "apis": [
+    "NumberStyles.HexFloat",
+    "BitConverter.BFloat16ToUInt16Bits",
+    "BitConverter.UInt16BitsToBFloat16",
+    "BinaryPrimitives"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Hex floating text preserves tested finite bits and signed zero; NaN text does not promise its payload.",
+          "Raw BFloat16 wire bytes use explicit big-endian order; native BitConverter byte order is not a portable protocol."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the selected numeric runtime contracts and behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with ImplicitUsings=enable and Nullable=enable. Import System.Buffers.Binary, System.Globalization and System.Numerics; place the supplied partial class in namespace Playbook.Samples."
+          ],
+          "constraints": [
+            "Hex floating text preserves tested finite bits and signed zero; NaN text does not promise its payload.",
+            "Raw BFloat16 wire bytes use explicit big-endian order; native BitConverter byte order is not a portable protocol.",
+            "Framework-provided managed APIs; no additional NuGet package/assets, workload, provider or rendering mode. No older-target package route, AOT or native-device execution is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/BitConverter.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/NumberStyles.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NumericGuidance/NumericGuidance.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft .NET 11 library release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/BitConverter.cs"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/NumberStyles.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real older/newer runs compare double bit patterns for 19.375, negative zero, smallest subnormal, maximum finite and a negative fraction. Newer execution also checks float/Half hex, raw BFloat16 payloads, byte order, native BitConverter pairing, short buffers and observed NaN normalization. Actual managed execution; no mocks, cross-compilation or GA verification."
+    },
+    {
+      "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real older/newer runs compare double bit patterns for 19.375, negative zero, smallest subnormal, maximum finite and a negative fraction. Newer execution also checks float/Half hex, raw BFloat16 payloads, byte order, native BitConverter pairing, short buffers and observed NaN normalization. Actual managed execution; no mocks, cross-compilation or GA verification."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/NumericGuidance/Numbers.cs",
+      "region": "bits",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/NumericGuidance/Numbers.cs",
+      "region": "bits",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Direct managed numeric behavior and actual installed MCP retrieval need no native UI/device/provider Human action."
+  }
+}

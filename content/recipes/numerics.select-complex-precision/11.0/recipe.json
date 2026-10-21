@@ -1,0 +1,144 @@
+{
+  "id": "numerics.select-complex-precision",
+  "edition": "11.0",
+  "title": "Choose the scalar representation for complex arithmetic",
+  "goal": "Rotate complex measurements using a chosen floating-point representation instead of always storing real and imaginary parts as double.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "select-complex-precision"
+  ],
+  "apis": [
+    "Complex<T>",
+    "Complex",
+    "IFloatingPointIeee754<T>",
+    "IMinMaxValue<T>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Complex<T> requires IFloatingPointIeee754<T> and IMinMaxValue<T>; System.Decimal does not meet those constraints.",
+          "Existing Complex also changes some special-value results on .NET 11; generic storage is a separate choice."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the selected numeric runtime contracts and behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with ImplicitUsings=enable and Nullable=enable. Import System.Numerics; place the supplied partial class in namespace Playbook.Samples."
+          ],
+          "constraints": [
+            "Complex<T> requires IFloatingPointIeee754<T> and IMinMaxValue<T>; System.Decimal does not meet those constraints.",
+            "Existing Complex also changes some special-value results on .NET 11; generic storage is a separate choice.",
+            "Framework-provided managed APIs; no additional NuGet package/assets, workload, provider or rendering mode. No older-target package route, AOT or native-device execution is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Numerics/src/System/Numerics/Complex.Generic.cs",
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/complex-annex-g-special-values"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NumericGuidance/NumericGuidance.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft .NET 11 library release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Numerics/src/System/Numerics/Complex.Generic.cs"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/complex-annex-g-special-values"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Both real targets rotate (4,-3) to (3,4); the newer target executes float and Decimal64 components. The nongeneric zero-divisor check records the distinct runtime special-value results. Actual managed execution; no mocks, cross-compilation or GA verification."
+    },
+    {
+      "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Both real targets rotate (4,-3) to (3,4); the newer target executes float and Decimal64 components. The nongeneric zero-divisor check records the distinct runtime special-value results. Actual managed execution; no mocks, cross-compilation or GA verification."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/NumericGuidance/Numbers.cs",
+      "region": "complex",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/NumericGuidance/Numbers.cs",
+      "region": "complex",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Direct managed numeric behavior and actual installed MCP retrieval need no native UI/device/provider Human action."
+  }
+}

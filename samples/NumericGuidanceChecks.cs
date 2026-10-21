@@ -82,6 +82,11 @@ foreach (double value in new[] { 19.375, -0d, double.Epsilon, double.MaxValue, -
     Console.WriteLine($"calibration {encoded}");
 }
 Require(!NumericGuidance.TryReadCalibration("broken-calibration", out _), "malformed bit text rejected");
+#if !NET11_0_OR_GREATER
+double rawNaN = BitConverter.UInt64BitsToDouble(0x7FF8000000000037);
+Require(NumericGuidance.TryReadCalibration(NumericGuidance.WriteCalibration(rawNaN), out double rawRestored)
+    && BitConverter.DoubleToUInt64Bits(rawRestored) == 0x7FF8000000000037, "older raw double encoding preserves NaN payload");
+#endif
 #if NET11_0_OR_GREATER
 foreach (ushort bits in new ushort[] { 0x3F88, 0x8000, 0x7F80, 0x7FC5 })
 {
@@ -110,7 +115,10 @@ for (int i = 0; i < 4096; i++)
     int bay = NumericGuidance.PickBay(random, -9, 17);
     byte small = NumericGuidance.PickBay(random, (byte)3, (byte)13);
     Int128 wide = NumericGuidance.PickBay(random, Int128.MinValue, Int128.MaxValue);
+    Int128 limit = Int128.One << 90;
+    Int128 restricted = NumericGuidance.PickBay(random, -limit, limit);
     Require(small >= 3 && small < 13 && wide < Int128.MaxValue, "generic integer bounds");
+    Require(restricted >= -limit && restricted < limit, "bounded integers beyond Int64 range");
     Half fraction = NumericGuidance.UnitFraction<Half>(random);
     BFloat16 brain = NumericGuidance.UnitFraction<BFloat16>(random);
     Require(fraction >= (Half)0 && fraction < (Half)1 && brain >= BFloat16.Zero && brain < BFloat16.One, "reduced binary float bounds");

@@ -23,6 +23,8 @@ try {
   & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1')
   foreach ($sample in @(
+    @{ Path = 'net10.0/NumericGuidance'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/NumericGuidance'; Dotnet = $Net11Dotnet },
     @{ Path = 'net9.0/Reconciliation'; Dotnet = $Net9Dotnet },
     @{ Path = 'net10.0/Reconciliation'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/Reconciliation'; Dotnet = $Net11Dotnet },

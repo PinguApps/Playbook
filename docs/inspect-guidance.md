@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For decimal/complex precision, numeric conversion and partial parsing, exact bit encodings and generic random values, use the [tested PIN-736–738 walkthrough](verification/PIN-736-738.md#inspect-what-an-agent-receives). It displays all six discovery goals, complete .NET 10/11 comparisons and target-11 applicability, including NaN payload limits and the cryptographic distinction.
+
 For unmatched-record reconciliation and incremental asynchronous filtering/enrichment, use the [tested PIN-734–735 walkthrough](verification/PIN-734-735.md#inspect-what-an-agent-receives). It displays all three discovery goals, complete canonical comparisons and target-specific applicability, including retained .NET 10 foundations and explicit provider/cancellation limits.
 
 For the JSON workflows in PIN-726–730, use [the tested JSON walkthrough](verification/PIN-726-730.md#inspect-what-an-agent-receives). It displays all eleven reusable discovery goals, complete canonical comparisons and target-specific applicability, including the retained .NET 10 strict-import edition.

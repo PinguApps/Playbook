@@ -1,0 +1,143 @@
+{
+  "id": "numerics.generate-generic-random",
+  "edition": "11.0",
+  "title": "Generate bounded random values for generic numeric calculations",
+  "goal": "Generate simulation integers and binary fractions for supported numeric types, with explicit range bounds and a separate cryptographic alternative.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "generate-generic-random"
+  ],
+  "apis": [
+    "Random.NextInteger<T>",
+    "Random.NextBinaryFloat<T>",
+    "RandomNumberGenerator.GetInt32"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Bounded NextInteger<T> requires IBinaryInteger<T>; parameterless generation also requires IMinMaxValue<T>.",
+          "Random is noncryptographic. Use RandomNumberGenerator for security-sensitive choices."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the selected numeric runtime contracts and behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with ImplicitUsings=enable and Nullable=enable. Import System.Numerics and System.Security.Cryptography; place the supplied partial class in namespace Playbook.Samples."
+          ],
+          "constraints": [
+            "Bounded NextInteger<T> requires IBinaryInteger<T>; parameterless generation also requires IMinMaxValue<T>.",
+            "Random is noncryptographic. Use RandomNumberGenerator for security-sensitive choices.",
+            "Framework-provided managed APIs; no additional NuGet package/assets, workload, provider or rendering mode. No older-target package route, AOT or native-device execution is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Random.cs",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator.getint32"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NumericGuidance/NumericGuidance.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft .NET 11 library release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Random.cs"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator.getint32"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. RC2 additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."
+    },
+    {
+      "sample": "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Both targets execute 4,096 simulation iterations, equal/reversed-bound checks and the real cryptographic bounded alternative. RC2 additionally exercises byte and full-width signed Int128 bounds, Half/BFloat16 fractions, double, zero/negative maxima and nonnegative parameterless integers. Actual managed execution; no mocks, cross-compilation or GA verification."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/NumericGuidance/Numbers.cs",
+      "region": "random",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/NumericGuidance/Numbers.cs",
+      "region": "random",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Direct managed numeric behavior and actual installed MCP retrieval need no native UI/device/provider Human action."
+  }
+}
