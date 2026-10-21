@@ -22,6 +22,8 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [hosting/configuration failure audit](../audits/hosting-configuration.md) reviews all six assigned full notes and two adjacent Extensions entries against 33 immutable official files. Callback and async-options delivery stays with PIN-745/PIN-746; three additional host-failure, provider-failure and watcher-root delivery proposals await approval. The selected source qualifies broad reload-notification and synchronous-validation claims. Source closure does not establish runtime behavior, deliver recipes or clear publication gates.
+
 The [numeric/parsing compatibility audit](../audits/numeric-and-parsing.md) reviews all eight named full mitigations plus inherited tensor Clamp/Round findings against 24 immutable official source files. It distinguishes delivered numeric subcases from remaining coverage and proposes nine narrow delivery follow-ons for approval. Source-audit completion does not deliver those recipes or clear publication gates; the pinned Clamp implementation qualifies the release-note headline for nonvectorizable types.
 
 The [archive/path/handle/clock compatibility audit](../audits/archive-path-handle-clock.md) resolves all ten assigned notes and cross-checks empty compression against 35 immutable official files. Delivered archive cases stay with PIN-732/733; pending Unix pipe and custom-Type cases stay with PIN-741/742. Five additional delivery proposals await approval. Source closure leaves their authoring, real behavior evidence and installed offline retrieval outstanding; it does not clear comprehensive publication gates.
