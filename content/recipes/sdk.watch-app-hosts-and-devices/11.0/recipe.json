@@ -237,6 +237,6 @@
   },
   "humanProof": {
     "status": "pending",
-    "scope": "PIN-761: mobile compilation and device-selection execution are missing. No connected Android device/emulator or Mac route is available; combined PR publication is blocked. Distributed hot reload is not established by the bounded host-startup check."
+    "scope": "PIN-761: mobile compilation and device-selection execution are missing. No connected Android device/emulator or Mac route is available; PR review proceeds with this recorded gap, while release readiness remains blocked. Distributed hot reload is not established by the bounded host-startup check."
   }
 }

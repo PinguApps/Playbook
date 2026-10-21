@@ -37,7 +37,7 @@ For a supported mobile project, select its framework and device explicitly: `dot
 
 ## Constraints
 
-Required mobile proof is pending and blocks publication of this combined work. The available Android SDK has adb but no emulator directory or connected device. Installed preview workload manifests are not asserted to be the final RC2 composition. No Mac/Xcode route is available here. The primary metadata describes the managed Aspire host; the unverified mobile branch is not represented as a verified compatibility route.
+Required mobile proof is pending and blocks publication as verified mobile guidance. PR review may proceed with this recorded gap. The available Android SDK has adb but no emulator directory or connected device. Installed preview workload manifests are not asserted to be the final RC2 composition. No Mac/Xcode route is available here. The primary metadata describes the managed Aspire host; the unverified mobile branch is not represented as a verified compatibility route.
 
 The host's Aspire package contributes its net10.0 assets on target 11; Aspire.Hosting.Orchestration.win-x64 and Aspire.Dashboard.Sdk.win-x64 13.4.6 supply the measured orchestration/dashboard assets. Windows is the measured authoring platform. Actual local dashboard startup may initialize Aspire settings/certificates; stop the watch process when finished. This example uses local-only HTTP endpoints during its bounded check and does not authorize exposing the dashboard externally.
 
