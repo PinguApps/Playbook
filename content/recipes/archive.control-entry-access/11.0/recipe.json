@@ -1,0 +1,142 @@
+{
+  "id": "archive.control-entry-access",
+  "edition": "11.0",
+  "title": "Choose ZIP entry access without retaining unwanted content",
+  "goal": "Read, replace or modify a ZIP entry with an explicit access mode and inspect its compression method before processing it.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "archives-compression",
+    "archive",
+    "control-entry-access"
+  ],
+  "apis": [
+    "ZipArchiveEntry.Open",
+    "ZipArchiveEntry.OpenAsync",
+    "ZipArchiveEntry.CompressionMethod"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Read, replace or modify a ZIP entry with an explicit access mode and inspect its compression method before processing it. Desktop/server examples; inspect complete constraints before use."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This edition uses or relies on .NET 11 framework APIs/behaviour; .NET 10 is comparison-only."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 comparison with its matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects its supported C# 15 default."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0/System.IO.Compression.dll"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET platforms; authoring execution recorded on Windows. Browser/WASI excluded from these samples."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Use a net11.0 console project with LangVersion=15.0, implicit usings and the namespaces stated in the complete recipe. No additional package, workload, account or provider is required."
+          ],
+          "constraints": [
+            "Read archives accept only Read. Create accepts Write and ReadWrite, but both are write-only. Update accepts all three: Write truncates, ReadWrite retains content, and Read cannot write. Incompatible combinations throw InvalidOperationException; invalid enum values throw ArgumentOutOfRangeException. Parameterless Open keeps its previous inference. Create entries can only be written once. Update buffers entry data, so limit trusted input sizes before opening it. CompressionMethod is inspection, not a setter; Deflate64 can be read by the runtime but is not produced by this example. The byte-array helpers deliberately handle small trusted archives; they are not a bounded untrusted extraction service."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with SDK 11.0.100-rc.2.26504.105; RC2 execution is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchiveEntry.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/Archives/Archives.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Package-matched official API declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs"
+    },
+    {
+      "title": "Pinned official .NET 11 RC2 library notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+    },
+    {
+      "title": "Official archive integrity, access and encryption implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchiveEntry.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/Archives/Archives.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual .NET 10 Windows compilation/execution: plain ZIP access/replacement, stored-CRC and TAR-header corruption acceptance baseline, four TAR formats and raw sparse body. Encryption is explicitly unavailable and its stub is tested. No mocks, cross-compilation or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/Archives/Archives.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "ZIP access/replacement round trips, Stored metadata, incompatible Create/Read combinations, Create ReadWrite capabilities and actual OpenAsync(Read) execution. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/Archives/Archives.cs",
+      "region": "access"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/Archives/Archives.cs",
+      "region": "access"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded desktop/server archive and codec checks run locally without external providers or UI. No extra native/device or external-tool interoperability claim."
+  }
+}

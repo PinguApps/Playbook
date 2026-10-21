@@ -4,6 +4,18 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net10.0/Archives/Archives.cs" LogicalName="Canonical.net10.0.Archives.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/Compression/Compression.cs" LogicalName="Canonical.net10.0.Compression.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/Archives/Archives.cs" LogicalName="Canonical.net11.0.Archives.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/Compression/Compression.cs" LogicalName="Canonical.net11.0.Compression.cs" />
+    <EmbeddedResource Include="../../content/recipes/archive.control-entry-access/11.0/recipe.md" LogicalName="Canonical.archive.control-entry-access.md" />
+    <EmbeddedResource Include="../../content/recipes/archive.protect-entries/11.0/recipe.md" LogicalName="Canonical.archive.protect-entries.md" />
+    <EmbeddedResource Include="../../content/recipes/archive.handle-corruption/11.0/recipe.md" LogicalName="Canonical.archive.handle-corruption.md" />
+    <EmbeddedResource Include="../../content/recipes/archive.select-tar-format/11.0/recipe.md" LogicalName="Canonical.archive.select-tar-format.md" />
+    <EmbeddedResource Include="../../content/recipes/compression.handle-empty-payloads/11.0/recipe.md" LogicalName="Canonical.compression.handle-empty-payloads.md" />
+    <EmbeddedResource Include="../../content/recipes/compression.process-buffers/11.0/recipe.md" LogicalName="Canonical.compression.process-buffers.md" />
+    <EmbeddedResource Include="../../content/recipes/compression.use-zstandard/11.0/recipe.md" LogicalName="Canonical.compression.use-zstandard.md" />
+
     <EmbeddedResource Include="../../samples/net9.0/Reconciliation/Manifests.cs" LogicalName="Canonical.net9.0.Reconciliation.Manifests.cs" />
     <EmbeddedResource Include="../../samples/net9.0/AsyncStream/Readings.cs" LogicalName="Canonical.net9.0.AsyncStream.Readings.cs" />
     <EmbeddedResource Include="../../samples/net10.0/Reconciliation/Manifests.cs" LogicalName="Canonical.net10.0.Reconciliation.Manifests.cs" />

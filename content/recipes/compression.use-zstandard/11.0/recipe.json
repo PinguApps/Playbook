@@ -1,0 +1,149 @@
+{
+  "id": "compression.use-zstandard",
+  "edition": "11.0",
+  "title": "Exchange Zstandard frames with built-in codecs",
+  "goal": "Use the .NET 11 Zstandard stream or buffer API with explicit format negotiation, finalisation, reset and window limits.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "archives-compression",
+    "compression",
+    "use-zstandard"
+  ],
+  "apis": [
+    "ZstandardStream",
+    "ZstandardEncoder",
+    "ZstandardDecoder",
+    "ZstandardCompressionOptions",
+    "ZstandardDecompressionOptions"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Use the .NET 11 Zstandard stream or buffer API with explicit format negotiation, finalisation, reset and window limits. Desktop/server examples; inspect complete constraints before use."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This edition uses or relies on .NET 11 framework APIs/behaviour; .NET 10 is comparison-only."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 comparison with its matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects its supported C# 15 default."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0/System.IO.Compression.dll"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET platforms; authoring execution recorded on Windows. Browser/WASI excluded from these samples."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Use a net11.0 console project with LangVersion=15.0, implicit usings and the namespaces stated in the complete recipe. No additional package, workload, account or provider is required."
+          ],
+          "constraints": [
+            "Zstandard is a distinct frame format; both ends must support it. The APIs moved into System.IO.Compression before RC2; do not use the removed preview namespace/package as a down-level route. Browser and WASI are unsupported. Quality=3 and WindowLog2=20 are deliberate example settings, not mandatory framework defaults. MaxWindowLog2 limits codec memory and does not cap total decompressed bytes; impose an independent output budget. AppendChecksum is a noncryptographic integrity choice, not authentication. A dictionary or SetPrefix changes the decoding contract and must be agreed and retained with its lifetime; this example uses neither and claims no dictionary interoperability. Reset is for independent frames, not continuation; dispose all codec resources. Finite buffer helpers require Done and full consumption; handle other statuses explicitly in an incremental implementation. No external archive-tool, native ABI, trimming or AOT compatibility is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with SDK 11.0.100-rc.2.26504.105; RC2 execution is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/Compression/Compression.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Package-matched official API declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs"
+    },
+    {
+      "title": "Pinned official .NET 11 RC2 library notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/Compression/Compression.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual .NET 10 Windows compilation/execution: fresh Deflate/ZLib/GZip stream round trips and no-write empty-output baseline. Built-in Zstandard is explicitly unavailable and its stub is tested. No mocks, cross-compilation or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/Compression/Compression.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "RC2 stream and buffer codecs restore empty/nonempty original messages, including reuse after Reset. Compilation resolves no NuGet packages: the actual ref/net11.0 framework asset contains the APIs. No .NET 10 package-asset support is inferred. Actual Windows compilation/execution; no mocks, cross-compilation or GA proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/Compression/Compression.cs",
+      "region": "zstandard"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/Compression/Compression.cs",
+      "region": "zstandard"
+    },
+    "restore-older": {
+      "language": "csharp",
+      "path": "samples/net10.0/Compression/Compression.cs",
+      "region": "restore"
+    },
+    "restore-newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/Compression/Compression.cs",
+      "region": "restore"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded desktop/server archive and codec checks run locally without external providers or UI. No extra native/device or external-tool interoperability claim."
+  }
+}
