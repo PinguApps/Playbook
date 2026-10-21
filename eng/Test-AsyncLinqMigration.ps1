@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
-  [string]$Net9Dotnet = (Get-Command dotnet -CommandType Application).Source,
-  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application).Source
+  [string]$Net9Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
+  [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 )
 
 $ErrorActionPreference = 'Stop'
