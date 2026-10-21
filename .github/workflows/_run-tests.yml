@@ -75,7 +75,7 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           $PSNativeCommandUseErrorActionPreference = $true
-          $gh = (Get-Command gh -CommandType Application).Source
+          $gh = (Get-Command gh -CommandType Application | Select-Object -First 1).Source
           $files = @(& $gh api "repos/$env:REPOSITORY/pulls/$env:PR_NUMBER/files?per_page=100" --paginate --jq '.[] | .filename, (.previous_filename // empty)')
           if (-not $files.Count) { throw 'Could not identify changed files.' }
           $required = @($files | Where-Object { $_ -match '(^\.github/workflows/|^eng/|^renovate\.json$|^docs/dependency-updates\.md$|(^|/)(Directory\.[^/]+|global\.json|NuGet\.[Cc]onfig|packages\.lock\.json|dotnet-tools\.json)$|\.(csproj|fsproj|vbproj|props|targets|slnx?)$)' }).Count -gt 0
