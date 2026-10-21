@@ -3,8 +3,8 @@ using System.Runtime.InteropServices;
 using System.Runtime.Loader;
 using Playbook.Samples;
 
-(bool owns, string? element, int arity) = ParcelMetadata.Inspect();
-if (!owns || element != "System.Int32" || arity != 0)
+(bool owns, string? element, int parameterCount, int genericArity) = ParcelMetadata.Inspect();
+if (!owns || element != "System.Int32" || parameterCount != 1 || genericArity != 0)
 {
     throw new InvalidOperationException("Metadata-only inspection mismatch.");
 }
@@ -53,4 +53,4 @@ try
 }
 finally { loader.Unload(); }
 
-Console.WriteLine($"PASS: metadata-only context ownership, nullable Int32, constructor arity=0 and logical location; {RuntimeInformation.FrameworkDescription}.");
+Console.WriteLine($"PASS: metadata-only context ownership, nullable Int32, constructor value parameters=1, method generic arity=0 and logical location; {RuntimeInformation.FrameworkDescription}.");

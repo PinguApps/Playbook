@@ -6,7 +6,7 @@ namespace Playbook.Samples;
 // snippet:metadata
 public static class ParcelMetadata
 {
-    public static (bool OwnsContext, string? NullableElement, int ConstructorArity) Inspect()
+    public static (bool OwnsContext, string? NullableElement, int ConstructorParameterCount, int ConstructorGenericArity) Inspect()
     {
         string[] platform = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")!).Split(Path.PathSeparator);
         string source = typeof(Parcel<>).Assembly.Location;
@@ -18,6 +18,7 @@ public static class ParcelMetadata
         Type nullable = nullableDefinition.MakeGenericType(integer);
         Type parcel = assembly.GetType("Playbook.Samples.Parcel`1", throwOnError: true)!.MakeGenericType(integer);
         ConstructorInfo constructor = parcel.GetConstructors().Single();
+        int parameterCount = constructor.GetParameters().Length;
 
         // .NET 10 keeps the owning context explicitly; it has no reverse lookup API.
         bool ownsContext = context.GetAssemblies().Contains(assembly);
@@ -25,8 +26,8 @@ public static class ParcelMetadata
         Type? element = nullable.IsConstructedGenericType && nullable.GetGenericTypeDefinition() == nullableDefinition
             ? nullable.GetGenericArguments()[0] : null;
         // Constructors have no method type parameters; do not call the throwing base implementation.
-        int arity = 0;
-        return (ownsContext, element?.FullName, arity);
+        int genericArity = 0;
+        return (ownsContext, element?.FullName, parameterCount, genericArity);
     }
 }
 

@@ -6,7 +6,7 @@ namespace Playbook.Samples;
 // snippet:metadata
 public static class ParcelMetadata
 {
-    public static (bool OwnsContext, string? NullableElement, int ConstructorArity) Inspect()
+    public static (bool OwnsContext, string? NullableElement, int ConstructorParameterCount, int ConstructorGenericArity) Inspect()
     {
         string[] platform = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")!).Split(Path.PathSeparator);
         string source = typeof(Parcel<>).Assembly.Location;
@@ -18,11 +18,12 @@ public static class ParcelMetadata
         Type nullable = nullableDefinition.MakeGenericType(integer);
         Type parcel = assembly.GetType("Playbook.Samples.Parcel`1", throwOnError: true)!.MakeGenericType(integer);
         ConstructorInfo constructor = parcel.GetConstructors().Single();
+        int parameterCount = constructor.GetParameters().Length;
 
         bool ownsContext = ReferenceEquals(MetadataLoadContext.GetLoadContext(assembly), context);
         Type? element = nullable.GetNullableUnderlyingType();
-        int arity = constructor.GetGenericArguments().Length;
-        return (ownsContext, element?.FullName, arity);
+        int genericArity = constructor.GetGenericArguments().Length;
+        return (ownsContext, element?.FullName, parameterCount, genericArity);
     }
 }
 

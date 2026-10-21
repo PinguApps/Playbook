@@ -14,7 +14,7 @@ The resolver receives both the host framework paths and the parcel assembly. Kee
 
 {{snippet:older}}
 
-A constructor has no method type parameters, including on Parcel<int>. Its declaring type can have generic arguments. The older code records zero without calling ConstructorInfo.GetGenericArguments, whose old base implementation can throw. It does not claim to retrieve type parameters from the constructor.
+A constructor's value parameters and method type parameters are different counts. Both examples derive ConstructorParameterCount from GetParameters: Parcel<int>'s payload gives one value parameter. A constructor has no method type parameters, even when its declaring type is generic. The older code labels that separate rule ConstructorGenericArity=0 without calling ConstructorInfo.GetGenericArguments, whose old base implementation can throw.
 
 ## Newer approach
 
@@ -22,7 +22,7 @@ Use the .NET 11 framework and System.Reflection.MetadataLoadContext 11.0.0-rc.2.
 
 {{snippet:newer}}
 
-GetLoadContext recovers the metadata context from an assembly it owns; ordinary runtime assemblies are outside that context. Type.GetNullableUnderlyingType dispatches to the type implementation, so metadata-only nullable types can answer within their own universe. It returns null for a non-nullable type. The new ConstructorInfo override returns an empty array; inspect DeclaringType.GetGenericArguments separately when you need the type's parameters.
+GetLoadContext recovers the metadata context from an assembly it owns; ordinary runtime assemblies are outside that context. Type.GetNullableUnderlyingType dispatches to the type implementation, so metadata-only nullable types can answer within their own universe. It returns null for a non-nullable type. The new ConstructorInfo override returns an empty array, producing ConstructorGenericArity=0 independently of ConstructorParameterCount=1. Inspect DeclaringType.GetGenericArguments separately when you need the type's generic arguments.
 
 Nullable.GetUnderlyingType now calls the new virtual method too. If you author a direct custom Type subclass, implement GetNullableUnderlyingType for its own universe or return null when it cannot represent nullable types. The base implementation throws NotSupportedException. A delegating wrapper should forward to the wrapped type; do not accidentally compare metadata-only types with runtime types.
 
@@ -70,7 +70,7 @@ Metadata inspection requires an untrimmed, file-based CoreCLR host and explicit 
 
 ## Evidence
 
-The two actual MetadataInspection projects compile and execute metadata-only ownership, nullable Int32, constructor arity zero and the companion loader/location checks. Separate DeploymentInspection records publish and run Windows x64 single-file, Native AOT with stack traces enabled/disabled, and CoreCLR with stack traces disabled. They assert the release-specific caller outcome and physical/unavailable assembly location. Native tool versions, resolved publication dependencies, commands and output are labelled separately from the ordinary managed-build prerequisites.
+The two actual MetadataInspection projects compile and execute metadata-only ownership, nullable Int32, one constructor value parameter, zero method type parameters and the companion loader/location checks. Separate DeploymentInspection records publish and run Windows x64 single-file, Native AOT with stack traces enabled/disabled, and CoreCLR with stack traces disabled. They assert the release-specific caller outcome and physical/unavailable assembly location. Native tool versions, resolved publication dependencies, commands and output are labelled separately from the ordinary managed-build prerequisites.
 
 For a standalone DeploymentInspection project, set OutputType=Exe and the target/language above; use PublishAot=true, RuntimeIdentifier=win-x64 and StackTraceSupport=true or false for the native comparison. Install the platform's supported native compiler/linker and SDK. The measured authoring route uses MSVC 14.51 and Windows SDK 10.0.26100.0; it invokes tools explicitly without modifying PATH. No additional package is required by the caller snippet; the SDK restores its native compilation packs during publication.
 

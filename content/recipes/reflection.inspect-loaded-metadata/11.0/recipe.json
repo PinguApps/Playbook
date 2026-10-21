@@ -141,7 +141,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32 and constructor arity, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims. Also executes a direct custom Type inheriting the new virtual (NotSupportedException on .NET 11) and the explicit non-nullable override; TypeDelegator is not substituted for this regression."
+      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32, one constructor value parameter and zero method type parameters, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims. Also executes a direct custom Type inheriting the new virtual (NotSupportedException on .NET 11) and the explicit non-nullable override; TypeDelegator is not substituted for this regression."
     },
     {
       "sample": "samples/net11.0/MetadataInspection/MetadataInspection.csproj",
@@ -149,7 +149,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile-and-run",
-      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32 and constructor arity, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims. Also executes a direct custom Type inheriting the new virtual (NotSupportedException on .NET 11) and the explicit non-nullable override; TypeDelegator is not substituted for this regression."
+      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32, one constructor value parameter and zero method type parameters, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims. Also executes a direct custom Type inheriting the new virtual (NotSupportedException on .NET 11) and the explicit non-nullable override; TypeDelegator is not substituted for this regression."
     },
     {
       "sample": "samples/net10.0/DeploymentInspection/DeploymentInspection.csproj",
