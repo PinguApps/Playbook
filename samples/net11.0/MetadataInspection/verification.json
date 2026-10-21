@@ -1,0 +1,13 @@
+{
+  "dependencies": [
+    "System.Reflection.MetadataLoadContext/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/MetadataInspectionChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

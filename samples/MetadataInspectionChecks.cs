@@ -1,0 +1,39 @@
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Runtime.Loader;
+using Playbook.Samples;
+
+(bool owns, string? element, int arity) = ParcelMetadata.Inspect();
+if (!owns || element != "System.Int32" || arity != 0)
+{
+    throw new InvalidOperationException("Metadata-only inspection mismatch.");
+}
+
+string sourcePath = typeof(Parcel<>).Assembly.Location;
+string coreLocation = typeof(object).Assembly.Location;
+#if NET11_0_OR_GREATER
+HarbourModuleLocations.Configure();
+#endif
+AssemblyLoadContext loader = new("harbour-module", isCollectible: true);
+try
+{
+    using FileStream input = File.OpenRead(sourcePath);
+    Assembly loaded = loader.LoadFromStream(input);
+    if (HarbourModuleLocations.Report(loaded) != "harbour://modules/parcel" || typeof(object).Assembly.Location != coreLocation)
+    {
+        throw new InvalidOperationException("Host location report mismatch.");
+    }
+#if NET11_0_OR_GREATER
+    if (loaded.Location != "harbour://modules/parcel") { throw new InvalidOperationException("Override missing."); }
+    bool rejected = false;
+    try { AssemblyLoadContext.SetAssemblyLocationOverride((_, location) => location); }
+    catch (InvalidOperationException) { rejected = true; }
+    if (!rejected) { throw new InvalidOperationException("Second override should be rejected."); }
+    Console.WriteLine("PASS: second location override rejected.");
+#else
+    if (!string.IsNullOrEmpty(loaded.Location)) { throw new InvalidOperationException("Stream-loaded location should be absent."); }
+#endif
+}
+finally { loader.Unload(); }
+
+Console.WriteLine($"PASS: metadata-only context ownership, nullable Int32, constructor arity=0 and logical location; {RuntimeInformation.FrameworkDescription}.");
