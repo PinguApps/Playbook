@@ -175,6 +175,11 @@ Run `pwsh -NoProfile -File ./eng/Test-Evidence.ps1` to check unchanged reuse and
 
 ### Hand off provider and native checks
 
+For the current Windows x64 and Docker authoring routes, run the
+[native capability preflight](verification/PIN-678.md). Its measured inventory
+and explicit owner handoffs distinguish available access from missing Arm/SVE,
+CoreCLR WebAssembly relinking and Podman proof. It does not replace recipe evidence.
+
 Before handing work to another authoring machine or a Human, agree the exact recipe/edition/route, source commit and input hashes, samples, pins, commands and observable claim. Record who will capture and refresh proof when those inputs change, the required access and any unmet check. Return the saved compilation record, measured versions, focused execution report and limitations; review them before linking them into recipe metadata. Keep credentials in the appropriate secret store, outside the repository and reports.
 
 For database claims, use an isolated real provider/service at the stated package, target asset, server version and configuration. Record the setup and cleanup, request/query inputs, actual execution and expected result. A translated SQL string or mocked repository does not establish provider execution, transactions or persistence. Match browser/request checks to rendering modes, authentication and other claimed conditions; a successful build or HTTP response alone does not prove an interactive browser claim.
