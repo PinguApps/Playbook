@@ -4,10 +4,35 @@ param([switch]$Pack)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
 $root = Split-Path $PSScriptRoot -Parent
+$git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
+$inputs = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($record in (Get-ChildItem (Join-Path $root 'samples') -Recurse -Filter verification-evidence.json)) {
+  $saved = Get-Content -LiteralPath $record.FullName -Raw | ConvertFrom-Json -AsHashtable
+  foreach ($inputPath in $saved.inputs.Keys) { $null = $inputs.Add($inputPath) }
+}
+$inputPaths = @($inputs | Sort-Object -CaseSensitive)
+$raw = @($inputPaths | & $git -C $root hash-object --no-filters --stdin-paths)
+if ($LASTEXITCODE -ne 0) { throw 'Could not hash the raw evidence inputs.' }
+$stored = @($inputPaths | & $git -C $root hash-object --stdin-paths)
+if ($LASTEXITCODE -ne 0 -or $raw.Count -ne $inputPaths.Count -or $stored.Count -ne $inputPaths.Count) { throw 'Could not inspect Git normalization for every evidence input.' }
+for ($index = 0; $index -lt $inputPaths.Count; $index++) {
+  if ($raw[$index] -cne $stored[$index]) {
+    throw "Git normalization changes evidence input $($inputPaths[$index]). Normalize its bytes (normally LF), then recapture affected proof before committing."
+  }
+}
+Write-Host 'PASS: evidence input bytes survive Git normalization in a fresh checkout.'
 $fixture = Join-Path ([IO.Path]::GetTempPath()) "playbook-evidence-$([guid]::NewGuid().ToString('N'))"
 try {
   New-Item -ItemType Directory -Path $fixture | Out-Null
-  Copy-Item (Join-Path $root 'samples') $fixture -Recurse
+  # Evidence fixtures need authored inputs, not generated build outputs. Besides
+  # their size, outputs can contain configuration names Windows copy normalizes.
+  foreach ($file in (Get-ChildItem (Join-Path $root 'samples') -Recurse -File -Force)) {
+    $relative = [IO.Path]::GetRelativePath($root, $file.FullName).Replace('\', '/')
+    if ($relative -match '(^|/)(bin|obj)/') { continue }
+    $destination = Join-Path $fixture $relative
+    New-Item -ItemType Directory -Path (Split-Path $destination) -Force | Out-Null
+    Copy-Item -LiteralPath $file.FullName -Destination $destination
+  }
   Copy-Item (Join-Path $root 'content') $fixture -Recurse
   Copy-Item (Join-Path $root 'NuGet.Config') $fixture
   New-Item -ItemType Directory -Path (Join-Path $fixture 'eng') | Out-Null
@@ -17,6 +42,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-FSharpBoundaries.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-UnsafeBoundaries.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-ProcessPlatforms.ps1') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1'), (Join-Path $PSScriptRoot 'Test-WatchHosts.ps1') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs
@@ -26,6 +52,15 @@ try {
   & pwsh @buildArgs
   if ($LASTEXITCODE -ne 0 -or (Get-Content $output -Raw) -cne $first) { throw 'Evidence reuse must be deterministic.' }
   Write-Host 'PASS: unchanged evidence is reusable without invoking sample SDKs.'
+
+  $template = Join-Path $fixture 'samples/net10.0/SdkWorkflows/Template/.template.config/template.json'
+  if (-not (Test-Path -LiteralPath $template)) { throw 'Evidence fixtures must retain hidden template inputs.' }
+  $templateText = Get-Content -LiteralPath $template -Raw
+  Add-Content -LiteralPath $template ' '
+  $result = & pwsh @buildArgs 2>&1 | Out-String
+  [IO.File]::WriteAllText($template, $templateText)
+  if ($LASTEXITCODE -eq 0 -or $result -notlike '*Stale compilation evidence*') { throw "Changed hidden template input was accepted: $result" }
+  Write-Host 'PASS: hidden template inputs are copied and invalidate stale evidence.'
 
   $source = Join-Path $fixture 'samples/PropertyAssignmentChecks.cs'
   $original = Get-Content $source -Raw
@@ -56,6 +91,8 @@ try {
   Write-Host 'PASS: changed shared source requires refreshed compilation.'
 
   foreach ($case in @(
+    @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'TargetFramework=net10.0'; To = 'TargetFramework=net11.0'; Error = 'Stale compilation evidence' },
+    @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'slots={total}'; To = 'racks={total}'; Error = 'Stale compilation evidence' },
     @{ Path = 'samples/net10.0/PropertyAssignment/global.json'; From = '10.0.402'; To = '10.0.403'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/net10.0/PropertyAssignment/PropertyAssignment.csproj'; From = 'net10.0'; To = 'net11.0'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/Directory.Packages.props'; From = '</Project>'; To = '<ItemGroup><PackageVersion Include="Fixture.Dependency" Version="2.0.0" /></ItemGroup></Project>'; Error = 'Stale compilation evidence' },

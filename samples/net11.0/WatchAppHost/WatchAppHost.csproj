@@ -1,0 +1,11 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Aspire.AppHost.Sdk" Version="13.4.6" />
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><AspireUseCliBundle>false</AspireUseCliBundle>
+  </PropertyGroup>
+  <ItemGroup><PackageReference Include="Aspire.Hosting.AppHost" /><PackageReference Include="MessagePack" /></ItemGroup>
+</Project>
+<!-- endsnippet:project -->

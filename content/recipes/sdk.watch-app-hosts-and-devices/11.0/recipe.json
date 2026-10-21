@@ -1,0 +1,242 @@
+{
+  "id": "sdk.watch-app-hosts-and-devices",
+  "edition": "11.0",
+  "title": "Choose the application host and device for a local watch loop (mobile proof pending)",
+  "goal": "Select an explicit local app host and configuration; check independent SDK, Aspire and mobile-device prerequisites before adopting watch routes.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sdk-workflows",
+    "watch-app-hosts-and-devices"
+  ],
+  "apis": [
+    "dotnet watch --device",
+    "ComputeAvailableDevices",
+    "Aspire app host"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "Aspire.Hosting.AppHost 13.4.6 lib/net10.0; full transitive closure in committed lock files."
+          ],
+          "language": {
+            "version": "15.0",
+            "name": "C#",
+            "reason": "Canonical supported language mode for this target.",
+            "match": "exact"
+          },
+          "packages": [
+            {
+              "version": "13.4.6",
+              "name": "Aspire.Hosting.AppHost",
+              "reason": "Pinned original host and CLI-bundle integration.",
+              "match": "exact"
+            },
+            {
+              "version": "2.5.303",
+              "name": "MessagePack",
+              "reason": "Servicing pin replacing the vulnerable transitive 2.5.302 dependency.",
+              "match": "exact"
+            }
+          ],
+          "stabilityLimitations": [
+            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+          ],
+          "constraints": [
+            "Playbook serves guidance offline; it does not install consumer dependencies, inspect a project or execute these commands.",
+            "No provider or rendering mode is required by the managed console route. No native/device or AOT behavior follows from compilation.",
+            "Incomplete required proof: no compiled mobile sample or connected device; distributed hot reload is not established. This blocks publication."
+          ],
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "reason": "Managed target of the selected consumer, separate from the command SDK.",
+            "match": "release-family"
+          },
+          "workloads": [],
+          "frameworks": [],
+          "optIns": [],
+          "prerequisites": [
+            "PowerShell 7 for the recorded commands; choose actual absolute executable paths and inspect project/global.json/shared-build configuration.",
+            "Aspire.AppHost.Sdk, Aspire.Hosting.Orchestration.win-x64 and Aspire.Dashboard.Sdk.win-x64 13.4.6; AspireUseCliBundle=false avoids a CLI dependency in this bounded baseline.",
+            "Mobile requires its matching workload/native SDK and real device/emulator; iOS requires Mac/Xcode and MtouchLink=None for the documented simulator watch route."
+          ],
+          "providers": [],
+          "renderingModes": [],
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "reason": "Use the SDK family implementing this selected route; exact authoring pins are in evidence.",
+            "match": "release-family"
+          },
+          "platforms": [
+            "Windows x64 authoring route for managed Aspire host; mobile and Apple routes have unmet independent prerequisites."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch",
+          "https://www.nuget.org/packages/Aspire.Hosting.AppHost/13.4.6",
+          "https://github.com/microsoft/aspire/releases/tag/v13.4.6",
+          "https://github.com/advisories/GHSA-qhrr-8q5h-9q3h"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WatchAppHost/WatchAppHost.csproj"
+        ],
+        "conditional": false,
+        "selectionNotes": [
+          "Inspect the selected SDK independently of the application target; retrieve detail before applying commands.",
+          "Incomplete required proof: no compiled mobile sample or connected device; distributed hot reload is not established. This blocks publication."
+        ],
+        "target": "11.0",
+        "usage": "primary"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://www.nuget.org/packages/Aspire.Hosting.AppHost/13.4.6",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire/releases/tag/v13.4.6",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-qhrr-8q5h-9q3h",
+      "title": "Official SDK, tool or dependency contract"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/WatchAppHost/WatchAppHost.csproj",
+      "kind": "compile",
+      "sdk": "10.0.402",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/WatchAppHost/WatchAppHost.csproj",
+      "kind": "compile",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "execution",
+      "sdk": "10.0.402",
+      "record": "samples/net10.0/SdkWorkflows/commands.evidence.json",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "execution",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "record": "samples/net11.0/SdkWorkflows/commands.evidence.json",
+      "target": "net11.0"
+    },
+    {
+      "sample": "samples/net10.0/WatchAppHost/WatchAppHost.csproj",
+      "target": "net10.0",
+      "scope": "Actual Windows watch startup with pinned Aspire/DCP; no mobile/device or distributed hot-reload proof.",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "record": "samples/net10.0/WatchAppHost/watch.evidence.json"
+    },
+    {
+      "sample": "samples/net11.0/WatchAppHost/WatchAppHost.csproj",
+      "target": "net11.0",
+      "scope": "Actual Windows watch startup with pinned Aspire/DCP; no mobile/device or distributed hot-reload proof.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "record": "samples/net11.0/WatchAppHost/watch.evidence.json"
+    }
+  ],
+  "snippets": {
+    "older-project": {
+      "language": "xml",
+      "path": "samples/net10.0/WatchAppHost/WatchAppHost.csproj",
+      "region": "project"
+    },
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/WatchAppHost/Program.cs",
+      "region": "host"
+    },
+    "newer-project": {
+      "language": "xml",
+      "path": "samples/net11.0/WatchAppHost/WatchAppHost.csproj",
+      "region": "project"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/WatchAppHost/Program.cs",
+      "region": "host"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "PIN-761: mobile compilation and device-selection execution are missing. No connected Android device/emulator or Mac route is available; PR review proceeds with this recorded gap, while release readiness remains blocked. Distributed hot reload is not established by the bounded host-startup check."
+  }
+}

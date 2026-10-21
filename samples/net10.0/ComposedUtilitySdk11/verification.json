@@ -1,0 +1,1 @@
+{"workloads":[],"nativeToolchains":[],"dependencies":["System.CommandLine/2.0.1"],"buildArguments":[],"additionalInputs":["eng/Record-Evidence.ps1","eng/Evidence.ps1"]}

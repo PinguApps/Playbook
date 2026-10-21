@@ -24,6 +24,67 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("SDK workflow guidance retains complete bodies editions and honest proof boundaries")]
+    public async Task CheckSdkWorkflowsAsync()
+    {
+        string[] ids = ["sdk.run-file-utility", "sdk.compose-file-apps", "sdk.filter-solutions", "sdk.format-targeted-code", "sdk.pass-launch-settings", "sdk.keep-build-configuration-explicit", "sdk.install-preview-templates", "sdk.watch-app-hosts-and-devices"];
+        foreach (string target in new[] { "10.0", "11.0" })
+        {
+            JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = target, query = "sdk-workflows", limit = 50 }).ConfigureAwait(false));
+            Assert.Equal(target == "10.0" ? 2 : 8, catalogue.GetProperty("total").GetInt32());
+            foreach (string id in ids)
+            {
+                if (target == "10.0" && id is not "sdk.run-file-utility" and not "sdk.compose-file-apps")
+                {
+                    AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false), "no_applicable_edition");
+                    continue;
+                }
+
+                string edition = id == "sdk.run-file-utility" ? "10.0" : "11.0";
+                string path = $"content/recipes/{id}/{edition}";
+                using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+                string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+                foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+                {
+                    string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                    string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                    System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $"(?ms)^[ \\t]*(?:// snippet:{region}|<!-- snippet:{region} -->)\\n(.*?)^[ \\t]*(?:// endsnippet:{region}|<!-- endsnippet:{region} -->)$");
+                    Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+                    string language = snippet.Value.GetProperty("language").GetString()!;
+                    expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{language}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+                }
+
+                JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false)).GetProperty("recipe");
+                JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), entry => entry.GetProperty("id").GetString() == id);
+                Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+                Assert.Equal(edition, recipe.GetProperty("edition").GetString());
+                Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+                AssertSelection(summary, recipe);
+                JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+                Assert.Equal(target, route.GetProperty("target").GetString());
+                Assert.Equal(id == "sdk.compose-file-apps" ? "11.0" : target, route.GetProperty("requirements").GetProperty("sdk").GetProperty("version").GetString());
+                Assert.Equal(id == "sdk.compose-file-apps" && target == "10.0", route.GetProperty("conditional").GetBoolean());
+                Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence => Assert.Equal("current", evidence.GetProperty("freshness").GetString()));
+                bool pending = id == "sdk.watch-app-hosts-and-devices";
+                Assert.Equal(pending ? "pending" : "not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+                if (pending)
+                {
+                    Assert.Contains("blocks publication", summary.ToString(), StringComparison.Ordinal);
+                    Assert.Contains("no compiled mobile sample", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+                }
+            }
+        }
+    }
+
+    private static async Task<string> ReadSdkInputAsync(string path)
+    {
+        System.Reflection.Assembly assembly = typeof(InstalledToolSteps).Assembly;
+        string name = Assert.Single(assembly.GetManifestResourceNames(), resource => resource.StartsWith("SdkInput.", StringComparison.Ordinal) && resource.Replace('\\', '/').EndsWith(path, StringComparison.Ordinal));
+        await using Stream stream = assembly.GetManifestResourceStream(name)!;
+        using StreamReader reader = new(stream);
+        return (await reader.ReadToEndAsync().ConfigureAwait(false)).Replace("\r\n", "\n", StringComparison.Ordinal);
+    }
+
     [Then("process and data recipes retain full bodies applicability and target editions")]
     public async Task CheckProcessAndDataGuidanceAsync()
     {

@@ -22,7 +22,7 @@ function Get-EvidenceInputs([string]$Root, [string]$Sample) {
   $paths = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
   $sources = @($directory) + @($manifest.additionalInputs | ForEach-Object { Resolve-EvidencePath $Root $_ })
   foreach ($source in $sources) {
-    foreach ($file in (Get-ChildItem -LiteralPath $source -File -Recurse)) {
+    foreach ($file in (Get-ChildItem -LiteralPath $source -File -Recurse -Force)) {
       $relative = [IO.Path]::GetRelativePath($Root, $file.FullName).Replace('\', '/')
       if ($relative -match '(^|/)(bin|obj)/' -or $file.Name -eq 'verification-evidence.json' -or $file.Name -like '*.evidence.json') { continue }
       $null = $paths.Add($relative)
@@ -42,8 +42,14 @@ function Get-EvidenceInputs([string]$Root, [string]$Sample) {
     }
   }
   # Explicit linked sources/imports/project references cannot silently escape the manifest.
-  [xml]$project = Get-Content -LiteralPath $projectPath -Raw
-  foreach ($item in $project.SelectNodes('//*[@Include or @Project]')) {
+  # File-based applications have no XML project. Their includes/references must be
+  # covered by the directory inventory or explicit additionalInputs, like imports.
+  $items = @()
+  if ([IO.Path]::GetExtension($projectPath) -ne '.cs') {
+    [xml]$project = Get-Content -LiteralPath $projectPath -Raw
+    $items = @($project.SelectNodes('//*[@Include or @Project]'))
+  }
+  foreach ($item in $items) {
     $include = if ($item.HasAttribute('Include')) { $item.GetAttribute('Include') } else { $item.GetAttribute('Project') }
     if ($item.Name -notin @('Compile', 'Content', 'None', 'EmbeddedResource', 'ProjectReference', 'Import')) { continue }
     if ($include -match '[*$;]') { throw "Declare evaluated inputs explicitly; unsupported dynamic include in $Sample : $include" }

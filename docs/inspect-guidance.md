@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For file utilities, solution/format/launch targeting and local build/watch/template workflows, use the [PIN-759–761 walkthrough](verification/PIN-759-761.md#inspect-what-an-agent-receives). It displays eight original goals, complete bodies and applicability, including the explicit unresolved mobile proof accepted for PR review.
+
 For bit collections, key equality and ordering, portable vector lanes and guarded
 instruction selection, use the [PIN-739/740 walkthrough](verification/PIN-739-740.md#inspect-what-an-agent-receives).
 The instruction recipe explicitly retains experimental SVE opt-ins and pending

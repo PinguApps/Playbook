@@ -36,7 +36,10 @@ try {
   $buildArgs = @('build', [IO.Path]::GetFileName($project), '--configuration', 'Release', '-p:RestoreLockedMode=true') + $buildArguments
   $buildOutput = (& $Dotnet @buildArgs | Out-String).Trim()
   Write-Host $buildOutput
-  $properties = & $Dotnet msbuild $project -p:Configuration=Release @buildArguments -getProperty:TargetFramework,LangVersion,TargetPath,ProjectAssetsFile | ConvertFrom-Json
+  $propertyArgs = if ([IO.Path]::GetExtension($project) -eq '.cs') {
+    @('build', $project, '-p:Configuration=Release')
+  } else { @('msbuild', $project, '-p:Configuration=Release') }
+  $properties = & $Dotnet @propertyArgs @buildArguments -getProperty:TargetFramework,LangVersion,TargetPath,ProjectAssetsFile | ConvertFrom-Json
   $properties = $properties.Properties
   $assets = Get-Content -LiteralPath $properties.ProjectAssetsFile -Raw | ConvertFrom-Json -AsHashtable
   $dependencies = @($assets.libraries.Keys | Sort-Object -CaseSensitive)
