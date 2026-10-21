@@ -14,6 +14,10 @@ if (-not (Test-Path -LiteralPath (Join-Path $seedPath '.codex/config.toml'))) { 
 if (& $git -C $seedPath status --porcelain) { throw 'Preserve seed changes before preparing a checkpoint.' }
 if ($LASTEXITCODE -ne 0) { throw 'Could not inspect seed.' }
 if (Test-Path -LiteralPath (Join-Path $seedPath 'consumer')) { throw 'Consumer already exists; use a clean seed revision.' }
+$tables = @(Get-Content -LiteralPath (Join-Path $seedPath '.codex/config.toml') | Where-Object { $_ -match '^\s*\[' })
+if ($tables.Count -ne 1 -or $tables[0].Trim() -ne '[mcp_servers.playbook]') {
+    throw 'Preserve other provider configuration; this helper only replaces the dedicated Playbook connection.'
+}
 
 @"
 [mcp_servers.playbook]
