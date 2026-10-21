@@ -1,0 +1,164 @@
+{
+  "id": "linq.reconcile-all-rows",
+  "edition": "11.0",
+  "title": "Reconcile records while preserving both unmatched sides",
+  "goal": "Find matched, missing and unexpected records in one reconciliation without losing entries from either input.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "linq",
+    "reconcile-all-rows"
+  ],
+  "apis": [
+    "Enumerable.FullJoin",
+    "Queryable.FullJoin",
+    "AsyncEnumerable.FullJoin",
+    "Enumerable.Join",
+    "Enumerable.GroupJoin",
+    "Enumerable.LeftJoin",
+    "Enumerable.RightJoin"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "usage": "primary",
+        "selectionNotes": [
+          "FullJoin retains both unmatched sides; duplicate keys produce every matching pair.",
+          "Async joins build a lookup; they are not an unbounded constant-memory stream transform.",
+          "Queryable availability does not establish database-provider translation."
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#linq",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq/src/System/Linq/FullJoin.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/FullJoin.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs"
+        ],
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the selected target's framework LINQ implementation."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the selected target's reference assemblies."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode for these examples."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Use ImplicitUsings=enable and Nullable=enable in an SDK console project; all required supporting declarations are included in the recipe."
+          ],
+          "constraints": [
+            "FullJoin retains both unmatched sides; duplicate keys produce every matching pair.",
+            "Async joins build a lookup; they are not an unbounded constant-memory stream transform.",
+            "Queryable availability does not establish database-provider translation.",
+            "No package, workload, UI rendering or provider is required for the in-memory route. No older-target package, trimming or Native AOT route is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending."
+          ]
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/Reconciliation/Reconciliation.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft LINQ contracts and release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#linq"
+    },
+    {
+      "title": "Microsoft LINQ contracts and release guidance",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq/src/System/Linq/FullJoin.cs"
+    },
+    {
+      "title": "Microsoft LINQ contracts and release guidance",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/FullJoin.cs"
+    },
+    {
+      "title": "Microsoft LINQ contracts and release guidance",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/Reconciliation/Reconciliation.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual managed unmatched/duplicate/empty-input checks; Queryable uses only the in-memory provider. No database translation or AOT execution proof."
+    },
+    {
+      "sample": "samples/net11.0/Reconciliation/Reconciliation.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual managed unmatched/duplicate/empty-input checks; Queryable uses only the in-memory provider. No database translation or AOT execution proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/Reconciliation/Manifests.cs",
+      "region": "full",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/Reconciliation/Manifests.cs",
+      "region": "full",
+      "language": "csharp"
+    },
+    "support": {
+      "path": "samples/net10.0/Reconciliation/Manifests.cs",
+      "region": "outer",
+      "language": "csharp"
+    },
+    "pairs": {
+      "path": "samples/net11.0/Reconciliation/Manifests.cs",
+      "region": "pairs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Direct managed behavior and actual installed retrieval cover this bounded guidance; no native UI/device/provider Human action is needed."
+  }
+}

@@ -4,6 +4,16 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net9.0/Reconciliation/Manifests.cs" LogicalName="Canonical.net9.0.Reconciliation.Manifests.cs" />
+    <EmbeddedResource Include="../../samples/net9.0/AsyncStream/Readings.cs" LogicalName="Canonical.net9.0.AsyncStream.Readings.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/Reconciliation/Manifests.cs" LogicalName="Canonical.net10.0.Reconciliation.Manifests.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/AsyncStream/Readings.cs" LogicalName="Canonical.net10.0.AsyncStream.Readings.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/Reconciliation/Manifests.cs" LogicalName="Canonical.net11.0.Reconciliation.Manifests.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/AsyncStream/Readings.cs" LogicalName="Canonical.net11.0.AsyncStream.Readings.cs" />
+    <EmbeddedResource Include="../../content/recipes/linq.retain-unmatched-rows/10.0/recipe.md" LogicalName="Canonical.linq.retain-unmatched-rows.md" />
+    <EmbeddedResource Include="../../content/recipes/linq.reconcile-all-rows/11.0/recipe.md" LogicalName="Canonical.linq.reconcile-all-rows.md" />
+    <EmbeddedResource Include="../../content/recipes/linq.transform-async-stream/10.0/recipe.md" LogicalName="Canonical.linq.transform-async-stream.md" />
+
     <EmbeddedResource Include="../../content/recipes/json.stream-json-lines/11.0/recipe.md" LogicalName="Canonical.json.stream-json-lines.md" />
     <EmbeddedResource Include="../../content/recipes/json.reuse-writer/11.0/recipe.md" LogicalName="Canonical.json.reuse-writer.md" />
     <EmbeddedResource Include="../../content/recipes/json.configure-generic-contracts/11.0/recipe.md" LogicalName="Canonical.json.configure-generic-contracts.md" />

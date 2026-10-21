@@ -1,0 +1,209 @@
+{
+  "id": "linq.transform-async-stream",
+  "edition": "10.0",
+  "title": "Filter and enrich an asynchronous stream as records arrive",
+  "goal": "Produce selected, enriched results incrementally while preserving pull-based enumeration and cooperative cancellation.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "linq",
+    "transform-async-stream"
+  ],
+  "apis": [
+    "AsyncEnumerable.Where",
+    "AsyncEnumerable.Select",
+    "IAsyncEnumerable<T>"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "usage": "primary",
+        "selectionNotes": [
+          "Where and Select process one pulled record at a time; cancellation depends on the source and enrichment honoring the token.",
+          "Remove conflicting System.Linq.Async compile assets when migrating; this route needs no package."
+        ],
+        "target": "10.0",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/10.0/asyncenumerable",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.linq.asyncenumerable.select?view=net-10.0"
+        ],
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Use the selected target's framework LINQ implementation."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Build against the selected target's reference assemblies."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Canonical language mode for these examples."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 10"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Use ImplicitUsings=enable and Nullable=enable in an SDK console project; all required supporting declarations are included in the recipe."
+          ],
+          "constraints": [
+            "Where and Select process one pulled record at a time; cancellation depends on the source and enrichment honoring the token.",
+            "Remove conflicting System.Linq.Async compile assets when migrating; this route needs no package.",
+            "No package, workload, UI rendering or provider is required for the in-memory route. No older-target package, trimming or Native AOT route is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": []
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/AsyncStream/AsyncStream.csproj"
+        ]
+      },
+      {
+        "usage": "primary",
+        "selectionNotes": [
+          "Where and Select process one pulled record at a time; cancellation depends on the source and enrichment honoring the token.",
+          "Remove conflicting System.Linq.Async compile assets when migrating; this route needs no package."
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/10.0/asyncenumerable",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.linq.asyncenumerable.select?view=net-10.0"
+        ],
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the selected target's framework LINQ implementation."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the selected target's reference assemblies."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode for these examples."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Use ImplicitUsings=enable and Nullable=enable in an SDK console project; all required supporting declarations are included in the recipe."
+          ],
+          "constraints": [
+            "Where and Select process one pulled record at a time; cancellation depends on the source and enrichment honoring the token.",
+            "Remove conflicting System.Linq.Async compile assets when migrating; this route needs no package.",
+            "No package, workload, UI rendering or provider is required for the in-memory route. No older-target package, trimming or Native AOT route is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending."
+          ]
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/AsyncStream/AsyncStream.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft LINQ contracts and release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/10.0/asyncenumerable"
+    },
+    {
+      "title": "Microsoft LINQ contracts and release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.linq.asyncenumerable.select?view=net-10.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net9.0/AsyncStream/AsyncStream.csproj",
+      "target": "net9.0",
+      "sdk": "9.0.319",
+      "language": "13.0",
+      "kind": "compile-and-run",
+      "scope": "Actual managed streaming, pending producer/selector cancellation and disposal; no mocks. Package ambiguity is checked separately by the migration probe."
+    },
+    {
+      "sample": "samples/net10.0/AsyncStream/AsyncStream.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual managed streaming, pending producer/selector cancellation and disposal; no mocks. Package ambiguity is checked separately by the migration probe."
+    },
+    {
+      "sample": "samples/net11.0/AsyncStream/AsyncStream.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual managed streaming, pending producer/selector cancellation and disposal; no mocks. Package ambiguity is checked separately by the migration probe."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net9.0/AsyncStream/Readings.cs",
+      "region": "stream",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net10.0/AsyncStream/Readings.cs",
+      "region": "stream",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Direct managed behavior and actual installed retrieval cover this bounded guidance; no native UI/device/provider Human action is needed."
+  }
+}
