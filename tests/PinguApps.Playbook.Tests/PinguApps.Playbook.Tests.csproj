@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedResource Include="../../samples/HarbourTokenType.cs" LogicalName="Canonical.MetadataInspection.HarbourTokenType.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/MetadataInspection/HarbourTokenType.cs" LogicalName="Canonical.MetadataInspection.HarbourTokenType.cs" />
     <EmbeddedResource Include="../../content/recipes/reflection.inspect-loaded-metadata/11.0/recipe.md" LogicalName="Canonical.reflection.inspect-loaded-metadata.md" />
     <EmbeddedResource Include="../../content/recipes/hosting.report-assembly-location/11.0/recipe.md" LogicalName="Canonical.hosting.report-assembly-location.md" />
     <EmbeddedResource Include="../../content/recipes/tooling.annotate-code-strings/11.0/recipe.md" LogicalName="Canonical.tooling.annotate-code-strings.md" />

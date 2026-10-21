@@ -193,7 +193,7 @@
     },
     "custom-base": {
       "language": "csharp",
-      "path": "samples/HarbourTokenType.cs",
+      "path": "samples/net10.0/MetadataInspection/HarbourTokenType.cs",
       "region": "custom-base"
     },
     "custom-older": {

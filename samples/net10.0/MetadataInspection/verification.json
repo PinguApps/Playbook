@@ -7,7 +7,7 @@
     "samples/MetadataInspectionChecks.cs",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",
-    "samples/HarbourTokenType.cs"
+    "samples/net10.0/MetadataInspection/HarbourTokenType.cs"
   ],
   "buildArguments": [],
   "nativeToolchains": []
