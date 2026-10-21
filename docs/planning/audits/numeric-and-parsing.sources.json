@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "reviewed": "2026-10-21",
+  "scope": "PIN-683 source-only mitigation audit; hashes and declarations are not compilation or execution evidence",
+  "docsRef": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+  "previousRuntimeRef": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+  "currentRuntimeRef": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+  "sources": [
+    {
+      "id": "index",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/11.md",
+      "sha256": "ca69021f318729061ff084832ce85a97f277f2ddc5d419727afd35d50093b813",
+      "headings": [
+        "# Breaking changes in .NET 11",
+        "## ASP.NET Core",
+        "## Core .NET libraries",
+        "## Cryptography",
+        "## Deployment",
+        "## Entity Framework Core",
+        "## Extensions",
+        "## Globalization",
+        "## Interop",
+        "## JIT compiler",
+        "## Networking",
+        "## .NET MAUI",
+        "## SDK and MSBuild"
+      ]
+    },
+    {
+      "id": "date-parsing",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md",
+      "sha256": "ea10bc683dc30d6cdfabc7925a07b05f89abec3aa0f7afd747c039b0ea483ace",
+      "headings": [
+        "# DateOnly and TimeOnly TryParse methods throw for invalid input",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "conversions",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md",
+      "sha256": "0c04251c997b6b716773d778f4686e7407536c7d09b995c0eff1b7e92828ed8d",
+      "headings": [
+        "# Decimal and BigInteger floating-point conversions are correctly rounded",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "rounding",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/core-libraries/11/math-round-digits.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/math-round-digits.md",
+      "sha256": "241d656be04727cde02c128debe865bccb8e885f6a557a5c3bcbc6b72fe062ae",
+      "headings": [
+        "# Math.Round and MathF.Round return correctly rounded results",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "complex",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md",
+      "sha256": "abff298576fae85f8fd3a0a431b2280c70257ea6b5bb621945755874d0c8b544",
+      "headings": [
+        "# System.Numerics.Complex special-value results now follow C23 Annex G",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "small-integers",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/jit/11/fp-to-small-integer.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/jit/11/fp-to-small-integer.md",
+      "sha256": "4c0c520dcc15272c4cef86c64ed2c17e02e3fbf24fa51490d91423c807024539",
+      "headings": [
+        "# Floating-point conversions to small integral types are saturating",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "tensor-shapes",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md",
+      "sha256": "462363150cbe72d4547039318c0c7cd616334a416089dd66aba182a8fb853096",
+      "headings": [
+        "# Tensor operations align equivalent shapes and empty tensors",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "tensor-storage",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+      "sha256": "d58fe54624546da58ce8b488eb7668aac2ea95298d2f223af49a143fcc2b1097",
+      "headings": [
+        "# Tensor operations reject unsupported storage layouts",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs",
+        "## See also"
+      ]
+    },
+    {
+      "id": "japanese-calendar",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/core/compatibility/globalization/11/japanese-calendar-min-date.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/globalization/11/japanese-calendar-min-date.md",
+      "sha256": "f0ed5e1b73b4159872437015de68b777d123ba04000f0a766b9c66844d36592a",
+      "headings": [
+        "# Japanese Calendar minimum supported date corrected",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "tensor-guide",
+      "repository": "dotnet/docs",
+      "commit": "a109e77898150ddb66e3000ce315d23fcc2700e9",
+      "path": "docs/standard/tensor-shapes-and-storage.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/standard/tensor-shapes-and-storage.md",
+      "sha256": "e8e7059c3f996ec8254bc5cb3e17697a55e14a2a41ed38e425ce04e9d34dac13",
+      "headings": [
+        "# Tensor shapes, storage, and NumPy differences",
+        "## Empty shapes and scalar-like results",
+        "## Strides and reversed data",
+        "## Resize a tensor",
+        "## Overlapping sources and destinations",
+        "## See also"
+      ]
+    },
+    {
+      "id": "current-runtime-api",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e",
+      "headings": []
+    },
+    {
+      "id": "current-numeric-api",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "sha256": "7fb4edfd9785b44158e15339bb88f388bef53b17d6b9d20f1b95baa85015239b",
+      "headings": []
+    },
+    {
+      "id": "current-tensor-api",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs",
+      "sha256": "22f290f8fb3e706c5d6d3d24fd9c08ba80dfb50c6da22355258e6129a98602e0",
+      "headings": []
+    },
+    {
+      "id": "current-tensor-targets",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/src/System.Numerics.Tensors.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System.Numerics.Tensors.csproj",
+      "sha256": "e2c49b7baac6a316288f3f27ca25df3297ff702758ff7c2e8c40693385c7622c",
+      "headings": []
+    },
+    {
+      "id": "previous-runtime-api",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb",
+      "headings": []
+    },
+    {
+      "id": "previous-numeric-api",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.Numerics/ref/System.Runtime.Numerics.cs",
+      "sha256": "a5e0b7408cbe2dbf930ae32d9f029da4cc50b29fd518d53a7cdb90fb886ceb77",
+      "headings": []
+    },
+    {
+      "id": "previous-tensor-api",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs",
+      "sha256": "47e95c162732d1913ae419a04bd42c5332ccb42a1c26aa4f23ec9fb9b7ccab22",
+      "headings": []
+    },
+    {
+      "id": "previous-tensor-targets",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/src/System.Numerics.Tensors.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Numerics.Tensors/src/System.Numerics.Tensors.csproj",
+      "sha256": "200b0fb0e71c30d4ad160c0d3d89acfa9148a94d45a0ffa96c85590643a62a19",
+      "headings": []
+    },
+    {
+      "id": "calendar-implementation",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/JapaneseCalendar.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/JapaneseCalendar.cs",
+      "sha256": "726a05b5ccefec74bc51abc14f996c70188bf371045ccff40cd3da7586486577",
+      "headings": []
+    },
+    {
+      "id": "round-implementation",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Math.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Math.cs",
+      "sha256": "8e5f665f900788f11907c536e924b07ec169e6c57c4fc960e6c5ee88bb4c4819",
+      "headings": []
+    },
+    {
+      "id": "libraries-preview2",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/libraries.md",
+      "sha256": "4e4716ae0871ac5d0cc10efeb71aac408f3665054f6107f564b8f5f4048a46ef",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 2 - Release Notes",
+        "## Generic GetTypeInfo for System.Text.Json",
+        "## Tar Archive Format Selection",
+        "## Matrix4x4.GetDeterminant ~15% Faster",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "libraries-preview7",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/libraries.md",
+      "sha256": "ed544c0c3feaff7234ae43bc405891468a185d9c79684eb63018711e92b183e4",
+      "headings": [
+        "# .NET Libraries in .NET 11 Preview 7 - Release Notes",
+        "## IEEE 754 decimal floating-point types",
+        "## Partial numeric parsing",
+        "## Generic Complex\\<T\\>",
+        "## HTTP request compression",
+        "## Configurable HTTP connection eviction",
+        "## DNS record resolution APIs",
+        "## ZIP archive password support",
+        "## More ZIP creation, extraction, and metadata APIs",
+        "## Ordinal casing APIs",
+        "## Polymorphism inference for closed type hierarchies in System.Text.Json",
+        "## Asynchronous ChangeToken.OnChange",
+        "## Options-aware HybridCache factories",
+        "## Suspended process startup on macOS",
+        "## Assembly.Location override for AssemblyLoadContext",
+        "## Reduced contention in System.IO.Pipelines",
+        "## Other API additions",
+        "## Breaking changes",
+        "## Bug fixes and performance enhancements",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "clamp-implementation",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Clamp.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Clamp.cs",
+      "sha256": "49b1e6baf41bb866ce763cbe1113dc6ddfaea7237c87ad677b5328fbf79a216c",
+      "headings": []
+    },
+    {
+      "id": "round-tensor-implementation",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Round.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Round.cs",
+      "sha256": "00303adc08e411bfdede529c24ba73a3a6fa3de2a21914954ca8b0881b10b2b0",
+      "headings": []
+    }
+  ]
+}
