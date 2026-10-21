@@ -1,0 +1,15 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>pier-manifest</ToolCommandName>
+    <PackageId>Pier.Manifest.Tool</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Playbook</Authors>
+    <Description>Original local-only berth manifest utility.</Description>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:project -->

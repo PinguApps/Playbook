@@ -1,0 +1,19 @@
+{
+  "workloads": [],
+  "nativeToolchains": [
+    "Node.js/24.21.0"
+  ],
+  "dependencies": [
+    "Microsoft.TypeScript.MSBuild/5.9.3",
+    "Pier.Deck.Assets/1.0.0"
+  ],
+  "buildArguments": [
+    "-p:NodePath=C:/Program Files/nodejs/node.exe"
+  ],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-SdkDelivery.ps1",
+    "samples/net10.0/RclAssets"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "workloads": [],
+  "nativeToolchains": [
+    "Node.js/24.21.0"
+  ],
+  "dependencies": [
+    "Microsoft.TypeScript.MSBuild/5.9.3"
+  ],
+  "buildArguments": [
+    "-p:NodePath=C:/Program Files/nodejs/node.exe"
+  ],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-SdkDelivery.ps1"
+  ]
+}

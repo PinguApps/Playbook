@@ -1,0 +1,8 @@
+<!-- snippet:traversal -->
+<Project Sdk="Microsoft.Build.Traversal/4.1.82">
+  <ItemGroup>
+    <ProjectReference Include="../RunnerTests.csproj" Configuration="Release" />
+    <ProjectReference Include="../../NUnitTests/NUnitTests.csproj" Configuration="Release" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:traversal -->
