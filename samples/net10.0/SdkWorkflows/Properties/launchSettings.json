@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Depot": {
+      "commandName": "Project",
+      "commandLineArgs": "--shelf DepotProbe",
+      "environmentVariables": { "DEPOT_ZONE": "profile" }
+    }
+  }
+}

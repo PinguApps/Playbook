@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For file utilities, solution/format/launch targeting and local build/watch/template workflows, use the [PIN-759–761 walkthrough](verification/PIN-759-761.md#inspect-what-an-agent-receives). It displays eight original goals, complete bodies and applicability, including the explicit unresolved mobile proof that blocks the combined PR.
+
 For decimal/complex precision, numeric conversion and partial parsing, exact bit encodings and generic random values, use the [tested PIN-736–738 walkthrough](verification/PIN-736-738.md#inspect-what-an-agent-receives). It displays all six discovery goals, complete .NET 10/11 comparisons and target-11 applicability, including NaN payload limits and the cryptographic distinction.
 
 For ZIP access/protection, archive corruption/TAR formats and compression framing/reuse, use the [tested PIN-731–733 walkthrough](verification/PIN-731-733.md#inspect-what-an-agent-receives). It displays all seven goals, complete canonical comparisons and target-11 applicability.

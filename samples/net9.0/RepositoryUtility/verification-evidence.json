@@ -1,0 +1,31 @@
+{
+  "kind": "compile-and-run",
+  "sample": "samples/net9.0/RepositoryUtility/RepositoryUtility.csproj",
+  "target": "net9.0",
+  "sdk": "9.0.319",
+  "language": "13.0",
+  "command": "C:\\Users\\pingu\\.dotnet-playbook-9\\dotnet.exe build RepositoryUtility.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Users\\pingu\\.dotnet-playbook-9\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net9.0\\RepositoryUtility\\bin\\Release\\net9.0\\RepositoryUtility.dll",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-21T11:19:28.8655401+00:00",
+  "sourceCommit": "599fae9cd6bb5548fb64e712b4c3ec45d3ec7972",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Evidence.ps1": "ef7014f626c7cae314d7054331799671c79d9226c1a3eeaed0f912225eb172a2",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net9.0/RepositoryUtility/global.json": "072fb421685e253136a285c19aa718f84a1c04eb044a6b95f3f75e97acd0084f",
+    "samples/net9.0/RepositoryUtility/Program.cs": "13bc68cc87c5868bbe76542ae4813951dafb66885988f26f74937503ddbd0505",
+    "samples/net9.0/RepositoryUtility/RepositoryUtility.csproj": "588f9b50a01bb6399509a604f8d3387d3ed83667888121f6b6abb5bdbeb27c93",
+    "samples/net9.0/RepositoryUtility/verification.json": "0da91c92f447fd008b231acc16dcaeaefeab8a5943b4d10a2c1fe83db2474415"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           9.0.319\r\n Commit:            9de5af5aa0\r\n Workload version:  9.0.300-manifests.f33e7c40\r\n MSBuild version:   17.14.60+43b635718\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-9\\sdk\\9.0.319\\\r\n\r\n.NET workloads installed:\r\nThere are no installed workloads to display.\r\nConfigured to use loose manifests when installing new manifests.\r\n\r\nHost:\r\n  Version:      9.0.21\r\n  Architecture: x64\r\n  Commit:       d280e4fb38\r\n\r\n.NET SDKs installed:\r\n  9.0.319 [C:\\Users\\pingu\\.dotnet-playbook-9\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 9.0.21 [C:\\Users\\pingu\\.dotnet-playbook-9\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 9.0.21 [C:\\Users\\pingu\\.dotnet-playbook-9\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 9.0.21 [C:\\Users\\pingu\\.dotnet-playbook-9\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  Not set\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net9.0\\RepositoryUtility\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Installed Workload Id      Manifest Version      Installation Source\r\n--------------------------------------------------------------------\r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  Restored V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net9.0\\RepositoryUtility\\RepositoryUtility.csproj (in 115 ms).\r\n  RepositoryUtility -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net9.0\\RepositoryUtility\\bin\\Release\\net9.0\\RepositoryUtility.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.47\nslots=8"
+}

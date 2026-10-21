@@ -1,0 +1,305 @@
+{
+  "id": "sdk.compose-file-apps",
+  "edition": "11.0",
+  "title": "Grow a file application with shared code and explicit dependencies",
+  "goal": "Add source, project or DLL references to a file utility and keep SDK, metadata and central-package requirements explicit.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sdk-workflows",
+    "compose-file-apps"
+  ],
+  "apis": [
+    "#:include",
+    "#:package",
+    "#:project",
+    "dotnet reference --file",
+    "Aliases"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "System.CommandLine 2.0.1 lib/net8.0 on both targets."
+          ],
+          "language": {
+            "version": "14.0",
+            "name": "C#",
+            "reason": "Canonical supported language mode for this target.",
+            "match": "exact"
+          },
+          "packages": [
+            {
+              "version": "2.0.1",
+              "name": "System.CommandLine",
+              "reason": "Pinned parser dependency used by the original canonical example.",
+              "match": "exact"
+            }
+          ],
+          "stabilityLimitations": [
+            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+          ],
+          "constraints": [
+            "Playbook serves guidance offline; it does not install consumer dependencies, inspect a project or execute these commands.",
+            "No provider or rendering mode is required by the managed console route. No native/device or AOT behavior follows from compilation.",
+            "Choose an explicit version with CPM disabled, or a versionless directive with the reviewed central version. Do not combine the two policies accidentally.",
+            "The conditional target-10 proof covers source inclusion and quoted package/property metadata only; DLL/reference-editing examples are verified on target 11."
+          ],
+          "runtime": {
+            "version": "10.0",
+            "name": ".NET",
+            "reason": "Managed target of the selected consumer, separate from the command SDK.",
+            "match": "release-family"
+          },
+          "workloads": [],
+          "frameworks": [],
+          "optIns": [],
+          "prerequisites": [
+            "PowerShell 7 for the recorded commands; choose actual absolute executable paths and inspect project/global.json/shared-build configuration."
+          ],
+          "providers": [],
+          "renderingModes": [],
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "reason": "Use the SDK family implementing this selected route; exact authoring pins are in evidence.",
+            "match": "release-family"
+          },
+          "platforms": [
+            "Platforms supported by the selected .NET SDK; command behavior measured on Windows x64."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+          "https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps",
+          "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs#down-level-targeting-support",
+          "https://www.nuget.org/packages/System.CommandLine/2.0.1"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/ComposedUtilitySdk11/slots.cs"
+        ],
+        "conditional": true,
+        "selectionNotes": [
+          "Inspect the selected SDK independently of the application target; retrieve detail before applying commands.",
+          "Source include is serviced into SDK 10.0.300. The SDK-11/net10.0 conditional route verifies source inclusion and quoted package/property metadata with C# 14 and a .NET 10 runtime; it does not establish older-target DLL/reference-editing routes."
+        ],
+        "target": "10.0",
+        "usage": "primary"
+      },
+      {
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "System.CommandLine 2.0.1 lib/net8.0 on both targets."
+          ],
+          "language": {
+            "version": "15.0",
+            "name": "C#",
+            "reason": "Canonical supported language mode for this target.",
+            "match": "exact"
+          },
+          "packages": [
+            {
+              "version": "2.0.1",
+              "name": "System.CommandLine",
+              "reason": "Pinned parser dependency used by the original canonical example.",
+              "match": "exact"
+            }
+          ],
+          "stabilityLimitations": [
+            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+          ],
+          "constraints": [
+            "Playbook serves guidance offline; it does not install consumer dependencies, inspect a project or execute these commands.",
+            "No provider or rendering mode is required by the managed console route. No native/device or AOT behavior follows from compilation.",
+            "Choose an explicit version with CPM disabled, or a versionless directive with the reviewed central version. Do not combine the two policies accidentally."
+          ],
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "reason": "Managed target of the selected consumer, separate from the command SDK.",
+            "match": "release-family"
+          },
+          "workloads": [],
+          "frameworks": [],
+          "optIns": [],
+          "prerequisites": [
+            "PowerShell 7 for the recorded commands; choose actual absolute executable paths and inspect project/global.json/shared-build configuration."
+          ],
+          "providers": [],
+          "renderingModes": [],
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "reason": "Use the SDK family implementing this selected route; exact authoring pins are in evidence.",
+            "match": "release-family"
+          },
+          "platforms": [
+            "Platforms supported by the selected .NET SDK; command behavior measured on Windows x64."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+          "https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps",
+          "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs#down-level-targeting-support",
+          "https://www.nuget.org/packages/System.CommandLine/2.0.1"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ComposedUtility/slots.cs"
+        ],
+        "conditional": false,
+        "selectionNotes": [
+          "Inspect the selected SDK independently of the application target; retrieve detail before applying commands.",
+          "Source include is serviced into SDK 10.0.300; the full quoted-metadata/DLL route requires SDK 11. Target 10 retains C# 14 and needs a .NET 10 runtime."
+        ],
+        "target": "11.0",
+        "usage": "primary"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/sdk.md",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs#down-level-targeting-support",
+      "title": "Official SDK, tool or dependency contract"
+    },
+    {
+      "url": "https://www.nuget.org/packages/System.CommandLine/2.0.1",
+      "title": "Official SDK, tool or dependency contract"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/ComposedUtility/slots.cs",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/ComposedUtility/slots.cs",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/ComposedUtilitySdk11/slots.cs",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "execution",
+      "sdk": "10.0.402",
+      "record": "samples/net10.0/SdkWorkflows/commands.evidence.json",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual declared source compilation and managed execution where kind is compile-and-run. Command execution is a separate record; no native/device or GA claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj",
+      "kind": "execution",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "record": "samples/net11.0/SdkWorkflows/commands.evidence.json",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "helper": {
+      "language": "csharp",
+      "path": "samples/net10.0/ComposedUtility/Rack.cs",
+      "region": "helper"
+    },
+    "newer-reference": {
+      "language": "csharp",
+      "path": "samples/net11.0/ComposedUtility/dll-route.cs",
+      "region": "reference"
+    },
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/ComposedUtility/slots.cs",
+      "region": "compose"
+    },
+    "older-reference": {
+      "language": "csharp",
+      "path": "samples/net10.0/ComposedUtility/project-route.cs",
+      "region": "reference"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/ComposedUtility/slots.cs",
+      "region": "compose"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual managed commands and installed retrieval cover this bounded goal; no native Human check is needed."
+  }
+}

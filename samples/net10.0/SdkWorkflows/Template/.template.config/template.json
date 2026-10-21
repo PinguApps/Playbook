@@ -1,0 +1,1 @@
+{"$schema":"http://json.schemastore.org/template","author":"Playbook","classifications":["Console"],"identity":"Estuary.Depot.Template","name":"Depot audit fixture","shortName":"depot-audit","sourceName":"DepotAudit","preferNameDirectory":true}

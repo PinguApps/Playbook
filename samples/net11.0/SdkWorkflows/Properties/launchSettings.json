@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Depot": {
+      "commandName": "Project",
+      "commandLineArgs": "--shelf $(AssemblyName)",
+      "environmentVariables": { "DEPOT_ZONE": "profile" }
+    }
+  }
+}

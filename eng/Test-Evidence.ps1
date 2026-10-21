@@ -7,7 +7,15 @@ $root = Split-Path $PSScriptRoot -Parent
 $fixture = Join-Path ([IO.Path]::GetTempPath()) "playbook-evidence-$([guid]::NewGuid().ToString('N'))"
 try {
   New-Item -ItemType Directory -Path $fixture | Out-Null
-  Copy-Item (Join-Path $root 'samples') $fixture -Recurse
+  # Evidence fixtures need authored inputs, not generated build outputs. Besides
+  # their size, outputs can contain configuration names Windows copy normalizes.
+  foreach ($file in (Get-ChildItem (Join-Path $root 'samples') -Recurse -File)) {
+    $relative = [IO.Path]::GetRelativePath($root, $file.FullName).Replace('\', '/')
+    if ($relative -match '(^|/)(bin|obj)/') { continue }
+    $destination = Join-Path $fixture $relative
+    New-Item -ItemType Directory -Path (Split-Path $destination) -Force | Out-Null
+    Copy-Item -LiteralPath $file.FullName -Destination $destination
+  }
   Copy-Item (Join-Path $root 'content') $fixture -Recurse
   Copy-Item (Join-Path $root 'NuGet.Config') $fixture
   New-Item -ItemType Directory -Path (Join-Path $fixture 'eng') | Out-Null
@@ -17,6 +25,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-FSharpBoundaries.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-UnsafeBoundaries.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-ProcessPlatforms.ps1') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1'), (Join-Path $PSScriptRoot 'Test-WatchHosts.ps1') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs
@@ -56,6 +65,8 @@ try {
   Write-Host 'PASS: changed shared source requires refreshed compilation.'
 
   foreach ($case in @(
+    @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'TargetFramework=net10.0'; To = 'TargetFramework=net11.0'; Error = 'Stale compilation evidence' },
+    @{ Path = 'samples/net10.0/RepositoryUtility/slots.cs'; From = 'slots={total}'; To = 'racks={total}'; Error = 'Stale compilation evidence' },
     @{ Path = 'samples/net10.0/PropertyAssignment/global.json'; From = '10.0.402'; To = '10.0.403'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/net10.0/PropertyAssignment/PropertyAssignment.csproj'; From = 'net10.0'; To = 'net11.0'; Error = 'Evidence baseline disagrees' },
     @{ Path = 'samples/Directory.Packages.props'; From = '</Project>'; To = '<ItemGroup><PackageVersion Include="Fixture.Dependency" Version="2.0.0" /></ItemGroup></Project>'; Error = 'Stale compilation evidence' },

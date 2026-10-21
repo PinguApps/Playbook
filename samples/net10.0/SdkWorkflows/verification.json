@@ -1,0 +1,17 @@
+{
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-SdkWorkflows.ps1",
+    "samples/net9.0/RepositoryUtility",
+    "samples/net10.0/RepositoryUtility",
+    "samples/net11.0/RepositoryUtility",
+    "samples/net10.0/ComposedUtility",
+    "samples/net11.0/ComposedUtility",
+    "samples/net10.0/ComposedUtilitySdk11"
+  ]
+}
