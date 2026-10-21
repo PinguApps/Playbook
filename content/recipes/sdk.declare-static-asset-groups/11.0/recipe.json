@@ -1,0 +1,243 @@
+{
+  "id": "sdk.declare-static-asset-groups",
+  "edition": "11.0",
+  "title": "Publish selected static asset groups and compiled TypeScript",
+  "goal": "Extend static web asset discovery when related assets need group selection, extra endpoints or generated TypeScript output in the publish artifact.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp",
+    "typescript"
+  ],
+  "tags": [
+    "sdk-delivery",
+    "declare-static-asset-groups"
+  ],
+  "apis": [
+    "StaticWebAssetGroupDefinition",
+    "StaticWebAssetGroup",
+    "AdditionalEndpointDefinitions",
+    "Microsoft.TypeScript.MSBuild"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Select this guidance for SDK 11; the older comparison is not a separate target-10 catalogue edition.",
+          "RC2 group selection removes endpoints but the measured publish still includes physical crew HTML; do not use grouping as an access-control or physical-content exclusion boundary."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared managed consumer target; independent of the installed Playbook host."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK family supplying the newer commands and build tasks; exact RC2 pin is evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Supported language mode of the compiled .NET 11 C# examples."
+          },
+          "frameworks": [
+            "ASP.NET Core static web assets SDK"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.TypeScript.MSBuild",
+              "version": "5.9.3",
+              "match": "exact",
+              "reason": "Pinned compiler and build targets register generated JavaScript."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.TypeScript.MSBuild build/buildTransitive targets and compiler; JavaScript output under wwwroot/bin."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "SDK-supported platforms with Node.js; actual compiler/publish proof is Windows x64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "PowerShell 7 for the recorded checks; inspect the selected application's target, global.json and shared build/package settings.",
+            "Node.js at an explicit executable path for the TypeScript compiler; evidence identifies the actual version."
+          ],
+          "constraints": [
+            "Playbook serves this guidance offline; the calling agent selects and runs consumer commands.",
+            "This edition declares target 11 only. Actual .NET 10 examples are previous-release comparisons, not extra historical foundations or an undeclared compatibility route.",
+            "Asset groups are low-level SDK/component-author contracts. Actual Web SDK and Razor class library project-reference publish artifacts are verified; browser rendering and a NuGet RCL-package consumer are not claimed.",
+            "RC2 group selection removes endpoints, but the original project still publishes the physical grouped HTML; groups are not access control or a reliable physical-content exclusion boundary."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            ".NET 11 evidence uses RC2, not GA. No API taught here is designated experimental; reconcile final SDK contracts at GA."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Tasks/DefineStaticWebAssets.cs",
+          "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Tasks/FilterStaticWebAssetGroups.cs",
+          "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Targets/Microsoft.NET.Sdk.StaticWebAssets.TypeScript.targets",
+          "https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-11.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WebAssets/WebAssets.csproj",
+          "samples/net11.0/RclAssets/RclAssets.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Tasks/DefineStaticWebAssets.cs"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Tasks/FilterStaticWebAssetGroups.cs"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://github.com/dotnet/sdk/blob/main/src/StaticWebAssetsSdk/Targets/Microsoft.NET.Sdk.StaticWebAssets.TypeScript.targets"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/WebAssets/WebAssets.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/WebAssets/WebAssets.csproj",
+      "record": "samples/net10.0/WebAssets/commands.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/WebAssets/WebAssets.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/WebAssets/WebAssets.csproj",
+      "record": "samples/net11.0/WebAssets/commands.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    },
+    {
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual Razor SDK library compilation; parent WebAssets execution evidence publishes its real compiled TypeScript through the project reference.",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/RclAssets/RclAssets.csproj"
+    },
+    {
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "record": "samples/net10.0/RclAssets/commands.evidence.json",
+      "target": "net10.0",
+      "kind": "execution",
+      "scope": "Actual Razor SDK library compilation; parent WebAssets execution evidence publishes its real compiled TypeScript through the project reference.",
+      "sample": "samples/net10.0/RclAssets/RclAssets.csproj"
+    },
+    {
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual Razor SDK library compilation; parent WebAssets execution evidence publishes its real compiled TypeScript through the project reference.",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/RclAssets/RclAssets.csproj"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "record": "samples/net11.0/RclAssets/commands.evidence.json",
+      "target": "net11.0",
+      "kind": "execution",
+      "scope": "Actual Razor SDK library compilation; parent WebAssets execution evidence publishes its real compiled TypeScript through the project reference.",
+      "sample": "samples/net11.0/RclAssets/RclAssets.csproj"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/WebAssets/WebAssets.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/WebAssets/WebAssets.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "program": {
+      "path": "samples/net11.0/WebAssets/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    },
+    "typescript": {
+      "path": "samples/net11.0/WebAssets/Scripts/berths.ts",
+      "region": "typescript",
+      "language": "typescript"
+    },
+    "rclolder": {
+      "region": "project",
+      "language": "xml",
+      "path": "samples/net10.0/RclAssets/RclAssets.csproj"
+    },
+    "rcl": {
+      "region": "project",
+      "language": "xml",
+      "path": "samples/net11.0/RclAssets/RclAssets.csproj"
+    },
+    "deck": {
+      "region": "typescript",
+      "language": "typescript",
+      "path": "samples/net11.0/RclAssets/Scripts/deck.ts"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded actual managed runner and publish/install artifact checks cover the taught goal; no native device or Human-only claim."
+  }
+}

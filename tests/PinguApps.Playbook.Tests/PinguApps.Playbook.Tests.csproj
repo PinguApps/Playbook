@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/RunnerTests/*.cs;../../samples/net*/RunnerTests/*.csproj;../../samples/net*/RunnerTests/Traversal/*.proj;../../samples/net*/NUnitTests/*.cs;../../samples/net*/NUnitTests/*.csproj;../../samples/net*/DeliveryTool/*.cs;../../samples/net*/DeliveryTool/*.csproj;../../samples/net*/DeliveryTool/Properties/PublishProfiles/*.pubxml;../../samples/net*/WebAssets/*.cs;../../samples/net*/WebAssets/*.csproj;../../samples/net*/WebAssets/Scripts/*.ts;../../samples/net*/RclAssets/*.csproj;../../samples/net*/RclAssets/Scripts/*.ts" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../content/recipes/sdk.*/**/recipe.json;../../content/recipes/sdk.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/RepositoryUtility/*.cs;../../samples/net*/ComposedUtility/*.cs;../../samples/net*/SdkWorkflows/*.cs;../../samples/net*/SdkWorkflows/*.csproj;../../samples/net*/SdkWorkflows/Template/*.cs;../../samples/net*/SdkWorkflows/Template/*.csproj;../../samples/net*/WatchAppHost/*.cs;../../samples/net*/WatchAppHost/*.csproj" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net10.0/BitCollections/Collections.cs" LogicalName="Canonical.net10.0.BitCollections.Collections.cs" />

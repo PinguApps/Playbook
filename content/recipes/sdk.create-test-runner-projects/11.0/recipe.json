@@ -1,0 +1,301 @@
+{
+  "id": "sdk.create-test-runner-projects",
+  "edition": "11.0",
+  "title": "Create executable tests with an explicit framework and runner",
+  "goal": "Create xUnit v3 or NUnit test projects when their package assets, entry point and dotnet test runner must agree.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sdk-delivery",
+    "create-test-runner-projects"
+  ],
+  "apis": [
+    "dotnet new xunit",
+    "dotnet new nunit",
+    "UseMicrosoftTestingPlatformRunner",
+    "EnableNUnitRunner"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Choose the original xUnit v3 MTP-v2 route."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared managed consumer target; independent of the installed Playbook host."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK family supplying the newer commands and build tasks; exact RC2 pin is evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Supported language mode of the compiled .NET 11 C# examples."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "xunit.v3.mtp-v2",
+              "version": "3.2.2",
+              "match": "exact",
+              "reason": "The reproducible original xUnit route uses its MTP-v2 executable entry point."
+            }
+          ],
+          "packageAssets": [
+            "xunit.v3.mtp-v2 executable entry point and Microsoft.Testing.Platform transitive assets."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "SDK-supported platforms; original runner execution measured on Windows x64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "PowerShell 7 for the recorded checks; inspect the selected application's target, global.json and shared build/package settings."
+          ],
+          "constraints": [
+            "Playbook serves this guidance offline; the calling agent selects and runs consumer commands.",
+            "This edition declares target 11 only. Actual .NET 10 examples are previous-release comparisons, not extra historical foundations or an undeclared compatibility route.",
+            "MTP mode and VSTest mode have different selectors and option forwarding. A solution containing incompatible runner projects must be migrated or selected deliberately."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            ".NET 11 evidence uses RC2, not GA. No API taught here is designated experimental; reconcile final SDK contracts at GA."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new-sdk-templates",
+          "https://docs.nunit.org/articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html",
+          "https://xunit.net/docs/getting-started/v3/microsoft-testing-platform"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/RunnerTests/RunnerTests.csproj",
+          "samples/net11.0/NUnitTests/NUnitTests.csproj"
+        ]
+      },
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "optional-alternative",
+        "selectionNotes": [
+          "Choose this independent NUnit MTP project instead of the xUnit route."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared managed consumer target; independent of the installed Playbook host."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK family supplying the newer commands and build tasks; exact RC2 pin is evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Supported language mode of the compiled .NET 11 C# examples."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "NUnit",
+              "version": "4.6.1",
+              "match": "exact",
+              "reason": "Framework pin of the original NUnit route."
+            },
+            {
+              "name": "NUnit3TestAdapter",
+              "version": "6.2.0",
+              "match": "exact",
+              "reason": "Supplies the original NUnit MTP runner; do not replace it with an incompatible adapter."
+            }
+          ],
+          "packageAssets": [
+            "NUnit3TestAdapter MTP entry point and build integration."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "SDK-supported platforms; original runner execution measured on Windows x64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "PowerShell 7 for the recorded checks; inspect the selected application's target, global.json and shared build/package settings."
+          ],
+          "constraints": [
+            "Playbook serves this guidance offline; the calling agent selects and runs consumer commands.",
+            "This edition declares target 11 only. Actual .NET 10 examples are previous-release comparisons, not extra historical foundations or an undeclared compatibility route.",
+            "MTP mode and VSTest mode have different selectors and option forwarding. A solution containing incompatible runner projects must be migrated or selected deliberately."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            ".NET 11 evidence uses RC2, not GA. No API taught here is designated experimental; reconcile final SDK contracts at GA."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new-sdk-templates",
+          "https://docs.nunit.org/articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html",
+          "https://xunit.net/docs/getting-started/v3/microsoft-testing-platform"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/RunnerTests/RunnerTests.csproj",
+          "samples/net11.0/NUnitTests/NUnitTests.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new-sdk-templates"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://docs.nunit.org/articles/vs-test-adapter/NUnit-And-Microsoft-Test-Platform.html"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://xunit.net/docs/getting-started/v3/microsoft-testing-platform"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/RunnerTests/RunnerTests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/RunnerTests/RunnerTests.csproj",
+      "record": "samples/net10.0/RunnerTests/commands.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/NUnitTests/NUnitTests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/NUnitTests/NUnitTests.csproj",
+      "record": "samples/net10.0/NUnitTests/commands.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/RunnerTests/RunnerTests.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/RunnerTests/RunnerTests.csproj",
+      "record": "samples/net11.0/RunnerTests/commands.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/NUnitTests/NUnitTests.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/NUnitTests/NUnitTests.csproj",
+      "record": "samples/net11.0/NUnitTests/commands.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/NUnitTests/NUnitTests.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/NUnitTests/NUnitTests.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "xunit": {
+      "path": "samples/net11.0/RunnerTests/RunnerTests.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "tests": {
+      "path": "samples/net11.0/NUnitTests/BerthTests.cs",
+      "region": "tests",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded actual managed runner and publish/install artifact checks cover the taught goal; no native device or Human-only claim."
+  }
+}

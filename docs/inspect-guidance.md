@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For test-runner creation/selection, tool packaging, single-file extraction and grouped static/TypeScript assets, use the [PIN-762–764 walkthrough](verification/PIN-762-764.md#inspect-what-an-agent-receives). It displays five original discovery goals, complete .NET 10/11 comparisons and target-11 applicability, including measured RC2 limits.
+
 For file utilities, solution/format/launch targeting and local build/watch/template workflows, use the [PIN-759–761 walkthrough](verification/PIN-759-761.md#inspect-what-an-agent-receives). It displays eight original goals, complete bodies and applicability, including the explicit unresolved mobile proof accepted for PR review.
 
 For bit collections, key equality and ordering, portable vector lanes and guarded
