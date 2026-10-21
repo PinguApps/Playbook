@@ -98,10 +98,24 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   $verified = [Collections.Generic.List[object]]::new()
   foreach ($evidence in $recipe.evidence) {
     $projectPath = Resolve-Source $evidence.sample
-    [xml]$project = Get-Content -LiteralPath $projectPath -Raw
+    if ([IO.Path]::GetExtension($projectPath) -eq '.cs') {
+      $fileSource = Get-Content -LiteralPath $projectPath -Raw
+      $targetDirective = [regex]::Match($fileSource, '(?m)^#:property TargetFramework=(\S+)\r?$')
+      $languageDirective = [regex]::Match($fileSource, '(?m)^#:property LangVersion=(\S+)\r?$')
+      if (-not $targetDirective.Success -or -not $languageDirective.Success) {
+        throw 'Evidence file applications must declare TargetFramework and LangVersion explicitly.'
+      }
+      $sampleTarget = $targetDirective.Groups[1].Value
+      $sampleLanguage = $languageDirective.Groups[1].Value
+    }
+    else {
+      [xml]$project = Get-Content -LiteralPath $projectPath -Raw
+      $sampleTarget = $project.Project.PropertyGroup.TargetFramework
+      $sampleLanguage = $project.Project.PropertyGroup.LangVersion
+    }
     $pin = Get-Content -LiteralPath (Join-Path (Split-Path $projectPath) 'global.json') -Raw | ConvertFrom-Json
-    if ($project.Project.PropertyGroup.TargetFramework -cne $evidence.target -or
-        $project.Project.PropertyGroup.LangVersion -cne $evidence.language -or
+    if ($sampleTarget -cne $evidence.target -or
+        $sampleLanguage -cne $evidence.language -or
         $pin.sdk.version -cne $evidence.sdk) { throw "Evidence baseline disagrees with sample: $($evidence.sample)" }
     $verified.Add((Read-VerificationEvidence $root $evidence))
   }
