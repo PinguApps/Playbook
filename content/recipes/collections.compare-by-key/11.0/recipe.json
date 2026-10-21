@@ -63,7 +63,7 @@
           "renderingModes": [],
           "workloads": [],
           "prerequisites": [
-            "SDK console project targeting net11.0, ImplicitUsings=enable and Nullable=enable. Import System.Collections for BitArray; place declarations in namespace Playbook.Samples."
+            "SDK console project targeting net11.0, ImplicitUsings=enable and Nullable=enable. Place declarations in namespace Playbook.Samples."
           ],
           "constraints": [
             "The key-selector overload supplies both equality and hashing from one optional key comparer.",
