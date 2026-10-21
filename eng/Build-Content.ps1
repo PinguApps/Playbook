@@ -121,11 +121,24 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   }
   foreach ($sample in ($recipe.evidence.sample | Select-Object -Unique)) {
     if (-not ($verified | Where-Object { $_.sample -ceq $sample -and $_.kind -in @('compile', 'cross-compile', 'compile-and-run') })) {
-      throw "Missing compilation evidence: $sample. Source review, mocks and execution alone cannot satisfy compilation."
+      $sampleRecords = @($verified | Where-Object { $_.sample -ceq $sample })
+      # Explicitly theoretical editions are reviewable in development builds only.
+      # They do not acquire compilation proof; ReleaseReady still rejects pending proof.
+      if ($recipe.humanProof.status -cne 'pending' -or
+          @($sampleRecords | Where-Object { $_.kind -cne 'official-review' }).Count -gt 0) {
+        throw "Missing compilation evidence: $sample. Source review, mocks and execution alone cannot satisfy compilation."
+      }
+      $warning = 'Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.'
+      foreach ($route in $recipe.applicability.routes) {
+        if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }
+        if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
+      }
     }
   }
   $recipe.evidence = $verified.ToArray()
-  foreach ($evidence in $recipe.evidence) { $evidence.role = 'verification-baseline' }
+  foreach ($evidence in $recipe.evidence) {
+    $evidence.role = if ($evidence.kind -ceq 'official-review') { 'source-review' } else { 'verification-baseline' }
+  }
   $markdown = Get-Content -LiteralPath (Join-Path $file.Directory.FullName 'recipe.md') -Raw
   if ($markdown -match '(?m)^\s*(`{3,}|~{3,})') { throw 'Canonical snippet references are required instead of copied fenced implementations.' }
   foreach ($section in @('Goal', 'Older approach', 'Newer approach', 'Migration', 'Constraints', 'Evidence')) {

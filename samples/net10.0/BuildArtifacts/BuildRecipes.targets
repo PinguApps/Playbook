@@ -1,0 +1,35 @@
+<Project>
+  <!-- snippet:archive -->
+  <Target Name="ArchiveDispatch" DependsOnTargets="Build">
+    <PropertyGroup>
+      <DispatchArchive>$(MSBuildProjectDirectory)/obj/dispatch.tar</DispatchArchive>
+      <DispatchExtract>$(MSBuildProjectDirectory)/obj/unpacked</DispatchExtract>
+    </PropertyGroup>
+    <Error Condition="'$(BuildDotnet)' == ''" Text="Supply an absolute BuildDotnet executable path." />
+    <Exec Command="&quot;$(BuildDotnet)&quot; &quot;$(TargetPath)&quot; archive &quot;$(TargetDir).&quot; &quot;$(DispatchArchive)&quot;" />
+    <Exec Command="&quot;$(BuildDotnet)&quot; &quot;$(TargetPath)&quot; extract &quot;$(DispatchArchive)&quot; &quot;$(DispatchExtract)&quot;" />
+    <Error Condition="!Exists('$(DispatchExtract)/payload/departures.txt')" Text="Dispatch sheet missing from extracted artifact." />
+  </Target>
+  <!-- endsnippet:archive -->
+
+  <!-- snippet:globs -->
+  <ItemGroup>
+    <DispatchSheet Include="payload/**/*.txt" Exclude="payload/private/**" />
+    <DispatchSheet Remove="payload/**/draft-*.txt" />
+  </ItemGroup>
+  <Target Name="ExplainDispatchInputs">
+    <!-- This inspects this authored file only, not the complete evaluated import graph. -->
+    <XmlPeek XmlInputPath="$(MSBuildThisFileFullPath)" Query="/Project/ItemGroup/DispatchSheet/@Include">
+      <Output TaskParameter="Result" ItemName="AuthoredInclude" />
+    </XmlPeek>
+    <XmlPeek XmlInputPath="$(MSBuildThisFileFullPath)" Query="/Project/ItemGroup/DispatchSheet/@Exclude">
+      <Output TaskParameter="Result" ItemName="AuthoredExclude" />
+    </XmlPeek>
+    <XmlPeek XmlInputPath="$(MSBuildThisFileFullPath)" Query="/Project/ItemGroup/DispatchSheet/@Remove">
+      <Output TaskParameter="Result" ItemName="AuthoredRemove" />
+    </XmlPeek>
+    <Message Importance="high" Text="Authored include=@(AuthoredInclude); exclude=@(AuthoredExclude); remove=@(AuthoredRemove)" />
+    <Message Importance="high" Text="Expanded files=@(DispatchSheet)" />
+  </Target>
+  <!-- endsnippet:globs -->
+</Project>

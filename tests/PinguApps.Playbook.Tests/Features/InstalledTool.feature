@@ -1,6 +1,13 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  Scenario: Theoretical SDK and build recipes disclose their missing proof offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then theoretical SDK and build recipes retain complete bodies and source-only proof
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Runner packaging and static asset recipes remain complete offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout

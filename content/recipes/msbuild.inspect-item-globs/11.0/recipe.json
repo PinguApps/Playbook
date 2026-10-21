@@ -1,0 +1,149 @@
+{
+  "id": "msbuild.inspect-item-globs",
+  "edition": "11.0",
+  "title": "Explain build item patterns and selected files",
+  "goal": "Report include, exclude and remove patterns alongside expanded items when diagnosing why a build selected a file.",
+  "areas": [
+    "msbuild",
+    "sdk"
+  ],
+  "exampleLanguages": [],
+  "languageNeutral": true,
+  "tags": [
+    "sdk-build-artifacts",
+    "inspect-item-globs"
+  ],
+  "apis": [
+    "MSBuildProvideItemGlobs",
+    "MSBuildItemGlob",
+    "XmlPeek"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+          "Unevaluated patterns are not the expanded file list or a complete explanation of every build condition.",
+          "The older XmlPeek example reads one authored file; it does not reconstruct the import graph."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [
+          "csharp",
+          "fsharp",
+          "vb"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended managed consumer target; not an observed runtime result."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The documented newer SDK family; exact sample pin is unbuilt RC2, not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Intended language mode of the original managed consumer; the XML glob configuration itself is language-neutral."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by the selected .NET SDK; no platform execution is claimed."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
+            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+          ],
+          "constraints": [
+            "Unevaluated patterns are not the expanded file list or a complete explanation of every build condition.",
+            "The older XmlPeek example reads one authored file; it does not reconstruct the import graph.",
+            "Target 11 only; .NET 10 sources are previous-release comparisons, not an additional historical foundation or a tested older-target route.",
+            "Playbook only serves embedded guidance. No provisioning, registry push, telemetry transmission or consumer mutation is performed by consulting it."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+            "Official .NET 11 RC documentation and source were reviewed; the pinned RC2 samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md",
+          "https://learn.microsoft.com/en-us/visualstudio/msbuild/xmlpeek-task?view=visualstudio"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "MSBuild RC1 archive tasks and item globs",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md"
+    },
+    {
+      "title": "XmlPeek task",
+      "url": "https://learn.microsoft.com/en-us/visualstudio/msbuild/xmlpeek-task?view=visualstudio"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "official-review",
+      "sample": "samples/net10.0/BuildArtifacts/BuildArtifacts.csproj",
+      "record": "samples/net10.0/BuildArtifacts/source-review.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/BuildArtifacts/BuildArtifacts.csproj",
+      "record": "samples/net11.0/BuildArtifacts/source-review.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/BuildArtifacts/BuildRecipes.targets",
+      "region": "globs",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/BuildArtifacts/BuildRecipes.targets",
+      "region": "globs",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu requested theoretical implementation without tests or live checks on 21 October 2026. Compilation, claim-specific behavior/artifacts and installed offline retrieval remain unverified; release-ready packaging remains blocked. No request to obtain Podman or perform these checks is outstanding."
+  }
+}

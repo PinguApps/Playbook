@@ -1,0 +1,159 @@
+{
+  "id": "sdk.publish-reproducible-containers",
+  "edition": "11.0",
+  "title": "Publish repeatable container images from fixed inputs",
+  "goal": "Control timestamps, base-image identity and build inputs when repeated container publishes need comparable image digests.",
+  "areas": [
+    "sdk",
+    "containers"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "sdk-build-artifacts",
+    "publish-reproducible-containers"
+  ],
+  "apis": [
+    "SOURCE_DATE_EPOCH",
+    "ContainerBaseImage",
+    "ContainerPushNoCache"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+          "Pin a base image index covering both requested architectures; a mutable tag is insufficient.",
+          "NuGet package timestamp reproducibility is a separate claim."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended managed consumer target; not an observed runtime result."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The documented newer SDK family; exact sample pin is unbuilt RC2, not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Intended language mode of the original managed consumer; the XML glob configuration itself is language-neutral."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "SDK-provided Microsoft.NET.Build.Containers tasks; a compatible, digest-pinned runtime base image index must be supplied."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "A host supported by SDK 11 and the selected engine; example image targets linux-x64 and linux-arm64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
+            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+          ],
+          "constraints": [
+            "Pin a base image index covering both requested architectures; a mutable tag is insufficient.",
+            "NuGet package timestamp reproducibility is a separate claim.",
+            "Target 11 only; .NET 10 sources are previous-release comparisons, not an additional historical foundation or a tested older-target route.",
+            "Playbook only serves embedded guidance. No provisioning, registry push, telemetry transmission or consumer mutation is performed by consulting it."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+            "Official .NET 11 RC documentation and source were reviewed; the pinned RC2 samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": ".NET 11 SDK capabilities",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk"
+    },
+    {
+      "title": "Container publishing configuration",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration"
+    },
+    {
+      "title": "SDK RC1 reproducible container publishing",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "official-review",
+      "sample": "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+      "record": "samples/net10.0/ContainerPublishing/source-review.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
+      "record": "samples/net11.0/ContainerPublishing/source-review.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+      "region": "container",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/ContainerPublishing/ContainerPublishing.csproj",
+      "region": "container",
+      "language": "xml"
+    },
+    "program": {
+      "path": "samples/net11.0/ContainerPublishing/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu requested theoretical implementation without tests or live checks on 21 October 2026. Compilation, claim-specific behavior/artifacts and installed offline retrieval remain unverified; release-ready packaging remains blocked. No request to obtain Podman or perform these checks is outstanding."
+  }
+}

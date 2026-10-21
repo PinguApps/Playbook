@@ -1,0 +1,23 @@
+<!-- snippet:container -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
+    <RuntimeIdentifiers>linux-x64;linux-arm64</RuntimeIdentifiers>
+    <ContainerRuntimeIdentifiers>linux-x64;linux-arm64</ContainerRuntimeIdentifiers>
+    <ContainerRepository>tidal-freight/dispatch</ContainerRepository>
+    <ContainerImageTag>comparison</ContainerImageTag>
+    <ContainerBaseImage>$(PinnedContainerBase)</ContainerBaseImage>
+    <LocalRegistry>Docker</LocalRegistry>
+    <SelfContained>false</SelfContained>
+  </PropertyGroup>
+  <Target Name="RequirePinnedBase" BeforeTargets="ComputeContainerBaseImage">
+    <Error Condition="!$([System.Text.RegularExpressions.Regex]::IsMatch('$(PinnedContainerBase)', '^.+@sha256:[a-fA-F0-9]{64}$'))"
+           Text="Supply PinnedContainerBase as a compatible runtime image index reference with @sha256:digest." />
+  </Target>
+</Project>
+<!-- endsnippet:container -->

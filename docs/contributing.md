@@ -90,6 +90,16 @@ Update the relevant [source-disposition register](planning/inventory/README.md):
 
 ### Assemble the authoring files
 
+A deliberately theoretical edition may carry only `official-review` records when
+`humanProof.status` is `pending`. Record the reviewed sources and actual input
+hashes; identify SDK/language values as intended sample pins, and state that no
+build, execution or artifact inspection occurred. Development builds retain
+`kind: official-review` and `role: source-review`, and automatically disclose the
+missing compilation/execution in discovery and detailed applicability. Mocks and
+execution-only records cannot use this authoring path. `-ReleaseReady` still
+rejects pending proof. This permits source review without inventing evidence;
+it does not make the recipe verified or ready for publication.
+
 Use the [seed metadata](../content/recipes/csharp.validate-property-assignment/10.0/recipe.json), [seed Markdown](../content/recipes/csharp.validate-property-assignment/10.0/recipe.md) and [schema](../eng/recipe.schema.json) as a structural reference. Author the new content independently; do not copy the seed's claims, baselines or successful evidence into another goal.
 
 - **Identity/discovery:** `id`, `edition`, `title`, `goal`, `areas`, `exampleLanguages`, `tags`, `apis`, `introducedIn`, `supportedTargets` and `stability`. Preserve published stable IDs. `edition` identifies guidance; `introducedIn` identifies the feature; neither automatically establishes compatibility.
@@ -190,7 +200,7 @@ For database claims, use an isolated real provider/service at the stated package
 
 For native claims, use a suitable authoring OS and installed workloads/native SDKs; affected Apple builds require a Mac with matching Xcode. Measure and declare native versions, then pass matching values with `-NativeToolchains` when capturing compilation. Cross-compiling establishes build output only. UI, device/emulator, permissions and lifecycle claims need their focused real checks and reports; do not call a workload-free tool smoke native behavior evidence. If the helper cannot perform the required deployment/run, capture compilation separately and link the actual execution report rather than pretending DLL execution covers it.
 
-Use `humanProof.status: pending` with an exact scope for targeted Human checks still owed; set `verified` only after recording traceable results, or `not-required` with a defensible reason. Pending proof may be served in incremental packages but fails `pwsh -NoProfile -File ./eng/Verify.ps1 -ReleaseReady` and `dotnet pack -p:PlaybookReleaseReady=true`. Missing compilation blocks ordinary build/pack too. Report access or toolchain blockers explicitly; audits, mocks and unavailable-machine placeholders cannot satisfy delivery.
+Use `humanProof.status: pending` with an exact scope for targeted Human checks still owed; set `verified` only after recording traceable results, or `not-required` with a defensible reason. Pending proof may be served in incremental packages but fails `pwsh -NoProfile -File ./eng/Verify.ps1 -ReleaseReady` and `dotnet pack -p:PlaybookReleaseReady=true`. Missing compilation blocks ordinary build/pack too, except for the explicitly pending source-only authoring path above. That path does not satisfy compilation or release readiness. Report access or toolchain blockers explicitly; audits, mocks and unavailable-machine placeholders cannot satisfy verified delivery.
 
 Commit native authoring evidence for routine validation to consume without installing native workloads. Keep broad native builds, UI/device/emulator suites and recurring native matrices out of CI, including separate manual-dispatch matrices. Routine Windows/macOS checks remain tiny installed-tool smokes; the Linux/core lane remains portable. Reuse unchanged native proof and refresh it on the appropriate authoring machine when relevant inputs change.
 
