@@ -1,0 +1,439 @@
+{
+  "reviewed": "2026-10-21",
+  "scope": "PIN-684 source-only archive, path, handle and clock migration audit",
+  "sources": [
+    {
+      "id": "compatibility-index",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/11.md",
+      "sha256": "1dede22a71bcf370e2eabde836495cf31625933e8711a3d323bc3c85d60ecd7e",
+      "headings": [
+        "# Breaking changes in .NET 11",
+        "## ASP.NET Core",
+        "## Core .NET libraries",
+        "## Cryptography",
+        "## Deployment",
+        "## Entity Framework Core",
+        "## Extensions",
+        "## Globalization",
+        "## Interop",
+        "## JIT compiler",
+        "## Networking",
+        "## .NET MAUI",
+        "## SDK and MSBuild"
+      ]
+    },
+    {
+      "id": "package-stream",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md",
+      "sha256": "1bd8cbe6e2ca8e8e01218ececafcc49260899b14c3ae03ac57b2ce2cb522fdc4",
+      "headings": [
+        "# PackagePart.GetStream() returns a non-seekable stream for compressed parts in ReadWrite packages",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "tar-checksum",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/tar-checksum-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/tar-checksum-validation.md",
+      "sha256": "e94dbdd18cefb08ebaa609438ba9c468e7da67f8641b3b12ed71d2889be70191",
+      "headings": [
+        "# TAR-reading APIs verify header checksums when reading",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "tar-hardlinks",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md",
+      "sha256": "a6588fc4cb53e0b7640b2931a34ed72f3fad48caebf6608fb8106fb8731021da",
+      "headings": [
+        "# TarWriter uses HardLink entries for hard-linked files",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "zip-eager",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md",
+      "sha256": "522f3fadffe3233681f0dd02d49f60938a8aebcf95f3ff1f1caa12c09edb4553",
+      "headings": [
+        "# ZipArchive.CreateAsync eagerly loads ZIP archive entries",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "zip-crc",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/ziparchive-entry-crc32-validation.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/ziparchive-entry-crc32-validation.md",
+      "sha256": "b9309ca79f161d96e1ae2779d6d2b7825ab0b1e33355a5aa6fbcf78163a3685f",
+      "headings": [
+        "# CRC32 validation added when reading ZIP archive entries",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "empty-compression",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/deflatestream-gzipstream-empty-payload.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/deflatestream-gzipstream-empty-payload.md",
+      "sha256": "91da912cd5a2f59abe11ef3f23e5ddf3dd99378e3dae88b7fac09a4281000ee4",
+      "headings": [
+        "# DeflateStream and GZipStream write headers and footers for empty payload",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "apphost-name",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md",
+      "sha256": "ef70b3261c7010add552824ac32f24605c7071bc98eabcf712e4af3ccae6dc93",
+      "headings": [
+        "# Environment.GetCommandLineArgs()[0] preserves the apphost invocation name",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "unix-pipe-mode",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "sha256": "35f58ca22cecfb7e6e70e2d9c59a239ce4d2f0f85eaf06244fef76126d0dc2d7",
+      "headings": [
+        "# NamedPipeServerStream with PipeOptions.CurrentUserOnly tightens Unix socket file permissions",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "unix-isasync",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "sha256": "60da5762bf300135f9636c8c4c2c32bd36df3bbc267a17e6b8c4554714d3c75c",
+      "headings": [
+        "# SafeFileHandle.IsAsync and FileStream.IsAsync accurately reflect non-blocking state on Unix",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "windows-clock",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/environment-tickcount-windows-behavior.md",
+      "sha256": "3bf63f13c5fdf5d744cc62b8b05a766f2fb2f369c6b240f2fd8efdfd16f2dd60",
+      "headings": [
+        "# Environment.TickCount made consistent with Windows timeout behavior",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "custom-type",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws.md",
+      "sha256": "22442a2774a790eb9219be67808f83fe9943a8e07cf40d5324a835277cfb86b0",
+      "headings": [
+        "# Nullable.GetUnderlyingType throws for custom Type subclasses",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "pipe-obsolete",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0063.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/fundamentals/syslib-diagnostics/syslib0063.md",
+      "sha256": "8ae25e0180c5b8d5348d4acd9d4a143262e6b5e348154faf8dbe3f366c2cded7",
+      "headings": [
+        "# SYSLIB0063: NamedPipeClientStream constructor with isConnected is obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "id": "environment-windows",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Environment.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Environment.Windows.cs",
+      "sha256": "d699a6b11e20257248f70cbb2be7ac812540d789b4f112ced49ccd4d8a5cb044",
+      "headings": []
+    },
+    {
+      "id": "filehandle-unix",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+      "sha256": "dc9ffc74a69fe3171ff5a703f20f3db8ef5ccd85805c310cdf38aacb5a7eaa4d",
+      "headings": []
+    },
+    {
+      "id": "nullable-implementation",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Nullable.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Nullable.cs",
+      "sha256": "b82b64f5595856c719fb842f5afb95e05a1854882f09bc76249f64dce33965c6",
+      "headings": []
+    },
+    {
+      "id": "packaging-part",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipPackagePart.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipPackagePart.cs",
+      "sha256": "fcad9e5c399aad05d6de3dff42de2303185ff16c8c48f841db7130796b9aa5d5",
+      "headings": []
+    },
+    {
+      "id": "packaging-project",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Packaging/src/System.IO.Packaging.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System.IO.Packaging.csproj",
+      "sha256": "64dbdd7679a62afa5b1b258accc61f2d6c2349c4dd6984297d2be56659c82125",
+      "headings": []
+    },
+    {
+      "id": "packaging-stream",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipStreamManager.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipStreamManager.cs",
+      "sha256": "1764db83ccc012d5fda76c02dabe6c8bd3c38d2afe1ffdbf1b8973132f30b173",
+      "headings": []
+    },
+    {
+      "id": "pipe-unix",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeServerStream.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeServerStream.Unix.cs",
+      "sha256": "d110b69a4f93c9bd6b219f2aac7c955f04ad0a1a703bf1bc5bc12614e974bdc3",
+      "headings": []
+    },
+    {
+      "id": "sendpackets",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/SendPacketsElement.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/SendPacketsElement.cs",
+      "sha256": "29ff13509c4f5608b3180bc6c08795418cbca2b5589f323c6c7fd4aef94ccece",
+      "headings": []
+    },
+    {
+      "id": "tar-extract-options",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarExtractOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarExtractOptions.cs",
+      "sha256": "814950bcaf8dd6325ddacb151d92a915ab48e44a377485a4217aac216260991c",
+      "headings": []
+    },
+    {
+      "id": "tar-extraction",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarEntry.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarEntry.cs",
+      "sha256": "db9ef7639590ee7ebc423c8e53f0d91fc43e3cc2ccd55cac703ab36ee5c8da83",
+      "headings": []
+    },
+    {
+      "id": "tar-writer",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarWriter.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarWriter.cs",
+      "sha256": "2a46b521cf0919989a8431da8b69706cbb80dfa506f5d2d49926e52632fa34d0",
+      "headings": []
+    },
+    {
+      "id": "tar-writer-options",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarWriterOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarWriterOptions.cs",
+      "sha256": "cc3b01bf7f7e1b1e155ad68cb169bf8e48e5cd4b1e13c7db00240549ae74941e",
+      "headings": []
+    },
+    {
+      "id": "type-implementation",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Type.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Type.cs",
+      "sha256": "e0402f1e338133ba46dbeb4004a1d3b96af5baaa8f0a69025229bf21a22f3a15",
+      "headings": []
+    },
+    {
+      "id": "zip-initialization",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchive.Async.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchive.Async.cs",
+      "sha256": "2a72b8cdc292eba8d6c99c5d3d74906069ba32f6966725ff4a308771cab19f7e",
+      "headings": []
+    },
+    {
+      "id": "system-runtime-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb",
+      "headings": []
+    },
+    {
+      "id": "system-io-compression-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "sha256": "fec77ff21f9d7d372fd6e8ed1467edc2afbb8cce9860c1ca09d494e529f2b666",
+      "headings": []
+    },
+    {
+      "id": "system-formats-tar-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "sha256": "0331ecfd4efd2d3182eeb8b01111dad6a9f535318d7e74351a694a4454139324",
+      "headings": []
+    },
+    {
+      "id": "system-io-pipes-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "sha256": "05feec20580d42d872e47aaa25b3e2b3166500279bb6374da6f549c7a8de5eb7",
+      "headings": []
+    },
+    {
+      "id": "system-runtime-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e",
+      "headings": []
+    },
+    {
+      "id": "system-io-compression-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "sha256": "46bb4bb4f25eeba46ead365dd6e0d20bb26d6dde2af1ad8172076d3ab9925a29",
+      "headings": []
+    },
+    {
+      "id": "system-formats-tar-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+      "sha256": "327c5642a35d790de97814484c8579e9555fdc5c535d7de86b84b53d0e6d962f",
+      "headings": []
+    },
+    {
+      "id": "system-io-pipes-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "sha256": "bb3af29277f41b9cd0aa5fa3c24918b439dc5578f3602f9c20cba3837f6cad6a",
+      "headings": []
+    }
+  ]
+}
