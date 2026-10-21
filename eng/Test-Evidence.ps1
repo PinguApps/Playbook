@@ -4,6 +4,23 @@ param([switch]$Pack)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
 $root = Split-Path $PSScriptRoot -Parent
+$git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
+$inputs = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($record in (Get-ChildItem (Join-Path $root 'samples') -Recurse -Filter verification-evidence.json)) {
+  $saved = Get-Content -LiteralPath $record.FullName -Raw | ConvertFrom-Json -AsHashtable
+  foreach ($inputPath in $saved.inputs.Keys) { $null = $inputs.Add($inputPath) }
+}
+$inputPaths = @($inputs | Sort-Object -CaseSensitive)
+$raw = @($inputPaths | & $git -C $root hash-object --no-filters --stdin-paths)
+if ($LASTEXITCODE -ne 0) { throw 'Could not hash the raw evidence inputs.' }
+$stored = @($inputPaths | & $git -C $root hash-object --stdin-paths)
+if ($LASTEXITCODE -ne 0 -or $raw.Count -ne $inputPaths.Count -or $stored.Count -ne $inputPaths.Count) { throw 'Could not inspect Git normalization for every evidence input.' }
+for ($index = 0; $index -lt $inputPaths.Count; $index++) {
+  if ($raw[$index] -cne $stored[$index]) {
+    throw "Git normalization changes evidence input $($inputPaths[$index]). Normalize its bytes (normally LF), then recapture affected proof before committing."
+  }
+}
+Write-Host 'PASS: evidence input bytes survive Git normalization in a fresh checkout.'
 $fixture = Join-Path ([IO.Path]::GetTempPath()) "playbook-evidence-$([guid]::NewGuid().ToString('N'))"
 try {
   New-Item -ItemType Directory -Path $fixture | Out-Null
