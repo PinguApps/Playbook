@@ -22,6 +22,8 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [SDK/package-host and affected-test audit](../audits/sdk-package-hosts.md) reconciles seven full migration notes, 32 pinned sources and 23 actual package ZIPs. It corrects template-host framework claims and finds experimental affected-test assets on the public test-tools feed, while retaining unproved .NET 11 SDK interoperability. Nine narrow delivery proposals await approval; source/asset discovery does not deliver recipes or clear publication gates.
+
 The [hosting/configuration failure audit](../audits/hosting-configuration.md) reviews all six assigned full notes and two adjacent Extensions entries against 33 immutable official files. Callback and async-options delivery stays with PIN-745/PIN-746; three additional host-failure, provider-failure and watcher-root delivery proposals await approval. The selected source qualifies broad reload-notification and synchronous-validation claims. Source closure does not establish runtime behavior, deliver recipes or clear publication gates.
 
 The [numeric/parsing compatibility audit](../audits/numeric-and-parsing.md) reviews all eight named full mitigations plus inherited tensor Clamp/Round findings against 24 immutable official source files. It distinguishes delivered numeric subcases from remaining coverage and proposes nine narrow delivery follow-ons for approval. Source-audit completion does not deliver those recipes or clear publication gates; the pinned Clamp implementation qualifies the release-note headline for nonvectorizable types.
