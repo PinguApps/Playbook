@@ -45,3 +45,10 @@ public static class HarbourModuleLocations
             ? "harbour://modules/parcel" : assembly.Location;
 }
 // endsnippet:location
+
+// snippet:custom-type
+public sealed class NullableAwareHarbourTokenType : HarbourTokenType
+{
+    // .NET 10 has no GetNullableUnderlyingType virtual to override.
+}
+// endsnippet:custom-type

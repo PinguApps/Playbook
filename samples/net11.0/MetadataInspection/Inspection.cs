@@ -45,3 +45,10 @@ public static class HarbourModuleLocations
     public static string Report(Assembly assembly) => assembly.Location;
 }
 // endsnippet:location
+
+// snippet:custom-type
+public sealed class NullableAwareHarbourTokenType : HarbourTokenType
+{
+    public override Type? GetNullableUnderlyingType() => null;
+}
+// endsnippet:custom-type

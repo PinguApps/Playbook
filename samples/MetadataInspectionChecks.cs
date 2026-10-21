@@ -9,6 +9,23 @@ if (!owns || element != "System.Int32" || arity != 0)
     throw new InvalidOperationException("Metadata-only inspection mismatch.");
 }
 
+if (Nullable.GetUnderlyingType(new NullableAwareHarbourTokenType()) is not null)
+{
+    throw new InvalidOperationException("A non-nullable diagnostic token must return null.");
+}
+#if NET11_0_OR_GREATER
+bool defaultRejected = false;
+try { Nullable.GetUnderlyingType(new HarbourTokenType()); }
+catch (NotSupportedException) { defaultRejected = true; }
+if (!defaultRejected) { throw new InvalidOperationException("A direct Type subclass must implement the new virtual."); }
+#else
+if (Nullable.GetUnderlyingType(new HarbourTokenType()) is not null)
+{
+    throw new InvalidOperationException("The older non-generic token must return null.");
+}
+#endif
+Console.WriteLine("PASS: direct custom Type default behavior and explicit non-nullable adaptation.");
+
 string sourcePath = typeof(Parcel<>).Assembly.Location;
 string coreLocation = typeof(object).Assembly.Location;
 #if NET11_0_OR_GREATER

@@ -1,0 +1,214 @@
+{
+  "id": "reflection.inspect-loaded-metadata",
+  "edition": "11.0",
+  "title": "Inspect metadata-only assemblies and handle unavailable caller information",
+  "goal": "Find a metadata-only assembly's owning context, inspect nullable and constructor metadata, and report caller information with explicit deployment fallbacks.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "reflection",
+    "inspect-loaded-metadata"
+  ],
+  "apis": [
+    "MetadataLoadContext.GetLoadContext",
+    "Type.GetNullableUnderlyingType",
+    "ConstructorInfo.GetGenericArguments",
+    "Assembly.GetCallingAssembly"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "MetadataLoadContext inspection needs an untrimmed file-based CoreCLR host and explicit assembly/dependency paths; it does not execute the inspected code.",
+          "Native AOT caller inspection is a separate sample: .NET 11 needs StackTraceSupport; .NET 10 Native AOT has no equivalent. Caller identity is diagnostic, not an authorization boundary."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer framework APIs and caller behavior are .NET 11 contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 artifacts are test baselines."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; these APIs need no preview language syntax."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.Reflection.MetadataLoadContext",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "The newer metadata inspection uses the package's context lookup and nullable implementation; the exact RC2 sample pin is recorded separately."
+            }
+          ],
+          "packageAssets": [
+            "System.Reflection.MetadataLoadContext lib/net11.0 asset selected for the .NET 11 sample; no down-level package route is claimed."
+          ],
+          "providers": [],
+          "platforms": [
+            "CoreCLR on supported .NET 11 platforms for the file-based metadata/custom-loader example; Windows x64 for the recorded Native AOT publications."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with TargetFramework=net11.0, LangVersion=15.0, ImplicitUsings=enable and Nullable=enable. Put declarations in namespace Playbook.Samples.",
+            "Restore the declared MetadataLoadContext package; supply all inspected assembly dependency paths. Run metadata inspection in an untrimmed file-based CoreCLR process.",
+            "Native AOT publication requires a supported native compiler/linker and OS SDK. The tested Windows x64 tools and exact dependency closures are recorded per publication."
+          ],
+          "constraints": [
+            "MetadataLoadContext inspection needs an untrimmed file-based CoreCLR host and explicit assembly/dependency paths; it does not execute the inspected code.",
+            "Native AOT caller inspection is a separate sample: .NET 11 needs StackTraceSupport; .NET 10 Native AOT has no equivalent. Caller identity is diagnostic, not an authorization boundary.",
+            "No query provider, rendering integration, external account, resource provisioning or optional workload is required. No unverified older-target route is advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with .NET 11 RC2; GA reconciliation remains pending. These selected APIs have no publisher experimental annotation or required experimental opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://learn.microsoft.com/en-us/dotnet/standard/assembly/inspect-contents-using-metadataloadcontext",
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws",
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled",
+          "https://www.nuget.org/packages/System.Reflection.MetadataLoadContext/11.0.0-rc.2.26504.105",
+          "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MetadataInspection/MetadataInspection.csproj",
+          "samples/net11.0/DeploymentInspection/DeploymentInspection.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 library additions"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/assembly/inspect-contents-using-metadataloadcontext",
+      "title": "Microsoft metadata-only inspection guidance"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/nullable-getunderlyingtype-throws",
+      "title": "Microsoft nullable reflection compatibility change"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled",
+      "title": "Microsoft caller assembly compatibility change"
+    },
+    {
+      "url": "https://www.nuget.org/packages/System.Reflection.MetadataLoadContext/11.0.0-rc.2.26504.105",
+      "title": "Microsoft RC2 MetadataLoadContext package assets"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/",
+      "title": "Microsoft Native AOT deployment requirements"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MetadataInspection/MetadataInspection.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32 and constructor arity, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims. Also executes a direct custom Type inheriting the new virtual (NotSupportedException on .NET 11) and the explicit non-nullable override; TypeDelegator is not substituted for this regression."
+    },
+    {
+      "sample": "samples/net11.0/MetadataInspection/MetadataInspection.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32 and constructor arity, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims. Also executes a direct custom Type inheriting the new virtual (NotSupportedException on .NET 11) and the explicit non-nullable override; TypeDelegator is not substituted for this regression."
+    },
+    {
+      "sample": "samples/net10.0/DeploymentInspection/DeploymentInspection.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "record": "samples/net10.0/DeploymentInspection/deployment.evidence.json",
+      "scope": "Supplemental real Windows x64 publications and executions: single-file, Native AOT with stack traces enabled/disabled and CoreCLR with stack traces disabled. Each caller outcome and absent/physical location is asserted. Per-mode native tool versions and resolved publication dependencies are labelled in output, separately from the ordinary managed compilation manifest; no mocks or cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/DeploymentInspection/DeploymentInspection.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "record": "samples/net11.0/DeploymentInspection/deployment.evidence.json",
+      "scope": "Supplemental real Windows x64 publications and executions: single-file, Native AOT with stack traces enabled/disabled and CoreCLR with stack traces disabled. Each caller outcome and absent/physical location is asserted. Per-mode native tool versions and resolved publication dependencies are labelled in output, separately from the ordinary managed compilation manifest; no mocks or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/MetadataInspection/Inspection.cs",
+      "region": "metadata",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/MetadataInspection/Inspection.cs",
+      "region": "metadata",
+      "language": "csharp"
+    },
+    "caller-older": {
+      "path": "samples/net10.0/DeploymentInspection/Inspection.cs",
+      "region": "caller",
+      "language": "csharp"
+    },
+    "caller-newer": {
+      "path": "samples/net11.0/DeploymentInspection/Inspection.cs",
+      "region": "caller",
+      "language": "csharp"
+    },
+    "custom-base": {
+      "language": "csharp",
+      "path": "samples/HarbourTokenType.cs",
+      "region": "custom-base"
+    },
+    "custom-older": {
+      "language": "csharp",
+      "path": "samples/net10.0/MetadataInspection/Inspection.cs",
+      "region": "custom-type"
+    },
+    "custom-newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/MetadataInspection/Inspection.cs",
+      "region": "custom-type"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable Windows x64 managed and native deployment checks provide the claimed behavior; no unavailable Human-only route is required. Other native OS/architecture execution is not claimed."
+  }
+}

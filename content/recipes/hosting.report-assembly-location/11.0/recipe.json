@@ -1,0 +1,179 @@
+{
+  "id": "hosting.report-assembly-location",
+  "edition": "11.0",
+  "title": "Report logical assembly locations and handle missing physical files",
+  "goal": "Give diagnostics a stable logical assembly label while preserving unrelated locations and handling stream-loaded, single-file and Native AOT assemblies without physical paths.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "hosting",
+    "report-assembly-location"
+  ],
+  "apis": [
+    "AssemblyLoadContext.SetAssemblyLocationOverride",
+    "Assembly.Location",
+    "AppContext.BaseDirectory"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "SetAssemblyLocationOverride is static, process-wide and set-once. Configure only in a host you control; never call Assembly.Location recursively inside the callback.",
+          "A logical override does not create a file or change assembly resolution. Single-file, stream-loaded and Native AOT locations may be empty; the custom callback example is checked on CoreCLR only."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer framework APIs and caller behavior are .NET 11 contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 artifacts are test baselines."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; these APIs need no preview language syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "CoreCLR on supported .NET 11 platforms for the file-based metadata/custom-loader example; Windows x64 for the recorded Native AOT publications."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with TargetFramework=net11.0, LangVersion=15.0, ImplicitUsings=enable and Nullable=enable. Put declarations in namespace Playbook.Samples.",
+            "Native AOT publication requires a supported native compiler/linker and OS SDK. The tested Windows x64 tools and exact dependency closures are recorded per publication."
+          ],
+          "constraints": [
+            "SetAssemblyLocationOverride is static, process-wide and set-once. Configure only in a host you control; never call Assembly.Location recursively inside the callback.",
+            "A logical override does not create a file or change assembly resolution. Single-file, stream-loaded and Native AOT locations may be empty; the custom callback example is checked on CoreCLR only.",
+            "No query provider, rendering integration, external account, resource provisioning or optional workload is required. No unverified older-target route is advertised.",
+            "The custom location callback needs only framework assemblies. The separate metadata-inspection project also restores MetadataLoadContext for its independent checks; that package is not a prerequisite of the callback."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with .NET 11 RC2; GA reconciliation remains pending. These selected APIs have no publisher experimental annotation or required experimental opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Loader/AssemblyLoadContext.cs",
+          "https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview",
+          "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MetadataInspection/MetadataInspection.csproj",
+          "samples/net11.0/DeploymentInspection/DeploymentInspection.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 library additions"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/Loader/AssemblyLoadContext.cs",
+      "title": "Immutable Microsoft RC2 process-wide location callback"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview",
+      "title": "Microsoft single-file deployment and missing locations"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/",
+      "title": "Microsoft Native AOT deployment requirements"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MetadataInspection/MetadataInspection.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32 and constructor arity, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims."
+    },
+    {
+      "sample": "samples/net11.0/MetadataInspection/MetadataInspection.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real CoreCLR compilation/execution checks metadata-only context ownership, nullable Int32 and constructor arity, a stream-loaded assembly and process-wide logical location reporting. Untrimmed file-based host; no Native AOT or editor claims."
+    },
+    {
+      "sample": "samples/net10.0/DeploymentInspection/DeploymentInspection.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "record": "samples/net10.0/DeploymentInspection/deployment.evidence.json",
+      "scope": "Supplemental real Windows x64 publications and executions: single-file, Native AOT with stack traces enabled/disabled and CoreCLR with stack traces disabled. Each caller outcome and absent/physical location is asserted. Per-mode native tool versions and resolved publication dependencies are labelled in output, separately from the ordinary managed compilation manifest; no mocks or cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/DeploymentInspection/DeploymentInspection.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "record": "samples/net11.0/DeploymentInspection/deployment.evidence.json",
+      "scope": "Supplemental real Windows x64 publications and executions: single-file, Native AOT with stack traces enabled/disabled and CoreCLR with stack traces disabled. Each caller outcome and absent/physical location is asserted. Per-mode native tool versions and resolved publication dependencies are labelled in output, separately from the ordinary managed compilation manifest; no mocks or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/MetadataInspection/Inspection.cs",
+      "region": "location",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/MetadataInspection/Inspection.cs",
+      "region": "location",
+      "language": "csharp"
+    },
+    "caller-older": {
+      "path": "samples/net10.0/DeploymentInspection/Inspection.cs",
+      "region": "caller",
+      "language": "csharp"
+    },
+    "caller-newer": {
+      "path": "samples/net11.0/DeploymentInspection/Inspection.cs",
+      "region": "caller",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable Windows x64 managed and native deployment checks provide the claimed behavior; no unavailable Human-only route is required. Other native OS/architecture execution is not claimed."
+  }
+}

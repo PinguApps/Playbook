@@ -6,7 +6,8 @@
   "additionalInputs": [
     "samples/MetadataInspectionChecks.cs",
     "eng/Record-Evidence.ps1",
-    "eng/Evidence.ps1"
+    "eng/Evidence.ps1",
+    "samples/HarbourTokenType.cs"
   ],
   "buildArguments": [],
   "nativeToolchains": []
