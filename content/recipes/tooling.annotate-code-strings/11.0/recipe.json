@@ -1,0 +1,138 @@
+{
+  "id": "tooling.annotate-code-strings",
+  "edition": "11.0",
+  "title": "Annotate embedded code strings for editor tooling",
+  "goal": "Mark string parameters as C#, F# or Visual Basic source so supporting editors can recognise the embedded language without implying runtime validation or execution.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tooling",
+    "annotate-code-strings"
+  ],
+  "apis": [
+    "StringSyntaxAttribute.CSharp",
+    "StringSyntaxAttribute.FSharp",
+    "StringSyntaxAttribute.VisualBasic"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Annotations are metadata only. Editor assistance depends on that editor and language service; no particular editor support or UI behavior is verified.",
+          "Invalid source still passes through these sample methods unchanged; parsing, compilation and execution require separate application logic."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer framework APIs and caller behavior are .NET 11 contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 artifacts are test baselines."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; these APIs need no preview language syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11; managed checks executed on Windows x64."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with TargetFramework=net11.0, LangVersion=15.0, ImplicitUsings=enable and Nullable=enable. Put declarations in namespace Playbook.Samples."
+          ],
+          "constraints": [
+            "Annotations are metadata only. Editor assistance depends on that editor and language service; no particular editor support or UI behavior is verified.",
+            "Invalid source still passes through these sample methods unchanged; parsing, compilation and execution require separate application logic.",
+            "No query provider, rendering integration, external account, resource provisioning or optional workload is required. No unverified older-target route is advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with .NET 11 RC2; GA reconciliation remains pending. These selected APIs have no publisher experimental annotation or required experimental opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/CodeAnalysis/StringSyntaxAttribute.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ContentDescriptions/ContentDescriptions.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 StringSyntax additions"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/CodeAnalysis/StringSyntaxAttribute.cs",
+      "title": "Immutable Microsoft RC2 syntax identifiers"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ContentDescriptions/ContentDescriptions.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real compilation/execution checks C#/F#/Visual Basic attribute identifiers, unchanged invalid source, five exact video media types, data versus HTTPS addresses and rejected relative/unknown-format inputs. No editor UI, payload parsing or media playback is claimed."
+    },
+    {
+      "sample": "samples/net11.0/ContentDescriptions/ContentDescriptions.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real compilation/execution checks C#/F#/Visual Basic attribute identifiers, unchanged invalid source, five exact video media types, data versus HTTPS addresses and rejected relative/unknown-format inputs. No editor UI, payload parsing or media playback is claimed."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ContentDescriptions/Descriptions.cs",
+      "region": "syntax",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/ContentDescriptions/Descriptions.cs",
+      "region": "syntax",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed checks need no Human-only proof. Editor assistance, media decoding and playback are not claimed."
+  }
+}
