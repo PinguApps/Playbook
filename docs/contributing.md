@@ -90,6 +90,16 @@ Update the relevant [source-disposition register](planning/inventory/README.md):
 
 ### Assemble the authoring files
 
+A deliberately theoretical edition may carry only `official-review` records when
+`humanProof.status` is `pending`. Record the reviewed sources and actual input
+hashes; identify SDK/language values as intended sample pins, and state that no
+build, execution or artifact inspection occurred. Development builds retain
+`kind: official-review` and `role: source-review`, and automatically disclose the
+missing compilation/execution in discovery and detailed applicability. Mocks and
+execution-only records cannot use this authoring path. `-ReleaseReady` still
+rejects pending proof. This permits source review without inventing evidence;
+it does not make the recipe verified or ready for publication.
+
 Use the [seed metadata](../content/recipes/csharp.validate-property-assignment/10.0/recipe.json), [seed Markdown](../content/recipes/csharp.validate-property-assignment/10.0/recipe.md) and [schema](../eng/recipe.schema.json) as a structural reference. Author the new content independently; do not copy the seed's claims, baselines or successful evidence into another goal.
 
 - **Identity/discovery:** `id`, `edition`, `title`, `goal`, `areas`, `exampleLanguages`, `tags`, `apis`, `introducedIn`, `supportedTargets` and `stability`. Preserve published stable IDs. `edition` identifies guidance; `introducedIn` identifies the feature; neither automatically establishes compatibility.
