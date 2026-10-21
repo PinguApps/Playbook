@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion></PropertyGroup><ItemGroup><Compile Include="../../ArchiveChecks.cs" Link="Program.cs" /><Compile Include="../../TarSparseFixture.cs" Link="TarSparseFixture.cs" /></ItemGroup></Project>
