@@ -22,7 +22,8 @@ public static class CacheExamples
         };
         listener.SetMeasurementEventCallback<long>((_, value, _, _) => measured = value);
         listener.Start();
-        cache.Set("tide-table", "twelve rows", new MemoryCacheEntryOptions().SetSize(12));
+        int[] rows = Enumerable.Range(1, 12).ToArray();
+        cache.Set("tide-table", rows, new MemoryCacheEntryOptions().SetSize(rows.Length));
         _ = cache.TryGetValue("tide-table", out _);
         _ = cache.TryGetValue("absent-table", out _);
         listener.RecordObservableInstruments();

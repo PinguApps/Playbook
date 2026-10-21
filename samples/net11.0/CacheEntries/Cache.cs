@@ -27,17 +27,20 @@ public static class CacheExamples
         listener.SetMeasurementEventCallback<long>((instrument, value, tags, _) =>
         {
             string result = "";
+            bool named = false;
             foreach (KeyValuePair<string, object?> tag in tags)
             {
                 if (tag.Key == "dotnet.cache.request.result") { result = ":" + tag.Value; }
-                if (tag.Key == "dotnet.cache.name" && !Equals(tag.Value, "quayside")) { return; }
+                if (tag.Key == "dotnet.cache.name") { named = Equals(tag.Value, "quayside"); }
             }
+            if (!named) { throw new Exception("Missing cache name tag."); }
             readings[instrument.Name + result] = value;
         });
         listener.Start();
         MemoryCache cache = (MemoryCache)provider.GetRequiredService<IMemoryCache>();
         TaskCompletionSource evicted = new(TaskCreationOptions.RunContinuationsAsynchronously);
-        cache.Set("tide-table", "twelve rows", new MemoryCacheEntryOptions().SetSize(12)
+        int[] rows = Enumerable.Range(1, 12).ToArray();
+        cache.Set("tide-table", rows, new MemoryCacheEntryOptions().SetSize(rows.Length)
             .RegisterPostEvictionCallback((_, _, _, _) => evicted.TrySetResult()));
         _ = cache.TryGetValue("tide-table", out _);
         _ = cache.TryGetValue("absent-table", out _);

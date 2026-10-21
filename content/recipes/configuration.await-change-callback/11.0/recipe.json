@@ -51,14 +51,14 @@
             "reason": "Canonical sample language mode; no preview language syntax is used."
           },
           "frameworks": [
-            "Microsoft.AspNetCore.App 11 shared framework; full implementations, not only base-framework abstractions."
+            "Microsoft.AspNetCore.App 11 shared framework"
           ],
           "packages": [],
           "workloads": [],
           "packageAssets": [],
           "providers": [],
           "platforms": [
-            "Any platform supporting the declared .NET/shared-framework combination; managed checks executed on Windows x64."
+            "Desktop/server .NET 11 with Microsoft.AspNetCore.App; executed on Windows x64. Browser/WASI/mobile excluded."
           ],
           "renderingModes": [],
           "prerequisites": [
@@ -71,7 +71,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Verified against .NET 11 RC2, not GA. These APIs are not publisher-designated experimental; no experimental opt-in is required."
+            "RC2 verification; GA reconciliation pending. No experimental API opt-in."
           ]
         },
         "sourceUrls": [
@@ -85,7 +85,6 @@
         "sharedAreas": [
           "aspnetcore",
           "blazor",
-          "maui",
           "winforms",
           "wpf"
         ]
