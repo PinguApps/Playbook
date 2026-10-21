@@ -18,6 +18,7 @@ jobs:
       checks: write
       pull-requests: write
     with:
+      smoke: true
       package_version: 0.0.0-ci.${{ github.run_number }}
       publish_test_results_to_github: ${{ github.event_name == 'pull_request' && !github.event.pull_request.head.repo.fork }}
       publish_test_results_comment_mode: always

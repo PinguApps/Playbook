@@ -87,8 +87,10 @@ tool/test lock files are introduced.
 
 ## Policy checks
 
-CI runs the real Renovate rule checks before the package build and the inventory
-check through `eng/Verify.ps1`. The rule check resolves the current shared preset,
+PR CI runs the real Renovate rule checks before the package build when dependency,
+project, workflow or policy files change; full release/manual validation always
+runs them. The inventory check runs on every PR through `eng/Test-Smoke.ps1` and
+in full validation through `eng/Verify.ps1`. The rule check resolves the current shared preset,
 extracts actual dependencies and checks synthetic future-project, dependency,
 release-line and update-type cases. It uses Renovate's own version matching,
 rule evaluator and branch generation, not a substitute implementation.

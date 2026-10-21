@@ -14,7 +14,18 @@ The host remains a workload-free .NET 10 tool. Keep sample SDKs, provider depend
 
 The seed workflow below follows these steps using `csharp.validate-property-assignment`. [The verification record](verification/PIN-674.md) records the commands exercised for this guide.
 
-## Verify the seed recipe
+## Quick pull request check
+
+Ordinary PRs build/pack the tool and run one installed MCP smoke scenario. With PowerShell 7 and .NET SDK 10.0.402:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6e51df7e'
+& ./eng/Test-Smoke.ps1
+```
+
+Expect one passed scenario and a final `PASS` message. This checks installation, initialization, tool discovery, recipe list/get and clean shutdown. Build/pack still validates recipe metadata and saved evidence freshness. Adding a recipe does not require adding another PR smoke scenario. Run the relevant samples when authoring or changing their behaviour; capture fresh evidence for changed inputs. The broader checks below remain available locally and run before release or through manual `Run Tests` dispatch. See [automation](automation.md) for the coverage tradeoff.
+
+## Full verification
 
 Build prerequisites: PowerShell 7, .NET SDK **10.0.402**, **9.0.319** and **11.0.100-rc.2.26504.105**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
 
