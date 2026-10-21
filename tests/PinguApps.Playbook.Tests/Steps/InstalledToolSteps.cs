@@ -1483,6 +1483,81 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("bit collection and vector guidance retains canonical bodies applicability editions and pending proof")]
+    public async Task CheckBitCollectionAndVectorGuidanceAsync()
+    {
+        foreach ((string id, string family, string file, string region) in new[]
+        {
+            ("collections.count-and-build-bits", "BitCollections", "Collections", "bits"),
+            ("collections.compare-by-key", "BitCollections", "Collections", "keys"),
+            ("simd.arrange-lanes", "VectorLanes", "Lanes", "lanes"),
+            ("simd.select-supported-instructions", "SupportedInstructions", "Instructions", "dispatch"),
+        })
+        {
+            string goal = id.Split('.')[1];
+            JsonElement olderList = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = goal }).ConfigureAwait(false));
+            Assert.Empty(RecipeIds(olderList));
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+            JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = goal }).ConfigureAwait(false));
+            JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+            Assert.Equal(id, summary.GetProperty("id").GetString());
+            Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+            AssertSelection(summary, recipe);
+            string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+            foreach ((string token, string release) in new[] { ("older", "net10.0"), ("newer", "net11.0") })
+            {
+                string source = await ReadCanonicalAsync($"{release}.{family}.{file}.cs").ConfigureAwait(false);
+                string snippet = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
+                    .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+            }
+
+            bool advancedInstructions = family == "SupportedInstructions";
+            if (advancedInstructions)
+            {
+                string fallback = await ReadCanonicalAsync("net11.0.SupportedInstructions.Fallbacks.cs").ConfigureAwait(false);
+                Assert.Equal(await ReadCanonicalAsync("net10.0.SupportedInstructions.Fallbacks.cs").ConfigureAwait(false), fallback);
+                string snippet = fallback.Split("// snippet:fallback\n", StringSplitOptions.None)[1]
+                    .Split("// endsnippet:fallback", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace("{{snippet:fallback}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+            }
+
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            Assert.Equal("11.0", route.GetProperty("target").GetString());
+            JsonElement requirements = route.GetProperty("requirements");
+            Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+            Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+            Assert.Equal("15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+            foreach (string field in new[] { "packages", "packageAssets", "providers", "workloads", "renderingModes" })
+            {
+                Assert.Empty(requirements.GetProperty(field).EnumerateArray());
+            }
+
+            Assert.Equal(advancedInstructions ? "experimental" : "stable", summary.GetProperty("stability").GetString());
+            Assert.Equal(advancedInstructions ? "pending" : "not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            if (advancedInstructions)
+            {
+                Assert.NotEmpty(requirements.GetProperty("optIns").EnumerateArray());
+                Assert.Contains("SYSLIB5003", requirements.GetProperty("optIns").ToString(), StringComparison.Ordinal);
+                Assert.Contains("pending", summary.GetProperty("goal").GetString(), StringComparison.Ordinal);
+                Assert.Contains("Pending Human proof", expected, StringComparison.Ordinal);
+            }
+
+            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                Assert.Contains("PASS", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            });
+        }
+    }
+
     [Then("numeric guidance retains complete canonical bodies applicability and editions")]
     public async Task CheckNumericGuidanceAsync()
     {

@@ -41,7 +41,7 @@ try {
   dotnet @arguments
   [xml]$trx = Get-Content (Join-Path $Results 'playbook.trx')
   $counts = $trx.TestRun.ResultSummary.Counters
-  $expectedCount = if ($Smoke) { 1 } else { 25 }
+  $expectedCount = if ($Smoke) { 1 } else { 26 }
   if ([int]$counts.total -ne $expectedCount -or [int]$counts.passed -ne $expectedCount -or [int]$counts.failed -ne 0) {
     throw "Expected $expectedCount passing installed scenarios; received total $($counts.total), passed $($counts.passed), failed $($counts.failed)."
   }

@@ -6,6 +6,18 @@
   <ItemGroup>
     <EmbeddedResource Include="../../content/recipes/sdk.*/**/recipe.json;../../content/recipes/sdk.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/RepositoryUtility/*.cs;../../samples/net*/ComposedUtility/*.cs;../../samples/net*/SdkWorkflows/*.cs;../../samples/net*/SdkWorkflows/*.csproj;../../samples/net*/SdkWorkflows/Template/*.cs;../../samples/net*/SdkWorkflows/Template/*.csproj;../../samples/net*/WatchAppHost/*.cs;../../samples/net*/WatchAppHost/*.csproj" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net10.0/BitCollections/Collections.cs" LogicalName="Canonical.net10.0.BitCollections.Collections.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/BitCollections/Collections.cs" LogicalName="Canonical.net11.0.BitCollections.Collections.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/VectorLanes/Lanes.cs" LogicalName="Canonical.net10.0.VectorLanes.Lanes.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/VectorLanes/Lanes.cs" LogicalName="Canonical.net11.0.VectorLanes.Lanes.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/SupportedInstructions/Instructions.cs" LogicalName="Canonical.net10.0.SupportedInstructions.Instructions.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/SupportedInstructions/Instructions.cs" LogicalName="Canonical.net11.0.SupportedInstructions.Instructions.cs" />
+    <EmbeddedResource Include="../../samples/net10.0/SupportedInstructions/Fallbacks.cs" LogicalName="Canonical.net10.0.SupportedInstructions.Fallbacks.cs" />
+    <EmbeddedResource Include="../../samples/net11.0/SupportedInstructions/Fallbacks.cs" LogicalName="Canonical.net11.0.SupportedInstructions.Fallbacks.cs" />
+    <EmbeddedResource Include="../../content/recipes/collections.count-and-build-bits/11.0/recipe.md" LogicalName="Canonical.collections.count-and-build-bits.md" />
+    <EmbeddedResource Include="../../content/recipes/collections.compare-by-key/11.0/recipe.md" LogicalName="Canonical.collections.compare-by-key.md" />
+    <EmbeddedResource Include="../../content/recipes/simd.arrange-lanes/11.0/recipe.md" LogicalName="Canonical.simd.arrange-lanes.md" />
+    <EmbeddedResource Include="../../content/recipes/simd.select-supported-instructions/11.0/recipe.md" LogicalName="Canonical.simd.select-supported-instructions.md" />
     <EmbeddedResource Include="../../samples/net10.0/NumericGuidance/Numbers.cs" LogicalName="Canonical.net10.0.NumericGuidance.Numbers.cs" />
     <EmbeddedResource Include="../../samples/net11.0/NumericGuidance/Numbers.cs" LogicalName="Canonical.net11.0.NumericGuidance.Numbers.cs" />
     <EmbeddedResource Include="../../content/recipes/numerics.choose-ieee-decimal/11.0/recipe.md" LogicalName="Canonical.numerics.choose-ieee-decimal.md" />

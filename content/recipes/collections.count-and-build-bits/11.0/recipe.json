@@ -1,0 +1,139 @@
+{
+  "id": "collections.count-and-build-bits",
+  "edition": "11.0",
+  "title": "Build compact flags from spans and count enabled positions",
+  "goal": "Read packed bytes, words or switches into an owned bit collection and count logical enabled positions with explicit bit order.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "collections",
+    "count-and-build-bits"
+  ],
+  "apis": [
+    "BitArray(ReadOnlySpan<byte>)",
+    "BitArray(ReadOnlySpan<bool>)",
+    "BitArray(ReadOnlySpan<int>)",
+    "BitArray.PopCount"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Span constructors copy the input; BitArray owns its mutable storage.",
+          "Byte and int inputs use least-significant-bit-first positions; trim Length when padding is not part of the logical set."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the .NET 11 collection contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0, ImplicitUsings=enable and Nullable=enable. Import System.Collections for BitArray; place declarations in namespace Playbook.Samples."
+          ],
+          "constraints": [
+            "Span constructors copy the input; BitArray owns its mutable storage.",
+            "Byte and int inputs use least-significant-bit-first positions; trim Length when padding is not part of the logical set.",
+            "Framework-provided managed APIs; no extra package/assets, workload, provider or rendering mode. No older-target package route or query-provider translation is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Collections/BitArray.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BitCollections/BitCollections.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 collection release guidance"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Collections/BitArray.cs",
+      "title": "Immutable Microsoft RC2 collection implementation"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BitCollections/BitCollections.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual builds and managed execution check copied span storage, exact bit positions/counts, logical tails, key equality/hash consistency, null/default/case-sensitive keys and explicit ordering. No mocks, cross-compilation, providers or GA verification."
+    },
+    {
+      "sample": "samples/net11.0/BitCollections/BitCollections.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual builds and managed execution check copied span storage, exact bit positions/counts, logical tails, key equality/hash consistency, null/default/case-sensitive keys and explicit ordering. No mocks, cross-compilation, providers or GA verification."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/BitCollections/Collections.cs",
+      "region": "bits",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/BitCollections/Collections.cs",
+      "region": "bits",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed collection behavior is executed locally; no native hardware, UI/device or provider Human action is required."
+  }
+}
