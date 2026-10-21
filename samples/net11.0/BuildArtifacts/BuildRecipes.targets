@@ -1,0 +1,29 @@
+<Project>
+  <!-- snippet:archive -->
+  <Target Name="ArchiveDispatch" DependsOnTargets="Build">
+    <PropertyGroup>
+      <DispatchArchive>$(MSBuildProjectDirectory)/obj/dispatch.tar</DispatchArchive>
+      <DispatchExtract>$(MSBuildProjectDirectory)/obj/unpacked</DispatchExtract>
+    </PropertyGroup>
+    <TarDirectory SourceDirectory="$(TargetDir)" DestinationFile="$(DispatchArchive)" Overwrite="true" />
+    <Untar SourceFiles="$(DispatchArchive)" DestinationFolder="$(DispatchExtract)"
+           SkipUnchangedFiles="true" OverwriteReadOnlyFiles="false" />
+    <Error Condition="!Exists('$(DispatchExtract)/payload/departures.txt')" Text="Dispatch sheet missing from extracted artifact." />
+  </Target>
+  <!-- endsnippet:archive -->
+
+  <!-- snippet:globs -->
+  <PropertyGroup>
+    <MSBuildProvideItemGlobs>DispatchSheet</MSBuildProvideItemGlobs>
+  </PropertyGroup>
+  <ItemGroup>
+    <DispatchSheet Include="payload/**/*.txt" Exclude="payload/private/**" />
+    <DispatchSheet Remove="payload/**/draft-*.txt" />
+  </ItemGroup>
+  <Target Name="ExplainDispatchInputs">
+    <Message Importance="high"
+             Text="%(MSBuildItemGlob.Identity): include=%(MSBuildItemGlob.Include); exclude=%(MSBuildItemGlob.Exclude); remove=%(MSBuildItemGlob.Remove)" />
+    <Message Importance="high" Text="Expanded files=@(DispatchSheet)" />
+  </Target>
+  <!-- endsnippet:globs -->
+</Project>

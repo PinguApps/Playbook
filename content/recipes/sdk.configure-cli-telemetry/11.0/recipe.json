@@ -1,0 +1,166 @@
+{
+  "id": "sdk.configure-cli-telemetry",
+  "edition": "11.0",
+  "title": "Choose CLI telemetry collection and export explicitly",
+  "goal": "Apply a deliberate process-scoped CLI telemetry policy, distinguishing Microsoft collection, optional OTLP export and application telemetry.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "sdk-build-artifacts",
+    "configure-cli-telemetry"
+  ],
+  "apis": [
+    "DOTNET_CLI_TELEMETRY_OPTOUT",
+    "OTEL_EXPORTER_OTLP_ENDPOINT",
+    "OTEL_EXPORTER_OTLP_PROTOCOL"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+          "OTLP export requires an existing collector and an explicit choice to enable CLI collection.",
+          "Configuring an OTLP endpoint is not an exclusive redirect of Microsoft telemetry."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended managed consumer target; not an observed runtime result."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The documented newer SDK family; exact sample pin is unbuilt RC2, not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Intended language mode of the original managed consumer; the XML glob configuration itself is language-neutral."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by the selected .NET SDK; no platform execution is claimed."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Select actual absolute executable paths and inspect the consumer global.json, project and shared build/package inheritance.",
+            "These samples are theoretical. No build, package installation, collector, engine, archive or installed MCP retrieval has been exercised."
+          ],
+          "constraints": [
+            "OTLP export requires an existing collector and an explicit choice to enable CLI collection.",
+            "Configuring an OTLP endpoint is not an exclusive redirect of Microsoft telemetry.",
+            "Target 11 only; .NET 10 sources are previous-release comparisons, not an additional historical foundation or a tested older-target route.",
+            "Playbook only serves embedded guidance. No provisioning, registry push, telemetry transmission or consumer mutation is performed by consulting it."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.",
+            "Official .NET 11 RC documentation and source were reviewed; the pinned RC2 samples are uncompiled. No experimental API is intentionally used; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry",
+          "https://github.com/dotnet/sdk/blob/main/src/Cli/dotnet/Telemetry/TelemetryClient.cs",
+          "https://opentelemetry.io/docs/specs/otel/protocol/exporter/"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CliTelemetry/CliTelemetry.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": ".NET 11 SDK capabilities",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk"
+    },
+    {
+      "title": "CLI collection defaults, opt-out and scope",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry"
+    },
+    {
+      "title": "CLI OTLP exporter activation and opt-out source",
+      "url": "https://github.com/dotnet/sdk/blob/main/src/Cli/dotnet/Telemetry/TelemetryClient.cs"
+    },
+    {
+      "title": "OpenTelemetry OTLP exporter environment contract",
+      "url": "https://opentelemetry.io/docs/specs/otel/protocol/exporter/"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "official-review",
+      "sample": "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
+      "record": "samples/net10.0/CliTelemetry/source-review.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/CliTelemetry/CliTelemetry.csproj",
+      "record": "samples/net11.0/CliTelemetry/source-review.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Official-source review and original sample authoring only. SDK/target/language values describe intended inputs, not observed compilation. No compilation, cross-compilation, mock, execution, artifact or installed MCP proof."
+    }
+  ],
+  "snippets": {
+    "older-project": {
+      "path": "samples/net10.0/CliTelemetry/CliTelemetry.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "newer-project": {
+      "path": "samples/net11.0/CliTelemetry/CliTelemetry.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "older": {
+      "path": "samples/net10.0/CliTelemetry/Program.cs",
+      "region": "telemetry",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CliTelemetry/Program.cs",
+      "region": "telemetry",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu requested theoretical implementation without tests or live checks on 21 October 2026. Compilation, claim-specific behavior/artifacts and installed offline retrieval remain unverified; release-ready packaging remains blocked. No request to obtain Podman or perform these checks is outstanding."
+  }
+}
