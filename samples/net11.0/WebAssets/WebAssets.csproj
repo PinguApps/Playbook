@@ -1,0 +1,22 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <EnableTypeScriptNuGetTarget>true</EnableTypeScriptNuGetTarget>
+    <PierAudience Condition="'$(PierAudience)' == ''">crew</PierAudience>
+  </PropertyGroup>
+  <ItemGroup>
+    <ConfigFiles Include="tsconfig.json" />
+    <Content Remove="global.json;tsconfig.json;verification*.json;*.evidence.json;packages.lock.json" />
+    <ProjectReference Include="../RclAssets/RclAssets.csproj" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.9.3" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <StaticWebAssetGroupDefinition Include="Audience" Value="crew" SourceId="$(PackageId)" IncludePattern="crew/**" Order="1" />
+    <StaticWebAssetGroup Include="Audience" Value="$(PierAudience)" SourceId="$(PackageId)" />
+    <StaticWebAssetAdditionalEndpointDefinition Include="PierIndex" Pattern="**/index.html" Replacement="" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->

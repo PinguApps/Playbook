@@ -1,0 +1,166 @@
+{
+  "id": "sdk.package-tools-correctly",
+  "edition": "11.0",
+  "title": "Package an installable command with the SDK tool contract",
+  "goal": "Package a command-line utility for local or global tool installation when SDK-generated tool settings and package layout must remain valid.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sdk-delivery",
+    "package-tools-correctly"
+  ],
+  "apis": [
+    "PackAsTool",
+    "NuspecFile",
+    "NETSDK1235",
+    "ToolCommandName"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Select this guidance for SDK 11; the older comparison is not a separate target-10 catalogue edition."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared managed consumer target; independent of the installed Playbook host."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK family supplying the newer commands and build tasks; exact RC2 pin is evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Supported language mode of the compiled .NET 11 C# examples."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Tool supported .NET platforms; original single-file artifact executed on Windows x64 only."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "PowerShell 7 for the recorded checks; inspect the selected application's target, global.json and shared build/package settings."
+          ],
+          "constraints": [
+            "Playbook serves this guidance offline; the calling agent selects and runs consumer commands.",
+            "This edition declares target 11 only. Actual .NET 10 examples are previous-release comparisons, not extra historical foundations or an undeclared compatibility route.",
+            "Single-file execution proof is win-x64 and framework-dependent. Publish separately and verify on every other intended RID. Tool installation is local-only in the checks."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            ".NET 11 evidence uses RC2, not GA. No API taught here is designated experimental; reconcile final SDK contracts at GA."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create",
+          "https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/DeliveryTool/DeliveryTool.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/global-tools-how-to-create"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview"
+    },
+    {
+      "title": "Official SDK or framework contract",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
+      "record": "samples/net10.0/DeliveryTool/commands.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual declared build; only compile-and-run entries execute the managed assembly. Separate execution records contain runner, install and publish behavior. Windows x64, not GA or native-platform proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
+      "record": "samples/net11.0/DeliveryTool/commands.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real bounded SDK commands and artifacts on Windows x64; no mocks, container deployment, mobile or GA claim."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/DeliveryTool/DeliveryTool.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/DeliveryTool/DeliveryTool.csproj",
+      "region": "project",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded actual managed runner and publish/install artifact checks cover the taught goal; no native device or Human-only claim."
+  }
+}

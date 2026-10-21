@@ -1,0 +1,23 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <OutputType>Library</OutputType>
+    <PackageId>Pier.Deck.Assets</PackageId>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <EnableTypeScriptNuGetTarget>true</EnableTypeScriptNuGetTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <ConfigFiles Include="tsconfig.json" />
+    <Content Remove="global.json;tsconfig.json;verification*.json;*.evidence.json;packages.lock.json" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.9.3" PrivateAssets="all" />
+  </ItemGroup>
+  <Target Name="RegisterDeckScripts" BeforeTargets="ResolveProjectStaticWebAssets" DependsOnTargets="CheckFileSystemCaseSensitive;FindConfigFiles;CompileTypeScriptWithTSConfig;GetTypeScriptOutputForPublishing">
+    <ItemGroup>
+    <ConfigFiles Include="tsconfig.json" />
+    <Content Remove="global.json;tsconfig.json;verification*.json;*.evidence.json;packages.lock.json" /><Content Update="wwwroot/bin/deck.js" CopyToPublishDirectory="PreserveNewest" /></ItemGroup>
+  </Target>
+</Project>
+<!-- endsnippet:project -->

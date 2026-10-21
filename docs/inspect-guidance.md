@@ -6,6 +6,8 @@ startup and cache metrics/value-derived lifetimes, use the
 It displays six original goals, full comparisons and applicability, including
 the measured HybridCache LocalSize RC limitation retained for GA reconciliation.
 
+For test-runner creation/selection, tool packaging, single-file extraction and grouped static/TypeScript assets, use the [PIN-762–764 walkthrough](verification/PIN-762-764.md#inspect-what-an-agent-receives). It displays five original discovery goals, complete .NET 10/11 comparisons and target-11 applicability, including measured RC2 limits.
+
 For assembly metadata/locations, Native AOT caller diagnostics, code-string annotations and data-URI/video descriptions, use the [tested PIN-742–744 walkthrough](verification/PIN-742-744.md#inspect-what-an-agent-receives). It displays four original goals, complete comparisons and applicability, with separate managed/native evidence and explicit editor/payload limits.
 
 For file utilities, solution/format/launch targeting and local build/watch/template workflows, use the [PIN-759–761 walkthrough](verification/PIN-759-761.md#inspect-what-an-agent-receives). It displays eight original goals, complete bodies and applicability, including the explicit unresolved mobile proof accepted for PR review.

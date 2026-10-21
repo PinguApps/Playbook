@@ -1,0 +1,27 @@
+{
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.ApplicationInsights/2.23.0",
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0",
+    "Microsoft.Testing.Extensions.Telemetry/2.0.2",
+    "Microsoft.Testing.Extensions.TrxReport.Abstractions/2.0.2",
+    "Microsoft.Testing.Platform.MSBuild/2.0.2",
+    "Microsoft.Testing.Platform/2.0.2",
+    "Microsoft.Win32.Registry/5.0.0",
+    "xunit.analyzers/1.27.0",
+    "xunit.v3.assert/3.2.2",
+    "xunit.v3.common/3.2.2",
+    "xunit.v3.core.mtp-v2/3.2.2",
+    "xunit.v3.extensibility.core/3.2.2",
+    "xunit.v3.mtp-v2/3.2.2",
+    "xunit.v3.runner.common/3.2.2",
+    "xunit.v3.runner.inproc.console/3.2.2"
+  ],
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-SdkDelivery.ps1"
+  ]
+}
