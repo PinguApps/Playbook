@@ -1,0 +1,29 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "Read official documentation and SDK source; author original comparison. No sample command executed.",
+  "scope": "Source review only; intended SDK/target/language declarations have not been built or exercised.",
+  "recordedAt": "2026-10-21T18:56:34.308Z",
+  "sourceCommit": "84c0724182f02b46505249bff7b19bb1dffb9d3d",
+  "sourceDirty": true,
+  "inputs": {
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net10.0/ContainerPublishing/ContainerPublishing.csproj": "9b81c7e969e91afff0604c3b7c351946f5e40ca6ddc5309f3fc26631acdbfa1c",
+    "samples/net10.0/ContainerPublishing/Program.cs": "0802ea0c5085ee32fd0a76eb64f9c7e998bdef0ae1804f0f7357c83fb6f43d64",
+    "samples/net10.0/ContainerPublishing/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+    "samples/net10.0/ContainerPublishing/verification.json": "69deeb654058ff092031a07a2bf40daa732d175cac180a96bf510844a549e83c"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Source authoring on Windows; no sample execution host established.",
+  "sdkInfo": "Not queried for this record. SDK field is the intended global.json pin, not an executed compiler baseline.",
+  "workloadInfo": "Not queried; the authored sample declares no workload.",
+  "output": "Reviewed sources: https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/sdk ; https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration ; https://github.com/dotnet/sdk/blob/main/src/Containers/Microsoft.NET.Build.Containers/LocalDaemons/KnownLocalRegistryTypes.cs ; https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/sdk.md. Authored original fictional dispatch examples. No compilation, cross-compilation, live telemetry, image/manifest/archive creation, digest comparison, package installation or MCP retrieval was performed, per user instruction."
+}

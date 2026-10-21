@@ -1,0 +1,20 @@
+{
+  "note": "First matching group owns every complete changed declaration. Grouped is ownership, not delivered recipe proof. Obsolete inventory dispositions are detailed in extensions.md.",
+  "groups": [
+    { "id": "environment-keys", "pattern": "^\\w+ Microsoft\\.Extensions\\.Configuration\\.EnvironmentVariables", "disposition": "proposed", "owner": "E1" },
+    { "id": "empty-provider", "pattern": "^\\w+ Microsoft\\.Extensions\\.DependencyInjection\\.EmptyServiceProvider", "disposition": "proposed", "owner": "E2" },
+    { "id": "di-nullability", "pattern": "^\\w+ Microsoft\\.Extensions\\.DependencyInjection\\.ServiceDescriptor::", "disposition": "excluded", "owner": "PIN-706" },
+    { "id": "configuration", "pattern": "^\\w+ Microsoft\\.Extensions\\.Configuration\\.ConfigurationIgnoreAttribute", "disposition": "grouped", "owner": "PIN-745" },
+    { "id": "cache", "pattern": "^\\w+ Microsoft\\.Extensions\\.Caching\\.", "disposition": "grouped", "owner": "PIN-747" },
+    { "id": "options", "pattern": "^\\w+ Microsoft\\.Extensions\\.(Options\\.|DependencyInjection\\.Options)", "disposition": "grouped", "owner": "PIN-746" },
+    { "id": "tokens", "pattern": "^\\w+ Microsoft\\.Extensions\\.Primitives\\.ChangeToken::", "disposition": "grouped", "owner": "PIN-745; semantic audit PIN-685" },
+    { "id": "logging-compatibility-shims", "pattern": "^\\w+ Microsoft\\.Extensions\\.Logging\\.(Abstractions\\.Internal\\.|Internal\\.)", "disposition": "excluded", "owner": "PIN-706; generic generator PIN-749" },
+    { "id": "shared-validation-contracts", "pattern": "^\\w+ Microsoft\\.Extensions\\.Validation\\.", "disposition": "proposed", "owner": "E4; ordinary async/localization PIN-748; web PIN-709" },
+    { "id": "data-annotations", "pattern": "^\\w+ System\\.ComponentModel\\.DataAnnotations\\.", "disposition": "grouped", "owner": "PIN-748" },
+    { "id": "trace-randomness", "pattern": "^\\w+ System\\.Diagnostics\\.(ActivityTraceFlags::RandomTraceId|Activity::(get_HasRandomizedTraceId|HasRandomizedTraceId))", "disposition": "proposed", "owner": "E6" },
+    { "id": "tracing", "pattern": "^\\w+ (Microsoft\\.Extensions\\.(Diagnostics\\.Tracing\\.|DependencyInjection\\.TracingServiceExtensions)|System\\.Diagnostics\\.(Activity|ActivityListener|ActivitySource|ActivitySourceFactory|ActivitySourceOptions))", "disposition": "grouped", "owner": "PIN-749" },
+    { "id": "event-provider-identity", "pattern": "^method System\\.Diagnostics\\.Tracing\\.EventSource::\\.ctor", "disposition": "proposed", "owner": "E5" },
+    { "id": "symbol-unsafe-boundaries", "pattern": "^method System\\.Diagnostics\\.SymbolStore\\.", "disposition": "grouped", "owner": "PIN-715" },
+    { "id": "windows-diagnostics-annotations", "assetPattern": "^system\\.diagnostics\\.(eventlog|performancecounter)/", "pattern": "^\\w+ System\\.Diagnostics\\.", "disposition": "excluded", "owner": "PIN-706" }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "reviewed": "2026-10-21",
+  "scope": "PIN-688 bounded source-only SDK/package host and affected-test availability audit",
+  "sources": [
+    {
+      "id": "index",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/11.md",
+      "sha256": "1dede22a71bcf370e2eabde836495cf31625933e8711a3d323bc3c85d60ecd7e"
+    },
+    {
+      "id": "sdk-overview",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/whats-new/dotnet-11/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/whats-new/dotnet-11/sdk.md",
+      "sha256": "a8b85c18246ff80f0e3d184f3258996378db3e8d3c2fb5860eb8f38b2f0dd92c"
+    },
+    {
+      "id": "test-command-docs",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/tools/dotnet-test-mtp.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/tools/dotnet-test-mtp.md",
+      "sha256": "00c64f46f90363416a5c658e1367f5a68dac4a3514510212afbdb5f0d78db7ff"
+    },
+    {
+      "id": "note-dnx-scripts-bypass-global-json",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/dnx-scripts-bypass-global-json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/dnx-scripts-bypass-global-json.md",
+      "sha256": "e3129fbd118b0c01d7c67543c0ebb0cbf341e2ed09a957f4d554ab9e645dd3ff"
+    },
+    {
+      "id": "note-mono-launch-target-removed",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/mono-launch-target-removed.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/mono-launch-target-removed.md",
+      "sha256": "63d27b6351842a0352dbb889e4471ee4075c10e039b6ceb31fbc76e752fcb30c"
+    },
+    {
+      "id": "note-nu1703-deprecated-monoandroid-framework",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/nu1703-deprecated-monoandroid-framework.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/nu1703-deprecated-monoandroid-framework.md",
+      "sha256": "3b9512beb66dc9be8739c528cbb8fbd9b4a2d2a3a359bce23c8c498728e4730b"
+    },
+    {
+      "id": "note-nuget-pack-nu5052-packageid",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/nuget-pack-nu5052-packageid.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/nuget-pack-nu5052-packageid.md",
+      "sha256": "ccaa7b1c5957923f88e5ca6456e9662f52920e4ce943762d5c616a55720cd86d"
+    },
+    {
+      "id": "note-restore-global-packages-folder-version-search",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/restore-global-packages-folder-version-search.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/restore-global-packages-folder-version-search.md",
+      "sha256": "7efd04deaa88e5b1ca39cefbb8e78b11c6a14d3d75a897bdf4271e098fa2adc1"
+    },
+    {
+      "id": "note-template-engine-netstandard",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/template-engine-netstandard.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/template-engine-netstandard.md",
+      "sha256": "2a20ce704f858d41d70d67a834abef7b07b3bfa933ba9db94145210f263a5754"
+    },
+    {
+      "id": "note-vstest-removes-newtonsoft-json",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/vstest-removes-newtonsoft-json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/vstest-removes-newtonsoft-json.md",
+      "sha256": "788fdd267eaceafe81b6958492c049bd187abb6c46f587be2b716639f7fb36e4"
+    },
+    {
+      "id": "sdk-rc1",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/sdk.md",
+      "sha256": "f39cc8619eb6bbeff3fd9680475906dab8125ac96aae4ba2fa29f12a5969f194"
+    },
+    {
+      "id": "sdk-rc2",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/sdk.md",
+      "sha256": "c94b0a8c9bd4937bb6400338f0352eef221cc945d2f022e8044ae427ed0da904"
+    },
+    {
+      "id": "dnx-cmd",
+      "repository": "dotnet/sdk",
+      "commit": "b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41",
+      "path": "src/Layout/redist/dnx.cmd",
+      "url": "https://raw.githubusercontent.com/dotnet/sdk/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx.cmd",
+      "sha256": "11a1d0b1ad50bddffa0e12bef786e5c2388e1d468e7ecd77e5c8d1e280195283"
+    },
+    {
+      "id": "dnx-sh",
+      "repository": "dotnet/sdk",
+      "commit": "b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41",
+      "path": "src/Layout/redist/dnx",
+      "url": "https://raw.githubusercontent.com/dotnet/sdk/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx",
+      "sha256": "c150766eed92c44ed0d462df9f6ab4b0ef00e2e0ad7e8d9a21520d2dc5068ac5"
+    },
+    {
+      "id": "template-edge-project",
+      "repository": "dotnet/sdk",
+      "commit": "b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41",
+      "path": "src/TemplateEngine/Microsoft.TemplateEngine.Edge/Microsoft.TemplateEngine.Edge.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/sdk/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Microsoft.TemplateEngine.Edge.csproj",
+      "sha256": "de81c21c58e4633a19712befac8f0743edbd48f98c6e65ee6c6e5ebf36800888"
+    },
+    {
+      "id": "test-mtp",
+      "repository": "dotnet/sdk",
+      "commit": "b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41",
+      "path": "src/Cli/dotnet/Commands/Test/MTP/MicrosoftTestingPlatformTestCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/sdk/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Cli/dotnet/Commands/Test/MTP/MicrosoftTestingPlatformTestCommand.cs",
+      "sha256": "a538cd60a47b3bc99d810f91313e4dd064533d7f5c24d5983d386e48b31b7052"
+    },
+    {
+      "id": "test-options",
+      "repository": "dotnet/sdk",
+      "commit": "b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41",
+      "path": "src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/Test/TestCommandDefinition.MicrosoftTestingPlatform.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/sdk/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/Test/TestCommandDefinition.MicrosoftTestingPlatform.cs",
+      "sha256": "3483c29b1924ea11b798be8eed4e7f7091e5fe8f03c738695709aa09ea742a86"
+    },
+    {
+      "id": "test-run-options",
+      "repository": "dotnet/sdk",
+      "commit": "b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41",
+      "path": "src/Cli/dotnet/Commands/Test/MTP/Options.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/sdk/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Cli/dotnet/Commands/Test/MTP/Options.cs",
+      "sha256": "b3c075811e40e06d23bd4355adcbaa31fd4e733a2b2baf372d199840afea160c"
+    },
+    {
+      "id": "sdk10-dnx",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/sdk/src/Layout/redist/dnx.cmd",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/sdk/src/Layout/redist/dnx.cmd",
+      "sha256": "aa6c6f05d76f8b01f4b9af323082b473b028bd4b654a8959846fa8cf079869b8"
+    },
+    {
+      "id": "sdk11-dnx",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/sdk/src/Layout/redist/dnx.cmd",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Layout/redist/dnx.cmd",
+      "sha256": "11a1d0b1ad50bddffa0e12bef786e5c2388e1d468e7ecd77e5c8d1e280195283"
+    },
+    {
+      "id": "sdk10-run",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.targets",
+      "sha256": "7958c0c5010ec8d9092c079ccafac6eb7289db34829b6e2a33ba6eaefaaaa770"
+    },
+    {
+      "id": "sdk11-run",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.targets",
+      "sha256": "443705dde500b5b3801fde3a03aba3461c2dc7efb9c5fccdf8e4b1b98a78ef7c"
+    },
+    {
+      "id": "sdk10-serviced-dnx",
+      "repository": "dotnet/dotnet",
+      "commit": "a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+      "path": "src/sdk/src/Layout/redist/dnx.cmd",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/sdk/src/Layout/redist/dnx.cmd",
+      "sha256": "fe7dd8bd2a19dec3b4d36f167af90919a64e9f92652e572714127966f589b3ce"
+    },
+    {
+      "id": "nuget11-provider",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/nuget-client/src/NuGet.Core/NuGet.Commands/RestoreCommand/SourceRepositoryDependencyProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Commands/RestoreCommand/SourceRepositoryDependencyProvider.cs",
+      "sha256": "58d3790f589716933e70e7dfcfc62f15f9795eabd5ab5cad9c1a8e01917d2f6e"
+    },
+    {
+      "id": "vstest11-message",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/vstest/src/Microsoft.TestPlatform.CommunicationUtilities/Messages/Message.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/vstest/src/Microsoft.TestPlatform.CommunicationUtilities/Messages/Message.cs",
+      "sha256": "c4c1c7e75752190ab22ebca98fbb430abf43a5a55a8a0a75839ee1172afb0301"
+    },
+    {
+      "id": "vstest11-serializer",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/vstest/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/vstest/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.cs",
+      "sha256": "91da406f089a685d7037ef8826d1b16e04998becedbf3bacbf38c94a660aca08"
+    },
+    {
+      "id": "testfx-affected",
+      "repository": "microsoft/testfx",
+      "commit": "e3d67c4458315461201f6620374af1fbb9c4a722",
+      "path": "docs/affected-test-selection.md",
+      "url": "https://raw.githubusercontent.com/microsoft/testfx/e3d67c4458315461201f6620374af1fbb9c4a722/docs/affected-test-selection.md",
+      "sha256": "5c125a2eb68227b5c6f53e2443161497395c9296b6a497dd910c5dc64525c6f9"
+    },
+    {
+      "id": "testfx-versions",
+      "repository": "microsoft/testfx",
+      "commit": "e3d67c4458315461201f6620374af1fbb9c4a722",
+      "path": "eng/Versions.props",
+      "url": "https://raw.githubusercontent.com/microsoft/testfx/e3d67c4458315461201f6620374af1fbb9c4a722/eng/Versions.props",
+      "sha256": "f346058e68987b48809f25cf598a911d46b12c65badbc0cac53267afc2f751c1"
+    },
+    {
+      "id": "testfx-nuget",
+      "repository": "microsoft/testfx",
+      "commit": "e3d67c4458315461201f6620374af1fbb9c4a722",
+      "path": "NuGet.config",
+      "url": "https://raw.githubusercontent.com/microsoft/testfx/e3d67c4458315461201f6620374af1fbb9c4a722/NuGet.config",
+      "sha256": "61550bddce71f62e54205e64759d85697121755bccd4813e41c4108a57319d72"
+    },
+    {
+      "id": "testfx-global",
+      "repository": "microsoft/testfx",
+      "commit": "e3d67c4458315461201f6620374af1fbb9c4a722",
+      "path": "global.json",
+      "url": "https://raw.githubusercontent.com/microsoft/testfx/e3d67c4458315461201f6620374af1fbb9c4a722/global.json",
+      "sha256": "72eafc59367ba4b60578ff95c2b26bb65ed9da2d738b2ca6e72f41c3fb77ad35"
+    },
+    {
+      "id": "nuget-id",
+      "repository": "NuGet/NuGet.Client",
+      "commit": "623454983addd9cad23a4c16a28c8faf458c7546",
+      "path": "src/NuGet.Core/NuGet.Packaging/PackageCreation/Utility/PackageIdValidator.cs",
+      "url": "https://raw.githubusercontent.com/NuGet/NuGet.Client/623454983addd9cad23a4c16a28c8faf458c7546/src/NuGet.Core/NuGet.Packaging/PackageCreation/Utility/PackageIdValidator.cs",
+      "sha256": "5a61c2759bb6bd53ca2b9faeb7409b01b46d0e659c644872409feae08abc657a"
+    },
+    {
+      "id": "nuget-android",
+      "repository": "NuGet/NuGet.Client",
+      "commit": "623454983addd9cad23a4c16a28c8faf458c7546",
+      "path": "src/NuGet.Core/NuGet.Commands/RestoreCommand/MonoAndroidDeprecation.cs",
+      "url": "https://raw.githubusercontent.com/NuGet/NuGet.Client/623454983addd9cad23a4c16a28c8faf458c7546/src/NuGet.Core/NuGet.Commands/RestoreCommand/MonoAndroidDeprecation.cs",
+      "sha256": "05dfb3b79c3f51659136bf3418173ed9d6de5dac5af8bebc9a4b51d14f23e12f"
+    }
+  ]
+}

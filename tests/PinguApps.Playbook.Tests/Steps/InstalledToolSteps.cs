@@ -186,6 +186,53 @@ public sealed class InstalledToolSteps : IDisposable
         return (await reader.ReadToEndAsync().ConfigureAwait(false)).Replace("\r\n", "\n", StringComparison.Ordinal);
     }
 
+    [Then("theoretical SDK and build recipes retain complete bodies and source-only proof")]
+    public async Task CheckTheoreticalBuildGuidanceAsync()
+    {
+        string[] ids = ["sdk.select-local-container-engine", "sdk.publish-reproducible-containers", "sdk.publish-multiarch-with-podman", "sdk.configure-cli-telemetry", "msbuild.archive-build-artifacts", "msbuild.inspect-item-globs"];
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "sdk-build-artifacts", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(ids.Length, catalogue.GetProperty("total").GetInt32());
+        foreach (string id in ids)
+        {
+            string path = $"content/recipes/{id}/11.0";
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+            string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+            foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+            {
+                string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $"(?ms)^[ \\t]*(?:// snippet:{region}|<!-- snippet:{region} -->)\\n(.*?)^[ \\t]*(?:// endsnippet:{region}|<!-- endsnippet:{region} -->)$");
+                Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+                string language = snippet.Value.GetProperty("language").GetString()!;
+                expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{language}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+            }
+
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == id);
+            Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            AssertSelection(summary, recipe);
+            Assert.Equal("pending", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            Assert.Contains("Theoretical guidance", summary.ToString(), StringComparison.Ordinal);
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("official-review", evidence.GetProperty("kind").GetString());
+                Assert.Equal("source-review", evidence.GetProperty("role").GetString());
+            });
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            Assert.Equal("11.0", route.GetProperty("target").GetString());
+            Assert.False(route.GetProperty("conditional").GetBoolean());
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+        }
+
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "sdk-build-artifacts" }).ConfigureAwait(false));
+        Assert.Equal(0, older.GetProperty("total").GetInt32());
+        string[] neutralLanguages = ["fsharp"];
+        JsonElement neutral = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "sdk-build-artifacts", languages = neutralLanguages }).ConfigureAwait(false));
+        Assert.Equal("msbuild.inspect-item-globs", Assert.Single(neutral.GetProperty("recipes").EnumerateArray()).GetProperty("id").GetString());
+    }
+
     [Then("process and data recipes retain full bodies applicability and target editions")]
     public async Task CheckProcessAndDataGuidanceAsync()
     {

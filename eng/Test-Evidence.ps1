@@ -144,6 +144,26 @@ try {
   $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
   $result = & pwsh @buildArgs 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Missing compilation evidence*') { throw "Source review was accepted as compilation: $result" }
+  $recipe.humanProof = @{ status = 'pending'; scope = 'Theoretical edition; compilation and behavior have deliberately not been checked.' }
+  $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
+  & pwsh @buildArgs
+  if ($LASTEXITCODE -ne 0) { throw 'An explicitly pending source-only edition may be served for review.' }
+  $served = Get-Content $output -Raw | ConvertFrom-Json
+  $theoretical = @($served | Where-Object id -eq 'csharp.validate-property-assignment')[0]
+  if ($theoretical.evidence[-1].role -cne 'source-review' -or
+      -not ($theoretical.applicability.routes[0].selectionNotes -like '*Theoretical guidance:*') -or
+      -not ($theoretical.applicability.routes[0].requirements.stabilityLimitations -like '*not been compiled*')) {
+    throw 'Theoretical guidance lost its discovery/detail warning or evidence classification.'
+  }
+  $result = & pwsh @buildArgs -ReleaseReady 2>&1 | Out-String
+  if ($LASTEXITCODE -eq 0 -or $result -notlike '*Pending Human proof blocks release readiness*') { throw "Release accepted theoretical guidance: $result" }
+  $review.kind = 'mock'
+  $review | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $fixture 'content/review.evidence.json')
+  $recipe.evidence[-1].kind = 'mock'
+  $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
+  $result = & pwsh @buildArgs 2>&1 | Out-String
+  if ($LASTEXITCODE -eq 0 -or $result -notlike '*Missing compilation evidence*') { throw "Pending status accepted a mock as compilation: $result" }
+  Write-Host 'PASS: theoretical source-only guidance is disclosed; release builds and mocks remain gated.'
   $recipe = Get-Content (Join-Path $root 'content/recipes/csharp.validate-property-assignment/10.0/recipe.json') -Raw | ConvertFrom-Json -AsHashtable
   Write-Host 'PASS: official review is preserved separately and cannot replace compilation.'
   $recipe.humanProof = @{ status = 'pending'; scope = 'Targeted authoring-machine proof remains pending.' }
