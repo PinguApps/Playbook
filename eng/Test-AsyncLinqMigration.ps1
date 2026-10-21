@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [string]$Net9Dotnet = 'C:\Users\pingu\.dotnet-playbook-9\dotnet.exe',
+  [string]$Net9Dotnet = (Get-Command dotnet -CommandType Application).Source,
   [string]$Net10Dotnet = (Get-Command dotnet -CommandType Application).Source
 )
 
@@ -41,7 +41,7 @@ class Program
     static async Task Main()
     {
         int total = 0;
-        await foreach (int value in Read().Where(x => x > 0).$select((x, token) => ValueTask.FromResult(x * 3))) { total += value; }
+        await foreach (int value in Read().Where(x => x > 0).$select((int x, CancellationToken token) => ValueTask.FromResult(x * 3))) { total += value; }
         if (total != 36) { throw new InvalidOperationException("Unexpected legacy migration results."); }
         Console.WriteLine("PASS legacy migration ${case}: 36; " + System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
     }

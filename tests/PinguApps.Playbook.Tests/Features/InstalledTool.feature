@@ -155,3 +155,10 @@ Feature: Installed offline guidance
     Then F sharp guidance retains complete bodies constraints and editions
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: LINQ recipes preserve unmatched rows and incremental asynchronous results
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then LINQ guidance retains complete canonical bodies applicability and editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr

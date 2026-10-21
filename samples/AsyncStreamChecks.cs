@@ -11,7 +11,7 @@ var output = Readings.Transform(Source(), Lookup);
 if (produced != 0 || lookups != 0) { throw new InvalidOperationException("Pipeline ran eagerly."); }
 await using (var iterator = output.GetAsyncEnumerator(timeout.Token))
 {
-    if (!await iterator.MoveNextAsync() || iterator.Current != new Alert("north", 80, "North embankment") ||
+    if (!await iterator.MoveNextAsync().AsTask().WaitAsync(timeout.Token) || iterator.Current != new Alert("north", 80, "North embankment") ||
         Volatile.Read(ref produced) != 2 || Volatile.Read(ref lookups) != 1)
     {
         throw new InvalidOperationException("First enriched result must precede producer completion.");
@@ -19,7 +19,7 @@ await using (var iterator = output.GetAsyncEnumerator(timeout.Token))
     Task<bool> pending = iterator.MoveNextAsync().AsTask();
     if (pending.IsCompleted) { throw new InvalidOperationException("Producer gate did not block the next result."); }
     gate.SetResult();
-    if (!await pending || iterator.Current.Station != "south" || await iterator.MoveNextAsync() || Volatile.Read(ref lookups) != 2)
+    if (!await pending.WaitAsync(timeout.Token) || iterator.Current.Station != "south" || await iterator.MoveNextAsync().AsTask().WaitAsync(timeout.Token) || Volatile.Read(ref lookups) != 2)
     {
         throw new InvalidOperationException("Filtered/enriched result sequence changed.");
     }
@@ -30,7 +30,7 @@ if (!disposed) { throw new InvalidOperationException("Source was not disposed.")
 disposed = false;
 await using (var iterator = Readings.Transform(Source(), Lookup).GetAsyncEnumerator(timeout.Token))
 {
-    if (!await iterator.MoveNextAsync()) { throw new InvalidOperationException("Missing early result."); }
+    if (!await iterator.MoveNextAsync().AsTask().WaitAsync(timeout.Token)) { throw new InvalidOperationException("Missing early result."); }
 }
 if (!disposed) { throw new InvalidOperationException("Early disposal did not reach producer finally."); }
 
@@ -48,7 +48,7 @@ await using (var iterator = Readings.Transform(Source(), async (_, token) =>
     Task<bool> pending = iterator.MoveNextAsync().AsTask();
     await started.Task.WaitAsync(timeout.Token);
     await cancellation.CancelAsync();
-    try { await pending; throw new InvalidOperationException("Enrichment ignored cancellation."); }
+    try { await pending.WaitAsync(timeout.Token); throw new InvalidOperationException("Enrichment ignored cancellation."); }
     catch (OperationCanceledException) when (cancellation.IsCancellationRequested) { }
 }
 if (!disposed) { throw new InvalidOperationException("Cancellation leaked producer."); }
@@ -59,10 +59,10 @@ gate = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronous
 disposed = false;
 await using (var iterator = Readings.Transform(Source(), Lookup).GetAsyncEnumerator(sourceCancellation.Token))
 {
-    if (!await iterator.MoveNextAsync()) { throw new InvalidOperationException("Missing result before cancellation."); }
+    if (!await iterator.MoveNextAsync().AsTask().WaitAsync(timeout.Token)) { throw new InvalidOperationException("Missing result before cancellation."); }
     Task<bool> pending = iterator.MoveNextAsync().AsTask();
     await sourceCancellation.CancelAsync();
-    try { await pending; throw new InvalidOperationException("Producer ignored cancellation."); }
+    try { await pending.WaitAsync(timeout.Token); throw new InvalidOperationException("Producer ignored cancellation."); }
     catch (OperationCanceledException) when (sourceCancellation.IsCancellationRequested) { }
 }
 if (!disposed) { throw new InvalidOperationException("Source cancellation leaked producer."); }
