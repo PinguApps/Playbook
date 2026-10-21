@@ -169,7 +169,8 @@ public sealed class InstalledToolSteps : IDisposable
 
         JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "sdk-build-artifacts" }).ConfigureAwait(false));
         Assert.Equal(0, older.GetProperty("total").GetInt32());
-        JsonElement neutral = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "sdk-build-artifacts", languages = new[] { "fsharp" } }).ConfigureAwait(false));
+        string[] neutralLanguages = ["fsharp"];
+        JsonElement neutral = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "sdk-build-artifacts", languages = neutralLanguages }).ConfigureAwait(false));
         Assert.Equal("msbuild.inspect-item-globs", Assert.Single(neutral.GetProperty("recipes").EnumerateArray()).GetProperty("id").GetString());
     }
 
