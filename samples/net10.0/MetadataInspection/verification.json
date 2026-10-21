@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "System.Reflection.MetadataLoadContext/10.0.9"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/MetadataInspectionChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/net10.0/MetadataInspection/HarbourTokenType.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

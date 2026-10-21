@@ -1,6 +1,13 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  Scenario: Assembly diagnostics syntax annotations and media descriptions retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then assembly annotation and media guidance retains canonical bodies applicability and editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: SDK workflows preserve complete canonical bodies and incomplete native proof offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
