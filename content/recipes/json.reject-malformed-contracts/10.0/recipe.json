@@ -1,0 +1,202 @@
+{
+  "id": "json.reject-malformed-contracts",
+  "edition": "10.0",
+  "title": "Reject malformed JSON at an import boundary",
+  "goal": "Reject structurally malformed imported JSON before applying separate business validation.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "json",
+    "serialization",
+    "reject-malformed-contracts"
+  ],
+  "apis": [
+    "JsonSerializerOptions.Strict"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "usage": "primary",
+        "selectionNotes": [
+          "Strict checks input structure; domain rules remain separate.",
+          ".NET 9 is comparison-only; the manual duplicate check covers this flat root."
+        ],
+        "target": "10.0",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/libraries#strict-json-serialization-options"
+        ],
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "version": "10.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "Use the framework JSON contracts of the selected application target."
+          },
+          "sdk": {
+            "version": "10.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Build with the selected target reference assemblies and source generator."
+          },
+          "language": {
+            "version": "14.0",
+            "match": "exact",
+            "name": "C#",
+            "reason": "Canonical language mode supported by this SDK and target."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 10"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Target net10.0 with framework System.Text.Json; see complete recipe imports and context declarations."
+          ],
+          "constraints": [
+            "Strict checks input structure; domain rules remain separate.",
+            ".NET 9 is comparison-only; the manual duplicate check covers this flat root.",
+            "No verified older-target package route, trimming or Native AOT publication. No workload/provider/rendering dependency."
+          ],
+          "optIns": [],
+          "stabilityLimitations": []
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/JsonImport/JsonImport.csproj"
+        ]
+      },
+      {
+        "usage": "primary",
+        "selectionNotes": [
+          "Strict checks input structure; domain rules remain separate.",
+          ".NET 9 is comparison-only; the manual duplicate check covers this flat root."
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/libraries#strict-json-serialization-options"
+        ],
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "Use the framework JSON contracts of the selected application target."
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Build with the selected target reference assemblies and source generator."
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "name": "C#",
+            "reason": "Canonical language mode supported by this SDK and target."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Target net11.0 with framework System.Text.Json; see complete recipe imports and context declarations."
+          ],
+          "constraints": [
+            "Strict checks input structure; domain rules remain separate.",
+            ".NET 9 is comparison-only; the manual duplicate check covers this flat root.",
+            "No verified older-target package route, trimming or Native AOT publication. No workload/provider/rendering dependency."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with .NET 11 RC2 artifacts; GA reconciliation remains pending."
+          ]
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/JsonImport/JsonImport.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft JSON contracts and release notes",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/libraries#strict-json-serialization-options"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net9.0/JsonImport/JsonImport.csproj",
+      "target": "net9.0",
+      "sdk": "9.0.319",
+      "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
+      "language": "13.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sample": "samples/net10.0/JsonImport/JsonImport.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
+      "language": "14.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sample": "samples/net11.0/JsonImport/JsonImport.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
+      "language": "15.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "region": "import",
+      "path": "samples/net10.0/JsonImport/Import.cs",
+      "language": "csharp"
+    },
+    "older": {
+      "region": "import",
+      "path": "samples/net9.0/JsonImport/Import.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable managed serialization is verified directly; no native UI/device/provider Human action is required."
+  }
+}

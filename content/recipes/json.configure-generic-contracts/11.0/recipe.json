@@ -1,0 +1,148 @@
+{
+  "id": "json.configure-generic-contracts",
+  "edition": "11.0",
+  "title": "Resolve generic JSON converters and derived contracts",
+  "goal": "Resolve reusable generic JSON contracts without per-closure registration or converter factories; reject incompatible shapes.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "json",
+    "serialization",
+    "configure-generic-contracts"
+  ],
+  "apis": [
+    "JsonDerivedTypeAttribute",
+    "JsonConverterAttribute"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "usage": "primary",
+        "selectionNotes": [
+          "Generic arguments must resolve to one compatible closed type with satisfied constraints.",
+          "Generated contexts must include the closed roots; SYSLIB1229 is not a fallback."
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#systemtextjson-improvements",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+          "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/converters-how-to",
+          "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism"
+        ],
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "Use the framework JSON contracts of the selected application target."
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Build with the selected target reference assemblies and source generator."
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "name": "C#",
+            "reason": "Canonical language mode supported by this SDK and target."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Target net11.0 with framework System.Text.Json; see complete recipe imports and context declarations."
+          ],
+          "constraints": [
+            "Generic arguments must resolve to one compatible closed type with satisfied constraints.",
+            "Generated contexts must include the closed roots; SYSLIB1229 is not a fallback.",
+            "No verified older-target package route, trimming or Native AOT publication. No workload/provider/rendering dependency."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with .NET 11 RC2 artifacts; GA reconciliation remains pending."
+          ]
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/JsonResolution/JsonResolution.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft JSON contracts and release notes",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#systemtextjson-improvements"
+    },
+    {
+      "title": "Microsoft JSON contracts and release notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/converters-how-to",
+      "title": "Microsoft System.Text.Json: converters-how-to"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
+      "title": "Microsoft System.Text.Json: polymorphism"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/JsonResolution/JsonResolution.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
+      "language": "14.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sample": "samples/net11.0/JsonResolution/JsonResolution.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
+      "language": "15.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "region": "generic",
+      "path": "samples/net11.0/JsonResolution/Contracts.cs",
+      "language": "csharp"
+    },
+    "older": {
+      "region": "generic",
+      "path": "samples/net10.0/JsonResolution/Contracts.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable managed serialization is verified directly; no native UI/device/provider Human action is required."
+  }
+}

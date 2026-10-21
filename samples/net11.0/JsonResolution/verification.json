@@ -1,0 +1,11 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/JsonResolutionChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "dependencies": [],
+  "buildArguments": []
+}

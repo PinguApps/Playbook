@@ -1,0 +1,142 @@
+{
+  "id": "json.preserve-omitted-initializers",
+  "edition": "11.0",
+  "title": "Preserve initialized values when generated JSON omits a member",
+  "goal": "Keep init-property defaults during generated deserialization while distinguishing omission from explicit values or null.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "json",
+    "serialization",
+    "preserve-omitted-initializers"
+  ],
+  "apis": [
+    "JsonSerializerContext"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "usage": "primary",
+        "selectionNotes": [
+          "Generated omission preserves the initializer; explicit null still replaces it.",
+          "Initializers do not enforce required presence or business validation."
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#systemtextjson-improvements",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+          "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/source-generation-modes"
+        ],
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "Use the framework JSON contracts of the selected application target."
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Build with the selected target reference assemblies and source generator."
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "name": "C#",
+            "reason": "Canonical language mode supported by this SDK and target."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Target net11.0 with framework System.Text.Json; see complete recipe imports and context declarations."
+          ],
+          "constraints": [
+            "Generated omission preserves the initializer; explicit null still replaces it.",
+            "Initializers do not enforce required presence or business validation.",
+            "No verified older-target package route, trimming or Native AOT publication. No workload/provider/rendering dependency."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with .NET 11 RC2 artifacts; GA reconciliation remains pending."
+          ]
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/JsonModels/JsonModels.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft JSON contracts and release notes",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#systemtextjson-improvements"
+    },
+    {
+      "title": "Microsoft JSON contracts and release notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/source-generation-modes",
+      "title": "Microsoft System.Text.Json: source-generation-modes"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/JsonModels/JsonModels.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
+      "language": "14.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sample": "samples/net11.0/JsonModels/JsonModels.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real managed builds and claim-specific serializer checks; exact input hashes, runtime output and limitations accompany the recipe. No mocks or AOT publication.",
+      "language": "15.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "region": "initializers",
+      "path": "samples/net11.0/JsonModels/Models.cs",
+      "language": "csharp"
+    },
+    "older": {
+      "region": "initializers",
+      "path": "samples/net10.0/JsonModels/Models.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable managed serialization is verified directly; no native UI/device/provider Human action is required."
+  }
+}
