@@ -26,7 +26,7 @@ try {
   New-Item -ItemType Directory -Path $fixture | Out-Null
   # Evidence fixtures need authored inputs, not generated build outputs. Besides
   # their size, outputs can contain configuration names Windows copy normalizes.
-  foreach ($file in (Get-ChildItem (Join-Path $root 'samples') -Recurse -File)) {
+  foreach ($file in (Get-ChildItem (Join-Path $root 'samples') -Recurse -File -Force)) {
     $relative = [IO.Path]::GetRelativePath($root, $file.FullName).Replace('\', '/')
     if ($relative -match '(^|/)(bin|obj)/') { continue }
     $destination = Join-Path $fixture $relative
@@ -52,6 +52,15 @@ try {
   & pwsh @buildArgs
   if ($LASTEXITCODE -ne 0 -or (Get-Content $output -Raw) -cne $first) { throw 'Evidence reuse must be deterministic.' }
   Write-Host 'PASS: unchanged evidence is reusable without invoking sample SDKs.'
+
+  $template = Join-Path $fixture 'samples/net10.0/SdkWorkflows/Template/.template.config/template.json'
+  if (-not (Test-Path -LiteralPath $template)) { throw 'Evidence fixtures must retain hidden template inputs.' }
+  $templateText = Get-Content -LiteralPath $template -Raw
+  Add-Content -LiteralPath $template ' '
+  $result = & pwsh @buildArgs 2>&1 | Out-String
+  [IO.File]::WriteAllText($template, $templateText)
+  if ($LASTEXITCODE -eq 0 -or $result -notlike '*Stale compilation evidence*') { throw "Changed hidden template input was accepted: $result" }
+  Write-Host 'PASS: hidden template inputs are copied and invalidate stale evidence.'
 
   $source = Join-Path $fixture 'samples/PropertyAssignmentChecks.cs'
   $original = Get-Content $source -Raw

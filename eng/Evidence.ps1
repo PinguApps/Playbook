@@ -22,7 +22,7 @@ function Get-EvidenceInputs([string]$Root, [string]$Sample) {
   $paths = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
   $sources = @($directory) + @($manifest.additionalInputs | ForEach-Object { Resolve-EvidencePath $Root $_ })
   foreach ($source in $sources) {
-    foreach ($file in (Get-ChildItem -LiteralPath $source -File -Recurse)) {
+    foreach ($file in (Get-ChildItem -LiteralPath $source -File -Recurse -Force)) {
       $relative = [IO.Path]::GetRelativePath($Root, $file.FullName).Replace('\', '/')
       if ($relative -match '(^|/)(bin|obj)/' -or $file.Name -eq 'verification-evidence.json' -or $file.Name -like '*.evidence.json') { continue }
       $null = $paths.Add($relative)
