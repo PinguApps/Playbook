@@ -1,0 +1,14 @@
+# PR Agent review scope; Git tracking and build/validation gates are unchanged.
+# Use $pragent-ignore when reassessing generated outputs; keep inputs reviewable.
+
+# Inspect-BlazorRemovedApis.ps1 output; review its script and the matching .md audit.
+/docs/planning/audits/blazor-removed-apis.assets.json
+
+# Inspect-DataIoApis.ps1 output; review its script, source/disposition manifests and .md audit.
+/docs/planning/audits/data-io.assets.json
+
+# Inspect-SerializationApis.ps1 output; review its script, source manifest and .md audit.
+/docs/planning/audits/serialization.assets.json
+
+# Inspect-FSharpContracts.ps1 output; review its script, PIN-681.sources.json and PIN-681.md.
+/docs/verification/PIN-681.assets.json
