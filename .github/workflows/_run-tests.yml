@@ -168,11 +168,13 @@ jobs:
       matrix:
         include:
           - name: Windows
-            os: windows-2025
+            os: blacksmith-2vcpu-windows-2025
           - name: macOS
-            os: macos-15
+            os: blacksmith-6vcpu-macos-15
     runs-on: ${{ matrix.os }}
     timeout-minutes: 5
+    env:
+      DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: '0'
     steps:
       - name: Checkout consumer script only
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
