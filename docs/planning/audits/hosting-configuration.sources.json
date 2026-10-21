@@ -1,0 +1,270 @@
+{
+  "reviewed": "2026-10-21",
+  "scope": "PIN-685 source-only hosting and configuration failure migration audit",
+  "sources": [
+    {
+      "id": "compatibility-index",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/11.md",
+      "sha256": "1dede22a71bcf370e2eabde836495cf31625933e8711a3d323bc3c85d60ecd7e"
+    },
+    {
+      "id": "host-failure",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md",
+      "sha256": "975f105d5df6ae983d971fb2291bf6043ace4597454d43a5f61d523e9a8c9f12"
+    },
+    {
+      "id": "ignored-load",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/fileconfigurationprovider-reload-token-load-failure.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/fileconfigurationprovider-reload-token-load-failure.md",
+      "sha256": "af1d1c54ff27872d2a9240f95620dae633c0d689828457e4329ceae03660ace4"
+    },
+    {
+      "id": "io-callback",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/fileconfigurationsource-onloadexception-io-errors.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/fileconfigurationsource-onloadexception-io-errors.md",
+      "sha256": "ff9f9c392e49f6bd74b41c14fa55640ce2473880a928d662b68679da7845897e"
+    },
+    {
+      "id": "callback-rebinding",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/changetoken-onchange-async-overloads-rebind-callbacks.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/changetoken-onchange-async-overloads-rebind-callbacks.md",
+      "sha256": "192def8952ce5795cdcb0051a5ed3f1df1331eedb90db610b1f25f60602d1fe0"
+    },
+    {
+      "id": "watcher-paths",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/physicalfileswatcher-validates-root-path.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/physicalfileswatcher-validates-root-path.md",
+      "sha256": "744150d1eaedb8fc8fe2c5aabbc18edb0a7884715c8c51cd0feaf49faa49bd73"
+    },
+    {
+      "id": "async-options-access",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/async-options-validation-sync-access.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/async-options-validation-sync-access.md",
+      "sha256": "83a9158d4c6f664eff5dbded6aca1adf6e44e063f4f835f5d717a97d066af4e6"
+    },
+    {
+      "id": "explicit-validation",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/options-validator-explicit-validate.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/options-validator-explicit-validate.md",
+      "sha256": "6a5774833c7105905e56e9792c404f8828df5f7dd9408d5b6680d86bf355b9a3"
+    },
+    {
+      "id": "shared-framework",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/extensions-in-shared-framework.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/extensions-in-shared-framework.md",
+      "sha256": "2cae03159dd73157d850a3bd5dc7144a87fd083ae38dac366b39f39a5a35bfba"
+    },
+    {
+      "id": "libraries-rc1",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/libraries.md",
+      "sha256": "1e7992ffaf1c7b29cb0ada2f788df23ee9485700cb5af5c4480d2b2ffd4c102b"
+    },
+    {
+      "id": "libraries-rc2",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+      "sha256": "734c02c4df51d49b63e6b722426669189214f2614838b85091f141b87a65e19c"
+    },
+    {
+      "id": "host-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs",
+      "sha256": "047c2238e335df3d589ebd313224eb9da24ce1e8408654f2d0bf5e25edf00746"
+    },
+    {
+      "id": "host-extensions-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostExtensions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostExtensions.cs",
+      "sha256": "ef5b63adf007c8cf2ad2e272dee904d5dcb08f67ffd579d20e9b25439c084cfa"
+    },
+    {
+      "id": "file-provider-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs",
+      "sha256": "cdbf1a22ee9cd6907e3624413a921f28cb65ea6cd0624354c3dbe90606ed0a18"
+    },
+    {
+      "id": "change-token-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Primitives/src/ChangeToken.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Primitives/src/ChangeToken.cs",
+      "sha256": "d7abc48cec3b3c03f6f400b32bcb9c206fc57a59c981480fe5f41c1d09a437ae"
+    },
+    {
+      "id": "watcher-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "sha256": "fbe90d5d9ca411957409088cf8279131fde94a5cedd7ecf9b8f495ac4b0c4877"
+    },
+    {
+      "id": "async-validator-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/src/AsyncValidateOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/AsyncValidateOptions.cs",
+      "sha256": "3db32966e7605245b87152357361ac76f1a736f467e859d5d8aab8d1809093a1"
+    },
+    {
+      "id": "options-factory-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsFactory.cs",
+      "sha256": "67cfd27c27931f2a7c1bd06989c2a3fac87112ca8b269a9d58f000f099708cd3"
+    },
+    {
+      "id": "options-interface-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/src/IAsyncValidateOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/IAsyncValidateOptions.cs",
+      "sha256": "e996899d59ecc5b87cdf1b92738c1df73ed493d9571cd12f038d019a719994d1"
+    },
+    {
+      "id": "options-startup-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsBuilderExtensions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsBuilderExtensions.cs",
+      "sha256": "30686da4d76ae9316168fc289184b2a40daf66be4c5a7b6ec02684b8b31baa67"
+    },
+    {
+      "id": "options-monitor-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsMonitor.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/OptionsMonitor.cs",
+      "sha256": "0acab8e10e684a13809e32947bc6b568fb0be643f8a52453bef00edc03c9c19d"
+    },
+    {
+      "id": "startup-validator-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/src/ValidateOnStart.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/src/ValidateOnStart.cs",
+      "sha256": "f5ff847c9f8da41d175832e4fff7f37b92fd5f03836a666c9a5592f8296c4865"
+    },
+    {
+      "id": "host-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs",
+      "sha256": "f86ccef015cd9777ee8dd06ec6dd98c1209076b6f75956c6a6b16fc8f628ae00"
+    },
+    {
+      "id": "file-provider-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs",
+      "sha256": "56131f86ab2702e7e60738dbefe6b058dc273c97491512b88da23c13f99266b0"
+    },
+    {
+      "id": "change-token-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Primitives/src/ChangeToken.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Primitives/src/ChangeToken.cs",
+      "sha256": "1e2468abcb4ddae9c61f176ab8ff73f0bcbbab1187a417307558c1cb0177cd33"
+    },
+    {
+      "id": "watcher-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "sha256": "ad76f89a502f454b94f1bc7601827568b73a62b757d137665c9b6e654f7ba146"
+    },
+    {
+      "id": "primitives-ref-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Primitives/ref/Microsoft.Extensions.Primitives.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Primitives/ref/Microsoft.Extensions.Primitives.cs",
+      "sha256": "b7e700629d2319782bfbb68fe1c70a806524e9ec4840b9d7e49072384dc82a39"
+    },
+    {
+      "id": "primitives-ref-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Primitives/ref/Microsoft.Extensions.Primitives.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Primitives/ref/Microsoft.Extensions.Primitives.cs",
+      "sha256": "7ceb14840f4515303e9e3fec368e9673ff4ca0035a4b5dc67ae59f83a92a3d72"
+    },
+    {
+      "id": "options-ref-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/ref/Microsoft.Extensions.Options.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Options/ref/Microsoft.Extensions.Options.cs",
+      "sha256": "2f98b8849efea4bff643e2685635ecaafbb39107aab896939cd4210a2a2c4ff8"
+    },
+    {
+      "id": "options-ref-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Options/ref/Microsoft.Extensions.Options.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Options/ref/Microsoft.Extensions.Options.cs",
+      "sha256": "f77dbb4c8fe8ca7eb5164ed73e8b6cb3ae02f37086b64b22d9c9ea26f2d47041"
+    },
+    {
+      "id": "hosting-project",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Microsoft.Extensions.Hosting.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Microsoft.Extensions.Hosting.csproj",
+      "sha256": "15f5bddb9a16ecbd4fa2fe0282127af41fcdc99fc3e19b9cf0bd6e222dd830fe"
+    },
+    {
+      "id": "configuration.fileextensions-project",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/Microsoft.Extensions.Configuration.FileExtensions.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/Microsoft.Extensions.Configuration.FileExtensions.csproj",
+      "sha256": "c53a31b98e04dc6b6b7c2bd721c2b7b2824c211d1d1d104db65d6ae22d58293f"
+    },
+    {
+      "id": "fileproviders.physical-project",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/Microsoft.Extensions.FileProviders.Physical.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/Microsoft.Extensions.FileProviders.Physical.csproj",
+      "sha256": "f84f4b72e9d15bcea82e18d1827731030a9a7e696c2ad2e76948c070ebbd5692"
+    }
+  ]
+}

@@ -1525,6 +1525,93 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("assembly annotation and media guidance retains canonical bodies applicability and editions")]
+    public async Task CheckAssemblyAnnotationMediaGuidanceAsync()
+    {
+        foreach ((string id, string family, string file, string region) in new[]
+        {
+            ("reflection.inspect-loaded-metadata", "MetadataInspection", "Inspection", "metadata"),
+            ("hosting.report-assembly-location", "MetadataInspection", "Inspection", "location"),
+            ("tooling.annotate-code-strings", "ContentDescriptions", "Descriptions", "syntax"),
+            ("uri.identify-data-uris", "ContentDescriptions", "Descriptions", "media"),
+        })
+        {
+            string goal = id.Split('.')[1];
+            JsonElement olderList = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = goal }).ConfigureAwait(false));
+            Assert.Empty(RecipeIds(olderList));
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+            JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = goal }).ConfigureAwait(false));
+            JsonElement summary = Assert.Single(list.GetProperty("recipes").EnumerateArray());
+            Assert.Equal(id, summary.GetProperty("id").GetString());
+            Assert.NotEmpty(summary.GetProperty("goal").GetString()!);
+            Assert.Equal("stable", summary.GetProperty("stability").GetString());
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+            AssertSelection(summary, recipe);
+            string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
+            bool deployment = family == "MetadataInspection";
+            foreach ((string token, string release) in new[] { ("older", "net10.0"), ("newer", "net11.0") })
+            {
+                string source = await ReadCanonicalAsync($"{release}.{family}.{file}.cs").ConfigureAwait(false);
+                string snippet = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
+                    .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+                if (deployment)
+                {
+                    string callerSource = await ReadCanonicalAsync($"{release}.DeploymentInspection.Inspection.cs").ConfigureAwait(false);
+                    string caller = callerSource.Split("// snippet:caller\n", StringSplitOptions.None)[1]
+                        .Split("// endsnippet:caller", StringSplitOptions.None)[0].TrimEnd();
+                    expected = expected.Replace($"{{{{snippet:caller-{token}}}}}", $"```csharp\n{caller}\n```", StringComparison.Ordinal);
+                }
+            }
+
+            if (id.StartsWith("reflection.", StringComparison.Ordinal))
+            {
+                string customBase = await ReadCanonicalAsync("MetadataInspection.HarbourTokenType.cs").ConfigureAwait(false);
+                string baseSnippet = customBase.Split("// snippet:custom-base\n", StringSplitOptions.None)[1]
+                    .Split("// endsnippet:custom-base", StringSplitOptions.None)[0].TrimEnd();
+                expected = expected.Replace("{{snippet:custom-base}}", $"```csharp\n{baseSnippet}\n```", StringComparison.Ordinal);
+                foreach ((string token, string release) in new[] { ("custom-older", "net10.0"), ("custom-newer", "net11.0") })
+                {
+                    string custom = await ReadCanonicalAsync($"{release}.MetadataInspection.Inspection.cs").ConfigureAwait(false);
+                    string customSnippet = custom.Split("// snippet:custom-type\n", StringSplitOptions.None)[1]
+                        .Split("// endsnippet:custom-type", StringSplitOptions.None)[0].TrimEnd();
+                    expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{customSnippet}\n```", StringComparison.Ordinal);
+                }
+            }
+
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.DoesNotContain("{{snippet:", expected, StringComparison.Ordinal);
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            Assert.Equal("11.0", route.GetProperty("target").GetString());
+            JsonElement requirements = route.GetProperty("requirements");
+            Assert.Equal("11.0", requirements.GetProperty("runtime").GetProperty("version").GetString());
+            Assert.Equal("11.0", requirements.GetProperty("sdk").GetProperty("version").GetString());
+            Assert.Equal("15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+            Assert.Equal(id.StartsWith("reflection.", StringComparison.Ordinal) ? 1 : 0, requirements.GetProperty("packages").GetArrayLength());
+            foreach (string field in new[] { "providers", "workloads", "renderingModes", "optIns" })
+            {
+                Assert.Empty(requirements.GetProperty(field).EnumerateArray());
+            }
+
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            Assert.Equal(deployment ? 4 : 2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                Assert.Contains("PASS", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                if (evidence.GetProperty("sample").GetString()!.Contains("DeploymentInspection", StringComparison.Ordinal))
+                {
+                    Assert.Contains("native-enabled", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                    Assert.Contains("native-disabled", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                    Assert.Contains("location=(unavailable)", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                }
+            });
+        }
+    }
+
     [Then("bit collection and vector guidance retains canonical bodies applicability editions and pending proof")]
     public async Task CheckBitCollectionAndVectorGuidanceAsync()
     {

@@ -1,0 +1,12 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/DeploymentInspectionChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-AssemblyDeployments.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
