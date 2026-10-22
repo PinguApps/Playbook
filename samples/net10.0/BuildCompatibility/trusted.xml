@@ -1,0 +1,4 @@
+<!-- snippet:input -->
+<!DOCTYPE dispatch [<!ELEMENT dispatch (destination)><!ELEMENT destination (#PCDATA)>]>
+<dispatch><destination>QUAY-7</destination></dispatch>
+<!-- endsnippet:input -->

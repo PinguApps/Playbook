@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../PolicyCommand.cs" Link="PolicyCommand.cs" />
+    <Compile Include="../../BuildCompatibilityChecks.cs" Link="Program.cs" />
+    <None Update="global.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="BuildInputs.proj" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="trusted.xml;flat.xml;route.xsl" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
