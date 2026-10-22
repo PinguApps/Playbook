@@ -14,7 +14,7 @@ Replace the example.invalid URL with an authorized source. In the controlled com
 
 ## Newer approach
 
-For an existing source named quay, run `dotnet nuget update source quay --min-publish-age-hours 48 --configfile NuGet.Config`. To register an existing authorized endpoint instead, run `dotnet nuget add source <source-url> --name quay --min-publish-age-hours 48 --configfile NuGet.Config`. Neither command provisions a feed. The resulting source configuration is:
+For an existing source named quay, run `dotnet nuget update source quay --min-publish-age-hours 48 --configfile NuGet.Config`. To register an existing authorized endpoint instead, run `dotnet nuget add source <source-url> --name quay --min-publish-age-hours 48 --configfile NuGet.Config`. Neither command provisions a feed. This shows only the quay entry; merge it into the existing packageSources section, preserving other source entries and their mapping and credential sections:
 
 {{snippet:newer}}
 
@@ -38,4 +38,4 @@ The served configuration is language-neutral; no application C# upgrade is neede
 
 ## Evidence
 
-Both real SDK consumers compile and execute. A temporary loopback V3 fixture supplies original nupkgs, registration publication timestamps and audit metadata to actual SDK commands with separate package/HTTP caches. The SDK-11 run checks both add and update select 1.1.0, explicit fresh restore succeeds, both floating forms fail with NU1020 and zero removes the setting. These are real NuGet command results against **controlled synthetic metadata**, not production-feed or dependency-security proof. Windows x64 SDKs are 10.0.402 and 11.0.100-rc.2.26504.105. Offline packed-tool retrieval verifies the full body, applicability and target-11 edition; it performs no package selection itself. GA verification remains separate.
+Both real SDK consumers compile and execute. A temporary loopback V3 fixture supplies original nupkgs, registration publication timestamps and audit metadata to actual SDK commands with separate package/HTTP caches. The SDK-11 run checks both add and update select 1.1.0, explicit fresh restore succeeds, both floating forms fail with NU1020 and zero removes the setting. An unrelated disabled source retains its endpoint and disabled flag throughout these commands. These are real NuGet command results against **controlled synthetic metadata**, not production-feed or dependency-security proof. Windows x64 SDKs are 10.0.402 and 11.0.100-rc.2.26504.105. Offline packed-tool retrieval verifies the full body, applicability and target-11 edition; it performs no package selection itself. GA verification remains separate.

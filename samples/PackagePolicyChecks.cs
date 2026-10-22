@@ -11,7 +11,21 @@ File.Copy(Path.Combine(AppContext.BaseDirectory, "global.json"), Path.Combine(di
 bool current = Environment.Version.Major == 11;
 using PackageFeed feed = new();
 string config = Path.Combine(directory, "NuGet.Config");
-File.WriteAllText(config, $"<configuration><packageSources><clear/><add key=\"quay\" value=\"{feed.Url}index.json\" allowInsecureConnections=\"true\" /></packageSources><auditSources><clear/><add key=\"quay\" value=\"{feed.Url}index.json\" allowInsecureConnections=\"true\" /></auditSources></configuration>");
+File.WriteAllText(config, $"<configuration><packageSources><clear/><add key=\"quay\" value=\"{feed.Url}index.json\" allowInsecureConnections=\"true\" /><add key=\"retained\" value=\"https://retained.example.invalid/v3/index.json\" /></packageSources><disabledPackageSources><add key=\"retained\" value=\"true\" /></disabledPackageSources><auditSources><clear/><add key=\"quay\" value=\"{feed.Url}index.json\" allowInsecureConnections=\"true\" /></auditSources></configuration>");
+XElement initialConfig = XElement.Load(config);
+XElement retainedSource = new(initialConfig.Element("packageSources")!.Elements("add").Single(source => (string?)source.Attribute("key") == "retained"));
+XElement retainedDisabled = new(initialConfig.Element("disabledPackageSources")!);
+
+void CheckRetainedSource()
+{
+    XElement actual = XElement.Load(config);
+    XElement source = actual.Element("packageSources")!.Elements("add").Single(source => (string?)source.Attribute("key") == "retained");
+    if (!XNode.DeepEquals(retainedSource, source) || !XNode.DeepEquals(retainedDisabled, actual.Element("disabledPackageSources")))
+    {
+        throw new InvalidOperationException("Package commands changed an unrelated source or its disabled settings");
+    }
+    Console.WriteLine("PASS preserved unrelated source endpoint and disabled flag");
+}
 
 void Project(string version, bool audit = false, bool exception = false, bool missing = false)
 {
@@ -37,8 +51,9 @@ try
         PolicyCommand.Run(directory, ["nuget", "add", "source", feed.Url + "index.json", "--name", "quay", "--allow-insecure-connections", "--min-publish-age-hours", "24", "--configfile", config]);
         PolicyCommand.Run(directory, ["nuget", "update", "source", "quay", "--allow-insecure-connections", "--min-publish-age-hours", "48", "--configfile", config]);
         string expectedAge = XElement.Load(Path.Combine(AppContext.BaseDirectory, "Policy.config")).Descendants("add").Single().Attribute("minPublishAgeHours")!.Value;
-        string actualAge = XElement.Load(config).Element("packageSources")!.Elements("add").Single().Attribute("minPublishAgeHours")!.Value;
+        string actualAge = XElement.Load(config).Element("packageSources")!.Elements("add").Single(source => (string?)source.Attribute("key") == "quay").Attribute("minPublishAgeHours")!.Value;
         if (actualAge != expectedAge) { throw new InvalidOperationException("CLI cooldown differs from the canonical source configuration"); }
+        CheckRetainedSource();
         PolicyCommand.Run(directory, ["package", "update"]);
         Version("1.1.0");
         Project("1.0.0");
@@ -55,6 +70,7 @@ try
         Project("1.*");
         PolicyCommand.Contains(PolicyCommand.Run(directory, ["restore", "--force", "--no-http-cache"], 1), "NU1020");
         PolicyCommand.Run(directory, ["nuget", "update", "source", "quay", "--allow-insecure-connections", "--min-publish-age-hours", "0", "--configfile", config]);
+        CheckRetainedSource();
     }
     else
     {
@@ -78,6 +94,7 @@ try
     PolicyCommand.Contains(PolicyCommand.Run(directory, ["restore", "--force", "--no-http-cache"], 1), "NU1101");
     PolicyCommand.Contains(PolicyCommand.Run(directory, ["package", "update", "--vulnerable"], 1), "Restore failed");
     Version("1.0.0");
+    CheckRetainedSource();
     Console.WriteLine($"PASS controlled V3 metadata, cooldown/explicit restore/floating conflict and vulnerability updates; runtime={Environment.Version}; fixture={directory}");
 }
 finally

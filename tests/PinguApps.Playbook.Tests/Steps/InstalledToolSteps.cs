@@ -51,6 +51,11 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == id);
             Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            if (id == "nuget.delay-new-package-selection")
+            {
+                Assert.DoesNotContain("<clear", recipe.GetProperty("markdown").GetString(), StringComparison.OrdinalIgnoreCase);
+            }
+
             Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
             Assert.True(recipe.GetProperty("languageNeutral").GetBoolean());
             AssertSelection(summary, recipe);
