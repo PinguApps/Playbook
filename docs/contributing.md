@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+Runtime-async and compiler-host examples use seven real managed sample paths and
+the bounded `eng/Test-RuntimeAsync.ps1` authoring check. See
+[PIN-757/980/981](verification/PIN-757-980-981.md) for exact assets, diagnostic
+differences, the .NET 10 FCS host route and installed-tool inspection.
+
 TLS, QUIC and runtime evidence uses the bounded authoring checks in
 [PIN-752/755/756](verification/PIN-752-755-756.md). Windows checks exercise real TLS
 and QUIC; `eng/Test-CrashEvidence.ps1` compiles and crashes only disposable Linux

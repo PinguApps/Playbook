@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For experimental runtime-async compilation, a bounded F# workflow builder and
+hosted FCS import sharing, use the [PIN-757/980/981 walkthrough](verification/PIN-757-980-981.md#inspect-what-an-agent-receives).
+It displays complete support and applicability, including the verified .NET 10
+FCS host route and the measured RC2 compiler/runtime limitations.
+
 For caller-owned TLS, QUIC stream priorities, Unix crash reports and runtime CPU
 requirements, use the [tested PIN-752/755/756 walkthrough](verification/PIN-752-755-756.md#inspect-what-an-agent-receives).
 It displays all four discovery goals, full canonical comparisons and applicability,

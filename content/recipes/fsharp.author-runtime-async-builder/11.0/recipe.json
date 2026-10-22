@@ -1,0 +1,158 @@
+{
+  "id": "fsharp.author-runtime-async-builder",
+  "edition": "11.0",
+  "title": "Author a small runtime-async workflow (experimental)",
+  "goal": "Author a deliberately small experimental F# builder when a workflow needs runtime-managed waits and explicit failure and asynchronous cleanup rules.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "runtime-compiler-hosts",
+    "author-runtime-async-builder"
+  ],
+  "apis": [
+    "__runtimeAsyncReturn",
+    "__runtimeAsyncReturnValueTask",
+    "__runtimeAsyncReturnUnit",
+    "__runtimeAsyncReturnValueTaskUnit",
+    "AsyncHelpers.Await"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Experimental inline support; RC2 preview required. Pending generic Task upcast to Task is not supported by this bounded route."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpRuntime/FSharpRuntime.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use the complete offline source/configuration and verify the consumer matches this route."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "CoreCLR; Windows x64 execution verified"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "match": "exact",
+            "version": "preview",
+            "reason": "Use the declared compiler language mode; no later-main language gate is inferred.",
+            "name": "fsharp"
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Actual RC2 evidence; final GA reconciliation is separate."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "LangVersion=preview"
+          ],
+          "providers": [],
+          "constraints": [
+            "No byref, byref-like or pinned value across suspension; no arbitrary callbacks, production-complete builder, AOT or complete debugger support."
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "The runtime intrinsics exist in the newer net10.0 Core asset; application runtime support is separately required.",
+              "name": "FSharp.Core"
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Matching public contract",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md"
+    },
+    {
+      "title": "Matching implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi"
+    },
+    {
+      "title": "Matching constraints",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "kind": "compile-and-run",
+      "language": "10.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/FSharpRuntime/FSharpRuntime.fsproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "kind": "compile-and-run",
+      "language": "preview",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/FSharpRuntime/FSharpRuntime.fsproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "region": "workflow",
+      "path": "samples/net10.0/FSharpRuntime/Workflow.fs"
+    },
+    "builder": {
+      "language": "fsharp",
+      "region": "builder",
+      "path": "samples/net11.0/FSharpRuntime/Workflow.fs"
+    },
+    "newer": {
+      "language": "fsharp",
+      "region": "workflow",
+      "path": "samples/net11.0/FSharpRuntime/Workflow.fs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded managed/compiler/host claims execute automatically. Native/AOT, debugger UI and GA support are not claimed."
+  }
+}
