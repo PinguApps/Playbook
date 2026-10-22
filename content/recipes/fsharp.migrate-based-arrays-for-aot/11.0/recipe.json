@@ -1,0 +1,159 @@
+{
+  "id": "fsharp.migrate-based-arrays-for-aot",
+  "edition": "11.0",
+  "title": "Preserve coordinates when migrating arrays to Native AOT",
+  "goal": "Preserve external two-dimensional coordinates and values when replacing based array allocation with zero-based storage for a Native AOT application.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp-lifetimes",
+    "fsharparrayaot"
+  ],
+  "apis": [
+    "Array2D.zeroCreateBased",
+    "Array2D.createBased",
+    "Array2D.initBased",
+    "Array2D.zeroCreate",
+    "Array2D.create",
+    "Array2D.init",
+    "Array2D.map",
+    "Array2D.mapi",
+    "Array2D.copy",
+    "Array2D.rebase"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Use zero-based storage and translate coordinates; no arbitrary based-array AOT support or warning suppression."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpArrayAot/FSharpArrayAot.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fsi",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use the complete offline source/configuration and verify the consumer matches this route.",
+            "A supported native toolchain for the selected RID; Windows x64 proof uses Visual C++ x64 tools and Windows SDK."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "Native AOT Windows x64 verified; use a supported native toolchain for the selected RID"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "match": "exact",
+            "version": "11.0",
+            "reason": "Use the declared compiler language mode; no later-main language gate is inferred.",
+            "name": "fsharp"
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Actual RC2 evidence; final GA reconciliation is separate."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "PublishAot=true"
+          ],
+          "providers": [],
+          "constraints": [
+            "Use zero-based storage and translate coordinates; no arbitrary based-array AOT support or warning suppression."
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "The selected FSharp.Core 11 asset supplies the annotated array APIs or compiler intrinsics; verify runtime and compiler separately.",
+              "name": "FSharp.Core"
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Matching official src/FSharp.Core/array2.fsi",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fsi"
+    },
+    {
+      "title": "Matching official src/FSharp.Core/array2.fs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/array2.fs"
+    },
+    {
+      "title": "Canonical RC2 F# release notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpArrayAot/FSharpArrayAot.fsproj",
+      "target": "net10.0",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Actual .NET 10 dependency restore, compilation and JIT execution of original based-array allocations, coordinates, values, empty dimensions and map/mapi/copy/rebase. This comparison record contains no native publish/run."
+    },
+    {
+      "sample": "samples/net11.0/FSharpArrayAot/FSharpArrayAot.fsproj",
+      "target": "net11.0",
+      "language": "11.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual .NET 11 dependency restore and compilation, Windows x64 Native AOT publish/run without warning suppression, plus separate managed execution of zero-based coordinate translation and array helpers. Supplemental native PE/toolchain identity and IL3050 probes are in docs/verification/PIN-982-984.md. RC2 is not GA proof."
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "path": "samples/net11.0/FSharpArrayAot/Grid.fs",
+      "language": "fsharp",
+      "region": "grid"
+    },
+    "older": {
+      "path": "samples/net10.0/FSharpArrayAot/Grid.fs",
+      "language": "fsharp",
+      "region": "grid"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated JIT comparisons and one actual Windows x64 Native AOT publish/run establish the bounded array claims. Other native platforms and GA proof are not claimed."
+  }
+}

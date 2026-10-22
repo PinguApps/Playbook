@@ -1,0 +1,138 @@
+{
+  "recordedAt": "2026-10-22T23:35:07.6320748+01:00",
+  "sourceCommit": "6cebf531e4eeaf2ccdc5419a483ae89e8155add5",
+  "scope": "Actual negative compiler and Native AOT call-site checks; native produced executable identity; supplemental to six existing compilation/execution records. RC2, Windows x64 only.",
+  "command": "eng/Test-FSharpLifetimes.ps1",
+  "scriptSha256": "504ad5a14c17e29de9ede4ac473872118da73e26248b845819dc618372d15bd7",
+  "output": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fs(3,17): error FS3350: Feature 'runtime async' is not available in F# 11.0. Please use language version 'PREVIEW' or greater. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fsproj]\nPASS: sequence preview gate\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fs(3,17): error FS3351: Feature 'runtime async' is not supported by target runtime. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fsproj]\nPASS: sequence runtime reference gate\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fs(4,17): error FS3922: The runtime-async sequence recipe could not be statically lowered. Supply a statically known delayed sequence recipe through an inline builder. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fsproj]\nPASS: opaque sequence recipe\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fs(3,33): error FS3922: The runtime-async sequence recipe could not be statically lowered. Supply a statically known delayed sequence recipe through an inline builder. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fsproj]\nPASS: optimized tail handoff\nPASS: original based JIT storage; create/init/zeroCreate/map/mapi/copy/rebase; preserved coordinates and values; empty dimensions; runtime 11.0.0\nPASS: based semantics and all helpers on the actual newer package asset (JIT only)\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fs(4): AOT analysis error IL3050: Probe.main(String[]): Using member 'Microsoft.FSharp.Collections.Array2DModule.ZeroCreateBased<Int32>(Int32,Int32,Int32,Int32)' which has 'RequiresDynamicCodeAttribute' can break functionality when AOT compiling. Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fsproj]\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fs(5): AOT analysis error IL3050: Probe.main(String[]): Using member 'Microsoft.FSharp.Collections.Array2DModule.CreateBased<Int32>(Int32,Int32,Int32,Int32,Int32)' which has 'RequiresDynamicCodeAttribute' can break functionality when AOT compiling. Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fsproj]\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fs(6): AOT analysis error IL3050: Probe.main(String[]): Using member 'Microsoft.FSharp.Collections.Array2DModule.InitializeBased<Int32>(Int32,Int32,Int32,Int32,FSharpFunc`2<Int32,FSharpFunc`2<Int32,Int32>>)' which has 'RequiresDynamicCodeAttribute' can break functionality when AOT compiling. Arrays with a non-zero lower bound cannot be created in an AOT-compiled application. Use Array2D.zeroCreate, Array2D.create or Array2D.init instead. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-fsharp-lifetimes-5683832886f54f9382b3e42656b0491c\\Probe.fsproj]\nPASS: IL3050 errors for all three Based calls with literal zero bases\n",
+  "native": {
+    "hasManagedMetadata": false,
+    "sha256": "f27f9aa3ef96312e5c1aa2f7a42c7ff3010b24420253432eb9418e3ebe10e7ed",
+    "path": "samples/net11.0/FSharpArrayAot/bin/Release/net11.0/win-x64/publish/FSharpArrayAot.exe",
+    "toolchainDiscovery": "VSInstallationPath=C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\nVSInstallationVersion=18.10.12224.181\n_FindVCVarsallOutput=C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\#;C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Tools\\MSVC\\14.51.36231\\lib\\x64;C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\lib\\um\\x64;C:\\Program Files (x86)\\Windows Kits\\10\\lib\\10.0.26100.0\\ucrt\\x64;C:\\Program Files (x86)\\Windows Kits\\10\\\\lib\\10.0.26100.0\\\\um\\x64\n",
+    "toolchainFiles": [
+      {
+        "sha256": "a8c42e25c91ca2453e1110540ac08f0fc12d7539454a11b9af8baeecb469837d",
+        "path": "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Tools\\MSVC\\14.51.36231\\bin\\Hostx64\\x64\\link.exe",
+        "fileVersion": "14.51.36260.0"
+      },
+      {
+        "sha256": "65db0d7b4f10ba0f55973fd9356543a556da9ec1c777a0c05f05a0329c8a100a",
+        "path": "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.26100.0\\x64\\rc.exe",
+        "fileVersion": "10.0.26100.8249 (WinBuild.160101.0800)"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "inputs": {
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-FSharpLifetimes.ps1": "504ad5a14c17e29de9ede4ac473872118da73e26248b845819dc618372d15bd7",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net10.0/FSharpArrayAot/Directory.Packages.props": "8c0a7d6f3fa9d0d95fe11e9d010ca3191c215b65e344ba68fb12900f063139a5",
+        "samples/net10.0/FSharpArrayAot/FSharpArrayAot.fsproj": "1df6120835eb53f3423c4fb78f8fedbf4b49d7b09698214a07cd85aeb8e4e8f2",
+        "samples/net10.0/FSharpArrayAot/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+        "samples/net10.0/FSharpArrayAot/Grid.fs": "5425193c40b3be1ad194b84ec2a1716ea9ee5af9e69e8ef2bd63a0acb9408098",
+        "samples/net10.0/FSharpArrayAot/packages.lock.json": "b0fae323c3083f23e6fdd0dc62d147f848a02d8e67b26f3df599ad5481313086",
+        "samples/net10.0/FSharpArrayAot/verification.json": "1218209c637c8247021177b52c6ba8042f594b888dca45cd859ef41e97b0270f"
+      },
+      "sample": "samples/net10.0/FSharpArrayAot/FSharpArrayAot.fsproj"
+    },
+    {
+      "inputs": {
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-FSharpLifetimes.ps1": "504ad5a14c17e29de9ede4ac473872118da73e26248b845819dc618372d15bd7",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/FsiCleanupRunner.fs": "70f8d1f19480138ab7336cef1a10838ca1df8d4dd6cd72ec0ac89f23f0523c78",
+        "samples/net10.0/FSharpFsiCleanup/Cleanup.fsx": "31c400880dd312a0d47fdde3885a01cba34ac69b8201b650d1f1823d85b242c0",
+        "samples/net10.0/FSharpFsiCleanup/Directory.Packages.props": "8c0a7d6f3fa9d0d95fe11e9d010ca3191c215b65e344ba68fb12900f063139a5",
+        "samples/net10.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj": "462754be45c097cf08f4531a6e8b49ece869992dff4f1c56334250d85792a6fc",
+        "samples/net10.0/FSharpFsiCleanup/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+        "samples/net10.0/FSharpFsiCleanup/packages.lock.json": "b0fae323c3083f23e6fdd0dc62d147f848a02d8e67b26f3df599ad5481313086",
+        "samples/net10.0/FSharpFsiCleanup/UnsupportedUse.fsx": "246425ca7d3bb88d4f2016da1bab165b69964b206cbe8798d2d28decb57a4b34",
+        "samples/net10.0/FSharpFsiCleanup/verification.json": "75295b233d1aa89a8315183791900bc5c9b1005efd92599ebd4a2689ac5110c2",
+        "samples/net11.0/FSharpFsiCleanup/FsiCleanupSupport.fsx": "3f4587dc8f4a77c578347be4191a85717244bf1ed83f16604d9eab33338dfdb2"
+      },
+      "sample": "samples/net10.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj"
+    },
+    {
+      "inputs": {
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-FSharpLifetimes.ps1": "504ad5a14c17e29de9ede4ac473872118da73e26248b845819dc618372d15bd7",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net10.0/FSharpSequence/Directory.Packages.props": "8c0a7d6f3fa9d0d95fe11e9d010ca3191c215b65e344ba68fb12900f063139a5",
+        "samples/net10.0/FSharpSequence/FSharpSequence.fsproj": "f55bba8da0c1592eec27e4aa64f18798aa311eb3d9af6afbff99368af6ee0b93",
+        "samples/net10.0/FSharpSequence/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+        "samples/net10.0/FSharpSequence/packages.lock.json": "b0fae323c3083f23e6fdd0dc62d147f848a02d8e67b26f3df599ad5481313086",
+        "samples/net10.0/FSharpSequence/Sequence.fs": "c1f72552d55b4694b76951ddccdf94894f00513edbb6ff8b39003fc83c98986a",
+        "samples/net10.0/FSharpSequence/verification.json": "1218209c637c8247021177b52c6ba8042f594b888dca45cd859ef41e97b0270f"
+      },
+      "sample": "samples/net10.0/FSharpSequence/FSharpSequence.fsproj"
+    },
+    {
+      "inputs": {
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-FSharpLifetimes.ps1": "504ad5a14c17e29de9ede4ac473872118da73e26248b845819dc618372d15bd7",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net10.0/FSharpArrayAot/Grid.fs": "5425193c40b3be1ad194b84ec2a1716ea9ee5af9e69e8ef2bd63a0acb9408098",
+        "samples/net11.0/FSharpArrayAot/Directory.Packages.props": "7a1290f4955c32c2ea6e95ce162a4153007bb30e6bd4636ce119c0966746eb20",
+        "samples/net11.0/FSharpArrayAot/FSharpArrayAot.fsproj": "86705b228e650a3bf4f17b0be031230cde73037aad5c80d8ca07c1828dd7966e",
+        "samples/net11.0/FSharpArrayAot/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+        "samples/net11.0/FSharpArrayAot/Grid.fs": "bde6ddf25d92fba968f8031e12bb3e67a3429ade6861555c89139a8c82f503d1",
+        "samples/net11.0/FSharpArrayAot/packages.lock.json": "a31d06b56055b2cad02981efdcecdc4d29cafe770925f31b1a029216fd8af71d",
+        "samples/net11.0/FSharpArrayAot/verification.json": "9666e76ef75b1810b9ff069c814d22128306f2ecefbe7cca10da46897df9eeb6"
+      },
+      "sample": "samples/net11.0/FSharpArrayAot/FSharpArrayAot.fsproj"
+    },
+    {
+      "inputs": {
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-FSharpLifetimes.ps1": "504ad5a14c17e29de9ede4ac473872118da73e26248b845819dc618372d15bd7",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/FsiCleanupRunner.fs": "70f8d1f19480138ab7336cef1a10838ca1df8d4dd6cd72ec0ac89f23f0523c78",
+        "samples/net10.0/FSharpFsiCleanup/Cleanup.fsx": "31c400880dd312a0d47fdde3885a01cba34ac69b8201b650d1f1823d85b242c0",
+        "samples/net11.0/FSharpFsiCleanup/Cleanup.fsx": "600f76f9ba1b4f10e3f9dbc834a74c58dd0ac7cf384dc8805568d6c6ca38e318",
+        "samples/net11.0/FSharpFsiCleanup/Directory.Packages.props": "7a1290f4955c32c2ea6e95ce162a4153007bb30e6bd4636ce119c0966746eb20",
+        "samples/net11.0/FSharpFsiCleanup/ExplicitCleanup.fsx": "d1eae76378c49d8c2654ee6e1d651c8d6844b3ec05db6872561e75648b81c121",
+        "samples/net11.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj": "6ccc2420b3767359f93bd2faa3be3da13a4c61b43ff97f383bdb1ba31da4e174",
+        "samples/net11.0/FSharpFsiCleanup/FsiCleanupSupport.fsx": "3f4587dc8f4a77c578347be4191a85717244bf1ed83f16604d9eab33338dfdb2",
+        "samples/net11.0/FSharpFsiCleanup/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+        "samples/net11.0/FSharpFsiCleanup/packages.lock.json": "6ab3f7d76262da76cb8453ddbd11d8b9b0a3db00747c6de2b9e30bba785413d0",
+        "samples/net11.0/FSharpFsiCleanup/verification.json": "4f5903b33b8d1a9970640d4eb9bcff6ea6b862921369bba78b9628c4a65d94da"
+      },
+      "sample": "samples/net11.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj"
+    },
+    {
+      "inputs": {
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-FSharpLifetimes.ps1": "504ad5a14c17e29de9ede4ac473872118da73e26248b845819dc618372d15bd7",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net11.0/FSharpSequence/Directory.Packages.props": "7a1290f4955c32c2ea6e95ce162a4153007bb30e6bd4636ce119c0966746eb20",
+        "samples/net11.0/FSharpSequence/FSharpSequence.fsproj": "9855583594b72913a621440b98116f638fcb3502bff93d28499bfe808cf7aba8",
+        "samples/net11.0/FSharpSequence/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+        "samples/net11.0/FSharpSequence/packages.lock.json": "6ab3f7d76262da76cb8453ddbd11d8b9b0a3db00747c6de2b9e30bba785413d0",
+        "samples/net11.0/FSharpSequence/Sequence.fs": "7128af031066652d8282dd1f44a964b584cacb33f44483a1556a27380d728600",
+        "samples/net11.0/FSharpSequence/verification.json": "ead371eac1c88498d30099c8b6bcd38812143e84cbe2a8f85482add9cdb18ae8"
+      },
+      "sample": "samples/net11.0/FSharpSequence/FSharpSequence.fsproj"
+    }
+  ]
+}
