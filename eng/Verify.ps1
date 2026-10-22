@@ -67,6 +67,12 @@ try {
     @{ Path = 'net9.0/PropertyAssignment'; Dotnet = $Net9Dotnet },
     @{ Path = 'net10.0/PropertyAssignment'; Dotnet = 'dotnet' },
     @{ Path = 'net10.0/PropertyAssignmentSdk11'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/ValidationRules'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/ValidationRules'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/TracingLogging'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/TracingLogging'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/HttpObservations'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/HttpObservations'; Dotnet = $Net11Dotnet },
     @{ Path = 'net11.0/PropertyAssignment'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/ClosedOutcomes'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/ClosedOutcomes'; Dotnet = $Net11Dotnet },
@@ -121,6 +127,7 @@ try {
     finally { Pop-Location }
   }
   & (Join-Path $PSScriptRoot 'Test-OptionsStartup.ps1') -Net11Dotnet $Net11Dotnet
+  & (Join-Path $PSScriptRoot 'Test-Observability.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-AsyncLinqMigration.ps1') -Net9Dotnet $Net9Dotnet
   & (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1') -Net9Dotnet $Net9Dotnet -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-SimdGuidance.ps1') -Net10Dotnet (Get-Command dotnet).Definition -Net11Dotnet $Net11Dotnet

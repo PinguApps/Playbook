@@ -1,5 +1,11 @@
 # Inspect the guidance an agent receives
 
+For awaited/localized validation, refreshable activity rules, generic generated
+logging and observable HTTP instruments, use the
+[PIN-748–749 walkthrough](verification/PIN-748-749.md#inspect-what-an-agent-receives).
+It displays five original discovery goals, full comparisons and target-11
+applicability, with real .NET 10/RC2 behavior evidence.
+
 For selective configuration binding, asynchronous reload work, DI/async options
 startup and cache metrics/value-derived lifetimes, use the
 [PIN-745–747 walkthrough](verification/PIN-745-747.md#inspect-what-an-agent-receives).

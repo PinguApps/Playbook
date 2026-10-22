@@ -1,32 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-#if NET11_0_OR_GREATER
-using System.Runtime.CompilerServices;
-#endif
 
 namespace Playbook.Samples;
-
-// snippet:ledger
-public sealed class PermitLedger : IServiceProvider
-{
-    public TaskCompletionSource Entered { get; } = new(TaskCreationOptions.RunContinuationsAsynchronously);
-    public TaskCompletionSource<bool> Decision { get; } = new(TaskCreationOptions.RunContinuationsAsynchronously);
-    public CultureInfo? ObservedCulture { get; private set; }
-    public bool ObservedCancellation { get; private set; }
-
-    public async Task<bool> AcceptsAsync(string permit, CancellationToken token)
-    {
-        Entered.TrySetResult();
-        bool accepted;
-        try { accepted = await Decision.Task.WaitAsync(token); }
-        catch (OperationCanceledException) { ObservedCancellation = token.IsCancellationRequested; throw; }
-        ObservedCulture = CultureInfo.CurrentCulture;
-        return accepted && permit == "reef-24";
-    }
-
-    public object? GetService(Type serviceType) => serviceType == typeof(PermitLedger) ? this : null;
-}
-// endsnippet:ledger
 
 internal static class Program
 {
@@ -108,25 +83,5 @@ internal static class Program
         Console.WriteLine("PASS six async Validator families; synchronous path rejected; IAsyncValidatableObject awaited, not sync-called.");
     }
 
-    // snippet:object
-    private sealed class VesselManifest : IAsyncValidatableObject
-    {
-        public int AsyncCalls { get; private set; }
-        public int SyncCalls { get; private set; }
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-            SyncCalls++;
-            throw new InvalidOperationException("Validate this manifest asynchronously.");
-        }
-        public async IAsyncEnumerable<ValidationResult> ValidateAsync(
-            ValidationContext validationContext, [EnumeratorCancellation] CancellationToken cancellationToken = default)
-        {
-            await Task.Yield();
-            cancellationToken.ThrowIfCancellationRequested();
-            AsyncCalls++;
-            yield return new ValidationResult("Manifest needs a departure berth.");
-        }
-    }
-    // endsnippet:object
 #endif
 }

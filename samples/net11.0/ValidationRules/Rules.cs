@@ -1,3 +1,5 @@
+using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.ComponentModel.DataAnnotations;
 
 namespace Playbook.Samples;
@@ -46,3 +48,46 @@ public static class LocalizedRule
         rule.FormatMessage(template, displayName);
 }
 // endsnippet:localized
+
+// snippet:ledger
+public sealed class PermitLedger : IServiceProvider
+{
+    public TaskCompletionSource Entered { get; } = new(TaskCreationOptions.RunContinuationsAsynchronously);
+    public TaskCompletionSource<bool> Decision { get; } = new(TaskCreationOptions.RunContinuationsAsynchronously);
+    public CultureInfo? ObservedCulture { get; private set; }
+    public bool ObservedCancellation { get; private set; }
+
+    public async Task<bool> AcceptsAsync(string permit, CancellationToken token)
+    {
+        Entered.TrySetResult();
+        bool accepted;
+        try { accepted = await Decision.Task.WaitAsync(token); }
+        catch (OperationCanceledException) { ObservedCancellation = token.IsCancellationRequested; throw; }
+        ObservedCulture = CultureInfo.CurrentCulture;
+        return accepted && permit == "reef-24";
+    }
+
+    public object? GetService(Type serviceType) => serviceType == typeof(PermitLedger) ? this : null;
+}
+// endsnippet:ledger
+
+// snippet:object
+public sealed class VesselManifest : IAsyncValidatableObject
+{
+    public int AsyncCalls { get; private set; }
+    public int SyncCalls { get; private set; }
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        SyncCalls++;
+        throw new InvalidOperationException("Validate this manifest asynchronously.");
+    }
+    public async IAsyncEnumerable<ValidationResult> ValidateAsync(
+        ValidationContext validationContext, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+    {
+        await Task.Yield();
+        cancellationToken.ThrowIfCancellationRequested();
+        AsyncCalls++;
+        yield return new ValidationResult("Manifest needs a departure berth.");
+    }
+}
+// endsnippet:object
