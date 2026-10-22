@@ -22,6 +22,14 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [native deployment-artifact audit](../audits/native-deployment.md) resolves the
+three assigned mitigations against 21 pinned official files. Runtime-setting
+precedence and Unix native-library naming retain two approval-only delivery
+proposals; caller inspection stays with delivered PIN-742 guidance and saved
+Windows native evidence. Static-library naming does not establish supported static
+publication. Actual new consumers, Unix toolchains and GA reconciliation remain
+delivery obligations; source closure does not clear comprehensive publication.
+
 The [runtime/transport/security API audit](../audits/runtime-security.md) compares
 actual .NET 10 and pinned .NET 11 RC2 references, security packages, interop tooling
 and packaged browser TypeScript contracts against 167 immutable official sources.
