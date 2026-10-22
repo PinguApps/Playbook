@@ -1,0 +1,1002 @@
+{
+  "reviewed": "2026-10-22",
+  "scope": "PIN-707 SDK/MSBuild/NuGet/testing/container authoring",
+  "sources": [
+    {
+      "id": "release-notes_11.0_preview_preview1_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/README.md",
+      "sha256": "afbb65139b00f68d3edf629af8605ffa27c9f6b1d16701c4cc4e864a1f97ae37",
+      "headings": [
+        "# .NET 11 Preview 1 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview1_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/containers.md",
+      "sha256": "8c2c800d828ee4b1a0a51c317f856f9ce780f0ab1eefe07a9e7187a588e71683",
+      "headings": [
+        "# Container image updates in .NET 11 Preview 1 - Release Notes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview1_msbuild.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/msbuild.md",
+      "sha256": "e81ecab4304e565e58c1529a75830cb36ecb1ed5dba20ba455d266258ca35602",
+      "headings": [
+        "# MSBuild in .NET 11 Preview 1 - Release Notes",
+        "## Terminal Logger improvements",
+        "### Test summary always reported",
+        "### Node status restoration after task yields",
+        "### Forwarding logger support for API-based builds",
+        "## MSBuild language and evaluation fixes",
+        "### Item function chaining with whitespace",
+        "### NoWarn honored when MSBuildWarningsAsMessages is set",
+        "### Whitespace-only element evaluation fix",
+        "### Property function: Regex.Replace fix",
+        "## New APIs and capabilities",
+        "### BinaryLogger parameter parsing API",
+        "### `System.Uri::EscapeDataString` in property functions",
+        "### WriteLinesToFile transactional mode",
+        "### `MSBUILDDEBUGONSTART=3` for task hosts",
+        "## Performance improvements",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview1_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/sdk.md",
+      "sha256": "a2e53951d1dbd5301bb905cbdf4db9e55098bd0071fe156be55e547b1f61214b",
+      "headings": [
+        "# .NET SDK in .NET 11 Preview 1 - Release Notes",
+        "## CLI command improvements",
+        "### `dotnet run`: Interactive target framework and device selection",
+        "#### Target framework selection",
+        "#### Device selection for mobile workloads",
+        "### `dotnet test`: Positional arguments",
+        "# Before (still works)",
+        "# Now also works",
+        "### `dotnet watch`: Hot Reload reference changes and configurable ports",
+        "#### Support for changing project and package references",
+        "#### Configurable browser refresh port",
+        "# Pin the browser refresh WebSocket to a specific port",
+        "### `dotnet format`: Hidden severity support",
+        "## Code analyzers",
+        "### New analyzers",
+        "## New .NET SDK capabilities",
+        "### `PublishReferenceSymbols` property",
+        "## Other changes",
+        "### Opt-out of automatic UTF-8 console encoding (mostly for Windows users)",
+        "# Use the system's default encoding instead of UTF-8",
+        "### File based apps behave more like project based apps",
+        "## Community contributors",
+        "## Useful Links"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview2_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/README.md",
+      "sha256": "eca72282c82f989c8fb39c37cc596f9b27d7185f9191b28ff7981797e0f74585",
+      "headings": [
+        "# .NET 11 Preview 2 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview2_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/containers.md",
+      "sha256": "0b0f82ff4a3f4183c0e728ab24996f0cd6e1259574f7934632c7375d63aad62a",
+      "headings": [
+        "# Container images in .NET 11 Preview 2 - Release Notes",
+        "## SDK container images are up to 17% smaller"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview2_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/sdk.md",
+      "sha256": "5dd49e85f0908d1c91b0f48b20c796c630a11f8116ad19155d99bfbc2c017b9d",
+      "headings": [
+        "# .NET SDK in .NET 11 Preview 2 - Release Notes",
+        "## Smaller SDK installers on Linux and macOS",
+        "## Code analyzer improvements",
+        "### CA1873: Reduced noise and better diagnostic messages",
+        "### Analyzer bug fixes",
+        "### AnalysisLevel corrected for .NET 11",
+        "## New SDK warnings and build targets",
+        "### NETSDK1235: Warning for custom `.nuspec` with PackAsTool",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview3_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/README.md",
+      "sha256": "af07d84bde49908711fa44af3e806f7ed03a2debee12084188875ef39582e16c",
+      "headings": [
+        "# .NET 11 Preview 3 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview3_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/containers.md",
+      "sha256": "4e7424004ade45209b80a0f6b75602c9ee149ead3605fe83be23f4e72f996bd2",
+      "headings": [
+        "# Container images in .NET 11 Preview 3 - Release Notes",
+        "## .NET container images are now signed"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview3_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/sdk.md",
+      "sha256": "4053c7257eaa65010243e45d3fd63a7f13775bff8f631eb6f9fa8c3122416164",
+      "headings": [
+        "# .NET SDK in .NET 11 Preview 3 - Release Notes",
+        "## Solution filters can now be edited from the CLI",
+        "## File-based apps can be split across files",
+        "## `dotnet run -e` passes environment variables from the command line",
+        "## `dotnet watch` adds Aspire, crash recovery, and Windows desktop improvements",
+        "## Other CLI improvements",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview4_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/README.md",
+      "sha256": "781ea6e16cdc53230164f3656b1f886c629566791f2d904e6e6b2b7330715e93",
+      "headings": [
+        "# .NET 11 Preview 4 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview4_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/containers.md",
+      "sha256": "f7cf90d7c6b7f16d9e5bfe2539321dfeacdaed145af13125043b2c00cd660b70",
+      "headings": [
+        "# Containers in .NET 11 Preview 4 - Release Notes",
+        "## .NET 11 SDK container images include PowerShell 7.7"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview4_msbuild.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/msbuild.md",
+      "sha256": "6132fde1a418807a480aab169a4b15b83faad52847802960c9b89221db865cc6",
+      "headings": [
+        "# MSBuild in .NET 11 Preview 4 - Release Notes",
+        "## TaskHost callbacks enabled by default",
+        "## SdkResolver environment variables take precedence over the ambient environment",
+        "## Multithreaded build: more in-box tasks enlightened",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview4_nuget.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/nuget.md",
+      "sha256": "6090812d1030f3c3886d9fd0729e77cb84d37feb19c71ce7e6e8412c363e6686",
+      "headings": [
+        "# NuGet in .NET 11 Preview 4 - Release Notes",
+        "## Opt out of writing the dependency graph spec file during restore",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview4_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/sdk.md",
+      "sha256": "213b691434b61365b7eeefb2c39abeb18cea02c99c619ec443380c4598c86cf1",
+      "headings": [
+        "# .NET SDK in .NET 11 Preview 4 - Release Notes",
+        "## `dotnet watch` adds device selection for MAUI and mobile projects",
+        "## `dotnet watch` reliability fixes for Ctrl+R restart, iOS, and the TFM prompt",
+        "### Known issue: `dotnet watch` requires `MtouchLink=None` for iOS Simulator",
+        "## Fish shell completions match Bash, Zsh, and PowerShell",
+        "## `dotnet reference` and similar commands fall back to the current directory",
+        "## `dotnet nuget <subcommand> --help` forwards to the NuGet CLI again",
+        "## Launch settings notice moved to stderr",
+        "## Asset Groups for Static Web Assets",
+        "## OpenTelemetry replaces Application Insights for CLI telemetry",
+        "## NativeAOT entry point for the `dotnet` CLI (foundation)",
+        "## Smaller SDK archives continue to shrink",
+        "## Partial Ready-to-Run for upstack tooling",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview5_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/README.md",
+      "sha256": "ad9b1e3c4873907900650f7595fcec4c31159cf03d7308f78ec96487085d6669",
+      "headings": [
+        "# .NET 11 Preview 5 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview5_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/containers.md",
+      "sha256": "cd5d4c4a550c4d9c69a09e3977400f5e44a98f0629f3bb2efc52af0a0ed67cf6",
+      "headings": [
+        "# Containers in .NET 11 Preview 5 - Release Notes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview5_msbuild.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/msbuild.md",
+      "sha256": "74ffd713f965992eab010f48df4edf214967faea7aa85650a869449e374dacb4",
+      "headings": [
+        "# MSBuild in .NET 11 Preview 5 - Release Notes",
+        "## Multithreaded builds can be enabled from the environment",
+        "## MSBuild evaluation and item filtering are faster",
+        "## Binary log replay handles older logs",
+        "## MSBuild runs on Haiku",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview5_nuget.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/nuget.md",
+      "sha256": "8328ed210789da40f4d8b09ba1cf754f157e4cb715f01198e63c4b5c4d7d89f1",
+      "headings": [
+        "# NuGet in .NET 11 Preview 5 - Release Notes",
+        "## `dotnet nuget why` shows requested and resolved versions",
+        "## Deterministic pack support is restored",
+        "## Package verification shows revocation endpoints",
+        "## Restore warns about deprecated MonoAndroid package assets",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview5_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/sdk.md",
+      "sha256": "90c9a28a1782273dc23d58cccaac1eb1d0ddd05d78ad5fff137f10a54b0be9ac",
+      "headings": [
+        "# .NET SDK in .NET 11 Preview 5 - Release Notes",
+        "## File-based apps can reference other C# files",
+        "## CLI commands handle file-based apps more consistently",
+        "## SDK vulnerability and EOL checks are available during build",
+        "## `dotnet new` includes the MCP Server template",
+        "## Console apps include `System.Net.Http.Json` by default",
+        "## Container publishing validates bearer-token realms",
+        "## `dotnet test` disables ANSI output in LLM environments",
+        "## NativeAOT CLI fast path is packaged and opt-in",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview6_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/README.md",
+      "sha256": "7e68b5ada2ce2eca79ac9f51bee49063d8a08c2dd4dcf243ffa59e4a4a5b594f",
+      "headings": [
+        "# .NET 11 Preview 6 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview6_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/containers.md",
+      "sha256": "0126ba20b03dfdc426e1481a6eb91fc21cf228eb29ce20a785435718323283cc",
+      "headings": [
+        "# Container image updates in .NET 11 Preview 6 - Release Notes",
+        "## Azure Linux 4.0 images",
+        "## Smaller Native AOT SDK images"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview6_msbuild.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/msbuild.md",
+      "sha256": "857b863909864908c29c4261015388e390db0f21796c182c63e12b3411d6c0cb",
+      "headings": [
+        "# MSBuild in .NET 11 Preview 6 - Release Notes",
+        "## Parallel project evaluation",
+        "## Multithreaded builds auto-engage MSBuild Server",
+        "## Faster out-of-proc node communication",
+        "## Expose import tree as MSBuildImportedProject items",
+        "## ProjectReferenceTargets available to all project types",
+        "## Full-graph mode for ProjectGraph construction",
+        "## C# `record` recognized in resource name generation",
+        "## Additional multithreaded task migrations",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview6_nuget.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/nuget.md",
+      "sha256": "2901617d4694282ba79ac356fb4a132c0a104905dd905b0e27d67a3bbc09c2a4",
+      "headings": [
+        "# NuGet in .NET 11 Preview 6 - Release Notes",
+        "## NuGet.Protocol adds an opt-in System.Text.Json path",
+        "## Package search supports package-type filters consistently",
+        "## Pack warns about restricted package IDs",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview6_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/sdk.md",
+      "sha256": "c7e82da37bbc6582da80d5f9896b8a82c276bdf7f143d9414244527907844d78",
+      "headings": [
+        "# .NET SDK in .NET 11 Preview 6 - Release Notes",
+        "## NativeAOT CLI serves the full command surface",
+        "## `dotnet test` gains new options and improved output",
+        "## Test templates support xUnit v3 and NUnit on Microsoft.Testing.Platform",
+        "## File-based apps support `#:include .dll` references",
+        "## Container publishing supports multi-arch builds with Podman",
+        "## TypeScript outputs integrate with Static Web Assets",
+        "## CLI honors MSBuild server and standard OpenTelemetry env vars",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview7_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/README.md",
+      "sha256": "b10900ed736d864aefb73b1d50c41da6840116152a6285204074fbc529624812",
+      "headings": [
+        "# .NET 11 Preview 7 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview7_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/containers.md",
+      "sha256": "7634e6ab31e45a20602f566f8d2e895a3d2597878708f186d836e699c723f138",
+      "headings": [
+        "# Container image updates in .NET 11 Preview 7 - Release Notes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview7_msbuild.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md",
+      "sha256": "58be4bb8c850786ad4ca189ddfd11f0b87751a23df6b9194dab30ae6daf499e3",
+      "headings": [
+        "# MSBuild in .NET 11 Preview 7 - Release Notes",
+        "## Multithreaded mode progress",
+        "# or",
+        "### Typed task parameters: AbsolutePath, FileInfo, DirectoryInfo, ITaskItem\\<T\\>",
+        "### TaskEnvironment injection via task constructors",
+        "### MSBuild Server improvements",
+        "## Task-host environment sent as a delta",
+        "## Partial (stop-after-pass) project evaluation",
+        "## Faster metadata expansion",
+        "## Trim/AOT-clean evaluation object model",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview7_nuget.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/nuget.md",
+      "sha256": "1ff3df4d123459b871c4ee0ee7b4114a162e9869ee54255cb41c6265d4a3502e",
+      "headings": [
+        "# NuGet in .NET 11 Preview 7 - Release Notes",
+        "## Restore records analyzer assets in project.assets.json",
+        "## Restore runs safely under multithreaded MSBuild",
+        "## Pack reuses existing project evaluations",
+        "## Pack warns about non-restricted package IDs",
+        "## Performance improvements",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_preview7_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/sdk.md",
+      "sha256": "1c143541ad3f04dc8338fbad555da9b1af511ea5059c573fdaff73251755a23b",
+      "headings": [
+        "# .NET SDK in .NET 11 Preview 7 - Release Notes",
+        "## NativeAOT `dotnet` CLI is now enabled by default",
+        "# Opt back out of the NativeAOT path for a single command",
+        "## MSBuild server is enabled by default",
+        "# Either of these keeps the classic single-shot MSBuild behavior",
+        "## `dotnet test` adds run-level `--timeout` and `--maximum-failed-tests`",
+        "# Abort the whole run after 90 seconds; exit code 3 (TestSessionAborted)",
+        "# Stop the run once 5 failures accumulate across all test apps; exit code 13",
+        "## `dotnet test` supports `Microsoft.Build.Traversal` projects",
+        "## `dotnet test` reporter improvements on Microsoft.Testing.Platform",
+        "## `dotnet test` gains MAUI device and environment support",
+        "## File-based apps get `dotnet reference` and up-to-date-check fixes",
+        "# app.cs now begins with:",
+        "#   #:project MyLib/MyLib.csproj",
+        "## Container publishing prefers platform-native local runtimes",
+        "## .NET tool packaging supports custom RID matrices",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc1_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/README.md",
+      "sha256": "f09bf8100c207ff9a1abadcda2992f7b1fca424c558e7cc64bf314474f44515d",
+      "headings": [
+        "# .NET 11 RC 1 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc1_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/containers.md",
+      "sha256": "87303b6987eac6f8f3b3a7ca67586289c02565682a48f78dd122bc5887f94244",
+      "headings": [
+        "# Container image updates in .NET 11 RC 1 - Release Notes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc1_msbuild.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/msbuild.md",
+      "sha256": "8324a98b55985390bbcc93670113ab1e7227da36c6b8b87a8467c03e4d88c33f",
+      "headings": [
+        "# MSBuild in .NET 11 RC 1 - Release Notes",
+        "## Create and extract tar archives",
+        "## Expose item glob patterns to build tooling",
+        "## Breaking changes",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc1_nuget.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md",
+      "sha256": "315fcd6afd1d3ae651d195cec131f90cd2f31b1bbf29ceae8555c15d04728439",
+      "headings": [
+        "# NuGet in .NET 11 RC 1 - Release Notes",
+        "## Pack reuses existing project evaluations",
+        "## Vulnerable package updates work with warnings as errors",
+        "## Breaking changes",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc1_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/sdk.md",
+      "sha256": "f39cc8619eb6bbeff3fd9680475906dab8125ac96aae4ba2fa29f12a5969f194",
+      "headings": [
+        "# .NET SDK in .NET 11 RC 1 - Release Notes",
+        "## `dotnet test` improves mobile application testing",
+        "## `dotnet test` adds run-level controls and result layouts",
+        "# Stop the complete run after 90 seconds.",
+        "# Stop after five failed, errored, timed-out, or cancelled results.",
+        "## Container publishing produces reproducible images and skips redundant uploads",
+        "## File-based programs add Native AOT reuse and formatting support",
+        "## `dotnet format` limits configuration discovery to included files",
+        "## Additional CLI improvements",
+        "## Breaking changes",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc2_README.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/README.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/README.md",
+      "sha256": "d3889fe70411e87d8fb2459876b0377c43e428a3399b83228bf64271ed91fbed",
+      "headings": [
+        "# .NET 11 RC 2 - Release Notes",
+        "## Languages",
+        "## Workloads, Libraries, & More",
+        "## Get Started",
+        "## Stay up-to-date"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc2_containers.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/containers.md",
+      "sha256": "530257ca1c893dfdaa306ba45d0c904a9748bb64fe1bd5c263b4088a884ee272",
+      "headings": [
+        "# Container images in .NET 11 RC 2 - Release Notes"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc2_msbuild.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/msbuild.md",
+      "sha256": "5da76128ca19a11afc8d4e3f9dc09a300fc2b958576211d24d35d72169fec667",
+      "headings": [
+        "# MSBuild in .NET 11 RC 2 - Release Notes",
+        "## Faster wildcard matching during project evaluation"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc2_nuget.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/nuget.md",
+      "sha256": "1f273e435afa10b884dd07ba93954ce146b50c4dc44dd9ec7813b7c08e4c654f",
+      "headings": [
+        "# NuGet in .NET 11 RC 2 - Release Notes",
+        "## Configure minimum package publication age from the CLI"
+      ]
+    },
+    {
+      "id": "release-notes_11.0_preview_rc2_sdk.md",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/sdk.md",
+      "sha256": "c94b0a8c9bd4937bb6400338f0352eef221cc945d2f022e8044ae427ed0da904",
+      "headings": [
+        "# SDK in .NET 11 RC 2 - Release Notes",
+        "## Quoted file-level directive values",
+        "## MSBuild properties in launch-profile arguments"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_dnx-scripts-bypass-global-json.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/dnx-scripts-bypass-global-json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/dnx-scripts-bypass-global-json.md",
+      "sha256": "e3129fbd118b0c01d7c67543c0ebb0cbf341e2ed09a957f4d554ab9e645dd3ff",
+      "headings": [
+        "# dnx scripts bypass global.json SDK selection",
+        "## Version introduced",
+        "## Previous behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_mono-launch-target-removed.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/mono-launch-target-removed.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/mono-launch-target-removed.md",
+      "sha256": "63d27b6351842a0352dbb889e4471ee4075c10e039b6ceb31fbc76e752fcb30c",
+      "headings": [
+        "# mono launch target not set for .NET Framework apps",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_native-cli-command-handling-enabled.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/native-cli-command-handling-enabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/native-cli-command-handling-enabled.md",
+      "sha256": "a44761615e37279eea43732c76430e865151f44a028ac5eb05e2d53123561a77",
+      "headings": [
+        "# NativeAOT CLI command handling enabled by default",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_native-local-container-runtimes.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/native-local-container-runtimes.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/native-local-container-runtimes.md",
+      "sha256": "cd024bc81b6cd6f01c4f33f010068f7341712ece99086d71572c94f736bccb8e",
+      "headings": [
+        "# SDK local container runtime selection prefers platform-native tools",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_nu1703-deprecated-monoandroid-framework.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/nu1703-deprecated-monoandroid-framework.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/nu1703-deprecated-monoandroid-framework.md",
+      "sha256": "3b9512beb66dc9be8739c528cbb8fbd9b4a2d2a3a359bce23c8c498728e4730b",
+      "headings": [
+        "# NU1703 warning for packages that use deprecated MonoAndroid framework assets",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_nuget-pack-nu5052-packageid.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/nuget-pack-nu5052-packageid.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/nuget-pack-nu5052-packageid.md",
+      "sha256": "ccaa7b1c5957923f88e5ca6456e9662f52920e4ce943762d5c616a55720cd86d",
+      "headings": [
+        "# NuGet pack warns for package IDs with restricted characters",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_restore-global-packages-folder-version-search.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/restore-global-packages-folder-version-search.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/restore-global-packages-folder-version-search.md",
+      "sha256": "7efd04deaa88e5b1ca39cefbb8e78b11c6a14d3d75a897bdf4271e098fa2adc1",
+      "headings": [
+        "# Restore doesn't search the global packages folder for a higher package version",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_template-engine-netstandard.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/template-engine-netstandard.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/template-engine-netstandard.md",
+      "sha256": "2a20ce704f858d41d70d67a834abef7b07b3bfa933ba9db94145210f263a5754",
+      "headings": [
+        "# Template engine packages no longer support netstandard2.0",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_vstest-removes-newtonsoft-json.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/vstest-removes-newtonsoft-json.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/vstest-removes-newtonsoft-json.md",
+      "sha256": "788fdd267eaceafe81b6958492c049bd187abb6c46f587be2b716639f7fb36e4",
+      "headings": [
+        "# VSTest removes dependency on Newtonsoft.Json",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "### Test projects that fail to compile",
+        "### Tests that fail with FileNotFoundException at runtime",
+        "### Test extensions that fail with FileNotFoundException",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_11.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/11.md",
+      "sha256": "1dede22a71bcf370e2eabde836495cf31625933e8711a3d323bc3c85d60ecd7e",
+      "headings": [
+        "# Breaking changes in .NET 11",
+        "## ASP.NET Core",
+        "## Core .NET libraries",
+        "## Cryptography",
+        "## Deployment",
+        "## Entity Framework Core",
+        "## Extensions",
+        "## Globalization",
+        "## Interop",
+        "## JIT compiler",
+        "## Networking",
+        "## .NET MAUI",
+        "## SDK and MSBuild"
+      ]
+    },
+    {
+      "id": "docs_core_compatibility_core-libraries_11_obsolete-apis.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "sha256": "5ae71d3612ef4b297aea6aa570eaa48d7ae8347a1030974b90bd835c14b24600",
+      "headings": [
+        "# API obsoletions with non-default diagnostic IDs (.NET 11)",
+        "## Change description",
+        "## Version introduced",
+        "## Type of breaking change",
+        "## Recommended action",
+        "## Affected APIs",
+        "### SYSLIB0064",
+        "### SYSLIB0066",
+        "## See also"
+      ]
+    },
+    {
+      "id": "docs_fundamentals_syslib-diagnostics_obsoletions-overview.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "sha256": "941c7b40230151c34bba11d2a5a0d7fc5cfb17a532111622d7854cf385e6d826",
+      "headings": [
+        "# Obsolete features in .NET 5+",
+        "## SYSLIB obsoletions",
+        "## EXTOBS obsoletions",
+        "## Suppress warnings",
+        "## See also"
+      ]
+    },
+    {
+      "id": "docs_core_whats-new_dotnet-11_sdk.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/whats-new/dotnet-11/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/whats-new/dotnet-11/sdk.md",
+      "sha256": "a8b85c18246ff80f0e3d184f3258996378db3e8d3c2fb5860eb8f38b2f0dd92c",
+      "headings": [
+        "# What's new in the SDK and tooling for .NET 11",
+        "## SDK footprint",
+        "## Code analysis and warnings",
+        "### Code analyzer improvements",
+        "#### CA1873: Reduced noise and improved messages",
+        "#### Analyzer bug fixes",
+        "#### AnalysisLevel corrected for .NET 11",
+        "### New SDK warnings",
+        "#### NETSDK1235: Custom .nuspec with PackAsTool",
+        "## CLI workflow and developer productivity",
+        "### Solution filter CLI support",
+        "### File-based apps split across files",
+        "### Quoted values and item metadata in file-based directives",
+        "### File-based apps reuse Native AOT build outputs",
+        "### Pass environment variables with dotnet run",
+        "### MSBuild properties in launch-profile arguments",
+        "### dotnet watch improvements",
+        "### Fish shell completions",
+        "### dotnet reference falls back to current directory",
+        "### 'dotnet reference' support for file-based apps",
+        "### Launch settings notice moved to stderr",
+        "### dotnet format limits configuration discovery to included files",
+        "### Other CLI improvements",
+        "## Web assets and telemetry",
+        "### Asset groups for static web assets",
+        "### OpenTelemetry replaces Application Insights for CLI telemetry",
+        "## CLI architecture",
+        "### NativeAOT entry point for the dotnet CLI",
+        "### MSBuild server enabled by default",
+        "### Partial Ready-to-Run for upstack tooling",
+        "## Test improvements",
+        "### dotnet test improvements",
+        "### dotnet test support for mobile app testing",
+        "### dotnet test run-level policy options",
+        "# Stop the complete run after 90 seconds.",
+        "# Stop after five failed, errored, timed-out, or cancelled results.",
+        "### dotnet test support for traversal projects",
+        "### dotnet test reporter and artifacts improvements",
+        "### Test templates support xUnit v3 and NUnit on Microsoft.Testing.Platform",
+        "## MSBuild and NuGet",
+        "### Faster wildcard matching during project evaluation",
+        "### Configure minimum package publication age from the CLI",
+        "## Container and tooling updates",
+        "### Multi-arch container builds with Podman",
+        "### Platform-native local container runtime selection",
+        "### Reproducible container publishing",
+        "### TypeScript outputs integrate with Static Web Assets",
+        "### MSBuild server and OpenTelemetry environment variables",
+        "## Include DLLs in file-based apps",
+        "## See also"
+      ]
+    },
+    {
+      "sha256": "e4baa232bc2ec54c20611706cbd91b48ca7f4019a3680085aa4cb15713be28eb",
+      "headings": [],
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageStagingResourceV3.cs",
+      "path": "src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageStagingResourceV3.cs",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "id": "820230c3_src_nuget-client_src_NuGet.Core_NuGet.Protocol_Resources_PackageStagingResourceV3.cs"
+    },
+    {
+      "sha256": "b32e6a9780c60875a1856f2f40d9d76a28e4f25c6d158649485eb2bc6422ced0",
+      "headings": [],
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Common/StaticState.cs",
+      "path": "src/nuget-client/src/NuGet.Core/NuGet.Common/StaticState.cs",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "id": "820230c3_src_nuget-client_src_NuGet.Core_NuGet.Common_StaticState.cs"
+    },
+    {
+      "sha256": "1e599cf3f9c5573bec76084a6f849af9d798e421c49378449a041024cd8e4f51",
+      "headings": [],
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/nuget-client/src/NuGet.Core/NuGet.Protocol/SearchFilter.cs",
+      "path": "src/nuget-client/src/NuGet.Core/NuGet.Protocol/SearchFilter.cs",
+      "repository": "dotnet/dotnet",
+      "commit": "a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+      "id": "a8dd0577_src_nuget-client_src_NuGet.Core_NuGet.Protocol_SearchFilter.cs"
+    },
+    {
+      "sha256": "1e599cf3f9c5573bec76084a6f849af9d798e421c49378449a041024cd8e4f51",
+      "headings": [],
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/SearchFilter.cs",
+      "path": "src/nuget-client/src/NuGet.Core/NuGet.Protocol/SearchFilter.cs",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "id": "820230c3_src_nuget-client_src_NuGet.Core_NuGet.Protocol_SearchFilter.cs"
+    },
+    {
+      "sha256": "bba999bc9fe420c44909fb594b534a8e35040f03947dc1629118cb03c4dfc6f8",
+      "headings": [],
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageSearchResourceV3.cs",
+      "path": "src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageSearchResourceV3.cs",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "id": "820230c3_src_nuget-client_src_NuGet.Core_NuGet.Protocol_Resources_PackageSearchResourceV3.cs"
+    },
+    {
+      "id": "image-signatures",
+      "repository": "dotnet/dotnet-docker",
+      "commit": "6f6b955b9c5046cf1f31d8ff3237c53c6673c110",
+      "path": "documentation/image-signatures.md",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet-docker/6f6b955b9c5046cf1f31d8ff3237c53c6673c110/documentation/image-signatures.md",
+      "sha256": "a8ac30953917748ecf3a9067b0b0d27f44b9489dddc24c0d6caa5c93bcc370ed",
+      "headings": []
+    }
+  ]
+}

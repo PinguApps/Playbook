@@ -10,6 +10,9 @@
 # Inspect-ExtensionsApis.ps1 output; review its script, source/disposition inputs and .md audit.
 /docs/planning/audits/extensions.assets.json
 
+# Inspect-SdkBuildApis.ps1 output; review its script, source/disposition inputs and .md audit.
+/docs/planning/audits/sdk-build.assets.json
+
 # Inspect-SerializationApis.ps1 output; review its script, source manifest and .md audit.
 /docs/planning/audits/serialization.assets.json
 

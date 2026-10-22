@@ -210,6 +210,8 @@ The [PIN-706 Extensions audit](../audits/extensions.md) reconciles 51 actual ref
 
 ## Runtime and SDK authoring
 
+The [PIN-707 SDK/build/package audit](../audits/sdk-build.md) supplements these historical rows with actual .NET 10.0.402 / .NET 11 RC2 public-tooling and authored-build-file differences, 59 pinned full official sources, accountable API/obsolete ownership and 29 approval-only delivery drafts. It retains PIN-688's source findings and existing delivery boundaries. In particular the SDK uses `PublishReferencesSymbols` (plural), and NuGet RC2 exposes `StaticState.BuildEnded` rather than the registry API described in Preview 7. Neither metadata nor audit closure establishes recipe/runtime coverage; see its retained unknowns and exact evidence limits.
+
 | Proposed stable ID | Goal and authoring impact | Applicability / stability / verification constraint | Official evidence | Disposition |
 | --- | --- | --- | --- | --- |
 | `runtime.configure-crash-reporting` | Enable in-process crash diagnostics when out-of-process capture is unsuitable. | Linux/macOS/mobile; DOTNET_EnableCrashReport/Only and existing minidump precedence. | [RR1], [R] | included |
