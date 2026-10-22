@@ -1,0 +1,7 @@
+<!-- snippet:audit -->
+<Project>
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:audit -->

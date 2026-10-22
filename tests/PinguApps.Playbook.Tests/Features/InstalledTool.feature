@@ -8,10 +8,12 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
-  Scenario: Runner packaging and static asset recipes remain complete offline
+  @BuildPackagePolicy
+  Scenario: Runner delivery and build package policy recipes remain complete offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then SDK delivery recipes retain complete canonical bodies applicability and target editions
+    And build and package policy recipes retain complete canonical bodies and verified constraints
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 

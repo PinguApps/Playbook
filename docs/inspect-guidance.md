@@ -6,6 +6,10 @@ logging and observable HTTP instruments, use the
 It displays five original discovery goals, full comparisons and target-11
 applicability, with real .NET 10/RC2 behavior evidence.
 
+For trusted XML, retired MSBuild waves, package cooldown and vulnerability updates,
+use [the tested PIN-768–769 walkthrough](verification/PIN-768-769.md#inspect-what-an-agent-receives).
+It shows all four goals, complete comparisons, applicability and the measured RC2 boundaries.
+
 For selective configuration binding, asynchronous reload work, DI/async options
 startup and cache metrics/value-derived lifetimes, use the
 [PIN-745–747 walkthrough](verification/PIN-745-747.md#inspect-what-an-agent-receives).

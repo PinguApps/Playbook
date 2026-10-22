@@ -1,0 +1,165 @@
+{
+  "id": "msbuild.migrate-xml-inputs",
+  "edition": "11.0",
+  "title": "Migrate build XML to the current DTD policy",
+  "goal": "Keep custom XML build tasks working after an SDK upgrade by removing DTDs or explicitly ignoring them for trusted input.",
+  "areas": [
+    "msbuild",
+    "sdk"
+  ],
+  "exampleLanguages": [],
+  "languageNeutral": true,
+  "tags": [
+    "build-package-policy",
+    "trusted"
+  ],
+  "apis": [
+    "ProhibitDtd",
+    "XmlPeek",
+    "XmlPoke",
+    "XslTransformation"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "ProhibitDtd=false ignores DTD declarations; it does not validate DTDs or enable entity expansion.",
+          "Apply an exception only to trusted XML; prefer DTD-free input."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [
+          "csharp",
+          "fsharp",
+          "vb"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Runtime of the selected SDK build/package tooling; this route is catalogued for target 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact RC2 verification is recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Language mode of the canonical compiled verification consumer. Served XML and CLI configuration is language-neutral and requires no application language migration."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by the .NET SDK; actual authoring checks ran on Windows x64. No Framework MSBuild.exe or native OS execution evidence."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Inspect effective global.json, imported targets and process environment. Select the actual dotnet executable."
+          ],
+          "constraints": [
+            "ProhibitDtd=false ignores DTD declarations; it does not validate DTDs or enable entity expansion.",
+            "Apply an exception only to trusted XML; prefer DTD-free input.",
+            "Target 11 only. .NET 10 is a verified comparison, not an added foundation or a declared older-target route.",
+            "Consulting Playbook serves embedded documentation only; no consumer build, package update, account or resource is created."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using SDK 11.0.100-rc.2.26504.105, not GA. No publisher-designated experimental API is used; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md",
+          "https://learn.microsoft.com/en-us/visualstudio/msbuild/xmlpeek-task?view=visualstudio"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BuildCompatibility/BuildCompatibility.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "MSBuild XML defaults and retired waves",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/msbuild.md"
+    },
+    {
+      "title": "XmlPeek task",
+      "url": "https://learn.microsoft.com/en-us/visualstudio/msbuild/xmlpeek-task?view=visualstudio"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/BuildCompatibility/BuildCompatibility.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual compilation and execution of the original SDK behavior checks on Windows x64. Package tests use controlled loopback V3 metadata and synthetic advisories with real NuGet commands, not a production feed/security validation. Build tests verify XML outputs and wave diagnostics, not all historical wave internals."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/BuildCompatibility/BuildCompatibility.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual compilation and execution of the original SDK behavior checks on Windows x64. Package tests use controlled loopback V3 metadata and synthetic advisories with real NuGet commands, not a production feed/security validation. Build tests verify XML outputs and wave diagnostics, not all historical wave internals."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/BuildCompatibility/BuildInputs.proj",
+      "region": "trusted",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/BuildCompatibility/BuildInputs.proj",
+      "region": "trusted",
+      "language": "xml"
+    },
+    "input": {
+      "path": "samples/net11.0/BuildCompatibility/trusted.xml",
+      "region": "input",
+      "language": "xml"
+    },
+    "flat": {
+      "path": "samples/net11.0/BuildCompatibility/BuildInputs.proj",
+      "region": "flat",
+      "language": "xml"
+    },
+    "flat-input": {
+      "path": "samples/net11.0/BuildCompatibility/flat.xml",
+      "region": "flat-input",
+      "language": "xml"
+    },
+    "transform": {
+      "path": "samples/net11.0/BuildCompatibility/route.xsl",
+      "region": "transform",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "No provider, workload, account, native UI or external resource is required by these controlled authoring checks."
+  }
+}

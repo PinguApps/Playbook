@@ -1,0 +1,147 @@
+{
+  "id": "nuget.delay-new-package-selection",
+  "edition": "11.0",
+  "title": "Delay selection of newly published packages",
+  "goal": "Set a source cooldown when adding or updating dependencies, while distinguishing automatic selection from explicit-version restore and floating-reference conflicts.",
+  "areas": [
+    "nuget",
+    "sdk"
+  ],
+  "exampleLanguages": [],
+  "languageNeutral": true,
+  "tags": [
+    "build-package-policy",
+    "cooldown"
+  ],
+  "apis": [
+    "minPublishAgeHours",
+    "--min-publish-age-hours",
+    "NU1020"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Cooldown is source-scoped selection policy, not universal restore exclusion or vulnerability mitigation.",
+          "RC2 rejects both tested 1.* and 1.2.* floating references with NU1020; explicit 1.2.0 restores despite being fresh.",
+          "Requires a source supplying publication metadata; do not infer production-feed behavior from a folder feed."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [
+          "csharp",
+          "fsharp",
+          "vb"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Runtime of the selected SDK build/package tooling; this route is catalogued for target 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact RC2 verification is recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Language mode of the canonical compiled verification consumer. Served XML and CLI configuration is language-neutral and requires no application language migration."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by the .NET SDK; actual authoring checks ran on Windows x64. No Framework MSBuild.exe or native OS execution evidence."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Inspect effective global.json, project imports, shared build files and NuGet configuration before applying the migration.",
+            "Use an existing authorized package source for package commands; replace the example.invalid URL. Publication metadata and audit data are source capabilities, not credentials supplied by Playbook."
+          ],
+          "constraints": [
+            "Cooldown is source-scoped selection policy, not universal restore exclusion or vulnerability mitigation.",
+            "RC2 rejects both tested 1.* and 1.2.* floating references with NU1020; explicit 1.2.0 restores despite being fresh.",
+            "Requires a source supplying publication metadata; do not infer production-feed behavior from a folder feed.",
+            "Target 11 only. .NET 10 is a verified comparison, not an added foundation or a declared older-target route.",
+            "Consulting Playbook serves embedded documentation only; no consumer build, package update, account or resource is created."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using SDK 11.0.100-rc.2.26504.105, not GA. No publisher-designated experimental API is used; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/nuget.md",
+          "https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/PackagePolicies/PackagePolicies.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NuGet cooldown CLI and selection",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/nuget.md"
+    },
+    {
+      "title": "NuGet source configuration",
+      "url": "https://learn.microsoft.com/en-us/nuget/reference/nuget-config-file"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/PackagePolicies/PackagePolicies.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual compilation and execution of the original SDK behavior checks on Windows x64. Package tests use controlled loopback V3 metadata and synthetic advisories with real NuGet commands, not a production feed/security validation. Build tests verify XML outputs and wave diagnostics, not all historical wave internals."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/PackagePolicies/PackagePolicies.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual compilation and execution of the original SDK behavior checks on Windows x64. Package tests use controlled loopback V3 metadata and synthetic advisories with real NuGet commands, not a production feed/security validation. Build tests verify XML outputs and wave diagnostics, not all historical wave internals."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/PackagePolicies/Policy.config",
+      "region": "cooldown",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/PackagePolicies/Policy.config",
+      "region": "cooldown",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "No provider, workload, account, native UI or external resource is required by these controlled authoring checks."
+  }
+}
