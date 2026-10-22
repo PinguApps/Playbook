@@ -49,20 +49,21 @@ let run (makeCheckers: unit -> (string * FSharpChecker) array) =
             let refs = Array.concat [references; [|contract|]; extra]
             let result = checkProject checker loadedAt (Path.Combine(scratch, name + (Path.GetFileName(file) |> string) + ".fsproj")) refs file
             let errors = result.Diagnostics |> Array.filter (fun d -> d.Severity = FSharpDiagnosticSeverity.Error)
+            let diagnostics = result.Diagnostics |> Array.map (fun d -> d.Severity, d.ErrorNumber, d.Message) |> Array.sort
             let signature = result.AssemblySignature.Entities |> Seq.collect (fun e -> e.MembersFunctionsAndValues) |> Seq.map (fun m -> m.DisplayName, m.FullType.Format(FSharp.Compiler.Symbols.FSharpDisplayContext.Empty)) |> Seq.sort |> Seq.toArray
-            errors, signature
+            errors, signature, diagnostics
         let initial = ResizeArray<_>()
         for name, checker in checkers do
             for file, extra in [first, [||]; second, [|extension|]] do
-                let errors, signature = check name checker file extra
+                let errors, signature, diagnostics = check name checker file extra
                 require (errors.Length = 0 && signature |> Array.exists (fun (n,t) -> n = "measured" && t.Contains("int", StringComparison.Ordinal))) (sprintf "%s initial check failed: %A / %A" name errors signature)
-                initial.Add(file, signature)
+                initial.Add(file, signature, diagnostics)
             // Same binary and same reference closure, distinct project identity.
-            let errors, _ = check (name + "Shared") checker first [||]
+            let errors, _, _ = check (name + "Shared") checker first [||]
             require (errors.Length = 0) "Shared closure changed diagnostics"
         for file in [first; second] do
-            let signatures = initial |> Seq.filter (fun (f, _) -> f = file) |> Seq.map snd |> Seq.toArray
-            require (signatures |> Array.forall ((=) signatures[0])) "Sharing changed intended symbols"
+            let results = initial |> Seq.filter (fun (f, _, _) -> f = file) |> Seq.map (fun (_, signature, diagnostics) -> signature, diagnostics) |> Seq.toArray
+            require (results |> Array.forall ((=) results[0])) "Sharing changed intended symbols or diagnostics"
         // Replace the actual binary at the same path; FCS imports metadata, not a loaded fixture type.
         compile contract "namespace SurveyContract\ntype Gauge = { Depth: string }"
         File.SetLastWriteTimeUtc(contract, DateTime.UtcNow.AddSeconds(2.0))
@@ -71,16 +72,16 @@ let run (makeCheckers: unit -> (string * FSharpChecker) array) =
         let isolated = ResizeArray<_>()
         for name, checker in checkers do
             for file, extra in [first, [||]; second, [|extension|]] do
-                let errors, signature = check name checker file extra
+                let errors, signature, diagnostics = check name checker file extra
                 require (errors.Length = 0 && signature |> Array.exists (fun (n,t) -> n = "measured" && t.Contains("string", StringComparison.Ordinal))) (sprintf "%s retained stale imports: %A / %A" name errors signature)
-                updated.Add(file, signature)
+                updated.Add(file, signature, diagnostics)
             // A project lacking the extension must still reject its symbols.
-            let errors, _ = check (name + "Isolated") checker second [||]
+            let errors, _, diagnostics = check (name + "Isolated") checker second [||]
             require (errors.Length > 0) "Reference closure leaked symbols"
-            isolated.Add(errors |> Array.map (fun error -> error.ErrorNumber, error.Message))
+            isolated.Add diagnostics
         for file in [first; second] do
-            let signatures = updated |> Seq.filter (fun (f, _) -> f = file) |> Seq.map snd |> Seq.toArray
-            require (signatures |> Array.forall ((=) signatures[0])) "Updated imports changed symbols between sharing policies"
+            let results = updated |> Seq.filter (fun (f, _, _) -> f = file) |> Seq.map (fun (_, signature, diagnostics) -> signature, diagnostics) |> Seq.toArray
+            require (results |> Array.forall ((=) results[0])) "Updated imports changed symbols or diagnostics between sharing policies"
         require (isolated |> Seq.forall ((=) isolated[0])) "Sharing changed missing-reference diagnostics"
         printfn "PASS: %A; shared binary/closure and differing closures; int -> string reference replacement; isolated diagnostics; runtime %O; FCS %O" (checkers |> Array.map fst) Environment.Version (typeof<FSharpChecker>.Assembly.GetName().Version)
     finally
