@@ -23,6 +23,12 @@ try {
   & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1')
   foreach ($sample in @(
+    @{ Path = 'net10.0/ConfigurationLifecycle'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/ConfigurationLifecycle'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/OptionsStartup'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/OptionsStartup'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/CacheEntries'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/CacheEntries'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/MetadataInspection'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/MetadataInspection'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/ContentDescriptions'; Dotnet = 'dotnet' },
@@ -114,6 +120,7 @@ try {
     }
     finally { Pop-Location }
   }
+  & (Join-Path $PSScriptRoot 'Test-OptionsStartup.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-AsyncLinqMigration.ps1') -Net9Dotnet $Net9Dotnet
   & (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1') -Net9Dotnet $Net9Dotnet -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-SimdGuidance.ps1') -Net10Dotnet (Get-Command dotnet).Definition -Net11Dotnet $Net11Dotnet

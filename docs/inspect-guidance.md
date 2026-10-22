@@ -1,5 +1,11 @@
 # Inspect the guidance an agent receives
 
+For selective configuration binding, asynchronous reload work, DI/async options
+startup and cache metrics/value-derived lifetimes, use the
+[PIN-745–747 walkthrough](verification/PIN-745-747.md#inspect-what-an-agent-receives).
+It displays six original goals, full comparisons and applicability, including
+the measured HybridCache LocalSize RC limitation retained for GA reconciliation.
+
 For local engine choice, reproducible/Podman multi-architecture containers, CLI
 telemetry and build archives/globs, see the [PIN-765–767 source-review walkthrough](verification/PIN-765-767.md#inspect-what-an-agent-would-receive).
 Its commands are deliberately **unrun**, following Pingu's request for theoretical

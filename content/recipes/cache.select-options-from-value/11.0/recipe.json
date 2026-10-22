@@ -1,0 +1,159 @@
+{
+  "id": "cache.select-options-from-value",
+  "edition": "11.0",
+  "title": "Choose cache lifetimes after loading a value",
+  "goal": "Derive cache entry lifetimes from factory output using the documented mutable context, with the measured RC LocalSize limitation visible.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "select-options-from-value",
+    "configuration-options-cache"
+  ],
+  "apis": [
+    "HybridCache.GetOrCreateAsync",
+    "HybridCacheEntryContext",
+    "HybridCacheEntryOptions.LocalSize"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA verification remains required.",
+          "Local-only workload, no distributed backend proof. Do not mix direct MemoryCache application units with this HybridCache implementation estimate."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer comparison uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; the exact RC2 SDK is a verification baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is used."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11 shared framework"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Extensions.Caching.Hybrid",
+              "version": "10.11.0",
+              "match": "exact",
+              "reason": "Exact implementation verified with the declared RC2 abstraction/shared-framework composition."
+            },
+            {
+              "name": "Microsoft.Extensions.Caching.Abstractions",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "The explicit RC2 abstraction pin exposes the mutable factory context; its net11 empty asset defers to the shared framework."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.Extensions.Caching.Hybrid/10.11.0 lib/net10.0 implementation, executed by the .NET 11 host."
+          ],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET 11 with Microsoft.AspNetCore.App; executed on Windows x64. Browser/WASI/mobile excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: TargetFramework=net11.0, LangVersion=15.0, Nullable=enable, ImplicitUsings=enable, FrameworkReference Microsoft.AspNetCore.App. Exact imports and registration steps are in the body."
+          ],
+          "constraints": [
+            "Known RC gap: HybridCache 10.11.0 honours derived local expiry but ignores LocalSize (requested 24, measured L1 size 12). GA verification remains required.",
+            "Local-only workload, no distributed backend proof. Do not mix direct MemoryCache application units with this HybridCache implementation estimate.",
+            "No external account, provisioning, rendering integration, optional workload or unverified older-target package route is required or advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 verification; GA reconciliation pending. No experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Caching.Abstractions/src/Hybrid/HybridCache.cs",
+          "https://github.com/dotnet/extensions/blob/25f07afa51034e37b334210642d7dc5f191c142d/src/Libraries/Microsoft.Extensions.Caching.Hybrid/Internal/DefaultHybridCache.L2.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CacheEntries/CacheEntries.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 library contracts"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Caching.Abstractions/src/Hybrid/HybridCache.cs",
+      "title": "Pinned official cache.select-options-from-value contract 1"
+    },
+    {
+      "url": "https://github.com/dotnet/extensions/blob/25f07afa51034e37b334210642d7dc5f191c142d/src/Libraries/Microsoft.Extensions.Caching.Hybrid/Internal/DefaultHybridCache.L2.cs",
+      "title": "Pinned official cache.select-options-from-value contract 2"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/CacheEntries/CacheEntries.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real statistics/custom metric and value-derived HybridCache SetAsync/local expiry; no distributed backend."
+    },
+    {
+      "sample": "samples/net11.0/CacheEntries/CacheEntries.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real built-in cache statistics/four metrics and value-derived Hybrid local expiry; LocalSize remains a known requested-24/observed-12 RC gap."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CacheEntries/Cache.cs",
+      "region": "value",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CacheEntries/Cache.cs",
+      "region": "value",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed in-process claims need no Human-only proof. External services, distributed backends, browser/native behavior and GA reconciliation are not claimed. The LocalSize RC gap is explicit where applicable."
+  }
+}

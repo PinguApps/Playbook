@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.Extensions.Options": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "nBcRirW2bvB4yhoVOnjjlgoLfOdENvMfIgakKFoS62+fnh9DIQpGdiG8ow3kaNtazbhI5YH5q2eylrW4Y2M/3w=="
+      }
+    }
+  }
+}

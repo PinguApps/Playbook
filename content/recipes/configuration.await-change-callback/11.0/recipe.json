@@ -1,0 +1,142 @@
+{
+  "id": "configuration.await-change-callback",
+  "edition": "11.0",
+  "title": "Complete asynchronous reload work before rearming notifications",
+  "goal": "Run asynchronous change work without overlap, coalesce intermediate notifications and report failures inside the callback.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "await-change-callback",
+    "configuration-options-cache"
+  ],
+  "apis": [
+    "ChangeToken.OnChange"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Notifications coalesce; this is not a durable queue.",
+          "Handle async errors inside the callback. Disposal neither awaits nor cancels active work."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer comparison uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; the exact RC2 SDK is a verification baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is used."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET 11 with Microsoft.AspNetCore.App; executed on Windows x64. Browser/WASI/mobile excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: TargetFramework=net11.0, LangVersion=15.0, Nullable=enable, ImplicitUsings=enable, FrameworkReference Microsoft.AspNetCore.App. Exact imports and registration steps are in the body."
+          ],
+          "constraints": [
+            "Notifications coalesce; this is not a durable queue.",
+            "Handle async errors inside the callback. Disposal neither awaits nor cancels active work.",
+            "No external account, provisioning, rendering integration, optional workload or unverified older-target package route is required or advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 verification; GA reconciliation pending. No experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Primitives/src/ChangeToken.cs",
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/changetoken-onchange-async-overloads-rebind-callbacks.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Microsoft .NET 11 library contracts"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Primitives/src/ChangeToken.cs",
+      "title": "Pinned official configuration.await-change-callback contract 1"
+    },
+    {
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/changetoken-onchange-async-overloads-rebind-callbacks.md",
+      "title": "Pinned official configuration.await-change-callback contract 2"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real selective input binding and application-owned serialized reload worker; success, coalescing and caught failure."
+    },
+    {
+      "sample": "samples/net11.0/ConfigurationLifecycle/ConfigurationLifecycle.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real ignored property and serialized Func<Task> callbacks, coalescing, caught async failure, synchronous propagation and completion after disposal."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ConfigurationLifecycle/Configuration.cs",
+      "region": "reload",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/ConfigurationLifecycle/Configuration.cs",
+      "region": "reload",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed in-process claims need no Human-only proof. External services, distributed backends, browser/native behavior and GA reconciliation are not claimed. The LocalSize RC gap is explicit where applicable."
+  }
+}

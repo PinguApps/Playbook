@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion></PropertyGroup>
+  <ItemGroup><FrameworkReference Include="Microsoft.AspNetCore.App" /><Compile Include="../../ConfigurationLifecycleChecks.cs" Link="Program.cs" /><Compile Include="../../ReloadChecks.cs" Link="ReloadChecks.cs" /></ItemGroup>
+</Project>

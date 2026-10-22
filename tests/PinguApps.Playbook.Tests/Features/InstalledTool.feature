@@ -211,3 +211,9 @@ Feature: Installed offline guidance
     Then archive and compression guidance retains complete canonical bodies applicability and editions
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
+  Scenario: Configuration options and cache recipes preserve lifecycle contracts and RC evidence
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then configuration options and cache guidance retains complete bodies applicability and RC limitations
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
