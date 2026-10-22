@@ -14,6 +14,8 @@ An ordinary .NET 10 async method compiles to a state machine. It remains a valid
 
 The same survey operation can use .NET 11 runtime-managed suspension. In the public RC2 SDK, opt in with the compiler feature in the project:
 
+Add `using System;`, `using System.Threading.Tasks;`, `using System.Diagnostics;` and `using System.Runtime.CompilerServices;` to the source. These make the snippet complete even when the project does not enable implicit usings.
+
 {{snippet:configuration}}
 
 {{snippet:newer}}
