@@ -1,0 +1,191 @@
+{
+  "note": "First matching group assigns every full declaration delta; no catch-all. Owners preserve delivery obligations, not verification claims. Source/tooling findings are itemized in runtime-security.md.",
+  "groups": [
+    {
+      "id": "mac-verification",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(HMAC|Kmac|IncrementalHash::Verify|CryptographicOperations::Verify)",
+      "disposition": "proposed",
+      "owner": "R1"
+    },
+    {
+      "id": "asn-rsa-obsoletions",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(AsnEncodedData|RSACryptoServiceProvider)",
+      "disposition": "grouped",
+      "owner": "PIN-686"
+    },
+    {
+      "id": "x25519-keywrap",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(X25519|Aes::|CryptographicOperations::FixedTimeEquals)",
+      "disposition": "delivered",
+      "owner": "PIN-750"
+    },
+    {
+      "id": "post-quantum-encryption",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(CompositeMLKem|Hpke|Pkcs\\.|CngAlgorithm|CngAlgorithmGroup)",
+      "disposition": "grouped",
+      "owner": "PIN-751; PIN-686 for CompositeMLDsa native migration"
+    },
+    {
+      "id": "pq-format-stability",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(MLDsa|MLKem|X509Certificates\\.(PublicKey|X509Certificate2::(CopyWithPrivateKey|Get.*ML)))",
+      "disposition": "grouped",
+      "owner": "PIN-751; annotation-only stabilization"
+    },
+    {
+      "id": "registered-id",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.X509Certificates\\.SubjectAlternativeNameBuilder",
+      "disposition": "proposed",
+      "owner": "R2"
+    },
+    {
+      "id": "provider-keys",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(SafeEvpPKeyHandle|CngProperty)",
+      "disposition": "proposed",
+      "owner": "R15"
+    },
+    {
+      "id": "crypto-keysize",
+      "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(AesCcm|AesGcm)",
+      "disposition": "proposed",
+      "owner": "R16"
+    },
+    {
+      "id": "dns",
+      "pattern": "^\\w+ System\\.Net\\.(Dns|AddressRecord|CNameRecord|MxRecord|NsRecord|PtrRecord|SrvRecord|TxtRecord)",
+      "disposition": "grouped",
+      "owner": "PIN-754 for SRV; R3 for other records"
+    },
+    {
+      "id": "endpoint-text",
+      "pattern": "^\\w+ System\\.Net\\.IPEndPoint",
+      "disposition": "proposed",
+      "owner": "R5"
+    },
+    {
+      "id": "network-support",
+      "pattern": "^\\w+ System\\.Net\\.NetworkInformation\\.",
+      "disposition": "proposed",
+      "owner": "R6"
+    },
+    {
+      "id": "parallel-connect",
+      "pattern": "^\\w+ System\\.Net\\.Sockets\\.(ConnectAlgorithm|Socket::ConnectAsync)",
+      "disposition": "proposed",
+      "owner": "R4"
+    },
+    {
+      "id": "tls-sessions",
+      "pattern": "^\\w+ System\\.Net\\.Security\\.Tls",
+      "disposition": "grouped",
+      "owner": "PIN-752"
+    },
+    {
+      "id": "quic",
+      "pattern": "^\\w+ System\\.Net\\.Quic\\.",
+      "disposition": "grouped",
+      "owner": "PIN-755"
+    },
+    {
+      "id": "mime",
+      "pattern": "^\\w+ System\\.Net\\.Mime\\.",
+      "disposition": "grouped",
+      "owner": "PIN-744 for Video; R19 for MediaTypeMap"
+    },
+    {
+      "id": "sync-http-platforms",
+      "pattern": "^method System\\.Net\\.Http\\.(HttpClient|HttpClientHandler|HttpMessageInvoker)::Send ",
+      "disposition": "proposed",
+      "owner": "R20"
+    },
+    {
+      "id": "http-capacity-compression",
+      "pattern": "^\\w+ System\\.Net\\.Http\\.",
+      "disposition": "grouped",
+      "owner": "PIN-753"
+    },
+    {
+      "id": "response-decompression",
+      "pattern": "^\\w+ System\\.Net\\.DecompressionMethods",
+      "disposition": "proposed",
+      "owner": "R21"
+    },
+    {
+      "id": "async",
+      "pattern": "^\\w+ System\\.Runtime\\.CompilerServices\\.AsyncHelpers",
+      "disposition": "grouped",
+      "owner": "PIN-757; PIN-980"
+    },
+    {
+      "id": "compiler-unions",
+      "pattern": "^\\w+ System\\.Runtime\\.CompilerServices\\.(IUnion|UnionAttribute|IsClosedTypeAttribute)",
+      "disposition": "grouped",
+      "owner": "PIN-711; PIN-704"
+    },
+    {
+      "id": "multithreading",
+      "pattern": "^\\w+ System\\.Runtime\\.CompilerServices\\.RuntimeFeature",
+      "disposition": "proposed",
+      "owner": "R7"
+    },
+    {
+      "id": "interlocked",
+      "pattern": "^\\w+ System\\.Threading\\.Interlocked",
+      "disposition": "proposed",
+      "owner": "R8"
+    },
+    {
+      "id": "extended-layout",
+      "pattern": "^\\w+ System\\.(Runtime\\.InteropServices\\.(ExtendedLayout|LayoutKind)|Reflection\\.TypeAttributes)",
+      "disposition": "proposed",
+      "owner": "R9"
+    },
+    {
+      "id": "emit-calli",
+      "pattern": "^\\w+ System\\.Reflection\\.Emit\\.ILGenerator",
+      "disposition": "proposed",
+      "owner": "R10"
+    },
+    {
+      "id": "js-floats",
+      "pattern": "^\\w+ System\\.Runtime\\.InteropServices\\.JavaScript\\.",
+      "disposition": "proposed",
+      "owner": "R11"
+    },
+    {
+      "id": "trimmed-exports",
+      "pattern": "^\\w+ System\\.Runtime\\.InteropServices\\.UnmanagedCallersOnlyAttribute",
+      "disposition": "proposed",
+      "owner": "R12"
+    },
+    {
+      "id": "posix-signals",
+      "pattern": "^\\w+ System\\.Runtime\\.InteropServices\\.PosixSignal",
+      "disposition": "grouped",
+      "owner": "PIN-721; PIN-722"
+    },
+    {
+      "id": "nfloat",
+      "pattern": "^\\w+ System\\.Runtime\\.InteropServices\\.NFloat",
+      "disposition": "grouped",
+      "owner": "PIN-737"
+    },
+    {
+      "id": "reflection",
+      "pattern": "^\\w+ System\\.(Reflection\\.(ConstructorInfo|TypeDelegator|Emit\\.(EnumBuilder|GenericTypeParameterBuilder|TypeBuilder))|Runtime\\.Loader\\.)",
+      "disposition": "delivered",
+      "owner": "PIN-742"
+    },
+    {
+      "id": "metadata-annotations",
+      "pattern": "^type System\\.Runtime\\.InteropServices\\.(CurrencyWrapper|Marshalling\\.MarshalUsingAttribute|ObjectiveC\\.(ObjectiveCMarshal|ObjectiveCTrackedTypeAttribute))",
+      "disposition": "excluded",
+      "owner": "PIN-705; metadata annotations only"
+    },
+    {
+      "id": "memory-safety",
+      "pattern": "^\\w+ System\\.(GC|Reflection\\.Pointer|Runtime\\.(CompilerServices\\.(MemorySafetyRulesAttribute|Unsafe|RuntimeHelpers)|InteropServices\\.)|Security\\.(SecureString|Principal\\.SecurityIdentifier|Cryptography\\.(DSAOpenSsl|ECDiffieHellmanOpenSsl|ECDsaOpenSsl|RSAOpenSsl|X509Certificates\\.(X509Certificate|X509Chain|X509Store))))",
+      "disposition": "grouped",
+      "owner": "PIN-715; R22 for aligned allocation"
+    }
+  ]
+}

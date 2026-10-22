@@ -22,6 +22,13 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [runtime/transport/security API audit](../audits/runtime-security.md) compares
+actual .NET 10 and pinned .NET 11 RC2 references, security packages, interop tooling
+and packaged browser TypeScript contracts against 167 immutable official sources.
+Every declaration difference has an owner. Existing migration/recipe assignments
+are preserved; 25 narrow delivery drafts await review. Unqualified native tooling,
+required recipe execution and GA evidence remain explicit publication gaps.
+
 The [cryptography platform migration audit](../audits/cryptography-platforms.md) reviews every cryptography compatibility entry, the cryptographic general-index obsoletion and adjacent TLS chain-download policy against 30 immutable sources. It distinguishes native support from API presence, bounds HKDF/AIA behavior and prevents an unsupported RSA provider/padding substitution. Seven narrow delivery drafts await approval; existing key-operation, post-quantum encryption and API/index audit owners retain their scopes. Source closure does not deliver recipes, native execution or publication readiness.
 
 The [SDK/build/package authoring audit](../audits/sdk-build.md) compares actual .NET 10 and pinned .NET 11 RC2 public tooling and build XML against all available canonical preview/RC component notes and the bounded full compatibility/obsolete sources. Existing SDK and migration owners retain their scope; 29 narrow delivery drafts await review, with exact prerequisites, native estimates and real consumer acceptance. Source wording conflicts and residual public-contract questions remain explicit. Audit closure delivers no recipe or comprehensive/GA publication permission.
