@@ -1,0 +1,10 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup><PackageReference Include="NuGet.Packaging" /><PackageReference Include="System.Security.Cryptography.Pkcs" /></ItemGroup>
+</Project>
+<!-- endsnippet:project -->

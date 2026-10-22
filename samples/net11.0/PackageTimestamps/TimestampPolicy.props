@@ -1,0 +1,8 @@
+<Project>
+  <!-- snippet:policy -->
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <DeterministicTimestamp>2000-01-01T00:00:00Z</DeterministicTimestamp>
+  </PropertyGroup>
+  <!-- endsnippet:policy -->
+</Project>

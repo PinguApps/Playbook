@@ -1,0 +1,8 @@
+<Project>
+  <!-- snippet:policy -->
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <!-- Normalize the unsigned package's ZIP entry timestamps after pack. -->
+  </PropertyGroup>
+  <!-- endsnippet:policy -->
+</Project>

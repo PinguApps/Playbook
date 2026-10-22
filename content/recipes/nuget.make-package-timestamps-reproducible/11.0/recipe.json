@@ -1,0 +1,151 @@
+{
+  "id": "nuget.make-package-timestamps-reproducible",
+  "edition": "11.0",
+  "title": "Produce repeatable package timestamps",
+  "goal": "Freeze NuGet archive timestamps across repeated builds by opting into a fixed pack timestamp, while checking the other inputs needed for reproducibility.",
+  "areas": [
+    "nuget",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "nuget-artifacts-hosts"
+  ],
+  "apis": [
+    "DeterministicTimestamp",
+    "Deterministic",
+    "dotnet pack"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Use a fixed timestamp for repeated builds; true alone uses the current build time.",
+          "Timestamp reproducibility does not guarantee arbitrary package or signed-artifact reproducibility."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Runtime of the selected SDK build/package tooling; this route is catalogued for target 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The documented .NET 11 SDK/MSBuild/NuGet command behavior; exact RC2 verification is recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C# mode of the compiled verification utility and older normalization helper; the newer MSBuild properties require no language feature."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by the declared .NET SDK/runtime; actual sample execution was Windows x64 only."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Inspect effective SDK, target framework, shared build/package files, imports and package source policy before applying this recipe."
+          ],
+          "constraints": [
+            "Use a fixed timestamp for repeated builds; true alone uses the current build time.",
+            "Timestamp reproducibility does not guarantee arbitrary package or signed-artifact reproducibility."
+          ],
+          "optIns": [
+            "Deterministic=true with a fixed DeterministicTimestamp, e.g. 2000-01-01T00:00:00Z."
+          ],
+          "stabilityLimitations": [
+            "Verified with SDK 11.0.100-rc.2.26504.105 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Packaging/PackageCreation/Authoring/PackageBuilder.cs",
+          "https://github.com/NuGet/NuGet.Client/pull/7652"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/PackageTimestamps/PackageTimestamps.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NuGet RC1 timestamp opt-in and client asset migration",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md"
+    },
+    {
+      "title": "Pinned PackageBuilder timestamp parsing and behavior",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Packaging/PackageCreation/Authoring/PackageBuilder.cs"
+    },
+    {
+      "url": "https://github.com/NuGet/NuGet.Client/pull/7652",
+      "title": "Pack timestamp default and removed SOURCE_DATE_EPOCH fallback"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/PackageTimestamps/PackageTimestamps.csproj",
+      "scope": "Actual Windows x64 compilation and .NET 10 SDK local packing with isolated feed/cache/home; repeated unsigned ZIP entry normalization to a fixed date. No claim that .NET 10 honors DeterministicTimestamp, and no signing or general byte reproducibility proof.",
+      "target": "net10.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/PackageTimestamps/PackageTimestamps.csproj",
+      "scope": "Actual Windows x64 compilation and RC2 SDK local packing with isolated feed/cache/home: fixed RFC3339/Unix timestamp repeatability, bounded equal package bytes, true build time and default/false payload modification times. Not signing, general whole-build reproducibility or GA proof.",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "xml",
+      "region": "policy",
+      "path": "samples/net10.0/PackageTimestamps/TimestampPolicy.props"
+    },
+    "normalize": {
+      "language": "csharp",
+      "region": "normalize",
+      "path": "samples/net10.0/PackageTimestamps/Normalize.cs"
+    },
+    "newer": {
+      "language": "xml",
+      "region": "policy",
+      "path": "samples/net11.0/PackageTimestamps/TimestampPolicy.props"
+    }
+  },
+  "humanProof": {
+    "scope": "Local SDK packing and managed archive reading require no provider, account, workload, native UI or external resource. Actual behavior was executed on Windows x64.",
+    "status": "not-required"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net10.0": {
+      "NuGet.Packaging": {
+        "type": "Direct",
+        "requested": "[8.0.0-rc.605, )",
+        "resolved": "8.0.0-rc.605",
+        "contentHash": "GjJ7K3hi2xE0HSt6eLtgeSQLZFYpyquztHDdvGGUlkOfbRw7vzUPEeBK/VwYoEWJypTwI2f3pnp8VPNEVrgz6Q==",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "NuGet.Configuration": "8.0.0-rc.605",
+          "NuGet.Versioning": "8.0.0-rc.605",
+          "System.Security.Cryptography.Pkcs": "8.0.1"
+        }
+      },
+      "System.Security.Cryptography.Pkcs": {
+        "type": "Direct",
+        "requested": "[8.0.2, )",
+        "resolved": "8.0.2",
+        "contentHash": "VWACYq0JGxi9sw3TonSSV4B2MfhYk5nhgOtp9wbrt5NFOtUetFqHkMZylcCwPX+117cBJH5EnIzIy6X4OKn/kA=="
+      },
+      "Newtonsoft.Json": {
+        "type": "Transitive",
+        "resolved": "13.0.3",
+        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "NuGet.Common": {
+        "type": "Transitive",
+        "resolved": "8.0.0-rc.605",
+        "contentHash": "fQhq629xcNtv4YHmTu7IwGyT+Pc6pSmFbS/UQauvuiMKH/oHDWvfGSewiGnOJHRVAOjoLr7lAB+31jCtPMAcKQ==",
+        "dependencies": {
+          "NuGet.Frameworks": "8.0.0-rc.605"
+        }
+      },
+      "NuGet.Configuration": {
+        "type": "Transitive",
+        "resolved": "8.0.0-rc.605",
+        "contentHash": "W6+18WpjKv1jytN8Mqk03p9S9YkeXPx1NfE07TfU2sxHBYOyQKYYRwPMbMxiduMpqipvweAmT5hsvQvAPLtECg==",
+        "dependencies": {
+          "NuGet.Common": "8.0.0-rc.605",
+          "System.Security.Cryptography.ProtectedData": "8.0.0"
+        }
+      },
+      "NuGet.Frameworks": {
+        "type": "Transitive",
+        "resolved": "8.0.0-rc.605",
+        "contentHash": "LxWqoun1dnlRqu4Nzyewxv4z8dgNIWOvFC6WfRV2y+1XD+nsK9hROI7ev1vj1KQzg0RArlmS/A8eL6jJACS+yw=="
+      },
+      "NuGet.Versioning": {
+        "type": "Transitive",
+        "resolved": "8.0.0-rc.605",
+        "contentHash": "msrWmw6w4JKfymzLljhyLhejo7FrnPrdJXRm/yq7rYCFkfolA64jIJLX5U/fsoTTregBj3YPFnbJCp2I0gpoTg=="
+      },
+      "System.Security.Cryptography.ProtectedData": {
+        "type": "Transitive",
+        "resolved": "8.0.0",
+        "contentHash": "+TUFINV2q2ifyXauQXRwy4CiBhqvDEDZeVJU7qfxya4aRYOKzVBpN+4acx25VcPB9ywUN6C0n8drWl110PhZEg=="
+      }
+    }
+  }
+}
