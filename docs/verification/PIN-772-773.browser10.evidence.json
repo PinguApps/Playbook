@@ -1,0 +1,75 @@
+{
+  "recordedAt": "2026-10-22T20:19:42.171Z",
+  "origin": "http://localhost:5272",
+  "results": [
+    {
+      "labels": [
+        {
+          "id": "survey-lead",
+          "label": "Survey lead"
+        },
+        {
+          "id": "survey-contact",
+          "label": "Contact address"
+        },
+        {
+          "id": "survey-diver-0",
+          "label": "Diver name"
+        },
+        {
+          "id": "survey-diver-1",
+          "label": "Diver name"
+        }
+      ],
+      "mode": "enhanced"
+    },
+    {
+      "enhancedStatePreserved": true,
+      "invalidClientBlocked": true,
+      "mode": "enhanced",
+      "validPostAccepted": true
+    },
+    {
+      "bypassRejectedByServer": true,
+      "mode": "enhanced",
+      "nestedAndCollectionErrors": true
+    },
+    {
+      "labels": [
+        {
+          "id": "survey-lead",
+          "label": "Survey lead"
+        },
+        {
+          "id": "survey-contact",
+          "label": "Contact address"
+        },
+        {
+          "id": "survey-diver-0",
+          "label": "Diver name"
+        },
+        {
+          "id": "survey-diver-1",
+          "label": "Diver name"
+        }
+      ],
+      "mode": "plain"
+    },
+    {
+      "enhancedStatePreserved": false,
+      "invalidClientBlocked": true,
+      "mode": "plain",
+      "validPostAccepted": true
+    },
+    {
+      "bypassRejectedByServer": true,
+      "mode": "plain",
+      "nestedAndCollectionErrors": true
+    },
+    {
+      "culture": "fr-FR",
+      "localizedResource": true
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.1-nightly.20261019.3348 Chrome/152.0.7977.130 Electron/44.4.5 Safari/537.36"
+}

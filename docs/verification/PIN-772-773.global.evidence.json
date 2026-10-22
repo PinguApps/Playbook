@@ -1,0 +1,129 @@
+{
+  "baseUri": "http://localhost:5274/",
+  "net11": true,
+  "recordedAt": "2026-10-22T20:23:34.3686447+00:00",
+  "globalClientOptOut": true,
+  "localizedCaption": "Adresse de contact",
+  "posts": [
+    {
+      "status": 200,
+      "path": "/enhanced",
+      "expected": "Accepted",
+      "values": {
+        "Model.Contact.Email": "reef@example.test",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/enhanced",
+      "expected": "Rejected",
+      "values": {
+        "Model.Contact.Email": "reef@example.test",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/enhanced",
+      "expected": "Rejected",
+      "values": {
+        "Model.Contact.Email": "",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/enhanced",
+      "expected": "Rejected",
+      "values": {
+        "Model.Contact.Email": "reef@example.test",
+        "Model.Divers[1].Name": "",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/plain",
+      "expected": "Accepted",
+      "values": {
+        "Model.Contact.Email": "reef@example.test",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/plain",
+      "expected": "Rejected",
+      "values": {
+        "Model.Contact.Email": "reef@example.test",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/plain",
+      "expected": "Rejected",
+      "values": {
+        "Model.Contact.Email": "",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/plain",
+      "expected": "Rejected",
+      "values": {
+        "Model.Contact.Email": "reef@example.test",
+        "Model.Divers[1].Name": "",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/enhanced",
+      "expected": "Accepted",
+      "values": {
+        "Model.Contact.Email": "reef@example.test",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster",
+        "Model.Reference.ImportedCode": ""
+      }
+    },
+    {
+      "status": 200,
+      "path": "/optout",
+      "expected": "Rejected",
+      "values": {
+        "Model.Contact.Email": "",
+        "Model.Divers[1].Name": "Wren",
+        "Model.Lead": "Reef team",
+        "Model.Divers[0].Name": "Aster"
+      }
+    },
+    {
+      "status": 200,
+      "path": "/diagnostics/undiscovered",
+      "expected": "Top-level only: invalid child was missed",
+      "values": {
+        "Model.Lead": "Reef team",
+        "Model.Contact.Email": ""
+      }
+    }
+  ]
+}

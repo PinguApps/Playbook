@@ -192,3 +192,9 @@ The [PIN-672 walkthrough](verification/PIN-672.md) installs the actual local pac
 For F# record construction, union JSON and culture-aware/reflection-free diagnostics, use [the PIN-716/PIN-718 walkthrough](verification/PIN-716-718.md#inspect-what-an-agent-receives). It displays all five reusable discovery descriptions, full canonical comparisons and the preview/reflection/deployment requirements.
 
 For F# API boundaries, bounded asynchronous work and enum migration, use [the PIN-717/PIN-719/PIN-720 walkthrough](verification/PIN-717-719-720.md#inspect-what-an-agent-receives). It displays eight discovery descriptions, full comparisons, preview gates, supplied attribute/XML inputs and the measured RC2 SynchronizationContext restriction.
+
+For static SSR client/server validation, generated nested-model coverage,
+label/input associations and resource-based captions, use the
+[tested PIN-772–773 walkthrough](verification/PIN-772-773.md#inspect-what-an-agent-receives).
+It displays all four original goals, full canonical comparisons and applicability,
+including the measured RC2 root-only client-rule limit.

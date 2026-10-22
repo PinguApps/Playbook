@@ -1,0 +1,107 @@
+{
+  "sourceCommit": "c9c69667c0ee4f2a8b02170646e55e791e34e71d",
+  "kind": "actual-http-and-chromium-execution",
+  "scope": "Real form server/browser execution. SDK/runtime inputs explicit; no mocks, GA, screen-reader, other platform or trimming/AOT proof.",
+  "artifacts": [
+    {
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/SurveyForms.browser.js": "bd2294844c6b4a597d803d7027da8fe3a96d96fc4c209e647408af859073baa2",
+        "eng/Test-SurveyForms.ps1": "0504e9efe4fad82bd83b913042a906d9e623c772674fbabf2a494f7f61054136",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net10.0/SurveyForms/_Imports.razor": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4",
+        "samples/net10.0/SurveyForms/App.razor": "baa552f322a83af13bce6fb2900e08c7a88162642e2c03f3cebd7df60792b611",
+        "samples/net10.0/SurveyForms/Captions.cs": "b97261bc72e6768c3b246d500a45cc29537e0129b28eb99bc8cc891c4532b7cf",
+        "samples/net10.0/SurveyForms/Captions.fr-FR.resx": "8fd68bdd13a0f85d5d23a502209e7b597c1d421dcf615ed6854cd54785da9e71",
+        "samples/net10.0/SurveyForms/Captions.resx": "faba4c52968b7cf2b664b1e5f591bc1eceec70adf4bd7627b16b755916bebaa4",
+        "samples/net10.0/SurveyForms/DiverEditor.razor": "930447757959e705642d23cd0ff0061ff06c930296437f605f28ac15cf3bba93",
+        "samples/net10.0/SurveyForms/FieldCaption.cs": "b7bf9229fdabbd0de822a09132e0104bba01e841785535d2069a82c01cda4c44",
+        "samples/net10.0/SurveyForms/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+        "samples/net10.0/SurveyForms/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
+        "samples/net10.0/SurveyForms/Program.cs": "d94dadc51672aaf223a25596271297d47a020b4e55ca69976c3ab695d03c577d",
+        "samples/net10.0/SurveyForms/SubmissionCounts.cs": "0c1bd593fd0a7f6275e4b0dc538ceffe0e397793ad7a2d8e5e6ea73fecbd26be",
+        "samples/net10.0/SurveyForms/Survey.razor": "52aa52b309cd0873159bf9889051c7b2d32886183649b7c74b3de40296c7e7b5",
+        "samples/net10.0/SurveyForms/SurveyForms.csproj": "5bf3a5febc512b35003165d5cdbebea6e087ca4a2af3c13abce56c5fb7849a02",
+        "samples/net10.0/SurveyForms/SurveyRequest.cs": "ec62f2b3aacd8b6de71a9fe44b366159478818c399137e1926da8d0b9a763ab7",
+        "samples/net10.0/SurveyForms/Undiscovered.razor": "c683f4834ca8e48af29591af3fd18fffded0390cafa7439c7047f5b8b29554fe",
+        "samples/net10.0/SurveyForms/UndiscoveredRequest.cs": "3ac87c438d2c11d4d030390ae6e919966b9ae156b0ab480d90eac940a62778c8",
+        "samples/net10.0/SurveyForms/verification.json": "7f797eadd08ac5a72f02b0519e1d43749aacb5632a186202b734963ee3ebd261",
+        "samples/net10.0/SurveyForms/wwwroot/SurveyForms.lib.module.js": "cb8663c8b462c81ae6bae60f64ea97a2b8df01f82a834c53609c6867e985431e"
+      },
+      "sha256": "f1fc6ff2e30533e6884411667f83751490efffd5229db6c86026f55dd8c9e69f",
+      "artifact": "samples/net10.0/SurveyForms/bin/Release/net10.0/SurveyForms.dll",
+      "runtime": [
+        {
+          "name": "Microsoft.NETCore.App",
+          "version": "10.0.0"
+        },
+        {
+          "name": "Microsoft.AspNetCore.App",
+          "version": "10.0.0"
+        }
+      ],
+      "sample": "samples/net10.0/SurveyForms/SurveyForms.csproj"
+    },
+    {
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/SurveyForms.browser.js": "bd2294844c6b4a597d803d7027da8fe3a96d96fc4c209e647408af859073baa2",
+        "eng/Test-SurveyForms.ps1": "0504e9efe4fad82bd83b913042a906d9e623c772674fbabf2a494f7f61054136",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net11.0/SurveyForms/_Imports.razor": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4",
+        "samples/net11.0/SurveyForms/App.razor": "baa552f322a83af13bce6fb2900e08c7a88162642e2c03f3cebd7df60792b611",
+        "samples/net11.0/SurveyForms/Captions.cs": "b97261bc72e6768c3b246d500a45cc29537e0129b28eb99bc8cc891c4532b7cf",
+        "samples/net11.0/SurveyForms/Captions.fr-FR.resx": "8fd68bdd13a0f85d5d23a502209e7b597c1d421dcf615ed6854cd54785da9e71",
+        "samples/net11.0/SurveyForms/Captions.resx": "faba4c52968b7cf2b664b1e5f591bc1eceec70adf4bd7627b16b755916bebaa4",
+        "samples/net11.0/SurveyForms/DiverEditor.razor": "59672a7d6ccd7bf5f20f2f05f317c15cce3206d5ed9146ed78e2a9ea06c2b00e",
+        "samples/net11.0/SurveyForms/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+        "samples/net11.0/SurveyForms/packages.lock.json": "a15384b18ca015107576fc2fbee8527fb39e57391227fc3491b92b6c794d2a31",
+        "samples/net11.0/SurveyForms/Program.cs": "3a394d1545d6af5fc68f27dfc82bded0a49c1bcf6213e2beb568b0d731f1f85c",
+        "samples/net11.0/SurveyForms/SubmissionCounts.cs": "0c1bd593fd0a7f6275e4b0dc538ceffe0e397793ad7a2d8e5e6ea73fecbd26be",
+        "samples/net11.0/SurveyForms/Survey.razor": "56b232c0e431dff9f54a3e623f16d27632fdb2512416f9094aacd10ac91d2426",
+        "samples/net11.0/SurveyForms/SurveyForms.csproj": "28d340f5f91fcd50cc9ca021f6f9601f3abbf2bb7b9e7172a80726974792ee69",
+        "samples/net11.0/SurveyForms/SurveyRequest.cs": "d21e5c732b9254c47f61242e65a7328d9989520c4bd990583d0c5459a63014a6",
+        "samples/net11.0/SurveyForms/Undiscovered.razor": "c683f4834ca8e48af29591af3fd18fffded0390cafa7439c7047f5b8b29554fe",
+        "samples/net11.0/SurveyForms/UndiscoveredRequest.cs": "3ac87c438d2c11d4d030390ae6e919966b9ae156b0ab480d90eac940a62778c8",
+        "samples/net11.0/SurveyForms/verification.json": "70273f80a58b0bfa71eefae10de39eca158c8d8acf2195caeb895fe0b86d7c71"
+      },
+      "sha256": "2eed33e3ced81b8284731b8d03952126898291e13988beeebc790a170ad5370e",
+      "artifact": "samples/net11.0/SurveyForms/bin/Release/net11.0/SurveyForms.dll",
+      "runtime": [
+        {
+          "name": "Microsoft.NETCore.App",
+          "version": "11.0.0-rc.2.26504.105"
+        },
+        {
+          "name": "Microsoft.AspNetCore.App",
+          "version": "11.0.0-rc.2.26504.105"
+        }
+      ],
+      "sample": "samples/net11.0/SurveyForms/SurveyForms.csproj"
+    }
+  ],
+  "commands": [
+    "eng/Test-SurveyForms.ps1 -BaseUri http://localhost:5272/",
+    "eng/Test-SurveyForms.ps1 -BaseUri http://localhost:5273/ -Net11",
+    "eng/Test-SurveyForms.ps1 -BaseUri http://localhost:5274/ -Net11 -GlobalClientOptOut",
+    "eng/SurveyForms.browser.js evaluated in actual Chromium on each app origin"
+  ],
+  "recordedAt": "2026-10-22T20:23:38.5273893+00:00",
+  "reports": {
+    "PIN-772-773.http11.evidence.json": "1bccee11c903185ba338002903f386aa9ba35a23f5252ef0a34bf29cb8d6d19a",
+    "PIN-772-773.global.evidence.json": "e6826cdcb8adf87c241850794a98bc32f77a57d068a5917ac8e5e9f17f986114",
+    "PIN-772-773.browser10.evidence.json": "cd2267f78b2b2f217bc541ce2f2ba74a95606108746a259b1bf26294c46a0607",
+    "PIN-772-773.http10.evidence.json": "25e59dac1419d2eca3ff99471a777f733841a6864561f2c7483cfd5debae8c41",
+    "PIN-772-773.browser11.evidence.json": "c3d78c3eddb0bf4f50dcc3f96f6242e583b85824e14973832f0944bbd2745a1c"
+  }
+}
