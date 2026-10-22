@@ -1,0 +1,153 @@
+{
+  "id": "tracing.configure-source-rules",
+  "edition": "11.0",
+  "title": "Select activity sources and operations with refreshable tracing rules",
+  "goal": "Choose sources, operations, listener names and local/global scope through tracing configuration when manual listener wiring becomes repetitive.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "validation-observability",
+    "tracing"
+  ],
+  "apis": [
+    "AddTracing",
+    "ActivitySourceFactory",
+    "ActivityListener.RefreshSources",
+    "TracingOptions",
+    "ActivitySourceScopes"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Rules select registered listeners; AddTracing alone is not a telemetry exporter.",
+          "Local sources belong to their DI factory; new ActivitySource creates a global source."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.Extensions.Diagnostics implementation and tracing configuration come from Microsoft.AspNetCore.App; the source factory contract is in the .NET 11 framework."
+          ],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET 11; executed on Windows x64. Browser/WASI/mobile excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: net11.0, C# 15.0, nullable/implicit usings enabled and FrameworkReference Microsoft.AspNetCore.App. The combined evidence sample also references a logging generator, which tracing itself does not require."
+          ],
+          "constraints": [
+            "Rules select registered listeners; AddTracing alone is not a telemetry exporter.",
+            "Local sources belong to their DI factory; new ActivitySource creates a global source.",
+            "No external account, optional workload, rendering integration, provisioning or unverified older-target package route is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics.Abstractions/src/Tracing/TracingBuilderExtensions.Rules.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/Configuration/TracingConfigureOptions.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TracingLogging/TracingLogging.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Official .NET 11 library changes"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics.Abstractions/src/Tracing/TracingBuilderExtensions.Rules.cs",
+      "title": "Pinned official TracingBuilderExtensions.Rules.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs",
+      "title": "Pinned official DefaultActivitySourceFactory.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/Configuration/TracingConfigureOptions.cs",
+      "title": "Pinned official TracingConfigureOptions.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/TracingLogging/TracingLogging.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual previous-release comparison: Real sampled/stopped records, excluded operation/source/global scope, existing-source false/true/false configuration reload and raw RefreshSources attach/detach."
+    },
+    {
+      "sample": "samples/net11.0/TracingLogging/TracingLogging.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real sampled/stopped records, excluded operation/source/global scope, existing-source false/true/false configuration reload and raw RefreshSources attach/detach."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/TracingLogging/Instrumentation.cs",
+      "region": "tracing",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/TracingLogging/Instrumentation.cs",
+      "region": "tracing",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed shared API and loopback/in-process claims need no Human-only proof. External services/exporters, web adapters, native/browser hosts, trimming and GA behavior are not claimed."
+  }
+}

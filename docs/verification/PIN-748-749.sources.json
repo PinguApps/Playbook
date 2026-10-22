@@ -1,0 +1,59 @@
+{
+  "reviewed": "2026-10-22",
+  "sources": [
+    {
+      "path": "System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/AsyncValidationAttribute.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/AsyncValidationAttribute.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "a233c11cc593048383e2dcc2425175436d7d9aea0f13e909656164335b80257f"
+    },
+    {
+      "path": "System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/Validator.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/Validator.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "19d95e2bb7341a938359145ff458190e740601d601ee1740d74921133d6d44c7"
+    },
+    {
+      "path": "System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/RangeAttribute.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/RangeAttribute.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "b71c1e52fc5b40832d467298bec79e2704f62b158af3ebe588c88a7d2e970762"
+    },
+    {
+      "path": "System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/ValidationAttribute.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/ValidationAttribute.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "7305f24d188b0b22286c347783f476925aa39d1c035fc78a707dbcf4850af678"
+    },
+    {
+      "path": "Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/DefaultActivitySourceFactory.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "84dcd6d1d5f5a3b4153d4ff6f0e1667a8085c0af056df65c1f2b7039b930cd5e"
+    },
+    {
+      "path": "Microsoft.Extensions.Diagnostics.Abstractions/src/Tracing/TracingBuilderExtensions.Rules.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics.Abstractions/src/Tracing/TracingBuilderExtensions.Rules.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "e1436386211125d9392f48cd7049d284c9602274b705567e3cc54684faa38793"
+    },
+    {
+      "path": "Microsoft.Extensions.Diagnostics/src/Tracing/Configuration/TracingConfigureOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Diagnostics/src/Tracing/Configuration/TracingConfigureOptions.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "8d5472e62ffb7b3604b295b43d492fab6dec533b76a58efde90fad39b01c0261"
+    },
+    {
+      "path": "Microsoft.Extensions.Logging.Abstractions/gen/DiagnosticDescriptors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Logging.Abstractions/gen/DiagnosticDescriptors.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "beb4977b9006f27b940ec23ac1943901d36125de42ce731d76c77fc0b91abe3b"
+    },
+    {
+      "path": "System.Net.Http/src/System/Net/Http/Metrics/MetricsHandler.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/Metrics/MetricsHandler.cs",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "sha256": "753bd26dcb9ac93ba5bb4afc40816e7f383dc9b69eed8306b05d4c3b04e4a35a"
+    }
+  ]
+}

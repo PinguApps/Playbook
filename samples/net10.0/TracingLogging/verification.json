@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "Microsoft.Extensions.Logging.Abstractions/10.0.13"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/TracingLoggingChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig"
+  ]
+}

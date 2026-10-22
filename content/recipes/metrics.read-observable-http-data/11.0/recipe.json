@@ -1,0 +1,142 @@
+{
+  "id": "metrics.read-observable-http-data",
+  "edition": "11.0",
+  "title": "Poll observable HTTP request and connection instruments",
+  "goal": "Update a custom MeterListener to poll current HTTP request and connection measurements when event-counter accumulation no longer matches the instruments.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "validation-observability",
+    "observer"
+  ],
+  "apis": [
+    "MeterListener.RecordObservableInstruments",
+    "http.client.active_requests",
+    "http.client.open_connections",
+    "ObservableUpDownCounter"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Poll and replace snapshots rather than accumulating them across intervals; other HTTP instruments retain their own semantics.",
+          "This sample aggregates tag sets; exporters and production dimensional storage need their own policy."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no external NuGet package is required."
+          ],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET 11; executed on Windows x64. Browser/WASI/mobile excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: net11.0, C# 15.0, nullable/implicit usings enabled. Imports and usage are included in the body."
+          ],
+          "constraints": [
+            "Poll and replace snapshots rather than accumulating them across intervals; other HTTP instruments retain their own semantics.",
+            "This sample aggregates tag sets; exporters and production dimensional storage need their own policy.",
+            "No external account, optional workload, rendering integration, provisioning or unverified older-target package route is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/Metrics/MetricsHandler.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HttpObservations/HttpObservations.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Official .NET 11 library changes"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/Metrics/MetricsHandler.cs",
+      "title": "Pinned official MetricsHandler.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/HttpObservations/HttpObservations.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual previous-release comparison: Actual loopback SocketsHttpHandler traffic, both instrument types, held active/open=1, completed active=0, keep-alive open=1, disposal open=0 and non-accumulating repeated RC2 polls."
+    },
+    {
+      "sample": "samples/net11.0/HttpObservations/HttpObservations.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual loopback SocketsHttpHandler traffic, both instrument types, held active/open=1, completed active=0, keep-alive open=1, disposal open=0 and non-accumulating repeated RC2 polls."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/HttpObservations/Observer.cs",
+      "region": "observer",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/HttpObservations/Observer.cs",
+      "region": "observer",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed shared API and loopback/in-process claims need no Human-only proof. External services/exporters, web adapters, native/browser hosts, trimming and GA behavior are not claimed."
+  }
+}

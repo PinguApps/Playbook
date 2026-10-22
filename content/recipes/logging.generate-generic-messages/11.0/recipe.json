@@ -1,0 +1,154 @@
+{
+  "id": "logging.generate-generic-messages",
+  "edition": "11.0",
+  "title": "Generate structured logging methods for generic values",
+  "goal": "Keep reusable log methods generic with source generation, and guard expensive arguments when disabled logging must do no work.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "validation-observability",
+    "logging"
+  ],
+  "apis": [
+    "LoggerMessageAttribute",
+    "ILogger.IsEnabled",
+    "SYSLIB1011",
+    "CA1873"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Generic generator support requires the newer analyzer assets; no unverified older-target route is advertised.",
+          "allows ref struct is rejected; provider enumeration can still box values. Guard expensive call arguments."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Extensions.Logging.Abstractions",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "The verified sample's private analyzer reference supplies the logging source generator; runtime types come from the framework."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Logging.Abstractions net11 lib asset is empty (_._); runtime types are in Microsoft.NETCore.App. The private package supplies the source generator. The combined sample also uses ASP.NET shared-framework tracing, which logging itself does not require."
+          ],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET 11; executed on Windows x64. Browser/WASI/mobile excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: net11.0, C# 15.0, nullable/implicit usings enabled and a private pinned Logging.Abstractions analyzer reference. Import Microsoft.Extensions.Logging."
+          ],
+          "constraints": [
+            "Generic generator support requires the newer analyzer assets; no unverified older-target route is advertised.",
+            "allows ref struct is rejected; provider enumeration can still box values. Guard expensive call arguments.",
+            "No external account, optional workload, rendering integration, provisioning or unverified older-target package route is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Logging.Abstractions/gen/DiagnosticDescriptors.cs",
+          "https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1873"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TracingLogging/TracingLogging.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Official .NET 11 library changes"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Logging.Abstractions/gen/DiagnosticDescriptors.cs",
+      "title": "Pinned official DiagnosticDescriptors.cs"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/ca1873",
+      "title": "CA1873: avoid expensive disabled logging"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/TracingLogging/TracingLogging.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual previous-release comparison: Real generated structured event 71 and fields through an in-process recording ILogger sink, enabled/disabled paths and expensive-argument guard."
+    },
+    {
+      "sample": "samples/net11.0/TracingLogging/TracingLogging.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real generated structured event 71 and fields through an in-process recording ILogger sink, enabled/disabled paths and expensive-argument guard; separate pinned failing/fixed SYSLIB1011/CA1873 builds."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/TracingLogging/Instrumentation.cs",
+      "region": "logging",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/TracingLogging/Instrumentation.cs",
+      "region": "logging",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed shared API and loopback/in-process claims need no Human-only proof. External services/exporters, web adapters, native/browser hosts, trimming and GA behavior are not claimed."
+  }
+}

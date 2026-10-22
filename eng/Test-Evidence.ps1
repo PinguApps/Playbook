@@ -35,6 +35,7 @@ try {
   }
   Copy-Item (Join-Path $root 'content') $fixture -Recurse
   Copy-Item (Join-Path $root 'NuGet.Config') $fixture
+  Copy-Item (Join-Path $root '.editorconfig') $fixture
   New-Item -ItemType Directory -Path (Join-Path $fixture 'eng') | Out-Null
   Copy-Item (Join-Path $PSScriptRoot 'Evidence.ps1'), (Join-Path $PSScriptRoot 'Record-Evidence.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-StaticInterfaceHelpers.ps1') (Join-Path $fixture 'eng')
@@ -44,6 +45,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-ProcessPlatforms.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-AssemblyDeployments.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-OptionsStartup.ps1') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-Observability.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1'), (Join-Path $PSScriptRoot 'Test-WatchHosts.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-SdkDelivery.ps1') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'

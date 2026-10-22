@@ -1,0 +1,147 @@
+{
+  "id": "validation.format-localized-rules",
+  "edition": "11.0",
+  "title": "Format validation messages using the rule's own arguments",
+  "goal": "Supply a translated validation template while the attribute fills its placeholders under the configured formatting culture.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "validation-observability",
+    "localized"
+  ],
+  "apis": [
+    "ValidationAttribute.FormatMessage",
+    "RangeAttribute.FormatMessage",
+    "CultureInfo.CurrentCulture"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "FormatMessage formats supplied templates; it does not find translations or activate a framework localizer.",
+          "Parsing range limits, formatting messages and choosing UI resources are separate culture choices."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no external NuGet package is required."
+          ],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET 11; executed on Windows x64. Browser/WASI/mobile excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: net11.0, C# 15.0, nullable/implicit usings enabled. Imports and usage are included in the body."
+          ],
+          "constraints": [
+            "FormatMessage formats supplied templates; it does not find translations or activate a framework localizer.",
+            "Parsing range limits, formatting messages and choosing UI resources are separate culture choices.",
+            "No external account, optional workload, rendering integration, provisioning or unverified older-target package route is claimed.",
+            "DataAnnotations reflection paths are not trimming/Native AOT proof; generated Microsoft.Extensions.Validation metadata is a separate integration."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 compilation/execution; GA reconciliation pending. No experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/RangeAttribute.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/ValidationAttribute.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ValidationRules/ValidationRules.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Official .NET 11 library changes"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/RangeAttribute.cs",
+      "title": "Pinned official RangeAttribute.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/ValidationAttribute.cs",
+      "title": "Pinned official ValidationAttribute.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ValidationRules/ValidationRules.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual previous-release comparison: Actual en-GB/fr-FR Range formatting, invariant decimal limit parsing and unchanged valid/invalid range decisions."
+    },
+    {
+      "sample": "samples/net11.0/ValidationRules/ValidationRules.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual en-GB/fr-FR Range formatting, invariant decimal limit parsing and unchanged valid/invalid range decisions."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ValidationRules/Rules.cs",
+      "region": "localized",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/ValidationRules/Rules.cs",
+      "region": "localized",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed shared API and loopback/in-process claims need no Human-only proof. External services/exporters, web adapters, native/browser hosts, trimming and GA behavior are not claimed."
+  }
+}

@@ -219,3 +219,10 @@ Feature: Installed offline guidance
     Then configuration options and cache guidance retains complete bodies applicability and RC limitations
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Shared validation and observability recipes retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then validation and observability guidance retains canonical bodies applicability and target editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
