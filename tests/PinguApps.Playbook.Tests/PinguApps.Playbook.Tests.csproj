@@ -172,4 +172,8 @@
     <EmbeddedResource Include="../../content/recipes/validation.*/**/recipe.json;../../content/recipes/validation.*/**/recipe.md;../../content/recipes/tracing.*/**/recipe.json;../../content/recipes/tracing.*/**/recipe.md;../../content/recipes/logging.*/**/recipe.json;../../content/recipes/logging.*/**/recipe.md;../../content/recipes/metrics.*/**/recipe.json;../../content/recipes/metrics.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/ValidationRules/*.cs;../../samples/net*/TracingLogging/*.cs;../../samples/net*/HttpObservations/*.cs" LogicalName="SdkInput.%(Identity)" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../content/recipes/crypto.*/**/recipe.json;../../content/recipes/crypto.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/KeyMaterial/*.cs;../../samples/net*/PostQuantum/*.cs" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
 </Project>

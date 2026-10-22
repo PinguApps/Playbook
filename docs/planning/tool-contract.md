@@ -77,6 +77,12 @@ This is an incompatible (`major`) public response-shape change. Migrate discover
 
 Response sizes and practical regression budgets are documented in [PIN-974 verification](../verification/PIN-974.md). Budgets fail verification; the server never shortens safety information to meet them.
 
+PIN-750/751 measures 162,974 bytes for the 50-item real-content fixture page
+after adding required cryptography provider/experimental conditions. Its practical
+allowance is now 170,000 bytes; default real pages remain 80,000, synthetic
+20/50-item fixture pages remain 65,000/160,000, and per-summary remains 3,000.
+No response is truncated and no selection condition is removed to fit a budget.
+
 ## GA target and RC evidence
 
 Pingu replaced the earlier preview-default proposal with a GA content target. Build for the .NET 11 full release, using what current RCs establish about the intended final contract. At GA, reconcile final notes, migrations, actual SDK/packages, and the coverage register; update recipes and release corrections/additions. This is a maintenance step, not a scheduled automation or authorization to publish now.

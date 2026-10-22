@@ -24,6 +24,63 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("crypto guidance retains complete canonical bodies applicability and target editions")]
+    public async Task CheckCryptoGuidanceAsync()
+    {
+        string[] ids = ["crypto.compare-fixed-secret", "crypto.encapsulate-hybrid-secrets", "crypto.encrypt-cms-with-mlkem", "crypto.exchange-x25519", "crypto.wrap-keys"];
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "crypto-key-contracts", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(ids, RecipeIds(catalogue));
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "crypto-key-contracts" }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(older));
+        foreach (string id in ids)
+        {
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+            string path = $"content/recipes/{id}/11.0";
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+            string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+            foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+            {
+                string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $"(?ms)^[ \\t]*// snippet:{region}\\n(.*?)^[ \\t]*// endsnippet:{region}$");
+                Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+                expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```csharp\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+            }
+
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == id);
+            Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            AssertSelection(summary, recipe);
+            JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+            Assert.NotEmpty(requirements.GetProperty("providers").EnumerateArray());
+            Assert.Empty(requirements.GetProperty("renderingModes").EnumerateArray());
+            Assert.Contains("RC2", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                Assert.Contains("PASS", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            });
+            if (id == "crypto.encapsulate-hybrid-secrets")
+            {
+                Assert.Equal("experimental", summary.GetProperty("stability").GetString());
+                Assert.Contains("SYSLIB5006", requirements.GetProperty("optIns").ToString(), StringComparison.Ordinal);
+                Assert.Contains("SYSLIB5009", requirements.GetProperty("optIns").ToString(), StringComparison.Ordinal);
+                Assert.Contains("classical", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            }
+
+            if (id == "crypto.encrypt-cms-with-mlkem")
+            {
+                Assert.Contains("non-Windows", requirements.GetProperty("platforms").ToString(), StringComparison.Ordinal);
+                Assert.Contains("lib/net11.0/System.Security.Cryptography.Pkcs.dll", requirements.GetProperty("packageAssets").ToString(), StringComparison.Ordinal);
+                Assert.Contains("PlatformNotSupportedException", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            }
+        }
+    }
+
     [Then("NuGet timestamp and client host recipes retain canonical bodies and verified target routes")]
     public async Task CheckNuGetArtifactsHostsAsync()
     {
@@ -932,7 +989,7 @@ public sealed class InstalledToolSteps : IDisposable
                 int budget = query is null ? 80000 : 65000;
                 if (limit == 50)
                 {
-                    budget = 160000;
+                    budget = query is null ? 170000 : 160000;
                 }
 
                 withinBudget &= Bytes(result) <= budget;

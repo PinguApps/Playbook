@@ -1,0 +1,156 @@
+{
+  "id": "crypto.exchange-x25519",
+  "edition": "11.0",
+  "title": "Exchange keys with the platform X25519 implementation",
+  "goal": "Derive a purpose-specific key with X25519, checking provider support and authenticating peer keys.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "crypto-key-contracts",
+    "cryptography"
+  ],
+  "apis": [
+    "X25519DiffieHellman",
+    "HKDF.DeriveKey",
+    "X25519DiffieHellman.IsSupported"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Authenticate peer keys and bind transcript. X25519 is classical."
+        ],
+        "target": "11.0",
+        "evidenceSamples": [
+          "samples/net11.0/KeyMaterial/KeyMaterial.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary APIs require the .NET 11 framework contracts."
+          },
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build the declared .NET 11 target; the exact RC2 pin is evidence, not a minimum SDK."
+          },
+          "language": {
+            "version": "15.0",
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical sample language mode, without preview syntax."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework System.Security.Cryptography.dll; no package."
+          ],
+          "providers": [
+            "Platform X25519: CNG/OpenSSL/Apple/Android."
+          ],
+          "platforms": [
+            "Require X25519DiffieHellman.IsSupported; Windows/Linux/Apple/Android vary. Browser/WASI excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console net11.0, C# 15.0, nullable/implicit usings enabled; import System.Security.Cryptography. Full functions and caller instructions are included offline."
+          ],
+          "constraints": [
+            "Authenticate peer keys and bind the transcript; raw agreement is not an authenticated protocol. X25519 is classical, not post-quantum.",
+            "No account, resource provisioning, persistent key store, authenticated protocol, FIPS certification or unverified older-target package route is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 proof only; GA and other platforms unverified."
+          ]
+        },
+        "usage": "primary",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/libraries.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/X25519DiffieHellman.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/X25519DiffieHellmanImplementation.Windows.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X25519DiffieHellmanImplementation.OpenSsl.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official .NET 11 library changes",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Canonical RC2 support and experimental boundaries",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/libraries.md"
+    },
+    {
+      "title": "Pinned official X25519DiffieHellman.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/X25519DiffieHellman.cs"
+    },
+    {
+      "title": "Pinned official X25519DiffieHellmanImplementation.Windows.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/X25519DiffieHellmanImplementation.Windows.cs"
+    },
+    {
+      "title": "Pinned official X25519DiffieHellmanImplementation.OpenSsl.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X25519DiffieHellmanImplementation.OpenSsl.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "scope": "Actual original previous-release comparison on Windows x64; not an equivalent newer algorithm or a served .NET 10 recipe.",
+      "language": "14.0",
+      "target": "net10.0",
+      "sample": "samples/net10.0/KeyMaterial/KeyMaterial.csproj"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "scope": "Actual Linux x64/OpenSSL 3.5.5 round trips and rejection checks in a network-disabled authoring container. See output and recipe for exact claims.",
+      "language": "15.0",
+      "target": "net11.0",
+      "sample": "samples/net11.0/KeyMaterial/KeyMaterial.csproj"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/KeyMaterial/Keys.cs",
+      "language": "csharp",
+      "region": "exchange"
+    },
+    "newer": {
+      "path": "samples/net11.0/KeyMaterial/Keys.cs",
+      "language": "csharp",
+      "region": "exchange"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual primitive and local ephemeral-certificate operations are automated. Peer authentication, production trust/PKI, external interoperability, unexecuted platforms and GA are not claimed.",
+    "status": "not-required"
+  }
+}

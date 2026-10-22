@@ -1,0 +1,19 @@
+{
+  "additionalInputs": [
+    "samples/PostQuantumChecks.cs",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    ".editorconfig",
+    "eng/Test-CryptoPlatforms.ps1"
+  ],
+  "buildArguments": [
+    "-p:NuGetAudit=false"
+  ],
+  "workloads": [],
+  "dependencies": [
+    "System.Security.Cryptography.Pkcs/11.0.0-rc.2.26504.105"
+  ],
+  "nativeToolchains": [
+    "OpenSSL/3.5.5"
+  ]
+}

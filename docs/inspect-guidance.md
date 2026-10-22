@@ -1,5 +1,11 @@
 # Inspect the guidance an agent receives
 
+For key exchange, repeated-byte comparison, AES-KW/KWP, experimental composite
+encapsulation/HPKE and pure ML-KEM CMS, use the
+[tested PIN-750–751 walkthrough](verification/PIN-750-751.md#inspect-what-an-agent-receives).
+It displays five discovery goals, complete original comparisons and applicability,
+including the RC2 non-Windows CMS and experimental algorithm boundaries.
+
 For repeatable NuGet package timestamps and client-library host compatibility, use the [tested PIN-770/771 walkthrough](verification/PIN-770-771.md#inspect-what-an-agent-receives). It displays both complete original recipes, fixed timestamp opt-in and the verified conditional .NET 10 client-host route.
 
 For awaited/localized validation, refreshable activity rules, generic generated

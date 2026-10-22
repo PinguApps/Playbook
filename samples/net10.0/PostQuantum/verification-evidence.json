@@ -1,0 +1,36 @@
+{
+  "kind": "compile-and-run",
+  "sample": "samples/net10.0/PostQuantum/PostQuantum.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:/Program Files/dotnet/dotnet.exe build PostQuantum.csproj --configuration Release -p:RestoreLockedMode=true; C:/Program Files/dotnet/dotnet.exe V:\\_worktrees\\Playbook\\t3-49e87701\\samples\\net10.0\\PostQuantum\\bin\\Release\\net10.0\\PostQuantum.dll",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-22T16:21:07.6337472+00:00",
+  "sourceCommit": "4d13751ea8c011638cdcda768cdbc303b6ac0fe6",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net10.0/PostQuantum/Directory.Packages.props": "2f0d8ca23596b4d66b95dfdd3c7dcecfa73bd5f30d59101f909ef42de02c5565",
+    "samples/net10.0/PostQuantum/Envelopes.cs": "785b7f9a8319d60fd63a4c965ae0e81d06c5cad5793e12260728a735df0aafce",
+    "samples/net10.0/PostQuantum/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+    "samples/net10.0/PostQuantum/packages.lock.json": "0f7ce0f6f0e66d26ed4da683d2a86481a1a36355a98ed72f7e1601bd50b7a03b",
+    "samples/net10.0/PostQuantum/PostQuantum.csproj": "0d3f481f95c75637065a774a3413d40da3373992c58e389263d0ca1d0923e50f",
+    "samples/net10.0/PostQuantum/verification.json": "eadf56c03bcfe2357758bdcb5b4eebdb660afd294c13c3fb6f714bf3bd9db59f",
+    "samples/PostQuantumChecks.cs": "704c2afeabe55be2c86b4b97e79d7cb0d21d412c3d260a976b817f592ae437ad"
+  },
+  "dependencies": [
+    "System.Security.Cryptography.Pkcs/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-49e87701\\samples\\net10.0\\PostQuantum\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  Restored V:\\_worktrees\\Playbook\\t3-49e87701\\samples\\net10.0\\PostQuantum\\PostQuantum.csproj (in 345 ms).\r\n  PostQuantum -> V:\\_worktrees\\Playbook\\t3-49e87701\\samples\\net10.0\\PostQuantum\\bin\\Release\\net10.0\\PostQuantum.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.00\nPASS: MLKem real encapsulation/decapsulation with public-only sender.\r\nPASS: real CMS encode/decode/decrypt with ephemeral certificate; no certificate-trust or authentication claim."
+}

@@ -1,0 +1,66 @@
+{
+  "scope": "Pinned official public contracts and support implementation; source review is separate from compilation/execution.",
+  "sources": [
+    {
+      "bytes": 56298,
+      "sha256": "ca29582621c6c13c30a5d3b1ebc6544939ad45ba0f700808b9773487c3f6d887",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/CryptographicOperations.cs"
+    },
+    {
+      "bytes": 96363,
+      "sha256": "f4b9e2425a614ffb1315eff1b5e79c9079ac756b179b5173fdbf4d064f42e85d",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLKem.cs"
+    },
+    {
+      "bytes": 2100,
+      "sha256": "8af94b2ca17114a5e73bcd0b3b2dd3e81e108748d108ba8e3f83b8bd0f0cc570",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/CompositeMLKemImplementation.Managed.cs"
+    },
+    {
+      "bytes": 64953,
+      "sha256": "7fa4393d4bbc7df12ae5e01ca0ddee011b8128fcc981e54bb8d238cb3c921067",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/Hpke.cs"
+    },
+    {
+      "bytes": 3736,
+      "sha256": "24a70ca245daa9c3ef8850d27c19b7fcea6d214c7f1d7591c971230706ebb955",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HpkeKemMetadata.Managed.cs"
+    },
+    {
+      "bytes": 1781,
+      "sha256": "233d09a5513a4597519741b083a62200fed77d6587261c685aa64d2c4c963c8e",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/EnvelopedCms.Kem.cs"
+    },
+    {
+      "bytes": 5812,
+      "sha256": "4543a11f89caf5c43cd3663699ebf7439d65095afa73b68f31a43152f08a4010",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/CmsRecipient.cs"
+    },
+    {
+      "bytes": 11693,
+      "sha256": "6f626b808bc551a1ba1cc08d03f8d5eb8dcae9a6e6509764fe22c1c2bbe5a575",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/EnvelopedCms.cs"
+    },
+    {
+      "bytes": 72695,
+      "sha256": "a48ff6661f41dac458eeed90c237af0224667c760f403aa5c5fd50f659cc09c2",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/X25519DiffieHellman.cs"
+    },
+    {
+      "bytes": 10319,
+      "sha256": "6d5989631b944a8dfd99a7d2828a104177c871ab689cacd16b368e84ec8959b0",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/X25519DiffieHellmanImplementation.Windows.cs"
+    },
+    {
+      "bytes": 4766,
+      "sha256": "7e904292388ff26d8058e6073ea78f9f0a539d4b47d2c4a9a9cfdbea76cd637e",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X25519DiffieHellmanImplementation.OpenSsl.cs"
+    },
+    {
+      "bytes": 39238,
+      "sha256": "4a18f20032220b3e15e9f59d5b5b29bb6578d66e294f77213644a51f3cf7c77e",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/Aes.cs"
+    }
+  ],
+  "reviewedAt": "2026-10-22T16:25:15.9530271+00:00"
+}

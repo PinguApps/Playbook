@@ -1,0 +1,14 @@
+{
+  "additionalInputs": [
+    "samples/PostQuantumChecks.cs",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    ".editorconfig"
+  ],
+  "buildArguments": [],
+  "workloads": [],
+  "dependencies": [
+    "System.Security.Cryptography.Pkcs/10.0.13"
+  ],
+  "nativeToolchains": []
+}

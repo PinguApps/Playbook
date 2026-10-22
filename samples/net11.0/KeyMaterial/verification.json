@@ -1,0 +1,17 @@
+{
+  "additionalInputs": [
+    "samples/KeyMaterialChecks.cs",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    ".editorconfig",
+    "eng/Test-CryptoPlatforms.ps1"
+  ],
+  "buildArguments": [
+    "-p:NuGetAudit=false"
+  ],
+  "workloads": [],
+  "dependencies": [],
+  "nativeToolchains": [
+    "OpenSSL/3.5.5"
+  ]
+}
