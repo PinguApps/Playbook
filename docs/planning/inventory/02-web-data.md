@@ -6,6 +6,19 @@ This audit covers every top-level change in the current cumulative ASP.NET Core 
 
 Inventory size: 156 disposition rows — 127 included goal proposals, 18 grouped source items, 10 excluded items/groups, and one unresolved candidate. These are planning counts, not a promised final recipe count. All 25 guide entries and all three expansions have explicit rows; the seven additions occupy ten rows because the AI addition is split into four proposed goals.
 
+### Supplemental Blazor/Razor API reconciliation
+
+[PIN-708's pinned artifact/source audit](../audits/blazor.md) extends this original
+headline inventory with complete selected public declarations, actual Razor
+compiler/task APIs, package build assets and SDK template differences. It assigns
+every API delta and retains 16 sized, approval-only delivery drafts (B01–B16).
+These supplemental findings do not revise the historical 156-row count or declare
+recipes delivered. Existing PIN-691 removal proposals and web recipe owners remain
+accountable; Components.AI documentation/package gaps stay explicit. All qualifying
+new goals are **included — delivery outstanding**, including experimental hooks;
+B16's restore APIs require an actual available artifact. Compilation, real behavior,
+installed-MCP retrieval, GA reconciliation and publication gates remain open.
+
 ## Source register and reading rules
 
 - [W] is the cumulative ASP.NET Core article. Its source composes individual [official include files][WI]; the feature names in the tables identify the relevant include/section.
