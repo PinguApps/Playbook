@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+TLS, QUIC and runtime evidence uses the bounded authoring checks in
+[PIN-752/755/756](verification/PIN-752-755-756.md). Windows checks exercise real TLS
+and QUIC; `eng/Test-CrashEvidence.ps1` compiles and crashes only disposable Linux
+children to verify report output. No recurring native CI matrix is added.
+
 HTTP capacity and DNS service samples use the actual HttpCapacity and DnsServices
 projects, real local TCP/UDP peers and the existing installed-tool harness.
 [PIN-753–754](verification/PIN-753-754.md) records experimental eviction, delayed

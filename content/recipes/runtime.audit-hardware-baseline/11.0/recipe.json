@@ -1,0 +1,142 @@
+{
+  "id": "runtime.audit-hardware-baseline",
+  "edition": "11.0",
+  "title": "Check CPU requirements before a runtime upgrade",
+  "goal": "Check the .NET 11 x86/x64 CPU baseline before deployment and distinguish a startup requirement from a ReadyToRun optimization target.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "transport-runtime-evidence"
+  ],
+  "apis": [
+    "X86Base.CpuId",
+    "x86-64-v2",
+    "ReadyToRun"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Probe covers x86/x64 CPUID only; run a pre-upgrade tool under .NET 10 on candidate machines. Arm64 and unsupported CPU startup are not executed."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The described runtime capability or baseline changes in .NET 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 references; the exact RC2 SDK is an evidence baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is needed."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework references and runtime assemblies; no external NuGet package."
+          ],
+          "providers": [],
+          "platforms": [
+            "Windows x64 executed. x86/x64 desktop/server CPU policy; Arm64 guidance is source-reviewed with an explicit Windows documentation conflict."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project with net11.0, C# 15.0, nullable and implicit usings enabled. Complete source and usage are bundled below."
+          ],
+          "constraints": [
+            "Probe covers x86/x64 CPUID only; run a pre-upgrade tool under .NET 10 on candidate machines. Arm64 and unsupported CPU startup are not executed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified on RC2 artifacts; reconcile final .NET 11 GA contracts before release."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/jit/11/minimum-hardware-requirements",
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/minipal/cpufeatures.c"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HardwareBaseline/HardwareBaseline.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official .NET documentation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/jit/11/minimum-hardware-requirements"
+    },
+    {
+      "title": "Official .NET documentation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime"
+    },
+    {
+      "title": "Pinned official runtime source: cpufeatures.c",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/minipal/cpufeatures.c"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/HardwareBaseline/HardwareBaseline.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 CPUID and successful runtime execution; masked required bits check rejection policy only, not execution on unsupported hardware or Arm64."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/HardwareBaseline/HardwareBaseline.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 CPUID and successful runtime execution; masked required bits check rejection policy only, not execution on unsupported hardware or Arm64."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "The bounded local authoring checks establish the stated claims. Other OS/CPU/native deployment routes are explicitly source-reviewed or excluded, not claimed executed."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/HardwareBaseline/Baseline.cs",
+      "region": "hardware-old",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/HardwareBaseline/Baseline.cs",
+      "region": "hardware-new",
+      "language": "csharp"
+    }
+  }
+}

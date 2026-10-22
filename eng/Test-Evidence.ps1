@@ -47,6 +47,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-OptionsStartup.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-Observability.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-CryptoPlatforms.ps1') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-CrashEvidence.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1'), (Join-Path $PSScriptRoot 'Test-WatchHosts.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-SdkDelivery.ps1') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'

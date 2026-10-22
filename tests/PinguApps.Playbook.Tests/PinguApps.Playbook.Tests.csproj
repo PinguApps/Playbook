@@ -177,4 +177,8 @@
     <EmbeddedResource Include="../../content/recipes/crypto.*/**/recipe.json;../../content/recipes/crypto.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/KeyMaterial/*.cs;../../samples/net*/PostQuantum/*.cs" LogicalName="SdkInput.%(Identity)" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../content/recipes/tls.*/**/recipe.json;../../content/recipes/tls.*/**/recipe.md;../../content/recipes/quic.*/**/recipe.json;../../content/recipes/quic.*/**/recipe.md;../../content/recipes/runtime.*/**/recipe.json;../../content/recipes/runtime.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/CallerTls/*.cs;../../samples/net*/QuicPriority/*.cs;../../samples/net*/CrashEvidence/*.cs;../../samples/net*/HardwareBaseline/*.cs" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
 </Project>

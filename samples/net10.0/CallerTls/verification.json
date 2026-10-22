@@ -1,0 +1,12 @@
+{
+  "workloads": [],
+  "dependencies": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "samples/net11.0/CallerTls/TransportCertificate.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

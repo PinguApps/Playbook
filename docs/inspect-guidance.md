@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For caller-owned TLS, QUIC stream priorities, Unix crash reports and runtime CPU
+requirements, use the [tested PIN-752/755/756 walkthrough](verification/PIN-752-755-756.md#inspect-what-an-agent-receives).
+It displays all four discovery goals, full canonical comparisons and applicability,
+including SYSLIB5007 and the native/platform/CPU boundaries.
+
 For outgoing request compression, cached connection retirement, initial HTTP/2
 stream capacity and DNS SRV discovery, use the
 [tested PIN-753–754 walkthrough](verification/PIN-753-754.md#inspect-what-an-agent-receives).

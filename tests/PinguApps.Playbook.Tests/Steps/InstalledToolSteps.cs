@@ -239,9 +239,16 @@ public sealed class InstalledToolSteps : IDisposable
     public async Task CheckNetworkCapacityAsync()
     {
         string[] ids = ["http.compress-request-body", "http.retire-connections", "http.bound-initial-h2-streams", "dns.resolve-service-records"];
-        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "network-capacity", limit = 50 }).ConfigureAwait(false));
+        await CheckNetworkRecipesAsync(ids, "network-capacity").ConfigureAwait(false);
+        string[] transportRuntime = ["tls.drive-handshake-io", "quic.prioritize-streams", "runtime.configure-crash-reporting", "runtime.audit-hardware-baseline"];
+        await CheckNetworkRecipesAsync(transportRuntime, "transport-runtime-evidence").ConfigureAwait(false);
+    }
+
+    private async Task CheckNetworkRecipesAsync(string[] ids, string query)
+    {
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(0, older.GetProperty("total").GetInt32());
-        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "network-capacity", limit = 50 }).ConfigureAwait(false));
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(ids.Length, catalogue.GetProperty("total").GetInt32());
         foreach (string id in ids)
         {
@@ -280,6 +287,12 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Equal("experimental", summary.GetProperty("stability").GetString());
                 Assert.Contains("SYSLIB5008", summary.GetProperty("goal").GetString(), StringComparison.Ordinal);
                 Assert.Contains("SYSLIB5008", route.GetProperty("requirements").GetProperty("optIns").ToString(), StringComparison.Ordinal);
+            }
+            if (id == "tls.drive-handshake-io")
+            {
+                Assert.Equal("experimental", summary.GetProperty("stability").GetString());
+                Assert.Contains("SYSLIB5007", summary.GetProperty("goal").GetString(), StringComparison.Ordinal);
+                Assert.Contains("SYSLIB5007", route.GetProperty("requirements").GetProperty("optIns").ToString(), StringComparison.Ordinal);
             }
         }
     }

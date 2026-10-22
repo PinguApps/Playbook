@@ -1,0 +1,155 @@
+{
+  "id": "runtime.configure-crash-reporting",
+  "edition": "11.0",
+  "title": "Capture a crash report inside a failing process",
+  "goal": "Configure Unix CoreCLR crash evidence before startup when an external createdump process is unsuitable, and distinguish report-only capture from memory dumps.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "transport-runtime-evidence"
+  ],
+  "apis": [
+    "DOTNET_EnableCrashReport",
+    "DOTNET_EnableCrashReportOnly",
+    "DOTNET_DbgEnableMiniDump",
+    "DOTNET_CrashReportRootPath"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Unix CoreCLR reporter; Windows, NativeAOT and mobile deployment are excluded. Reports contain sensitive diagnostics and need writable private storage."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The described runtime capability or baseline changes in .NET 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 references; the exact RC2 SDK is an evidence baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is needed."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework references and runtime assemblies; no external NuGet package."
+          ],
+          "providers": [
+            "CoreCLR in-process reporter; older comparison uses createdump."
+          ],
+          "platforms": [
+            "Linux x64 executed; macOS source-reviewed, not executed. Windows does not use this Unix path."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project with net11.0, C# 15.0, nullable and implicit usings enabled. Complete source and usage are bundled below."
+          ],
+          "constraints": [
+            "Unix CoreCLR reporter; Windows, NativeAOT and mobile deployment are excluded. Reports contain sensitive diagnostics and need writable private storage."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified on RC2 artifacts; reconcile final .NET 11 GA contracts before release."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/vm/crashreportstackwalker.cpp",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/pal/src/thread/process.cpp",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/docs/design/coreclr/botr/xplat-minidump-generation.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CrashEvidence/CrashEvidence.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official .NET documentation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime"
+    },
+    {
+      "title": "Pinned official runtime source: crashreportstackwalker.cpp",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/vm/crashreportstackwalker.cpp"
+    },
+    {
+      "title": "Pinned official runtime source: process.cpp",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/pal/src/thread/process.cpp"
+    },
+    {
+      "title": "Pinned official runtime source: xplat-minidump-generation.md",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/docs/design/coreclr/botr/xplat-minidump-generation.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/CrashEvidence/CrashEvidence.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Linux x64 child FailFast under each pinned SDK/runtime; report includes the original DispatchFailure frame. .NET 10 createdump versus .NET 11 in-process report. No production, Apple, mobile or NativeAOT execution."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/CrashEvidence/CrashEvidence.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Linux x64 child FailFast under each pinned SDK/runtime; report includes the original DispatchFailure frame. .NET 10 createdump versus .NET 11 in-process report. No production, Apple, mobile or NativeAOT execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "The bounded local authoring checks establish the stated claims. Other OS/CPU/native deployment routes are explicitly source-reviewed or excluded, not claimed executed."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CrashEvidence/Configuration.cs",
+      "region": "crash-old",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CrashEvidence/Configuration.cs",
+      "region": "crash-new",
+      "language": "csharp"
+    },
+    "usage": {
+      "path": "samples/net11.0/CrashEvidence/Program.cs",
+      "region": "crash-check",
+      "language": "csharp"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "samples/net11.0/QuicPriority/TransportCertificate.cs",
+    "samples/net11.0/QuicPriority/Program.cs"
+  ],
+  "workloads": [],
+  "dependencies": [],
+  "buildArguments": []
+}
