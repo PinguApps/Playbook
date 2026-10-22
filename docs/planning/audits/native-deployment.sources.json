@@ -1,0 +1,176 @@
+{
+  "issue": "PIN-687",
+  "reviewed": "2026-10-22",
+  "kind": "official-source-review",
+  "scope": "Three assigned deployment/caller mitigations, old/new implementation branches, platform prerequisites and selected canonical runtime milestones. No compilation, native execution, artifact/API completeness or GA claim.",
+  "sources": [
+    {
+      "id": "aot-guide",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/deploying/native-aot/index.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/deploying/native-aot/index.md",
+      "sha256": "047a074b12ce86eb70bc75b5705f52e68d2ef6649e18e9d84c3dcdd2474f73d6"
+    },
+    {
+      "id": "caller-aot-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/coreclr/nativeaot/System.Private.CoreLib/src/System/Reflection/Assembly.NativeAot.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/nativeaot/System.Private.CoreLib/src/System/Reflection/Assembly.NativeAot.cs",
+      "sha256": "ff385795fe7f6e43f1773c70301eee3d155d75f8da81f72c5e78d8c268970503"
+    },
+    {
+      "id": "caller-aot-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/coreclr/nativeaot/System.Private.CoreLib/src/System/Reflection/Assembly.NativeAot.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/nativeaot/System.Private.CoreLib/src/System/Reflection/Assembly.NativeAot.cs",
+      "sha256": "846bb31981dd5b553cbcec88080171baa361fb445e92da58f3d443d307e6a892"
+    },
+    {
+      "id": "caller-coreclr-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Assembly.CoreCLR.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Assembly.CoreCLR.cs",
+      "sha256": "2b3a583a1945e0aeec3ab8952db38ef0379b7218c42a6d4563a03b1d718184a7"
+    },
+    {
+      "id": "caller-coreclr-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Assembly.CoreCLR.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Assembly.CoreCLR.cs",
+      "sha256": "22b8d81064b56f4206c2554d0eea9c6deb363d17dd758b187376b245b5a01842"
+    },
+    {
+      "id": "caller-note",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/assembly-getcallingassembly-stacktracesupport-disabled.md",
+      "sha256": "1f33a6d5cde254aec6e0d9b435c84395237ba0930399b596437082e8b9c73493"
+    },
+    {
+      "id": "config-guide",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/runtime-config/index.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/runtime-config/index.md",
+      "sha256": "5c38fa38891a42876bf5ecde4eef870757a8b46b5f4c06cc6b970f13b8d0ebec"
+    },
+    {
+      "id": "config-note",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/deployment/11/runtimeconfigdev-configproperties-precedence.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/deployment/11/runtimeconfigdev-configproperties-precedence.md",
+      "sha256": "48db81ef66a3ef9b2d45e7aa650516cf0ff95d6bb8df1f84b9099bdb0db5a287"
+    },
+    {
+      "id": "cross-guide",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/deploying/native-aot/cross-compile.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/deploying/native-aot/cross-compile.md",
+      "sha256": "55bd43c872478d93bb6c6a97decf28b7638bef8e71d4bf1caf3e7232fc9fb867"
+    },
+    {
+      "id": "host-config-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/native/corehost/runtime_config.cpp",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/native/corehost/runtime_config.cpp",
+      "sha256": "b860e3305acef396caf70d0101361422d7ed845ad037e793ea2afe47de8df198"
+    },
+    {
+      "id": "host-config-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/native/corehost/runtime_config.cpp",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/corehost/runtime_config.cpp",
+      "sha256": "c2a74c262da591ad4b846d5b17d2d77b2212a44592f2d89ed108f4241aedaeed"
+    },
+    {
+      "id": "index",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/11.md",
+      "sha256": "1dede22a71bcf370e2eabde836495cf31625933e8711a3d323bc3c85d60ecd7e"
+    },
+    {
+      "id": "library-guide",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/deploying/native-aot/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/deploying/native-aot/libraries.md",
+      "sha256": "2d14d5094256a48437557ad656eec5b9a3434c2495c6650c74228ad35f104a96"
+    },
+    {
+      "id": "native-targets-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "sha256": "9e0e1efb41bd7a848b633212d9c56f06cc97785dae0daae5b7bcab62b03849f2"
+    },
+    {
+      "id": "native-targets-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/nativeaot/BuildIntegration/Microsoft.NETCore.Native.targets",
+      "sha256": "afc83bf8f87de77200d0bede93aadc7341ff7d7127a44f5131cc129bbf7cf887"
+    },
+    {
+      "id": "prefix-note",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/interop/11/nativeaot-lib-prefix.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/interop/11/nativeaot-lib-prefix.md",
+      "sha256": "c9286cbc79ddf7ce0384c530323c13627cd90a284cbe44420d499ddb25ea0041"
+    },
+    {
+      "id": "runtime-preview3",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/runtime.md",
+      "sha256": "bdc054724cae4d30fe2fe5b657a8f73d6fe7bded68e7ea95b988ce8e28ac98dc"
+    },
+    {
+      "id": "runtime-preview6",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/runtime.md",
+      "sha256": "433619b745eeb6bcbd18ed6fbf98b2abaaf0b96d89ccd7e787ae269f7b571a81"
+    },
+    {
+      "id": "runtime-preview7",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/runtime.md",
+      "sha256": "36c2a2e213b65f55d0cd235195481fb5043d729594064b549301cd57b4c7513d"
+    },
+    {
+      "id": "runtime-rc1",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/runtime.md",
+      "sha256": "7331c1664d38458cd1c2ac70c7240a96a4b392ba7856a3a095878afcc8d63824"
+    },
+    {
+      "id": "runtime-rc2",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/runtime.md",
+      "sha256": "187adb9fec68becb58366c1c2cec42b41b71fe9393dc32e0144f3f408108e7e7"
+    }
+  ]
+}
