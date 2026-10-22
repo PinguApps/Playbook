@@ -254,5 +254,6 @@ Feature: Installed offline guidance
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then survey forms retain complete canonical bodies applicability and editions
+    And visit validation retains awaited localized canonical guidance offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

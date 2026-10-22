@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For awaited Blazor/Minimal API rules and shared localized validation messages,
+use the [tested PIN-774–775 walkthrough](verification/PIN-774-775.md#inspect-what-an-agent-receives).
+It displays all three discovery goals, canonical comparisons and applicability,
+including field-versus-submit progress and the RC2 FormatMessage correction.
+
 For caller-owned TLS, QUIC stream priorities, Unix crash reports and runtime CPU
 requirements, use the [tested PIN-752/755/756 walkthrough](verification/PIN-752-755-756.md#inspect-what-an-agent-receives).
 It displays all four discovery goals, full canonical comparisons and applicability,

@@ -73,12 +73,12 @@
     },
     {
       "path": "docs/verification/PIN-774-775.http10.evidence.json",
-      "sha256": "4cafd8b6c0902141132cc6c54c94346788b511f5c6536da0e9019dbe78bcba37"
+      "sha256": "9bc5fd397843747c39fe4f0aa259ed9c22bec6ebaa3aee0d22ddaf7614d8cadd"
     },
     {
       "path": "docs/verification/PIN-774-775.http11.evidence.json",
-      "sha256": "f5e91330499dc85b0e44761d5244dd06d706d7d77ce0b5f83c4003f292dbddd5"
+      "sha256": "a358be8bab18034fd4b0e1e0e246c4f5dc46d9e160d8befb61c38604ff852056"
     }
   ],
-  "recordedAt": "2026-10-22T21:08:40.3588801+00:00"
+  "recordedAt": "2026-10-22T22:08:40.3588801+01:00"
 }

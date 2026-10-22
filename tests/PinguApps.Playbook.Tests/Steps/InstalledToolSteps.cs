@@ -23,9 +23,21 @@ public sealed class InstalledToolSteps : IDisposable
     public async Task CheckSurveyFormsAsync()
     {
         string[] ids = ["blazor.associate-generated-inputs", "blazor.check-input-before-post", "blazor.reuse-field-captions", "validation.cover-nested-models"];
-        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "survey-forms", limit = 50 }).ConfigureAwait(false));
+        await CheckWebRecipesAsync(ids, "survey-forms").ConfigureAwait(false);
+    }
+
+    [Then("visit validation retains awaited localized canonical guidance offline")]
+    public async Task CheckVisitValidationAsync()
+    {
+        string[] ids = ["blazor.await-form-rules", "minimal-api.await-model-rules", "validation.translate-model-feedback"];
+        await CheckWebRecipesAsync(ids, "visit-validation").ConfigureAwait(false);
+    }
+
+    private async Task CheckWebRecipesAsync(string[] ids, string query)
+    {
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(ids, RecipeIds(catalogue));
-        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "survey-forms" }).ConfigureAwait(false));
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query }).ConfigureAwait(false));
         Assert.Empty(RecipeIds(older));
         foreach (string id in ids)
         {

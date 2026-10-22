@@ -1,0 +1,206 @@
+{
+  "id": "blazor.await-form-rules",
+  "edition": "11.0",
+  "title": "Wait for remote form checks before accepting an edit",
+  "goal": "Await a submitted form's remote rules and cancel superseded field checks; progress and live validation depend on render mode.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "visit-validation",
+    "async",
+    "localization"
+  ],
+  "apis": [
+    "EditContext.ValidateAsync",
+    "EditContext.RegisterAsyncFieldValidator",
+    "AsyncValidationAttribute"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Requires .NET 11 shared async DataAnnotations and generated Extensions.Validation metadata; no net10.0 package route is claimed.",
+          "Blazor live field validation requires an interactive mode; static SSR validates during posts. WebAssembly needs browser-usable services/resources and independent server validation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.Extensions.Validation runtime/reference assemblies and ValidationsGenerator from Microsoft.AspNetCore.App.Ref; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser files. No redundant PackageReference in the measured SDK."
+          ],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core server; actual Windows x64 HTTP and Chromium 154 Interactive Server execution. WebAssembly/Auto behavior is source-reviewed, not executed here."
+          ],
+          "renderingModes": [
+            "Static SSR: server POST validation only",
+            "Interactive Server: live field and awaited submit validation",
+            "Interactive WebAssembly/Auto: supply browser-usable rule endpoints, localization and prerender services"
+          ],
+          "prerequisites": [
+            "Use Microsoft.NET.Sdk.Web with net11.0, C# 15.0, nullable and implicit usings enabled. The measured SDK supplies Microsoft.Extensions.Validation assemblies and ValidationsGenerator from Microsoft.AspNetCore.App.Ref, plus aligned Microsoft.AspNetCore.App.Internal.Assets browser files. A redundant PackageReference produced NU1510; none is needed here. Keep matching generator/runtime/browser assets when using another toolset.",
+            "The declaring model namespace/root namespace is Playbook.Samples; resource lookup requires matching embedded resource names. AddLocalization does not choose request/circuit culture."
+          ],
+          "constraints": [
+            "Requires .NET 11 shared async DataAnnotations and generated Extensions.Validation metadata; no net10.0 package route is claimed.",
+            "Blazor live field validation requires an interactive mode; static SSR validates during posts. WebAssembly needs browser-usable services/resources and independent server validation.",
+            "No MVC/Razor Pages adapter, atomic reservation, arbitrary cross-assembly coverage, trimming/AOT proof or conditional older-target route is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable contracts compiled/executed with .NET 11 RC2; GA reconciliation pending. No experimental opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation-advanced?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Validation/gen/Templates/LocalizationHelpers.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Validation/gen/Templates/ValidatablePropertyInfo.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Forms/src/EditContext.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/ValidationAttribute.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/VisitBookings/VisitBookings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Shared validation registration and localization",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Blazor asynchronous form and field validation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation-advanced?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned RC2 resource lookup",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Validation/gen/Templates/LocalizationHelpers.cs"
+    },
+    {
+      "title": "Pinned RC2 generated property validation and formatting",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Validation/gen/Templates/ValidatablePropertyInfo.cs"
+    },
+    {
+      "title": "Pinned RC2 awaited form and field state",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Forms/src/EditContext.cs"
+    },
+    {
+      "title": "Pinned RC2 DataAnnotations adapter",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs"
+    },
+    {
+      "title": "Pinned RC2 custom ValidationAttribute.FormatMessage contract",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations/ValidationAttribute.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/VisitBookings/VisitBookings.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual Web SDK project compilation. Separate real loopback HTTP and Chromium Interactive Server reports verify awaiting, field cancellation and en-GB/fr-FR localized formatting; compilation alone does not establish those runtime claims."
+    },
+    {
+      "sample": "samples/net11.0/VisitBookings/VisitBookings.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual Web SDK project compilation. Separate real loopback HTTP and Chromium Interactive Server reports verify awaiting, field cancellation and en-GB/fr-FR localized formatting; compilation alone does not establish those runtime claims."
+    }
+  ],
+  "snippets": {
+    "startup": {
+      "path": "samples/net11.0/VisitBookings/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "remote": {
+      "path": "samples/net11.0/VisitBookings/VisitRule.cs",
+      "region": "remote",
+      "language": "csharp"
+    },
+    "old-model": {
+      "path": "samples/net10.0/VisitBookings/VisitRequest.cs",
+      "region": "model",
+      "language": "csharp"
+    },
+    "model": {
+      "path": "samples/net11.0/VisitBookings/VisitRequest.cs",
+      "region": "model",
+      "language": "csharp"
+    },
+    "old-checks": {
+      "path": "samples/net10.0/VisitBookings/VisitRequest.cs",
+      "region": "checks",
+      "language": "csharp"
+    },
+    "async-rule": {
+      "path": "samples/net11.0/VisitBookings/VisitRequest.cs",
+      "region": "async-rule",
+      "language": "csharp"
+    },
+    "form": {
+      "path": "samples/net11.0/VisitBookings/BookingEditor.razor",
+      "region": "form",
+      "language": "razor"
+    },
+    "old-form": {
+      "path": "samples/net10.0/VisitBookings/BookingEditor.razor",
+      "region": "form",
+      "language": "razor"
+    },
+    "old-formatter": {
+      "path": "samples/net10.0/VisitBookings/VisitRequest.cs",
+      "region": "formatter",
+      "language": "csharp"
+    },
+    "formatter": {
+      "path": "samples/net11.0/VisitBookings/VisitRequest.cs",
+      "region": "formatter",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Required managed HTTP/static SSR/Interactive Server behavior executed locally. No external paid service/native account/Human-only prerequisite. WebAssembly/Auto/GA execution is not claimed."
+  }
+}
