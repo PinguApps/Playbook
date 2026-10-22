@@ -1,0 +1,167 @@
+{
+  "id": "tls.drive-handshake-io",
+  "edition": "11.0",
+  "title": "Drive TLS with caller-owned buffers and I/O (experimental)",
+  "goal": "Use the experimental SYSLIB5007 TLS state machine when an application must schedule ciphertext transfers itself and retain unconsumed input.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "transport-runtime-evidence"
+  ],
+  "apis": [
+    "TlsContext",
+    "TlsBufferSession",
+    "TlsOperationStatus",
+    "SslStream"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Experimental SYSLIB5007; caller owns I/O, buffer accounting, certificate decisions and deadlines."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The described runtime capability or baseline changes in .NET 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 references; the exact RC2 SDK is an evidence baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is needed."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework references and runtime assemblies; no external NuGet package."
+          ],
+          "providers": [
+            "Windows Schannel (executed); other TLS providers require independent validation."
+          ],
+          "platforms": [
+            "Desktop/server Windows x64 authoring route; browser/WASI/mobile and other native providers are not demonstrated."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project with net11.0, C# 15.0, nullable and implicit usings enabled. Complete source and usage are bundled below."
+          ],
+          "constraints": [
+            "Experimental SYSLIB5007; caller owns I/O, buffer accounting, certificate decisions and deadlines."
+          ],
+          "optIns": [
+            "Scoped SYSLIB5007 suppression after reviewing the experimental TLS contract."
+          ],
+          "stabilityLimitations": [
+            "Experimental SYSLIB5007 can change independently of runtime stability; RC2 execution, GA reconciliation pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsBufferSession.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsContext.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsSession.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsOperationStatus.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CallerTls/CallerTls.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official .NET documentation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Pinned official runtime source: TlsBufferSession.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsBufferSession.cs"
+    },
+    {
+      "title": "Pinned official runtime source: TlsContext.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsContext.cs"
+    },
+    {
+      "title": "Pinned official runtime source: TlsSession.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsSession.cs"
+    },
+    {
+      "title": "Pinned official runtime source: TlsOperationStatus.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/TlsOperationStatus.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/CallerTls/CallerTls.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Windows real TLS: older SslStream TCP echo; newer caller-owned memory transfers with fragmented handshake, 50000-byte records, wrong-host rejection and close_notify. No socket-session or other-provider proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/CallerTls/CallerTls.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Windows real TLS: older SslStream TCP echo; newer caller-owned memory transfers with fragmented handshake, 50000-byte records, wrong-host rejection and close_notify. No socket-session or other-provider proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "The bounded local authoring checks establish the stated claims. Other OS/CPU/native deployment routes are explicitly source-reviewed or excluded, not claimed executed."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CallerTls/Exchange.cs",
+      "region": "stream-tls",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CallerTls/Exchange.cs",
+      "region": "buffer-tls",
+      "language": "csharp"
+    },
+    "usage": {
+      "path": "samples/net11.0/CallerTls/Program.cs",
+      "region": "tls-use",
+      "language": "csharp"
+    },
+    "certificate": {
+      "path": "samples/net11.0/CallerTls/TransportCertificate.cs",
+      "region": "certificate",
+      "language": "csharp"
+    }
+  }
+}

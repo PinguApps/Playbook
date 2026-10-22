@@ -1,0 +1,155 @@
+{
+  "id": "quic.prioritize-streams",
+  "edition": "11.0",
+  "title": "Prioritize outgoing QUIC streams on one connection",
+  "goal": "Express relative send priority for competing QUIC streams after checking native transport support; retain application deadlines and flow-control policy.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "transport-runtime-evidence"
+  ],
+  "apis": [
+    "QuicStream.Priority",
+    "QuicStream.DefaultPriority",
+    "QuicListener.IsSupported",
+    "QuicConnection.IsSupported"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "MsQuic and TLS 1.3 required; priorities 0\u2013255 affect local outgoing scheduling, not delivery guarantees."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The described runtime capability or baseline changes in .NET 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 references; the exact RC2 SDK is an evidence baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview language syntax is needed."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework references and runtime assemblies; no external NuGet package."
+          ],
+          "providers": [
+            "MsQuic; measured Windows 2.5.11.159415436 and Schannel."
+          ],
+          "platforms": [
+            "Supported Windows/Linux/macOS QUIC installations; only Windows x64 executed. No browser/WASI/mobile route."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project with net11.0, C# 15.0, nullable and implicit usings enabled. Complete source and usage are bundled below."
+          ],
+          "constraints": [
+            "MsQuic and TLS 1.3 required; priorities 0\u2013255 affect local outgoing scheduling, not delivery guarantees."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified on RC2 artifacts; reconcile final .NET 11 GA contracts before release."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/quic/quic-overview",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Quic/src/System/Net/Quic/QuicStream.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuicPriority/QuicPriority.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official .NET documentation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Official .NET documentation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/quic/quic-overview"
+    },
+    {
+      "title": "Pinned official runtime source: QuicStream.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Quic/src/System/Net/Quic/QuicStream.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/QuicPriority/QuicPriority.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real Windows loopback QUIC TLS 1.3 connection and two stream echoes; .NET 11 priority default/configuration/extremes. No ordering, fairness or bandwidth benchmark."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/QuicPriority/QuicPriority.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real Windows loopback QUIC TLS 1.3 connection and two stream echoes; .NET 11 priority default/configuration/extremes. No ordering, fairness or bandwidth benchmark."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "The bounded local authoring checks establish the stated claims. Other OS/CPU/native deployment routes are explicitly source-reviewed or excluded, not claimed executed."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/QuicPriority/Priorities.cs",
+      "region": "quic-order",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/QuicPriority/Priorities.cs",
+      "region": "quic-priority",
+      "language": "csharp"
+    },
+    "usage": {
+      "path": "samples/net11.0/QuicPriority/Program.cs",
+      "region": "quic-connection",
+      "language": "csharp"
+    },
+    "certificate": {
+      "path": "samples/net11.0/QuicPriority/TransportCertificate.cs",
+      "region": "certificate",
+      "language": "csharp"
+    }
+  }
+}
