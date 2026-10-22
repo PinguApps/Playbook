@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>11.0</LangVersion>
+    <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DisableImplicitLibraryPacksFolder>true</DisableImplicitLibraryPacksFolder>
+    <RestorePackagesPath>$(MSBuildThisFileDirectory)../../../artifacts/fsharp-packages</RestorePackagesPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PlaybookVerifyNative)' == 'true'">
+    <PublishAot>true</PublishAot>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IlcTreatWarningsAsErrors>true</IlcTreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup><PackageReference Include="FSharp.Core" /><Compile Include="Grid.fs" /></ItemGroup>
+  <Target Name="BuildNativeChart" AfterTargets="Build" Condition="'$(PlaybookVerifyNative)' == 'true'">
+    <Exec Command="&quot;$(MSBuildBinPath)/../../dotnet.exe&quot; publish &quot;$(MSBuildProjectFullPath)&quot; -c $(Configuration) --no-build --no-restore -p:PlaybookVerifyNative=false -p:PlaybookRunNative=true -p:PublishAot=true -r win-x64" />
+  </Target>
+  <Target Name="VerifyNativeChart" AfterTargets="Publish" Condition="'$(PlaybookRunNative)' == 'true'">
+    <Exec Command="&quot;$(PublishDir)$(AssemblyName).exe&quot; --require-native" />
+  </Target>
+</Project>

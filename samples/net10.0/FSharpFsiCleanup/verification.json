@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "FSharp.Core/10.1.402"
+  ],
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/FsiCleanupRunner.fs",
+    "samples/FsiCleanupSupport.fsx",
+    "eng/Test-FSharpLifetimes.ps1"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}

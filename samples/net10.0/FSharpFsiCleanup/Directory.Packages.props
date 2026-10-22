@@ -1,0 +1,1 @@
+<Project><Import Project="../../Directory.Packages.props" /><ItemGroup><PackageVersion Include="FSharp.Core" Version="10.1.402" /></ItemGroup></Project>
