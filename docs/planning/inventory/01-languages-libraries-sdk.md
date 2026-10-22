@@ -271,6 +271,30 @@ The [PIN-707 SDK/build/package audit](../audits/sdk-build.md) supplements these 
 | `migration.sdk-package-hosts` | Select tool SDKs, configure deliberate legacy launches, migrate package/host assets and own test dependencies. | Seven full notes reconciled with 32 pinned sources and 23 actual package ZIPs. RC2 template assets contradict the note's net9 recommendation; adding Newtonsoft does not restore removed VSTest public APIs. | [B], [SDK/package audit](../audits/sdk-package-hosts.md) | source audit complete; proposals A–H await approval, actual consumer evidence and installed guidance. Mono support removal is explicit; all qualifying delivery/publication obligations remain. |
 | `migration.obsolete-api-index` | Replace specifically obsoleted APIs rather than blanket-suppressing diagnostics. | Core/cryptography non-default obsoletion inventories still need API-level review. | [B] | unresolved |
 
+## Runtime, transport and security reconciliation — PIN-705
+
+The [bounded audit and R1–R25 delivery drafts](../audits/runtime-security.md)
+extend the original planning inventory with actual reference/package/tooling
+differences and full canonical source/obsolete review. The accompanying machine
+manifest preserves every declaration delta and complete bounded obsolete lists;
+the disposition rules assign every delta, including annotation-only changes.
+
+New included draft goals: MAC verification, registered certificate identifiers,
+non-SRV DNS records, parallel dual-stack connections, endpoint buffers, guarded
+network monitoring/threading, atomic enum flags, C layout, emitted function-pointer
+calls, JS float buffers, trimmed native exports, generated COM properties, custom
+WASM hosts, provider-backed keys, AEAD key-size inspection, Windows-auth HTTP
+workaround removal, SOCKS proxy DNS, MIME mappings, asynchronous mobile HTTP,
+zstd responses, aligned type-lifetime memory, Unix mutex scope, 32-bit GC budgets
+and XML signature-reference budgets. Each has its own native estimate,
+prerequisites and real evidence acceptance in the audit; none is a delivered recipe.
+
+PIN-686's migration proposals, PIN-687/PIN-689 and existing PIN-750–758 owners
+retain their full obligations. Delivered PIN-742/744/749/750/751 subcases are
+distinguished from unverified overload/platform coverage. Unknown supported
+runtime-tooling routes remain explicit; audit closure clears no publication gate.
+Stable published recipe identities and the exact eight foundations are unchanged.
+
 ## Exact eight approved .NET10 foundations: cross-reference only
 
 These rows preserve the eight already approved goals; they do not expand historical backfill. Proposed IDs are provisional aliases for consolidation with other inventory files. Compare their original examples with .NET9, while new .NET11 editions normally compare with .NET10.
