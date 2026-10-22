@@ -16,7 +16,11 @@ try {
     $dotnet = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
     foreach ($name in @('PackageTimestamps', 'NuGetClientHost')) {
       Push-Location (Join-Path $root "samples/net$release.0/$name")
-      try { & $dotnet run --project "$name.csproj" -c Release -p:RestoreLockedMode=true }
+      try {
+        & $dotnet build "$name.csproj" -c Release -p:RestoreLockedMode=true
+        # Timestamp checks launch the same CLI for pack; use the DLL, not an apphost.
+        & $dotnet "./bin/Release/net$release.0/$name.dll"
+      }
       finally { Pop-Location }
     }
   }

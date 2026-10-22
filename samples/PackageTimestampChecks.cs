@@ -1,6 +1,11 @@
 using System.IO.Compression;
 using System.Security.Cryptography;
 
+if (args.Length != 0 || !string.Equals(Path.GetFileNameWithoutExtension(Environment.ProcessPath), "dotnet", StringComparison.OrdinalIgnoreCase))
+{
+    throw new InvalidOperationException("Run this verification DLL with the dotnet host, without arguments.");
+}
+
 string directory = Path.Combine(Path.GetTempPath(), $"playbook-timestamps-{Guid.NewGuid():N}");
 Directory.CreateDirectory(directory);
 File.Copy(Path.Combine(AppContext.BaseDirectory, "global.json"), Path.Combine(directory, "global.json"));
