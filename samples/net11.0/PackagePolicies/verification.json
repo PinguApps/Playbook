@@ -1,0 +1,12 @@
+{
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/PolicyCommand.cs",
+    "samples/PackagePolicyChecks.cs",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1"
+  ]
+}

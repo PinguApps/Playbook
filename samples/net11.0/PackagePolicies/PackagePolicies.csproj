@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../PolicyCommand.cs" Link="PolicyCommand.cs" />
+    <Compile Include="../../PackagePolicyChecks.cs" Link="Program.cs" />
+    <None Update="global.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Policy.config;AuditPolicy.props" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

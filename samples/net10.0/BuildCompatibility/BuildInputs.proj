@@ -1,0 +1,36 @@
+<Project DefaultTargets="ReadFlat">
+  <!-- snippet:trusted -->
+  <Target Name="ReadTrusted">
+    <Copy SourceFiles="trusted.xml" DestinationFiles="working.xml" />
+    <XmlPeek XmlInputPath="working.xml" Query="/dispatch/destination/text()">
+      <Output TaskParameter="Result" PropertyName="Destination" />
+    </XmlPeek>
+    <XmlPoke XmlInputPath="working.xml" Query="/dispatch/destination" Value="QUAY-8" />
+    <XslTransformation XmlInputPaths="flat.xml" XslInputPath="route.xsl" OutputPaths="route.xml" />
+    <Message Importance="high" Text="destination=$(Destination)" />
+  </Target>
+  <!-- endsnippet:trusted -->
+  <!-- snippet:flat -->
+  <Target Name="ReadFlat">
+    <XmlPeek XmlInputPath="flat.xml" Query="/dispatch/destination/text()">
+      <Output TaskParameter="Result" PropertyName="Destination" />
+    </XmlPeek>
+    <Message Importance="high" Text="destination=$(Destination)" />
+  </Target>
+  <!-- endsnippet:flat -->
+  <!-- snippet:wave -->
+  <Target Name="RunDispatch">
+    <Error Condition="'$(DotnetExecutable)' == ''" Text="Supply an absolute DotnetExecutable path." />
+    <Exec Command="&quot;$(DotnetExecutable)&quot; msbuild BuildInputs.proj -t:WaveProbe -nologo -nodeReuse:false" EnvironmentVariables="MSBUILDDISABLEFEATURESFROMVERSION=18.3" />
+  </Target>
+  <Target Name="WaveProbe">
+    <WriteLinesToFile File="dispatch.txt" Lines="QUAY-7;QUAY-8" Overwrite="true" />
+    <ReadLinesFromFile File="dispatch.txt"><Output TaskParameter="Lines" ItemName="Dispatch" /></ReadLinesFromFile>
+    <Error Condition="'@(Dispatch)' != 'QUAY-7;QUAY-8'" Text="Dispatch artifact changed." />
+    <Message Importance="high" Text="dispatch=@(Dispatch)" />
+  </Target>
+  <!-- endsnippet:wave -->
+  <Target Name="PeekDefault"><XmlPeek XmlInputPath="trusted.xml" Query="/dispatch/destination/text()" /></Target>
+  <Target Name="PokeDefault"><Copy SourceFiles="trusted.xml" DestinationFiles="working.xml" /><XmlPoke XmlInputPath="working.xml" Query="/dispatch/destination" Value="QUAY-8" /></Target>
+  <Target Name="TransformDefault"><XslTransformation XmlInputPaths="flat.xml" XslInputPath="route.xsl" OutputPaths="route.xml" /></Target>
+</Project>
