@@ -24,6 +24,51 @@ public sealed class InstalledToolSteps : IDisposable
         _output = output;
     }
 
+    [Then("NuGet timestamp and client host recipes retain canonical bodies and verified target routes")]
+    public async Task CheckNuGetArtifactsHostsAsync()
+    {
+        string[] ids = ["nuget.make-package-timestamps-reproducible", "nuget.migrate-client-library-hosts"];
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "nuget-artifacts-hosts", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(ids, RecipeIds(catalogue));
+        foreach (string id in ids)
+        {
+            string path = $"content/recipes/{id}/11.0";
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+            string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+            foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+            {
+                string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $"(?ms)^[ \\t]*(?:// snippet:{region}|<!-- snippet:{region} -->)\\n(.*?)^[ \\t]*(?:// endsnippet:{region}|<!-- endsnippet:{region} -->)$");
+                Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+                string language = snippet.Value.GetProperty("language").GetString()!;
+                expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{language}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+            }
+
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), item => item.GetProperty("id").GetString() == id);
+            Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            AssertSelection(summary, recipe);
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                Assert.Contains("PASS", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            });
+        }
+
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "nuget-artifacts-hosts" }).ConfigureAwait(false));
+        Assert.Equal([ids[1]], RecipeIds(older));
+        AssertToolError(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+        JsonElement compatible = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[1], targetVersion = "10.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        JsonElement route = Assert.Single(compatible.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        Assert.True(route.GetProperty("conditional").GetBoolean());
+        Assert.Equal("10.0", route.GetProperty("requirements").GetProperty("runtime").GetProperty("version").GetString());
+        Assert.Contains("lib/net10.0/NuGet.Packaging.dll", route.GetProperty("requirements").GetProperty("packageAssets").ToString(), StringComparison.Ordinal);
+    }
+
     [Then("build and package policy recipes retain complete canonical bodies and verified constraints")]
     public async Task CheckBuildPackagePolicyAsync()
     {

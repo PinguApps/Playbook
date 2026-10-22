@@ -1,0 +1,269 @@
+{
+  "id": "nuget.migrate-client-library-hosts",
+  "edition": "11.0",
+  "title": "Retarget a NuGet client-library host",
+  "goal": "Choose a compatible runtime and actual package assets for a utility directly referencing NuGet client libraries, without retargeting ordinary package-consuming applications.",
+  "areas": [
+    "nuget",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "nuget-artifacts-hosts"
+  ],
+  "apis": [
+    "NuGet.Packaging",
+    "PackageArchiveReader",
+    "TargetFramework"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "NuGet client hosts are separate from ordinary package-consuming application TFMs.",
+          "Current net10.0 assets also have a verified conditional .NET 10 host route; no Framework route is advertised."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Runtime that executes this client-library host; distinct from the frameworks of inspected or ordinarily consumed packages."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK used to build the declared host target; exact verification pins are recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Language mode of the canonical host sample; the package-reading code requires no C# 15 feature."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "version": "8.0.0-rc.605",
+              "name": "NuGet.Packaging",
+              "reason": "Actual restored RC2 client asset; package major version is independent of .NET.",
+              "match": "exact"
+            },
+            {
+              "version": "8.0.2",
+              "name": "System.Security.Cryptography.Pkcs",
+              "reason": "Explicit compatible patched dependency; default 8.0.1 fails enabled audit.",
+              "match": "exact"
+            }
+          ],
+          "packageAssets": [
+            "NuGet.Packaging/8.0.0-rc.605: lib/net10.0/NuGet.Packaging.dll selected for compile and runtime."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by the declared .NET SDK/runtime; actual sample execution was Windows x64 only."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Inspect effective SDK, target framework, shared build/package files, imports and package source policy before applying this recipe.",
+            "Initial restore requires the sample-local public dotnet-tools feed for NuGet.* and nuget.org for other dependencies, or a populated authorized cache."
+          ],
+          "constraints": [
+            "NuGet client hosts are separate from ordinary package-consuming application TFMs.",
+            "Current net10.0 assets also have a verified conditional .NET 10 host route; no Framework route is advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with SDK 11.0.100-rc.2.26504.105 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md",
+          "https://github.com/NuGet/NuGet.Client/pull/7657"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NuGetClientHost/NuGetClientHost.csproj"
+        ]
+      },
+      {
+        "target": "10.0",
+        "conditional": true,
+        "usage": "optional-alternative",
+        "selectionNotes": [
+          "NuGet client hosts are separate from ordinary package-consuming application TFMs.",
+          "Current net10.0 assets also have a verified conditional .NET 10 host route; no Framework route is advertised."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Runtime that executes this client-library host; distinct from the frameworks of inspected or ordinarily consumed packages."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "SDK used to build the declared host target; exact verification pins are recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Language mode of the canonical host sample; the package-reading code requires no C# 15 feature."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "version": "8.0.0-rc.605",
+              "name": "NuGet.Packaging",
+              "reason": "Actual restored RC2 client asset; package major version is independent of .NET.",
+              "match": "exact"
+            },
+            {
+              "version": "8.0.2",
+              "name": "System.Security.Cryptography.Pkcs",
+              "reason": "Explicit compatible patched dependency; default 8.0.1 fails enabled audit.",
+              "match": "exact"
+            }
+          ],
+          "packageAssets": [
+            "NuGet.Packaging/8.0.0-rc.605: lib/net10.0/NuGet.Packaging.dll selected for compile and runtime."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by the declared .NET SDK/runtime; actual sample execution was Windows x64 only."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Inspect effective SDK, target framework, shared build/package files, imports and package source policy before applying this recipe.",
+            "Initial restore requires the sample-local public dotnet-tools feed for NuGet.* and nuget.org for other dependencies, or a populated authorized cache."
+          ],
+          "constraints": [
+            "NuGet client hosts are separate from ordinary package-consuming application TFMs.",
+            "Current net10.0 assets also have a verified conditional .NET 10 host route; no Framework route is advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with SDK 11.0.100-rc.2.26504.105 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md",
+          "https://github.com/NuGet/NuGet.Client/pull/7657"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/NuGetClientCurrent/NuGetClientCurrent.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NuGet RC1 timestamp opt-in and client asset migration",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md"
+    },
+    {
+      "title": "NuGet client target framework change",
+      "url": "https://github.com/NuGet/NuGet.Client/pull/7657"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/NuGetClientHost/NuGetClientHost.csproj",
+      "scope": "Actual Windows x64 compilation and execution of a restored NuGet.Packaging host reading an original local archive identity. Locked dependency closure; no remote feed operation, Framework, native, trimming or GA claim.",
+      "target": "net10.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/NuGetClientHost/NuGetClientHost.csproj",
+      "scope": "Actual Windows x64 compilation and execution of a restored NuGet.Packaging host reading an original local archive identity. Locked dependency closure; no remote feed operation, Framework, native, trimming or GA claim.",
+      "target": "net11.0"
+    },
+    {
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/NuGetClientCurrent/NuGetClientCurrent.csproj",
+      "scope": "Actual current-library net10.0 host build and execution on .NET 10 with restored NuGet.Packaging 8.0.0-rc.605 net10.0 assets; same original local identity check, not an inferred compatibility route.",
+      "target": "net10.0"
+    }
+  ],
+  "snippets": {
+    "host": {
+      "language": "csharp",
+      "region": "host",
+      "path": "samples/net11.0/NuGetClientHost/Program.cs"
+    },
+    "older-project": {
+      "language": "xml",
+      "region": "project",
+      "path": "samples/net10.0/NuGetClientHost/NuGetClientHost.csproj"
+    },
+    "older-packages": {
+      "language": "xml",
+      "region": "packages",
+      "path": "samples/net10.0/NuGetClientHost/Directory.Packages.props"
+    },
+    "compatible-project": {
+      "language": "xml",
+      "region": "project",
+      "path": "samples/net10.0/NuGetClientCurrent/NuGetClientCurrent.csproj"
+    },
+    "newer-project": {
+      "language": "xml",
+      "region": "project",
+      "path": "samples/net11.0/NuGetClientHost/NuGetClientHost.csproj"
+    },
+    "newer-packages": {
+      "language": "xml",
+      "region": "packages",
+      "path": "samples/net11.0/NuGetClientHost/Directory.Packages.props"
+    },
+    "sources": {
+      "language": "xml",
+      "region": "sources",
+      "path": "samples/net11.0/NuGetClientHost/NuGet.Config"
+    }
+  },
+  "humanProof": {
+    "scope": "Local SDK packing and managed archive reading require no provider, account, workload, native UI or external resource. Actual behavior was executed on Windows x64.",
+    "status": "not-required"
+  }
+}

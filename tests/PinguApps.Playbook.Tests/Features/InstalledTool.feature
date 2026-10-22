@@ -226,3 +226,10 @@ Feature: Installed offline guidance
     Then validation and observability guidance retains canonical bodies applicability and target editions
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: NuGet package timestamps and client hosts retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then NuGet timestamp and client host recipes retain canonical bodies and verified target routes
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr

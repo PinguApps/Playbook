@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For repeatable NuGet package timestamps and client-library host compatibility, use the [tested PIN-770/771 walkthrough](verification/PIN-770-771.md#inspect-what-an-agent-receives). It displays both complete original recipes, fixed timestamp opt-in and the verified conditional .NET 10 client-host route.
+
 For awaited/localized validation, refreshable activity rules, generic generated
 logging and observable HTTP instruments, use the
 [PIN-748–749 walkthrough](verification/PIN-748-749.md#inspect-what-an-agent-receives).
