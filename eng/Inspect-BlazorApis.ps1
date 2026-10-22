@@ -61,17 +61,15 @@ function Get-Surface([string]$Path, [string[]]$References) {
       foreach ($handle in $metadata.ExportedTypes) {
         $export = $metadata.GetExportedType($handle)
         $exportName = "$($metadata.GetString($export.Namespace)).$($metadata.GetString($export.Name))"
-        if (-not (Test-InScope $Path $exportName)) { continue }
         $destination = if ($export.Implementation.Kind -eq [Reflection.Metadata.HandleKind]::AssemblyReference) {
           $reference = $metadata.GetAssemblyReference([Reflection.Metadata.AssemblyReferenceHandle]::op_Explicit($export.Implementation))
           $metadata.GetString($reference.Name)
         } else { $export.Implementation.Kind.ToString() }
-        $lines.Add("forward $($metadata.GetString($export.Namespace)).$($metadata.GetString($export.Name)) -> $destination [$($export.Attributes)]")
+        $lines.Add("forward $exportName -> $destination [$($export.Attributes)]")
       }
     } finally { $pe.Dispose(); $stream.Dispose() }
     foreach ($type in $assembly.GetTypes() | Where-Object IsVisible) {
       $name = $type.FullName
-      if (-not (Test-InScope $Path $name)) { continue }
       $lines.Add("type $name [$($type.Attributes)] base=$(if ($type.BaseType) { $type.BaseType.ToString() }) interfaces=$((Get-Ordinal @($type.GetInterfaces() | ForEach-Object ToString)) -join ',') generic=$(Get-Generic $type.GetGenericArguments()) $(Get-Attributes $type)")
       $flags = [Reflection.BindingFlags]'Public,NonPublic,Instance,Static,DeclaredOnly'
       foreach ($method in @($type.GetConstructors($flags)) + @($type.GetMethods($flags))) {
@@ -107,8 +105,6 @@ function Get-Diff($Old, $New) {
     removed = @(Get-Ordinal @($Old | Where-Object { -not $newSet.Contains($_) }))
   }
 }
-
-function Test-InScope([string]$Path, [string]$Name) { return $true }
 
 function Get-TextAsset($File, $Root) {
   $entry=[ordered]@{ path=[IO.Path]::GetRelativePath($Root,$File).Replace('\','/'); sha256=Get-Hash $File }
