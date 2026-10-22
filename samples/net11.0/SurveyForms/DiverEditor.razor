@@ -1,0 +1,10 @@
+@inherits Editor<Diver>
+
+<!-- snippet:editor -->
+<fieldset>
+    <legend>Diver</legend>
+    <Label For="() => Value.Name" />
+    <InputText @bind-Value="Value.Name" />
+    <ValidationMessage For="() => Value.Name" />
+</fieldset>
+<!-- endsnippet:editor -->

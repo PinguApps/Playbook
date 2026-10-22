@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "eng/Test-SurveyForms.ps1",
+    "eng/SurveyForms.browser.js"
+  ]
+}

@@ -1,0 +1,18 @@
+@page "/diagnostics/undiscovered"
+
+<h1>Missing metadata diagnostic</h1>
+<p>This intentionally incomplete configuration demonstrates why a passing top-level check is insufficient.</p>
+<EditForm Model="Model" FormName="undiscovered" OnValidSubmit="Accept">
+    <DataAnnotationsValidator />
+    <InputText @bind-Value="Model.Lead" />
+    <InputText @bind-Value="Model.Contact.Email" />
+    <button type="submit" formnovalidate>Check missing metadata</button>
+</EditForm>
+<output id="result">@Result</output>
+
+@code {
+    [SupplyParameterFromForm] public UndiscoveredRequest Model { get; set; } = default!;
+    protected override void OnInitialized() => Model ??= new();
+    private string Result { get; set; } = "Not submitted";
+    private void Accept() => Result = "Top-level only: invalid child was missed";
+}

@@ -1,0 +1,44 @@
+@page "/{Mode}"
+@inject SubmissionCounts Counts
+
+<h1>Reef survey</h1>
+<!-- snippet:captions -->
+<p id="caption">@FieldCaption.For(() => Model.Contact.Email)</p>
+<p id="fallback">@FieldCaption.For(() => Model.Reference.ImportedCode)</p>
+<!-- endsnippet:captions -->
+<!-- snippet:form -->
+<EditForm Model="Model" FormName="survey" Enhance="@(Mode != "plain")"
+          OnValidSubmit="Accept" OnInvalidSubmit="Reject">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <label for="survey-lead">@FieldCaption.For(() => Model.Lead)</label>
+    <InputText id="survey-lead" @bind-Value="Model.Lead" data-legacy-required="Enter a survey lead." />
+    <span data-legacy-error="survey-lead"></span>
+    <ValidationMessage For="() => Model.Lead" />
+    <label>
+        @FieldCaption.For(() => Model.Contact.Email)
+        <InputText id="survey-contact" @bind-Value="Model.Contact.Email" data-legacy-required="Enter a contact address." />
+    </label>
+    <span data-legacy-error="survey-contact"></span>
+    <ValidationMessage For="() => Model.Contact.Email" />
+    @for (var index = 0; index < Model.Divers.Count; index++)
+    {
+        var row = index;
+        <DiverEditor @bind-Value="Model.Divers[row]" InputId="@($"survey-diver-{row}")" />
+    }
+    <button type="submit">Record survey</button>
+    <button type="submit" formnovalidate>Post for server checking</button>
+</EditForm>
+<!-- endsnippet:form -->
+<output id="result">@Result</output>
+
+<!-- snippet:state -->
+@code {
+    [Parameter] public string Mode { get; set; } = "enhanced";
+    [SupplyParameterFromForm] public SurveyRequest Model { get; set; } = default!;
+    protected override void OnInitialized() => Model ??= new();
+    private string Result { get; set; } = "Not submitted";
+    private void Accept() { Counts.RecordAcceptance(); Result = "Accepted"; }
+    private void Reject() => Result = "Rejected";
+}
+<!-- endsnippet:state -->
