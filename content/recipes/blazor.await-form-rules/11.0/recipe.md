@@ -24,6 +24,8 @@ validation events must not become async void handlers pretending to be awaited.
 
 .NET 11 connects AsyncValidationAttribute to DataAnnotationsValidator. EditForm
 awaits EditContext.ValidateAsync before calling OnValidSubmit or OnInvalidSubmit.
+EditContext.Validate is obsolete in .NET 11; migrate owned submit validation to
+awaited ValidateAsync instead of suppressing its diagnostic or blocking on a Task.
 The attribute passes the framework token into HTTP I/O, associates failure with
 the member and leaves an empty value to Required. A synchronous caller receives
 an explicit exception rather than a fabricated successful remote check.
