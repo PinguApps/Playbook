@@ -1,0 +1,147 @@
+{
+  "id": "http.bound-initial-h2-streams",
+  "edition": "11.0",
+  "title": "Bound HTTP/2 requests before server settings arrive",
+  "goal": "Limit the initial HTTP/2 request burst for a known low-capacity peer, then honor its advertised concurrent-stream setting.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "network-capacity",
+    "http"
+  ],
+  "apis": [
+    "SocketsHttpHandler.InitialHttp2MaxConcurrentStreams",
+    "HttpVersionPolicy.RequestVersionExact"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Initial default 100, minimum 1; peer SETTINGS and previously observed lower host limits still govern."
+        ],
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "reason": "Primary route uses .NET 11 framework contracts.",
+            "match": "release-family",
+            "version": "11.0",
+            "name": ".NET"
+          },
+          "sdk": {
+            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "match": "release-family",
+            "version": "11.0",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "reason": "Declared canonical language mode; no preview syntax required.",
+            "match": "exact",
+            "version": "15.0",
+            "name": "C#"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no primary-route NuGet package."
+          ],
+          "providers": [],
+          "platforms": [
+            "Desktop/server Windows, Linux and macOS; Windows x64 execution only. Browser/WASI/mobile routes excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: net11.0, C# 15.0, nullable and implicit usings enabled; essential imports and usage are in the body."
+          ],
+          "constraints": [
+            "Initial default 100, minimum 1; peer SETTINGS and previously observed lower host limits still govern."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 compilation/execution; GA reconciliation pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocketsHttpHandler.cs",
+          "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.Http/ref/System.Net.Http.cs"
+        ],
+        "usage": "primary",
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/HttpCapacity/HttpCapacity.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Official .NET 11 library changes"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocketsHttpHandler.cs",
+      "title": "Pinned official SocketsHttpHandler.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+      "title": "Pinned official System.Net.Http.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; RC2 rejects zero.",
+      "sample": "samples/net10.0/HttpCapacity/HttpCapacity.csproj",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "language": "14.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real cleartext HTTP/2 peer with delayed SETTINGS: two initial HEADERS, peer limit three respected, six completions; older gate stays two; RC2 rejects zero.",
+      "sample": "samples/net11.0/HttpCapacity/HttpCapacity.csproj",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "path": "samples/net11.0/HttpCapacity/Policies.cs",
+      "language": "csharp",
+      "region": "capacity"
+    },
+    "older": {
+      "path": "samples/net10.0/HttpCapacity/Policies.cs",
+      "language": "csharp",
+      "region": "capacity"
+    },
+    "usage": {
+      "region": "capacity-use",
+      "language": "csharp",
+      "path": "samples/net11.0/HttpCapacity/Usage.cs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local TCP/UDP authoring checks cover the stated managed protocol claims. No Human-only proof, remote service, native UI, browser or GA behavior is claimed."
+  }
+}

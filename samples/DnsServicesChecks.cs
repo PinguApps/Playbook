@@ -17,10 +17,10 @@ internal static class Program
         using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(20));
         // Windows DnsQueryEx only supports port 53. Bind only loopback and fail
         // explicitly if unavailable; never change the machine's DNS settings.
-        using var server = new UdpClient(new IPEndPoint(IPAddress.Loopback, 53));
+        using var server = new UdpClient(new IPEndPoint(IPAddress.Loopback, OperatingSystem.IsWindows() ? 53 : 0));
         using var serving = CancellationTokenSource.CreateLinkedTokenSource(timeout.Token);
         Task responding = RespondAsync(server, serving.Token);
-        var endpoint = new IPEndPoint(IPAddress.Loopback, 53);
+        var endpoint = (IPEndPoint)server.Client.LocalEndPoint!;
 #if NET11_0_OR_GREATER
         using var lookup = new ServiceLookup(endpoint);
 #else

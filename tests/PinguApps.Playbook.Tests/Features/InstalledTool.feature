@@ -227,6 +227,14 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
+  @NetworkGuidance
+  Scenario: HTTP capacity and DNS service recipes retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then network capacity guidance retains canonical bodies applicability and target editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @CryptoGuidance
   Scenario: Crypto guidance retains verified operations and honest platform limits offline
     Given the actual package is installed from an isolated local feed and cache
