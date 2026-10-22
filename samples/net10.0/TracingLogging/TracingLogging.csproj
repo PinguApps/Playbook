@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion><NoWarn>$(NoWarn);NU1510</NoWarn><EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles></PropertyGroup>
+  <ItemGroup><Compile Include="../../TracingLoggingChecks.cs" Link="Checks.cs" /></ItemGroup>
+  <ItemGroup><FrameworkReference Include="Microsoft.AspNetCore.App" /><PackageReference Include="Microsoft.Extensions.Logging.Abstractions" PrivateAssets="all" /></ItemGroup>
+</Project>
