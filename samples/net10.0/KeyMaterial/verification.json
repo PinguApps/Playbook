@@ -1,0 +1,12 @@
+{
+  "additionalInputs": [
+    "samples/KeyMaterialChecks.cs",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    ".editorconfig"
+  ],
+  "buildArguments": [],
+  "workloads": [],
+  "dependencies": [],
+  "nativeToolchains": []
+}

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "System.Security.Cryptography.Pkcs": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "cYggI0Mk5zfpEQWd6l0IdN1/uZnWX/b64xCZlrEYthz39zgXFAy1VpKtMFdYFzE1/PKugJFtUc/uXe+fLT4HeQ=="
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><NoWarn>$(NoWarn);SYSLIB5006;SYSLIB5009</NoWarn><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
+  <ItemGroup><Compile Include="../../PostQuantumChecks.cs" Link="Checks.cs" /></ItemGroup>
+  <ItemGroup><PackageReference Include="System.Security.Cryptography.Pkcs" /></ItemGroup>
+</Project>
