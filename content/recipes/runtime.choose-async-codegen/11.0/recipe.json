@@ -1,0 +1,143 @@
+{
+  "id": "runtime.choose-async-codegen",
+  "edition": "11.0",
+  "title": "Choose runtime-async compilation deliberately (experimental)",
+  "goal": "Choose experimental runtime-async code generation when upgrading, and distinguish live diagnostics from failure stacks and removed runtime switches.",
+  "areas": [
+    "runtime"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "runtime-compiler-hosts",
+    "choose-async-codegen"
+  ],
+  "apis": [
+    "Features",
+    "UseRuntimeAsync",
+    "MethodImplOptions.Async",
+    "AsyncStateMachineAttribute"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Experimental CoreCLR compiler flag. Public RC2 SDK requires Features; UseRuntimeAsync alone was inert."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/RuntimeAsync/RuntimeAsync.csproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/runtime.md"
+        ],
+        "requirements": {
+          "packageAssets": [],
+          "prerequisites": [
+            "Use the complete offline source/configuration and verify the consumer matches this route."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK C# compiler and its explicit runtime-async feature flag."
+          },
+          "frameworks": [],
+          "platforms": [
+            "CoreCLR; Windows x64 execution verified"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "match": "release-family",
+            "name": "C#",
+            "version": "15.0",
+            "reason": "The public RC2 compiler accepts the explicit feature under C# 15; no preview-language opt-in is required."
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Actual RC2 evidence; final GA reconciliation is separate."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "Features=runtime-async=on"
+          ],
+          "providers": [],
+          "constraints": [
+            "Rebuild the intended assembly; removed runtime variables cannot change emitted methods. Live stacks and exception stacks are different evidence."
+          ],
+          "packages": []
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/runtime",
+      "title": "Official release contract"
+    },
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/runtime.md",
+      "title": "Matching implementation and declarations"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/RuntimeAsync/RuntimeAsync.csproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/RuntimeAsync/RuntimeAsync.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "configuration": {
+      "language": "xml",
+      "region": "configuration",
+      "path": "samples/net11.0/RuntimeAsync/RuntimeAsync.csproj"
+    },
+    "older": {
+      "language": "csharp",
+      "region": "workflow",
+      "path": "samples/net10.0/RuntimeAsync/Survey.cs"
+    },
+    "newer": {
+      "language": "csharp",
+      "region": "workflow",
+      "path": "samples/net11.0/RuntimeAsync/Survey.cs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded managed/compiler/host claims execute automatically. Native/AOT, debugger UI and GA support are not claimed."
+  }
+}

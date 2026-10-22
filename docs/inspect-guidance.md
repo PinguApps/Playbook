@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For experimental runtime-async compilation, a bounded F# workflow builder and
+hosted FCS import sharing, use the [PIN-757/980/981 walkthrough](verification/PIN-757-980-981.md#inspect-what-an-agent-receives).
+It displays complete support and applicability, including the verified .NET 10
+FCS host route and the measured RC2 compiler/runtime limitations.
+
 For awaited Blazor/Minimal API rules and shared localized validation messages,
 use the [tested PIN-774–775 walkthrough](verification/PIN-774-775.md#inspect-what-an-agent-receives).
 It displays all three discovery goals, canonical comparisons and applicability,

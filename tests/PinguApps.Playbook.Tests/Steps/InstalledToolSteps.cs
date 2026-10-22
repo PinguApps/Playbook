@@ -628,6 +628,7 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("F sharp guidance retains complete bodies constraints and editions")]
     public async Task CheckFSharpGuidanceAsync()
     {
+        await CheckRuntimeCompilerGuidanceAsync().ConfigureAwait(false);
         string[] languages = ["fsharp"];
         JsonElement list = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "net11.0", languages }).ConfigureAwait(false));
         foreach ((string id, string sample, string file, string region) in new[]
@@ -726,6 +727,54 @@ public sealed class InstalledToolSteps : IDisposable
             }
 
             AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+        }
+    }
+
+    private async Task CheckRuntimeCompilerGuidanceAsync()
+    {
+        string[] ids = ["fsharp.author-runtime-async-builder", "fsharp.configure-compiler-service-memory", "runtime.choose-async-codegen"];
+        foreach (string target in new[] { "10.0", "11.0" })
+        {
+            JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = target, query = "runtime-compiler-hosts", limit = 50 }).ConfigureAwait(false));
+            Assert.Equal(target == "10.0" ? ["fsharp.configure-compiler-service-memory"] : ids, RecipeIds(catalogue));
+            foreach (string id in ids)
+            {
+                if (target == "10.0" && id != "fsharp.configure-compiler-service-memory")
+                {
+                    AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false), "no_applicable_edition");
+                    continue;
+                }
+
+                string path = $"content/recipes/{id}/11.0";
+                using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+                string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+                foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+                {
+                    string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                    string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                    System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $"(?ms)^[ \\t]*(?:// snippet:{region}|<!-- snippet:{region} -->)\\n(.*?)^[ \\t]*(?:// endsnippet:{region}|<!-- endsnippet:{region} -->)$");
+                    Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+                    expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{snippet.Value.GetProperty("language").GetString()}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+                }
+
+                JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = target }).ConfigureAwait(false)).GetProperty("recipe");
+                JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), value => value.GetProperty("id").GetString() == id);
+                Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+                Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+                Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+                Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
+                Assert.Equal(metadata.RootElement.GetProperty("stability").GetString(), summary.GetProperty("stability").GetString());
+                AssertSelection(summary, recipe);
+                JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+                Assert.Equal(target, route.GetProperty("target").GetString());
+                Assert.Equal(target == "10.0", route.GetProperty("conditional").GetBoolean());
+                Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+                {
+                    Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                    Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                    Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+                });
+            }
         }
     }
 

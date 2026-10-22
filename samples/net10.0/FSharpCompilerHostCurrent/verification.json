@@ -1,0 +1,14 @@
+{
+  "additionalInputs": [
+    "samples/net11.0/FSharpCompilerHost/CompilerHostChecks.fs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "dependencies": [
+    "FSharp.Compiler.Service/43.13.101-rc2.26504.105",
+    "FSharp.Core/11.0.101-rc2.26504.105"
+  ],
+  "buildArguments": []
+}

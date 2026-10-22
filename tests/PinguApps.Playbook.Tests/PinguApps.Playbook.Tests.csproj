@@ -182,6 +182,10 @@
     <EmbeddedResource Include="../../samples/net*/KeyMaterial/*.cs;../../samples/net*/PostQuantum/*.cs" LogicalName="SdkInput.%(Identity)" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../content/recipes/fsharp.author-runtime-async-builder/11.0/recipe.json;../../content/recipes/fsharp.author-runtime-async-builder/11.0/recipe.md;../../content/recipes/fsharp.configure-compiler-service-memory/11.0/recipe.json;../../content/recipes/fsharp.configure-compiler-service-memory/11.0/recipe.md" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/FSharpRuntime/Workflow.fs;../../samples/net*/RuntimeAsync/Survey.cs;../../samples/net*/RuntimeAsync/RuntimeAsync.csproj;../../samples/net*/FSharpCompilerHost/Host.fs;../../samples/net11.0/FSharpCompilerHost/CompilerHostChecks.fs" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="../../content/recipes/tls.*/**/recipe.json;../../content/recipes/tls.*/**/recipe.md;../../content/recipes/quic.*/**/recipe.json;../../content/recipes/quic.*/**/recipe.md;../../content/recipes/runtime.*/**/recipe.json;../../content/recipes/runtime.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/CallerTls/*.cs;../../samples/net*/QuicPriority/*.cs;../../samples/net*/CrashEvidence/*.cs;../../samples/net*/HardwareBaseline/*.cs" LogicalName="SdkInput.%(Identity)" />
   </ItemGroup>

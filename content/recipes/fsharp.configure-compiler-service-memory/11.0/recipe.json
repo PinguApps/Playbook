@@ -1,0 +1,248 @@
+{
+  "id": "fsharp.configure-compiler-service-memory",
+  "edition": "11.0",
+  "title": "Choose imported-assembly sharing in an F# compiler host (preview package)",
+  "goal": "Choose default imported-assembly sharing or a deliberate checker opt-out when hosting FCS, while preserving each project reference closure and diagnostics.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "runtime-compiler-hosts",
+    "configure-compiler-service-memory"
+  ],
+  "apis": [
+    "FSharpChecker.Create",
+    "shareImportedAssemblies",
+    "ParseAndCheckProject"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "New preview FCS package; default sharing is already enabled. Exact FCS/Core pair; .NET 10 host route is separately verified."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpCompilerHost/FSharpCompilerHost.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Compiler.Service lib/netstandard2.0/FSharp.Compiler.Service.dll",
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use the complete offline source/configuration and verify the consumer matches this route."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            ".NET managed host; Windows x64 execution verified"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "match": "release-family",
+            "version": "11.0",
+            "reason": "Use the declared compiler language mode; no later-main language gate is inferred.",
+            "name": "fsharp"
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Actual RC2 evidence; final GA reconciliation is separate."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "providers": [],
+          "constraints": [
+            "Match project/reference closures; weak retention is not a memory cap. No public ClearCaches API is claimed."
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "version": "43.13.101-rc2.26504.105",
+              "reason": "Initial verified preview API contract; later releases require reconciliation.",
+              "name": "FSharp.Compiler.Service"
+            },
+            {
+              "match": "exact",
+              "version": "11.0.101-rc2.26504.105",
+              "reason": "The FCS package declares this exact dependency.",
+              "name": "FSharp.Core"
+            }
+          ]
+        },
+        "target": "11.0"
+      },
+      {
+        "selectionNotes": [
+          "New preview FCS package; default sharing is already enabled. Exact FCS/Core pair; .NET 10 host route is separately verified."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/FSharpCompilerHostCurrent/FSharpCompilerHostCurrent.fsproj"
+        ],
+        "conditional": true,
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Compiler.Service lib/netstandard2.0/FSharp.Compiler.Service.dll",
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use the complete offline source/configuration and verify the consumer matches this route."
+          ],
+          "sdk": {
+            "match": "release-family",
+            "version": "10.0",
+            "reason": "Actual down-level host built with .NET 10 SDK.",
+            "name": ".NET SDK"
+          },
+          "frameworks": [],
+          "platforms": [
+            ".NET managed host; Windows x64 execution verified"
+          ],
+          "runtime": {
+            "match": "release-family",
+            "version": "10.0",
+            "reason": "Actual new-package host executed on .NET 10; package version does not imply .NET 11 host minimum.",
+            "name": ".NET"
+          },
+          "language": {
+            "match": "release-family",
+            "version": "10.0",
+            "reason": "Ordinary hosting code; no preview-language feature needed.",
+            "name": "F#"
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Actual RC2 evidence; final GA reconciliation is separate."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "providers": [],
+          "constraints": [
+            "Match project/reference closures; weak retention is not a memory cap. No public ClearCaches API is claimed."
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "version": "43.13.101-rc2.26504.105",
+              "reason": "Initial verified preview API contract; later releases require reconciliation.",
+              "name": "FSharp.Compiler.Service"
+            },
+            {
+              "match": "exact",
+              "version": "11.0.101-rc2.26504.105",
+              "reason": "The FCS package declares this exact dependency.",
+              "name": "FSharp.Core"
+            }
+          ]
+        },
+        "target": "10.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Matching public contract",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fsi"
+    },
+    {
+      "title": "Matching implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Service/service.fs"
+    },
+    {
+      "title": "Matching constraints",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Driver/CompilerImports.fs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "kind": "compile-and-run",
+      "language": "10.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/FSharpCompilerHost/FSharpCompilerHost.fsproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "kind": "compile-and-run",
+      "language": "11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/FSharpCompilerHost/FSharpCompilerHost.fsproj",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual new FCS/Core pair restored, locked, built and executed on .NET 10 with default/disabled sharing, reference replacement and isolated diagnostics.",
+      "kind": "compile-and-run",
+      "language": "10.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/FSharpCompilerHostCurrent/FSharpCompilerHostCurrent.fsproj",
+      "target": "net10.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "fsharp",
+      "region": "configuration",
+      "path": "samples/net10.0/FSharpCompilerHost/Host.fs"
+    },
+    "newer": {
+      "language": "fsharp",
+      "region": "configuration",
+      "path": "samples/net11.0/FSharpCompilerHost/Host.fs"
+    },
+    "host": {
+      "language": "fsharp",
+      "region": "host",
+      "path": "samples/net11.0/FSharpCompilerHost/CompilerHostChecks.fs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded managed/compiler/host claims execute automatically. Native/AOT, debugger UI and GA support are not claimed."
+  }
+}

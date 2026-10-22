@@ -103,6 +103,13 @@ try {
     @{ Path = 'net11.0/FSharpApiPreview'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/FSharpAsync'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/FSharpAsync'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/FSharpRuntime'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/FSharpRuntime'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/RuntimeAsync'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/RuntimeAsync'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/FSharpCompilerHost'; Dotnet = 'dotnet' },
+    @{ Path = 'net10.0/FSharpCompilerHostCurrent'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/FSharpCompilerHost'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/FSharpRethrow'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/FSharpRethrow'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/FSharpFlags'; Dotnet = 'dotnet' },
@@ -141,6 +148,7 @@ try {
   & (Join-Path $PSScriptRoot 'Test-StaticInterfaceHelpers.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-FSharpGuidance.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-FSharpBoundaries.ps1') -Net11Dotnet $Net11Dotnet
+  & (Join-Path $PSScriptRoot 'Test-RuntimeAsync.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-UnsafeBoundaries.ps1') -Net11Dotnet $Net11Dotnet
   dotnet build PinguApps.Playbook.slnx --configuration Release -p:Version=$PackageVersion
   & (Join-Path $PSScriptRoot 'Test-Content.ps1') -Pack

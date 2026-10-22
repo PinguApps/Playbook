@@ -1,0 +1,10 @@
+<!-- snippet:configuration -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <!-- Public RC2 SDK: pass the compiler feature explicitly. UseRuntimeAsync
+         alone is not translated by this SDK's installed targets. -->
+    <Features>$(Features);runtime-async=on</Features>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:configuration -->
