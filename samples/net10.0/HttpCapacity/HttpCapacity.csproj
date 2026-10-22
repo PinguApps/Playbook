@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion></PropertyGroup>
+  <ItemGroup><Compile Include="../../HttpCapacityChecks.cs" Link="Checks.cs" /><Compile Include="../../Http2Capacity.cs" Link="Http2Capacity.cs" /></ItemGroup>
+</Project>

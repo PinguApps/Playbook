@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "DnsClient/1.8.0"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/DnsServicesChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig"
+  ]
+}

@@ -1,5 +1,11 @@
 # Inspect the guidance an agent receives
 
+For outgoing request compression, cached connection retirement, initial HTTP/2
+stream capacity and DNS SRV discovery, use the
+[tested PIN-753–754 walkthrough](verification/PIN-753-754.md#inspect-what-an-agent-receives).
+It displays four original goals, complete .NET 10/11 comparisons and applicability,
+including experimental SYSLIB5008 and Windows DNS resolver restrictions.
+
 For key exchange, repeated-byte comparison, AES-KW/KWP, experimental composite
 encapsulation/HPKE and pure ML-KEM CMS, use the
 [tested PIN-750–751 walkthrough](verification/PIN-750-751.md#inspect-what-an-agent-receives).

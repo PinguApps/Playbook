@@ -235,6 +235,55 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("network capacity guidance retains canonical bodies applicability and target editions")]
+    public async Task CheckNetworkCapacityAsync()
+    {
+        string[] ids = ["http.compress-request-body", "http.retire-connections", "http.bound-initial-h2-streams", "dns.resolve-service-records"];
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "network-capacity", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(0, older.GetProperty("total").GetInt32());
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "network-capacity", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(ids.Length, catalogue.GetProperty("total").GetInt32());
+        foreach (string id in ids)
+        {
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+            string path = $"content/recipes/{id}/11.0";
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+            string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+            foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+            {
+                string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $"(?ms)^[ \\t]*// snippet:{region}\\n(.*?)^[ \\t]*// endsnippet:{region}$");
+                Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+                expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```csharp\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+            }
+
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), entry => entry.GetProperty("id").GetString() == id);
+            Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            AssertSelection(summary, recipe);
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            Assert.Equal("11.0", route.GetProperty("target").GetString());
+            Assert.Equal("11.0", route.GetProperty("requirements").GetProperty("runtime").GetProperty("version").GetString());
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+                Assert.Equal("compile-and-run", evidence.GetProperty("kind").GetString());
+                Assert.Contains("PASS", evidence.GetProperty("output").GetString(), StringComparison.Ordinal);
+            });
+            if (id == "http.retire-connections")
+            {
+                Assert.Equal("experimental", summary.GetProperty("stability").GetString());
+                Assert.Contains("SYSLIB5008", summary.GetProperty("goal").GetString(), StringComparison.Ordinal);
+                Assert.Contains("SYSLIB5008", route.GetProperty("requirements").GetProperty("optIns").ToString(), StringComparison.Ordinal);
+            }
+        }
+    }
+
     [Then("validation and observability guidance retains canonical bodies applicability and target editions")]
     public async Task CheckValidationObservabilityAsync()
     {

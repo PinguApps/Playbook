@@ -1,0 +1,13 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/HttpCapacityChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "samples/Http2Capacity.cs"
+  ]
+}

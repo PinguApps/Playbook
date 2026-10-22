@@ -1,0 +1,168 @@
+{
+  "id": "dns.resolve-service-records",
+  "edition": "11.0",
+  "title": "Resolve advertised service targets and ports",
+  "goal": "Read SRV target, port, priority, weight and TTL while distinguishing missing names from successful empty results, using the appropriate platform resolver.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "network-capacity",
+    "dns"
+  ],
+  "apis": [
+    "Dns.ResolveSrvAsync",
+    "DnsResolver.ResolveSrvAsync",
+    "DnsResult<SrvRecord>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Windows custom resolvers require port 0/53 and one address family; cancellation and DNS statuses are distinct."
+        ],
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "reason": "Primary route uses .NET 11 framework contracts.",
+            "match": "release-family",
+            "version": "11.0",
+            "name": ".NET"
+          },
+          "sdk": {
+            "reason": "Build against .NET 11 references; exact RC2 pin records verification.",
+            "match": "release-family",
+            "version": "11.0",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "reason": "Declared canonical language mode; no preview syntax required.",
+            "match": "exact",
+            "version": "15.0",
+            "name": "C#"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no primary-route NuGet package."
+          ],
+          "providers": [],
+          "platforms": [
+            "Desktop/server Windows, Linux and macOS; Windows x64 execution only. Browser/WASI/mobile routes excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project: net11.0, C# 15.0, nullable and implicit usings enabled; essential imports and usage are in the body."
+          ],
+          "constraints": [
+            "Windows custom resolvers require port 0/53 and one address family; cancellation and DNS statuses are distinct."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 compilation/execution; GA reconciliation pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/ref/System.Net.NameResolution.cs",
+          "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolver.cs",
+          "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolverPal.Windows.cs",
+          "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolverPal.Managed.cs",
+          "https://github.com/MichaCo/DnsClient.NET/blob/f1e7ca33d713dc3bc70e7b3664aa3a2b6c090d5d/src/DnsClient/DnsClient.csproj",
+          "https://www.rfc-editor.org/rfc/rfc2782"
+        ],
+        "usage": "primary",
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/DnsServices/DnsServices.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+      "title": "Official .NET 11 library changes"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/ref/System.Net.NameResolution.cs",
+      "title": "Pinned official System.Net.NameResolution.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolver.cs",
+      "title": "Pinned official DnsResolver.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolverPal.Windows.cs",
+      "title": "Pinned official DnsResolverPal.Windows.cs"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime/blob/474ed963699fc29809015392738a15231aaae2de/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolverPal.Managed.cs",
+      "title": "Pinned official DnsResolverPal.Managed.cs"
+    },
+    {
+      "url": "https://github.com/MichaCo/DnsClient.NET/blob/f1e7ca33d713dc3bc70e7b3664aa3a2b6c090d5d/src/DnsClient/DnsClient.csproj",
+      "title": "DnsClient 1.8.0 publisher target assets"
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc2782",
+      "title": "SRV record selection and service-unavailable semantics"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "scope": "Real loopback UDP DNS: original SRV target/port/priority/weight/TTL, NXDOMAIN, NODATA, pre-cancellation; Windows RC2 rejects custom port. No system DNS changes.",
+      "sample": "samples/net10.0/DnsServices/DnsServices.csproj",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "language": "14.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real loopback UDP DNS: original SRV target/port/priority/weight/TTL, NXDOMAIN, NODATA, pre-cancellation; Windows RC2 rejects custom port. No system DNS changes.",
+      "sample": "samples/net11.0/DnsServices/DnsServices.csproj",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "path": "samples/net11.0/DnsServices/Lookup.cs",
+      "language": "csharp",
+      "region": "lookup"
+    },
+    "older": {
+      "path": "samples/net10.0/DnsServices/Lookup.cs",
+      "language": "csharp",
+      "region": "lookup"
+    },
+    "usage": {
+      "region": "lookup-use",
+      "language": "csharp",
+      "path": "samples/net11.0/DnsServices/Usage.cs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local TCP/UDP authoring checks cover the stated managed protocol claims. No Human-only proof, remote service, native UI, browser or GA behavior is claimed."
+  }
+}
