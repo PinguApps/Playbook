@@ -4,6 +4,9 @@
 # Inspect-BlazorRemovedApis.ps1 output; review its script and the matching .md audit.
 /docs/planning/audits/blazor-removed-apis.assets.json
 
+# Inspect-BlazorApis.ps1 output; review its script, source/disposition manifests and .md audit.
+/docs/planning/audits/blazor.assets.json
+
 # Inspect-DataIoApis.ps1 output; review its script, source/disposition manifests and .md audit.
 /docs/planning/audits/data-io.assets.json
 
