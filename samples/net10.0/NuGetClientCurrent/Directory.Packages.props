@@ -1,0 +1,9 @@
+<!-- snippet:packages -->
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled>
+  </PropertyGroup>
+  <ItemGroup><PackageVersion Include="NuGet.Packaging" Version="8.0.0-rc.605" /><PackageVersion Include="System.Security.Cryptography.Pkcs" Version="8.0.2" /></ItemGroup>
+</Project>
+<!-- endsnippet:packages -->

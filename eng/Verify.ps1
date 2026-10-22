@@ -127,6 +127,7 @@ try {
     finally { Pop-Location }
   }
   & (Join-Path $PSScriptRoot 'Test-OptionsStartup.ps1') -Net11Dotnet $Net11Dotnet
+  & (Join-Path $PSScriptRoot 'Test-NuGetGuidance.ps1') -Net10Dotnet (Get-Command dotnet).Source -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-Observability.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-AsyncLinqMigration.ps1') -Net9Dotnet $Net9Dotnet
   & (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1') -Net9Dotnet $Net9Dotnet -Net11Dotnet $Net11Dotnet
