@@ -96,12 +96,12 @@
     "eng/Test-SurveyForms.ps1 -BaseUri http://localhost:5274/ -Net11 -GlobalClientOptOut",
     "eng/SurveyForms.browser.js evaluated in actual Chromium on each app origin"
   ],
-  "recordedAt": "2026-10-22T20:23:38.5273893+00:00",
+  "recordedAt": "2026-10-22T21:23:38.5273893+01:00",
   "reports": {
-    "PIN-772-773.http11.evidence.json": "1bccee11c903185ba338002903f386aa9ba35a23f5252ef0a34bf29cb8d6d19a",
-    "PIN-772-773.global.evidence.json": "e6826cdcb8adf87c241850794a98bc32f77a57d068a5917ac8e5e9f17f986114",
+    "PIN-772-773.http11.evidence.json": "f1f1c5dcfeb286ee0f9c7f77a1c5278a46b41f10845a097a9357e3ddc551481c",
+    "PIN-772-773.global.evidence.json": "b85ee5bd0c91efe3f1e194c37976ad61d3a6d25db6cf2d137b35280bceaef624",
     "PIN-772-773.browser10.evidence.json": "cd2267f78b2b2f217bc541ce2f2ba74a95606108746a259b1bf26294c46a0607",
-    "PIN-772-773.http10.evidence.json": "25e59dac1419d2eca3ff99471a777f733841a6864561f2c7483cfd5debae8c41",
+    "PIN-772-773.http10.evidence.json": "19642e08a583523104946115a40131cbbdd53d3bee74ad5e2809085fda587797",
     "PIN-772-773.browser11.evidence.json": "c3d78c3eddb0bf4f50dcc3f96f6242e583b85824e14973832f0944bbd2745a1c"
   }
 }
