@@ -128,7 +128,7 @@
       "language": "10.0",
       "kind": "compile-and-run",
       "sdk": "10.0.402",
-      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+      "scope": "Actual .NET 10 dependency restore, compilation and execution of the original task-based asynchronous enumerator: pending pull, incremental results and delayed early disposal exactly once. No runtime-async, Native AOT or GA proof."
     },
     {
       "sample": "samples/net11.0/FSharpSequence/FSharpSequence.fsproj",
@@ -136,7 +136,7 @@
       "language": "preview",
       "kind": "compile-and-run",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+      "scope": "Actual .NET 11 dependency restore, preview compilation and execution of original intrinsic-based sequence support: pending moves, incremental results, exhaustion, serial overlap rejection, nested cancellation and its limits, delayed early/nested/exceptional cleanup and exception precedence. Separate negative compiler probes are documented in docs/verification/PIN-982-984.md. No Native AOT, complete debugger or GA proof."
     }
   ],
   "snippets": {
@@ -163,6 +163,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual automated managed/compiler/FSI checks and one Windows Native AOT publish/run establish the bounded claims. Other platforms, debugger stepping and GA proof are not claimed."
+    "scope": "Automated managed sequence execution and negative compiler probes establish the bounded producer/lifetime claims. Native AOT, other-platform execution, complete debugger stepping and GA proof are not claimed."
   }
 }

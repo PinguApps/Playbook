@@ -112,7 +112,7 @@
       "language": "10.0",
       "kind": "compile-and-run",
       "sdk": "10.0.402",
-      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+      "scope": "Actual .NET 10 dependency restore and runner compilation; real dotnet fsi --exec execution records loaded FSharp.Core location, target attribute and hash, four gated explicit-cleanup lifetime/error cases, and rejection of direct asynchronous Using by the older FSI asset. No Native AOT or GA proof."
     },
     {
       "sample": "samples/net11.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj",
@@ -120,7 +120,7 @@
       "language": "11.0",
       "kind": "compile-and-run",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+      "scope": "Actual .NET 11 dependency restore and runner compilation; real dotnet fsi --exec execution records loaded FSharp.Core identity, four gated ordinary-binding lifetime/error cases and the explicit cleanup alternative. Cleanup finishes exactly once; the measured RC2 binding loses pending cleanup failures while the explicit alternative propagates them. No Native AOT or GA proof."
     }
   ],
   "snippets": {
@@ -142,6 +142,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual automated managed/compiler/FSI checks and one Windows Native AOT publish/run establish the bounded claims. Other platforms, debugger stepping and GA proof are not claimed."
+    "scope": "Automated real previous/current FSI processes establish the loaded asset and bounded cleanup/error claims, including the explicit alternative. Native AOT, debugger integration and GA proof are not claimed."
   }
 }

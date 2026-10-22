@@ -129,7 +129,7 @@
       "language": "10.0",
       "kind": "compile-and-run",
       "sdk": "10.0.402",
-      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+      "scope": "Actual .NET 10 dependency restore, compilation and JIT execution of original based-array allocations, coordinates, values, empty dimensions and map/mapi/copy/rebase. This comparison record contains no native publish/run."
     },
     {
       "sample": "samples/net11.0/FSharpArrayAot/FSharpArrayAot.fsproj",
@@ -137,7 +137,7 @@
       "language": "11.0",
       "kind": "compile-and-run",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+      "scope": "Actual .NET 11 dependency restore and compilation, Windows x64 Native AOT publish/run without warning suppression, plus separate managed execution of zero-based coordinate translation and array helpers. Supplemental native PE/toolchain identity and IL3050 probes are in docs/verification/PIN-982-984.md. RC2 is not GA proof."
     }
   ],
   "snippets": {
@@ -154,6 +154,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Actual automated managed/compiler/FSI checks and one Windows Native AOT publish/run establish the bounded claims. Other platforms, debugger stepping and GA proof are not claimed."
+    "scope": "Automated JIT comparisons and one actual Windows x64 Native AOT publish/run establish the bounded array claims. Other native platforms and GA proof are not claimed."
   }
 }
