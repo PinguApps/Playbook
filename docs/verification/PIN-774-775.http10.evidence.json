@@ -1,0 +1,53 @@
+{
+  "kind": "real-loopback-http",
+  "staticInvalid": "Rejected",
+  "recordedAt": "2026-10-22T21:08:39.9948187+00:00",
+  "checks": [
+    {
+      "before": {
+        "entered": 1,
+        "completed": 0,
+        "canceled": 0,
+        "accepted": 0
+      },
+      "code": "open-held",
+      "status": 204,
+      "after": {
+        "entered": 1,
+        "completed": 1,
+        "canceled": 0,
+        "accepted": 1
+      }
+    },
+    {
+      "before": {
+        "entered": 1,
+        "completed": 0,
+        "canceled": 0,
+        "accepted": 0
+      },
+      "code": "closed-held",
+      "status": 400,
+      "after": {
+        "entered": 1,
+        "completed": 1,
+        "canceled": 0,
+        "accepted": 0
+      }
+    },
+    {
+      "formMessage": "Party size: choose between 1 and 6 guests.",
+      "culture": "en-GB",
+      "status": 400,
+      "endpointMessage": "Party size: choose between 1 and 6 guests."
+    },
+    {
+      "formMessage": "Taille du groupe : choisissez de 1 à 6 visiteurs.",
+      "culture": "fr-FR",
+      "status": 400,
+      "endpointMessage": "Taille du groupe : choisissez de 1 à 6 visiteurs."
+    }
+  ],
+  "staticValid": "Accepted",
+  "baseUri": "http://localhost:5284/"
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<!-- snippet:resources -->
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Party size" xml:space="preserve"><value>Taille du groupe</value></data>
+  <data name="VisitRequest_Guests_PartyLimitAttribute_Error" xml:space="preserve"><value>{0} : choisissez de 1 à {1} visiteurs.</value></data>
+  <data name="VisitRequest_PartyLimitAttribute_Error" xml:space="preserve"><value>Type tier should lose: {0} {1}</value></data>
+  <data name="PartyLimitAttribute_Error" xml:space="preserve"><value>Global tier should lose: {0} {1}</value></data>
+<!-- endsnippet:resources -->
+</root>

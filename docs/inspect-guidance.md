@@ -5,6 +5,11 @@ hosted FCS import sharing, use the [PIN-757/980/981 walkthrough](verification/PI
 It displays complete support and applicability, including the verified .NET 10
 FCS host route and the measured RC2 compiler/runtime limitations.
 
+For awaited Blazor/Minimal API rules and shared localized validation messages,
+use the [tested PIN-774–775 walkthrough](verification/PIN-774-775.md#inspect-what-an-agent-receives).
+It displays all three discovery goals, canonical comparisons and applicability,
+including field-versus-submit progress and the RC2 FormatMessage correction.
+
 For caller-owned TLS, QUIC stream priorities, Unix crash reports and runtime CPU
 requirements, use the [tested PIN-752/755/756 walkthrough](verification/PIN-752-755-756.md#inspect-what-an-agent-receives).
 It displays all four discovery goals, full canonical comparisons and applicability,
