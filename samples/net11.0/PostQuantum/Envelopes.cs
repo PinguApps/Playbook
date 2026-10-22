@@ -9,7 +9,7 @@ public static class QuantumDispatch
 {
     public static CompositeMLKem CreateKey()
     {
-        var algorithm = CompositeMLKemAlgorithm.MLKem768WithECDiffieHellmanP256;
+        CompositeMLKemAlgorithm algorithm = CompositeMLKemAlgorithm.MLKem768WithECDiffieHellmanP256;
         if (!CompositeMLKem.IsAlgorithmSupported(algorithm))
             throw new PlatformNotSupportedException("The negotiated composite algorithm is unavailable.");
         return CompositeMLKem.GenerateKey(algorithm);
@@ -28,7 +28,7 @@ public static class ClassicalDispatch
 {
     public static Hpke CreateKey()
     {
-        var suite = new HpkeSuite(HpkeKem.DHKEM_P256_HKDF_SHA256,
+        HpkeSuite suite = new(HpkeKem.DHKEM_P256_HKDF_SHA256,
             HpkeKdf.HKDF_SHA256, HpkeAead.AES_128_GCM);
         if (!Hpke.IsSupported(suite)) throw new PlatformNotSupportedException("HPKE suite unavailable.");
         return Hpke.GenerateKey(suite);

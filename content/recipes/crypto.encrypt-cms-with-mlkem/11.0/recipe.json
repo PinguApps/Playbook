@@ -1,0 +1,169 @@
+{
+  "id": "crypto.encrypt-cms-with-mlkem",
+  "edition": "11.0",
+  "title": "Encrypt a CMS envelope for a pure ML-KEM recipient",
+  "goal": "Encrypt CMS for pure ML-KEM on non-Windows with the net11.0 Pkcs asset; composite CMS remains unsupported.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "crypto-key-contracts",
+    "cryptography"
+  ],
+  "apis": [
+    "EnvelopedCms",
+    "CmsRecipient.CreateForKeyEncapsulation",
+    "KemRecipientInfo",
+    "MLKem.IsSupported"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Pure ML-KEM only. Experimental SYSLIB5006 composite CMS Decrypt throws PlatformNotSupportedException.",
+          "CBC does not authenticate content/sender; certificate loading does not validate trust.",
+          "Empty UKM differs from omitted; no older-target route."
+        ],
+        "target": "11.0",
+        "evidenceSamples": [
+          "samples/net11.0/PostQuantum/PostQuantum.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary APIs require the .NET 11 framework contracts."
+          },
+          "sdk": {
+            "version": "11.0",
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build the declared .NET 11 target; the exact RC2 pin is evidence, not a minimum SDK."
+          },
+          "language": {
+            "version": "15.0",
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical sample language mode, without preview syntax."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11"
+          ],
+          "packages": [
+            {
+              "version": "11.0.0-rc.2.26504.105",
+              "name": "System.Security.Cryptography.Pkcs",
+              "match": "exact",
+              "reason": "Inspected and executed RC2 KEM recipient implementation; reconcile future artifacts deliberately."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "lib/net11.0/System.Security.Cryptography.Pkcs.dll (non-Windows); not net10.0 or runtimes/win assets."
+          ],
+          "providers": [
+            "OpenSSL 3.5+ ML-KEM; require MLKem.IsSupported and reject Windows."
+          ],
+          "platforms": [
+            "RC2: non-Windows only; Linux/OpenSSL 3.5.5 executed. Apple/browser/mobile unverified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console net11.0, C# 15.0, nullable/implicit usings enabled; import System.Security.Cryptography. Full functions and caller instructions are included offline.",
+            "Import System.Security.Cryptography.Pkcs and System.Security.Cryptography.X509Certificates; supply a trusted pure ML-KEM recipient certificate and its matching privately held MLKem key."
+          ],
+          "constraints": [
+            "Pure ML-KEM only; the experimental SYSLIB5006 composite CMS Decrypt overload throws PlatformNotSupportedException in RC2.",
+            "CMS AES-CBC confidentiality does not authenticate message content or sender; certificate loading does not validate trust.",
+            "Present-but-empty UKM differs from omitted UKM; no verified older-target Pkcs route.",
+            "No account, resource provisioning, persistent key store, authenticated protocol, FIPS certification or unverified older-target package route is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 proof only; GA and other platforms unverified."
+          ]
+        },
+        "usage": "primary",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/libraries.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/EnvelopedCms.Kem.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/CmsRecipient.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/EnvelopedCms.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official .NET 11 library changes",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Canonical RC2 support and experimental boundaries",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/libraries.md"
+    },
+    {
+      "title": "Pinned official EnvelopedCms.Kem.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/EnvelopedCms.Kem.cs"
+    },
+    {
+      "title": "Pinned official CmsRecipient.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/CmsRecipient.cs"
+    },
+    {
+      "title": "Pinned official EnvelopedCms.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Pkcs/src/System/Security/Cryptography/Pkcs/EnvelopedCms.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "scope": "Actual original previous-release comparison on Windows x64; not an equivalent newer algorithm or a served .NET 10 recipe.",
+      "language": "14.0",
+      "target": "net10.0",
+      "sample": "samples/net10.0/PostQuantum/PostQuantum.csproj"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "scope": "Actual Linux x64/OpenSSL 3.5.5 round trips and rejection checks in a network-disabled authoring container. See output and recipe for exact claims.",
+      "language": "15.0",
+      "target": "net11.0",
+      "sample": "samples/net11.0/PostQuantum/PostQuantum.csproj"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/PostQuantum/Envelopes.cs",
+      "language": "csharp",
+      "region": "cms"
+    },
+    "newer": {
+      "path": "samples/net11.0/PostQuantum/Envelopes.cs",
+      "language": "csharp",
+      "region": "cms"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual primitive and local ephemeral-certificate operations are automated. Peer authentication, production trust/PKI, external interoperability, unexecuted platforms and GA are not claimed.",
+    "status": "not-required"
+  }
+}
