@@ -1,0 +1,40 @@
+@implements IDisposable
+@inject RuleJournal Journal
+
+<h1>Book an observatory visit</h1>
+<!-- snippet:form -->
+<EditForm EditContext="Context" FormName="visit" OnValidSubmit="Accept" OnInvalidSubmit="Reject">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <fieldset disabled="@Context.IsValidationPending()">
+    <label for="pass">Visit pass</label>
+    <InputText id="pass" @bind-Value="Model.Pass" />
+    <ValidationMessage For="() => Model.Pass" />
+    <label for="guests">Guests</label>
+    <InputNumber id="guests" @bind-Value="Model.Guests" />
+    <ValidationMessage For="() => Model.Guests" />
+    <button type="submit" disabled="@Pending">Book visit</button>
+    </fieldset>
+</EditForm>
+<output id="pending">@(Pending ? "Checking" : "Idle")</output>
+<output id="fault">@(Faulted ? "Check failed; retry" : "None")</output>
+<output id="result">@Result</output>
+
+@code {
+    [SupplyParameterFromForm] public VisitRequest Model { get; set; } = default!;
+    private EditContext Context { get; set; } = default!;
+    private bool Pending => Context.IsValidationPending() || Context.IsValidationPending(() => Model.Pass);
+    private bool Faulted => Context.IsValidationFaulted() || Context.IsValidationFaulted(() => Model.Pass);
+    private string Result { get; set; } = "Not submitted";
+    protected override void OnInitialized()
+    {
+        Model ??= new();
+        Context = new(Model);
+        Context.OnValidationStateChanged += Refresh;
+    }
+    private void Refresh(object? sender, ValidationStateChangedEventArgs args) => _ = InvokeAsync(StateHasChanged);
+    private void Accept() { Journal.Accept(Model.Pass); Result = "Accepted"; }
+    private void Reject() => Result = "Rejected";
+    public void Dispose() => Context.OnValidationStateChanged -= Refresh;
+}
+<!-- endsnippet:form -->

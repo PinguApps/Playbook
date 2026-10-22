@@ -1,0 +1,84 @@
+{
+  "samples": [
+    {
+      "satelliteSha256": "f67bf96fade5c5689ff2ded58a2df56364794f78f163452707b1f2ae3bca15f1",
+      "runtimeConfigSha256": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+      "sample": "samples/net10.0/VisitBookings/VisitBookings.csproj",
+      "depsSha256": "9eb9792e6f53c2bea401cb252e643645d733f5224d1484deabe21946dbce0703",
+      "assemblySha256": "662518a0b1a6076d8820d2ff067f17a6b2525ffd56ca2e90ca534944e57a011d",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-VisitBookings.ps1": "663b2292c465ee08c96b70fbaa5e1f7677277cc9e6f1b9f2fb5e6139a2bf80f7",
+        "eng/VisitBookings.browser.js": "06bc443490baa77b70de2c6a6c8f1eea22f3a092f10332f5b6ed3e56bf026636",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net10.0/VisitBookings/_Imports.razor": "1b35f4d07b01a38ac9e5b80c5a7ef9742f5769c2d8072ab2055526790c7f8bc6",
+        "samples/net10.0/VisitBookings/App.razor": "0da39105797c7ee4c5b2a9d30119049d0c764ac8a8a29ab3bcf9c96078d7e68a",
+        "samples/net10.0/VisitBookings/BookingEditor.razor": "66520dc94b2c19df114ed9af2dd8af4fde03e2c85bd12405268b12a20cfcec4c",
+        "samples/net10.0/VisitBookings/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+        "samples/net10.0/VisitBookings/InteractiveBooking.razor": "c46fb51974caccdc38e55b7eb08650c8770462432e6d5093d648ef26769faf72",
+        "samples/net10.0/VisitBookings/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
+        "samples/net10.0/VisitBookings/Program.cs": "b986a0d158eee4e68701b390ebf099e335e326025be61c3d0cac6b606c7718fb",
+        "samples/net10.0/VisitBookings/StaticBooking.razor": "4e7a1071f0c1af42ab39b9ad76cd07b6418311dc660168634fa11fe00f275ef5",
+        "samples/net10.0/VisitBookings/verification.json": "c2cd951b66eb61ca4a43ad44ffac2435735431df162bd7beb33436e21f0e5775",
+        "samples/net10.0/VisitBookings/VisitBookings.csproj": "ba70bc19b1547fa1bed644c27fffa0ca522790352eea830e673e9aef23838819",
+        "samples/net10.0/VisitBookings/VisitRequest.cs": "0c708a6085f411bf8b37edef1ae90a5401b7bbdc724fcd73c1cb1a80f88204ca",
+        "samples/net10.0/VisitBookings/VisitRequest.fr-FR.resx": "14b4b9399901bd49acd4b880924cc807c033ef5002d1d261f9af41f0c49538dc",
+        "samples/net10.0/VisitBookings/VisitRequest.resx": "7a75c4338ba659c891751cabe38e5794c06af3429c77656c56fb75107928ed57",
+        "samples/net10.0/VisitBookings/VisitRule.cs": "48e2e3b0256311711dd0a7ad9d278e02bb6c0b565e03a1a1f43f9bbc8f22089c"
+      }
+    },
+    {
+      "satelliteSha256": "4dddb280350f6c9d6f2b5ea5418a6057be955868a76038d95f00e937b744f87a",
+      "runtimeConfigSha256": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+      "sample": "samples/net11.0/VisitBookings/VisitBookings.csproj",
+      "depsSha256": "6b5198e99fa1efffa80cf6637ab1fa58e7b8215d91634dd079717ccb1d130383",
+      "assemblySha256": "9e9faa355a3c05c54c4a1e5535ab5c8d42a32de664df8a0bda570a2f59ce8676",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-VisitBookings.ps1": "663b2292c465ee08c96b70fbaa5e1f7677277cc9e6f1b9f2fb5e6139a2bf80f7",
+        "eng/VisitBookings.browser.js": "06bc443490baa77b70de2c6a6c8f1eea22f3a092f10332f5b6ed3e56bf026636",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net11.0/VisitBookings/_Imports.razor": "1b35f4d07b01a38ac9e5b80c5a7ef9742f5769c2d8072ab2055526790c7f8bc6",
+        "samples/net11.0/VisitBookings/App.razor": "0da39105797c7ee4c5b2a9d30119049d0c764ac8a8a29ab3bcf9c96078d7e68a",
+        "samples/net11.0/VisitBookings/BookingEditor.razor": "1ad87227412db2d97fe4a66be7fc6494bea296b67d869b76ee2c07d8cc5a1de5",
+        "samples/net11.0/VisitBookings/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+        "samples/net11.0/VisitBookings/InteractiveBooking.razor": "c46fb51974caccdc38e55b7eb08650c8770462432e6d5093d648ef26769faf72",
+        "samples/net11.0/VisitBookings/packages.lock.json": "a15384b18ca015107576fc2fbee8527fb39e57391227fc3491b92b6c794d2a31",
+        "samples/net11.0/VisitBookings/Program.cs": "a701ffc73b060fcb3d83cf50ed8405084ba97e0d210cb8820854e6c2fb3da4ee",
+        "samples/net11.0/VisitBookings/StaticBooking.razor": "4e7a1071f0c1af42ab39b9ad76cd07b6418311dc660168634fa11fe00f275ef5",
+        "samples/net11.0/VisitBookings/verification.json": "890a9db6728070e9093522f184e5a536c80da8c7bd6183f30705a18117b8c389",
+        "samples/net11.0/VisitBookings/VisitBookings.csproj": "00480186a0b3791d1579e93baeb198e18cceb01bbcaf75827a32bf85af538314",
+        "samples/net11.0/VisitBookings/VisitRequest.cs": "25ae274b81359487a4770023ca6f2c621a68d79652f8915c268330ea6e209071",
+        "samples/net11.0/VisitBookings/VisitRequest.fr-FR.resx": "14b4b9399901bd49acd4b880924cc807c033ef5002d1d261f9af41f0c49538dc",
+        "samples/net11.0/VisitBookings/VisitRequest.resx": "7a75c4338ba659c891751cabe38e5794c06af3429c77656c56fb75107928ed57",
+        "samples/net11.0/VisitBookings/VisitRule.cs": "48e2e3b0256311711dd0a7ad9d278e02bb6c0b565e03a1a1f43f9bbc8f22089c"
+      }
+    }
+  ],
+  "kind": "actual-execution-fingerprints",
+  "reports": [
+    {
+      "path": "docs/verification/PIN-774-775.browser.evidence.json",
+      "sha256": "df9f25acea85894704b8309e673f2d30c3051afe7a071b4aa2f0238066d24a79"
+    },
+    {
+      "path": "docs/verification/PIN-774-775.http10.evidence.json",
+      "sha256": "4cafd8b6c0902141132cc6c54c94346788b511f5c6536da0e9019dbe78bcba37"
+    },
+    {
+      "path": "docs/verification/PIN-774-775.http11.evidence.json",
+      "sha256": "f5e91330499dc85b0e44761d5244dd06d706d7d77ce0b5f83c4003f292dbddd5"
+    }
+  ],
+  "recordedAt": "2026-10-22T21:08:40.3588801+00:00"
+}

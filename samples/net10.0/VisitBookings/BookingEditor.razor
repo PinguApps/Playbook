@@ -1,0 +1,90 @@
+@implements IDisposable
+@inject RuleJournal Journal
+@inject IServiceProvider Services
+
+<h1>Book an observatory visit</h1>
+<!-- snippet:form -->
+<EditForm EditContext="Context" FormName="visit" OnSubmit="SubmitAsync">
+    <ValidationSummary />
+    <fieldset disabled="@Submitting">
+    <label for="pass">Visit pass</label>
+    <InputText id="pass" @bind-Value="Model.Pass" />
+    <ValidationMessage For="() => Model.Pass" />
+    <label for="guests">Guests</label>
+    <InputNumber id="guests" @bind-Value="Model.Guests" />
+    <ValidationMessage For="() => Model.Guests" />
+    <button type="submit" disabled="@Pending">Book visit</button>
+    </fieldset>
+</EditForm>
+<output id="pending">@(Pending ? "Checking" : "Idle")</output>
+<output id="fault">@Fault</output>
+<output id="result">@Result</output>
+
+@code {
+    [SupplyParameterFromForm] public VisitRequest Model { get; set; } = default!;
+    private EditContext Context { get; set; } = default!;
+    private ValidationMessageStore Messages { get; set; } = default!;
+    private CancellationTokenSource? PendingCheck { get; set; }
+    private bool Submitting { get; set; }
+    private bool Pending { get; set; }
+    private string Fault { get; set; } = "None";
+    private string Result { get; set; } = "Not submitted";
+    protected override void OnInitialized()
+    {
+        Model ??= new(); Context = new(Model); Messages = new(Context);
+        Context.OnFieldChanged += Changed;
+    }
+    private void Changed(object? sender, FieldChangedEventArgs args)
+    {
+        if (args.FieldIdentifier.FieldName == nameof(Model.Pass)) _ = CheckFieldAsync();
+    }
+    private async Task CheckFieldAsync()
+    {
+        PendingCheck?.Cancel();
+        using var operation = new CancellationTokenSource();
+        PendingCheck = operation; Pending = true; Fault = "None";
+        var code = Model.Pass;
+        var field = Context.Field(nameof(Model.Pass));
+        Messages.Clear(field);
+        try
+        {
+            var available = await Services.GetRequiredService<VisitRule>().IsOpenAsync(code, operation.Token);
+            operation.Token.ThrowIfCancellationRequested();
+            if (!available) Messages.Add(field, "This visit is closed.");
+        }
+        catch (OperationCanceledException) when (operation.IsCancellationRequested) { }
+        catch (HttpRequestException) { if (PendingCheck == operation) Fault = "Check failed; retry"; }
+        finally
+        {
+            if (PendingCheck == operation) { PendingCheck = null; Pending = false; }
+            Context.NotifyValidationStateChanged();
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+    private async Task SubmitAsync()
+    {
+        Submitting = true;
+        PendingCheck?.Cancel();
+        using var operation = new CancellationTokenSource();
+        PendingCheck = operation; Pending = true; Fault = "None";
+        Messages.Clear();
+        try
+        {
+            var errors = await BookingChecks.CheckAsync(Model, Services, operation.Token);
+            operation.Token.ThrowIfCancellationRequested();
+            foreach (var error in errors) Messages.Add(Context.Field(error.Key), error.Value);
+            Result = errors.Count == 0 ? "Accepted" : "Rejected";
+            if (errors.Count == 0) Journal.Accept(Model.Pass);
+        }
+        catch (OperationCanceledException) when (operation.IsCancellationRequested) { }
+        catch (HttpRequestException) { Fault = "Check failed; retry"; Result = "Rejected"; }
+        finally
+        {
+            if (PendingCheck == operation) { PendingCheck = null; Pending = false; }
+            Submitting = false;
+            Context.NotifyValidationStateChanged();
+        }
+    }
+    public void Dispose() { Context.OnFieldChanged -= Changed; PendingCheck?.Cancel(); }
+}
+<!-- endsnippet:form -->
