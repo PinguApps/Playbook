@@ -1,0 +1,61 @@
+{
+  "recordedAt": "2026-10-22T23:58:28.9025664+00:00",
+  "kind": "official-source-review",
+  "sources": [
+    {
+      "path": "ITempData.cs",
+      "sha256": "cea63f1d75e3f967f499a7a4711fb87ac5b28490ce6612909152021f2ef3cfbf",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "SessionCascadingValueSupplier.cs",
+      "sha256": "49e6024f70d7d49fda6acffde28ce428e87834cb39b044ba62458fca5c5d6b44",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "SessionEstablishmentHelper.cs",
+      "sha256": "ea4db0b63e8547c1ff31f107dad2dc5930b7fc2c438057f0a77151760a220740",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "SessionStorageTempDataProvider.cs",
+      "sha256": "a26e413bc70cd914218139427de24eb40a9ec11fc477681fa1a36947d7447b2c",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "SupplyParameterFromSessionAttribute.cs",
+      "sha256": "9653b398310ba7821078deb627365e1c560c1293a4c91be7d33a5f8063f734d4",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "SupplyParameterFromTempDataAttribute.cs",
+      "sha256": "f0ba444f63c377c98196b1c138b01aace6517e2fee4611980d4033a6727d8274",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "TempDataCascadingValueSupplier.cs",
+      "sha256": "6aeb50ae646436c3f390bb4502ff058f88d9743838642e385e5be2abc816a97a",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "TempDataProviderServiceCollectionExtensions.cs",
+      "sha256": "d63844e7bba3cadd1557480d233dc6a8b35346303533a181b3373d52441ec9ae",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    },
+    {
+      "path": "TempDataService.cs",
+      "sha256": "ae51757d7e528c62e1a6a7073464522ca8ea1698d146533e54572d29ed7d40ca",
+      "kind": "official-source-review",
+      "revision": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+    }
+  ],
+  "scope": "Pinned ASP.NET Core RC2 contracts reviewed separately from compilation and execution; original sample implementations written independently."
+}

@@ -1,0 +1,15 @@
+@page "/review"
+
+<!-- snippet:review -->
+<h2>Review the permit</h2>
+<p id="review">Step @Step; berth @(Berth ?? "unselected")</p>
+<a href="/progress">Change berth</a>
+
+@code {
+    [SupplyParameterFromSession(Name = "permit-berth")]
+    public string? Berth { get; set; }
+
+    [SupplyParameterFromSession(Name = "permit-step")]
+    public int Step { get; set; }
+}
+<!-- endsnippet:review -->
