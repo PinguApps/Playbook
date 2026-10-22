@@ -1,4 +1,4 @@
-#load "../../FsiCleanupSupport.fsx"
+#load "../../net11.0/FSharpFsiCleanup/FsiCleanupSupport.fsx"
 open System
 open System.Runtime.ExceptionServices
 open System.Threading.Tasks

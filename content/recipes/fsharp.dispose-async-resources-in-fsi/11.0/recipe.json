@@ -1,0 +1,147 @@
+{
+  "id": "fsharp.dispose-async-resources-in-fsi",
+  "edition": "11.0",
+  "title": "Await asynchronous cleanup in F# Interactive",
+  "goal": "Choose the FSI toolset asset and await asynchronous resource cleanup before script completion, including body failures and measured cleanup-error limitations.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp-lifetimes",
+    "fsharpfsicleanup"
+  ],
+  "apis": [
+    "IAsyncDisposable.DisposeAsync",
+    "TaskBuilderBase.Using",
+    "dotnet fsi --exec"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Ordinary task binding, no preview requirement; pending cleanup failures are lost in the measured RC2 binding. Use the explicit alternative to propagate them."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/tasks.fsi",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/fsi/fsi.targets",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "SDK FSharp/FSharp.Core.dll with .NETCoreApp v10.0 target; not the netstandard2.0 FSI asset"
+          ],
+          "prerequisites": [
+            "Use the complete offline source/configuration and verify the consumer matches this route."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "CoreCLR; Windows x64 execution verified"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "match": "exact",
+            "version": "11.0",
+            "reason": "Use the declared compiler language mode; no later-main language gate is inferred.",
+            "name": "fsharp"
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Actual RC2 evidence; final GA reconciliation is separate."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "providers": [],
+          "constraints": [
+            "Ordinary task binding, no preview requirement; pending cleanup failures are lost in the measured RC2 binding. Use the explicit alternative to propagate them."
+          ],
+          "packages": []
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Matching official src/FSharp.Core/tasks.fsi",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/tasks.fsi"
+    },
+    {
+      "title": "Matching official src/fsi/fsi.targets",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/fsi/fsi.targets"
+    },
+    {
+      "title": "Canonical RC2 F# release notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj",
+      "target": "net10.0",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+    },
+    {
+      "sample": "samples/net11.0/FSharpFsiCleanup/FSharpFsiCleanup.fsproj",
+      "target": "net11.0",
+      "language": "11.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+    }
+  ],
+  "snippets": {
+    "support": {
+      "path": "samples/net11.0/FSharpFsiCleanup/FsiCleanupSupport.fsx",
+      "language": "fsharp",
+      "region": "support"
+    },
+    "newer": {
+      "path": "samples/net11.0/FSharpFsiCleanup/Cleanup.fsx",
+      "language": "fsharp",
+      "region": "workflow"
+    },
+    "older": {
+      "path": "samples/net10.0/FSharpFsiCleanup/Cleanup.fsx",
+      "language": "fsharp",
+      "region": "workflow"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual automated managed/compiler/FSI checks and one Windows Native AOT publish/run establish the bounded claims. Other platforms, debugger stepping and GA proof are not claimed."
+  }
+}

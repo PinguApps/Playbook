@@ -8,4 +8,3 @@
   </PropertyGroup>
   <ItemGroup><PackageReference Include="FSharp.Core" /><Compile Include="Sequence.fs" /></ItemGroup>
 </Project>
-

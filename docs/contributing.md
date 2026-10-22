@@ -1,5 +1,14 @@
 # Contribute and verify an original recipe
 
+F# array migration, FSI asynchronous cleanup and experimental pull-driven
+sequences use the six original `FSharpArrayAot`, `FSharpFsiCleanup` and
+`FSharpSequence` samples. [PIN-982–984](verification/PIN-982-984.md) records the
+one-machine Windows Native AOT publish/run, real FSI assets, measured RC2 cleanup
+limitation and focused `eng/Test-FSharpLifetimes.ps1` diagnostics. Native proof
+remains an authoring check reused while its inputs stay unchanged; routine
+verification runs the five managed comparisons and consumes the saved native
+record without adding a native build matrix.
+
 Runtime-async and compiler-host examples use seven real managed sample paths and
 the bounded `eng/Test-RuntimeAsync.ps1` authoring check. See
 [PIN-757/980/981](verification/PIN-757-980-981.md) for exact assets, diagnostic

@@ -7,8 +7,8 @@
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",
     "samples/FsiCleanupRunner.fs",
-    "samples/FsiCleanupSupport.fsx",
-    "eng/Test-FSharpLifetimes.ps1"
+    "eng/Test-FSharpLifetimes.ps1",
+    "samples/net11.0/FSharpFsiCleanup/FsiCleanupSupport.fsx"
   ],
   "workloads": [],
   "nativeToolchains": []

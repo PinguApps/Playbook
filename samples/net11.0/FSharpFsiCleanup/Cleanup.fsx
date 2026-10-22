@@ -1,4 +1,4 @@
-#load "../../FsiCleanupSupport.fsx"
+#load "FsiCleanupSupport.fsx"
 open System
 open System.Threading.Tasks
 open FsiCleanupSupport

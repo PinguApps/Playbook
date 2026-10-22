@@ -5,11 +5,9 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <DisableImplicitLibraryPacksFolder>true</DisableImplicitLibraryPacksFolder>
     <RestorePackagesPath>$(MSBuildThisFileDirectory)../../../artifacts/fsharp-packages</RestorePackagesPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(PlaybookVerifyNative)' == 'true'">
-    <PublishAot>true</PublishAot>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <IlcTreatWarningsAsErrors>true</IlcTreatWarningsAsErrors>
+    <PublishAot Condition="'$(PlaybookVerifyNative)' == 'true'">true</PublishAot>
+    <RuntimeIdentifier Condition="'$(PlaybookVerifyNative)' == 'true'">win-x64</RuntimeIdentifier>
+    <IlcTreatWarningsAsErrors Condition="'$(PlaybookVerifyNative)' == 'true'">true</IlcTreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup><PackageReference Include="FSharp.Core" /><Compile Include="Grid.fs" /></ItemGroup>
   <Target Name="BuildNativeChart" AfterTargets="Build" Condition="'$(PlaybookVerifyNative)' == 'true'">

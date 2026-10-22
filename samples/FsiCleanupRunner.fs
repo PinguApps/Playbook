@@ -34,4 +34,8 @@ let main arguments =
         let exitCode, output, _ = run "UnsupportedUse.fsx"
         if exitCode = 0 || not (output.Contains "IDisposable") then failwith "Expected previous FSI asynchronous Using rejection"
         printfn "PASS: previous FSI rejects asynchronous Using; explicit awaited cleanup succeeds"
+    if File.Exists(Path.Combine(directory, "ExplicitCleanup.fsx")) then
+        let exitCode, output, _ = run "ExplicitCleanup.fsx"
+        if exitCode <> 0 || not (output.Contains "PASS: script completion follows cleanup") then failwith "Explicit cleanup alternative failed on the newer FSI"
+        printfn "PASS: newer FSI also supports explicit cleanup with propagated cleanup failures"
     0

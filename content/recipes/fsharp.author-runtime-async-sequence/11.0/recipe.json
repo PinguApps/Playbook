@@ -1,0 +1,168 @@
+{
+  "id": "fsharp.author-runtime-async-sequence",
+  "edition": "11.0",
+  "title": "Produce pull-driven asynchronous results (experimental)",
+  "goal": "Author a bounded experimental F# asynchronous producer when callers need incremental results, cancellation propagation and awaited cleanup on early exit or failure.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "fsharp-lifetimes",
+    "fsharpsequence"
+  ],
+  "apis": [
+    "__runtimeAsyncSequence",
+    "__runtimeAsyncSequenceCancellationToken",
+    "IAsyncEnumerable.GetAsyncEnumerator",
+    "IAsyncEnumerator.MoveNextAsync",
+    "IAsyncDisposable.DisposeAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Statically known inline recipes; no raw concurrent move/dispose, opaque recipes, optimized tail handoff, automatic cancellation of non-cancellable work, AOT or complete debugger support."
+        ],
+        "usage": "primary",
+        "sharedAreas": [
+          "blazor",
+          "aspnetcore",
+          "wpf",
+          "winforms",
+          "maui"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FSharpSequence/FSharpSequence.fsproj"
+        ],
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md"
+        ],
+        "requirements": {
+          "packageAssets": [
+            "FSharp.Core lib/net10.0/FSharp.Core.dll"
+          ],
+          "prerequisites": [
+            "Use the complete offline source/configuration and verify the consumer matches this route."
+          ],
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "reason": "Use the .NET 11 SDK and its F# compiler for the declared target."
+          },
+          "frameworks": [],
+          "platforms": [
+            "CoreCLR; Windows x64 execution verified"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "name": ".NET",
+            "reason": "This verified edition targets net11.0; the .NET 10 sample is a comparison, not an older-target catalogue route."
+          },
+          "language": {
+            "match": "exact",
+            "version": "preview",
+            "reason": "Use the declared compiler language mode; no later-main language gate is inferred.",
+            "name": "fsharp"
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "Actual RC2 evidence; final GA reconciliation is separate."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "LangVersion=preview"
+          ],
+          "providers": [],
+          "constraints": [
+            "Statically known inline recipes; no raw concurrent move/dispose, opaque recipes, optimized tail handoff, automatic cancellation of non-cancellable work, AOT or complete debugger support."
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "The selected FSharp.Core 11 asset supplies the annotated array APIs or compiler intrinsics; verify runtime and compiler separately.",
+              "name": "FSharp.Core"
+            }
+          ]
+        },
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Matching official docs/runtime-async.md",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/docs/runtime-async.md"
+    },
+    {
+      "title": "Matching official src/FSharp.Core/resumable.fsi",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/resumable.fsi"
+    },
+    {
+      "title": "Matching official src/Compiler/Facilities/LanguageFeatures.fs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
+    },
+    {
+      "title": "Canonical RC2 F# release notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FSharpSequence/FSharpSequence.fsproj",
+      "target": "net10.0",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+    },
+    {
+      "sample": "samples/net11.0/FSharpSequence/FSharpSequence.fsproj",
+      "target": "net11.0",
+      "language": "preview",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Fresh actual dependencies, compilation and execution. The array current record includes native publish/run; FSI records actual dotnet fsi processes and loaded Core identity. See docs/verification/PIN-982-984.md for focused diagnostics, limits and supplemental native PE identity; RC2 is not GA proof."
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "path": "samples/net11.0/FSharpSequence/Sequence.fs",
+      "language": "fsharp",
+      "region": "producer"
+    },
+    "older": {
+      "path": "samples/net10.0/FSharpSequence/Sequence.fs",
+      "language": "fsharp",
+      "region": "producer"
+    },
+    "serial": {
+      "path": "samples/net11.0/FSharpSequence/Sequence.fs",
+      "language": "fsharp",
+      "region": "serial"
+    },
+    "consumer": {
+      "region": "consumer",
+      "language": "fsharp",
+      "path": "samples/net11.0/FSharpSequence/Sequence.fs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual automated managed/compiler/FSI checks and one Windows Native AOT publish/run establish the bounded claims. Other platforms, debugger stepping and GA proof are not claimed."
+  }
+}

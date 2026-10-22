@@ -71,6 +71,20 @@ let serially (source: IAsyncEnumerable<'T>) =
                     }) } }
 // endsnippet:serial
 
+// snippet:consumer
+let inspectFirst () =
+    let createLease () =
+        { new IAsyncDisposable with
+            member _.DisposeAsync() = ValueTask(Task.Delay 10) }
+    let pending = TaskCompletionSource<int>(TaskCreationOptions.RunContinuationsAsynchronously)
+    let input = (survey pending.Task createLease ignore |> serially).GetAsyncEnumerator()
+    let first = input.MoveNextAsync().AsTask()
+    pending.SetResult 17
+    let available = first.GetAwaiter().GetResult()
+    if not available || input.Current <> 17 then failwith "Wrong first reading"
+    input.DisposeAsync().AsTask().GetAwaiter().GetResult()
+// endsnippet:consumer
+
 type ChartLease(events: ResizeArray<string>, name: string, release: Task, error: exn option) =
     interface IAsyncDisposable with
         member _.DisposeAsync() =
@@ -92,6 +106,7 @@ let reject action =
 
 [<EntryPoint>]
 let main _ =
+    inspectFirst ()
     let ready, release = gate (), gate ()
     let events = ResizeArray<string>()
     let mutable observed = false
@@ -115,6 +130,15 @@ let main _ =
     closed (iterator.DisposeAsync())
     require (events.Count = 2) "Repeated guarded disposal repeated cleanup"
     printfn "PASS: pending MoveNextAsync; incremental values; guarded overlapping move/dispose; pending early disposal exactly once"
+
+    let exhaustedEvents = ResizeArray<string>()
+    let exhausted = (survey (Task.FromResult 5) (fun () -> ChartLease(exhaustedEvents, "complete", Task.CompletedTask, None)) ignore |> serially).GetAsyncEnumerator()
+    require (next exhausted && exhausted.Current = 5) "First completed reading changed"
+    require (next exhausted && exhausted.Current = 6) "Second completed reading changed"
+    require (not (next exhausted)) "Sequence did not exhaust"
+    closed (exhausted.DisposeAsync())
+    require (Seq.toList exhaustedEvents = ["complete closing"; "complete closed"]) "Exhaustion cleanup count/order changed"
+    printfn "PASS: normal exhaustion cleans up exactly once"
 
     use cancellation = new CancellationTokenSource()
     let cancellationEvents = ResizeArray<string>()
