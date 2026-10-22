@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "reviewed": "2026-10-22",
+  "scope": "PIN-686 source-only cryptography migration audit; source review is not compilation, native execution or delivered recipe coverage",
+  "docsRef": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+  "previousRuntimeRef": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+  "currentRuntimeRef": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+  "sources": [
+    {
+      "id": "compatibility-index",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/11.md",
+      "sha256": "1dede22a71bcf370e2eabde836495cf31625933e8711a3d323bc3c85d60ecd7e",
+      "headings": [
+        "# Breaking changes in .NET 11",
+        "## ASP.NET Core",
+        "## Core .NET libraries",
+        "## Cryptography",
+        "## Deployment",
+        "## Entity Framework Core",
+        "## Extensions",
+        "## Globalization",
+        "## Interop",
+        "## JIT compiler",
+        "## Networking",
+        "## .NET MAUI",
+        "## SDK and MSBuild"
+      ]
+    },
+    {
+      "id": "crypto-obsoletions",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/cryptography/11/obsolete-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/obsolete-apis.md",
+      "sha256": "8edb6f62cef11529cd0a3dbe67e2974e172e282ea7f04b468ca0c5603ace16d9",
+      "headings": [
+        "# Cryptography obsoletions (.NET 11)",
+        "## Previous behavior",
+        "## New behavior",
+        "## Version introduced",
+        "## Type of breaking change",
+        "## Recommended action",
+        "## Affected APIs",
+        "### SYSLIB0065",
+        "## See also"
+      ]
+    },
+    {
+      "id": "composite-native",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/cryptography/11/compositemldsa-windows-native.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/compositemldsa-windows-native.md",
+      "sha256": "280b523ba109f0b77339dce6c14624ee0f0828342ad70ade81550c5cca710246",
+      "headings": [
+        "# Composite ML-DSA on Windows uses native implementation",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "dsa-macos",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/cryptography/11/dsa-removed-macos.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/dsa-removed-macos.md",
+      "sha256": "82ca205951966e2b16394f4cf08808056be0bd7c40902dd794445c2430801d4d",
+      "headings": [
+        "# DSA removed from macOS",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "hkdf-cng",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/cryptography/11/hkdf-windows-cng.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/hkdf-windows-cng.md",
+      "sha256": "e4755dc1293c656c7750bbf6fe15b9fbfaf7131a0fa0effe4d7cd756cacc9ce8",
+      "headings": [
+        "# HKDF on Windows uses CNG implementation",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "aia-limit",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/cryptography/11/aia-fetch-limit-linux.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/aia-fetch-limit-linux.md",
+      "sha256": "d8a3cc7eddc03ea8c90be869d4ec5316b9d92938c3afe713b4453768e3450075",
+      "headings": [
+        "# Linux AIA certificate fetching limited to two fetches per chain build",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "core-obsoletions",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "sha256": "5ae71d3612ef4b297aea6aa570eaa48d7ae8347a1030974b90bd835c14b24600",
+      "headings": [
+        "# API obsoletions with non-default diagnostic IDs (.NET 11)",
+        "## Change description",
+        "## Version introduced",
+        "## Type of breaking change",
+        "## Recommended action",
+        "## Affected APIs",
+        "### SYSLIB0064",
+        "### SYSLIB0066",
+        "## See also"
+      ]
+    },
+    {
+      "id": "syslib0064",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0064.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0064.md",
+      "sha256": "3765e4377d65086062513d13d004c0c1e24574d8a51846b266c07f7532cc847d",
+      "headings": [
+        "# SYSLIB0064: RSACryptoServiceProvider.Encrypt and Decrypt with fOAEP are obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "id": "syslib0065",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0065.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0065.md",
+      "sha256": "9a671a6c1c267cdb5168a88ff1ff30ab19d80c62ca700381f47db393adb5aca4",
+      "headings": [
+        "# SYSLIB0065: AsnEncodedData.RawData setter is obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "id": "tls-aia",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/networking/11/sslstream-aia-downloads-disabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/networking/11/sslstream-aia-downloads-disabled.md",
+      "sha256": "652d8b0af217e5bb8795edfdc7fd1c1f9154bed7e96821fa04cecf527a6b10cd",
+      "headings": [
+        "# SslStream server-side AIA certificate downloads disabled by default",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "libraries",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/whats-new/dotnet-11/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/libraries.md",
+      "sha256": "66789f6faf28cdff61927df7bd9bf6c36c9fd2f438c20d059b3ddba7c07152f0",
+      "headings": [
+        "# What's new in .NET libraries for .NET 11",
+        "## Diagnostics and process execution",
+        "### Process API expansion",
+        "### Console FORCE_COLOR support",
+        "## In-memory stream adapters",
+        "## Text, serialization, and data handling",
+        "### String and character enhancements",
+        "### Base64 encoding improvements",
+        "### UTF validation and invalid-subsequence search",
+        "### System.Text.Json improvements",
+        "### Regular expression improvements",
+        "### Read CBOR incrementally",
+        "## Compression and archive formats",
+        "### Compression enhancements",
+        "### Zstandard compression",
+        "### Tar archive format selection",
+        "## Collections, numerics, and low-level I/O",
+        "### LINQ join improvements",
+        "### IEEE 754 decimal floating-point types",
+        "### Correctly rounded decimal and BigInteger conversions",
+        "### Partial numeric parsing",
+        "### Generic Complex\\<T>",
+        "### BFloat16 support in BitConverter",
+        "### Floating-point hex formatting and parsing",
+        "### Numerics improvements",
+        "### Random generic methods",
+        "### Cross-lane vector operations",
+        "### Low-level I/O improvements",
+        "### Collections improvements",
+        "## Extensions and developer platform",
+        "### Discriminated-union scaffolding",
+        "### MetadataLoadContext additions",
+        "### URI data scheme constant",
+        "### Reflection improvements",
+        "### Assembly.Location override for AssemblyLoadContext",
+        "### Reduced contention in System.IO.Pipelines",
+        "### StringSyntax attribute enhancements",
+        "## Caching, configuration, and logging",
+        "### Configuration binding",
+        "### MemoryCache OpenTelemetry metrics",
+        "### Options builder validation improvements",
+        "### Asynchronous ChangeToken.OnChange",
+        "### Options-aware HybridCache factories",
+        "### Asynchronous validation with DataAnnotations",
+        "### Format DataAnnotations messages",
+        "### Activity tracing configuration",
+        "### Generic source-generated logging methods",
+        "### Improved reliability for configuration file change detection",
+        "## Cryptography",
+        "### X25519 Diffie-Hellman key exchange",
+        "### CryptographicOperations.FixedTimeEquals overload",
+        "### AES Key Wrap",
+        "### Faster authenticated encryption on Apple platforms",
+        "### Experimental composite ML-KEM and HPKE APIs",
+        "### Encrypt CMS messages with ML-KEM",
+        "## Networking and transport security",
+        "### TLS handshake hardening",
+        "### Experimental caller-driven TLS sessions",
+        "### HTTP request compression",
+        "### Configurable HTTP connection eviction",
+        "### Initial HTTP/2 concurrency",
+        "### DNS record resolution APIs",
+        "### HTTP/2 automatic downgrade for Windows authentication",
+        "### QUIC stream priority",
+        "### Video MIME type constants",
+        "### HTTP metrics use observable instruments",
+        "## Unsafe API accessibility",
+        "## See also"
+      ]
+    },
+    {
+      "id": "crypto-ref-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "adb14229c9a2cdd8e24cfddb5c6c40e8a1fd39b9514cf143e487f107c02ac5df",
+      "headings": []
+    },
+    {
+      "id": "crypto-project-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "sha256": "c19093d9923e5d153a62550fe9b4f0319899b6d77ab40b1eeb47f59c0fc0144c",
+      "headings": []
+    },
+    {
+      "id": "composite-windows-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+      "sha256": "04d0e485ec003a8c593acba9341e50675d137bb8e9f6061956a40e0f87fccd18",
+      "headings": []
+    },
+    {
+      "id": "aia-chain-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/OpenSslX509ChainProcessor.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/OpenSslX509ChainProcessor.cs",
+      "sha256": "0fbe4a197484359e412493411e69e3f67c8bdb04918fb826aa1d6891fc582f9c",
+      "headings": []
+    },
+    {
+      "id": "tls-validation-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "sha256": "913de4861c6a09d3d3fb56d2d6b94ea50d8eb1379ab114a74eea71a0ef76f4c6",
+      "headings": []
+    },
+    {
+      "id": "crypto-ref-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "1c65691229ae9e41e823bb65951ddc888fdf7abe16b7a0f4387297190288cb66",
+      "headings": []
+    },
+    {
+      "id": "crypto-project-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "sha256": "48bf130cce3ea65815e2a239dc29a8b1d75fc842a0d899b4d680522d7e3d8ee1",
+      "headings": []
+    },
+    {
+      "id": "composite-windows-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+      "sha256": "55a2b49feb2231a4a7ba307d01d3fac8fd09d82c69b8f79362bc0106994cbb73",
+      "headings": []
+    },
+    {
+      "id": "aia-chain-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/OpenSslX509ChainProcessor.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/OpenSslX509ChainProcessor.cs",
+      "sha256": "27a27387c451fe2ee65fa90425650db8730b65e002df3b95116900f201858352",
+      "headings": []
+    },
+    {
+      "id": "tls-validation-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "sha256": "fba03dbec202d2971d78d6ed8e1e8a4c935b7cd341fc613403b25a12b4524041",
+      "headings": []
+    },
+    {
+      "id": "hkdf-windows",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs",
+      "sha256": "fa297e99dbbfb88875827e6240d29fb5b3549187a5ccfbf0dc93007dc53cb72d",
+      "headings": []
+    },
+    {
+      "id": "dsa-unsupported",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs",
+      "sha256": "19c237425505cb218c0a95ee5716ad24ca4414c25de2e483e19bdce920c93008",
+      "headings": []
+    },
+    {
+      "id": "composite-parameters",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Common/src/System/Security/Cryptography/PqcBlobHelpers.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/PqcBlobHelpers.cs",
+      "sha256": "7335cedccd8b471d2dd4e9d3ff6a6c35a56466b6217a79d98ba6bcb2a7c75d56",
+      "headings": []
+    },
+    {
+      "id": "asn-state",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AsnEncodedData.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AsnEncodedData.cs",
+      "sha256": "698344e0328ff71cccd67fb440a0ff3a245d87f2fc13756488ae5501793f7e58",
+      "headings": []
+    },
+    {
+      "id": "basic-constraints",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509BasicConstraintsExtension.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509BasicConstraintsExtension.cs",
+      "sha256": "06309fb5058b99b20736d019429719adee6b4d1184712cddf2a48a28a25302d7",
+      "headings": []
+    },
+    {
+      "id": "rsa-csp",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs",
+      "sha256": "943bc442cd30fa6050fe9d9bb0d38be83d25f64cd28ccc712c8f44d62a1b1ea8",
+      "headings": []
+    },
+    {
+      "id": "tls-switch",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/LocalAppContextSwitches.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/LocalAppContextSwitches.cs",
+      "sha256": "51a65f995c8d38bed779cde1ce573261590c8d812a813bc7c91d132ad21f0987",
+      "headings": []
+    },
+    {
+      "id": "dsa-transforms",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.SecurityTransforms.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.SecurityTransforms.cs",
+      "sha256": "bb1280982d9b0965f4a3e8e1f75ef5a98b19a1e11db260b2a4231a40958277fd",
+      "headings": []
+    },
+    {
+      "id": "hkdf-managed",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Managed.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Managed.cs",
+      "sha256": "7b73bc341674fdd7012b28b1647ce4c7144598f93d27aed9a02d50b42a81cb24",
+      "headings": []
+    }
+  ]
+}
