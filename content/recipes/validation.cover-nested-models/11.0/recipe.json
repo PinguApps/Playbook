@@ -143,10 +143,20 @@
     }
   ],
   "snippets": {
-    "model": {
-      "path": "samples/net11.0/SurveyForms/SurveyRequest.cs",
-      "region": "model",
+    "resource": {
+      "path": "samples/net11.0/SurveyForms/Captions.cs",
+      "region": "resource",
       "language": "csharp"
+    },
+    "resources": {
+      "path": "samples/net11.0/SurveyForms/Captions.resx",
+      "region": "resources",
+      "language": "xml"
+    },
+    "french": {
+      "path": "samples/net11.0/SurveyForms/Captions.fr-FR.resx",
+      "region": "resources",
+      "language": "xml"
     },
     "state": {
       "path": "samples/net11.0/SurveyForms/Survey.razor",

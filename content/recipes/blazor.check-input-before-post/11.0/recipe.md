@@ -40,6 +40,14 @@ DiverEditor.razor begins with @inherits Editor<Diver> and uses this body:
 
 ## Migration
 
+The model's contact caption uses this complete shared resource wrapper and SDK-embedded Captions.resx / Captions.fr-FR.resx files, placed together in namespace Playbook.Samples. The same resources work in both comparison apps.
+
+{{snippet:resource}}
+
+{{snippet:resources}}
+
+{{snippet:french}}
+
 Model files import System.ComponentModel, System.ComponentModel.DataAnnotations and Microsoft.Extensions.Validation and use namespace Playbook.Samples. The older FieldCaption helper additionally imports System.Linq.Expressions and System.Reflection. Captions.cs imports System.Globalization and System.Resources. Counter methods use System.Threading from implicit usings.
 
 1. Use Microsoft.NET.Sdk.Web with net11.0, C# 15.0, nullable and implicit usings enabled. The measured SDK supplies Microsoft.Extensions.Validation assemblies and ValidationsGenerator from Microsoft.AspNetCore.App.Ref, plus aligned Microsoft.AspNetCore.App.Internal.Assets browser files. A redundant PackageReference produced NU1510; none is needed here. Keep matching generator/runtime/browser assets when using another toolset.

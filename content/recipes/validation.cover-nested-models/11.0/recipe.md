@@ -24,10 +24,6 @@ Connect the registered services to the actual form:
 
 {{snippet:form}}
 
-The model lives in SurveyRequest.cs, outside Razor. The skipped reference snapshot is never validated editable input.
-
-{{snippet:model}}
-
 The example registers SubmissionCounts as a singleton before Build and adds @inject SubmissionCounts Counts to Survey.razor so accepted posts are observable. Its component state and counter are:
 
 {{snippet:state}}
@@ -39,6 +35,14 @@ The reusable component starts with @inherits Editor<Diver>:
 {{snippet:editor}}
 
 ## Migration
+
+The model's contact caption uses this complete shared resource wrapper and SDK-embedded Captions.resx / Captions.fr-FR.resx files, placed together in namespace Playbook.Samples. The same resources work in both comparison apps.
+
+{{snippet:resource}}
+
+{{snippet:resources}}
+
+{{snippet:french}}
 
 Model files import System.ComponentModel, System.ComponentModel.DataAnnotations and Microsoft.Extensions.Validation and use namespace Playbook.Samples. The older FieldCaption helper additionally imports System.Linq.Expressions and System.Reflection. Captions.cs imports System.Globalization and System.Resources. Counter methods use System.Threading from implicit usings.
 
