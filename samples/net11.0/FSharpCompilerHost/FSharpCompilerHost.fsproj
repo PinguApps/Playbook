@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>11.0</LangVersion>
+    <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DisableImplicitLibraryPacksFolder>true</DisableImplicitLibraryPacksFolder>
+    <RestorePackagesPath>$(MSBuildThisFileDirectory)../../../artifacts/fsharp-packages</RestorePackagesPath>
+  </PropertyGroup>
+  <ItemGroup><PackageReference Include="FSharp.Core" /><PackageReference Include="FSharp.Compiler.Service" />
+    <Compile Include="CompilerHostChecks.fs" /><Compile Include="Host.fs" /></ItemGroup>
+</Project>
