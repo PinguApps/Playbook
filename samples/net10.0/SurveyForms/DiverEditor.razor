@@ -1,0 +1,14 @@
+@inherits Editor<Diver>
+
+<!-- snippet:editor -->
+<fieldset>
+    <legend>Diver</legend>
+    <label for="@InputId">@FieldCaption.For(() => Value.Name)</label>
+    <InputText id="@InputId" @bind-Value="Value.Name" />
+    <ValidationMessage For="() => Value.Name" />
+</fieldset>
+<!-- endsnippet:editor -->
+
+@code {
+    [Parameter, EditorRequired] public string InputId { get; set; } = "";
+}

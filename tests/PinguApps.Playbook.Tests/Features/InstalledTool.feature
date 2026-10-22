@@ -249,3 +249,10 @@ Feature: Installed offline guidance
     Then NuGet timestamp and client host recipes retain canonical bodies and verified target routes
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
+
+  Scenario: Survey forms preserve validation label and caption guidance offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then survey forms retain complete canonical bodies applicability and editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr

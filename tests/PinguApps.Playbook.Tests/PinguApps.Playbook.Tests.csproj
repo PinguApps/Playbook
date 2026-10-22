@@ -4,6 +4,8 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../content/recipes/blazor.*/**/recipe.json;../../content/recipes/blazor.*/**/recipe.md;../../samples/net*/SurveyForms/*.cs;../../samples/net*/SurveyForms/*.razor;../../samples/net*/SurveyForms/*.resx;../../samples/net*/SurveyForms/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Update="../../samples/net*/SurveyForms/*.resx" Type="Non-Resx" WithCulture="false" />
     <EmbeddedResource Include="../../content/recipes/http.*/**/recipe.json;../../content/recipes/http.*/**/recipe.md;../../content/recipes/dns.*/**/recipe.json;../../content/recipes/dns.*/**/recipe.md;../../samples/net*/HttpCapacity/*.cs;../../samples/net*/DnsServices/*.cs" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/PackageTimestamps/*.cs;../../samples/net*/PackageTimestamps/*.props;../../samples/net*/NuGetClientHost/*.cs;../../samples/net*/NuGetClientHost/*.csproj;../../samples/net*/NuGetClientHost/*.props;../../samples/net*/NuGetClientHost/NuGet.Config;../../samples/net*/NuGetClientCurrent/*.csproj" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../content/recipes/nuget.*/**/recipe.json;../../content/recipes/nuget.*/**/recipe.md;../../samples/net*/BuildCompatibility/*.proj;../../samples/net*/BuildCompatibility/*.xml;../../samples/net*/BuildCompatibility/*.xsl;../../samples/net*/PackagePolicies/*.config;../../samples/net*/PackagePolicies/*.props" LogicalName="SdkInput.%(Identity)" />

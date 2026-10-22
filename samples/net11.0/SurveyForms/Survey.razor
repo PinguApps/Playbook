@@ -1,0 +1,41 @@
+@page "/{Mode}"
+@inject SubmissionCounts Counts
+
+<h1>Reef survey</h1>
+<!-- snippet:captions -->
+<p id="caption"><DisplayName For="() => Model.Contact.Email" /></p>
+<p id="fallback"><DisplayName For="() => Model.Reference.ImportedCode" /></p>
+<!-- endsnippet:captions -->
+<!-- snippet:form -->
+<EditForm Model="Model" FormName="survey" Enhance="@(Mode != "plain")"
+          OnValidSubmit="Accept" OnInvalidSubmit="Reject">
+    <DataAnnotationsValidator DisableClientValidation="@(Mode == "optout")" />
+    <ValidationSummary />
+    <Label For="() => Model.Lead" />
+    <InputText @bind-Value="Model.Lead" />
+    <ValidationMessage For="() => Model.Lead" />
+    <Label For="() => Model.Contact.Email">
+        <InputText @bind-Value="Model.Contact.Email" />
+    </Label>
+    <ValidationMessage For="() => Model.Contact.Email" />
+    @for (var index = 0; index < Model.Divers.Count; index++)
+    {
+        var row = index;
+        <DiverEditor @bind-Value="Model.Divers[row]" />
+    }
+    <button type="submit">Record survey</button>
+    <button type="submit" formnovalidate>Post for server checking</button>
+</EditForm>
+<!-- endsnippet:form -->
+<output id="result">@Result</output>
+
+<!-- snippet:state -->
+@code {
+    [Parameter] public string Mode { get; set; } = "enhanced";
+    [SupplyParameterFromForm] public SurveyRequest Model { get; set; } = default!;
+    protected override void OnInitialized() => Model ??= new();
+    private string Result { get; set; } = "Not submitted";
+    private void Accept() { Counts.RecordAcceptance(); Result = "Accepted"; }
+    private void Reject() => Result = "Rejected";
+}
+<!-- endsnippet:state -->

@@ -19,6 +19,49 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("survey forms retain complete canonical bodies applicability and editions")]
+    public async Task CheckSurveyFormsAsync()
+    {
+        string[] ids = ["blazor.associate-generated-inputs", "blazor.check-input-before-post", "blazor.reuse-field-captions", "validation.cover-nested-models"];
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query = "survey-forms", limit = 50 }).ConfigureAwait(false));
+        Assert.Equal(ids, RecipeIds(catalogue));
+        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query = "survey-forms" }).ConfigureAwait(false));
+        Assert.Empty(RecipeIds(older));
+        foreach (string id in ids)
+        {
+            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+            string path = $"content/recipes/{id}/11.0";
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
+            string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
+            foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
+            {
+                string source = await ReadSdkInputAsync(snippet.Value.GetProperty("path").GetString()!).ConfigureAwait(false);
+                string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $"(?ms)^[ \\t]*(?:// snippet:{region}|<!-- snippet:{region} -->)\\n(.*?)^[ \\t]*(?:// endsnippet:{region}|<!-- endsnippet:{region} -->)$");
+                Assert.True(match.Success, $"Missing canonical region {id}/{snippet.Name}");
+                string language = snippet.Value.GetProperty("language").GetString()!;
+                expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{language}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
+            }
+
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), entry => entry.GetProperty("id").GetString() == id);
+            Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+            Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
+            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+            AssertSelection(summary, recipe);
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            Assert.Equal("11.0", route.GetProperty("target").GetString());
+            Assert.NotEmpty(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray());
+            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+            {
+                Assert.Equal("compile", evidence.GetProperty("kind").GetString());
+                Assert.Equal("current", evidence.GetProperty("freshness").GetString());
+            });
+        }
+    }
+
     public InstalledToolSteps(IReqnrollOutputHelper output)
     {
         _output = output;

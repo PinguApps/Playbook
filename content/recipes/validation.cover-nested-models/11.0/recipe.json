@@ -1,0 +1,201 @@
+{
+  "id": "validation.cover-nested-models",
+  "edition": "11.0",
+  "title": "Validate nested records and collection entries",
+  "goal": "Discover a form's complete editable graph, retain deliberate SkipValidation boundaries and remove the old experimental-attribute suppression when moving to .NET 11.",
+  "areas": [
+    "aspnetcore",
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "survey-forms",
+    "forms",
+    "validation",
+    "accessibility"
+  ],
+  "apis": [
+    "AddValidation",
+    "ValidatableTypeAttribute",
+    "SkipValidationAttribute",
+    "DataAnnotationsValidator"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Generated Microsoft.Extensions.Validation metadata is required for nested objects and collections.",
+          "Stable .NET 11 attributes; the .NET 10 comparison explicitly uses experimental attributes with local ASP0029 suppression."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.Extensions.Validation runtime/reference assemblies and ValidationsGenerator from Microsoft.AspNetCore.App.Ref; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser files. No redundant PackageReference in the measured SDK."
+          ],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core server; executed on Windows x64 with Chromium 152. No native platform/workload requirement."
+          ],
+          "renderingModes": [
+            "Blazor static SSR; enhanced and plain form posts"
+          ],
+          "prerequisites": [
+            "Use Microsoft.NET.Sdk.Web with net11.0, C# 15.0, nullable and implicit usings enabled. The measured SDK supplies Microsoft.Extensions.Validation assemblies and ValidationsGenerator from Microsoft.AspNetCore.App.Ref, plus aligned Microsoft.AspNetCore.App.Internal.Assets browser files. A redundant PackageReference produced NU1510; none is needed here. Keep matching generator/runtime/browser assets when using another toolset."
+          ],
+          "constraints": [
+            "Generated Microsoft.Extensions.Validation metadata is required for nested objects and collections.",
+            "Stable .NET 11 attributes; the .NET 10 comparison explicitly uses experimental attributes with local ASP0029 suppression.",
+            "No arbitrary cross-assembly, trimming/AOT, interactive transition or conditional older-target package route is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable .NET 11 contracts verified on RC2 artifacts; GA reconciliation pending. Older public generator attributes are experimental in the .NET 10 comparison only."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation-client-side?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/Label.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/DisplayName.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/ExpressionMemberAccessor.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Forms/ClientValidationCache.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SurveyForms/SurveyForms.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official static SSR client validation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation-client-side?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Official validation discovery",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned official Label",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/Label.cs"
+    },
+    {
+      "title": "Pinned official DisplayName",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/DisplayName.cs"
+    },
+    {
+      "title": "Pinned official ExpressionMemberAccessor",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/ExpressionMemberAccessor.cs"
+    },
+    {
+      "title": "Pinned client reachability",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Forms/ClientValidationCache.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/SurveyForms/SurveyForms.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual Web SDK compilation with framework validation generator and locked aligned browser assets. Separate real browser/HTTP execution: docs/verification/PIN-772-773.md. Compilation output alone is not runtime proof."
+    },
+    {
+      "sample": "samples/net11.0/SurveyForms/SurveyForms.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual Web SDK compilation with framework validation generator and locked aligned browser assets. Separate real browser/HTTP execution: docs/verification/PIN-772-773.md. Compilation output alone is not runtime proof."
+    }
+  ],
+  "snippets": {
+    "resource": {
+      "path": "samples/net11.0/SurveyForms/Captions.cs",
+      "region": "resource",
+      "language": "csharp"
+    },
+    "resources": {
+      "path": "samples/net11.0/SurveyForms/Captions.resx",
+      "region": "resources",
+      "language": "xml"
+    },
+    "french": {
+      "path": "samples/net11.0/SurveyForms/Captions.fr-FR.resx",
+      "region": "resources",
+      "language": "xml"
+    },
+    "state": {
+      "path": "samples/net11.0/SurveyForms/Survey.razor",
+      "region": "state",
+      "language": "razor"
+    },
+    "counts": {
+      "path": "samples/net11.0/SurveyForms/SubmissionCounts.cs",
+      "region": "counts",
+      "language": "csharp"
+    },
+    "older": {
+      "path": "samples/net10.0/SurveyForms/SurveyRequest.cs",
+      "region": "model",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/SurveyForms/SurveyRequest.cs",
+      "region": "model",
+      "language": "csharp"
+    },
+    "startup": {
+      "path": "samples/net11.0/SurveyForms/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "form": {
+      "path": "samples/net11.0/SurveyForms/Survey.razor",
+      "region": "form",
+      "language": "razor"
+    },
+    "editor": {
+      "path": "samples/net11.0/SurveyForms/DiverEditor.razor",
+      "region": "editor",
+      "language": "razor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated actual Chromium/HTTP form and DOM checks. No Human-only proof required. Screen-reader operation, other platforms/browsers, trimming/AOT and GA behaviour are outside these claims."
+  }
+}
