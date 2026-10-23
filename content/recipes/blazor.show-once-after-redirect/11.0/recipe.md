@@ -18,13 +18,19 @@ MVC's normal filters do not automatically save TempData for component endpoints.
 
 Use the previous Web SDK project and services:
 
+net10.0/HarbourPermit.csproj:
+
 {{snippet:old-project}}
+
+net10.0/Program.cs registrations:
 
 {{snippet:old-startup}}
 
 Build the app with var app = builder.Build(), then configure its pipeline:
 Program.cs imports Playbook.Samples so App resolves; its Web SDK implicit usings
 supply the HTTP, configuration and dependency-injection extensions.
+
+net10.0/Program.cs pipeline:
 
 {{snippet:old-pipeline}}
 
@@ -33,7 +39,11 @@ Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionaryFactory as Factory.
 In Outcome.razor inject the same Factory. The explicit save happens while
 headers can still change; neither page enables streaming.
 
+net10.0/Apply.razor body:
+
 {{snippet:old-apply}}
+
+net10.0/Outcome.razor body:
 
 {{snippet:old-outcome}}
 
@@ -43,6 +53,8 @@ headers can still change; neither page enables streaming.
 Microsoft.AspNetCore.Components.ITempData as a cascading parameter, writes an
 outcome, and navigates. Static form POST navigation produces the real redirect.
 
+net11.0/Apply.razor body:
+
 {{snippet:apply}}
 
 The receiving component binds a key with SupplyParameterFromTempData. **Measured
@@ -51,6 +63,8 @@ received message in that property repeats it on the next read. Copy it to a
 display field, then clear the bound property to consume the confirmation. The
 canonical sample proves this through a redirect and two separate GET requests;
 do not infer one-use display merely from the attribute name.
+
+net11.0/Outcome.razor body:
 
 {{snippet:outcome}}
 
@@ -83,15 +97,18 @@ applies with the session-storage TempData provider.
    services and middleware, and establish its cookie early. Repeat the same
    redirect/second-read check; session-backed TempData remains consumable.
 
+net11.0/HarbourPermit.csproj:
+
 {{snippet:project}}
 
-Nullable and ImplicitUsings are enabled by the canonical samples boundary; enable
-both when copying this project outside that boundary. Both projects lock their
+Nullable and ImplicitUsings are enabled in the complete project blocks. Both projects lock their
 SDK-aligned Microsoft.AspNetCore.App.Internal.Assets dependency. No explicit
 NuGet package reference, workload, browser asset or native toolchain is needed
 for these plain static forms. global.json pins 10.0.402 for the older capture and
 11.0.100-rc.2.26504.105 for the current capture; these are test baselines, not
 mandatory exact consumer SDK installations.
+
+net11.0/Program.cs registrations:
 
 {{snippet:startup}}
 
@@ -103,9 +120,44 @@ it to true for the session-storage alternative. Build the app with
 var app = builder.Build(), use this pipeline, then app.Run(). SkipSession is
 test instrumentation and must remain false in a configured application.
 
+net11.0/Program.cs pipeline:
+
 {{snippet:pipeline}}
 
+shared/App.razor:
+
 {{snippet:app}}
+
+Both standalone projects use the complete imports below; no repository build
+files, CSS, JavaScript, layout, client project or package references are needed.
+The project blocks enable nullable and implicit usings explicitly.
+
+shared/_Imports.razor:
+
+```razor
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Playbook.Samples
+@namespace Playbook.Samples
+```
+
+Use these capture pins as each project's global.json. Restore creates the
+SDK-aligned asset lockfile; subsequent builds may use RestoreLockedMode=true.
+The pins reproduce this evidence, not a universal exact consumer requirement.
+
+net10.0/global.json:
+
+```json
+{"sdk":{"version":"10.0.402","rollForward":"disable"}}
+```
+
+net11.0/global.json:
+
+```json
+{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}
+```
 
 ## Constraints
 

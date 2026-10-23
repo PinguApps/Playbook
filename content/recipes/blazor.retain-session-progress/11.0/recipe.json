@@ -157,6 +157,11 @@
     }
   ],
   "snippets": {
+    "input": {
+      "path": "samples/net11.0/HarbourPermit/PermitInput.cs",
+      "region": "input",
+      "language": "csharp"
+    },
     "startup": {
       "path": "samples/net11.0/HarbourPermit/Program.cs",
       "region": "startup",

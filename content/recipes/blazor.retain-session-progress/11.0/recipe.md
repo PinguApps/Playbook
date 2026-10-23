@@ -14,7 +14,11 @@ HttpContext. Read and write values explicitly, including the missing-value
 default. This remains a valid approach when the application needs direct control
 of keys or serialization. It has no built-in SupplyParameterFromSession attribute.
 
+net10.0/Progress.razor body:
+
 {{snippet:old-progress}}
+
+net10.0/Review.razor body:
 
 {{snippet:old-review}}
 
@@ -25,13 +29,23 @@ single public nullable string property Berth { get; set; }. Its form property
 is initialized in OnInitialized only when form binding did not supply a model;
 do not overwrite a posted edit with the stored draft.
 
+shared/PermitInput.cs:
+
+{{snippet:input}}
+
+net10.0/HarbourPermit.csproj:
+
 {{snippet:old-project}}
+
+net10.0/Program.cs registrations:
 
 {{snippet:old-startup}}
 
 The older sample also registers MVC TempData for its separate confirmation
 comparison. Session itself needs only the cache and AddSession registrations.
 After var app = builder.Build(), use this pipeline and finish with app.Run():
+
+net10.0/Program.cs pipeline:
 
 {{snippet:old-pipeline}}
 
@@ -42,7 +56,11 @@ SupplyParameterFromSession. The form still binds submitted input separately;
 the handler commits it into the session-backed properties, advances the step
 and redirects. The review component reads the same keys on the next request.
 
+net11.0/Progress.razor body:
+
 {{snippet:progress}}
+
+net11.0/Review.razor body:
 
 {{snippet:review}}
 
@@ -74,13 +92,16 @@ bound value; a non-nullable int naturally shows zero when no saved value exists.
    a new request. Do not assume a child created after the flush can establish
    a fresh session. Keep one-use confirmation handling separate.
 
+net11.0/HarbourPermit.csproj:
+
 {{snippet:project}}
 
-Enable Nullable and ImplicitUsings when copying outside the sample build
-boundary. The canonical previous/current SDK pins are 10.0.402 and
+Nullable and ImplicitUsings are enabled in the complete project blocks. The canonical previous/current SDK pins are 10.0.402 and
 11.0.100-rc.2.26504.105, C# 14.0/15.0. The Web SDK supplies matching framework
 assemblies and its aligned Internal.Assets dependency; there are no explicit
 NuGet packages, native workloads or browser scripts required for these forms.
+
+net11.0/Program.cs registrations:
 
 {{snippet:startup}}
 
@@ -93,9 +114,44 @@ app.Run(). SessionTempData chooses storage only for the separate TempData
 confirmation; it does not change the persistence of session-supplied properties.
 SkipSession is a negative-check switch and must remain false in the application.
 
+net11.0/Program.cs pipeline:
+
 {{snippet:pipeline}}
 
+shared/App.razor:
+
 {{snippet:app}}
+
+Both standalone projects use the complete imports below; no repository build
+files, CSS, JavaScript, layout, client project or package references are needed.
+The project blocks enable nullable and implicit usings explicitly.
+
+shared/_Imports.razor:
+
+```razor
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Playbook.Samples
+@namespace Playbook.Samples
+```
+
+Use these capture pins as each project's global.json. Restore creates the
+SDK-aligned asset lockfile; subsequent builds may use RestoreLockedMode=true.
+The pins reproduce this evidence, not a universal exact consumer requirement.
+
+net10.0/global.json:
+
+```json
+{"sdk":{"version":"10.0.402","rollForward":"disable"}}
+```
+
+net11.0/global.json:
+
+```json
+{"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}
+```
 
 ### Streaming check
 
@@ -105,7 +161,11 @@ headers. After release, the step changes while headers have already started.
 A later /review read must show step 7. In the previous sample, explicit Session.Set
 before the await establishes that cookie instead.
 
+net11.0/Stream.razor body:
+
 {{snippet:stream}}
+
+net10.0/Stream.razor body:
 
 {{snippet:old-stream}}
 
@@ -116,6 +176,8 @@ Register it with builder.Services.AddSingleton<InspectionGate>() before Build,
 and map POST /control/arm to gate.Arm() and POST /control/release to gate.Release().
 These test endpoints never belong in production. The held work has no external
 provider; the request's cancellation token releases it if the client disconnects.
+
+shared/InspectionGate.cs class:
 
 {{snippet:gate}}
 

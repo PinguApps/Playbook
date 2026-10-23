@@ -24,6 +24,40 @@ public sealed class InstalledToolSteps : IDisposable
     {
         string[] ids = ["blazor.retain-session-progress", "blazor.show-once-after-redirect"];
         await CheckWebRecipesAsync(ids, "harbour-state").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement[] actualRoutes = [.. recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()];
+            foreach (JsonElement expected in metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray())
+            {
+                JsonElement actual = Assert.Single(actualRoutes, route => route.GetProperty("usage").GetString() == expected.GetProperty("usage").GetString());
+                foreach (JsonProperty property in expected.EnumerateObject())
+                {
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"State applicability {id}/{property.Name}, including every nested requirement, source and evidence field, must survive packaging.");
+                }
+            }
+
+            foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"State {id}/{field} must survive packaging.");
+            }
+
+            foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+            {
+                JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), evidence => evidence.GetProperty("sample").GetString() == expected.GetProperty("sample").GetString());
+                foreach (JsonProperty property in expected.EnumerateObject())
+                {
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored state evidence {id}/{property.Name} must survive packaging.");
+                }
+            }
+
+            string markdown = recipe.GetProperty("markdown").GetString()!;
+            foreach (string target in new[] { "net10.0", "net11.0" })
+            {
+                Assert.Contains((await ReadSdkInputAsync($"samples/{target}/HarbourPermit/_Imports.razor").ConfigureAwait(false)).Trim(), markdown, StringComparison.Ordinal);
+            }
+        }
     }
 
     [Then("browser configuration retains complete canonical guidance and precedence requirements offline")]
