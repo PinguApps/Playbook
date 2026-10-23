@@ -1,0 +1,227 @@
+{
+  "id": "blazor.supply-browser-configuration",
+  "edition": "11.0",
+  "title": "Reuse a browser build",
+  "goal": "Supply public WASM settings per environment; preserve provider precedence.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "estuary-config"
+  ],
+  "apis": [
+    "IConfiguration",
+    "AddEnvironmentVariables"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "WASM; environment follows JSON; remove duplicate registration."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Default WASM environment provider."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching WASM assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical mode; no new syntax required."
+          },
+          "frameworks": [
+            "Blazor"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Executed RC2 baseline."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Matching WASM packs/JS"
+          ],
+          "providers": [
+            "JSON, environment, memory"
+          ],
+          "platforms": [
+            "Browser WASM"
+          ],
+          "renderingModes": [
+            "WebAssembly"
+          ],
+          "prerequisites": [
+            "Complete standalone project, pins, imports, document, startup JavaScript, JSON and local Node host are supplied below. Actual SDK 11.0.100-rc.2.26504.105/C# 15; interpreted publish uses PublishTrimmed=false, no wasm-tools/native compiler/AOT. Node 24.21.0 serves local fixtures only.",
+            "Load public settings before Blazor.start; configureRuntime.withEnvironmentVariables supplies browser runtime variables. Use Board__Endpoint for Board:Endpoint. Server OS variables do not automatically enter browser memory. No account, database or external endpoint is required."
+          ],
+          "constraints": [
+            "WASM; environment-source precedence and removal of duplicate registration.",
+            "CreateDefault loads base JSON, environment JSON, then one environment provider. Later explicit providers win. Remove the old unprefixed AddEnvironmentVariables registration on .NET 11; keeping it after an override adds a second provider and can change the winner. Preserve intentional prefixed/custom providers with their explicitly tested order.",
+            "Every delivered setting is public and user-modifiable. Never send secrets, connection strings with credentials or authoritative permissions. Endpoints here are fictional public strings, not contacted services.",
+            "The .NET 10 manual provider is an actually compiled/executed comparison, not a target-10 route to automatic registration. Static SSR/Interactive Server do not use this browser provider; hosted/Auto apps need separate server/client configuration and are not executed here.",
+            "Choose exact case-sensitive environment JSON names, update external settings/cache policy coherently, and reload to apply startup values. This example has no hot reload or post-start environment mutation contract. A production host/CDN must preserve matching assets and public-settings delivery."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA pending."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/EstuaryBoard/EstuaryBoard.csproj"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#environment-variables-in-blazor-webassembly-configuration"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft WASM environment configuration release notes",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#environment-variables-in-blazor-webassembly-configuration"
+    },
+    {
+      "title": "Pinned RC2 default provider and JSON initialization order",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs"
+    },
+    {
+      "title": "Pinned .NET 10 builder without automatic environment provider",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs"
+    },
+    {
+      "title": "Blazor client JSON configuration and public-data boundary",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/configuration?view=aspnetcore-10.0"
+    },
+    {
+      "title": "Pinned runtime configuration startup option",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebAssemblyStartOptions.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0",
+      "sample": "samples/net10.0/EstuaryBoard/EstuaryBoard.csproj",
+      "sdk": "10.0.402",
+      "scope": "Actual older SDK compilation only. Separate real Chrome WASM checks prove manual provider, two public profiles on unchanged assets, JSON fallback and later-provider precedence. Exact hashes/provenance/limits: docs/verification/PIN-793.md."
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0",
+      "sample": "samples/net11.0/EstuaryBoard/EstuaryBoard.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual RC2 SDK compilation only. Separate real Chrome WASM checks prove default provider, two public profiles on unchanged assets and duplicate-registration precedence regression. Exact hashes/provenance/limits: docs/verification/PIN-793.md."
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "region": "project",
+      "path": "samples/net10.0/EstuaryBoard/EstuaryBoard.csproj",
+      "language": "xml"
+    },
+    "packages-10": {
+      "region": "packages",
+      "path": "samples/net10.0/EstuaryBoard/Directory.Packages.props",
+      "language": "xml"
+    },
+    "program-10": {
+      "region": "program",
+      "path": "samples/net10.0/EstuaryBoard/Program.cs",
+      "language": "csharp"
+    },
+    "project-11": {
+      "region": "project",
+      "path": "samples/net11.0/EstuaryBoard/EstuaryBoard.csproj",
+      "language": "xml"
+    },
+    "packages-11": {
+      "region": "packages",
+      "path": "samples/net11.0/EstuaryBoard/Directory.Packages.props",
+      "language": "xml"
+    },
+    "program-11": {
+      "region": "program",
+      "path": "samples/net11.0/EstuaryBoard/Program.cs",
+      "language": "csharp"
+    },
+    "trace": {
+      "region": "trace",
+      "path": "samples/net11.0/EstuaryBoard/ConfigurationTrace.cs",
+      "language": "csharp"
+    },
+    "dashboard": {
+      "region": "dashboard",
+      "path": "samples/net11.0/EstuaryBoard/Dashboard.razor",
+      "language": "razor"
+    },
+    "document": {
+      "region": "document",
+      "path": "samples/net11.0/EstuaryBoard/wwwroot/index.html",
+      "language": "html"
+    },
+    "browser": {
+      "region": "browser",
+      "path": "samples/net11.0/EstuaryBoard/wwwroot/board-start.js",
+      "language": "javascript"
+    },
+    "server": {
+      "region": "server",
+      "path": "samples/net11.0/EstuaryBoard/serve.mjs",
+      "language": "javascript"
+    },
+    "base-json": {
+      "language": "json",
+      "path": "samples/net11.0/EstuaryBoard/PublicFiles.md",
+      "region": "base-json"
+    },
+    "testing-json": {
+      "language": "json",
+      "path": "samples/net11.0/EstuaryBoard/PublicFiles.md",
+      "region": "testing-json"
+    },
+    "production-json": {
+      "language": "json",
+      "path": "samples/net11.0/EstuaryBoard/PublicFiles.md",
+      "region": "production-json"
+    },
+    "testing-public": {
+      "language": "json",
+      "path": "samples/net11.0/EstuaryBoard/PublicFiles.md",
+      "region": "testing-public"
+    },
+    "production-public": {
+      "language": "json",
+      "path": "samples/net11.0/EstuaryBoard/PublicFiles.md",
+      "region": "production-public"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local public fixture and real WASM execution; no account/resource or Human-only prerequisite. Hosted/Auto, AOT, production hosting and GA are outside this proof."
+  }
+}

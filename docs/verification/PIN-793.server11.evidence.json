@@ -1,0 +1,29 @@
+{
+  "major": "11",
+  "node": "v24.21.0",
+  "recordedAt": "2026-10-23T08:57:00.365Z",
+  "serverSha256": "da429da1268a297412faf73de59cc9c4a90142242c11a53dd25a3e5cbd1eaa44",
+  "verifierSha256": "0fdba7a49c78983435ee0159c4c603c13fb44ba321144b5a997387abc72ae2ac",
+  "checks": [
+    {
+      "target": "/%E0",
+      "rejectedStatus": 400,
+      "subsequentIndexStatus": 200
+    },
+    {
+      "target": "/%E0%A4%A",
+      "rejectedStatus": 400,
+      "subsequentIndexStatus": 200
+    },
+    {
+      "target": "http://%",
+      "rejectedStatus": 400,
+      "subsequentIndexStatus": 200
+    }
+  ],
+  "publicProfiles": [
+    "Testing",
+    "Production"
+  ],
+  "scope": "Actual Node HTTP listener and raw request targets; no mock listener or browser execution claim."
+}

@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-10-23T08:19:10.7700509+00:00",
+  "sourceCommit": "002247b218896c3d88a9d27a4fce5f162a21dfd1",
+  "sourceDirty": false,
+  "scope": "Separate clean canonical publish rebuild; exact input, application DLL and complete uncompressed served-asset equality required against the original real browser capture. Original compile records retain their dirty provenance.",
+  "samples": {
+    "net10.0": {
+      "inputsEqual": true,
+      "applicationDllSha256": "6cdfc63d7e38b31cede3df1601f7a2f78f531ff570d48f571df781d749db6916",
+      "sdk": "10.0.402",
+      "inputCount": 24,
+      "publishOutput": "EstuaryBoard -> V:\\_worktrees\\Playbook\\agent-pin-793-04-021-reuse-one-browser-build-across-environments\\samples\\net10.0\\EstuaryBoard\\bin\\Release\\net10.0\\EstuaryBoard.dll\r\n  EstuaryBoard (Blazor output) -> V:\\_worktrees\\Playbook\\agent-pin-793-04-021-reuse-one-browser-build-across-environments\\samples\\net10.0\\EstuaryBoard\\bin\\Release\\net10.0\\wwwroot\r\n  EstuaryBoard -> V:\\_worktrees\\Playbook\\agent-pin-793-04-021-reuse-one-browser-build-across-environments\\samples\\net10.0\\EstuaryBoard\\bin\\Release\\net10.0\\publish\\",
+      "artifactsEqual": true,
+      "artifactCount": 213
+    },
+    "net11.0": {
+      "inputsEqual": true,
+      "applicationDllSha256": "737229e68b5cc5a189ecb960f911a89d4d3e1e63532b47935077aedd5ccbd669",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "inputCount": 24,
+      "publishOutput": "C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\agent-pin-793-04-021-reuse-one-browser-build-across-environments\\samples\\net11.0\\EstuaryBoard\\EstuaryBoard.csproj]\r\n  EstuaryBoard -> V:\\_worktrees\\Playbook\\agent-pin-793-04-021-reuse-one-browser-build-across-environments\\samples\\net11.0\\EstuaryBoard\\bin\\Release\\net11.0\\EstuaryBoard.dll\r\n  EstuaryBoard (Blazor output) -> V:\\_worktrees\\Playbook\\agent-pin-793-04-021-reuse-one-browser-build-across-environments\\samples\\net11.0\\EstuaryBoard\\bin\\Release\\net11.0\\wwwroot\r\n  Publishing without optimizations. Although it's optional for Blazor, we strongly recommend using `wasm-tools` workload! You can install it by running `dotnet workload install wasm-tools` from the command line.\r\n  EstuaryBoard -> V:\\_worktrees\\Playbook\\agent-pin-793-04-021-reuse-one-browser-build-across-environments\\samples\\net11.0\\EstuaryBoard\\bin\\Release\\net11.0\\publish\\",
+      "artifactsEqual": true,
+      "artifactCount": 217
+    }
+  }
+}
