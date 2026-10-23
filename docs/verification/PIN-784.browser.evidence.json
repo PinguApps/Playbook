@@ -789,5 +789,13 @@
     "sourceDirty": true,
     "newerEvidence": "Unchanged source/configuration and exact artifact; prior actual .NET11 staged browser execution reused.",
     "reason": "Remove two extra EOF blank lines from older csproj/verification manifest. Recompiled artifact carries the newer Git revision; all three real rendered/native-input stages repeated and passed."
+  },
+  "integrationVerification": {
+    "sourceCommit": "9967ee883888f0177c7e2cf5277ba8b48c2863df",
+    "checkedAt": "2026-10-23T03:24:40.2502513+00:00",
+    "artifactCount": 8,
+    "integratedMain": "39bf807c6bb67e645bf70c88e801e524a2c465eb",
+    "inputCount": 33,
+    "result": "Every recorded current sample/browser input and exact executed artifact matches; reuse unchanged actual behavior proof."
   }
 }
