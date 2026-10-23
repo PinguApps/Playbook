@@ -1,0 +1,20 @@
+@page "/outcome"
+
+<!-- snippet:outcome -->
+<h2>Request outcome</h2>
+<p id="outcome">@(_display ?? "No new outcome")</p>
+
+@code {
+    [SupplyParameterFromTempData(Name = "permit-outcome")]
+    public string? Message { get; set; }
+
+    private string? _display;
+
+    protected override void OnInitialized()
+    {
+        _display = Message;
+        // RC2 writes the bound property's current value back: explicitly consume it.
+        Message = null;
+    }
+}
+<!-- endsnippet:outcome -->

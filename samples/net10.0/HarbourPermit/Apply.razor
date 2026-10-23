@@ -1,0 +1,25 @@
+@page "/apply"
+@inject NavigationManager Navigation
+@inject Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionaryFactory Factory
+
+<!-- snippet:apply -->
+<h2>Request a harbour permit</h2>
+<EditForm Model="Form" FormName="permit" OnSubmit="Submit">
+    <button type="submit">Record request</button>
+</EditForm>
+
+@code {
+    private object Form { get; } = new();
+
+    [CascadingParameter]
+    public HttpContext Context { get; set; } = default!;
+
+    private void Submit()
+    {
+        var data = Factory.GetTempData(Context);
+        data["permit-outcome"] = "Harbour permit request recorded";
+        data.Save();
+        Navigation.NavigateTo("/outcome");
+    }
+}
+<!-- endsnippet:apply -->

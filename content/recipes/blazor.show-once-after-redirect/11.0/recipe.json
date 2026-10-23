@@ -1,0 +1,299 @@
+{
+  "id": "blazor.show-once-after-redirect",
+  "edition": "11.0",
+  "title": "Show one confirmation after a redirect",
+  "goal": "Carry one-use feedback across a static SSR redirect with TempData.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "harbour-state",
+    "static-ssr",
+    "tempdata"
+  ],
+  "apis": [
+    "ITempData",
+    "SupplyParameterFromTempDataAttribute",
+    "RazorComponentsServiceOptions.TempDataProviderType"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Cookie TempData needs unsent headers.",
+          "RC2 writes bound values back: copy then clear for one-use display."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "These component state contracts require the .NET 11 shared framework."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against ASP.NET Core 11 reference assemblies; the exact RC2 pin is a test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview syntax or experimental opt-in."
+          },
+          "frameworks": [
+            "ASP.NET Core 11/Web SDK"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Endpoints/Web; SDK-aligned Internal.Assets"
+          ],
+          "platforms": [
+            "HTTP/cookies"
+          ],
+          "renderingModes": [
+            "Static SSR only"
+          ],
+          "prerequisites": [
+            "Use a Web SDK net11.0 project, nullable/implicit usings and the imports shown in the Markdown. Call AddRazorComponents before Build. Preserve antiforgery protection for static forms.",
+            "Default cookie TempData is registered by AddRazorComponents. Read or write before the response starts.",
+            "Microsoft.AspNetCore.Components.Endpoints and Components.Web runtime/reference assemblies from Microsoft.AspNetCore.App. The Web SDK resolves aligned Microsoft.AspNetCore.App.Internal.Assets; exact versions and lockfiles are verification baselines.",
+            "ASP.NET Core server hosting with HTTP cookies; actual Windows x64 loopback Kestrel execution. No native workload or external service required.",
+            "Static SSR only; interactive Server/WebAssembly/Auto values are not supplied after interactive activation.",
+            "Stable APIs measured on .NET 11 RC2; final GA reconciliation remains outstanding.",
+            "Default cookie TempData; shared Data Protection keys across instances.",
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "constraints": [
+            "Storage is tied to the request and browser cookies, not a circuit, authenticated identity or durable database. No net10.0 package route is claimed.",
+            "Use unique case-insensitive keys per supplied property in one rendered page. Supported scalar/collection values only; arbitrary user-defined JSON classes are not supported.",
+            "No concurrent-update atomicity, durable permit record, multi-server provider execution, interactive hydration, browser UI automation or GA execution is claimed.",
+            "Static SSR only; cookie/header timing matters under streaming. Use session-storage TempData for writes after the first flush, with early session establishment.",
+            "RC2 bound TempData properties are written back; copy the display value then clear the property for a one-use confirmation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 tested; GA pending"
+          ],
+          "providers": [
+            "Cookie; shared Data Protection keys"
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-10.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/ITempData.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionEstablishmentHelper.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionCascadingValueSupplier.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HarbourPermit/HarbourPermit.csproj"
+        ]
+      },
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "optional-alternative",
+        "selectionNotes": [
+          "Late writes: cache+AddSession+UseSession; cookie before streaming flush.",
+          "Reads consume; copy then clear RC2 bound values."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "These component state contracts require the .NET 11 shared framework."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against ASP.NET Core 11 reference assemblies; the exact RC2 pin is a test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview syntax or experimental opt-in."
+          },
+          "frameworks": [
+            "ASP.NET Core 11/Web SDK"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Endpoints/Web; SDK-aligned Internal.Assets"
+          ],
+          "platforms": [
+            "HTTP/cookies"
+          ],
+          "renderingModes": [
+            "Static SSR only"
+          ],
+          "prerequisites": [
+            "Use a Web SDK net11.0 project, nullable/implicit usings and the imports shown in the Markdown. Call AddRazorComponents before Build. Preserve antiforgery protection for static forms.",
+            "Default cookie TempData is registered by AddRazorComponents. Read or write before the response starts.",
+            "Set RazorComponentsServiceOptions.TempDataProviderType to TempDataProviderType.SessionStorage; register AddSession plus cache and UseSession before endpoints.",
+            "Microsoft.AspNetCore.Components.Endpoints and Components.Web runtime/reference assemblies from Microsoft.AspNetCore.App. The Web SDK resolves aligned Microsoft.AspNetCore.App.Internal.Assets; exact versions and lockfiles are verification baselines.",
+            "ASP.NET Core server hosting with HTTP cookies; actual Windows x64 loopback Kestrel execution. No native workload or external service required.",
+            "Static SSR only; interactive Server/WebAssembly/Auto values are not supplied after interactive activation.",
+            "Stable APIs measured on .NET 11 RC2; final GA reconciliation remains outstanding.",
+            "Session-storage TempData over ISession/IDistributedCache; process-local memory demo.",
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "constraints": [
+            "Storage is tied to the request and browser cookies, not a circuit, authenticated identity or durable database. No net10.0 package route is claimed.",
+            "Use unique case-insensitive keys per supplied property in one rendered page. Supported scalar/collection values only; arbitrary user-defined JSON classes are not supported.",
+            "No concurrent-update atomicity, durable permit record, multi-server provider execution, interactive hydration, browser UI automation or GA execution is claimed.",
+            "For late streaming writes, select TempDataProviderType.SessionStorage and configure session/cache services and middleware. Establish the session cookie before the first flush; reads still consume TempData.",
+            "RC2 bound-property write-back also applies: copy then clear the supplied confirmation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 tested; GA pending"
+          ],
+          "providers": [
+            "ISession/cache"
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-10.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/ITempData.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionEstablishmentHelper.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionCascadingValueSupplier.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HarbourPermit/HarbourPermit.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Static SSR temporary and session state",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Previous-release session and MVC TempData",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-10.0"
+    },
+    {
+      "title": "Pinned RC2 TempData contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/ITempData.cs"
+    },
+    {
+      "title": "Pinned RC2 TempData bound-property write-back",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs"
+    },
+    {
+      "title": "Pinned RC2 streaming cookie restriction",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs"
+    },
+    {
+      "title": "Pinned RC2 early session establishment",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionEstablishmentHelper.cs"
+    },
+    {
+      "title": "Pinned RC2 session subscription and missing-session failure",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionCascadingValueSupplier.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/HarbourPermit/HarbourPermit.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual release-specific Web SDK compilation. Separate fingerprinted real Kestrel HTTP checks cover redirects, second reads, multi-step persistence, isolation, held streaming/header timing and missing middleware; compilation alone is not execution."
+    },
+    {
+      "sample": "samples/net11.0/HarbourPermit/HarbourPermit.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual release-specific Web SDK compilation. Separate fingerprinted real Kestrel HTTP checks cover redirects, second reads, multi-step persistence, isolation, held streaming/header timing and missing middleware; compilation alone is not execution."
+    }
+  ],
+  "snippets": {
+    "startup": {
+      "path": "samples/net11.0/HarbourPermit/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "old-startup": {
+      "path": "samples/net10.0/HarbourPermit/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "pipeline": {
+      "path": "samples/net11.0/HarbourPermit/Program.cs",
+      "region": "pipeline",
+      "language": "csharp"
+    },
+    "old-pipeline": {
+      "path": "samples/net10.0/HarbourPermit/Program.cs",
+      "region": "pipeline",
+      "language": "csharp"
+    },
+    "project": {
+      "path": "samples/net11.0/HarbourPermit/HarbourPermit.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "old-project": {
+      "path": "samples/net10.0/HarbourPermit/HarbourPermit.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "app": {
+      "path": "samples/net11.0/HarbourPermit/App.razor",
+      "region": "app",
+      "language": "razor"
+    },
+    "apply": {
+      "path": "samples/net11.0/HarbourPermit/Apply.razor",
+      "region": "apply",
+      "language": "razor"
+    },
+    "old-apply": {
+      "path": "samples/net10.0/HarbourPermit/Apply.razor",
+      "region": "apply",
+      "language": "razor"
+    },
+    "outcome": {
+      "path": "samples/net11.0/HarbourPermit/Outcome.razor",
+      "region": "outcome",
+      "language": "razor"
+    },
+    "old-outcome": {
+      "path": "samples/net10.0/HarbourPermit/Outcome.razor",
+      "region": "outcome",
+      "language": "razor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "All required managed static SSR request behavior executed locally with real Kestrel and cookie jars. No paid provider, native platform or Human-only prerequisite. Browser UI, interactive modes, multi-server storage and GA are not claimed."
+  }
+}
