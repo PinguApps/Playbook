@@ -2,7 +2,7 @@
   {
     "target": "net10.0",
     "kind": "real Chrome Interactive Server and static SSR execution",
-    "recordedAt": "2026-10-23T01:47:58.8886283+00:00",
+    "recordedAt": "2026-10-23T02:47:58.8886283+01:00",
     "sourceCommit": "fe9e7f0e75e10498c84d71a891187ce990d8a318",
     "sourceDirty": true,
     "browser": "Existing Chrome via authenticated extension; no mock renderer",
@@ -58,6 +58,12 @@
         "selected": "0",
         "action": "click row cell and Open button",
         "mode": "static"
+      },
+      {
+        "selected": "0",
+        "action": "click text cell on fresh interactive circuit",
+        "mode": "interactive",
+        "opens": "0"
       }
     ],
     "limits": "Windows x64 only. T3 preview snapshot timed out twice; Chrome fallback. No GA, screen-reader, WebAssembly/Auto or other-platform proof."
@@ -65,7 +71,7 @@
   {
     "target": "net11.0",
     "kind": "real Chrome Interactive Server and static SSR execution",
-    "recordedAt": "2026-10-23T01:47:59.1169361+00:00",
+    "recordedAt": "2026-10-23T02:47:59.1169361+01:00",
     "sourceCommit": "fe9e7f0e75e10498c84d71a891187ce990d8a318",
     "sourceDirty": true,
     "browser": "Existing Chrome via authenticated extension; no mock renderer",

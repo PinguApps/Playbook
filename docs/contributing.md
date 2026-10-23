@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Interactive QuickGrid selection uses original .NET 10/11 MuseumRows apps.
+[PIN-782](verification/PIN-782.md) records actual typed row events, accessible
+button alternatives, static SSR exclusion and the tested Inspector handoff.
+
 Alternative component values use the original .NET 10/11 SeedLabels applications.
 [PIN-779](verification/PIN-779.md) records native C# 15 literal/bound parameters,
 real JSON interop/prerender persistence and delegate-union rejection, with the
