@@ -1,48 +1,25 @@
 {
-  "recordedAt": "2026-10-23T03:07:26.2203548+00:00",
-  "sourceCommit": "46306ddd18c10a4020d30b2def83cce12bd3d584",
+  "recordedAt": "2026-10-23T03:17:02.9201362+00:00",
+  "sourceCommit": "2f97d99789b58bbb98ee31f89a1bfed395b87b44",
   "sourceDirtyPaths": [
-    "A  eng/LanternQueue.browser.js",
-    " M eng/Test-Evidence.ps1",
-    "A  samples/net10.0/LanternQueue/App.razor",
-    "A  samples/net10.0/LanternQueue/LanternQueue.csproj",
-    "A  samples/net10.0/LanternQueue/Program.cs",
-    "A  samples/net10.0/LanternQueue/Queue.razor",
-    "A  samples/net10.0/LanternQueue/QueueJournal.cs",
-    "A  samples/net10.0/LanternQueue/_Imports.razor",
-    "A  samples/net10.0/LanternQueue/global.json",
-    "AM samples/net10.0/LanternQueue/packages.lock.json",
-    "A  samples/net10.0/LanternQueue/verification.json",
-    "A  samples/net10.0/LanternQueue/wwwroot/reveal.js",
-    "A  samples/net11.0/LanternQueue/App.razor",
-    "A  samples/net11.0/LanternQueue/LanternQueue.csproj",
-    "A  samples/net11.0/LanternQueue/Program.cs",
-    "A  samples/net11.0/LanternQueue/Queue.razor",
-    "A  samples/net11.0/LanternQueue/QueueJournal.cs",
-    "AM samples/net11.0/LanternQueue/_Imports.razor",
-    "A  samples/net11.0/LanternQueue/global.json",
-    "AM samples/net11.0/LanternQueue/packages.lock.json",
-    "A  samples/net11.0/LanternQueue/verification.json",
-    " M tests/PinguApps.Playbook.Tests/Features/InstalledTool.feature",
-    " M tests/PinguApps.Playbook.Tests/PinguApps.Playbook.Tests.csproj",
-    " M tests/PinguApps.Playbook.Tests/Steps/InstalledToolSteps.cs",
-    "?? content/recipes/blazor.reveal-virtual-item/",
-    "?? docs/verification/PIN-785.browser10.evidence.json",
-    "?? docs/verification/PIN-785.browser11.evidence.json",
-    "?? docs/verification/PIN-785.sources.json",
-    "?? samples/net10.0/LanternQueue/verification-evidence.json",
-    "?? samples/net11.0/LanternQueue/verification-evidence.json"
+    " M content/recipes/blazor.reveal-virtual-item/11.0/recipe.md",
+    " M docs/verification/PIN-785.browser10.evidence.json",
+    " M docs/verification/PIN-785.browser11.evidence.json",
+    " M eng/LanternQueue.browser.js",
+    " M samples/net10.0/LanternQueue/verification-evidence.json",
+    " M samples/net11.0/LanternQueue/Queue.razor",
+    " M samples/net11.0/LanternQueue/verification-evidence.json"
   ],
   "kind": "execution",
   "browserSurface": "Existing Chrome extension; canonical fixture served byte-for-byte from a bounded temporary loopback listener",
-  "fixtureSha256": "495c0161286baa9cf75a81dbaf6a6f8ecc5b302eb25d025055a95c0169ae6c74",
+  "fixtureSha256": "69a06c877906d8d51e80b84e1e1e712b87ee4f8d352b28e4826a198fade6967b",
   "samples": [
     {
       "sample": "samples/net10.0/LanternQueue/LanternQueue.csproj",
       "inputs": {
         ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
         "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-        "eng/LanternQueue.browser.js": "495c0161286baa9cf75a81dbaf6a6f8ecc5b302eb25d025055a95c0169ae6c74",
+        "eng/LanternQueue.browser.js": "69a06c877906d8d51e80b84e1e1e712b87ee4f8d352b28e4826a198fade6967b",
         "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
         "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
         "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
@@ -60,13 +37,13 @@
         "samples/net10.0/LanternQueue/wwwroot/reveal.js": "3ab535990f30d52866c0e1bc57fb239a36f14563d7edd6f317ba155b41f5b163"
       },
       "artifacts": {
-        "samples/net10.0/LanternQueue/bin/Release/net10.0/LanternQueue.dll": "951e332e2d0903acbc283199b99d2473888a2256321b1650cc6d391e77987724",
+        "samples/net10.0/LanternQueue/bin/Release/net10.0/LanternQueue.dll": "ce8e49723b92074c3fa14abbbf941d4c76ad7333105d806456d94b261ef3bd6a",
         "samples/net10.0/LanternQueue/bin/Release/net10.0/LanternQueue.deps.json": "bd493f6e81b0e92fc5fe3660d314f54f6ead49d5e31bfbd07681767975ce65a2",
         "samples/net10.0/LanternQueue/bin/Release/net10.0/LanternQueue.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
         "samples/net10.0/LanternQueue/bin/Release/net10.0/LanternQueue.staticwebassets.endpoints.json": "fc03301d181094ecb8f9b635bcd9b77e7a59a9d7325f538033cb806f77425f14"
       },
       "report": "docs/verification/PIN-785.browser10.evidence.json",
-      "reportSha256": "cfeedc6fee6c795d598b9171202c46c518b1f1a665cd4a648b05b8c0f9cbeb53",
+      "reportSha256": "d96f687070791bf0fe3ab923f8908cc988ea62705693b92598c54206a6f47d88",
       "result": "PASS"
     },
     {
@@ -74,7 +51,7 @@
       "inputs": {
         ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
         "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-        "eng/LanternQueue.browser.js": "495c0161286baa9cf75a81dbaf6a6f8ecc5b302eb25d025055a95c0169ae6c74",
+        "eng/LanternQueue.browser.js": "69a06c877906d8d51e80b84e1e1e712b87ee4f8d352b28e4826a198fade6967b",
         "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
         "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
         "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
@@ -86,18 +63,18 @@
         "samples/net11.0/LanternQueue/LanternQueue.csproj": "3b7dae95bfea5aa31b122496d538dc98cfca9dcdda1588b105992a6947a35c1e",
         "samples/net11.0/LanternQueue/packages.lock.json": "2a011e36650702f3133e52578c627d27189ab8cc44744e9165f0f2f30f6787d4",
         "samples/net11.0/LanternQueue/Program.cs": "daa2a1fd1b7c972e41678ff5c1800428c08c11c7559ddd573093e33b0539baf1",
-        "samples/net11.0/LanternQueue/Queue.razor": "95acce058e3f9e3ab014cb67306dbb290280d496268c657498880b71f6c830b5",
+        "samples/net11.0/LanternQueue/Queue.razor": "c991213647845b2ec0d8a4d9ee988926f40959149fe33c66a126772fcb17f919",
         "samples/net11.0/LanternQueue/QueueJournal.cs": "40e2908d34fb49426f4c9f91e83cfd962467e92b80cd80eb912a30ccc4540bae",
         "samples/net11.0/LanternQueue/verification.json": "93897d710ddb39785d9434d0f8f365b906f7789b69d3799c3e4bd9ed6ee9ef97"
       },
       "artifacts": {
-        "samples/net11.0/LanternQueue/bin/Release/net11.0/LanternQueue.dll": "c586e3f300823bda03c06389cb734cd40d4d4e16b9c02545e1182bb6801444ca",
+        "samples/net11.0/LanternQueue/bin/Release/net11.0/LanternQueue.dll": "549867aa9a79e7453cc36532638962b6fb8b7b6beb04e9fb20ba3591579a594f",
         "samples/net11.0/LanternQueue/bin/Release/net11.0/LanternQueue.deps.json": "f22540a68770c01e9e672815e7d143b86c2e4416f9628e495cde7d9b23094d32",
         "samples/net11.0/LanternQueue/bin/Release/net11.0/LanternQueue.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
         "samples/net11.0/LanternQueue/bin/Release/net11.0/LanternQueue.staticwebassets.endpoints.json": "cb8e9e66882f145e83a75b8ea82b35f19c866cb08ec84c6c0d1bcf6c37c2b7b3"
       },
       "report": "docs/verification/PIN-785.browser11.evidence.json",
-      "reportSha256": "572332285f807fb42e3c1ec467713b07bc621ecc4efab8a48a98478cf9cf1a7d",
+      "reportSha256": "514ab56a156e9d9dd0ef496cfa1539234f08340a5052b56601dd74a36a7bcd0d",
       "result": "PASS"
     }
   ]

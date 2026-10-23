@@ -1,5 +1,6 @@
 {
   "checks": [
+    "programmatic reveal stays disabled until the initial provider returns its count",
     "initial ticket is absent while its real provider is held",
     "initial index resolves to the correct rendered ticket",
     "programmatic ticket is absent while its real provider is held",
@@ -201,6 +202,6 @@
     "pending": 1
   },
   "result": "PASS",
-  "run": "reveal-8e93ecb2-d120-480f-840b-c8498d60ce07",
+  "run": "reveal-8f84d71b-9481-4366-a2bb-f38d66642b42",
   "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
 }

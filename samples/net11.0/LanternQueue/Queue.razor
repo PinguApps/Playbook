@@ -23,15 +23,32 @@
     private Virtualize<LanternTicket> _list = default!;
     private int _target = 150;
     private bool _ready;
+    private bool _rendered;
+    private bool _dataReady;
     private bool _busy;
     private string _status = "Starting";
 
     protected override void OnAfterRender(bool firstRender)
     {
-        if (firstRender) { _ready = true; _status = "Ready"; StateHasChanged(); }
+        if (firstRender) { _rendered = true; EnableReveal(); }
     }
 
-    private ValueTask<ItemsProviderResult<LanternTicket>> LoadAsync(ItemsProviderRequest request) => Journal.LoadAsync(Run, request);
+    private void EnableReveal()
+    {
+        if (_rendered && _dataReady && !_ready)
+        {
+            _ready = true;
+            _status = "Ready";
+            StateHasChanged();
+        }
+    }
+
+    private async ValueTask<ItemsProviderResult<LanternTicket>> LoadAsync(ItemsProviderRequest request)
+    {
+        ItemsProviderResult<LanternTicket> result = await Journal.LoadAsync(Run, request);
+        if (!_dataReady) { _dataReady = true; await InvokeAsync(EnableReveal); }
+        return result;
+    }
 
     private async Task RevealAsync()
     {

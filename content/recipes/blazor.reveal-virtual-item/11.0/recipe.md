@@ -3,7 +3,7 @@
 ## Goal
 
 Use this when someone chooses a result that is outside a long list's current
-window. A lantern workshop has 200 collection tickets. Opening the page should
+window. A lantern workshop has 200 collection tickets. Opening a link should
 show ticket 70; choosing ticket 150 should bring that actual ticket into view
 even when the provider takes time to supply it. Index means position in the
 current ordered result, not the ticket's persistent identity.
@@ -40,6 +40,8 @@ synchronization context; background notifications must enter it with
 `InvokeAsync`. Await the task, but remember that a later call supersedes an
 earlier one and user scrolling can interrupt positioning. Completion is not a
 durable selection or permission check. This sample serializes button requests.
+It enables the button only after interactive rendering and the first provider
+result, so a click cannot race an unknown initial item count.
 
 The provider must return the requested ordered slice and accurate total count,
 honor cancellation, and keep the index-to-ticket mapping consistent. Resolve

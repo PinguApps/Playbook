@@ -40,6 +40,8 @@
         await control(run, 'hold');
         frame.src = `/?run=${run}&initial=70`;
         await until(async () => (await journal(run)).pending > 0, 'initial provider held');
+        await until(() => doc()?.querySelector('#reveal')?.disabled === true, 'initial count readiness gate');
+        assert(true, 'programmatic reveal stays disabled until the initial provider returns its count');
         assert(!row(70), 'initial ticket is absent while its real provider is held');
         const initialHeld = await journal(run);
         await control(run, 'release');
