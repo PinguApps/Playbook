@@ -1,0 +1,26 @@
+{
+  "changes": "Original WorkerMethods, project pins/settings; transport/client differ only namespace substitution, LF and snippet markers.",
+  "recordedAt": "2026-10-23T07:12:57.0801666+00:00",
+  "aspnetcoreCommit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+  "sdkRepositoryCommit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+  "templateSha256": "419395f52fdb5648d36e5224e44da952f4de3b97fa74688d21d089efff038b75",
+  "kind": "official-source-review-and-generated-artifact-comparison",
+  "sources": [
+    {
+      "matchesGeneratedAfterNamespaceAndLf": true,
+      "sha256": "86a3f39150bbd07b151259f016a8776e6e5c54e7c4ce2ece1c7f2c00b3bdfb25",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/WebWorkerClient.cs"
+    },
+    {
+      "matchesGeneratedAfterNamespaceAndLf": true,
+      "sha256": "a49e0913f5ee1d816c948112d74c4cb3251186b142ee085b9d43a8151cd496d5",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/wwwroot/dotnet-web-worker-client.js"
+    },
+    {
+      "matchesGeneratedAfterNamespaceAndLf": true,
+      "sha256": "62e9d5b60e4381c2ab5aafd8f6bb9d88b6f4f0c598e98c8aa9f1f06a3a1fd52e",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/wwwroot/dotnet-web-worker.js"
+    }
+  ],
+  "templatePackage": "C:\\Users\\pingu\\.dotnet-playbook-11\\templates\\11.0.0-rc.2.26504.105\\microsoft.dotnet.web.projecttemplates.11.0.11.0.0-rc.2.26504.105.nupkg"
+}

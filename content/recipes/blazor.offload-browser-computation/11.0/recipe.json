@@ -1,0 +1,249 @@
+{
+  "id": "blazor.offload-browser-computation",
+  "edition": "11.0",
+  "title": "Offload browser computation",
+  "goal": "Keep rendering responsive during CPU work.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fossil-worker"
+  ],
+  "apis": [
+    "WebWorkerClient"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "WASM/CSR; blazorwebworker."
+        ],
+        "requirements": {
+          "runtime": {
+            "match": "release-family",
+            "reason": "The demonstrated generated template and matching browser runtime use .NET 11; older comparison is JavaScript worker computation.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "sdk": {
+            "match": "release-family",
+            "reason": "Use current blazorwebworker template from SDK 11.0.100-rc.2.26504.105; the actual .NET 10 SDK has no template of that name.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Explicit C# 15 canonical mode; JSExport requires a static partial class and browser platform annotation.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Blazor"
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0.0-rc.2.26504.105",
+              "reason": "Pinned generated worker reference and consuming WASM app. Local DevServer is pinned to the same version in the complete project."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Worker JS + WASM"
+          ],
+          "providers": [],
+          "platforms": [
+            "Browser workers"
+          ],
+          "renderingModes": [
+            "WebAssembly"
+          ],
+          "prerequisites": [
+            "WASM/CSR only. Generate FossilWorker with current blazorwebworker template, keep its actual WebWorkerClient and both JS assets, reference it from the standalone FossilDesk app. Use complete offline project/package/import/document files in Markdown; see E03 expansion.",
+            "SDK 11.0.100-rc.2.26504.105, runtime/packages 11.0.0-rc.2.26504.105 and C# 15. No installed wasm-tools workload or native compiler is required for interpreted WASM. AllowUnsafeBlocks and SupportedPlatform browser enable JSExport marshalling. No AOT claim.",
+            "A native Worker-capable browser, matching fingerprinted dotnet.js/runtime assets, _content/FossilWorker scripts and permission to load a module worker are required. Use same-origin local assets; CSP must allow the application scripts, worker creation and WebAssembly compilation. No provider, account, credentials or persistence service is required.",
+            "The .NET 10.0.402/C#14 comparison restores 10.0.9 WebAssembly/DevServer packages and runs JavaScript CPU work in a native worker. It is not a backported generated client or a .NET 10 applicability route."
+          ],
+          "constraints": [
+            "Create only after browser rendering. Retain ownership of the eventual created client and dispose it if the component leaves during startup. Await DisposeAsync for termination; abrupt page termination does not guarantee component disposal.",
+            "Invocation timeout abandons pending results; cancellation interrupts the managed JS await. Neither necessarily stops CPU work. Creation timeout terminates; in-flight creation cancellation may lose the reference while the worker still boots. The sample bounds startup without cancelling its managed await and adopts/disposes late results.",
+            "RC2 invoke timeout cleanup reads the latest request ID instead of capturing the timed-out call ID. Serialize this sample's calls; do not claim safe concurrent timed-out requests. Explicit worker disposal terminates all its pending calls; it is not graceful/cooperative job cancellation.",
+            "Worker .NET memory is separate from the page. JSExport accepts supported primitive/string interop shapes; no DOM or shared DI state. Serialize complex values explicitly. This fixture uses bounded CPU time and a per-worker completion counter; it is not a production scoring algorithm.",
+            "Static SSR cannot run browser workers. Interactive Server work belongs to its server; hosted/Auto composition requires explicit client ownership and is not executed here. No background-tab timing, mobile, AOT, GA, deployment, durable-work or speedup claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; serial timeouts."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/FossilDesk/FossilDesk.csproj",
+          "samples/net11.0/FossilWorker/FossilWorker.csproj"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/blazor-with-dotnet-on-web-workers?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/WebWorkerClient.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/wwwroot/dotnet-web-worker-client.js",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/wwwroot/dotnet-web-worker.js",
+          "https://developer.mozilla.org/en-US/docs/Web/API/Worker/terminate"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/blazor-with-dotnet-on-web-workers?view=aspnetcore-11.0",
+      "title": "Microsoft worker guidance (version labels do not prove template availability)"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/WebWorkerClient.cs",
+      "title": "Immutable RC2 generated client"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/wwwroot/dotnet-web-worker-client.js",
+      "title": "Immutable RC2 worker transport and timeout cleanup"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWebWorker-CSharp/wwwroot/dotnet-web-worker.js",
+      "title": "Immutable RC2 worker runtime/export dispatch"
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Worker/terminate",
+      "title": "Native browser Worker termination"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FossilDesk/FossilDesk.csproj",
+      "sdk": "10.0.402",
+      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/FossilDesk/FossilDesk.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0"
+    },
+    {
+      "sample": "samples/net11.0/FossilWorker/FossilWorker.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "region": "all",
+      "path": "samples/net10.0/FossilDesk/FossilDesk.csproj",
+      "language": "xml"
+    },
+    "packages-10": {
+      "region": "all",
+      "path": "samples/net10.0/FossilDesk/Directory.Packages.props",
+      "language": "xml"
+    },
+    "program-10": {
+      "region": "all",
+      "path": "samples/net10.0/FossilDesk/Program.cs",
+      "language": "csharp"
+    },
+    "desk-10": {
+      "region": "all",
+      "path": "samples/net10.0/FossilDesk/Desk.razor",
+      "language": "razor"
+    },
+    "client-10": {
+      "region": "all",
+      "path": "samples/net10.0/FossilDesk/wwwroot/fossil-client.js",
+      "language": "javascript"
+    },
+    "worker-10": {
+      "region": "all",
+      "path": "samples/net10.0/FossilDesk/wwwroot/fossil-score.js",
+      "language": "javascript"
+    },
+    "project-11": {
+      "region": "all",
+      "path": "samples/net11.0/FossilDesk/FossilDesk.csproj",
+      "language": "xml"
+    },
+    "packages-11": {
+      "region": "all",
+      "path": "samples/net11.0/FossilDesk/Directory.Packages.props",
+      "language": "xml"
+    },
+    "program-11": {
+      "region": "all",
+      "path": "samples/net11.0/FossilDesk/Program.cs",
+      "language": "csharp"
+    },
+    "desk-11": {
+      "region": "all",
+      "path": "samples/net11.0/FossilDesk/Desk.razor",
+      "language": "razor"
+    },
+    "probe": {
+      "region": "all",
+      "path": "samples/net11.0/FossilDesk/WorkerProbe.cs",
+      "language": "csharp"
+    },
+    "worker-project": {
+      "region": "all",
+      "path": "samples/net11.0/FossilWorker/FossilWorker.csproj",
+      "language": "xml"
+    },
+    "worker-methods": {
+      "region": "all",
+      "path": "samples/net11.0/FossilWorker/WorkerMethods.cs",
+      "language": "csharp"
+    },
+    "generated-client": {
+      "region": "all",
+      "path": "samples/net11.0/FossilWorker/WebWorkerClient.cs",
+      "language": "csharp"
+    },
+    "generated-transport": {
+      "region": "all",
+      "path": "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker-client.js",
+      "language": "javascript"
+    },
+    "generated-worker": {
+      "region": "all",
+      "path": "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker.js",
+      "language": "javascript"
+    },
+    "document": {
+      "region": "all",
+      "path": "samples/net11.0/FossilDesk/wwwroot/index.html",
+      "language": "html"
+    },
+    "observer": {
+      "region": "all",
+      "path": "samples/net11.0/FossilDesk/wwwroot/fossil-observe.js",
+      "language": "javascript"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Required foreground .NET 10/RC2 real browser proof supplied locally. No external resource or Human-only prerequisite; no GA, mobile, AOT or deployment claim."
+  }
+}

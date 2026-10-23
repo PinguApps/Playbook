@@ -1,0 +1,67 @@
+<!-- snippet:all -->
+@namespace FossilDesk
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<h1>Westmere fossil desk</h1>
+<button id="interact" @onclick="() => clicks++">Mark another tray</button>
+<output id="clicks">@clicks</output>
+<p id="state">@state</p>
+<button id="score" disabled="@(module is null || busy)" @onclick="ScoreAsync">Score specimens</button>
+<button id="stop" disabled="@(module is null)" @onclick="StopAsync">Release worker</button>
+<output id="result">@result</output>
+
+@code {
+    private IJSObjectReference? module;
+    private bool busy, disposed;
+    private int clicks;
+    private string state = "Starting", result = "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        var created = await JS.InvokeAsync<IJSObjectReference>("import", "./fossil-client.js");
+        if (disposed) { await created.DisposeAsync(); return; }
+        module = created;
+        state = "Ready";
+        StateHasChanged();
+    }
+
+    private async Task ScoreAsync()
+    {
+        if (module is null || busy) return;
+        busy = true;
+        state = "Computing";
+        try
+        {
+            var score = await module.InvokeAsync<int>("score", 1200);
+            result = $"Score {score}";
+            state = "Completed";
+        }
+        catch (JSException error) { state = $"Wait failed: {error.Message}"; }
+        finally { busy = false; }
+    }
+
+    private async Task StopAsync()
+    {
+        var current = module;
+        module = null;
+        if (current is not null)
+        {
+            await current.InvokeVoidAsync("stop");
+            await current.DisposeAsync();
+        }
+        state = "Worker released";
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (disposed) return;
+        disposed = true;
+        await StopAsync();
+    }
+}
+<!-- endsnippet:all -->
