@@ -1,8 +1,8 @@
 {
   "id": "blazor.pause-idle-tab",
   "edition": "11.0",
-  "title": "Pause hidden sessions",
-  "goal": "Release idle browser circuits and resume saved work.",
+  "title": "Pause hidden tabs",
+  "goal": "Release idle circuits; restore saved state.",
   "areas": [
     "blazor"
   ],
@@ -28,7 +28,7 @@
         "usage": "primary",
         "conditional": false,
         "selectionNotes": [
-          "Desktop hidden tabs; persist serializable state; retention/keys and no-refresh resume required."
+          "Hidden desktop tabs; persisted state/keys/retention; no refresh."
         ],
         "requirements": {
           "runtime": {
@@ -62,13 +62,13 @@
           ],
           "workloads": [],
           "packageAssets": [
-            "AutoPause initializer; matching SDK blazor.web.js"
+            "AutoPause initializer; matching blazor.web.js"
           ],
           "providers": [
-            "Local circuit persistence; Data Protection"
+            "Local memory; Data Protection"
           ],
           "platforms": [
-            "Desktop Page Visibility/timers"
+            "Desktop visibility/timers"
           ],
           "renderingModes": [
             "Interactive Server"
@@ -89,7 +89,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 evidence; GA pending."
+            "RC2; GA pending."
           ]
         },
         "evidenceSamples": [

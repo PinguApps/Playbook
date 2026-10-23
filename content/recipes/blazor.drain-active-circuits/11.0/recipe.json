@@ -1,8 +1,8 @@
 {
   "id": "blazor.drain-active-circuits",
   "edition": "11.0",
-  "title": "Pause sessions for maintenance",
-  "goal": "Ask connected browsers to save and pause before stopping the server.",
+  "title": "Pause for maintenance",
+  "goal": "Ask active browsers to save and pause.",
   "areas": [
     "blazor"
   ],
@@ -28,7 +28,7 @@
         "usage": "primary",
         "conditional": false,
         "selectionNotes": [
-          "Persist state; same document/retention/keys. Acceptance is not drain; request cancellation does not guarantee shutdown."
+          "Persist state; retain document/keys/retention. Acceptance/cancellation is not drain."
         ],
         "requirements": {
           "runtime": {
@@ -58,10 +58,10 @@
             "Microsoft.AspNetCore.Components.Server; matching SDK blazor.web.js"
           ],
           "providers": [
-            "Local circuit persistence; Data Protection"
+            "Local memory; Data Protection"
           ],
           "platforms": [
-            "ASP.NET Core server and browser"
+            "Server/browser"
           ],
           "renderingModes": [
             "Interactive Server"
@@ -82,7 +82,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 evidence; GA pending."
+            "RC2; GA pending."
           ]
         },
         "evidenceSamples": [

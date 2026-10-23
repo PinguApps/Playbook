@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-23T04:22:23.2880014+00:00",
+  "recordedAt": "2026-10-23T05:22:23.2880014+01:00",
   "routes": [
     {
       "artifacts": [
@@ -147,5 +147,78 @@
       "sourceCommit": "9c1abea6fee7919607fb0801116abe7e8ab6a461"
     }
   ],
-  "kind": "real-browser-and-host-lifecycle"
+  "kind": "real-browser-and-host-lifecycle",
+  "browserOperations": [
+    "Chrome extension CDP Runtime.evaluate of the exact eng/TideCharts.browser.js input",
+    "Emulation.setFocusEmulationEnabled {enabled:false}; Page.bringToFront on the actual worksheet/observer tabs",
+    "Runtime.evaluate tideProof.capture(label); native document.visibilityState and no own visibility properties",
+    "DOM button clicks Record reading, Hold a browser operation and Resume; Runtime.evaluate tide.release()",
+    "Assertions compare persisted sheet/readings, changing lease IDs, disposal/closure events, short-hide duration and held-work lifetime",
+    "Real localhost POST /proof/stop invokes app.StopAsync; await actual process exit; restart same artifacts/key ring; resume existing documents"
+  ],
+  "launches": [
+    {
+      "arguments": [
+        "bin/Release/net10.0/TideCharts.dll",
+        "--urls",
+        "http://localhost:5388",
+        "--Verification",
+        "true",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\proof10-refreshed.ndjson"
+      ],
+      "executable": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net10.0\\TideCharts"
+    },
+    {
+      "arguments": [
+        "bin/Release/net11.0/TideCharts.dll",
+        "--urls",
+        "http://localhost:5387",
+        "--Verification",
+        "true",
+        "--HiddenDelay",
+        "4000",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\proof11.ndjson"
+      ],
+      "executable": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe",
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts"
+    },
+    {
+      "arguments": [
+        "bin/Release/net11.0/TideCharts.dll",
+        "--urls",
+        "http://localhost:5390",
+        "--Verification",
+        "true",
+        "--AutoPause",
+        "false",
+        "--HiddenDelay",
+        "4000",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\proof11-disabled.ndjson"
+      ],
+      "executable": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe",
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts"
+    }
+  ],
+  "reports": [
+    {
+      "path": "docs/verification/PIN-787.browser10.evidence.json",
+      "sha256": "866ef388e5ff5f676fefa200ee8c3d1a4028e04fdf9aa2692b91aa6fdd8ce97d"
+    },
+    {
+      "path": "docs/verification/PIN-787.browser11-idle.evidence.json",
+      "sha256": "6fd8b9db80e6232959fa00f4274f8cb4a380221596a994473ebbe6843d7b10fc"
+    },
+    {
+      "path": "docs/verification/PIN-787.browser11-maintenance.evidence.json",
+      "sha256": "6cf1282ee08dcb768ae75024ca8072f82a5739eddd63e09eafe75d2a0f074d15"
+    },
+    {
+      "path": "docs/verification/PIN-787.lifecycle.evidence.json",
+      "sha256": "04d5b07d9318e954e15bdde9c8a43cb0dcffdf48e3720943845dd752147cb7dc"
+    }
+  ]
 }
