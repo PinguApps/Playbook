@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Deliberate circuit transport uses original LockhouseSessions .NET 10/11 hosts.
+[PIN-790](verification/PIN-790.md) records actual WebSocket/fallback, cookie-expiry
+controls and payloads above configured pipe thresholds, with complete offline delivery.
+
 Server-configured browser startup uses the original .NET 10/11 TideDesk host/client
 pairs. [PIN-788](verification/PIN-788.md) records generated endpoint/component
 options, real reconnection, Server/WASM/Auto execution, a bounded separate-request

@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For server circuit transport, ticket expiry and buffering, use the
+[tested PIN-790 walkthrough](verification/PIN-790.md#inspect-what-an-agent-receives).
+It displays the full original .NET 10/11 comparison, exact policy applicability
+and saved evidence through real stdio list/get.
+
 For server-configured browser startup, use the
 [tested PIN-788 walkthrough](verification/PIN-788.md#inspect-what-an-agent-receives).
 It displays complete host/client setup, final option groups, target applicability
