@@ -1,0 +1,33 @@
+{
+  "kind": "installed-stdio-execution",
+  "sourceHead": "ac358c0cc2464025120eeeb742567e88060f8611",
+  "sourceDirtyPaths": [
+    "docs/verification/PIN-781.md"
+  ],
+  "packageVersion": "0.0.0-workshop-views",
+  "packageSha256": "dbe7b1f55098d36db2f94c7fa26c2ec000830b4d8b285c977ad6150c9d444bac",
+  "fixtureSha256": "53140cb2a9860244fea1b271d76ea155c2b963b4ac2ecd8a1cd67169617eb93a",
+  "suiteSha256": "57160dfbb18849df5a0667faea8d2e84cf97b2fbc1d57399a23ec4c7b37d60e6",
+  "command": "eng/Test-Offline.ps1 -PackageVersion '0.0.0-workshop-views' -RuntimeMajor 10",
+  "network": "docker --network none; only artifacts, compiled suite and Test-Package.ps1 mounted",
+  "runtime": "Microsoft.NETCore.App 10.0.12",
+  "fullWrapper": {
+    "failed": 0,
+    "errors": 0,
+    "total": 36,
+    "passed": 36,
+    "skipped": 0
+  },
+  "windowsFocusedBudgetScenarios": 2,
+  "budgets": {
+    "ordinary11Default20": 71476,
+    "fixtureDefault20": 71480,
+    "ordinary10Default": 34909,
+    "max50Limit": 170000,
+    "summaryLimit": 3000,
+    "ordinary11LargestSummary": 1982,
+    "fixtureMax50": 169950,
+    "ordinary10LargestSummary": 2009
+  },
+  "scope": "Existing harness installs isolated local-only feed/cache; real stdio list/get, complete canonical Markdown equality, applicability/edition/evidence freshness, target rejection, catalogue traversal and unchanged byte guards. No new OS/client/native matrix."
+}
