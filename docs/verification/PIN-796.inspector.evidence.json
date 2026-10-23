@@ -1,0 +1,114 @@
+{
+  "startedFrom": "C:\\Windows",
+  "worktree": "V:\\_worktrees\\Playbook\\agent-pin-796-04-024-serve-a-standalone-client-with-configured-backend",
+  "script": "eng/Inspect-QuaysideRoutes.ps1",
+  "scriptSha256": "048a547260a62b6339d55fe82867f78c8187345e02fd2eb53d5d83aa00101f2a",
+  "responseSha256": "62a515cd6d9a9ce57a48e801e7d8d6813d65a4d7ca2e686089d3f4446f84efe2",
+  "bodySha256": "81099a59325edbcf81051f3ebbe0ad41b5b35c599c34c0e836e2b291769a8c3e",
+  "id": "blazor.host-browser-client-with-backends",
+  "edition": "11.0",
+  "fullMarkdownCharacters": 29640,
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "WASM; Gateway/defaults; Aspire if used."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "WASM plus Gateway host."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Gateway and SPA manifests."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical mode; no new syntax."
+          },
+          "frameworks": [
+            "Blazor"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.Gateway",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Build/tool assets."
+            },
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Matching browser assets."
+            },
+            {
+              "name": "Microsoft.Extensions.ServiceDiscovery",
+              "version": "10.10.0",
+              "match": "exact",
+              "reason": "Generated defaults."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Gateway tool/manifests; generated defaults/initializer"
+          ],
+          "providers": [
+            "YARP; configuration service discovery"
+          ],
+          "platforms": [
+            "Browser WASM; local .NET host"
+          ],
+          "renderingModes": [
+            "WebAssembly"
+          ],
+          "prerequisites": [
+            "Complete old/new projects, exact package pins, configuration, generated defaults and browser assets below. RC2 SDK 11.0.100-rc.2.26504.105; older SDK 10.0.402/runtime 10.0.13. Interpreted WASM needs no wasm-tools/AOT/native workload.",
+            "Use generated blazorwasm-servicedefaults library and its .lib.module.js; retain its assembly name/static asset path. OpenTelemetry packages 1.19.1 (exporter/hosting), 1.19.0 (HTTP/runtime instrumentation) are pinned below.",
+            "Aspire dependency when used: an actual compatible Aspire AppHost/integration must supply service references and Gateway/browser configuration. This manual loopback route uses no Aspire orchestrator, account, container or provisioning; it does not verify an Aspire route."
+          ],
+          "constraints": [
+            "WASM; Components.Gateway, generated service-defaults library; Aspire dependency when used.",
+            "Gateway is a build/tool/manifest contract, not a normal lib API. Do not call framework-test-only BlazorGateway.BuildWebHost. StaticWebAssetSpaFallbackEnabled=true adds a nonfile index endpoint; API proxy routes must win, and backend 404 must remain 404.",
+            "ClientApps config is public. Browser logical quays resolves to the entry origin; Gateway logical quaybackend resolves to the real loopback backend. Never expose credentials or authoritative permissions.",
+            "This edition selects target 11 only. The compiled/executed .NET 10 ASP.NET Core host/YARP comparison remains valid; it does not claim older Gateway or generated-template support and adds no ninth .NET 10 foundation.",
+            "Local HTTP/development manifests only. HttpsRedirection and telemetry are disabled explicitly for loopback. Production TLS, authentication, path-base hosting, deployment, watch/debugger tooling, OTLP delivery, Aspire, trimming/AOT and GA need their own verification."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA pending. No Experimental attribute opt-in in this route."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Gateway/src/BlazorGateway.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWasmServiceDefaults-CSharp/Extensions.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuaysideRoutes/Client/QuaysideRoutes.Client.csproj",
+          "samples/net11.0/QuaysideRoutes/Defaults/QuaysideRoutes.Defaults.csproj",
+          "samples/net11.0/QuaysideRoutes/Backend/QuaysideRoutes.Backend.csproj"
+        ]
+      }
+    ]
+  },
+  "currentCompilationSamples": [
+    "samples/net10.0/QuaysideRoutes/Backend/QuaysideRoutes.Backend.csproj",
+    "samples/net10.0/QuaysideRoutes/Client/QuaysideRoutes.Client.csproj",
+    "samples/net10.0/QuaysideRoutes/Host/QuaysideRoutes.Host.csproj",
+    "samples/net11.0/QuaysideRoutes/Backend/QuaysideRoutes.Backend.csproj",
+    "samples/net11.0/QuaysideRoutes/Client/QuaysideRoutes.Client.csproj",
+    "samples/net11.0/QuaysideRoutes/Defaults/QuaysideRoutes.Defaults.csproj"
+  ]
+}

@@ -1,9 +1,22 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+PIN-800 delivers `blazor.preload-needed-resources/11.0` (WEB-082/WEB_W16C).
+The [original TernLedger proof](../../verification/PIN-800.md) separates explicit
+hints from framework defaults and reconciles the serviced .NET 10/RC2 guard.
+
 Reviewed **22 October 2026**. This closes a bounded artifact/source reconciliation,
 not recipe delivery. At audit time every qualifying goal remained **delivery outstanding**.
 Subsequent delivery is linked per goal below; the audit itself did not change served
 recipes, MCP contracts, sample evidence or publication-completeness flags.
+
+PIN-797 delivers `blazor.observe-browser-components/11.0` with original
+LoomActivity .NET 10/11 WASM consumers and an official local OTLP collector.
+Both releases expose public static AddComponentsMetrics/AddComponentsTracing;
+the older registration remains valid. The .NET 11 host adds conditional automatic
+registration, while its SDK's public diagnostics property defaults the three
+runtime switches. [Actual compilation, browser receipt and correlation evidence](../../verification/PIN-797.md)
+keeps source review, subscription and export/delivery distinct. This preserves
+the shared `tracing.configure-source-rules/11.0` recipe and the eight foundations.
 
 ## Boundary and exact evidence
 
@@ -77,9 +90,9 @@ source-only scripts, defaults, markup, manifests and removable workarounds.
 | Label, DisplayName, InputBase metadata | Accessible IDs/captions; same model metadata, not separate accessor recipes. | Grouped: PIN-773. |
 | Static SSR client rules, DisableClientValidation, ClientValidationProvider, ClientValidationRule/IClientValidationRuleProvider | Built-in immediate/nested validation and localized rules stay assigned; authored custom rule adapters have distinct server-metadata/browser wiring. | PIN-772/PIN-775; uncovered custom adapter **B06**. |
 | EditContext.ValidateAsync, async field validators/progress/faults, ValidationRequestedEventArgs, Validate obsoletion | Await field and submit rules, cancellation and stale results; **Validate() is newly obsolete with the default diagnostic**, outside SYSLIB's custom-ID list. | Grouped: PIN-774; shared validation semantics PIN-748/PIN-706. |
-| ITempData, supply-from-session/temp-data, cookie/provider options; template status/redirect messages | One-use redirect versus persistent session; early cookies for streaming and fail-fast missing-session setup. Interactive/no-HttpContext behavior differs. | Grouped: PIN-776; no additional persistence recipe per overload. |
+| ITempData, supply-from-session/temp-data, cookie/provider options; template status/redirect messages | One-use redirect versus persistent session; early cookies for streaming and fail-fast missing-session setup. RC2 bound TempData values write back: consume with copy then clear. Interactive/no-HttpContext behavior differs. | Grouped: PIN-776; two original 11.0 recipes and actual .NET 10/11 comparison/HTTP/installed proof in [PIN-776](../../verification/PIN-776.md); GA pending; no additional persistence recipe per overload. |
 | CacheView, CacheBehavior/CacheCondition/CacheVaryBy and built-in annotations | Boundary variation/expiration/HybridCache stays assigned. Authoring a reusable child with live holes or refusal is a distinct contract; cached parameters are replayed unchanged, not refreshed. AuthorizeView requires user variation; AntiforgeryToken/HeadOutlet stay live. | PIN-780 delivered boundary/storage policy with [real local provider proof](../../verification/PIN-780.md); **B07** retains reusable child contracts. |
-| BasePath, RelativeToCurrentUri, GetUriWithFragment, NavLink | Base versus current-route navigation and fragment handling. Preview GetUriWithHash/EnvironmentBoundary spellings are not final APIs. BasePath moved to Components in RC2. | Delivered: PIN-777 three 11.0 editions with real .NET 10/RC2 non-root navigation and fragment checks; [evidence](../../verification/PIN-777.md). EnvironmentView remains PIN-795. |
+| BasePath, RelativeToCurrentUri, GetUriWithFragment, NavLink | Base versus current-route navigation and fragment handling. Preview GetUriWithHash/EnvironmentBoundary spellings are not final APIs. BasePath moved to Components in RC2. | Delivered: PIN-777 three 11.0 editions with real .NET 10/RC2 non-root navigation and fragment checks; [evidence](../../verification/PIN-777.md). EnvironmentView delivered by PIN-795 as blazor.show-environment-specific-content/11.0; [server/client evidence](../../verification/PIN-795.md). |
 | Virtualize anchor/identity/index/scroll APIs, variable heights, CSP spacer attributes | Explicit anchoring/reveal/CSP and removing existing compensation qualify. Automatic sizing alone does not add a recipe. Default overscan is Virtualize 15 versus QuickGrid 3, not a universal grid change. | PIN-785 initial/programmatic reveal delivered with original .NET 10/11 samples and real delayed-provider/visible-target proof; [evidence](../../verification/PIN-785.md). PIN-786 restrictive-style CSP delivered with original old/new consumers, real policy enforcement controls and visible distant rows; [evidence](../../verification/PIN-786.md). PIN-784 delivers anchor/identity/variable-height guidance with [real browser proof](../../verification/PIN-784.md). |
 | QuickGrid URL state, QueryParameterNameOptions, row callbacks, virtualization forwarding | URL sorting/page isolation and link/aria-disabled CSS migration, row interaction and virtualized position. RC2 AnchorMode/ItemComparer metadata has no ASP0030 attribute. | PIN-781 URL state delivered with immutable Title keys/custom visible headers (no dedicated ColumnId), two-grid static/interactive proof and original .NET 10/11 comparisons; [evidence](../../verification/PIN-781.md). PIN-782 retains row-action ownership. PIN-783 delivers grid positioning, stable identity and Start anchoring with [real comparison evidence](../../verification/PIN-783.md). |
 | Circuit.RequestCircuitPauseAsync and AutoPause package | Task<bool> reports request acceptance, not completed persistence; optional cancellation and hidden-tab delay need real browser proof. | Grouped: PIN-787, delivered with [native browser/state/resource and host lifecycle proof](../../verification/PIN-787.md). |
@@ -89,7 +102,7 @@ source-only scripts, defaults, markup, manifests and removable workarounds.
 | Actual web-worker template + generated WebWorkerClient/JS | New blazorwebworker identity; create/invoke/void, timeout/cancellation and termination. Void calls are awaited operations, not proof that errors or timeouts disappear. | Grouped: PIN-792. |
 | Gateway/Gateway.Cli build targets, endpoint/development manifests, SPA fallback, proxy/service-defaults inputs | Replace DevServer; route actual backend traffic and standalone fallback, remove obsolete inspectUri/UseWebAssemblyDebugging (ASPDEPR011). Generated service defaults are not proof that Aspire orchestration has run. | Grouped: PIN-796. |
 | IComponentPropertyActivator | Keyed/unkeyed injection and activation lifetime, distinct from cascading subscriptions. | Grouped: PIN-801. |
-| MathML rendering, NavMenu external JS, custom event collision, removed implicit enhanced-nav preload | Authored markup/JS or removable exception qualifies despite small/no API delta. | Grouped: PIN-803/PIN-798/PIN-799/PIN-800. |
+| MathML rendering, NavMenu external JS, custom event collision, removed implicit enhanced-nav preload | Authored markup/JS or removable exception qualifies despite small/no API delta. | PIN-799 delivered blazor.rename-custom-event/11.0 with original old/new native-browser proof and installed offline retrieval; [evidence](../../verification/PIN-799.md). NavMenu delivered: PIN-798 original BrackenMenu comparisons, both real module paths and strict CSP controls; [evidence](../../verification/PIN-798.md). PIN-803/PIN-800 remain separately assigned. |
 | RenderFragment<T> contravariance | Reuse a base-item renderer for a derived-item slot; does **not** serialize generic delegates across rendering modes. | **B03**, separate from PIN-778's non-generic static fragment boundary. |
 | AssetPath/AcceptsAssetPath/AssetPathAttributes, compiler metadata | Mark component parameters/custom HTML attributes for compiler asset expansion instead of scattering explicit lookup. | **B01**. PropertyMetadata.AcceptsStringLiteral delivered with [PIN-779's union-valued markup](../../verification/PIN-779.md); AssetPath remains B01. |
 | CascadingParameterSubscription/TryAddCascadingValueSupplier<TAttribute> | Attribute-selected scoped suppliers, notification and disposal, rather than component property injection. ComponentState is a framework-facing seam. | **B02**; acknowledge BL0006 where emitted, no blanket stable/AOT guarantee. |
@@ -144,8 +157,13 @@ review is not a claim that all diagnostics executed on a real Razor consumer.
   Default-diagnostic EditContext.Validate is owned here through PIN-774.
 - Culture drift: the cumulative page still shows public
   WebAssemblyComponentsOptions.UseCultureFromServer, removed during Preview 7.
-  PIN-794 must verify `Components:UseCultureFromServer`/localization and the actual
-  BrowserOptions route rather than copy that obsolete preview call.
+  PIN-794 delivered `Components:UseCultureFromServer`/localization with original
+  .NET 10 manual and RC2 persisted-culture consumers. Real browser runs prove
+  both culture names, aligned and independent-client policies, and actual
+  satellite loading before rendering. The emitted RC2 browser configuration
+  has no applicationCulture in these samples; initial en-US is explicit JS
+  startup, while aligned en-GB/fr-FR comes from persistent state. See
+  [exact proof and limits](../../verification/PIN-794.md).
 - AI drift: the downloaded preview-7 assembly has UIAgent, ChatPage, content/rich
   text and handler primitives, **not** FunctionInvocationContentBlock,
   UIActionBlock, FunctionApprovalBlock, ActivityContentBlock/ActivityHandler,

@@ -1,0 +1,16 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-CairnSignals.ps1",
+    "eng/CairnSignals.prepare.js",
+    "eng/CairnSignals.browser.js"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}

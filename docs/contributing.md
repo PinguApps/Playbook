@@ -4,6 +4,23 @@ Deliberate circuit transport uses original LockhouseSessions .NET 10/11 hosts.
 [PIN-790](verification/PIN-790.md) records actual WebSocket/fallback, cookie-expiry
 controls and payloads above configured pipe thresholds, with complete offline delivery.
 
+Deliberate enhanced-navigation resource hints use original TernLedger .NET 10/11
+consumers. [PIN-800](verification/PIN-800.md) records actual hinted/control requests,
+deferred module execution, cache reuse and complete installed-body reconstruction.
+Navigation without inline-handler exceptions uses the original BrackenMenu host/client
+comparisons. [PIN-798](verification/PIN-798.md) records both real module paths,
+strict-policy controls, older backport and complete returned-body reconstruction.
+
+Custom event alias migration uses original CairnSignals .NET 10/11 consumers.
+[PIN-799](verification/PIN-799.md) records actual same-name rejection, native
+beforeinput payload/dispatch, complete returned-Markdown reconstruction and the
+tested installed Inspector handoff.
+
+Browser component activity uses original .NET 10/11 LoomActivity consumers and
+the official local OTLP collector. [PIN-797](verification/PIN-797.md) records
+actual received metrics, event/route/child correlation, artifact/source equality,
+standalone reconstruction and installed offline MCP retrieval.
+
 Unified JavaScript startup options use the original .NET 10/11 ParcelStartup
 Server/WASM legacy and Web App consumers. [PIN-789](verification/PIN-789.md)
 records effective callbacks, browser culture, responsive controls, retained flat

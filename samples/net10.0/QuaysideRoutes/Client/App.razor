@@ -1,0 +1,8 @@
+<!-- snippet:main -->
+@using Microsoft.AspNetCore.Components.Routing
+@namespace QuaysideRoutes
+<Router AppAssembly="typeof(App).Assembly">
+    <Found Context="route"><RouteView RouteData="route" /></Found>
+    <NotFound><h1>Unknown quay</h1></NotFound>
+</Router>
+<!-- endsnippet:main -->

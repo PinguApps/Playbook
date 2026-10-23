@@ -1,0 +1,74 @@
+{
+  "recordedAt": "2026-10-23T14:10:10.5670726+00:00",
+  "recipeSha256": "fef9e0688d72eff4e0a48bce5ecc8c54ad9a09811443d4491f528dd6c3e1a234",
+  "verifierSha256": "448a0d15efacfe93e6a681a1f94cbcbb00b56ea699f5de5c5318c62e1e97783e",
+  "scope": "Actual standalone builds from returned expanded stdio Markdown only. No canonical checkout application/configuration source copied. Browser execution recorded separately.",
+  "projects": [
+    {
+      "dependencies": [
+        "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+      ],
+      "artifacts": {
+        "bin/Release/net10.0/global.json": "3f9b8063fdc946bf82db965d9a228d4ea581390f83680ee3b952fb0ec00b2cf3",
+        "bin/Release/net10.0/TernLedger.deps.json": "de3b7fc8ced8e09c663fe0f889d55e2223f3a2a0610ec2e7fc96817a01a86457",
+        "bin/Release/net10.0/TernLedger.dll": "0c8260c0f6fd540c1db044431c22ac36fdaaf52c34b8904efaeadfe13a887ad2",
+        "bin/Release/net10.0/TernLedger.exe": "d56f012500b4e131db9b694c9fd719482f65c155fad0e46436d393f9888ba04f",
+        "bin/Release/net10.0/TernLedger.pdb": "d52d88c04660091256d46053b70d63902b0211fb7e653262df5d94949bb2bdb5",
+        "bin/Release/net10.0/TernLedger.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+        "bin/Release/net10.0/TernLedger.staticwebassets.endpoints.json": "064f6e1c54b3ac40488bb775a99b488d297aa824324b19fd8acbb6188d2dbaa9",
+        "bin/Release/net10.0/TernLedger.staticwebassets.runtime.json": "6f228bcef8618188b253d35fae03d055c072bb01146ee48081003067acaa4681"
+      },
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin800-sdk-parameters-e617808fb16045d6a710638f16e4c63b\\net10.0",
+      "build": "Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin800-sdk-parameters-e617808fb16045d6a710638f16e4c63b\\net10.0\\TernLedger.csproj (in 818 ms).\r\n  TernLedger -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin800-sdk-parameters-e617808fb16045d6a710638f16e4c63b\\net10.0\\bin\\Release\\net10.0\\TernLedger.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:06.01",
+      "inputs": {
+        "_Imports.razor": "2e654dcf0bd4da3c94550a3043a53105e836f8095e05135a876b90ea03dcf0ca",
+        "App.razor": "1f35bb0f75ad34a12ce296faa92f377006b9a2b8d18c49d0d48b8edee42113b3",
+        "global.json": "3f9b8063fdc946bf82db965d9a228d4ea581390f83680ee3b952fb0ec00b2cf3",
+        "Home.razor": "387dbe4b1cc6eedb5631a1e109058bb1b2e50c893ead1da7e097334ff3aa3525",
+        "Ledger.razor": "6854da80e74ca0dab887d2830f12267a92351e1b09f787dd884ffa02d080429f",
+        "packages.lock.json": "4851aab479c5f9a6ffbda507bd9c920ba9785b5a24f1a9bce3ca576576a967eb",
+        "Program.cs": "995c4efa02dcdd54c8721beb0d3af8b7f4c2b18f7d774390c44bcc3edce68893",
+        "Routes.razor": "d628e6b07467545b939e3c1542b283966f3c8e58aa3067aafebe22935c8fc5af",
+        "TernLedger.csproj": "00b4daa353427429265b46cdb0dba3636109db4916945604be99af920e3702da",
+        "wwwroot/ledger-data.json": "79c8f08c54cf82b193c3a7b3514510232e9cf5397124d8e1396a9ca7e07445c3",
+        "wwwroot/ledger-module.js": "9369479f04dfcb075e49d164c93eda5a774ffdbf15f1e53c3903fc14ca935889",
+        "wwwroot/tern.js": "6e9cd0dd1c3136dac6cb27d52e53d27d5f00f325dbd4bb326fa42501094bb9fc"
+      },
+      "target": "net10.0",
+      "sdk": "10.0.402"
+    },
+    {
+      "dependencies": [
+        "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105"
+      ],
+      "artifacts": {
+        "bin/Release/net11.0/global.json": "da4e0986b0e87d6dfa12d60debd42c6e25168c549468ce90cc4c19eaee72b1c4",
+        "bin/Release/net11.0/TernLedger.deps.json": "132dae5f8d3e1ce367ac3e1e77b055149476750852872661840cd4d592de98b9",
+        "bin/Release/net11.0/TernLedger.dll": "1eaa0751fb4dc21fb7503d0086daa99357e0c1f889b48546da8726b373c42c07",
+        "bin/Release/net11.0/TernLedger.exe": "6f0d5c809c0717d0e80de527a84dd658f35c54ca6d03bc7f92a2caeaea4dd64d",
+        "bin/Release/net11.0/TernLedger.pdb": "f02e6ccf3a3511dc400e9415f4bffa932656c0b21a7b15ee8792c16f57a9d065",
+        "bin/Release/net11.0/TernLedger.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+        "bin/Release/net11.0/TernLedger.staticwebassets.endpoints.json": "450f9974ea7c5ba563a39f1fd4d98825bbacc42331716ecd8485336c0b577846",
+        "bin/Release/net11.0/TernLedger.staticwebassets.runtime.json": "553b65704ee28535537f1b5a06a5b228792b5c60d7673149fe94b07ffaf94150"
+      },
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin800-sdk-parameters-e617808fb16045d6a710638f16e4c63b\\net11.0",
+      "build": "Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin800-sdk-parameters-e617808fb16045d6a710638f16e4c63b\\net11.0\\TernLedger.csproj (in 279 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin800-sdk-parameters-e617808fb16045d6a710638f16e4c63b\\net11.0\\TernLedger.csproj]\r\n  TernLedger -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin800-sdk-parameters-e617808fb16045d6a710638f16e4c63b\\net11.0\\bin\\Release\\net11.0\\TernLedger.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.54",
+      "inputs": {
+        "_Imports.razor": "2e654dcf0bd4da3c94550a3043a53105e836f8095e05135a876b90ea03dcf0ca",
+        "App.razor": "1f35bb0f75ad34a12ce296faa92f377006b9a2b8d18c49d0d48b8edee42113b3",
+        "global.json": "da4e0986b0e87d6dfa12d60debd42c6e25168c549468ce90cc4c19eaee72b1c4",
+        "Home.razor": "387dbe4b1cc6eedb5631a1e109058bb1b2e50c893ead1da7e097334ff3aa3525",
+        "Ledger.razor": "6854da80e74ca0dab887d2830f12267a92351e1b09f787dd884ffa02d080429f",
+        "packages.lock.json": "21a60233da5c81bba55b56e6b57b7ca580a07d00bc7d5eaa6dc493be7763db10",
+        "Program.cs": "995c4efa02dcdd54c8721beb0d3af8b7f4c2b18f7d774390c44bcc3edce68893",
+        "Routes.razor": "d628e6b07467545b939e3c1542b283966f3c8e58aa3067aafebe22935c8fc5af",
+        "TernLedger.csproj": "c6ae352a90824bce88dc80c35107f3358ff91a2cb9211dd15af51cb80b4b30ee",
+        "wwwroot/ledger-data.json": "79c8f08c54cf82b193c3a7b3514510232e9cf5397124d8e1396a9ca7e07445c3",
+        "wwwroot/ledger-module.js": "9369479f04dfcb075e49d164c93eda5a774ffdbf15f1e53c3903fc14ca935889",
+        "wwwroot/tern.js": "6e9cd0dd1c3136dac6cb27d52e53d27d5f00f325dbd4bb326fa42501094bb9fc"
+      },
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ]
+}

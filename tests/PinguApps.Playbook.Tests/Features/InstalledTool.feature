@@ -264,12 +264,14 @@ Feature: Installed offline guidance
     When a client initializes the installed stdio server outside the checkout
     Then survey forms retain complete canonical bodies applicability and editions
     And visit validation retains awaited localized canonical guidance offline
+    And harbour state retains one-use and persistent canonical guidance offline
     And captured static content retains complete canonical guidance offline
     And base aware navigation retains complete canonical guidance offline
     And shareable grid views retain complete canonical guidance offline
     And selected rows retain canonical guidance and interactive requirements offline
     And grid positioning retains canonical bodies and rendered instance constraints offline
     And restrictive style CSP retains canonical virtual list guidance offline
+    And navigation CSP retains complete canonical guidance and layout module paths offline
     And static subtree caching retains complete canonical guidance offline
     And changing lists retain canonical guidance and complete anchoring requirements offline
     And virtual list reveal retains complete canonical guidance offline
@@ -279,5 +281,14 @@ Feature: Installed offline guidance
     And circuit pause retains complete canonical guidance and persistence requirements offline
     And circuit transport retains complete canonical guidance and connection requirements offline
     And periodic browser work retains complete canonical guidance and lifetime limits offline
+    And culture handover retains complete canonical guidance and satellite requirements offline
+
+    And browser configuration retains complete canonical guidance and precedence requirements offline
+    And browser workers retain complete canonical guidance and cancellation limits offline
+    And standalone gateway retains complete canonical guidance and backend requirements offline
+    And environment chrome retains complete canonical guidance and renderer boundaries offline
+    And custom event migration retains complete canonical guidance and collision requirements offline
+    And browser component activity retains complete setup and collector requirements offline
+    And deliberate resource hints retain complete guidance and actual target boundaries offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

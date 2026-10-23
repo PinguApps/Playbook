@@ -1,0 +1,14 @@
+{
+  "workloads": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "eng/Test-HarbourPermit.ps1"
+  ],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ]
+}

@@ -1,0 +1,47 @@
+<!-- snippet:complete -->
+@page "/"
+@rendermode InteractiveWebAssembly
+@using System.Globalization
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@using Microsoft.Extensions.Localization
+@using Microsoft.JSInterop
+@namespace CultureHarbour.Client
+@inject IStringLocalizer<Manifest> Text
+@inject IJSRuntime JS
+<section id="manifest">
+    <h1>@Text["Heading"]</h1>
+    <dl>
+        <dt>Formatting culture</dt><dd id="culture">@CultureInfo.CurrentCulture.Name</dd>
+        <dt>Translation culture</dt><dd id="ui">@CultureInfo.CurrentUICulture.Name</dd>
+        <dt>Departure</dt><dd id="date">@Departure.ToString("d")</dd>
+        <dt>Cargo weight</dt><dd id="number">@Weight.ToString("N2")</dd>
+        <dt>Instruction</dt><dd id="translation">@Text["Instruction"]</dd>
+    </dl>
+    <button id="confirm" @onclick="() => confirmations++">Confirm manifest</button>
+    <p id="confirmations">@confirmations</p>
+    <p id="phase">@(interactive ? "Interactive WASM" : "Prerendered")</p>
+</section>
+@code {
+    private static readonly DateTime Departure = new(2032, 7, 19);
+    private const decimal Weight = 12345.67m;
+    private int confirmations;
+    private bool interactive;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        interactive = true;
+        try
+        {
+            await JS.InvokeVoidAsync("cultureHarbour.observe", "first-render",
+                CultureInfo.CurrentCulture.Name, CultureInfo.CurrentUICulture.Name);
+        }
+        catch (JSException error)
+        {
+            throw new InvalidOperationException("Browser observation failed.", error);
+        }
+        StateHasChanged();
+    }
+}
+<!-- endsnippet:complete -->

@@ -1,0 +1,14 @@
+<!-- snippet:main -->
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>QuaysideRoutes</RootNamespace>
+    <StaticWebAssetSpaFallbackEnabled>true</StaticWebAssetSpaFallbackEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Gateway" PrivateAssets="all" />
+    <ProjectReference Include="../Defaults/QuaysideRoutes.Defaults.csproj" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:main -->

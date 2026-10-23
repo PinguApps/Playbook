@@ -1,0 +1,256 @@
+{
+  "id": "blazor.show-environment-specific-content",
+  "edition": "11.0",
+  "title": "Show environment-specific chrome",
+  "goal": "Mark test environments and show the controls intended for each renderer.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "copperline-chrome"
+  ],
+  "apis": [
+    "EnvironmentView"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "conditional": false,
+        "target": "11.0",
+        "usage": "primary",
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/environments?view=aspnetcore-10.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/EnvironmentView.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs"
+        ],
+        "selectionNotes": [
+          "Server/client environments; case-insensitive include/exclude; not access control."
+        ],
+        "requirements": {
+          "language": {
+            "reason": "Declared canonical sample mode; the component does not require novel C# syntax.",
+            "name": "C#",
+            "match": "exact",
+            "version": "15.0"
+          },
+          "providers": [],
+          "constraints": [
+            "Include and Exclude are comma-separated names with trimming, empty-entry removal and ordinal case-insensitive matching. Exclude wins. Missing/whitespace Include permits content unless excluded. A list with no valid include names acts as unspecified for a nonempty environment.",
+            "EnvironmentView hides presentation only. Browser environment values and client assets are public and alterable. Hidden chrome is not authorization: authenticate and authorize every protected operation on the server.",
+            "An empty/whitespace current environment renders only when both Include and Exclude are unspecified/whitespace (source-reviewed boundary). Server prerender and later browser rendering can have different environments. This example disables browser prerender so each observation has one renderer.",
+            "No .NET 10 EnvironmentView backport or older-target package route is claimed. Use the supported older service/conditional comparison. Auto, Hybrid, AOT and GA artifacts were not executed; no new .NET 10 foundation edition is introduced."
+          ],
+          "sdk": {
+            "reason": "Web and BlazorWebAssembly SDKs compile the complete host/client example.",
+            "name": ".NET SDK",
+            "match": "release-family",
+            "version": "11.0"
+          },
+          "runtime": {
+            "reason": "EnvironmentView is part of ASP.NET Core 11; use matching server/browser runtime assets.",
+            "name": ".NET",
+            "match": "release-family",
+            "version": "11.0"
+          },
+          "packageAssets": [
+            "Matching JS/WASM"
+          ],
+          "workloads": [],
+          "stabilityLimitations": [
+            "RC2, not GA"
+          ],
+          "platforms": [
+            "Server/browser"
+          ],
+          "frameworks": [
+            "ASP.NET Core"
+          ],
+          "packages": [
+            {
+              "reason": "Matching client components and IHostEnvironment adapter.",
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "match": "release-family",
+              "version": "11.0"
+            },
+            {
+              "reason": "Hosted browser assets and render-mode endpoints.",
+              "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
+              "match": "release-family",
+              "version": "11.0"
+            }
+          ],
+          "renderingModes": [
+            "Static SSR",
+            "WebAssembly"
+          ],
+          "optIns": [],
+          "prerequisites": [
+            "Use the complete Host/Client projects, explicit Razor imports, namespaces, document, CSS and boot JavaScript below. Actual baseline: SDK 11.0.100-rc.2.26504.105, runtime/packages 11.0.0-rc.2.26504.105, C# 15. No wasm-tools workload or AOT is required; WasmBuildNative=false.",
+            "WebApplication supplies server IHostEnvironment. WebAssemblyHostBuilder registers its real browser environment and IHostEnvironment adapter. The browser demonstration defaults to Review independently of the server; the query switch is public test setup only."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/CopperlineDesk/Host/Host.csproj",
+          "samples/net11.0/CopperlineDesk/Client/Client.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Blazor environment setup and reading",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/environments?view=aspnetcore-10.0"
+    },
+    {
+      "title": "RC2 EnvironmentView implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/EnvironmentView.cs"
+    },
+    {
+      "title": "RC2 browser environment and IHostEnvironment adapter registration",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs"
+    },
+    {
+      "title": "Previous browser host environment service",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/CopperlineDesk/Host/Host.csproj",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "kind": "compile"
+    },
+    {
+      "language": "14.0",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/CopperlineDesk/Client/Client.csproj",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "kind": "compile"
+    },
+    {
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/CopperlineDesk/Host/Host.csproj",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "kind": "compile"
+    },
+    {
+      "language": "15.0",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/CopperlineDesk/Client/Client.csproj",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "kind": "compile"
+    }
+  ],
+  "humanProof": {
+    "scope": "No Human-only prerequisite, accounts or resources. Actual local server and browser proof; platform, render-mode and RC-versus-GA limits are explicit.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "old-packages": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/CopperlineDesk/Host/Directory.Packages.props"
+    },
+    "old-host-project": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/CopperlineDesk/Host/Host.csproj"
+    },
+    "old-client-project": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/CopperlineDesk/Client/Client.csproj"
+    },
+    "old-chrome": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net10.0/CopperlineDesk/Client/Chrome.razor"
+    },
+    "old-server": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net10.0/CopperlineDesk/Host/Server.razor"
+    },
+    "old-browser": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net10.0/CopperlineDesk/Client/BrowserChrome.razor"
+    },
+    "new-packages": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/CopperlineDesk/Host/Directory.Packages.props"
+    },
+    "new-host-project": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/CopperlineDesk/Host/Host.csproj"
+    },
+    "new-client-project": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/CopperlineDesk/Client/Client.csproj"
+    },
+    "new-chrome": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net11.0/CopperlineDesk/Client/Chrome.razor"
+    },
+    "new-server": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net11.0/CopperlineDesk/Host/Server.razor"
+    },
+    "new-browser": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net11.0/CopperlineDesk/Client/BrowserChrome.razor"
+    },
+    "host": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/CopperlineDesk/Host/Program.cs"
+    },
+    "client": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/CopperlineDesk/Client/Program.cs"
+    },
+    "document": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net11.0/CopperlineDesk/Host/App.razor"
+    },
+    "routes": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net11.0/CopperlineDesk/Host/Routes.razor"
+    },
+    "browser-page": {
+      "region": "complete",
+      "language": "razor",
+      "path": "samples/net11.0/CopperlineDesk/Host/Browser.razor"
+    },
+    "startup": {
+      "region": "complete",
+      "language": "javascript",
+      "path": "samples/net11.0/CopperlineDesk/Host/wwwroot/chrome-start.js"
+    }
+  }
+}

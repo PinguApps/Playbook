@@ -1,0 +1,31 @@
+<!-- snippet:complete -->
+@namespace CairnSignals
+@using CairnSignals
+<h1>Cairn signal notes</h1>
+<label for="signal-note">Signal note at North cairn</label>
+<input id="signal-note" data-station="North cairn" @onbeforeinput="RecordEdit" />
+<p id="ready">Interactive: @ready</p>
+<p id="deliveries">Deliveries: @deliveries</p>
+<output id="receipt">@receipt</output>
+
+@code {
+    private bool ready;
+    private int deliveries;
+    private string receipt = "No edit received";
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            ready = true;
+            StateHasChanged();
+        }
+    }
+
+    private void RecordEdit(SignalEditEventArgs edit)
+    {
+        deliveries++;
+        receipt = $"{edit.Station} | {edit.InputType} | {edit.Data}";
+    }
+}
+<!-- endsnippet:complete -->

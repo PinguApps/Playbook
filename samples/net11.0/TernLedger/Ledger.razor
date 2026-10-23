@@ -1,0 +1,19 @@
+<!-- snippet:ledger -->
+@page "/ledger/{Mode}"
+<PageTitle>Dispatch ledger</PageTitle>
+@if (Mode is "hinted" or "full")
+{
+    <HeadContent>
+        <link rel="preload" as="fetch" type="application/json" href="@($"/ledger-data.json?view={Mode}")" crossorigin="anonymous" />
+        <link rel="modulepreload" href="@($"/ledger-module.js?view={Mode}")" crossorigin="anonymous" />
+    </HeadContent>
+}
+<h1>Dispatch ledger: @Mode</h1>
+<p>Details need a small data file and a formatting module.</p>
+<button type="button" data-ledger="@Mode">Open details</button>
+<output id="ledger-result" aria-live="polite">Details closed</output>
+<p><a href="/">Home</a></p>
+@code {
+    [Parameter] public string Mode { get; set; } = "";
+}
+<!-- endsnippet:ledger -->

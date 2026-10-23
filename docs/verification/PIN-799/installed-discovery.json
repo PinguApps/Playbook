@@ -1,0 +1,119 @@
+{
+  "resolvedTarget": "11.0",
+  "requestedTarget": "11.0",
+  "targetAssumed": false,
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "supportedAreas": [
+    "aspnetcore",
+    "blazor",
+    "containers",
+    "csharp",
+    "fsharp",
+    "json",
+    "libraries",
+    "maui",
+    "msbuild",
+    "nuget",
+    "runtime",
+    "sdk",
+    "winforms",
+    "wpf"
+  ],
+  "supportedExampleLanguages": [
+    "csharp",
+    "fsharp",
+    "typescript",
+    "vb"
+  ],
+  "coverage": [
+    {
+      "target": "10.0",
+      "scope": "curated",
+      "complete": false,
+      "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+    },
+    {
+      "target": "11.0",
+      "scope": "comprehensive",
+      "complete": false,
+      "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+    }
+  ],
+  "total": 1,
+  "offset": 0,
+  "limit": 20,
+  "nextOffset": null,
+  "recipes": [
+    {
+      "id": "blazor.rename-custom-event",
+      "edition": "11.0",
+      "title": "Keep custom events distinct",
+      "goal": "Rename a custom event when its browser trigger has the same name.",
+      "introducedIn": "11.0",
+      "areas": [
+        "blazor"
+      ],
+      "exampleLanguages": [
+        "csharp"
+      ],
+      "languageNeutral": false,
+      "supportedTargets": [
+        "11.0"
+      ],
+      "stability": "stable",
+      "applicability": {
+        "routes": [
+          {
+            "target": "11.0",
+            "sharedAreas": [],
+            "neutralLanguages": [],
+            "conditional": false,
+            "usage": "primary",
+            "selectionNotes": [
+              "Browser event-name collision now throws."
+            ],
+            "requirements": {
+              "runtime": {
+                "name": ".NET",
+                "version": "11.0",
+                "match": "release-family"
+              },
+              "sdk": {
+                "name": ".NET SDK",
+                "version": "11.0",
+                "match": "release-family"
+              },
+              "language": {
+                "name": "C#",
+                "version": "15.0",
+                "match": "exact"
+              },
+              "frameworks": [
+                "ASP.NET Core Blazor"
+              ],
+              "packages": [],
+              "workloads": [],
+              "packageAssets": [
+                "Matching blazor.web.js and initializer"
+              ],
+              "providers": [],
+              "platforms": [
+                "Server and beforeinput-capable browser"
+              ],
+              "renderingModes": [
+                "Web App Interactive Server"
+              ],
+              "optIns": [],
+              "stabilityLimitations": [
+                "RC2 execution; GA unverified"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

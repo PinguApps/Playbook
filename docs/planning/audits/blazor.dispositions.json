@@ -1,6 +1,18 @@
 {
   "groups": [
     {
+      "id": "deliberate-resource-hints",
+      "pattern": " Microsoft\\.AspNetCore\\.Components\\.Web\\.(HeadContent|HeadOutlet)",
+      "owner": "PIN-800; blazor.preload-needed-resources/11.0; WEB-082/WEB_W16C. Behavioral change, no new public API. Selected serviced 10.0.13 and RC2 both guard enhanced navigation; valid explicit old/new HeadContent hints, real browser/network and installed-body proof: docs/verification/PIN-800.md",
+      "disposition": "grouped; delivered"
+    },
+    {
+      "id": "browser-component-diagnostics",
+      "pattern": " Microsoft\\.AspNetCore\\.Components\\.Infrastructure\\.ComponentsMetricsServiceCollectionExtensions",
+      "owner": "PIN-797; blazor.observe-browser-components/11.0; public .NET 10 manual registration and .NET 11 automatic WASM registration, real OTLP collector proof in docs/verification/PIN-797.md",
+      "disposition": "grouped; delivered"
+    },
+    {
       "id": "compiler-assets",
       "assetPattern": "^sdk/",
       "pattern": " (Microsoft\\.AspNetCore\\.Razor\\.Language\\.(Components\\.(AssetPathMetadata|PropertyMetadata)|MetadataKind::AssetPath|TagHelperKind::AssetPath))",
@@ -38,8 +50,8 @@
     {
       "id": "gateway-debugging",
       "pattern": " Microsoft\\.AspNetCore\\.Builder\\.WebAssemblyNetDebugProxyAppBuilderExtensions::UseWebAssemblyDebugging",
-      "owner": "PIN-796; ASPDEPR011",
-      "disposition": "grouped"
+      "owner": "PIN-796; ASPDEPR011; blazor.host-browser-client-with-backends/11.0",
+      "disposition": "delivered — valid .NET 10 debugging comparison; Gateway migration removes obsolete inspectUri/UseWebAssemblyDebugging; docs/verification/PIN-796.md"
     },
     {
       "id": "builtin-cache-contracts",
@@ -75,7 +87,7 @@
       "id": "state",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(ITempData|Endpoints\\.TempDataProviderType|Web\\.SupplyParameterFrom(Session|TempData)Attribute|Endpoints\\.RazorComponentsServiceOptions::(get_|set_)?TempData)",
       "owner": "PIN-776",
-      "disposition": "grouped"
+      "disposition": "grouped; authored blazor.show-once-after-redirect and blazor.retain-session-progress 11.0; actual RC2 HTTP/compile/installed proof in docs/verification/PIN-776.md; GA reconciliation pending"
     },
     {
       "id": "cache",
@@ -87,7 +99,7 @@
       "id": "browser-options",
       "pattern": " Microsoft\\.AspNetCore\\.(Components\\.(BrowserOptions|ConfigureBrowser|InteractiveServerBrowserOptions|InteractiveWebAssemblyBrowserOptions|StaticServerBrowserOptions)|Builder\\.RazorComponentsEndpointConventionBuilderExtensions)",
       "owner": "PIN-788/PIN-793/PIN-794",
-      "disposition": "grouped; PIN-788 delivered browser startup/reconnect with actual Server/WASM/Auto and separate-request RC2 sharing proof in docs/verification/PIN-788.md; PIN-793/PIN-794 retain configuration/culture ownership"
+      "disposition": "grouped; PIN-788 delivered browser startup/reconnect with actual Server/WASM/Auto and separate-request RC2 sharing proof in docs/verification/PIN-788.md; PIN-794 delivered culture goal G24/WEB-024 using Components:UseCultureFromServer, original .NET 10/RC2 consumers and real aligned/independent satellite-before-render proof in docs/verification/PIN-794.md; PIN-793 retains configuration ownership"
     },
     {
       "id": "navigation",
@@ -128,8 +140,8 @@
     {
       "id": "environment",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Web\\.EnvironmentView",
-      "owner": "PIN-795",
-      "disposition": "grouped"
+      "owner": "PIN-795; G12/WEB-012 blazor.show-environment-specific-content edition 11.0",
+      "disposition": "included; original net10/net11 CopperlineDesk comparison, actual SSR and browser environment proof, full offline stdio guidance; docs/verification/PIN-795.md. RC2 proof only; GA reconciliation remains explicit."
     },
     {
       "id": "ai",
@@ -176,6 +188,12 @@
   ],
   "toolingGroups": [
     {
+      "id": "custom-event-name-collision",
+      "pattern": "^src/Components/Web.JS/src/Rendering/Events/EventTypes\\.ts",
+      "owner": "PIN-799; WEB-081/WEB_W16B; blazor.rename-custom-event/11.0",
+      "disposition": "Original CairnSignals .NET 10/11 comparison; actual native beforeinput, old double delivery, new same-name rejection and renamed typed dispatch; docs/verification/PIN-799.md. Stable APIs, RC2 evidence only."
+    },
+    {
       "id": "sdk-razor",
       "pattern": "^razorTooling/",
       "disposition": "grouped",
@@ -196,8 +214,8 @@
     {
       "id": "package-gateway",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.components\\.(gateway|webassembly\\.(devserver|server))",
-      "disposition": "grouped",
-      "owner": "PIN-796"
+      "disposition": "delivered — actual RC2 build/tool/manifests, SPA fallback, YARP proxy and real WASM/backend execution; docs/verification/PIN-796.md",
+      "owner": "PIN-796; A06/WEB-031; blazor.host-browser-client-with-backends/11.0"
     },
     {
       "id": "package-pause",
@@ -209,13 +227,13 @@
       "id": "template-worker",
       "pattern": "^templates/content/BlazorWebWorker-CSharp/",
       "disposition": "grouped",
-      "owner": "PIN-792"
+      "owner": "PIN-792; blazor.offload-browser-computation edition 11.0; G25 + E03 delivered with actual generated client and real browser proof in docs/verification/PIN-792.md"
     },
     {
       "id": "template-service-defaults",
       "pattern": "^templates/content/BlazorWasmServiceDefaults-CSharp/",
-      "disposition": "grouped",
-      "owner": "PIN-796"
+      "disposition": "delivered — actual generated RC2 extension/initializer/dependency closure, public service configuration and real browser service discovery; conditional Aspire remains unexecuted; docs/verification/PIN-796.md",
+      "owner": "PIN-796; A06/WEB-031; blazor.host-browser-client-with-backends/11.0"
     },
     {
       "id": "template-wasm",
@@ -226,7 +244,7 @@
     {
       "id": "template-web",
       "pattern": "^templates/content/BlazorWeb-CSharp/",
-      "disposition": "grouped; template demo-only rewrites excluded",
+      "disposition": "PIN-798 delivered NavMenu migration, both module paths and original old/new BrackenMenu consumers; docs/verification/PIN-798.md. Other template changes remain grouped; demo-only rewrites excluded",
       "owner": "PIN-776/PIN-798/PIN-808/PIN-811; PIN-709/PIN-710 for shared Identity/data changes"
     },
     {

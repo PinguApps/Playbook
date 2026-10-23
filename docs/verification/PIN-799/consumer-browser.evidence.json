@@ -1,0 +1,50 @@
+{
+  "sourceCommit": "09d71b2",
+  "sourceDirty": true,
+  "scope": "Temporary consumers reconstructed solely from full actual installed stdio Markdown. Exact browser expressions and native locator keypress reproduced; builds and served asset hashes recorded separately. No canonical source files copied.",
+  "prepareExpression": "(() => { const probe = { uri: location.href, capturedAt: new Date().toISOString(), browser: navigator.userAgent, native: [], errors: {} }; document.querySelector('#signal-note').addEventListener('beforeinput', e => probe.native.push({ type: e.type, trusted: e.isTrusted, data: e.data, inputType: e.inputType })); for (const name of ['click', ...(location.port === '5972' ? ['beforeinput'] : [])]) { try { Blazor.registerCustomEventType(name, { browserEventName: name }); probe.errors[name] = null; } catch (error) { probe.errors[name] = error.message; } } window.__cairnProbe = probe; return probe; })()",
+  "finishExpression": "(async () => { const expected = location.port === '5971' ? 2 : 1; const assert = (ok, message) => { if (!ok) throw new Error(message); }; for (let i=0;i<100;i++) { if (document.querySelector('#deliveries').textContent.trim() === 'Deliveries: ' + expected) break; await new Promise(r => setTimeout(r,50)); } const probe=window.__cairnProbe; assert(probe.native.length===1,'one native event'); assert(probe.native[0].trusted && probe.native[0].data==='a' && probe.native[0].inputType==='insertText','trusted payload'); const deliveries=document.querySelector('#deliveries').textContent.trim(); const receipt=document.querySelector('#receipt').textContent.trim(); assert(deliveries==='Deliveries: '+expected,'component count'); assert(receipt==='North cairn | insertText | a','component payload'); assert(probe.errors.click===\"The event 'click' is already registered.\",'existing guard'); if(expected===1) assert(probe.errors.beforeinput===\"The custom event 'beforeinput' cannot have the same name as its browserEventName 'beforeinput'. Choose a different name for the custom event.\",'new guard'); return {kind:'real-browser-native-event-and-component',...probe,deliveries,receipt,verifiedAt:new Date().toISOString()}; })()",
+  "results": [
+    {
+      "kind": "real-browser-native-event-and-component",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "capturedAt": "2026-10-23T12:26:48.275Z",
+      "verifiedAt": "2026-10-23T12:26:48.398Z",
+      "deliveries": "Deliveries: 2",
+      "errors": {
+        "click": "The event 'click' is already registered."
+      },
+      "native": [
+        {
+          "data": "a",
+          "inputType": "insertText",
+          "trusted": true,
+          "type": "beforeinput"
+        }
+      ],
+      "receipt": "North cairn | insertText | a",
+      "uri": "http://127.0.0.1:5971/"
+    },
+    {
+      "kind": "real-browser-native-event-and-component",
+      "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "capturedAt": "2026-10-23T12:26:58.886Z",
+      "verifiedAt": "2026-10-23T12:26:59.013Z",
+      "deliveries": "Deliveries: 1",
+      "errors": {
+        "click": "The event 'click' is already registered.",
+        "beforeinput": "The custom event 'beforeinput' cannot have the same name as its browserEventName 'beforeinput'. Choose a different name for the custom event."
+      },
+      "native": [
+        {
+          "data": "a",
+          "inputType": "insertText",
+          "trusted": true,
+          "type": "beforeinput"
+        }
+      ],
+      "receipt": "North cairn | insertText | a",
+      "uri": "http://127.0.0.1:5972/"
+    }
+  ]
+}

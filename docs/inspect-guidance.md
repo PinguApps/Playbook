@@ -5,6 +5,51 @@ For server circuit transport, ticket expiry and buffering, use the
 It displays the full original .NET 10/11 comparison, exact policy applicability
 and saved evidence through real stdio list/get.
 
+For deliberate enhanced-navigation hints, use the
+[tested PIN-800 walkthrough](verification/PIN-800.md#inspect-what-an-agent-receives).
+It displays the full original comparison, resource requirements and measured limits.
+
+For custom browser-event alias migration, use the
+[tested PIN-799 walkthrough](verification/PIN-799.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 consumers, full installed Markdown,
+same-name rejection, paired JS/Razor renaming and the RC2/Interactive Server limits.
+
+For browser component diagnostics, use the
+[tested PIN-797 walkthrough](verification/PIN-797.md#inspect-what-an-agent-receives).
+It displays the complete .NET 10/11 WASM comparison, public switches, exporter and
+collector setup, applicability and evidence through real stdio list/get.
+
+For one-use redirect confirmations and persistent static SSR progress, use the
+[tested PIN-776 walkthrough](verification/PIN-776.md#inspect-what-an-agent-receives).
+It shows both goals, complete canonical comparisons and provider applicability,
+including RC2 TempData write-back and early session cookies under streaming.
+
+For standalone browser deep links and configured backend routing, use the
+[tested PIN-796 walkthrough](verification/PIN-796.md#inspect-what-an-agent-receives).
+It displays the complete original .NET 10 host/.NET 11 Gateway comparison,
+generated service defaults, WASM applicability and conditional Aspire boundary.
+
+For environment-appropriate application chrome, use the
+[tested PIN-795 walkthrough](verification/PIN-795.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 host/client setup, discovery and
+applicability, including renderer-specific environments, include/exclude rules
+and the explicit presentation-versus-authorization boundary.
+
+For consistent culture through prerendered WASM hydration and an explicit
+independent client, use the [tested PIN-794 walkthrough](verification/PIN-794.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 consumers, actual culture/satellite
+timing, full Markdown and applicability.
+
+For one browser build with public environment settings, use the
+[tested PIN-793 walkthrough](verification/PIN-793.md#inspect-what-an-agent-receives).
+It displays the complete original .NET 10/11 comparison, WASM applicability,
+environment-source precedence and duplicate-registration migration.
+
+For lengthy browser calculations, use the
+[tested PIN-792 walkthrough](verification/PIN-792.md#inspect-what-an-agent-receives).
+It displays the full original .NET 10/11 comparison, actual generated worker
+client/assets, WASM/CSR applicability and cancellation versus termination limits.
+
 For nested Blazor startup options across legacy and Web App scripts, use the
 [tested PIN-789 walkthrough](verification/PIN-789.md#inspect-what-an-agent-receives).
 It displays complete original .NET 10/11 setup, discovery and applicability,
@@ -262,3 +307,5 @@ label/input associations and resource-based captions, use the
 [tested PIN-772–773 walkthrough](verification/PIN-772-773.md#inspect-what-an-agent-receives).
 It displays all four original goals, full canonical comparisons and applicability,
 including the measured RC2 root-only client-rule limit.
+
+For navigation under strict handler policies, use the [PIN-798 walkthrough](verification/PIN-798.md#inspect-what-an-agent-receives). It displays the original complete old/new host/client setup, layout-dependent module paths, full applicability and separate compilation/browser limits.

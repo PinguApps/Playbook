@@ -1,0 +1,12 @@
+<!-- snippet:walk -->
+@page "/{Trail}"
+@page "/"
+@inject NavigationManager Navigation
+<h1 id="trail">Bracken @Trail trail</h1>
+<p id="renderer">Static server shell</p>
+<Confirmation @rendermode="InteractiveServer" />
+@code {
+    [Parameter] public string Trail { get; set; } = "fern";
+
+}
+<!-- endsnippet:walk -->

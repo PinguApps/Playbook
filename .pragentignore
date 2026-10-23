@@ -1,6 +1,16 @@
 # PR Agent review scope; Git tracking and build/validation gates are unchanged.
 # Use $pragent-ignore when reassessing generated outputs; keep inputs reviewable.
 
+# Raw local HTTP query receipts; review decoded browser records and TernLedger exporters/verifier.
+/docs/verification/PIN-800.canonical-5991.raw.json
+/docs/verification/PIN-800.canonical-5992.raw.json
+/docs/verification/PIN-800.consumer-5991.raw.json
+/docs/verification/PIN-800.consumer-5992.raw.json
+
+# Raw official collector OTLP lines; Test-LoomReceipts.ps1 and PIN-797.md explain/verify them.
+/docs/verification/PIN-797.receipts.jsonl
+/docs/verification/PIN-797.consumer.receipts.jsonl
+
 # Inspect-BlazorRemovedApis.ps1 output; review its script and the matching .md audit.
 /docs/planning/audits/blazor-removed-apis.assets.json
 

@@ -1,0 +1,212 @@
+{
+  "id": "blazor.preload-needed-resources",
+  "edition": "11.0",
+  "title": "Load needed resources during enhanced navigation",
+  "goal": "Keep deliberate resource hints for pages reached by enhanced navigation.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tern-ledger",
+    "preload",
+    "enhanced-navigation"
+  ],
+  "apis": [
+    "HeadContent",
+    "preload",
+    "modulepreload"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Blazor enhanced navigation; only resources actually needed."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Blazor Web App static SSR with enhanced navigation; actual execution uses RC2."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical pin 11.0.100-rc.2.26504.105; matching ASP.NET/browser assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical compiler mode; no C# 15-only syntax."
+          },
+          "frameworks": [
+            "Blazor"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching ASP.NET shared framework/blazor.web.js"
+          ],
+          "providers": [],
+          "platforms": [
+            "Browser preload/modulepreload support"
+          ],
+          "renderingModes": [
+            "Static SSR"
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Use a static router and HeadOutlet with blazor.web.js. An interactive SPA router is not enhanced navigation. The complete standalone files, SDK pins and commands are included offline.",
+            "Author HeadContent hints only for measured destination needs. Match the exact eventual URL, fetch destination/as, MIME type, credentials/CORS and cache policy. Same-origin loopback data/module examples need no account or external provider.",
+            ".NET 10.0.13 already has the enhanced-navigation guard in SSRRenderModeBoundary, as does selected RC2. The historical guide's .NET 11 introduction is not a claim that every serviced .NET 10 emits implicit hints. The valid .NET 10 explicit pattern is a comparison, not a new foundation or older-target route."
+          ],
+          "constraints": [
+            "Blazor enhanced navigation; only resources actually needed. Initial/full navigation behavior is separate. No universal preload requirement or browser request-count/performance guarantee.",
+            "Preload fetch does not consume data and modulepreload does not execute the module. Normal fetch/import still performs the work; matched cache entries may be reused. Warm cache, credential mismatches and browser scheduling affect observed requests.",
+            "HTTP is loopback authoring only. Production needs appropriate HTTPS/CORS/cache policy. Request receipts are bounded local diagnostics, not a production logging endpoint. No WASM runtime boot-preload, Server/Auto/interactive-router, other-browser/OS or GA execution claim."
+          ],
+          "optIns": [
+            "Explicit HeadContent preload/as and modulepreload"
+          ],
+          "stabilityLimitations": [
+            "Stable HTML/Blazor APIs; selected .NET 11 framework is RC2, not GA."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/TernLedger/TernLedger.csproj"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/700188d8bdbc582411c4102f38afb90a59a5c91b/aspnetcore/breaking-changes/11/blazor-enhanced-nav-preloading-disabled.md",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned enhanced-navigation preload change",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/700188d8bdbc582411c4102f38afb90a59a5c91b/aspnetcore/breaking-changes/11/blazor-enhanced-nav-preloading-disabled.md"
+    },
+    {
+      "title": "Actual RC2 enhanced-navigation guard",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs"
+    },
+    {
+      "title": "Serviced .NET 10 enhanced-navigation guard",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs"
+    },
+    {
+      "title": "Framework change and DOM synchronization",
+      "url": "https://github.com/dotnet/aspnetcore/pull/63544"
+    },
+    {
+      "title": "Blazor enhanced navigation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-11.0#enhanced-navigation-and-form-handling"
+    },
+    {
+      "title": "HTML preload processing",
+      "url": "https://html.spec.whatwg.org/multipage/links.html#link-type-preload"
+    },
+    {
+      "title": "HTML modulepreload processing",
+      "url": "https://html.spec.whatwg.org/multipage/links.html#link-type-modulepreload"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0",
+      "sample": "samples/net10.0/TernLedger/TernLedger.csproj",
+      "sdk": "10.0.402",
+      "scope": "Actual matching SDK build; separate real browser enhanced fetch/header/document identity, hint/control resource requests, deferred module evaluation and warm-cache checks. Exact source/artifacts/payloads and installed-body reconstruction: docs/verification/PIN-800.md. No mock, cross-compilation, universal request count or GA claim."
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0",
+      "sample": "samples/net11.0/TernLedger/TernLedger.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual matching SDK build; separate real browser enhanced fetch/header/document identity, hint/control resource requests, deferred module evaluation and warm-cache checks. Exact source/artifacts/payloads and installed-body reconstruction: docs/verification/PIN-800.md. No mock, cross-compilation, universal request count or GA claim."
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "path": "samples/net10.0/TernLedger/TernLedger.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "program-10": {
+      "path": "samples/net10.0/TernLedger/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    },
+    "project-11": {
+      "path": "samples/net11.0/TernLedger/TernLedger.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "program-11": {
+      "path": "samples/net11.0/TernLedger/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    },
+    "imports": {
+      "path": "samples/net11.0/TernLedger/ResourceFiles.md",
+      "region": "imports",
+      "language": "razor"
+    },
+    "app": {
+      "path": "samples/net11.0/TernLedger/App.razor",
+      "region": "app",
+      "language": "razor"
+    },
+    "routes": {
+      "path": "samples/net11.0/TernLedger/Routes.razor",
+      "region": "routes",
+      "language": "razor"
+    },
+    "home": {
+      "path": "samples/net11.0/TernLedger/Home.razor",
+      "region": "home",
+      "language": "razor"
+    },
+    "ledger": {
+      "path": "samples/net11.0/TernLedger/Ledger.razor",
+      "region": "ledger",
+      "language": "razor"
+    },
+    "browser": {
+      "path": "samples/net11.0/TernLedger/wwwroot/tern.js",
+      "region": "browser",
+      "language": "javascript"
+    },
+    "module": {
+      "path": "samples/net11.0/TernLedger/wwwroot/ledger-module.js",
+      "region": "module",
+      "language": "javascript"
+    },
+    "data": {
+      "path": "samples/net11.0/TernLedger/ResourceFiles.md",
+      "region": "data",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local browser/network proof; no Human-only/account/resource prerequisite. No production/performance or GA guarantee."
+  }
+}

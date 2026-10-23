@@ -1,0 +1,22 @@
+<!-- snippet:document -->
+@inject IConfiguration Configuration
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" /><base href="/bracken/" /><title>Bracken walks</title>
+    <link rel="stylesheet" href="@Assets["menu.css"]" />
+    <script src="@Assets["policy-probe.js"]"></script>
+</head>
+<body>
+    @if (Configuration.GetValue<bool>("GlobalClient"))
+    {
+        <BrackenMenu.Client.Routes @rendermode="InteractiveWebAssembly" />
+    }
+    else
+    {
+        <Routes />
+    }
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:document -->

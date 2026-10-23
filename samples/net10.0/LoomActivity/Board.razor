@@ -1,0 +1,30 @@
+<!-- snippet:board -->
+@page "/"
+@page "/dispatch"
+@namespace LoomActivity
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+<main data-runtime="@System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription">
+    <h1>Loom shuttle board</h1>
+    <p>Schedule fictional weaving shuttles and inspect component work at the local collector.</p>
+    <NavLink href="dispatch">Open dispatch route</NavLink>
+    <button @onclick="ScheduleShuttle" disabled="@_busy">Schedule shuttle</button>
+    <ShuttleBadge Count="_scheduled" />
+    <p role="status">@(_busy ? "Scheduling…" : $"Scheduled: {_scheduled}")</p>
+</main>
+@code {
+    private int _scheduled;
+    private bool _busy;
+
+    private async Task ScheduleShuttle()
+    {
+        _busy = true;
+        using var work = BrowserTelemetry.Work.StartActivity("loom.schedule");
+        work?.SetTag("loom.operation", "shuttle");
+        await Task.Delay(75); // Visible asynchronous business work, not a benchmark.
+        _scheduled++;
+        _busy = false;
+    }
+}
+<!-- endsnippet:board -->
