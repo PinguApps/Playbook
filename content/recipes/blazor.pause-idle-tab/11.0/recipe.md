@@ -111,7 +111,7 @@ For server-directed pause, cancellation of request is not guaranteed completed s
 
 Both original TideCharts projects compile with zero warnings/errors under SDK 10.0.402/C# 14 and SDK 11.0.100-rc.2.26504.105/C# 15. Saved compilation records contain exact inputs, dependencies and commands. Compilation is separate from browser/server execution.
 
-Actual Chrome extension tests switch native tabs with focus emulation disabled. No document.hidden/visibilityState override or synthetic visibility event is used. RC2 idle execution observes down/closed, old-resource disposal, automatic return into a new circuit/resource and the original readings/sheet. A 117 ms return prevents pause. A real held JS call keeps the resource alive beyond the delay; release allows pause. Enabled=false preserves a hidden circuit.
+Actual Chrome extension tests switch native tabs with focus emulation disabled. No document.hidden/visibilityState override or synthetic visibility event is used. RC2 idle execution observes down/closed, old-resource disposal, automatic return into a new circuit/resource and the original readings/sheet. A brief return before the delay prevents pause. A real held JS call keeps the resource alive beyond the delay; release allows pause. Enabled=false preserves a hidden circuit.
 
 Actual StoppingAsync execution records pre-canceled false requests, accepted true requests, subsequent down/closed/disposal, completed drain and host exit. Two RC2 sessions retain independent one/two-reading drafts across process restart into new circuit/resource identities. The .NET 10 manual timer/bridge also executes real pause/resume and restart recovery; it is not an older-target route for newer APIs.
 

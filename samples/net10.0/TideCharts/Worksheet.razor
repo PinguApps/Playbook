@@ -20,7 +20,7 @@
         busy = true;
         try { await JS.InvokeVoidAsync("tide.hold"); }
         catch (JSDisconnectedException) { }
-        busy = false;
+        finally { busy = false; }
     }
 }
 <!-- endsnippet:worksheet -->
