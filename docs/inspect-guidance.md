@@ -5,6 +5,11 @@ For hidden-session resource release and maintenance pause, use the
 It shows full original .NET 10/11 comparisons, persistence prerequisites and
 request acceptance versus actual circuit closure through real stdio list/get.
 
+For virtual lists under restrictive style CSP, use the
+[tested PIN-786 walkthrough](verification/PIN-786.md#inspect-what-an-agent-receives).
+It shows full canonical comparisons, actual enforcement/scrolling evidence and
+the separate trusted-CSSOM and consumer-browser boundaries.
+
 For initial and programmatic virtual-list item reveal, use the
 [tested PIN-785 walkthrough](verification/PIN-785.md#inspect-what-an-agent-receives).
 It displays the full original .NET 10/11 comparison, provider timing and bounds,

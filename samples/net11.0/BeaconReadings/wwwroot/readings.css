@@ -1,0 +1,7 @@
+/* snippet:styles */
+body { font-family: system-ui, sans-serif; margin: 2rem; }
+#viewport { height: 320px; width: 36rem; max-width: 100%; overflow-y: auto; border: 1px solid #52646e; }
+.reading { height: 32px; box-sizing: border-box; line-height: 32px; padding: 0 12px; white-space: nowrap; }
+.reading:nth-of-type(even) { background: #edf3f5; }
+.policy-control { height: 10px; width: 20px; background: #52646e; }
+/* endsnippet:styles */

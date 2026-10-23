@@ -1,0 +1,16 @@
+<!-- snippet:document -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" /><base href="/" /><title>Beacon readings</title>
+    <link rel="stylesheet" href="@Assets["readings.css"]" />
+    <script src="@Assets["policy-probe.js"]"></script>
+</head>
+<body>
+    <Router AppAssembly="typeof(App).Assembly">
+        <Found Context="route"><RouteView RouteData="route" /></Found>
+    </Router>
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:document -->

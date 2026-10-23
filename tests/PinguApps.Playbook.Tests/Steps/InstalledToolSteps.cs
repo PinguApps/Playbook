@@ -41,6 +41,29 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("restrictive style CSP retains canonical virtual list guidance offline")]
+    public async Task CheckRestrictiveStyleCspAsync()
+    {
+        const string id = "blazor.virtualize-under-csp";
+        await CheckWebRecipesAsync([id], "beacon-csp").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"CSP applicability {property.Name} must survive packaging, including every nested requirement.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        Assert.Contains("style-src-attr 'none'", markdown, StringComparison.Ordinal);
+        Assert.Contains("style-src-attr 'unsafe-inline'", markdown, StringComparison.Ordinal);
+        Assert.Contains("Reading 701: Westmere light", markdown, StringComparison.Ordinal);
+        Assert.Contains("CSSOM", markdown, StringComparison.Ordinal);
+        Assert.Contains("In the .NET 10 Readings.razor, add @page \"/legacy\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("In the .NET 10 App.razor, use <script src=\"_framework/blazor.web.js\"></script>", markdown, StringComparison.Ordinal);
+        Assert.Contains("source-reviewed migration, browser evidence still needed", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
     [Then("changing lists retain canonical guidance and complete anchoring requirements offline")]
     public async Task CheckChangingListsAsync()
     {

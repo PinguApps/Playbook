@@ -1,0 +1,74 @@
+{
+  "id": "blazor.virtualize-under-csp",
+  "edition": "11.0",
+  "title": "Scroll long lists under restrictive style policies",
+  "goal": "Use Virtualize without an inline-style exception.",
+  "areas": ["blazor"],
+  "exampleLanguages": ["csharp"],
+  "tags": ["beacon-csp", "virtualization", "security"],
+  "apis": ["Virtualize"],
+  "introducedIn": "11.0",
+  "supportedTargets": ["11.0"],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": ["Strict style CSP; trusted CSSOM layout."],
+        "requirements": {
+          "runtime": {"name": ".NET", "version": "11.0", "match": "release-family", "reason": "Virtualize's numeric layout attributes require the .NET 11 renderer and matching browser code."},
+          "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Use matching Web SDK/reference and Internal.Assets browser files; the RC2 pin reproduces this evidence."},
+          "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Canonical current sample language mode; this migration itself requires no new C# syntax."},
+          "frameworks": ["ASP.NET Core 11"],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": ["SDK browser assets"],
+          "providers": [],
+          "platforms": ["Browser"],
+          "renderingModes": ["Interactive Server"],
+          "prerequisites": [
+            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Virtualize is in Microsoft.AspNetCore.App; no separate virtualization package, provider, account or workload is required. The pinned SDK resolves Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105.",
+            "Register Interactive Server, load matching blazor.web.js and allow the app's trusted boot script and local circuit connection. Put app styles in an allowed external stylesheet. The tested header enforces style-src 'self', style-src-elem 'self' and style-src-attr 'none'.",
+            "Use a real scroll container, fixed-height rows and browser IntersectionObserver/MutationObserver/CSSOM support. Execute the policy controls and inspect actual visible distant IDs in the consumer browser."
+          ],
+          "constraints": [
+            "Virtualize; source-reviewed migration, browser evidence still needed for each consuming app. This sample supplies real Chrome evidence, not a universal CSP or browser certification.",
+            "Remove the virtualization-specific inline-style exception and any app-owned spacer rewrite only after upgrading both renderer and browser assets. Keep unrelated app/framework script, stylesheet and circuit requirements separate.",
+            "Numeric layout attributes are translated through CSSOM by trusted framework JavaScript. Resulting style attributes in the DOM are expected; their presence alone is not evidence of a CSP failure. This is not a prohibition on programmatic CSS.",
+            "The .NET 10 comparison executes Virtualize with an explicit style-src-attr 'unsafe-inline' exception and fails the strict negative control. It is not an older-target route for the newer rendering. Static SSR/prerender alone do not provide virtual scrolling; WebAssembly/Auto, other browsers/platforms and GA are unverified.",
+            "The loopback ws://localhost:* connect-src allowance is solely for local Interactive Server testing. Use the deployed application's actual secure circuit origin and independent script policy; no deployment policy audit is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": ["RC2; GA unverified."]
+        },
+        "evidenceSamples": ["samples/net11.0/BeaconReadings/BeaconReadings.csproj"],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Virtualize.ts"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {"title": "Virtualization layout and style CSP", "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-11.0"},
+    {"title": "Pinned RC2 numeric layout rendering", "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs"},
+    {"title": "Pinned RC2 numeric validation and CSSOM updates", "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Virtualize.ts"},
+    {"title": "Older dynamic inline spacer attributes", "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Components/Web/src/Virtualization/Virtualize.cs"},
+    {"title": "CSP style-attribute directive", "url": "https://www.w3.org/TR/CSP3/#directive-style-src-attr"},
+    {"title": "Blazor CSP and separate script requirements", "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/security/content-security-policy?view=aspnetcore-11.0"}
+  ],
+  "evidence": [
+    {"sample": "samples/net10.0/BeaconReadings/BeaconReadings.csproj", "target": "net10.0", "sdk": "10.0.402", "language": "14.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution compares the explicit attribute exception with the enforced strict failure, visible distant IDs and attribute/element/CSSOM controls; no mocks."},
+    {"sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj", "target": "net11.0", "sdk": "11.0.100-rc.2.26504.105", "language": "15.0", "kind": "compile", "scope": "Actual pinned Web SDK build. Separate real Chrome execution checks strict response header, actual visible distant rows, bounded DOM window, return scrolling and enforced attribute/element controls without virtualization exceptions; no mocks."}
+  ],
+  "snippets": {
+    "older": {"path": "samples/net10.0/BeaconReadings/Program.cs", "region": "host", "language": "csharp"},
+    "newer": {"path": "samples/net11.0/BeaconReadings/Program.cs", "region": "host", "language": "csharp"},
+    "list": {"path": "samples/net11.0/BeaconReadings/Readings.razor", "region": "list", "language": "razor"},
+    "document": {"path": "samples/net11.0/BeaconReadings/App.razor", "region": "document", "language": "razor"}
+  },
+  "humanProof": {"status": "not-required", "scope": "Actual local Chrome/Interactive Server policy enforcement and visible scrolling were executed by the agent. Consumers still need their own browser/CSP checks; no external provider, other-browser or GA proof is claimed."}
+}
