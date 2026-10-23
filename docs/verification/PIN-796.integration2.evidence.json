@@ -1,0 +1,16 @@
+{
+  "base": "2be9e2dafb269527290e8806e3aa3c56a151b08b",
+  "entireEarlierInstalledToolSourceEqualAfterRemovingOnlyNewMethod": true,
+  "earlierCompleteSourceSha256": "ea6ccab41a6f5be2e40aa997cd496c428f6fce3648b5ba74fb0d036fa07add91",
+  "newGatewayMethodSha256": "8a219a7aded86bcb83159449e0eda45784a8949e37aa44f32434b93e318ccd37",
+  "retainedMethods": {
+    "CheckEnvironmentChromeAsync": {
+      "sha256": "a99e266143cfd60261d5dfb8aed0c95a34b30605ad59c1d9610e58a31afa9a72",
+      "lines": 50
+    },
+    "CheckCultureHandoverAsync": {
+      "sha256": "c5a59a32adb7117df75709afc38cfcc62a11fb696fbe0e17f0c4377be9375ac5",
+      "lines": 41
+    }
+  }
+}
