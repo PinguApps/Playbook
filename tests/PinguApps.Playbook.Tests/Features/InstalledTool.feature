@@ -273,5 +273,6 @@ Feature: Installed offline guidance
     And static subtree caching retains complete canonical guidance offline
     And changing lists retain canonical guidance and complete anchoring requirements offline
     And virtual list reveal retains complete canonical guidance offline
+    And circuit pause retains complete canonical guidance and persistence requirements offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

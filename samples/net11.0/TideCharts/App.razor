@@ -1,0 +1,12 @@
+<!-- snippet:document -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><base href="/" /><title>Tide charts</title></head>
+<body>
+    <Worksheet @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <button id="resume" onclick="Blazor.resumeCircuit()">Resume worksheet</button>
+    <script src="tide.js"></script>
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:document -->
