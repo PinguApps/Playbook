@@ -57,6 +57,16 @@ public sealed class InstalledToolSteps : IDisposable
                     continue; // The authored recipe declaration supplies the served scope, checked above.
                 }
 
+                if (property.Name == "recordedAt")
+                {
+                    // PowerShell's existing capture reader normalizes the date to its host's offset.
+                    // Compare the complete instant without treating an equivalent zone notation as drift.
+                    Assert.True(JsonElement.DeepEquals(
+                        JsonSerializer.SerializeToElement(property.Value.GetDateTimeOffset().UtcDateTime),
+                        JsonSerializer.SerializeToElement(actual.GetProperty(property.Name).GetDateTimeOffset().UtcDateTime)), "Browser activity capture instant");
+                    continue;
+                }
+
                 Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Browser activity captured evidence {property.Name}");
             }
         }
