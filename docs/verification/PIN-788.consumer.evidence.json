@@ -1,26 +1,26 @@
 {
   "kind": "returned-body-consumer",
-  "markdownSha256": "3b74f1c075032d054098b36fa4fb34c46998842cdf4563e5b86f6a546b95ea15",
-  "consumer": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-tide-consumer-73e441f6ffdd4623affe93af320687d5",
+  "markdownSha256": "d988c75d30faf60c36fe0f79d7dc131c67d286fe2bb2e52bc25964fe126e0577",
+  "consumer": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-tide-consumer-25947ff4a3214fff99339c87432ca7f7",
   "results": [
     {
-      "hostSha256": "7c183c82cb5216c9c488b5913889cce64423f69a5d4b6e77553a6366847e9f3e",
-      "clientSha256": "0143d5a32b05c2654d1385405f8f552182f7a06114e4f7586e246ecdb678bc58",
+      "compiled": true,
       "sdk": "10.0.402",
-      "target": "net10.0",
-      "compiled": true
+      "clientSha256": "b6ea1af6ad995462373a72ba2d80f1b816ee1cc91ac7016fd9757985d9df9db8",
+      "hostSha256": "bb326c50caa2f1af7b15d77e4dc58eededa7f5cc1c9f1236d7637fc826610389",
+      "target": "net10.0"
     },
     {
-      "hostSha256": "8034396d03a61f8f969b0be412c362c34b8ea4a07c9607c76b8dcc571a142dda",
-      "clientSha256": "4af2039e5c8a8197a07dcf9d9f1f02038b125ac08867079bc3fdc4687b3ae97e",
+      "compiled": true,
       "sdk": "11.0.100-rc.2.26504.105",
-      "target": "net11.0",
-      "compiled": true
+      "clientSha256": "4447cb945e6fcf027aa713b54c88fa1176a8264886a5d5f53755fb95f5d8978a",
+      "hostSha256": "0a43c024a3b066de8969005e0a88a14d0c6b994bee07102feadefaafe3a05e4e",
+      "target": "net11.0"
     }
   ],
   "http": {
     "kind": "actual-http-execution",
-    "recordedAt": "2026-10-23T05:57:51.8609815+01:00",
+    "recordedAt": "2026-10-23T06:14:03.3299802+01:00",
     "requests": [
       {
         "uri": "http://127.0.0.1:5399/server",
@@ -40,7 +40,7 @@
             "circuitInactivityTimeoutMs": 120000
           }
         },
-        "bodySha256": "8ed92148291373272e2035d0bb8fafc73d66c58e19c16c048aeb026149b18317"
+        "bodySha256": "0e9718e51d26f98bcfad74eb22f336e1ee223344214abf63db741b004b194446"
       },
       {
         "uri": "http://127.0.0.1:5399/wasm",
@@ -60,7 +60,7 @@
             "circuitInactivityTimeoutMs": 120000
           }
         },
-        "bodySha256": "83265eaeaecd9e674403f997853b131e13364ad89f3ae71e5d139243764f7714"
+        "bodySha256": "e1bb5fddd2e6c60e316dd7a47ba2828e2b4450cf3a1ae81194ff44c7ba3978a2"
       },
       {
         "uri": "http://127.0.0.1:5399/auto",
@@ -80,7 +80,7 @@
             "circuitInactivityTimeoutMs": 120000
           }
         },
-        "bodySha256": "d1cb2181a8130949bd149022fe4aad749cc0c65e77c5a90690f7de1647468f20"
+        "bodySha256": "3b9daecdb9849a5fd50d8d8c46ea60de2ab8b7b0555ba3cb86173aecb20d9501"
       }
     ]
   },

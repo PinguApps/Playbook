@@ -1,23 +1,14 @@
 {
-  "sourceCommit": "5c0abecde60314b071ea8a20dd6790b3083f93e2",
+  "sourceCommit": "54f02c212a8633e1af19e35afe4887d23b7f8d13",
   "sourceDirty": true,
-  "recordedAt": "2026-10-23T04:49:27.1652484+00:00",
+  "recordedAt": "2026-10-23T05:11:53.6492520+00:00",
+  "stability": {
+    "beforeCommit": "324c8d7",
+    "afterCommit": "54f02c2",
+    "result": "Actual managed and static-asset manifests unchanged after documentation commit and old/new rebuild."
+  },
   "samples": [
     {
-      "sample": "samples/net10.0/TideDesk/TideDesk.csproj",
-      "artifacts": {
-        "TideDesk.Client.dll": "8b772b489c0a7f8c40e85e82ff348472febd9adf5fa20863323e9359455ef588",
-        "TideDesk.Client.pdb": "c222394e514143ee603329fac81fd55ffa45d3461445a3330620e04af854e786",
-        "TideDesk.Client.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
-        "TideDesk.Client.staticwebassets.endpoints.json": "83d36e6f4a8df41dd8d9a067a66caa622b76ee5596dafeeeeabcbf778cf9dfde",
-        "TideDesk.Client.staticwebassets.runtime.json": "8e91b3fe15d651641651dffc68db5cc85ffe622961172729413506a8731c33ba",
-        "TideDesk.deps.json": "06880e453ebe84120e1b50bd89cc1f0c2a5acbf788cdb23b2014272996374d45",
-        "TideDesk.dll": "edcd219de4e160b44fd2c6a98344b5172f5b4565a01d0d092f501c8c6928e897",
-        "TideDesk.pdb": "3eb258f92ffb4ec2d234b00cea39c590f7ccb279a06acbae2b9ed73d17031322",
-        "TideDesk.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
-        "TideDesk.staticwebassets.endpoints.json": "623f694d78ce6c4934a3750c9d8432e1c152b1a75dbff11cce66fcde1ebe138f",
-        "TideDesk.staticwebassets.runtime.json": "2c7eb70c7bf64acc7954dd7e50c425cf2483bf84e9f5718d3f1fcf4d11003295"
-      },
       "inputs": {
         ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
         "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
@@ -30,7 +21,7 @@
         "samples/net10.0/TideDesk.Client/global.json": "05e275ab63f3920f0c363e8705fdd874b6a828e5be54c87fb76188493367fb0c",
         "samples/net10.0/TideDesk.Client/packages.lock.json": "649e43e85f63bb9162956d09f80ea297ba306d5224fc5ccda435506ffcd34e69",
         "samples/net10.0/TideDesk.Client/Program.cs": "a0c05998f94765994f04b927a6061b94b94091d88a740d17d1d4c25dafd4c46d",
-        "samples/net10.0/TideDesk.Client/TideDesk.Client.csproj": "bfd7fb4a874f88ce5921a6d477051480215fd608a7b0dd8052f6e9e6413b4673",
+        "samples/net10.0/TideDesk.Client/TideDesk.Client.csproj": "a79e00a9c17051032d1911cf994c9449da6d5cf1c1c78949c206e7f200634c50",
         "samples/net10.0/TideDesk.Client/verification.json": "00159bbd4dd770aae8dbf845d5b25e736a276c1674ab685419ea9c1fc34e947a",
         "samples/net10.0/TideDesk/App.razor": "0e9a8e21f32f03bb407823c9d3760016f0a95755649dfc954747fcd186220b51",
         "samples/net10.0/TideDesk/Directory.Packages.props": "c5731102140f1697396ced56d52beebd924941c89d48c9c39a178f02cc148e88",
@@ -38,23 +29,52 @@
         "samples/net10.0/TideDesk/Launch.razor": "5da326412b0fb2e07e57f4818872b894165812169cdfee1232dcc24dcd24b3e8",
         "samples/net10.0/TideDesk/packages.lock.json": "14f2079bd5a9a709dfe4f0c883f6f9f5eaa3f038565ad9e1a20054de276c4d8d",
         "samples/net10.0/TideDesk/Program.cs": "e4b849027f7c09d72e8797050e4cf752281f18e8806cfe08089d4974e2740bd7",
-        "samples/net10.0/TideDesk/TideDesk.csproj": "2fe403cebc3f51398fd1fe0784090bc2d38c249f92381ec74f552634e8a81825",
+        "samples/net10.0/TideDesk/TideDesk.csproj": "8a59109624ffddf796da682f55173969413b75de39a9ef064f06259eb87028ef",
         "samples/net10.0/TideDesk/verification.json": "8878bd2557f805e2ed1c46706510f5e4551bfc71d79d920c78f4b7b935943a9f",
         "samples/net10.0/TideDesk/wwwroot/startup.js": "c66d68cdcabcffe9e2fc04c979858c5afc229c4705d1f77fd44c79b9acaa6767"
+      },
+      "sample": "samples/net10.0/TideDesk/TideDesk.csproj",
+      "artifacts": {
+        "TideDesk.Client.dll": "3c115f6751564bd1327159ec56be9aee7069227007135f2ce6d4ee4acf186e49",
+        "TideDesk.Client.pdb": "ecf3e2f7bf77fc004fa00ddff9f0b35cb5a3c7184f3bc9b97ef49927b6a30a44",
+        "TideDesk.Client.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
+        "TideDesk.Client.staticwebassets.endpoints.json": "4b6811d83d7ba3c8fa7d01fdba04c56f99348392828af3bf7f1d5b999e8415cb",
+        "TideDesk.Client.staticwebassets.runtime.json": "b38df3c0c689b59ab83061795398657e6ae6b91de558fdc642371de834d97cbe",
+        "TideDesk.deps.json": "06880e453ebe84120e1b50bd89cc1f0c2a5acbf788cdb23b2014272996374d45",
+        "TideDesk.dll": "73f10110388c34b9cc2950d6811dff227cb4c758e7d94281f132c87016b29371",
+        "TideDesk.pdb": "43d7fa670a92b3460a20ae1982fd6621bae8985a872827a1ea84d627ac290e62",
+        "TideDesk.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+        "TideDesk.staticwebassets.endpoints.json": "2332e0f9e6e58af81e1270e25bb4ab52fc78a79a57ba47f691cbe22b53c0081d",
+        "TideDesk.staticwebassets.runtime.json": "6552e07fb95fabc64b8d6626c6f480094d6d06df32be9b67c50ee2fafc8fcbd3"
       }
     },
     {
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net10.0/TideDesk.Client/Desk.razor": "f97f2501a7a65bc4853e79a28c72327b4d45985cd668a17effbd7750a0a7062d",
+        "samples/net10.0/TideDesk.Client/Directory.Packages.props": "c5731102140f1697396ced56d52beebd924941c89d48c9c39a178f02cc148e88",
+        "samples/net10.0/TideDesk.Client/global.json": "05e275ab63f3920f0c363e8705fdd874b6a828e5be54c87fb76188493367fb0c",
+        "samples/net10.0/TideDesk.Client/packages.lock.json": "649e43e85f63bb9162956d09f80ea297ba306d5224fc5ccda435506ffcd34e69",
+        "samples/net10.0/TideDesk.Client/Program.cs": "a0c05998f94765994f04b927a6061b94b94091d88a740d17d1d4c25dafd4c46d",
+        "samples/net10.0/TideDesk.Client/TideDesk.Client.csproj": "a79e00a9c17051032d1911cf994c9449da6d5cf1c1c78949c206e7f200634c50",
+        "samples/net10.0/TideDesk.Client/verification.json": "00159bbd4dd770aae8dbf845d5b25e736a276c1674ab685419ea9c1fc34e947a"
+      },
       "sample": "samples/net10.0/TideDesk.Client/TideDesk.Client.csproj",
       "artifacts": {
-        "TideDesk.Client.dll": "8b772b489c0a7f8c40e85e82ff348472febd9adf5fa20863323e9359455ef588",
-        "TideDesk.Client.pdb": "c222394e514143ee603329fac81fd55ffa45d3461445a3330620e04af854e786",
+        "TideDesk.Client.dll": "3c115f6751564bd1327159ec56be9aee7069227007135f2ce6d4ee4acf186e49",
+        "TideDesk.Client.pdb": "ecf3e2f7bf77fc004fa00ddff9f0b35cb5a3c7184f3bc9b97ef49927b6a30a44",
         "TideDesk.Client.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
-        "TideDesk.Client.staticwebassets.endpoints.json": "83d36e6f4a8df41dd8d9a067a66caa622b76ee5596dafeeeeabcbf778cf9dfde",
-        "TideDesk.Client.staticwebassets.runtime.json": "8e91b3fe15d651641651dffc68db5cc85ffe622961172729413506a8731c33ba",
+        "TideDesk.Client.staticwebassets.endpoints.json": "4b6811d83d7ba3c8fa7d01fdba04c56f99348392828af3bf7f1d5b999e8415cb",
+        "TideDesk.Client.staticwebassets.runtime.json": "b38df3c0c689b59ab83061795398657e6ae6b91de558fdc642371de834d97cbe",
         "_framework/blazor.webassembly.js": "9435ec0d81609bad85f9852fc444bb20e4c25d8a621e9537b91e3961d0ba9aae",
         "_framework/blazor.webassembly.js.gz": "af6191e972fc94753e0fd5bfd9405c42c8836a5f66c6c08af7f98ba1dc9babb1",
-        "_framework/dotnet.js": "6955de0c9c06740dbeff90f5e26fbdc9d3ec5f7cf9c5cabd19b6d60039a4bb92",
-        "_framework/dotnet.js.gz": "656b3b2d7e37082837aaf6d172c7db5d1205f1d8150f6a5cec94c08c4cf89d69",
+        "_framework/dotnet.js": "9260328b1acfba66cf69225f3dbfef41b5bbbe8052adc64762fc71d75766d70a",
+        "_framework/dotnet.js.gz": "2874bd945ad0f6bd330d13623cecbea97d0db51ea6ba7d10404da9da2ef1fbb0",
         "_framework/dotnet.js.map": "df01b85ffce84a6d71508ba1bf48bc85e3eb5b15fef39a3b1e4b975fd8d15de8",
         "_framework/dotnet.js.map.gz": "f58928470b5533de2ceaa2989f0ec76604ff915af41ef91eb194e12e3bc0f5f0",
         "_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9",
@@ -465,44 +485,15 @@
         "_framework/System.Xml.XPath.uxdzkrbva9.wasm.gz": "310ec45648ada3f71d2e436150f5d61ec516cfdf9e7d8c882b2edf74a00d2df1",
         "_framework/System.Xml.XPath.XDocument.11s7vlb7t3.wasm": "a5ecb1d77a82f2c55c2e3121c6376cabe0990358ada3562963bb28e2ca9bbda9",
         "_framework/System.Xml.XPath.XDocument.11s7vlb7t3.wasm.gz": "46be21b37180a9caf4e0e46fbfa3059fcb05725f520a86ed8c1ba8987367d639",
-        "_framework/TideDesk.Client.aqdp53o218.pdb": "c222394e514143ee603329fac81fd55ffa45d3461445a3330620e04af854e786",
-        "_framework/TideDesk.Client.aqdp53o218.pdb.gz": "d6878d8aa1d1520a65df0152fbb065951c9d83745e353844142262962cf1884c",
-        "_framework/TideDesk.Client.u4v605bh5c.wasm": "1e07471f9979d61d4627c2dcc4dec725eadde2c85705ff99fdc5f4399faf6172",
-        "_framework/TideDesk.Client.u4v605bh5c.wasm.gz": "9e41789d5ee6c0a8815f025ca32fae53ef8fed6f39a54887bd785858a4e71c14",
+        "_framework/TideDesk.Client.c06ydlo6z7.pdb": "ecf3e2f7bf77fc004fa00ddff9f0b35cb5a3c7184f3bc9b97ef49927b6a30a44",
+        "_framework/TideDesk.Client.c06ydlo6z7.pdb.gz": "09c0acea45b5dab21c0adbbc7eb1e3f5c48322fb52d3fa8799f78abbfc89dceb",
+        "_framework/TideDesk.Client.gamz7d7mud.wasm": "68f913e74c01e3e9ae1c9aaa693e8b25e9aef5a31c64189b20d16cb0c0fb97de",
+        "_framework/TideDesk.Client.gamz7d7mud.wasm.gz": "61f13570b0a42ab7683cbb63a60eb10e67ca3199eccd79249a6a0475cd2811bf",
         "_framework/WindowsBase.z3dgnpnt6r.wasm": "5fd11cc96415ad120c1e088f1da63f03231057eebf3d74bd241883951bd3ead9",
         "_framework/WindowsBase.z3dgnpnt6r.wasm.gz": "4edd7f938efc972e5538e035ee398a4238b381bcde939d657154a2a3018ede06"
-      },
-      "inputs": {
-        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
-        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
-        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
-        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
-        "samples/net10.0/TideDesk.Client/Desk.razor": "f97f2501a7a65bc4853e79a28c72327b4d45985cd668a17effbd7750a0a7062d",
-        "samples/net10.0/TideDesk.Client/Directory.Packages.props": "c5731102140f1697396ced56d52beebd924941c89d48c9c39a178f02cc148e88",
-        "samples/net10.0/TideDesk.Client/global.json": "05e275ab63f3920f0c363e8705fdd874b6a828e5be54c87fb76188493367fb0c",
-        "samples/net10.0/TideDesk.Client/packages.lock.json": "649e43e85f63bb9162956d09f80ea297ba306d5224fc5ccda435506ffcd34e69",
-        "samples/net10.0/TideDesk.Client/Program.cs": "a0c05998f94765994f04b927a6061b94b94091d88a740d17d1d4c25dafd4c46d",
-        "samples/net10.0/TideDesk.Client/TideDesk.Client.csproj": "bfd7fb4a874f88ce5921a6d477051480215fd608a7b0dd8052f6e9e6413b4673",
-        "samples/net10.0/TideDesk.Client/verification.json": "00159bbd4dd770aae8dbf845d5b25e736a276c1674ab685419ea9c1fc34e947a"
       }
     },
     {
-      "sample": "samples/net11.0/TideDesk/TideDesk.csproj",
-      "artifacts": {
-        "TideDesk.Client.dll": "7845b2a79d3a5a4562c1b386080bd8f5ca732558dcb8a08d719f244f3a365eb1",
-        "TideDesk.Client.pdb": "f860cd72729b12bcbf58d34908466e104e2f015b509e60e85d5c8069f5cff65f",
-        "TideDesk.Client.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
-        "TideDesk.Client.staticwebassets.endpoints.json": "dbec527bea99ce651c5cc58490a9f909618fdfd5235f3de9b68d396d30e17ad2",
-        "TideDesk.Client.staticwebassets.runtime.json": "ab025a99810b76b4b07a82df902df203b62fc45993686a69b51a563cba517a2d",
-        "TideDesk.deps.json": "f53038077d0df4d8970126bf92c7068ff773c54222c38826a94a06c5bc46d6a4",
-        "TideDesk.dll": "a239903ab0a7760d758ca6a805270d231e1b4ef489d4abd2f4b0bd9f47fbf698",
-        "TideDesk.pdb": "552459171fa896c44e172c533069cceb5d66a59629bcc1d23e033f429f19cd20",
-        "TideDesk.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
-        "TideDesk.staticwebassets.endpoints.json": "268d4286a2f51ac27be31622db2f551cd606a68f7aed098b04a57a281b32e06b",
-        "TideDesk.staticwebassets.runtime.json": "9e8f29c38eab480ed1511666b211bfa72dd2fd6c14853d6b6fc97ff9f650eea7"
-      },
       "inputs": {
         ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
         "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
@@ -515,7 +506,7 @@
         "samples/net11.0/TideDesk.Client/global.json": "d9fd82b26a07e3966f2c69312ae0467dc039acbdb6426d99fc9ae5c82db81214",
         "samples/net11.0/TideDesk.Client/packages.lock.json": "7ebfbf6e014424ddbd6bad1f47e44874bc1faec5e8f843786d1a13fdcad81295",
         "samples/net11.0/TideDesk.Client/Program.cs": "a0c05998f94765994f04b927a6061b94b94091d88a740d17d1d4c25dafd4c46d",
-        "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj": "8a0b062b57ce766f0a14ba7e9bc1101532fedaea056387738380c02188d30f39",
+        "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj": "1118ace9aad11a215003da356e9e5c05c704d3cdea93044f73064e989b81af2d",
         "samples/net11.0/TideDesk.Client/verification.json": "f0c69b191366be2fdfb47fcd33cf1d9a64a185089f11879f0195426e7ee173d0",
         "samples/net11.0/TideDesk/App.razor": "a7fb87c2ae9236fc5e05a962a2ff4e42dfac3c0fb54efdd0dbdc724f4bee9de3",
         "samples/net11.0/TideDesk/Directory.Packages.props": "227808caa53b76cf92401696e59cd5f9ef7ce257efe53adb8a2d246c5216f2ed",
@@ -523,21 +514,25 @@
         "samples/net11.0/TideDesk/Launch.razor": "5da326412b0fb2e07e57f4818872b894165812169cdfee1232dcc24dcd24b3e8",
         "samples/net11.0/TideDesk/packages.lock.json": "b4783f4ba4733ccff8bccce2f985149a146937b8cf6464e7b56a997479eb7fb2",
         "samples/net11.0/TideDesk/Program.cs": "768e8812e0c3cabee87cec81ea6f0da2c6149c9f73638b6b4fd294e0d8c13d43",
-        "samples/net11.0/TideDesk/TideDesk.csproj": "276df60dc2a4c1eb2428958ef3e877a3822e4af1c602711a2d1c8f9dee7f22c2",
+        "samples/net11.0/TideDesk/TideDesk.csproj": "e50a5385605f93c2dca89e05691d520642ebbc4b45ec2c3b7afe084c7bec3db1",
         "samples/net11.0/TideDesk/verification.json": "527c6c7c0f383dbef361e4390fc3663ed54af2e5e76136fa40bc9ad1a3c96514"
+      },
+      "sample": "samples/net11.0/TideDesk/TideDesk.csproj",
+      "artifacts": {
+        "TideDesk.Client.dll": "bd07dd614dc90b953e80792422c6dd3f7970d93f0800cdf1f2decebdaeffaa24",
+        "TideDesk.Client.pdb": "568c9f3fec78845b95605a618536eb0edaa4b2ccbdd06ec09ead742942932542",
+        "TideDesk.Client.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
+        "TideDesk.Client.staticwebassets.endpoints.json": "36916d2d49dbe2e239c8bae7bee98eb29881c922802338b6beb1bae04a74846f",
+        "TideDesk.Client.staticwebassets.runtime.json": "dc05bef4624f37e92544066534c5553750fb8569cd295d05274960685be9f3fd",
+        "TideDesk.deps.json": "f53038077d0df4d8970126bf92c7068ff773c54222c38826a94a06c5bc46d6a4",
+        "TideDesk.dll": "420806be594f0d13845af0616bc3e29c6114b73699634760442fa61fbe93f7ac",
+        "TideDesk.pdb": "4e6b44ff85575bc49d0c3c0e7e271017160dcee98e0fe95f0543c6a52e70e069",
+        "TideDesk.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+        "TideDesk.staticwebassets.endpoints.json": "510c511aa4d09ab60e714d113b31837b349680c6ed2c418c7d1db94616fc1052",
+        "TideDesk.staticwebassets.runtime.json": "b728a4405963405904e5b5ae0d83d5e882cde11bbc1dc53af33f770ecc37fa31"
       }
     },
     {
-      "sample": "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj",
-      "artifacts": {
-        "TideDesk.Client.dll": "7845b2a79d3a5a4562c1b386080bd8f5ca732558dcb8a08d719f244f3a365eb1",
-        "TideDesk.Client.pdb": "f860cd72729b12bcbf58d34908466e104e2f015b509e60e85d5c8069f5cff65f",
-        "TideDesk.Client.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
-        "TideDesk.Client.staticwebassets.endpoints.json": "dbec527bea99ce651c5cc58490a9f909618fdfd5235f3de9b68d396d30e17ad2",
-        "TideDesk.Client.staticwebassets.runtime.json": "ab025a99810b76b4b07a82df902df203b62fc45993686a69b51a563cba517a2d",
-        "_framework/dotnet.js": "80046c622658841ddaea4c4830aac739ef5dcf94e68d4c28faec538896dd522e",
-        "_framework/dotnet.js.gz": "ddba81e5123b9dc787d326a7b4e3a2f041b687de381dd1b5083ff935f2d942ae"
-      },
       "inputs": {
         ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
         "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
@@ -550,15 +545,25 @@
         "samples/net11.0/TideDesk.Client/global.json": "d9fd82b26a07e3966f2c69312ae0467dc039acbdb6426d99fc9ae5c82db81214",
         "samples/net11.0/TideDesk.Client/packages.lock.json": "7ebfbf6e014424ddbd6bad1f47e44874bc1faec5e8f843786d1a13fdcad81295",
         "samples/net11.0/TideDesk.Client/Program.cs": "a0c05998f94765994f04b927a6061b94b94091d88a740d17d1d4c25dafd4c46d",
-        "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj": "8a0b062b57ce766f0a14ba7e9bc1101532fedaea056387738380c02188d30f39",
+        "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj": "1118ace9aad11a215003da356e9e5c05c704d3cdea93044f73064e989b81af2d",
         "samples/net11.0/TideDesk.Client/verification.json": "f0c69b191366be2fdfb47fcd33cf1d9a64a185089f11879f0195426e7ee173d0"
+      },
+      "sample": "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj",
+      "artifacts": {
+        "TideDesk.Client.dll": "bd07dd614dc90b953e80792422c6dd3f7970d93f0800cdf1f2decebdaeffaa24",
+        "TideDesk.Client.pdb": "568c9f3fec78845b95605a618536eb0edaa4b2ccbdd06ec09ead742942932542",
+        "TideDesk.Client.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
+        "TideDesk.Client.staticwebassets.endpoints.json": "36916d2d49dbe2e239c8bae7bee98eb29881c922802338b6beb1bae04a74846f",
+        "TideDesk.Client.staticwebassets.runtime.json": "dc05bef4624f37e92544066534c5553750fb8569cd295d05274960685be9f3fd",
+        "_framework/dotnet.js": "afd1a246c8f94dfd721e0faebe385a12a888cedb339933ea74a7168e3c9c93ba",
+        "_framework/dotnet.js.gz": "5e96c7e87597c2ea926f39559f10845cd1398665dd0451ad67ce282774f86fa8"
       }
     }
   ],
   "probes": [
     {
       "path": "eng/TideDesk.browser.js",
-      "sha256": "c56769009c0c158cf9d245fb5e94bc4cdde1bfd71ede896867e0d1fb583feb43"
+      "sha256": "ae4fdf014198d3fefc883939b8429c12d8ef771646094704c5c665135ba87a43"
     },
     {
       "path": "eng/TideDesk.mode.js",
@@ -570,7 +575,7 @@
     },
     {
       "path": "eng/Test-TideDeskHttp.ps1",
-      "sha256": "f6371565adfd185b1f09f8cb82142dc1ff8d5901c1bacdd2e5beee8302f39514"
+      "sha256": "902279e66242a4235d758e3cd3d29b24ddcdda6bd3b2c53ada5e14ed2bd2f7ce"
     }
   ]
 }

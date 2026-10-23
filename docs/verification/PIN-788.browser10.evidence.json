@@ -4,17 +4,17 @@
     "count": "2",
     "dialogClasses": "components-reconnect-failed",
     "dialogVisible": true,
-    "elapsed": 3080,
+    "elapsed": 3061,
     "events": [
       {
-        "at": 1792730768125,
+        "at": 1792732218423,
         "classes": "components-reconnect-show",
         "detail": {
           "state": "show"
         }
       },
       {
-        "at": 1792730768125,
+        "at": 1792732218423,
         "classes": "components-reconnect-show",
         "detail": {
           "currentAttempt": 1,
@@ -23,7 +23,7 @@
         }
       },
       {
-        "at": 1792730769134,
+        "at": 1792732219436,
         "classes": "components-reconnect-show",
         "detail": {
           "currentAttempt": 1,
@@ -32,7 +32,7 @@
         }
       },
       {
-        "at": 1792730769139,
+        "at": 1792732219441,
         "classes": "components-reconnect-show components-reconnect-retrying",
         "detail": {
           "currentAttempt": 2,
@@ -41,7 +41,7 @@
         }
       },
       {
-        "at": 1792730770142,
+        "at": 1792732220447,
         "classes": "components-reconnect-show components-reconnect-retrying",
         "detail": {
           "currentAttempt": 2,
@@ -50,7 +50,7 @@
         }
       },
       {
-        "at": 1792730770146,
+        "at": 1792732220451,
         "classes": "components-reconnect-show components-reconnect-retrying",
         "detail": {
           "currentAttempt": 3,
@@ -59,7 +59,7 @@
         }
       },
       {
-        "at": 1792730771149,
+        "at": 1792732221464,
         "classes": "components-reconnect-show components-reconnect-retrying",
         "detail": {
           "currentAttempt": 3,
@@ -68,7 +68,7 @@
         }
       },
       {
-        "at": 1792730771153,
+        "at": 1792732221468,
         "classes": "components-reconnect-failed",
         "detail": {
           "state": "failed"
@@ -76,21 +76,21 @@
       }
     ],
     "intervals": [
-      1008,
-      1007
+      1010,
+      1017
     ],
     "network": {
       "attempts": [
         {
-          "at": 1792730769136,
+          "at": 1792732219438,
           "url": "/_blazor/negotiate?negotiateVersion=1"
         },
         {
-          "at": 1792730770144,
+          "at": 1792732220448,
           "url": "/_blazor/negotiate?negotiateVersion=1"
         },
         {
-          "at": 1792730771151,
+          "at": 1792732221465,
           "url": "/_blazor/negotiate?negotiateVersion=1"
         }
       ],
@@ -98,20 +98,20 @@
     }
   },
   "kind": "actual-browser-execution",
-  "recordedAt": "2026-10-23T04:46:11.203Z",
+  "recordedAt": "2026-10-23T05:10:21.482Z",
   "recovery": {
     "count": "2",
-    "elapsed": 1141,
+    "elapsed": 1132,
     "events": [
       {
-        "at": 1792730766983,
+        "at": 1792732217288,
         "classes": "components-reconnect-show",
         "detail": {
           "state": "show"
         }
       },
       {
-        "at": 1792730766983,
+        "at": 1792732217288,
         "classes": "components-reconnect-show",
         "detail": {
           "currentAttempt": 1,
@@ -120,7 +120,7 @@
         }
       },
       {
-        "at": 1792730767997,
+        "at": 1792732218292,
         "classes": "components-reconnect-show",
         "detail": {
           "currentAttempt": 1,
@@ -129,7 +129,7 @@
         }
       },
       {
-        "at": 1792730768022,
+        "at": 1792732218310,
         "classes": "components-reconnect-hide",
         "detail": {
           "state": "hide"
@@ -141,5 +141,5 @@
       "blocked": false
     }
   },
-  "url": "http://127.0.0.1:5309/server"
+  "url": "http://127.0.0.1:5429/server"
 }

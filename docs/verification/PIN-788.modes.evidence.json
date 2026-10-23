@@ -1,44 +1,30 @@
 [
   {
-    "at": "2026-10-23T04:46:59.049Z",
-    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
-    "count": "1",
-    "runtime": "Server",
-    "url": "http://127.0.0.1:5309/auto"
-  },
-  {
-    "at": "2026-10-23T04:47:56.418Z",
+    "at": "2026-10-23T05:11:12.935Z",
     "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
     "count": "1",
     "runtime": "WebAssembly",
-    "url": "http://127.0.0.1:5309/auto"
+    "url": "http://127.0.0.1:5429/auto"
   },
   {
-    "at": "2026-10-23T04:48:59.534Z",
-    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
-    "count": "1",
-    "runtime": "Server",
-    "url": "http://localhost:5308/auto"
-  },
-  {
-    "at": "2026-10-23T04:49:39.524Z",
+    "at": "2026-10-23T05:11:14.251Z",
     "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
     "count": "1",
     "runtime": "WebAssembly",
-    "url": "http://localhost:5308/auto"
+    "url": "http://127.0.0.1:5429/wasm"
   },
   {
-    "at": "2026-10-23T04:50:17.415Z",
+    "at": "2026-10-23T05:11:16.455Z",
     "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
     "count": "1",
     "runtime": "WebAssembly",
-    "url": "http://127.0.0.1:5309/wasm"
+    "url": "http://127.0.0.1:5428/auto"
   },
   {
-    "at": "2026-10-23T04:51:45.948Z",
+    "at": "2026-10-23T05:11:17.934Z",
     "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
     "count": "1",
     "runtime": "WebAssembly",
-    "url": "http://127.0.0.1:5308/wasm"
+    "url": "http://127.0.0.1:5428/wasm"
   }
 ]

@@ -11,8 +11,10 @@
     const count = () => document.querySelector('#completed').textContent;
     const click = () => document.querySelector('#check').click();
     assert(document.querySelector('#runtime').textContent === 'Server', 'Requires a real server circuit');
-    click();
-    await until(() => count() === '1');
+    // A click during prerender is ignored. Establish actual circuit readiness
+    // through an observed event response, without mocking framework state.
+    for (let i = 0; i < 100 && count() === '0'; i++) { click(); await wait(100); }
+    assert(count() === '1', 'Initial real interactive click must complete once');
     const events = [];
     modal.addEventListener('components-reconnect-state-changed', event => {
         events.push({ at: Date.now(), detail: event.detail, classes: modal.className });

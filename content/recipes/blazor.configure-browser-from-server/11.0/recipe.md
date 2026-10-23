@@ -109,7 +109,7 @@ the complete document, dialog CSS and boot script.
    The restore creates both package lock files and downloads the matching
    framework/browser assets; subsequent locked builds preserve that dependency
    graph. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 when using an isolated CLI home.
-2. Run `dotnet run --project TideDesk.csproj -c Release --no-build -- --urls http://127.0.0.1:5388 --environment Development`.
+2. Run `dotnet run --project TideDesk.csproj -c Release --no-build -- --urls http://127.0.0.1:5418 --environment Development`.
    Development enables the build's static web assets; this is a local build/run
    example, not a deployment recipe. Open /server, /wasm and /auto. Click the
    harbour-check button and inspect the runtime label to distinguish Server

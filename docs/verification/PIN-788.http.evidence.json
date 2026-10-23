@@ -1,9 +1,9 @@
 {
   "kind": "actual-http-execution",
-  "recordedAt": "2026-10-23T04:45:52.0899360+00:00",
+  "recordedAt": "2026-10-23T05:11:22.0013131+00:00",
   "requests": [
     {
-      "uri": "http://127.0.0.1:5388/server",
+      "uri": "http://127.0.0.1:5418/server",
       "status": 200,
       "options": {
         "webAssembly": {
@@ -20,10 +20,10 @@
           "circuitInactivityTimeoutMs": 120000
         }
       },
-      "bodySha256": "c21079a607da0f8f74d74146df21eb0aa06d780cfa61be9d747902251c8c5a8a"
+      "bodySha256": "59f03ee81842d6ecd8d19967e859253a9229f17e578fc7dfcc43655c5bb78961"
     },
     {
-      "uri": "http://127.0.0.1:5388/wasm",
+      "uri": "http://127.0.0.1:5418/wasm",
       "status": 200,
       "options": {
         "webAssembly": {
@@ -40,10 +40,10 @@
           "circuitInactivityTimeoutMs": 120000
         }
       },
-      "bodySha256": "da2948da1659aa95923bd40909ae83dd17c57f227d7ae5e38f1d044c6b3936e7"
+      "bodySha256": "315039978cba3e6d03d10cc2557dcf1ca0496c0ac844ad8fffe1de38370fd394"
     },
     {
-      "uri": "http://127.0.0.1:5388/auto",
+      "uri": "http://127.0.0.1:5418/auto",
       "status": 200,
       "options": {
         "webAssembly": {
@@ -60,10 +60,23 @@
           "circuitInactivityTimeoutMs": 120000
         }
       },
-      "bodySha256": "3c83c1d70ac2636bcf344699e62ca64c525fe46080ad96a56912b3be1689cf65"
+      "bodySha256": "57041db50f95b7f6c054f9b8dad287ee6efb74393098d3684a3de14fe3e4a03d"
     }
   ],
   "sharingProbe": {
+    "artifactSha256": "587b9aa867aa38bf7225128bbf97e22650207217fd6a346492449588c26c0c5a",
+    "sameLookup": true,
+    "sameMetadataInstance": true,
+    "inputs": {
+      "App.razor": "c92c4f5124eb80d79ea12e1a3a7bae02542416d65e27a9e938a0f566fc8c1348",
+      "Directory.Build.props": "ba4aa07e19c4342a5359809588c4a9d0f2c014776ec5a1384c92073aaedd08ae",
+      "Directory.Packages.props": "1e2c523801e0c84e145ccb6a5654bdbd95288948359e1e28c90dc770f820194e",
+      "global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+      "Live.razor": "7f1194b0165f3a43c5459453e07f2287fe90f00024a34648e7abd394fccca18a",
+      "Probe.csproj": "7e07520840024af670f349a2d6094f4e5c12d0d4acfaf05be608287124bc7b9f",
+      "Probe.razor": "2953e8e1fe14ab1429ef032e1b333429c77d16472ae199380b3a0a6cd5e4fbfa",
+      "Program.cs": "2650e9152c10aa0903dd9c939cb8c424d7eb1f600dab7564ac2adb05acc4e8e6"
+    },
     "requests": [
       {
         "uri": "http://127.0.0.1:5398/probe",
@@ -78,7 +91,7 @@
           },
           "ssr": {}
         },
-        "bodySha256": "c16c8519c7230242a753f4c63e8ae823adc5927081bd8fb6b1eb3f74a016701f"
+        "bodySha256": "50b1e135823d8c72de1de62b811f754a7f79bacb3c6ad88c45400b14cd9c73e7"
       },
       {
         "uri": "http://127.0.0.1:5398/probe?retries=1",
@@ -93,7 +106,7 @@
           },
           "ssr": {}
         },
-        "bodySha256": "162e36ff15e74f7d677aecf50ff16b1e7d292dd6566b4db9889a6d793d1b779a"
+        "bodySha256": "37ede726af171b783d9eb2ff29098108ec6011173526bfd8fc574915fb3446ca"
       },
       {
         "uri": "http://127.0.0.1:5398/probe",
@@ -108,22 +121,9 @@
           },
           "ssr": {}
         },
-        "bodySha256": "5f63fe073de1d049217a283be92ff876b09eb528afab4a15b373a963f2729753"
+        "bodySha256": "8e0e9af3d6a4ea2d0bb288f2c7e704a38323d50d0903e95291f3eface66cdb69"
       }
     ],
-    "sameLookup": true,
-    "artifactSha256": "8e1349e74296bde0918d50a38bf4505652837ef5a01e7d9914a922047b65b7eb",
-    "sameMetadataInstance": true,
-    "inputs": {
-      "App.razor": "c92c4f5124eb80d79ea12e1a3a7bae02542416d65e27a9e938a0f566fc8c1348",
-      "Directory.Build.props": "ba4aa07e19c4342a5359809588c4a9d0f2c014776ec5a1384c92073aaedd08ae",
-      "Directory.Packages.props": "1e2c523801e0c84e145ccb6a5654bdbd95288948359e1e28c90dc770f820194e",
-      "global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
-      "Live.razor": "7f1194b0165f3a43c5459453e07f2287fe90f00024a34648e7abd394fccca18a",
-      "Probe.csproj": "7e07520840024af670f349a2d6094f4e5c12d0d4acfaf05be608287124bc7b9f",
-      "Probe.razor": "2953e8e1fe14ab1429ef032e1b333429c77d16472ae199380b3a0a6cd5e4fbfa",
-      "Program.cs": "2650e9152c10aa0903dd9c939cb8c424d7eb1f600dab7564ac2adb05acc4e8e6"
-    },
     "scope": "Separate local RC2 diagnostic consumer; not a framework-wide security finding or GA claim."
   },
   "probeStdout": "",

@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [string]$BaseUri = 'http://127.0.0.1:5388',
+  [string]$BaseUri = 'http://127.0.0.1:5418',
   [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
   [switch]$ProbeSharing,
   [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/pin788/http.evidence.json')
