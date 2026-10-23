@@ -1,6 +1,12 @@
 {
   "groups": [
     {
+      "id": "browser-component-diagnostics",
+      "pattern": " Microsoft\\.AspNetCore\\.Components\\.Infrastructure\\.ComponentsMetricsServiceCollectionExtensions",
+      "owner": "PIN-797; blazor.observe-browser-components/11.0; public .NET 10 manual registration and .NET 11 automatic WASM registration, real OTLP collector proof in docs/verification/PIN-797.md",
+      "disposition": "grouped; delivered"
+    },
+    {
       "id": "compiler-assets",
       "assetPattern": "^sdk/",
       "pattern": " (Microsoft\\.AspNetCore\\.Razor\\.Language\\.(Components\\.(AssetPathMetadata|PropertyMetadata)|MetadataKind::AssetPath|TagHelperKind::AssetPath))",
