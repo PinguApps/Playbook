@@ -19,6 +19,71 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("browser component activity retains complete setup and collector requirements offline")]
+    public async Task CheckBrowserComponentActivityAsync()
+    {
+        const string id = "blazor.observe-browser-components";
+        await CheckWebRecipesAsync([id], "loom-activity").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Browser activity applicability {property.Name}, including every nested field, must survive offline stdio.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Browser activity {field}");
+        }
+
+        foreach (JsonElement declaration in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), entry => entry.GetProperty("sample").GetString() == declaration.GetProperty("sample").GetString());
+            foreach (JsonProperty property in declaration.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Browser activity evidence {property.Name}");
+            }
+
+            Assert.NotEmpty(actual.GetProperty("inputs").EnumerateObject());
+            Assert.Contains("Build succeeded.", actual.GetProperty("output").GetString(), StringComparison.Ordinal);
+            string sample = declaration.GetProperty("sample").GetString()!;
+            string recordPath = sample[..sample.LastIndexOf('/')] + "/verification-evidence.json";
+            using JsonDocument record = JsonDocument.Parse(await ReadSdkInputAsync(recordPath).ConfigureAwait(false));
+            foreach (JsonProperty property in record.RootElement.EnumerateObject())
+            {
+                if (property.Name == "scope")
+                {
+                    continue; // The authored recipe declaration supplies the served scope, checked above.
+                }
+
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Browser activity captured evidence {property.Name}");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "MetricsSupport", "BlazorWebAssemblyDiagnosticsEnabled", "EventSourceSupport", "HttpActivityPropagationSupport", "1.20.1", "lib/net10.0", "HttpProtobuf", "/v1/metrics", "/v1/traces", "collector.yaml", "allowed_origins", "Content-Type", "ForceFlush", "tracing.configure-source-rules/11.0", "subscription", "not GA", "parentSpanId", "service.instance.id" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
+        }
+
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/LoomActivity/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+
+        foreach (string file in new[] { "BrowserTelemetry.cs", "App.razor", "Board.razor", "ShuttleBadge.razor", "wwwroot/index.html" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/net10.0/LoomActivity/{file}").ConfigureAwait(false), await ReadSdkInputAsync($"samples/net11.0/LoomActivity/{file}").ConfigureAwait(false));
+        }
+
+        string collector = await ReadSdkInputAsync("samples/LoomActivity/collector.yaml").ConfigureAwait(false);
+        collector = collector.Replace("# snippet:collector\n", "", StringComparison.Ordinal).Replace("# endsnippet:collector\n", "", StringComparison.Ordinal).TrimEnd();
+        string collectorSource = await ReadSdkInputAsync("samples/net11.0/LoomActivity/CollectorFiles.md").ConfigureAwait(false);
+        Assert.Contains($"<!-- snippet:collector -->\n{collector}\n<!-- endsnippet:collector -->", collectorSource, StringComparison.Ordinal);
+    }
+
     [Then("environment chrome retains complete canonical guidance and renderer boundaries offline")]
     public async Task CheckEnvironmentChromeAsync()
     {

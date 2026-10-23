@@ -5,6 +5,15 @@ not recipe delivery. At audit time every qualifying goal remained **delivery out
 Subsequent delivery is linked per goal below; the audit itself did not change served
 recipes, MCP contracts, sample evidence or publication-completeness flags.
 
+PIN-797 delivers `blazor.observe-browser-components/11.0` with original
+LoomActivity .NET 10/11 WASM consumers and an official local OTLP collector.
+Both releases expose public static AddComponentsMetrics/AddComponentsTracing;
+the older registration remains valid. The .NET 11 host adds conditional automatic
+registration, while its SDK's public diagnostics property defaults the three
+runtime switches. [Actual compilation, browser receipt and correlation evidence](../../verification/PIN-797.md)
+keeps source review, subscription and export/delivery distinct. This preserves
+the shared `tracing.configure-source-rules/11.0` recipe and the eight foundations.
+
 ## Boundary and exact evidence
 
 [PIN-708](https://linear.app/pinguapps/issue/PIN-708), planning key `API_BLAZOR`,

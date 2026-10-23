@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/LoomActivity/*.cs;../../samples/net*/LoomActivity/*.csproj;../../samples/net*/LoomActivity/*.props;../../samples/net*/LoomActivity/*.razor;../../samples/net*/LoomActivity/global.json;../../samples/net*/LoomActivity/verification-evidence.json;../../samples/net*/LoomActivity/CollectorFiles.md;../../samples/net*/LoomActivity/wwwroot/*.html;../../samples/LoomActivity/collector.yaml" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/CopperlineDesk/*/*.cs;../../samples/net*/CopperlineDesk/*/*.csproj;../../samples/net*/CopperlineDesk/*/*.props;../../samples/net*/CopperlineDesk/*/*.razor;../../samples/net*/CopperlineDesk/*/global.json;../../samples/net*/CopperlineDesk/Host/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/CultureHarbour/*/*.cs;../../samples/net*/CultureHarbour/*/*.csproj;../../samples/net*/CultureHarbour/*/*.props;../../samples/net*/CultureHarbour/*/*.targets;../../samples/net*/CultureHarbour/*/*.razor;../../samples/net*/CultureHarbour/*/global.json;../../samples/net*/CultureHarbour/*/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/CultureHarbour/*/*.resx" Type="Non-Resx" WithCulture="false" LogicalName="SdkInput.%(Identity)" />
