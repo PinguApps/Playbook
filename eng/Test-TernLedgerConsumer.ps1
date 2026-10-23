@@ -1,10 +1,15 @@
 [CmdletBinding()]
 param(
   [Parameter(Mandatory)][string]$Recipe,
-  [Parameter(Mandatory)][string]$OutputDirectory
+  [Parameter(Mandatory)][string]$OutputDirectory,
+  [Parameter(Mandatory)][string]$DotNet10,
+  [Parameter(Mandatory)][string]$DotNet11
 )
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
+foreach ($executable in @($DotNet10, $DotNet11)) {
+  if (-not [IO.Path]::IsPathFullyQualified($executable) -or -not (Test-Path -LiteralPath $executable -PathType Leaf)) { throw 'Supply absolute paths to the installed .NET 10 and .NET 11 executables.' }
+}
 $response = Get-Content -LiteralPath $Recipe -Raw | ConvertFrom-Json
 $body = $response.markdown
 $blocks = [regex]::Matches($body, '(?ms)^```[^\n]*\n(.*?)^```$')
@@ -34,7 +39,7 @@ try {
     [IO.File]::WriteAllText((Join-Path $directory 'Program.cs'), $program + "`n" + $blocks[$offset + 1].Groups[1].Value)
     $files = @('_Imports.razor', 'App.razor', 'Routes.razor', 'Home.razor', 'Ledger.razor', 'wwwroot/tern.js', 'wwwroot/ledger-module.js', 'wwwroot/ledger-data.json')
     for ($index = 0; $index -lt $files.Count; $index++) { [IO.File]::WriteAllText((Join-Path $directory $files[$index]), $blocks[4 + $index].Groups[1].Value) }
-    $dotnet = if ($major -eq 10) { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+    $dotnet = if ($major -eq 10) { $DotNet10 } else { $DotNet11 }
     Push-Location $directory
     try {
       $sdk = (& $dotnet --version | Out-String).Trim()
