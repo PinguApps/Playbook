@@ -1,0 +1,11 @@
+<!-- snippet:complete -->
+@using System.Globalization
+<button id="dispatch" @onclick="Dispatch">Dispatch parcel</button>
+<output id="count">@count</output>
+<output id="culture">@CultureInfo.CurrentCulture.Name</output>
+<output id="execution">@(OperatingSystem.IsBrowser() ? "browser" : "server")</output>
+@code {
+    private int count;
+    private void Dispatch() => count++;
+}
+<!-- endsnippet:complete -->
