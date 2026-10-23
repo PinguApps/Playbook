@@ -5,6 +5,11 @@ For custom browser-event alias migration, use the
 It displays complete original .NET 10/11 consumers, full installed Markdown,
 same-name rejection, paired JS/Razor renaming and the RC2/Interactive Server limits.
 
+For browser component diagnostics, use the
+[tested PIN-797 walkthrough](verification/PIN-797.md#inspect-what-an-agent-receives).
+It displays the complete .NET 10/11 WASM comparison, public switches, exporter and
+collector setup, applicability and evidence through real stdio list/get.
+
 For one-use redirect confirmations and persistent static SSR progress, use the
 [tested PIN-776 walkthrough](verification/PIN-776.md#inspect-what-an-agent-receives).
 It shows both goals, complete canonical comparisons and provider applicability,

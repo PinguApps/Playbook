@@ -5,6 +5,11 @@ Custom event alias migration uses original CairnSignals .NET 10/11 consumers.
 beforeinput payload/dispatch, complete returned-Markdown reconstruction and the
 tested installed Inspector handoff.
 
+Browser component activity uses original .NET 10/11 LoomActivity consumers and
+the official local OTLP collector. [PIN-797](verification/PIN-797.md) records
+actual received metrics, event/route/child correlation, artifact/source equality,
+standalone reconstruction and installed offline MCP retrieval.
+
 Unified JavaScript startup options use the original .NET 10/11 ParcelStartup
 Server/WASM legacy and Web App consumers. [PIN-789](verification/PIN-789.md)
 records effective callbacks, browser culture, responsive controls, retained flat

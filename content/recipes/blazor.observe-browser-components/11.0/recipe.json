@@ -1,0 +1,85 @@
+{
+  "id": "blazor.observe-browser-components",
+  "edition": "11.0",
+  "title": "Collect browser component activity",
+  "goal": "Find slow WASM interactions with component metrics and correlated traces.",
+  "areas": ["blazor"],
+  "exampleLanguages": ["csharp"],
+  "tags": ["loom-activity", "telemetry", "otlp"],
+  "apis": ["MetricsSupport", "BlazorWebAssemblyDiagnosticsEnabled", "AddMeter", "AddSource"],
+  "introducedIn": "11.0",
+  "supportedTargets": ["11.0"],
+  "stability": "stable",
+  "applicability": {
+    "routes": [{
+      "target": "11.0",
+      "usage": "primary",
+      "conditional": false,
+      "selectionNotes": ["WASM; enable diagnostics/export. Local receipt file exporter is alpha."],
+      "requirements": {
+        "runtime": {"name": ".NET", "version": "11.0", "match": "release-family", "reason": "Automatic WASM component diagnostics registration; the recorded runtime is RC2."},
+        "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Matching WASM SDK/runtime assets; actual SDK 11.0.100-rc.2.26504.105."},
+        "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Canonical compiler mode; no C# 15-only syntax is needed."},
+        "frameworks": ["Blazor"],
+        "packages": [
+          {"name": "Microsoft.AspNetCore.Components.WebAssembly", "version": "11.0.0-rc.2.26504.105", "match": "exact", "reason": "Matching RC2 component/browser assets; DevServer at the same pin is local test serving only."},
+          {"name": "OpenTelemetry.Exporter.OpenTelemetryProtocol", "version": "1.20.1", "match": "exact", "reason": "Actual browser-capable OTLP HTTP/protobuf exporter and SDK; net10.0 package assets used by both consumers."}
+        ],
+        "packageAssets": ["Matching WASM packs/JS; OTLP net10.0 assets"],
+        "providers": ["OTLP HTTP collector"],
+        "platforms": ["Browser HTTP/CORS"],
+        "renderingModes": ["WebAssembly"],
+        "workloads": [],
+        "prerequisites": [
+          "Complete standalone project/package files, explicit Razor namespaces/imports, global.json and document are in Markdown. Interpreted WASM uses WasmBuildNative=false; no AOT/native workload is required. Installed authoring workload inventory is recorded separately.",
+          "BlazorWebAssemblyDiagnosticsEnabled=true enables MetricsSupport, EventSourceSupport and HttpActivityPropagationSupport unless explicitly overridden. Verify effective build/boot settings. The .NET 10 comparison uses these public lower-level switches and public static AddComponentsMetrics/AddComponentsTracing registration.",
+          "Build and retain MeterProvider/TracerProvider before rendering; subscribe both component meters and the component ActivitySource. Configure OTLP HttpProtobuf with full /v1/metrics and /v1/traces paths. A subscription is not export/delivery evidence.",
+          "Run the pinned official local collector with the supplied YAML, loopback port 5933, explicit browser origins 5931/5932 and Content-Type CORS. Docker is a local authoring prerequisite, not a Playbook installation dependency. No credentials/account/provider provisioning is required."
+        ],
+        "constraints": [
+          "Browser-visible endpoints/configuration must contain no secrets. HTTP is loopback development only; production needs trusted HTTPS, appropriate CORS, authentication/rate limits and privacy/cardinality review.",
+          "Periodic metrics and batch traces export asynchronously. Keep the page alive until the collector receives both; synchronous ForceFlush is not an awaited network receipt. Browser close/suspension cannot guarantee final export or Dispose.",
+          "Component event/parameter/render-diff timing is not CPU profiling, DOM paint time or whole-interaction latency. Correlate framework event spans, route links and child business-work spans; metrics aggregate separately.",
+          "The real .NET 10 manual registration path is a comparison, not a new .NET 10 foundation or an older-target route to this .NET 11 edition. No Server/SSR/Auto, AOT, other-browser/OS, production throughput or GA execution claim."
+        ],
+        "optIns": ["BlazorWebAssemblyDiagnosticsEnabled=true; OTLP exporter/readers"],
+        "stabilityLimitations": ["Stable APIs; framework execution is RC2, not GA. Collector file exporter is alpha; local diagnostic receipts only."]
+      },
+      "evidenceSamples": ["samples/net11.0/LoomActivity/LoomActivity.csproj"],
+      "sourceUrls": [
+        "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs",
+        "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/RegisterRenderingMetricsServiceCollectionExtensions.cs",
+        "https://github.com/open-telemetry/opentelemetry-dotnet/blob/0bfd4c350f670dbc819b39bd57fac4c3ad5ba238/src/OpenTelemetry.Exporter.OpenTelemetryProtocol/README.md"
+      ]
+    }]
+  },
+  "sources": [
+    {"title": "Microsoft Blazor metrics and tracing", "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/performance?view=aspnetcore-11.0#metrics-and-tracing"},
+    {"title": "Pinned .NET 11 WASM diagnostics registration", "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHostBuilder.cs"},
+    {"title": "Pinned .NET 10 public registration", "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/RegisterRenderingMetricsServiceCollectionExtensions.cs"},
+    {"title": "Pinned component instruments and units", "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/ComponentsMetrics.cs"},
+    {"title": "Pinned component spans and route links", "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/ComponentsActivitySource.cs"},
+    {"title": "Pinned OpenTelemetry OTLP configuration", "url": "https://github.com/open-telemetry/opentelemetry-dotnet/blob/0bfd4c350f670dbc819b39bd57fac4c3ad5ba238/src/OpenTelemetry.Exporter.OpenTelemetryProtocol/README.md"},
+    {"title": "Official collector OTLP receiver and CORS", "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/v0.138.0/receiver/otlpreceiver/README.md"},
+    {"title": "Pinned alpha collector file exporter and JSON format", "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/v0.138.0/exporter/fileexporter/README.md"}
+  ],
+  "evidence": [
+    {"target": "net10.0", "kind": "compile", "language": "14.0", "sample": "samples/net10.0/LoomActivity/LoomActivity.csproj", "sdk": "10.0.402", "scope": "Actual pinned SDK compilation. Separate real Chrome WASM/official loopback collector execution receives five framework instruments and navigation/event spans; child-work parent and route-link IDs correlate. Exact artifacts, payloads and source provenance: docs/verification/PIN-797.md. No mocks, cross-compilation or GA claim."},
+    {"target": "net11.0", "kind": "compile", "language": "15.0", "sample": "samples/net11.0/LoomActivity/LoomActivity.csproj", "sdk": "11.0.100-rc.2.26504.105", "scope": "Actual pinned SDK compilation. Separate real Chrome WASM/official loopback collector execution receives five framework instruments and navigation/event spans; child-work parent and route-link IDs correlate. Exact artifacts, payloads and source provenance: docs/verification/PIN-797.md. No mocks, cross-compilation or GA claim."}
+  ],
+  "snippets": {
+    "project-10": {"path": "samples/net10.0/LoomActivity/LoomActivity.csproj", "region": "project", "language": "xml"},
+    "packages-10": {"path": "samples/net10.0/LoomActivity/Directory.Packages.props", "region": "packages", "language": "xml"},
+    "program-10": {"path": "samples/net10.0/LoomActivity/Program.cs", "region": "program", "language": "csharp"},
+    "project-11": {"path": "samples/net11.0/LoomActivity/LoomActivity.csproj", "region": "project", "language": "xml"},
+    "packages-11": {"path": "samples/net11.0/LoomActivity/Directory.Packages.props", "region": "packages", "language": "xml"},
+    "program-11": {"path": "samples/net11.0/LoomActivity/Program.cs", "region": "program", "language": "csharp"},
+    "telemetry": {"path": "samples/net11.0/LoomActivity/BrowserTelemetry.cs", "region": "telemetry", "language": "csharp"},
+    "app": {"path": "samples/net11.0/LoomActivity/App.razor", "region": "app", "language": "razor"},
+    "board": {"path": "samples/net11.0/LoomActivity/Board.razor", "region": "board", "language": "razor"},
+    "badge": {"path": "samples/net11.0/LoomActivity/ShuttleBadge.razor", "region": "badge", "language": "razor"},
+    "document": {"path": "samples/net11.0/LoomActivity/wwwroot/index.html", "region": "document", "language": "html"},
+    "collector": {"path": "samples/net11.0/LoomActivity/CollectorFiles.md", "region": "collector", "language": "yaml"}
+  },
+  "humanProof": {"status": "not-required", "scope": "Real local browser/collector proof supplied. No Human-only/account/resource prerequisite; no production or GA guarantee."}
+}

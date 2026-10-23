@@ -1,0 +1,9 @@
+<!-- snippet:app -->
+@namespace LoomActivity
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+<Router AppAssembly="typeof(App).Assembly">
+    <Found Context="route"><RouteView RouteData="route" /></Found>
+    <NotFound><p>Choose the shuttle board.</p></NotFound>
+</Router>
+<!-- endsnippet:app -->
