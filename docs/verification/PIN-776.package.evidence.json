@@ -1,6 +1,6 @@
 {
   "kind": "frozen-packed-tool-execution",
-  "recordedAt": "2026-10-23T11:06:23.9932555+00:00",
+  "recordedAt": "2026-10-23T12:06:23.9932555+01:00",
   "issue": "PIN-776",
   "status": "passed",
   "sourceCommit": "12413ef5a5a3d15fcbc90c7fccd032b88ae4828a",
@@ -15,11 +15,13 @@
   "runtime": "Microsoft.NETCore.App 10.0.12",
   "isolation": "--network none; no checkout mount; read-only frozen packages,99 suite files and unchanged Test-Package.ps1; isolated feed/cache/unrelated cwd",
   "frozenInputs": {
-    "manifestSha256": "dae57aaaeae91ab0115d4ba925e0216fd581833d7df87d81917825cea79e45a5",
+    "manifestSha256": "efc7d9934b666cec689e95f902742db5b1169fa093b3ecdc29cc4fa37fa37b0f",
     "suiteFiles": 99,
     "manifest": "docs/verification/PIN-776.package.inputs.json",
     "files": 103,
-    "unchangedAfterFullAndSmoke": true
+    "unchangedAfterFullAndSmoke": true,
+    "executedManifest": "artifacts/frozen-pin776-after90/input-manifest.json",
+    "executedManifestSha256": "dae57aaaeae91ab0115d4ba925e0216fd581833d7df87d81917825cea79e45a5"
   },
   "full": {
     "passed": 36,
