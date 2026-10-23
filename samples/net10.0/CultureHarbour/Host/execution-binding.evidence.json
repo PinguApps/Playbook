@@ -1,7 +1,7 @@
 {
   "kind": "post-execution-artifact-equality",
-  "recordedAt": "2026-10-23T08:20:30.8630466+00:00",
-  "sourceCommit": "4c6e72d812c0297af01a95a5f958a602cafc2dad",
+  "recordedAt": "2026-10-23T08:28:27.9926642+00:00",
+  "sourceCommit": "a0cc3f74562123fc07379e5d8fce6d367c3d1f3e",
   "sourceDirty": true,
   "provenance": "Original dirty-checkout browser captures retain their own timestamps. This later binding fingerprints settled inputs and verifies every fetched artifact against actual current build bytes. It does not relabel execution as clean or later execution.",
   "evaluatedExpression": "Exact UTF-8 eng/CultureHarbour.browser.js, without transformation, passed to Chrome extension CDP Runtime.evaluate with awaitPromise/returnByValue.",
@@ -44,17 +44,17 @@
     "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.runtime.azrfhwb804.js": "9ae374efa1e0c8e0a801a89def30fb6b6fc637b690eed98afc1cdd9ca830efc8",
     "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.native.q38003gvqi.js": "06d50c7af0934e950ae08e5debc2ed0599497462100bb7e4fa83678f2cee151e",
     "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9",
-    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/CultureHarbour.Client.1av5i4fnn5.pdb": "99bfa067841e5b4c58294c6c7538f5c3812b59e7d79b61fc426b1ea18f1e0724",
-    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/CultureHarbour.Client.o0pa66m6bg.wasm": "d8e4627ae190cfd99e96a80f52541303eab6a70602feebefd35120312ad848ac",
+    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/CultureHarbour.Client.g2e9jhwqvi.pdb": "78065ea6ba405e8b02b470925719d65183e5699763e2095e9da7d75665755d07",
+    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/CultureHarbour.Client.3snkhqsgb0.wasm": "63ce4bcf411e631544fbec5b0dd26d2093829cd3c7906d048286dcb827262d0d",
     "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/icudt.oh1zvcfom8.dat": "b4ee4ee58ccc4d549a2816e8c40a9ecce40bf5ec26ba9cd5d89ac1e5191cf1ae",
-    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/fr-FR/CultureHarbour.Client.resources.mts598yttn.wasm": "d6b599941d3c9dc2b59481a9b869f262df1661c049e1f2642862c5adc3521ca2",
-    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/de-DE/CultureHarbour.Client.resources.k2wmxagdi7.wasm": "dcb47071f5183f6b2d3ed0e637706a88a8330ded8779e6d7b5704869c796745c",
-    "samples/net10.0/CultureHarbour/Host/bin/Release/net10.0/CultureHarbour.Host.dll": "81fb3df137d69b5b7c552c16595c3244dead82b07d063e7d1ad7218d861a246d",
+    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/fr-FR/CultureHarbour.Client.resources.lygm2u945l.wasm": "a3f6438962e3352ebfaf00a2edc3b30b3346559980a248b80c093b4d0f856f7a",
+    "samples/net10.0/CultureHarbour/Client/bin/Release/net10.0/wwwroot/_framework/de-DE/CultureHarbour.Client.resources.jp47dcr0u8.wasm": "695f098308654461a326ff7ab09285520bf113e1050d44bbba4b17e470e8840d",
+    "samples/net10.0/CultureHarbour/Host/bin/Release/net10.0/CultureHarbour.Host.dll": "194b78f1eb1a7fe97388f4ea03e9b56e8e804b28711d333836dee0b159190b1e",
     "samples/net10.0/CultureHarbour/Host/bin/Release/net10.0/CultureHarbour.Host.deps.json": "3304b3ee79d1c55a96104256dc8c5f0e5dc1d7f9e349724ce2b0e2777b912bd3",
     "samples/net10.0/CultureHarbour/Host/bin/Release/net10.0/CultureHarbour.Host.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65"
   },
   "reports": {
-    "aligned": "17eb229427feb44afb9ebf3aeb4e8d3eb98f7fcd6505f1dbca3a135dc80d7f94",
-    "independent": "f45409ccf26719d4684c2b625a25f59052fed8c49ed276b231554a0d74191582"
+    "aligned": "a3b8108fc7d8b3fe4c3da62c9089ef5c6634612329e8437848e615929635a09e",
+    "independent": "0ddd2a67b90fe5ef16fa7871b94ba94b79bba19264be498cc4d148a000e3eaed"
   }
 }

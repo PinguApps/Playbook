@@ -1,7 +1,7 @@
 {
   "kind": "post-execution-artifact-equality",
-  "recordedAt": "2026-10-23T08:20:31.6090316+00:00",
-  "sourceCommit": "4c6e72d812c0297af01a95a5f958a602cafc2dad",
+  "recordedAt": "2026-10-23T08:28:28.6271010+00:00",
+  "sourceCommit": "a0cc3f74562123fc07379e5d8fce6d367c3d1f3e",
   "sourceDirty": true,
   "provenance": "Original dirty-checkout browser captures retain their own timestamps. This later binding fingerprints settled inputs and verifies every fetched artifact against actual current build bytes. It does not relabel execution as clean or later execution.",
   "evaluatedExpression": "Exact UTF-8 eng/CultureHarbour.browser.js, without transformation, passed to Chrome extension CDP Runtime.evaluate with awaitPromise/returnByValue.",
@@ -44,17 +44,17 @@
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/dotnet.runtime.js": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/dotnet.native.js": "ddc8ff57061165f6cea6032307824d64cdc8da7f8865a5776658448122c45ae4",
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/dotnet.native.wasm": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/CultureHarbour.Client.pdb": "d5dccff9f32cbee8851df647ae09cf243f3e19382fc5faea0ea6340ab3c9f0fa",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/CultureHarbour.Client.wasm": "8425f20d77444cfc948e561c09393d45ce6a4fbef122afbf34ffbbe7f296fbf2",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/CultureHarbour.Client.pdb": "209aebf7cfa18a3a023ad73245f7627b88e3ec3d0a169d720c1b8153bbbff68b",
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/icudt.dat": "e417e1ce03864118d68fdf7a00eb0af190fdeef806c570f951ca32f61fa4047f",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/fr-FR/CultureHarbour.Client.resources.wasm": "20e5e04373f775a2740c4836bdf40eaf336e5cd4bf8b9912b61609f1b75e648c",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/de-DE/CultureHarbour.Client.resources.wasm": "e9aa4f5cd544f8c67402b4fd36017ed10d3c0c7f402754d06a3ca7f0092b100e",
-    "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.dll": "b3128b679545a33d8e7c104fd05e04451d165e86e6508d9aff80ef2271e3c2ea",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/CultureHarbour.Client.wasm": "a2a1835abece06a5db7dfc4719e7cdd7f56885058a46630b6d72dd4081f54901",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/fr-FR/CultureHarbour.Client.resources.wasm": "c9f6c38deda0b4e7a21f5ad46fc004614cebe251d7d42da90fea9ceccc7759e4",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/de-DE/CultureHarbour.Client.resources.wasm": "85743da165e02e0ce4fbf40e12b75d51ce4886acd01fff162a5704aab6f04553",
+    "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.dll": "2e71d19960b1cbf461e7c694fd7e4107b0ec2375b5de9e9e2c1b320bea3f3752",
     "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.deps.json": "cf8a1cfff80931e401dd8f9a78b0c5227bed7c7b73792fafaa8ce888444c90be",
     "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6"
   },
   "reports": {
-    "aligned": "55c80e99e39c171c2e37feff26f4cba2fd64e16aa911a610a4ae855f600875e7",
-    "independent": "0e55b5b767daee1091f4b17a55c0b5d7061e303fd571a880690b7d0f6b017eea"
+    "aligned": "0cde2fb8729665e53ee23e72b5e1754789ba9752830a681cc782aaddf6751e8d",
+    "independent": "24387824c533b148459d77fa60028953b02cabe498c9ebd8b95da55613d02539"
   }
 }

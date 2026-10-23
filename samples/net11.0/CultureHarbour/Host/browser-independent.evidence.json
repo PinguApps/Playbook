@@ -2,75 +2,75 @@
   "artifacts": [
     {
       "bytes": 245494,
-      "end": 548.5,
+      "end": 494.699999988079,
       "fetchedBytes": 245494,
       "sha256": "065eac53496a10915dc8c3e19894d6bbb673c804c4f7ae7573a8364cc0e060c7",
-      "start": 451.699999988079,
+      "start": 408,
       "url": "http://localhost:5872/_framework/blazor.web.js"
     },
     {
       "bytes": 664,
-      "end": 546.3000000119209,
+      "end": 492.60000002384186,
       "fetchedBytes": 664,
       "sha256": "7625965db9e635b7ffea963da78e375eb7708abfe6fea039f3f6a27488dc82ea",
-      "start": 451.800000011921,
+      "start": 408.199999988079,
       "url": "http://localhost:5872/culture.js"
     },
     {
       "bytes": 197560,
-      "end": 1170.0999999642372,
+      "end": 1069.800000011921,
       "fetchedBytes": 197560,
       "sha256": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
-      "start": 872.1999999880791,
+      "start": 779.1999999880791,
       "url": "http://localhost:5872/_framework/dotnet.runtime.okxdo5zwwj.js"
     },
     {
       "bytes": 121713,
-      "end": 1169,
+      "end": 1068.300000011921,
       "fetchedBytes": 121713,
       "sha256": "ddc8ff57061165f6cea6032307824d64cdc8da7f8865a5776658448122c45ae4",
-      "start": 872.1999999880791,
+      "start": 779.3000000119209,
       "url": "http://localhost:5872/_framework/dotnet.native.ric31difde.js"
     },
     {
       "bytes": 3149955,
-      "end": 1344,
+      "end": 1207.899999976158,
       "fetchedBytes": 3149955,
       "sha256": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
-      "start": 872.3999999761581,
+      "start": 779.3999999761581,
       "url": "http://localhost:5872/_framework/dotnet.native.89gvfkserh.wasm"
     },
     {
-      "bytes": 18176,
-      "end": 1197.800000011921,
-      "fetchedBytes": 18176,
-      "sha256": "d5dccff9f32cbee8851df647ae09cf243f3e19382fc5faea0ea6340ab3c9f0fa",
-      "start": 875.8999999761581,
-      "url": "http://localhost:5872/_framework/CultureHarbour.Client.jy9fv16rlw.pdb"
+      "bytes": 18180,
+      "end": 1067.399999976158,
+      "fetchedBytes": 18180,
+      "sha256": "209aebf7cfa18a3a023ad73245f7627b88e3ec3d0a169d720c1b8153bbbff68b",
+      "start": 781.8000000119209,
+      "url": "http://localhost:5872/_framework/CultureHarbour.Client.s1y7uh3kqj.pdb"
     },
     {
       "bytes": 12569,
-      "end": 1389.699999988079,
+      "end": 1257.899999976158,
       "fetchedBytes": 12569,
-      "sha256": "8425f20d77444cfc948e561c09393d45ce6a4fbef122afbf34ffbbe7f296fbf2",
-      "start": 895.0999999642372,
-      "url": "http://localhost:5872/_framework/CultureHarbour.Client.0n4kuiqqpn.wasm"
+      "sha256": "a2a1835abece06a5db7dfc4719e7cdd7f56885058a46630b6d72dd4081f54901",
+      "start": 796.6999999880791,
+      "url": "http://localhost:5872/_framework/CultureHarbour.Client.62pm60nsdz.wasm"
     },
     {
       "bytes": 1646720,
-      "end": 1407,
+      "end": 1264.399999976158,
       "fetchedBytes": 1646720,
       "sha256": "e417e1ce03864118d68fdf7a00eb0af190fdeef806c570f951ca32f61fa4047f",
-      "start": 895.0999999642372,
+      "start": 796.8000000119209,
       "url": "http://localhost:5872/_framework/icudt.g3en5r9teb.dat"
     },
     {
       "bytes": 4377,
-      "end": 2115,
+      "end": 1891.199999988079,
       "fetchedBytes": 4377,
-      "sha256": "e9aa4f5cd544f8c67402b4fd36017ed10d3c0c7f402754d06a3ca7f0092b100e",
-      "start": 2105.699999988079,
-      "url": "http://localhost:5872/_framework/de-DE/CultureHarbour.Client.resources.dn6hn6etyl.wasm"
+      "sha256": "85743da165e02e0ce4fbf40e12b75d51ce4886acd01fff162a5704aab6f04553",
+      "start": 1880.600000023842,
+      "url": "http://localhost:5872/_framework/de-DE/CultureHarbour.Client.resources.n5bskobbss.wasm"
     }
   ],
   "capturedInitialDocument": "Manifeste de Port-Culture\nFormatting culture\nen-GB\nTranslation culture\nfr-FR\nDeparture\n19/07/2032\nCargo weight\n12,345.67\nInstruction\nGardez la caisse bleue debout.\nConfirm manifest\n\n0\n\nPrerendered",
@@ -86,13 +86,13 @@
   },
   "events": [
     {
-      "at": 1947.5,
+      "at": 1758.600000023842,
       "culture": "en-US",
       "kind": "before-run",
       "ui": "en-US"
     },
     {
-      "at": 2573.599999964237,
+      "at": 2263,
       "culture": "de-DE",
       "kind": "first-render",
       "ui": "de-DE"
@@ -118,12 +118,12 @@
     "translation": "Gardez la caisse bleue debout.",
     "ui": "fr-FR"
   },
-  "recordedAt": "2026-10-23T08:14:18.175Z",
+  "recordedAt": "2026-10-23T08:26:39.792Z",
   "satellite": {
     "bytes": 4377,
-    "end": 2115,
-    "start": 2105.699999988079,
-    "url": "http://localhost:5872/_framework/de-DE/CultureHarbour.Client.resources.dn6hn6etyl.wasm"
+    "end": 1891.199999988079,
+    "start": 1880.600000023842,
+    "url": "http://localhost:5872/_framework/de-DE/CultureHarbour.Client.resources.n5bskobbss.wasm"
   },
   "url": "http://localhost:5872/",
   "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"

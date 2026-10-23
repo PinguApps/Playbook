@@ -1,0 +1,17 @@
+{
+  "kind": "real-built-stdio-inspector",
+  "startedFrom": "C:\\Windows",
+  "worktree": "V:\\_worktrees\\Playbook\\agent-pin-794-04-022-keep-formatting-consistent-through-hydration",
+  "sourceCommit": "a0cc3f74562123fc07379e5d8fce6d367c3d1f3e",
+  "sourceDirty": true,
+  "scriptSha256": "e2da56b75efaf8ed551956c25ffee26e7796b10f4635b8ba7460b4181cf17238",
+  "outputSha256": "cf5c7ad1d07039ad84bf97a07a726fbd6f681a80b1016347c6bd15f326de5296",
+  "inspector": "@modelcontextprotocol/inspector@2.11.0",
+  "calls": [
+    "list_recipes targetVersion=11.0 query=culture-harbour",
+    "get_recipe targetVersion=11.0 id=blazor.align-server-browser-culture"
+  ],
+  "result": "PASS discovery id/title/goal, complete Markdown/applicability/edition/current evidence",
+  "consumerScriptSha256": "e085e0fdd65dfc37fa703c2f4107b44c20a9e8a4c0c9e158a60804dac5de8c8e",
+  "consumerOutputSha256": "37878c014ce8b202566b7c27ab5cf0c47e926aa3222911568040ccb9db629b67"
+}
