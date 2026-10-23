@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For one browser build with public environment settings, use the
+[tested PIN-793 walkthrough](verification/PIN-793.md#inspect-what-an-agent-receives).
+It displays the complete original .NET 10/11 comparison, WASM applicability,
+environment-source precedence and duplicate-registration migration.
+
 For nested Blazor startup options across legacy and Web App scripts, use the
 [tested PIN-789 walkthrough](verification/PIN-789.md#inspect-what-an-agent-receives).
 It displays complete original .NET 10/11 setup, discovery and applicability,
