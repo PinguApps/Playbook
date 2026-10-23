@@ -1,0 +1,71 @@
+{
+  "id": "blazor.hold-list-edge",
+  "edition": "11.0",
+  "title": "Keep a changing list in place",
+  "goal": "Anchor changing Virtualize lists.",
+  "areas": ["blazor"],
+  "exampleLanguages": ["csharp"],
+  "tags": ["orchard-journal"],
+  "apis": ["Virtualize.AnchorMode", "Virtualize.ItemComparer", "Virtualize.OverscanCount"],
+  "introducedIn": "11.0",
+  "supportedTargets": ["11.0"],
+  "stability": "stable",
+  "applicability": {
+    "routes": [{
+      "target": "11.0",
+      "usage": "primary",
+      "conditional": false,
+      "selectionNotes": ["Interactive; browser/layout dependent."],
+      "requirements": {
+        "runtime": {"name": ".NET", "version": "11.0", "match": "release-family", "reason": "Requires the .NET 11 Virtualize implementation and browser assets."},
+        "sdk": {"name": ".NET SDK", "version": "11.0", "match": "release-family", "reason": "Matching Razor/reference/browser assets; RC2 is the tested pin."},
+        "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Canonical language mode; anchoring itself does not require C# 15 syntax."},
+        "frameworks": ["ASP.NET Core 11"],
+        "packages": [],
+        "packageAssets": ["Microsoft.AspNetCore.App net11.0; matching SDK Internal.Assets browser files"],
+        "workloads": [],
+        "providers": [],
+        "platforms": ["ASP.NET Core server; browser"],
+        "renderingModes": ["Interactive Server"],
+        "prerequisites": [
+          "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings. Register AddInteractiveServerComponents and AddInteractiveServerRenderMode, activate the interactive component and load blazor.web.js. No separate Virtualize package, database provider or optional workload.",
+          "Use a finite-height vertical scroll container with one full-width block per item. Keep spacers in the same vertical stack. Native IntersectionObserver and ResizeObserver must receive real layout notifications."
+        ],
+        "constraints": [
+          "Interactive Virtualize; prepend/append behaviour and browser/layout differences require consumer testing. Static SSR/prerender alone cannot maintain a live viewport.",
+          "Choose Start, End, None or combined flags explicitly. Start follows prepends only near the head; End follows appends only near the tail. Scrolled-away readers retain their item/offset.",
+          "Compare fresh provider instances by unique immutable ID; use @key separately for component identity. Retained UI state lasts only while the row remains rendered. Refresh provider data after mutations; preserve order and accurate total counts.",
+          "Variable heights use measured averages and spacer estimates. OverscanCount=15 is deliberate and differs from QuickGrid's default 3; increasing it costs DOM/render work. Avoid layout transforms, nonvertical stacks and competing custom scroll compensation.",
+          "The .NET 10 bounded nonvirtualized comparison is compiled/executed, not an older-target route for the new API. No WebAssembly/Auto, table/Safari, other-platform or GA execution is claimed."
+        ],
+        "optIns": [],
+        "stabilityLimitations": ["RC2; GA proof pending."]
+      },
+      "evidenceSamples": ["samples/net11.0/OrchardJournal/OrchardJournal.csproj"],
+      "sourceUrls": [
+        "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs",
+        "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Virtualize.ts"
+      ]
+    }]
+  },
+  "sources": [
+    {"title": "Virtualization layout and scroll contract", "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-11.0"},
+    {"title": "Pinned RC2 list parameters, defaults and provider identity", "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs"},
+    {"title": "Pinned RC2 browser measurement and anchoring", "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Virtualize.ts"},
+    {"title": "Previous-release uniform-height requirement", "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-10.0"},
+    {"title": "RC2 end-anchoring fix and QuickGrid stability reconciliation", "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/aspnetcore.md"}
+  ],
+  "evidence": [
+    {"sample": "samples/net10.0/OrchardJournal/OrchardJournal.csproj", "target": "net10.0", "sdk": "10.0.402", "language": "14.0", "kind": "compile", "scope": "Actual bounded nonvirtualized Web SDK comparison. Separate real rendered Chrome checks exercise prepend/append/expansion and retained keyed row state; no mocked observers."},
+    {"sample": "samples/net11.0/OrchardJournal/OrchardJournal.csproj", "target": "net11.0", "sdk": "11.0.100-rc.2.26504.105", "language": "15.0", "kind": "compile", "scope": "Actual RC2 Web SDK consumer. Separate real rendered Chrome checks exercise anchoring, fresh provider identity, variable heights and explicit overscan; no cross-compilation or mocked observers."}
+  ],
+  "snippets": {
+    "older": {"path": "samples/net10.0/OrchardJournal/Journal.razor", "region": "journal", "language": "razor"},
+    "compensation": {"path": "samples/net10.0/OrchardJournal/wwwroot/edge.js", "region": "compensation", "language": "javascript"},
+    "newer": {"path": "samples/net11.0/OrchardJournal/Journal.razor", "region": "journal", "language": "razor"},
+    "identity": {"path": "samples/net11.0/OrchardJournal/Entry.cs", "region": "identity", "language": "csharp"},
+    "entry": {"path": "samples/net11.0/OrchardJournal/JournalEntry.razor", "region": "entry", "language": "razor"},
+    "host": {"path": "samples/net11.0/OrchardJournal/Program.cs", "region": "host", "language": "csharp"}
+  },
+  "humanProof": {"status": "not-required", "scope": "Local real browser/Interactive Server proof; no external service or Human-only dependency. Other browsers/layouts, rendering modes and GA remain unverified."}
+}

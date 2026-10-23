@@ -19,6 +19,23 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("changing lists retain canonical guidance and complete anchoring requirements offline")]
+    public async Task CheckChangingListsAsync()
+    {
+        string[] ids = ["blazor.hold-list-edge"];
+        await CheckWebRecipesAsync(ids, "orchard-journal").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.hold-list-edge/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        Assert.Contains("OverscanCount=\"15\"", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+        Assert.Contains("browser/layout differences", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
     [Then("selected rows retain canonical guidance and interactive requirements offline")]
     public async Task CheckSelectedRowsAsync()
     {

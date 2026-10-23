@@ -83,23 +83,35 @@
   await mutate('append');
   const end = measure();
   assert(end.visible.at(-1).id === '122' && end.scrollHeight - end.clientHeight - end.scrollTop <= 2, 'End did not follow append');
-  await scroll(0); // Home explicitly leaves tail-follow mode before reading earlier entries.
-  await scroll(2400);
-  const away = anchor();
-  assert(+away.id > 5 && +away.id < 110, 'Scroll away did not load an earlier provider window');
-  await mutate('append');
-  same(away, 'End mode pulled a reader away from an earlier entry');
-  const endAway = measure();
-  await mode('None');
-  await scroll(0);
-  const neutral = anchor();
-  await mutate('prepend');
-  same(neutral, 'None mode followed new head');
-  const none = measure();
   const virtualized = initial.rendered < 120;
   assert(!virtualized || (middle.rendered > middle.visible.length && middle.rendered < 120), 'Deliberate overscan did not bound rendered rows');
-  return { kind: 'real-rendered-browser', url: location.href, userAgent: navigator.userAgent,
+  const result = { kind: 'real-rendered-browser', url: location.href, userAgent: navigator.userAgent,
     recordedAt: new Date().toISOString(), virtualized, overscan: virtualized ? 15 : null,
     initial, start, middle, refreshed, prepended, expandedId, previousHeight, expanded,
-    appendedAway, end, endAway, none, retainedReaderNote: 'Keep this crate', toleranceCssPixels: 2 };
+    appendedAway, end, retainedReaderNote: 'Keep this crate', toleranceCssPixels: 2 };
+  // Remaining stages require trusted keyboard input from the browser driver.
+  // Offset assignment after an edge jump is not a substitute for a user scroll.
+  // No mutation runs in the background while waiting for the driver.
+  window.orchardAuthoring = {
+    measure,
+    async appendAfterNativeScroll() {
+      const away = anchor();
+      assert(+away.id > 5 && +away.id < 110, 'Native scroll did not load an earlier provider window');
+      await mutate('append');
+      same(away, 'End mode pulled a reader away from an earlier entry');
+      result.endAway = measure();
+      await mode('None');
+      return result;
+    },
+    async prependAfterNativeHome() {
+      assert(viewport.scrollTop <= 2, 'Native Home did not reach the actual head');
+      const neutral = anchor();
+      await mutate('prepend');
+      same(neutral, 'None mode followed new head');
+      result.none = measure();
+      delete window.orchardAuthoring;
+      return result;
+    }
+  };
+  return { state: 'native-scroll-required', result };
 })()

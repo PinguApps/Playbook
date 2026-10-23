@@ -5,6 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="../../samples/net*/WorkshopViews/*.cs;../../samples/net*/WorkshopViews/*.razor" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/OrchardJournal/*.cs;../../samples/net*/OrchardJournal/*.razor;../../samples/net*/OrchardJournal/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/MuseumRows/*.cs;../../samples/net*/MuseumRows/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/QuarryLedger/*.cs;../../samples/net*/QuarryLedger/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/SeedLabels/*.cs;../../samples/net*/SeedLabels/*.razor;../../samples/net*/SeedLabels/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
