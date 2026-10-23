@@ -50,7 +50,11 @@ public sealed class WorksheetCircuit(MaintenanceRegistry registry, PauseJournal 
     public async Task<bool> RequestAsync(CancellationToken token)
     {
         if (current is not { } circuit) return false;
-        if (token.IsCancellationRequested) return false;
+        if (token.IsCancellationRequested)
+        {
+            journal.Write("cancelled-request", circuit.Id, false);
+            return false;
+        }
         var accepted = await js.InvokeAsync<bool>("tide.requestPause", token);
         journal.Write(token.IsCancellationRequested ? "cancelled-request" : "pause-request", circuit.Id, accepted);
         return accepted;

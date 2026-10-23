@@ -1,3 +1,4 @@
+// snippet:lease
 using Microsoft.AspNetCore.Components.Server.Circuits;
 namespace Playbook.Samples;
 
@@ -7,3 +8,4 @@ public sealed class CircuitLease(PauseJournal journal) : IDisposable
     public string Id { get; } = Guid.NewGuid().ToString("N");
     public void Dispose() => journal.Write("resource-disposed", Id);
 }
+// endsnippet:lease

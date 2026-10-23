@@ -1,3 +1,4 @@
+// snippet:journal
 using System.Collections.Concurrent;
 using System.Text.Json;
 namespace Playbook.Samples;
@@ -19,3 +20,4 @@ public sealed class PauseJournal(IConfiguration configuration)
         }
     }
 }
+// endsnippet:journal
