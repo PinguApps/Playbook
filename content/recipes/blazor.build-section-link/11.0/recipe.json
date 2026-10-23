@@ -1,8 +1,8 @@
 {
   "id": "blazor.build-section-link",
   "edition": "11.0",
-  "title": "Build section links for the current page",
-  "goal": "Add, replace or remove a current-page fragment while retaining its application path and query string.",
+  "title": "Build links to page sections",
+  "goal": "Add, replace or remove the current page's fragment without losing its path or query.",
   "areas": [
     "blazor"
   ],
@@ -10,10 +10,7 @@
     "csharp"
   ],
   "tags": [
-    "base-aware-navigation",
-    "routing",
-    "path-base",
-    "fragments"
+    "base-aware-navigation"
   ],
   "apis": [
     "NavigationManagerExtensions.GetUriWithFragment"
@@ -30,7 +27,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Blazor navigation; GetUriWithFragment uses the current URI, not the application base. It does not escape arbitrary fragments."
+          "Blazor navigation: current URI, not app base; fragments are not escaped."
         ],
         "requirements": {
           "runtime": {
@@ -52,25 +49,27 @@
             "reason": "Declared canonical sample mode; no preview language syntax is used."
           },
           "frameworks": [
-            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+            "ASP.NET Core 11"
           ],
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "Microsoft.AspNetCore.Components.dll, Microsoft.AspNetCore.Components.Web.dll and Microsoft.AspNetCore.Components.Endpoints.dll from the .NET 11 shared/reference framework; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105 supplies browser files in the measured SDK."
+            "ASP.NET Core 11 framework; SDK-aligned Internal.Assets."
           ],
           "providers": [],
           "platforms": [
-            "ASP.NET Core web server and browser; actual Windows x64 loopback HTTP and Chromium 152 execution."
+            "Web server and browser"
           ],
           "renderingModes": [
-            "Blazor Web App static document shell with BasePath; declarative links can be server-rendered.",
-            "Interactive Server canonical routed pages and imperative event handlers; WebAssembly/Auto not executed."
+            "Static SSR shell; Interactive Server routes/events"
           ],
           "prerequisites": [
             "Configure the server request PathBase before routing, static assets and component endpoints. A proxy must preserve or correctly establish the external path base.",
             "Use one base element with trailing slash. BasePath is Microsoft.AspNetCore.Components.BasePath in RC2, in the Endpoints assembly; it is for the server-rendered Blazor Web App shell.",
-            "Canonical samples use net10.0/C# 14 and net11.0/C# 15 with independent global.json and locked SDK-aligned browser assets. No external provider, native workload or service account is required."
+            "Canonical samples use net10.0/C# 14 and net11.0/C# 15 with independent global.json and locked SDK-aligned browser assets. No external provider, native workload or service account is required.",
+            "Microsoft.AspNetCore.Components.dll, Microsoft.AspNetCore.Components.Web.dll and Microsoft.AspNetCore.Components.Endpoints.dll from the .NET 11 shared/reference framework; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105 supplies browser files in the measured SDK.",
+            "Blazor Web App static document shell with BasePath; declarative links can be server-rendered.",
+            "Interactive Server canonical routed pages and imperative event handlers; WebAssembly/Auto not executed."
           ],
           "constraints": [
             "Blazor routing: NavigationManager.Uri is the current absolute URI; BaseUri is the application root. RelativeToCurrentUri defaults to false and uses the current route directory only when true.",
@@ -80,7 +79,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Non-experimental contracts verified against .NET 11 RC2 (11.0.100-rc.2.26504.105); GA reconciliation remains pending. No experimental suppression or opt-in."
+            "RC2 verified; GA pending"
           ]
         },
         "sourceUrls": [

@@ -60,9 +60,9 @@
   ],
   "reports": {
     "docs/verification/PIN-777.browser.evidence.json": "0d67455d7c0b0ea48a40300394a7dc0fb3144f4ac3e7cf42de80d29e0f38075d",
-    "docs/verification/PIN-777.http10.evidence.json": "c1fdec32bcb8b1d8bb69dbd1c3d0f4e86a268fd433ec349ec4b0e21025cf528d",
-    "docs/verification/PIN-777.http11.evidence.json": "2e8151fd60f12b94c0d2c31852abb81dc352590857ebc1e70bd22c000985775d",
-    "docs/verification/PIN-777.alternate.evidence.json": "c4c7e887be44c3b404c7ec31426c78bf8102edb3295b5e373cecc7f51801c2d8"
+    "docs/verification/PIN-777.http10.evidence.json": "7ed0790d565dfe3f2f7452f155efa6f59677d2028217e1c15363711472825a70",
+    "docs/verification/PIN-777.http11.evidence.json": "4e9cfdd607963d1fb02ac86d18b08ec55d7717e4de53f528eb6fdf2f9da44008",
+    "docs/verification/PIN-777.alternate.evidence.json": "1aca56af7f05319d5ed1db98d55968476e4bb3c38274ebe7495cd84a7c8889ca"
   },
   "recordedAt": "2026-10-23T00:59:52.5648472+01:00",
   "scope": "Binds the saved actual HTTP/Chromium reports to the exact canonical app/test inputs and managed assemblies. Compilation is recorded separately.",
