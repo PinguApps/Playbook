@@ -236,7 +236,71 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("PaginationState", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
     }
 
-    private async Task CheckWebRecipesAsync(string[] ids, string query)
+    [Then("unified startup retains complete canonical guidance and all host requirements offline")]
+    public async Task CheckUnifiedStartupAsync()
+    {
+        const string id = "blazor.unify-startup-script-options";
+        await CheckWebRecipesAsync([id], "parcel-startup", 6).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Startup applicability {property.Name}, including all nested requirements, must survive offline delivery.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "stability", "introducedIn", "supportedTargets" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), field);
+        }
+
+        JsonElement[] actualEvidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        int index = 0;
+        foreach (JsonElement declaration in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            foreach (JsonProperty property in declaration.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actualEvidence[index].GetProperty(property.Name)), $"Startup evidence {index}/{property.Name}");
+            }
+
+            Assert.NotEmpty(actualEvidence[index].GetProperty("inputs").EnumerateObject());
+            Assert.Contains("Build succeeded.", actualEvidence[index].GetProperty("output").GetString(), StringComparison.Ordinal);
+            index++;
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string project in new[] { "Host", "Client", "LegacyClient" })
+            {
+                string imports = await ReadSdkInputAsync($"samples/{target}/ParcelStartup/{project}/_Imports.razor").ConfigureAwait(false);
+                foreach (string line in imports.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+
+                using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/ParcelStartup/{project}/global.json").ConfigureAwait(false));
+                Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+            }
+        }
+
+        foreach (string file in new[] { "Host/Program.cs", "Host/App.razor", "Host/Routes.razor", "Host/Server.razor", "Host/Wasm.razor", "Host/Pages/Legacy.cshtml", "Client/Program.cs", "Client/ParcelCounter.razor", "LegacyClient/Program.cs", "LegacyClient/ParcelCounter.razor", "LegacyClient/wwwroot/index.html" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/net10.0/ParcelStartup/{file}").ConfigureAwait(false), await ReadSdkInputAsync($"samples/net11.0/ParcelStartup/{file}").ConfigureAwait(false));
+        }
+
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/{target}/ParcelStartup/Host/wwwroot/startup.js").ConfigureAwait(false), await ReadSdkInputAsync($"samples/{target}/ParcelStartup/LegacyClient/wwwroot/startup.js").ConfigureAwait(false));
+        }
+
+        Assert.Contains("autostart=\"false\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("flat legacy", markdown, StringComparison.Ordinal);
+        Assert.Contains("@page \"/legacy-server\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("WasmBuildNative=false", markdown, StringComparison.Ordinal);
+    }
+
+    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(ids, RecipeIds(catalogue));
@@ -269,7 +333,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
             Assert.Equal("11.0", route.GetProperty("target").GetString());
             Assert.NotEmpty(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray());
-            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.Equal(evidenceCount, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
                 Assert.Equal("compile", evidence.GetProperty("kind").GetString());

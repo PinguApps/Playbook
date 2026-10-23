@@ -60,6 +60,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-QuarryLedger.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'LanternQueue.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'HarbourManifest.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'ParcelStartup.browser.js') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs

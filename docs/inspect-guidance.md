@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For nested Blazor startup options across legacy and Web App scripts, use the
+[tested PIN-789 walkthrough](verification/PIN-789.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 setup, discovery and applicability,
+including retained flat legacy compatibility and actual browser evidence.
+
 For virtual lists under restrictive style CSP, use the
 [tested PIN-786 walkthrough](verification/PIN-786.md#inspect-what-an-agent-receives).
 It shows full canonical comparisons, actual enforcement/scrolling evidence and
