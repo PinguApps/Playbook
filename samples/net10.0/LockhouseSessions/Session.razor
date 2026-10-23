@@ -1,0 +1,24 @@
+<!-- snippet:session -->
+@page "/"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+<h1>Westmere lock session</h1>
+<p id="identity">@identity</p>
+<label for="cargo">Fictional cargo note</label>
+<textarea id="cargo" @bind="cargo"></textarea>
+<button id="relay" @onclick="Relay">Relay note</button>
+<p id="receipt">@receipt</p>
+<pre id="returned">@returned</pre>
+<p id="connection">Starting</p>
+@code {
+    private readonly string identity = Guid.NewGuid().ToString("N");
+    private string cargo = "Westmere lock: two barges";
+    private string receipt = "Waiting";
+    private string returned = "";
+    private int sequence;
+    private void Relay()
+    {
+        returned = cargo;
+        receipt = $"Receipt {++sequence}: {cargo.Length} characters";
+    }
+}
+<!-- endsnippet:session -->

@@ -1,0 +1,185 @@
+{
+  "id": "blazor.control-circuit-transport",
+  "edition": "11.0",
+  "title": "Set circuit transport policy",
+  "goal": "Choose transports, expiry and buffers.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lockhouse-sessions"
+  ],
+  "apis": [
+    "ServerComponentsEndpointOptions.ConfigureConnection"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Interactive Server/SignalR; server policy, separate from browser retry."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "ConfigureConnection is in ASP.NET Core 11; use the matching runtime."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching Web SDK, Razor/reference packs and browser assets; pinned RC2 verifies the canonical sample."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode; no C# 15-specific syntax is needed."
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App; SDK blazor.web.js"
+          ],
+          "providers": [
+            "Cookie authentication; ephemeral Data Protection"
+          ],
+          "platforms": [
+            "Server/browser"
+          ],
+          "renderingModes": [
+            "Interactive Server/SignalR"
+          ],
+          "prerequisites": [
+            "Use Web SDK net11.0, AddRazorComponents/AddInteractiveServerComponents and AddInteractiveServerRenderMode. The pinned SDK resolves Internal.Assets 11.0.0-rc.2.26504.105; no external package/provider/account/workload. Match runtime and browser assets.",
+            "Require endpoint authorization and an authentication ticket with expiry. The Development-only loopback fixture issues a fictional 25-second cookie, disables sliding expiry and uses ephemeral Data Protection. Replace sign-in and keys for a real application.",
+            "Permit WebSockets throughout browser/proxy/server. The example deliberately removes fallback; keep required alternatives in a consumer. The browser observer only makes closure visible.",
+            "Choose finite buffering thresholds from workload measurements. This sample uses 8192/16384 bytes and separately permits 65536-byte SignalR receive messages. Transient cargo state is not persisted."
+          ],
+          "constraints": [
+            "Interactive Server/SignalR; distinct from browser reconnect options.",
+            "CloseOnAuthenticationExpiration closes an existing transport after ticket expiry is observed; it does not renew sign-in, continuously check revocation or guarantee an exact deadline. New connections still need authorization.",
+            "Pipe thresholds apply backpressure, not message rejection or a hard memory cap. The successful 27648-character real circuit relay exceeds both thresholds; no slow-reader, load, throughput or memory-capacity claim.",
+            "The executed .NET 10 endpoint-metadata convention is a previous-release comparison, not an older-target ConfigureConnection route. Traditional MapBlazorHub configuration is a different hosting shape; do not duplicate a Web App hub mapping.",
+            "Actual Windows/Chrome loopback evidence only. Static SSR has no circuit; WebAssembly/Auto, other authentication providers, proxies, distributed hosting and GA are unverified. No auth-refresh or pause policy is supplied."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA unverified."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/LockhouseSessions/LockhouseSessions.csproj"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.server.servercomponentsendpointoptions.configureconnection?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/HttpConnectionDispatcherOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/Internal/HttpConnectionManager.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.server.servercomponentsendpointoptions.configureconnection?view=aspnetcore-11.0",
+      "title": "ConfigureConnection API"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-11.0",
+      "title": "SignalR connection configuration"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs",
+      "title": "Pinned RC2 endpoint options"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs",
+      "title": "Previous-release endpoint options"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/HttpConnectionDispatcherOptions.cs",
+      "title": "Pinned pipe thresholds"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/Internal/HttpConnectionManager.cs",
+      "title": "Pinned expiry scan"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sdk": "10.0.402",
+      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/cookie-auth circuit execution verifies WebSocket upgrade, fallback rejection, a 27648-character roundtrip above both pipe thresholds, expiry closure and expiry-disabled controls. Exact inputs/artifacts in docs/verification/PIN-790.md; no mocks, cross-compilation or load/memory-capacity claim.",
+      "language": "14.0",
+      "target": "net10.0",
+      "sample": "samples/net10.0/LockhouseSessions/LockhouseSessions.csproj"
+    },
+    {
+      "kind": "compile",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/cookie-auth circuit execution verifies WebSocket upgrade, fallback rejection, a 27648-character roundtrip above both pipe thresholds, expiry closure and expiry-disabled controls. Exact inputs/artifacts in docs/verification/PIN-790.md; no mocks, cross-compilation or load/memory-capacity claim.",
+      "language": "15.0",
+      "target": "net11.0",
+      "sample": "samples/net11.0/LockhouseSessions/LockhouseSessions.csproj"
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "path": "samples/net10.0/LockhouseSessions/LockhouseSessions.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "host-10": {
+      "path": "samples/net10.0/LockhouseSessions/Program.cs",
+      "language": "csharp",
+      "region": "host"
+    },
+    "project-11": {
+      "path": "samples/net11.0/LockhouseSessions/LockhouseSessions.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "host-11": {
+      "path": "samples/net11.0/LockhouseSessions/Program.cs",
+      "language": "csharp",
+      "region": "host"
+    },
+    "document": {
+      "path": "samples/net11.0/LockhouseSessions/App.razor",
+      "language": "razor",
+      "region": "document"
+    },
+    "session": {
+      "path": "samples/net11.0/LockhouseSessions/Session.razor",
+      "language": "razor",
+      "region": "session"
+    },
+    "browser": {
+      "path": "samples/net11.0/LockhouseSessions/wwwroot/session.js",
+      "language": "javascript",
+      "region": "browser"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual local Windows/Chrome cookie-auth circuit behavior can be exercised by the agent. No external provider or Human-only prerequisite; other environments and GA are outside scope."
+  }
+}

@@ -116,8 +116,8 @@
     {
       "id": "transport",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Server\\.ServerComponentsEndpointOptions",
-      "owner": "PIN-790",
-      "disposition": "grouped"
+      "owner": "PIN-790; blazor.control-circuit-transport; LockhouseSessions",
+      "disposition": "included; original .NET 10 metadata convention/.NET 11 callback, real cookie-auth circuit evidence"
     },
     {
       "id": "activation",
