@@ -1,0 +1,87 @@
+<!-- snippet:all -->
+@namespace FossilDesk
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@using FossilWorker
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<h1>Westmere fossil desk</h1>
+<button id="interact" @onclick="() => clicks++">Mark another tray</button>
+<output id="clicks">@clicks</output>
+<p id="state">@state</p>
+<button id="score" disabled="@(worker is null || busy)" @onclick="() => RunAsync(false, false)">Score specimens</button>
+<button id="timeout" disabled="@(worker is null || busy)" @onclick="() => RunAsync(true, false)">Time out the wait</button>
+<button id="cancel" disabled="@(worker is null || busy)" @onclick="() => RunAsync(false, true)">Cancel the wait</button>
+<button id="stop" disabled="@(worker is null)" @onclick="StopAsync">Release worker</button>
+<output id="result">@result</output>
+
+@code {
+    private WebWorkerClient? worker;
+    private readonly CancellationTokenSource lifetime = new();
+    private bool busy, disposed;
+    private int clicks;
+    private string state = "Starting", result = "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        try
+        {
+            // Keep ownership of the eventual client. Cancelling only the JS await
+            // during creation can lose the reference while the real worker boots.
+            var created = await WebWorkerClient.CreateAsync(JS, timeoutMs: 15000);
+            if (disposed) { await created.DisposeAsync(); return; }
+            worker = created;
+            await worker.InvokeVoidAsync("FossilWorker.WorkerMethods.Label", ["Westmere-A"]);
+            state = "Ready";
+        }
+        catch (Exception error) { state = $"Creation failed: {error.Message}"; }
+        if (!disposed) StateHasChanged();
+    }
+
+    private async Task RunAsync(bool timeout, bool cancel)
+    {
+        if (worker is null || busy) return;
+        var current = worker;
+        busy = true;
+        state = "Computing";
+        using var call = CancellationTokenSource.CreateLinkedTokenSource(lifetime.Token);
+        if (cancel) call.CancelAfter(50);
+        try
+        {
+            var score = await current.InvokeAsync<int>("FossilWorker.WorkerMethods.Score", [1200],
+                timeoutMs: timeout ? 20 : 5000, cancellationToken: call.Token);
+            result = $"Score {score}";
+            state = "Completed";
+        }
+        catch (OperationCanceledException) { state = "Wait cancelled"; }
+        catch (InvalidOperationException error) { state = $"Wait failed: {error.Message}"; }
+        finally { busy = false; }
+        // Serial calls avoid the RC2 concurrent-timeout pending-request cleanup race.
+        if (!disposed && ReferenceEquals(current, worker))
+        {
+            try { result += $" | {await current.InvokeAsync<string>("FossilWorker.WorkerMethods.Report", [], timeoutMs: 5000)}"; }
+            catch (InvalidOperationException error) { state = $"Report failed: {error.Message}"; }
+        }
+    }
+
+    private async Task StopAsync()
+    {
+        var current = worker;
+        worker = null;
+        lifetime.Cancel();
+        if (current is not null) await current.DisposeAsync();
+        state = "Worker released";
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (disposed) return;
+        disposed = true;
+        await StopAsync();
+        lifetime.Dispose();
+    }
+}
+<!-- endsnippet:all -->

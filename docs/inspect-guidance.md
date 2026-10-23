@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For lengthy browser calculations, use the
+[tested PIN-792 walkthrough](verification/PIN-792.md#inspect-what-an-agent-receives).
+It displays the full original .NET 10/11 comparison, actual generated worker
+client/assets, WASM/CSR applicability and cancellation versus termination limits.
+
 For periodic work owned by a browser application, use the
 [tested PIN-791 walkthrough](verification/PIN-791.md#inspect-what-an-agent-receives).
 It displays the complete .NET 10/11 WebAssembly comparison, orderly cancellation

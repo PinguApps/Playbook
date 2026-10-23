@@ -19,6 +19,50 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("browser workers retain complete canonical guidance and cancellation limits offline")]
+    public async Task CheckBrowserWorkersAsync()
+    {
+        const string id = "blazor.offload-browser-computation";
+        await CheckWebRecipesAsync([id], "fossil-worker", 3).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete worker applicability {property.Name}, including every nested requirement, must survive offline stdio retrieval.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete worker {field} must survive packaging.");
+        }
+
+        JsonElement[] evidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(evidence, entry => entry.GetProperty("sample").GetString() == expected.GetProperty("sample").GetString());
+            foreach (JsonProperty property in expected.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored worker evidence {property.Name} must survive packaging.");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "WASM/CSR; current blazorwebworker template; see E03", "InvokeVoidAsync", "creation cancellation", "Serialize", "not a new .NET 10 foundation", "separate", "no installed wasm-tools", "Creation timeout", "before actual CPU completion" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
+        }
+
+        Assert.Equal("WebAssembly", Assert.Single(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray()).GetString());
+        Assert.Empty(route.GetProperty("requirements").GetProperty("providers").EnumerateArray());
+        Assert.Empty(route.GetProperty("requirements").GetProperty("workloads").EnumerateArray());
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/FossilDesk/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+    }
+
     [Then("periodic browser work retains complete canonical guidance and lifetime limits offline")]
     public async Task CheckPeriodicBrowserWorkAsync()
     {
