@@ -1,7 +1,19 @@
 {
-  "sourceDirty": false,
-  "kind": "actual installed stdio integration through Test-Package.ps1",
-  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "results": [
+    {
+      "failed": 0,
+      "total": 36,
+      "lane": "full",
+      "passed": 36
+    },
+    {
+      "failed": 0,
+      "total": 1,
+      "lane": "smoke",
+      "passed": 1
+    }
+  ],
+  "packageVersion": "0.0.0-list-anchoring-integrated",
   "dockerInvocations": [
     {
       "arguments": [
@@ -33,14 +45,14 @@
         "-Suite",
         "/suite",
         "-PackageVersion",
-        "0.0.0-list-anchoring-final",
+        "0.0.0-list-anchoring-integrated",
         "-RuntimeMajor",
         "10",
         "-Results",
         "/results"
       ],
-      "lane": "full",
-      "executable": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe"
+      "executable": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+      "lane": "full"
     },
     {
       "arguments": [
@@ -72,52 +84,54 @@
         "-Suite",
         "/suite",
         "-PackageVersion",
-        "0.0.0-list-anchoring-final",
+        "0.0.0-list-anchoring-integrated",
         "-RuntimeMajor",
         "10",
         "-Results",
         "/results",
         "-Smoke"
       ],
-      "lane": "smoke",
-      "executable": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe"
+      "executable": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+      "lane": "smoke"
     }
   ],
-  "sourceCommit": "da644b7d349665eeb29240034c1b4a1ba3a7f398",
-  "recordedAt": "2026-10-23T04:07:56.3119204+01:00",
-  "packageVersion": "0.0.0-list-anchoring-final",
-  "runtime": "Linux .NET 10.0.12",
-  "artifacts": {
-    "eng/Test-Package.ps1": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
-    "artifacts/release-fixture/PinguApps.Playbook.0.0.0-list-anchoring-final.nupkg": "e84f229691c6ced751189f02a72480031ef82286931ced3464e967c67350aafa",
-    "artifacts/PinguApps.Playbook.0.0.0-list-anchoring-final.nupkg": "7cc8c21e70383e72ec9c6f4a4fabd0cb1a53c66741b68b4f75eb3b0a99e98d32",
-    "tests/PinguApps.Playbook.Tests/bin/Release/net10.0/PinguApps.Playbook.Tests.dll": "236008d32bb6a6b2e37265d2c50afd6f2735719db9dd254a0cffa0354bbcb861"
-  },
   "limits": "Clean implementation-head package build; saved sample compilation/browser proof retains dirty authoring provenance. Documentation-only proof commit follows. No new OS/client/native matrix or GA proof.",
   "network": "none",
-  "results": [
-    {
-      "failed": 0,
-      "passed": 36,
-      "lane": "full",
-      "total": 36
-    },
-    {
-      "failed": 0,
-      "passed": 1,
-      "lane": "smoke",
-      "total": 1
-    }
-  ],
+  "kind": "actual installed stdio integration through Test-Package.ps1",
+  "sourceDirty": false,
+  "sourceCommit": "2d5a119145d60e803e98b06d6c09de3effcafff3",
   "checkoutMounted": false,
+  "runtime": "Linux .NET 10.0.12",
   "measurements": [
     "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
-    "11.0: count=20, largest summary=1982, structured=27824, result=70050 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=27580, result=69552 UTF-8 bytes",
     "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
     "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
-    "all 20: summary=1397, structured=27826, result=70054 UTF-8 bytes",
-    "all 50: summary=1397, structured=67444, result=169824 UTF-8 bytes",
+    "all 20: summary=1397, structured=27582, result=69556 UTF-8 bytes",
+    "all 50: summary=1397, structured=67418, result=169872 UTF-8 bytes",
     "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
-    "11.0: count=20, largest summary=1982, structured=27824, result=70050 UTF-8 bytes"
-  ]
+    "11.0: count=20, largest summary=1982, structured=27580, result=69552 UTF-8 bytes"
+  ],
+  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "artifacts": {
+    "artifacts/PinguApps.Playbook.0.0.0-list-anchoring-integrated.nupkg": "1c7bc9b7636488f3f62c633f4cf5098e14bbe0c6a8bc30dd2d35e7dcea294a0c",
+    "eng/Test-Package.ps1": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
+    "tests/PinguApps.Playbook.Tests/bin/Release/net10.0/PinguApps.Playbook.Tests.dll": "1cca7e404cff4095258827ebbbc46ea3fded652f96c952838224e1d544d6ae60",
+    "artifacts/release-fixture/PinguApps.Playbook.0.0.0-list-anchoring-integrated.nupkg": "08cebaf3ce6ab2e240764844dfaa0fc24e8b1652337498b64744d6d6d2b9c3cb"
+  },
+  "recordedAt": "2026-10-23T04:39:56.3940553+01:00",
+  "integratedMain": "39bf807c6bb67e645bf70c88e801e524a2c465eb",
+  "retainedSampleFamilies": [
+    "HarbourManifest",
+    "WorkshopViews",
+    "MuseumRows",
+    "QuarryLedger",
+    "SeedLabels",
+    "NavigationAtlas",
+    "ArchiveCards",
+    "SurveyForms",
+    "VisitBookings",
+    "OrchardJournal"
+  ],
+  "scope": "Existing combined web scenario independently reconstructs complete canonical Markdown and compares every authored OrchardJournal applicability route property, including requirements/prerequisites/constraints/assets/providers/stability, over actual installed stdio with isolated feed/cache and unrelated cwd. All prior assertions and all byte guards retained."
 }
