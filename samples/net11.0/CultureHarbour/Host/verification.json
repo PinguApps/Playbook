@@ -1,0 +1,20 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/CultureHarbour.browser.js",
+    "samples/net11.0/CultureHarbour/Client",
+    "eng/Test-CultureHarbourEvidence.ps1"
+  ],
+  "dependencies": [
+    "CultureHarbour.Client/1.0.0",
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Components.WebAssembly/11.0.0-rc.2.26504.105",
+    "Microsoft.JSInterop.WebAssembly/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "buildArguments": []
+}

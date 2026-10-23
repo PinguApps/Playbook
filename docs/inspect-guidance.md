@@ -4,6 +4,10 @@ For standalone browser deep links and configured backend routing, use the
 [tested PIN-796 walkthrough](verification/PIN-796.md#inspect-what-an-agent-receives).
 It displays the complete original .NET 10 host/.NET 11 Gateway comparison,
 generated service defaults, WASM applicability and conditional Aspire boundary.
+For consistent culture through prerendered WASM hydration and an explicit
+independent client, use the [tested PIN-794 walkthrough](verification/PIN-794.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 consumers, actual culture/satellite
+timing, full Markdown and applicability.
 
 For one browser build with public environment settings, use the
 [tested PIN-793 walkthrough](verification/PIN-793.md#inspect-what-an-agent-receives).
