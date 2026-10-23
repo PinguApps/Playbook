@@ -1,0 +1,29 @@
+<!-- snippet:dashboard -->
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.Configuration
+@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
+@namespace EstuaryBoard
+@inject IConfiguration Configuration
+@inject ConfigurationTrace Trace
+@inject IWebAssemblyHostEnvironment HostEnvironment
+
+<h1>Estuary dispatch board</h1>
+<dl>
+    <dt>Environment</dt><dd id="environment">@HostEnvironment.Environment</dd>
+    <dt>Initial endpoint</dt><dd id="initial">@Trace.InitialEndpoint</dd>
+    <dt>Effective endpoint</dt><dd id="endpoint">@Configuration["Board:Endpoint"]</dd>
+    <dt>Caption</dt><dd id="caption">@Configuration["Board:Caption"]</dd>
+    <dt>JSON environment value</dt><dd id="json">@Configuration["Board:JsonOnly"]</dd>
+    <dt>Base JSON value</dt><dd id="base">@Configuration["Board:BaseOnly"]</dd>
+    <dt>Environment providers</dt><dd id="count">@Trace.EnvironmentProviders</dd>
+</dl>
+<ol id="providers">
+    @foreach (var provider in Trace.Providers)
+    {
+        <li>@provider.Name | @provider.Endpoint | @provider.Caption</li>
+    }
+</ol>
+<button id="interact" @onclick="() => _clicks++">Check dispatch</button>
+<output id="clicks">@_clicks</output>
+@code { private int _clicks; }
+<!-- endsnippet:dashboard -->
