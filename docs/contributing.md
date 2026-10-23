@@ -294,3 +294,7 @@ Use the installed-package scenarios from `Verify.ps1` for the final artifact che
 Before handoff, account for each recipe claim with official source support, current compilation and the specific execution check it needs. Check original authorship, fair previous-release behavior, complete offline steps, snippet identity, stable IDs/editions, requirements versus test pins, target-specific routes, experimental labels, register disposition and unresolved gaps. Passing schema or tool tests does not establish native/provider behavior or comprehensive release readiness. Report exact commands, versions, actual results and unverified scope.
 
 Shared style and analyzer configuration adapts the MIT-licensed PinguApps Template's generated-app configuration. The [reference map](planning/reference-repositories.md) records the layout, packaging and scenario conventions used. Recipe prose and samples were authored independently; no guide example implementation was reused.
+
+The [PIN-787 circuit pause proof](verification/PIN-787.md) records original
+TideCharts .NET 10/RC2 compilation, native hidden-tab resource/state recovery,
+real host lifecycle maintenance/cancellation and complete packed offline retrieval.

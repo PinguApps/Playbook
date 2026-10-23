@@ -28,7 +28,7 @@
         "usage": "primary",
         "conditional": false,
         "selectionNotes": [
-          "Request acceptance is not completed drain; request cancellation does not guarantee shutdown."
+          "Persist state; same document/retention/keys. Acceptance is not drain; request cancellation does not guarantee shutdown."
         ],
         "requirements": {
           "runtime": {

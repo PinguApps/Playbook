@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For hidden-session resource release and maintenance pause, use the
+[tested PIN-787 walkthrough](verification/PIN-787.md#inspect-what-an-agent-receives).
+It shows full original .NET 10/11 comparisons, persistence prerequisites and
+request acceptance versus actual circuit closure through real stdio list/get.
+
 For initial and programmatic virtual-list item reveal, use the
 [tested PIN-785 walkthrough](verification/PIN-785.md#inspect-what-an-agent-receives).
 It displays the full original .NET 10/11 comparison, provider timing and bounds,
