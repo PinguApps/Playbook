@@ -1,0 +1,179 @@
+{
+  "id": "blazor.project-static-child-content",
+  "edition": "11.0",
+  "title": "Place server-rendered content inside interactive controls",
+  "goal": "Project captured non-generic static content into an interactive component without a wrapper; use for cross-render-mode composition, not live callbacks.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "captured-static-content",
+    "render-mode",
+    "child-content"
+  ],
+  "apis": [
+    "RenderFragment",
+    "InteractiveServerRenderMode"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Cross-render-mode static content; not delegate serialization or arbitrary live callbacks.",
+          "Non-generic fragments must execute during prerendering. Generic templates and ordinary delegates cannot cross this boundary."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Framework Components/Endpoints/Server assemblies plus SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser files; no explicit NuGet package or optional workload."
+          ],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core server; actual Windows x64 SSR and Chromium 152 Interactive Server execution. WebAssembly/Auto and other OS execution are not claimed."
+          ],
+          "renderingModes": [
+            "Static SSR parent to prerendered Interactive Server child: executed.",
+            "WebAssembly/Auto use the framework capture path but require independently verified client assets/types; not executed here."
+          ],
+          "prerequisites": [
+            "Use net11.0 with matching ASP.NET Core 11 runtime, SDK/reference assemblies and browser assets. Canonical language mode is C# 15.0; no preview syntax or experimental opt-in.",
+            "Enable AddInteractiveServerComponents and AddInteractiveServerRenderMode, keep prerendering enabled, and invoke every supplied fragment during prerendering. The canonical App remains static."
+          ],
+          "constraints": [
+            "Cross-render-mode static content; not delegate serialization or arbitrary live callbacks.",
+            "Only non-generic RenderFragment parameters are captured. RenderFragment<T> and ordinary delegates are rejected. Captured event handlers and reference captures are skipped with framework warnings; put live behavior in the interactive component.",
+            "Do not defer a supplied fragment until after activation: uncaptured fragments fail. No conditional net10.0 route, generic variance migration, WebAssembly/Auto execution, trimming/AOT or GA proof is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable rendering contract tested with .NET 11 RC2; GA reconciliation remains pending. No experimental opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/aspnetcore.md",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Shared/src/RenderFragmentCapture.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Shared/src/RenderFragmentSerializer.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ArchiveCards/ArchiveCards.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/aspnetcore.md",
+      "title": "Official child content release notes"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-11.0",
+      "title": "Render mode propagation and boundary rules"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs",
+      "title": "Pinned RC2 boundary capture and validation"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Shared/src/RenderFragmentCapture.cs",
+      "title": "Pinned RC2 capture lifetime"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Shared/src/RenderFragmentSerializer.cs",
+      "title": "Pinned RC2 supported frames and skipped callbacks"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ArchiveCards/ArchiveCards.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile",
+      "scope": "Actual older Web SDK consumer compilation. Separate real HTTP/browser execution verifies the wrapper, live counter and direct-fragment refusal. Compilation alone does not prove rendering.",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/ArchiveCards/ArchiveCards.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile",
+      "scope": "Actual newer Web SDK consumer compilation. Separate real HTTP/browser reports verify named/child capture, interactive rerendering, generic/delegate/prerender restrictions and a skipped captured callback.",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "razor",
+      "region": "card",
+      "path": "samples/net10.0/ArchiveCards/ReadingCard.razor"
+    },
+    "wrapper": {
+      "language": "razor",
+      "region": "wrapper",
+      "path": "samples/net10.0/ArchiveCards/ReadingWrapper.razor"
+    },
+    "newer": {
+      "language": "razor",
+      "region": "card",
+      "path": "samples/net11.0/ArchiveCards/ReadingCard.razor"
+    },
+    "panel": {
+      "language": "razor",
+      "region": "panel",
+      "path": "samples/net11.0/ArchiveCards/ReadingPanel.razor"
+    },
+    "host": {
+      "language": "csharp",
+      "region": "host",
+      "path": "samples/net11.0/ArchiveCards/Program.cs"
+    },
+    "document": {
+      "language": "razor",
+      "region": "document",
+      "path": "samples/net11.0/ArchiveCards/App.razor"
+    },
+    "run": {
+      "language": "csharp",
+      "region": "run",
+      "path": "samples/net11.0/ArchiveCards/Program.cs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Required bounded SSR/Interactive Server behavior executed locally without external services or accounts. Other render modes, native platforms and GA execution are outside this proof."
+  }
+}
