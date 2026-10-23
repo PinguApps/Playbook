@@ -2,7 +2,7 @@
   "id": "blazor.accept-alternative-parameter-shapes",
   "edition": "11.0",
   "title": "Offer one component setting for alternative UI values",
-  "goal": "Use one Blazor parameter for text or markup; transfer only JSON-compatible values.",
+  "goal": "Accept text or markup through one Blazor parameter; transfer only JSON data.",
   "areas": [
     "blazor"
   ],
@@ -34,7 +34,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "C# 15; Blazor/Razor; static fragments differ from JSON-compatible values."
+          "C# 15; Blazor/Razor; fragments differ from JSON data."
         ],
         "requirements": {
           "runtime": {
@@ -56,19 +56,19 @@
             "reason": "Native union declarations and the final C# 15 conversion contract."
           },
           "frameworks": [
-            "ASP.NET Core 11 (Blazor/Razor)"
+            "ASP.NET Core 11"
           ],
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "SDK-aligned Internal.Assets 11"
+            "SDK Internal.Assets 11"
           ],
           "providers": [],
           "platforms": [
             "ASP.NET Core server"
           ],
           "renderingModes": [
-            "Static SSR; Interactive Server"
+            "SSR; Interactive Server"
           ],
           "prerequisites": [
             "net11.0, matching ASP.NET Core 11 runtime/reference/browser assets, Web SDK and C# 15.0.",
@@ -83,7 +83,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 evidence; GA reconciliation pending."
+            "RC2; GA reconciliation pending."
           ]
         },
         "sourceUrls": [
