@@ -3,7 +3,28 @@
   "recordedAt": "2026-10-23T05:52:41.1424101+00:00",
   "sourceCommit": "89e09cdefbbbca51eed0b0cc3f2fcd06fecc4c3d",
   "sourceDirty": true,
-  "verifierSha256": "b342229071fc381751a9b574441b1607f55654c40566606d4fde4119dc13f853",
+  "httpVerifier": {
+    "path": "eng/Test-ParcelStartup.ps1",
+    "sourceSha256": "b342229071fc381751a9b574441b1607f55654c40566606d4fde4119dc13f853"
+  },
+  "browserVerifier": {
+    "path": "eng/ParcelStartup.browser.js",
+    "sourceSha256": "dd9b4592d9046ab9316a45fdc3a43d6c26de7e4592c7facd8d0227910e0b2c53",
+    "evaluatedExpressionPath": "docs/verification/PIN-789.executed-browser.evidence.js",
+    "evaluatedExpressionSha256": "18e6b98f5d46648837413eb65364dd3ff8e30c4889d5327187f0b78f1f5ba4ce",
+    "transformation": "Read UTF-8 source, then JavaScript String.trim() before preview_evaluate."
+  },
+  "verifierIdentityCorrection": {
+    "correctedAt": "2026-10-23T06:50:15.8846948+00:00",
+    "originalReportCommit": "3404161f6f3aab0d424ceca4a14370f9de03818d",
+    "originalReportSha256": "dc18f971352fd164df1d95094148e8ec8f5bc5d2731f1839eb144d2884f93cdd",
+    "originalField": "verifierSha256",
+    "originalValue": "b342229071fc381751a9b574441b1607f55654c40566606d4fde4119dc13f853",
+    "originalCaptureExpression": "(Get-FileHash eng/Test-ParcelStartup.ps1).Hash.ToLowerInvariant()",
+    "browserCleanupAtUtc": "2026-10-23T05:48:36.746Z",
+    "browserEvaluationCallAtUtc": "2026-10-23T05:50:47.831Z",
+    "explanation": "The original generic field recorded the HTTP verifier, not the browser verifier. The retained original evaluated browser expression exactly equals the committed browser source after trim. Pending-send cleanup preceded evaluation; no browser-source change followed capture. This is an identity/provenance correction, not new execution. Original recordedAt, sourceCommit/sourceDirty, results and artifact hashes are retained."
+  },
   "targets": [
     {
       "artifacts": {
