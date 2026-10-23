@@ -3,8 +3,7 @@
     ".editorconfig",
     "eng/Evidence.ps1",
     "eng/Record-Evidence.ps1",
-    "eng/ParcelStartup.browser.js",
-    "eng/Serve-ParcelStartup.mjs"
+    "eng/ParcelStartup.browser.js"
   ],
   "dependencies": [
     "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",

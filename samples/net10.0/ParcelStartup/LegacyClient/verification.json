@@ -4,7 +4,7 @@
     "eng/Evidence.ps1",
     "eng/Record-Evidence.ps1",
     "eng/ParcelStartup.browser.js",
-    "eng/Serve-ParcelStartup.mjs"
+    "samples/net11.0/ParcelStartup/LegacyClient/serve.mjs"
   ],
   "dependencies": [
     "Microsoft.AspNetCore.App.Internal.Assets/10.0.13",
