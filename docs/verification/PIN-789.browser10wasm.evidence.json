@@ -1,11 +1,13 @@
 {
   "kind": "real-browser",
   "origin": "http://127.0.0.1:5392",
-  "recordedAt": "2026-10-23T04:59:53.998Z",
+  "recordedAt": "2026-10-23T05:50:55.738Z",
   "results": [
     {
+      "clicks": 1,
       "count": "1",
       "culture": "fr-FR",
+      "delayedSends": 0,
       "execution": "browser",
       "proof": {
         "circuit": 0,
@@ -35,7 +37,7 @@
             "type": "assembly"
           },
           {
-            "name": "Microsoft.AspNetCore.Components.lx4167iack.wasm",
+            "name": "Microsoft.AspNetCore.Components.x93j4o1w1k.wasm",
             "type": "assembly"
           },
           {
@@ -151,7 +153,7 @@
             "type": "assembly"
           },
           {
-            "name": "LegacyClient.c4xda9j79l.wasm",
+            "name": "LegacyClient.bkisa4ubej.wasm",
             "type": "assembly"
           },
           {

@@ -1,11 +1,13 @@
 {
   "kind": "real-browser",
   "origin": "http://127.0.0.1:5390",
-  "recordedAt": "2026-10-23T04:59:53.057Z",
+  "recordedAt": "2026-10-23T05:50:54.777Z",
   "results": [
     {
+      "clicks": 1,
       "count": "1",
       "culture": "en-GB",
+      "delayedSends": 2,
       "execution": "server",
       "proof": {
         "circuit": 1,
@@ -15,8 +17,10 @@
       "route": "/legacy-server"
     },
     {
+      "clicks": 1,
       "count": "1",
       "culture": "en-GB",
+      "delayedSends": 2,
       "execution": "server",
       "proof": {
         "circuit": 1,
@@ -26,8 +30,10 @@
       "route": "/web-server"
     },
     {
+      "clicks": 1,
       "count": "1",
       "culture": "fr-FR",
+      "delayedSends": 0,
       "execution": "browser",
       "proof": {
         "circuit": 0,
@@ -57,7 +63,7 @@
             "type": "assembly"
           },
           {
-            "name": "Client.feoe2grs7r.pdb",
+            "name": "Client.xylb07ficl.pdb",
             "type": "pdb"
           },
           {
@@ -845,7 +851,7 @@
             "type": "assembly"
           },
           {
-            "name": "Client.w7hu00jmoh.wasm",
+            "name": "Client.tcg2avznhi.wasm",
             "type": "assembly"
           },
           {

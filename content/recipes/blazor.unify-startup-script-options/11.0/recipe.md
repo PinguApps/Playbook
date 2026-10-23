@@ -156,6 +156,9 @@ Do not also map a second default Blazor hub: duplicate initializer endpoints
 cause an ambiguous match. Prerender is disabled on the Web App pages to make
 browser-versus-server execution visible. The legacy page prerenders, so wait
 for a responding button before calling its initial HTML interactive.
+The counter keeps its button disabled during prerender and enables it after the
+first interactive render. The verifier then clicks exactly once and awaits the
+result, including with real server event traffic delayed beyond 50 ms.
 
 Client/Program.cs and Client/ParcelCounter.razor:
 

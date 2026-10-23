@@ -1,24 +1,17 @@
 {
   "kind": "real-browser-and-loopback-http",
-  "recordedAt": "2026-10-23T06:03:24.7267188+01:00",
-  "sourceCommit": "a5d15a252803fda19fbcee3e61bbe94e1320b5d0",
+  "recordedAt": "2026-10-23T05:52:41.1424101+00:00",
+  "sourceCommit": "89e09cdefbbbca51eed0b0cc3f2fcd06fecc4c3d",
   "sourceDirty": true,
   "verifierSha256": "b342229071fc381751a9b574441b1607f55654c40566606d4fde4119dc13f853",
   "targets": [
     {
-      "compileRecords": [
-        "samples/net10.0/ParcelStartup/Host/verification-evidence.json",
-        "samples/net10.0/ParcelStartup/Client/verification-evidence.json",
-        "samples/net10.0/ParcelStartup/LegacyClient/verification-evidence.json"
-      ],
-      "httpReport": "PIN-789.http10.evidence.json",
-      "target": "net10.0",
       "artifacts": {
-        "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/Client.dll": "c66049d4362e592a322847ef22d7c31c80b3be9fcae5b43ee926f6a8d1cb2693",
+        "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/Client.dll": "4f7a58ae49090dd150afa7fa84b9890bfe54a1ab614ca85a1c2b5692d3f41077",
         "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/Client.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
         "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/blazor.webassembly.js": "9435ec0d81609bad85f9852fc444bb20e4c25d8a621e9537b91e3961d0ba9aae",
-        "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/Client.w7hu00jmoh.wasm": "ac62093aaae0b2c91dc3576e0f7fb3478a9ce780c283a09db8dc6e308b28f635",
-        "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.js": "eb83f89496be5a553886ecc413b678ef44b7dddfb671910b37bd82ef38fb00b4",
+        "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/Client.tcg2avznhi.wasm": "b32ab4eded5f1b6af9ab4e67cd369c323833ec79a57d4dc0e2d51db758b81f79",
+        "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.js": "3ad472c795bc189c90ef63b8fb220de12225aaa1580b300dce80f6b79d17e598",
         "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9",
         "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.native.q38003gvqi.js": "06d50c7af0934e950ae08e5debc2ed0599497462100bb7e4fa83678f2cee151e",
         "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/dotnet.runtime.azrfhwb804.js": "9ae374efa1e0c8e0a801a89def30fb6b6fc637b690eed98afc1cdd9ca830efc8",
@@ -224,12 +217,12 @@
         "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/System.Xml.XPath.XDocument.11s7vlb7t3.wasm": "a5ecb1d77a82f2c55c2e3121c6376cabe0990358ada3562963bb28e2ca9bbda9",
         "samples/net10.0/ParcelStartup/Client/bin/Release/net10.0/wwwroot/_framework/WindowsBase.z3dgnpnt6r.wasm": "5fd11cc96415ad120c1e088f1da63f03231057eebf3d74bd241883951bd3ead9",
         "samples/net10.0/ParcelStartup/Host/bin/Release/net10.0/Host.deps.json": "d9db58fe3822f53c294480335e79b919b268010b3f8810b13e8443521a370555",
-        "samples/net10.0/ParcelStartup/Host/bin/Release/net10.0/Host.dll": "b6708b0539ddafaedbecd000028d1f1dbb5245145d3b672bdf4a3e7ec8e72a94",
+        "samples/net10.0/ParcelStartup/Host/bin/Release/net10.0/Host.dll": "c221f032436cbef370138f0ca0df1d557879f54b494e6f9f6fce0c8b3bb298ee",
         "samples/net10.0/ParcelStartup/Host/bin/Release/net10.0/Host.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
-        "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/LegacyClient.dll": "ac54d41f7df27f88a07269b4a05801219c50e94e40c3bdb6e76174823b5be131",
+        "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/LegacyClient.dll": "09911842cb868fe0a67d4059ae7a2164c0e94ab68251dede4e06bdeab5c1eb8e",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/LegacyClient.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/blazor.webassembly.js": "9435ec0d81609bad85f9852fc444bb20e4c25d8a621e9537b91e3961d0ba9aae",
-        "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/dotnet.js": "508ae02c697749f05cae27ac59b0e79731cf52e1d1ea1e3677049d2fee2ef448",
+        "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/dotnet.js": "1b3d68f710847361b7faf5f6e793c7014c9d39cada12ffe50d356f255302a6ad",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/dotnet.native.48eq6h5vjh.js": "7c7b32427ec12881dcd8014a5d3af13000b4fb0a540faa03ead480ee591de784",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/dotnet.native.7mh2s2qxct.wasm": "51766d92a316560fa6f38e97c9065e9ed2f6a914a843bb28df3f85d9154ba0c6",
@@ -239,10 +232,12 @@
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat": "f1f22d7ad618f24434c30ea8c704cb893de85e50701caba66de3f6a51178c937",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat": "2fbb15ecd1183f7eff42bd853c278fa39709a918135d1c061eec05e50fb435fb",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/LegacyClient.25hviyiznn.wasm": "8662521d29a729c23b9be97d81ada8d5017585368235d0a0e5690e05a6ecacb9",
+        "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/LegacyClient.bkisa4ubej.wasm": "0539f6f0749c19b98b77d26d33f45caaaee16e98efab98247d8d56e5aa518539",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/LegacyClient.c4xda9j79l.wasm": "1419672240b77342cc000e73c8fcea0bddeb9f71faa3ed2828faa640117d19ad",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.lx4167iack.wasm": "39b17e37e763b29b4d419e73a013b7088ce26e118bfb762565f5d4d15dbf5abe",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.Web.n7d2d5x4t9.wasm": "6320ef4963ac36ef422f9c468b8311cdb87fae07b262c5e5abd2efb39f596b39",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.WebAssembly.h37j6t7vvm.wasm": "ad34b6c47df7ed193aaaba0153c6f7a14db5c497a52534a20c17ac40c182593a",
+        "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.x93j4o1w1k.wasm": "558babed972c212e60906a123dc24329042449365558ea53f9fb695489a65c18",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/Microsoft.Extensions.Configuration.Abstractions.rk2e36pjps.wasm": "75f008fcf8dbaecdaabfbb0a15adb8161ede3b0489cf1b6b1066af8aedc12e0a",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/Microsoft.Extensions.Configuration.Json.frazqtnewj.wasm": "3bffe598cee205652d0631f6149dcd321388f3144c080928fc1995f3e966e43a",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/Microsoft.Extensions.Configuration.o9a3igp31l.wasm": "44c71d0b06b5b144b77e5a1cf797f2ea9d7aa3047d2b4dd71e937eb145aeedeb",
@@ -272,21 +267,28 @@
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/System.Text.Json.w64tpcq39x.wasm": "887c7bea26cb011ace35d2238f35efe0d70ce0f5edf8f1d81aa0a0456607ab32",
         "samples/net10.0/ParcelStartup/LegacyClient/bin/Release/net10.0/publish/wwwroot/_framework/System.Text.RegularExpressions.wf1yfwn3no.wasm": "34a576f8dad4af73d059240b670361279e1112bb81b53e863de1cf1e186d9f97"
       },
+      "target": "net10.0",
       "browserReports": [
         "PIN-789.browser10host.evidence.json",
         "PIN-789.browser10wasm.evidence.json"
       ],
+      "httpReport": "PIN-789.http10.evidence.json",
+      "compileRecords": [
+        "samples/net10.0/ParcelStartup/Host/verification-evidence.json",
+        "samples/net10.0/ParcelStartup/Client/verification-evidence.json",
+        "samples/net10.0/ParcelStartup/LegacyClient/verification-evidence.json"
+      ],
       "actualServedBootResources": {
-        "http://127.0.0.1:5390/_framework/Client.feoe2grs7r.pdb": {
-          "sha256": "f95a6f619e85996aa701fad73efd0000da3f6456792bf57d32e1fc3cc0b96035",
-          "bytes": 16900
-        },
-        "http://127.0.0.1:5390/_framework/Client.w7hu00jmoh.wasm": {
-          "sha256": "ac62093aaae0b2c91dc3576e0f7fb3478a9ce780c283a09db8dc6e308b28f635",
+        "http://127.0.0.1:5390/_framework/Client.tcg2avznhi.wasm": {
+          "sha256": "b32ab4eded5f1b6af9ab4e67cd369c323833ec79a57d4dc0e2d51db758b81f79",
           "bytes": 7445
         },
+        "http://127.0.0.1:5390/_framework/Client.xylb07ficl.pdb": {
+          "sha256": "f92fc5d015e3377501a94e86cdc4a4346286ca4c1f8cec2f4d739d4360da945d",
+          "bytes": 17036
+        },
         "http://127.0.0.1:5390/_framework/dotnet.js": {
-          "sha256": "eb83f89496be5a553886ecc413b678ef44b7dddfb671910b37bd82ef38fb00b4",
+          "sha256": "3ad472c795bc189c90ef63b8fb220de12225aaa1580b300dce80f6b79d17e598",
           "bytes": 90723
         },
         "http://127.0.0.1:5390/_framework/dotnet.native.3zpaws0drs.wasm": {
@@ -1098,7 +1100,7 @@
           "bytes": 5909
         },
         "http://127.0.0.1:5392/_framework/dotnet.js": {
-          "sha256": "508ae02c697749f05cae27ac59b0e79731cf52e1d1ea1e3677049d2fee2ef448",
+          "sha256": "1b3d68f710847361b7faf5f6e793c7014c9d39cada12ffe50d356f255302a6ad",
           "bytes": 49593
         },
         "http://127.0.0.1:5392/_framework/dotnet.native.3zpaws0drs.wasm": {
@@ -1117,13 +1119,9 @@
           "sha256": "f1f22d7ad618f24434c30ea8c704cb893de85e50701caba66de3f6a51178c937",
           "bytes": 550832
         },
-        "http://127.0.0.1:5392/_framework/LegacyClient.c4xda9j79l.wasm": {
-          "sha256": "1419672240b77342cc000e73c8fcea0bddeb9f71faa3ed2828faa640117d19ad",
+        "http://127.0.0.1:5392/_framework/LegacyClient.bkisa4ubej.wasm": {
+          "sha256": "0539f6f0749c19b98b77d26d33f45caaaee16e98efab98247d8d56e5aa518539",
           "bytes": 7445
-        },
-        "http://127.0.0.1:5392/_framework/Microsoft.AspNetCore.Components.lx4167iack.wasm": {
-          "sha256": "39b17e37e763b29b4d419e73a013b7088ce26e118bfb762565f5d4d15dbf5abe",
-          "bytes": 173333
         },
         "http://127.0.0.1:5392/_framework/Microsoft.AspNetCore.Components.Web.n7d2d5x4t9.wasm": {
           "sha256": "6320ef4963ac36ef422f9c468b8311cdb87fae07b262c5e5abd2efb39f596b39",
@@ -1132,6 +1130,10 @@
         "http://127.0.0.1:5392/_framework/Microsoft.AspNetCore.Components.WebAssembly.h37j6t7vvm.wasm": {
           "sha256": "ad34b6c47df7ed193aaaba0153c6f7a14db5c497a52534a20c17ac40c182593a",
           "bytes": 118037
+        },
+        "http://127.0.0.1:5392/_framework/Microsoft.AspNetCore.Components.x93j4o1w1k.wasm": {
+          "sha256": "558babed972c212e60906a123dc24329042449365558ea53f9fb695489a65c18",
+          "bytes": 173845
         },
         "http://127.0.0.1:5392/_framework/Microsoft.Extensions.Configuration.Abstractions.rk2e36pjps.wasm": {
           "sha256": "75f008fcf8dbaecdaabfbb0a15adb8161ede3b0489cf1b6b1066af8aedc12e0a",
@@ -1248,24 +1250,17 @@
       }
     },
     {
-      "compileRecords": [
-        "samples/net11.0/ParcelStartup/Host/verification-evidence.json",
-        "samples/net11.0/ParcelStartup/Client/verification-evidence.json",
-        "samples/net11.0/ParcelStartup/LegacyClient/verification-evidence.json"
-      ],
-      "httpReport": "PIN-789.http11.evidence.json",
-      "target": "net11.0",
       "artifacts": {
-        "samples/net11.0/ParcelStartup/Client/bin/Release/net11.0/Client.dll": "1f5ee48624bd552c86b92c6845760918c903dfdcba4dd2d4d71fa215c5aa44ec",
+        "samples/net11.0/ParcelStartup/Client/bin/Release/net11.0/Client.dll": "28c189044bbcf248d9baf6d392579c67d7e8c0a509d79f8a195f05cf9b5cf1b6",
         "samples/net11.0/ParcelStartup/Client/bin/Release/net11.0/Client.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
-        "samples/net11.0/ParcelStartup/Client/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "05652270d75b7c22e4c87df437983f383ec20ac1df47d62a55507711b265bc82",
+        "samples/net11.0/ParcelStartup/Client/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "7fea1bc5471fab303f7e5152338a4b6aa451f7b3c13dd5726c4a2b25f4095842",
         "samples/net11.0/ParcelStartup/Host/bin/Release/net11.0/Host.deps.json": "ee84040525bf6a955d06be04c82f14ce6a101461e606c868e4476083b400c30d",
-        "samples/net11.0/ParcelStartup/Host/bin/Release/net11.0/Host.dll": "8a681767135437167a52882dd2f5e984ea13fed7ee13425de16e53d608ea9d1f",
+        "samples/net11.0/ParcelStartup/Host/bin/Release/net11.0/Host.dll": "dc9f17f776f7c5cbb2d5af04e572065b5505a7dcedbd93bca129931cbf82b177",
         "samples/net11.0/ParcelStartup/Host/bin/Release/net11.0/Host.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
-        "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/LegacyClient.dll": "c254ff66608a58d0a895fafc6ab35503ffe4a6fe02bc75dad05db40bd05a4a17",
+        "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/LegacyClient.dll": "979f447a22e36b457573b34d7d478ae9c091e4e94667815ec7f53df7a7239bb5",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/LegacyClient.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/blazor.webassembly.js": "879072915e765970d04184927906269f0da12da7eef5f700bea4505026d8af64",
-        "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/dotnet.js": "f4609b031f133b189963fb3f4794e2e4fe38968d18563250f7b2ccd75c5f4424",
+        "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/dotnet.js": "49301e0f4d4cc5dbc2d560b762f09aea2be4767e81145f70f9c14990c273c36a",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/dotnet.native.89gvfkserh.wasm": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/dotnet.native.ric31difde.js": "ddc8ff57061165f6cea6032307824d64cdc8da7f8865a5776658448122c45ae4",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/dotnet.runtime.okxdo5zwwj.js": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
@@ -1274,6 +1269,8 @@
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/icudt_no_CJK.h0en30vv0c.dat": "4fc625972969c725a9f40ab802217e04c031297a98cb3581f5103946a635f6fb",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/LegacyClient.a451al2p6p.wasm": "2aee2c2f5fd591a14eb33fc55d2413885152697d2b7369b628d167083cdc627f",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/LegacyClient.arum8kck5w.wasm": "ca2287d3af5d2709e3a38557643b73118a75a6f09e55a14eca2573da0cf27160",
+        "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/LegacyClient.gkp3eytrvj.wasm": "d035dcd531dde3d9a4b7b8a6dc82598511a01ac4e3bce20e9d18fb423e28d90b",
+        "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.0y1l0v3tlo.wasm": "184968686dc44bf56fbb5f1ba0480fdc66ca8679f3d6d6eff3e1de829e463e7f",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.p86yduyzh4.wasm": "e766d75528bb4e46b18b41b416c3cbb43c459ec127b2c7100dbf6c090f0b5e9d",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.Web.4dcyvr79z0.wasm": "18ee4edb7d4295cc3b2e2456d6a7f629088e7f4ee470283e39f0c35becd66517",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/Microsoft.AspNetCore.Components.WebAssembly.a3sisf6lpe.wasm": "4ac9eeca1f344859dc2a6ed93930a2c21a34dbda3400167b2f6cc93d9432880a",
@@ -1310,21 +1307,28 @@
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/System.Text.Json.ck852vi84p.wasm": "9cf8b95b5fa37ad4362afe1a95e841468d3d864e69c2856bf60e461f74a7fe0e",
         "samples/net11.0/ParcelStartup/LegacyClient/bin/Release/net11.0/publish/wwwroot/_framework/System.Text.RegularExpressions.z1rrqw8esz.wasm": "b79b0a9530333263764328c181eae1180af776b2c70204d96ffde296460fafc8"
       },
+      "target": "net11.0",
       "browserReports": [
         "PIN-789.browser11host.evidence.json",
         "PIN-789.browser11wasm.evidence.json"
       ],
+      "httpReport": "PIN-789.http11.evidence.json",
+      "compileRecords": [
+        "samples/net11.0/ParcelStartup/Host/verification-evidence.json",
+        "samples/net11.0/ParcelStartup/Client/verification-evidence.json",
+        "samples/net11.0/ParcelStartup/LegacyClient/verification-evidence.json"
+      ],
       "actualServedBootResources": {
-        "http://127.0.0.1:5391/_framework/Client.sk5spo0ud9.wasm": {
-          "sha256": "3ca4708c245aa5d0792819de69d176dce431bdeeb05cc12303a1506ddba718d8",
-          "bytes": 6937
+        "http://127.0.0.1:5391/_framework/Client.b04jj3x7n5.wasm": {
+          "sha256": "0b4ab4560b58c35c7b9a3955f0350376fd2b39b22f04f3cc48e93a46b97f27cf",
+          "bytes": 7449
         },
-        "http://127.0.0.1:5391/_framework/Client.zzd4hvvh2i.pdb": {
-          "sha256": "dfdc8fa4b8059ee274790529cdd79113914e29412ae600fca72d6f1fd5bfddb0",
-          "bytes": 17276
+        "http://127.0.0.1:5391/_framework/Client.zkgdiyuzmw.pdb": {
+          "sha256": "cdb0427fa1e0afc1d9d52da362d22f50ce2403a359d1c7c1441a0ef8008adf2c",
+          "bytes": 17428
         },
         "http://127.0.0.1:5391/_framework/dotnet.js": {
-          "sha256": "05652270d75b7c22e4c87df437983f383ec20ac1df47d62a55507711b265bc82",
+          "sha256": "7fea1bc5471fab303f7e5152338a4b6aa451f7b3c13dd5726c4a2b25f4095842",
           "bytes": 96914
         },
         "http://127.0.0.1:5391/_framework/dotnet.native.89gvfkserh.wasm": {
@@ -2152,7 +2156,7 @@
           "bytes": 5913
         },
         "http://127.0.0.1:5393/_framework/dotnet.js": {
-          "sha256": "f4609b031f133b189963fb3f4794e2e4fe38968d18563250f7b2ccd75c5f4424",
+          "sha256": "49301e0f4d4cc5dbc2d560b762f09aea2be4767e81145f70f9c14990c273c36a",
           "bytes": 50598
         },
         "http://127.0.0.1:5393/_framework/dotnet.native.89gvfkserh.wasm": {
@@ -2171,12 +2175,12 @@
           "sha256": "4907316fe6ddc7651750253db4574e582af80ad93ae318210a7af42462d658a4",
           "bytes": 621712
         },
-        "http://127.0.0.1:5393/_framework/LegacyClient.a451al2p6p.wasm": {
-          "sha256": "2aee2c2f5fd591a14eb33fc55d2413885152697d2b7369b628d167083cdc627f",
+        "http://127.0.0.1:5393/_framework/LegacyClient.gkp3eytrvj.wasm": {
+          "sha256": "d035dcd531dde3d9a4b7b8a6dc82598511a01ac4e3bce20e9d18fb423e28d90b",
           "bytes": 7449
         },
-        "http://127.0.0.1:5393/_framework/Microsoft.AspNetCore.Components.p86yduyzh4.wasm": {
-          "sha256": "e766d75528bb4e46b18b41b416c3cbb43c459ec127b2c7100dbf6c090f0b5e9d",
+        "http://127.0.0.1:5393/_framework/Microsoft.AspNetCore.Components.0y1l0v3tlo.wasm": {
+          "sha256": "184968686dc44bf56fbb5f1ba0480fdc66ca8679f3d6d6eff3e1de829e463e7f",
           "bytes": 195353
         },
         "http://127.0.0.1:5393/_framework/Microsoft.AspNetCore.Components.Web.4dcyvr79z0.wasm": {
@@ -2318,5 +2322,5 @@
       }
     }
   ],
-  "limits": "Windows Chromium 152; actual .NET 10.0.13 and 11 RC2 assets; no GA, Auto, Hybrid, other browser or deployment claim."
+  "limits": "Windows Electron 44.9.3/Chromium 152; .NET 10.0.13 and 11 RC2. Refreshed after readiness/click-race fix on merged e9e385e main. No GA, Auto, Hybrid, other-browser or deployment claim."
 }

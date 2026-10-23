@@ -1,11 +1,13 @@
 {
   "kind": "real-browser",
   "origin": "http://127.0.0.1:5393",
-  "recordedAt": "2026-10-23T04:59:58.136Z",
+  "recordedAt": "2026-10-23T05:51:00.914Z",
   "results": [
     {
+      "clicks": 1,
       "count": "1",
       "culture": "fr-FR",
+      "delayedSends": 0,
       "execution": "browser",
       "proof": {
         "circuit": 0,
@@ -35,7 +37,7 @@
             "type": "assembly"
           },
           {
-            "name": "Microsoft.AspNetCore.Components.p86yduyzh4.wasm",
+            "name": "Microsoft.AspNetCore.Components.0y1l0v3tlo.wasm",
             "type": "assembly"
           },
           {
@@ -167,7 +169,7 @@
             "type": "assembly"
           },
           {
-            "name": "LegacyClient.a451al2p6p.wasm",
+            "name": "LegacyClient.gkp3eytrvj.wasm",
             "type": "assembly"
           },
           {
@@ -180,8 +182,10 @@
       "route": "/"
     },
     {
+      "clicks": 1,
       "count": "1",
       "culture": "fr-FR",
+      "delayedSends": 0,
       "execution": "browser",
       "proof": {
         "circuit": 0,
@@ -211,7 +215,7 @@
             "type": "assembly"
           },
           {
-            "name": "Microsoft.AspNetCore.Components.p86yduyzh4.wasm",
+            "name": "Microsoft.AspNetCore.Components.0y1l0v3tlo.wasm",
             "type": "assembly"
           },
           {
@@ -343,7 +347,7 @@
             "type": "assembly"
           },
           {
-            "name": "LegacyClient.a451al2p6p.wasm",
+            "name": "LegacyClient.gkp3eytrvj.wasm",
             "type": "assembly"
           },
           {

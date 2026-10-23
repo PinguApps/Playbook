@@ -1,11 +1,13 @@
 {
   "kind": "real-browser",
   "origin": "http://127.0.0.1:5391",
-  "recordedAt": "2026-10-23T04:59:56.530Z",
+  "recordedAt": "2026-10-23T05:50:59.421Z",
   "results": [
     {
+      "clicks": 1,
       "count": "1",
       "culture": "en-GB",
+      "delayedSends": 2,
       "execution": "server",
       "proof": {
         "circuit": 1,
@@ -15,8 +17,10 @@
       "route": "/legacy-server"
     },
     {
+      "clicks": 1,
       "count": "1",
       "culture": "en-GB",
+      "delayedSends": 2,
       "execution": "server",
       "proof": {
         "circuit": 1,
@@ -26,8 +30,10 @@
       "route": "/web-server"
     },
     {
+      "clicks": 1,
       "count": "1",
       "culture": "fr-FR",
+      "delayedSends": 0,
       "execution": "browser",
       "proof": {
         "circuit": 0,
@@ -57,7 +63,7 @@
             "type": "assembly"
           },
           {
-            "name": "Client.zzd4hvvh2i.pdb",
+            "name": "Client.zkgdiyuzmw.pdb",
             "type": "pdb"
           },
           {
@@ -861,7 +867,7 @@
             "type": "assembly"
           },
           {
-            "name": "Client.sk5spo0ud9.wasm",
+            "name": "Client.b04jj3x7n5.wasm",
             "type": "assembly"
           },
           {
@@ -874,8 +880,10 @@
       "route": "/web-wasm"
     },
     {
+      "clicks": 1,
       "count": "1",
       "culture": "en-GB",
+      "delayedSends": 2,
       "execution": "server",
       "proof": {
         "circuit": 1,

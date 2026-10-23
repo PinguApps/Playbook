@@ -1,27 +1,27 @@
 {
-  "version": 11,
-  "documents": "Legacy Server and both Web App pages: correct script, autostart=false, startup.js follows",
-  "startup": "Both served copies match canonical SHA-256",
-  "recordedAt": "2026-10-23T05:01:33.3013872+00:00",
-  "kind": "real-loopback-http",
   "scripts": [
     {
-      "asset": "C:\\Users\\pingu\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.2.26504.105\\staticwebassets\\_framework\\blazor.server.js",
       "bytes": 195051,
+      "sha256": "8af37011a6376bdf272b09c3340848af9ac2716ef77ddc95d8c46ab1c44c43ab",
       "url": "http://127.0.0.1:5391/_framework/blazor.server.js",
-      "sha256": "8af37011a6376bdf272b09c3340848af9ac2716ef77ddc95d8c46ab1c44c43ab"
+      "asset": "C:\\Users\\pingu\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.2.26504.105\\staticwebassets\\_framework\\blazor.server.js"
     },
     {
-      "asset": "C:\\Users\\pingu\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.2.26504.105\\staticwebassets\\_framework\\blazor.web.js",
       "bytes": 245494,
+      "sha256": "065eac53496a10915dc8c3e19894d6bbb673c804c4f7ae7573a8364cc0e060c7",
       "url": "http://127.0.0.1:5391/_framework/blazor.web.js",
-      "sha256": "065eac53496a10915dc8c3e19894d6bbb673c804c4f7ae7573a8364cc0e060c7"
+      "asset": "C:\\Users\\pingu\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.2.26504.105\\staticwebassets\\_framework\\blazor.web.js"
     },
     {
-      "asset": "C:\\Users\\pingu\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\11.0.0-rc.2.26504.105\\staticwebassets\\_framework\\blazor.webassembly.js",
       "bytes": 86069,
+      "sha256": "879072915e765970d04184927906269f0da12da7eef5f700bea4505026d8af64",
       "url": "http://127.0.0.1:5393/_framework/blazor.webassembly.js",
-      "sha256": "879072915e765970d04184927906269f0da12da7eef5f700bea4505026d8af64"
+      "asset": "C:\\Users\\pingu\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\11.0.0-rc.2.26504.105\\staticwebassets\\_framework\\blazor.webassembly.js"
     }
-  ]
+  ],
+  "documents": "Legacy Server and both Web App pages: correct script, autostart=false, startup.js follows",
+  "kind": "real-loopback-http",
+  "version": 11,
+  "recordedAt": "2026-10-23T05:52:39.9160585+00:00",
+  "startup": "Both served copies match canonical SHA-256"
 }
