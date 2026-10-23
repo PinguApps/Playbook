@@ -1,0 +1,218 @@
+{
+  "id": "blazor.accept-alternative-parameter-shapes",
+  "edition": "11.0",
+  "title": "Offer one component setting for alternative UI values",
+  "goal": "Use one Blazor parameter for text or markup; transfer only JSON-compatible values.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "seed-labels",
+    "union-parameters",
+    "literal-attributes",
+    "json-boundaries"
+  ],
+  "apis": [
+    "union",
+    "ParameterAttribute",
+    "PersistentComponentState",
+    "IJSRuntime",
+    "PropertyMetadata.AcceptsStringLiteral"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "C# 15; Blazor/Razor; static fragments differ from JSON-compatible values."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Native union declarations and the final C# 15 conversion contract."
+          },
+          "frameworks": [
+            "ASP.NET Core 11 (Blazor/Razor)"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "SDK-aligned Internal.Assets 11"
+          ],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core server"
+          ],
+          "renderingModes": [
+            "Static SSR; Interactive Server"
+          ],
+          "prerequisites": [
+            "net11.0, matching ASP.NET Core 11 runtime/reference/browser assets, Web SDK and C# 15.0.",
+            "Enable Interactive Server and prerendering for the canonical persistence/interop example.",
+            "Microsoft.NET.Sdk.Web with Microsoft.AspNetCore.App 11 Components/Endpoints/Server assemblies and SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser files. No explicit NuGet package or optional workload."
+          ],
+          "constraints": [
+            "C# 15; Blazor/Razor; distinguish static fragments and JSON-compatible values.",
+            "A union containing RenderFragment is not a captured non-generic RenderFragment parameter. Its delegate case cannot cross JSON interop, persistence or the render-mode boundary.",
+            "Only JSON-supported cases with unambiguous contracts cross data boundaries. No route/query/form binding, down-level union route, WebAssembly/Auto, AOT or GA execution proof.",
+            "Executed scope: Windows x64 SSR and existing Chrome Interactive Server; no other OS or WebAssembly/Auto execution proof. C# 15 stabilized in RC1 with no experimental opt-in on the measured RC2 artifacts."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence; GA reconciliation pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/aspnetcore.md",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+          "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
+          "https://devblogs.microsoft.com/dotnet/unions-and-closed-hierarchies-in-aspnetcore/",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SeedLabels/SeedLabels.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Canonical Razor union literal release notes",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/aspnetcore.md"
+    },
+    {
+      "title": "Final C# 15 stabilization contract",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+    },
+    {
+      "title": "Native union language semantics",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union"
+    },
+    {
+      "title": "Union JSON classification and restrictions",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types"
+    },
+    {
+      "title": "ASP.NET Core JSON and non-body binding boundaries",
+      "url": "https://devblogs.microsoft.com/dotnet/unions-and-closed-hierarchies-in-aspnetcore/"
+    },
+    {
+      "title": "RC2 direct fragment capture is a separate boundary path",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/SeedLabels/SeedLabels.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile",
+      "scope": "Actual declared Web SDK consumer compilation. Separate real HTTP/Chrome checks cover literal/bound text, local fragments, Interactive Server parameter transfer, prerender state restoration and JavaScript echo; net11 additionally rejects fragment union persistence/interop/boundary transfer.",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/SeedLabels/SeedLabels.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile",
+      "scope": "Actual declared Web SDK consumer compilation. Separate real HTTP/Chrome checks cover literal/bound text, local fragments, Interactive Server parameter transfer, prerender state restoration and JavaScript echo; net11 additionally rejects fragment union persistence/interop/boundary transfer.",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/SeedLabels/SeedBadge.razor",
+      "region": "badge",
+      "language": "razor"
+    },
+    "oldercallers": {
+      "path": "samples/net10.0/SeedLabels/Labels.razor",
+      "region": "callers",
+      "language": "razor"
+    },
+    "olderchoices": {
+      "path": "samples/net10.0/SeedLabels/Choices.cs",
+      "region": "choices",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/SeedLabels/SeedBadge.razor",
+      "region": "badge",
+      "language": "razor"
+    },
+    "callers": {
+      "path": "samples/net11.0/SeedLabels/Labels.razor",
+      "region": "callers",
+      "language": "razor"
+    },
+    "choices": {
+      "path": "samples/net11.0/SeedLabels/Choices.cs",
+      "region": "choices",
+      "language": "csharp"
+    },
+    "panel": {
+      "path": "samples/net11.0/SeedLabels/BatchPanel.razor",
+      "region": "panel",
+      "language": "razor"
+    },
+    "host": {
+      "path": "samples/net11.0/SeedLabels/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "run": {
+      "path": "samples/net11.0/SeedLabels/Program.cs",
+      "region": "run",
+      "language": "csharp"
+    },
+    "document": {
+      "path": "samples/net11.0/SeedLabels/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "echo": {
+      "path": "samples/net11.0/SeedLabels/wwwroot/seed.js",
+      "region": "echo",
+      "language": "javascript"
+    },
+    "olderpanel": {
+      "region": "panel",
+      "path": "samples/net10.0/SeedLabels/BatchPanel.razor",
+      "language": "razor"
+    },
+    "olderdocument": {
+      "region": "document",
+      "path": "samples/net10.0/SeedLabels/App.razor",
+      "language": "razor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded real SSR/Interactive Server, JavaScript and prerender persistence checks executed locally. No external service or account needed. Other rendering modes and GA are unverified."
+  }
+}

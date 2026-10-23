@@ -1,8 +1,9 @@
 # Blazor and Razor authoring coverage: PIN-708
 
 Reviewed **22 October 2026**. This closes a bounded artifact/source reconciliation,
-not recipe delivery. Every qualifying goal below remains **delivery outstanding**.
-No served recipe, MCP contract, sample evidence or publication-completeness flag changes.
+not recipe delivery. At audit time every qualifying goal remained **delivery outstanding**.
+Subsequent delivery is linked per goal below; the audit itself did not change served
+recipes, MCP contracts, sample evidence or publication-completeness flags.
 
 ## Boundary and exact evidence
 
@@ -90,7 +91,7 @@ source-only scripts, defaults, markup, manifests and removable workarounds.
 | IComponentPropertyActivator | Keyed/unkeyed injection and activation lifetime, distinct from cascading subscriptions. | Grouped: PIN-801. |
 | MathML rendering, NavMenu external JS, custom event collision, removed implicit enhanced-nav preload | Authored markup/JS or removable exception qualifies despite small/no API delta. | Grouped: PIN-803/PIN-798/PIN-799/PIN-800. |
 | RenderFragment<T> contravariance | Reuse a base-item renderer for a derived-item slot; does **not** serialize generic delegates across rendering modes. | **B03**, separate from PIN-778's non-generic static fragment boundary. |
-| AssetPath/AcceptsAssetPath/AssetPathAttributes, compiler metadata | Mark component parameters/custom HTML attributes for compiler asset expansion instead of scattering explicit lookup. | **B01**. PropertyMetadata.AcceptsStringLiteral groups with PIN-779's union-valued markup. |
+| AssetPath/AcceptsAssetPath/AssetPathAttributes, compiler metadata | Mark component parameters/custom HTML attributes for compiler asset expansion instead of scattering explicit lookup. | **B01**. PropertyMetadata.AcceptsStringLiteral delivered with [PIN-779's union-valued markup](../../verification/PIN-779.md); AssetPath remains B01. |
 | CascadingParameterSubscription/TryAddCascadingValueSupplier<TAttribute> | Attribute-selected scoped suppliers, notification and disposal, rather than component property injection. ComponentState is a framework-facing seam. | **B02**; acknowledge BL0006 where emitted, no blanket stable/AOT guarantee. |
 | RenderTreeBuilder.SetAttributeValue | Experimental **ASP0032**, indexed pending attribute-frame replacement; not an ordinary application rendering recommendation. | **B04**, advanced renderer authoring only. |
 | CircuitOptions.JsonTypeInfoResolvers | Experimental **ASPNETCORE9004**, EditorBrowsable Never. RemoteJSRuntime and protected-browser-storage source insert resolvers in registration order before reflection fallback. | **B05**, no blanket circuit protocol or NativeAOT compatibility claim. |
