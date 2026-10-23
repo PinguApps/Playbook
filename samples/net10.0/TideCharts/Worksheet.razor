@@ -1,0 +1,26 @@
+<!-- snippet:worksheet -->
+@page "/"
+@inject CircuitLease Lease
+@inject IJSRuntime JS
+<h1>Estuary tide worksheet</h1>
+<p>Saved readings: <output id="readings">@Readings</output></p>
+<button id="record" @onclick="Record">Record reading</button>
+<p>Sheet: <output id="sheet">@Sheet</output></p>
+<p>Live resource: <output id="lease">@Lease.Id</output></p>
+<button id="hold" @onclick="HoldAsync">Hold a browser operation</button>
+<output id="busy">@busy</output>
+@code {
+    [PersistentState] public int Readings { get; set; }
+    [PersistentState] public string? Sheet { get; set; }
+    protected override void OnInitialized() => Sheet ??= Guid.NewGuid().ToString("N");
+    private bool busy;
+    private void Record() => Readings++;
+    private async Task HoldAsync()
+    {
+        busy = true;
+        try { await JS.InvokeVoidAsync("tide.hold"); }
+        catch (JSDisconnectedException) { }
+        busy = false;
+    }
+}
+<!-- endsnippet:worksheet -->
