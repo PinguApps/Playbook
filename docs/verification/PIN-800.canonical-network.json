@@ -1,0 +1,240 @@
+{
+  "5991": {
+    "full": {
+      "requests": [
+        {
+          "id": "98138da70b00412aa74558fac392d1b9",
+          "at": "2026-10-23T14:20:03.4743338+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "35f5913a775d40368bdbb33cfa96a31e",
+          "at": "2026-10-23T14:20:03.5180224+01:00",
+          "path": "/ledger-data.json?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "6a0702a25f5f45f5a6bb0ec711ba753c",
+          "at": "2026-10-23T14:20:03.5184649+01:00",
+          "path": "/ledger-module.js?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "d771dbd108e34ecf8129bd6759d0855e",
+          "at": "2026-10-23T14:20:05.5398965+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "4a96dac88a994fe8a2ceca907d1a1d38",
+          "at": "2026-10-23T14:20:06.5877038+01:00",
+          "path": "/ledger/control",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "0ec8c552cb69413a804566890f8a19ad",
+          "at": "2026-10-23T14:20:20.9191358+01:00",
+          "path": "/ledger-module.js?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "e7175cebbcca4ddc9f50de7ee142acc1",
+          "at": "2026-10-23T14:20:20.9194006+01:00",
+          "path": "/ledger-data.json?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "abcf4d72a11a47408f8119aa9765b183",
+          "at": "2026-10-23T14:20:21.9814296+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "e9700931e23c4502aef6776aff5e8a17",
+          "at": "2026-10-23T14:20:23.021212+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "3a7bf9cee6a44701b2d32b9c909a8370",
+          "at": "2026-10-23T14:20:25.1159158+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "dec0260fda364b5a9cba9e000cc80f2e",
+          "at": "2026-10-23T14:20:26.1721712+01:00",
+          "path": "/ledger/full",
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+          "enhanced": false,
+          "destination": "document"
+        },
+        {
+          "id": "0b2657014225475587b97a7742009c9c",
+          "at": "2026-10-23T14:20:26.3297209+01:00",
+          "path": "/ledger-data.json?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "276def92d7c84531947759acaa3a2e06",
+          "at": "2026-10-23T14:20:26.3303614+01:00",
+          "path": "/ledger-module.js?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "13311c9eedd44d4d9e4c5e9349691b76",
+          "at": "2026-10-23T14:20:45.0627195+01:00",
+          "path": "/proof",
+          "accept": "",
+          "enhanced": false,
+          "destination": ""
+        }
+      ],
+      "runtime": ".NET 10.0.13"
+    }
+  },
+  "5992": {
+    "full": {
+      "requests": [
+        {
+          "id": "6fe78cc5ce454852b2e8c32aa94a4107",
+          "at": "2026-10-23T14:20:08.121566+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "ef3b7a86438d4511a8bce0b5c41f89f0",
+          "at": "2026-10-23T14:20:08.1468238+01:00",
+          "path": "/ledger-data.json?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "6001385824ac4d65ada2d705acf278cf",
+          "at": "2026-10-23T14:20:08.1473168+01:00",
+          "path": "/ledger-module.js?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "29ac2653d67c4dcda93ab9894031cc51",
+          "at": "2026-10-23T14:20:10.1730129+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "e7646a43fd374420b680e30ee0e32e6c",
+          "at": "2026-10-23T14:20:11.2074374+01:00",
+          "path": "/ledger/control",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "d1dd7cc0e9a54fb598cd3089165ff122",
+          "at": "2026-10-23T14:20:27.1512689+01:00",
+          "path": "/ledger-module.js?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "66bd22c31b65447cb737027e463db8f2",
+          "at": "2026-10-23T14:20:27.1516768+01:00",
+          "path": "/ledger-data.json?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "d9364432249548c89a5702601f03cec0",
+          "at": "2026-10-23T14:20:28.2104132+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "74e851626efe483ca5237774697dfbe4",
+          "at": "2026-10-23T14:20:29.2362728+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "c9672e282b2948e1b5cc73d32ad59ab0",
+          "at": "2026-10-23T14:20:31.3195473+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "df987ff97f384788ac4425ba0d9ce5e0",
+          "at": "2026-10-23T14:20:32.3308277+01:00",
+          "path": "/ledger/full",
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+          "enhanced": false,
+          "destination": "document"
+        },
+        {
+          "id": "3878f54bfe0c4b598b2acb3eaa6c2c48",
+          "at": "2026-10-23T14:20:32.4363913+01:00",
+          "path": "/ledger-data.json?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "257434f5003b449c87f8ed2d9900e72e",
+          "at": "2026-10-23T14:20:32.4382228+01:00",
+          "path": "/ledger-module.js?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "33f3c8faf2634c29a3af52b76675bd8e",
+          "at": "2026-10-23T14:20:45.1823773+01:00",
+          "path": "/proof",
+          "accept": "",
+          "enhanced": false,
+          "destination": ""
+        }
+      ],
+      "runtime": ".NET 11.0.0-rc.2.26504.105"
+    }
+  }
+}

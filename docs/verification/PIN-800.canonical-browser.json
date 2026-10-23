@@ -1,0 +1,722 @@
+[
+  {
+    "initial": {
+      "stage": "initial",
+      "url": "http://final.localhost:5991/",
+      "at": "2026-10-23T13:20:03.313Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "9f6d500f-e396-4aa6-aeee-3910de99ac39",
+        "enhancedLoads": 0,
+        "evaluations": []
+      },
+      "result": null,
+      "hints": [],
+      "resources": []
+    },
+    "hintedBefore": {
+      "stage": "hintedBefore",
+      "url": "http://final.localhost:5991/ledger/hinted",
+      "at": "2026-10-23T13:20:03.694Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "9f6d500f-e396-4aa6-aeee-3910de99ac39",
+        "enhancedLoads": 1,
+        "evaluations": []
+      },
+      "result": "Details closed",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1318.199999988079,
+          "duration": 16.900000035762787
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1318.5,
+          "duration": 16.80000001192093
+        }
+      ]
+    },
+    "hintedAfter": {
+      "stage": "hintedAfter",
+      "url": "http://final.localhost:5991/ledger/hinted",
+      "at": "2026-10-23T13:20:04.528Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "9f6d500f-e396-4aa6-aeee-3910de99ac39",
+        "enhancedLoads": 1,
+        "evaluations": [
+          "http://final.localhost:5991/ledger-module.js?view=hinted"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1318.199999988079,
+          "duration": 16.900000035762787
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1318.5,
+          "duration": 16.80000001192093
+        }
+      ]
+    },
+    "controlBefore": {
+      "stage": "controlBefore",
+      "url": "http://final.localhost:5991/ledger/control",
+      "at": "2026-10-23T13:20:06.796Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "9f6d500f-e396-4aa6-aeee-3910de99ac39",
+        "enhancedLoads": 3,
+        "evaluations": [
+          "http://final.localhost:5991/ledger-module.js?view=hinted"
+        ]
+      },
+      "result": "Details closed",
+      "hints": [],
+      "resources": [
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1318.199999988079,
+          "duration": 16.900000035762787
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1318.5,
+          "duration": 16.80000001192093
+        }
+      ]
+    },
+    "controlAfter": {
+      "stage": "controlAfter",
+      "url": "http://final.localhost:5991/ledger/control",
+      "at": "2026-10-23T13:20:20.965Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "9f6d500f-e396-4aa6-aeee-3910de99ac39",
+        "enhancedLoads": 3,
+        "evaluations": [
+          "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "http://final.localhost:5991/ledger-module.js?view=control"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [],
+      "resources": [
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1318.199999988079,
+          "duration": 16.900000035762787
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1318.5,
+          "duration": 16.80000001192093
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=control",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 18722.600000023842,
+          "duration": 13.5
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=control",
+          "initiatorType": "fetch",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 18722.69999998808,
+          "duration": 13.300000011920929
+        }
+      ]
+    },
+    "warmAfter": {
+      "stage": "warmAfter",
+      "url": "http://final.localhost:5991/ledger/hinted",
+      "at": "2026-10-23T13:20:24.077Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "9f6d500f-e396-4aa6-aeee-3910de99ac39",
+        "enhancedLoads": 5,
+        "evaluations": [
+          "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "http://final.localhost:5991/ledger-module.js?view=control"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1318.199999988079,
+          "duration": 16.900000035762787
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1318.5,
+          "duration": 16.80000001192093
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=control",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 18722.600000023842,
+          "duration": 13.5
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=control",
+          "initiatorType": "fetch",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 18722.69999998808,
+          "duration": 13.300000011920929
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 0,
+          "encodedBodySize": 31,
+          "startTime": 20845,
+          "duration": 11.800000011920929
+        }
+      ]
+    },
+    "full": {
+      "stage": "full",
+      "url": "http://final.localhost:5991/ledger/full",
+      "at": "2026-10-23T13:20:26.72Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "857cb87c-336c-459a-99e4-9303d224035f",
+        "enhancedLoads": 0,
+        "evaluations": []
+      },
+      "result": "Details closed",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5991/ledger-data.json?view=full",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5991/ledger-module.js?view=full",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=full",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 85.69999998807907,
+          "duration": 120.59999996423721
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=full",
+          "initiatorType": "other",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 86,
+          "duration": 121
+        }
+      ]
+    },
+    "fullAfter": {
+      "stage": "fullAfter",
+      "url": "http://final.localhost:5991/ledger/full",
+      "at": "2026-10-23T13:20:27.1Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "857cb87c-336c-459a-99e4-9303d224035f",
+        "enhancedLoads": 0,
+        "evaluations": [
+          "http://final.localhost:5991/ledger-module.js?view=full"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5991/ledger-data.json?view=full",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5991/ledger-module.js?view=full",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5991/ledger-data.json?view=full",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 85.69999998807907,
+          "duration": 120.59999996423721
+        },
+        {
+          "name": "http://final.localhost:5991/ledger-module.js?view=full",
+          "initiatorType": "other",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 86,
+          "duration": 121
+        }
+      ]
+    }
+  },
+  {
+    "initial": {
+      "stage": "initial",
+      "url": "http://final.localhost:5992/",
+      "at": "2026-10-23T13:20:07.961Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "7810b777-54c1-4c12-b432-9cb873a4bd42",
+        "enhancedLoads": 0,
+        "evaluations": []
+      },
+      "result": null,
+      "hints": [],
+      "resources": []
+    },
+    "hintedBefore": {
+      "stage": "hintedBefore",
+      "url": "http://final.localhost:5992/ledger/hinted",
+      "at": "2026-10-23T13:20:08.318Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "7810b777-54c1-4c12-b432-9cb873a4bd42",
+        "enhancedLoads": 1,
+        "evaluations": []
+      },
+      "result": "Details closed",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1228.5,
+          "duration": 16.599999964237213
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1228.800000011921,
+          "duration": 16.399999976158142
+        }
+      ]
+    },
+    "hintedAfter": {
+      "stage": "hintedAfter",
+      "url": "http://final.localhost:5992/ledger/hinted",
+      "at": "2026-10-23T13:20:09.171Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "7810b777-54c1-4c12-b432-9cb873a4bd42",
+        "enhancedLoads": 1,
+        "evaluations": [
+          "http://final.localhost:5992/ledger-module.js?view=hinted"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1228.5,
+          "duration": 16.599999964237213
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1228.800000011921,
+          "duration": 16.399999976158142
+        }
+      ]
+    },
+    "controlBefore": {
+      "stage": "controlBefore",
+      "url": "http://final.localhost:5992/ledger/control",
+      "at": "2026-10-23T13:20:11.411Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "7810b777-54c1-4c12-b432-9cb873a4bd42",
+        "enhancedLoads": 3,
+        "evaluations": [
+          "http://final.localhost:5992/ledger-module.js?view=hinted"
+        ]
+      },
+      "result": "Details closed",
+      "hints": [],
+      "resources": [
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1228.5,
+          "duration": 16.599999964237213
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1228.800000011921,
+          "duration": 16.399999976158142
+        }
+      ]
+    },
+    "controlAfter": {
+      "stage": "controlAfter",
+      "url": "http://final.localhost:5992/ledger/control",
+      "at": "2026-10-23T13:20:27.435Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "7810b777-54c1-4c12-b432-9cb873a4bd42",
+        "enhancedLoads": 3,
+        "evaluations": [
+          "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "http://final.localhost:5992/ledger-module.js?view=control"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [],
+      "resources": [
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1228.5,
+          "duration": 16.599999964237213
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1228.800000011921,
+          "duration": 16.399999976158142
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=control",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 20243.099999964237,
+          "duration": 6.300000011920929
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=control",
+          "initiatorType": "fetch",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 20243.19999998808,
+          "duration": 6.300000011920929
+        }
+      ]
+    },
+    "warmAfter": {
+      "stage": "warmAfter",
+      "url": "http://final.localhost:5992/ledger/hinted",
+      "at": "2026-10-23T13:20:30.278Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "7810b777-54c1-4c12-b432-9cb873a4bd42",
+        "enhancedLoads": 5,
+        "evaluations": [
+          "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "http://final.localhost:5992/ledger-module.js?view=control"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 1228.5,
+          "duration": 16.599999964237213
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=hinted",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 1228.800000011921,
+          "duration": 16.399999976158142
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=control",
+          "initiatorType": "script",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 20243.099999964237,
+          "duration": 6.300000011920929
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=control",
+          "initiatorType": "fetch",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 20243.19999998808,
+          "duration": 6.300000011920929
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=hinted",
+          "initiatorType": "link",
+          "transferSize": 0,
+          "encodedBodySize": 31,
+          "startTime": 22340.099999964237,
+          "duration": 12.200000047683716
+        }
+      ]
+    },
+    "full": {
+      "stage": "full",
+      "url": "http://final.localhost:5992/ledger/full",
+      "at": "2026-10-23T13:20:32.803Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "d76d9c13-cfa2-4c52-971a-5ce69a6065f3",
+        "enhancedLoads": 0,
+        "evaluations": []
+      },
+      "result": "Details closed",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5992/ledger-data.json?view=full",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5992/ledger-module.js?view=full",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=full",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 26.899999976158142,
+          "duration": 100.80000001192093
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=full",
+          "initiatorType": "other",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 27.100000023841858,
+          "duration": 100.79999995231628
+        }
+      ]
+    },
+    "fullAfter": {
+      "stage": "fullAfter",
+      "url": "http://final.localhost:5992/ledger/full",
+      "at": "2026-10-23T13:20:33.161Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+      "state": {
+        "documentId": "d76d9c13-cfa2-4c52-971a-5ce69a6065f3",
+        "enhancedLoads": 0,
+        "evaluations": [
+          "http://final.localhost:5992/ledger-module.js?view=full"
+        ]
+      },
+      "result": "7 dispatches ready for Tern Quay",
+      "hints": [
+        {
+          "rel": "preload",
+          "as": "fetch",
+          "type": "application/json",
+          "href": "http://final.localhost:5992/ledger-data.json?view=full",
+          "crossOrigin": "anonymous"
+        },
+        {
+          "rel": "modulepreload",
+          "as": "",
+          "type": "",
+          "href": "http://final.localhost:5992/ledger-module.js?view=full",
+          "crossOrigin": "anonymous"
+        }
+      ],
+      "resources": [
+        {
+          "name": "http://final.localhost:5992/ledger-data.json?view=full",
+          "initiatorType": "link",
+          "transferSize": 331,
+          "encodedBodySize": 31,
+          "startTime": 26.899999976158142,
+          "duration": 100.80000001192093
+        },
+        {
+          "name": "http://final.localhost:5992/ledger-module.js?view=full",
+          "initiatorType": "other",
+          "transferSize": 489,
+          "encodedBodySize": 189,
+          "startTime": 27.100000023841858,
+          "duration": 100.79999995231628
+        }
+      ]
+    }
+  }
+]

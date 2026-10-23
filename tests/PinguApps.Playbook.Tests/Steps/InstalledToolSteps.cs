@@ -19,6 +19,80 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("deliberate resource hints retain complete guidance and actual target boundaries offline")]
+    public async Task CheckDeliberateResourceHintsAsync()
+    {
+        const string id = "blazor.preload-needed-resources";
+        await CheckWebRecipesAsync([id], "tern-ledger").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Resource hints applicability {property.Name}, including every nested field, must survive offline stdio.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Resource hints {field}");
+        }
+
+        foreach (JsonElement declaration in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), entry => entry.GetProperty("sample").GetString() == declaration.GetProperty("sample").GetString());
+            foreach (JsonProperty property in declaration.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Resource hints evidence {property.Name}");
+            }
+
+            Assert.NotEmpty(actual.GetProperty("inputs").EnumerateObject());
+            Assert.Contains("Build succeeded.", actual.GetProperty("output").GetString(), StringComparison.Ordinal);
+            string sample = declaration.GetProperty("sample").GetString()!;
+            string recordPath = sample[..sample.LastIndexOf('/')] + "/verification-evidence.json";
+            using JsonDocument record = JsonDocument.Parse(await ReadSdkInputAsync(recordPath).ConfigureAwait(false));
+            foreach (JsonProperty property in record.RootElement.EnumerateObject())
+            {
+                if (property.Name == "scope")
+                {
+                    continue; // The authored recipe declaration supplies the served scope, checked above.
+                }
+
+                if (property.Name == "recordedAt")
+                {
+                    // PowerShell's existing capture reader normalizes the date to its host's offset.
+                    // Compare the complete instant without treating an equivalent zone notation as drift.
+                    Assert.True(JsonElement.DeepEquals(
+                        JsonSerializer.SerializeToElement(property.Value.GetDateTimeOffset().UtcDateTime),
+                        JsonSerializer.SerializeToElement(actual.GetProperty(property.Name).GetDateTimeOffset().UtcDateTime)), "Resource hints capture instant");
+                    continue;
+                }
+
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Resource hints captured evidence {property.Name}");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "Blazor enhanced navigation; only resources actually needed", "10.0.13", "blazor-enhanced-nav=on", "modulepreload does not execute", "warm cache", "not GA", "no unavailable older public API", "as=\"fetch\"", "crossorigin=\"anonymous\"", "data-enhance-nav=\"false\"" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
+        }
+
+        foreach (string file in new[] { "Program.cs", "_Imports.razor", "App.razor", "Routes.razor", "Home.razor", "Ledger.razor", "wwwroot/tern.js", "wwwroot/ledger-module.js", "wwwroot/ledger-data.json", "ResourceFiles.md" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/net10.0/TernLedger/{file}").ConfigureAwait(false), await ReadSdkInputAsync($"samples/net11.0/TernLedger/{file}").ConfigureAwait(false));
+        }
+
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/TernLedger/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+            string resources = await ReadSdkInputAsync($"samples/{target}/TernLedger/ResourceFiles.md").ConfigureAwait(false);
+            string imports = (await ReadSdkInputAsync($"samples/{target}/TernLedger/_Imports.razor").ConfigureAwait(false)).TrimEnd();
+            Assert.Contains($"<!-- snippet:imports -->\n{imports}\n<!-- endsnippet:imports -->", resources, StringComparison.Ordinal);
+            string data = (await ReadSdkInputAsync($"samples/{target}/TernLedger/wwwroot/ledger-data.json").ConfigureAwait(false)).TrimEnd();
+            Assert.Contains($"<!-- snippet:data -->\n{data}\n<!-- endsnippet:data -->", resources, StringComparison.Ordinal);
+        }
+    }
     [Then("browser component activity retains complete setup and collector requirements offline")]
     public async Task CheckBrowserComponentActivityAsync()
     {

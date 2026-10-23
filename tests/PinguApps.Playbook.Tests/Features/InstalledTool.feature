@@ -286,5 +286,6 @@ Feature: Installed offline guidance
     And standalone gateway retains complete canonical guidance and backend requirements offline
     And environment chrome retains complete canonical guidance and renderer boundaries offline
     And browser component activity retains complete setup and collector requirements offline
+    And deliberate resource hints retain complete guidance and actual target boundaries offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
