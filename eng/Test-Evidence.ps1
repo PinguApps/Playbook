@@ -63,6 +63,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'ParcelStartup.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'TideCharts.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'BeaconWatch.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'EstuaryBoard.browser.js') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs
