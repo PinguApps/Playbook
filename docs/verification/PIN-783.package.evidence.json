@@ -3,7 +3,7 @@
   "sourceCommit": "68bdb0a5b83362110a796f51b480108a74b8e74d",
   "sourceDirty": true,
   "integratedMain": "23231e82efa32460bf3f8f2c5c4d4544534b8872",
-  "recordedAt": "2026-10-23T02:48:52.7431476+00:00",
+  "recordedAt": "2026-10-23T03:48:52.7431476+01:00",
   "packageVersion": "0.0.0-grid-position",
   "runtime": "Linux .NET 10.0.12",
   "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
@@ -56,5 +56,5 @@
     "workingDirectory": "C:\\Windows"
   },
   "scope": "Existing36 full and Smoke1; grid assertion reconstructs every canonical body and independently compares every authored applicability route property, including nested requirements. All prior combined web assertions retained.",
-  "limits": "Package and samples captured from the retained dirty authoring state, not a clean reviewed-head reproduction. Final committed inputs are fingerprinted. No new OS/client/native matrix. GA, remote providers and other rendering modes/anchor modes unverified."
+  "limits": "Historical initial proof, superseded by PIN-783.integrated.evidence.json. The authored CRLF metadata fingerprint predates committed LF normalization; no claim this initial artifact equals current source. No proof is taken from the later discarded raced refresh. Dirty authoring provenance remains explicit."
 }
