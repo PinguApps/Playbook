@@ -1,0 +1,29 @@
+{
+  "artifacts": [
+    {
+      "path": "artifacts/PinguApps.Playbook.0.0.0-pin787.nupkg",
+      "sha256": "10c725b2d1f5496222d479c0b19d9b3cd1a545fa8ef45eb41a70f06e58577fbc"
+    },
+    {
+      "path": "artifacts/release-fixture/PinguApps.Playbook.0.0.0-pin787.nupkg",
+      "sha256": "70ce41e3797404131e736946cb939d24c3b10b5ddeaed2345a91d7c0cfcfa1ab"
+    },
+    {
+      "path": "artifacts/TestResults/pin787-offline/full/playbook.trx",
+      "sha256": "8c0b1d957033266c811a0dbf4431e5580b103b47a02299b13ef0e0a6112f0f76"
+    }
+  ],
+  "packageVersion": "0.0.0-pin787",
+  "sourceCommit": "6413577cd4fd1014a9041f1a3dc73778202b029a",
+  "failure": "Maximum fixture discovery result 170308 exceeds unchanged 170000 bytes",
+  "passed": 35,
+  "total": 36,
+  "kind": "superseded-real-offline-wrapper-failure",
+  "failed": 1,
+  "fixtures": {
+    "traversal20": 57516,
+    "maximum": 170308,
+    "traversal50": 140256,
+    "default": 67551
+  }
+}
