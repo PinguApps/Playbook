@@ -1,6 +1,12 @@
 {
   "groups": [
     {
+      "id": "deliberate-resource-hints",
+      "pattern": " Microsoft\\.AspNetCore\\.Components\\.Web\\.(HeadContent|HeadOutlet)",
+      "owner": "PIN-800; blazor.preload-needed-resources/11.0; WEB-082/WEB_W16C. Behavioral change, no new public API. Selected serviced 10.0.13 and RC2 both guard enhanced navigation; valid explicit old/new HeadContent hints, real browser/network and installed-body proof: docs/verification/PIN-800.md",
+      "disposition": "grouped; delivered"
+    },
+    {
       "id": "browser-component-diagnostics",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Infrastructure\\.ComponentsMetricsServiceCollectionExtensions",
       "owner": "PIN-797; blazor.observe-browser-components/11.0; public .NET 10 manual registration and .NET 11 automatic WASM registration, real OTLP collector proof in docs/verification/PIN-797.md",

@@ -1,5 +1,9 @@
 # Inspect the guidance an agent receives
 
+For deliberate enhanced-navigation hints, use the
+[tested PIN-800 walkthrough](verification/PIN-800.md#inspect-what-an-agent-receives).
+It displays the full original comparison, resource requirements and measured limits.
+
 For custom browser-event alias migration, use the
 [tested PIN-799 walkthrough](verification/PIN-799.md#inspect-what-an-agent-receives).
 It displays complete original .NET 10/11 consumers, full installed Markdown,
