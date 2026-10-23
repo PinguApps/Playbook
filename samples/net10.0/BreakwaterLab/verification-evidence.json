@@ -1,0 +1,39 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/BreakwaterLab/BreakwaterLab.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe build BreakwaterLab.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-23T23:08:44.0968763+00:00",
+  "sourceCommit": "eb8d9f21c72180801cd11b2b2a27ea201ba9633e",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net10.0/BreakwaterLab/App.razor": "478660d7eb177e2e3bddef5c99ca59a61ee1e456bede42573e7cfdaa64208114",
+    "samples/net10.0/BreakwaterLab/BreakwaterLab.csproj": "6904fb74c8a647d3f88477769040ee562a24aa707a0d8287fde4ef5e430fb6cc",
+    "samples/net10.0/BreakwaterLab/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BreakwaterLab/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BreakwaterLab/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BreakwaterLab/global.json": "0339ed1b5623ebd587c7b8878d4fa7a07f7e9ef850016f0118994a62caace646",
+    "samples/net10.0/BreakwaterLab/packages.lock.json": "e6b005c31db81096ca37b683f4d9a416477d9d4a00f2d5aeed3a8efa21242924",
+    "samples/net10.0/BreakwaterLab/Program.cs": "fa412c31e9f0c0f22265c828788a5af36fc11501997cb53425a17474b5e05fd7",
+    "samples/net10.0/BreakwaterLab/StationPanel.razor": "1d78f8b29b4bda87096697cfdec1726601a05b7b168be5759b2ee09ef55dd098",
+    "samples/net10.0/BreakwaterLab/StationServices.cs": "f93a48b8622144c83c07f59251abf6b0925c305a5b1cc3d7ce913ad9c90614f4",
+    "samples/net10.0/BreakwaterLab/verification.json": "70cceb8a7330612b6abea3a1070e0c56e98afcc8799f2611855a64babf9f0678",
+    "samples/net10.0/BreakwaterLab/wwwroot/station.js": "ba0fe2790c9db7671a6c5eab1645c2de7c8e160c1aa21c5122c657a67acbbc13"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.da132f47\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.0/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.0\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.0.11017/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.0.11017\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.0.11017/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.0.11017\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.2/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.2\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  10.0.303 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n  10.0.402 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-f097e5d9\\samples\\net10.0\\BreakwaterLab\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.da132f47\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.2/10.0.100          VS 18.11.12306.390 \r\nios                        26.0.11017/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.0.11017/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.0/10.0.100          VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  BreakwaterLab -> V:\\_worktrees\\Playbook\\t3-f097e5d9\\samples\\net10.0\\BreakwaterLab\\bin\\Release\\net10.0\\BreakwaterLab.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.04"
+}

@@ -927,6 +927,51 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("component property injection void interop and MathML retain complete guidance offline")]
+    public async Task CheckBreakwaterGuidanceAsync()
+    {
+        string[] ids = ["blazor.customize-injected-properties", "blazor.render-mathematical-markup", "blazor.use-void-interop-intent"];
+        await CheckWebRecipesAsync(ids, "breakwater-lab").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement actualRoute = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actualRoute.GetProperty(property.Name)), $"Complete applicability {id}/{property.Name}");
+            }
+
+            foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete metadata {id}/{field}");
+            }
+
+            foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+            {
+                string sample = expected.GetProperty("sample").GetString()!;
+                JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString() == sample);
+                foreach (JsonProperty property in expected.EnumerateObject())
+                {
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Declared evidence {id}/{property.Name}");
+                }
+
+                string directory = sample[..sample.LastIndexOf('/')];
+                using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
+                foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
+                {
+                    if (property.Name == "recordedAt")
+                    {
+                        Assert.Equal(property.Value.GetDateTimeOffset(), actual.GetProperty(property.Name).GetDateTimeOffset());
+                        continue;
+                    }
+
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Saved evidence {id}/{property.Name}");
+                }
+            }
+        }
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));

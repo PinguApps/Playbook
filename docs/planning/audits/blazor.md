@@ -1,5 +1,13 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+PIN-801/802/803 deliver the three BreakwaterLab 11.0 editions for explicit
+component property activation, no-result interop intent and direct interactive
+MathML. The [original comparison and actual browser/installed-tool evidence](../../verification/PIN-801-803.md)
+retain .NET 10's valid adapter/void/JS-owned formula paths. The custom hook is
+new; InvokeVoidAsync already existed. The old dynamically inserted MathML
+control demonstrates the HTML-namespace limitation. Trimming, general concurrency
+and GA support remain unverified.
+
 PIN-800 delivers `blazor.preload-needed-resources/11.0` (WEB-082/WEB_W16C).
 The [original TernLedger proof](../../verification/PIN-800.md) separates explicit
 hints from framework defaults and reconciles the serviced .NET 10/RC2 guard.

@@ -1,0 +1,49 @@
+{
+  "hosts": [
+    {
+      "dllSha256": "98da5cf3b34b9ea18589e456ae6e1f6c8f45e116bd0d1a32ed48ea7452875ebe",
+      "directory": "V:\\_worktrees\\Playbook\\t3-f097e5d9\\samples\\net10.0\\BreakwaterLab",
+      "port": 5991,
+      "executable": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.13\\coreclr.dll"
+        }
+      ],
+      "version": 10,
+      "assetPath": "_framework/blazor.web.cd06xom9c5.js",
+      "dll": "V:\\_worktrees\\Playbook\\t3-f097e5d9\\samples\\net10.0\\BreakwaterLab\\bin\\Release\\net10.0\\BreakwaterLab.dll",
+      "pid": 42104,
+      "assetSha256": "60086d7d0e7a848a032ea979f60163379f7528d3775151b92c1641502641b056"
+    },
+    {
+      "dllSha256": "5c542fdf43d7f307f592993a6544f7a9eb37da02c8c367557d4d9c0ebec0d539",
+      "directory": "V:\\_worktrees\\Playbook\\t3-f097e5d9\\samples\\net11.0\\BreakwaterLab",
+      "port": 5992,
+      "executable": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\11.0.0-rc.2.26504.105\\coreclr.dll"
+        }
+      ],
+      "version": 11,
+      "assetPath": "_framework/blazor.web.q3c3yb5xs8.js",
+      "dll": "V:\\_worktrees\\Playbook\\t3-f097e5d9\\samples\\net11.0\\BreakwaterLab\\bin\\Release\\net11.0\\BreakwaterLab.dll",
+      "pid": 121676,
+      "assetSha256": "065eac53496a10915dc8c3e19894d6bbb673c804c4f7ae7573a8364cc0e060c7"
+    }
+  ],
+  "kind": "actual-built-hosts-and-served-assets",
+  "scope": "HTTP and artifact inspection only. Separate browser receipts establish injection, interop and MathML behavior.",
+  "recordedAt": "2026-10-23T23:04:22.1787496+00:00"
+}

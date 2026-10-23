@@ -1,0 +1,9 @@
+{
+  "workingDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-breakwater-inspect-6210b4e454444576b6abe980e776534c",
+  "isolatedCache": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-breakwater-inspect-6210b4e454444576b6abe980e776534c\\cache",
+  "packageSha256": "f8a5bb160b34b04497850ae0a5615ff8b5a04ce9074c144c2e5dc5c2dbeebec7",
+  "recordedAt": "2026-10-23T23:22:42.6878921+00:00",
+  "isolatedFeed": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-breakwater-inspect-6210b4e454444576b6abe980e776534c\\feed",
+  "packageVersion": "1.0.0-pin801-803.1",
+  "inspectorVersion": "2.11.0"
+}
