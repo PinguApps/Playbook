@@ -1,0 +1,134 @@
+[
+  {
+    "target": "net10.0",
+    "kind": "real Chrome Interactive Server and static SSR execution",
+    "recordedAt": "2026-10-23T02:47:58.8886283+01:00",
+    "sourceCommit": "fe9e7f0e75e10498c84d71a891187ce990d8a318",
+    "sourceDirty": true,
+    "browser": "Existing Chrome via authenticated extension; no mock renderer",
+    "baseUri": "http://localhost:5292/",
+    "inputs": {
+      ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+      "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+      "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+      "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+      "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+      "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+      "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+      "samples/net10.0/MuseumRows/_Imports.razor": "71a71a0b3d8671cd6ea0137f5416784b7016dc6ee133c25cecc0dc34fcaddc73",
+      "samples/net10.0/MuseumRows/App.razor": "f34f857f0377daa2f5dae0888768ffdc205157dcee367a5ae978cab2bbce5a80",
+      "samples/net10.0/MuseumRows/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+      "samples/net10.0/MuseumRows/Interactive.razor": "4c68c624c5a399a8e00be4248747f33bb822e1d2bf56bdc2c6a45915755e2dd3",
+      "samples/net10.0/MuseumRows/MuseumRows.csproj": "e568edd1e14e14e7e28b8a7c53bc265936a305479adb0744a2a10c629185e491",
+      "samples/net10.0/MuseumRows/MuseumTable.razor": "2948b9433238035daf13b8ad93a34f8d38c2a172570558908b9b7496355b8590",
+      "samples/net10.0/MuseumRows/packages.lock.json": "27e8cbeb2bcd02b4ac4bb8a126d92236ce1455434ffaba94ce835b0d04b9a524",
+      "samples/net10.0/MuseumRows/Program.cs": "ea9df704a1fd0dfea61bc0f49a83639eccfb4bbdd184db7417d09c51263be499",
+      "samples/net10.0/MuseumRows/Static.razor": "d20ee14412952f052657c18579c16f6194210380c150654852ae1814c2a63ba0",
+      "samples/net10.0/MuseumRows/verification.json": "6a8b84f5905c9649026c8cf356a37065afda57b4144526e08410f7b6c0bf7373"
+    },
+    "artifacts": {
+      "samples/net10.0/MuseumRows/bin/Release/net10.0/MuseumRows.dll": "4e8dd5ebaae44e3367510030f3ba76a45276e3735a41c1822bed1848243b718f",
+      "samples/net10.0/MuseumRows/bin/Release/net10.0/MuseumRows.deps.json": "175827795f493af71461373ebd909fcf4f7bc3da56e63f2235dba0ddd232cc46",
+      "samples/net10.0/MuseumRows/bin/Release/net10.0/MuseumRows.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+      "samples/net10.0/MuseumRows/bin/Release/net10.0/Microsoft.AspNetCore.Components.QuickGrid.dll": "4d08e6b552290109bbe06319f192a865322a75e068430f18caa4408055873bc5"
+    },
+    "runs": [
+      {
+        "opens": "1",
+        "selected": "42",
+        "text": "Signal lantern\n\nA blue lens used on the museum launch.",
+        "action": "click Open Signal lantern button",
+        "mode": "interactive"
+      },
+      {
+        "opens": "2",
+        "selected": "17",
+        "text": "Tide clock\n\nA brass dial from the old harbour office.",
+        "action": "click Open Tide clock button",
+        "mode": "interactive"
+      },
+      {
+        "opens": "3",
+        "selected": "42",
+        "action": "Enter on Open Signal lantern",
+        "mode": "interactive"
+      },
+      {
+        "opens": "0",
+        "selected": "0",
+        "action": "click row cell and Open button",
+        "mode": "static"
+      },
+      {
+        "selected": "0",
+        "action": "click text cell on fresh interactive circuit",
+        "mode": "interactive",
+        "opens": "0"
+      }
+    ],
+    "limits": "Windows x64 only. T3 preview snapshot timed out twice; Chrome fallback. No GA, screen-reader, WebAssembly/Auto or other-platform proof."
+  },
+  {
+    "target": "net11.0",
+    "kind": "real Chrome Interactive Server and static SSR execution",
+    "recordedAt": "2026-10-23T02:47:59.1169361+01:00",
+    "sourceCommit": "fe9e7f0e75e10498c84d71a891187ce990d8a318",
+    "sourceDirty": true,
+    "browser": "Existing Chrome via authenticated extension; no mock renderer",
+    "baseUri": "http://localhost:5293/",
+    "inputs": {
+      ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+      "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+      "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+      "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+      "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+      "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+      "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+      "samples/net11.0/MuseumRows/_Imports.razor": "71a71a0b3d8671cd6ea0137f5416784b7016dc6ee133c25cecc0dc34fcaddc73",
+      "samples/net11.0/MuseumRows/App.razor": "01aa94296ab8ac43b07a1dbe10a8d4899ee57ac5fcf2919d1f205232a03610f9",
+      "samples/net11.0/MuseumRows/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+      "samples/net11.0/MuseumRows/Interactive.razor": "4c68c624c5a399a8e00be4248747f33bb822e1d2bf56bdc2c6a45915755e2dd3",
+      "samples/net11.0/MuseumRows/MuseumRows.csproj": "f07cd17133ceb337baffa4fc341d822dfad154408cf5e4a1a4e353b3711285cc",
+      "samples/net11.0/MuseumRows/MuseumTable.razor": "2a727729fe296ba4d4636b53c82438ab7d8e7b91e65f7fcf348df5aa1449acbb",
+      "samples/net11.0/MuseumRows/packages.lock.json": "f6a408f02381b658361ae3097791c34a93a64bcad01a8b82ccb3f4c8756533be",
+      "samples/net11.0/MuseumRows/Program.cs": "ea9df704a1fd0dfea61bc0f49a83639eccfb4bbdd184db7417d09c51263be499",
+      "samples/net11.0/MuseumRows/Static.razor": "d20ee14412952f052657c18579c16f6194210380c150654852ae1814c2a63ba0",
+      "samples/net11.0/MuseumRows/verification.json": "d6171b456106fd4c310169633ffcc0c0168ebb49be02aa599a8908c82be539ef"
+    },
+    "artifacts": {
+      "samples/net11.0/MuseumRows/bin/Release/net11.0/MuseumRows.dll": "472900f3ead48de60a8db072103599c763b1c0608dac6a455f6ca1d304208b75",
+      "samples/net11.0/MuseumRows/bin/Release/net11.0/MuseumRows.deps.json": "ade583e85266b6b512c8f3a4a245d0ecc658a79341d679abe9931befb35a3978",
+      "samples/net11.0/MuseumRows/bin/Release/net11.0/MuseumRows.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+      "samples/net11.0/MuseumRows/bin/Release/net11.0/Microsoft.AspNetCore.Components.QuickGrid.dll": "6928ba4dd7fef37ff17e67a5e5c81490571e43fbaaff8a9051493f0ac81f055c"
+    },
+    "runs": [
+      {
+        "opens": "1",
+        "selected": "42",
+        "text": "Signal lantern\n\nA blue lens used on the museum launch.",
+        "action": "click Signal lantern cell",
+        "mode": "interactive"
+      },
+      {
+        "opens": "2",
+        "selected": "17",
+        "text": "Tide clock\n\nA brass dial from the old harbour office.",
+        "action": "click Tide clock cell",
+        "mode": "interactive"
+      },
+      {
+        "opens": "3",
+        "selected": "42",
+        "action": "Enter on Open Signal lantern",
+        "mode": "interactive"
+      },
+      {
+        "opens": "0",
+        "selected": "0",
+        "action": "click row cell and Open button",
+        "mode": "static"
+      }
+    ],
+    "limits": "Windows x64 only. T3 preview snapshot timed out twice; Chrome fallback. No GA, screen-reader, WebAssembly/Auto or other-platform proof."
+  }
+]

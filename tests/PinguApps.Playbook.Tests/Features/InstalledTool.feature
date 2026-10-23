@@ -267,6 +267,7 @@ Feature: Installed offline guidance
     And captured static content retains complete canonical guidance offline
     And base aware navigation retains complete canonical guidance offline
     And shareable grid views retain complete canonical guidance offline
+    And selected rows retain canonical guidance and interactive requirements offline
     And static subtree caching retains complete canonical guidance offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

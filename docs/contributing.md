@@ -5,6 +5,10 @@ Shareable table views use the original .NET 10/11 WorkshopViews samples.
 immutable sort keys with separately editable captions, real static links and
 interactive history, plus complete installed MCP retrieval.
 
+Interactive QuickGrid selection uses original .NET 10/11 MuseumRows apps.
+[PIN-782](verification/PIN-782.md) records actual typed row events, accessible
+button alternatives, static SSR exclusion and the tested Inspector handoff.
+
 Safe static-subtree caching uses the original .NET 10/11 QuarryLedger samples.
 [PIN-780](verification/PIN-780.md) records real cache-provider rendering,
 variation/invalidation/isolation checks and the tested offline Inspector path.
