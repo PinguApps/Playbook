@@ -171,7 +171,7 @@
       "id": "metadata-only",
       "pattern": " Microsoft\\.(AspNetCore\\.(Components\\.(Authorization\\.AuthorizeViewCore|BindConverter|LayoutAttribute|NavigationManager::NotifyLocationChangingAsync|Routing\\.Router::SetParametersAsync|RenderTree\\.Renderer::(DisposeAsync|RenderRootComponentAsync)|Forms\\.(InputFile|AntiforgeryToken)|Web\\.HeadOutlet|Server\\.ProtectedBrowserStorage\\.|WebAssembly\\.(Hosting\\.WebAssemblyHost::DisposeAsync|Infrastructure\\.JSInteropMethods::NotifyLocationChangingAsync|Authentication\\.(RemoteAuthenticationService|RemoteAuthenticatorViewCore)))|Razor\\.Runtime\\.TagHelpers\\.TagHelperExecutionContext|Builder\\.WebAssemblyNetDebugProxyAppBuilderExtensions)|JSInterop\\.)",
       "owner": "PIN-708; annotations/state-machine metadata only",
-      "disposition": "excluded as independent recipes"
+      "disposition": "excluded as independent recipes; PIN-791 uses WebAssemblyHost.DisposeAsync within the original WASM lifetime recipe, with actual browser stop/cancellation proof; no unload guarantee"
     }
   ],
   "toolingGroups": [

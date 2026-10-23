@@ -1,0 +1,15 @@
+{
+  "kind": "real-built-stdio-inspector",
+  "startedFrom": "C:\\Windows",
+  "worktree": "V:\\_worktrees\\Playbook\\agent-pin-791-04-019-run-periodic-browser-work-within-application-lifetime",
+  "sourceCommit": "33747e3cab30329dad40a0b6662701d3881122b8",
+  "sourceDirty": true,
+  "scriptSha256": "50d2d8c10714a3514cf6de6505235ba0a14a8063cfe93a3af27b65f0e5c32f96",
+  "outputSha256": "1e8f8945856c1c18f51eb36f2a0717c1e1239e0e9be42e688042794f880cf7c0",
+  "inspector": "@modelcontextprotocol/inspector@2.11.0",
+  "calls": [
+    "list_recipes targetVersion=11.0 query=beacon-watch",
+    "get_recipe targetVersion=11.0 id=blazor.run-browser-background-service"
+  ],
+  "result": "PASS: discovery id/title/goal, full Markdown, applicability, edition, sources and current compilation evidence"
+}
