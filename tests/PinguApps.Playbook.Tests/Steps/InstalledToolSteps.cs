@@ -19,6 +19,39 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("culture handover retains complete canonical guidance and satellite requirements offline")]
+    public async Task CheckCultureHandoverAsync()
+    {
+        const string id = "blazor.align-server-browser-culture";
+        await CheckWebRecipesAsync([id], "culture-harbour", 4).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Culture applicability {property.Name}, including every nested requirement/source/evidence field, must survive offline retrieval.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Culture {field} must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "Components:UseCultureFromServer=false", "Prerendered WASM in Blazor Web Apps; satellite assembly timing.", "BlazorWebAssemblyLoadAllGlobalizationData", "DefaultThreadCurrentUICulture", "19/07/2032", "19.07.2032", "Gardez la caisse bleue debout.", "Die blaue Kiste aufrecht halten." })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+
+        foreach (string file in new[] { "Host/Routes.razor", "Client/Program.cs", "Client/Manifest.razor", "Client/Manifest.resx", "Client/Manifest.fr-FR.resx", "Client/Manifest.de-DE.resx" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/net10.0/CultureHarbour/{file}").ConfigureAwait(false), await ReadSdkInputAsync($"samples/net11.0/CultureHarbour/{file}").ConfigureAwait(false));
+        }
+
+        Assert.Contains("Prerendered WASM in Blazor Web Apps", route.GetProperty("requirements").GetProperty("renderingModes").ToString(), StringComparison.Ordinal);
+        Assert.Contains("satellite assembly timing", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
     [Then("periodic browser work retains complete canonical guidance and lifetime limits offline")]
     public async Task CheckPeriodicBrowserWorkAsync()
     {

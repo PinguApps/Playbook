@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For consistent culture through prerendered WASM hydration and an explicit
+independent client, use the [tested PIN-794 walkthrough](verification/PIN-794.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 consumers, actual culture/satellite
+timing, full Markdown and applicability.
+
 For nested Blazor startup options across legacy and Web App scripts, use the
 [tested PIN-789 walkthrough](verification/PIN-789.md#inspect-what-an-agent-receives).
 It displays complete original .NET 10/11 setup, discovery and applicability,

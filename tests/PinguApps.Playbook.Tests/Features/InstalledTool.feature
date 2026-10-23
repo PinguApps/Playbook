@@ -278,5 +278,6 @@ Feature: Installed offline guidance
     And server browser policy retains complete setup and request sharing limits offline
     And circuit pause retains complete canonical guidance and persistence requirements offline
     And periodic browser work retains complete canonical guidance and lifetime limits offline
+    And culture handover retains complete canonical guidance and satellite requirements offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
