@@ -1,0 +1,897 @@
+{
+  "kind": "real-browser",
+  "origin": "http://127.0.0.1:5391",
+  "recordedAt": "2026-10-23T05:50:59.421Z",
+  "results": [
+    {
+      "clicks": 1,
+      "count": "1",
+      "culture": "en-GB",
+      "delayedSends": 2,
+      "execution": "server",
+      "proof": {
+        "circuit": 1,
+        "resources": [],
+        "timeout": 45000
+      },
+      "route": "/legacy-server"
+    },
+    {
+      "clicks": 1,
+      "count": "1",
+      "culture": "en-GB",
+      "delayedSends": 2,
+      "execution": "server",
+      "proof": {
+        "circuit": 1,
+        "resources": [],
+        "timeout": 45000
+      },
+      "route": "/web-server"
+    },
+    {
+      "clicks": 1,
+      "count": "1",
+      "culture": "fr-FR",
+      "delayedSends": 0,
+      "execution": "browser",
+      "proof": {
+        "circuit": 0,
+        "resources": [
+          {
+            "name": "dotnet.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.runtime.okxdo5zwwj.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.native.ric31difde.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.native.89gvfkserh.wasm",
+            "type": "dotnetwasm"
+          },
+          {
+            "name": "System.Runtime.InteropServices.JavaScript.l7pvrvdnz0.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.CoreLib.b9r07chuqp.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Client.zkgdiyuzmw.pdb",
+            "type": "pdb"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Authorization.l0ekhxhi5u.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.6t4elacgy5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.Forms.cvjmjoj7xe.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.Web.zc5c7rzerk.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.WebAssembly.49d2fd8d65.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Metadata.cigzhxj1us.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.k7k5kyet84.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.Binder.ivm7tnp4x7.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.EnvironmentVariables.eik7b7o18a.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.FileExtensions.29zynogj2w.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.Json.9q48bny06e.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.DependencyInjection.ruudh05250.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Diagnostics.9zyvx4iyqd.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.FileProviders.Physical.5jcxvkjyek.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.FileSystemGlobbing.t1z690bj4f.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Localization.Abstractions.w2yhgql6mw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Logging.btd356o1b4.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Options.ConfigurationExtensions.ebjcrfsc5o.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Validation.42lijbcxhm.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.JSInterop.o6wt475488.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.JSInterop.WebAssembly.big8zqb916.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.CSharp.0113whnsny.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Caching.Abstractions.a8w3jqbgfn.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.Abstractions.edgpka7p2e.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.DependencyInjection.Abstractions.6ovh5dmoh3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Diagnostics.Abstractions.39skr4hx82.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.FileProviders.Abstractions.nq2vkpspfs.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Hosting.Abstractions.9w4lydqw73.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Logging.Abstractions.853or60aet.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Options.s3g8uhtp7b.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Primitives.85oej4o4oa.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.VisualBasic.Core.e40bj8yer5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.VisualBasic.xurk4bca6u.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Win32.Primitives.ltxtcae1qa.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Win32.Registry.459y6xe3ha.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.AppContext.nbz8pm1vpy.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Buffers.g5yaot3sti.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.Concurrent.fw6itwtlgb.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.Immutable.p4vddprwqz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.NonGeneric.l3ifvhwphc.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.Specialized.xf4hvwr1v8.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.k5sn9llpkp.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.Annotations.elsmlcabm6.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.DataAnnotations.amkv3f98iu.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.EventBasedAsync.j63qh7mkw2.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.Primitives.7eb1z2suzl.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.TypeConverter.xlzqginpyz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.xs4s4am4h1.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Configuration.cvw6ewwcna.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Console.i745b1j0pg.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Core.6pfcffsp3i.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Data.Common.cq16awo54o.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Data.DataSetExtensions.tpy913q9cd.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Data.qfx7zlu15o.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.Contracts.mus07n7kjg.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.Debug.5yt0lzs9pa.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.DiagnosticSource.wb1h62k2w3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.FileVersionInfo.64fu3z9hia.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.Process.mjs64opjv7.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.StackTrace.qy1vx2jt7n.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.TextWriterTraceListener.7cyqkmoy77.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.Tools.mm44mablje.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.TraceSource.cppgzsywmh.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.Tracing.eiaw23ubm7.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Drawing.Primitives.h1fi4njhcz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Drawing.ri1007yaak.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Dynamic.Runtime.haa7j273iq.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Formats.Asn1.g479timp01.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Formats.Tar.ft2urkk5jz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Globalization.Calendars.r88ekoqyhn.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Globalization.Extensions.4umwe2g3rk.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Globalization.k6e5r6wv1w.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Compression.Brotli.l4hpp7ar5t.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Compression.FileSystem.za53jlny9d.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Compression.ZipFile.kyl5c0a3bw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Compression.1feu4fqrhd.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.FileSystem.AccessControl.bdnge32uj4.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.FileSystem.DriveInfo.lzoeioxzz1.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.FileSystem.Primitives.hpwp1k4bhc.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.FileSystem.Watcher.21npz5rki9.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.FileSystem.gbc73wagc1.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.IsolatedStorage.ymhwr8jip5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.MemoryMappedFiles.muclr167ru.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Pipelines.bthhe1iaig.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Pipes.AccessControl.rnj38cdkdl.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Pipes.gzngpq7ndg.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.UnmanagedMemoryStream.bxan7mxuel.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.84y6l2s33h.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Linq.AsyncEnumerable.x6rw06ue60.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Linq.Expressions.kcnqwqifz8.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Linq.Parallel.ptniqneo1f.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Linq.Queryable.re0691lc4q.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Linq.euy2k23mtl.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Memory.ef1g3d9sq0.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Http.Json.va1cxuypof.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Http.ky790p52oa.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.HttpListener.w09ai14p5v.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Mail.dszdpv1gui.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.NameResolution.zwue4snxaw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.NetworkInformation.365k34op20.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Ping.wdiaa1ypdw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Primitives.48alnfjp7u.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Quic.801olxp69m.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Requests.b2bx4zqwb7.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Security.39gzxbiiz8.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.ServerSentEvents.b0d2mai8i8.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.ServicePoint.bag3xxkn0i.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.Sockets.yepkhv6ra9.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.WebClient.jpoa5pm2ng.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.WebHeaderCollection.ecxhgdijtz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.WebProxy.fkhn9e5cwp.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.WebSockets.Client.4n1nr5pu7v.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.WebSockets.35rnax297b.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Net.5i5hezc033.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Numerics.Vectors.sz4qgeij65.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Numerics.4i2883rfr8.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ObjectModel.cplokk0032.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.DataContractSerialization.ey43wq3voj.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.Uri.6aawlynfiz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.Xml.Linq.44861qqm58.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.Xml.td5aoq1yaf.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.DispatchProxy.pg75psa3eu.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.Emit.ILGeneration.f9aqsivf4a.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.Emit.Lightweight.3diqmxyie0.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.Emit.3m5083ajwf.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.Extensions.kbkkpw5gsl.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.Metadata.7irxyla1ye.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.Primitives.i5t898xz0j.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.TypeExtensions.5md00mphaa.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Reflection.fl7bt52t41.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Resources.Reader.bd7vjd0m86.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Resources.ResourceManager.5qcfvc7pte.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Resources.Writer.4fuxgn82tx.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.CompilerServices.Unsafe.lerzl56d86.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.CompilerServices.VisualC.ngza2hkxlv.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Extensions.m88lse03tp.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Handles.26aspq2dx3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.InteropServices.RuntimeInformation.095kj7f2kq.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.InteropServices.27mzytq5zi.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Intrinsics.o80ipo0lun.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Loader.ov2p4nhco5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Numerics.3751j13j91.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Serialization.Formatters.r7r7lpi20w.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Serialization.Json.pwe13377b8.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Serialization.Primitives.lpnaliwlwb.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Serialization.Xml.ac27mgx6wc.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.Serialization.1pbefz8llk.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.7tzi4m9ebd.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.AccessControl.9hqb4043ri.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Claims.kiljjtny40.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.Algorithms.g8yk7acb8n.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.Cng.l8pr1bzi5c.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.Csp.hq1azjgfhu.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.Encoding.qyhtnb211u.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.OpenSsl.xd7i67v35f.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.Primitives.3t9fzfj9e0.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.X509Certificates.3lyetdrbit.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.v3a1pjxrqo.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Principal.Windows.znd8nivd8s.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Principal.ye179h9qav.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.SecureString.javmtvmcnb.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.w66lns545t.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ServiceModel.Web.7aolwofx7i.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ServiceProcess.rg615o187o.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Encoding.CodePages.r8vg5ncz2h.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Encoding.Extensions.0gnv5gnuz9.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Encoding.b8cxo9w6ml.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Encodings.Web.h1rxkkc9j4.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Json.043k9o56jl.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.RegularExpressions.lrqhie985c.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.AccessControl.pgthlkysnu.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Channels.fbe2ex1ela.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Overlapped.54tk2l8ody.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Tasks.Dataflow.0mpxk4x7o8.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Tasks.Extensions.2zf0h5snoq.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Tasks.Parallel.9xvupe3cq5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Tasks.xhwmavft6o.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Thread.bwroa5c5oj.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.ThreadPool.vf4rnn6bza.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.Timer.aggyw7i2e4.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Threading.eo2wsrm247.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Transactions.Local.zcm2w6isb3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Transactions.k77nclb0ge.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ValueTuple.wfzy6y4bxk.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Web.HttpUtility.ogi5ilmlab.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Web.83bcfir916.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Windows.fgo6all3kj.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.Linq.g38x4qav7e.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.ReaderWriter.r6yiod039x.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.Serialization.9e5oq9ds35.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.XDocument.b5cr7kdgy9.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.XPath.XDocument.6euu0egpou.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.XPath.ldth12emrq.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.XmlDocument.gvn5g8jkuq.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.XmlSerializer.6brrz5wicb.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Xml.uccnxvcbyr.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.56ze00upuh.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "WindowsBase.y9ni4442pu.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "mscorlib.jlj7aofoiv.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "netstandard.5y03d987wg.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Client.b04jj3x7n5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "icudt_EFIGS.xyuimhy3ww.dat",
+            "type": "globalization"
+          }
+        ],
+        "timeout": null
+      },
+      "route": "/web-wasm"
+    },
+    {
+      "clicks": 1,
+      "count": "1",
+      "culture": "en-GB",
+      "delayedSends": 2,
+      "execution": "server",
+      "proof": {
+        "circuit": 1,
+        "resources": [],
+        "timeout": 45000
+      },
+      "route": "/legacy-server?shape=flat"
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36"
+}

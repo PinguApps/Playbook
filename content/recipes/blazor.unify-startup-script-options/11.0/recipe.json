@@ -1,0 +1,316 @@
+{
+  "id": "blazor.unify-startup-script-options",
+  "edition": "11.0",
+  "title": "Unify Blazor startup",
+  "goal": "Share nested options across hosts; legacy flat still works.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "parcel-startup",
+    "javascript",
+    "startup"
+  ],
+  "apis": [
+    "Blazor.start"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "circuit/webAssembly"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching server and browser runtime assets."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build matching Web/WebAssembly assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Sample mode; startup options are JavaScript."
+          },
+          "frameworks": [
+            "ASP.NET Core Web/WASM"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "WASM clients."
+            },
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Web App WASM endpoints."
+            }
+          ],
+          "packageAssets": [
+            "Aligned Blazor JS/WASM"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Server, WASM browser"
+          ],
+          "renderingModes": [
+            "Legacy Server/WASM; Web App Interactive"
+          ],
+          "prerequisites": [
+            "Disable autostart, load one matching framework script, then call Blazor.start once with browser JavaScript. Full pinned projects, imports, boot order and documents appear below.",
+            "Use matching blazor.server.js, blazor.webassembly.js or blazor.web.js with the browser-wasm runtime as appropriate. Web App examples execute Interactive Server and Interactive WebAssembly; use Microsoft.NET.Sdk.Web and Microsoft.NET.Sdk.BlazorWebAssembly. Stable startup contracts were executed with .NET 11 RC2; this is not GA proof."
+          ],
+          "constraints": [
+            "No nested legacy route on .NET 10; project flat options there. Static SSR has no interactive circuit/WASM startup. Auto, Hybrid and older-target new-package routes are untested."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2, not GA"
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Boot.Server.ts",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Boot.WebAssembly.ts",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Platform/WebStartOptions.ts",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.Server.ts",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.WebAssembly.ts",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebStartOptions.ts",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/Circuits/CircuitStartOptions.ts",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebAssemblyStartOptions.ts"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ParcelStartup/Host/Host.csproj",
+          "samples/net11.0/ParcelStartup/Client/Client.csproj",
+          "samples/net11.0/ParcelStartup/LegacyClient/LegacyClient.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Blazor startup configuration",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Previous legacy Server",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Boot.Server.ts"
+    },
+    {
+      "title": "Previous legacy WebAssembly",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Boot.WebAssembly.ts"
+    },
+    {
+      "title": "Previous Web App groups",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web.JS/src/Platform/WebStartOptions.ts"
+    },
+    {
+      "title": "RC2 legacy Server normalization",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.Server.ts"
+    },
+    {
+      "title": "RC2 legacy WebAssembly normalization",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.WebAssembly.ts"
+    },
+    {
+      "title": "RC2 Web App options",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebStartOptions.ts"
+    },
+    {
+      "title": "RC2 circuit callback contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/Circuits/CircuitStartOptions.ts"
+    },
+    {
+      "title": "RC2 WebAssembly callback and culture",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/WebAssemblyStartOptions.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ParcelStartup/Host/Host.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Real pinned project compilation, not cross-compilation. Separate browser reports verify effective callbacks and interactive dispatch; LegacyClient publish is also executed. Artifact/input hashes and runtime limits are in PIN-789 verification."
+    },
+    {
+      "sample": "samples/net10.0/ParcelStartup/Client/Client.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Real pinned project compilation, not cross-compilation. Separate browser reports verify effective callbacks and interactive dispatch; LegacyClient publish is also executed. Artifact/input hashes and runtime limits are in PIN-789 verification."
+    },
+    {
+      "sample": "samples/net10.0/ParcelStartup/LegacyClient/LegacyClient.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Real pinned project compilation, not cross-compilation. Separate browser reports verify effective callbacks and interactive dispatch; LegacyClient publish is also executed. Artifact/input hashes and runtime limits are in PIN-789 verification."
+    },
+    {
+      "sample": "samples/net11.0/ParcelStartup/Host/Host.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Real pinned project compilation, not cross-compilation. Separate browser reports verify effective callbacks and interactive dispatch; LegacyClient publish is also executed. Artifact/input hashes and runtime limits are in PIN-789 verification."
+    },
+    {
+      "sample": "samples/net11.0/ParcelStartup/Client/Client.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Real pinned project compilation, not cross-compilation. Separate browser reports verify effective callbacks and interactive dispatch; LegacyClient publish is also executed. Artifact/input hashes and runtime limits are in PIN-789 verification."
+    },
+    {
+      "sample": "samples/net11.0/ParcelStartup/LegacyClient/LegacyClient.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Real pinned project compilation, not cross-compilation. Separate browser reports verify effective callbacks and interactive dispatch; LegacyClient publish is also executed. Artifact/input hashes and runtime limits are in PIN-789 verification."
+    }
+  ],
+  "snippets": {
+    "old-packages": {
+      "path": "samples/net10.0/ParcelStartup/Host/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "old-host-project": {
+      "path": "samples/net10.0/ParcelStartup/Host/Host.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "old-client-project": {
+      "path": "samples/net10.0/ParcelStartup/Client/Client.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "old-legacy-project": {
+      "path": "samples/net10.0/ParcelStartup/LegacyClient/LegacyClient.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "old-startup": {
+      "path": "samples/net10.0/ParcelStartup/Host/wwwroot/startup.js",
+      "region": "complete",
+      "language": "javascript"
+    },
+    "new-packages": {
+      "path": "samples/net11.0/ParcelStartup/Host/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "new-host-project": {
+      "path": "samples/net11.0/ParcelStartup/Host/Host.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "new-client-project": {
+      "path": "samples/net11.0/ParcelStartup/Client/Client.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "new-legacy-project": {
+      "path": "samples/net11.0/ParcelStartup/LegacyClient/LegacyClient.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "new-host": {
+      "path": "samples/net11.0/ParcelStartup/Host/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "new-app": {
+      "path": "samples/net11.0/ParcelStartup/Host/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "new-routes": {
+      "path": "samples/net11.0/ParcelStartup/Host/Routes.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "new-server-page": {
+      "path": "samples/net11.0/ParcelStartup/Host/Server.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "new-wasm-page": {
+      "path": "samples/net11.0/ParcelStartup/Host/Wasm.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "new-legacy-page": {
+      "path": "samples/net11.0/ParcelStartup/Host/Pages/Legacy.cshtml",
+      "region": "complete",
+      "language": "cshtml"
+    },
+    "new-client": {
+      "path": "samples/net11.0/ParcelStartup/Client/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "new-legacy": {
+      "path": "samples/net11.0/ParcelStartup/LegacyClient/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "new-counter": {
+      "path": "samples/net11.0/ParcelStartup/Client/ParcelCounter.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "new-legacy-counter": {
+      "path": "samples/net11.0/ParcelStartup/LegacyClient/ParcelCounter.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "new-index": {
+      "path": "samples/net11.0/ParcelStartup/LegacyClient/wwwroot/index.html",
+      "region": "complete",
+      "language": "html"
+    },
+    "new-startup": {
+      "path": "samples/net11.0/ParcelStartup/Host/wwwroot/startup.js",
+      "region": "complete",
+      "language": "javascript"
+    },
+    "static-server": {
+      "region": "complete",
+      "language": "javascript",
+      "path": "samples/net11.0/ParcelStartup/LegacyClient/serve.mjs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local Server/WASM and Web App browser paths executed; no external account or Human-only step. GA/Auto/Hybrid/other-browser proof is not claimed."
+  }
+}

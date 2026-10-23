@@ -1,0 +1,20 @@
+<!-- snippet:complete -->
+@using System.Globalization
+<button id="dispatch" disabled="@(!ready)" @onclick="Dispatch">Dispatch parcel</button>
+<output id="count">@count</output>
+<output id="culture">@CultureInfo.CurrentCulture.Name</output>
+<output id="execution">@(OperatingSystem.IsBrowser() ? "browser" : "server")</output>
+@code {
+    private int count;
+    private bool ready;
+    private void Dispatch() => count++;
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            ready = true;
+            StateHasChanged();
+        }
+    }
+}
+<!-- endsnippet:complete -->

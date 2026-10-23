@@ -60,6 +60,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-QuarryLedger.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'LanternQueue.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'HarbourManifest.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'ParcelStartup.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'TideCharts.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'BeaconWatch.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'FossilDesk.browser.js') (Join-Path $fixture 'eng')
