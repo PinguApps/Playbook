@@ -1,0 +1,20 @@
+<!-- snippet:launch -->
+@namespace TideDesk
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@page "/"
+@page "/server"
+@page "/wasm"
+@page "/auto"
+@inject NavigationManager Navigation
+<TideDesk.Client.Desk @rendermode="Mode" />
+@code {
+    private IComponentRenderMode Mode => new Uri(Navigation.Uri).AbsolutePath switch
+    {
+        "/wasm" => InteractiveWebAssembly,
+        "/auto" => InteractiveAuto,
+        _ => InteractiveServer
+    };
+}
+<!-- endsnippet:launch -->

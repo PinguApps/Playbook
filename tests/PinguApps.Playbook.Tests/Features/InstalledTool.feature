@@ -274,6 +274,8 @@ Feature: Installed offline guidance
     And changing lists retain canonical guidance and complete anchoring requirements offline
     And virtual list reveal retains complete canonical guidance offline
     And unified startup retains complete canonical guidance and all host requirements offline
+
+    And server browser policy retains complete setup and request sharing limits offline
     And circuit pause retains complete canonical guidance and persistence requirements offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

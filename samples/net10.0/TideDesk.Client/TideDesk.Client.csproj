@@ -1,0 +1,6 @@
+<!-- snippet:tidedesk-client -->
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion><RootNamespace>TideDesk.Client</RootNamespace><OutputType>Exe</OutputType><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><TreatWarningsAsErrors>true</TreatWarningsAsErrors><Deterministic>true</Deterministic><IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion><EnableSourceLink>false</EnableSourceLink><EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode></PropertyGroup>
+  <ItemGroup><PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" /></ItemGroup>
+</Project>
+<!-- endsnippet:tidedesk-client -->

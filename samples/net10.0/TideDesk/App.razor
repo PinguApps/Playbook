@@ -1,0 +1,32 @@
+<!-- snippet:document -->
+@namespace TideDesk
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" /><base href="/" /><title>Tide desk</title>
+    <style>
+#tide-reconnect { display: none; padding: 1rem; border: 2px solid navy; }
+#tide-reconnect.components-reconnect-show,
+#tide-reconnect.components-reconnect-failed,
+#tide-reconnect.components-reconnect-rejected { display: block; }
+body { max-width: 50rem; margin: 2rem auto; padding: 1rem; font-family: sans-serif; }
+button { padding: .5rem; }
+    </style>
+</head>
+<body>
+    <Router AppAssembly="typeof(App).Assembly">
+        <Found Context="route"><RouteView RouteData="route" /></Found>
+    </Router>
+    <div id="tide-reconnect" role="status" aria-live="polite">
+        Reconnecting tide desk. Attempt <span id="components-reconnect-current-attempt"></span>
+        of <span id="components-reconnect-max-retries"></span>.
+    </div>
+    <script src="@Assets["_framework/blazor.web.js"]" autostart="false"></script>
+    <script src="startup.js"></script>
+</body>
+</html>
+<!-- endsnippet:document -->
