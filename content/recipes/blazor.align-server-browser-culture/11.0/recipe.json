@@ -1,0 +1,296 @@
+{
+  "id": "blazor.align-server-browser-culture",
+  "edition": "11.0",
+  "title": "Keep culture through hydration",
+  "goal": "Align prerendered WASM formatting and translations, or choose an independent client.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "culture-harbour"
+  ],
+  "apis": [
+    "Components:UseCultureFromServer"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Prerendered WASM; satellite timing."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Built-in persisted culture transfer is new in this release."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use matching host, browser and runtime assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode, without C# 15-only syntax."
+          },
+          "frameworks": [
+            "Blazor"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Pinned browser assets and framework API baseline."
+            },
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Pinned prerendered host integration."
+            },
+            {
+              "name": "Microsoft.Extensions.Localization",
+              "version": "10.0.13",
+              "match": "exact",
+              "reason": "Client localizer implementation; actual RC2 resolved abstractions are recorded separately."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Matching WASM, combined ICU and satellites"
+          ],
+          "providers": [],
+          "platforms": [
+            "Browser"
+          ],
+          "renderingModes": [
+            "Prerendered WASM in Blazor Web Apps"
+          ],
+          "prerequisites": [
+            "Build the complete Host and referenced Client projects, SDK pins, local package/build boundaries, document, boot script, namespaces and three resource files below. Host uses AddLocalization; client uses the pinned Localization package. Neither workload/AOT nor external provider/account is required.",
+            "Server request localization selects en-GB formatting and fr-FR translations before rendering. Browser starts en-US. Keep both CurrentCulture and CurrentUICulture; they can differ.",
+            "Register AddInteractiveWebAssemblyComponents without an options callback. In pinned RC2, Components:UseCultureFromServer true/1 enables transfer; false/0 disables it; absent/unrecognized values fall back to whether IStringLocalizerFactory exists. Default AddLocalization is the demonstrated aligned route.",
+            "For independent client mode explicitly disable server transfer, then set the client's two default thread cultures before RunAsync. The sample chooses de-DE deliberately. Its initial SSR remains en-GB/fr-FR; the changed client formatting/text is intentional.",
+            "Build BlazorWebAssemblyLoadAllGlobalizationData=true and include the matching fr-FR/de-DE satellite assemblies. Culture selection alone does not make unavailable resources loadable."
+          ],
+          "constraints": [
+            "Prerendered WASM in Blazor Web Apps; satellite assembly timing.",
+            "The previous public WebAssemblyComponentsOptions.UseCultureFromServer API was removed. Its internal replacement is not a public options callback. This edition uses the actual configuration key and real restored RC2 state order.",
+            "Server request policy, browser initial applicationCulture, persisted culture state and shipped resources are distinct. Restored server culture is applied in RunAsync before satellite loading/rendering, after Program. Do not expect restored values earlier in client Program.",
+            "The .NET 10 manual comparison chooses both cultures in Program before its earlier satellite-loading stage. Late component state or OnAfterRender culture changes are too late for initial resource selection. It is a supported comparison, not a target-10 route to automatic transfer.",
+            "Independent-client opt-out permits a visible intentional language/format change. Align instead when the product requires seamless content. Full reload and resource availability matter when changing culture later.",
+            "Recorded execution is local interpreted development WASM on Windows Chrome, actual HTTP and satellites. No static-only SSR, Interactive Server/Auto, AOT, remote hosting or GA execution claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA unverified."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/CultureHarbour/Host/Host.csproj",
+          "samples/net11.0/CultureHarbour/Client/Client.csproj"
+        ],
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/Server/src/WebAssemblyRazorComponentsBuilderExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/Server/src/WebAssemblyComponentsServiceOptionsConfiguration.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Shared/src/CultureStateProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyCultureProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization?view=aspnetcore-10.0"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned culture transfer registration",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/Server/src/WebAssemblyRazorComponentsBuilderExtensions.cs"
+    },
+    {
+      "title": "Pinned configuration/default and explicit opt-out",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/Server/src/WebAssemblyComponentsServiceOptionsConfiguration.cs"
+    },
+    {
+      "title": "Pinned independent formatting and translation state",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Shared/src/CultureStateProvider.cs"
+    },
+    {
+      "title": "Pinned restore, culture, resources and render order",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs"
+    },
+    {
+      "title": "Pinned combined-ICU guard and satellite loading",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyCultureProvider.cs"
+    },
+    {
+      "title": "Previous host loads resources before persisted state",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs"
+    },
+    {
+      "title": "Microsoft Blazor globalization and localization",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization?view=aspnetcore-10.0"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0",
+      "sample": "samples/net10.0/CultureHarbour/Host/Host.csproj",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "sdk": "10.0.402"
+    },
+    {
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0",
+      "sample": "samples/net10.0/CultureHarbour/Client/Client.csproj",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "sdk": "10.0.402"
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0",
+      "sample": "samples/net11.0/CultureHarbour/Host/Host.csproj",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "sdk": "11.0.100-rc.2.26504.105"
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0",
+      "sample": "samples/net11.0/CultureHarbour/Client/Client.csproj",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "snippets": {
+    "host-project-10": {
+      "path": "samples/net10.0/CultureHarbour/Host/Host.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "host-packages-10": {
+      "path": "samples/net10.0/CultureHarbour/Host/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "client-project-10": {
+      "path": "samples/net10.0/CultureHarbour/Client/Client.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "client-packages-10": {
+      "path": "samples/net10.0/CultureHarbour/Client/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "server-10": {
+      "path": "samples/net10.0/CultureHarbour/Host/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "document-10": {
+      "path": "samples/net10.0/CultureHarbour/Host/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "startup-10": {
+      "path": "samples/net10.0/CultureHarbour/Host/wwwroot/culture.js",
+      "region": "complete",
+      "language": "javascript"
+    },
+    "host-project-11": {
+      "path": "samples/net11.0/CultureHarbour/Host/Host.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "host-packages-11": {
+      "path": "samples/net11.0/CultureHarbour/Host/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "client-project-11": {
+      "path": "samples/net11.0/CultureHarbour/Client/Client.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "client-packages-11": {
+      "path": "samples/net11.0/CultureHarbour/Client/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "server-11": {
+      "path": "samples/net11.0/CultureHarbour/Host/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "document-11": {
+      "path": "samples/net11.0/CultureHarbour/Host/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "startup-11": {
+      "path": "samples/net11.0/CultureHarbour/Host/wwwroot/culture.js",
+      "region": "complete",
+      "language": "javascript"
+    },
+    "routes": {
+      "path": "samples/net11.0/CultureHarbour/Host/Routes.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "client": {
+      "path": "samples/net11.0/CultureHarbour/Client/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "manifest": {
+      "path": "samples/net11.0/CultureHarbour/Client/Manifest.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "fallback": {
+      "path": "samples/net11.0/CultureHarbour/Client/Manifest.resx",
+      "region": "complete",
+      "language": "xml"
+    },
+    "french": {
+      "path": "samples/net11.0/CultureHarbour/Client/Manifest.fr-FR.resx",
+      "region": "complete",
+      "language": "xml"
+    },
+    "german": {
+      "path": "samples/net11.0/CultureHarbour/Client/Manifest.de-DE.resx",
+      "region": "complete",
+      "language": "xml"
+    },
+    "boundary": {
+      "path": "samples/net11.0/CultureHarbour/Host/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local real .NET 10/RC2 browser proof covers alignment and explicit independent opt-out. No remote resource or Human-only prerequisite; GA remains unverified."
+  }
+}

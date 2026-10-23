@@ -1,0 +1,10 @@
+<!-- snippet:complete -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Heading" xml:space="preserve"><value>Culture Harbour manifest</value></data>
+  <data name="Instruction" xml:space="preserve"><value>Keep the blue crate upright.</value></data>
+</root>
+<!-- endsnippet:complete -->
