@@ -1,0 +1,103 @@
+{
+  "kind": "actual compilation of disposable consumers assembled from returned stdio Markdown",
+  "markdownSha256": "b84a77c6090cc81018eb9ef8764e3af9fe064d28ade20e085dd2671841290d1f",
+  "sourceCommit": "f784900ba6d5c5a7c9d426202e8322112c391cdf",
+  "limits": "Both disposable consumers are assembled only from actual returned stdio Markdown outside the repository and compiled with the declared SDKs. NuGet sources are cleared; installed SDK/runtime assets and existing cache remain available. Actual HTTP verifies each routed journal, exact external CSS and matching framework script on its own dynamically assigned loopback port. This is compilation/HTTP proof, separate from the unchanged hash-matched canonical rendered/browser proof; no new browser matrix. Initial fixed-port HTTP fixture was discarded because that port was occupied by another sample; corrected checks use only endpoints printed by these hosts.",
+  "results": [
+    {
+      "exitCode": 0,
+      "target": "net10.0",
+      "sourceFiles": {
+        "wwwroot/journal.css": "a67d12f3dfe4e8deae4841279ea137f35c87b215ac7fe4fe6a74a385ab678631",
+        "Journal.razor": "bf79dbe6d4ed1bef5aa20f8c9154b24aed44c3695488dbe0de926e481a532531",
+        "OrchardJournal.csproj": "2ed1e88f2c427f7c560de053514cff36b8a6094f4fbab7d9d9ac36ee684fdd7a",
+        "Interactive.razor": "13f4352340d0ed4a712f437492ab4075fc5c1f7e26718a491f0e52909405078e",
+        "JournalEntry.razor": "7b8dc240c81d6ec3e2501cad6dc0b792e2b8b683f3665d08a5d31a39c55e37ab",
+        "wwwroot/edge.js": "9b0195474136ffecfc36e860c888dabdec066eb0f8d19ec96cfa9b5bd0e7d8bd",
+        "_Imports.razor": "96e19311e8f10c5863b1377872a3f1c54a04d40a1581b485effd672ca91775f1",
+        "NuGet.Config": "e497501960554d323eef45860c14474958accd1ae7f3ae6f95b10e4c1d340401",
+        "packages.lock.json": "4851aab479c5f9a6ffbda507bd9c920ba9785b5a24f1a9bce3ca576576a967eb",
+        "App.razor": "cab1ee208074b7aea15d1b7b561f3c5b043673a93406e3abf5434b3fad387119",
+        "global.json": "1f7214cc3aaea1bcb7b55e73488e03883a3f19a44b84f8ec153a138b7886ffbe",
+        "Program.cs": "1632ce46dfd7b2bcb7472528c6dfa74c0167e3e27ac1d6897e6109452903efd1",
+        "Entry.cs": "443262ccc30f2eccc529bff127f796032249d84a59e02ba008d1aea9f04c39fe"
+      },
+      "dotnet": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "command": "build OrchardJournal.csproj -c Release",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\pin784-offline-consumer-6700e42060804197a35273648090a0bd\\net10\\OrchardJournal.csproj (in 237 ms).\r\n  OrchardJournal -> C:\\Users\\pingu\\AppData\\Local\\Temp\\pin784-offline-consumer-6700e42060804197a35273648090a0bd\\net10\\bin\\Release\\net10.0\\OrchardJournal.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.59\r\n",
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pin784-offline-consumer-6700e42060804197a35273648090a0bd\\net10",
+      "sdk": "10.0.402",
+      "http": {
+        "documentStatus": 200,
+        "frameworkScript": "_framework/blazor.web.cd06xom9c5.js",
+        "frameworkScriptStatus": 200,
+        "stylesheetExact": true,
+        "stylesheetStatus": 200,
+        "routedJournal": true,
+        "url": "http://127.0.0.1:63940/",
+        "serverArguments": [
+          "bin/Release/net10.0/OrchardJournal.dll",
+          "--urls",
+          "http://127.0.0.1:0",
+          "--environment",
+          "Development"
+        ]
+      },
+      "artifacts": {
+        "OrchardJournal.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+        "OrchardJournal.deps.json": "41137a3449469fab481f7205892bc334a9cf04d2df5b165146c0b52d2916690e",
+        "OrchardJournal.staticwebassets.runtime.json": "84121869e9e087be65a8cc902753ad5d480096afa22f683ff89c96849e4881a6",
+        "OrchardJournal.dll": "2f3e2f872411eb92b797e71b3653a852ecdf0d93242c051998f5ecdc0cc27e3a"
+      }
+    },
+    {
+      "exitCode": 0,
+      "target": "net11.0",
+      "sourceFiles": {
+        "OrchardJournal.csproj": "4b33a6870e27871386dad45eb24d33338b79500f41bfe939d21ac7bdd1284f47",
+        "JournalEntry.razor": "7b8dc240c81d6ec3e2501cad6dc0b792e2b8b683f3665d08a5d31a39c55e37ab",
+        "Journal.razor": "ee360d7465f0fde69d75131831b189c199193f5cf0823c40ed5e040b4c1c069b",
+        "Program.cs": "1632ce46dfd7b2bcb7472528c6dfa74c0167e3e27ac1d6897e6109452903efd1",
+        "Entry.cs": "443262ccc30f2eccc529bff127f796032249d84a59e02ba008d1aea9f04c39fe",
+        "global.json": "cfb647b8b16630b80a75ff160ba79620095cea6ddb87c0e4d8e8941e081d8ba2",
+        "packages.lock.json": "21a60233da5c81bba55b56e6b57b7ca580a07d00bc7d5eaa6dc493be7763db10",
+        "wwwroot/journal.css": "a67d12f3dfe4e8deae4841279ea137f35c87b215ac7fe4fe6a74a385ab678631",
+        "App.razor": "cab1ee208074b7aea15d1b7b561f3c5b043673a93406e3abf5434b3fad387119",
+        "_Imports.razor": "96e19311e8f10c5863b1377872a3f1c54a04d40a1581b485effd672ca91775f1",
+        "Interactive.razor": "13f4352340d0ed4a712f437492ab4075fc5c1f7e26718a491f0e52909405078e",
+        "NuGet.Config": "e497501960554d323eef45860c14474958accd1ae7f3ae6f95b10e4c1d340401"
+      },
+      "dotnet": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe",
+      "command": "build OrchardJournal.csproj -c Release",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\pin784-offline-consumer-6700e42060804197a35273648090a0bd\\net11\\OrchardJournal.csproj (in 5 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\pin784-offline-consumer-6700e42060804197a35273648090a0bd\\net11\\OrchardJournal.csproj]\r\n  OrchardJournal -> C:\\Users\\pingu\\AppData\\Local\\Temp\\pin784-offline-consumer-6700e42060804197a35273648090a0bd\\net11\\bin\\Release\\net11.0\\OrchardJournal.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.01\r\n",
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pin784-offline-consumer-6700e42060804197a35273648090a0bd\\net11",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "http": {
+        "documentStatus": 200,
+        "frameworkScriptStatus": 200,
+        "stylesheetExact": true,
+        "stylesheetStatus": 200,
+        "routedJournal": true,
+        "frameworkScript": "_framework/blazor.web.q3c3yb5xs8.js",
+        "url": "http://127.0.0.1:65388/",
+        "serverArguments": [
+          "bin/Release/net11.0/OrchardJournal.dll",
+          "--urls",
+          "http://127.0.0.1:0",
+          "--environment",
+          "Development"
+        ]
+      },
+      "artifacts": {
+        "OrchardJournal.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+        "OrchardJournal.deps.json": "81d78e2239100d4bd3c9a4a6cf1da009cf2baacad17b40cac0cc6b3a4abd5e30",
+        "OrchardJournal.staticwebassets.runtime.json": "0b786bdb7662981697cba2a1e175544dafed512b51e7f40705b4a1610161fe3c",
+        "OrchardJournal.dll": "cf1100bd0110ae687d3ea314d08ea60d42b5171e8b7a8afbe52679d68bcd45ea"
+      }
+    }
+  ],
+  "edition": "11.0",
+  "recipeId": "blazor.hold-list-edge",
+  "sourceDirty": true,
+  "recordedAt": "2026-10-23T04:53:57.3481413+01:00"
+}

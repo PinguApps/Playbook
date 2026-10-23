@@ -270,6 +270,7 @@ Feature: Installed offline guidance
     And selected rows retain canonical guidance and interactive requirements offline
     And grid positioning retains canonical bodies and rendered instance constraints offline
     And static subtree caching retains complete canonical guidance offline
+    And changing lists retain canonical guidance and complete anchoring requirements offline
     And virtual list reveal retains complete canonical guidance offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

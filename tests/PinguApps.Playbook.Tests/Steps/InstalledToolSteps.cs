@@ -19,6 +19,47 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("changing lists retain canonical guidance and complete anchoring requirements offline")]
+    public async Task CheckChangingListsAsync()
+    {
+        string[] ids = ["blazor.hold-list-edge"];
+        await CheckWebRecipesAsync(ids, "orchard-journal").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.hold-list-edge/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            string sample = $"samples/{target}/OrchardJournal";
+            foreach (string setupFile in new[] { "_Imports.razor", "App.razor", "Interactive.razor", "wwwroot/journal.css" })
+            {
+                string setup = await ReadSdkInputAsync($"{sample}/{setupFile}").ConfigureAwait(false);
+                foreach (string line in setup.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            string project = await ReadSdkInputAsync($"{sample}/OrchardJournal.csproj").ConfigureAwait(false);
+            foreach (string line in project.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.TrimStart().StartsWith("</", StringComparison.Ordinal) && !line.Contains("<PropertyGroup>", StringComparison.Ordinal)))
+            {
+                Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+            }
+
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"{sample}/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+            Assert.Contains("`rollForward` to `disable`", markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Contains("OverscanCount=\"15\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("browser/layout differences", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
     [Then("virtual list reveal retains complete canonical guidance offline")]
     public async Task CheckVirtualListRevealAsync()
     {

@@ -1,0 +1,131 @@
+{
+  "sourceCommit": "f784900ba6d5c5a7c9d426202e8322112c391cdf",
+  "sourceDirty": true,
+  "runtime": "Linux .NET 10.0.12",
+  "testedInputs": {
+    "tests/PinguApps.Playbook.Tests/Features/InstalledTool.feature": "389e57bbcbe00084cd41d8495e7c0ae5516d93293d6cc29ffe96c86779ea3aaa",
+    "content/recipes/blazor.hold-list-edge/11.0/recipe.json": "b6ecc98d36d026764ad729ed407dd6a6ecc8e92dfc77e1a7e4845e029094dfba",
+    "content/recipes/blazor.hold-list-edge/11.0/recipe.md": "6870a5823f07128dba417e3d47f090a3847a98e3d557abc0c4b11034e396b7e7",
+    "tests/PinguApps.Playbook.Tests/PinguApps.Playbook.Tests.csproj": "ccecffa452abbda015063ba63995310728d75a5d5c9b4be17c9f240a6f2adee9",
+    "tests/PinguApps.Playbook.Tests/Steps/InstalledToolSteps.cs": "441aaa16d0617f3350f6e3a8bffa80a39771e619667d4d8970a0eb4e9caab84e"
+  },
+  "checkoutMounted": false,
+  "integratedMain": "e1887bcaff1e10c2931b552e01a77e781b3d436c",
+  "recordedAt": "2026-10-23T04:06:13.0092583+00:00",
+  "dockerInvocations": [
+    {
+      "executable": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+      "lane": "full",
+      "arguments": [
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/artifacts,target=/artifacts,readonly",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/tests/PinguApps.Playbook.Tests/bin/Release/net10.0,target=/suite,readonly",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/eng/Test-Package.ps1,target=/test/Test-Package.ps1,readonly",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/artifacts/pin784/offline-final-full,target=/results",
+        "-e",
+        "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0",
+        "-e",
+        "DOTNET_CLI_TELEMETRY_OPTOUT=1",
+        "-e",
+        "DOTNET_NOLOGO=1",
+        "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "/test/Test-Package.ps1",
+        "-Artifacts",
+        "/artifacts",
+        "-Suite",
+        "/suite",
+        "-PackageVersion",
+        "0.0.0-list-anchoring-offline-setup",
+        "-RuntimeMajor",
+        "10",
+        "-Results",
+        "/results"
+      ]
+    },
+    {
+      "executable": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+      "lane": "smoke",
+      "arguments": [
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/artifacts,target=/artifacts,readonly",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/tests/PinguApps.Playbook.Tests/bin/Release/net10.0,target=/suite,readonly",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/eng/Test-Package.ps1,target=/test/Test-Package.ps1,readonly",
+        "--mount",
+        "type=bind,source=V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists/artifacts/pin784/offline-final-smoke,target=/results",
+        "-e",
+        "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0",
+        "-e",
+        "DOTNET_CLI_TELEMETRY_OPTOUT=1",
+        "-e",
+        "DOTNET_NOLOGO=1",
+        "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+        "pwsh",
+        "-NoProfile",
+        "-File",
+        "/test/Test-Package.ps1",
+        "-Artifacts",
+        "/artifacts",
+        "-Suite",
+        "/suite",
+        "-PackageVersion",
+        "0.0.0-list-anchoring-offline-setup",
+        "-RuntimeMajor",
+        "10",
+        "-Results",
+        "/results",
+        "-Smoke"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "total": 36,
+      "lane": "full",
+      "passed": 36,
+      "failed": 0
+    },
+    {
+      "total": 1,
+      "lane": "smoke",
+      "passed": 1,
+      "failed": 0
+    }
+  ],
+  "packageVersion": "0.0.0-list-anchoring-offline-setup",
+  "limits": "Review-fix dirty authoring build at local merge f784900, before the single feedback commit. Recorded input hashes identify actual changed recipe/tests; canonical samples/browser proof remain hash-identical. Original clean implementation-head package report is retained separately. No new OS/client/native matrix or GA proof.",
+  "measurements": [
+    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=26839, result=67920 UTF-8 bytes",
+    "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
+    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
+    "all 20: summary=1397, structured=26841, result=67924 UTF-8 bytes",
+    "all 50: summary=1397, structured=67388, result=169852 UTF-8 bytes",
+    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=26839, result=67920 UTF-8 bytes"
+  ],
+  "kind": "actual installed stdio integration through Test-Package.ps1",
+  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "artifacts": {
+    "artifacts/PinguApps.Playbook.0.0.0-list-anchoring-offline-setup.nupkg": "e267e49f73720030d58ff57b72c1bab8894a5554840cbed7d3bb4a6138a939eb",
+    "eng/Test-Package.ps1": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
+    "artifacts/release-fixture/PinguApps.Playbook.0.0.0-list-anchoring-offline-setup.nupkg": "85213872f02dfc6da49b6a30672a341b542437814385cbcddd73f4798a794a9b",
+    "tests/PinguApps.Playbook.Tests/bin/Release/net10.0/PinguApps.Playbook.Tests.dll": "4b8609c52cdd3216c05432634104bb42829b7781cb95b6ab77f2173844a0d816"
+  },
+  "network": "none"
+}
