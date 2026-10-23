@@ -1,0 +1,25 @@
+<!-- snippet:main -->
+@page "/"
+@page "/berths/{BerthId}"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@namespace QuaysideRoutes
+@inject HttpClient Client
+
+<h1>Quayside routes</h1>
+<p id="berth">Berth: @(BerthId ?? "north")</p>
+<p id="result">@_result</p>
+<button id="refresh" @onclick="LoadAsync">Read quay</button>
+<a id="south" href="berths/south">South berth</a>
+
+@code {
+    [Parameter] public string? BerthId { get; set; }
+    private string _result = "Waiting for backend";
+    protected override Task OnParametersSetAsync() => LoadAsync();
+    private async Task LoadAsync()
+    {
+        try { _result = await Client.GetStringAsync($"api/quays/{Uri.EscapeDataString(BerthId ?? "north")}?cargo=slate"); }
+        catch (HttpRequestException error) { _result = $"Backend unavailable: {error.StatusCode}"; }
+    }
+}
+<!-- endsnippet:main -->

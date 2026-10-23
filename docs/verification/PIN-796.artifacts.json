@@ -1,0 +1,22 @@
+{
+  "gatewayPackageSha256": "f893f3caad778654e3e0b8dc2c23f5aba62ae5d036ba7aca34e22a232f2e2266",
+  "sdkTemplateArchiveSha256": "419395f52fdb5648d36e5224e44da952f4de3b97fa74688d21d089efff038b75",
+  "entries": [
+    {
+      "sha256": "aac0bc44bb70ce17fb201e708bca64fe0051bcbce4a2b1cb46978c5a0646868d",
+      "entry": "content/BlazorWasmServiceDefaults-CSharp/Extensions.cs",
+      "bytes": 2613
+    },
+    {
+      "sha256": "e707d1a3c5cda95545ed7b4e0eb0d94655a1f2496d06b1a016b4efeab1324801",
+      "entry": "content/BlazorWasmServiceDefaults-CSharp/BlazorWasm.ServiceDefaults1.csproj",
+      "bytes": 1028
+    },
+    {
+      "sha256": "3c44467a391d372a47aa3b83ad3ff278f7b829f2b614e2d0ee621bfd700d19a1",
+      "entry": "content/BlazorWasmServiceDefaults-CSharp/wwwroot/BlazorWasm.ServiceDefaults1.lib.module.js",
+      "bytes": 1012
+    }
+  ],
+  "sdkTemplateArchive": "C:\\Users\\pingu\\.dotnet-playbook-11\\templates\\11.0.0-rc.2.26504.105\\microsoft.dotnet.web.projecttemplates.11.0.11.0.0-rc.2.26504.105.nupkg"
+}

@@ -63,6 +63,65 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("standalone gateway retains complete canonical guidance and backend requirements offline")]
+    public async Task CheckStandaloneGatewayAsync()
+    {
+        const string id = "blazor.host-browser-client-with-backends";
+        await CheckWebRecipesAsync([id], "quayside-routes", 6).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete Gateway route {property.Name}, including all nested requirements and evidence identities, must survive offline stdio retrieval.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete Gateway {field} must survive packaging.");
+        }
+
+        foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString() == expected.GetProperty("sample").GetString());
+            foreach (JsonProperty property in expected.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored Gateway evidence {property.Name} must survive packaging.");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            string[] files = target == "net10.0"
+                ? ["Directory.Build.props", "Directory.Build.targets", "Directory.Packages.props", "Client/QuaysideRoutes.Client.csproj", "Client/Program.cs", "Client/App.razor", "Client/Berth.razor", "Client/wwwroot/index.html", "Host/QuaysideRoutes.Host.csproj", "Host/Program.cs", "Backend/QuaysideRoutes.Backend.csproj", "Backend/Program.cs"]
+                : ["Directory.Build.props", "Directory.Build.targets", "Directory.Packages.props", "Client/QuaysideRoutes.Client.csproj", "Client/Program.cs", "Client/App.razor", "Client/Berth.razor", "Client/wwwroot/index.html", "Defaults/QuaysideRoutes.Defaults.csproj", "Defaults/Extensions.cs", "Defaults/wwwroot/QuaysideRoutes.Defaults.lib.module.js", "Backend/QuaysideRoutes.Backend.csproj", "Backend/Program.cs"];
+            foreach (string file in files)
+            {
+                string source = await ReadSdkInputAsync($"samples/{target}/QuaysideRoutes/{file}").ConfigureAwait(false);
+                string complete = string.Join('\n', source.Split('\n').Where(line => !line.Contains("snippet:", StringComparison.Ordinal))).Trim();
+                Assert.Contains(complete, markdown, StringComparison.Ordinal);
+            }
+
+            string configuration = await ReadSdkInputAsync($"samples/{target}/QuaysideRoutes/Client/Configuration.md").ConfigureAwait(false);
+            foreach (string file in new[] { "global.json", target == "net10.0" ? "Host/appsettings.json" : "Client/appsettings.json" })
+            {
+                using JsonDocument expected = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/QuaysideRoutes/{file}").ConfigureAwait(false));
+                string key = $"n{(target == "net10.0" ? "10" : "11")}-{file.Replace('/', '-').Replace('.', '-').ToLowerInvariant()}";
+                System.Text.RegularExpressions.Match block = System.Text.RegularExpressions.Regex.Match(configuration, $"(?ms)^// snippet:{key}\\n(.*?)^// endsnippet:{key}$");
+                Assert.True(block.Success, $"Missing canonical configuration {target}/{file}");
+                using JsonDocument actual = JsonDocument.Parse(block.Groups[1].Value);
+                Assert.True(JsonElement.DeepEquals(expected.RootElement, actual.RootElement), $"Complete canonical configuration {target}/{file} must match the actual compiled input.");
+            }
+        }
+
+        Assert.Equal("WebAssembly", Assert.Single(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray()).GetString());
+        foreach (string contract in new[] { "WASM; Components.Gateway, generated service-defaults library; Aspire dependency when used.", "StaticWebAssetSpaFallbackEnabled=true", "framework-test-only", "ASPDEPR011", "inspectUri", "UseWebAssemblyDebugging", "no retry/resilience policy", "services__quays__http__0", "OTLP", "404", "not a new .NET 10 foundation" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+    }
+
     [Then("environment chrome retains complete canonical guidance and renderer boundaries offline")]
     public async Task CheckEnvironmentChromeAsync()
     {
