@@ -1,0 +1,71 @@
+[
+  {
+    "target": "net10.0",
+    "base": "/atlas/",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
+    "finalUri": "http://localhost:5294/atlas/collections/kelp/overview",
+    "fragment": "http://localhost:5294/atlas/collections/kelp/overview?sort=date#packing",
+    "kind": "execution",
+    "passed": [
+      "base markup",
+      "current-directory link",
+      "application-base link",
+      "existing fragment replacement",
+      "query preservation",
+      "hash prefix",
+      "null removal",
+      "real fragment scroll",
+      "declarative route",
+      "imperative route",
+      "home route"
+    ],
+    "recordedAt": "2026-10-22T23:59:31.372Z",
+    "sectionTop": -0.21875
+  },
+  {
+    "target": "net11.0",
+    "base": "/atlas/",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
+    "finalUri": "http://localhost:5295/atlas/collections/kelp/overview",
+    "fragment": "http://localhost:5295/atlas/collections/kelp/overview?sort=date#packing",
+    "kind": "execution",
+    "passed": [
+      "base markup",
+      "current-directory link",
+      "application-base link",
+      "existing fragment replacement",
+      "query preservation",
+      "hash prefix",
+      "null removal",
+      "real fragment scroll",
+      "declarative route",
+      "imperative route",
+      "home route"
+    ],
+    "recordedAt": "2026-10-22T23:59:32.156Z",
+    "sectionTop": -0.21875
+  },
+  {
+    "target": "net11.0-alternate",
+    "base": "/museum/",
+    "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
+    "finalUri": "http://localhost:5296/museum/collections/kelp/overview",
+    "fragment": "http://localhost:5296/museum/collections/kelp/overview?sort=date#packing",
+    "kind": "execution",
+    "passed": [
+      "base markup",
+      "current-directory link",
+      "application-base link",
+      "existing fragment replacement",
+      "query preservation",
+      "hash prefix",
+      "null removal",
+      "real fragment scroll",
+      "declarative route",
+      "imperative route",
+      "home route"
+    ],
+    "recordedAt": "2026-10-22T23:59:32.878Z",
+    "sectionTop": -0.21875
+  }
+]

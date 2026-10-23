@@ -93,7 +93,7 @@
       "id": "navigation",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(BasePath|NavigationManagerExtensions|NavigationOptions|Routing\\.NavLink)",
       "owner": "PIN-777",
-      "disposition": "grouped"
+      "disposition": "included; three 11.0 editions with actual net10/net11 navigation evidence; docs/verification/PIN-777.md"
     },
     {
       "id": "virtualization",
