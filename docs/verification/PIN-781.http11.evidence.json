@@ -1,0 +1,23 @@
+{
+  "kind": "execution",
+  "recordedAt": "2026-10-23T02:04:07.0067176+00:00",
+  "baseUri": "http://localhost:5381/",
+  "bookmark": "http://localhost:5381/static?scope=open&repairs_sort=priority&repairs_direction=desc&repairs_page=2&loans_sort=code&loans_direction=desc&loans_page=3",
+  "passed": [
+    "Both bookmarked sorted pages are restored by HTTP SSR",
+    "Bookmark can be requested again",
+    "Changed visible headings preserve stable URL identity",
+    "Repair link retains other namespace and unrelated query",
+    "Actual repair link changes only repair rows",
+    "Actual loan link changes only loan rows",
+    "Actual sort link changes only repair ordering",
+    "Disabled pagination uses anchor aria-disabled and tabindex",
+    "First page omits its query key",
+    "Missing parameters restore defaults independently",
+    "Default ascending header toggles to descending without changing the other grid",
+    "Page 0 resolves without changing other grid",
+    "Page -2 resolves without changing other grid",
+    "Page bad resolves without changing other grid",
+    "Page 999 resolves without changing other grid"
+  ]
+}

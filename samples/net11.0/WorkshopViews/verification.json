@@ -1,0 +1,16 @@
+{
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Components.QuickGrid/11.0.0-rc.2.26504.105"
+  ],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WorkshopViews.ps1",
+    "eng/WorkshopViews.browser.js"
+  ],
+  "workloads": []
+}
