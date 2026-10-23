@@ -1,0 +1,79 @@
+{
+  "recordedAt": "2026-10-23T09:01:59.5220494+00:00",
+  "sourceCommit": "5870498ffda29c454101f2f3e70076aac4225a03",
+  "sourceDirty": false,
+  "base": "a418cab9ee99e79030a9fd72c6cebf5aa6fe1611",
+  "baselineRecord": "docs/verification/PIN-793.execution.evidence.json",
+  "baselineSha256": "a8177eb2a45bc558cad69a0626ecc65643e40c798d6e8fe81343876432a70f83",
+  "scope": "Only the two local Node host sources changed; actual complete managed/browser publish assets and DLLs remain exactly equal. Real browser behavior is refreshed separately against the changed host sources; original receipts remain original.",
+  "samples": {
+    "net10.0": {
+      "artifactCount": 213,
+      "applicationDllSha256": "6cdfc63d7e38b31cede3df1601f7a2f78f531ff570d48f571df781d749db6916",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/EstuaryBoard.browser.js": "88a0db684f1f1c3e48496683b6589a0ea4c62592b7ad9ff2564d4bc9ef0a0945",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net10.0/EstuaryBoard/ConfigurationTrace.cs": "5c3071341d88adbbf869d1c7a4226d8c8169c02ae99d81a56c56003680b91d22",
+        "samples/net10.0/EstuaryBoard/Dashboard.razor": "f829f104aca1c4bf6772b1cae052f0a7f48d56ffc93de97691fe6ceec776c70d",
+        "samples/net10.0/EstuaryBoard/Directory.Packages.props": "ea25fc47c781fa1f1e406608d9f4a8d64825e2f283d5f7262db81ccae2585d20",
+        "samples/net10.0/EstuaryBoard/environments/Production.json": "7286504e8cf8a4f8a3d838ef03137f918f30a423672e94fa0ffc5987bd578076",
+        "samples/net10.0/EstuaryBoard/environments/Testing.json": "173487ce02c902d3b6b505da4c0cc6784bc207cf238af4816133a085f0a43fd9",
+        "samples/net10.0/EstuaryBoard/EstuaryBoard.csproj": "aff352aac2eca2eae8f7dc0caf07965db488c1ef16a2f2abff12401489386fd1",
+        "samples/net10.0/EstuaryBoard/global.json": "ad03f1920f9263280d780e5d746835279d76cb7f2da4b28586c064247f362c47",
+        "samples/net10.0/EstuaryBoard/packages.lock.json": "1dec9aba09f1d0455fc3c716ff64f4174a2700cf70eecc761ff394a7dcc667fe",
+        "samples/net10.0/EstuaryBoard/Program.cs": "3b1c5b98da07513b98b728f47919617dfa7d7f66147cb7e7942aad8f48d3a863",
+        "samples/net10.0/EstuaryBoard/PublicFiles.md": "bcdaee76845c7e1cd8aa6c0fb85c0ebcfa72b8a8c7c30081f9099aba31cde896",
+        "samples/net10.0/EstuaryBoard/serve.mjs": "da429da1268a297412faf73de59cc9c4a90142242c11a53dd25a3e5cbd1eaa44",
+        "samples/net10.0/EstuaryBoard/verification.json": "26a55d90bd1d93f134d5dc5b0bb2a3ef62d45deffb80faa105c1128ce682d548",
+        "samples/net10.0/EstuaryBoard/wwwroot/appsettings.json": "76f03043576cb63b1a3510a0e8ff3db31e39f94049b8a9c94aaf11b0b09d4685",
+        "samples/net10.0/EstuaryBoard/wwwroot/appsettings.Production.json": "0ca5e4bfa3562965f111808e89e3e8a45681a5bb5282cc1baf32870843c3d98a",
+        "samples/net10.0/EstuaryBoard/wwwroot/appsettings.Testing.json": "d3b98dac42d032768504a078665fa688f524fb2ee090992e29a504a8549b06a7",
+        "samples/net10.0/EstuaryBoard/wwwroot/board-start.js": "93ff818d75a093a4a88e7ab0f29c894b9c8d82c218fa33a94286992680f3fb3b",
+        "samples/net10.0/EstuaryBoard/wwwroot/index.html": "8705dc2bf16b6e0d6015f2ec9cd6ef2dd3b456af300ccc9b27693b21ded26d13"
+      },
+      "changedInputs": [
+        "samples/net10.0/EstuaryBoard/serve.mjs"
+      ],
+      "artifactsEqual": true
+    },
+    "net11.0": {
+      "artifactCount": 217,
+      "applicationDllSha256": "737229e68b5cc5a189ecb960f911a89d4d3e1e63532b47935077aedd5ccbd669",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/EstuaryBoard.browser.js": "88a0db684f1f1c3e48496683b6589a0ea4c62592b7ad9ff2564d4bc9ef0a0945",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net11.0/EstuaryBoard/ConfigurationTrace.cs": "5c3071341d88adbbf869d1c7a4226d8c8169c02ae99d81a56c56003680b91d22",
+        "samples/net11.0/EstuaryBoard/Dashboard.razor": "f829f104aca1c4bf6772b1cae052f0a7f48d56ffc93de97691fe6ceec776c70d",
+        "samples/net11.0/EstuaryBoard/Directory.Packages.props": "9a5359b70fda265c6faa8661a3bb4c63ac8cd01219243af1e41584559f3fdd42",
+        "samples/net11.0/EstuaryBoard/environments/Production.json": "7286504e8cf8a4f8a3d838ef03137f918f30a423672e94fa0ffc5987bd578076",
+        "samples/net11.0/EstuaryBoard/environments/Testing.json": "173487ce02c902d3b6b505da4c0cc6784bc207cf238af4816133a085f0a43fd9",
+        "samples/net11.0/EstuaryBoard/EstuaryBoard.csproj": "2fe77b566c6f06f9e2892b428e6f34e224c1bad6cd8cc21fd14295903ad5098d",
+        "samples/net11.0/EstuaryBoard/global.json": "1116860ba7efaca5d3b498a63089a3180848a69795e06439d986fe32e11891e1",
+        "samples/net11.0/EstuaryBoard/packages.lock.json": "7ebfbf6e014424ddbd6bad1f47e44874bc1faec5e8f843786d1a13fdcad81295",
+        "samples/net11.0/EstuaryBoard/Program.cs": "7e52fedb62f3b357ab2974283d485291ffda325b3c025256060cb1bf1046a5f0",
+        "samples/net11.0/EstuaryBoard/PublicFiles.md": "bcdaee76845c7e1cd8aa6c0fb85c0ebcfa72b8a8c7c30081f9099aba31cde896",
+        "samples/net11.0/EstuaryBoard/serve.mjs": "da429da1268a297412faf73de59cc9c4a90142242c11a53dd25a3e5cbd1eaa44",
+        "samples/net11.0/EstuaryBoard/verification.json": "cdfce110b065b04c61b15dd4204f7875101b9f72727e68af79e2841190ccd884",
+        "samples/net11.0/EstuaryBoard/wwwroot/appsettings.json": "76f03043576cb63b1a3510a0e8ff3db31e39f94049b8a9c94aaf11b0b09d4685",
+        "samples/net11.0/EstuaryBoard/wwwroot/appsettings.Production.json": "0ca5e4bfa3562965f111808e89e3e8a45681a5bb5282cc1baf32870843c3d98a",
+        "samples/net11.0/EstuaryBoard/wwwroot/appsettings.Testing.json": "d3b98dac42d032768504a078665fa688f524fb2ee090992e29a504a8549b06a7",
+        "samples/net11.0/EstuaryBoard/wwwroot/board-start.js": "93ff818d75a093a4a88e7ab0f29c894b9c8d82c218fa33a94286992680f3fb3b",
+        "samples/net11.0/EstuaryBoard/wwwroot/index.html": "8705dc2bf16b6e0d6015f2ec9cd6ef2dd3b456af300ccc9b27693b21ded26d13"
+      },
+      "changedInputs": [
+        "samples/net11.0/EstuaryBoard/serve.mjs"
+      ],
+      "artifactsEqual": true
+    }
+  }
+}
