@@ -1,0 +1,97 @@
+{
+  "kind": "real loopback HTTP static SSR execution",
+  "lane": "hybrid",
+  "target": "net11.0",
+  "recordedAt": "2026-10-23T01:14:11.5679846+00:00",
+  "arguments": [
+    "V:\\_worktrees\\Playbook\\agent-pin-780-04-008-safe-static-subtree-caching\\samples\\net11.0\\QuarryLedger\\bin\\Release\\net11.0\\QuarryLedger.dll",
+    "--urls",
+    "http://127.0.0.1:65446/",
+    "--environment",
+    "Development",
+    "--CacheSeconds",
+    "30",
+    "--CacheProvider",
+    "hybrid",
+    "--CacheEnabled",
+    "True"
+  ],
+  "checks": [
+    "hybrid cross-user rendered isolation",
+    "hybrid uncached outer markup changes",
+    "hybrid hit replays complete markup and skips child lifecycle",
+    "hybrid query variation",
+    "hybrid same identity changed permission",
+    "hybrid anonymous isolation",
+    "hybrid server revision invalidates prior content",
+    "hybrid revision invalidates other user key",
+    "hybrid concurrent miss renders exactly once",
+    "hybrid concurrent user keys remain isolated",
+    "hybrid absolute expiry immediate hit",
+    "hybrid absolute expiry renders fresh content",
+    "hybrid negative fixture detects actual omitted-user leak",
+    "hybrid rejects sliding expiration at real render"
+  ],
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Test-QuarryLedger.ps1": "b79dfdb65503ba8309c251edd0507bfe19cbb9252e5adfe2e043b6442bfacf21",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/net11.0/QuarryLedger/_Imports.razor": "440bd801d47a8ceea0b21fbb1a176ea566288ae87d17cc3e447fa6b90529a350",
+    "samples/net11.0/QuarryLedger/App.razor": "13aa1121b008f6071caf417b486367054828745895ba661642630132e4922846",
+    "samples/net11.0/QuarryLedger/Directory.Packages.props": "bca039c569f5b842de04b2bb90eba2f7872dc6291c246c8fe20ac3ebe17e2316",
+    "samples/net11.0/QuarryLedger/ExpiryProbe.razor": "76cc460bb69ab302b2c65a6d971207127538f381c3ee73b5ce6c5b1a743654f6",
+    "samples/net11.0/QuarryLedger/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+    "samples/net11.0/QuarryLedger/LedgerPage.razor": "1b4a572a6756bec127c81052daac145d7531d0a20128de73a18fcbee0665278f",
+    "samples/net11.0/QuarryLedger/LedgerState.cs": "d470abc95605781174234b0c40abf6242aebd9821840937f069d00f55d473834",
+    "samples/net11.0/QuarryLedger/packages.lock.json": "30c1d51f768cb50eb3a20dc3112c918dd6743127420c217bb9632cc02a418320",
+    "samples/net11.0/QuarryLedger/Program.cs": "4745650049564ebf9364d8200b88013732ec169306d0005d93e7277b5f430ace",
+    "samples/net11.0/QuarryLedger/QuarryLedger.csproj": "2153dbfcc21c6cc1c11228d5f8c92ec41c28cb6f68b63985e33aa99b465b57c4",
+    "samples/net11.0/QuarryLedger/SlidingProbe.razor": "f26e9059eba0b011b2b57ec406c77b95ce975481da7f36ce032d0ef906c8c18b",
+    "samples/net11.0/QuarryLedger/SurveySection.razor": "c370775853506b525d3957b8c8d9f85222c14eb8957ad0382e8ae99fee503056",
+    "samples/net11.0/QuarryLedger/UnsafeProbe.razor": "88a38c20953f7d70b4d6cabbc06dcc2c93339e7a5d65578f44023fc59265a0ff",
+    "samples/net11.0/QuarryLedger/verification.json": "a64cf0d36ee34b4a4fdb59a2a53cdfe5927ae7e1393c00815411e00d2d1c7b6e"
+  },
+  "artifacts": {
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/Microsoft.Extensions.Caching.Hybrid.dll": "83d0cb90d5e119887aeef2a03523d5124d6b60a6903b05b71ebb8d8dc43573fa",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/QuarryLedger.deps.json": "a62c8797c83c9d1fbb8e1dd538aadbcdb58a556269187a8f76a39e8b7eb9c4d5",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/QuarryLedger.dll": "445092efc33ec7221a3406784c10d73d80c4a688ca6b4a5ef1aa0827b99a2769",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/QuarryLedger.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/QuarryLedger.staticwebassets.endpoints.json": "e4a0aaadd6e9623f4c16093aae056bd4f467f07dcdcb19d9a61928e3e13a8bc0",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/QuarryLedger.staticwebassets.runtime.json": "b63c2e1cc7b099888a73bc92a72f58d2b9f657a32400f4b7d85981434c28300d",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/verification-evidence.json": "cebe4cda78203603549a4f755b8cfa187160f573907fcf65822c9149b2013aaa",
+    "samples/net11.0/QuarryLedger/bin/Release/net11.0/verification.json": "a64cf0d36ee34b4a4fdb59a2a53cdfe5927ae7e1393c00815411e00d2d1c7b6e"
+  },
+  "rendered": {
+    "revised": {
+      "Survey": "<section id=\"survey\" data-stamp=\"91fd9d89397643fb87370848a4d652b5\" data-revision=\"2\"><h2>north:survey-6</h2>\n    <p>Prepared for mara with editor access.</p></section>",
+      "Request": "Request 77f7a26b7edd40b4a0f666b3863eb3ef for mara",
+      "Html": "<!DOCTYPE html>\n<html lang=\"en\"><head><title>Quarry ledger</title></head>\n<body><h1>Quarry survey ledger</h1>\n<p id=\"request\">Request 77f7a26b7edd40b4a0f666b3863eb3ef for mara</p>\n<section id=\"survey\" data-stamp=\"91fd9d89397643fb87370848a4d652b5\" data-revision=\"2\"><h2>north:survey-6</h2>\n    <p>Prepared for mara with editor access.</p></section></body></html>",
+      "Stamp": "91fd9d89397643fb87370848a4d652b5"
+    },
+    "otherUser": {
+      "Survey": "<section id=\"survey\" data-stamp=\"441d1f94df9c417e98f7ba904cdacc26\" data-revision=\"1\"><h2>north:survey-2</h2>\n    <p>Prepared for ivo with reader access.</p></section>",
+      "Request": "Request 89c66c43b11b45b0945f65ef8406468b for ivo",
+      "Html": "<!DOCTYPE html>\n<html lang=\"en\"><head><title>Quarry ledger</title></head>\n<body><h1>Quarry survey ledger</h1>\n<p id=\"request\">Request 89c66c43b11b45b0945f65ef8406468b for ivo</p>\n<section id=\"survey\" data-stamp=\"441d1f94df9c417e98f7ba904cdacc26\" data-revision=\"1\"><h2>north:survey-2</h2>\n    <p>Prepared for ivo with reader access.</p></section></body></html>",
+      "Stamp": "441d1f94df9c417e98f7ba904cdacc26"
+    },
+    "first": {
+      "Survey": "<section id=\"survey\" data-stamp=\"2b4016a3343447109ac0735e71138d62\" data-revision=\"1\"><h2>north:survey-1</h2>\n    <p>Prepared for mara with reader access.</p></section>",
+      "Request": "Request 12c6fb2616bc45029b49774709df4fc1 for mara",
+      "Html": "<!DOCTYPE html>\n<html lang=\"en\"><head><title>Quarry ledger</title></head>\n<body><h1>Quarry survey ledger</h1>\n<p id=\"request\">Request 12c6fb2616bc45029b49774709df4fc1 for mara</p>\n<section id=\"survey\" data-stamp=\"2b4016a3343447109ac0735e71138d62\" data-revision=\"1\"><h2>north:survey-1</h2>\n    <p>Prepared for mara with reader access.</p></section></body></html>",
+      "Stamp": "2b4016a3343447109ac0735e71138d62"
+    },
+    "repeated": {
+      "Survey": "<section id=\"survey\" data-stamp=\"2b4016a3343447109ac0735e71138d62\" data-revision=\"1\"><h2>north:survey-1</h2>\n    <p>Prepared for mara with reader access.</p></section>",
+      "Request": "Request 1a9e23b4c2e24a41ae0598613cda3974 for mara",
+      "Html": "<!DOCTYPE html>\n<html lang=\"en\"><head><title>Quarry ledger</title></head>\n<body><h1>Quarry survey ledger</h1>\n<p id=\"request\">Request 1a9e23b4c2e24a41ae0598613cda3974 for mara</p>\n<section id=\"survey\" data-stamp=\"2b4016a3343447109ac0735e71138d62\" data-revision=\"1\"><h2>north:survey-1</h2>\n    <p>Prepared for mara with reader access.</p></section></body></html>",
+      "Stamp": "2b4016a3343447109ac0735e71138d62"
+    }
+  },
+  "slidingObservations": [],
+  "limits": "Local memory providers on Windows x64; real cookie authentication, no external store, multi-node, interactive rendering or GA proof. Negative fixture intentionally leaks only fictional local test identities."
+}

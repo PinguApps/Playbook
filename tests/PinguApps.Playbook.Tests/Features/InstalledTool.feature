@@ -266,5 +266,6 @@ Feature: Installed offline guidance
     And visit validation retains awaited localized canonical guidance offline
     And captured static content retains complete canonical guidance offline
     And base aware navigation retains complete canonical guidance offline
+    And static subtree caching retains complete canonical guidance offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

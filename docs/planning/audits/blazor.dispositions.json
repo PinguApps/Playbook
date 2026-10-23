@@ -81,7 +81,7 @@
       "id": "cache",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(Cache|Endpoints\\.RazorComponentsServiceOptions::(get_|set_)?CacheView)",
       "owner": "PIN-780; B07 for component cache contracts",
-      "disposition": "grouped/included"
+      "disposition": "included; boundary/storage policy delivered with real local provider proof in docs/verification/PIN-780.md; B07 component authoring remains outstanding"
     },
     {
       "id": "browser-options",

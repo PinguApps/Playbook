@@ -1,0 +1,14 @@
+@page "/unsafe"
+@inject IWebHostEnvironment Environment
+@* Negative test fixture: deliberately unsafe; never copy into an application. *@
+@if (!Environment.IsDevelopment())
+{
+    <p>Unavailable</p>
+}
+else
+{
+    <CacheView CacheKey="unsafe-probe" ExpiresAfter="TimeSpan.FromMinutes(1)">
+        <SurveySection Viewer="@(Context.User.Identity?.Name ?? "anonymous")" Permission="reader" />
+    </CacheView>
+}
+@code { [CascadingParameter] private HttpContext Context { get; set; } = default!; }

@@ -1,0 +1,20 @@
+<!-- snippet:section -->
+@inject LedgerState Ledger
+<section id="survey" data-stamp="@Stamp" data-revision="@Revision">
+    <h2>@Result</h2>
+    <p>Prepared for @Viewer with @Permission access.</p>
+</section>
+@code {
+    [Parameter] public string Shelf { get; set; } = "north";
+    [Parameter] public int Revision { get; set; }
+    [Parameter] public string Viewer { get; set; } = "anonymous";
+    [Parameter] public string Permission { get; set; } = "none";
+    private string Stamp { get; } = Guid.NewGuid().ToString("N");
+    private string Result = "";
+    protected override async Task OnInitializedAsync()
+    {
+        Ledger.EnterLifecycle();
+        Result = await Ledger.BuildAsync(Shelf);
+    }
+}
+<!-- endsnippet:section -->

@@ -1,0 +1,8 @@
+@page "/sliding"
+@inject IWebHostEnvironment Environment
+@if (Environment.IsDevelopment())
+{
+    <CacheView CacheKey="sliding-probe" ExpiresAfter="TimeSpan.FromSeconds(4)" ExpiresSliding="TimeSpan.FromSeconds(1)">
+        <SurveySection />
+    </CacheView>
+}

@@ -1,0 +1,15 @@
+{
+  "nativeToolchains": [],
+  "buildArguments": [],
+  "workloads": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-QuarryLedger.ps1"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Caching.Hybrid/10.11.0"
+  ]
+}
