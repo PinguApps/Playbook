@@ -14,7 +14,7 @@ foreach ($scope in @('Process','User','Machine')) { $before[$scope]=[Environment
 $session = Join-Path ([IO.Path]::GetTempPath()) ('playbook-pin799-inspect-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $session -Force | Out-Null
 New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
-$OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
+$OutputDirectory = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputDirectory)
 $previous = @{}
 foreach ($key in @('DOTNET_CLI_HOME','NUGET_PACKAGES','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH')) { $previous[$key]=[Environment]::GetEnvironmentVariable($key) }
 try {
