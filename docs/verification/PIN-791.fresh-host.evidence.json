@@ -1,0 +1,41 @@
+{
+  "kind": "real-browser-webassembly-fresh-host-repeat",
+  "provenance": "Fresh --no-build --no-restore hosts after final static-manifest build. Source commit 33747e3cab30329dad40a0b6662701d3881122b8 with documentation/test-only dirty changes. Sample inputs and browser artifact hashes remain exactly equal to PIN-791.execution.evidence.json; not relabeled as clean-head execution.",
+  "runtimeResources": "Same native/runtime/application WASM resource URLs as PIN-791.browser10.evidence.json and PIN-791.browser11.evidence.json.",
+  "net11": {
+    "url": "http://localhost:5812/",
+    "recordedAt": "2026-10-23T06:41:12.107Z",
+    "initial": 239,
+    "running": { "clicks": 1, "ticks": 243 },
+    "stopped": 243,
+    "final": 243,
+    "quietMilliseconds": 1503.7999999523165,
+    "lifecycle": [
+      { "at": 1992.600000023842, "count": 0, "kind": "started" },
+      { "at": 63565.30000001192, "count": 243, "kind": "stop-requested" },
+      { "at": 63571.80000001192, "count": 243, "kind": "cancelled" },
+      { "at": 63573.40000003576, "count": 243, "kind": "stopped" },
+      { "at": 63577.10000002384, "count": 1, "kind": "root-disposed" }
+    ],
+    "lastTick": { "at": 63347, "count": 243, "kind": "tick" },
+    "applicationDisposed": true
+  },
+  "net10": {
+    "url": "http://localhost:5811/",
+    "recordedAt": "2026-10-23T06:41:14.851Z",
+    "initial": 241,
+    "running": { "clicks": 1, "ticks": 246 },
+    "stopped": 246,
+    "final": 246,
+    "quietMilliseconds": 1508.300000011921,
+    "lifecycle": [
+      { "at": 1949, "count": 0, "kind": "started" },
+      { "at": 64106.19999998808, "count": 246, "kind": "stop-requested" },
+      { "at": 64112.5, "count": 246, "kind": "cancelled" },
+      { "at": 64113.59999996424, "count": 246, "kind": "stopped" },
+      { "at": 64116.59999996424, "count": 1, "kind": "root-disposed" }
+    ],
+    "lastTick": { "at": 64043.09999996424, "count": 246, "kind": "tick" },
+    "applicationDisposed": true
+  }
+}

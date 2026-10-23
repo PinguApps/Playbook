@@ -1,0 +1,28 @@
+<!-- snippet:document -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <title>Westmere beacon watch</title>
+  <style>
+body { margin: 2rem auto; max-width: 46rem; font: 1rem/1.5 system-ui; color: #183844; background: #f1f6f7; }
+button { padding: .6rem 1rem; margin: .5rem; }
+output { font-weight: bold; }
+section { margin-top: 2rem; border-top: 1px solid #789; padding-top: 1rem; }
+</style>
+</head>
+<body>
+  <div id="app">Loading browser application…</div>
+  <section aria-label="Application lifetime">
+    <p>Ticks: <output id="ticks">0</output></p>
+    <button id="shutdown" disabled>End this application</button>
+    <output id="lifetime">Starting</output>
+    <ol id="events"></ol>
+  </section>
+  <script src="watch-lifetime.js"></script>
+  <script src="_framework/blazor.webassembly.js"></script>
+</body>
+</html>
+<!-- endsnippet:document -->

@@ -6,6 +6,7 @@
   <ItemGroup>
     <EmbeddedResource Include="../../samples/net*/TideDesk/*.cs;../../samples/net*/TideDesk/*.razor;../../samples/net*/TideDesk/*.csproj;../../samples/net*/TideDesk/*.props;../../samples/net*/TideDesk/wwwroot/*.js;../../samples/net*/TideDesk.Client/*.cs;../../samples/net*/TideDesk.Client/*.razor;../../samples/net*/TideDesk.Client/*.csproj" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/TideCharts/*.cs;../../samples/net*/TideCharts/*.csproj;../../samples/net*/TideCharts/*.razor;../../samples/net*/TideCharts/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/BeaconWatch/*.cs;../../samples/net*/BeaconWatch/*.csproj;../../samples/net*/BeaconWatch/*.props;../../samples/net*/BeaconWatch/*.razor;../../samples/net*/BeaconWatch/global.json;../../samples/net*/BeaconWatch/wwwroot/*.js;../../samples/net*/BeaconWatch/wwwroot/*.html" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/BeaconReadings/*.cs;../../samples/net*/BeaconReadings/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/HarbourManifest/*.cs;../../samples/net*/HarbourManifest/*.razor;../../samples/net*/HarbourManifest/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/WorkshopViews/*.cs;../../samples/net*/WorkshopViews/*.razor" LogicalName="SdkInput.%(Identity)" />

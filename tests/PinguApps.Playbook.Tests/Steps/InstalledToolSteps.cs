@@ -19,6 +19,48 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("periodic browser work retains complete canonical guidance and lifetime limits offline")]
+    public async Task CheckPeriodicBrowserWorkAsync()
+    {
+        const string id = "blazor.run-browser-background-service";
+        // Independently expand every canonical snippet and assert complete Markdown,
+        // discovery title/goal, exact edition, current evidence and target-10 refusal.
+        await CheckWebRecipesAsync([id], "beacon-watch").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete browser lifetime applicability {property.Name}, including all nested fields, must survive packaging.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete browser lifetime {field} must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string file in new[] { "BeaconWatch.csproj", "Directory.Packages.props", "Program.cs", "OwnedBrowserLifetime.cs", "BeaconTicker.cs", "Dashboard.razor", "wwwroot/index.html", "wwwroot/watch-lifetime.js" })
+            {
+                string source = await ReadSdkInputAsync($"samples/{target}/BeaconWatch/{file}").ConfigureAwait(false);
+                foreach (string line in source.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.Contains("snippet:", StringComparison.Ordinal)))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/BeaconWatch/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Equal("WebAssembly", Assert.Single(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray()).GetString());
+        Assert.Contains("WASM browser lifetime; not durable work after tab/process termination.", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("no public cancellation-token overload", markdown, StringComparison.Ordinal);
+        Assert.Contains("do not guarantee StopAsync", markdown, StringComparison.Ordinal);
+    }
+
     [Then("circuit pause retains complete canonical guidance and persistence requirements offline")]
     public async Task CheckCircuitPauseAsync()
     {

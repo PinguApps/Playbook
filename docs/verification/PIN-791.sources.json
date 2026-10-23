@@ -1,0 +1,20 @@
+[
+  {
+    "sha256": "d05db6e16ce3a662ce29007e40d1afb2041e30c60a5e9a8df123735e4999eda5",
+    "kind": "official-source-review",
+    "recordedAt": "2026-10-23T06:32:10.2433339+00:00",
+    "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs"
+  },
+  {
+    "sha256": "80170bfcff3f76be7a1df2506eef9f8c7943d384cac250f1c3d163c2f6b62e37",
+    "kind": "official-source-review",
+    "recordedAt": "2026-10-23T06:32:10.4853254+00:00",
+    "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/HostedServiceExecutor.cs"
+  },
+  {
+    "sha256": "9cd1fbf5c71893e7750a20e77aefa9e0c7eec2b5b8e08a9024424a6394cc0d4e",
+    "kind": "official-source-review",
+    "recordedAt": "2026-10-23T06:32:10.7255374+00:00",
+    "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs"
+  }
+]

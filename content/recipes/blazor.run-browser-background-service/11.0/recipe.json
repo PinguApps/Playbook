@@ -1,0 +1,205 @@
+{
+  "id": "blazor.run-browser-background-service",
+  "edition": "11.0",
+  "title": "Run browser work",
+  "goal": "Start periodic WASM work; stop with its owned lifetime.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "beacon-watch"
+  ],
+  "apis": [
+    "AddHostedService",
+    "IHostedService"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "WASM lifetime; no durable work after tab/process termination."
+        ],
+        "requirements": {
+          "runtime": {
+            "match": "release-family",
+            "reason": "Native WASM hosted-service integration is introduced in .NET 11.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "sdk": {
+            "match": "release-family",
+            "reason": "Matching WebAssembly SDK, runtime packs and browser assets.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical language mode; no C# 15-only syntax is required.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Blazor"
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "reason": "Actual restored RC2 host and matching browser assets. DevServer at this version supplies local serving only.",
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0.0-rc.2.26504.105"
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Matching WASM packs/JS"
+          ],
+          "providers": [],
+          "platforms": [
+            "Browser timers"
+          ],
+          "renderingModes": [
+            "WebAssembly"
+          ],
+          "prerequisites": [
+            "Use the complete standalone BlazorWebAssembly SDK project, explicit imports/namespaces, document and JS/CSS supplied in Markdown. Actual SDK 11.0.100-rc.2.26504.105; DevServer and WebAssembly package 11.0.0-rc.2.26504.105. No native workload or AOT is needed.",
+            "Register IHostedService with AddHostedService before Build and RunAsync. StartAsync must yield promptly; own and await the running task. The sample has local in-memory instrumentation only, no persistence provider or external service.",
+            "An explicit live-document owner calls public WebAssemblyHost.DisposeAsync; .NET 11 stops registered services before disposing the renderer and provider. This demonstrates orderly resource disposal, not completion of RunAsync or runtime exit."
+          ],
+          "constraints": [
+            "WASM browser lifetime; not durable work after tab/process termination.",
+            "No public RunAsync cancellation overload exists. Browser close/reload/navigation do not guarantee asynchronous cleanup or StopAsync. Never depend on a final browser upload; durable work belongs to a backend.",
+            "Timers are best effort and throttled in hidden/suspended tabs; hosted services do not create worker threads. Await short iterations and pass cancellation into real I/O.",
+            "RC2 host stop uses CancellationToken.None and suppresses stop errors; services must bound/report their own cleanup. Observe actual cancelled/stopped/root-disposed events, not merely a successful disposal return.",
+            "The .NET 10 manual owner is a compiled and executed comparison, not a route to the new integration. Static SSR, Interactive Server/Auto composition, mobile suspension, AOT and GA are not execution claims."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA pending."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/BeaconWatch/BeaconWatch.csproj"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#ihostedservice-support-in-blazor-webassembly",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/HostedServiceExecutor.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft .NET 11 WASM hosted-service release notes",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#ihostedservice-support-in-blazor-webassembly"
+    },
+    {
+      "title": "Pinned RC2 host startup, disposal and RunAsync limits",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs"
+    },
+    {
+      "title": "Pinned RC2 hosted-service executor",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Hosting/HostedServiceExecutor.cs"
+    },
+    {
+      "title": "Pinned .NET 10 host without hosted-service integration",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Hosting/WebAssemblyHost.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0",
+      "sample": "samples/net10.0/BeaconWatch/BeaconWatch.csproj",
+      "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/PIN-791.md. No mocks or cross-compilation.",
+      "sdk": "10.0.402"
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0",
+      "sample": "samples/net11.0/BeaconWatch/BeaconWatch.csproj",
+      "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/PIN-791.md. No mocks or cross-compilation.",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "region": "project",
+      "path": "samples/net10.0/BeaconWatch/BeaconWatch.csproj",
+      "language": "xml"
+    },
+    "packages-10": {
+      "region": "packages",
+      "path": "samples/net10.0/BeaconWatch/Directory.Packages.props",
+      "language": "xml"
+    },
+    "program-10": {
+      "region": "program",
+      "path": "samples/net10.0/BeaconWatch/Program.cs",
+      "language": "csharp"
+    },
+    "lifetime-10": {
+      "region": "lifetime",
+      "path": "samples/net10.0/BeaconWatch/OwnedBrowserLifetime.cs",
+      "language": "csharp"
+    },
+    "project-11": {
+      "region": "project",
+      "path": "samples/net11.0/BeaconWatch/BeaconWatch.csproj",
+      "language": "xml"
+    },
+    "packages-11": {
+      "region": "packages",
+      "path": "samples/net11.0/BeaconWatch/Directory.Packages.props",
+      "language": "xml"
+    },
+    "program-11": {
+      "region": "program",
+      "path": "samples/net11.0/BeaconWatch/Program.cs",
+      "language": "csharp"
+    },
+    "lifetime-11": {
+      "region": "lifetime",
+      "path": "samples/net11.0/BeaconWatch/OwnedBrowserLifetime.cs",
+      "language": "csharp"
+    },
+    "ticker": {
+      "region": "ticker",
+      "path": "samples/net11.0/BeaconWatch/BeaconTicker.cs",
+      "language": "csharp"
+    },
+    "dashboard": {
+      "region": "dashboard",
+      "path": "samples/net11.0/BeaconWatch/Dashboard.razor",
+      "language": "razor"
+    },
+    "document": {
+      "region": "document",
+      "path": "samples/net11.0/BeaconWatch/wwwroot/index.html",
+      "language": "html"
+    },
+    "browser": {
+      "region": "browser",
+      "path": "samples/net11.0/BeaconWatch/wwwroot/watch-lifetime.js",
+      "language": "javascript"
+    }
+  },
+  "humanProof": {
+    "scope": "Local real .NET 10/RC2 WebAssembly browser lifetime proof supplied; no account/resource or Human-only prerequisite. No guaranteed unload cleanup, mobile, hosted/Auto or GA claim.",
+    "status": "not-required"
+  }
+}
