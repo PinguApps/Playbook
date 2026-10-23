@@ -1,8 +1,8 @@
 {
   "id": "blazor.navigate-within-current-path",
   "edition": "11.0",
-  "title": "Navigate from the current route directory",
-  "goal": "Resolve nearby links and button navigation from the current route directory.",
+  "title": "Link nearby routes",
+  "goal": "Resolve links from this page.",
   "areas": [
     "blazor"
   ],
@@ -28,7 +28,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Blazor routing: distinguish current directory from app base; relative input required."
+          "Current URI vs app base; relative input."
         ],
         "requirements": {
           "runtime": {
@@ -38,7 +38,7 @@
             "reason": "Uses the ASP.NET Core 11 navigation and server-rendered BasePath contracts."
           },
           "sdk": {
-            "name": ".NET SDK",
+            "name": "SDK",
             "version": "11.0",
             "match": "release-family",
             "reason": "Build against .NET 11 reference assets; RC2 is the exact measured sample pin, not a mandatory exact installation for every consumer."
@@ -50,19 +50,19 @@
             "reason": "Declared canonical sample mode; no preview language syntax is used."
           },
           "frameworks": [
-            "ASP.NET Core 11"
+            "Blazor"
           ],
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "ASP.NET Core 11 framework; SDK-aligned Internal.Assets."
+            "ASP.NET Core"
           ],
           "providers": [],
           "platforms": [
-            "Web server and browser"
+            "Web"
           ],
           "renderingModes": [
-            "Static SSR shell; Interactive Server routes/events"
+            "SSR/Interactive Server"
           ],
           "prerequisites": [
             "Configure the server request PathBase before routing, static assets and component endpoints. A proxy must preserve or correctly establish the external path base.",
@@ -80,7 +80,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verified; GA pending"
+            "RC2; GA pending"
           ]
         },
         "sourceUrls": [
