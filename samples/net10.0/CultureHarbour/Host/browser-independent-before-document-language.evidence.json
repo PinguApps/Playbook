@@ -1,0 +1,123 @@
+{
+  "artifacts": [
+    {
+      "bytes": 200645,
+      "end": 474.5,
+      "fetchedBytes": 200645,
+      "sha256": "60086d7d0e7a848a032ea979f60163379f7528d3775151b92c1641502641b056",
+      "start": 375.300000011921,
+      "url": "http://localhost:5871/_framework/blazor.web.js"
+    },
+    {
+      "bytes": 641,
+      "end": 483.199999988079,
+      "fetchedBytes": 641,
+      "sha256": "b6c4bf7ab7e5e5ac699cd7a2fbe47f97f676ff806ae4cbdfe9dee814a7868ce6",
+      "start": 375.39999997615814,
+      "url": "http://localhost:5871/culture.js"
+    },
+    {
+      "bytes": 198480,
+      "end": 995.0999999642372,
+      "fetchedBytes": 198480,
+      "sha256": "9ae374efa1e0c8e0a801a89def30fb6b6fc637b690eed98afc1cdd9ca830efc8",
+      "start": 695.5999999642372,
+      "url": "http://localhost:5871/_framework/dotnet.runtime.azrfhwb804.js"
+    },
+    {
+      "bytes": 145050,
+      "end": 1000.6999999880792,
+      "fetchedBytes": 145050,
+      "sha256": "06d50c7af0934e950ae08e5debc2ed0599497462100bb7e4fa83678f2cee151e",
+      "start": 695.6999999880791,
+      "url": "http://localhost:5871/_framework/dotnet.native.q38003gvqi.js"
+    },
+    {
+      "bytes": 3001776,
+      "end": 1105.899999976158,
+      "fetchedBytes": 3001776,
+      "sha256": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9",
+      "start": 695.8999999761581,
+      "url": "http://localhost:5871/_framework/dotnet.native.3zpaws0drs.wasm"
+    },
+    {
+      "bytes": 17744,
+      "end": 992.899999976158,
+      "fetchedBytes": 17744,
+      "sha256": "78065ea6ba405e8b02b470925719d65183e5699763e2095e9da7d75665755d07",
+      "start": 696.8999999761581,
+      "url": "http://localhost:5871/_framework/CultureHarbour.Client.g2e9jhwqvi.pdb"
+    },
+    {
+      "bytes": 13077,
+      "end": 1187.899999976158,
+      "fetchedBytes": 13077,
+      "sha256": "63ce4bcf411e631544fbec5b0dd26d2093829cd3c7906d048286dcb827262d0d",
+      "start": 711,
+      "url": "http://localhost:5871/_framework/CultureHarbour.Client.3snkhqsgb0.wasm"
+    },
+    {
+      "bytes": 1526128,
+      "end": 1196.0999999642372,
+      "fetchedBytes": 1526128,
+      "sha256": "b4ee4ee58ccc4d549a2816e8c40a9ecce40bf5ec26ba9cd5d89ac1e5191cf1ae",
+      "start": 711.1999999880791,
+      "url": "http://localhost:5871/_framework/icudt.oh1zvcfom8.dat"
+    },
+    {
+      "bytes": 4373,
+      "end": 1515.899999976158,
+      "fetchedBytes": 4373,
+      "sha256": "695f098308654461a326ff7ab09285520bf113e1050d44bbba4b17e470e8840d",
+      "start": 1507.899999976158,
+      "url": "http://localhost:5871/_framework/de-DE/CultureHarbour.Client.resources.jp47dcr0u8.wasm"
+    }
+  ],
+  "capturedInitialDocument": "Manifeste de Port-Culture\nFormatting culture\nen-GB\nTranslation culture\nfr-FR\nDeparture\n19/07/2032\nCargo weight\n12,345.67\nInstruction\nGardez la caisse bleue debout.\nConfirm manifest\n\n0\n\nPrerendered",
+  "confirmations": 1,
+  "edition": "10",
+  "emittedBrowserConfiguration": null,
+  "events": [
+    {
+      "at": 1479.399999976158,
+      "culture": "en-US",
+      "kind": "before-run",
+      "ui": "en-US"
+    },
+    {
+      "at": 1925.800000011921,
+      "culture": "de-DE",
+      "kind": "first-render",
+      "ui": "de-DE"
+    }
+  ],
+  "hydrated": {
+    "culture": "de-DE",
+    "date": "19.07.2032",
+    "number": "12.345,67",
+    "phase": "Interactive WASM",
+    "translation": "Die blaue Kiste aufrecht halten.",
+    "ui": "de-DE"
+  },
+  "independent": true,
+  "kind": "real-browser-webassembly",
+  "limits": "Local interpreted development assets; no AOT, Auto, production publication, remote provider, tab-lifetime or GA execution claim.",
+  "navigatorLanguage": "en-US",
+  "prerendered": {
+    "culture": "en-GB",
+    "date": "19/07/2032",
+    "number": "12,345.67",
+    "phase": "Prerendered",
+    "translation": "Gardez la caisse bleue debout.",
+    "ui": "fr-FR"
+  },
+  "recordedAt": "2026-10-23T08:26:33.346Z",
+  "satellite": {
+    "bytes": 4373,
+    "end": 1515.899999976158,
+    "start": 1507.899999976158,
+    "url": "http://localhost:5871/_framework/de-DE/CultureHarbour.Client.resources.jp47dcr0u8.wasm"
+  },
+  "url": "http://localhost:5871/",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+}

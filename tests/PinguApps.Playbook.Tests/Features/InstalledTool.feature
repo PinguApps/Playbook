@@ -278,6 +278,8 @@ Feature: Installed offline guidance
     And server browser policy retains complete setup and request sharing limits offline
     And circuit pause retains complete canonical guidance and persistence requirements offline
     And periodic browser work retains complete canonical guidance and lifetime limits offline
+    And culture handover retains complete canonical guidance and satellite requirements offline
+
     And browser configuration retains complete canonical guidance and precedence requirements offline
     And browser workers retain complete canonical guidance and cancellation limits offline
     And environment chrome retains complete canonical guidance and renderer boundaries offline

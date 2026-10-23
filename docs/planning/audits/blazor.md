@@ -144,8 +144,13 @@ review is not a claim that all diagnostics executed on a real Razor consumer.
   Default-diagnostic EditContext.Validate is owned here through PIN-774.
 - Culture drift: the cumulative page still shows public
   WebAssemblyComponentsOptions.UseCultureFromServer, removed during Preview 7.
-  PIN-794 must verify `Components:UseCultureFromServer`/localization and the actual
-  BrowserOptions route rather than copy that obsolete preview call.
+  PIN-794 delivered `Components:UseCultureFromServer`/localization with original
+  .NET 10 manual and RC2 persisted-culture consumers. Real browser runs prove
+  both culture names, aligned and independent-client policies, and actual
+  satellite loading before rendering. The emitted RC2 browser configuration
+  has no applicationCulture in these samples; initial en-US is explicit JS
+  startup, while aligned en-GB/fr-FR comes from persistent state. See
+  [exact proof and limits](../../verification/PIN-794.md).
 - AI drift: the downloaded preview-7 assembly has UIAgent, ChatPage, content/rich
   text and handler primitives, **not** FunctionInvocationContentBlock,
   UIActionBlock, FunctionApprovalBlock, ActivityContentBlock/ActivityHandler,
