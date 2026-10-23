@@ -1,208 +1,208 @@
 {
   "checks": [
     {
-      "earlySessionCookie": true,
-      "case": "previous",
-      "outcomeRedirect": "http://127.0.0.1:5390/outcome",
       "isolatedSession": true,
-      "sessionReads": [
-        "Step 1; berth North-12",
-        "Step 1; berth North-12",
-        "Step 2; berth East-4"
-      ],
-      "streamedTempData": "No new outcome",
-      "tempDataSecondRead": "No new outcome",
       "progressRedirect": "http://127.0.0.1:5390/review",
-      "tempDataFirstRead": "Harbour permit request recorded",
-      "runtime": ".NET 10.0.13",
-      "streamedSessionRead": "Step 7; berth unselected",
       "lateHeadersStarted": true,
-      "streamingInitial": "Inspection pending"
-    },
-    {
+      "case": "previous",
       "earlySessionCookie": true,
-      "case": "cookie",
-      "outcomeRedirect": "http://127.0.0.1:5391/outcome",
-      "isolatedSession": true,
-      "sessionReads": [
-        "Step 1; berth North-12",
-        "Step 1; berth North-12",
-        "Step 2; berth East-4"
-      ],
+      "tempDataSecondRead": "No new outcome",
       "streamedTempData": "No new outcome",
-      "tempDataSecondRead": "No new outcome",
-      "progressRedirect": "http://127.0.0.1:5391/review",
-      "tempDataFirstRead": "Harbour permit request recorded",
-      "runtime": ".NET 11.0.0-rc.2.26504.105",
-      "streamedSessionRead": "Step 7; berth unselected",
-      "lateHeadersStarted": true,
-      "streamingInitial": "Inspection pending"
-    },
-    {
-      "earlySessionCookie": true,
-      "case": "session",
-      "outcomeRedirect": "http://127.0.0.1:5392/outcome",
-      "isolatedSession": true,
       "sessionReads": [
         "Step 1; berth North-12",
         "Step 1; berth North-12",
         "Step 2; berth East-4"
       ],
-      "streamedTempData": "Dock inspection complete",
-      "tempDataSecondRead": "No new outcome",
-      "progressRedirect": "http://127.0.0.1:5392/review",
+      "outcomeRedirect": "http://127.0.0.1:5390/outcome",
       "tempDataFirstRead": "Harbour permit request recorded",
-      "runtime": ".NET 11.0.0-rc.2.26504.105",
-      "streamedSessionRead": "Step 7; berth unselected",
-      "lateHeadersStarted": true,
-      "streamingInitial": "Inspection pending"
+      "streamingInitial": "Inspection pending",
+      "runtime": ".NET 10.0.13",
+      "streamedSessionRead": "Step 7; berth unselected"
     },
     {
+      "isolatedSession": true,
+      "progressRedirect": "http://127.0.0.1:5391/review",
+      "lateHeadersStarted": true,
+      "case": "cookie",
+      "earlySessionCookie": true,
+      "tempDataSecondRead": "No new outcome",
+      "streamedTempData": "No new outcome",
+      "sessionReads": [
+        "Step 1; berth North-12",
+        "Step 1; berth North-12",
+        "Step 2; berth East-4"
+      ],
+      "outcomeRedirect": "http://127.0.0.1:5391/outcome",
+      "tempDataFirstRead": "Harbour permit request recorded",
+      "streamingInitial": "Inspection pending",
+      "runtime": ".NET 11.0.0-rc.2.26504.105",
+      "streamedSessionRead": "Step 7; berth unselected"
+    },
+    {
+      "isolatedSession": true,
+      "progressRedirect": "http://127.0.0.1:5392/review",
+      "lateHeadersStarted": true,
+      "case": "session",
+      "earlySessionCookie": true,
+      "tempDataSecondRead": "No new outcome",
+      "streamedTempData": "Dock inspection complete",
+      "sessionReads": [
+        "Step 1; berth North-12",
+        "Step 1; berth North-12",
+        "Step 2; berth East-4"
+      ],
+      "outcomeRedirect": "http://127.0.0.1:5392/outcome",
+      "tempDataFirstRead": "Harbour permit request recorded",
+      "streamingInitial": "Inspection pending",
+      "runtime": ".NET 11.0.0-rc.2.26504.105",
+      "streamedSessionRead": "Step 7; berth unselected"
+    },
+    {
+      "status": 500,
       "missingSessionFails": true,
       "runtime": ".NET 11.0.0-rc.2.26504.105",
-      "status": 500,
       "case": "missing-middleware"
     }
   ],
-  "kind": "real-loopback-http",
-  "recordedAt": "2026-10-22T23:58:52.1288966+00:00",
-  "testSha256": "e41129ee92e6c1643b39556ed28f32b51a39a982a15c52a2f82126ef988cbece",
   "inputs": [
     {
-      "sha256": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4",
-      "path": "samples/net10.0/HarbourPermit/_Imports.razor"
+      "path": "samples/net10.0/HarbourPermit/_Imports.razor",
+      "sha256": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4"
     },
     {
-      "sha256": "724a643baf82a3e14b340d0ddf624e526ca33c766619f2b51a02c73b976e1ad8",
-      "path": "samples/net10.0/HarbourPermit/App.razor"
+      "path": "samples/net10.0/HarbourPermit/App.razor",
+      "sha256": "724a643baf82a3e14b340d0ddf624e526ca33c766619f2b51a02c73b976e1ad8"
     },
     {
-      "sha256": "9a0d781a82e03abffdb36983729cbf42a8304afd2af1817435d54d94c2deeae8",
-      "path": "samples/net10.0/HarbourPermit/Apply.razor"
+      "path": "samples/net10.0/HarbourPermit/Apply.razor",
+      "sha256": "9a0d781a82e03abffdb36983729cbf42a8304afd2af1817435d54d94c2deeae8"
     },
     {
-      "sha256": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
-      "path": "samples/net10.0/HarbourPermit/global.json"
+      "path": "samples/net10.0/HarbourPermit/global.json",
+      "sha256": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d"
     },
     {
-      "sha256": "19877489c4c30140ec43b072c15c6bb47cd2c5bf41d3952124a270f49259db7f",
-      "path": "samples/net10.0/HarbourPermit/HarbourPermit.csproj"
+      "path": "samples/net10.0/HarbourPermit/HarbourPermit.csproj",
+      "sha256": "19877489c4c30140ec43b072c15c6bb47cd2c5bf41d3952124a270f49259db7f"
     },
     {
-      "sha256": "efdce5f8f3347899ec6b0dd6872e980722f691d3d0e12c2e27d0554161fa2675",
-      "path": "samples/net10.0/HarbourPermit/InspectionGate.cs"
+      "path": "samples/net10.0/HarbourPermit/InspectionGate.cs",
+      "sha256": "efdce5f8f3347899ec6b0dd6872e980722f691d3d0e12c2e27d0554161fa2675"
     },
     {
-      "sha256": "817a622f8e120335522f95f8bac5afc594eb58423e0ce75690b749630946ca5e",
-      "path": "samples/net10.0/HarbourPermit/Outcome.razor"
+      "path": "samples/net10.0/HarbourPermit/Outcome.razor",
+      "sha256": "817a622f8e120335522f95f8bac5afc594eb58423e0ce75690b749630946ca5e"
     },
     {
-      "sha256": "8f3cf641e053b0d8b69a5890c179779c3ce3e7e37bf0a102ee170196cf431f2c",
-      "path": "samples/net10.0/HarbourPermit/packages.lock.json"
+      "path": "samples/net10.0/HarbourPermit/packages.lock.json",
+      "sha256": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8"
     },
     {
-      "sha256": "b70f12b617592d81478d6f69f5b63a0a368b06b4d36b700a50c117529528de4d",
-      "path": "samples/net10.0/HarbourPermit/PermitInput.cs"
+      "path": "samples/net10.0/HarbourPermit/PermitInput.cs",
+      "sha256": "b70f12b617592d81478d6f69f5b63a0a368b06b4d36b700a50c117529528de4d"
     },
     {
-      "sha256": "2d627a3dcdfe729f163bfbd1d992cf0e0d40bd8bbd998b3c79aed7f5a4230266",
-      "path": "samples/net10.0/HarbourPermit/Program.cs"
+      "path": "samples/net10.0/HarbourPermit/Program.cs",
+      "sha256": "2d627a3dcdfe729f163bfbd1d992cf0e0d40bd8bbd998b3c79aed7f5a4230266"
     },
     {
-      "sha256": "7855e60c838327a4e315b7a5613c2ddb16f741e52fec03605112ed0f33d1962e",
-      "path": "samples/net10.0/HarbourPermit/Progress.razor"
+      "path": "samples/net10.0/HarbourPermit/Progress.razor",
+      "sha256": "7855e60c838327a4e315b7a5613c2ddb16f741e52fec03605112ed0f33d1962e"
     },
     {
-      "sha256": "8b37135e59995fa000f292b6675b00afd686c712edf54acce5e6ca0c3bdb2b59",
-      "path": "samples/net10.0/HarbourPermit/Review.razor"
+      "path": "samples/net10.0/HarbourPermit/Review.razor",
+      "sha256": "8b37135e59995fa000f292b6675b00afd686c712edf54acce5e6ca0c3bdb2b59"
     },
     {
-      "sha256": "a42d0f9058104ca60eb23bd06630bc8cc4ef9061bf26261aff350bd2a20d83a4",
-      "path": "samples/net10.0/HarbourPermit/Stream.razor"
+      "path": "samples/net10.0/HarbourPermit/Stream.razor",
+      "sha256": "a42d0f9058104ca60eb23bd06630bc8cc4ef9061bf26261aff350bd2a20d83a4"
     },
     {
-      "sha256": "3c29b2556525849a308e1d8608d9afc1d7d1eaf4c82ca3e39dfc8c42c18a26e5",
-      "path": "samples/net10.0/HarbourPermit/verification.json"
+      "path": "samples/net10.0/HarbourPermit/verification.json",
+      "sha256": "3c29b2556525849a308e1d8608d9afc1d7d1eaf4c82ca3e39dfc8c42c18a26e5"
     },
     {
-      "sha256": "6feb4290f776db1a1321e9eba553007ec821f34c14b57b6dc40e08f27e4a991a",
-      "path": "samples/net10.0/HarbourPermit/bin/Release/net10.0/HarbourPermit.dll"
+      "path": "samples/net10.0/HarbourPermit/bin/Release/net10.0/HarbourPermit.dll",
+      "sha256": "fcf9ae968d5c348eac6c7653090851c0d4f148431c7e7d59f0734bc9eaafab3e"
     },
     {
-      "sha256": "0041ed5f6ed24d7b92a24a2cb11d783e176353be4340075fff698c1a678b9c48",
-      "path": "samples/net10.0/HarbourPermit/bin/Release/net10.0/HarbourPermit.deps.json"
+      "path": "samples/net10.0/HarbourPermit/bin/Release/net10.0/HarbourPermit.deps.json",
+      "sha256": "0041ed5f6ed24d7b92a24a2cb11d783e176353be4340075fff698c1a678b9c48"
     },
     {
-      "sha256": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
-      "path": "samples/net10.0/HarbourPermit/bin/Release/net10.0/HarbourPermit.runtimeconfig.json"
+      "path": "samples/net10.0/HarbourPermit/bin/Release/net10.0/HarbourPermit.runtimeconfig.json",
+      "sha256": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65"
     },
     {
-      "sha256": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4",
-      "path": "samples/net11.0/HarbourPermit/_Imports.razor"
+      "path": "samples/net11.0/HarbourPermit/_Imports.razor",
+      "sha256": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4"
     },
     {
-      "sha256": "724a643baf82a3e14b340d0ddf624e526ca33c766619f2b51a02c73b976e1ad8",
-      "path": "samples/net11.0/HarbourPermit/App.razor"
+      "path": "samples/net11.0/HarbourPermit/App.razor",
+      "sha256": "724a643baf82a3e14b340d0ddf624e526ca33c766619f2b51a02c73b976e1ad8"
     },
     {
-      "sha256": "00507d4f1f5f2d505f95746bab87e4bafbbb5679764252676794762ef48d2998",
-      "path": "samples/net11.0/HarbourPermit/Apply.razor"
+      "path": "samples/net11.0/HarbourPermit/Apply.razor",
+      "sha256": "00507d4f1f5f2d505f95746bab87e4bafbbb5679764252676794762ef48d2998"
     },
     {
-      "sha256": "8a31fa23f9c521f6ac667c5dc07fcf0ebd98ba25458addccd464ef0a8dc782ec",
-      "path": "samples/net11.0/HarbourPermit/global.json"
+      "path": "samples/net11.0/HarbourPermit/global.json",
+      "sha256": "8a31fa23f9c521f6ac667c5dc07fcf0ebd98ba25458addccd464ef0a8dc782ec"
     },
     {
-      "sha256": "7d96e13b04f6cb203b30a3d4568b3baed5f2e0c0b1c56e5de50e5e63f984a05f",
-      "path": "samples/net11.0/HarbourPermit/HarbourPermit.csproj"
+      "path": "samples/net11.0/HarbourPermit/HarbourPermit.csproj",
+      "sha256": "7d96e13b04f6cb203b30a3d4568b3baed5f2e0c0b1c56e5de50e5e63f984a05f"
     },
     {
-      "sha256": "efdce5f8f3347899ec6b0dd6872e980722f691d3d0e12c2e27d0554161fa2675",
-      "path": "samples/net11.0/HarbourPermit/InspectionGate.cs"
+      "path": "samples/net11.0/HarbourPermit/InspectionGate.cs",
+      "sha256": "efdce5f8f3347899ec6b0dd6872e980722f691d3d0e12c2e27d0554161fa2675"
     },
     {
-      "sha256": "7a9a5f10c5395af90b21f63b7f1c767fd13acee64d312c6a570795741887c138",
-      "path": "samples/net11.0/HarbourPermit/Outcome.razor"
+      "path": "samples/net11.0/HarbourPermit/Outcome.razor",
+      "sha256": "7a9a5f10c5395af90b21f63b7f1c767fd13acee64d312c6a570795741887c138"
     },
     {
-      "sha256": "7c9623e2f523247ce88fc796f520dd0514f9ff4a3394f26db83a3ed6dbed4bf4",
-      "path": "samples/net11.0/HarbourPermit/packages.lock.json"
+      "path": "samples/net11.0/HarbourPermit/packages.lock.json",
+      "sha256": "a15384b18ca015107576fc2fbee8527fb39e57391227fc3491b92b6c794d2a31"
     },
     {
-      "sha256": "b70f12b617592d81478d6f69f5b63a0a368b06b4d36b700a50c117529528de4d",
-      "path": "samples/net11.0/HarbourPermit/PermitInput.cs"
+      "path": "samples/net11.0/HarbourPermit/PermitInput.cs",
+      "sha256": "b70f12b617592d81478d6f69f5b63a0a368b06b4d36b700a50c117529528de4d"
     },
     {
-      "sha256": "e6ef9c9bacf79aae55f55c7e0a7a4cd721d03e7cba7e93aae69e7f15b355c847",
-      "path": "samples/net11.0/HarbourPermit/Program.cs"
+      "path": "samples/net11.0/HarbourPermit/Program.cs",
+      "sha256": "e6ef9c9bacf79aae55f55c7e0a7a4cd721d03e7cba7e93aae69e7f15b355c847"
     },
     {
-      "sha256": "a604f42b8a37d6b40c8ba8997452c4fc7ea42627731164e343e91bbd11b3b581",
-      "path": "samples/net11.0/HarbourPermit/Progress.razor"
+      "path": "samples/net11.0/HarbourPermit/Progress.razor",
+      "sha256": "a604f42b8a37d6b40c8ba8997452c4fc7ea42627731164e343e91bbd11b3b581"
     },
     {
-      "sha256": "7f55e675e18a91c2d5512bc392fbfb6af8ea232ef69305eec4d6300185799879",
-      "path": "samples/net11.0/HarbourPermit/Review.razor"
+      "path": "samples/net11.0/HarbourPermit/Review.razor",
+      "sha256": "7f55e675e18a91c2d5512bc392fbfb6af8ea232ef69305eec4d6300185799879"
     },
     {
-      "sha256": "2241ccd6028d879874d9e633902502f255ec2d4567081f883ab9867129e8b8fb",
-      "path": "samples/net11.0/HarbourPermit/Stream.razor"
+      "path": "samples/net11.0/HarbourPermit/Stream.razor",
+      "sha256": "2241ccd6028d879874d9e633902502f255ec2d4567081f883ab9867129e8b8fb"
     },
     {
-      "sha256": "3061bfaba0bee98303dfec2c282db2c0c0975cbc955ba5f9efdc2a9116112929",
-      "path": "samples/net11.0/HarbourPermit/verification.json"
+      "path": "samples/net11.0/HarbourPermit/verification.json",
+      "sha256": "3061bfaba0bee98303dfec2c282db2c0c0975cbc955ba5f9efdc2a9116112929"
     },
     {
-      "sha256": "14d5c89efb2a0110f1ca4dc7f8dbf5482d84b9298a0c726c41424e3b4bc48493",
-      "path": "samples/net11.0/HarbourPermit/bin/Release/net11.0/HarbourPermit.dll"
+      "path": "samples/net11.0/HarbourPermit/bin/Release/net11.0/HarbourPermit.dll",
+      "sha256": "58a5486697c8f76b1d21fec65360ff9d5a0035d90570d6196df13c9ad76c778b"
     },
     {
-      "sha256": "45544063f9474a84a95dc36a4683f9fdaa712882c80817193c2446101991e272",
-      "path": "samples/net11.0/HarbourPermit/bin/Release/net11.0/HarbourPermit.deps.json"
+      "path": "samples/net11.0/HarbourPermit/bin/Release/net11.0/HarbourPermit.deps.json",
+      "sha256": "45544063f9474a84a95dc36a4683f9fdaa712882c80817193c2446101991e272"
     },
     {
-      "sha256": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
-      "path": "samples/net11.0/HarbourPermit/bin/Release/net11.0/HarbourPermit.runtimeconfig.json"
+      "path": "samples/net11.0/HarbourPermit/bin/Release/net11.0/HarbourPermit.runtimeconfig.json",
+      "sha256": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6"
     }
-  ]
+  ],
+  "kind": "real-loopback-http",
+  "testSha256": "e41129ee92e6c1643b39556ed28f32b51a39a982a15c52a2f82126ef988cbece",
+  "recordedAt": "2026-10-23T00:01:44.6379461+00:00"
 }

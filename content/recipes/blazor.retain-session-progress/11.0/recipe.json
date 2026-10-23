@@ -1,0 +1,235 @@
+{
+  "id": "blazor.retain-session-progress",
+  "edition": "11.0",
+  "title": "Resume a server-rendered task across pages",
+  "goal": "Resume static SSR progress across pages with session values that survive reads.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "harbour-state",
+    "static-ssr",
+    "session"
+  ],
+  "apis": [
+    "SupplyParameterFromSessionAttribute",
+    "AddSession",
+    "UseSession",
+    "ISession"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Values survive reads, unlike TempData. Requires session cache/services/middleware; static SSR fails if missing.",
+          "Establish session before streaming flush; non-locking, temporary and per browser cookie."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "These component state contracts require the .NET 11 shared framework."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against ASP.NET Core 11 reference assemblies; the exact RC2 pin is a test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview syntax or experimental opt-in."
+          },
+          "frameworks": [
+            "ASP.NET Core 11; Web SDK"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Components.Endpoints/Web; SDK-aligned Internal.Assets"
+          ],
+          "platforms": [
+            "ASP.NET Core HTTP server; cookies"
+          ],
+          "renderingModes": [
+            "Static SSR only"
+          ],
+          "prerequisites": [
+            "Use a Web SDK net11.0 project, nullable/implicit usings and the imports shown in the Markdown. Call AddRazorComponents before Build. Preserve antiforgery protection for static forms.",
+            "Register AddDistributedMemoryCache (or a compatible distributed cache) and AddSession before Build, then UseSession before component endpoints and before streaming. Session cookies follow the app's consent policy; this sample does not override IsEssential.",
+            "Microsoft.AspNetCore.Components.Endpoints and Components.Web runtime/reference assemblies from Microsoft.AspNetCore.App. The Web SDK resolves aligned Microsoft.AspNetCore.App.Internal.Assets; exact versions and lockfiles are verification baselines.",
+            "ASP.NET Core server hosting with HTTP cookies; actual Windows x64 loopback Kestrel execution. No native workload or external service required.",
+            "Static SSR only; interactive Server/WebAssembly/Auto values are not supplied after interactive activation.",
+            "Stable APIs measured on .NET 11 RC2; final GA reconciliation remains outstanding.",
+            "ISession/IDistributedCache; process-local memory demo, not durable.",
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "constraints": [
+            "Storage is tied to the request and browser cookies, not a circuit, authenticated identity or durable database. No net10.0 package route is claimed.",
+            "Use unique case-insensitive keys per supplied property in one rendered page. Supported scalar/collection values only; arbitrary user-defined JSON classes are not supported.",
+            "No concurrent-update atomicity, durable permit record, multi-server provider execution, interactive hydration, browser UI automation or GA execution is claimed.",
+            "Static SSR only; session values survive reads, unlike one-use TempData. Requires session services and middleware; missing session setup fails.",
+            "Establish the session before streaming flushes, with an early SupplyParameterFromSession subscription or Session.Set. Session is temporary, per browser and non-locking."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 verified; GA pending"
+          ],
+          "providers": [
+            "ISession/IDistributedCache; memory demo"
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-10.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/ITempData.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionEstablishmentHelper.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionCascadingValueSupplier.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HarbourPermit/HarbourPermit.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Static SSR temporary and session state",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Previous-release session and MVC TempData",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-10.0"
+    },
+    {
+      "title": "Pinned RC2 TempData contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/ITempData.cs"
+    },
+    {
+      "title": "Pinned RC2 TempData bound-property write-back",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/TempData/TempDataCascadingValueSupplier.cs"
+    },
+    {
+      "title": "Pinned RC2 streaming cookie restriction",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/DependencyInjection/TempDataService.cs"
+    },
+    {
+      "title": "Pinned RC2 early session establishment",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionEstablishmentHelper.cs"
+    },
+    {
+      "title": "Pinned RC2 session subscription and missing-session failure",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/SessionCascadingValueSupplier.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/HarbourPermit/HarbourPermit.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual release-specific Web SDK compilation. Separate fingerprinted real Kestrel HTTP checks cover redirects, second reads, multi-step persistence, isolation, held streaming/header timing and missing middleware; compilation alone is not execution."
+    },
+    {
+      "sample": "samples/net11.0/HarbourPermit/HarbourPermit.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual release-specific Web SDK compilation. Separate fingerprinted real Kestrel HTTP checks cover redirects, second reads, multi-step persistence, isolation, held streaming/header timing and missing middleware; compilation alone is not execution."
+    }
+  ],
+  "snippets": {
+    "startup": {
+      "path": "samples/net11.0/HarbourPermit/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "old-startup": {
+      "path": "samples/net10.0/HarbourPermit/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "pipeline": {
+      "path": "samples/net11.0/HarbourPermit/Program.cs",
+      "region": "pipeline",
+      "language": "csharp"
+    },
+    "old-pipeline": {
+      "path": "samples/net10.0/HarbourPermit/Program.cs",
+      "region": "pipeline",
+      "language": "csharp"
+    },
+    "project": {
+      "path": "samples/net11.0/HarbourPermit/HarbourPermit.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "old-project": {
+      "path": "samples/net10.0/HarbourPermit/HarbourPermit.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "app": {
+      "path": "samples/net11.0/HarbourPermit/App.razor",
+      "region": "app",
+      "language": "razor"
+    },
+    "progress": {
+      "path": "samples/net11.0/HarbourPermit/Progress.razor",
+      "region": "progress",
+      "language": "razor"
+    },
+    "old-progress": {
+      "path": "samples/net10.0/HarbourPermit/Progress.razor",
+      "region": "progress",
+      "language": "razor"
+    },
+    "review": {
+      "path": "samples/net11.0/HarbourPermit/Review.razor",
+      "region": "review",
+      "language": "razor"
+    },
+    "old-review": {
+      "path": "samples/net10.0/HarbourPermit/Review.razor",
+      "region": "review",
+      "language": "razor"
+    },
+    "stream": {
+      "path": "samples/net11.0/HarbourPermit/Stream.razor",
+      "region": "stream",
+      "language": "razor"
+    },
+    "old-stream": {
+      "path": "samples/net10.0/HarbourPermit/Stream.razor",
+      "region": "stream",
+      "language": "razor"
+    },
+    "gate": {
+      "path": "samples/net11.0/HarbourPermit/InspectionGate.cs",
+      "region": "gate",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "All required managed static SSR request behavior executed locally with real Kestrel and cookie jars. No paid provider, native platform or Human-only prerequisite. Browser UI, interactive modes, multi-server storage and GA are not claimed."
+  }
+}

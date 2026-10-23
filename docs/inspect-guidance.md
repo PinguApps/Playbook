@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For one-use redirect confirmations and persistent static SSR progress, use the
+[tested PIN-776 walkthrough](verification/PIN-776.md#inspect-what-an-agent-receives).
+It shows both goals, complete canonical comparisons and provider applicability,
+including RC2 TempData write-back and early session cookies under streaming.
+
 For experimental runtime-async compilation, a bounded F# workflow builder and
 hosted FCS import sharing, use the [PIN-757/980/981 walkthrough](verification/PIN-757-980-981.md#inspect-what-an-agent-receives).
 It displays complete support and applicability, including the verified .NET 10

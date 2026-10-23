@@ -19,6 +19,13 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("harbour state retains one-use and persistent canonical guidance offline")]
+    public async Task CheckHarbourStateAsync()
+    {
+        string[] ids = ["blazor.retain-session-progress", "blazor.show-once-after-redirect"];
+        await CheckWebRecipesAsync(ids, "harbour-state").ConfigureAwait(false);
+    }
+
     [Then("survey forms retain complete canonical bodies applicability and editions")]
     public async Task CheckSurveyFormsAsync()
     {
@@ -62,9 +69,13 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
             Assert.Equal("stable", recipe.GetProperty("stability").GetString());
             AssertSelection(summary, recipe);
-            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
-            Assert.Equal("11.0", route.GetProperty("target").GetString());
-            Assert.NotEmpty(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray());
+            JsonElement routes = recipe.GetProperty("applicability").GetProperty("routes");
+            Assert.Equal(metadata.RootElement.GetProperty("applicability").GetProperty("routes").GetArrayLength(), routes.GetArrayLength());
+            Assert.All(routes.EnumerateArray(), route =>
+            {
+                Assert.Equal("11.0", route.GetProperty("target").GetString());
+                Assert.NotEmpty(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray());
+            });
             Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
