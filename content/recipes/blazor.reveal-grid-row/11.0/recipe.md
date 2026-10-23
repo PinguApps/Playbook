@@ -27,7 +27,7 @@ Start anchoring keeps new arrivals visible when already at the start. Away from 
 ## Migration
 
 1. Use Microsoft.NET.Sdk.Web, net11.0, C# 15.0, nullable and implicit usings. Reference Microsoft.AspNetCore.Components.QuickGrid 11. The canonical pins are SDK 11.0.100-rc.2.26504.105, QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105. The actual older comparison uses SDK 10.0.402, net10.0, C# 14.0 and QuickGrid/Internal.Assets 10.0.13. SDK/package pins reproduce RC2 proof; no optional workload or external service is needed. No newer-package/older-target route is claimed.
-2. Put ManifestPage.razor and Consignment.cs in namespace Playbook.Samples. Set @namespace Playbook.Samples in _Imports.razor and import Microsoft.AspNetCore.Components, its Routing and Web namespaces, Web.Virtualization, QuickGrid, Playbook.Samples and static Microsoft.AspNetCore.Components.Web.RenderMode. The older component additionally imports JSInterop and loads wwwroot/manifest.js. Keep the shared host:
+2. Put ManifestPage.razor and Consignment.cs in namespace Playbook.Samples. Begin ManifestPage.razor with @page "/" and @rendermode InteractiveServer before the shown body. Set @namespace Playbook.Samples in _Imports.razor and import Microsoft.AspNetCore.Components, its Routing and Web namespaces, Web.Virtualization, QuickGrid, Playbook.Samples and static Microsoft.AspNetCore.Components.Web.RenderMode. For the older component also add @using Microsoft.JSInterop, @inject IJSRuntime JS and @implements IAsyncDisposable; put its JavaScript snippet in wwwroot/manifest.js. Keep the shared host:
 
 {{snippet:host}}
 
