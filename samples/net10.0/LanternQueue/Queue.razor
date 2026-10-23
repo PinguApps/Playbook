@@ -1,0 +1,62 @@
+<!-- snippet:queue -->
+@page "/"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@implements IAsyncDisposable
+@inject QueueJournal Journal
+@inject IJSRuntime JS
+
+<h1>Lantern collection queue</h1>
+<p>Jump to a collection ticket. Indices are zero based, from 0 to 199.</p>
+<label>Ticket index <input id="target" type="number" @bind="_target" /></label>
+<button id="reveal" disabled="@(!_ready || _busy)" @onclick="RevealAsync">Reveal ticket</button>
+<output id="status" aria-live="polite">@_status</output>
+<div id="queue" @ref="_viewport" tabindex="0" aria-label="Collection tickets">
+    <Virtualize TItem="LanternTicket" ItemsProvider="LoadAsync" ItemSize="40" OverscanCount="3">
+        <ItemContent Context="ticket"><div class="ticket" data-index="@ticket.Index">@ticket.Label</div></ItemContent>
+        <Placeholder><div class="ticket">Loading ticket…</div></Placeholder>
+    </Virtualize>
+</div>
+
+@code {
+    [SupplyParameterFromQuery] public int Initial { get; set; } = 70;
+    [SupplyParameterFromQuery] public string Run { get; set; } = "manual";
+    private ElementReference _viewport;
+    private IJSObjectReference? _module;
+    private int _target = 150;
+    private bool _ready;
+    private bool _busy;
+    private string _status = "Starting";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) { return; }
+        _module = await JS.InvokeAsync<IJSObjectReference>("import", "/reveal.js");
+        await _module.InvokeVoidAsync("reveal", _viewport, Math.Clamp(Initial, 0, QueueJournal.Total - 1), QueueJournal.Total);
+        _ready = true;
+        _status = "Ready";
+        StateHasChanged();
+    }
+
+    private ValueTask<ItemsProviderResult<LanternTicket>> LoadAsync(ItemsProviderRequest request) => Journal.LoadAsync(Run, request);
+
+    private async Task RevealAsync()
+    {
+        if (_target < 0 || _target >= QueueJournal.Total) { _status = "Choose an index from 0 to 199"; return; }
+        _busy = true;
+        _status = $"Revealing {_target}";
+        try
+        {
+            await _module!.InvokeVoidAsync("reveal", _viewport, _target, QueueJournal.Total);
+            _status = $"Revealed {_target}";
+        }
+        finally { _busy = false; }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_module is null) { return; }
+        try { await _module.DisposeAsync(); }
+        catch (JSDisconnectedException) { }
+    }
+}
+<!-- endsnippet:queue -->
