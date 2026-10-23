@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Deliberate enhanced-navigation resource hints use original TernLedger .NET 10/11
+consumers. [PIN-800](verification/PIN-800.md) records actual hinted/control requests,
+deferred module execution, cache reuse and complete installed-body reconstruction.
+
 Custom event alias migration uses original CairnSignals .NET 10/11 consumers.
 [PIN-799](verification/PIN-799.md) records actual same-name rejection, native
 beforeinput payload/dispatch, complete returned-Markdown reconstruction and the

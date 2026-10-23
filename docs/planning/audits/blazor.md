@@ -1,5 +1,9 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+PIN-800 delivers `blazor.preload-needed-resources/11.0` (WEB-082/WEB_W16C).
+The [original TernLedger proof](../../verification/PIN-800.md) separates explicit
+hints from framework defaults and reconciles the serviced .NET 10/RC2 guard.
+
 Reviewed **22 October 2026**. This closes a bounded artifact/source reconciliation,
 not recipe delivery. At audit time every qualifying goal remained **delivery outstanding**.
 Subsequent delivery is linked per goal below; the audit itself did not change served

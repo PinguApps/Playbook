@@ -1,0 +1,256 @@
+{
+  "5991": {
+    "full": {
+      "requests": [
+        {
+          "id": "c2c5dea851e84cc8a7c5bdb7405b5da4",
+          "at": "2026-10-23T14:51:46.7864823+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "64bb0579552a4c0fa1abd2caf4bdd274",
+          "at": "2026-10-23T14:51:46.8127292+01:00",
+          "path": "/ledger-data.json?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "761e9218883a48ffb6c0f70ddf6b8cc4",
+          "at": "2026-10-23T14:51:46.8138592+01:00",
+          "path": "/ledger-module.js?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "5820c6212ac04f8d827de99c6add015c",
+          "at": "2026-10-23T14:51:48.8356066+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "21eb9596996e418da57c9a4e83f2e477",
+          "at": "2026-10-23T14:51:50.0737753+01:00",
+          "path": "/ledger/control",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "634c06de4b8c495092d90a1a2444e3c6",
+          "at": "2026-10-23T14:52:11.9018424+01:00",
+          "path": "/ledger-module.js?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "cca590321d6048499394e5a99657ddfd",
+          "at": "2026-10-23T14:52:11.9021298+01:00",
+          "path": "/ledger-data.json?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "a89d2b8fe6774fb7bb9361adcce1025d",
+          "at": "2026-10-23T14:52:12.9225968+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "2ef7c44f6c11484bada557ae6ab1d98e",
+          "at": "2026-10-23T14:52:14.1628535+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "eb0b48719fe54897abf2981c088eca77",
+          "at": "2026-10-23T14:52:16.1730526+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "f7af462be3854c78a59a0d6bb7234949",
+          "at": "2026-10-23T14:52:17.4125548+01:00",
+          "path": "/ledger/full",
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+          "enhanced": false,
+          "destination": "document"
+        },
+        {
+          "id": "5a1c2cbef07940c6bc421dd329c94556",
+          "at": "2026-10-23T14:52:17.4863893+01:00",
+          "path": "/ledger-data.json?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "6463298da5a44388aa0a46c56c6321a5",
+          "at": "2026-10-23T14:52:17.4868621+01:00",
+          "path": "/ledger-module.js?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "731428deb14a428ba0d39a772d004128",
+          "at": "2026-10-23T14:52:17.4890169+01:00",
+          "path": "/tern.js",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "518bf848d1a145afa116462e8a439bfb",
+          "at": "2026-10-23T14:52:54.2567754+01:00",
+          "path": "/proof",
+          "accept": "",
+          "enhanced": false,
+          "destination": ""
+        }
+      ],
+      "runtime": ".NET 10.0.13"
+    }
+  },
+  "5992": {
+    "full": {
+      "requests": [
+        {
+          "id": "a0839dea039f4a28b764e9a44c531388",
+          "at": "2026-10-23T14:51:51.6897979+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "586031e007154b1290ad6c78b292d69c",
+          "at": "2026-10-23T14:51:51.72221+01:00",
+          "path": "/ledger-data.json?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "17adc49b88e4438c86a8e91d82962fa2",
+          "at": "2026-10-23T14:51:51.7230161+01:00",
+          "path": "/ledger-module.js?view=hinted",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "24b786903896461db41eda446423e1d4",
+          "at": "2026-10-23T14:51:53.7354801+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "92bed4f4bb7a4fcab8c9840c5d7f95e9",
+          "at": "2026-10-23T14:51:54.9849461+01:00",
+          "path": "/ledger/control",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "8d6587ec475745f9ab52ff08a349da07",
+          "at": "2026-10-23T14:52:18.1860767+01:00",
+          "path": "/ledger-module.js?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "37643a5ef6744c569eedd880ae2db90c",
+          "at": "2026-10-23T14:52:18.1863461+01:00",
+          "path": "/ledger-data.json?view=control",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "856962742ce644abac9943bb26f376ea",
+          "at": "2026-10-23T14:52:19.2270857+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "28bdd119c7b94e07a6c4e90bcabf6928",
+          "at": "2026-10-23T14:52:20.4777628+01:00",
+          "path": "/ledger/hinted",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "adfd3c36adf94f87a58fe5f0e1406682",
+          "at": "2026-10-23T14:52:22.4846772+01:00",
+          "path": "/",
+          "accept": "text/html; blazor-enhanced-nav=on",
+          "enhanced": true,
+          "destination": "empty"
+        },
+        {
+          "id": "94be2e35ebc74a209cc2db7d942e4d50",
+          "at": "2026-10-23T14:52:23.7269552+01:00",
+          "path": "/ledger/full",
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/jxl,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+          "enhanced": false,
+          "destination": "document"
+        },
+        {
+          "id": "f18c11e870ed4f45bea6d6f96bf12d0e",
+          "at": "2026-10-23T14:52:23.7921045+01:00",
+          "path": "/ledger-data.json?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "empty"
+        },
+        {
+          "id": "4476db504b4043f396c501703101b940",
+          "at": "2026-10-23T14:52:23.7929614+01:00",
+          "path": "/ledger-module.js?view=full",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "bee2ab43e3cf49e8bc8bdc0fd5e274b5",
+          "at": "2026-10-23T14:52:23.7952867+01:00",
+          "path": "/tern.js",
+          "accept": "*/*",
+          "enhanced": false,
+          "destination": "script"
+        },
+        {
+          "id": "7c991beb6df24b64a17039b75e4787fe",
+          "at": "2026-10-23T14:52:54.3310504+01:00",
+          "path": "/proof",
+          "accept": "",
+          "enhanced": false,
+          "destination": ""
+        }
+      ],
+      "runtime": ".NET 11.0.0-rc.2.26504.105"
+    }
+  }
+}
