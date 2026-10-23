@@ -1,0 +1,211 @@
+{
+  "workflow": "session",
+  "files": [
+    {
+      "path": "net10.0/_Imports.razor",
+      "sha256": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4"
+    },
+    {
+      "path": "net10.0/App.razor",
+      "sha256": "a84d1d9cc8d2ac37ba5f63fcb12c9d9088b47dfe5051c629035f8058e434cb34"
+    },
+    {
+      "path": "net10.0/build.log",
+      "sha256": "483edc4be1ad35fbd6a12b76f6a6bfcd2b7c0e668b2e73d91e90bf271dbbca99"
+    },
+    {
+      "path": "net10.0/global.json",
+      "sha256": "0470b63ba89add6b4aa18cb3c15d5c62f1ebfc27e42fcea0d75d644f849440cc"
+    },
+    {
+      "path": "net10.0/HarbourPermit.csproj",
+      "sha256": "ce60d000faf8dbd0ff05234542fa4d9e2171312fa583bc581f121bba9b360257"
+    },
+    {
+      "path": "net10.0/packages.lock.json",
+      "sha256": "4851aab479c5f9a6ffbda507bd9c920ba9785b5a24f1a9bce3ca576576a967eb"
+    },
+    {
+      "path": "net10.0/PermitInput.cs",
+      "sha256": "b70f12b617592d81478d6f69f5b63a0a368b06b4d36b700a50c117529528de4d"
+    },
+    {
+      "path": "net10.0/previous.log",
+      "sha256": "5f821d22799e10d7ed3dfc2f73a6ea7bd78f79371e1a0821f3cbff3b16ae9ca5"
+    },
+    {
+      "path": "net10.0/Program.cs",
+      "sha256": "e916790abaea02d95b8b6957eb713179f30df52d89b639b85019d7e28b82a579"
+    },
+    {
+      "path": "net10.0/Progress.razor",
+      "sha256": "5ecd5ba02ca9f982ae4390d6ead910e3d260337a83fb9720c12eb0800fba0d6e"
+    },
+    {
+      "path": "net10.0/Review.razor",
+      "sha256": "616391cc8a5a3088d7e1aa8b0db939865980daecbef94553d42b5e41c4a23efd"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/global.json",
+      "sha256": "0470b63ba89add6b4aa18cb3c15d5c62f1ebfc27e42fcea0d75d644f849440cc"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/HarbourPermit.deps.json",
+      "sha256": "0041ed5f6ed24d7b92a24a2cb11d783e176353be4340075fff698c1a678b9c48"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/HarbourPermit.dll",
+      "sha256": "18787f6eaf2c6945ef24a1579ed9c82a8c90754ef41691d39902b34097057c30"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/HarbourPermit.exe",
+      "sha256": "1cdd4c49fee4a9b46e7a9e83fba539eb7b3227fc03b558f8ad9eafd0676cf0ab"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/HarbourPermit.pdb",
+      "sha256": "e5fb98216c547312cae328d7a244ea85a41ed97c900370f0716a4a548b8f3053"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/HarbourPermit.runtimeconfig.json",
+      "sha256": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/HarbourPermit.staticwebassets.endpoints.json",
+      "sha256": "ef892302843eb40c030d652b6f16e21d1748857975452ab2578272dc26587d46"
+    },
+    {
+      "path": "net10.0/bin/Release/net10.0/HarbourPermit.staticwebassets.runtime.json",
+      "sha256": "1c95b8940873bb13d3e04f79de752fa55b1f98972da526ee2098e120a4759971"
+    },
+    {
+      "path": "net11.0/_Imports.razor",
+      "sha256": "2832a10b3608e7dfa6bbb5945db51f38d22e86172e2cad20d64b004ceedff1a4"
+    },
+    {
+      "path": "net11.0/App.razor",
+      "sha256": "a84d1d9cc8d2ac37ba5f63fcb12c9d9088b47dfe5051c629035f8058e434cb34"
+    },
+    {
+      "path": "net11.0/build.log",
+      "sha256": "1e3e23bbc309201a3f96b8db82241992068aa7e01c48419994ef4a225faecee1"
+    },
+    {
+      "path": "net11.0/cookie.log",
+      "sha256": "63aba89d0dae5236cbbfadc03587e14539632fc350b63d799f31997bdc1163fa"
+    },
+    {
+      "path": "net11.0/global.json",
+      "sha256": "fc24f7d0b743b306065d54621031f092a2c3bdaeba6976ae91ff8f7713ae8e29"
+    },
+    {
+      "path": "net11.0/HarbourPermit.csproj",
+      "sha256": "7648e5ca5355d357449f7bded4d6af5ddc9ec1b296d3012238edce556accc5f0"
+    },
+    {
+      "path": "net11.0/packages.lock.json",
+      "sha256": "21a60233da5c81bba55b56e6b57b7ca580a07d00bc7d5eaa6dc493be7763db10"
+    },
+    {
+      "path": "net11.0/PermitInput.cs",
+      "sha256": "b70f12b617592d81478d6f69f5b63a0a368b06b4d36b700a50c117529528de4d"
+    },
+    {
+      "path": "net11.0/Program.cs",
+      "sha256": "97433990cdd91f8e20bae3dbc1b7fa010411af0dd8af7b5b870c5db5d98ee9f1"
+    },
+    {
+      "path": "net11.0/Progress.razor",
+      "sha256": "f089899e1837267d10f05f4adb999ee30ae421bc0cf8a216ad74c872f23c729b"
+    },
+    {
+      "path": "net11.0/Review.razor",
+      "sha256": "f4f9e5694dbb8553cb2cb873195d1248d050cc35917836d147d5b2e0a3697917"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/global.json",
+      "sha256": "fc24f7d0b743b306065d54621031f092a2c3bdaeba6976ae91ff8f7713ae8e29"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/HarbourPermit.deps.json",
+      "sha256": "45544063f9474a84a95dc36a4683f9fdaa712882c80817193c2446101991e272"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/HarbourPermit.dll",
+      "sha256": "e813b4de7a0556af428bd9776780feafd4908b087261eece1d349b85157ddd84"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/HarbourPermit.exe",
+      "sha256": "f35417bbc4962ed4401d7988ec19df03b7a67a38d78434e08c7e1a1b6e153833"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/HarbourPermit.pdb",
+      "sha256": "c6c0a021a9404838a35bce27d1f331e7af99cd8cbbee01647c7ac861a27907d6"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/HarbourPermit.runtimeconfig.json",
+      "sha256": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/HarbourPermit.staticwebassets.endpoints.json",
+      "sha256": "a3a09ec439567b168145fd236e0e8c0f289ebfb9f922eb00780d35634a594033"
+    },
+    {
+      "path": "net11.0/bin/Release/net11.0/HarbourPermit.staticwebassets.runtime.json",
+      "sha256": "15676fa973acf2650111ef6b1c2a9b14a611e856356c402e71ba982ee1b583e8"
+    }
+  ],
+  "checks": [
+    {
+      "secondEdit": true,
+      "coreclr": [
+        "C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.13\\coreclr.dll"
+      ],
+      "isolatedCookieJar": true,
+      "repeatedSessionReads": true,
+      "case": "previous",
+      "workflow": "session"
+    },
+    {
+      "secondEdit": true,
+      "coreclr": [
+        "C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App\\11.0.0-rc.2.26504.105\\coreclr.dll"
+      ],
+      "isolatedCookieJar": true,
+      "repeatedSessionReads": true,
+      "case": "cookie",
+      "workflow": "session"
+    }
+  ],
+  "verifierSha256": "f8305f5d24410ecef0a3881a5ab0caa00fc3f49ee7c7fbc81a72f5c69f23f56b",
+  "kind": "served-markdown-reconstruction-and-real-http",
+  "bodies": [
+    {
+      "name": "blazor.retain-session-progress.md",
+      "sha256": "219c46c54eec1cc02ad8cb2a07eb92c7e65694da35ebf044b4dc9cc3d7548a5e"
+    }
+  ],
+  "source": "Only the selected returned Markdown; no other recipe or checkout sample/configuration inputs",
+  "builds": [
+    {
+      "sdk": "10.0.402",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\harbour-guidance-373df727360c40728a76d8563fc54e5c\\net10.0\\HarbourPermit.csproj (in 579 ms).\r\n  HarbourPermit -> C:\\Users\\pingu\\AppData\\Local\\Temp\\harbour-guidance-373df727360c40728a76d8563fc54e5c\\net10.0\\bin\\Release\\net10.0\\HarbourPermit.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:05.56\r\n\r\nWelcome to .NET 10.0!\r\n---------------------\r\nSDK Version: 10.0.402\r\n\r\nTelemetry\r\n---------\r\nThe .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.\r\n\r\nRead more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry\r\n\r\n----------------\r\nInstalled an ASP.NET Core HTTPS development certificate.\r\nTo trust the certificate, run 'dotnet dev-certs https --trust'\r\nLearn about HTTPS: https://aka.ms/dotnet-https\r\n\r\n----------------\r\nWrite your first app: https://aka.ms/dotnet-hello-world\r\nFind out what's new: https://aka.ms/dotnet-whats-new\r\nExplore documentation: https://aka.ms/dotnet-docs\r\nReport issues and find source on GitHub: https://github.com/dotnet/core\r\nUse 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli\r\n--------------------------------------------------------------------------------------\r\n",
+      "target": "net10.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\harbour-guidance-373df727360c40728a76d8563fc54e5c\\net11.0\\HarbourPermit.csproj (in 561 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\harbour-guidance-373df727360c40728a76d8563fc54e5c\\net11.0\\HarbourPermit.csproj]\r\n  HarbourPermit -> C:\\Users\\pingu\\AppData\\Local\\Temp\\harbour-guidance-373df727360c40728a76d8563fc54e5c\\net11.0\\bin\\Release\\net11.0\\HarbourPermit.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.84\r\n\r\nWelcome to .NET 11.0!\r\n---------------------\r\nSDK Version: 11.0.100-rc.2.26504.105\r\n\r\nTelemetry\r\n---------\r\nThe .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.\r\n\r\nRead more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry\r\n\r\n----------------\r\nInstalled an ASP.NET Core HTTPS development certificate.\r\nTo trust the certificate, run 'dotnet dev-certs https --trust'\r\nLearn about HTTPS: https://aka.ms/dotnet-https\r\n\r\n----------------\r\nWrite your first app: https://aka.ms/dotnet-hello-world\r\nFind out what's new: https://aka.ms/dotnet-whats-new\r\nExplore documentation: https://aka.ms/dotnet-docs\r\nReport issues and find source on GitHub: https://github.com/dotnet/core\r\nUse 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli\r\n--------------------------------------------------------------------------------------\r\n",
+      "target": "net11.0"
+    }
+  ],
+  "limits": "Selected redirect/session reconstruction checks only; full streaming and absent-middleware proof is separate.",
+  "workDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\harbour-guidance-373df727360c40728a76d8563fc54e5c",
+  "recordedAt": "2026-10-23T12:03:59.9105918+01:00",
+  "packageSha256": "12a55f887df42a24994e46d415d8ef3dd721fa56680ec5b7aec5991f70bbce8d",
+  "packageSourceCommit": "12413ef5a5a3d15fcbc90c7fccd032b88ae4828a",
+  "verifierProvenance": {
+    "note": "Independent-mode verifier was executed while this focused source edit was uncommitted; exact tested bytes are preserved by verifierSha256. Generated consumers are outside Git and derive solely from the selected installed Markdown.",
+    "dirtyPath": "eng/Test-HarbourGuidance.ps1",
+    "dirty": true,
+    "commit": "12413ef5a5a3d15fcbc90c7fccd032b88ae4828a"
+  }
+}

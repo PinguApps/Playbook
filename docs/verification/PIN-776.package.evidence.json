@@ -1,50 +1,67 @@
 {
-  "kind": "packed-tool-execution",
-  "recordedAt": "2026-10-23T02:25:36.8802093+01:00",
+  "kind": "frozen-packed-tool-execution",
+  "recordedAt": "2026-10-23T11:06:23.9932555+00:00",
   "issue": "PIN-776",
-  "sourceCommit": "5c4c2744d1dd35feecbacd2a26b7bc733ba70b2f",
-  "baseCommit": "5a93d7172110b80efba19965cb47869423502c88",
-  "status": "blocked",
-  "blocker": "Default and maximum discovery pages have practical response size budgets: all50 172311 exceeds 170000; unchanged guard. No PR publication.",
-  "package": "artifacts/PinguApps.Playbook.0.0.0-harbour-compact73.nupkg",
-  "sha256": "02f947e37053d19396be4466d06d11f7fa2c402027241fcc01434e89fa567c83",
-  "fixture": "artifacts/release-fixture/PinguApps.Playbook.0.0.0-harbour-compact73.nupkg",
-  "fixtureSha256": "647e3e8313bfa790cba2462fba24aa02355a69cad548f2367709bda555d5dfa0",
+  "status": "passed",
+  "sourceCommit": "12413ef5a5a3d15fcbc90c7fccd032b88ae4828a",
+  "sourceClean": true,
+  "baseCommit": "2be9e2dafb269527290e8806e3aa3c56a151b08b",
+  "version": "0.0.0-pin776-after90",
+  "package": "artifacts/frozen-pin776-after90/artifacts/PinguApps.Playbook.0.0.0-pin776-after90.nupkg",
+  "sha256": "12a55f887df42a24994e46d415d8ef3dd721fa56680ec5b7aec5991f70bbce8d",
+  "fixture": "artifacts/frozen-pin776-after90/artifacts/release-fixture/PinguApps.Playbook.0.0.0-pin776-after90.nupkg",
+  "fixtureSha256": "d355ff29123c0837dddaefccee346ff0b4a74139015c9295333cfcde0c4b5a49",
   "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
   "runtime": "Microsoft.NETCore.App 10.0.12",
-  "isolation": "Docker --network none; only artifacts, compiled test suite and Test-Package.ps1 mounted. Existing isolated feed/cache, unrelated working directory and actual stdio list/get.",
-  "counts": {
-    "total": 35,
+  "isolation": "--network none; no checkout mount; read-only frozen packages,99 suite files and unchanged Test-Package.ps1; isolated feed/cache/unrelated cwd",
+  "frozenInputs": {
+    "manifestSha256": "dae57aaaeae91ab0115d4ba925e0216fd581833d7df87d81917825cea79e45a5",
+    "suiteFiles": 99,
+    "manifest": "docs/verification/PIN-776.package.inputs.json",
+    "files": 103,
+    "unchangedAfterFullAndSmoke": true
+  },
+  "full": {
+    "passed": 36,
+    "trxSha256": "9dc6757b6fa6f09b82a63c8c8c28e55dbb3ed6fb45cf08c16d0d7f7ca4d35401",
+    "trx": "artifacts/frozen-pin776-after90/results/full/playbook.trx",
+    "failed": 0,
+    "mode": "full",
     "skipped": 0,
-    "passed": 34,
-    "failed": 1
+    "total": 36
+  },
+  "smoke": {
+    "passed": 1,
+    "trxSha256": "b3747b410b16fb7ea32611c2d163f23d73e84c252a3a626e848ce8de3ad7d766",
+    "trx": "artifacts/frozen-pin776-after90/results/smoke/playbook.trx",
+    "failed": 0,
+    "mode": "smoke",
+    "skipped": 0,
+    "total": 1
   },
   "focusedCases": [
     {
+      "outcome": "Passed",
       "name": "Ordinary discovery has a practical response size budget",
       "output": [
         "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
-        "11.0: count=20, largest summary=1982, structured=29803, result=74411 UTF-8 bytes",
+        "11.0: count=20, largest summary=1982, structured=26054, result=66500 UTF-8 bytes",
         "CoreCLR path = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/libcoreclr.so', CoreCLR dir = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/'"
-      ],
-      "outcome": "Passed"
+      ]
     },
     {
+      "outcome": "Passed",
       "name": "Default and maximum discovery pages have practical response size budgets",
       "output": [
         "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
         "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
-        "all 20: summary=1397, structured=29805, result=74415 UTF-8 bytes",
-        "all 50: summary=1397, structured=68571, result=172311 UTF-8 bytes",
-        "-> error: traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
-        "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
-        "all 20: summary=1397, structured=29805, result=74415 UTF-8 bytes",
-        "all 50: summary=1397, structured=68571, result=172311 UTF-8 bytes (0.3s)",
-        "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes\ntraversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes\nall 20: summary=1397, structured=29805, result=74415 UTF-8 bytes\nall 50: summary=1397, structured=68571, result=172311 UTF-8 bytes"
-      ],
-      "outcome": "Failed"
+        "all 20: summary=1397, structured=26056, result=66504 UTF-8 bytes",
+        "all 50: summary=1397, structured=66055, result=168320 UTF-8 bytes",
+        "CoreCLR path = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/libcoreclr.so', CoreCLR dir = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/'"
+      ]
     },
     {
+      "outcome": "Passed",
       "name": "Survey forms preserve validation label and caption guidance offline",
       "output": [
         "And harbour state retains one-use and persistent canonical guidance offline",
@@ -53,46 +70,29 @@
         "-> done: InstalledToolSteps.CheckCapturedStaticContentAsync() (0.0s)",
         "And base aware navigation retains complete canonical guidance offline",
         "-> done: InstalledToolSteps.CheckBaseAwareNavigationAsync() (0.0s)",
+        "And culture handover retains complete canonical guidance and satellite requirements offline",
+        "-> done: InstalledToolSteps.CheckCultureHandoverAsync() (0.0s)",
+        "And environment chrome retains complete canonical guidance and renderer boundaries offline",
+        "-> done: InstalledToolSteps.CheckEnvironmentChromeAsync() (0.0s)",
         "CoreCLR path = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/libcoreclr.so', CoreCLR dir = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/'"
-      ],
-      "outcome": "Passed"
+      ]
     }
   ],
-  "trx": "artifacts/TestResults/pin776-compact73-linux10/playbook.trx",
-  "output": "artifacts/tests-pin776-compact73-linux10.log",
-  "previousIntegratedRun": {
-    "passed": 34,
-    "all50": 173017,
-    "failed": 1,
-    "host": "Windows .NET 10",
-    "packageSha256": "ac3c4582f47ac5a075e779775b0b6e6febc1faeca429fae71ba8381b922ce005",
-    "trx": "artifacts/TestResults/pin776-after73.trx",
-    "sourceCommit": "e27e717bd3e4d864745e7d149395163fce693472",
-    "fixtureSha256": "020c8d085e299742658ec54eee9c0f0ed22859d6421cb7c878dfa489eaff3a4c",
-    "skipped": 0,
-    "all20": 75121
+  "policies": {
+    "dependency": "PASS",
+    "renovate": "PASS; strict shared-preset validation;463 dependencies/420 protected sample entries; no permission grants"
   },
-  "inspector": {
-    "passed": true,
-    "from": "C:\\Windows",
-    "checks": "ID/title/goal, complete Markdown, resolved snippets, applicability; real built stdio server",
-    "edition": "11.0",
-    "recipes": [
-      "blazor.show-once-after-redirect",
-      "blazor.retain-session-progress"
-    ],
-    "output": "artifacts/inspector-pin776-compact73.log"
+  "historical": {
+    "pre90Source": "af6bd4f8a4c13e5adc2949dbdb2baa88203593d1",
+    "pre90Smoke": 1,
+    "failedReceipt": "PIN-776.package.pre-recovery.evidence.json",
+    "pre90Full": 36,
+    "pre90Max50": 168522,
+    "pre90FrozenInputs": "artifacts/frozen-pin776-recovery854f/input-manifest.json"
   },
-  "limitations": [
-    "The max50 size gate is failing; this is actual packed integration failure, not a reconstructed baseline measurement.",
-    "No .NET 11 offline rerun is claimed for these final packages. Existing .NET 10/11 sample compile/HTTP inputs are unchanged.",
-    "No browser UI, distributed cache, atomic concurrent consumption, interactive state or GA execution claim."
-  ],
-  "pathsUnchanged": [
-    "Process",
-    "User",
-    "Machine"
-  ],
-  "linearWrites": 0,
-  "nestedAgents": 0
+  "limits": [
+    "This receipt identifies the actual executed frozen artifacts and source commit, not a later rebuilt SourceLink/version variant.",
+    "No new OS/client/native matrix; no final .NET11 offline-image run is claimed. .NET10/11 Windows sample and independent served-body HTTP evidence are separate.",
+    "RC2 execution is not GA/distributed-cache/interactive/concurrent-atomicity proof."
+  ]
 }
