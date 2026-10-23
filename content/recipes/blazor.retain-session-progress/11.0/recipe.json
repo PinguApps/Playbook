@@ -1,8 +1,8 @@
 {
   "id": "blazor.retain-session-progress",
   "edition": "11.0",
-  "title": "Resume a server-rendered task across pages",
-  "goal": "Resume static SSR progress across pages with session values that survive reads.",
+  "title": "Resume progress across server-rendered pages",
+  "goal": "Keep static SSR progress across reads and pages.",
   "areas": [
     "blazor"
   ],
@@ -32,8 +32,8 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Values survive reads, unlike TempData. Requires session cache/services/middleware; static SSR fails if missing.",
-          "Establish session before streaming flush; non-locking, temporary and per browser cookie."
+          "Values survive reads, unlike TempData. Cache+AddSession+UseSession required; missing setup fails.",
+          "Cookie before streaming flush; temporary, non-locking, per browser."
         ],
         "requirements": {
           "runtime": {
@@ -55,15 +55,15 @@
             "reason": "Canonical sample language mode; no preview syntax or experimental opt-in."
           },
           "frameworks": [
-            "ASP.NET Core 11; Web SDK"
+            "ASP.NET Core 11/Web SDK"
           ],
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "Components.Endpoints/Web; SDK-aligned Internal.Assets"
+            "Endpoints/Web; SDK-aligned Internal.Assets"
           ],
           "platforms": [
-            "ASP.NET Core HTTP server; cookies"
+            "HTTP/cookies"
           ],
           "renderingModes": [
             "Static SSR only"
@@ -87,10 +87,10 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verified; GA pending"
+            "RC2 tested; GA pending"
           ],
           "providers": [
-            "ISession/IDistributedCache; memory demo"
+            "ISession/cache (memory)"
           ]
         },
         "sourceUrls": [

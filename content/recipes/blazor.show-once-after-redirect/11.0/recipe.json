@@ -1,8 +1,8 @@
 {
   "id": "blazor.show-once-after-redirect",
   "edition": "11.0",
-  "title": "Show a confirmation once after a server-rendered redirect",
-  "goal": "Carry one-use feedback across a static SSR redirect with TempData; respect cookie/header timing.",
+  "title": "Show one confirmation after a redirect",
+  "goal": "Carry one-use feedback across a static SSR redirect with TempData.",
   "areas": [
     "blazor"
   ],
@@ -31,8 +31,8 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Cookie TempData requires unsent headers; static SSR only.",
-          "RC2: copy then clear bound TempData for one-use display; unchanged values write back."
+          "Cookie TempData needs unsent headers.",
+          "RC2 writes bound values back: copy then clear for one-use display."
         ],
         "requirements": {
           "runtime": {
@@ -54,15 +54,15 @@
             "reason": "Canonical sample language mode; no preview syntax or experimental opt-in."
           },
           "frameworks": [
-            "ASP.NET Core 11; Web SDK"
+            "ASP.NET Core 11/Web SDK"
           ],
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "Components.Endpoints/Web; SDK-aligned Internal.Assets"
+            "Endpoints/Web; SDK-aligned Internal.Assets"
           ],
           "platforms": [
-            "ASP.NET Core HTTP server; cookies"
+            "HTTP/cookies"
           ],
           "renderingModes": [
             "Static SSR only"
@@ -86,10 +86,10 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verified; GA pending"
+            "RC2 tested; GA pending"
           ],
           "providers": [
-            "Cookie TempData; shared Data Protection keys"
+            "Cookie; shared Data Protection keys"
           ]
         },
         "sourceUrls": [
@@ -110,8 +110,8 @@
         "conditional": false,
         "usage": "optional-alternative",
         "selectionNotes": [
-          "Late streaming writes require session cache/services/middleware and a cookie established before the first flush.",
-          "TempData reads consume; RC2 supplied properties must be copied then cleared."
+          "Late writes: cache+AddSession+UseSession; cookie before streaming flush.",
+          "Reads consume; copy then clear RC2 bound values."
         ],
         "requirements": {
           "runtime": {
@@ -133,15 +133,15 @@
             "reason": "Canonical sample language mode; no preview syntax or experimental opt-in."
           },
           "frameworks": [
-            "ASP.NET Core 11; Web SDK"
+            "ASP.NET Core 11/Web SDK"
           ],
           "packages": [],
           "workloads": [],
           "packageAssets": [
-            "Components.Endpoints/Web; SDK-aligned Internal.Assets"
+            "Endpoints/Web; SDK-aligned Internal.Assets"
           ],
           "platforms": [
-            "ASP.NET Core HTTP server; cookies"
+            "HTTP/cookies"
           ],
           "renderingModes": [
             "Static SSR only"
@@ -166,10 +166,10 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 verified; GA pending"
+            "RC2 tested; GA pending"
           ],
           "providers": [
-            "TempData via ISession/IDistributedCache"
+            "ISession/cache"
           ]
         },
         "sourceUrls": [
