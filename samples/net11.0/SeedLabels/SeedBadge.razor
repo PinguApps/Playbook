@@ -1,0 +1,17 @@
+<!-- snippet:badge -->
+<p class="seed-label">
+    @switch (Label)
+    {
+        case string text:
+            @text
+            break;
+        case RenderFragment markup:
+            @markup
+            break;
+    }
+</p>
+
+@code {
+    [Parameter, EditorRequired] public BadgeLabel Label { get; set; }
+}
+<!-- endsnippet:badge -->

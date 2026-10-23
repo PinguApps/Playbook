@@ -33,6 +33,25 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("logical invalidation", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
     }
 
+    [Then("alternative parameter shapes retain canonical guidance and JSON boundaries offline")]
+    public async Task CheckAlternativeParameterShapesAsync()
+    {
+        string[] ids = ["blazor.accept-alternative-parameter-shapes"];
+        await CheckWebRecipesAsync(ids, "seed-labels").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.accept-alternative-parameter-shapes/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+        Assert.Equal("15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+        Assert.Contains("C# 15; Blazor/Razor; distinguish static fragments and JSON-compatible values.", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("union-wrapped fragment", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+        Assert.Contains("PropertyMetadata.AcceptsStringLiteral", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
     [Then("base aware navigation retains complete canonical guidance offline")]
     public async Task CheckBaseAwareNavigationAsync()
     {

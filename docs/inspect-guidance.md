@@ -4,6 +4,11 @@ For safe static-subtree caching, use the [PIN-780 walkthrough](verification/PIN-
 It displays the original .NET 10/11 comparison and full variation, invalidation,
 user-isolation and local-provider requirements.
 
+For literal/bound union component parameters and JSON/fragment boundaries, use
+the [tested PIN-779 walkthrough](verification/PIN-779.md#inspect-what-an-agent-receives).
+It displays the reusable discovery goal, full original .NET 10/11 comparison
+and C# 15/Blazor applicability, with measured RC2 restrictions.
+
 For experimental runtime-async compilation, a bounded F# workflow builder and
 hosted FCS import sharing, use the [PIN-757/980/981 walkthrough](verification/PIN-757-980-981.md#inspect-what-an-agent-receives).
 It displays complete support and applicability, including the verified .NET 10

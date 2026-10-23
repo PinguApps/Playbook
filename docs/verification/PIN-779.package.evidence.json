@@ -1,0 +1,24 @@
+{
+  "kind": "real packed-tool stdio execution",
+  "recordedAt": "2026-10-23T01:08:30.8501251+00:00",
+  "sourceCommit": "f9af66811ef931b40504df904d247c6321b89694",
+  "sourceDirty": true,
+  "integratedBase": "5a93d7172110b80efba19965cb47869423502c88",
+  "worktree": "V:\\_worktrees\\Playbook\\agent-pin-779-04-007-offer-a-single-parameter-for-alternative-ui-values",
+  "packageSha256": "08e555c4a40b81228f28dba0e8c938227e117762452e79da3bf2b755d7a9d026",
+  "testAssemblySha256": "63730e770c55c3d5492c96d35d2e5e8c3ba398f8576caf802340aaa976351cc8",
+  "trxSha256": "1f2d1f4251c0a767049d2d8884164310b78f1d95b50a9a3b4a7825df1448524b",
+  "passed": 36,
+  "failed": 0,
+  "skipped": 0,
+  "measurements": [
+    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=29235, result=72781 UTF-8 bytes",
+    "all 20: summary=1397, structured=29237, result=72785 UTF-8 bytes",
+    "all 50: summary=1397, structured=67662, result=169949 UTF-8 bytes",
+    "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
+    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes"
+  ],
+  "scope": "Existing isolated local feed/cache and unrelated working-directory real installed server. Complete canonical Markdown, every authored applicability field, edition and older-target rejection, JSON text equivalence, current evidence and unchanged discovery budgets. Includes retained NavigationAtlas/ArchiveCards scenarios.",
+  "limits": "Windows x64 .NET 10 host. Broken proxies/local feed are not network namespace isolation. No new OS/client/native matrix, WebAssembly/Auto/AOT or GA proof."
+}

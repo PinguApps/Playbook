@@ -1,6 +1,15 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @UnionParameters
+  Scenario: Alternative component values retain literal markup and JSON boundaries offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then alternative parameter shapes retain canonical guidance and JSON boundaries offline
+    And ordinary discovery fits the documented byte budgets
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Theoretical SDK and build recipes disclose their missing proof offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
