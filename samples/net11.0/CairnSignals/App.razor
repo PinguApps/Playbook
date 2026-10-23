@@ -1,0 +1,17 @@
+<!-- snippet:complete -->
+@namespace CairnSignals
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <title>Cairn signal notes</title>
+</head>
+<body>
+    <SignalNote @rendermode="InteractiveServer" />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:complete -->
