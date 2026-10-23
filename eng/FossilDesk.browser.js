@@ -27,6 +27,10 @@
   trace.push({ phase: 'completed', result: result() });
   if (newer) {
     document.querySelector('#timeout').click();
+    await pause(100);
+    document.querySelector('#interact').click();
+    await pause(50);
+    assert(document.querySelector('#score').disabled, 'Another UI render must not re-enable calls while timed-out work is being observed');
     await until(() => state().includes('timed out'));
     assert(!window.fossil.workers[0].terminatedAt, 'Invocation timeout unexpectedly terminated worker');
     await until(() => result().endsWith('Westmere-A:2'));

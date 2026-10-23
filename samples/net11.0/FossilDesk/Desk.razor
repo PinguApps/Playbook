@@ -51,20 +51,23 @@
         if (cancel) call.CancelAfter(50);
         try
         {
-            var score = await current.InvokeAsync<int>("FossilWorker.WorkerMethods.Score", [1200],
-                timeoutMs: timeout ? 20 : 5000, cancellationToken: call.Token);
-            result = $"Score {score}";
-            state = "Completed";
+            try
+            {
+                var score = await current.InvokeAsync<int>("FossilWorker.WorkerMethods.Score", [1200],
+                    timeoutMs: timeout ? 20 : 5000, cancellationToken: call.Token);
+                result = $"Score {score}";
+                state = "Completed";
+            }
+            catch (OperationCanceledException) { state = "Wait cancelled"; }
+            catch (InvalidOperationException error) { state = $"Wait failed: {error.Message}"; }
+            // Keep the guard through Report, including re-renders from other UI events.
+            if (!disposed && ReferenceEquals(current, worker))
+            {
+                try { result += $" | {await current.InvokeAsync<string>("FossilWorker.WorkerMethods.Report", [], timeoutMs: 5000)}"; }
+                catch (InvalidOperationException error) { state = $"Report failed: {error.Message}"; }
+            }
         }
-        catch (OperationCanceledException) { state = "Wait cancelled"; }
-        catch (InvalidOperationException error) { state = $"Wait failed: {error.Message}"; }
         finally { busy = false; }
-        // Serial calls avoid the RC2 concurrent-timeout pending-request cleanup race.
-        if (!disposed && ReferenceEquals(current, worker))
-        {
-            try { result += $" | {await current.InvokeAsync<string>("FossilWorker.WorkerMethods.Report", [], timeoutMs: 5000)}"; }
-            catch (InvalidOperationException error) { state = $"Report failed: {error.Message}"; }
-        }
     }
 
     private async Task StopAsync()

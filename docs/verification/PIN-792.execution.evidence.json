@@ -1,35 +1,40 @@
 {
-  "limits": "Compile records and actual Windows Chrome execution are separate. Original dirty authoring capture; no clean-rebuild equivalence unless separately established. No cross-compilation, mocks, GA, AOT, mobile, SSR, Auto, hosted deployment or durable work claimed.",
+  "invocation": "Chrome extension CDP Runtime.evaluate; exact eng/FossilDesk.browser.js fetched from owned loopback capture server and evaluated without transformation after Ready, foreground tab",
+  "sourceCommit": "8959bb685e34a0fb0754622ce1d826f622459eb1",
+  "sourceDirty": true,
+  "recordedAt": "2026-10-23T07:47:34.0726872+00:00",
   "samples": {
     "net11.0": {
+      "browserVerifierSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
       "inputs": {
         ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
         "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-        "eng/FossilDesk.browser.js": "a28822169f0e5b078ae1644068f4070ad612448b7f84665bdaf0958f834ab252",
+        "eng/FossilDesk.browser.js": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
         "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
         "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
         "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
         "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
-        "samples/net11.0/FossilDesk/Desk.razor": "8b90e56ba20b31b3a881492d8e41a23428806efd2acbb03542443fdcbe878f90",
+        "samples/net11.0/FossilDesk/Desk.razor": "29c255ab6a77d24f7285c777771ad868a3c91876aa65a81f26ad72b86f1c6681",
         "samples/net11.0/FossilDesk/Directory.Packages.props": "1306372fbeb70090e5cf74e682c60d09a6ceb7f56e449305a89052944ee54117",
         "samples/net11.0/FossilDesk/FossilDesk.csproj": "f655f2770085a339029b0746bd2d01b3ffc7e90c0783ab95bc6bd91b7146993d",
         "samples/net11.0/FossilDesk/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
-        "samples/net11.0/FossilDesk/packages.lock.json": "9798156a8a86745f3e29c2623f99c700a1afa5c785df730542ce6dcb28743fba",
+        "samples/net11.0/FossilDesk/packages.lock.json": "c00c0fd7425aeb35c89794cdb23ab488b2a11eadc48bbf42c669136a52ab086b",
         "samples/net11.0/FossilDesk/Program.cs": "9f31ddcb9d76258d6f1a5f8e5182322d3638d71e0a64eafc061a5c12aba8a44d",
-        "samples/net11.0/FossilDesk/verification.json": "cdf750205f4aa0ea04770df8af42c181f30ddca85196f5cb92083654e3a96b33",
+        "samples/net11.0/FossilDesk/verification.json": "b1a80bd2c1c540be297e5ac8a7d0abd7164db7f5acfbc6c3c6278515c9e1c18f",
         "samples/net11.0/FossilDesk/WorkerProbe.cs": "00575cf79533805e4078c2477cb51167ccfa584fde2af85a7aee6649402c1bab",
         "samples/net11.0/FossilDesk/wwwroot/fossil-observe.js": "9994dd478837324372d3e03f84a93236eb8a9310a6d5730e5e0caf68e3ef64ca",
         "samples/net11.0/FossilDesk/wwwroot/index.html": "0103e59ee47112f503773f7257defa51502d634c4a4cadeb648b0de7fce9a973",
         "samples/net11.0/FossilWorker/Directory.Packages.props": "1306372fbeb70090e5cf74e682c60d09a6ceb7f56e449305a89052944ee54117",
         "samples/net11.0/FossilWorker/FossilWorker.csproj": "30222750f7106f102a1daa24962fe43c56370e8a2de329ec6cb4d2efc6ba5f7a",
         "samples/net11.0/FossilWorker/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
-        "samples/net11.0/FossilWorker/packages.lock.json": "ab553cd94fc490c28f4d7ad73fe18b34938d734b9aae11c74c47c589b102e6fb",
-        "samples/net11.0/FossilWorker/verification.json": "da52972e50ee34e89160acb8a2af3f72714bb7ffb4ba1114e14d511caacd183c",
+        "samples/net11.0/FossilWorker/packages.lock.json": "908a016417b33d2d06a725227cd6f6f76a173141382344f951e45a8913aabec0",
+        "samples/net11.0/FossilWorker/verification.json": "bfa571607c20640f33be0c93f928600bd97bef7b7089e6df2381dbe15e0dda28",
         "samples/net11.0/FossilWorker/WebWorkerClient.cs": "81d25cc029a5e261d137ec6cf265f77c0e512a5461c9ae62bd7aef15933e7a79",
         "samples/net11.0/FossilWorker/WorkerMethods.cs": "16d939716bf25f6f3599b732bf38a9afcdff7142a353452afac44acd79ad66cc",
         "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker-client.js": "5ee43d6ef1171431a1c4e68a12ab87426279d7d23465bd63d553039f7417dc1e",
         "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker.js": "2133f470a9f90e4cfd6e343ea18e39fb088965c631e27dffebc5edd22cb6403a"
       },
+      "expressionSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
       "artifacts": {
         "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.js": "d9c7926b353e0a802efbe060c60d2ec5e804e62bb9b6f95d31e816a1d448fea4",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.js.map": "ee53f820720a378f3451b35994bc8d1a9bc258834fdf91f0f5dfdc9f610a516f",
@@ -37,14 +42,14 @@
         "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.native.wasm": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js.map": "6ebd0a1b7435a9ce802e194a251baa39fc5d95609fdbfb69351da605cdc20953",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.dll": "d6b0f46f18fecd78f1800a208922c60d58bbafa911c62e163a3c92e22e925962",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.pdb": "8cffbfd80a015695846a70c79bea75866ccd0d781b95b6baba06cfecc8f5591b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.dll": "5258ec3a591d81236aad3554d013b4682d4bf179b3bf5236a37ba059ace50242",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.pdb": "65f54ad63280339dba9856b6018939b722b31e0916364412e383571a4cda410b",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.endpoints.json": "7f5ec5d4c7cb45079cdd5401a739d4b107d5e5abfcefe675d68496bd03e78589",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.runtime.json": "6088f26f612a6f2eedb0601067b95c7bd12ed8c5d3ff1227adf8a0bcca22a527",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.endpoints.json": "ebd2dc88b610dc8278db5f8ff64f5d33ad04b2b7f3ebf0555b398f3ab7a69fb5",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.runtime.json": "4a973a0468519076bf765fa72a866dd68bf3e73fd9dbc785a66d90364d5f9d3b",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.dll": "6a382409fcc0518a91b63018692390733547b27fa5fa65b0de282d75a44278a3",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.pdb": "e7dfe775561c1e76532daeaccdb2678690c8e3d9742f2678d22ec91a2ee34d3c",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "a5c16d19505ccc795627f60b8e7bed73f5b4b7081df003f9610a8506b1cfc16f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "fafb67a3ebd1f812b4cf58d724482641ab07610c272c6b52096403c7e4508566",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.runtime.json": "d4f7d5f1d7e930e63ab0d90b0e72d38f213213664f7cdc5cb99c70bcd628eaf5",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/icudt_CJK.dat": "799b97d299edad4c0dac098508cc29c498c5037fccca2feb5b6c7d98467e31b8",
@@ -251,39 +256,38 @@
         "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XmlSerializer.dll": "dd3ad5f8f6bce2927b93230a776c98bd72c2cef7a97e7c9759fcc2c200a8cd64",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.dll": "4de49b8ef1422f1b4d19dad40c3e10c3936c03cae730533679281ed736c9fa1e",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.XDocument.dll": "b3c9396753122a8af449803b536b74eb0baaec2dd240878c84b361dd76a67d7a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification-evidence.json": "61bbce58625dd067bb7f11ddc94f56ef70ea3bca133fa2b468bdb2e7ad76e7e1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification.json": "cdf750205f4aa0ea04770df8af42c181f30ddca85196f5cb92083654e3a96b33",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification-evidence.json": "bf3cd07434fd85d04e7d8467edd6aa6506346b9176d9f9d4baa399bbc4260656",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification.json": "b1a80bd2c1c540be297e5ac8a7d0abd7164db7f5acfbc6c3c6278515c9e1c18f",
         "samples/net11.0/FossilDesk/bin/Release/net11.0/WindowsBase.dll": "39bd19606e4439bd4a47a62c23d43cf982ae0cc67634dd2fc3213b2185d79b81",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "412f309848ee7f0a8233cd813869249378996cb79ac7ed00dc7198fcb4ae6dcd",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js.gz": "19f813df3ce73143787351b005768c570fa19948bc498d49fad41e74341830b3"
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "cf51afcaf0cdbd8afa9191630aa5e1001767d2008361eed7a0adbd44b734b654",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js.gz": "ed926d04ae1534bd1670c977228f21ba04edb6e585a92ad12cef2fec01bfad75"
       },
-      "browserVerifierSha256": "a28822169f0e5b078ae1644068f4070ad612448b7f84665bdaf0958f834ab252",
       "execution": {
         "kind": "real-browser-webassembly-native-worker",
-        "recordedAt": "2026-10-23T07:19:20.542Z",
+        "recordedAt": "2026-10-23T07:43:43.176Z",
         "url": "http://localhost:5832/",
         "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
         "newer": true,
         "trace": [
           {
             "phase": "responsive-during-cpu",
-            "frames": 49,
+            "frames": 50,
             "state": "Computing",
             "clicks": 1
           },
           {
             "phase": "completed",
-            "result": "Score 426760 | Westmere-A:1"
+            "result": "Score 437317 | Westmere-A:1"
           },
           {
             "phase": "invocation-timeout-work-continued",
             "state": "Wait failed: Unable to invoke the web worker JavaScript function: Worker method 'FossilWorker.WorkerMethods.Score' timed out\nError: Worker method 'FossilWorker.WorkerMethods.Score' timed out\n    at http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js:4:33",
-            "result": "Score 426760 | Westmere-A:1 | Westmere-A:2"
+            "result": "Score 437317 | Westmere-A:1 | Westmere-A:2"
           },
           {
             "phase": "invocation-cancel-work-continued",
             "state": "Wait cancelled",
-            "result": "Score 426760 | Westmere-A:1 | Westmere-A:2 | Westmere-A:3"
+            "result": "Score 437317 | Westmere-A:1 | Westmere-A:2 | Westmere-A:3"
           },
           {
             "phase": "both-waits-ended-before-actual-worker-completion",
@@ -302,11 +306,11 @@
         "workers": [
           {
             "url": "_content/FossilWorker/dotnet-web-worker.js",
-            "createdAt": 1685.0999999642372,
+            "createdAt": 1791.6000000238419,
             "events": [
               {
                 "direction": "sent",
-                "at": 1685.199999988079,
+                "at": 1791.699999988079,
                 "data": {
                   "type": "init",
                   "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
@@ -315,14 +319,14 @@
               },
               {
                 "direction": "received",
-                "at": 2248.7999999523163,
+                "at": 2484,
                 "data": {
                   "type": "ready"
                 }
               },
               {
                 "direction": "sent",
-                "at": 2303.7999999523163,
+                "at": 2553.300000011921,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Label",
                   "args": [
@@ -333,7 +337,7 @@
               },
               {
                 "direction": "received",
-                "at": 2306.2999999523163,
+                "at": 2555.100000023842,
                 "data": {
                   "type": "result",
                   "requestId": 1
@@ -341,7 +345,7 @@
               },
               {
                 "direction": "sent",
-                "at": 30431.399999976158,
+                "at": 122431.10000002384,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Score",
                   "args": [
@@ -352,16 +356,16 @@
               },
               {
                 "direction": "received",
-                "at": 31636.69999998808,
+                "at": 123636.30000001192,
                 "data": {
                   "type": "result",
                   "requestId": 2,
-                  "result": 426760
+                  "result": 437317
                 }
               },
               {
                 "direction": "sent",
-                "at": 31639.69999998808,
+                "at": 123639.19999998808,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Report",
                   "args": [],
@@ -370,7 +374,7 @@
               },
               {
                 "direction": "received",
-                "at": 31650.799999952316,
+                "at": 123650.90000003576,
                 "data": {
                   "type": "result",
                   "requestId": 3,
@@ -379,7 +383,7 @@
               },
               {
                 "direction": "sent",
-                "at": 31655.69999998808,
+                "at": 123659.30000001192,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Score",
                   "args": [
@@ -390,7 +394,7 @@
               },
               {
                 "direction": "sent",
-                "at": 31679.399999976158,
+                "at": 123683.30000001192,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Report",
                   "args": [],
@@ -399,16 +403,16 @@
               },
               {
                 "direction": "received",
-                "at": 32856.299999952316,
+                "at": 124859.60000002384,
                 "data": {
                   "type": "result",
                   "requestId": 4,
-                  "result": 725547
+                  "result": 413070
                 }
               },
               {
                 "direction": "received",
-                "at": 32856.59999996424,
+                "at": 124859.80000001192,
                 "data": {
                   "type": "result",
                   "requestId": 5,
@@ -417,7 +421,7 @@
               },
               {
                 "direction": "sent",
-                "at": 32880.39999997616,
+                "at": 124885.40000003576,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Score",
                   "args": [
@@ -428,7 +432,7 @@
               },
               {
                 "direction": "sent",
-                "at": 32935.19999998808,
+                "at": 124940.90000003576,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Report",
                   "args": [],
@@ -437,16 +441,16 @@
               },
               {
                 "direction": "received",
-                "at": 34081.09999996424,
+                "at": 126085.60000002384,
                 "data": {
                   "type": "result",
                   "requestId": 6,
-                  "result": 65206
+                  "result": 202569
                 }
               },
               {
                 "direction": "received",
-                "at": 34081.299999952316,
+                "at": 126085.90000003576,
                 "data": {
                   "type": "result",
                   "requestId": 7,
@@ -455,7 +459,7 @@
               },
               {
                 "direction": "sent",
-                "at": 34719.89999997616,
+                "at": 126919.5,
                 "data": {
                   "method": "FossilWorker.WorkerMethods.Score",
                   "args": [
@@ -465,15 +469,15 @@
                 }
               }
             ],
-            "terminatedAt": 34841.09999996424
+            "terminatedAt": 127029.69999998808
           },
           {
             "url": "_content/FossilWorker/dotnet-web-worker.js",
-            "createdAt": 34095.5,
+            "createdAt": 126106.69999998808,
             "events": [
               {
                 "direction": "sent",
-                "at": 34095.5,
+                "at": 126106.69999998808,
                 "data": {
                   "type": "init",
                   "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
@@ -481,15 +485,15 @@
                 }
               }
             ],
-            "terminatedAt": 34097.799999952316
+            "terminatedAt": 126109.30000001192
           },
           {
             "url": "_content/FossilWorker/dotnet-web-worker.js",
-            "createdAt": 34103.89999997616,
+            "createdAt": 126116.60000002384,
             "events": [
               {
                 "direction": "sent",
-                "at": 34104,
+                "at": 126116.60000002384,
                 "data": {
                   "type": "init",
                   "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
@@ -498,13 +502,13 @@
               },
               {
                 "direction": "received",
-                "at": 34717.59999996424,
+                "at": 126889.90000003576,
                 "data": {
                   "type": "ready"
                 }
               }
             ],
-            "terminatedAt": 34718
+            "terminatedAt": 126915.80000001192
           }
         ],
         "resources": [
@@ -515,22 +519,22 @@
           "http://localhost:5832/_framework/dotnet.native.ric31difde.js",
           "http://localhost:5832/_framework/dotnet.native.89gvfkserh.wasm",
           "http://localhost:5832/_framework/FossilWorker.7cvdkbydr9.pdb",
-          "http://localhost:5832/_framework/FossilDesk.0logw4n4i4.pdb",
+          "http://localhost:5832/_framework/FossilDesk.7tg6k72ti2.pdb",
           "http://localhost:5832/_framework/FossilWorker.54oo5zkr85.wasm",
-          "http://localhost:5832/_framework/FossilDesk.kdxbsft18v.wasm",
+          "http://localhost:5832/_framework/FossilDesk.wbgnpit18c.wasm",
           "http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js",
           "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js",
           "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js"
         ],
         "limit": "Real foreground browser; deterministic init-message hold for creation cancellation only. No mock worker; no GA/AOT/mobile/SSR/Auto/deployment or durable-work proof."
-      },
-      "expressionSha256": "a28822169f0e5b078ae1644068f4070ad612448b7f84665bdaf0958f834ab252"
+      }
     },
     "net10.0": {
+      "browserVerifierSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
       "inputs": {
         ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
         "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-        "eng/FossilDesk.browser.js": "a28822169f0e5b078ae1644068f4070ad612448b7f84665bdaf0958f834ab252",
+        "eng/FossilDesk.browser.js": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
         "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
         "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
         "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
@@ -539,14 +543,15 @@
         "samples/net10.0/FossilDesk/Directory.Packages.props": "eaf65006de988b1545d9633a8c01b0d4925734707bd19f4c19d5d35e057d14bf",
         "samples/net10.0/FossilDesk/FossilDesk.csproj": "5a3b1c8a906658e2fa082377949843b8acfc8108f67696476d5c51eda0e5020e",
         "samples/net10.0/FossilDesk/global.json": "11b40500122dc2f69bc6dc3d81f9c989472d5f6c2de1ff80dea3c02fe6f32e63",
-        "samples/net10.0/FossilDesk/packages.lock.json": "c600b536a31712df15aafe7906969a68c667b9421e2516317a72a19023c05510",
+        "samples/net10.0/FossilDesk/packages.lock.json": "9cc3199c7134bb643a1cbacca62699a25ca79c3bc548c7994cfb7952ccae2359",
         "samples/net10.0/FossilDesk/Program.cs": "ab8458bd36fd8913aaf274e24f92b368baa6b9d5c300b419dcf236074af78351",
-        "samples/net10.0/FossilDesk/verification.json": "242b151cedd12e7b89c9f8636389a43dcbc85109d946453fcb573e9652e7b7b2",
+        "samples/net10.0/FossilDesk/verification.json": "e09efb6be27d74dbceffaed9e1b8cf27463b9a2406cf9752ce563305aa585134",
         "samples/net10.0/FossilDesk/wwwroot/fossil-client.js": "d098c06aec69fbcdf1d643685c26a75187d5b632e2bfd87f389a76f967ae5197",
         "samples/net10.0/FossilDesk/wwwroot/fossil-observe.js": "9994dd478837324372d3e03f84a93236eb8a9310a6d5730e5e0caf68e3ef64ca",
         "samples/net10.0/FossilDesk/wwwroot/fossil-score.js": "e9ae2b5d53922b286405a4d17e9bfc3daf2f16ce44261d9a8ad97428ea4ff872",
         "samples/net10.0/FossilDesk/wwwroot/index.html": "0103e59ee47112f503773f7257defa51502d634c4a4cadeb648b0de7fce9a973"
       },
+      "expressionSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
       "artifacts": {
         "samples/net10.0/FossilDesk/bin/Release/net10.0/dotnet.js": "0501da3cf18e752361a4d3af7880c7ff2fd65e6d8ade7e19601c993d622cb68e",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/dotnet.js.map": "df01b85ffce84a6d71508ba1bf48bc85e3eb5b15fef39a3b1e4b975fd8d15de8",
@@ -557,7 +562,7 @@
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.dll": "9ba0a3a369edcce9b75e4c3c4d2e00eb4561eeed3df3dfca9d2550bd178be405",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.pdb": "9f77649499966a0bf8106d0cabf27d46cb6f52fbdd0b30d99146a217d52eb8cf",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
-        "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.endpoints.json": "763b7d4419352704f2ee92efd2091a29bd7e3a77bb3bee4696922273cad7297e",
+        "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.endpoints.json": "1f4ff8e4049fe58bd60e7c851d8b528ded14582be324dc185408f51212635df5",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.runtime.json": "a37883898c6670bc895a9e1bc73a331a7b2ae00885458deb28d9f9c0f142c2e3",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/global.json": "11b40500122dc2f69bc6dc3d81f9c989472d5f6c2de1ff80dea3c02fe6f32e63",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/icudt_CJK.dat": "4992ed42745cd09930a8769bd155153fb4f7b813d2798cf1cc39e9c4fa549c79",
@@ -760,8 +765,8 @@
         "samples/net10.0/FossilDesk/bin/Release/net10.0/System.Xml.XmlSerializer.dll": "6df7f4c119766c26f8d543f02f40630e60227f93b7951a882c4a9a312c009ae8",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/System.Xml.XPath.dll": "20892caff75bd64bd2a6555132d8ae3b14f8ebc3acae18600e5bbfac7d1e1a6e",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/System.Xml.XPath.XDocument.dll": "780493bced2cf740fc915250d6640dbe4b1aa52446aa43f465b36280b06b37c1",
-        "samples/net10.0/FossilDesk/bin/Release/net10.0/verification-evidence.json": "90856fa34368e40a189adb7a84c0156de820ffb42d8deaaf367f0591aab33d3f",
-        "samples/net10.0/FossilDesk/bin/Release/net10.0/verification.json": "242b151cedd12e7b89c9f8636389a43dcbc85109d946453fcb573e9652e7b7b2",
+        "samples/net10.0/FossilDesk/bin/Release/net10.0/verification-evidence.json": "87b988b0a4b0aeb7e5de23851bc9bf4a972a239990e82303dd2257422d8eb169",
+        "samples/net10.0/FossilDesk/bin/Release/net10.0/verification.json": "e09efb6be27d74dbceffaed9e1b8cf27463b9a2406cf9752ce563305aa585134",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/WindowsBase.dll": "943054748bd24ff0a0da136c0123eb0d1c4d6a8328b351a63301fbc2320df8bd",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/blazor.webassembly.js": "039f53afd1ea1211ccbbc914ee4aee2c8f5acb0e4c452e8bbdceb3ee309b8219",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/blazor.webassembly.js.gz": "4819b4f689703ab1d4473752605d3c553dc83893886f037fe0e8150e1ec3e2f6",
@@ -1184,10 +1189,9 @@
         "samples/net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/WindowsBase.z3dgnpnt6r.wasm": "5fd11cc96415ad120c1e088f1da63f03231057eebf3d74bd241883951bd3ead9",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/WindowsBase.z3dgnpnt6r.wasm.gz": "4edd7f938efc972e5538e035ee398a4238b381bcde939d657154a2a3018ede06"
       },
-      "browserVerifierSha256": "a28822169f0e5b078ae1644068f4070ad612448b7f84665bdaf0958f834ab252",
       "execution": {
         "kind": "real-browser-webassembly-native-worker",
-        "recordedAt": "2026-10-23T07:18:44.166Z",
+        "recordedAt": "2026-10-23T07:41:34.552Z",
         "url": "http://localhost:5831/",
         "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
         "newer": false,
@@ -1200,35 +1204,35 @@
           },
           {
             "phase": "completed",
-            "result": "Score 9099"
+            "result": "Score 309262"
           }
         ],
         "finalState": "Worker released",
         "workers": [
           {
             "url": "http://localhost:5831/fossil-score.js",
-            "createdAt": 39121.90000003576,
+            "createdAt": 33362,
             "events": [
               {
                 "direction": "sent",
-                "at": 39122,
+                "at": 33362.19999998808,
                 "data": 1200
               },
               {
                 "direction": "received",
-                "at": 40336.10000002384,
-                "data": 9099
+                "at": 34578.89999997616,
+                "data": 309262
               }
             ],
-            "terminatedAt": 40343.90000003576
+            "terminatedAt": 34605.5
           }
         ],
         "resources": [
           "http://localhost:5831/fossil-observe.js",
           "http://localhost:5831/_framework/blazor.webassembly.js",
           "http://localhost:5831/_framework/dotnet.js",
-          "http://localhost:5831/_framework/dotnet.native.q38003gvqi.js",
           "http://localhost:5831/_framework/dotnet.runtime.azrfhwb804.js",
+          "http://localhost:5831/_framework/dotnet.native.q38003gvqi.js",
           "http://localhost:5831/_framework/dotnet.native.3zpaws0drs.wasm",
           "http://localhost:5831/_framework/FossilDesk.18ojjdsa84.pdb",
           "http://localhost:5831/_framework/FossilDesk.ydu7xxkhh6.wasm",
@@ -1236,13 +1240,9 @@
           "http://localhost:5831/fossil-score.js"
         ],
         "limit": "Real foreground browser; deterministic init-message hold for creation cancellation only. No mock worker; no GA/AOT/mobile/SSR/Auto/deployment or durable-work proof."
-      },
-      "expressionSha256": "a28822169f0e5b078ae1644068f4070ad612448b7f84665bdaf0958f834ab252"
+      }
     }
   },
   "kind": "actual-browser-input-and-artifact-fingerprint",
-  "sourceCommit": "2b19b9e7559a726f4979d87108e0f8235b38c3a4",
-  "sourceDirty": true,
-  "invocation": "Chrome extension CDP Runtime.evaluate; exact eng/FossilDesk.browser.js fetched from owned loopback capture server and evaluated without transformation after Ready, foreground tab",
-  "recordedAt": "2026-10-23T07:19:44.9044254+00:00"
+  "limits": "Compile records and actual Windows Chrome execution are separate. Original dirty authoring capture; no clean-rebuild equivalence unless separately established. No cross-compilation, mocks, GA, AOT, mobile, SSR, Auto, hosted deployment or durable work claimed."
 }
