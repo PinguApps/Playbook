@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+Shareable table views use the original .NET 10/11 WorkshopViews samples.
+[PIN-781](verification/PIN-781.md) records independent two-grid URL state,
+immutable sort keys with separately editable captions, real static links and
+interactive history, plus complete installed MCP retrieval.
+
 Alternative component values use the original .NET 10/11 SeedLabels applications.
 [PIN-779](verification/PIN-779.md) records native C# 15 literal/bound parameters,
 real JSON interop/prerender persistence and delegate-union rejection, with the

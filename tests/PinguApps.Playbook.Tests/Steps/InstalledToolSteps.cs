@@ -71,6 +71,22 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("RenderFragment<T>", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
     }
 
+    [Then("shareable grid views retain complete canonical guidance offline")]
+    public async Task CheckShareableGridViewsAsync()
+    {
+        await CheckWebRecipesAsync(["blazor.share-grid-view"], "workshop-views").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "blazor.share-grid-view", targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "Title", "HeaderTemplate", "ColumnId", "repairs_", "loans_", "aria-disabled", "LocationChanged" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+
+        JsonElement requirements = recipe.GetProperty("applicability").GetProperty("routes")[0].GetProperty("requirements");
+        Assert.Contains("QuickGrid", requirements.GetProperty("packages").ToString(), StringComparison.Ordinal);
+        Assert.Contains("PaginationState", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));

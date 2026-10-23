@@ -1,0 +1,15 @@
+{
+  "kind": "artifact-inspection-and-negative-compile",
+  "package": "Microsoft.AspNetCore.Components.QuickGrid/11.0.0-rc.2.26504.105",
+  "packageSha256": "5b9842bf0214cb133663c8066fed83b380571fc24477c32981a2edd5cfd6e455",
+  "assemblyInformationalVersion": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+  "sdk": "11.0.100-rc.2.26504.105",
+  "language": "15.0",
+  "metadataOutput": "Microsoft.AspNetCore.Components.QuickGrid, Version=11.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60\r\n11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5\r\nColumnBase.ColumnId present: False\r\nQuickGrid.QueryParameterNameOptions present: True\r\nColumnBase.Title present: True\r\n",
+  "compilerInput": "using Microsoft.AspNetCore.Components.QuickGrid;\nvar column = new PropertyColumn<object, string>();\ncolumn.ColumnId = \"repair-code\";\r\n",
+  "compilerCommand": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build MissingColumnId.csproj -c Release",
+  "compilerOutput": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin781-state\\column-id-probe\\MissingColumnId.csproj (in 12 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin781-state\\column-id-probe\\MissingColumnId.csproj]\r\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin781-state\\column-id-probe\\MissingColumnId.cs(3,8): error CS1061: 'PropertyColumn<object, string>' does not contain a definition for 'ColumnId' and no accessible extension method 'ColumnId' accepting a first argument of type 'PropertyColumn<object, string>' could be found (are you missing a using directive or an assembly reference?) [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin781-state\\column-id-probe\\MissingColumnId.csproj]\r\n\r\nBuild FAILED.\r\n\r\nC:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin781-state\\column-id-probe\\MissingColumnId.cs(3,8): error CS1061: 'PropertyColumn<object, string>' does not contain a definition for 'ColumnId' and no accessible extension method 'ColumnId' accepting a first argument of type 'PropertyColumn<object, string>' could be found (are you missing a using directive or an assembly reference?) [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin781-state\\column-id-probe\\MissingColumnId.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.64\r\n",
+  "expectedCompilerExit": 1,
+  "sourceReview": "Reviewed 4a70870818bf5662f21b0c28f9a8c267dccb77f0 QuickGrid.razor.cs; Title used for read/write sort identity. Artifact informational-version commit raw source returned 404, so do not claim that exact source retrieval.",
+  "capabilityResolution": "Capability preserved using immutable Title keys with separate HeaderTemplate captions. Both target builds, HTTP and interactive two-grid behavior now pass. No API named ColumnId is claimed."
+}
