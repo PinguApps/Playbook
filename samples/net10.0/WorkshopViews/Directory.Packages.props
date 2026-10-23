@@ -1,0 +1,4 @@
+<Project>
+  <!-- Version-specific, author-maintained package pins. -->
+  <PropertyGroup><ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally></PropertyGroup>
+</Project>

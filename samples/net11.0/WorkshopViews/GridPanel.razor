@@ -1,0 +1,24 @@
+<!-- snippet:grid -->
+<section id="@Prefix">
+    <h2>@Heading</h2>
+    <QuickGrid Items="Items" Pagination="pagination" QueryParameterNameOptions="names">
+        <PropertyColumn Property="item => item.Code" Title="code" Sortable="true" IsDefaultSortColumn="true">
+            <HeaderTemplate><SortHeading Prefix="@Prefix" SortKey="code" Caption="@(Alternate ? "Ticket reference" : "Job code")" /></HeaderTemplate>
+        </PropertyColumn>
+        <PropertyColumn Property="item => item.Priority" Title="priority" Sortable="true">
+            <HeaderTemplate><SortHeading Prefix="@Prefix" SortKey="priority" Caption="@(Alternate ? "Work order" : "Urgency")" /></HeaderTemplate>
+        </PropertyColumn>
+    </QuickGrid>
+    <Paginator State="pagination" />
+</section>
+@code {
+    [Parameter, EditorRequired] public string Prefix { get; set; } = "";
+    [Parameter, EditorRequired] public string Heading { get; set; } = "";
+    [Parameter, EditorRequired] public IQueryable<WorkItem> Items { get; set; } = default!;
+    [Parameter] public bool Alternate { get; set; }
+    // Each GridPanel instance owns its state; never share this between grids.
+    private readonly PaginationState pagination = new() { ItemsPerPage = 2 };
+    private QueryParameterNameOptions names = new();
+    protected override void OnParametersSet() => names = new(Prefix);
+}
+<!-- endsnippet:grid -->

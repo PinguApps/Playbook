@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For two independently bookmarkable grids, use the
+[tested PIN-781 walkthrough](verification/PIN-781.md#inspect-what-an-agent-receives).
+It displays the original comparison, complete applicability and the measured
+RC2 stable-Title/custom-header contract without inventing a ColumnId API.
+
 For safe static-subtree caching, use the [PIN-780 walkthrough](verification/PIN-780.md#inspect-what-an-agent-receives).
 It displays the original .NET 10/11 comparison and full variation, invalidation,
 user-isolation and local-provider requirements.

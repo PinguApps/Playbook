@@ -1,0 +1,27 @@
+<!-- snippet:sort -->
+@inject NavigationManager Navigation
+@implements IDisposable
+<a class="col-title" href="@SortUrl()">@Caption</a>
+@code {
+    [Parameter, EditorRequired] public string Prefix { get; set; } = "";
+    [Parameter, EditorRequired] public string SortKey { get; set; } = "";
+    [Parameter, EditorRequired] public string Caption { get; set; } = "";
+    protected override void OnInitialized() => Navigation.LocationChanged += LocationChanged;
+    private async void LocationChanged(object? sender, LocationChangedEventArgs args) => await InvokeAsync(StateHasChanged);
+    public void Dispose() => Navigation.LocationChanged -= LocationChanged;
+    private string SortUrl() {
+        var query = QueryHelpers.ParseQuery(new Uri(Navigation.Uri).Query);
+        string key = query.GetValueOrDefault(Prefix + "sort").ToString();
+        string direction = query.GetValueOrDefault(Prefix + "direction").ToString();
+        if (key is not ("code" or "priority") || direction is not ("asc" or "desc")) {
+            key = "code";
+            direction = "asc";
+        }
+        bool descending = key == SortKey && direction == "asc";
+        return Navigation.GetUriWithQueryParameters(new Dictionary<string, object?> {
+            [Prefix + "sort"] = SortKey,
+            [Prefix + "direction"] = descending ? "desc" : "asc"
+        });
+    }
+}
+<!-- endsnippet:sort -->

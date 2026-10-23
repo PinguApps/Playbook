@@ -1,0 +1,27 @@
+<!-- snippet:workshop -->
+@inject NavigationManager Navigation
+<main>
+    <h1>Repair workshop</h1>
+    <p>Share the address to return to both work lists.</p>
+    <button id="rename" disabled="@(!ready)" @onclick="() => alternate = !alternate">Rename visible headings</button>
+    <p id="ready">Interactive: @ready</p>
+    <GridPanel Prefix="repairs_" Heading="Repairs" Items="repairs" Alternate="alternate" />
+    <GridPanel Prefix="loans_" Heading="Loan kits" Items="loans" Alternate="alternate" />
+</main>
+@code {
+    private bool ready;
+    private bool alternate;
+    private readonly IQueryable<WorkItem> repairs = new[] {
+        new WorkItem("R-A", 6), new WorkItem("R-B", 1), new WorkItem("R-C", 5),
+        new WorkItem("R-D", 2), new WorkItem("R-E", 4), new WorkItem("R-F", 3)
+    }.AsQueryable();
+    private readonly IQueryable<WorkItem> loans = new[] {
+        new WorkItem("L-A", 3), new WorkItem("L-B", 6), new WorkItem("L-C", 2),
+        new WorkItem("L-D", 5), new WorkItem("L-E", 1), new WorkItem("L-F", 4)
+    }.AsQueryable();
+    protected override void OnInitialized() => alternate = QueryHelpers.ParseQuery(new Uri(Navigation.Uri).Query).GetValueOrDefault("labels") == "alt";
+    protected override void OnAfterRender(bool firstRender) {
+        if (firstRender) { ready = true; StateHasChanged(); }
+    }
+}
+<!-- endsnippet:workshop -->
