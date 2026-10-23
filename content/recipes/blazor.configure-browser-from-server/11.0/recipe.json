@@ -1,0 +1,241 @@
+{
+  "id": "blazor.configure-browser-from-server",
+  "edition": "11.0",
+  "title": "Set browser startup policy from C#",
+  "goal": "Manage Blazor startup and reconnection from C#.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tide-policy"
+  ],
+  "apis": [
+    "BrowserOptions",
+    "ConfigureBrowser",
+    "WithBrowserOptions",
+    "BrowserOptions.GetBrowserOptions"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "RC2 sharing: use uniform public policy."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Server-side BrowserOptions requires ASP.NET Core 11; no net10 equivalent."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching Razor and browser assets; pinned RC2 compiled/executed."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; the option assignments use ordinary C# syntax."
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Blazor Web/WASM assets"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Server; browser"
+          ],
+          "renderingModes": [
+            "Interactive Server",
+            "Interactive WebAssembly",
+            "Interactive Auto"
+          ],
+          "prerequisites": [
+            "Blazor Web App with Microsoft.NET.Sdk.Web, AddRazorComponents and blazor.web.js. AddInteractiveServerComponents/AddInteractiveServerRenderMode for circuits. WebAssembly/Auto additionally need the actual Microsoft.NET.Sdk.BlazorWebAssembly client project, host project reference, WebAssembly.Server/WebAssembly packages matching the framework, AddInteractiveWebAssemblyComponents/AddInteractiveWebAssemblyRenderMode and browser runtime assets. The complete setup is in Markdown.",
+            "WithBrowserOptions attaches endpoint metadata; ConfigureBrowser runs during request rendering with an HttpContext. Static lookup is BrowserOptions.GetBrowserOptions(context), not an HttpContext extension."
+          ],
+          "constraints": [
+            "Final RC1 groups: InteractiveServer, StaticServer, InteractiveWebAssembly. Serializable data only; function callbacks remain JavaScript initializers. Server reconnection policy applies to circuits, including Auto while it uses Server; a WebAssembly instance has no server circuit to reconnect.",
+            "Pinned RC2 separate HTTP requests reproduced endpoint/component sharing (7 -> 1 -> 1). Apply a uniform non-secret application policy. Do not put user, tenant or request-specific values in shared endpoint options. This is a bounded local reproduction, not a framework-wide security conclusion or GA claim.",
+            "Component non-null values replace earlier endpoint values; omitted scalars retain them. TimeSpan serializes to milliseconds; PreserveDom serializes as negated disableDomPreservation. ConfigureBrowser is request rendering, not a live circuit-settings update.",
+            "Standalone WASM without an ASP.NET Core component endpoint does not acquire server options. .NET 10 uses valid startup JavaScript; it is only the previous-release comparison, not an older-target route for BrowserOptions.",
+            "Exact .NET 10/RC2 Server, WebAssembly and Auto startup and Server interruption/recovery are local Windows Chromium evidence. No other browser/OS, AOT, deployment, transport/auth-expiry policy, automatic circuit pause or GA execution is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA unverified."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/TideDesk/TideDesk.csproj",
+          "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj"
+        ],
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/BrowserConfiguration/BrowserOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/BrowserConfiguration/ConfigureBrowser.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Builder/RazorComponentsEndpointConventionBuilderExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.Web.ts",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/Circuits/DefaultReconnectionHandler.ts"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Final RC1 browser option names",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md"
+    },
+    {
+      "title": "RC2 request lookup and endpoint metadata",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/BrowserConfiguration/BrowserOptions.cs"
+    },
+    {
+      "title": "RC2 component merge",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/BrowserConfiguration/ConfigureBrowser.cs"
+    },
+    {
+      "title": "RC2 endpoint policy attachment",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Builder/RazorComponentsEndpointConventionBuilderExtensions.cs"
+    },
+    {
+      "title": "RC2 browser consumption of serialized options",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Boot.Web.ts"
+    },
+    {
+      "title": "RC2 default retry process",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/Circuits/DefaultReconnectionHandler.ts"
+    },
+    {
+      "title": "Previous-release startup configuration",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-10.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/TideDesk/TideDesk.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual Web host and referenced browser client; separate real HTTP/browser reports cover generated options, startup and reconnect. Not cross-compilation or a mocked connection."
+    },
+    {
+      "sample": "samples/net10.0/TideDesk.Client/TideDesk.Client.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual browser-WASM client and SDK runtime assets, without AOT/native workload; browser execution is recorded separately."
+    },
+    {
+      "sample": "samples/net11.0/TideDesk/TideDesk.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual Web host and referenced browser client; separate real HTTP/browser reports cover generated options, startup and reconnect. Not cross-compilation or a mocked connection."
+    },
+    {
+      "sample": "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual browser-WASM client and SDK runtime assets, without AOT/native workload; browser execution is recorded separately."
+    }
+  ],
+  "snippets": {
+    "older-host": {
+      "path": "samples/net10.0/TideDesk/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "older-document": {
+      "path": "samples/net10.0/TideDesk/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "older-project": {
+      "path": "samples/net10.0/TideDesk/TideDesk.csproj",
+      "region": "tidedesk",
+      "language": "xml"
+    },
+    "older-client-project": {
+      "path": "samples/net10.0/TideDesk.Client/TideDesk.Client.csproj",
+      "region": "tidedesk-client",
+      "language": "xml"
+    },
+    "older-packages": {
+      "path": "samples/net10.0/TideDesk/Directory.Packages.props",
+      "region": "directory-packages",
+      "language": "xml"
+    },
+    "newer-host": {
+      "path": "samples/net11.0/TideDesk/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "newer-document": {
+      "path": "samples/net11.0/TideDesk/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "newer-project": {
+      "path": "samples/net11.0/TideDesk/TideDesk.csproj",
+      "region": "tidedesk",
+      "language": "xml"
+    },
+    "newer-client-project": {
+      "path": "samples/net11.0/TideDesk.Client/TideDesk.Client.csproj",
+      "region": "tidedesk-client",
+      "language": "xml"
+    },
+    "newer-packages": {
+      "path": "samples/net11.0/TideDesk/Directory.Packages.props",
+      "region": "directory-packages",
+      "language": "xml"
+    },
+    "startup": {
+      "path": "samples/net10.0/TideDesk/wwwroot/startup.js",
+      "region": "startup",
+      "language": "javascript"
+    },
+    "launch": {
+      "path": "samples/net11.0/TideDesk/Launch.razor",
+      "region": "launch",
+      "language": "razor"
+    },
+    "desk": {
+      "path": "samples/net11.0/TideDesk.Client/Desk.razor",
+      "region": "desk",
+      "language": "razor"
+    },
+    "client-boot": {
+      "path": "samples/net11.0/TideDesk.Client/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local actual HTTP/browser evidence; no external provider or Human-only dependency. GA and other-browser/platform verification remain outside the claims."
+  }
+}
