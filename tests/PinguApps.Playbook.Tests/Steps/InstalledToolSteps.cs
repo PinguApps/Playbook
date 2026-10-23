@@ -71,6 +71,57 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("browser configuration retains complete canonical guidance and precedence requirements offline")]
+    public async Task CheckBrowserConfigurationAsync()
+    {
+        const string id = "blazor.supply-browser-configuration";
+        await CheckWebRecipesAsync([id], "estuary-config").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete browser configuration applicability {property.Name}, including every nested field, must survive packaging.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete browser configuration {field} must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string file in new[] { "EstuaryBoard.csproj", "Directory.Packages.props", "Program.cs", "ConfigurationTrace.cs", "Dashboard.razor", "wwwroot/index.html", "wwwroot/board-start.js", "serve.mjs" })
+            {
+                string source = await ReadSdkInputAsync($"samples/{target}/EstuaryBoard/{file}").ConfigureAwait(false);
+                foreach (string line in source.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.Contains("snippet:", StringComparison.Ordinal)))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            foreach (string file in new[] { "wwwroot/appsettings.json", "wwwroot/appsettings.Testing.json", "wwwroot/appsettings.Production.json", "environments/Testing.json", "environments/Production.json" })
+            {
+                using JsonDocument expected = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/EstuaryBoard/{file}").ConfigureAwait(false));
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(markdown, $"{System.Text.RegularExpressions.Regex.Escape(file)}:\\n\\n```json\\n(.*?)\\n```", System.Text.RegularExpressions.RegexOptions.Singleline);
+                Assert.True(match.Success, $"Missing standalone JSON file {file}");
+                using JsonDocument actual = JsonDocument.Parse(match.Groups[1].Value);
+                Assert.True(JsonElement.DeepEquals(expected.RootElement, actual.RootElement), $"Complete canonical JSON {target}/{file} must survive packaging.");
+            }
+
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/EstuaryBoard/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Equal("WebAssembly", Assert.Single(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray()).GetString());
+        Assert.Contains("WASM; environment-source precedence and removal of duplicate registration.", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        foreach (string contract in new[] { "CreateDefault", "withEnvironmentVariables", "__", "duplicate=1", "skipProvider=1", "Operator override", "not automatic access", "public and user-modifiable", "PublishTrimmed=false" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+    }
+
     [Then("browser workers retain complete canonical guidance and cancellation limits offline")]
     public async Task CheckBrowserWorkersAsync()
     {

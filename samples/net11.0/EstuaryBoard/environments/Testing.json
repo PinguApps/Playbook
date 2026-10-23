@@ -1,0 +1,7 @@
+{
+  "environment": "Testing",
+  "variables": {
+    "Board__Caption": "Testing public caption",
+    "Board__Endpoint": "https://testing.estuary.invalid/dispatch"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "environment": "Production",
+  "variables": {
+    "Board__Caption": "Production public caption",
+    "Board__Endpoint": "https://production.estuary.invalid/dispatch"
+  }
+}
