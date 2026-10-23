@@ -1,0 +1,26 @@
+{
+  "scope": "Actual built hosts and served JS bytes. Separate browser records establish registration failure and native beforeinput component delivery.",
+  "checks": [
+    {
+      "sameNameGuard": false,
+      "version": 10,
+      "uri": "http://127.0.0.1:5971/",
+      "assetPath": "_framework/blazor.web.cd06xom9c5.js",
+      "assetBytes": 200645,
+      "dllSha256": "99d4b6d644686077ebf85618ca845325ad1c9cc53312a0112b734db9c46fdcf3",
+      "assetSha256": "60086d7d0e7a848a032ea979f60163379f7528d3775151b92c1641502641b056"
+    },
+    {
+      "sameNameGuard": true,
+      "version": 11,
+      "uri": "http://127.0.0.1:5972/",
+      "assetPath": "_framework/blazor.web.q3c3yb5xs8.js",
+      "assetBytes": 245494,
+      "dllSha256": "6b9c30e60e0fb108c38d96e52212f0bdab69ac7c9583c76bd6d13b583e14fbd5",
+      "assetSha256": "065eac53496a10915dc8c3e19894d6bbb673c804c4f7ae7573a8364cc0e060c7"
+    }
+  ],
+  "kind": "real-http-and-artifact-inspection",
+  "verifierSha256": "405fd90a4fa1006e827d069bcc5e1eaacec0016319d93a5c5dddd8432dfff24a",
+  "recordedAt": "2026-10-23T12:26:11.7414133+00:00"
+}

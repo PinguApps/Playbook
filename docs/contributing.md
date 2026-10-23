@@ -4,6 +4,11 @@ Navigation without inline-handler exceptions uses the original BrackenMenu host/
 comparisons. [PIN-798](verification/PIN-798.md) records both real module paths,
 strict-policy controls, older backport and complete returned-body reconstruction.
 
+Custom event alias migration uses original CairnSignals .NET 10/11 consumers.
+[PIN-799](verification/PIN-799.md) records actual same-name rejection, native
+beforeinput payload/dispatch, complete returned-Markdown reconstruction and the
+tested installed Inspector handoff.
+
 Browser component activity uses original .NET 10/11 LoomActivity consumers and
 the official local OTLP collector. [PIN-797](verification/PIN-797.md) records
 actual received metrics, event/route/child correlation, artifact/source equality,
