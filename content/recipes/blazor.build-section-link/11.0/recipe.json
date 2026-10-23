@@ -1,0 +1,190 @@
+{
+  "id": "blazor.build-section-link",
+  "edition": "11.0",
+  "title": "Build section links for the current page",
+  "goal": "Add, replace or remove a current-page fragment while retaining its application path and query string.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "base-aware-navigation",
+    "routing",
+    "path-base",
+    "fragments"
+  ],
+  "apis": [
+    "NavigationManagerExtensions.GetUriWithFragment"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Blazor navigation; GetUriWithFragment uses the current URI, not the application base. It does not escape arbitrary fragments."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Uses the ASP.NET Core 11 navigation and server-rendered BasePath contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assets; RC2 is the exact measured sample pin, not a mandatory exact installation for every consumer."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample mode; no preview language syntax is used."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.Components.dll, Microsoft.AspNetCore.Components.Web.dll and Microsoft.AspNetCore.Components.Endpoints.dll from the .NET 11 shared/reference framework; SDK-aligned Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105 supplies browser files in the measured SDK."
+          ],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core web server and browser; actual Windows x64 loopback HTTP and Chromium 152 execution."
+          ],
+          "renderingModes": [
+            "Blazor Web App static document shell with BasePath; declarative links can be server-rendered.",
+            "Interactive Server canonical routed pages and imperative event handlers; WebAssembly/Auto not executed."
+          ],
+          "prerequisites": [
+            "Configure the server request PathBase before routing, static assets and component endpoints. A proxy must preserve or correctly establish the external path base.",
+            "Use one base element with trailing slash. BasePath is Microsoft.AspNetCore.Components.BasePath in RC2, in the Endpoints assembly; it is for the server-rendered Blazor Web App shell.",
+            "Canonical samples use net10.0/C# 14 and net11.0/C# 15 with independent global.json and locked SDK-aligned browser assets. No external provider, native workload or service account is required."
+          ],
+          "constraints": [
+            "Blazor routing: NavigationManager.Uri is the current absolute URI; BaseUri is the application root. RelativeToCurrentUri defaults to false and uses the current route directory only when true.",
+            "Use relative destinations with RelativeToCurrentUri; RC2 rejects leading-slash and absolute destinations. It is not a path confinement or authorization mechanism.",
+            "GetUriWithFragment changes the current URI, preserving path/query and replacing the old fragment. Null/empty removes it; a leading # is optional. Supply a valid fragment; the helper does not escape arbitrary input.",
+            "No .NET 10 package/SDK compatibility route is claimed for the new APIs. The .NET 10 implementations are previous-release comparisons only."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Non-experimental contracts verified against .NET 11 RC2 (11.0.100-rc.2.26504.105); GA reconciliation remains pending. No experimental suppression or opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/navigation?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/app-base-path?view=aspnetcore-11.0",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/aspnetcore.md",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationManager.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationManagerExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Routing/NavLink.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Routing/BasePath.cs",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.uribuilder.fragment?view=net-10.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NavigationAtlas/NavigationAtlas.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Blazor navigation and current URI versus application base",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/navigation?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Blazor application base path hosting",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/app-base-path?view=aspnetcore-11.0"
+    },
+    {
+      "title": "RC2 BasePath namespace correction",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/aspnetcore.md"
+    },
+    {
+      "title": "Pinned RC2 NavigationManager.cs contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationManager.cs"
+    },
+    {
+      "title": "Pinned RC2 NavigationOptions.cs contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationOptions.cs"
+    },
+    {
+      "title": "Pinned RC2 NavigationManagerExtensions.cs contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationManagerExtensions.cs"
+    },
+    {
+      "title": "Pinned RC2 NavLink.cs contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Routing/NavLink.cs"
+    },
+    {
+      "title": "Pinned RC2 BasePath.cs contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Routing/BasePath.cs"
+    },
+    {
+      "title": "UriBuilder fragment replacement for the previous-release comparison",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.uribuilder.fragment?view=net-10.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/NavigationAtlas/NavigationAtlas.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual target-specific Web SDK project compilation. Separate real loopback HTTP/Chromium reports verify non-root nested declarative/imperative navigation, generated base markup and fragment following. No mocks, cross-compilation or GA execution claimed."
+    },
+    {
+      "sample": "samples/net11.0/NavigationAtlas/NavigationAtlas.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual target-specific Web SDK project compilation. Separate real loopback HTTP/Chromium reports verify non-root nested declarative/imperative navigation, generated base markup and fragment following. No mocks, cross-compilation or GA execution claimed."
+    }
+  ],
+  "snippets": {
+    "startup": {
+      "path": "samples/net11.0/NavigationAtlas/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "old-sections": {
+      "path": "samples/net10.0/NavigationAtlas/CollectionPage.razor",
+      "region": "sections",
+      "language": "razor"
+    },
+    "sections": {
+      "path": "samples/net11.0/NavigationAtlas/CollectionPage.razor",
+      "region": "sections",
+      "language": "razor"
+    },
+    "old-fragment": {
+      "path": "samples/net10.0/NavigationAtlas/CollectionPage.razor",
+      "region": "fragment",
+      "language": "csharp"
+    },
+    "fragment": {
+      "path": "samples/net11.0/NavigationAtlas/CollectionPage.razor",
+      "region": "fragment",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Required real HTTP and Chromium navigation checks executed locally on both target-specific apps and a second .NET 11 non-root path. No Human-only prerequisite; WebAssembly/Auto, reverse-proxy deployment and GA execution are not claimed."
+  }
+}

@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/NavigationAtlas/*.cs;../../samples/net*/NavigationAtlas/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../content/recipes/minimal-api.await-model-rules/11.0/*;../../samples/net*/VisitBookings/*.cs;../../samples/net*/VisitBookings/*.razor;../../samples/net*/VisitBookings/*.resx" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Update="../../samples/net*/VisitBookings/*.resx" Type="Non-Resx" WithCulture="false" />
     <EmbeddedResource Include="../../content/recipes/blazor.*/**/recipe.json;../../content/recipes/blazor.*/**/recipe.md;../../samples/net*/SurveyForms/*.cs;../../samples/net*/SurveyForms/*.razor;../../samples/net*/SurveyForms/*.resx;../../samples/net*/SurveyForms/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
