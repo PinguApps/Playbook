@@ -1,0 +1,22 @@
+@page "/apply"
+@inject NavigationManager Navigation
+
+<!-- snippet:apply -->
+<h2>Request a harbour permit</h2>
+<EditForm Model="Form" FormName="permit" OnSubmit="Submit">
+    <button type="submit">Record request</button>
+</EditForm>
+
+@code {
+    private object Form { get; } = new();
+
+    [CascadingParameter]
+    public ITempData TempData { get; set; } = default!;
+
+    private void Submit()
+    {
+        TempData["permit-outcome"] = "Harbour permit request recorded";
+        Navigation.NavigateTo("/outcome");
+    }
+}
+<!-- endsnippet:apply -->

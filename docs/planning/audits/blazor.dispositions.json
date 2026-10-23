@@ -81,7 +81,7 @@
       "id": "state",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(ITempData|Endpoints\\.TempDataProviderType|Web\\.SupplyParameterFrom(Session|TempData)Attribute|Endpoints\\.RazorComponentsServiceOptions::(get_|set_)?TempData)",
       "owner": "PIN-776",
-      "disposition": "grouped"
+      "disposition": "grouped; authored blazor.show-once-after-redirect and blazor.retain-session-progress 11.0; actual RC2 HTTP/compile/installed proof in docs/verification/PIN-776.md; GA reconciliation pending"
     },
     {
       "id": "cache",

@@ -1,0 +1,21 @@
+@page "/outcome"
+@inject Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionaryFactory Factory
+
+<!-- snippet:outcome -->
+<h2>Request outcome</h2>
+<p id="outcome">@(Message ?? "No new outcome")</p>
+
+@code {
+    [CascadingParameter]
+    public HttpContext Context { get; set; } = default!;
+
+    private string? Message;
+
+    protected override void OnInitialized()
+    {
+        var data = Factory.GetTempData(Context);
+        Message = data["permit-outcome"] as string;
+        data.Save();
+    }
+}
+<!-- endsnippet:outcome -->

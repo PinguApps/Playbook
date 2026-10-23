@@ -1,0 +1,26 @@
+@page "/stream"
+@attribute [StreamRendering]
+@inject InspectionGate Gate
+
+<!-- snippet:stream -->
+<p id="inspection">@(_complete ? "Inspection saved" : "Inspection pending")</p>
+<p id="headers">Headers started: @_headersStarted</p>
+
+@code {
+    [CascadingParameter]
+    public HttpContext Context { get; set; } = default!;
+
+    private bool _complete;
+    private bool _headersStarted;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Establish the session before the first streaming flush.
+        Context.Session.SetString("inspection-started", "yes");
+        await Gate.WaitAsync(Context.RequestAborted);
+        _headersStarted = Context.Response.HasStarted;
+        Context.Session.SetInt32("permit-step", 7);
+        _complete = true;
+    }
+}
+<!-- endsnippet:stream -->

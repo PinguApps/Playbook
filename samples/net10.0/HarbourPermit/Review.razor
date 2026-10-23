@@ -1,0 +1,21 @@
+@page "/review"
+
+<!-- snippet:review -->
+<h2>Review the permit</h2>
+<p id="review">Step @Step; berth @(Berth ?? "unselected")</p>
+<a href="/progress">Change berth</a>
+
+@code {
+    [CascadingParameter]
+    public HttpContext Context { get; set; } = default!;
+
+    private string? Berth;
+    private int Step;
+
+    protected override void OnInitialized()
+    {
+        Berth = Context.Session.GetString("permit-berth");
+        Step = Context.Session.GetInt32("permit-step") ?? 0;
+    }
+}
+<!-- endsnippet:review -->
