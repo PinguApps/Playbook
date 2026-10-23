@@ -1,0 +1,24 @@
+{
+  "bodies": [
+    {
+      "sha256": "77401b5131808072be2fc590889d1fcb7ec2c69bd2afb62a3c74410940207c6c",
+      "id": "blazor.show-once-after-redirect"
+    },
+    {
+      "sha256": "219c46c54eec1cc02ad8cb2a07eb92c7e65694da35ebf044b4dc9cc3d7548a5e",
+      "id": "blazor.retain-session-progress"
+    }
+  ],
+  "from": "C:\\Windows",
+  "serverSha256": "4eabdc90a9e73bb82abc088d9eca7127cf0cb1cb062e18d4d3d5894c16dbc5f9",
+  "output": "artifacts/inspector-pin776-after90.log",
+  "passed": true,
+  "pathChecks": {
+    "Process": true,
+    "Machine": true,
+    "User": true
+  },
+  "sourceCommit": "057de7729d5d0a6636e4707484227ce9ebc6b9ba",
+  "scriptSha256": "b5df6ea9e5599b7412f1f87ef5b9f92cc5933b08c0d987bad96ee47ce1bfd8ad",
+  "sourceClean": true
+}
