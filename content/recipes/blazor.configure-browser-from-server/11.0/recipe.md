@@ -60,8 +60,10 @@ Create the same two sibling directories. In **both**, use global.json
 The project files declare the namespace, language, nullability, implicit usings,
 package lock creation and browser asset composition. They do not require a
 repository build file, optional workload, external service or database provider.
-Informational versions omit the Git revision so documentation-only commits do
-not change the sample assemblies; evidence records exact source and input hashes.
+Informational versions omit the Git revision and these comparison projects
+disable SDK Source Link/source-control queries so documentation-only commits do
+not change their assemblies. Saved evidence records exact source and input hashes;
+the production Playbook tool retains its own source-link configuration.
 
 ### net11.0/TideDesk/TideDesk.csproj
 {{snippet:newer-project}}
