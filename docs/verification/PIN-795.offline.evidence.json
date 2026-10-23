@@ -1,4 +1,42 @@
 {
+  "sourceCommit": "8c9045966e010998e216cba44a0049047abce1ca",
+  "originalBase": "a418cab9ee99e79030a9fd72c6cebf5aa6fe1611",
+  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "runtime": "10.0.12",
+  "scope": "Fresh combined catalogue build preceded negative pack baselines. Suite was copied immediately after that build, BEFORE fixture and later Inspector builds. Every suite file hash here belongs to that executed frozen copy. Full36/Smoke1 and all response guards remain unchanged. Windows sample/browser proof is separate from Linux installed-tool execution. r1/r2 successes are superseded for combined readiness.",
+  "integratedMain": "854f74cefd06af3126d1f4c09a3cace8e18bf361",
+  "ordinaryPackageSha256": "38ba00023893e5e691e5834780378a29850aa2fa77fbebd699eb02499dc6aa21",
+  "packageVersion": "0.0.0-pin795-r3",
+  "counts": {
+    "full": {
+      "trxSha256": "1c1eae9fa92529a21e0a61865bfc8f9fdc902af47757bad85346a1e7fb73e192",
+      "total": 36,
+      "started": "2026-10-23T10:32:31.7240949+00:00",
+      "passed": 36,
+      "failed": 0,
+      "finished": "2026-10-23T10:33:28.3779750+00:00"
+    },
+    "smoke": {
+      "trxSha256": "6ad7012d4d6a4e6807eb812cf9593845d1fc1cdcc89f5401764aa6d55bf3f8b4",
+      "total": 1,
+      "started": "2026-10-23T10:33:31.3462980+00:00",
+      "passed": 1,
+      "failed": 0,
+      "finished": "2026-10-23T10:33:33.5175796+00:00"
+    }
+  },
+  "measurements": [
+    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=26054, result=66500 UTF-8 bytes",
+    "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
+    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
+    "all 20: summary=1397, structured=26056, result=66504 UTF-8 bytes",
+    "all 50: summary=1397, structured=65627, result=167020 UTF-8 bytes"
+  ],
+  "releaseFixtureSha256": "d00643ed36aa58410c970cef8f6006d95c8d54450bebd6412b46f9c44a3cbecc",
+  "wrapperSha256": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
+  "command": "Existing Test-Package.ps1 in docker run --rm --network none, readonly frozen package/suite/wrapper mounts, writable results only; no checkout mount. -Artifacts /artifacts -Suite /suite -PackageVersion 0.0.0-pin795-r3 -RuntimeMajor 10 -Results /results/full; separate -Results /results/smoke -Smoke",
+  "recordedAt": "2026-10-23T10:36:30.2219042+00:00",
   "suite": {
     "cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll": "9b8d77f33e0122c842d6c554281deec01a48cb009d81487b57ab00bad41b53a5",
     "cs/Microsoft.TestPlatform.CoreUtilities.resources.dll": "f721c8cb2237aea24c0c9f4496a92d149a421cf493cb0954275c8c37a49366d1",
@@ -49,10 +87,10 @@
     "Microsoft.VisualStudio.CodeCoverage.Shim.dll": "4f73128a17e78916f0e2ddb324c5da7b0b373d0cfb2814e17f3a7858e91b68bb",
     "Microsoft.VisualStudio.TestPlatform.Common.dll": "556cf93a977af4b858bb4b0d9eeb9177d8f084ff79be531b02ded8d317a7df81",
     "Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": "707971b2b682b863a33346c30f32b702a79365ad3442758d18a90a979c8f16df",
-    "PinguApps.Playbook.Tests.deps.json": "9da7e9eb22097e4588fe6c92ee401ad2b9dfd1cea97d7d66731462ae8e8c167a",
-    "PinguApps.Playbook.Tests.dll": "17df3c4721a4aa1ce5fa9969dbe806d0f8b85b1e14c1db723857f642cc6876da",
-    "PinguApps.Playbook.Tests.exe": "2576d3bd4f82a5973c97e43068ca66bf17bd3857b26abdc181ffbf040d8482ee",
-    "PinguApps.Playbook.Tests.pdb": "b654ea14c496db0b6ae5fefdb4a92323cfd3de614508e120461c19b7c3b8b827",
+    "PinguApps.Playbook.Tests.deps.json": "7bbf2e5eb2d0b2f9dd097037b0a92e46acd701250c1035973670bac7816e91f2",
+    "PinguApps.Playbook.Tests.dll": "c910f8fb65fc52c0eb6965446b858ff585af3dfbc4c3739d1a4656a8fdf7a090",
+    "PinguApps.Playbook.Tests.exe": "08489688d77baa82bd8701ac94c5df05613d2951f16d5df1b0cbc4337f96f1ad",
+    "PinguApps.Playbook.Tests.pdb": "5320f8b2b977f66700b55cc0da4e256291adc986e6fd218e23bdae9bdbb41b0b",
     "PinguApps.Playbook.Tests.runtimeconfig.json": "a217d17be0661abf2717a26937c6e379c33542cb6f292fd3fc5a2d5113a9d6dc",
     "PinguApps.Playbook.Tests.xml": "72ae0b48cb605b7ec756df7a1014397bee57911f59857e942b73eae8c7612353",
     "pl/Microsoft.TestPlatform.CommunicationUtilities.resources.dll": "454b9fdc68ce206226cc6a249f85835c0b569c7267f073fe7cafa311676e3dfd",
@@ -99,43 +137,5 @@
     "zh-Hant/Microsoft.TestPlatform.CrossPlatEngine.resources.dll": "3969511b92dac03f1ffbc17bdfeb7afc08f3d7282a78ff15ab2b6b153376d742",
     "zh-Hant/Microsoft.VisualStudio.TestPlatform.Common.resources.dll": "eda8531440a79dfebc863f8bd523c54e6dbccc6029cff963c9678ea7498d64ad",
     "zh-Hant/Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll": "535464ebb941b0bf2221cbd90e4b075481d4949b5cb1ecfd8451bb9bf7275bd2"
-  },
-  "releaseFixtureSha256": "18d3d0eedeac728f63f575b3ccd2e53f7e7eadde82820851fb882827e6f548e5",
-  "integratedMain": "ecbc4857157226327d58205921e0a39c475bf7f6",
-  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
-  "scope": "Fresh combined catalogue build preceded negative pack baselines. Suite was copied immediately after that build, BEFORE fixture and later Inspector builds. Every suite file hash here belongs to that executed frozen copy. Full36/Smoke1 and all response guards remain unchanged. Windows sample/browser proof is separate from Linux installed-tool execution. r1 successes are superseded for combined readiness.",
-  "ordinaryPackageSha256": "1c8458648a063cd1c9cf4cf40715d5d6ef91369abf79c25f34e9dc636dbd18eb",
-  "wrapperSha256": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
-  "recordedAt": "2026-10-23T09:57:00.7848016+00:00",
-  "runtime": "10.0.12",
-  "sourceCommit": "ff8c97bb1d5c3470fb0fae7d37b7d26d65d7668b",
-  "counts": {
-    "full": {
-      "passed": 36,
-      "total": 36,
-      "failed": 0,
-      "started": "2026-10-23T09:47:37.2695202+00:00",
-      "finished": "2026-10-23T09:48:29.2905312+00:00",
-      "trxSha256": "e99c1e524e07778d3622edeb2acb9bcc3b6aeea06943ce31399c5959eb54c0df"
-    },
-    "smoke": {
-      "passed": 1,
-      "total": 1,
-      "failed": 0,
-      "started": "2026-10-23T09:48:31.9976739+00:00",
-      "finished": "2026-10-23T09:48:33.9297614+00:00",
-      "trxSha256": "3e08bc6741890c81879931d47daaa53f24f42e48ddd90f31ff3511a7d3a67d7b"
-    }
-  },
-  "originalBase": "a418cab9ee99e79030a9fd72c6cebf5aa6fe1611",
-  "command": "Existing Test-Package.ps1 in docker run --rm --network none, readonly frozen package/suite/wrapper mounts, writable results only; no checkout mount. -Artifacts /artifacts -Suite /suite -PackageVersion 0.0.0-pin795-r2 -RuntimeMajor 10 -Results /results/full; separate -Results /results/smoke -Smoke",
-  "packageVersion": "0.0.0-pin795-r2",
-  "measurements": [
-    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
-    "11.0: count=20, largest summary=1982, structured=26431, result=67084 UTF-8 bytes",
-    "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
-    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
-    "all 20: summary=1397, structured=26433, result=67088 UTF-8 bytes",
-    "all 50: summary=1397, structured=65698, result=167032 UTF-8 bytes"
-  ]
+  }
 }
