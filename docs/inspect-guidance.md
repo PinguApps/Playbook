@@ -298,3 +298,5 @@ label/input associations and resource-based captions, use the
 [tested PIN-772–773 walkthrough](verification/PIN-772-773.md#inspect-what-an-agent-receives).
 It displays all four original goals, full canonical comparisons and applicability,
 including the measured RC2 root-only client-rule limit.
+
+For navigation under strict handler policies, use the [PIN-798 walkthrough](verification/PIN-798.md#inspect-what-an-agent-receives). It displays the original complete old/new host/client setup, layout-dependent module paths, full applicability and separate compilation/browser limits.

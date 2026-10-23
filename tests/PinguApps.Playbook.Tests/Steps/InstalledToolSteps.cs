@@ -848,6 +848,93 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("navigation CSP retains complete canonical guidance and layout module paths offline")]
+    public async Task CheckNavigationCspAsync()
+    {
+        const string id = "blazor.toggle-navigation-with-csp";
+        await CheckWebRecipesAsync([id], "bracken-menu", 4).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete navigation CSP route {property.Name}, including nested requirements and evidence, must survive real offline stdio.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete navigation CSP {field}");
+        }
+
+        foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            string sample = expected.GetProperty("sample").GetString()!;
+            JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString() == sample);
+            foreach (JsonProperty property in expected.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored navigation evidence {sample}/{property.Name}");
+            }
+
+            string directory = sample[..sample.LastIndexOf('/')];
+            using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
+            foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
+            {
+                if (property.Name == "recordedAt")
+                {
+                    // PowerShell serializes the same instant with the authoring host's offset.
+                    Assert.Equal(property.Value.GetDateTimeOffset(), actual.GetProperty(property.Name).GetDateTimeOffset());
+                    continue;
+                }
+
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Saved navigation compilation {sample}/{property.Name}");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            string basis = $"samples/{target}/BrackenMenu";
+            string[] shared = ["Directory.Build.props", "Directory.Build.targets", "Directory.Packages.props"];
+            string[] sharedFiles = [.. shared, "Host/App.razor", "Host/Confirmation.razor", "Host/wwwroot/menu.css", "Host/wwwroot/policy-probe.js"];
+            foreach (string file in sharedFiles)
+            {
+                string source = await ReadSdkInputAsync($"{basis}/{file}").ConfigureAwait(false);
+                string complete = string.Join('\n', source.Split('\n').Where(line => !line.Contains("snippet:", StringComparison.Ordinal))).Trim();
+                Assert.Contains(complete, markdown, StringComparison.Ordinal);
+            }
+
+            string configuration = await ReadSdkInputAsync($"{basis}/Client/Configuration.md").ConfigureAwait(false);
+            foreach (string part in new[] { "Host", "Client" })
+            {
+                string layout = part == "Host" ? "Components/Layout" : "Layout";
+                foreach (string file in new[] { $"{part}/BrackenMenu.{part}.csproj", $"{part}/Program.cs", $"{part}/Routes.razor", $"{part}/Walk.razor", $"{part}/{layout}/MainLayout.razor", $"{part}/{layout}/NavMenu.razor", $"{part}/{layout}/NavMenu.razor.js", $"{part}/_Imports.razor", $"{part}/global.json" })
+                {
+                    string source = await ReadSdkInputAsync($"{basis}/{file}").ConfigureAwait(false);
+                    string complete = string.Join('\n', source.Split('\n').Where(line => !line.Contains("snippet:", StringComparison.Ordinal))).Trim();
+                    Assert.Contains(complete, markdown, StringComparison.Ordinal);
+                }
+            }
+
+            // Configuration snippets are source-controlled copies of otherwise unmarkable
+            // JSON/import/CSS and parent-boundary inputs. Independently compare every copy.
+            string[] configurationFiles = [.. shared, "Host/global.json", "Client/global.json", "Host/_Imports.razor", "Client/_Imports.razor", "Host/wwwroot/menu.css"];
+            foreach (string file in configurationFiles)
+            {
+                string source = await ReadSdkInputAsync($"{basis}/{file}").ConfigureAwait(false);
+                string complete = string.Join('\n', source.Split('\n').Where(line => !line.Contains("snippet:", StringComparison.Ordinal))).Trim();
+                string region = file.Replace('/', '-').Replace('.', '-').ToLowerInvariant();
+                System.Text.RegularExpressions.Match block = System.Text.RegularExpressions.Regex.Match(configuration, $"(?ms)^// snippet:{region}\\n(.*?)^// endsnippet:{region}$");
+                Assert.True(block.Success, $"Missing complete navigation configuration {target}/{file}");
+                Assert.Equal(complete, block.Groups[1].Value.Trim());
+            }
+        }
+
+        foreach (string contract in new[] { "Accepted NavMenu migration; module path differs with client layout.", "Components/Layout/NavMenu.razor.js", "Layout/NavMenu.razor.js", "script-src-attr 'none'", "?external=true", "Q0PMW+uf6Mx6edY1pmu6zF3FR16ZFghnGK/H9yrsVQc=", "UsePathBase", "UseRouting", "StaticWebAssetProjectMode", "disconnectedCallback", "Browser: True", "report-only", "not a new JS runtime API" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+    }
+
     public InstalledToolSteps(IReqnrollOutputHelper output)
     {
         _output = output;

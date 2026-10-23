@@ -1,0 +1,6 @@
+body { font: 1rem system-ui; max-width: 48rem; margin: 2rem auto; padding: 1rem; }
+bracken-menu { display: block; padding: 1rem; border: 2px solid #31533c; }
+.nav-scrollable { display: none; padding: 1rem; }
+input:checked ~ .nav-scrollable { display: block; }
+a, button, label { margin: .5rem; }
+#outside { padding: 1rem; border: 1px solid #777; }

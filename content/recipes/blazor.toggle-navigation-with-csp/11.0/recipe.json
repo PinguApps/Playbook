@@ -1,0 +1,433 @@
+{
+  "id": "blazor.toggle-navigation-with-csp",
+  "edition": "11.0",
+  "title": "Operate navigation without an inline script exception",
+  "goal": "Keep a Blazor Web App menu working under strict handler CSP.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "bracken-menu",
+    "navigation",
+    "security"
+  ],
+  "apis": [
+    "NavMenu",
+    "customElements"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Accepted NavMenu migration; module path differs with client layout."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current Web App template baseline; the module migration also executes on the .NET 10 comparison. This is not a new JavaScript runtime API."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use matching Web SDK, reference packs and browser assets; RC2 is the tested pin."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Current canonical language mode; the module migration requires no new C# syntax."
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Global client variant only; exact RC2 package is pinned in the example."
+            },
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly.Server",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Host integration for the global WebAssembly variant; not a prerequisite for static or Server-only navigation."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Collocated .razor.js modules; matching SDK browser assets"
+          ],
+          "providers": [],
+          "platforms": [
+            "Browser"
+          ],
+          "renderingModes": [
+            "Static SSR with enhanced navigation",
+            "Interactive Server",
+            "Global Interactive WebAssembly"
+          ],
+          "prerequisites": [
+            "Accepted NavMenu migration; module path differs with client layout. Retain the app document, base URI, styles, imports and endpoint setup supplied below.",
+            "Without global client interactivity, use Components/Layout/NavMenu.razor.js. With a .Client project and global client interactivity, use Layout/NavMenu.razor.js. Resolve through Assets and the application base; never hard-code a fingerprint.",
+            "Allow trusted external app/framework scripts. The local WebAssembly check retains wasm-unsafe-eval; the Server check retains its local circuit connection. These script/connection requirements are separate from the removed handler exception.",
+            "Browser ES modules, ES2022 private class fields, custom elements, Element.closest and checkbox support; local Chrome 155 executes both paths. No database, external provider, account, resource or installed workload is needed. Required workloads: [] does not describe the host installed inventory."
+          ],
+          "constraints": [
+            "Remove the inline handler and its matching hash together; remove unsafe-hashes only when no other required handlers use it. Do not remove unrelated script hashes/nonces or broaden the policy to unsafe-inline.",
+            "The module scopes events to the component, closes only an open menu, removes its listener on disconnection and restores it on connection. Guard custom-element registration because modules may be encountered again during enhanced navigation.",
+            "The .NET 10 sample fairly compares a deliberate matching-hash exception, a strict negative control and an executed external-module backport. Target 10 remains comparison-only in this edition; the catalogue retains exactly eight .NET 10 foundations.",
+            "Static SSR navigation needs no interactive menu circuit. A separate live Server confirmation proves initialization; global client checks prove actual browser WebAssembly. Auto, legacy standalone Blazor hosting, other browsers, production/TLS policies and GA are not verified.",
+            "The sample prefix is /bracken/. UsePathBase precedes explicit UseRouting; the document base and module requests share the prefix. Local ws://localhost:* is not a deployment prescription."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 verification; GA unverified. No experimental API opt-in."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/BrackenMenu/Host/BrackenMenu.Host.csproj",
+          "samples/net11.0/BrackenMenu/Client/BrackenMenu.Client.csproj"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/location-of-javascript?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/security/content-security-policy?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor.js",
+          "https://www.w3.org/TR/CSP3/#directive-script-src-attr"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Adopt the navigation module in a Blazor Web App",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0"
+    },
+    {
+      "title": "JavaScript collocation and module locations",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/location-of-javascript?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Script policy and framework requirements",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/security/content-security-policy?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned RC2 NavMenu markup",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor"
+    },
+    {
+      "title": "Pinned RC2 component connection lifetime",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor.js"
+    },
+    {
+      "title": "CSP handler attribute restrictions",
+      "url": "https://www.w3.org/TR/CSP3/#directive-script-src-attr"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BrackenMenu/Host/BrackenMenu.Host.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK consumer compilation. Separate real Chrome enforcement/navigation and complete returned-Markdown reconstruction are recorded in PIN-798; compilation is not browser execution, a mock or cross-compilation."
+    },
+    {
+      "sample": "samples/net10.0/BrackenMenu/Client/BrackenMenu.Client.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK consumer compilation. Separate real Chrome enforcement/navigation and complete returned-Markdown reconstruction are recorded in PIN-798; compilation is not browser execution, a mock or cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/BrackenMenu/Host/BrackenMenu.Host.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK consumer compilation. Separate real Chrome enforcement/navigation and complete returned-Markdown reconstruction are recorded in PIN-798; compilation is not browser execution, a mock or cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/BrackenMenu/Client/BrackenMenu.Client.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK consumer compilation. Separate real Chrome enforcement/navigation and complete returned-Markdown reconstruction are recorded in PIN-798; compilation is not browser execution, a mock or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "n10-0": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "directory-build-props",
+      "language": "xml"
+    },
+    "n10-1": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "directory-build-targets",
+      "language": "xml"
+    },
+    "n10-2": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "directory-packages-props",
+      "language": "xml"
+    },
+    "n10-3": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "host-global-json",
+      "language": "json"
+    },
+    "n10-4": {
+      "path": "samples/net10.0/BrackenMenu/Host/BrackenMenu.Host.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "n10-5": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "host-_imports-razor",
+      "language": "razor"
+    },
+    "n10-6": {
+      "path": "samples/net10.0/BrackenMenu/Host/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "n10-7": {
+      "path": "samples/net10.0/BrackenMenu/Host/Routes.razor",
+      "region": "routes",
+      "language": "razor"
+    },
+    "n10-8": {
+      "path": "samples/net10.0/BrackenMenu/Host/Walk.razor",
+      "region": "walk",
+      "language": "razor"
+    },
+    "n10-9": {
+      "path": "samples/net10.0/BrackenMenu/Host/Components/Layout/MainLayout.razor",
+      "region": "layout",
+      "language": "razor"
+    },
+    "n10-10": {
+      "path": "samples/net10.0/BrackenMenu/Host/Components/Layout/NavMenu.razor",
+      "region": "menu",
+      "language": "razor"
+    },
+    "n10-11": {
+      "path": "samples/net10.0/BrackenMenu/Host/Components/Layout/NavMenu.razor.js",
+      "region": "module",
+      "language": "javascript"
+    },
+    "n10-12": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "client-global-json",
+      "language": "json"
+    },
+    "n10-13": {
+      "path": "samples/net10.0/BrackenMenu/Client/BrackenMenu.Client.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "n10-14": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "client-_imports-razor",
+      "language": "razor"
+    },
+    "n10-15": {
+      "path": "samples/net10.0/BrackenMenu/Client/Program.cs",
+      "region": "client",
+      "language": "csharp"
+    },
+    "n10-16": {
+      "path": "samples/net10.0/BrackenMenu/Client/Routes.razor",
+      "region": "routes",
+      "language": "razor"
+    },
+    "n10-17": {
+      "path": "samples/net10.0/BrackenMenu/Client/Walk.razor",
+      "region": "walk",
+      "language": "razor"
+    },
+    "n10-18": {
+      "path": "samples/net10.0/BrackenMenu/Client/Layout/MainLayout.razor",
+      "region": "layout",
+      "language": "razor"
+    },
+    "n10-19": {
+      "path": "samples/net10.0/BrackenMenu/Client/Layout/NavMenu.razor",
+      "region": "menu",
+      "language": "razor"
+    },
+    "n10-20": {
+      "path": "samples/net10.0/BrackenMenu/Client/Layout/NavMenu.razor.js",
+      "region": "module",
+      "language": "javascript"
+    },
+    "n10-21": {
+      "path": "samples/net10.0/BrackenMenu/Host/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "n10-22": {
+      "path": "samples/net10.0/BrackenMenu/Host/Confirmation.razor",
+      "region": "confirmation",
+      "language": "razor"
+    },
+    "n10-23": {
+      "path": "samples/net10.0/BrackenMenu/Client/Configuration.md",
+      "region": "host-wwwroot-menu-css",
+      "language": "css"
+    },
+    "n10-24": {
+      "path": "samples/net10.0/BrackenMenu/Host/wwwroot/policy-probe.js",
+      "region": "probe",
+      "language": "javascript"
+    },
+    "n11-0": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "directory-build-props",
+      "language": "xml"
+    },
+    "n11-1": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "directory-build-targets",
+      "language": "xml"
+    },
+    "n11-2": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "directory-packages-props",
+      "language": "xml"
+    },
+    "n11-3": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "host-global-json",
+      "language": "json"
+    },
+    "n11-4": {
+      "path": "samples/net11.0/BrackenMenu/Host/BrackenMenu.Host.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "n11-5": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "host-_imports-razor",
+      "language": "razor"
+    },
+    "n11-6": {
+      "path": "samples/net11.0/BrackenMenu/Host/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "n11-7": {
+      "path": "samples/net11.0/BrackenMenu/Host/Routes.razor",
+      "region": "routes",
+      "language": "razor"
+    },
+    "n11-8": {
+      "path": "samples/net11.0/BrackenMenu/Host/Walk.razor",
+      "region": "walk",
+      "language": "razor"
+    },
+    "n11-9": {
+      "path": "samples/net11.0/BrackenMenu/Host/Components/Layout/MainLayout.razor",
+      "region": "layout",
+      "language": "razor"
+    },
+    "n11-10": {
+      "path": "samples/net11.0/BrackenMenu/Host/Components/Layout/NavMenu.razor",
+      "region": "menu",
+      "language": "razor"
+    },
+    "n11-11": {
+      "path": "samples/net11.0/BrackenMenu/Host/Components/Layout/NavMenu.razor.js",
+      "region": "module",
+      "language": "javascript"
+    },
+    "n11-12": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "client-global-json",
+      "language": "json"
+    },
+    "n11-13": {
+      "path": "samples/net11.0/BrackenMenu/Client/BrackenMenu.Client.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "n11-14": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "client-_imports-razor",
+      "language": "razor"
+    },
+    "n11-15": {
+      "path": "samples/net11.0/BrackenMenu/Client/Program.cs",
+      "region": "client",
+      "language": "csharp"
+    },
+    "n11-16": {
+      "path": "samples/net11.0/BrackenMenu/Client/Routes.razor",
+      "region": "routes",
+      "language": "razor"
+    },
+    "n11-17": {
+      "path": "samples/net11.0/BrackenMenu/Client/Walk.razor",
+      "region": "walk",
+      "language": "razor"
+    },
+    "n11-18": {
+      "path": "samples/net11.0/BrackenMenu/Client/Layout/MainLayout.razor",
+      "region": "layout",
+      "language": "razor"
+    },
+    "n11-19": {
+      "path": "samples/net11.0/BrackenMenu/Client/Layout/NavMenu.razor",
+      "region": "menu",
+      "language": "razor"
+    },
+    "n11-20": {
+      "path": "samples/net11.0/BrackenMenu/Client/Layout/NavMenu.razor.js",
+      "region": "module",
+      "language": "javascript"
+    },
+    "n11-21": {
+      "path": "samples/net11.0/BrackenMenu/Host/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "n11-22": {
+      "path": "samples/net11.0/BrackenMenu/Host/Confirmation.razor",
+      "region": "confirmation",
+      "language": "razor"
+    },
+    "n11-23": {
+      "path": "samples/net11.0/BrackenMenu/Client/Configuration.md",
+      "region": "host-wwwroot-menu-css",
+      "language": "css"
+    },
+    "n11-24": {
+      "path": "samples/net11.0/BrackenMenu/Host/wwwroot/policy-probe.js",
+      "region": "probe",
+      "language": "javascript"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executed local Chrome enforcement, navigation, enhanced updates, component lifetime and real WebAssembly initialization cover this bounded scenario. Consumer-specific deployment/browser/Auto/GA checks remain outside its claims."
+  }
+}

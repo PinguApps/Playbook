@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.AspNetCore.App.Internal.Assets": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "8jhYltmAmcMGPcyQO7eQrjVGtHgPgGCFl4IlykellniNYLNiI0Q5aiJ8mG4s78dc1IDs5wWQ/qmJzy08WJLjoA=="
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, 11.0.0-rc.2.26504.105]",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "qEc9knwsw2eeJYAhNmXyb8I0FvlY0eUsbOHsp5aKkjdFygLPPdFFNacvfCSfd+eaEOS53CS8oTp6yzCvcwVyVg==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly": "11.0.0-rc.2.26504.105"
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "C8gcFWX7e/4pT21ag+FuI5crA6JBxom+yJGHNrLio4O5dGoh0pN/LGIowcv5obMkxyfju5WhHGUlaGjpwG1mJA==",
+        "dependencies": {
+          "Microsoft.JSInterop.WebAssembly": "11.0.0-rc.2.26504.105"
+        }
+      },
+      "Microsoft.JSInterop.WebAssembly": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "s1TXmY6B0ZTT/wWaUWsD876VHQdb4gHRpWSrnvNRhOoQcFpBOwaDhzjkZAuAGruElssGiB22Ptd7nXH92yvXCA=="
+      },
+      "brackenmenu.client": {
+        "type": "Project",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.WebAssembly": "[11.0.0-rc.2.26504.105, 11.0.0-rc.2.26504.105]"
+        }
+      }
+    }
+  }
+}

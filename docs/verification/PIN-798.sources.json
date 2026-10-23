@@ -1,0 +1,76 @@
+{
+  "kind": "official-review",
+  "capturedAt": "2026-10-23T11:44:45.225617+00:00",
+  "sourceCommit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+  "sources": [
+    {
+      "title": "Adopt the navigation module in a Blazor Web App",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0"
+    },
+    {
+      "title": "JavaScript collocation and module locations",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/location-of-javascript?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Script policy and framework requirements",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/security/content-security-policy?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned RC2 NavMenu markup",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor"
+    },
+    {
+      "title": "Pinned RC2 component connection lifetime",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor.js"
+    },
+    {
+      "title": "CSP handler attribute restrictions",
+      "url": "https://www.w3.org/TR/CSP3/#directive-script-src-attr"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact": "source-NavMenu.razor",
+      "sha256": "11bcffcc3fb0469c53c6ea060b3251d186c06e96445efa7b0629cf9449b78a4e",
+      "bytes": 3931
+    },
+    {
+      "artifact": "source-NavMenu.razor.js",
+      "sha256": "c893bb2458b1fcddf8c5451a6232b418eac104834d584ec2391c77817dfa2b02",
+      "bytes": 602
+    },
+    {
+      "artifact": "template-10-NavMenu.razor",
+      "sha256": "bdb6b5de63669df2ee5c6d9edf06741a0c9baad5ad07af04e756816baf147e0d",
+      "bytes": 3655
+    },
+    {
+      "artifact": "template-11-NavMenu.razor",
+      "sha256": "f9e5f0f76d1dbb7a3dbf00e736559702b99a77e2e027021ab93a81e231c30459",
+      "bytes": 4035
+    },
+    {
+      "artifact": "template-11-NavMenu.razor.js",
+      "sha256": "a03be8015cfddb308e636a06ddcfcf9f07b81e84b13c72e3669dd60622201c67",
+      "bytes": 621
+    },
+    {
+      "archive": "C:\\Program Files\\dotnet\\templates\\10.0.13\\microsoft.dotnet.web.projecttemplates.10.0.10.0.13.nupkg",
+      "sha256": "515cda314b8352cc753cb0cabd8b872f1806a4d1f79c93b717d6fe71f7772055",
+      "entries": [
+        "content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor",
+        "content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor.css"
+      ]
+    },
+    {
+      "archive": "C:\\Users\\pingu\\.dotnet-playbook-11\\templates\\11.0.0-rc.2.26504.105\\microsoft.dotnet.web.projecttemplates.11.0.11.0.0-rc.2.26504.105.nupkg",
+      "sha256": "419395f52fdb5648d36e5224e44da952f4de3b97fa74688d21d089efff038b75",
+      "entries": [
+        "content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor",
+        "content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor.css",
+        "content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Layout/NavMenu.razor.js"
+      ]
+    }
+  ],
+  "scope": "Raw source/template hashes; semantic module lifetime and older inline-handler reconciliation. Not compilation or execution."
+}
