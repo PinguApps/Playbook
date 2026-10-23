@@ -1,0 +1,63 @@
+@page "/"
+@rendermode InteractiveServer
+
+<!-- snippet:grid -->
+<h1>Harbour manifest</h1>
+<p>Continue at consignment 401, or reveal consignment 701.</p>
+<button id="reveal" disabled="@(!_ready)" @onclick="RevealAsync">Reveal 701</button>
+<button id="prepend" disabled="@(!_ready)" @onclick="PrependAsync">Add five earlier arrivals</button>
+<button id="append" disabled="@(!_ready)" @onclick="AppendAsync">Add five later arrivals</button>
+<button id="reload" disabled="@(!_ready)" @onclick="ReloadAsync">Reload fresh instances</button>
+<output id="revision">@_revision</output>
+<div id="viewport" tabindex="0" aria-label="Scrollable harbour manifest">
+    <QuickGrid @ref="_grid" Items="_rows" Virtualize="true" ItemSize="32"
+               InitialItemIndex="400" AnchorMode="VirtualizeAnchorMode.Start"
+               ItemComparer="Consignment.ById" ItemKey="@(row => row.Id)">
+        <PropertyColumn Property="@(row => row.Id)" Title="Consignment" />
+        <PropertyColumn Property="@(row => row.Label)" Title="Cargo" />
+    </QuickGrid>
+</div>
+
+@code {
+    private QuickGrid<Consignment>? _grid;
+    private IQueryable<Consignment> _rows = Enumerable.Range(1, 1000)
+        .Select(id => new Consignment(id, $"Harbour load {id}")).AsQueryable();
+    private bool _ready;
+    private int _revision;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) { _ready = true; StateHasChanged(); }
+    }
+
+    private Task RevealAsync()
+    {
+        // Resolve identity against the CURRENT ordered/filtered result, not an old index.
+        int index = _rows.ToList().FindIndex(row => row.Id == 701);
+        return index < 0 ? Task.CompletedTask : _grid!.ScrollToItemAsync(index);
+    }
+
+    private async Task ReplaceAsync(IEnumerable<Consignment> rows)
+    {
+        _rows = rows.Select(row => new Consignment(row.Id, row.Label)).ToArray().AsQueryable();
+        await _grid!.RefreshDataAsync();
+        _revision++;
+    }
+
+    private Task PrependAsync()
+    {
+        int first = _rows.First().Id;
+        return ReplaceAsync(Enumerable.Range(first - 5, 5)
+            .Select(id => new Consignment(id, $"Earlier load {id}")).Concat(_rows));
+    }
+
+    private Task AppendAsync()
+    {
+        int last = _rows.Last().Id;
+        return ReplaceAsync(_rows.Concat(Enumerable.Range(last + 1, 5)
+            .Select(id => new Consignment(id, $"Later load {id}"))));
+    }
+
+    private Task ReloadAsync() => ReplaceAsync(_rows);
+}
+<!-- endsnippet:grid -->
