@@ -1,5 +1,7 @@
 # Contribute and verify an original recipe
 
+Virtualized QuickGrid row positioning uses original HarbourManifest .NET 10/11 samples. [PIN-783](verification/PIN-783.md) records real Chrome initial/programmatic scrolling, identity and Start anchoring, plus the tested offline Inspector path.
+
 Shareable table views use the original .NET 10/11 WorkshopViews samples.
 [PIN-781](verification/PIN-781.md) records independent two-grid URL state,
 immutable sort keys with separately editable captions, real static links and

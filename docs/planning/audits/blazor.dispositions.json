@@ -104,7 +104,7 @@
     {
       "id": "quickgrid",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.QuickGrid\\.",
-      "owner": "PIN-781/PIN-782/PIN-783",
+      "owner": "PIN-781/PIN-782; PIN-783 virtualization delivered in docs/verification/PIN-783.md",
       "disposition": "grouped"
     },
     {
