@@ -1,0 +1,21 @@
+<!-- snippet:dashboard -->
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@namespace BeaconWatch
+@implements IDisposable
+@inject Microsoft.JSInterop.IJSRuntime JS
+
+<h1>Westmere beacon watch</h1>
+<p>Periodic browser work runs beside this interactive counter.</p>
+<button id="interact" @onclick="() => _clicks++">Check beacon</button>
+<output id="clicks">@_clicks</output>
+
+@code {
+    private int _clicks;
+    public void Dispose()
+    {
+        try { ((IJSInProcessRuntime)JS).InvokeVoid("beacon.record", "root-disposed", _clicks); }
+        catch (JSException error) { Console.Error.WriteLine(error); throw; }
+    }
+}
+<!-- endsnippet:dashboard -->
