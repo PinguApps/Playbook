@@ -8,7 +8,7 @@
   "recipePayloadSha256": "eee545bd12145a29d4459f32af81ccc1f4e50cc1bc89daa35a1189d1c214ad63",
   "rawStdioPayload": "artifacts/pin798/final/returned-stdio.json",
   "rawStdioPayloadSha256": "b1f2be40c89e1fd33ca11702112aea5cdfc757a5dfdd371d6e45614273422c71",
-  "reconstructionRecordSha256": "ea561ed7e53d6f26b9a34f37039c30664c0643b64cf6e5c28358f6aded0322fa",
+  "reconstructionRecordSha256": "9ec326a7a3d9cdcaf197b7ee922c7f23d6ac7ad9fa095040c228b95940fa323b",
   "verifierRawSource": "eng/BrackenMenu.browser.js",
   "verifierRawSourceSha256": "798ee2bf88e288f0ff5655c036b4cdb4e65458c96019b1ac0a37b09fc2d6e2e1",
   "exactEvaluatedExpressionSha256": "798ee2bf88e288f0ff5655c036b4cdb4e65458c96019b1ac0a37b09fc2d6e2e1",
@@ -960,5 +960,7 @@
     "net11.0/BrackenMenu/Host/bin/Release/net11.0/Microsoft.AspNetCore.Components.WebAssembly.Server.dll": "c641b9908ec4fa6be5557f2af9b5a913e4dd55efd8d64db689ed37967e3d11d6",
     "net11.0/BrackenMenu/Host/bin/Release/net11.0/Microsoft.JSInterop.WebAssembly.dll": "8cb1ffbd35d4396cec5325f1a45162fce53a4ebfb83254e007bacdb090a320f8"
   },
-  "scope": "Eight real enforcing-CSP Chrome navigation scenarios on four actual temporary consumers reconstructed solely from installed final stdio Markdown. Both static/client module paths under /bracken, initialized Server/WASM, older matching hash, strict negative and module backport. Source review/compilation remain separate; no mocks."
+  "scope": "Eight real enforcing-CSP Chrome navigation scenarios on four actual temporary consumers reconstructed solely from installed final stdio Markdown. Both static/client module paths under /bracken, initialized Server/WASM, older matching hash, strict negative and module backport. Source review/compilation remain separate; no mocks.",
+  "originalCrLfReconstructionRecordSha256": "ea561ed7e53d6f26b9a34f37039c30664c0643b64cf6e5c28358f6aded0322fa",
+  "receiptSerialization": "The reconstruction record is stored as Git-normalized UTF-8 LF. Original CRLF capture hash is retained separately; execution inputs, artifacts, timestamps and source provenance are unchanged."
 }
