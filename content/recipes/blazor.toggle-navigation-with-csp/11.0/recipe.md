@@ -6,6 +6,8 @@ Use this when a Blazor Web App must open its menu and follow links while its bro
 
 ## Constraints: choose the layout path and preserve policy
 
+The external module needs browser ES modules, ES2022 private class fields, custom elements and Element.closest support. Chrome 155 is the executed browser baseline; other browsers are not certified by these receipts.
+
 Accepted NavMenu migration; module path differs with client layout. A Web App without global client interactivity keeps the component under `Host/Components/Layout`: request `Components/Layout/NavMenu.razor.js`. A `.Client` project with global interactivity puts it in `Client/Layout`: request `Layout/NavMenu.razor.js`. The project directory names are not URL prefixes. `@Assets[...]` supplies the actual asset name, including any fingerprint. A relative module URL resolves against this document's `/bracken/` base. Keep that base, middleware and static-asset endpoints aligned.
 
 The browser already supports this module approach on .NET 10. The change is an accepted project-template migration in .NET 11, not a new JS runtime API. The older sample includes an actually compiled and executed module backport selected by `?external=true`; its ordinary route demonstrates a valid narrowly hashed inline handler. This edition is selected only for target 11.0 and adds no .NET 10 foundation.

@@ -756,6 +756,13 @@ public sealed class InstalledToolSteps : IDisposable
             using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
             foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
             {
+                if (property.Name == "recordedAt")
+                {
+                    // PowerShell serializes the same instant with the authoring host's offset.
+                    Assert.Equal(property.Value.GetDateTimeOffset(), actual.GetProperty(property.Name).GetDateTimeOffset());
+                    continue;
+                }
+
                 Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Saved navigation compilation {sample}/{property.Name}");
             }
         }
@@ -765,7 +772,8 @@ public sealed class InstalledToolSteps : IDisposable
         {
             string basis = $"samples/{target}/BrackenMenu";
             string[] shared = ["Directory.Build.props", "Directory.Build.targets", "Directory.Packages.props"];
-            foreach (string file in shared.Concat(new[] { "Host/App.razor", "Host/Confirmation.razor", "Host/wwwroot/menu.css", "Host/wwwroot/policy-probe.js" }))
+            string[] sharedFiles = [.. shared, "Host/App.razor", "Host/Confirmation.razor", "Host/wwwroot/menu.css", "Host/wwwroot/policy-probe.js"];
+            foreach (string file in sharedFiles)
             {
                 string source = await ReadSdkInputAsync($"{basis}/{file}").ConfigureAwait(false);
                 string complete = string.Join('\n', source.Split('\n').Where(line => !line.Contains("snippet:", StringComparison.Ordinal))).Trim();
@@ -786,7 +794,8 @@ public sealed class InstalledToolSteps : IDisposable
 
             // Configuration snippets are source-controlled copies of otherwise unmarkable
             // JSON/import/CSS and parent-boundary inputs. Independently compare every copy.
-            foreach (string file in shared.Concat(new[] { "Host/global.json", "Client/global.json", "Host/_Imports.razor", "Client/_Imports.razor", "Host/wwwroot/menu.css" }))
+            string[] configurationFiles = [.. shared, "Host/global.json", "Client/global.json", "Host/_Imports.razor", "Client/_Imports.razor", "Host/wwwroot/menu.css"];
+            foreach (string file in configurationFiles)
             {
                 string source = await ReadSdkInputAsync($"{basis}/{file}").ConfigureAwait(false);
                 string complete = string.Join('\n', source.Split('\n').Where(line => !line.Contains("snippet:", StringComparison.Ordinal))).Trim();

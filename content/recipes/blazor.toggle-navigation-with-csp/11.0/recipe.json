@@ -85,7 +85,7 @@
             "Accepted NavMenu migration; module path differs with client layout. Retain the app document, base URI, styles, imports and endpoint setup supplied below.",
             "Without global client interactivity, use Components/Layout/NavMenu.razor.js. With a .Client project and global client interactivity, use Layout/NavMenu.razor.js. Resolve through Assets and the application base; never hard-code a fingerprint.",
             "Allow trusted external app/framework scripts. The local WebAssembly check retains wasm-unsafe-eval; the Server check retains its local circuit connection. These script/connection requirements are separate from the removed handler exception.",
-            "Modern browser ES modules, custom elements, Element.closest and checkbox support; local Chrome 155 executes both paths. No database, external provider, account, resource or installed workload is needed. Required workloads: [] does not describe the host installed inventory."
+            "Browser ES modules, ES2022 private class fields, custom elements, Element.closest and checkbox support; local Chrome 155 executes both paths. No database, external provider, account, resource or installed workload is needed. Required workloads: [] does not describe the host installed inventory."
           ],
           "constraints": [
             "Remove the inline handler and its matching hash together; remove unsafe-hashes only when no other required handlers use it. Do not remove unrelated script hashes/nonces or broaden the policy to unsafe-inline.",

@@ -20,8 +20,10 @@ foreach ($file in $files) {
   New-Item -ItemType Directory -Path (Split-Path $path) -Force | Out-Null
   [IO.File]::WriteAllText($path, $file.Groups[3].Value)
 }
-$results = Join-Path $root 'artifacts/pin798/consumer-hosts'
-& (Join-Path $PSScriptRoot 'Test-BrackenMenu.ps1') -Samples $standalone -Results $results -AllowOldInline:$AllowOldInline -KeepRunning:$KeepRunning
+$results = Join-Path $root ('artifacts/pin798/consumer-hosts/' + [guid]::NewGuid().ToString('N'))
+$completed = $false
+try {
+& (Join-Path $PSScriptRoot 'Test-BrackenMenu.ps1') -Samples $standalone -Results $results -AllowOldInline:$AllowOldInline -KeepRunning
 $projects = foreach ($project in Get-ChildItem "$standalone/net*/BrackenMenu/*/*.csproj") {
   $relative = [IO.Path]::GetRelativePath($standalone, $project.FullName).Replace('\', '/')
   $expected = @($response.evidence | Where-Object { $_.sample -ceq "samples/$relative" })
@@ -39,5 +41,16 @@ foreach ($file in Get-ChildItem -LiteralPath $standalone -Recurse -File | Sort-O
   if ($file.FullName -match '\\(bin|obj)\\') { continue }
   $inputs[[IO.Path]::GetRelativePath($standalone, $file.FullName).Replace('\', '/')] = (Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
 }
-@{ kind = 'standalone-reconstruction-from-real-stdio-detail'; capturedAt = [DateTimeOffset]::UtcNow.ToString('O'); directory = $standalone; sourceResponseSha256 = (Get-FileHash -LiteralPath $Recipe -Algorithm SHA256).Hash.ToLowerInvariant(); markdownSha256 = [Convert]::ToHexStringLower([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($body))); verifierSha256 = (Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant(); hostVerifierSha256 = (Get-FileHash -LiteralPath (Join-Path $PSScriptRoot 'Test-BrackenMenu.ps1') -Algorithm SHA256).Hash.ToLowerInvariant(); projects = @($projects); inputs = $inputs; scope = 'Four actual projects and all required configuration/assets reconstructed solely from 50 expanded returned-Markdown blocks. No canonical checkout file copied. Real HTTP checks are separate from browser navigation/enforcement receipts.' } | ConvertTo-Json -Depth 25 | Set-Content -LiteralPath (Join-Path $root 'artifacts/pin798/consumer.evidence.json')
+@{ kind = 'standalone-reconstruction-from-real-stdio-detail'; capturedAt = [DateTimeOffset]::UtcNow.ToString('O'); directory = $standalone; hostResults = $results; sourceResponseSha256 = (Get-FileHash -LiteralPath $Recipe -Algorithm SHA256).Hash.ToLowerInvariant(); markdownSha256 = [Convert]::ToHexStringLower([Security.Cryptography.SHA256]::HashData([Text.Encoding]::UTF8.GetBytes($body))); verifierSha256 = (Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant(); hostVerifierSha256 = (Get-FileHash -LiteralPath (Join-Path $PSScriptRoot 'Test-BrackenMenu.ps1') -Algorithm SHA256).Hash.ToLowerInvariant(); projects = @($projects); inputs = $inputs; scope = 'Four actual projects and all required configuration/assets reconstructed solely from 50 expanded returned-Markdown blocks. No canonical checkout file copied. Real HTTP checks are separate from browser navigation/enforcement receipts.' } | ConvertTo-Json -Depth 25 | Set-Content -LiteralPath (Join-Path $root 'artifacts/pin798/consumer.evidence.json')
 Write-Host "PASS: four reconstructed real consumers compiled from returned Markdown at $standalone."
+  $completed = $true
+}
+finally {
+  $registry = Join-Path $results 'processes.json'
+  if ((-not $KeepRunning -or -not $completed) -and (Test-Path -LiteralPath $registry)) {
+    foreach ($child in Get-Content -LiteralPath $registry -Raw | ConvertFrom-Json) {
+      $process = Get-Process -Id $child.pid -ErrorAction SilentlyContinue
+      if ($process -and $process.Path -eq $child.executable -and $process.StartTime.ToUniversalTime() -eq ([DateTimeOffset]$child.startedAt).UtcDateTime) { Stop-Process -Id $process.Id }
+    }
+  }
+}

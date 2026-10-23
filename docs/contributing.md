@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Navigation without inline-handler exceptions uses the original BrackenMenu host/client
+comparisons. [PIN-798](verification/PIN-798.md) records both real module paths,
+strict-policy controls, older backport and complete returned-body reconstruction.
+
 Unified JavaScript startup options use the original .NET 10/11 ParcelStartup
 Server/WASM legacy and Web App consumers. [PIN-789](verification/PIN-789.md)
 records effective callbacks, browser culture, responsive controls, retained flat
