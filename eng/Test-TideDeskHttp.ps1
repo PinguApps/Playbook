@@ -119,6 +119,8 @@ app.Run();
     Pop-Location
   }
 }
-[IO.File]::WriteAllText([IO.Path]::GetFullPath($OutputPath), (ConvertTo-Json $report -Depth 20).Replace("`r`n", "`n") + "`n")
+$resolvedOutputPath = [IO.Path]::GetFullPath($OutputPath)
+[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($resolvedOutputPath)) | Out-Null
+[IO.File]::WriteAllText($resolvedOutputPath, (ConvertTo-Json $report -Depth 20).Replace("`r`n", "`n") + "`n")
 Write-Host 'PASS: real generated browser options, precedence and scalar conversions.'
 if ($ProbeSharing) { Write-Host 'PASS: separate-request RC2 sharing probe reproduced 7,1,1; process stopped.' }

@@ -4,6 +4,7 @@ $PSNativeCommandUseErrorActionPreference = $true
 $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
 $dotnet = 'C:\Program Files\dotnet\dotnet.exe'
 $node = 'C:\Program Files\nodejs\node.exe'
+New-Item -ItemType Directory -Path ./artifacts/pin788 -Force | Out-Null
 & $dotnet build ./src/PinguApps.Playbook -c Release
 & $node 'C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js' install --prefix ./artifacts/inspector --ignore-scripts --no-audit --no-fund @modelcontextprotocol/inspector@2.11.0
 $inspector = (Resolve-Path ./artifacts/inspector/node_modules/@modelcontextprotocol/inspector/clients/launcher/build/index.js).Path

@@ -1,6 +1,6 @@
 {
   "kind": "actual-http-execution",
-  "recordedAt": "2026-10-23T05:11:22.0013131+00:00",
+  "recordedAt": "2026-10-23T05:46:52.4682216+00:00",
   "requests": [
     {
       "uri": "http://127.0.0.1:5418/server",
@@ -20,7 +20,7 @@
           "circuitInactivityTimeoutMs": 120000
         }
       },
-      "bodySha256": "59f03ee81842d6ecd8d19967e859253a9229f17e578fc7dfcc43655c5bb78961"
+      "bodySha256": "977b2f0b966edb2f890c30745bc32eeb61a74e51d2b06fdf6e1532059261904e"
     },
     {
       "uri": "http://127.0.0.1:5418/wasm",
@@ -40,7 +40,7 @@
           "circuitInactivityTimeoutMs": 120000
         }
       },
-      "bodySha256": "315039978cba3e6d03d10cc2557dcf1ca0496c0ac844ad8fffe1de38370fd394"
+      "bodySha256": "61a8acfba3bf0b263ed613ac446baa4e76f8ad7f4f015f3bc9469812c1f11da5"
     },
     {
       "uri": "http://127.0.0.1:5418/auto",
@@ -60,12 +60,10 @@
           "circuitInactivityTimeoutMs": 120000
         }
       },
-      "bodySha256": "57041db50f95b7f6c054f9b8dad287ee6efb74393098d3684a3de14fe3e4a03d"
+      "bodySha256": "355ed81a2a7ab417f9bd96a7b53ff9927119d652d0f23709bb60fc924a011272"
     }
   ],
   "sharingProbe": {
-    "artifactSha256": "587b9aa867aa38bf7225128bbf97e22650207217fd6a346492449588c26c0c5a",
-    "sameLookup": true,
     "sameMetadataInstance": true,
     "inputs": {
       "App.razor": "c92c4f5124eb80d79ea12e1a3a7bae02542416d65e27a9e938a0f566fc8c1348",
@@ -77,6 +75,7 @@
       "Probe.razor": "2953e8e1fe14ab1429ef032e1b333429c77d16472ae199380b3a0a6cd5e4fbfa",
       "Program.cs": "2650e9152c10aa0903dd9c939cb8c424d7eb1f600dab7564ac2adb05acc4e8e6"
     },
+    "scope": "Separate local RC2 diagnostic consumer; not a framework-wide security finding or GA claim.",
     "requests": [
       {
         "uri": "http://127.0.0.1:5398/probe",
@@ -91,7 +90,7 @@
           },
           "ssr": {}
         },
-        "bodySha256": "50b1e135823d8c72de1de62b811f754a7f79bacb3c6ad88c45400b14cd9c73e7"
+        "bodySha256": "d7ac7900cba4aaaec54b0198b30d1f94ab40a82d301fcafcdd75af809bb45cbb"
       },
       {
         "uri": "http://127.0.0.1:5398/probe?retries=1",
@@ -106,7 +105,7 @@
           },
           "ssr": {}
         },
-        "bodySha256": "37ede726af171b783d9eb2ff29098108ec6011173526bfd8fc574915fb3446ca"
+        "bodySha256": "fc7f663c0f3015e92a3de47e022dad3df477c6941fa1919826af8c24ffabd3a7"
       },
       {
         "uri": "http://127.0.0.1:5398/probe",
@@ -121,10 +120,11 @@
           },
           "ssr": {}
         },
-        "bodySha256": "8e0e9af3d6a4ea2d0bb288f2c7e704a38323d50d0903e95291f3eface66cdb69"
+        "bodySha256": "d0320a93f151193de0934c7113a15b0ade329ff4e9f5376bb8c9b87f7bf30b64"
       }
     ],
-    "scope": "Separate local RC2 diagnostic consumer; not a framework-wide security finding or GA claim."
+    "sameLookup": true,
+    "artifactSha256": "ca4354fb332980e2d9c672043de61ea9302f55b3f0e7208edca606895268dd55"
   },
   "probeStdout": "",
   "probeStderr": ""

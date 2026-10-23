@@ -575,7 +575,15 @@
     },
     {
       "path": "eng/Test-TideDeskHttp.ps1",
-      "sha256": "902279e66242a4235d758e3cd3d29b24ddcdda6bd3b2c53ada5e14ed2bd2f7ce"
+      "sha256": "8714b0c7619e2b1145eb04d8f964934c380ec2d23fbf0c845d034e08feec479b",
+      "previousSha256": "902279e66242a4235d758e3cd3d29b24ddcdda6bd3b2c53ada5e14ed2bd2f7ce",
+      "refresh": {
+        "sourceCommit": "e3cfe002623cbfabee015b678721205d16a463aa",
+        "recordedAt": "2026-10-23T05:46:56.1271327+00:00",
+        "scope": "HTTP rerun after output-parent fix: all three actual render-mode options plus separate-request RC2 sharing. Browser probes and executed sample inputs/artifacts unchanged.",
+        "sourceDirty": true,
+        "missingParentWithoutSharing": true
+      }
     }
   ],
   "cleanRebuild": {
