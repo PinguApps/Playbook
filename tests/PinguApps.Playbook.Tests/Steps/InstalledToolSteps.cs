@@ -37,6 +37,8 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("style-src-attr 'unsafe-inline'", markdown, StringComparison.Ordinal);
         Assert.Contains("Reading 701: Westmere light", markdown, StringComparison.Ordinal);
         Assert.Contains("CSSOM", markdown, StringComparison.Ordinal);
+        Assert.Contains("In the .NET 10 Readings.razor, add @page \"/legacy\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("In the .NET 10 App.razor, use <script src=\"_framework/blazor.web.js\"></script>", markdown, StringComparison.Ordinal);
         Assert.Contains("source-reviewed migration, browser evidence still needed", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
     }
 
