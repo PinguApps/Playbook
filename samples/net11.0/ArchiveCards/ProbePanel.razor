@@ -1,0 +1,10 @@
+<p>Boundary restriction probe</p>
+@if (Template is not null)
+{
+    @Template(27)
+}
+@code {
+    [Parameter] public RenderFragment<int>? Template { get; set; }
+    [Parameter] public Action? Callback { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}
