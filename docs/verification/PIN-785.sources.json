@@ -1,0 +1,18 @@
+[
+  {
+    "release": "10",
+    "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/Virtualization/Virtualize.cs",
+    "sha256": "33c9e048d5d9ad263ab9d14d8d785be6d430788bdd62f5e59c9671fdd74d223b",
+    "initialItemIndex": false,
+    "scrollToItemAsync": false,
+    "experimentalAnnotation": false
+  },
+  {
+    "release": "11",
+    "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs",
+    "sha256": "dcab477a791c734ff1a31ad37da96fb1eed64a84baac0717cea25531eb2686ae",
+    "initialItemIndex": true,
+    "scrollToItemAsync": true,
+    "experimentalAnnotation": false
+  }
+]

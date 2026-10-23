@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For initial and programmatic virtual-list item reveal, use the
+[tested PIN-785 walkthrough](verification/PIN-785.md#inspect-what-an-agent-receives).
+It displays the full original .NET 10/11 comparison, provider timing and bounds,
+plus complete applicability through the real built stdio server.
+
 For two independently bookmarkable grids, use the
 [tested PIN-781 walkthrough](verification/PIN-781.md#inspect-what-an-agent-receives).
 It displays the original comparison, complete applicability and the measured
