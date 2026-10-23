@@ -19,6 +19,20 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("static subtree caching retains complete canonical guidance offline")]
+    public async Task CheckStaticSubtreeCachingAsync()
+    {
+        string[] ids = ["blazor.cache-static-subtree"];
+        await CheckWebRecipesAsync(ids, "static-subtree-cache").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        Assert.Contains("Static SSR only; cache hits skip child lifecycle; isolate user-specific markup.", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("HybridCache rejects ExpiresSliding", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("permission", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("VaryByUser=\"true\"", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+        Assert.Contains("logical invalidation", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
     [Then("base aware navigation retains complete canonical guidance offline")]
     public async Task CheckBaseAwareNavigationAsync()
     {

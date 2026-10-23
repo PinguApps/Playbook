@@ -62,6 +62,7 @@ foreach ($lane in @('older', 'memory', 'hybrid', 'disabled')) {
   $stderr = $process.StandardError.ReadToEndAsync()
   $mara = New-Client $base; $ivo = New-Client $base; $anonymous = New-Client $base
   $checks.Clear()
+  $slidingObservations = [Collections.Generic.List[object]]::new()
   try {
     $ready = $false
     for ($i = 0; $i -lt 80; $i++) {
@@ -132,7 +133,16 @@ foreach ($lane in @('older', 'memory', 'hybrid', 'disabled')) {
         Assert-Check ($first.Stamp -ne $expired.Stamp) 'memory expires after idle window'
         $clock = [Diagnostics.Stopwatch]::StartNew()
         $last = $expired
-        while ($clock.Elapsed.TotalSeconds -lt 4.6) { Start-Sleep -Milliseconds 400; $last = Read-Page $anonymous '/sliding' }
+        $previousAccess = 0.0
+        while ($clock.Elapsed.TotalSeconds -lt 4.6) {
+          Start-Sleep -Milliseconds 400
+          $last = Read-Page $anonymous '/sliding'
+          $elapsed = $clock.Elapsed.TotalSeconds
+          if ($elapsed - $previousAccess -ge 1) { throw 'Cannot establish sliding bound: an access gap reached the idle lifetime.' }
+          if ($elapsed -lt 3 -and $expired.Stamp -ne $last.Stamp) { throw 'Sliding entry expired despite repeated accesses before its absolute lifetime.' }
+          $slidingObservations.Add(@{ seconds = $elapsed; stamp = $last.Stamp })
+          $previousAccess = $elapsed
+        }
         Assert-Check ($expired.Stamp -ne $last.Stamp) 'memory absolute lifetime bounds repeated sliding hits'
       }
     }
@@ -146,6 +156,7 @@ foreach ($lane in @('older', 'memory', 'hybrid', 'disabled')) {
       recordedAt = [DateTimeOffset]::UtcNow.ToString('O'); arguments = @($info.ArgumentList)
       checks = @($checks); inputs = Get-EvidenceInputs $root $sample; artifacts = $artifacts
       rendered = @{ first = $a; repeated = $b; otherUser = $c; revised = $revised }
+      slidingObservations = @($slidingObservations)
       limits = 'Local memory providers on Windows x64; real cookie authentication, no external store, multi-node, interactive rendering or GA proof. Negative fixture intentionally leaks only fictional local test identities.'
     } | ConvertTo-Json -Depth 20 | Set-Content (Join-Path $OutputDirectory "$lane.evidence.json")
     Write-Host "PASS: $lane ($($checks.Count) rendered-content checks)"

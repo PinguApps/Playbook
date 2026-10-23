@@ -1,5 +1,9 @@
 # Inspect the guidance an agent receives
 
+For safe static-subtree caching, use the [PIN-780 walkthrough](verification/PIN-780.md#inspect-what-an-agent-receives).
+It displays the original .NET 10/11 comparison and full variation, invalidation,
+user-isolation and local-provider requirements.
+
 For experimental runtime-async compilation, a bounded F# workflow builder and
 hosted FCS import sharing, use the [PIN-757/980/981 walkthrough](verification/PIN-757-980-981.md#inspect-what-an-agent-receives).
 It displays complete support and applicability, including the verified .NET 10

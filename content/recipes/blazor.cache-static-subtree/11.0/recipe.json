@@ -1,0 +1,209 @@
+{
+  "id": "blazor.cache-static-subtree",
+  "edition": "11.0",
+  "title": "Reuse cached page sections",
+  "goal": "Reuse static SSR output safely across requests.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "static-subtree-cache",
+    "cacheview",
+    "invalidation"
+  ],
+  "apis": [
+    "CacheView",
+    "HybridCache",
+    "IMemoryCache"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Static SSR only; cache hits skip child lifecycle; isolate user-specific markup."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample language mode; preview language syntax is not required."
+          },
+          "frameworks": [
+            "ASP.NET Core 11 Web SDK"
+          ],
+          "packages": [
+            {
+              "version": "10.11.0",
+              "match": "exact",
+              "name": "Microsoft.Extensions.Caching.Hybrid",
+              "reason": "Canonical host compiles the optional HybridCache branch. Memory-only hosts can omit that branch and package."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Internal.Assets (SDK-aligned)"
+          ],
+          "providers": [
+            "Memory / HybridCache-local"
+          ],
+          "platforms": [
+            "Windows x64 server tested"
+          ],
+          "renderingModes": [
+            "Static SSR GET"
+          ],
+          "prerequisites": [
+            "Use the .NET 11 Web SDK/runtime with C# 15.0 and the locked sample assets. No workload, external service or experimental opt-in.",
+            "Authenticate before rendering. Keep fresh authorization and per-request content outside CacheView; vary every value that changes cached output.",
+            "Framework Components/Endpoints assemblies; SDK-aligned Internal.Assets 11.0.0-rc.2.26504.105; optional HybridCache 10.11.0 net10.0 asset is executed by this net11.0 server.",
+            "Default CacheView memory store, or HybridCache local memory without IDistributedCache; both executed.",
+            "ASP.NET Core server; Windows x64 execution. Other OS and multi-node providers untested.",
+            "Static SSR GET only. Interactive rendering and CacheView inside a streaming subtree bypass caching.",
+            "Stable API in .NET 11 RC2; GA reconciliation pending. Local memory execution does not prove distributed eviction or multi-node consistency."
+          ],
+          "constraints": [
+            "Static SSR only; cache hits skip child lifecycle; isolate user-specific markup.",
+            "VaryByUser separates identities, not every permission claim. Include permission and content revisions in VaryBy; never use a shared anonymous key for private data.",
+            "Invalidation here changes a server-owned revision; old entries expire rather than being physically removed. Coordinate revisions across nodes before choosing a distributed provider.",
+            "HybridCache rejects ExpiresSliding. Use ExpiresAfter or ExpiresOn; CacheViewSizeLimit controls only the default memory store.",
+            "Cached child parameters are replayed unchanged. Do not rely on lifecycle authorization or fresh parent parameters on a hit. Reusable live-child contracts are separate guidance."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 proof; GA pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/cacheview-component?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheView.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheViewKeyResolver.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheViewService.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/MemoryCacheViewStore.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/HybridCacheViewStore.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/performance/caching/memory?view=aspnetcore-10.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuarryLedger/QuarryLedger.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/cacheview-component?view=aspnetcore-11.0",
+      "title": "CacheView boundary and storage guidance"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheView.cs",
+      "title": "Pinned RC2 public boundary API"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheViewKeyResolver.cs",
+      "title": "Pinned key and authenticated identity dimensions"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheViewService.cs",
+      "title": "Pinned capture, request and lifecycle handling"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/MemoryCacheViewStore.cs",
+      "title": "Pinned memory expiration and coalescing"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/HybridCacheViewStore.cs",
+      "title": "Pinned HybridCache options and internal eviction"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/performance/caching/memory?view=aspnetcore-10.0",
+      "title": "Previous-release application data caching"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuarryLedger/QuarryLedger.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile",
+      "scope": "Actual older Web SDK compilation. Separate real cookie-authenticated HTTP execution proves public data reuse and fresh per-user rendering.",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/QuarryLedger/QuarryLedger.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile",
+      "scope": "Actual newer Web SDK compilation. Separate real SSR checks prove complete cache hits, skipped lifecycle, identity/query/permission variation, revision invalidation, expiry, concurrent misses, bypass and a negative leak fixture with both memory providers.",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "run": {
+      "language": "csharp",
+      "path": "samples/net11.0/QuarryLedger/Program.cs",
+      "region": "run"
+    },
+    "section": {
+      "language": "razor",
+      "path": "samples/net11.0/QuarryLedger/SurveySection.razor",
+      "region": "section"
+    },
+    "older": {
+      "language": "razor",
+      "path": "samples/net10.0/QuarryLedger/SurveySection.razor",
+      "region": "section"
+    },
+    "older-page": {
+      "language": "razor",
+      "path": "samples/net10.0/QuarryLedger/LedgerPage.razor",
+      "region": "page"
+    },
+    "host": {
+      "language": "csharp",
+      "path": "samples/net11.0/QuarryLedger/Program.cs",
+      "region": "host"
+    },
+    "document": {
+      "language": "razor",
+      "path": "samples/net11.0/QuarryLedger/App.razor",
+      "region": "document"
+    },
+    "state": {
+      "language": "csharp",
+      "path": "samples/net11.0/QuarryLedger/LedgerState.cs",
+      "region": "state"
+    },
+    "newer": {
+      "language": "razor",
+      "path": "samples/net11.0/QuarryLedger/LedgerPage.razor",
+      "region": "page"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded real static SSR HTTP checks run locally with actual cache providers and cookie identities. No required Human-only proof; distributed, multi-node, interactive and GA execution excluded."
+  }
+}

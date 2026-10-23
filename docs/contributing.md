@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Safe static-subtree caching uses the original .NET 10/11 QuarryLedger samples.
+[PIN-780](verification/PIN-780.md) records real cache-provider rendering,
+variation/invalidation/isolation checks and the tested offline Inspector path.
+
 Captured static child content uses the original .NET 10/11 ArchiveCards samples.
 [PIN-778](verification/PIN-778.md) records real SSR/Interactive Server execution,
 generic/delegate/prerender restrictions and the tested offline Inspector path.
