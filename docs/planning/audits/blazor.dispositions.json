@@ -182,6 +182,12 @@
   ],
   "toolingGroups": [
     {
+      "id": "custom-event-name-collision",
+      "pattern": "^src/Components/Web.JS/src/Rendering/Events/EventTypes\\.ts",
+      "owner": "PIN-799; WEB-081/WEB_W16B; blazor.rename-custom-event/11.0",
+      "disposition": "Original CairnSignals .NET 10/11 comparison; actual native beforeinput, old double delivery, new same-name rejection and renamed typed dispatch; docs/verification/PIN-799.md. Stable APIs, RC2 evidence only."
+    },
+    {
       "id": "sdk-razor",
       "pattern": "^razorTooling/",
       "disposition": "grouped",

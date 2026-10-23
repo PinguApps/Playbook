@@ -1,0 +1,230 @@
+{
+  "id": "blazor.rename-custom-event",
+  "edition": "11.0",
+  "title": "Keep custom events distinct",
+  "goal": "Rename a custom event when its browser trigger has the same name.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "cairn-signals",
+    "custom-events",
+    "javascript",
+    "migration"
+  ],
+  "apis": [
+    "Blazor.registerCustomEventType",
+    "EventHandlerAttribute"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Browser event-name collision now throws."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "ASP.NET Core 11 supplies the changed browser registration guard."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build matching ASP.NET Core 11 components and static assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample compiler mode; event aliasing itself is JavaScript."
+          },
+          "frameworks": [
+            "ASP.NET Core Blazor"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching blazor.web.js and initializer"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Server and beforeinput-capable browser"
+          ],
+          "renderingModes": [
+            "Web App Interactive Server"
+          ],
+          "prerequisites": [
+            "Keep JS registration, Razor EventHandler metadata and directive aligned. The complete sample uses Microsoft.NET.Sdk.Web, its implicit Microsoft.AspNetCore.App.Internal.Assets and shared Microsoft.AspNetCore.App; no external package/provider/workload. Register once in afterWebStarted."
+          ],
+          "constraints": [
+            "Static SSR cannot dispatch .NET events. WebAssembly, Hybrid, other browsers and older-target/new-package routes are unverified. Renaming is not an exactly-once delivery guarantee."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 execution; GA unverified"
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Components/Web.JS/src/Rendering/Events/EventTypes.ts",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Rendering/Events/EventTypes.ts",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-11.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CairnSignals/CairnSignals.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous event registry and aliases",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Components/Web.JS/src/Rendering/Events/EventTypes.ts"
+    },
+    {
+      "title": "Pinned new same-name guard",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Rendering/Events/EventTypes.ts"
+    },
+    {
+      "title": "Web App initializer lifecycle",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/startup?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/CairnSignals/CairnSignals.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK compilation, not cross-compilation. Separate real Chrome native-beforeinput receipts and served JS/DLL hashes in docs/verification/PIN-799.md establish old double delivery, new same-name rejection and renamed payload dispatch. Compilation alone is not browser proof."
+    },
+    {
+      "sample": "samples/net11.0/CairnSignals/CairnSignals.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK compilation, not cross-compilation. Separate real Chrome native-beforeinput receipts and served JS/DLL hashes in docs/verification/PIN-799.md establish old double delivery, new same-name rejection and renamed payload dispatch. Compilation alone is not browser proof."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/CairnSignals/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/CairnSignals/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/CairnSignals/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/CairnSignals/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-cairnsignals-csproj": {
+      "path": "samples/net10.0/CairnSignals/CairnSignals.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/CairnSignals/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-app-razor": {
+      "path": "samples/net10.0/CairnSignals/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-eventhandlers-cs": {
+      "path": "samples/net10.0/CairnSignals/EventHandlers.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-signalnote-razor": {
+      "path": "samples/net10.0/CairnSignals/SignalNote.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-wwwroot-cairnsignals-lib-module-js": {
+      "path": "samples/net10.0/CairnSignals/wwwroot/CairnSignals.lib.module.js",
+      "region": "complete",
+      "language": "javascript"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/CairnSignals/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/CairnSignals/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/CairnSignals/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/CairnSignals/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-cairnsignals-csproj": {
+      "path": "samples/net11.0/CairnSignals/CairnSignals.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/CairnSignals/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/CairnSignals/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-eventhandlers-cs": {
+      "path": "samples/net11.0/CairnSignals/EventHandlers.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-signalnote-razor": {
+      "path": "samples/net11.0/CairnSignals/SignalNote.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-wwwroot-cairnsignals-lib-module-js": {
+      "path": "samples/net11.0/CairnSignals/wwwroot/CairnSignals.lib.module.js",
+      "region": "complete",
+      "language": "javascript"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local real browser/component checks require no account or Human-only action. RC2 on one Windows Chrome; no GA/deployment/other-browser claim."
+  }
+}
