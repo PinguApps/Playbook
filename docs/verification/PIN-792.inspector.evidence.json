@@ -1,13 +1,13 @@
 {
-  "outputSha256": "5c4e99f30b7a2374b458ccaf522f451f3fad40f8e6f442b46720e3b7fd98aeb2",
+  "outputSha256": "8f2e7cf463420a124f583f4cec8e4eb74f6a003fa5b3709c5e2aec965a0b43ce",
   "edition": "11.0",
-  "recordedAt": "2026-10-23T08:15:01.9582753+00:00",
+  "recordedAt": "2026-10-23T08:39:31.7496871+00:00",
   "evidenceCount": 3,
   "kind": "real-built-server-stdio-inspector",
-  "scriptSha256": "cfbd8e5b965b1a60314f8e3de8e8b4b2f102229b300457e0471e29dc1ee24496",
-  "markdownLength": 35805,
+  "scriptSha256": "2647bbf73f7e78c1ef13dc2ea78b0493d28dc49f5baa058ae7c51c26c042346d",
+  "markdownLength": 35801,
   "startedFrom": "C:\\Windows",
-  "detailSha256": "38514cf12eac3f5b867432ec23222adfd17f04ab295ff76fa4cda32543005631",
+  "detailSha256": "926fcf162a444cffaa52e3a20bd874bb10701935760f76a2766939e470183acd",
   "id": "blazor.offload-browser-computation",
   "freshness": [
     "current",
@@ -15,8 +15,8 @@
     "current"
   ],
   "command": "Run exact docs/verification/PIN-792.md Inspector block from unrelated C:\\Windows",
-  "serverSha256": "48c1dc5ae57d43538e04499ea4e05a113f407aee9ad970711aa0641e3996b6b5",
-  "sourceCommit": "02da27a3778e367bc4445d31865db58047f499f0",
+  "serverSha256": "7fd5a62e4730467517520b20a4916454f09ba66a44cf3e50bf76a92e5d462c72",
+  "sourceCommit": "2df59b07f3163c86bcd2a299a5f3287a2881eb83",
   "sourceDirty": true,
   "scope": "Actual final documented block from C:\\Windows; server built at recorded commit with documentation-only dirt. Separate frozen installed packages and browser artifacts have their own provenance; no later build is relabelled."
 }

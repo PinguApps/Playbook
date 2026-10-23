@@ -1,6 +1,6 @@
 {
-  "fixture": "dd78c8ae083453a696fa745a7d22cc792adcba35251ac7cd5ca557a8697cd8e9",
-  "command": "docker run --rm --network none --name playbook-pin792-r3 [readonly frozen package/suite/wrapper mounts; writable results only; no checkout] -e DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 [pinned image] pwsh -NoProfile -File /test/Test-Package.ps1 -Artifacts /artifacts -Suite /suite -PackageVersion 0.0.0-pin792-r3 -RuntimeMajor 10 -Results /results/full; repeat -Results /results/smoke -Smoke",
+  "fixture": "861e4b90a14d69b85962b82f8cde8aaab2b38002d851245e13e8d1791a926f6c",
+  "command": "docker run --rm --network none --name playbook-pin792-r4 [readonly frozen package/suite/wrapper mounts; writable results only; no checkout] -e DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 [pinned image] pwsh -NoProfile -File /test/Test-Package.ps1 -Artifacts /artifacts -Suite /suite -PackageVersion 0.0.0-pin792-r4 -RuntimeMajor 10 -Results /results/full; repeat -Results /results/smoke -Smoke",
   "counts": {
     "full": {
       "total": 36,
@@ -13,19 +13,19 @@
       "failed": 0
     }
   },
-  "fixtureBuildCommit": "668fa7cedcc8bcbb50f2f8d94feab7dd1d146854",
-  "packageVersion": "0.0.0-pin792-r3",
+  "fixtureBuildCommit": "2df59b07f3163c86bcd2a299a5f3287a2881eb83",
+  "packageVersion": "0.0.0-pin792-r4",
   "runtime": "10.0.12",
   "limits": "Exact executed artifact copies, captured before later builds. Full36 and Smoke1 unchanged. Compilation/source review/controlled real browser execution are separate; no new OS/client/native matrix.",
   "measurements": [
     "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
     "11.0: count=20, largest summary=1982, structured=26431, result=67084 UTF-8 bytes",
-    "all 20: summary=1397, structured=26433, result=67088 UTF-8 bytes",
-    "all 50: summary=1397, structured=66095, result=167696 UTF-8 bytes",
     "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
-    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes"
+    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
+    "all 20: summary=1397, structured=26433, result=67088 UTF-8 bytes",
+    "all 50: summary=1397, structured=66095, result=167696 UTF-8 bytes"
   ],
-  "capturedAt": "2026-10-23T08:53:42.4335481+01:00",
+  "capturedAt": "2026-10-23T08:39:31.6697295+00:00",
   "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
   "suite": {
     "cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll": "9b8d77f33e0122c842d6c554281deec01a48cb009d81487b57ab00bad41b53a5",
@@ -77,10 +77,10 @@
     "Microsoft.VisualStudio.CodeCoverage.Shim.dll": "4f73128a17e78916f0e2ddb324c5da7b0b373d0cfb2814e17f3a7858e91b68bb",
     "Microsoft.VisualStudio.TestPlatform.Common.dll": "556cf93a977af4b858bb4b0d9eeb9177d8f084ff79be531b02ded8d317a7df81",
     "Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": "707971b2b682b863a33346c30f32b702a79365ad3442758d18a90a979c8f16df",
-    "PinguApps.Playbook.Tests.deps.json": "14e069c077c3df97bdc46d64b612657cc8ad9864c60d25bf61fc4b19145d70b8",
-    "PinguApps.Playbook.Tests.dll": "126383d9b6408ab53484807851ba8e9f08aa0335872c60f7a18decef3cee9971",
-    "PinguApps.Playbook.Tests.exe": "f0b7b2573add54b67d6ba8b203ba3c400cded6c5861e04e9bef304b2ff8ec8d6",
-    "PinguApps.Playbook.Tests.pdb": "3cdea0fe6e00c83e6c0d474e0ebdb80fbf215ebb0ea56f04045bf648ca039465",
+    "PinguApps.Playbook.Tests.deps.json": "45f99723ca353bf0328c8579c5ba6cbb14a1ca9fa86b18c794bdfd6d43162506",
+    "PinguApps.Playbook.Tests.dll": "813d83f50e8c5cb9ad05a217198efc0dd9bd84a2d49cf21895d2cfb7a1547fa9",
+    "PinguApps.Playbook.Tests.exe": "7c378917c1112368615f5ad9d5f08255b0996fdcad7436d638cbe1ceb80b475d",
+    "PinguApps.Playbook.Tests.pdb": "b248bc8b68ba467600e260bb3ec4374592b28886e0f803ad53759f4be67e95d7",
     "PinguApps.Playbook.Tests.runtimeconfig.json": "a217d17be0661abf2717a26937c6e379c33542cb6f292fd3fc5a2d5113a9d6dc",
     "PinguApps.Playbook.Tests.xml": "72ae0b48cb605b7ec756df7a1014397bee57911f59857e942b73eae8c7612353",
     "pl/Microsoft.TestPlatform.CommunicationUtilities.resources.dll": "454b9fdc68ce206226cc6a249f85835c0b569c7267f073fe7cafa311676e3dfd",
@@ -130,14 +130,23 @@
   },
   "ordinaryToolSourceDirty": true,
   "kind": "actual-installed-tool-offline-execution",
-  "ordinaryToolSourceCommit": "8959bb685e34a0fb0754622ce1d826f622459eb1",
+  "ordinaryToolSourceCommit": "3df9c5e790744ad899e2f6a6e124d06531570db1",
   "wrapper": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
-  "sourceCommitAtPackaging": "668fa7cedcc8bcbb50f2f8d94feab7dd1d146854",
-  "package": "149e001b64a2382e2a249dbcfb0b438cb264ecfe72fe4e7a37af8dd0b46a5ab0",
+  "sourceCommitAtPackaging": "2df59b07f3163c86bcd2a299a5f3287a2881eb83",
+  "package": "14e9bf76d753a1d69ca52a18b6bae6bfb0b4a7f79ad5f0f1d2160a2757654a3d",
   "trx": {
-    "full": "1a7bb5f180e6503a604930160ebf89e0bb6f0003383f72cc4565413a6c4cf9f1",
-    "smoke": "47e4a90b918684e080a878b53374c03fa9c181d13d939a572725f5760fd0d3d8"
+    "full": "2db56613eea50101c236fc3da424d30d377563a76573766aaac26d22755e50ad",
+    "smoke": "c2b1d0a0dee558e75d659b986c4e60f85f02437ffef1e8ae65858f91afd2e4a8"
   },
   "compiledSuiteSourceDirty": true,
-  "compiledSuiteSourceCommit": "8959bb685e34a0fb0754622ce1d826f622459eb1"
+  "compiledSuiteSourceCommit": "3df9c5e790744ad899e2f6a6e124d06531570db1",
+  "durationsSeconds": {
+    "full": 56.392,
+    "smoke": 2.22
+  },
+  "authoringReconciliation": {
+    "sourceCommit": "2df59b07f3163c86bcd2a299a5f3287a2881eb83",
+    "scope": "All frozen suite files verified against frozen-suite.json. Canonical browser input sets (18/26) and every executed app artifact (635/225) equal final execution record. Only documentation/evidence handoff changes follow; no source or executed-artifact equality exemption was used for changed sample input.",
+    "verifiedAt": "2026-10-23T08:39:31.7232121+00:00"
+  }
 }

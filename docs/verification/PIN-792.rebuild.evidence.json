@@ -4,7 +4,7 @@
   "rebuiltSourceDirty": false,
   "command": "Matching SDK 10/11 build FossilDesk.csproj -c Release -t:Rebuild --no-restore in each sample cwd; worker compiled through real reference; then fresh hosts and complete eng/FossilDesk.browser.js execution for both apps",
   "finalBrowserRecord": "PIN-792.execution.evidence.json",
-  "scope": "Copied compilation evidence files and their static asset endpoint manifests changed. Fresh real browser execution and complete new artifact fingerprints replace old captures; no artifact-equality exemption or relabelled old execution is used. Original compile records still honestly retain dirty 8959bb6 provenance.",
+  "scope": "Historical clean ab4ca5f rebuild changed copied compilation evidence and asset manifests; actual browser execution was refreshed. A later indentation-only net10 project cleanup required refreshed SDK10 compilation and final real Chrome execution for BOTH canonical apps at dirty 3df9c5e, recorded in PIN-792.execution.evidence.json and committed as 2df59b0. Original SDK11/worker compilation records retain dirty 8959bb6 provenance. No clean-state relabelling or equality exemption for changed artifacts.",
   "changedOutputCopiesAndManifests": [
     {
       "current": "2107075fd71b26b4409b0965b2c5f376693a1e7dce9ae75a52f5682556dd5343",

@@ -1,22 +1,6 @@
 {
-  "recordedAt": "2026-10-23T08:55:13.8282225+01:00",
-  "kind": "standalone-reconstruction-from-real-stdio-detail",
-  "bodySha256": "2ff64526f58b0e648e09bb48f0144476b4555bd35fbdafd3115e4c130d15312a",
-  "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05",
   "scope": "Every implementation file comes from served Markdown code fences, shared-file instructions and literal SDK instructions. No repository source, parent imports or lock files copied; actual matching SDK builds. Separate real browser execution follows.",
-  "logs": {
-    "worker": "C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilWorker\\FossilWorker.csproj]\r\n  FossilWorker -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilWorker\\bin\\Release\\net11.0\\FossilWorker.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.35\r\n",
-    "net10.0": {
-      "command": "C:\\Program Files\\dotnet\\dotnet.exe restore FossilDesk.csproj; C:\\Program Files\\dotnet\\dotnet.exe build FossilDesk.csproj -c Release --no-restore",
-      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net10.0\\FossilDesk\\FossilDesk.csproj (in 464 ms).\r\n  FossilDesk -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net10.0\\FossilDesk\\bin\\Release\\net10.0\\FossilDesk.dll\r\n  FossilDesk (Blazor output) -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net10.0\\FossilDesk\\bin\\Release\\net10.0\\wwwroot\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.68\r\n",
-      "sdk": "10.0.402"
-    },
-    "net11.0": {
-      "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe restore FossilDesk.csproj; C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build FossilDesk.csproj -c Release --no-restore",
-      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilWorker\\FossilWorker.csproj (in 67 ms).\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilDesk\\FossilDesk.csproj (in 73 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilDesk\\FossilDesk.csproj]\r\n  FossilWorker -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilWorker\\bin\\Release\\net11.0\\FossilWorker.dll\r\n  FossilDesk -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilDesk\\bin\\Release\\net11.0\\FossilDesk.dll\r\n  FossilDesk (Blazor output) -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-ec82c239834549a6a5d98ba91d241d05\\net11.0\\FossilDesk\\bin\\Release\\net11.0\\wwwroot\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:06.85\r\n",
-      "sdk": "11.0.100-rc.2.26504.105"
-    }
-  },
+  "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc",
   "files": {
     "net10.0/FossilDesk/bin/Release/net10.0/dotnet.js": "0501da3cf18e752361a4d3af7880c7ff2fd65e6d8ade7e19601c993d622cb68e",
     "net10.0/FossilDesk/bin/Release/net10.0/dotnet.js.map": "df01b85ffce84a6d71508ba1bf48bc85e3eb5b15fef39a3b1e4b975fd8d15de8",
@@ -24,12 +8,12 @@
     "net10.0/FossilDesk/bin/Release/net10.0/dotnet.native.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9",
     "net10.0/FossilDesk/bin/Release/net10.0/dotnet.runtime.js": "9ae374efa1e0c8e0a801a89def30fb6b6fc637b690eed98afc1cdd9ca830efc8",
     "net10.0/FossilDesk/bin/Release/net10.0/dotnet.runtime.js.map": "e1024f6ff9bb40b0322e3c4a1822840e4bea127dc6c9061af19a3ddd38b0f6d9",
-    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.dll": "0fd0e1477146c59809622baa6e3003e41b273cf2776a40f5c036ccfb6d11b905",
-    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.pdb": "39dacb7e890e14b4751f52539467e9e6471d61c2531ee4fe7ab90524315a9421",
+    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.dll": "71952b19d55b3f55a21ae68021f585bec64ed7c6adc476f1269d0645785e3f78",
+    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.pdb": "eb7a27e1a0c546adafa5e8268c4901efaf08fe1a2f5eea0fc9afe835cd2e324b",
     "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
-    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.endpoints.json": "19c61d462d8d579a4fc8913d9f4f7e03bd4b80be4b15508329455ab0e5fb50b4",
-    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.runtime.json": "f3a1576bcf4a93cae7aed6add41ef1388a0a0572d6668dcc3bbae32001489ad7",
-    "net10.0/FossilDesk/bin/Release/net10.0/global.json": "766c49d454787f0ea5ddcb1461024d43cc9b5d84262df6c87d914eb1acec33c1",
+    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.endpoints.json": "a4275432198a9e4f69d44b36bd9b2601b09523dd40d81832f00ca271f928f9bf",
+    "net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.runtime.json": "bf9da97c26c7673255c61e410570e0ffade162ef037177be9b4d497f59cd0c38",
+    "net10.0/FossilDesk/bin/Release/net10.0/global.json": "bdfddaf786350634ec2ea3a574c601f5e11e92f0a5f9c420fbb84302b0f1372b",
     "net10.0/FossilDesk/bin/Release/net10.0/icudt_CJK.dat": "4992ed42745cd09930a8769bd155153fb4f7b813d2798cf1cc39e9c4fa549c79",
     "net10.0/FossilDesk/bin/Release/net10.0/icudt_EFIGS.dat": "f1f22d7ad618f24434c30ea8c704cb893de85e50701caba66de3f6a51178c937",
     "net10.0/FossilDesk/bin/Release/net10.0/icudt_no_CJK.dat": "2fbb15ecd1183f7eff42bd853c278fa39709a918135d1c061eec05e50fb435fb",
@@ -233,8 +217,8 @@
     "net10.0/FossilDesk/bin/Release/net10.0/WindowsBase.dll": "943054748bd24ff0a0da136c0123eb0d1c4d6a8328b351a63301fbc2320df8bd",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/blazor.webassembly.js": "039f53afd1ea1211ccbbc914ee4aee2c8f5acb0e4c452e8bbdceb3ee309b8219",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/blazor.webassembly.js.gz": "4819b4f689703ab1d4473752605d3c553dc83893886f037fe0e8150e1ec3e2f6",
-    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.js": "f9255e9c84f3c52a923d07e1edb80cd4c911c729f2917aeb69a7d92809dbc93a",
-    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.js.gz": "e47070d8a5d99300cc544c34da47903761c178d80f19d0f034e22b86abbc00a3",
+    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.js": "1ef1e3053ad5b107ee77c2681021ab5435c3033b80fb282e56e46559b9c6a7ae",
+    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.js.gz": "e38879e52ddeb83895707e18af2eb86a99728a9bab5a304d9846e193162e847a",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.js.map": "df01b85ffce84a6d71508ba1bf48bc85e3eb5b15fef39a3b1e4b975fd8d15de8",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.js.map.gz": "f58928470b5533de2ceaa2989f0ec76604ff915af41ef91eb194e12e3bc0f5f0",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9",
@@ -245,10 +229,10 @@
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.runtime.azrfhwb804.js.gz": "0e7dbde7267c9dc9fc7cfdee779df969ba4e2ec09e0c50d45de4ece462eed226",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.runtime.js.map": "e1024f6ff9bb40b0322e3c4a1822840e4bea127dc6c9061af19a3ddd38b0f6d9",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/dotnet.runtime.js.map.gz": "fd1a059969c6dc1b7f1e35f0e129019ea4ff36a212b4ced4ff83ce754e267b49",
-    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.1ah7r79yco.pdb": "39dacb7e890e14b4751f52539467e9e6471d61c2531ee4fe7ab90524315a9421",
-    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.1ah7r79yco.pdb.gz": "2c2e06cca5ea41c4c7cf4fe545e6ddf5b652f96bc89bed1c677e7c928b5ae53f",
-    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.ctbe85bw1g.wasm": "501f1b2ac36bbc5828dad0b6192291699b3a1df1d4b33f15afe352792994dd16",
-    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.ctbe85bw1g.wasm.gz": "8cbbe6f5e7510b72424c6e85490e48035be0fb05a66d9b1b4b439f310630e218",
+    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.izjgtmzjym.wasm": "2e0e6545306606680ee5af710b844c28530215312bc7887b1fc7312a152596a3",
+    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.izjgtmzjym.wasm.gz": "9ce8ae42d65166f4a803bf39e43ae5f2bcaada0582ed7e873238bcee0cfc0687",
+    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.lg0zgigsaj.pdb": "eb7a27e1a0c546adafa5e8268c4901efaf08fe1a2f5eea0fc9afe835cd2e324b",
+    "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/FossilDesk.lg0zgigsaj.pdb.gz": "63ca506a9c040013ede50e39882c585de40d43ae18bfb32541b8477db39723f7",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat": "4992ed42745cd09930a8769bd155153fb4f7b813d2798cf1cc39e9c4fa549c79",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat.gz": "e8fbacdb74608f480520fa144bc72c8c27f75a6ffd8265a165ac5d54c92245de",
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat": "f1f22d7ad618f24434c30ea8c704cb893de85e50701caba66de3f6a51178c937",
@@ -653,8 +637,8 @@
     "net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/WindowsBase.z3dgnpnt6r.wasm.gz": "4edd7f938efc972e5538e035ee398a4238b381bcde939d657154a2a3018ede06",
     "net10.0/FossilDesk/Desk.razor": "3bdb4d7f21d6c0cb9ac98b5a5d9ce9d30c4cc93e79122a28d88872d68b835c75",
     "net10.0/FossilDesk/Directory.Packages.props": "f39e8661b0335ec6d1c7a0f2292fabbf529dd85764e1d77bb50d0c49450571b7",
-    "net10.0/FossilDesk/FossilDesk.csproj": "3fc04ab4daf16c49991c5623b6b223d584e23cdef95b2cd23dc71df8b8e40bf1",
-    "net10.0/FossilDesk/global.json": "766c49d454787f0ea5ddcb1461024d43cc9b5d84262df6c87d914eb1acec33c1",
+    "net10.0/FossilDesk/FossilDesk.csproj": "d1bb87b82ce953741c5bd6a14796263ea86d0e9a665734ec73a99d4006c6b89f",
+    "net10.0/FossilDesk/global.json": "bdfddaf786350634ec2ea3a574c601f5e11e92f0a5f9c420fbb84302b0f1372b",
     "net10.0/FossilDesk/packages.lock.json": "c600b536a31712df15aafe7906969a68c667b9421e2516317a72a19023c05510",
     "net10.0/FossilDesk/Program.cs": "fb7468b04e6b019c2eadb06d695615f3259a5fa3345b71bb9f0faecfa469e633",
     "net10.0/FossilDesk/wwwroot/fossil-client.js": "5648b3f08bfb6b4352934f2086aed25f9a2b6bbdd265f518a5c13a2ea011dec2",
@@ -667,16 +651,16 @@
     "net11.0/FossilDesk/bin/Release/net11.0/dotnet.native.wasm": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
     "net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
     "net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js.map": "6ebd0a1b7435a9ce802e194a251baa39fc5d95609fdbfb69351da605cdc20953",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.dll": "ccc8aa77e1993cf1ff15e835f6864b762988dd2e658bdfa0e8f3cae4f2393f6d",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.pdb": "f16f9a46d40d63ff8ea302cb920be9b5287d50b7a37b397dbde7ed44a26aafb2",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.dll": "afdb67b3e1d6e0ff974c7edd8c57017fe5ab1b38ddeb6847afe717d16f1c3db9",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.pdb": "6539013838a88eb3dc5297350e22aaf01522463b2d0abad1d2bca14992062884",
     "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.endpoints.json": "8a5ae900aabf65b41d168568cdfd57e047bc06801b77d9e01a4d07b54cce4583",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.runtime.json": "96182ebfeef53e64c8b39164ff59377099b4eba761880265487ca504d94f7b6b",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.dll": "1c69f640ec841e5d01a8a5d21d5b7ca5fb21f53d13fe6fe392399a17d56c31b0",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.pdb": "78d29a786d62ca2277133ec713be3bdbd8e85a5d7ad452256a41f7fb9cca11c2",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "b36ad6cff912aa4afe5b2e6834f71e41e315b799629b7e4087ca14988e5832d2",
-    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.runtime.json": "f1cbf53805c2992d8344eaa5604e30324681f04df6603333b473f61a228f42f0",
-    "net11.0/FossilDesk/bin/Release/net11.0/global.json": "1c13a51f9f8f3e8bc2341a4099282d70108a8a2f1f0b14506f916fc1caf63aae",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.endpoints.json": "7084b7fb2788aaa583cc3a73cf0d5bf03aaf90d38111b9bafed9b356757f0f0f",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.runtime.json": "e8c01b4219da3106aa5e53c24c551a3da4fba0923441151057dde6129a68e230",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.dll": "020f2711c13ae8f5d6b734e8b029b329471a211b97e16c5648acb108ecab86fe",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.pdb": "a4e5e8491d04a57d6f8dc17622a57cc7bab52254c09b206794a226f7a83040b6",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "bec6a427a36423427f638a5439ceded3de8caba8143115e759ff79328f2361b7",
+    "net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.runtime.json": "52e369dfb2c46530bf13ad5da5fbca598b985d56ed98bcd4f669c56f76e1f0e2",
+    "net11.0/FossilDesk/bin/Release/net11.0/global.json": "1c524ac4b1deae6fbdb74e847cfb395d03231aa17a71c9bb1b2383e5f6deb31c",
     "net11.0/FossilDesk/bin/Release/net11.0/icudt_CJK.dat": "799b97d299edad4c0dac098508cc29c498c5037fccca2feb5b6c7d98467e31b8",
     "net11.0/FossilDesk/bin/Release/net11.0/icudt_EFIGS.dat": "4907316fe6ddc7651750253db4574e582af80ad93ae318210a7af42462d658a4",
     "net11.0/FossilDesk/bin/Release/net11.0/icudt_no_CJK.dat": "4fc625972969c725a9f40ab802217e04c031297a98cb3581f5103946a635f6fb",
@@ -882,58 +866,74 @@
     "net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.dll": "4de49b8ef1422f1b4d19dad40c3e10c3936c03cae730533679281ed736c9fa1e",
     "net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.XDocument.dll": "b3c9396753122a8af449803b536b74eb0baaec2dd240878c84b361dd76a67d7a",
     "net11.0/FossilDesk/bin/Release/net11.0/WindowsBase.dll": "39bd19606e4439bd4a47a62c23d43cf982ae0cc67634dd2fc3213b2185d79b81",
-    "net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "4c39e8c856f13ba9ea34d4783fc9571751722cd29c8c8cd3d4bd05c140dd67c3",
-    "net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js.gz": "fdbe37c7c951534fa0e6b3e884e2f89fb41ed5914d3aa0b5e6203e13dbefaf16",
+    "net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "132e2c37d3a7095c389b9e4e661a0c6476f4ba801d0a47c4f1239bd6304cb6b1",
+    "net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js.gz": "70bb1e6909a6f1b58e4a6aedb391617e14c28619632a1f4d056c4d63ba51ce6f",
     "net11.0/FossilDesk/Desk.razor": "669c1c79266cd577759ad43c93596cde94136d5656e99cb61a9b4af64cbd63af",
     "net11.0/FossilDesk/Directory.Packages.props": "1c21af9e04d39dceef7993b4c25599afba2d82c82f281c8ff748f8123829e475",
     "net11.0/FossilDesk/FossilDesk.csproj": "b7b2417e0ea9881f1647eb840695c596f9623cb82fc6ffeae95374cf802ad942",
-    "net11.0/FossilDesk/global.json": "1c13a51f9f8f3e8bc2341a4099282d70108a8a2f1f0b14506f916fc1caf63aae",
+    "net11.0/FossilDesk/global.json": "1c524ac4b1deae6fbdb74e847cfb395d03231aa17a71c9bb1b2383e5f6deb31c",
     "net11.0/FossilDesk/packages.lock.json": "9798156a8a86745f3e29c2623f99c700a1afa5c785df730542ce6dcb28743fba",
     "net11.0/FossilDesk/Program.cs": "43491bc5d9f5c7765289b7721d4cf6573ae88d52fd8e07451ca1389eea43cfa8",
     "net11.0/FossilDesk/WorkerProbe.cs": "870e6abee543ff75dbc5d0fe98dd4e963684cca8086c4c27e616838d29ae331b",
     "net11.0/FossilDesk/wwwroot/fossil-observe.js": "ba132a2967d0ce127118d083ea545e4b386a21ef5a0b29bc5c073f82652055b8",
     "net11.0/FossilDesk/wwwroot/index.html": "8bfa053c929239d96daed834a15ffeccd63e02baaaa1bd572eab2c03a69dac59",
     "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.deps.json": "ebf1504b8aebc85ffe294de019b38762ca8a0acf461ba0da40f2cf160e705584",
-    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.dll": "1c69f640ec841e5d01a8a5d21d5b7ca5fb21f53d13fe6fe392399a17d56c31b0",
-    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.pdb": "78d29a786d62ca2277133ec713be3bdbd8e85a5d7ad452256a41f7fb9cca11c2",
-    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "b36ad6cff912aa4afe5b2e6834f71e41e315b799629b7e4087ca14988e5832d2",
-    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.staticwebassets.runtime.json": "f1cbf53805c2992d8344eaa5604e30324681f04df6603333b473f61a228f42f0",
-    "net11.0/FossilWorker/bin/Release/net11.0/global.json": "1c13a51f9f8f3e8bc2341a4099282d70108a8a2f1f0b14506f916fc1caf63aae",
+    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.dll": "020f2711c13ae8f5d6b734e8b029b329471a211b97e16c5648acb108ecab86fe",
+    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.pdb": "a4e5e8491d04a57d6f8dc17622a57cc7bab52254c09b206794a226f7a83040b6",
+    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "bec6a427a36423427f638a5439ceded3de8caba8143115e759ff79328f2361b7",
+    "net11.0/FossilWorker/bin/Release/net11.0/FossilWorker.staticwebassets.runtime.json": "52e369dfb2c46530bf13ad5da5fbca598b985d56ed98bcd4f669c56f76e1f0e2",
+    "net11.0/FossilWorker/bin/Release/net11.0/global.json": "1c524ac4b1deae6fbdb74e847cfb395d03231aa17a71c9bb1b2383e5f6deb31c",
     "net11.0/FossilWorker/Directory.Packages.props": "1c21af9e04d39dceef7993b4c25599afba2d82c82f281c8ff748f8123829e475",
     "net11.0/FossilWorker/FossilWorker.csproj": "bbcc3914b9bfc23dcfd9f135deca6fd3c677a114ee13c4663fe9d72473d6d429",
-    "net11.0/FossilWorker/global.json": "1c13a51f9f8f3e8bc2341a4099282d70108a8a2f1f0b14506f916fc1caf63aae",
+    "net11.0/FossilWorker/global.json": "1c524ac4b1deae6fbdb74e847cfb395d03231aa17a71c9bb1b2383e5f6deb31c",
     "net11.0/FossilWorker/packages.lock.json": "ab553cd94fc490c28f4d7ad73fe18b34938d734b9aae11c74c47c589b102e6fb",
     "net11.0/FossilWorker/WebWorkerClient.cs": "7e3852bd3aca90acfedca2ac2ec43406b5b070fa664f7d610aff32463fa10138",
     "net11.0/FossilWorker/WorkerMethods.cs": "1ed4c9f7e06eebb7e770d54c60e0769060295eda4eaaa6d4caa441289497b5a5",
     "net11.0/FossilWorker/wwwroot/dotnet-web-worker-client.js": "dd4cdbdf5eae12b9fdb08ceb51c786dba849bfc0d9e07a2b72adc6183ebb4118",
     "net11.0/FossilWorker/wwwroot/dotnet-web-worker.js": "62e9d5b60e4381c2ab5aafd8f6bb9d88b6f4f0c598e98c8aa9f1f06a3a1fd52e"
   },
+  "recordedAt": "2026-10-23T09:37:13.5785432+01:00",
+  "kind": "standalone-reconstruction-from-real-stdio-detail",
+  "bodySha256": "7c4da9bb22e11cc9fda87abf28a9eaf2ef9cc7dc279439324f67c2e14af32569",
+  "logs": {
+    "worker": "C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilWorker\\FossilWorker.csproj]\r\n  FossilWorker -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilWorker\\bin\\Release\\net11.0\\FossilWorker.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.31\r\n",
+    "net10.0": {
+      "sdk": "10.0.402",
+      "command": "C:\\Program Files\\dotnet\\dotnet.exe restore FossilDesk.csproj; C:\\Program Files\\dotnet\\dotnet.exe build FossilDesk.csproj -c Release --no-restore",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net10.0\\FossilDesk\\FossilDesk.csproj (in 423 ms).\r\n  FossilDesk -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net10.0\\FossilDesk\\bin\\Release\\net10.0\\FossilDesk.dll\r\n  FossilDesk (Blazor output) -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net10.0\\FossilDesk\\bin\\Release\\net10.0\\wwwroot\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:04.61\r\n"
+    },
+    "net11.0": {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe restore FossilDesk.csproj; C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build FossilDesk.csproj -c Release --no-restore",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilWorker\\FossilWorker.csproj (in 60 ms).\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilDesk\\FossilDesk.csproj (in 62 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilDesk\\FossilDesk.csproj]\r\n  FossilWorker -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilWorker\\bin\\Release\\net11.0\\FossilWorker.dll\r\n  FossilDesk -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilDesk\\bin\\Release\\net11.0\\FossilDesk.dll\r\n  FossilDesk (Blazor output) -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin792-standalone-c9b881f7332a451eaa9115feccc44fdc\\net11.0\\FossilDesk\\bin\\Release\\net11.0\\wwwroot\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:06.27\r\n"
+    }
+  },
   "execution": {
     "kind": "real-browser-webassembly-native-worker",
-    "recordedAt": "2026-10-23T07:59:48.54Z",
+    "recordedAt": "2026-10-23T08:38:11.193Z",
     "url": "http://localhost:5832/",
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
     "newer": true,
     "trace": [
       {
         "phase": "responsive-during-cpu",
-        "frames": 52,
+        "frames": 47,
         "state": "Computing",
         "clicks": 1
       },
       {
         "phase": "completed",
-        "result": "Score 465407 | Westmere-A:1"
+        "result": "Score 302274 | Westmere-A:1"
       },
       {
         "phase": "invocation-timeout-work-continued",
         "state": "Wait failed: Unable to invoke the web worker JavaScript function: Worker method 'FossilWorker.WorkerMethods.Score' timed out\nError: Worker method 'FossilWorker.WorkerMethods.Score' timed out\n    at http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js:3:33",
-        "result": "Score 465407 | Westmere-A:1 | Westmere-A:2"
+        "result": "Score 302274 | Westmere-A:1 | Westmere-A:2"
       },
       {
         "phase": "invocation-cancel-work-continued",
         "state": "Wait cancelled",
-        "result": "Score 465407 | Westmere-A:1 | Westmere-A:2 | Westmere-A:3"
+        "result": "Score 302274 | Westmere-A:1 | Westmere-A:2 | Westmere-A:3"
       },
       {
         "phase": "both-waits-ended-before-actual-worker-completion",
@@ -952,11 +952,11 @@
     "workers": [
       {
         "url": "_content/FossilWorker/dotnet-web-worker.js",
-        "createdAt": 2047.199999988079,
+        "createdAt": 2301,
         "events": [
           {
             "direction": "sent",
-            "at": 2047.300000011921,
+            "at": 2301.099999964237,
             "data": {
               "type": "init",
               "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
@@ -965,14 +965,14 @@
           },
           {
             "direction": "received",
-            "at": 2592.900000035763,
+            "at": 2964.399999976158,
             "data": {
               "type": "ready"
             }
           },
           {
             "direction": "sent",
-            "at": 2643.800000011921,
+            "at": 3026.5,
             "data": {
               "method": "FossilWorker.WorkerMethods.Label",
               "args": [
@@ -983,7 +983,7 @@
           },
           {
             "direction": "received",
-            "at": 2645.100000023842,
+            "at": 3027.899999976158,
             "data": {
               "type": "result",
               "requestId": 1
@@ -991,7 +991,7 @@
           },
           {
             "direction": "sent",
-            "at": 67843.19999998808,
+            "at": 14323.199999988079,
             "data": {
               "method": "FossilWorker.WorkerMethods.Score",
               "args": [
@@ -1002,16 +1002,16 @@
           },
           {
             "direction": "received",
-            "at": 69048,
+            "at": 15528,
             "data": {
               "type": "result",
               "requestId": 2,
-              "result": 465407
+              "result": 302274
             }
           },
           {
             "direction": "sent",
-            "at": 69051.80000001192,
+            "at": 15531.299999952316,
             "data": {
               "method": "FossilWorker.WorkerMethods.Report",
               "args": [],
@@ -1020,7 +1020,7 @@
           },
           {
             "direction": "received",
-            "at": 69062.69999998808,
+            "at": 15545,
             "data": {
               "type": "result",
               "requestId": 3,
@@ -1029,7 +1029,7 @@
           },
           {
             "direction": "sent",
-            "at": 69086.69999998808,
+            "at": 15566.299999952316,
             "data": {
               "method": "FossilWorker.WorkerMethods.Score",
               "args": [
@@ -1040,7 +1040,7 @@
           },
           {
             "direction": "sent",
-            "at": 69113.60000002384,
+            "at": 15591.599999964237,
             "data": {
               "method": "FossilWorker.WorkerMethods.Report",
               "args": [],
@@ -1049,16 +1049,16 @@
           },
           {
             "direction": "received",
-            "at": 70287.10000002384,
+            "at": 16766.69999998808,
             "data": {
               "type": "result",
               "requestId": 4,
-              "result": 514142
+              "result": 165463
             }
           },
           {
             "direction": "received",
-            "at": 70287.40000003576,
+            "at": 16767,
             "data": {
               "type": "result",
               "requestId": 5,
@@ -1067,7 +1067,7 @@
           },
           {
             "direction": "sent",
-            "at": 70313.90000003576,
+            "at": 16783.299999952316,
             "data": {
               "method": "FossilWorker.WorkerMethods.Score",
               "args": [
@@ -1078,7 +1078,7 @@
           },
           {
             "direction": "sent",
-            "at": 70369.90000003576,
+            "at": 16838.19999998808,
             "data": {
               "method": "FossilWorker.WorkerMethods.Report",
               "args": [],
@@ -1087,16 +1087,16 @@
           },
           {
             "direction": "received",
-            "at": 71514.30000001192,
+            "at": 17983.799999952316,
             "data": {
               "type": "result",
               "requestId": 6,
-              "result": 939899
+              "result": 826574
             }
           },
           {
             "direction": "received",
-            "at": 71514.5,
+            "at": 17984.099999964237,
             "data": {
               "type": "result",
               "requestId": 7,
@@ -1105,7 +1105,7 @@
           },
           {
             "direction": "sent",
-            "at": 72259.80000001192,
+            "at": 18685.099999964237,
             "data": {
               "method": "FossilWorker.WorkerMethods.Score",
               "args": [
@@ -1115,15 +1115,15 @@
             }
           }
         ],
-        "terminatedAt": 72374.69999998808
+        "terminatedAt": 18798
       },
       {
         "url": "_content/FossilWorker/dotnet-web-worker.js",
-        "createdAt": 71524.5,
+        "createdAt": 18002.899999976158,
         "events": [
           {
             "direction": "sent",
-            "at": 71524.80000001192,
+            "at": 18002.899999976158,
             "data": {
               "type": "init",
               "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
@@ -1131,15 +1131,15 @@
             }
           }
         ],
-        "terminatedAt": 71527.30000001192
+        "terminatedAt": 18005.099999964237
       },
       {
         "url": "_content/FossilWorker/dotnet-web-worker.js",
-        "createdAt": 71533.5,
+        "createdAt": 18011,
         "events": [
           {
             "direction": "sent",
-            "at": 71533.5,
+            "at": 18011.099999964237,
             "data": {
               "type": "init",
               "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
@@ -1148,13 +1148,13 @@
           },
           {
             "direction": "received",
-            "at": 72255.90000003576,
+            "at": 18655.599999964237,
             "data": {
               "type": "ready"
             }
           }
         ],
-        "terminatedAt": 72257.69999998808
+        "terminatedAt": 18682.899999976158
       }
     ],
     "resources": [
@@ -1164,20 +1164,22 @@
       "http://localhost:5832/_framework/dotnet.runtime.okxdo5zwwj.js",
       "http://localhost:5832/_framework/dotnet.native.ric31difde.js",
       "http://localhost:5832/_framework/dotnet.native.89gvfkserh.wasm",
-      "http://localhost:5832/_framework/FossilWorker.wi996lw0l1.pdb",
-      "http://localhost:5832/_framework/FossilDesk.37hs2mjj74.pdb",
-      "http://localhost:5832/_framework/FossilWorker.sruvdm3a1x.wasm",
-      "http://localhost:5832/_framework/FossilDesk.564o4zhvpj.wasm",
+      "http://localhost:5832/_framework/FossilWorker.gdo109zb0j.pdb",
+      "http://localhost:5832/_framework/FossilDesk.n59l194gq7.pdb",
+      "http://localhost:5832/_framework/FossilWorker.2kli6n1nlr.wasm",
+      "http://localhost:5832/_framework/FossilDesk.semn3xhp1a.wasm",
       "http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js",
       "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js",
       "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js"
     ],
     "limit": "Real foreground browser; deterministic init-message hold for creation cancellation only. No mock worker; no GA/AOT/mobile/SSR/Auto/deployment or durable-work proof."
   },
-  "verifierExecutedPath": "artifacts/pin792/Reconstruct.ps1",
+  "verifierExecutedPath": "eng/Test-FossilDeskStandalone.ps1",
   "verifierPublishedPath": "eng/Test-FossilDeskStandalone.ps1",
   "verifierSha256": "4d3425230469613b872fe4c71c9ba63c530fb16566a702983785eb6d508e6b1c",
   "browserVerifierSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
   "expressionSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
-  "artifactsAfterExecutionEqual": true
+  "artifactsAfterExecutionEqual": true,
+  "sourceCommit": "2df59b07f3163c86bcd2a299a5f3287a2881eb83",
+  "sourceDirty": true
 }
