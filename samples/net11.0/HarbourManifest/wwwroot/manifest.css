@@ -1,0 +1,10 @@
+/* snippet:geometry */
+body { font: 16px system-ui; margin: 2rem; }
+button { margin: 0 0.5rem 1rem 0; padding: 0.5rem; }
+#viewport { height: 320px; overflow-y: auto; border: 1px solid #667; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+tr { height: 32px; }
+th, td { box-sizing: border-box; height: 32px; padding: 0 12px; line-height: 32px;
+         white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
+tbody tr:nth-child(even) { background: #eef3f7; }
+/* endsnippet:geometry */
