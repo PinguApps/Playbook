@@ -1,0 +1,58 @@
+<!-- snippet:panel -->
+@implements IDisposable
+@inject PersistentComponentState State
+@inject IJSRuntime JS
+
+<section class="batch-panel">
+    <p class="choice">@Describe(saved)</p>
+    <p class="restored">Restored: @restored</p>
+    <p class="interop">@interop</p>
+    <button @onclick="RoundTrip">Echo choice through JavaScript</button>
+</section>
+
+@code {
+    [Parameter, EditorRequired] public SeedChoice Choice { get; set; }
+    private SeedChoice saved;
+    private bool restored;
+    private string interop = "Waiting for JavaScript";
+    private PersistingComponentStateSubscription subscription;
+    private string Key => "seed-choice:" + Describe(Choice);
+
+    protected override void OnInitialized()
+    {
+        restored = State.TryTakeFromJson<SeedChoice>(Key, out var value);
+        saved = restored ? value : Choice;
+        subscription = State.RegisterOnPersisting(() =>
+        {
+            State.PersistAsJson(Key, saved);
+            return Task.CompletedTask;
+        });
+    }
+
+    private async Task RoundTrip()
+    {
+        try
+        {
+            var echoed = await JS.InvokeAsync<SeedChoice>("seedEcho", saved);
+            interop = "JavaScript: " + Describe(echoed);
+        }
+        catch (JSDisconnectedException)
+        {
+            interop = "Disconnected; reopen the page to try again";
+        }
+        catch (JSException)
+        {
+            interop = "JavaScript failed; choice retained";
+        }
+    }
+
+    private static string Describe(SeedChoice value) => value switch
+    {
+        { Text: { } text } => text,
+        { Batch: { } batch } => $"{batch.Variety}: {batch.Packets} packets",
+        _ => "No selection"
+    };
+
+    public void Dispose() => subscription.Dispose();
+}
+<!-- endsnippet:panel -->

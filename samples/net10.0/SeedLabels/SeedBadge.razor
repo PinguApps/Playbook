@@ -1,0 +1,17 @@
+<!-- snippet:badge -->
+<p class="seed-label">
+    @if (LabelTemplate is { } template)
+    {
+        @template
+    }
+    else
+    {
+        @Label
+    }
+</p>
+
+@code {
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public RenderFragment? LabelTemplate { get; set; }
+}
+<!-- endsnippet:badge -->
