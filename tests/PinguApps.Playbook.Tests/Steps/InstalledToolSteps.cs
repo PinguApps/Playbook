@@ -51,7 +51,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string markdown = recipe.GetProperty("markdown").GetString()!;
-        foreach (string contract in new[] { "Hidden chrome is not authorization", "IHostEnvironment", "IWebAssemblyHostEnvironment", "adapter", "ordinal case-insensitive", "Exclude wins", "prerender: false", "UseStaticWebAssets", "WasmBuildNative=false", "RC2", "not a new .NET 10 foundation" })
+        foreach (string contract in new[] { "Hidden chrome is not authorization", "IHostEnvironment", "IWebAssemblyHostEnvironment", "adapter", "ordinal case-insensitive", "Exclude wins", "prerender: false", "UseStaticWebAssets", "<WasmBuildNative>false</WasmBuildNative>", "RC2", "not a new .NET 10 foundation" })
         {
             Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
         }
