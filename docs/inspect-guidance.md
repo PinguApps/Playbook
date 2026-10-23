@@ -5,6 +5,11 @@ For one browser build with public environment settings, use the
 It displays the complete original .NET 10/11 comparison, WASM applicability,
 environment-source precedence and duplicate-registration migration.
 
+For lengthy browser calculations, use the
+[tested PIN-792 walkthrough](verification/PIN-792.md#inspect-what-an-agent-receives).
+It displays the full original .NET 10/11 comparison, actual generated worker
+client/assets, WASM/CSR applicability and cancellation versus termination limits.
+
 For nested Blazor startup options across legacy and Web App scripts, use the
 [tested PIN-789 walkthrough](verification/PIN-789.md#inspect-what-an-agent-receives).
 It displays complete original .NET 10/11 setup, discovery and applicability,
