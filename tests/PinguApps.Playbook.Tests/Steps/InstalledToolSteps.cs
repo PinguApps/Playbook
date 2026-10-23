@@ -19,6 +19,13 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("base aware navigation retains complete canonical guidance offline")]
+    public async Task CheckBaseAwareNavigationAsync()
+    {
+        string[] ids = ["blazor.build-section-link", "blazor.navigate-within-current-path", "blazor.render-application-base"];
+        await CheckWebRecipesAsync(ids, "base-aware-navigation").ConfigureAwait(false);
+    }
+
     [Then("survey forms retain complete canonical bodies applicability and editions")]
     public async Task CheckSurveyFormsAsync()
     {
@@ -70,6 +77,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
             JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), entry => entry.GetProperty("id").GetString() == id);
             Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
+            Assert.Equal(metadata.RootElement.GetProperty("title").GetString(), summary.GetProperty("title").GetString());
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
             Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
             Assert.Equal("stable", recipe.GetProperty("stability").GetString());

@@ -55,6 +55,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-SurveyForms.ps1'), (Join-Path $PSScriptRoot 'SurveyForms.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-VisitBookings.ps1'), (Join-Path $PSScriptRoot 'VisitBookings.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-ArchiveCards.ps1'), (Join-Path $PSScriptRoot 'ArchiveCards.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-NavigationAtlas.ps1'), (Join-Path $PSScriptRoot 'NavigationAtlas.browser.js') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs
