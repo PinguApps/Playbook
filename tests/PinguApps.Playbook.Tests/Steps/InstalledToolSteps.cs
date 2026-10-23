@@ -11,6 +11,57 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("circuit transport retains complete canonical guidance and connection requirements offline")]
+    public async Task CheckCircuitTransportAsync()
+    {
+        const string id = "blazor.control-circuit-transport";
+        await CheckWebRecipesAsync([id], "lockhouse-sessions").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement expectedRoute = Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        JsonElement actualRoute = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in expectedRoute.EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, actualRoute.GetProperty(property.Name)), $"Circuit transport route field {property.Name}, including every nested requirement, must survive offline stdio retrieval.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete {field} must survive packaging.");
+        }
+
+        JsonElement[] expectedEvidence = [.. metadata.RootElement.GetProperty("evidence").EnumerateArray()];
+        JsonElement[] actualEvidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        Assert.Equal(expectedEvidence.Length, actualEvidence.Length);
+        for (int index = 0; index < expectedEvidence.Length; index++)
+        {
+            foreach (JsonProperty property in expectedEvidence[index].EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actualEvidence[index].GetProperty(property.Name)), $"Authored evidence field {property.Name} must survive packaging.");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string file in new[] { "_Imports.razor", "App.razor", "Session.razor", "wwwroot/session.js", "LockhouseSessions.csproj" })
+            {
+                string input = await ReadSdkInputAsync($"samples/{target}/LockhouseSessions/{file}").ConfigureAwait(false);
+                foreach (string line in input.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.Contains("snippet:", StringComparison.Ordinal)))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            using JsonDocument pin = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/LockhouseSessions/global.json").ConfigureAwait(false));
+            Assert.Contains(pin.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Contains("27648", actualRoute.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("browser reconnect options", markdown, StringComparison.OrdinalIgnoreCase);
+        Assert.Contains("CloseOnExpiry false", markdown, StringComparison.Ordinal);
+    }
+
     private readonly IReqnrollOutputHelper _output;
     private readonly string _directory = Path.Combine(Path.GetTempPath(), $"playbook-consumer-{Guid.NewGuid():N}");
     private Process? _server;

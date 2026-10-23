@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Deliberate circuit transport uses original LockhouseSessions .NET 10/11 hosts.
+[PIN-790](verification/PIN-790.md) records actual WebSocket/fallback, cookie-expiry
+controls and payloads above configured pipe thresholds, with complete offline delivery.
+
 Deliberate enhanced-navigation resource hints use original TernLedger .NET 10/11
 consumers. [PIN-800](verification/PIN-800.md) records actual hinted/control requests,
 deferred module execution, cache reuse and complete installed-body reconstruction.

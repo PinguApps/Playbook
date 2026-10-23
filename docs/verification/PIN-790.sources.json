@@ -1,0 +1,64 @@
+{
+  "scope": "Immutable ASP.NET Core source inspection, not compilation or execution. Previous options lack ConfigureConnection; newer options expose it. PipeOptions pause/resume thresholds and periodic ticket-expiry closure reviewed.",
+  "commits": {
+    "older": "0ef4bbfa3291b306a21e5001cb0491277bdd35bc",
+    "newer": "4a70870818bf5662f21b0c28f9a8c267dccb77f0"
+  },
+  "kind": "official-source-review",
+  "files": [
+    {
+      "sha256": "7d32d242ceed3cf479ee71a73f1494fbf662ece313b682219ca60f51b526a39b",
+      "file": "10-ComponentEndpointRouteBuilderExtensions.cs"
+    },
+    {
+      "sha256": "4ee97c362f7f49070e9f271235cea1f70385e602ec012ccca9b929b872b669f7",
+      "file": "10-ServerComponentsEndpointOptions.cs"
+    },
+    {
+      "sha256": "b89a62eb3a7223bc482bb4f9bf017f8005502ca823db6edeb4aa697a9b4d5cc7",
+      "file": "10-ServerRazorComponentsEndpointConventionBuilderExtensions.cs"
+    },
+    {
+      "sha256": "0dcc1dfe1256d4d874a12b211e8219201f30476c4b7e7becf948523682f28ef1",
+      "file": "11-ComponentEndpointRouteBuilderExtensions.cs"
+    },
+    {
+      "sha256": "e7898e71f5758d5b1132048149c6f356653c2cafb711eb396bcd268f0cbf8c2a",
+      "file": "11-HttpConnectionDispatcher.cs"
+    },
+    {
+      "sha256": "7df53b0e335c6c2a7071030a612eeb24d1b7c8490bcf8b3c7cb73d13d5f21050",
+      "file": "11-HttpConnectionDispatcherOptions.cs"
+    },
+    {
+      "sha256": "7abf335881110a7d245328e4b28b9d4dd4e62a95762cdc8bd7e7fd5d5f0d88f9",
+      "file": "11-HttpConnectionManager.cs"
+    },
+    {
+      "sha256": "c98c16446fcfc7796640f3d66afd3bd6d9afb61276af67d76f2c2d453935b550",
+      "file": "11-ServerComponentsEndpointOptions.cs"
+    },
+    {
+      "sha256": "b89a62eb3a7223bc482bb4f9bf017f8005502ca823db6edeb4aa697a9b4d5cc7",
+      "file": "11-ServerRazorComponentsEndpointConventionBuilderExtensions.cs"
+    }
+  ],
+  "artifactSourceCheck": {
+    "newer": {
+      "sha256": "c98c16446fcfc7796640f3d66afd3bd6d9afb61276af67d76f2c2d453935b550",
+      "assemblyVersionFile": "C:/Users/pingu/.dotnet-playbook-11/shared/Microsoft.AspNetCore.App/11.0.0-rc.2.26504.105/.version",
+      "hasConfigureConnection": true,
+      "sourceUrl": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs",
+      "equalsAuditedUpstream": true,
+      "vmrCommit": "820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    "older": {
+      "sha256": "4ee97c362f7f49070e9f271235cea1f70385e602ec012ccca9b929b872b669f7",
+      "assemblyVersionFile": "C:/Program Files/dotnet/shared/Microsoft.AspNetCore.App/10.0.13/.version",
+      "hasConfigureConnection": false,
+      "sourceUrl": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Components/Server/src/Builder/ServerComponentsEndpointOptions.cs",
+      "equalsAuditedUpstream": true,
+      "vmrCommit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    }
+  }
+}

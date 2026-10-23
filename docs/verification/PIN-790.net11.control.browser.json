@@ -1,0 +1,47 @@
+{
+  "afterExpiry": "Connected",
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "closeOnExpiry": false,
+  "completed": "2026-10-23T06:12:11.584Z",
+  "controlReceipt": "Receipt 2: 27648 characters",
+  "echoedCharacters": 27648,
+  "fallback": {
+    "status": 404,
+    "text": "LongPolling transport not supported by this end point type"
+  },
+  "identity": "783888c2e05f470db640881583e312c0",
+  "negotiate": [
+    {
+      "transferFormats": [
+        "Text",
+        "Binary"
+      ],
+      "transport": "WebSockets"
+    }
+  ],
+  "newConnectionStatus": 401,
+  "policy": [
+    {
+      "applicationMaxBufferSize": 8192,
+      "closeOnAuthenticationExpiration": false,
+      "route": "/_blazor/negotiate",
+      "transportMaxBufferSize": 16384,
+      "transports": "WebSockets"
+    },
+    {
+      "applicationMaxBufferSize": 8192,
+      "closeOnAuthenticationExpiration": false,
+      "route": "/_blazor/refresh",
+      "transportMaxBufferSize": 16384,
+      "transports": "WebSockets"
+    }
+  ],
+  "receipt": "Receipt 1: 27648 characters",
+  "started": "2026-10-23T06:11:45.495Z",
+  "status": "PASS",
+  "target": "http://localhost:5791",
+  "ticket": {
+    "authenticated": true,
+    "expires": "2026-10-23T06:12:09+00:00"
+  }
+}

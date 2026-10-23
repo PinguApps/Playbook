@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceManifestSha256": "b9b0f2896b400be0be5a8023be2bdaa9f745343a2c4b922ce2fcba938f85643d",
-  "dispositionManifestSha256": "fcd2b175226184a10fa2b75cc51e9a34860b3ea079393c4f568574effad578c8",
+  "dispositionManifestSha256": "cb80fc3ff7122275dc7a74ecffb54b81feb61bbc151fe6d9f316b82e8a558a22",
   "baselines": [
     {
       "sdk": "10.0.402",
@@ -9365,13 +9365,19 @@
       "asset": "framework/Microsoft.AspNetCore.Components.Web.dll",
       "side": "added",
       "group": "builtin-cache-contracts",
-      "count": 2
+      "count": 1
     },
     {
       "asset": "framework/Microsoft.AspNetCore.Components.Web.dll",
       "side": "added",
       "group": "captions",
       "count": 18
+    },
+    {
+      "asset": "framework/Microsoft.AspNetCore.Components.Web.dll",
+      "side": "added",
+      "group": "deliberate-resource-hints",
+      "count": 1
     },
     {
       "asset": "framework/Microsoft.AspNetCore.Components.Web.dll",
@@ -9413,7 +9419,13 @@
       "asset": "framework/Microsoft.AspNetCore.Components.Web.dll",
       "side": "removed",
       "group": "builtin-cache-contracts",
-      "count": 2
+      "count": 1
+    },
+    {
+      "asset": "framework/Microsoft.AspNetCore.Components.Web.dll",
+      "side": "removed",
+      "group": "deliberate-resource-hints",
+      "count": 1
     },
     {
       "asset": "framework/Microsoft.AspNetCore.Components.Web.dll",
