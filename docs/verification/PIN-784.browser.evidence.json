@@ -247,7 +247,7 @@
         ]
       },
       "previousHeight": 104,
-      "recordedAt": "2026-10-23T02:55:08.089Z",
+      "recordedAt": "2026-10-23T03:14:17.319Z",
       "refreshed": {
         "clientHeight": 420,
         "rendered": 121,
@@ -311,7 +311,7 @@
         ]
       },
       "toleranceCssPixels": 2,
-      "url": "http://localhost:5295/?proof=4",
+      "url": "http://localhost:5295/",
       "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
       "virtualized": false
     },
@@ -763,11 +763,11 @@
     "samples/net11.0/OrchardJournal/packages.lock.json": "a15384b18ca015107576fc2fbee8527fb39e57391227fc3491b92b6c794d2a31",
     "samples/net10.0/OrchardJournal/Journal.razor": "5054381de7a8d9f78227aca765de82887ccd1f825b0d5fe89364e1fd9ee42f41",
     "samples/net11.0/OrchardJournal/OrchardJournal.csproj": "00480186a0b3791d1579e93baeb198e18cceb01bbcaf75827a32bf85af538314",
-    "samples/net10.0/OrchardJournal/verification.json": "df494e995de14d4767cd8c671d6df770b1358cb0740cbf50f8b3857a30b1833d",
+    "samples/net10.0/OrchardJournal/verification.json": "b76b5212466f9fae00a241bb7f324a5c3352998b5473687d13c9788b0e71603c",
     "samples/net11.0/OrchardJournal/Entry.cs": "3bd6d2333a23a44f3792a971dfc8da25373c5b2f1286ded20a36cc60c96c1feb",
     "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
     "samples/net10.0/OrchardJournal/wwwroot/edge.js": "fb4afca0b448150298333b658a0abda0c1a3fa76adae143d21cd95496a4c1cf7",
-    "samples/net10.0/OrchardJournal/OrchardJournal.csproj": "907d13171d0057f4592dcffe63c181d750964653d78c83369422d77d19605eb1",
+    "samples/net10.0/OrchardJournal/OrchardJournal.csproj": "ba70bc19b1547fa1bed644c27fffa0ca522790352eea830e673e9aef23838819",
     "samples/net11.0/OrchardJournal/Program.cs": "ea9df704a1fd0dfea61bc0f49a83639eccfb4bbdd184db7417d09c51263be499",
     "samples/net10.0/OrchardJournal/wwwroot/journal.css": "a67d12f3dfe4e8deae4841279ea137f35c87b215ac7fe4fe6a74a385ab678631",
     "samples/net10.0/OrchardJournal/Entry.cs": "3bd6d2333a23a44f3792a971dfc8da25373c5b2f1286ded20a36cc60c96c1feb",
@@ -780,7 +780,14 @@
     "samples/net11.0/OrchardJournal/bin/Release/net11.0/OrchardJournal.dll": "c396d63bb330029f2dfa4b55f6b04e7397b7a4702dc2e6fab74a620600309e37",
     "samples/net10.0/OrchardJournal/bin/Release/net10.0/OrchardJournal.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
     "samples/net10.0/OrchardJournal/bin/Release/net10.0/OrchardJournal.deps.json": "41137a3449469fab481f7205892bc334a9cf04d2df5b165146c0b52d2916690e",
-    "samples/net10.0/OrchardJournal/bin/Release/net10.0/OrchardJournal.dll": "a1bbd6f0455cb5662105899fedc68e71d6db048c44c46665bf2db87967e01e72",
+    "samples/net10.0/OrchardJournal/bin/Release/net10.0/OrchardJournal.dll": "4829f399c58f5abf8c2c59d563c2846a09dc187224cf34ccd019e70f811c3819",
     "samples/net11.0/OrchardJournal/bin/Release/net11.0/OrchardJournal.staticwebassets.runtime.json": "b5643037a9c6417446c150c1a2a8b8d951e38c2bfac54a841115068db72bd3b2"
+  },
+  "olderRefresh": {
+    "sourceCommit": "1a6d6c91955e43b2a287c2a2de05f43901e9491b",
+    "previousArtifact": "a1bbd6f0455cb5662105899fedc68e71d6db048c44c46665bf2db87967e01e72",
+    "sourceDirty": true,
+    "newerEvidence": "Unchanged source/configuration and exact artifact; prior actual .NET11 staged browser execution reused.",
+    "reason": "Remove two extra EOF blank lines from older csproj/verification manifest. Recompiled artifact carries the newer Git revision; all three real rendered/native-input stages repeated and passed."
   }
 }
