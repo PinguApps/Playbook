@@ -67,6 +67,7 @@ try {
 
   Copy-Item (Join-Path $PSScriptRoot 'EstuaryBoard.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'FossilDesk.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'CopperlineDesk.browser.js'), (Join-Path $PSScriptRoot 'Test-CopperlineDesk.ps1') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs

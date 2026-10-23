@@ -1,0 +1,29 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using CopperlineDesk.Client
+<header>
+    <EnvironmentView>
+        <span data-chrome="identity">Copperline parcel desk</span>
+    </EnvironmentView>
+    <EnvironmentView Include="  rEvIeW, Training ,, ">
+        <strong data-chrome="review">Rehearsal parcels: no live dispatch</strong>
+    </EnvironmentView>
+    <EnvironmentView Exclude=" production, Retired ">
+        <button type="button" data-chrome="rehearse">Open rehearsal notes</button>
+    </EnvironmentView>
+    <EnvironmentView Include="Production, Review" Exclude=" rEvIeW, production ">
+        <span data-chrome="blocked">Excluded notice</span>
+    </EnvironmentView>
+    <EnvironmentView Include="Production">
+        <a href="#receipts" data-chrome="receipts">Live parcel receipts</a>
+    </EnvironmentView>
+    <EnvironmentView Include="   " Exclude="   ">
+        <span data-chrome="whitespace">Desk help</span>
+    </EnvironmentView>
+    <EnvironmentView Include=" , , ">
+        <span data-chrome="empty-list">Contact the desk team</span>
+    </EnvironmentView>
+</header>
+<p>Hidden chrome is not authorization. Protect every operation on the server.</p>
+<!-- endsnippet:complete -->

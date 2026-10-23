@@ -1,0 +1,20 @@
+{
+  "dependencies": [
+    "Client/1.0.0",
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13",
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/10.0.13",
+    "Microsoft.AspNetCore.Components.WebAssembly/10.0.13",
+    "Microsoft.JSInterop.WebAssembly/10.0.13"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/CopperlineDesk.browser.js",
+    "samples/net10.0/CopperlineDesk/Client",
+    "eng/Test-CopperlineDesk.ps1"
+  ]
+}
