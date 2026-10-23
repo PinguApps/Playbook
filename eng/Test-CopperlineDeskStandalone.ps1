@@ -21,7 +21,9 @@ for($n=0;$n -lt $files.Count;$n++){
  [IO.File]::WriteAllText($path,$blocks[$n].Groups[1].Value)
 }
 foreach($file in @('Host/Program.cs','Client/Program.cs','Host/App.razor','Host/Routes.razor','Host/Browser.razor','Host/wwwroot/chrome-start.js')){
- Copy-Item -LiteralPath (Join-Path $standalone "net11.0/$file") -Destination (Join-Path $standalone "net10.0/$file")
+ $destination=Join-Path $standalone "net10.0/$file"
+ [IO.Directory]::CreateDirectory((Split-Path $destination))|Out-Null
+ Copy-Item -LiteralPath (Join-Path $standalone "net11.0/$file") -Destination $destination
 }
 foreach($v in @(10,11)){
  Copy-Item -LiteralPath (Join-Path $standalone "net$v.0/Host/Directory.Packages.props") -Destination (Join-Path $standalone "net$v.0/Client/Directory.Packages.props")

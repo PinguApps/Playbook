@@ -1,5 +1,11 @@
 # Inspect the guidance an agent receives
 
+For environment-appropriate application chrome, use the
+[tested PIN-795 walkthrough](verification/PIN-795.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 host/client setup, discovery and
+applicability, including renderer-specific environments, include/exclude rules
+and the explicit presentation-versus-authorization boundary.
+
 For one browser build with public environment settings, use the
 [tested PIN-793 walkthrough](verification/PIN-793.md#inspect-what-an-agent-receives).
 It displays the complete original .NET 10/11 comparison, WASM applicability,

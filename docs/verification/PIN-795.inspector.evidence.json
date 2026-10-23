@@ -1,0 +1,24 @@
+{
+  "evidenceCount": 4,
+  "title": "Show environment-specific chrome",
+  "packedServerEquality": "Exact current built server DLL equals the frozen ordinary nupkg server DLL after the literal Inspector rebuild.",
+  "script": "Set-Location -LiteralPath 'V:\\_worktrees\\Playbook\\agent-pin-795-04-023-present-environment-appropriate-application-chrome'\n& {\n  $ErrorActionPreference = 'Stop'\n  $PSNativeCommandUseErrorActionPreference = $true\n  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'\n  $dotnet = 'C:\\Program Files\\dotnet\\dotnet.exe'\n  $node = 'C:\\Program Files\\nodejs\\node.exe'\n  New-Item -ItemType Directory -Path ./artifacts/pin795 -Force | Out-Null\n  & $dotnet build ./src/PinguApps.Playbook -c Release -p:Version=0.0.0-pin795-r2\n  & $node 'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js' install --prefix ./artifacts/inspector --ignore-scripts --no-audit --no-fund @modelcontextprotocol/inspector@2.11.0\n  $inspector = (Resolve-Path ./artifacts/inspector/node_modules/@modelcontextprotocol/inspector/clients/launcher/build/index.js).Path\n  $server = (Resolve-Path ./src/PinguApps.Playbook/bin/Release/net10.0/PinguApps.Playbook.dll).Path\n  $call = { param($tool, $argument)\n    & $node $inspector --cli --format json --quiet --method tools/call --tool-name $tool --tool-arg 'targetVersion=\"11.0\"' --tool-arg $argument -- $dotnet $server mcp | ConvertFrom-Json\n  }\n  $entry = (& $call list_recipes 'query=copperline-chrome').result.structuredContent.recipes\n  if ($entry.id -ne 'blazor.show-environment-specific-content') { throw 'Missing discovery' }\n  $entry | Format-List id, title, goal\n  $recipe = (& $call get_recipe 'id=blazor.show-environment-specific-content').result.structuredContent.recipe\n  if ($recipe.edition -ne '11.0' -or -not $recipe.markdown -or $recipe.markdown.Contains('{{snippet:')) { throw 'Incomplete recipe' }\n  $recipe | Format-List id, edition, stability\n  $recipe.markdown\n  $recipe.applicability.routes | ConvertTo-Json -Depth 30\n  $recipe.sources | Format-Table\n  $recipe.evidence | Format-List\n  $recipe | ConvertTo-Json -Depth 50 | Set-Content ./artifacts/pin795/inspected-recipe.json\n}\n",
+  "outputSha256": "8ad4093a3a520f637840ac5697b95de0c544bc9a68994a253d3f51434ee9d4ae",
+  "freshness": [
+    "current",
+    "current",
+    "current",
+    "current"
+  ],
+  "serverSha256": "8a98e8851de3b1aff508bb0b9497d7eb4903ed4aa190c55c3cfd9a75a54cbb71",
+  "scope": "Exact documented block executed from unrelated C:\\Windows, including setup/build and actual stdio list_recipes/get_recipe. Printed full Markdown, applicability, edition, sources and evidence. Inspector 2.11.0, Node 24.21.0, SDK 10.0.402; no Git root discovery or assumed starting checkout.",
+  "markdownSha256": "73cf75a70d63f9ab5a57ede67d6af3b518db2e0556edc67fef9fd44e084bec21",
+  "sourceCommit": "ff8c97bb1d5c3470fb0fae7d37b7d26d65d7668b",
+  "scriptSha256": "c276035b047d4c9f5e1e8c6708e0dfef61104d300b1be83565ff62f2687b1617",
+  "recordedAt": "2026-10-23T09:57:00.8336273+00:00",
+  "goal": "Mark test environments and show the controls intended for each renderer.",
+  "recipeId": "blazor.show-environment-specific-content",
+  "markdownCharacters": 19425,
+  "edition": "11.0",
+  "startingDirectory": "C:\\Windows"
+}
