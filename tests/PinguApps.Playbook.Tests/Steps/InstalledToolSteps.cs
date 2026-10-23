@@ -55,7 +55,10 @@ public sealed class InstalledToolSteps : IDisposable
             string markdown = recipe.GetProperty("markdown").GetString()!;
             foreach (string target in new[] { "net10.0", "net11.0" })
             {
-                Assert.Contains((await ReadSdkInputAsync($"samples/{target}/HarbourPermit/_Imports.razor").ConfigureAwait(false)).Trim(), markdown, StringComparison.Ordinal);
+                foreach (string directive in (await ReadSdkInputAsync($"samples/{target}/HarbourPermit/_Imports.razor").ConfigureAwait(false)).Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    Assert.Contains(directive.Trim(), markdown, StringComparison.Ordinal);
+                }
             }
         }
     }

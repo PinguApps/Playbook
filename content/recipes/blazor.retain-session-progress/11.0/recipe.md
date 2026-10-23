@@ -128,14 +128,7 @@ The project blocks enable nullable and implicit usings explicitly.
 
 shared/_Imports.razor:
 
-```razor
-@using Microsoft.AspNetCore.Components
-@using Microsoft.AspNetCore.Components.Forms
-@using Microsoft.AspNetCore.Components.Routing
-@using Microsoft.AspNetCore.Components.Web
-@using Playbook.Samples
-@namespace Playbook.Samples
-```
+One directive per line: `@using Microsoft.AspNetCore.Components`; `@using Microsoft.AspNetCore.Components.Forms`; `@using Microsoft.AspNetCore.Components.Routing`; `@using Microsoft.AspNetCore.Components.Web`; `@using Playbook.Samples`; `@namespace Playbook.Samples`.
 
 Use these capture pins as each project's global.json. Restore creates the
 SDK-aligned asset lockfile; subsequent builds may use RestoreLockedMode=true.
@@ -143,15 +136,11 @@ The pins reproduce this evidence, not a universal exact consumer requirement.
 
 net10.0/global.json:
 
-```json
 {"sdk":{"version":"10.0.402","rollForward":"disable"}}
-```
 
 net11.0/global.json:
 
-```json
 {"sdk":{"version":"11.0.100-rc.2.26504.105","rollForward":"disable"}}
-```
 
 ### Streaming check
 
