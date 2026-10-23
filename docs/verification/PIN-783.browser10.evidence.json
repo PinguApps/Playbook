@@ -1,0 +1,55 @@
+{
+  "observations": [
+    {
+      "firstId": 401,
+      "label": "initial 401",
+      "renderedCount": 20,
+      "scrollHeight": 32032,
+      "scrollTop": 12832,
+      "y": 1
+    },
+    {
+      "firstId": 701,
+      "label": "revealed 701",
+      "renderedCount": 20,
+      "scrollHeight": 32032,
+      "scrollTop": 22432,
+      "y": 1
+    },
+    {
+      "firstId": 701,
+      "label": "fresh instances",
+      "renderedCount": 20,
+      "scrollHeight": 32032,
+      "scrollTop": 22432,
+      "y": 1
+    },
+    {
+      "firstId": 701,
+      "label": "prepend while reading",
+      "renderedCount": 20,
+      "scrollHeight": 32192,
+      "scrollTop": 22592,
+      "y": 1
+    },
+    {
+      "firstId": 701,
+      "label": "append while reading",
+      "renderedCount": 20,
+      "scrollHeight": 32352,
+      "scrollTop": 22592,
+      "y": 1
+    },
+    {
+      "firstId": -9,
+      "label": "prepend at start",
+      "renderedCount": 20,
+      "scrollHeight": 32512,
+      "scrollTop": 0,
+      "y": 33
+    }
+  ],
+  "status": "PASS",
+  "url": "http://localhost:5390/?final10",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+}

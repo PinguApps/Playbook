@@ -1,5 +1,7 @@
 # Contribute and verify an original recipe
 
+Virtualized QuickGrid row positioning uses original HarbourManifest .NET 10/11 samples. [PIN-783](verification/PIN-783.md) records real Chrome initial/programmatic scrolling, identity and Start anchoring, plus the tested offline Inspector path.
+
 Interactive QuickGrid selection uses original .NET 10/11 MuseumRows apps.
 [PIN-782](verification/PIN-782.md) records actual typed row events, accessible
 button alternatives, static SSR exclusion and the tested Inspector handoff.

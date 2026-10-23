@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/HarbourManifest/*.cs;../../samples/net*/HarbourManifest/*.razor;../../samples/net*/HarbourManifest/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/MuseumRows/*.cs;../../samples/net*/MuseumRows/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/QuarryLedger/*.cs;../../samples/net*/QuarryLedger/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/SeedLabels/*.cs;../../samples/net*/SeedLabels/*.razor;../../samples/net*/SeedLabels/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />

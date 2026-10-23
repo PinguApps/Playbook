@@ -36,6 +36,27 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("OnRowClick", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
     }
 
+    [Then("grid positioning retains canonical bodies and rendered instance constraints offline")]
+    public async Task CheckGridPositioningAsync()
+    {
+        const string id = "blazor.reveal-grid-row";
+        await CheckWebRecipesAsync([id], "grid-position").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Grid applicability {property.Name} must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        Assert.Contains("Virtualize=\"true\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("ScrollToItemAsync", markdown, StringComparison.Ordinal);
+        Assert.Contains("ItemComparer", markdown, StringComparison.Ordinal);
+        Assert.Contains("RC2 removes ASP0030", markdown, StringComparison.Ordinal);
+        Assert.Contains("rendered instance", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
     [Then("static subtree caching retains complete canonical guidance offline")]
     public async Task CheckStaticSubtreeCachingAsync()
     {
