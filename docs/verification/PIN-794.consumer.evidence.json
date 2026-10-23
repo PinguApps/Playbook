@@ -1,6 +1,6 @@
 {
   "kind": "standalone-returned-body-compilation",
-  "recordedAt": "2026-10-23T09:27:20.9600910+00:00",
+  "recordedAt": "2026-10-23T10:27:20.960091+01:00",
   "source": "Actual built stdio get_recipe via tested Inspector",
   "recipe": "blazor.align-server-browser-culture",
   "edition": "11.0",
@@ -46,5 +46,12 @@
     "net11/Host/Routes.razor": "ddd1edad8d18fd2ac2d656deb519cec9a90059afc754253ed4461eff6eac23c4",
     "net11/Host/wwwroot/culture.js": "312f9a3175a5069649e1269879c861e60625c8d18730eb9763117c9f58a0b8e3"
   },
-  "result": "Actual matching SDK Host and Client builds for .NET 10/11; no files copied from checkout samples, no parent build/package inheritance."
+  "result": "Actual matching SDK Host and Client builds for .NET 10/11; no files copied from checkout samples, no parent build/package inheritance.",
+  "browserExpressionSha256": "d34deafa6eda61101e408356e19e7f9c5aa3ac38bc95c3a8d0ba2d97db60a09f",
+  "evaluatedExpression": "Exact UTF-8 eng/CultureHarbour.browser.js, no transformation, CDP Runtime.evaluate awaitPromise/returnByValue through existing Chrome extension.",
+  "finalCombinedBodyEquality": "7dbbc3e5bc03ff5d2f33a78ef3a6f544d8e000fa52a35bf54a3954e5d194b485",
+  "browserReports": {
+    "aligned": "d5c0ae142d36d8e7384989fbc0edf22efeb450c08b87625300251107b7290511",
+    "independent": "50f8dd0f8d2a9773a775bcf34c4b2051f92518849e1de9054a41f3329c17e6f0"
+  }
 }
