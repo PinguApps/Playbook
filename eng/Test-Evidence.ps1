@@ -38,6 +38,7 @@ try {
   Copy-Item (Join-Path $root '.editorconfig') $fixture
   New-Item -ItemType Directory -Path (Join-Path $fixture 'eng') | Out-Null
   Copy-Item (Join-Path $PSScriptRoot 'Evidence.ps1'), (Join-Path $PSScriptRoot 'Record-Evidence.ps1') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-LoomReceipts.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-StaticInterfaceHelpers.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-FSharpGuidance.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-FSharpBoundaries.ps1') (Join-Path $fixture 'eng')

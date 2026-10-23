@@ -4,6 +4,11 @@ Navigation without inline-handler exceptions uses the original BrackenMenu host/
 comparisons. [PIN-798](verification/PIN-798.md) records both real module paths,
 strict-policy controls, older backport and complete returned-body reconstruction.
 
+Browser component activity uses original .NET 10/11 LoomActivity consumers and
+the official local OTLP collector. [PIN-797](verification/PIN-797.md) records
+actual received metrics, event/route/child correlation, artifact/source equality,
+standalone reconstruction and installed offline MCP retrieval.
+
 Unified JavaScript startup options use the original .NET 10/11 ParcelStartup
 Server/WASM legacy and Web App consumers. [PIN-789](verification/PIN-789.md)
 records effective callbacks, browser culture, responsive controls, retained flat
