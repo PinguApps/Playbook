@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+Server-configured browser startup uses the original .NET 10/11 TideDesk host/client
+pairs. [PIN-788](verification/PIN-788.md) records generated endpoint/component
+options, real reconnection, Server/WASM/Auto execution, a bounded separate-request
+RC2 sharing probe and complete offline installed retrieval.
+
 Restrictive style CSP uses the original BeaconReadings .NET 10/11 samples.
 [PIN-786](verification/PIN-786.md) records actual enforcing headers, visible distant
 rows, old exception/strict-negative comparisons and the tested offline Inspector path.

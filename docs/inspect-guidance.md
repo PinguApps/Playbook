@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For server-configured browser startup, use the
+[tested PIN-788 walkthrough](verification/PIN-788.md#inspect-what-an-agent-receives).
+It displays complete host/client setup, final option groups, target applicability
+and the measured RC2 request-sharing boundary.
+
 For virtual lists under restrictive style CSP, use the
 [tested PIN-786 walkthrough](verification/PIN-786.md#inspect-what-an-agent-receives).
 It shows full canonical comparisons, actual enforcement/scrolling evidence and

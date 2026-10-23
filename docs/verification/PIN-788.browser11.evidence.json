@@ -1,0 +1,145 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
+  "exhausted": {
+    "count": "2",
+    "dialogClasses": "components-reconnect-failed",
+    "dialogVisible": true,
+    "elapsed": 3070,
+    "events": [
+      {
+        "at": 1792730725417,
+        "classes": "components-reconnect-show",
+        "detail": {
+          "state": "show"
+        }
+      },
+      {
+        "at": 1792730725417,
+        "classes": "components-reconnect-show",
+        "detail": {
+          "currentAttempt": 1,
+          "secondsToNextAttempt": 1,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730726421,
+        "classes": "components-reconnect-show",
+        "detail": {
+          "currentAttempt": 1,
+          "secondsToNextAttempt": 0,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730726426,
+        "classes": "components-reconnect-show components-reconnect-retrying",
+        "detail": {
+          "currentAttempt": 2,
+          "secondsToNextAttempt": 1,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730727428,
+        "classes": "components-reconnect-show components-reconnect-retrying",
+        "detail": {
+          "currentAttempt": 2,
+          "secondsToNextAttempt": 0,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730727432,
+        "classes": "components-reconnect-show components-reconnect-retrying",
+        "detail": {
+          "currentAttempt": 3,
+          "secondsToNextAttempt": 1,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730728447,
+        "classes": "components-reconnect-show components-reconnect-retrying",
+        "detail": {
+          "currentAttempt": 3,
+          "secondsToNextAttempt": 0,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730728452,
+        "classes": "components-reconnect-failed",
+        "detail": {
+          "state": "failed"
+        }
+      }
+    ],
+    "intervals": [
+      1007,
+      1019
+    ],
+    "network": {
+      "attempts": [
+        {
+          "at": 1792730726423,
+          "url": "/_blazor/negotiate?negotiateVersion=1"
+        },
+        {
+          "at": 1792730727430,
+          "url": "/_blazor/negotiate?negotiateVersion=1"
+        },
+        {
+          "at": 1792730728449,
+          "url": "/_blazor/negotiate?negotiateVersion=1"
+        }
+      ],
+      "blocked": true
+    }
+  },
+  "kind": "actual-browser-execution",
+  "recordedAt": "2026-10-23T04:45:28.484Z",
+  "recovery": {
+    "count": "2",
+    "elapsed": 1136,
+    "events": [
+      {
+        "at": 1792730724280,
+        "classes": "components-reconnect-show",
+        "detail": {
+          "state": "show"
+        }
+      },
+      {
+        "at": 1792730724280,
+        "classes": "components-reconnect-show",
+        "detail": {
+          "currentAttempt": 1,
+          "secondsToNextAttempt": 1,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730725288,
+        "classes": "components-reconnect-show",
+        "detail": {
+          "currentAttempt": 1,
+          "secondsToNextAttempt": 0,
+          "state": "retrying"
+        }
+      },
+      {
+        "at": 1792730725310,
+        "classes": "components-reconnect-hide",
+        "detail": {
+          "state": "hide"
+        }
+      }
+    ],
+    "network": {
+      "attempts": [],
+      "blocked": false
+    }
+  },
+  "url": "http://127.0.0.1:5308/server"
+}

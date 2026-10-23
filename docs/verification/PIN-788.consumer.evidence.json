@@ -1,0 +1,89 @@
+{
+  "kind": "returned-body-consumer",
+  "markdownSha256": "3b74f1c075032d054098b36fa4fb34c46998842cdf4563e5b86f6a546b95ea15",
+  "consumer": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-tide-consumer-73e441f6ffdd4623affe93af320687d5",
+  "results": [
+    {
+      "hostSha256": "7c183c82cb5216c9c488b5913889cce64423f69a5d4b6e77553a6366847e9f3e",
+      "clientSha256": "0143d5a32b05c2654d1385405f8f552182f7a06114e4f7586e246ecdb678bc58",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "compiled": true
+    },
+    {
+      "hostSha256": "8034396d03a61f8f969b0be412c362c34b8ea4a07c9607c76b8dcc571a142dda",
+      "clientSha256": "4af2039e5c8a8197a07dcf9d9f1f02038b125ac08867079bc3fdc4687b3ae97e",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "compiled": true
+    }
+  ],
+  "http": {
+    "kind": "actual-http-execution",
+    "recordedAt": "2026-10-23T05:57:51.8609815+01:00",
+    "requests": [
+      {
+        "uri": "http://127.0.0.1:5399/server",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "TideDesk",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 3,
+            "reconnectionRetryIntervalMilliseconds": 1000,
+            "reconnectionDialogId": "tide-reconnect"
+          },
+          "ssr": {
+            "disableDomPreservation": false,
+            "circuitInactivityTimeoutMs": 120000
+          }
+        },
+        "bodySha256": "8ed92148291373272e2035d0bb8fafc73d66c58e19c16c048aeb026149b18317"
+      },
+      {
+        "uri": "http://127.0.0.1:5399/wasm",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "TideDesk",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 3,
+            "reconnectionRetryIntervalMilliseconds": 1000,
+            "reconnectionDialogId": "tide-reconnect"
+          },
+          "ssr": {
+            "disableDomPreservation": false,
+            "circuitInactivityTimeoutMs": 120000
+          }
+        },
+        "bodySha256": "83265eaeaecd9e674403f997853b131e13364ad89f3ae71e5d139243764f7714"
+      },
+      {
+        "uri": "http://127.0.0.1:5399/auto",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "TideDesk",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 3,
+            "reconnectionRetryIntervalMilliseconds": 1000,
+            "reconnectionDialogId": "tide-reconnect"
+          },
+          "ssr": {
+            "disableDomPreservation": false,
+            "circuitInactivityTimeoutMs": 120000
+          }
+        },
+        "bodySha256": "d1cb2181a8130949bd149022fe4aad749cc0c65e77c5a90690f7de1647468f20"
+      }
+    ]
+  },
+  "stdout": "",
+  "stderr": ""
+}

@@ -87,7 +87,7 @@
       "id": "browser-options",
       "pattern": " Microsoft\\.AspNetCore\\.(Components\\.(BrowserOptions|ConfigureBrowser|InteractiveServerBrowserOptions|InteractiveWebAssemblyBrowserOptions|StaticServerBrowserOptions)|Builder\\.RazorComponentsEndpointConventionBuilderExtensions)",
       "owner": "PIN-788/PIN-793/PIN-794",
-      "disposition": "grouped"
+      "disposition": "grouped; PIN-788 delivered browser startup/reconnect with actual Server/WASM/Auto and separate-request RC2 sharing proof in docs/verification/PIN-788.md; PIN-793/PIN-794 retain configuration/culture ownership"
     },
     {
       "id": "navigation",

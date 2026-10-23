@@ -1,0 +1,131 @@
+{
+  "kind": "actual-http-execution",
+  "recordedAt": "2026-10-23T04:45:52.0899360+00:00",
+  "requests": [
+    {
+      "uri": "http://127.0.0.1:5388/server",
+      "status": 200,
+      "options": {
+        "webAssembly": {
+          "environmentName": "TideDesk",
+          "environmentVariables": {}
+        },
+        "server": {
+          "reconnectionMaxRetries": 3,
+          "reconnectionRetryIntervalMilliseconds": 1000,
+          "reconnectionDialogId": "tide-reconnect"
+        },
+        "ssr": {
+          "disableDomPreservation": false,
+          "circuitInactivityTimeoutMs": 120000
+        }
+      },
+      "bodySha256": "c21079a607da0f8f74d74146df21eb0aa06d780cfa61be9d747902251c8c5a8a"
+    },
+    {
+      "uri": "http://127.0.0.1:5388/wasm",
+      "status": 200,
+      "options": {
+        "webAssembly": {
+          "environmentName": "TideDesk",
+          "environmentVariables": {}
+        },
+        "server": {
+          "reconnectionMaxRetries": 3,
+          "reconnectionRetryIntervalMilliseconds": 1000,
+          "reconnectionDialogId": "tide-reconnect"
+        },
+        "ssr": {
+          "disableDomPreservation": false,
+          "circuitInactivityTimeoutMs": 120000
+        }
+      },
+      "bodySha256": "da2948da1659aa95923bd40909ae83dd17c57f227d7ae5e38f1d044c6b3936e7"
+    },
+    {
+      "uri": "http://127.0.0.1:5388/auto",
+      "status": 200,
+      "options": {
+        "webAssembly": {
+          "environmentName": "TideDesk",
+          "environmentVariables": {}
+        },
+        "server": {
+          "reconnectionMaxRetries": 3,
+          "reconnectionRetryIntervalMilliseconds": 1000,
+          "reconnectionDialogId": "tide-reconnect"
+        },
+        "ssr": {
+          "disableDomPreservation": false,
+          "circuitInactivityTimeoutMs": 120000
+        }
+      },
+      "bodySha256": "3c83c1d70ac2636bcf344699e62ca64c525fe46080ad96a56912b3be1689cf65"
+    }
+  ],
+  "sharingProbe": {
+    "requests": [
+      {
+        "uri": "http://127.0.0.1:5398/probe",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "Production",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 7
+          },
+          "ssr": {}
+        },
+        "bodySha256": "c16c8519c7230242a753f4c63e8ae823adc5927081bd8fb6b1eb3f74a016701f"
+      },
+      {
+        "uri": "http://127.0.0.1:5398/probe?retries=1",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "Production",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 1
+          },
+          "ssr": {}
+        },
+        "bodySha256": "162e36ff15e74f7d677aecf50ff16b1e7d292dd6566b4db9889a6d793d1b779a"
+      },
+      {
+        "uri": "http://127.0.0.1:5398/probe",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "Production",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 1
+          },
+          "ssr": {}
+        },
+        "bodySha256": "5f63fe073de1d049217a283be92ff876b09eb528afab4a15b373a963f2729753"
+      }
+    ],
+    "sameLookup": true,
+    "artifactSha256": "8e1349e74296bde0918d50a38bf4505652837ef5a01e7d9914a922047b65b7eb",
+    "sameMetadataInstance": true,
+    "inputs": {
+      "App.razor": "c92c4f5124eb80d79ea12e1a3a7bae02542416d65e27a9e938a0f566fc8c1348",
+      "Directory.Build.props": "ba4aa07e19c4342a5359809588c4a9d0f2c014776ec5a1384c92073aaedd08ae",
+      "Directory.Packages.props": "1e2c523801e0c84e145ccb6a5654bdbd95288948359e1e28c90dc770f820194e",
+      "global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+      "Live.razor": "7f1194b0165f3a43c5459453e07f2287fe90f00024a34648e7abd394fccca18a",
+      "Probe.csproj": "7e07520840024af670f349a2d6094f4e5c12d0d4acfaf05be608287124bc7b9f",
+      "Probe.razor": "2953e8e1fe14ab1429ef032e1b333429c77d16472ae199380b3a0a6cd5e4fbfa",
+      "Program.cs": "2650e9152c10aa0903dd9c939cb8c424d7eb1f600dab7564ac2adb05acc4e8e6"
+    },
+    "scope": "Separate local RC2 diagnostic consumer; not a framework-wide security finding or GA claim."
+  },
+  "probeStdout": "",
+  "probeStderr": ""
+}
