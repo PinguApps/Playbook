@@ -1,0 +1,42 @@
+{
+  "kind": "installed-stdio-execution",
+  "sourceHead": "882f2af02b121ac88d78079b676892a8f005669d",
+  "sourceDirtyPaths": [
+    "tests/PinguApps.Playbook.Tests/Steps/InstalledToolSteps.cs"
+  ],
+  "packageVersion": "0.0.0-workshop-views-r1",
+  "packageSha256": "6d68b0bc904fd58771adc57bcb2c4c209f4a107af5a636e9ad9a5d744a47ebf7",
+  "fixtureSha256": "e344f66d67691a101afec063c98a24d888492f5bea711a5c7a6fe8e44e50ae3e",
+  "suiteSha256": "4dbbdb4af96f4f2a82d11e83ee282e9dd6f96eb57209137c83437f5046295437",
+  "command": "eng/Test-Offline.ps1 -PackageVersion '0.0.0-workshop-views-r1' -RuntimeMajor 10",
+  "network": "docker --network none; only artifacts, compiled suite and Test-Package.ps1 mounted",
+  "runtime": "Microsoft.NETCore.App 10.0.12",
+  "fullWrapper": {
+    "failed": 0,
+    "errors": 0,
+    "total": 36,
+    "passed": 36,
+    "skipped": 0
+  },
+  "windowsFocusedBudgetScenarios": 2,
+  "budgets": {
+    "ordinary11Default20": 70852,
+    "fixtureDefault20": 70856,
+    "ordinary10Default": 34909,
+    "max50Limit": 170000,
+    "summaryLimit": 3000,
+    "ordinary11LargestSummary": 1982,
+    "fixtureMax50": 169940,
+    "ordinary10LargestSummary": 2009
+  },
+  "scope": "Existing harness installs isolated local-only feed/cache; real stdio list/get, complete canonical Markdown equality, applicability/edition/evidence freshness, target rejection, catalogue traversal and unchanged byte guards. No new OS/client/native matrix.",
+  "baseMain": "23231e82efa32460bf3f8f2c5c4d4544534b8872",
+  "focusedFullBodyApplicabilityScenario": {
+    "total": 1,
+    "passed": 1,
+    "compared": "Every authored route property independently DeepEquals embedded recipe.json, including all nested requirements, prerequisites, constraints, package assets, stability and source/evidence references.",
+    "failed": 0
+  },
+  "sampleBehaviorProofReuse": "Every current source-input hash and every executed artifact hash matches both existing real HTTP/browser reports; samples and probes are unchanged.",
+  "freshPackageReason": "MuseumRows/main integration changes package inputs, so both packages were rebuilt; prior dbe7b1f5/53140cb2 artifacts were not reused."
+}

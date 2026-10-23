@@ -1,0 +1,56 @@
+<!-- snippet:grid -->
+@implements IDisposable
+@inject NavigationManager Navigation
+<section id="@Prefix">
+    <h2>@Heading</h2>
+    <QuickGrid Items="ordered" Pagination="pagination">
+        <PropertyColumn Property="item => item.Code" Title="code">
+            <HeaderTemplate><SortHeading Prefix="@Prefix" SortKey="code" Caption="@(Alternate ? "Ticket reference" : "Job code")" /></HeaderTemplate>
+        </PropertyColumn>
+        <PropertyColumn Property="item => item.Priority" Title="priority">
+            <HeaderTemplate><SortHeading Prefix="@Prefix" SortKey="priority" Caption="@(Alternate ? "Work order" : "Urgency")" /></HeaderTemplate>
+        </PropertyColumn>
+    </QuickGrid>
+    <div class="paginator"><nav aria-label="@Heading pages">
+        <a class="go-previous" href="@PageUrl(pagination.CurrentPageIndex - 1)" aria-label="Go to previous page"
+           aria-disabled="@(pagination.CurrentPageIndex == 0 ? "true" : "false")" tabindex="@(pagination.CurrentPageIndex == 0 ? "-1" : null)">‹</a>
+        <span>Page @(pagination.CurrentPageIndex + 1) of @(LastPage + 1)</span>
+        <a class="go-next" href="@PageUrl(pagination.CurrentPageIndex + 1)" aria-label="Go to next page"
+           aria-disabled="@(pagination.CurrentPageIndex >= LastPage ? "true" : "false")" tabindex="@(pagination.CurrentPageIndex >= LastPage ? "-1" : null)">›</a>
+    </nav></div>
+</section>
+@code {
+    [Parameter, EditorRequired] public string Prefix { get; set; } = "";
+    [Parameter, EditorRequired] public string Heading { get; set; } = "";
+    [Parameter, EditorRequired] public IQueryable<WorkItem> Items { get; set; } = default!;
+    [Parameter] public bool Alternate { get; set; }
+    private readonly PaginationState pagination = new() { ItemsPerPage = 2 };
+    private int LastPage => Math.Max(0, (Items.Count() - 1) / pagination.ItemsPerPage);
+    private IQueryable<WorkItem> ordered = Array.Empty<WorkItem>().AsQueryable();
+    protected override void OnInitialized() => Navigation.LocationChanged += LocationChanged;
+    protected override Task OnParametersSetAsync() => RestoreAsync();
+    private Task RestoreAsync() {
+        var query = QueryHelpers.ParseQuery(new Uri(Navigation.Uri).Query);
+        string key = query.GetValueOrDefault(Prefix + "sort").ToString();
+        string direction = query.GetValueOrDefault(Prefix + "direction").ToString();
+        if (key is not ("code" or "priority") || direction is not ("asc" or "desc")) {
+            key = "code";
+            direction = "asc";
+        }
+        ordered = (key, direction == "desc") switch {
+            ("priority", true) => Items.OrderByDescending(item => item.Priority),
+            ("priority", false) => Items.OrderBy(item => item.Priority),
+            (_, true) => Items.OrderByDescending(item => item.Code),
+            _ => Items.OrderBy(item => item.Code)
+        };
+        int page = int.TryParse(query.GetValueOrDefault(Prefix + "page"), out int value) && value > 0 ? value - 1 : 0;
+        return pagination.SetCurrentPageIndexAsync(Math.Min(page, Math.Max(0, (Items.Count() - 1) / pagination.ItemsPerPage)));
+    }
+    private string PageUrl(int page) => Navigation.GetUriWithQueryParameter(Prefix + "page",
+        page <= 0 ? (int?)null : Math.Min(page, LastPage) + 1);
+    private async void LocationChanged(object? sender, LocationChangedEventArgs args) {
+        await InvokeAsync(async () => { await RestoreAsync(); StateHasChanged(); });
+    }
+    public void Dispose() => Navigation.LocationChanged -= LocationChanged;
+}
+<!-- endsnippet:grid -->

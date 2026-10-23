@@ -108,6 +108,29 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("RenderFragment<T>", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
     }
 
+    [Then("shareable grid views retain complete canonical guidance offline")]
+    public async Task CheckShareableGridViewsAsync()
+    {
+        await CheckWebRecipesAsync(["blazor.share-grid-view"], "workshop-views").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "blazor.share-grid-view", targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.share-grid-view/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "Title", "HeaderTemplate", "ColumnId", "repairs_", "loans_", "aria-disabled", "LocationChanged" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+
+        JsonElement requirements = route.GetProperty("requirements");
+        Assert.Contains("QuickGrid", requirements.GetProperty("packages").ToString(), StringComparison.Ordinal);
+        Assert.Contains("PaginationState", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));

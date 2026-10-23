@@ -1,0 +1,197 @@
+{
+  "id": "blazor.share-grid-view",
+  "edition": "11.0",
+  "title": "Share sorted grid pages",
+  "goal": "Bookmark each grid's sorted page.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "workshop-views",
+    "url-state"
+  ],
+  "apis": [
+    "QuickGrid",
+    "PaginationState",
+    "QueryParameterNameOptions",
+    "ColumnBase.Title",
+    "HeaderTemplate"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Own PaginationState/query names; fixed Title keys."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assemblies; exact RC2 is evidence, not an exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical samples use C# 15 with the matching Web SDK; URL identity is a QuickGrid contract."
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "URL-state and namespaced pagination APIs are in QuickGrid 11.",
+              "name": "Microsoft.AspNetCore.Components.QuickGrid"
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "QuickGrid net11; SDK browser"
+          ],
+          "providers": [],
+          "platforms": [
+            "Server"
+          ],
+          "renderingModes": [
+            "Static SSR; interactive"
+          ],
+          "prerequisites": [
+            "Use net11.0, matching ASP.NET Core 11 runtime/reference/browser assets, Microsoft.NET.Sdk.Web, and a compatible Microsoft.AspNetCore.Components.QuickGrid 11 package. Canonical pins: SDK 11.0.100-rc.2.26504.105; QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105; C# 15.0.",
+            "No optional workloads, external provider, database, native SDK or account. Items is an in-memory IQueryable in this example. Enable Interactive Server only for /interactive; /static works without a circuit.",
+            "The QuickGrid package must supply lib/net11.0/Microsoft.AspNetCore.Components.QuickGrid.dll and its static web assets; Web SDK Internal.Assets supplies the matching framework browser runtime."
+          ],
+          "constraints": [
+            "Each grid owns a distinct PaginationState and three unique query names.",
+            "RC2 uses Title as sort identity; no dedicated ColumnId exists. Keep Title keys immutable and unique per grid; separate visible captions with HeaderTemplate and refresh custom links on LocationChanged.",
+            "Windows x64 static SSR and Interactive Server executed. WebAssembly/Auto, EF/provider translation, other OS, accessibility assistive technology and GA execution are unverified."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; reconcile GA."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/Columns/ColumnBase.razor",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/Pagination/Paginator.razor",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-10.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WorkshopViews/WorkshopViews.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-11.0",
+      "title": "QuickGrid URL navigation, namespaces and templates"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor.cs",
+      "title": "Pinned RC2 QuickGrid URL key contract"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/Columns/ColumnBase.razor",
+      "title": "Pinned RC2 header template and link markup"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/Pagination/Paginator.razor",
+      "title": "Pinned RC2 paginator anchor behavior"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-10.0",
+      "title": "Previous-release QuickGrid and custom paging"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/WorkshopViews/WorkshopViews.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile",
+      "scope": "Actual declared Web SDK and QuickGrid consumer compilation. Separate real HTTP and Chromium evidence covers two-grid bookmarks, independent paging/sorting, stable keys across visible heading changes, query retention, history and disabled anchor markup/CSS.",
+      "language": "14.0"
+    },
+    {
+      "sample": "samples/net11.0/WorkshopViews/WorkshopViews.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile",
+      "scope": "Actual declared Web SDK and QuickGrid consumer compilation. Separate real HTTP and Chromium evidence covers two-grid bookmarks, independent paging/sorting, stable keys across visible heading changes, query retention, history and disabled anchor markup/CSS.",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "styles": {
+      "region": "styles",
+      "language": "razor",
+      "path": "samples/net11.0/WorkshopViews/Styles.razor"
+    },
+    "host": {
+      "path": "samples/net11.0/WorkshopViews/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/WorkshopViews/GridPanel.razor",
+      "region": "grid",
+      "language": "razor"
+    },
+    "document": {
+      "path": "samples/net11.0/WorkshopViews/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "sort": {
+      "path": "samples/net11.0/WorkshopViews/SortHeading.razor",
+      "region": "sort",
+      "language": "razor"
+    },
+    "older": {
+      "path": "samples/net10.0/WorkshopViews/GridPanel.razor",
+      "region": "grid",
+      "language": "razor"
+    },
+    "item": {
+      "path": "samples/net11.0/WorkshopViews/WorkItem.cs",
+      "region": "item",
+      "language": "csharp"
+    },
+    "workshop": {
+      "path": "samples/net11.0/WorkshopViews/Workshop.razor",
+      "region": "workshop",
+      "language": "razor"
+    },
+    "imports": {
+      "region": "imports",
+      "language": "razor",
+      "path": "samples/net11.0/WorkshopViews/_Imports.razor"
+    }
+  },
+  "humanProof": {
+    "scope": "Bounded local HTTP and Chromium checks cover the claim. No external resource, account or required Human-only proof; other modes and GA unverified.",
+    "status": "not-required"
+  }
+}
