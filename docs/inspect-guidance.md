@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For virtual lists under restrictive style CSP, use the
+[tested PIN-786 walkthrough](verification/PIN-786.md#inspect-what-an-agent-receives).
+It shows full canonical comparisons, actual enforcement/scrolling evidence and
+the separate trusted-CSSOM and consumer-browser boundaries.
+
 For two independently bookmarkable grids, use the
 [tested PIN-781 walkthrough](verification/PIN-781.md#inspect-what-an-agent-receives).
 It displays the original comparison, complete applicability and the measured
