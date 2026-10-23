@@ -1,10 +1,10 @@
 {
-  "outputSha256": "809510fe821307a9c3f5e0a1332f7b427824b09d99f5c156a8a1184c43c57c9d",
+  "outputSha256": "5c4e99f30b7a2374b458ccaf522f451f3fad40f8e6f442b46720e3b7fd98aeb2",
   "edition": "11.0",
-  "recordedAt": "2026-10-23T08:54:50.2137241+01:00",
+  "recordedAt": "2026-10-23T08:15:01.9582753+00:00",
   "evidenceCount": 3,
   "kind": "real-built-server-stdio-inspector",
-  "scriptSha256": "2e9ca08fe61b78bc4f8df20395f247d4edccd4418fef2664bfe1eebca452ebed",
+  "scriptSha256": "cfbd8e5b965b1a60314f8e3de8e8b4b2f102229b300457e0471e29dc1ee24496",
   "markdownLength": 35805,
   "startedFrom": "C:\\Windows",
   "detailSha256": "38514cf12eac3f5b867432ec23222adfd17f04ab295ff76fa4cda32543005631",
@@ -15,5 +15,8 @@
     "current"
   ],
   "command": "Run exact docs/verification/PIN-792.md Inspector block from unrelated C:\\Windows",
-  "serverSha256": "0a016eb17c55464beb6eadcefa2691a47c04aa47aea9c8586fdd595857d66610"
+  "serverSha256": "48c1dc5ae57d43538e04499ea4e05a113f407aee9ad970711aa0641e3996b6b5",
+  "sourceCommit": "02da27a3778e367bc4445d31865db58047f499f0",
+  "sourceDirty": true,
+  "scope": "Actual final documented block from C:\\Windows; server built at recorded commit with documentation-only dirt. Separate frozen installed packages and browser artifacts have their own provenance; no later build is relabelled."
 }
