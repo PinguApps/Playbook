@@ -244,7 +244,7 @@
     {
       "id": "template-web",
       "pattern": "^templates/content/BlazorWeb-CSharp/",
-      "disposition": "grouped; template demo-only rewrites excluded",
+      "disposition": "PIN-798 delivered NavMenu migration, both module paths and original old/new BrackenMenu consumers; docs/verification/PIN-798.md. Other template changes remain grouped; demo-only rewrites excluded",
       "owner": "PIN-776/PIN-798/PIN-808/PIN-811; PIN-709/PIN-710 for shared Identity/data changes"
     },
     {

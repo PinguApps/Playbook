@@ -1,0 +1,13 @@
+<!-- snippet:walk -->
+@page "/client/{Trail}"
+@page "/client"
+@inject NavigationManager Navigation
+<h1 id="trail">Bracken @Trail trail</h1>
+<p id="renderer">Browser: @OperatingSystem.IsBrowser()</p>
+<button id="confirm" @onclick="() => confirmations++">Confirm trail</button>
+<output id="confirmations">@confirmations</output>
+@code {
+    [Parameter] public string Trail { get; set; } = "fern";
+    private int confirmations;
+}
+<!-- endsnippet:walk -->

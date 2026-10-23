@@ -3,6 +3,9 @@
 Deliberate enhanced-navigation resource hints use original TernLedger .NET 10/11
 consumers. [PIN-800](verification/PIN-800.md) records actual hinted/control requests,
 deferred module execution, cache reuse and complete installed-body reconstruction.
+Navigation without inline-handler exceptions uses the original BrackenMenu host/client
+comparisons. [PIN-798](verification/PIN-798.md) records both real module paths,
+strict-policy controls, older backport and complete returned-body reconstruction.
 
 Custom event alias migration uses original CairnSignals .NET 10/11 consumers.
 [PIN-799](verification/PIN-799.md) records actual same-name rejection, native
