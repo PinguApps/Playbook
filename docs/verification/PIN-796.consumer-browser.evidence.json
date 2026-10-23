@@ -1,0 +1,252 @@
+{
+  "kind": "real Chrome 155 through existing extension; CDP Runtime.evaluate, ordinary link click and reload",
+  "verifier": "eng/QuaysideRoutes.browser.js",
+  "sourceSha256": "fdc7732d87cd5d37f7903ff60613c9f36a59d58717313be3310247537b37dc85",
+  "evaluatedExpressionSha256": "fdc7732d87cd5d37f7903ff60613c9f36a59d58717313be3310247537b37dc85",
+  "expressionIdentity": "Exact UTF-8 verifier source, without appended code. Each phase executes its assertions after the stated navigation; no mocks. Raw complete CDP responses remain in artifacts/pin796.",
+  "runs": [
+    {
+      "major": 10,
+      "phase": "north",
+      "capturedAt": "2026-10-23T10:20:39.977774+00:00",
+      "rawReceiptSha256": "22b1c2596f06afbf58b8fac9d65e7e229015b57c14a06fe6a1af7f9b51f39fd1",
+      "result": {
+        "api": {
+          "backend": "real-loopback",
+          "body": "Quay north; cargo=granite; read=4",
+          "status": 200
+        },
+        "configuration": null,
+        "initial": "Quay north; cargo=slate; read=2",
+        "kind": "real-browser-wasm-and-loopback-http",
+        "missingApi": 404,
+        "missingFile": 404,
+        "refreshed": "Quay north; cargo=slate; read=3",
+        "text": "Quayside routes\n\nBerth: north\n\nQuay north; cargo=slate; read=3\n\nRead quay South berth",
+        "url": "http://localhost:5911/berths/north",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+      },
+      "resourceCount": 210,
+      "relevantResources": [
+        "http://localhost:5911/_framework/blazor.webassembly.js",
+        "http://localhost:5911/_framework/dotnet.native.q38003gvqi.js",
+        "http://localhost:5911/_framework/dotnet.native.3zpaws0drs.wasm",
+        "http://localhost:5911/_framework/QuaysideRoutes.Client.q4z6sq3a31.pdb",
+        "http://localhost:5911/_framework/QuaysideRoutes.Client.b1mtsn1i7l.wasm",
+        "http://localhost:5911/api/quays/north?cargo=slate",
+        "http://localhost:5911/api/quays/north?cargo=slate",
+        "http://localhost:5911/api/quays/north?cargo=granite",
+        "http://localhost:5911/api/not-found"
+      ]
+    },
+    {
+      "major": 10,
+      "phase": "south",
+      "capturedAt": "2026-10-23T10:20:40.717323+00:00",
+      "rawReceiptSha256": "69ae050bad10bcd3f6fb0fc69571fc0971afb4ea993065664654755997907cb0",
+      "result": {
+        "api": {
+          "backend": "real-loopback",
+          "body": "Quay south; cargo=granite; read=7",
+          "status": 200
+        },
+        "configuration": null,
+        "initial": "Quay south; cargo=slate; read=5",
+        "kind": "real-browser-wasm-and-loopback-http",
+        "missingApi": 404,
+        "missingFile": 404,
+        "refreshed": "Quay south; cargo=slate; read=6",
+        "text": "Quayside routes\n\nBerth: south\n\nQuay south; cargo=slate; read=6\n\nRead quay South berth",
+        "url": "http://localhost:5911/berths/south",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+      },
+      "resourceCount": 215,
+      "relevantResources": [
+        "http://localhost:5911/_framework/blazor.webassembly.js",
+        "http://localhost:5911/_framework/dotnet.native.q38003gvqi.js",
+        "http://localhost:5911/_framework/dotnet.native.3zpaws0drs.wasm",
+        "http://localhost:5911/_framework/QuaysideRoutes.Client.q4z6sq3a31.pdb",
+        "http://localhost:5911/_framework/QuaysideRoutes.Client.b1mtsn1i7l.wasm",
+        "http://localhost:5911/api/quays/north?cargo=slate",
+        "http://localhost:5911/api/quays/north?cargo=slate",
+        "http://localhost:5911/api/quays/north?cargo=granite",
+        "http://localhost:5911/api/not-found",
+        "http://localhost:5911/api/quays/south?cargo=slate",
+        "http://localhost:5911/api/quays/south?cargo=slate",
+        "http://localhost:5911/api/quays/south?cargo=granite",
+        "http://localhost:5911/api/not-found"
+      ]
+    },
+    {
+      "major": 10,
+      "phase": "reload",
+      "capturedAt": "2026-10-23T10:20:42.000670+00:00",
+      "rawReceiptSha256": "98cc3662e19c8e5fcb86d6741ded2aeba947935ec19b37e62deb2b371cae9126",
+      "result": {
+        "api": {
+          "backend": "real-loopback",
+          "body": "Quay south; cargo=granite; read=10",
+          "status": 200
+        },
+        "configuration": null,
+        "initial": "Quay south; cargo=slate; read=8",
+        "kind": "real-browser-wasm-and-loopback-http",
+        "missingApi": 404,
+        "missingFile": 404,
+        "refreshed": "Quay south; cargo=slate; read=9",
+        "text": "Quayside routes\n\nBerth: south\n\nQuay south; cargo=slate; read=9\n\nRead quay South berth",
+        "url": "http://localhost:5911/berths/south",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+      },
+      "resourceCount": 210,
+      "relevantResources": [
+        "http://localhost:5911/_framework/blazor.webassembly.js",
+        "http://localhost:5911/_framework/dotnet.native.q38003gvqi.js",
+        "http://localhost:5911/_framework/dotnet.native.3zpaws0drs.wasm",
+        "http://localhost:5911/_framework/QuaysideRoutes.Client.q4z6sq3a31.pdb",
+        "http://localhost:5911/_framework/QuaysideRoutes.Client.b1mtsn1i7l.wasm",
+        "http://localhost:5911/api/quays/south?cargo=slate",
+        "http://localhost:5911/api/quays/south?cargo=slate",
+        "http://localhost:5911/api/quays/south?cargo=granite",
+        "http://localhost:5911/api/not-found"
+      ]
+    },
+    {
+      "major": 11,
+      "phase": "north",
+      "capturedAt": "2026-10-23T10:20:36.453717+00:00",
+      "rawReceiptSha256": "e6df72381e4770c8022dc2a1b560ca085027a1ef3b85ecb29b5994526a21a0d2",
+      "result": {
+        "api": {
+          "backend": "real-loopback",
+          "body": "Quay north; cargo=granite; read=4",
+          "status": 200
+        },
+        "configuration": {
+          "webAssembly": {
+            "environment": {
+              "services__quays__http__0": "http://localhost:5912"
+            }
+          }
+        },
+        "initial": "Quay north; cargo=slate; read=2",
+        "kind": "real-browser-wasm-and-loopback-http",
+        "missingApi": 404,
+        "missingFile": 404,
+        "refreshed": "Quay north; cargo=slate; read=3",
+        "text": "Quayside routes\n\nBerth: north\n\nQuay north; cargo=slate; read=3\n\nRead quay South berth",
+        "url": "http://localhost:5912/berths/north",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+      },
+      "resourceCount": 230,
+      "relevantResources": [
+        "http://localhost:5912/_framework/blazor.webassembly.js",
+        "http://localhost:5912/_content/QuaysideRoutes.Defaults/QuaysideRoutes.Defaults.r7m29psfeu.lib.module.js",
+        "http://localhost:5912/_blazor/_configuration",
+        "http://localhost:5912/_framework/dotnet.native.ric31difde.js",
+        "http://localhost:5912/_framework/dotnet.native.89gvfkserh.wasm",
+        "http://localhost:5912/_framework/QuaysideRoutes.Defaults.w57mgnoygw.pdb",
+        "http://localhost:5912/_framework/QuaysideRoutes.Client.90xevhjy5d.pdb",
+        "http://localhost:5912/_framework/QuaysideRoutes.Defaults.g867o3jhml.wasm",
+        "http://localhost:5912/_framework/QuaysideRoutes.Client.iwmfclplhy.wasm",
+        "http://localhost:5912/api/quays/north?cargo=slate",
+        "http://localhost:5912/api/quays/north?cargo=slate",
+        "http://localhost:5912/api/quays/north?cargo=granite",
+        "http://localhost:5912/api/not-found"
+      ]
+    },
+    {
+      "major": 11,
+      "phase": "south",
+      "capturedAt": "2026-10-23T10:20:36.895510+00:00",
+      "rawReceiptSha256": "21384f9fb7dc84b9d3e1429337d9b6dc8ac03e705c808aee4f4d089075284562",
+      "result": {
+        "api": {
+          "backend": "real-loopback",
+          "body": "Quay south; cargo=granite; read=7",
+          "status": 200
+        },
+        "configuration": {
+          "webAssembly": {
+            "environment": {
+              "services__quays__http__0": "http://localhost:5912"
+            }
+          }
+        },
+        "initial": "Quay south; cargo=slate; read=5",
+        "kind": "real-browser-wasm-and-loopback-http",
+        "missingApi": 404,
+        "missingFile": 404,
+        "refreshed": "Quay south; cargo=slate; read=6",
+        "text": "Quayside routes\n\nBerth: south\n\nQuay south; cargo=slate; read=6\n\nRead quay South berth",
+        "url": "http://localhost:5912/berths/south",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+      },
+      "resourceCount": 236,
+      "relevantResources": [
+        "http://localhost:5912/_framework/blazor.webassembly.js",
+        "http://localhost:5912/_content/QuaysideRoutes.Defaults/QuaysideRoutes.Defaults.r7m29psfeu.lib.module.js",
+        "http://localhost:5912/_blazor/_configuration",
+        "http://localhost:5912/_framework/dotnet.native.ric31difde.js",
+        "http://localhost:5912/_framework/dotnet.native.89gvfkserh.wasm",
+        "http://localhost:5912/_framework/QuaysideRoutes.Defaults.w57mgnoygw.pdb",
+        "http://localhost:5912/_framework/QuaysideRoutes.Client.90xevhjy5d.pdb",
+        "http://localhost:5912/_framework/QuaysideRoutes.Defaults.g867o3jhml.wasm",
+        "http://localhost:5912/_framework/QuaysideRoutes.Client.iwmfclplhy.wasm",
+        "http://localhost:5912/api/quays/north?cargo=slate",
+        "http://localhost:5912/api/quays/north?cargo=slate",
+        "http://localhost:5912/api/quays/north?cargo=granite",
+        "http://localhost:5912/api/not-found",
+        "http://localhost:5912/_blazor/_configuration",
+        "http://localhost:5912/api/quays/south?cargo=slate",
+        "http://localhost:5912/api/quays/south?cargo=slate",
+        "http://localhost:5912/api/quays/south?cargo=granite",
+        "http://localhost:5912/api/not-found"
+      ]
+    },
+    {
+      "major": 11,
+      "phase": "reload",
+      "capturedAt": "2026-10-23T10:20:38.535648+00:00",
+      "rawReceiptSha256": "52c4f775a0c9dd31d969e93e2e99f1990247f38165e4f8a8eb134fdd05429de6",
+      "result": {
+        "api": {
+          "backend": "real-loopback",
+          "body": "Quay south; cargo=granite; read=10",
+          "status": 200
+        },
+        "configuration": {
+          "webAssembly": {
+            "environment": {
+              "services__quays__http__0": "http://localhost:5912"
+            }
+          }
+        },
+        "initial": "Quay south; cargo=slate; read=8",
+        "kind": "real-browser-wasm-and-loopback-http",
+        "missingApi": 404,
+        "missingFile": 404,
+        "refreshed": "Quay south; cargo=slate; read=9",
+        "text": "Quayside routes\n\nBerth: south\n\nQuay south; cargo=slate; read=9\n\nRead quay South berth",
+        "url": "http://localhost:5912/berths/south",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+      },
+      "resourceCount": 230,
+      "relevantResources": [
+        "http://localhost:5912/_framework/blazor.webassembly.js",
+        "http://localhost:5912/_content/QuaysideRoutes.Defaults/QuaysideRoutes.Defaults.r7m29psfeu.lib.module.js",
+        "http://localhost:5912/_blazor/_configuration",
+        "http://localhost:5912/_framework/dotnet.native.ric31difde.js",
+        "http://localhost:5912/_framework/dotnet.native.89gvfkserh.wasm",
+        "http://localhost:5912/_framework/QuaysideRoutes.Defaults.w57mgnoygw.pdb",
+        "http://localhost:5912/_framework/QuaysideRoutes.Client.90xevhjy5d.pdb",
+        "http://localhost:5912/_framework/QuaysideRoutes.Defaults.g867o3jhml.wasm",
+        "http://localhost:5912/_framework/QuaysideRoutes.Client.iwmfclplhy.wasm",
+        "http://localhost:5912/api/quays/south?cargo=slate",
+        "http://localhost:5912/api/quays/south?cargo=slate",
+        "http://localhost:5912/api/quays/south?cargo=granite",
+        "http://localhost:5912/api/not-found"
+      ]
+    }
+  ]
+}
