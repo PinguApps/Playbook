@@ -1,8 +1,8 @@
 {
   "id": "blazor.share-grid-view",
   "edition": "11.0",
-  "title": "Restore and share sorted grid pages",
-  "goal": "Keep two grids independently bookmarkable as people sort and page.",
+  "title": "Share sorted grid pages",
+  "goal": "Bookmark each grid's sorted page.",
   "areas": [
     "blazor"
   ],
@@ -32,7 +32,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "QuickGrid; separate paging state; stable Title keys."
+          "Own PaginationState/query names; fixed Title keys."
         ],
         "requirements": {
           "runtime": {
@@ -66,18 +66,19 @@
           ],
           "workloads": [],
           "packageAssets": [
-            "QuickGrid lib/net11.0; Web SDK assets"
+            "QuickGrid net11; SDK browser"
           ],
           "providers": [],
           "platforms": [
-            "ASP.NET Core server"
+            "Server"
           ],
           "renderingModes": [
             "Static SSR; interactive"
           ],
           "prerequisites": [
             "Use net11.0, matching ASP.NET Core 11 runtime/reference/browser assets, Microsoft.NET.Sdk.Web, and a compatible Microsoft.AspNetCore.Components.QuickGrid 11 package. Canonical pins: SDK 11.0.100-rc.2.26504.105; QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105; C# 15.0.",
-            "No optional workloads, external provider, database, native SDK or account. Items is an in-memory IQueryable in this example. Enable Interactive Server only for /interactive; /static works without a circuit."
+            "No optional workloads, external provider, database, native SDK or account. Items is an in-memory IQueryable in this example. Enable Interactive Server only for /interactive; /static works without a circuit.",
+            "The QuickGrid package must supply lib/net11.0/Microsoft.AspNetCore.Components.QuickGrid.dll and its static web assets; Web SDK Internal.Assets supplies the matching framework browser runtime."
           ],
           "constraints": [
             "Each grid owns a distinct PaginationState and three unique query names.",

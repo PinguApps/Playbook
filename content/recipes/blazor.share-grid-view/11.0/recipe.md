@@ -1,4 +1,4 @@
-# Restore and share sorted grid pages
+# Share sorted grid pages
 
 ## Goal
 
