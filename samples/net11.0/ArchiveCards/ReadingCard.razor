@@ -1,0 +1,16 @@
+<!-- snippet:card -->
+@page "/"
+
+<h1>Penmor Archive</h1>
+<ReadingPanel @rendermode="InteractiveServer">
+    <Heading><h2>Harbour ledger, box 27</h2></Heading>
+    <ChildContent>
+        <p id="snapshot">Prepared for reading desk @desk.</p>
+        <p>Keep the ledger on its padded support.</p>
+    </ChildContent>
+</ReadingPanel>
+
+@code {
+    private readonly string desk = "Cedar";
+}
+<!-- endsnippet:card -->

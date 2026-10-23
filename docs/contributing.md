@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Captured static child content uses the original .NET 10/11 ArchiveCards samples.
+[PIN-778](verification/PIN-778.md) records real SSR/Interactive Server execution,
+generic/delegate/prerender restrictions and the tested offline Inspector path.
+
 F# array migration, FSI asynchronous cleanup and experimental pull-driven
 sequences use the six original `FSharpArrayAot`, `FSharpFsiCleanup` and
 `FSharpSequence` samples. [PIN-982–984](verification/PIN-982-984.md) records the

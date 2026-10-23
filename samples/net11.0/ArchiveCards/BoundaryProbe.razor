@@ -1,0 +1,32 @@
+@page "/probe/{Case}"
+
+@switch (Case)
+{
+    case "generic":
+        <ProbePanel @rendermode="InteractiveServer">
+            <Template Context="value"><p>@value</p></Template>
+        </ProbePanel>
+        break;
+    case "delegate":
+        <ProbePanel @rendermode="InteractiveServer" Callback="@(() => { })" />
+        break;
+    case "no-prerender":
+        <ReadingPanel @rendermode="new InteractiveServerRenderMode(prerender: false)">
+            <p>Cannot capture without prerendering.</p>
+        </ReadingPanel>
+        break;
+    case "unrendered":
+        <ProbePanel @rendermode="InteractiveServer"><p>Never invoked.</p></ProbePanel>
+        break;
+    case "discarded-handler":
+        <ReadingPanel @rendermode="InteractiveServer">
+            <p id="parent-count">Parent callbacks: @callbacks</p>
+            <button id="discarded" @onclick="() => System.Threading.Interlocked.Increment(ref callbacks)">Parent-owned callback</button>
+        </ReadingPanel>
+        break;
+}
+@code {
+    [Parameter] public string Case { get; set; } = "";
+    private static int callbacks;
+    public static int CallbackCount => System.Threading.Volatile.Read(ref callbacks);
+}

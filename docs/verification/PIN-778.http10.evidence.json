@@ -1,0 +1,46 @@
+{
+  "kind": "real HTTP execution",
+  "recordedAt": "2026-10-23T00:02:30.7819904+00:00",
+  "target": "net10.0",
+  "baseUri": "http://localhost:52910/",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "expected": "Prepared for reading desk Cedar."
+    },
+    {
+      "path": "/probe/direct",
+      "status": 500,
+      "expected": "Cannot pass the parameter 'ChildContent'"
+    }
+  ],
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/ArchiveCards.browser.js": "b1c8ea16d387f2f76968e4de72da289c786841d2090be806f1b8bbc6bea8de27",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Test-ArchiveCards.ps1": "96b9d6e7d27439ce59ee10fb726a409a58a034f5a864def7f361b05f14a8c995",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net10.0/ArchiveCards/_Imports.razor": "5ddd908331aa2dc72ebc3231eadca9a12bddfcbac425fed1360b300bb4094b7a",
+    "samples/net10.0/ArchiveCards/App.razor": "c4c86a82ca8beea33f265987f1c9a7672ecf0313402bd5f905020e17a0c4e054",
+    "samples/net10.0/ArchiveCards/ArchiveCards.csproj": "ba70bc19b1547fa1bed644c27fffa0ca522790352eea830e673e9aef23838819",
+    "samples/net10.0/ArchiveCards/BoundaryProbe.razor": "642c3865249a60b2991bd4eff87755499dbec6a64b4cef31cc0b7987d0be1940",
+    "samples/net10.0/ArchiveCards/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+    "samples/net10.0/ArchiveCards/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
+    "samples/net10.0/ArchiveCards/Program.cs": "2ed79d76db6432d8d6ceab28a238b30975ee714543033694741479f41e1383dc",
+    "samples/net10.0/ArchiveCards/ReadingCard.razor": "b968cf43cfb0f7776eeeba63c2a78d3d3c40fe52e954d6a5917f6eb42fc69aa0",
+    "samples/net10.0/ArchiveCards/ReadingPanel.razor": "294b617c3fb630e639d6f317cb595e86dd4675f227305d6a093134c5fa87572a",
+    "samples/net10.0/ArchiveCards/ReadingWrapper.razor": "d6c860fb1806df801d13728715278daa571c3f735c8bbfad2a7185503afc65fc",
+    "samples/net10.0/ArchiveCards/verification.json": "4b9b5ab7903a67cb4d59d240692e30e61ae98ab0631e0b201562a39bfd38740c"
+  },
+  "artifacts": {
+    "samples/net10.0/ArchiveCards/bin/Release/net10.0/ArchiveCards.dll": "bcc110bb794d7c16eef3d6b00e0cbffead7e6606c81c216f505fbe9374a48139",
+    "samples/net10.0/ArchiveCards/bin/Release/net10.0/ArchiveCards.deps.json": "cc3ff7d56dd57eb4886461c60c05cc855050da380b2066d0b1c4457c70ff1f4a",
+    "samples/net10.0/ArchiveCards/bin/Release/net10.0/ArchiveCards.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65"
+  },
+  "limits": "Development exception diagnostics required. HTTP proves SSR and boundary refusal, not circuit activation; see separate real browser report."
+}
