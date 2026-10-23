@@ -282,6 +282,7 @@ Feature: Installed offline guidance
 
     And browser configuration retains complete canonical guidance and precedence requirements offline
     And browser workers retain complete canonical guidance and cancellation limits offline
+    And standalone gateway retains complete canonical guidance and backend requirements offline
     And environment chrome retains complete canonical guidance and renderer boundaries offline
     And browser component activity retains complete setup and collector requirements offline
     When the client closes its input

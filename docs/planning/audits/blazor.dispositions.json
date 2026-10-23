@@ -44,8 +44,8 @@
     {
       "id": "gateway-debugging",
       "pattern": " Microsoft\\.AspNetCore\\.Builder\\.WebAssemblyNetDebugProxyAppBuilderExtensions::UseWebAssemblyDebugging",
-      "owner": "PIN-796; ASPDEPR011",
-      "disposition": "grouped"
+      "owner": "PIN-796; ASPDEPR011; blazor.host-browser-client-with-backends/11.0",
+      "disposition": "delivered — valid .NET 10 debugging comparison; Gateway migration removes obsolete inspectUri/UseWebAssemblyDebugging; docs/verification/PIN-796.md"
     },
     {
       "id": "builtin-cache-contracts",
@@ -202,8 +202,8 @@
     {
       "id": "package-gateway",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.components\\.(gateway|webassembly\\.(devserver|server))",
-      "disposition": "grouped",
-      "owner": "PIN-796"
+      "disposition": "delivered — actual RC2 build/tool/manifests, SPA fallback, YARP proxy and real WASM/backend execution; docs/verification/PIN-796.md",
+      "owner": "PIN-796; A06/WEB-031; blazor.host-browser-client-with-backends/11.0"
     },
     {
       "id": "package-pause",
@@ -220,8 +220,8 @@
     {
       "id": "template-service-defaults",
       "pattern": "^templates/content/BlazorWasmServiceDefaults-CSharp/",
-      "disposition": "grouped",
-      "owner": "PIN-796"
+      "disposition": "delivered — actual generated RC2 extension/initializer/dependency closure, public service configuration and real browser service discovery; conditional Aspire remains unexecuted; docs/verification/PIN-796.md",
+      "owner": "PIN-796; A06/WEB-031; blazor.host-browser-client-with-backends/11.0"
     },
     {
       "id": "template-wasm",
