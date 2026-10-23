@@ -1,0 +1,22 @@
+@page "/ledger"
+@inject LedgerState Ledger
+@inject IConfiguration Configuration
+<!-- snippet:page -->
+<h1>Quarry survey ledger</h1>
+<p id="request">Request @Guid.NewGuid().ToString("N") for @Viewer</p>
+<CacheView CacheKey="quarry-survey-v1" VaryByQuery="shelf" VaryByUser="true"
+           VaryBy="@($"{Revision}:{Permission}")" ExpiresAfter="Lifetime" Enabled="CacheEnabled">
+    <SurveySection Shelf="@Shelf" Revision="Revision" Viewer="@Viewer" Permission="@Permission" />
+</CacheView>
+@code {
+    [CascadingParameter] private HttpContext Context { get; set; } = default!;
+    [SupplyParameterFromQuery(Name = "shelf")] public string? RequestedShelf { get; set; }
+    private string Shelf => RequestedShelf == "south" ? "south" : "north";
+    private string Viewer => Context.User.Identity?.Name ?? "anonymous";
+    private string Permission => Context.User.FindFirst("ledger-permission")?.Value ?? "none";
+    private int Revision;
+    private TimeSpan Lifetime => TimeSpan.FromSeconds(Configuration.GetValue("CacheSeconds", 120));
+    private bool CacheEnabled => Configuration.GetValue("CacheEnabled", true);
+    protected override void OnInitialized() => Revision = Ledger.Revision;
+}
+<!-- endsnippet:page -->

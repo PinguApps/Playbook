@@ -1,0 +1,8 @@
+@page "/expiry"
+@inject IWebHostEnvironment Environment
+@if (Environment.IsDevelopment())
+{
+    <CacheView CacheKey="expiry-probe" ExpiresAfter="TimeSpan.FromSeconds(1)">
+        <SurveySection />
+    </CacheView>
+}

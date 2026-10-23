@@ -1,0 +1,30 @@
+{
+  "kind": "real packed-tool stdio execution with network disabled",
+  "recordedAt": "2026-10-23T01:42:19.2813764+00:00",
+  "sourceCommit": "c1a77f582b6cf616d5e7aa629cc84f58cde5351a",
+  "sourceDirty": true,
+  "integratedBase": "fe9e7f0e75e10498c84d71a891187ce990d8a318",
+  "worktree": "V:\\_worktrees\\Playbook\\agent-pin-780-04-008-safe-static-subtree-caching",
+  "packageSha256": "75f290590d44f062c2e8588b786bcb7e5b3a012d0bf88d11cde0e286d88bc42b",
+  "fixtureSha256": "6e4621ef8b0ca23f27afa2223f2938f67fde68bd4f13a8cd5af7637377d0225d",
+  "testAssemblySha256": "a178ba0bfa3e4ce36193f959458096993f86cf7d9086facc60d10a56625fae30",
+  "wrapperSha256": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
+  "trxSha256": "01b2bcd4b5324914fe15be9d68a2f4cd39b5eb9afad78d3a52165108f5470c7b",
+  "counts": {
+    "failed": 0,
+    "skipped": 0,
+    "total": 36,
+    "passed": 36
+  },
+  "wrapperResult": "Verified actual package on .NET 10; 36 scenarios passed.",
+  "measurements": [
+    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=28835, result=72031 UTF-8 bytes",
+    "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
+    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
+    "all 20: summary=1397, structured=28837, result=72035 UTF-8 bytes",
+    "all 50: summary=1397, structured=67603, result=169931 UTF-8 bytes"
+  ],
+  "scope": "Isolated local feed/cache and unrelated cwd; complete canonical body and every authored applicability field, current evidence, 11.0 edition/10.0 rejection, structured/text equivalence and unchanged byte guards. Retains tagged UnionParameters, NavigationAtlas and ArchiveCards.",
+  "limits": "Linux .NET 10.0.12 tool host, network none, no checkout mount. App HTTP proof is Windows x64 local cache providers; other OS, distributed/multi-node, browser/interactive, AOT and GA execution are not claimed."
+}
