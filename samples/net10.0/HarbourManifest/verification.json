@@ -1,0 +1,15 @@
+{
+  "nativeToolchains": [],
+  "buildArguments": [],
+  "workloads": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/HarbourManifest.browser.js"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13",
+    "Microsoft.AspNetCore.Components.QuickGrid/10.0.13"
+  ]
+}

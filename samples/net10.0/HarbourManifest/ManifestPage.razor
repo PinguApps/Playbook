@@ -1,0 +1,77 @@
+@page "/"
+@rendermode InteractiveServer
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+<!-- snippet:grid -->
+<h1>Harbour manifest</h1>
+<p>Continue at consignment 401, or reveal consignment 701.</p>
+<button id="reveal" disabled="@(!_ready)" @onclick="RevealAsync">Reveal 701</button>
+<button id="prepend" disabled="@(!_ready)" @onclick="PrependAsync">Add five earlier arrivals</button>
+<button id="append" disabled="@(!_ready)" @onclick="AppendAsync">Add five later arrivals</button>
+<button id="reload" disabled="@(!_ready)" @onclick="ReloadAsync">Reload fresh instances</button>
+<output id="revision">@_revision</output>
+<div id="viewport" tabindex="0" aria-label="Scrollable harbour manifest">
+    <QuickGrid @ref="_grid" Items="_rows" Virtualize="true" ItemSize="32" ItemKey="@(row => row.Id)">
+        <PropertyColumn Property="@(row => row.Id)" Title="Consignment" />
+        <PropertyColumn Property="@(row => row.Label)" Title="Cargo" />
+    </QuickGrid>
+</div>
+
+@code {
+    private QuickGrid<Consignment>? _grid;
+    private IJSObjectReference? _module;
+    private IQueryable<Consignment> _rows = Enumerable.Range(1, 1000)
+        .Select(id => new Consignment(id, $"Harbour load {id}")).AsQueryable();
+    private bool _ready;
+    private int _revision;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) { return; }
+        _module = await JS.InvokeAsync<IJSObjectReference>("import", "./manifest.js");
+        await _module.InvokeVoidAsync("reveal", "viewport", 400, 32);
+        _ready = true;
+        StateHasChanged();
+    }
+
+    private async Task RevealAsync()
+    {
+        int index = _rows.ToList().FindIndex(row => row.Id == 701);
+        if (index >= 0) { await _module!.InvokeVoidAsync("reveal", "viewport", index, 32); }
+    }
+
+    private async Task ReplaceAsync(IEnumerable<Consignment> rows, int insertedBefore = 0)
+    {
+        await _module!.InvokeVoidAsync("capture", "viewport");
+        _rows = rows.Select(row => new Consignment(row.Id, row.Label)).ToArray().AsQueryable();
+        await _grid!.RefreshDataAsync();
+        await _module!.InvokeVoidAsync("restore", "viewport", insertedBefore, 32);
+        _revision++;
+    }
+
+    private Task PrependAsync()
+    {
+        int first = _rows.First().Id;
+        return ReplaceAsync(Enumerable.Range(first - 5, 5)
+            .Select(id => new Consignment(id, $"Earlier load {id}")).Concat(_rows), 5);
+    }
+
+    private Task AppendAsync()
+    {
+        int last = _rows.Last().Id;
+        return ReplaceAsync(_rows.Concat(Enumerable.Range(last + 1, 5)
+            .Select(id => new Consignment(id, $"Later load {id}"))));
+    }
+
+    private Task ReloadAsync() => ReplaceAsync(_rows);
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_module is null) { return; }
+        try { await _module.DisposeAsync(); }
+        catch (JSDisconnectedException) { }
+    }
+}
+<!-- endsnippet:grid -->

@@ -1,0 +1,184 @@
+{
+  "id": "blazor.reveal-grid-row",
+  "edition": "11.0",
+  "title": "Keep a place in a grid",
+  "goal": "Reveal rows; retain position.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "grid-position"
+  ],
+  "apis": [
+    "InitialItemIndex",
+    "ScrollToItemAsync",
+    "AnchorMode",
+    "ItemComparer"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Virtualize=true; rendered; fixed rows."
+        ],
+        "requirements": {
+          "runtime": {
+            "reason": "The forwarding APIs require the .NET 11 QuickGrid consumer.",
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family"
+          },
+          "sdk": {
+            "reason": "Build against .NET 11 Razor and reference assets; RC2 is the measured baseline.",
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family"
+          },
+          "language": {
+            "reason": "Canonical language mode; no C# 15-specific syntax is needed.",
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact"
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [
+            {
+              "reason": "Grid-specific virtualization forwarding belongs to this separate NuGet package.",
+              "name": "Microsoft.AspNetCore.Components.QuickGrid",
+              "version": "11.0",
+              "match": "release-family"
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "net11.0 QuickGrid/Internal.Assets"
+          ],
+          "providers": [
+            "In-memory"
+          ],
+          "platforms": [
+            "Windows x64 proof"
+          ],
+          "renderingModes": [
+            "Interactive Server"
+          ],
+          "prerequisites": [
+            "Use the .NET 11 Web SDK/runtime, C# 15.0 and locked QuickGrid/Internal.Assets 11.0.0-rc.2.26504.105 net11.0 assets. No optional workload or service.",
+            "Local in-memory IQueryable with stable unique IDs and overlapping windows; no database/provider is executed.",
+            "ASP.NET Core server on Windows x64 with real Chrome. Other OS and browser engines are untested.",
+            "Interactive Server after rendering. Static SSR/prerender alone cannot scroll; WebAssembly/Auto are not execution evidence.",
+            "Constant row heights and matching ItemSize; finite scroll container. Default grid overscan is 3, not list default 15."
+          ],
+          "constraints": [
+            "QuickGrid Virtualize=true; rendered instance; constant row height matching ItemSize.",
+            "Resolve row identity to a zero-based index in the current ordered result. Initial index applies once; later calls use ScrollToItemAsync on the renderer context.",
+            "ItemComparer compares immutable unique IDs across fresh objects; ItemKey independently controls row keys. No arbitrary replacement/remote-window guarantee."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; no ASP0030; GA pending."
+          ]
+        },
+        "usage": "primary",
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/HarbourManifest/HarbourManifest.csproj"
+        ],
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/VirtualizeAnchorMode.cs",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/aspnetcore.md",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-10.0"
+        ],
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned RC2 grid and anchor contracts",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor.cs"
+    },
+    {
+      "title": "Pinned RC2 grid and anchor contracts",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor"
+    },
+    {
+      "title": "Pinned RC2 grid and anchor contracts",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/VirtualizeAnchorMode.cs"
+    },
+    {
+      "title": "RC2 removes ASP0030",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/aspnetcore.md"
+    },
+    {
+      "title": "Previous-release QuickGrid virtualization",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-10.0"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual Web SDK compilation; separate real Chrome rendering measures row identity, geometry and anchoring.",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/HarbourManifest/HarbourManifest.csproj",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual Web SDK compilation; separate real Chrome rendering measures row identity, geometry and anchoring.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/HarbourManifest/HarbourManifest.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "identity": {
+      "path": "samples/net11.0/HarbourManifest/Consignment.cs",
+      "language": "csharp",
+      "region": "identity"
+    },
+    "newer": {
+      "path": "samples/net11.0/HarbourManifest/ManifestPage.razor",
+      "language": "razor",
+      "region": "grid"
+    },
+    "scroll": {
+      "path": "samples/net10.0/HarbourManifest/wwwroot/manifest.js",
+      "language": "javascript",
+      "region": "scroll"
+    },
+    "host": {
+      "path": "samples/net11.0/HarbourManifest/Program.cs",
+      "language": "csharp",
+      "region": "host"
+    },
+    "older": {
+      "path": "samples/net10.0/HarbourManifest/ManifestPage.razor",
+      "language": "razor",
+      "region": "grid"
+    },
+    "geometry": {
+      "path": "samples/net11.0/HarbourManifest/App.razor",
+      "language": "razor",
+      "region": "geometry"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local Chrome Interactive Server positioning, fresh identity and anchoring; no remote provider, other OS, WebAssembly/Auto or GA claim."
+  }
+}

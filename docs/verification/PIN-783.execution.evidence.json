@@ -1,0 +1,71 @@
+[
+  {
+    "inputs": {
+      ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+      "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+      "eng/HarbourManifest.browser.js": "aa5e0b4785abd150bb003c573907cdb524c28d02bae6bb5b145ea81818833c86",
+      "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+      "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+      "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+      "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+      "samples/net10.0/HarbourManifest/_Imports.razor": "42e92d3770e402007356c163477bc7d85eb4c63c839fa8350519b521fb8cf3dc",
+      "samples/net10.0/HarbourManifest/App.razor": "3c179dc2545217dfaaaf0cdba4a24a3cc77e9bd329e9d7d5c6d209da99861dd0",
+      "samples/net10.0/HarbourManifest/Consignment.cs": "dbf5c90527639250510707354d00312cdea536f671755f9363dd628c08a85a99",
+      "samples/net10.0/HarbourManifest/Directory.Packages.props": "089bb9a1211733f7774303710efafefb48333131b157c20b09a4eda0404da6a7",
+      "samples/net10.0/HarbourManifest/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+      "samples/net10.0/HarbourManifest/HarbourManifest.csproj": "45bafb8d7db99731bfb048646d931c91ff63f03fc226734165cfe1fdc174581f",
+      "samples/net10.0/HarbourManifest/ManifestPage.razor": "11ab014b55ff52a28215b6c406b3d76330fef87e0d45c6910e58a073b98ef84c",
+      "samples/net10.0/HarbourManifest/packages.lock.json": "fdd87eda5d2d01132d950454fe1496533ac9b63685e3404832ef3d889e5ebc27",
+      "samples/net10.0/HarbourManifest/Program.cs": "7358d0ab102db4a5d57b292cb4b79b2fae63417c3ef3765f94c46cdfd1853507",
+      "samples/net10.0/HarbourManifest/verification.json": "bedb97a73ef6ce5c470aaaa471dddb126285d226e5ee001bd5ecd28ff16548de",
+      "samples/net10.0/HarbourManifest/wwwroot/manifest.js": "79d1f478a86b487b4b0d060ee20a3d40205d481d6cd11a60789cdd5c65876515"
+    },
+    "kind": "real-browser-execution",
+    "recordedAt": "2026-10-23T02:35:42.3885458+00:00",
+    "sourceCommit": "68bdb0a5b83362110a796f51b480108a74b8e74d",
+    "artifacts": {
+      "samples/net10.0/HarbourManifest/bin/Release/net10.0/HarbourManifest.dll": "6ac96fc664a8264f70a4ef975fa2ac269b79d4ef761b27193900dea61aa2ce78",
+      "samples/net10.0/HarbourManifest/bin/Release/net10.0/HarbourManifest.deps.json": "c887c5b0f5e49ce66473942c522e1efd773add88b3d9d0846cda22675462363a",
+      "samples/net10.0/HarbourManifest/bin/Release/net10.0/HarbourManifest.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65"
+    },
+    "compileRecordSha256": "3a0e23ace117bd9db0b93cb48d30fb0abaff9e4c1f9cdf53141b74c42ea8e2bf",
+    "reportSha256": "41d585ec46abe07e2bb1a78a1246b878c9c46895e1f3d36ad2da5413f8bac3f2",
+    "sourceDirty": true,
+    "target": "net10.0",
+    "report": "docs/verification/PIN-783.browser10.evidence.json"
+  },
+  {
+    "inputs": {
+      ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+      "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+      "eng/HarbourManifest.browser.js": "aa5e0b4785abd150bb003c573907cdb524c28d02bae6bb5b145ea81818833c86",
+      "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+      "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+      "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+      "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+      "samples/net11.0/HarbourManifest/_Imports.razor": "42e92d3770e402007356c163477bc7d85eb4c63c839fa8350519b521fb8cf3dc",
+      "samples/net11.0/HarbourManifest/App.razor": "3c179dc2545217dfaaaf0cdba4a24a3cc77e9bd329e9d7d5c6d209da99861dd0",
+      "samples/net11.0/HarbourManifest/Consignment.cs": "dbf5c90527639250510707354d00312cdea536f671755f9363dd628c08a85a99",
+      "samples/net11.0/HarbourManifest/Directory.Packages.props": "d09631f022e17db7ea53ad95d8c23316d080e4ed5974438c04674ec0a8b8292d",
+      "samples/net11.0/HarbourManifest/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+      "samples/net11.0/HarbourManifest/HarbourManifest.csproj": "1e99f2b185ffe8b00805a1e5e78ce34e59539031684e4ef89d024c8f11bf5eb5",
+      "samples/net11.0/HarbourManifest/ManifestPage.razor": "45fa30f37d2f06a90673846813fadc7a9fc39eb1dbeb6ca1aa0b540b584dacb7",
+      "samples/net11.0/HarbourManifest/packages.lock.json": "a6e46568a62b50683bf3a131c364206a063fcf54bf4765dc7ae3b606d4cc5593",
+      "samples/net11.0/HarbourManifest/Program.cs": "7358d0ab102db4a5d57b292cb4b79b2fae63417c3ef3765f94c46cdfd1853507",
+      "samples/net11.0/HarbourManifest/verification.json": "e3af92f7acc570ff523c874e6be46bbff95602e6a0a12d1258bca2c39a167dc6"
+    },
+    "kind": "real-browser-execution",
+    "recordedAt": "2026-10-23T02:35:42.4557218+00:00",
+    "sourceCommit": "68bdb0a5b83362110a796f51b480108a74b8e74d",
+    "artifacts": {
+      "samples/net11.0/HarbourManifest/bin/Release/net11.0/HarbourManifest.dll": "12eed21237bbc00a8ec61c5bd461f40691154fe73c683d8954a9628f4e461386",
+      "samples/net11.0/HarbourManifest/bin/Release/net11.0/HarbourManifest.deps.json": "cba33286d7f07b2f05525bee5bc18cf27ab535d67ec123ab6f4a1078226324fc",
+      "samples/net11.0/HarbourManifest/bin/Release/net11.0/HarbourManifest.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6"
+    },
+    "compileRecordSha256": "15e9cd347fd83f030c0fdbee4eafbed0ed35549c9362201d49df602e8d1b73f6",
+    "reportSha256": "59fd4c62af607f68028efe2305649979486b674d62073b92ba0586d4926d307f",
+    "sourceDirty": true,
+    "target": "net11.0",
+    "report": "docs/verification/PIN-783.browser11.evidence.json"
+  }
+]
