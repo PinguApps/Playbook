@@ -1,0 +1,151 @@
+{
+  "recordedAt": "2026-10-23T04:22:23.2880014+00:00",
+  "routes": [
+    {
+      "artifacts": [
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/global.json",
+          "sha256": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e"
+        },
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.deps.json",
+          "sha256": "2b9618c0c0d416734ad4b7ac8fca1320f0c062f329f89eaed206d23a380c3502"
+        },
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.dll",
+          "sha256": "73834c015bbeb6930685185dfb90afd275c125390ec4f0239fe0575467071f69"
+        },
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.runtimeconfig.json",
+          "sha256": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65"
+        },
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.staticwebassets.endpoints.json",
+          "sha256": "4682aff66586de194540f6621d2766d7ac80b0cc78d91a4d864ac5b58c2913d6"
+        },
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.staticwebassets.runtime.json",
+          "sha256": "450e5f494594975f5cb2d294237205f7d6c2deb81e01c7632c555f4b177899a2"
+        },
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/verification-evidence.json",
+          "sha256": "a5292369df46b441d8c973e3bad4c6530b38ca1c2275ddaf908a5075895c9139"
+        },
+        {
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/verification.json",
+          "sha256": "abc8608d4aaeaaf468b65ad893c01128167f1072187fd3d80de3f248feab7f81"
+        }
+      ],
+      "sample": "samples/net10.0/TideCharts/TideCharts.csproj",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/TideCharts.browser.js": "c1357d8fb48209a5826c5e9cc2989c65d479a3175fd7d8cf47e1ddba756ba6ee",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net10.0/TideCharts/_Imports.razor": "d646e32d77a8f64816f6939e2ccf486f2ce32f616904d90fc2a05f277fde4705",
+        "samples/net10.0/TideCharts/App.razor": "8b98e6596dc3bac566835c6e586f1b4cce4bd45bd0aecc149a12002e4ee8964a",
+        "samples/net10.0/TideCharts/CircuitLease.cs": "20249d3aa542e237c29350dc2ea5845abe7e952822b7f252070ccbb23073b35b",
+        "samples/net10.0/TideCharts/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+        "samples/net10.0/TideCharts/MaintenanceRegistry.cs": "4b1dcf0e673a9cea6d1629560a8d1df807063797c62fe52b2fecada1f72e19ad",
+        "samples/net10.0/TideCharts/MaintenanceShutdown.cs": "82ac69210ae8241b34a93c39e4cab9425acd5a4c516f498302cf811e6d1f11dc",
+        "samples/net10.0/TideCharts/packages.lock.json": "e6b005c31db81096ca37b683f4d9a416477d9d4a00f2d5aeed3a8efa21242924",
+        "samples/net10.0/TideCharts/PauseJournal.cs": "bbaf7b2b501979db9a1eaba7007b02cafafddabd4d8a3e793d5e175f6c09af00",
+        "samples/net10.0/TideCharts/Program.cs": "5af7198a2bf6e729509410869fea7b465800540b82b236869d5a4545fc061e89",
+        "samples/net10.0/TideCharts/TideCharts.csproj": "e5e2c6dc102a9698e2ba059b35012fdfa45c76f6d77a89db9c4b5b48729f5228",
+        "samples/net10.0/TideCharts/verification.json": "abc8608d4aaeaaf468b65ad893c01128167f1072187fd3d80de3f248feab7f81",
+        "samples/net10.0/TideCharts/Worksheet.razor": "656cde612a0beb417a20029d78f468f4e60648e32c63646dca947d04189eba09",
+        "samples/net10.0/TideCharts/wwwroot/tide.js": "f0d6df543132a78d712bba1da666b2e45e7481fb6a78b404bcfaba656db8a14a"
+      },
+      "dirtyPaths": [
+        " M docs/planning/audits/blazor.dispositions.json",
+        " M docs/planning/audits/blazor.md",
+        " M docs/planning/inventory/02-web-data.md",
+        " M samples/net10.0/TideCharts/verification-evidence.json",
+        " M samples/net10.0/TideCharts/wwwroot/tide.js",
+        " M tests/PinguApps.Playbook.Tests/Features/InstalledTool.feature",
+        " M tests/PinguApps.Playbook.Tests/PinguApps.Playbook.Tests.csproj",
+        " M tests/PinguApps.Playbook.Tests/Steps/InstalledToolSteps.cs",
+        "?? content/recipes/blazor.drain-active-circuits/",
+        "?? content/recipes/blazor.pause-idle-tab/",
+        "?? docs/verification/PIN-787.browser10.evidence.json",
+        "?? docs/verification/PIN-787.browser11-idle.evidence.json",
+        "?? docs/verification/PIN-787.browser11-maintenance.evidence.json",
+        "?? docs/verification/PIN-787.execution.evidence.json",
+        "?? docs/verification/PIN-787.lifecycle.evidence.json",
+        "?? docs/verification/PIN-787.sources.json"
+      ],
+      "sourceCommit": "9c1abea6fee7919607fb0801116abe7e8ab6a461"
+    },
+    {
+      "artifacts": [
+        {
+          "sha256": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/global.json"
+        },
+        {
+          "sha256": "4def294e2d18a7bc269c238ff1211a04b1538ed01d4c9bbccfdfbf00bb49f101",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/Microsoft.AspNetCore.Components.Server.AutoPause.dll"
+        },
+        {
+          "sha256": "0bc65ce06aa057503e7fa8f4459d9964f36f54102f8339b87d7da01ef028ad77",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.deps.json"
+        },
+        {
+          "sha256": "7d98fc3af0766e26e5a6ac14b37c3ce421a43751b6edfd34297ba51286734acc",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.dll"
+        },
+        {
+          "sha256": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.runtimeconfig.json"
+        },
+        {
+          "sha256": "b317e9f419846c60587da287d97dde5ddb224dd44700a37c099b1c1a773ef1b2",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.staticwebassets.endpoints.json"
+        },
+        {
+          "sha256": "69179423c5a563f18556c60618673ebf4db1e40f8492e310c1cc41e51d30bb46",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.staticwebassets.runtime.json"
+        },
+        {
+          "sha256": "76b7bbc1ae477473f3ae01da37e8830ed4cb77719a753ff48954d9f8a29668dd",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/verification-evidence.json"
+        },
+        {
+          "sha256": "c8fe69d9b53085064c5703cdf60158239b37793f3648ed79ad4a33ebd6456c79",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/verification.json"
+        }
+      ],
+      "sample": "samples/net11.0/TideCharts/TideCharts.csproj",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/TideCharts.browser.js": "c1357d8fb48209a5826c5e9cc2989c65d479a3175fd7d8cf47e1ddba756ba6ee",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net11.0/TideCharts/_Imports.razor": "d646e32d77a8f64816f6939e2ccf486f2ce32f616904d90fc2a05f277fde4705",
+        "samples/net11.0/TideCharts/App.razor": "8b98e6596dc3bac566835c6e586f1b4cce4bd45bd0aecc149a12002e4ee8964a",
+        "samples/net11.0/TideCharts/CircuitLease.cs": "20249d3aa542e237c29350dc2ea5845abe7e952822b7f252070ccbb23073b35b",
+        "samples/net11.0/TideCharts/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+        "samples/net11.0/TideCharts/MaintenanceRegistry.cs": "dab54d9bf6f2e0e92a7fcf5bf7f3dbc98705bec014b3e951b87f50de052444d2",
+        "samples/net11.0/TideCharts/MaintenanceShutdown.cs": "82ac69210ae8241b34a93c39e4cab9425acd5a4c516f498302cf811e6d1f11dc",
+        "samples/net11.0/TideCharts/packages.lock.json": "191e3920728071e79f95b7852bfa3e1a8c52994e2ae695a35b13cf2ab7fa7ffb",
+        "samples/net11.0/TideCharts/PauseJournal.cs": "bbaf7b2b501979db9a1eaba7007b02cafafddabd4d8a3e793d5e175f6c09af00",
+        "samples/net11.0/TideCharts/Program.cs": "4848d0e33c691c6ff29dc522a8fdfb18dd7688e4208002f8d55a957652e233ce",
+        "samples/net11.0/TideCharts/TideCharts.csproj": "eeacadef162e74649c0a5f0964d8cd202c5fdb6ed1d12c27f6c9056c64406a93",
+        "samples/net11.0/TideCharts/verification.json": "c8fe69d9b53085064c5703cdf60158239b37793f3648ed79ad4a33ebd6456c79",
+        "samples/net11.0/TideCharts/Worksheet.razor": "656cde612a0beb417a20029d78f468f4e60648e32c63646dca947d04189eba09",
+        "samples/net11.0/TideCharts/wwwroot/tide.js": "7a585846e2d1879c41f08a5f46b12e7a28caa65d1ca43e760f834d80b07b90db"
+      },
+      "dirtyPaths": [],
+      "sourceCommit": "9c1abea6fee7919607fb0801116abe7e8ab6a461"
+    }
+  ],
+  "kind": "real-browser-and-host-lifecycle"
+}

@@ -19,6 +19,28 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("circuit pause retains complete canonical guidance and persistence requirements offline")]
+    public async Task CheckCircuitPauseAsync()
+    {
+        string[] ids = ["blazor.drain-active-circuits", "blazor.pause-idle-tab"];
+        await CheckWebRecipesAsync(ids, "tide-charts").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete circuit pause applicability {property.Name} must survive packaging.");
+            }
+
+            Assert.Contains("Interactive Server", route.GetProperty("requirements").GetProperty("renderingModes").ToString(), StringComparison.Ordinal);
+            Assert.Contains("persistence/resumption prerequisites", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            Assert.Contains("cancellation of request is not guaranteed completed shutdown", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        }
+    }
+
     [Then("virtual list reveal retains complete canonical guidance offline")]
     public async Task CheckVirtualListRevealAsync()
     {

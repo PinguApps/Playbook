@@ -4,7 +4,8 @@ window.tide = {
     // The old server bridge acknowledges dispatch, then asks the browser to pause.
     requestPause: () => { setTimeout(() => Blazor.pauseCircuit(), 0); return true; }
 };
-// endsnippet:browser// snippet:idle
+// endsnippet:browser
+// snippet:idle
 // App-owned visibility policy for .NET 10; this simple worksheet has no media or streams.
 let timer;
 let paused = false;

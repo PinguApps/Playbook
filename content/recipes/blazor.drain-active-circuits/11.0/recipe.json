@@ -1,0 +1,232 @@
+{
+  "id": "blazor.drain-active-circuits",
+  "edition": "11.0",
+  "title": "Pause sessions for maintenance",
+  "goal": "Ask connected browsers to save and pause before stopping the server.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tide-charts"
+  ],
+  "apis": [
+    "Circuit.RequestCircuitPauseAsync",
+    "IHostedLifecycleService.StoppingAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Request acceptance is not completed drain; request cancellation does not guarantee shutdown."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The newer automatic/server-directed pause APIs are ASP.NET Core 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 with matching Web SDK, Razor and browser assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode; these APIs need no C# 15-specific syntax."
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.Components.Server; matching SDK blazor.web.js"
+          ],
+          "providers": [
+            "Local circuit persistence; Data Protection"
+          ],
+          "platforms": [
+            "ASP.NET Core server and browser"
+          ],
+          "renderingModes": [
+            "Interactive Server"
+          ],
+          "prerequisites": [
+            "Use the Web SDK, AddRazorComponents/AddInteractiveServerComponents, AddInteractiveServerRenderMode, MapStaticAssets and the matching blazor.web.js. No additional workload or external account is needed.",
+            "Persist the needed JSON-serializable component properties with [PersistentState], initialize defaults in OnInitialized, and retain stable component identity. Component trees, scoped resources, file inputs and arbitrary object graphs are not hibernated.",
+            "The default provider is local in-memory circuit persistence (1,000 circuits/two hours). Resume in the same loaded document within retention; no full refresh. Restart recovery also needs the protected state received by the browser and the same compatible app/component identities and Data Protection keys. Distributed/multi-instance storage and key sharing require separate design and proof.",
+            "Track connected circuits with a CircuitHandler. Begin maintenance before the transport is torn down, close admission, snapshot the sessions and request pause from actual host lifecycle code. Keep the server available while observing closure within a bounded host shutdown budget."
+          ],
+          "constraints": [
+            "Interactive Server; cancellation of request is not guaranteed completed shutdown.",
+            "Persisted state is a recoverable draft, not durable business storage. Scope disposal and a new circuit/resource identity prove release; a still-visible DOM snapshot does not.",
+            "Task<bool> reports whether the framework accepted and asked the client to pause. false covers an unavailable/disconnected circuit or cancellation before acceptance; it does not mean all sessions stopped. Observe OnConnectionDownAsync and OnCircuitClosedAsync; a client can defer and the budget can expire.",
+            "The local successful maintenance proof uses WebApplication.StopAsync, reaching StoppingAsync before transport shutdown. Calling StopApplication first raced the connection in a negative run: true acceptance but no completed drain. Do proactive maintenance while serving, and do not promise graceful capture for termination signals, abrupt kills or canceled budgets.",
+            "A resumed circuit recreates scoped services; persist service values only with an appropriate RegisterPersistentService registration. Never persist live handles or assume a disposed service instance returns.",
+            "The .NET 10 app-owned visibility/JS bridge is a verified previous-release comparison, not a .NET 10 route for the new APIs. Static SSR, WebAssembly, Interactive Auto, distributed failover, mobile lifecycle and GA behavior are not execution claims."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence; GA pending."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/TideCharts/TideCharts.csproj"
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/Circuit.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/Circuits/Circuit.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Circuit persistence, automatic pause and maintenance",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned RC2 request acceptance and cancellation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/Circuit.cs"
+    },
+    {
+      "title": "Previous-release Circuit without the server request API",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/Circuits/Circuit.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/TideCharts/TideCharts.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/native-hidden-tab and host lifecycle execution proves circuit closure, resource disposal, saved-state resume and process-restart recovery. Exact inputs/artifacts and negative ordering trace: docs/verification/PIN-787.md. No mocks or cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/TideCharts/TideCharts.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/native-hidden-tab and host lifecycle execution proves circuit closure, resource disposal, saved-state resume and process-restart recovery. Exact inputs/artifacts and negative ordering trace: docs/verification/PIN-787.md. No mocks or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "path": "samples/net10.0/TideCharts/TideCharts.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "project-11": {
+      "path": "samples/net11.0/TideCharts/TideCharts.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "host-10": {
+      "path": "samples/net10.0/TideCharts/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "host-11": {
+      "path": "samples/net11.0/TideCharts/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "document-10": {
+      "path": "samples/net10.0/TideCharts/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "document-11": {
+      "path": "samples/net11.0/TideCharts/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "worksheet-10": {
+      "path": "samples/net10.0/TideCharts/Worksheet.razor",
+      "region": "worksheet",
+      "language": "razor"
+    },
+    "worksheet-11": {
+      "path": "samples/net11.0/TideCharts/Worksheet.razor",
+      "region": "worksheet",
+      "language": "razor"
+    },
+    "registry-10": {
+      "path": "samples/net10.0/TideCharts/MaintenanceRegistry.cs",
+      "region": "registry",
+      "language": "csharp"
+    },
+    "registry-11": {
+      "path": "samples/net11.0/TideCharts/MaintenanceRegistry.cs",
+      "region": "registry",
+      "language": "csharp"
+    },
+    "shutdown-10": {
+      "path": "samples/net10.0/TideCharts/MaintenanceShutdown.cs",
+      "region": "shutdown",
+      "language": "csharp"
+    },
+    "shutdown-11": {
+      "path": "samples/net11.0/TideCharts/MaintenanceShutdown.cs",
+      "region": "shutdown",
+      "language": "csharp"
+    },
+    "lease-10": {
+      "path": "samples/net10.0/TideCharts/CircuitLease.cs",
+      "region": "lease",
+      "language": "csharp"
+    },
+    "lease-11": {
+      "path": "samples/net11.0/TideCharts/CircuitLease.cs",
+      "region": "lease",
+      "language": "csharp"
+    },
+    "journal-10": {
+      "path": "samples/net10.0/TideCharts/PauseJournal.cs",
+      "region": "journal",
+      "language": "csharp"
+    },
+    "journal-11": {
+      "path": "samples/net11.0/TideCharts/PauseJournal.cs",
+      "region": "journal",
+      "language": "csharp"
+    },
+    "browser-10": {
+      "path": "samples/net10.0/TideCharts/wwwroot/tide.js",
+      "region": "browser",
+      "language": "javascript"
+    },
+    "browser-11": {
+      "path": "samples/net11.0/TideCharts/wwwroot/tide.js",
+      "region": "browser",
+      "language": "javascript"
+    },
+    "idle-10": {
+      "path": "samples/net10.0/TideCharts/wwwroot/tide.js",
+      "region": "idle",
+      "language": "javascript"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual local .NET 10/RC2 desktop browser and server lifecycle proof is recorded. No external service or Human-only prerequisite is required for these routes. Mobile/distributed/GA behavior is not claimed."
+  }
+}
