@@ -32,7 +32,31 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
         }
 
-        Assert.Contains("OverscanCount=\"15\"", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            string sample = $"samples/{target}/OrchardJournal";
+            foreach (string setupFile in new[] { "_Imports.razor", "App.razor", "Interactive.razor", "wwwroot/journal.css" })
+            {
+                string setup = await ReadSdkInputAsync($"{sample}/{setupFile}").ConfigureAwait(false);
+                foreach (string line in setup.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            string project = await ReadSdkInputAsync($"{sample}/OrchardJournal.csproj").ConfigureAwait(false);
+            foreach (string line in project.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.TrimStart().StartsWith("</", StringComparison.Ordinal) && !line.Contains("<PropertyGroup>", StringComparison.Ordinal)))
+            {
+                Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+            }
+
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"{sample}/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+            Assert.Contains("`rollForward` to `disable`", markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Contains("OverscanCount=\"15\"", markdown, StringComparison.Ordinal);
         Assert.Contains("browser/layout differences", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
     }
 

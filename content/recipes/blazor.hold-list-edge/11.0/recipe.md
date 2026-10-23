@@ -23,6 +23,78 @@ preserves a rendered row's component and local input state when data instances
 change. Neither keeps local component state after virtualization removes the row;
 store durable edits outside the row when that is required.
 
+## Assemble either application offline
+
+Use a separate folder for each target, outside any unrelated shared build files.
+The following setup is complete; no repository checkout is needed. Install the
+chosen SDK and its matching ASP.NET Core runtime/assets before working offline.
+Use SDK `10.0.402`, `net10.0`, C# `14.0` and framework/assets `10.0.13` for the
+older app; use SDK `11.0.100-rc.2.26504.105`, `net11.0`, C# `15.0` and its matching
+RC2 framework/assets for the newer app.
+
+1. Create `global.json` with an `sdk` object: set `version` to the chosen exact
+   SDK above and `rollForward` to `disable`. Create `OrchardJournal.csproj` with
+   root `<Project Sdk="Microsoft.NET.Sdk.Web">` and a property group containing
+   `<RootNamespace>Playbook.Samples</RootNamespace>`,
+   `<TargetFramework>net10.0</TargetFramework>` and `<LangVersion>14.0</LangVersion>`
+   for the older app, or `<TargetFramework>net11.0</TargetFramework>` and
+   `<LangVersion>15.0</LangVersion>` for the newer app. In either project also set
+   `<OutputType>Exe</OutputType>`, `<Nullable>enable</Nullable>`,
+   `<ImplicitUsings>enable</ImplicitUsings>`,
+   `<TreatWarningsAsErrors>true</TreatWarningsAsErrors>`,
+   `<Deterministic>true</Deterministic>` and
+   `<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>`.
+   Close the property group and project. No separate package reference is needed.
+2. At the project root create `_Imports.razor`. Put each directive below on its
+   own line. These make `Virtualize`, provider types, `EventCallback`, routing,
+   render modes and the older `IJSRuntime` available. The explicit namespace
+   makes Razor components agree with `Entry.cs` and the host's `using` directive.
+
+   - `@using Microsoft.AspNetCore.Components`
+   - `@using Microsoft.AspNetCore.Components.Routing`
+   - `@using Microsoft.AspNetCore.Components.Web`
+   - `@using Microsoft.AspNetCore.Components.Web.Virtualization`
+   - `@using Microsoft.JSInterop`
+   - `@using static Microsoft.AspNetCore.Components.Web.RenderMode`
+   - `@namespace Playbook.Samples`
+
+3. Save the chosen Journal snippet below as root `Journal.razor`; for the older
+   one prepend `@implements IAsyncDisposable` and `@inject IJSRuntime JS` on
+   separate lines. Save the shared identity and keyed-entry snippets below as
+   root `Entry.cs` and `JournalEntry.razor` in **both** apps. The older app does
+   not use `EntryIdentity`, but the identical class is harmless. Save the host
+   snippet as root `Program.cs` in both apps. For the older app also save its
+   complete compensation module as `wwwroot/edge.js`; its import uses that URL.
+4. Create root `Interactive.razor` with `@page "/"` followed on the next line by
+   `<Journal @rendermode="InteractiveServer" />`. Create root `App.razor` with
+   these document elements in order (the indentation is optional):
+
+   - `<!DOCTYPE html>` then `<html lang="en">` and `<head>`.
+   - `<meta charset="utf-8" /><base href="/" /><title>Orchard journal</title>`
+   - `<link rel="stylesheet" href="journal.css" />` then `</head>` and `<body>`.
+   - `<Router AppAssembly="typeof(App).Assembly">` containing
+     `<Found Context="route"><RouteView RouteData="route" /></Found>`, then
+     `</Router>`.
+   - `<script src="@Assets["_framework/blazor.web.js"]"></script>` then
+     `</body>` and `</html>`.
+
+5. Create `wwwroot/journal.css` in both apps with all six rules below, one per
+   line. This is an external stylesheet, **not** isolated `Journal.razor.css`:
+   the rules must reach the child entry components. Width, padding, borders and
+   line heights are part of the measured layout, alongside the finite viewport.
+
+   - `body { font-family: sans-serif; max-width: 900px; margin: 24px auto; }`
+   - `button, select { margin: 4px; }`
+   - `#journal { height: 420px; overflow-y: auto; border: 1px solid #555; }`
+   - `#journal article { box-sizing: border-box; padding: 8px; border-bottom: 1px solid #bbb; }`
+   - `#journal article div { line-height: 20px; }`
+   - `.expanded { line-height: 24px; }`
+
+6. Restore/build with the chosen pinned SDK, then run the project and open its
+   local URL in a browser. The host maps the static assets and interactive route;
+   the document links the stylesheet and matching framework script. A successful
+   build alone does not verify anchoring. Exercise the rendered checks below.
+
 ## Older approach: bounded variable-height page
 
 .NET 10 `Virtualize` assumes uniform item heights and has no `AnchorMode` or
@@ -41,12 +113,9 @@ deleted anchor rows. Such content needs additional application policy.
 
 {{snippet:compensation}}
 
-Keep the `@implements IAsyncDisposable` and `@inject IJSRuntime JS` directives
-at the top of the older Journal component. Both complete applications, including
-their document, interactive route, imports, stylesheet, SDK pins and package
-locks, are canonical repository samples; the newer host below also applies to
-the older target. The document loads `@Assets["_framework/blazor.web.js"]` and
-the route renders `<Journal @rendermode="InteractiveServer" />`.
+The offline setup above supplies the older component's directives, matching
+namespace, document and stylesheet. The shared host below also applies to this
+target; do not add the newer `Virtualize` parameters to the older comparison.
 
 ## Newer approach: measured virtualized rows
 
