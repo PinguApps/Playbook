@@ -1,0 +1,4 @@
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally></PropertyGroup>
+  <ItemGroup><PackageVersion Include="Microsoft.AspNetCore.Components.QuickGrid" Version="11.0.0-rc.2.26504.105" /></ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+body { font-family: sans-serif; max-width: 900px; margin: 24px auto; }
+button, select { margin: 4px; }
+#journal { height: 420px; overflow-y: auto; border: 1px solid #555; }
+#journal article { box-sizing: border-box; padding: 8px; border-bottom: 1px solid #bbb; }
+#journal article div { line-height: 20px; }
+.expanded { line-height: 24px; }

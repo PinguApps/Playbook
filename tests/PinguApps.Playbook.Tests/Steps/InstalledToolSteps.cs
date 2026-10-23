@@ -26,6 +26,369 @@ public sealed class InstalledToolSteps : IDisposable
         await CheckWebRecipesAsync(ids, "harbour-state").ConfigureAwait(false);
     }
 
+    [Then("browser configuration retains complete canonical guidance and precedence requirements offline")]
+    public async Task CheckBrowserConfigurationAsync()
+    {
+        const string id = "blazor.supply-browser-configuration";
+        await CheckWebRecipesAsync([id], "estuary-config").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete browser configuration applicability {property.Name}, including every nested field, must survive packaging.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete browser configuration {field} must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string file in new[] { "EstuaryBoard.csproj", "Directory.Packages.props", "Program.cs", "ConfigurationTrace.cs", "Dashboard.razor", "wwwroot/index.html", "wwwroot/board-start.js", "serve.mjs" })
+            {
+                string source = await ReadSdkInputAsync($"samples/{target}/EstuaryBoard/{file}").ConfigureAwait(false);
+                foreach (string line in source.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.Contains("snippet:", StringComparison.Ordinal)))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            foreach (string file in new[] { "wwwroot/appsettings.json", "wwwroot/appsettings.Testing.json", "wwwroot/appsettings.Production.json", "environments/Testing.json", "environments/Production.json" })
+            {
+                using JsonDocument expected = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/EstuaryBoard/{file}").ConfigureAwait(false));
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(markdown, $"{System.Text.RegularExpressions.Regex.Escape(file)}:\\n\\n```json\\n(.*?)\\n```", System.Text.RegularExpressions.RegexOptions.Singleline);
+                Assert.True(match.Success, $"Missing standalone JSON file {file}");
+                using JsonDocument actual = JsonDocument.Parse(match.Groups[1].Value);
+                Assert.True(JsonElement.DeepEquals(expected.RootElement, actual.RootElement), $"Complete canonical JSON {target}/{file} must survive packaging.");
+            }
+
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/EstuaryBoard/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Equal("WebAssembly", Assert.Single(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray()).GetString());
+        Assert.Contains("WASM; environment-source precedence and removal of duplicate registration.", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        foreach (string contract in new[] { "CreateDefault", "withEnvironmentVariables", "__", "duplicate=1", "skipProvider=1", "Operator override", "not automatic access", "public and user-modifiable", "PublishTrimmed=false" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+    }
+
+    [Then("culture handover retains complete canonical guidance and satellite requirements offline")]
+    public async Task CheckCultureHandoverAsync()
+    {
+        const string id = "blazor.align-server-browser-culture";
+        await CheckWebRecipesAsync([id], "culture-harbour", 4).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Culture applicability {property.Name}, including every nested requirement/source/evidence field, must survive offline retrieval.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Culture {field} must survive packaging.");
+        }
+
+        JsonElement[] evidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(evidence, entry => entry.GetProperty("sample").GetString() == expected.GetProperty("sample").GetString());
+            foreach (JsonProperty property in expected.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored culture evidence {property.Name} must survive packaging.");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "Components:UseCultureFromServer=false", "Prerendered WASM in Blazor Web Apps; satellite assembly timing.", "BlazorWebAssemblyLoadAllGlobalizationData", "DefaultThreadCurrentUICulture", "19/07/2032", "19.07.2032", "Gardez la caisse bleue debout.", "Die blaue Kiste aufrecht halten." })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+
+        foreach (string file in new[] { "Host/Routes.razor", "Client/Program.cs", "Client/Manifest.razor", "Client/Manifest.resx", "Client/Manifest.fr-FR.resx", "Client/Manifest.de-DE.resx" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/net10.0/CultureHarbour/{file}").ConfigureAwait(false), await ReadSdkInputAsync($"samples/net11.0/CultureHarbour/{file}").ConfigureAwait(false));
+        }
+
+        Assert.Contains("Prerendered WASM in Blazor Web Apps", route.GetProperty("requirements").GetProperty("renderingModes").ToString(), StringComparison.Ordinal);
+        Assert.Contains("satellite assembly timing", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
+    [Then("browser workers retain complete canonical guidance and cancellation limits offline")]
+    public async Task CheckBrowserWorkersAsync()
+    {
+        const string id = "blazor.offload-browser-computation";
+        await CheckWebRecipesAsync([id], "fossil-worker", 3).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete worker applicability {property.Name}, including every nested requirement, must survive offline stdio retrieval.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete worker {field} must survive packaging.");
+        }
+
+        JsonElement[] evidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(evidence, entry => entry.GetProperty("sample").GetString() == expected.GetProperty("sample").GetString());
+            foreach (JsonProperty property in expected.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored worker evidence {property.Name} must survive packaging.");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "WASM/CSR; current blazorwebworker template; see E03", "InvokeVoidAsync", "creation cancellation", "Serialize", "not a new .NET 10 foundation", "separate", "no installed wasm-tools", "Creation timeout", "before actual CPU completion" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
+        }
+
+        Assert.Equal("WebAssembly", Assert.Single(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray()).GetString());
+        Assert.Empty(route.GetProperty("requirements").GetProperty("providers").EnumerateArray());
+        Assert.Empty(route.GetProperty("requirements").GetProperty("workloads").EnumerateArray());
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/FossilDesk/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+    }
+
+    [Then("periodic browser work retains complete canonical guidance and lifetime limits offline")]
+    public async Task CheckPeriodicBrowserWorkAsync()
+    {
+        const string id = "blazor.run-browser-background-service";
+        // Independently expand every canonical snippet and assert complete Markdown,
+        // discovery title/goal, exact edition, current evidence and target-10 refusal.
+        await CheckWebRecipesAsync([id], "beacon-watch").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete browser lifetime applicability {property.Name}, including all nested fields, must survive packaging.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete browser lifetime {field} must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string file in new[] { "BeaconWatch.csproj", "Directory.Packages.props", "Program.cs", "OwnedBrowserLifetime.cs", "BeaconTicker.cs", "Dashboard.razor", "wwwroot/index.html", "wwwroot/watch-lifetime.js" })
+            {
+                string source = await ReadSdkInputAsync($"samples/{target}/BeaconWatch/{file}").ConfigureAwait(false);
+                foreach (string line in source.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.Contains("snippet:", StringComparison.Ordinal)))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/BeaconWatch/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Equal("WebAssembly", Assert.Single(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray()).GetString());
+        Assert.Contains("WASM browser lifetime; not durable work after tab/process termination.", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("no public cancellation-token overload", markdown, StringComparison.Ordinal);
+        Assert.Contains("do not guarantee StopAsync", markdown, StringComparison.Ordinal);
+    }
+
+    [Then("circuit pause retains complete canonical guidance and persistence requirements offline")]
+    public async Task CheckCircuitPauseAsync()
+    {
+        string[] ids = ["blazor.drain-active-circuits", "blazor.pause-idle-tab"];
+        await CheckWebRecipesAsync(ids, "tide-charts").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete circuit pause applicability {property.Name} must survive packaging.");
+            }
+
+            Assert.Contains("Interactive Server", route.GetProperty("requirements").GetProperty("renderingModes").ToString(), StringComparison.Ordinal);
+            Assert.Contains("persistence/resumption prerequisites", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            Assert.Contains("cancellation of request is not guaranteed completed shutdown", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        }
+    }
+
+    [Then("restrictive style CSP retains canonical virtual list guidance offline")]
+    public async Task CheckRestrictiveStyleCspAsync()
+    {
+        const string id = "blazor.virtualize-under-csp";
+        await CheckWebRecipesAsync([id], "beacon-csp").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"CSP applicability {property.Name} must survive packaging, including every nested requirement.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        Assert.Contains("style-src-attr 'none'", markdown, StringComparison.Ordinal);
+        Assert.Contains("style-src-attr 'unsafe-inline'", markdown, StringComparison.Ordinal);
+        Assert.Contains("Reading 701: Westmere light", markdown, StringComparison.Ordinal);
+        Assert.Contains("CSSOM", markdown, StringComparison.Ordinal);
+        Assert.Contains("In the .NET 10 Readings.razor, add @page \"/legacy\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("In the .NET 10 App.razor, use <script src=\"_framework/blazor.web.js\"></script>", markdown, StringComparison.Ordinal);
+        Assert.Contains("source-reviewed migration, browser evidence still needed", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
+    [Then("changing lists retain canonical guidance and complete anchoring requirements offline")]
+    public async Task CheckChangingListsAsync()
+    {
+        string[] ids = ["blazor.hold-list-edge"];
+        await CheckWebRecipesAsync(ids, "orchard-journal").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.hold-list-edge/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            string sample = $"samples/{target}/OrchardJournal";
+            foreach (string setupFile in new[] { "_Imports.razor", "App.razor", "Interactive.razor", "wwwroot/journal.css" })
+            {
+                string setup = await ReadSdkInputAsync($"{sample}/{setupFile}").ConfigureAwait(false);
+                foreach (string line in setup.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+            }
+
+            string project = await ReadSdkInputAsync($"{sample}/OrchardJournal.csproj").ConfigureAwait(false);
+            foreach (string line in project.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.TrimStart().StartsWith("</", StringComparison.Ordinal) && !line.Contains("<PropertyGroup>", StringComparison.Ordinal)))
+            {
+                Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+            }
+
+            using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"{sample}/global.json").ConfigureAwait(false));
+            Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+            Assert.Contains("`rollForward` to `disable`", markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Contains("OverscanCount=\"15\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("browser/layout differences", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
+    [Then("virtual list reveal retains complete canonical guidance offline")]
+    public async Task CheckVirtualListRevealAsync()
+    {
+        const string id = "blazor.reveal-virtual-item";
+        await CheckWebRecipesAsync([id], "lantern-queue").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        Assert.Contains("InitialItemIndex", markdown, StringComparison.Ordinal);
+        Assert.Contains("ScrollToItemAsync", markdown, StringComparison.Ordinal);
+        Assert.Contains("provider timing", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+    }
+
+    [Then("selected rows retain canonical guidance and interactive requirements offline")]
+    public async Task CheckSelectedRowsAsync()
+    {
+        string[] ids = ["blazor.act-on-selected-row"];
+        await CheckWebRecipesAsync(ids, "museum-rows").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.act-on-selected-row/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        Assert.Contains("Static SSR", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("OnRowClick", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
+    [Then("grid positioning retains canonical bodies and rendered instance constraints offline")]
+    public async Task CheckGridPositioningAsync()
+    {
+        const string id = "blazor.reveal-grid-row";
+        await CheckWebRecipesAsync([id], "grid-position").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Grid applicability {property.Name} must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        Assert.Contains("Virtualize=\"true\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("ScrollToItemAsync", markdown, StringComparison.Ordinal);
+        Assert.Contains("ItemComparer", markdown, StringComparison.Ordinal);
+        Assert.Contains("RC2 removes ASP0030", markdown, StringComparison.Ordinal);
+        Assert.Contains("rendered instance", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
+    [Then("static subtree caching retains complete canonical guidance offline")]
+    public async Task CheckStaticSubtreeCachingAsync()
+    {
+        string[] ids = ["blazor.cache-static-subtree"];
+        await CheckWebRecipesAsync(ids, "static-subtree-cache").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.cache-static-subtree/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+        Assert.Contains("Static SSR only; cache hits skip child lifecycle; isolate user-specific markup.", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("HybridCache rejects ExpiresSliding", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("permission", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("VaryByUser=\"true\"", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+        Assert.Contains("logical invalidation", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
+    [Then("alternative parameter shapes retain canonical guidance and JSON boundaries offline")]
+    public async Task CheckAlternativeParameterShapesAsync()
+    {
+        string[] ids = ["blazor.accept-alternative-parameter-shapes"];
+        await CheckWebRecipesAsync(ids, "seed-labels").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.accept-alternative-parameter-shapes/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+        Assert.Equal("15.0", requirements.GetProperty("language").GetProperty("version").GetString());
+        Assert.Contains("C# 15; Blazor/Razor; distinguish static fragments and JSON-compatible values.", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("union-wrapped fragment", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+        Assert.Contains("PropertyMetadata.AcceptsStringLiteral", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
     [Then("base aware navigation retains complete canonical guidance offline")]
     public async Task CheckBaseAwareNavigationAsync()
     {
@@ -59,7 +422,116 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("RenderFragment<T>", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
     }
 
-    private async Task CheckWebRecipesAsync(string[] ids, string query)
+    [Then("shareable grid views retain complete canonical guidance offline")]
+    public async Task CheckShareableGridViewsAsync()
+    {
+        await CheckWebRecipesAsync(["blazor.share-grid-view"], "workshop-views").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = "blazor.share-grid-view", targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.share-grid-view/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "Title", "HeaderTemplate", "ColumnId", "repairs_", "loans_", "aria-disabled", "LocationChanged" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+
+        JsonElement requirements = route.GetProperty("requirements");
+        Assert.Contains("QuickGrid", requirements.GetProperty("packages").ToString(), StringComparison.Ordinal);
+        Assert.Contains("PaginationState", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+    }
+
+    [Then("unified startup retains complete canonical guidance and all host requirements offline")]
+    public async Task CheckUnifiedStartupAsync()
+    {
+        const string id = "blazor.unify-startup-script-options";
+        await CheckWebRecipesAsync([id], "parcel-startup", 6).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Startup applicability {property.Name}, including all nested requirements, must survive offline delivery.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "stability", "introducedIn", "supportedTargets" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), field);
+        }
+
+        JsonElement[] actualEvidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        int index = 0;
+        foreach (JsonElement declaration in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            foreach (JsonProperty property in declaration.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actualEvidence[index].GetProperty(property.Name)), $"Startup evidence {index}/{property.Name}");
+            }
+
+            Assert.NotEmpty(actualEvidence[index].GetProperty("inputs").EnumerateObject());
+            Assert.Contains("Build succeeded.", actualEvidence[index].GetProperty("output").GetString(), StringComparison.Ordinal);
+            index++;
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string project in new[] { "Host", "Client", "LegacyClient" })
+            {
+                string imports = await ReadSdkInputAsync($"samples/{target}/ParcelStartup/{project}/_Imports.razor").ConfigureAwait(false);
+                foreach (string line in imports.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
+
+                using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/ParcelStartup/{project}/global.json").ConfigureAwait(false));
+                Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+            }
+        }
+
+        foreach (string file in new[] { "Host/Program.cs", "Host/App.razor", "Host/Routes.razor", "Host/Server.razor", "Host/Wasm.razor", "Host/Pages/Legacy.cshtml", "Client/Program.cs", "Client/ParcelCounter.razor", "LegacyClient/Program.cs", "LegacyClient/ParcelCounter.razor", "LegacyClient/wwwroot/index.html" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/net10.0/ParcelStartup/{file}").ConfigureAwait(false), await ReadSdkInputAsync($"samples/net11.0/ParcelStartup/{file}").ConfigureAwait(false));
+        }
+
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/{target}/ParcelStartup/Host/wwwroot/startup.js").ConfigureAwait(false), await ReadSdkInputAsync($"samples/{target}/ParcelStartup/LegacyClient/wwwroot/startup.js").ConfigureAwait(false));
+        }
+
+        Assert.Contains("autostart=\"false\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("flat legacy", markdown, StringComparison.Ordinal);
+        Assert.Contains("@page \"/legacy-server\"", markdown, StringComparison.Ordinal);
+        Assert.Contains("WasmBuildNative=false", markdown, StringComparison.Ordinal);
+    }
+
+    [Then("server browser policy retains complete setup and request sharing limits offline")]
+    public async Task CheckServerBrowserPolicyAsync()
+    {
+        const string id = "blazor.configure-browser-from-server";
+        await CheckWebRecipesAsync([id], "tide-policy", 4).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Browser policy applicability {property.Name}, including all nested values, must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "WithBrowserOptions", "ConfigureBrowser", "BrowserOptions.GetBrowserOptions(Context)", "InteractiveServer", "StaticServer", "InteractiveWebAssembly", "seven endpoint retries", "TideDesk.Client.csproj", "Directory.Packages.props", "autostart=\"false\"", "1000", "No _Imports.razor" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+    }
+
+    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(ids, RecipeIds(catalogue));
@@ -96,7 +568,7 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Equal("11.0", route.GetProperty("target").GetString());
                 Assert.NotEmpty(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray());
             });
-            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.Equal(evidenceCount, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
                 Assert.Equal("compile", evidence.GetProperty("kind").GetString());

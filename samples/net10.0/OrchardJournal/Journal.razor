@@ -1,0 +1,92 @@
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+<!-- snippet:journal -->
+<h1>Orchard journal</h1>
+<label>Follow edge
+    <select @bind="anchor">
+        <option value="Start">Start</option>
+        <option value="End">End</option>
+        <option value="None">None</option>
+    </select>
+</label>
+<button id="prepend" @onclick="PrependAsync">Prepend picking note</button>
+<button id="append" @onclick="AppendAsync">Append packing note</button>
+<button id="refresh" @onclick="RefreshAsync">Reload fresh instances</button>
+<output id="revision">@revision</output>
+<div id="journal" @ref="viewport" tabindex="0" aria-label="Orchard entries" style="overflow-anchor:none">
+    @foreach (var entry in entries)
+    {
+        <JournalEntry @key="entry.Id" Entry="entry" OnExpand="ExpandAsync" />
+    }
+</div>
+
+@code {
+    // A bounded page: all rows are rendered so arbitrary heights can be measured.
+    private List<Entry> entries = Enumerable.Range(1, 120)
+        .Select(id => new Entry(id, id % 3 + 1, false)).ToList();
+    private ElementReference viewport;
+    private IJSObjectReference? module;
+    private string anchor = "Start";
+    private bool restore;
+    private int revision;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./edge.js");
+        }
+        if (restore && module is not null)
+        {
+            restore = false;
+            await module.InvokeVoidAsync("restore", viewport);
+        }
+    }
+
+    private async Task CaptureAsync()
+    {
+        if (module is not null)
+        {
+            await module.InvokeVoidAsync("capture", viewport, anchor);
+            restore = true;
+        }
+    }
+
+    private async Task PrependAsync()
+    {
+        await CaptureAsync();
+        entries.Insert(0, new Entry(entries.Min(entry => entry.Id) - 1, 2, false));
+        revision++;
+    }
+
+    private async Task AppendAsync()
+    {
+        await CaptureAsync();
+        entries.Add(new Entry(entries.Max(entry => entry.Id) + 1, 3, false));
+        revision++;
+    }
+
+    private async Task ExpandAsync(int id)
+    {
+        await CaptureAsync();
+        entries.Single(entry => entry.Id == id).Expanded = true;
+        revision++;
+    }
+
+    private async Task RefreshAsync()
+    {
+        await CaptureAsync();
+        entries = entries.Select(entry => new Entry(entry.Id, entry.Lines, entry.Expanded)).ToList();
+        revision++;
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (module is not null)
+        {
+            try { await module.DisposeAsync(); }
+            catch (JSDisconnectedException) { }
+        }
+    }
+}
+<!-- endsnippet:journal -->

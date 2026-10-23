@@ -1,0 +1,9 @@
+{
+  "kind": "real-browser-webassembly-negative-control",
+  "url": "http://localhost:5811/?unowned=1",
+  "recordedAt": "2026-10-23T06:30:23.054Z",
+  "ticks": 0,
+  "clicks": 1,
+  "events": [],
+  "observedMilliseconds": 1602.5999999642372
+}

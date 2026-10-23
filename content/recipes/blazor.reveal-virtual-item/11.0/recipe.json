@@ -1,0 +1,164 @@
+{
+  "id": "blazor.reveal-virtual-item",
+  "edition": "11.0",
+  "title": "Reveal a virtual list item",
+  "goal": "Jump to a chosen item in a virtualized list.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lantern-queue"
+  ],
+  "apis": [
+    "Virtualize.InitialItemIndex",
+    "Virtualize.ScrollToItemAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Interactive Virtualize; bounds/provider timing."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "InitialItemIndex and ScrollToItemAsync are ASP.NET Core 11 APIs."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 Web SDK consumer with matching Razor and reference assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical language mode; these APIs require no C# 15-specific syntax."
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.Components.Web net11.0; SDK Internal.Assets and matching blazor.web.js"
+          ],
+          "providers": [
+            "ItemsProvider"
+          ],
+          "platforms": [
+            "ASP.NET Core server"
+          ],
+          "renderingModes": [
+            "Interactive Server"
+          ],
+          "prerequisites": [
+            "Use Microsoft.NET.Sdk.Web with net11.0, nullable and implicit usings. Virtualize is in the shared framework; no separate QuickGrid package or workload is required.",
+            "Register AddInteractiveServerComponents and AddInteractiveServerRenderMode, map static assets, load blazor.web.js and activate an interactive component.",
+            "Return accurate TotalItemCount and ordered slices for StartIndex/Count, honor provider cancellation and keep the index-to-item mapping consistent. The sample uses 200 fixed 40px rows and an in-process delayed provider; no database, account or service is needed."
+          ],
+          "constraints": [
+            "Interactive rendered Virtualize; index bounds and provider timing.",
+            "InitialItemIndex is applied once after the item count is known. Later parameter changes do not navigate; use ScrollToItemAsync on the rendered instance and renderer synchronization context.",
+            "Indices are zero based and clamped by the framework. The sample separately rejects programmatic input outside 0..199. At the end, browser scroll limits may prevent top alignment while the requested row remains visible.",
+            "Await provider data and rendered target geometry; a requested slice or scrollTop alone does not prove reveal. A new call supersedes the previous one, user scrolling can interrupt it, and completion is not a durable item-selection guarantee.",
+            "Static SSR/prerender alone cannot run this interaction. The .NET 10 fixed-height JS comparison is compiled/executed separately, not an older-target framework API route. List anchoring, variable-height policy and QuickGrid positioning belong to other goals."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA proof pending."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/LanternQueue/LanternQueue.csproj"
+        ],
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-11.0"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Virtualization layout, provider and interaction requirements",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/virtualization?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned RC2 initial-index and scrolling implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Virtualization/Virtualize.cs"
+    },
+    {
+      "title": "Pinned .NET 10 Virtualize without initial-index or scroll method",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/Virtualization/Virtualize.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/LanternQueue/LanternQueue.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation. Separate real browser proof holds provider requests, asserts initial/programmatic target text and visibility, bounds and virtualization. No mock or cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/LanternQueue/LanternQueue.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation. Separate real browser proof holds provider requests, asserts initial/programmatic target text and visibility, bounds and virtualization. No mock or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/LanternQueue/Queue.razor",
+      "region": "queue",
+      "language": "razor"
+    },
+    "scroll": {
+      "path": "samples/net10.0/LanternQueue/wwwroot/reveal.js",
+      "region": "scroll",
+      "language": "javascript"
+    },
+    "newer": {
+      "path": "samples/net11.0/LanternQueue/Queue.razor",
+      "region": "queue",
+      "language": "razor"
+    },
+    "provider": {
+      "path": "samples/net11.0/LanternQueue/QueueJournal.cs",
+      "region": "provider",
+      "language": "csharp"
+    },
+    "host": {
+      "path": "samples/net11.0/LanternQueue/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "document": {
+      "path": "samples/net11.0/LanternQueue/App.razor",
+      "region": "document",
+      "language": "razor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local .NET 10/11 Interactive Server circuits and delayed provider/DOM checks require no external resource. Other rendering modes/platforms, GA and screen-reader behavior are not execution claims."
+  }
+}

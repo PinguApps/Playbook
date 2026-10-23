@@ -1,0 +1,38 @@
+<!-- snippet:table -->
+<h1>Museum objects</h1>
+<QuickGrid Items="objects">
+    <PropertyColumn Property="@(item => item.Name)" Title="Object" />
+    <TemplateColumn Title="Details">
+        <button type="button" @onclick="@(() => Open(context))">Open @context.Name</button>
+    </TemplateColumn>
+</QuickGrid>
+<section aria-live="polite" id="details" data-selected="@(selected?.Id ?? 0)" data-opens="@opens">
+    @if (selected is { } item)
+    {
+        <h2>@item.Name</h2>
+        <p>@item.Description</p>
+    }
+    else
+    {
+        <p>Choose an object to open its record.</p>
+    }
+</section>
+
+@code {
+    private readonly IQueryable<MuseumObject> objects = new[]
+    {
+        new MuseumObject(17, "Tide clock", "A brass dial from the old harbour office."),
+        new MuseumObject(42, "Signal lantern", "A blue lens used on the museum launch.")
+    }.AsQueryable();
+    private MuseumObject? selected;
+    private int opens;
+
+    private void Open(MuseumObject item)
+    {
+        selected = item;
+        opens++;
+    }
+
+    private sealed record MuseumObject(int Id, string Name, string Description);
+}
+<!-- endsnippet:table -->

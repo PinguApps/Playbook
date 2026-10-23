@@ -1,6 +1,15 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @UnionParameters
+  Scenario: Alternative component values retain literal markup and JSON boundaries offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then alternative parameter shapes retain canonical guidance and JSON boundaries offline
+    And ordinary discovery fits the documented byte budgets
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   Scenario: Theoretical SDK and build recipes disclose their missing proof offline
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
@@ -258,5 +267,21 @@ Feature: Installed offline guidance
     And harbour state retains one-use and persistent canonical guidance offline
     And captured static content retains complete canonical guidance offline
     And base aware navigation retains complete canonical guidance offline
+    And shareable grid views retain complete canonical guidance offline
+    And selected rows retain canonical guidance and interactive requirements offline
+    And grid positioning retains canonical bodies and rendered instance constraints offline
+    And restrictive style CSP retains canonical virtual list guidance offline
+    And static subtree caching retains complete canonical guidance offline
+    And changing lists retain canonical guidance and complete anchoring requirements offline
+    And virtual list reveal retains complete canonical guidance offline
+    And unified startup retains complete canonical guidance and all host requirements offline
+
+    And server browser policy retains complete setup and request sharing limits offline
+    And circuit pause retains complete canonical guidance and persistence requirements offline
+    And periodic browser work retains complete canonical guidance and lifetime limits offline
+    And culture handover retains complete canonical guidance and satellite requirements offline
+
+    And browser configuration retains complete canonical guidance and precedence requirements offline
+    And browser workers retain complete canonical guidance and cancellation limits offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

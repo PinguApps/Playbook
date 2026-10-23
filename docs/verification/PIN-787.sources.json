@@ -1,0 +1,65 @@
+{
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server.AutoPause/src/PublicAPI.Unshipped.txt",
+      "sha256": "b24c1dac5d936f0612c95b5c995d8fdc9650c31a4742b19aac16eee8f3b614af",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server.AutoPause/src/AutoPauseBrowserOptions.cs",
+      "sha256": "58e1ab89f108aea1d72b6936a469f067371a56e99b1d182ab49670d56673e428",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server.AutoPause/src/AutoPauseBrowserOptionsExtensions.cs",
+      "sha256": "446a98d06e54bba8f459215924fbba719c8d93dc5aaf0d4cfc184b745c9ac913",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server.AutoPause/src/js/AutoPauseManager.ts",
+      "sha256": "5e5961c24ed051e5e13760c041fad9768e3e3ccdcefe8d2d11a61669ad65e6ec",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server.AutoPause/src/js/FreezeBlockers.ts",
+      "sha256": "47f45509cac120661af2c0c5de72d25396039a5b83eb2ce8aecbf7e4b2b2fc57",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server.AutoPause/src/js/autopause.lib.module.ts",
+      "sha256": "68504d1877da5dec09e1ac6c4be5fc6e204d50c82a398d0946aaf3e6b3eb1c26",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/Circuit.cs",
+      "sha256": "00f0437e316a07575c2509c8175c7a701f78b257a15c738e9ef27ac102aff098",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/CircuitHost.cs",
+      "sha256": "ca69ea11134472ba4b70671da327bead719120e73af98d03c0ad8640d9752573",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/CircuitPersistenceManager.cs",
+      "sha256": "d44c68d19160458ac5529eea29d6e70f380e73386d93235669a48fe14a890bb6",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/CircuitRegistry.cs",
+      "sha256": "719f40cf8766b1825c35b862bf4a4a601d24769324ff830d4ccf3c2915395b3b",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web.JS/src/Platform/Circuits/CircuitManager.ts",
+      "sha256": "b0c125b4224792387fcd4980506b81f9542b4bb65652d34c8e0161243fb58927",
+      "kind": "official-source-review"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/Circuits/Circuit.cs",
+      "sha256": "596c41c908c530f0ae430232a330efa18dde63bafe28b01c46544b627398bc02",
+      "kind": "official-previous-release-source-review"
+    }
+  ],
+  "reviewed": "2026-10-23"
+}

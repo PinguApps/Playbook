@@ -1,0 +1,65 @@
+<!-- snippet:journal -->
+<h1>Orchard journal</h1>
+<label>Follow edge
+    <select @bind="anchor">
+        <option value="Start">Start</option>
+        <option value="End">End</option>
+        <option value="None">None</option>
+    </select>
+</label>
+<button id="prepend" @onclick="PrependAsync">Prepend picking note</button>
+<button id="append" @onclick="AppendAsync">Append packing note</button>
+<button id="refresh" @onclick="RefreshAsync">Reload fresh instances</button>
+<output id="revision">@revision</output>
+<div id="journal" tabindex="0" aria-label="Orchard entries">
+    <Virtualize @ref="list" ItemsProvider="LoadEntries" Context="entry"
+                AnchorMode="anchor" ItemComparer="EntryIdentity.Instance"
+                ItemSize="72" OverscanCount="15">
+        <JournalEntry @key="entry.Id" Entry="entry" OnExpand="ExpandAsync" />
+    </Virtualize>
+</div>
+
+@code {
+    private readonly List<Entry> entries = Enumerable.Range(1, 120)
+        .Select(id => new Entry(id, id % 3 + 1, false)).ToList();
+    private Virtualize<Entry>? list;
+    private VirtualizeAnchorMode anchor = VirtualizeAnchorMode.Start;
+    private int revision;
+
+    private ValueTask<ItemsProviderResult<Entry>> LoadEntries(ItemsProviderRequest request)
+    {
+        request.CancellationToken.ThrowIfCancellationRequested();
+        // Simulate a materialized provider: each response contains fresh class instances.
+        var page = entries.Skip(request.StartIndex).Take(request.Count)
+            .Select(entry => new Entry(entry.Id, entry.Lines, entry.Expanded)).ToArray();
+        return ValueTask.FromResult(new ItemsProviderResult<Entry>(page, entries.Count));
+    }
+
+    private async Task PrependAsync()
+    {
+        entries.Insert(0, new Entry(entries.Min(entry => entry.Id) - 1, 2, false));
+        await RefreshAsync();
+    }
+
+    private async Task AppendAsync()
+    {
+        entries.Add(new Entry(entries.Max(entry => entry.Id) + 1, 3, false));
+        await RefreshAsync();
+    }
+
+    private async Task ExpandAsync(int id)
+    {
+        entries.Single(entry => entry.Id == id).Expanded = true;
+        await RefreshAsync();
+    }
+
+    private async Task RefreshAsync()
+    {
+        if (list is not null)
+        {
+            await list.RefreshDataAsync();
+        }
+        revision++;
+    }
+}
+<!-- endsnippet:journal -->

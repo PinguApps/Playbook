@@ -1,0 +1,364 @@
+{
+  "kind": "real-browser",
+  "origin": "http://127.0.0.1:5393",
+  "recordedAt": "2026-10-23T05:51:00.914Z",
+  "results": [
+    {
+      "clicks": 1,
+      "count": "1",
+      "culture": "fr-FR",
+      "delayedSends": 0,
+      "execution": "browser",
+      "proof": {
+        "circuit": 0,
+        "resources": [
+          {
+            "name": "dotnet.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.runtime.okxdo5zwwj.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.native.ric31difde.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.native.89gvfkserh.wasm",
+            "type": "dotnetwasm"
+          },
+          {
+            "name": "System.Runtime.InteropServices.JavaScript.m1gwpwsdcd.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.CoreLib.ccmvz1260y.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.0y1l0v3tlo.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.Web.4dcyvr79z0.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.WebAssembly.a3sisf6lpe.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.t5mic3u3ts.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.EnvironmentVariables.jzkg2x7qhv.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.Json.yt5s0dcd1a.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.DependencyInjection.qgwp6l964k.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Diagnostics.a8g14ndnkm.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Logging.adaaldmj0l.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.JSInterop.0fe2b2p385.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.JSInterop.WebAssembly.ydv3erh2ea.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.Abstractions.s65zlvl4se.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.DependencyInjection.Abstractions.6684c4h1iw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Diagnostics.Abstractions.53qylfq3cl.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Hosting.Abstractions.v3kxgx981t.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Logging.Abstractions.q8cuixaiz7.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Options.bm9jnizb53.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Primitives.2x3j6d09qy.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.Concurrent.bqe068bo43.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.Immutable.robeqldml2.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.kkz4okf95q.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.8064ms1ax3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Console.mnpv2g5kg5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.DiagnosticSource.zt0lszysf3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Pipelines.vw5bymtycv.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Linq.albrhujvro.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Memory.2su3t118ae.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.Uri.hq643g2m0w.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.2xtjzq4mt1.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.d92vdmp9jw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Encodings.Web.xu5bxwuekx.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Json.ck852vi84p.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.RegularExpressions.z1rrqw8esz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "LegacyClient.gkp3eytrvj.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "icudt_EFIGS.xyuimhy3ww.dat",
+            "type": "globalization"
+          }
+        ],
+        "timeout": null
+      },
+      "route": "/"
+    },
+    {
+      "clicks": 1,
+      "count": "1",
+      "culture": "fr-FR",
+      "delayedSends": 0,
+      "execution": "browser",
+      "proof": {
+        "circuit": 0,
+        "resources": [
+          {
+            "name": "dotnet.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.runtime.okxdo5zwwj.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.native.ric31difde.js",
+            "type": "dotnetjs"
+          },
+          {
+            "name": "dotnet.native.89gvfkserh.wasm",
+            "type": "dotnetwasm"
+          },
+          {
+            "name": "System.Runtime.InteropServices.JavaScript.m1gwpwsdcd.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.CoreLib.ccmvz1260y.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.0y1l0v3tlo.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.Web.4dcyvr79z0.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.WebAssembly.a3sisf6lpe.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.t5mic3u3ts.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.EnvironmentVariables.jzkg2x7qhv.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.Json.yt5s0dcd1a.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.DependencyInjection.qgwp6l964k.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Diagnostics.a8g14ndnkm.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Logging.adaaldmj0l.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.JSInterop.0fe2b2p385.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.JSInterop.WebAssembly.ydv3erh2ea.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Configuration.Abstractions.s65zlvl4se.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.DependencyInjection.Abstractions.6684c4h1iw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Diagnostics.Abstractions.53qylfq3cl.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Hosting.Abstractions.v3kxgx981t.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Logging.Abstractions.q8cuixaiz7.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Options.bm9jnizb53.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "Microsoft.Extensions.Primitives.2x3j6d09qy.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.Concurrent.bqe068bo43.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.Immutable.robeqldml2.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Collections.kkz4okf95q.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.ComponentModel.8064ms1ax3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Console.mnpv2g5kg5.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Diagnostics.DiagnosticSource.zt0lszysf3.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.IO.Pipelines.vw5bymtycv.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Linq.albrhujvro.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Memory.2su3t118ae.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Private.Uri.hq643g2m0w.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Runtime.2xtjzq4mt1.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Security.Cryptography.d92vdmp9jw.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Encodings.Web.xu5bxwuekx.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.Json.ck852vi84p.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "System.Text.RegularExpressions.z1rrqw8esz.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "LegacyClient.gkp3eytrvj.wasm",
+            "type": "assembly"
+          },
+          {
+            "name": "icudt_EFIGS.xyuimhy3ww.dat",
+            "type": "globalization"
+          }
+        ],
+        "timeout": null
+      },
+      "route": "/?shape=flat"
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36"
+}

@@ -81,13 +81,13 @@
       "id": "cache",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(Cache|Endpoints\\.RazorComponentsServiceOptions::(get_|set_)?CacheView)",
       "owner": "PIN-780; B07 for component cache contracts",
-      "disposition": "grouped/included"
+      "disposition": "included; boundary/storage policy delivered with real local provider proof in docs/verification/PIN-780.md; B07 component authoring remains outstanding"
     },
     {
       "id": "browser-options",
       "pattern": " Microsoft\\.AspNetCore\\.(Components\\.(BrowserOptions|ConfigureBrowser|InteractiveServerBrowserOptions|InteractiveWebAssemblyBrowserOptions|StaticServerBrowserOptions)|Builder\\.RazorComponentsEndpointConventionBuilderExtensions)",
       "owner": "PIN-788/PIN-793/PIN-794",
-      "disposition": "grouped"
+      "disposition": "grouped; PIN-788 delivered browser startup/reconnect with actual Server/WASM/Auto and separate-request RC2 sharing proof in docs/verification/PIN-788.md; PIN-794 delivered culture goal G24/WEB-024 using Components:UseCultureFromServer, original .NET 10/RC2 consumers and real aligned/independent satellite-before-render proof in docs/verification/PIN-794.md; PIN-793 retains configuration ownership"
     },
     {
       "id": "navigation",
@@ -99,18 +99,18 @@
       "id": "virtualization",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Web\\.Virtualization\\.",
       "owner": "PIN-784/PIN-785/PIN-786",
-      "disposition": "grouped"
+      "disposition": "grouped; PIN-785 initial/programmatic reveal delivered with real delayed-provider and rendered-target proof in docs/verification/PIN-785.md; PIN-786 restrictive-style CSP delivered with real enforcing-policy controls and visible distant rows in docs/verification/PIN-786.md; PIN-784 anchoring/identity/variable-height guidance delivered in docs/verification/PIN-784.md"
     },
     {
       "id": "quickgrid",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.QuickGrid\\.",
-      "owner": "PIN-781/PIN-782/PIN-783",
+      "owner": "PIN-781/PIN-782; PIN-783 virtualization delivered in docs/verification/PIN-783.md",
       "disposition": "grouped"
     },
     {
       "id": "pause",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(AutoPause|Server\\.Circuits\\.Circuit)",
-      "owner": "PIN-787",
+      "owner": "PIN-787; delivered 11.0 editions in docs/verification/PIN-787.md",
       "disposition": "grouped"
     },
     {
@@ -171,7 +171,7 @@
       "id": "metadata-only",
       "pattern": " Microsoft\\.(AspNetCore\\.(Components\\.(Authorization\\.AuthorizeViewCore|BindConverter|LayoutAttribute|NavigationManager::NotifyLocationChangingAsync|Routing\\.Router::SetParametersAsync|RenderTree\\.Renderer::(DisposeAsync|RenderRootComponentAsync)|Forms\\.(InputFile|AntiforgeryToken)|Web\\.HeadOutlet|Server\\.ProtectedBrowserStorage\\.|WebAssembly\\.(Hosting\\.WebAssemblyHost::DisposeAsync|Infrastructure\\.JSInteropMethods::NotifyLocationChangingAsync|Authentication\\.(RemoteAuthenticationService|RemoteAuthenticatorViewCore)))|Razor\\.Runtime\\.TagHelpers\\.TagHelperExecutionContext|Builder\\.WebAssemblyNetDebugProxyAppBuilderExtensions)|JSInterop\\.)",
       "owner": "PIN-708; annotations/state-machine metadata only",
-      "disposition": "excluded as independent recipes"
+      "disposition": "excluded as independent recipes; PIN-791 uses WebAssemblyHost.DisposeAsync within the original WASM lifetime recipe, with actual browser stop/cancellation proof; no unload guarantee"
     }
   ],
   "toolingGroups": [
@@ -203,13 +203,13 @@
       "id": "package-pause",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.components\\.server\\.autopause",
       "disposition": "grouped",
-      "owner": "PIN-787"
+      "owner": "PIN-787; delivered 11.0 editions in docs/verification/PIN-787.md"
     },
     {
       "id": "template-worker",
       "pattern": "^templates/content/BlazorWebWorker-CSharp/",
       "disposition": "grouped",
-      "owner": "PIN-792"
+      "owner": "PIN-792; blazor.offload-browser-computation edition 11.0; G25 + E03 delivered with actual generated client and real browser proof in docs/verification/PIN-792.md"
     },
     {
       "id": "template-service-defaults",

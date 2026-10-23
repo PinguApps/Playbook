@@ -5,6 +5,65 @@ For one-use redirect confirmations and persistent static SSR progress, use the
 It shows both goals, complete canonical comparisons and provider applicability,
 including RC2 TempData write-back and early session cookies under streaming.
 
+For consistent culture through prerendered WASM hydration and an explicit
+independent client, use the [tested PIN-794 walkthrough](verification/PIN-794.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 consumers, actual culture/satellite
+timing, full Markdown and applicability.
+
+For one browser build with public environment settings, use the
+[tested PIN-793 walkthrough](verification/PIN-793.md#inspect-what-an-agent-receives).
+It displays the complete original .NET 10/11 comparison, WASM applicability,
+environment-source precedence and duplicate-registration migration.
+
+For lengthy browser calculations, use the
+[tested PIN-792 walkthrough](verification/PIN-792.md#inspect-what-an-agent-receives).
+It displays the full original .NET 10/11 comparison, actual generated worker
+client/assets, WASM/CSR applicability and cancellation versus termination limits.
+
+For nested Blazor startup options across legacy and Web App scripts, use the
+[tested PIN-789 walkthrough](verification/PIN-789.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 setup, discovery and applicability,
+including retained flat legacy compatibility and actual browser evidence.
+
+
+For periodic work owned by a browser application, use the
+[tested PIN-791 walkthrough](verification/PIN-791.md#inspect-what-an-agent-receives).
+It displays the complete .NET 10/11 WebAssembly comparison, orderly cancellation
+and disposal, applicability and the explicit no-durable-work/tab-close boundary.
+
+For server-configured browser startup, use the
+[tested PIN-788 walkthrough](verification/PIN-788.md#inspect-what-an-agent-receives).
+It displays complete host/client setup, final option groups, target applicability
+and the measured RC2 request-sharing boundary.
+For hidden-session resource release and maintenance pause, use the
+[tested PIN-787 walkthrough](verification/PIN-787.md#inspect-what-an-agent-receives).
+It shows full original .NET 10/11 comparisons, persistence prerequisites and
+request acceptance versus actual circuit closure through real stdio list/get.
+
+For virtual lists under restrictive style CSP, use the
+[tested PIN-786 walkthrough](verification/PIN-786.md#inspect-what-an-agent-receives).
+It shows full canonical comparisons, actual enforcement/scrolling evidence and
+the separate trusted-CSSOM and consumer-browser boundaries.
+
+For initial and programmatic virtual-list item reveal, use the
+[tested PIN-785 walkthrough](verification/PIN-785.md#inspect-what-an-agent-receives).
+It displays the full original .NET 10/11 comparison, provider timing and bounds,
+plus complete applicability through the real built stdio server.
+
+For two independently bookmarkable grids, use the
+[tested PIN-781 walkthrough](verification/PIN-781.md#inspect-what-an-agent-receives).
+It displays the original comparison, complete applicability and the measured
+RC2 stable-Title/custom-header contract without inventing a ColumnId API.
+
+For safe static-subtree caching, use the [PIN-780 walkthrough](verification/PIN-780.md#inspect-what-an-agent-receives).
+It displays the original .NET 10/11 comparison and full variation, invalidation,
+user-isolation and local-provider requirements.
+
+For literal/bound union component parameters and JSON/fragment boundaries, use
+the [tested PIN-779 walkthrough](verification/PIN-779.md#inspect-what-an-agent-receives).
+It displays the reusable discovery goal, full original .NET 10/11 comparison
+and C# 15/Blazor applicability, with measured RC2 restrictions.
+
 For experimental runtime-async compilation, a bounded F# workflow builder and
 hosted FCS import sharing, use the [PIN-757/980/981 walkthrough](verification/PIN-757-980-981.md#inspect-what-an-agent-receives).
 It displays complete support and applicability, including the verified .NET 10

@@ -1,0 +1,16 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36",
+  "finalUri": "http://localhost:5381/interactive?scope=open&repairs_sort=code&repairs_direction=desc&repairs_page=3&loans_sort=priority&loans_direction=asc&loans_page=2",
+  "initialUri": "http://localhost:5381/interactive?scope=open&repairs_sort=priority&repairs_direction=desc&repairs_page=2&loans_sort=code&loans_direction=desc&loans_page=3",
+  "kind": "execution",
+  "loans": "L-A,L-F",
+  "passed": [
+    "bookmarked two-grid state",
+    "live heading change preserves keys and URLs",
+    "independent page navigation",
+    "independent sort navigation",
+    "back forward and unrelated query retention"
+  ],
+  "recordedAt": "2026-10-23T02:04:08.392Z",
+  "repairs": "R-B,R-A"
+}

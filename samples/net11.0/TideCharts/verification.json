@@ -1,0 +1,15 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/TideCharts.browser.js"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Components.Server.AutoPause/11.0.0-rc.2.26504.105"
+  ],
+  "nativeToolchains": [],
+  "workloads": []
+}

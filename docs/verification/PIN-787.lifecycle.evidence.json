@@ -1,0 +1,700 @@
+{
+  "traces": {
+    "failed-stopapplication": [
+      {
+        "name": "host-stopping",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T04:59:34.9088218+01:00",
+        "process": 65044
+      },
+      {
+        "name": "drain-observed",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T04:59:34.9246797+01:00",
+        "process": 65044
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T04:59:34.9316325+01:00",
+        "process": 65044
+      },
+      {
+        "name": "up",
+        "id": "0drmuTnmVY-Qd5Pjd1kMuHRcXtSMlNZAMpN8CX_KKo8",
+        "accepted": null,
+        "at": "2026-10-23T04:59:58.9725767+01:00",
+        "process": 100404
+      },
+      {
+        "name": "down",
+        "id": "0drmuTnmVY-Qd5Pjd1kMuHRcXtSMlNZAMpN8CX_KKo8",
+        "accepted": null,
+        "at": "2026-10-23T05:00:51.4098681+01:00",
+        "process": 100404
+      },
+      {
+        "name": "closed",
+        "id": "0drmuTnmVY-Qd5Pjd1kMuHRcXtSMlNZAMpN8CX_KKo8",
+        "accepted": null,
+        "at": "2026-10-23T05:00:51.410944+01:00",
+        "process": 100404
+      },
+      {
+        "name": "resource-disposed",
+        "id": "5a97de2e1dc944e28cd3ce126675adef",
+        "accepted": null,
+        "at": "2026-10-23T05:00:51.411935+01:00",
+        "process": 100404
+      },
+      {
+        "name": "up",
+        "id": "T9Na6LCcwAg7dI1zuveFcosXagwF07V9sztqCXPslBw",
+        "accepted": null,
+        "at": "2026-10-23T05:00:58.1554138+01:00",
+        "process": 100404
+      },
+      {
+        "name": "down",
+        "id": "T9Na6LCcwAg7dI1zuveFcosXagwF07V9sztqCXPslBw",
+        "accepted": null,
+        "at": "2026-10-23T05:02:13.2736802+01:00",
+        "process": 100404
+      },
+      {
+        "name": "closed",
+        "id": "T9Na6LCcwAg7dI1zuveFcosXagwF07V9sztqCXPslBw",
+        "accepted": null,
+        "at": "2026-10-23T05:02:13.2744815+01:00",
+        "process": 100404
+      },
+      {
+        "name": "resource-disposed",
+        "id": "0a11bdc99a7e409a99dabceae1936f19",
+        "accepted": null,
+        "at": "2026-10-23T05:02:13.2751559+01:00",
+        "process": 100404
+      },
+      {
+        "name": "up",
+        "id": "TAOPxLNp-WeakxTGx_Y0q_sg06YQgEUEAHPF0XSnW8A",
+        "accepted": null,
+        "at": "2026-10-23T05:02:15.4868393+01:00",
+        "process": 100404
+      },
+      {
+        "name": "host-stopping",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:02:31.6391807+01:00",
+        "process": 100404
+      },
+      {
+        "name": "cancelled-request",
+        "id": "TAOPxLNp-WeakxTGx_Y0q_sg06YQgEUEAHPF0XSnW8A",
+        "accepted": false,
+        "at": "2026-10-23T05:02:31.6433415+01:00",
+        "process": 100404
+      },
+      {
+        "name": "pause-request",
+        "id": "TAOPxLNp-WeakxTGx_Y0q_sg06YQgEUEAHPF0XSnW8A",
+        "accepted": true,
+        "at": "2026-10-23T05:02:31.6446317+01:00",
+        "process": 100404
+      },
+      {
+        "name": "acceptance",
+        "id": "",
+        "accepted": true,
+        "at": "2026-10-23T05:02:31.6450215+01:00",
+        "process": 100404
+      },
+      {
+        "name": "down",
+        "id": "TAOPxLNp-WeakxTGx_Y0q_sg06YQgEUEAHPF0XSnW8A",
+        "accepted": null,
+        "at": "2026-10-23T05:02:31.6528002+01:00",
+        "process": 100404
+      },
+      {
+        "name": "up",
+        "id": "TAOPxLNp-WeakxTGx_Y0q_sg06YQgEUEAHPF0XSnW8A",
+        "accepted": null,
+        "at": "2026-10-23T05:02:31.6569647+01:00",
+        "process": 100404
+      },
+      {
+        "name": "drain-budget-expired",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:02:43.6407673+01:00",
+        "process": 100404
+      },
+      {
+        "name": "down",
+        "id": "TAOPxLNp-WeakxTGx_Y0q_sg06YQgEUEAHPF0XSnW8A",
+        "accepted": null,
+        "at": "2026-10-23T05:02:51.653364+01:00",
+        "process": 100404
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:02:51.6552067+01:00",
+        "process": 100404
+      }
+    ],
+    "proof11": [
+      {
+        "name": "up",
+        "id": "dItGGO9ozyeH2t4t-prOMUsoibuui3ppE3_ph6JvG64",
+        "accepted": null,
+        "at": "2026-10-23T05:08:05.3249057+01:00",
+        "process": 35372
+      },
+      {
+        "name": "up",
+        "id": "bJ7Yf9T9azZ_Ro_eddNCfOCXaom0qWM-1VArTlP5Urk",
+        "accepted": null,
+        "at": "2026-10-23T05:09:02.3904615+01:00",
+        "process": 35372
+      },
+      {
+        "name": "down",
+        "id": "dItGGO9ozyeH2t4t-prOMUsoibuui3ppE3_ph6JvG64",
+        "accepted": null,
+        "at": "2026-10-23T05:09:09.490215+01:00",
+        "process": 35372
+      },
+      {
+        "name": "down",
+        "id": "bJ7Yf9T9azZ_Ro_eddNCfOCXaom0qWM-1VArTlP5Urk",
+        "accepted": null,
+        "at": "2026-10-23T05:09:14.3976417+01:00",
+        "process": 35372
+      },
+      {
+        "name": "closed",
+        "id": "bJ7Yf9T9azZ_Ro_eddNCfOCXaom0qWM-1VArTlP5Urk",
+        "accepted": null,
+        "at": "2026-10-23T05:09:14.3982576+01:00",
+        "process": 35372
+      },
+      {
+        "name": "resource-disposed",
+        "id": "625f94883a0c4f7f95efca57c9d72ea5",
+        "accepted": null,
+        "at": "2026-10-23T05:09:14.3992885+01:00",
+        "process": 35372
+      },
+      {
+        "name": "up",
+        "id": "oMt5vVX7P54dWJmU51icYYEo5pmrJT0tFe7XMLj4DEY",
+        "accepted": null,
+        "at": "2026-10-23T05:09:28.5225828+01:00",
+        "process": 35372
+      },
+      {
+        "name": "down",
+        "id": "oMt5vVX7P54dWJmU51icYYEo5pmrJT0tFe7XMLj4DEY",
+        "accepted": null,
+        "at": "2026-10-23T05:09:57.4082763+01:00",
+        "process": 35372
+      },
+      {
+        "name": "closed",
+        "id": "oMt5vVX7P54dWJmU51icYYEo5pmrJT0tFe7XMLj4DEY",
+        "accepted": null,
+        "at": "2026-10-23T05:09:57.4089722+01:00",
+        "process": 35372
+      },
+      {
+        "name": "resource-disposed",
+        "id": "53fae460365a43de9828eebdf73d1eca",
+        "accepted": null,
+        "at": "2026-10-23T05:09:57.4093422+01:00",
+        "process": 35372
+      },
+      {
+        "name": "up",
+        "id": "sRBFkgxAFqbRyeceH43pUa_labutwRfTVv1W-H2Q_B4",
+        "accepted": null,
+        "at": "2026-10-23T05:09:59.4997811+01:00",
+        "process": 35372
+      },
+      {
+        "name": "down",
+        "id": "sRBFkgxAFqbRyeceH43pUa_labutwRfTVv1W-H2Q_B4",
+        "accepted": null,
+        "at": "2026-10-23T05:10:48.3650226+01:00",
+        "process": 35372
+      },
+      {
+        "name": "closed",
+        "id": "sRBFkgxAFqbRyeceH43pUa_labutwRfTVv1W-H2Q_B4",
+        "accepted": null,
+        "at": "2026-10-23T05:10:48.3656414+01:00",
+        "process": 35372
+      },
+      {
+        "name": "resource-disposed",
+        "id": "9cb8bf05d040436e977ec33202cfb7e0",
+        "accepted": null,
+        "at": "2026-10-23T05:10:48.3660525+01:00",
+        "process": 35372
+      },
+      {
+        "name": "closed",
+        "id": "dItGGO9ozyeH2t4t-prOMUsoibuui3ppE3_ph6JvG64",
+        "accepted": null,
+        "at": "2026-10-23T05:12:09.4977132+01:00",
+        "process": 35372
+      },
+      {
+        "name": "resource-disposed",
+        "id": "dcf20a98494041bca1cc85473da994f5",
+        "accepted": null,
+        "at": "2026-10-23T05:12:09.4983977+01:00",
+        "process": 35372
+      },
+      {
+        "name": "host-stopping",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.3779766+01:00",
+        "process": 35372
+      },
+      {
+        "name": "drain-observed",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.379777+01:00",
+        "process": 35372
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.3836019+01:00",
+        "process": 35372
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.3841341+01:00",
+        "process": 35372
+      }
+    ],
+    "proof10": [
+      {
+        "name": "up",
+        "id": "u-roTk4VBwQR33pvd1cms26Z1SH69FEnOzN63hN21cg",
+        "accepted": null,
+        "at": "2026-10-23T05:20:44.0159945+01:00",
+        "process": 145368
+      },
+      {
+        "name": "down",
+        "id": "u-roTk4VBwQR33pvd1cms26Z1SH69FEnOzN63hN21cg",
+        "accepted": null,
+        "at": "2026-10-23T05:20:49.4223203+01:00",
+        "process": 145368
+      },
+      {
+        "name": "closed",
+        "id": "u-roTk4VBwQR33pvd1cms26Z1SH69FEnOzN63hN21cg",
+        "accepted": null,
+        "at": "2026-10-23T05:20:49.4234711+01:00",
+        "process": 145368
+      },
+      {
+        "name": "resource-disposed",
+        "id": "f3ebd891bf834547a09d558cc1e06592",
+        "accepted": null,
+        "at": "2026-10-23T05:20:49.4244944+01:00",
+        "process": 145368
+      },
+      {
+        "name": "up",
+        "id": "ymU29tblwiPQe_yDLfSoQaA_Y2NZn-0xgq_sQ6ZNwYk",
+        "accepted": null,
+        "at": "2026-10-23T05:20:51.4896906+01:00",
+        "process": 145368
+      },
+      {
+        "name": "host-stopping",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:21:25.3234289+01:00",
+        "process": 145368
+      },
+      {
+        "name": "cancelled-request",
+        "id": "ymU29tblwiPQe_yDLfSoQaA_Y2NZn-0xgq_sQ6ZNwYk",
+        "accepted": false,
+        "at": "2026-10-23T05:21:25.325068+01:00",
+        "process": 145368
+      },
+      {
+        "name": "pause-request",
+        "id": "ymU29tblwiPQe_yDLfSoQaA_Y2NZn-0xgq_sQ6ZNwYk",
+        "accepted": true,
+        "at": "2026-10-23T05:21:25.3288657+01:00",
+        "process": 145368
+      },
+      {
+        "name": "acceptance",
+        "id": "",
+        "accepted": true,
+        "at": "2026-10-23T05:21:25.3297895+01:00",
+        "process": 145368
+      },
+      {
+        "name": "down",
+        "id": "ymU29tblwiPQe_yDLfSoQaA_Y2NZn-0xgq_sQ6ZNwYk",
+        "accepted": null,
+        "at": "2026-10-23T05:21:25.3310973+01:00",
+        "process": 145368
+      },
+      {
+        "name": "closed",
+        "id": "ymU29tblwiPQe_yDLfSoQaA_Y2NZn-0xgq_sQ6ZNwYk",
+        "accepted": null,
+        "at": "2026-10-23T05:21:25.3317456+01:00",
+        "process": 145368
+      },
+      {
+        "name": "drain-observed",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:21:25.3321555+01:00",
+        "process": 145368
+      },
+      {
+        "name": "resource-disposed",
+        "id": "6ec06e6147a34e35b9337353b9d59c46",
+        "accepted": null,
+        "at": "2026-10-23T05:21:25.3325054+01:00",
+        "process": 145368
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:21:25.343093+01:00",
+        "process": 145368
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:21:25.3436808+01:00",
+        "process": 145368
+      },
+      {
+        "name": "up",
+        "id": "bmhfao8JS6S9h6Ttn7s3WjZ7r0J0KJTraKSHG6M-e5E",
+        "accepted": null,
+        "at": "2026-10-23T05:22:00.072155+01:00",
+        "process": 36748
+      },
+      {
+        "name": "down",
+        "id": "bmhfao8JS6S9h6Ttn7s3WjZ7r0J0KJTraKSHG6M-e5E",
+        "accepted": null,
+        "at": "2026-10-23T05:22:01.4018945+01:00",
+        "process": 36748
+      },
+      {
+        "name": "host-stopping",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:22:23.2074683+01:00",
+        "process": 36748
+      },
+      {
+        "name": "drain-observed",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:22:23.208565+01:00",
+        "process": 36748
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:22:23.2195405+01:00",
+        "process": 36748
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:22:23.2203104+01:00",
+        "process": 36748
+      }
+    ],
+    "proof11-disabled": [
+      {
+        "name": "up",
+        "id": "yKcZzTN0QoqI7LQTPw8Y2R0vHKQMhIahAyULhxFLxZ4",
+        "accepted": null,
+        "at": "2026-10-23T05:11:24.1345732+01:00",
+        "process": 112544
+      },
+      {
+        "name": "up",
+        "id": "a_fispAjcCF8o1-FDS57-AOpNMjE1FrZ2hWxwbNKegE",
+        "accepted": null,
+        "at": "2026-10-23T05:11:25.7706425+01:00",
+        "process": 112544
+      },
+      {
+        "name": "host-stopping",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.1242224+01:00",
+        "process": 112544
+      },
+      {
+        "name": "cancelled-request",
+        "id": "yKcZzTN0QoqI7LQTPw8Y2R0vHKQMhIahAyULhxFLxZ4",
+        "accepted": false,
+        "at": "2026-10-23T05:11:58.1282432+01:00",
+        "process": 112544
+      },
+      {
+        "name": "cancelled-request",
+        "id": "a_fispAjcCF8o1-FDS57-AOpNMjE1FrZ2hWxwbNKegE",
+        "accepted": false,
+        "at": "2026-10-23T05:11:58.1292154+01:00",
+        "process": 112544
+      },
+      {
+        "name": "pause-request",
+        "id": "yKcZzTN0QoqI7LQTPw8Y2R0vHKQMhIahAyULhxFLxZ4",
+        "accepted": true,
+        "at": "2026-10-23T05:11:58.1321091+01:00",
+        "process": 112544
+      },
+      {
+        "name": "acceptance",
+        "id": "",
+        "accepted": true,
+        "at": "2026-10-23T05:11:58.1326071+01:00",
+        "process": 112544
+      },
+      {
+        "name": "pause-request",
+        "id": "a_fispAjcCF8o1-FDS57-AOpNMjE1FrZ2hWxwbNKegE",
+        "accepted": true,
+        "at": "2026-10-23T05:11:58.132951+01:00",
+        "process": 112544
+      },
+      {
+        "name": "acceptance",
+        "id": "",
+        "accepted": true,
+        "at": "2026-10-23T05:11:58.133275+01:00",
+        "process": 112544
+      },
+      {
+        "name": "down",
+        "id": "yKcZzTN0QoqI7LQTPw8Y2R0vHKQMhIahAyULhxFLxZ4",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.162491+01:00",
+        "process": 112544
+      },
+      {
+        "name": "down",
+        "id": "a_fispAjcCF8o1-FDS57-AOpNMjE1FrZ2hWxwbNKegE",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.1629328+01:00",
+        "process": 112544
+      },
+      {
+        "name": "closed",
+        "id": "a_fispAjcCF8o1-FDS57-AOpNMjE1FrZ2hWxwbNKegE",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.163215+01:00",
+        "process": 112544
+      },
+      {
+        "name": "closed",
+        "id": "yKcZzTN0QoqI7LQTPw8Y2R0vHKQMhIahAyULhxFLxZ4",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.1634675+01:00",
+        "process": 112544
+      },
+      {
+        "name": "resource-disposed",
+        "id": "f4296eb150214f3092d7f80744170c65",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.163965+01:00",
+        "process": 112544
+      },
+      {
+        "name": "resource-disposed",
+        "id": "5530adb858114eaeba8594c5a7cb1be4",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.1643246+01:00",
+        "process": 112544
+      },
+      {
+        "name": "drain-observed",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.1649798+01:00",
+        "process": 112544
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.172963+01:00",
+        "process": 112544
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:11:58.1733485+01:00",
+        "process": 112544
+      },
+      {
+        "name": "up",
+        "id": "2Y2Cy85K8INwRg_XGBJeYQRj3XriSOrhBpRJsZsxuKg",
+        "accepted": null,
+        "at": "2026-10-23T05:12:36.4069588+01:00",
+        "process": 8164
+      },
+      {
+        "name": "up",
+        "id": "AyyuV-RR5vXbm2dczyTfugAGD4ASJnz7DhHnV-SGyHk",
+        "accepted": null,
+        "at": "2026-10-23T05:12:37.788032+01:00",
+        "process": 8164
+      },
+      {
+        "name": "host-stopping",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4241373+01:00",
+        "process": 8164
+      },
+      {
+        "name": "cancelled-request",
+        "id": "2Y2Cy85K8INwRg_XGBJeYQRj3XriSOrhBpRJsZsxuKg",
+        "accepted": false,
+        "at": "2026-10-23T05:13:14.4289941+01:00",
+        "process": 8164
+      },
+      {
+        "name": "cancelled-request",
+        "id": "AyyuV-RR5vXbm2dczyTfugAGD4ASJnz7DhHnV-SGyHk",
+        "accepted": false,
+        "at": "2026-10-23T05:13:14.4300195+01:00",
+        "process": 8164
+      },
+      {
+        "name": "pause-request",
+        "id": "2Y2Cy85K8INwRg_XGBJeYQRj3XriSOrhBpRJsZsxuKg",
+        "accepted": true,
+        "at": "2026-10-23T05:13:14.4305283+01:00",
+        "process": 8164
+      },
+      {
+        "name": "acceptance",
+        "id": "",
+        "accepted": true,
+        "at": "2026-10-23T05:13:14.4308508+01:00",
+        "process": 8164
+      },
+      {
+        "name": "pause-request",
+        "id": "AyyuV-RR5vXbm2dczyTfugAGD4ASJnz7DhHnV-SGyHk",
+        "accepted": true,
+        "at": "2026-10-23T05:13:14.4312076+01:00",
+        "process": 8164
+      },
+      {
+        "name": "acceptance",
+        "id": "",
+        "accepted": true,
+        "at": "2026-10-23T05:13:14.4315552+01:00",
+        "process": 8164
+      },
+      {
+        "name": "down",
+        "id": "2Y2Cy85K8INwRg_XGBJeYQRj3XriSOrhBpRJsZsxuKg",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4632288+01:00",
+        "process": 8164
+      },
+      {
+        "name": "down",
+        "id": "AyyuV-RR5vXbm2dczyTfugAGD4ASJnz7DhHnV-SGyHk",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.463882+01:00",
+        "process": 8164
+      },
+      {
+        "name": "closed",
+        "id": "AyyuV-RR5vXbm2dczyTfugAGD4ASJnz7DhHnV-SGyHk",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4645214+01:00",
+        "process": 8164
+      },
+      {
+        "name": "closed",
+        "id": "2Y2Cy85K8INwRg_XGBJeYQRj3XriSOrhBpRJsZsxuKg",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.464828+01:00",
+        "process": 8164
+      },
+      {
+        "name": "drain-observed",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4663904+01:00",
+        "process": 8164
+      },
+      {
+        "name": "resource-disposed",
+        "id": "3d948905f27a438289e7d5c470c4ba49",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4670804+01:00",
+        "process": 8164
+      },
+      {
+        "name": "resource-disposed",
+        "id": "8ea824278e834b3096c468b1883e76c5",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4678748+01:00",
+        "process": 8164
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4740973+01:00",
+        "process": 8164
+      },
+      {
+        "name": "host-stopped",
+        "id": "",
+        "accepted": null,
+        "at": "2026-10-23T05:13:14.4746018+01:00",
+        "process": 8164
+      }
+    ]
+  },
+  "failedTraceLimit": "failed-stopapplication used an earlier exploratory fixture; it is a negative observation, not final sample proof.",
+  "kind": "real-host-lifecycle-events"
+}

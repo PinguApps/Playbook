@@ -1,0 +1,18 @@
+{
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Components.WebAssembly/11.0.0-rc.2.26504.105",
+    "Microsoft.JSInterop.WebAssembly/11.0.0-rc.2.26504.105",
+    "TideDesk.Client/1.0.0"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/net11.0/TideDesk.Client"
+  ]
+}

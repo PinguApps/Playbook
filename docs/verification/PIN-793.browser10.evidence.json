@@ -1,0 +1,142 @@
+[
+  {
+    "verifierSha256": "88a0db684f1f1c3e48496683b6589a0ea4c62592b7ad9ff2564d4bc9ef0a0945",
+    "expressionSha256": "83aaa098e11342abfcd6764e3be23e8a022cbcd86f4d9a1c0ef306229125319f",
+    "result": {
+      "base": "Base JSON",
+      "caption": "Operator override",
+      "clicks": "1",
+      "count": "1",
+      "endpoint": "https://testing.estuary.invalid/dispatch",
+      "environment": "Testing",
+      "expected": {
+        "duplicate": false,
+        "major": 10,
+        "profile": "Testing",
+        "skip": false
+      },
+      "hashes": {
+        "/_framework/EstuaryBoard.wv9wzsz9ox.wasm": "0c5d1dd59d504ab91ac223cdd18ed56ab2612758bcd08cf7b2acc94964be6f26",
+        "/_framework/blazor.webassembly.js": "9435ec0d81609bad85f9852fc444bb20e4c25d8a621e9537b91e3961d0ba9aae",
+        "/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9"
+      },
+      "href": "http://127.0.0.1:5851/?profile=Testing",
+      "initial": "Testing JSON endpoint",
+      "json": "Testing JSON",
+      "nativeBytes": 3001776,
+      "providers": [
+        "JsonStreamConfigurationProvider | Base JSON endpoint | Base JSON caption",
+        "JsonStreamConfigurationProvider | Testing JSON endpoint | Testing JSON caption",
+        "EnvironmentVariablesConfigurationProvider | https://testing.estuary.invalid/dispatch | Testing public caption",
+        "MemoryConfigurationProvider |  | Operator override"
+      ],
+      "recordedAt": "2026-10-23T07:55:33.680Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "verifierSha256": "88a0db684f1f1c3e48496683b6589a0ea4c62592b7ad9ff2564d4bc9ef0a0945",
+    "expressionSha256": "453a8302b23440f022992e9b4b6693fdb654cd0955d635a82c1050b1400ac18b",
+    "result": {
+      "base": "Base JSON",
+      "caption": "Operator override",
+      "clicks": "1",
+      "count": "1",
+      "endpoint": "https://production.estuary.invalid/dispatch",
+      "environment": "Production",
+      "expected": {
+        "duplicate": false,
+        "major": 10,
+        "profile": "Production",
+        "skip": false
+      },
+      "hashes": {
+        "/_framework/EstuaryBoard.wv9wzsz9ox.wasm": "0c5d1dd59d504ab91ac223cdd18ed56ab2612758bcd08cf7b2acc94964be6f26",
+        "/_framework/blazor.webassembly.js": "9435ec0d81609bad85f9852fc444bb20e4c25d8a621e9537b91e3961d0ba9aae",
+        "/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9"
+      },
+      "href": "http://127.0.0.1:5851/?profile=Production",
+      "initial": "Production JSON endpoint",
+      "json": "Production JSON",
+      "nativeBytes": 3001776,
+      "providers": [
+        "JsonStreamConfigurationProvider | Base JSON endpoint | Base JSON caption",
+        "JsonStreamConfigurationProvider | Production JSON endpoint | Production JSON caption",
+        "EnvironmentVariablesConfigurationProvider | https://production.estuary.invalid/dispatch | Production public caption",
+        "MemoryConfigurationProvider |  | Operator override"
+      ],
+      "recordedAt": "2026-10-23T07:55:35.791Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "verifierSha256": "88a0db684f1f1c3e48496683b6589a0ea4c62592b7ad9ff2564d4bc9ef0a0945",
+    "expressionSha256": "64faeb9c0d502430c4f3b01569634a037bf6fdd1924027cefffca32243d427b2",
+    "result": {
+      "base": "Base JSON",
+      "caption": "Operator override",
+      "clicks": "1",
+      "count": "0",
+      "endpoint": "Testing JSON endpoint",
+      "environment": "Testing",
+      "expected": {
+        "duplicate": false,
+        "major": 10,
+        "profile": "Testing",
+        "skip": true
+      },
+      "hashes": {
+        "/_framework/EstuaryBoard.wv9wzsz9ox.wasm": "0c5d1dd59d504ab91ac223cdd18ed56ab2612758bcd08cf7b2acc94964be6f26",
+        "/_framework/blazor.webassembly.js": "9435ec0d81609bad85f9852fc444bb20e4c25d8a621e9537b91e3961d0ba9aae",
+        "/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9"
+      },
+      "href": "http://127.0.0.1:5851/?profile=Testing&skipProvider=1",
+      "initial": "Testing JSON endpoint",
+      "json": "Testing JSON",
+      "nativeBytes": 3001776,
+      "providers": [
+        "JsonStreamConfigurationProvider | Base JSON endpoint | Base JSON caption",
+        "JsonStreamConfigurationProvider | Testing JSON endpoint | Testing JSON caption",
+        "MemoryConfigurationProvider |  | Operator override"
+      ],
+      "recordedAt": "2026-10-23T07:55:37.863Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "verifierSha256": "88a0db684f1f1c3e48496683b6589a0ea4c62592b7ad9ff2564d4bc9ef0a0945",
+    "expressionSha256": "92e0b8f2ca7caf1d105a96345434e69b6dafcbfe85b7dfc79c358c2b7e5abf69",
+    "result": {
+      "base": "Base JSON",
+      "caption": "Testing public caption",
+      "clicks": "1",
+      "count": "2",
+      "endpoint": "https://testing.estuary.invalid/dispatch",
+      "environment": "Testing",
+      "expected": {
+        "duplicate": true,
+        "major": 10,
+        "profile": "Testing",
+        "skip": false
+      },
+      "hashes": {
+        "/_framework/EstuaryBoard.wv9wzsz9ox.wasm": "0c5d1dd59d504ab91ac223cdd18ed56ab2612758bcd08cf7b2acc94964be6f26",
+        "/_framework/blazor.webassembly.js": "9435ec0d81609bad85f9852fc444bb20e4c25d8a621e9537b91e3961d0ba9aae",
+        "/_framework/dotnet.native.3zpaws0drs.wasm": "fff199798823528c46a4f2b44c31a7b4e664d0bf795c814957c100fbb59f7df9"
+      },
+      "href": "http://127.0.0.1:5851/?profile=Testing&duplicate=1",
+      "initial": "Testing JSON endpoint",
+      "json": "Testing JSON",
+      "nativeBytes": 3001776,
+      "providers": [
+        "JsonStreamConfigurationProvider | Base JSON endpoint | Base JSON caption",
+        "JsonStreamConfigurationProvider | Testing JSON endpoint | Testing JSON caption",
+        "EnvironmentVariablesConfigurationProvider | https://testing.estuary.invalid/dispatch | Testing public caption",
+        "MemoryConfigurationProvider |  | Operator override",
+        "EnvironmentVariablesConfigurationProvider | https://testing.estuary.invalid/dispatch | Testing public caption"
+      ],
+      "recordedAt": "2026-10-23T07:55:39.892Z",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+    }
+  }
+]

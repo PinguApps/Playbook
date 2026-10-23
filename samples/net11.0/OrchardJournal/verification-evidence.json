@@ -1,0 +1,42 @@
+{
+  "kind": "compile",
+  "sample": "samples/net11.0/OrchardJournal/OrchardJournal.csproj",
+  "target": "net11.0",
+  "sdk": "11.0.100-rc.2.26504.105",
+  "language": "15.0",
+  "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build OrchardJournal.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-23T02:44:20.8869742+00:00",
+  "sourceCommit": "23231e82efa32460bf3f8f2c5c4d4544534b8872",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net11.0/OrchardJournal/_Imports.razor": "96e19311e8f10c5863b1377872a3f1c54a04d40a1581b485effd672ca91775f1",
+    "samples/net11.0/OrchardJournal/App.razor": "b5f4908c929e28c82ea41f9b89bd415e0e0ea81bd22478f0a6f2aa6427793e88",
+    "samples/net11.0/OrchardJournal/Entry.cs": "3bd6d2333a23a44f3792a971dfc8da25373c5b2f1286ded20a36cc60c96c1feb",
+    "samples/net11.0/OrchardJournal/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+    "samples/net11.0/OrchardJournal/Interactive.razor": "13f4352340d0ed4a712f437492ab4075fc5c1f7e26718a491f0e52909405078e",
+    "samples/net11.0/OrchardJournal/Journal.razor": "a3fd45e17fcb253c3a3a3faf5f43491faca07c3f3deb058e7ae928b935b6497c",
+    "samples/net11.0/OrchardJournal/JournalEntry.razor": "c503508beb6381932ee548aa24f8e140661b1b940c7a725952aa5c52ed178e12",
+    "samples/net11.0/OrchardJournal/OrchardJournal.csproj": "00480186a0b3791d1579e93baeb198e18cceb01bbcaf75827a32bf85af538314",
+    "samples/net11.0/OrchardJournal/packages.lock.json": "a15384b18ca015107576fc2fbee8527fb39e57391227fc3491b92b6c794d2a31",
+    "samples/net11.0/OrchardJournal/Program.cs": "ea9df704a1fd0dfea61bc0f49a83639eccfb4bbdd184db7417d09c51263be499",
+    "samples/net11.0/OrchardJournal/verification.json": "18c1b4ec41339c9054f89f486aeae88ecde46b8c904cecbb5a927bc5004576cc",
+    "samples/net11.0/OrchardJournal/wwwroot/journal.css": "a67d12f3dfe4e8deae4841279ea137f35c87b215ac7fe4fe6a74a385ab678631"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists\\samples\\net11.0\\OrchardJournal\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists\\samples\\net11.0\\OrchardJournal\\OrchardJournal.csproj]\r\n  OrchardJournal -> V:\\_worktrees\\Playbook\\agent-pin-784-04-012-anchoring-for-changing-variable-height-lists\\samples\\net11.0\\OrchardJournal\\bin\\Release\\net11.0\\OrchardJournal.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.74"
+}

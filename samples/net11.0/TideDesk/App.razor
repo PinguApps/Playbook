@@ -1,0 +1,46 @@
+<!-- snippet:document -->
+@namespace TideDesk
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" /><base href="/" /><title>Tide desk</title>
+    <style>
+#tide-reconnect { display: none; padding: 1rem; border: 2px solid navy; }
+#tide-reconnect.components-reconnect-show,
+#tide-reconnect.components-reconnect-failed,
+#tide-reconnect.components-reconnect-rejected { display: block; }
+body { max-width: 50rem; margin: 2rem auto; padding: 1rem; font-family: sans-serif; }
+button { padding: .5rem; }
+    </style>
+</head>
+<body>
+    <ConfigureBrowser Options="PagePolicy" />
+    <p id="policy">Request options at render start: @BrowserOptions.GetBrowserOptions(Context).InteractiveServer.ReconnectionMaxRetries</p>
+    <Router AppAssembly="typeof(App).Assembly">
+        <Found Context="route"><RouteView RouteData="route" /></Found>
+    </Router>
+    <div id="tide-reconnect" role="status" aria-live="polite">
+        Reconnecting tide desk. Attempt <span id="components-reconnect-current-attempt"></span>
+        of <span id="components-reconnect-max-retries"></span>.
+    </div>
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+@code {
+    [CascadingParameter] public HttpContext Context { get; set; } = default!;
+    // The same non-secret policy is applied on every request.
+    private static BrowserOptions PagePolicy => new()
+    {
+        InteractiveServer =
+        {
+            ReconnectionMaxRetries = 3,
+            ReconnectionRetryInterval = TimeSpan.FromMilliseconds(1000)
+        },
+        StaticServer = { PreserveDom = true }
+    };
+}
+<!-- endsnippet:document -->

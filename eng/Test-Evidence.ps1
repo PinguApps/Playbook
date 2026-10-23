@@ -57,6 +57,17 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-VisitBookings.ps1'), (Join-Path $PSScriptRoot 'VisitBookings.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-ArchiveCards.ps1'), (Join-Path $PSScriptRoot 'ArchiveCards.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-NavigationAtlas.ps1'), (Join-Path $PSScriptRoot 'NavigationAtlas.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-WorkshopViews.ps1'), (Join-Path $PSScriptRoot 'WorkshopViews.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-QuarryLedger.ps1') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'LanternQueue.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'HarbourManifest.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'ParcelStartup.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'TideCharts.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'BeaconWatch.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'CultureHarbour.browser.js'), (Join-Path $PSScriptRoot 'Test-CultureHarbourEvidence.ps1') (Join-Path $fixture 'eng')
+
+  Copy-Item (Join-Path $PSScriptRoot 'EstuaryBoard.browser.js') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'FossilDesk.browser.js') (Join-Path $fixture 'eng')
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs

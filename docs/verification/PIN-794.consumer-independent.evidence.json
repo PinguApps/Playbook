@@ -1,0 +1,131 @@
+{
+  "artifacts": [
+    {
+      "bytes": 245494,
+      "end": 431,
+      "fetchedBytes": 245494,
+      "sha256": "065eac53496a10915dc8c3e19894d6bbb673c804c4f7ae7573a8364cc0e060c7",
+      "start": 379.5,
+      "url": "http://localhost:5872/_framework/blazor.web.js"
+    },
+    {
+      "bytes": 690,
+      "end": 425.699999988079,
+      "fetchedBytes": 690,
+      "sha256": "312f9a3175a5069649e1269879c861e60625c8d18730eb9763117c9f58a0b8e3",
+      "start": 379.5999999642372,
+      "url": "http://localhost:5872/culture.js"
+    },
+    {
+      "bytes": 197560,
+      "end": 888.8000000119209,
+      "fetchedBytes": 197560,
+      "sha256": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
+      "start": 661,
+      "url": "http://localhost:5872/_framework/dotnet.runtime.okxdo5zwwj.js"
+    },
+    {
+      "bytes": 121713,
+      "end": 893.6999999880791,
+      "fetchedBytes": 121713,
+      "sha256": "ddc8ff57061165f6cea6032307824d64cdc8da7f8865a5776658448122c45ae4",
+      "start": 661,
+      "url": "http://localhost:5872/_framework/dotnet.native.ric31difde.js"
+    },
+    {
+      "bytes": 3149955,
+      "end": 1009.899999976158,
+      "fetchedBytes": 3149955,
+      "sha256": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
+      "start": 661.0999999642372,
+      "url": "http://localhost:5872/_framework/dotnet.native.89gvfkserh.wasm"
+    },
+    {
+      "bytes": 17200,
+      "end": 891,
+      "fetchedBytes": 17200,
+      "sha256": "1e882bc928ece0af6e5e3953bff3bce54fa084ea05c443cd31ca0f2640a434bf",
+      "start": 664.3000000119209,
+      "url": "http://localhost:5872/_framework/CultureHarbour.Client.ahjeyvbpe6.pdb"
+    },
+    {
+      "bytes": 12057,
+      "end": 1017.8000000119208,
+      "fetchedBytes": 12057,
+      "sha256": "ee3b49bb19a4230268698ee0a2edd78b4bc903439180b158d3a1d4c9d87cf182",
+      "start": 678.5,
+      "url": "http://localhost:5872/_framework/CultureHarbour.Client.e8gfke7pro.wasm"
+    },
+    {
+      "bytes": 1646720,
+      "end": 1023.399999976158,
+      "fetchedBytes": 1646720,
+      "sha256": "e417e1ce03864118d68fdf7a00eb0af190fdeef806c570f951ca32f61fa4047f",
+      "start": 678.5999999642372,
+      "url": "http://localhost:5872/_framework/icudt.g3en5r9teb.dat"
+    },
+    {
+      "bytes": 3865,
+      "end": 1525.899999976158,
+      "fetchedBytes": 3865,
+      "sha256": "c8279104dcf632259c298fb108c293e40147cf4205f00d86df254ff7b269323e",
+      "start": 1522.5999999642372,
+      "url": "http://localhost:5872/_framework/de-DE/CultureHarbour.Client.resources.8gjbhw7gtt.wasm"
+    }
+  ],
+  "capturedInitialDocument": "Manifeste de Port-Culture\nFormatting culture\nen-GB\nTranslation culture\nfr-FR\nDeparture\n19/07/2032\nCargo weight\n12,345.67\nInstruction\nGardez la caisse bleue debout.\nConfirm manifest\n\n0\n\nPrerendered",
+  "confirmations": 1,
+  "documentLanguage": "de-DE",
+  "edition": "11",
+  "emittedBrowserConfiguration": {
+    "server": {},
+    "ssr": {},
+    "webAssembly": {
+      "environmentName": "Development",
+      "environmentVariables": {}
+    }
+  },
+  "events": [
+    {
+      "at": 1405.399999976158,
+      "culture": "en-US",
+      "kind": "before-run",
+      "ui": "en-US"
+    },
+    {
+      "at": 1918.5999999642372,
+      "culture": "de-DE",
+      "kind": "first-render",
+      "ui": "de-DE"
+    }
+  ],
+  "hydrated": {
+    "culture": "de-DE",
+    "date": "19.07.2032",
+    "number": "12.345,67",
+    "phase": "Interactive WASM",
+    "translation": "Die blaue Kiste aufrecht halten.",
+    "ui": "de-DE"
+  },
+  "independent": true,
+  "kind": "real-browser-webassembly",
+  "limits": "Local interpreted development assets; no AOT, Auto, production publication, remote provider, tab-lifetime or GA execution claim.",
+  "navigatorLanguage": "en-US",
+  "prerendered": {
+    "culture": "en-GB",
+    "date": "19/07/2032",
+    "number": "12,345.67",
+    "phase": "Prerendered",
+    "translation": "Gardez la caisse bleue debout.",
+    "ui": "fr-FR"
+  },
+  "recordedAt": "2026-10-23T09:28:43.323Z",
+  "satellite": {
+    "bytes": 3865,
+    "end": 1525.899999976158,
+    "start": 1522.5999999642372,
+    "url": "http://localhost:5872/_framework/de-DE/CultureHarbour.Client.resources.8gjbhw7gtt.wasm"
+  },
+  "url": "http://localhost:5872/",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+}

@@ -1,5 +1,48 @@
 # Contribute and verify an original recipe
 
+Unified JavaScript startup options use the original .NET 10/11 ParcelStartup
+Server/WASM legacy and Web App consumers. [PIN-789](verification/PIN-789.md)
+records effective callbacks, browser culture, responsive controls, retained flat
+legacy compatibility and the tested offline Inspector handoff.
+
+Server-configured browser startup uses the original .NET 10/11 TideDesk host/client
+pairs. [PIN-788](verification/PIN-788.md) records generated endpoint/component
+options, real reconnection, Server/WASM/Auto execution, a bounded separate-request
+RC2 sharing probe and complete offline installed retrieval.
+
+Restrictive style CSP uses the original BeaconReadings .NET 10/11 samples.
+[PIN-786](verification/PIN-786.md) records actual enforcing headers, visible distant
+rows, old exception/strict-negative comparisons and the tested offline Inspector path.
+
+Virtual-list item reveal uses the original .NET 10/11 LanternQueue samples.
+[PIN-785](verification/PIN-785.md) records held-provider initial/programmatic
+reveal, actual rendered ticket/viewport assertions, bounds and complete offline
+installed retrieval. It keeps QuickGrid positioning and list anchoring separate.
+
+Virtualized QuickGrid row positioning uses original HarbourManifest .NET 10/11 samples. [PIN-783](verification/PIN-783.md) records real Chrome initial/programmatic scrolling, identity and Start anchoring, plus the tested offline Inspector path.
+
+Shareable table views use the original .NET 10/11 WorkshopViews samples.
+[PIN-781](verification/PIN-781.md) records independent two-grid URL state,
+immutable sort keys with separately editable captions, real static links and
+interactive history, plus complete installed MCP retrieval.
+
+Changing list anchoring uses the original .NET 10/11 OrchardJournal apps.
+[PIN-784](verification/PIN-784.md) records rendered prepend/append/expansion,
+provider identity, deliberate overscan and the tested offline Inspector path.
+
+Interactive QuickGrid selection uses original .NET 10/11 MuseumRows apps.
+[PIN-782](verification/PIN-782.md) records actual typed row events, accessible
+button alternatives, static SSR exclusion and the tested Inspector handoff.
+
+Safe static-subtree caching uses the original .NET 10/11 QuarryLedger samples.
+[PIN-780](verification/PIN-780.md) records real cache-provider rendering,
+variation/invalidation/isolation checks and the tested offline Inspector path.
+
+Alternative component values use the original .NET 10/11 SeedLabels applications.
+[PIN-779](verification/PIN-779.md) records native C# 15 literal/bound parameters,
+real JSON interop/prerender persistence and delegate-union rejection, with the
+tested Inspector handoff and existing packed-tool harness.
+
 Captured static child content uses the original .NET 10/11 ArchiveCards samples.
 [PIN-778](verification/PIN-778.md) records real SSR/Interactive Server execution,
 generic/delegate/prerender restrictions and the tested offline Inspector path.
@@ -265,3 +308,7 @@ Use the installed-package scenarios from `Verify.ps1` for the final artifact che
 Before handoff, account for each recipe claim with official source support, current compilation and the specific execution check it needs. Check original authorship, fair previous-release behavior, complete offline steps, snippet identity, stable IDs/editions, requirements versus test pins, target-specific routes, experimental labels, register disposition and unresolved gaps. Passing schema or tool tests does not establish native/provider behavior or comprehensive release readiness. Report exact commands, versions, actual results and unverified scope.
 
 Shared style and analyzer configuration adapts the MIT-licensed PinguApps Template's generated-app configuration. The [reference map](planning/reference-repositories.md) records the layout, packaging and scenario conventions used. Recipe prose and samples were authored independently; no guide example implementation was reused.
+
+The [PIN-787 circuit pause proof](verification/PIN-787.md) records original
+TideCharts .NET 10/RC2 compilation, native hidden-tab resource/state recovery,
+real host lifecycle maintenance/cancellation and complete packed offline retrieval.

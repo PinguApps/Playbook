@@ -1,0 +1,20 @@
+<!-- snippet:entry -->
+<article data-entry="@Entry.Id">
+    <strong>Orchard note @Entry.Id</strong>
+    @for (var line = 0; line < Entry.Lines; line++)
+    {
+        <div>Inspect crate @(line + 1) before the evening collection.</div>
+    }
+    <label>Reader note <input aria-label="Reader note @Entry.Id" @bind="readerNote" /></label>
+    <button class="expand" @onclick="() => OnExpand.InvokeAsync(Entry.Id)">Expand @Entry.Id</button>
+    @if (Entry.Expanded)
+    {
+        <p class="expanded">Keep the bruised fruit aside.<br />Check the lower tray.<br />Record the tree row.<br />Leave space for tomorrow's pick.</p>
+    }
+</article>
+@code {
+    [Parameter, EditorRequired] public Entry Entry { get; set; } = default!;
+    [Parameter] public EventCallback<int> OnExpand { get; set; }
+    private string readerNote = "";
+}
+<!-- endsnippet:entry -->
