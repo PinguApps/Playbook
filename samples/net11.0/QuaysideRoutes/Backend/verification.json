@@ -1,0 +1,13 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/QuaysideRoutes.browser.js",
+    "samples/net11.0/QuaysideRoutes"
+  ],
+  "dependencies": []
+}
