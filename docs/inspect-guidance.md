@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For browser component diagnostics, use the
+[tested PIN-797 walkthrough](verification/PIN-797.md#inspect-what-an-agent-receives).
+It displays the complete .NET 10/11 WASM comparison, public switches, exporter and
+collector setup, applicability and evidence through real stdio list/get.
+
 For standalone browser deep links and configured backend routing, use the
 [tested PIN-796 walkthrough](verification/PIN-796.md#inspect-what-an-agent-receives).
 It displays the complete original .NET 10 host/.NET 11 Gateway comparison,
