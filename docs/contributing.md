@@ -1,5 +1,9 @@
 # Contribute and verify an original recipe
 
+Restrictive style CSP uses the original BeaconReadings .NET 10/11 samples.
+[PIN-786](verification/PIN-786.md) records actual enforcing headers, visible distant
+rows, old exception/strict-negative comparisons and the tested offline Inspector path.
+
 Virtual-list item reveal uses the original .NET 10/11 LanternQueue samples.
 [PIN-785](verification/PIN-785.md) records held-provider initial/programmatic
 reveal, actual rendered ticket/viewport assertions, bounds and complete offline

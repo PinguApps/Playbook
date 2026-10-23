@@ -1,0 +1,20 @@
+@page "/"
+@page "/legacy"
+@rendermode InteractiveServer
+
+<!-- snippet:list -->
+<h1>Beacon readings</h1>
+<p>Review 1,000 light measurements from the fictional Westmere beacon.</p>
+<button id="confirm" @onclick="() => _confirmations++">Confirm live connection</button>
+<output id="confirmations">@_confirmations</output>
+<div id="viewport" tabindex="0" aria-label="Scrollable beacon readings">
+    <Virtualize Items="_readings" Context="reading" ItemSize="32">
+        <div class="reading" data-reading="@reading" @key="reading">Reading @reading: Westmere light</div>
+    </Virtualize>
+</div>
+
+@code {
+    private readonly int[] _readings = Enumerable.Range(1, 1000).ToArray();
+    private int _confirmations;
+}
+<!-- endsnippet:list -->
