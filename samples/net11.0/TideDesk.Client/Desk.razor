@@ -1,0 +1,9 @@
+<!-- snippet:desk -->
+@namespace TideDesk.Client
+@using Microsoft.AspNetCore.Components.Web
+<h2>Tide desk</h2>
+<p id="runtime">@(OperatingSystem.IsBrowser() ? "WebAssembly" : "Server")</p>
+<p>Harbour checks completed: <output id="completed">@completed</output></p>
+<button id="check" @onclick="() => completed++">Complete a harbour check</button>
+@code { private int completed; }
+<!-- endsnippet:desk -->

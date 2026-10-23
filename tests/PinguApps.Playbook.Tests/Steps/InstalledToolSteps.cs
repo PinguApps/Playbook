@@ -258,7 +258,29 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Contains("PaginationState", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
     }
 
-    private async Task CheckWebRecipesAsync(string[] ids, string query)
+    [Then("server browser policy retains complete setup and request sharing limits offline")]
+    public async Task CheckServerBrowserPolicyAsync()
+    {
+        const string id = "blazor.configure-browser-from-server";
+        await CheckWebRecipesAsync([id], "tide-policy", 4).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Browser policy applicability {property.Name}, including all nested values, must survive packaging.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "WithBrowserOptions", "ConfigureBrowser", "BrowserOptions.GetBrowserOptions(Context)", "InteractiveServer", "StaticServer", "InteractiveWebAssembly", "seven endpoint retries", "TideDesk.Client.csproj", "Directory.Packages.props", "autostart=\"false\"", "1000", "No _Imports.razor" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+    }
+
+    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(ids, RecipeIds(catalogue));
@@ -291,7 +313,7 @@ public sealed class InstalledToolSteps : IDisposable
             JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
             Assert.Equal("11.0", route.GetProperty("target").GetString());
             Assert.NotEmpty(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray());
-            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.Equal(evidenceCount, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
                 Assert.Equal("compile", evidence.GetProperty("kind").GetString());

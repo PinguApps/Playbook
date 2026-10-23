@@ -1,0 +1,131 @@
+{
+  "kind": "actual-http-execution",
+  "recordedAt": "2026-10-23T05:46:52.4682216+00:00",
+  "requests": [
+    {
+      "uri": "http://127.0.0.1:5418/server",
+      "status": 200,
+      "options": {
+        "webAssembly": {
+          "environmentName": "TideDesk",
+          "environmentVariables": {}
+        },
+        "server": {
+          "reconnectionMaxRetries": 3,
+          "reconnectionRetryIntervalMilliseconds": 1000,
+          "reconnectionDialogId": "tide-reconnect"
+        },
+        "ssr": {
+          "disableDomPreservation": false,
+          "circuitInactivityTimeoutMs": 120000
+        }
+      },
+      "bodySha256": "977b2f0b966edb2f890c30745bc32eeb61a74e51d2b06fdf6e1532059261904e"
+    },
+    {
+      "uri": "http://127.0.0.1:5418/wasm",
+      "status": 200,
+      "options": {
+        "webAssembly": {
+          "environmentName": "TideDesk",
+          "environmentVariables": {}
+        },
+        "server": {
+          "reconnectionMaxRetries": 3,
+          "reconnectionRetryIntervalMilliseconds": 1000,
+          "reconnectionDialogId": "tide-reconnect"
+        },
+        "ssr": {
+          "disableDomPreservation": false,
+          "circuitInactivityTimeoutMs": 120000
+        }
+      },
+      "bodySha256": "61a8acfba3bf0b263ed613ac446baa4e76f8ad7f4f015f3bc9469812c1f11da5"
+    },
+    {
+      "uri": "http://127.0.0.1:5418/auto",
+      "status": 200,
+      "options": {
+        "webAssembly": {
+          "environmentName": "TideDesk",
+          "environmentVariables": {}
+        },
+        "server": {
+          "reconnectionMaxRetries": 3,
+          "reconnectionRetryIntervalMilliseconds": 1000,
+          "reconnectionDialogId": "tide-reconnect"
+        },
+        "ssr": {
+          "disableDomPreservation": false,
+          "circuitInactivityTimeoutMs": 120000
+        }
+      },
+      "bodySha256": "355ed81a2a7ab417f9bd96a7b53ff9927119d652d0f23709bb60fc924a011272"
+    }
+  ],
+  "sharingProbe": {
+    "sameMetadataInstance": true,
+    "inputs": {
+      "App.razor": "c92c4f5124eb80d79ea12e1a3a7bae02542416d65e27a9e938a0f566fc8c1348",
+      "Directory.Build.props": "ba4aa07e19c4342a5359809588c4a9d0f2c014776ec5a1384c92073aaedd08ae",
+      "Directory.Packages.props": "1e2c523801e0c84e145ccb6a5654bdbd95288948359e1e28c90dc770f820194e",
+      "global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+      "Live.razor": "7f1194b0165f3a43c5459453e07f2287fe90f00024a34648e7abd394fccca18a",
+      "Probe.csproj": "7e07520840024af670f349a2d6094f4e5c12d0d4acfaf05be608287124bc7b9f",
+      "Probe.razor": "2953e8e1fe14ab1429ef032e1b333429c77d16472ae199380b3a0a6cd5e4fbfa",
+      "Program.cs": "2650e9152c10aa0903dd9c939cb8c424d7eb1f600dab7564ac2adb05acc4e8e6"
+    },
+    "scope": "Separate local RC2 diagnostic consumer; not a framework-wide security finding or GA claim.",
+    "requests": [
+      {
+        "uri": "http://127.0.0.1:5398/probe",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "Production",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 7
+          },
+          "ssr": {}
+        },
+        "bodySha256": "d7ac7900cba4aaaec54b0198b30d1f94ab40a82d301fcafcdd75af809bb45cbb"
+      },
+      {
+        "uri": "http://127.0.0.1:5398/probe?retries=1",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "Production",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 1
+          },
+          "ssr": {}
+        },
+        "bodySha256": "fc7f663c0f3015e92a3de47e022dad3df477c6941fa1919826af8c24ffabd3a7"
+      },
+      {
+        "uri": "http://127.0.0.1:5398/probe",
+        "status": 200,
+        "options": {
+          "webAssembly": {
+            "environmentName": "Production",
+            "environmentVariables": {}
+          },
+          "server": {
+            "reconnectionMaxRetries": 1
+          },
+          "ssr": {}
+        },
+        "bodySha256": "d0320a93f151193de0934c7113a15b0ade329ff4e9f5376bb8c9b87f7bf30b64"
+      }
+    ],
+    "sameLookup": true,
+    "artifactSha256": "ca4354fb332980e2d9c672043de61ea9302f55b3f0e7208edca606895268dd55"
+  },
+  "probeStdout": "",
+  "probeStderr": ""
+}
