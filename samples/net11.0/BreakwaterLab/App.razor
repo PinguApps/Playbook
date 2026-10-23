@@ -1,0 +1,18 @@
+<!-- snippet:complete -->
+@namespace BreakwaterLab
+@using Microsoft.AspNetCore.Components.Web
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <title>Breakwater measurement lab</title>
+</head>
+<body>
+    <h1>Breakwater measurement lab</h1>
+    <StationPanel @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:complete -->
