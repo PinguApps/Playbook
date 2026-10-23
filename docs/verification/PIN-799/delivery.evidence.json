@@ -36,15 +36,15 @@
     "eng/Test-CairnSignals.ps1": "405fd90a4fa1006e827d069bcc5e1eaacec0016319d93a5c5dddd8432dfff24a"
   },
   "receipts": {
-    "reconstruction.evidence.json": "3a1d388c0e197ce27866ee3ccee3a0bcc877c758f00aeffb45aba937d6cc1138",
-    "consumer-http.evidence.json": "a3479422048484ffc51d110a7f87919dfdc0df9838956d0bd1d41ed4e19e736e",
-    "canonical-http.evidence.json": "fba951899cd76cb92cb4ad6a931960cb30f011ddcbed9464aa510d95ebc16ec8",
-    "canonical-runtime.evidence.json": "31619334701755f1d0f8f4c5785827bf91040dd0f49220321533ab67a2b26e5f",
-    "installed-discovery.json": "172c7a9a6810bc2ccc8f374beea1bc3b0f4f57a58058653d03828b833ae0402f",
-    "frozen-manifest.json": "cfcf552f2c5dd50c0fc8b4547bfc450f1343242da3283b60aa8cd1c99f71fc47",
-    "consumer-browser.evidence.json": "020fd38315c2433eac331709b4d3f4d1e84875cb06eda9c0faf07f935703e654",
+    "reconstruction.evidence.json": "ae41de179ffb31ab91d4e1fcc1f1ba7968ce5f29646975c7651541835b91568f",
+    "canonical-http.evidence.json": "6f59118bf48e6e58d2729e8b3bc2c97bc9ee0c93ba0c25a2356cfd9ae7d873b3",
+    "canonical-runtime.evidence.json": "224aab8825f86069a47ef091ec6ef816a01678c8ec49265cf95abad744ed7fc0",
+    "installed-discovery.json": "38c690361399b7055d7d0179b03611a93cf923de80401b56404c1cb6dedc08a1",
     "canonical-browser.evidence.json": "44537b052f24cd3f92ab859bbb3b05f02635572585d96e83a36a09a69942e857",
-    "consumer-runtime.evidence.json": "975c3c856581473cc639bdace6aa33343342382e4c500f42b1324398d03ff682"
+    "consumer-browser.evidence.json": "020fd38315c2433eac331709b4d3f4d1e84875cb06eda9c0faf07f935703e654",
+    "consumer-http.evidence.json": "cec06b7b10fb895ddc2a9266888284e0c669baa85e31f760b1579e67a404b231",
+    "consumer-runtime.evidence.json": "5f9f1cec69b20e53f0fcc5285146b968786d733ca2d0845caecd4a0e3fcc3fd6",
+    "frozen-manifest.json": "845d5011d71fafcbc1da767fd045fba9b8a77418917c1431d44bc611528aff82"
   },
   "failedReceipts": {
     "normalization": "Initial lock-file CRLF guard failed; normalized LF, refreshed compile records and proved exact sample DLL equality before reusing browser proof",
@@ -59,5 +59,17 @@
     "workingDirectory": "C:\\Windows",
     "failed": 0,
     "trxSha256": "650ef678d679fffd6456f037c576c8b94820e0788b492d25d18dcb23d9ae63ba"
-  }
+  },
+  "originalReceiptHashes": {
+    "reconstruction.evidence.json": "3a1d388c0e197ce27866ee3ccee3a0bcc877c758f00aeffb45aba937d6cc1138",
+    "consumer-http.evidence.json": "a3479422048484ffc51d110a7f87919dfdc0df9838956d0bd1d41ed4e19e736e",
+    "canonical-http.evidence.json": "fba951899cd76cb92cb4ad6a931960cb30f011ddcbed9464aa510d95ebc16ec8",
+    "canonical-runtime.evidence.json": "31619334701755f1d0f8f4c5785827bf91040dd0f49220321533ab67a2b26e5f",
+    "installed-discovery.json": "172c7a9a6810bc2ccc8f374beea1bc3b0f4f57a58058653d03828b833ae0402f",
+    "frozen-manifest.json": "cfcf552f2c5dd50c0fc8b4547bfc450f1343242da3283b60aa8cd1c99f71fc47",
+    "consumer-browser.evidence.json": "020fd38315c2433eac331709b4d3f4d1e84875cb06eda9c0faf07f935703e654",
+    "canonical-browser.evidence.json": "44537b052f24cd3f92ab859bbb3b05f02635572585d96e83a36a09a69942e857",
+    "consumer-runtime.evidence.json": "975c3c856581473cc639bdace6aa33343342382e4c500f42b1324398d03ff682"
+  },
+  "receiptNormalization": "Copied receipt JSON uses LF so these receipt hashes survive Git normalization. originalReceiptHashes preserve the original captured on-disk JSON identities; artifact hashes inside receipts remain unchanged."
 }
