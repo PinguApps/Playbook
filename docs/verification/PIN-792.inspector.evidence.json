@@ -1,0 +1,19 @@
+{
+  "outputSha256": "809510fe821307a9c3f5e0a1332f7b427824b09d99f5c156a8a1184c43c57c9d",
+  "edition": "11.0",
+  "recordedAt": "2026-10-23T08:54:50.2137241+01:00",
+  "evidenceCount": 3,
+  "kind": "real-built-server-stdio-inspector",
+  "scriptSha256": "2e9ca08fe61b78bc4f8df20395f247d4edccd4418fef2664bfe1eebca452ebed",
+  "markdownLength": 35805,
+  "startedFrom": "C:\\Windows",
+  "detailSha256": "38514cf12eac3f5b867432ec23222adfd17f04ab295ff76fa4cda32543005631",
+  "id": "blazor.offload-browser-computation",
+  "freshness": [
+    "current",
+    "current",
+    "current"
+  ],
+  "command": "Run exact docs/verification/PIN-792.md Inspector block from unrelated C:\\Windows",
+  "serverSha256": "0a016eb17c55464beb6eadcefa2691a47c04aa47aea9c8586fdd595857d66610"
+}
