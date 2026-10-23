@@ -1,0 +1,134 @@
+{
+  "kind": "frozen-packed-tool-execution",
+  "recordedAt": "2026-10-23T11:44:27.7965463+00:00",
+  "issue": "PIN-776",
+  "status": "passed",
+  "sourceCommit": "9dbb008772675f062e9fcff62adde143ee35440e",
+  "sourceClean": true,
+  "baseCommit": "5e10a9e4b0889102962ea660d89c65ee977c36bf",
+  "version": "0.0.0-pin776-after91",
+  "package": "artifacts/frozen-pin776-after91/artifacts/PinguApps.Playbook.0.0.0-pin776-after91.nupkg",
+  "sha256": "0ba3683706b8d1f704fcdfde18614a095a66d31b8c87fe5861bc5662b03a9a3c",
+  "fixture": "artifacts/frozen-pin776-after91/artifacts/release-fixture/PinguApps.Playbook.0.0.0-pin776-after91.nupkg",
+  "fixtureSha256": "56a544511e0275e49a732225d5e15ac3a893ec0981224e68dc46d265f9a2ae27",
+  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "runtime": "Microsoft.NETCore.App 10.0.12",
+  "isolation": "--network none; no checkout mount; read-only frozen packages,99 suite files and unchanged Test-Package.ps1; isolated feed/cache/unrelated cwd",
+  "frozenInputs": {
+    "manifestSha256": "2f74cdc16998c1bb12b92710f15951055ffaab92e2cc4a2a92b0acb4a974fce0",
+    "suiteFiles": 99,
+    "manifest": "docs/verification/PIN-776.package.inputs.json",
+    "files": 103,
+    "unchangedAfterFullAndSmoke": true,
+    "executedManifest": "artifacts/frozen-pin776-after91/input-manifest.json",
+    "executedManifestSha256": "7e3ba1b05924cd4d56f2cb5b59c627c407246edc1c872a1f729df7c7d7d0acf0",
+    "unchangedAfterInspector": true
+  },
+  "full": {
+    "passed": 36,
+    "trxSha256": "a3d97b4ad55031329a9c3599b436adc13d3ca5f61968ce0feb396189a2566ad6",
+    "trx": "artifacts/frozen-pin776-after91/results/full/playbook.trx",
+    "failed": 0,
+    "mode": "full",
+    "skipped": 0,
+    "total": 36
+  },
+  "smoke": {
+    "passed": 1,
+    "trxSha256": "34c7c67e99b94e5c5a4bd1fe93d5dbc6b3c8b32e21d580508ccb54fd1a8d469f",
+    "trx": "artifacts/frozen-pin776-after91/results/smoke/playbook.trx",
+    "failed": 0,
+    "mode": "smoke",
+    "skipped": 0,
+    "total": 1
+  },
+  "focusedCases": [
+    {
+      "output": [
+        "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+        "11.0: count=20, largest summary=1982, structured=26534, result=67650 UTF-8 bytes"
+      ],
+      "outcome": "Passed",
+      "name": "Ordinary discovery has a practical response size budget"
+    },
+    {
+      "output": [
+        "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
+        "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
+        "all 20: summary=1397, structured=26536, result=67654 UTF-8 bytes",
+        "all 50: summary=1397, structured=66182, result=168734 UTF-8 bytes"
+      ],
+      "outcome": "Passed",
+      "name": "Default and maximum discovery pages have practical response size budgets"
+    },
+    {
+      "output": [
+        "-> done: InstalledToolSteps.CheckHarbourStateAsync() (0.0s)",
+        "-> done: InstalledToolSteps.CheckCapturedStaticContentAsync() (0.0s)",
+        "-> done: InstalledToolSteps.CheckBaseAwareNavigationAsync() (0.0s)",
+        "-> done: InstalledToolSteps.CheckCultureHandoverAsync() (0.0s)",
+        "-> done: InstalledToolSteps.CheckStandaloneGatewayAsync() (0.1s)",
+        "-> done: InstalledToolSteps.CheckEnvironmentChromeAsync() (0.0s)"
+      ],
+      "outcome": "Passed",
+      "name": "Survey forms preserve validation label and caption guidance offline"
+    }
+  ],
+  "policies": {
+    "dependency": "PASS",
+    "renovate": "PASS; strict shared-preset validation;492 dependencies/449 protected sample entries; no permission grants"
+  },
+  "historical": {
+    "pre90Source": "af6bd4f8a4c13e5adc2949dbdb2baa88203593d1",
+    "pre90Smoke": 1,
+    "failedReceipt": "PIN-776.package.pre-recovery.evidence.json",
+    "pre90Full": 36,
+    "pre90Max50": 168522,
+    "pre90FrozenInputs": "artifacts/frozen-pin776-recovery854f/input-manifest.json",
+    "after90": {
+      "full": 36,
+      "smoke": 1,
+      "max50": 168320,
+      "version": "0.0.0-pin776-after90",
+      "frozenInputs": "artifacts/frozen-pin776-after90/input-manifest.json",
+      "all20": 66504,
+      "source": "12413ef5a5a3d15fcbc90c7fccd032b88ae4828a",
+      "ordinarySha256": "12a55f887df42a24994e46d415d8ef3dd721fa56680ec5b7aec5991f70bbce8d",
+      "fixtureSha256": "d355ff29123c0837dddaefccee346ff0b4a74139015c9295333cfcde0c4b5a49"
+    }
+  },
+  "limits": [
+    "This receipt identifies the actual executed frozen artifacts and source commit, not a later rebuilt SourceLink/version variant.",
+    "No new OS/client/native matrix; no final .NET11 offline-image run is claimed. .NET10/11 Windows sample and independent served-body HTTP evidence are separate.",
+    "RC2 execution is not GA/distributed-cache/interactive/concurrent-atomicity proof."
+  ],
+  "integration": {
+    "mergedMain": "5e10a9e4b0889102962ea660d89c65ee977c36bf",
+    "nonsharedMainChangedFiles": 72,
+    "independentBodyConsumerProofReused": {
+      "sessionFiles": 38,
+      "originalUncommittedVerifierProvenanceRetained": true,
+      "bothFinalInstalledBodiesEqual": true,
+      "redirectFiles": 37,
+      "allGeneratedSourceAndArtifactHashesEqual": true,
+      "verifierEqual": true
+    },
+    "unchangedGuards": {
+      "filteredDefault": 65000,
+      "summary": 3000,
+      "default": 80000,
+      "filteredMaximum": 160000,
+      "maximum": 170000
+    },
+    "peerStepsWholeFileEqualAfterRemovingExactHarbourAdditionAndRevertingOnlyMultiRouteHelper": true,
+    "scenarioCount": 36,
+    "sampleHttpProofReused": {
+      "verifierEqual": true,
+      "inputsAndExecutedArtifacts": 36,
+      "allHashesEqual": true,
+      "source": "22a50e3864c1b234384e0b5ed04fca3437bb3948"
+    },
+    "mergeCommit": "9dbb008772675f062e9fcff62adde143ee35440e",
+    "nonsharedMainChangedFilesEqual": true
+  }
+}

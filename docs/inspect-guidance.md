@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For one-use redirect confirmations and persistent static SSR progress, use the
+[tested PIN-776 walkthrough](verification/PIN-776.md#inspect-what-an-agent-receives).
+It shows both goals, complete canonical comparisons and provider applicability,
+including RC2 TempData write-back and early session cookies under streaming.
+
 For standalone browser deep links and configured backend routing, use the
 [tested PIN-796 walkthrough](verification/PIN-796.md#inspect-what-an-agent-receives).
 It displays the complete original .NET 10 host/.NET 11 Gateway comparison,

@@ -1,0 +1,39 @@
+@page "/progress"
+@inject NavigationManager Navigation
+
+<!-- snippet:progress -->
+<h2>Continue the permit</h2>
+<p id="progress">Step @Step; berth @(Berth ?? "unselected")</p>
+<EditForm Model="Input" FormName="progress" OnSubmit="Continue">
+    <label>Berth <InputText @bind-Value="Input!.Berth" /></label>
+    <button type="submit">Continue</button>
+</EditForm>
+
+@code {
+    [CascadingParameter]
+    public HttpContext Context { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private PermitInput? Input { get; set; }
+
+    private string? Berth;
+    private int Step;
+
+    protected override void OnInitialized()
+    {
+        Berth = Context.Session.GetString("permit-berth");
+        Step = Context.Session.GetInt32("permit-step") ?? 0;
+        Input ??= new() { Berth = Berth };
+    }
+
+    private void Continue()
+    {
+        Berth = Input!.Berth;
+        Step++;
+        if (Berth is null) { Context.Session.Remove("permit-berth"); }
+        else { Context.Session.SetString("permit-berth", Berth); }
+        Context.Session.SetInt32("permit-step", Step);
+        Navigation.NavigateTo("/review");
+    }
+}
+<!-- endsnippet:progress -->

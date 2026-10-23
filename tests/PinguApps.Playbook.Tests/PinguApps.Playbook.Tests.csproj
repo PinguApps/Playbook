@@ -24,6 +24,7 @@
     <EmbeddedResource Include="../../samples/net*/QuarryLedger/*.cs;../../samples/net*/QuarryLedger/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/SeedLabels/*.cs;../../samples/net*/SeedLabels/*.razor;../../samples/net*/SeedLabels/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/ArchiveCards/*.cs;../../samples/net*/ArchiveCards/*.razor" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/HarbourPermit/*.cs;../../samples/net*/HarbourPermit/*.razor;../../samples/net*/HarbourPermit/*.csproj" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/NavigationAtlas/*.cs;../../samples/net*/NavigationAtlas/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../content/recipes/minimal-api.await-model-rules/11.0/*;../../samples/net*/VisitBookings/*.cs;../../samples/net*/VisitBookings/*.razor;../../samples/net*/VisitBookings/*.resx" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Update="../../samples/net*/VisitBookings/*.resx" Type="Non-Resx" WithCulture="false" />
