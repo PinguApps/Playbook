@@ -828,6 +828,54 @@ public sealed class InstalledToolSteps : IDisposable
         Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
     }
 
+
+    [Then("custom event migration retains complete canonical guidance and collision requirements offline")]
+    public async Task CheckCustomEventMigrationAsync()
+    {
+        const string id = "blazor.rename-custom-event";
+        await CheckWebRecipesAsync([id], "cairn-signals").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete custom event applicability {property.Name}, including nested requirements and sources, must survive packaging.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Custom event {field} must survive packaging.");
+        }
+
+        foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString() == expected.GetProperty("sample").GetString());
+            foreach (JsonProperty property in expected.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored custom event evidence {property.Name} must survive packaging.");
+            }
+
+            string directory = expected.GetProperty("sample").GetString()![..^"CairnSignals.csproj".Length];
+            using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync(directory + "verification-evidence.json").ConfigureAwait(false));
+            foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
+            {
+                if (property.Name == "recordedAt")
+                {
+                    Assert.Equal(property.Value.GetDateTimeOffset(), actual.GetProperty(property.Name).GetDateTimeOffset());
+                    continue;
+                }
+
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Saved custom event evidence {property.Name}, including all input hashes and output, must survive packaging.");
+            }
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "afterWebStarted(blazor)", "browserEventName: 'beforeinput'", "registerCustomEventType('cairnedit'", "@oncairnedit", "EventHandler(\"oncairnedit\"", "North cairn", "Browser event-name collision now throws.", "exactly one", "No `_Imports.razor`" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.Ordinal);
+        }
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
