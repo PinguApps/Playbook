@@ -1,0 +1,13 @@
+<!-- snippet:panel -->
+<section aria-label="Reading card">
+    <header>@Heading</header>
+    @ChildContent
+    <button id="add" disabled="@(!RendererInfo.IsInteractive)" @onclick="() => requests++">Request another reading</button>
+    <output id="requests">@requests</output>
+</section>
+@code {
+    [Parameter] public RenderFragment? Heading { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    private int requests;
+}
+<!-- endsnippet:panel -->

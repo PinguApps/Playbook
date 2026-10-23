@@ -33,6 +33,18 @@ public sealed class InstalledToolSteps : IDisposable
         await CheckWebRecipesAsync(ids, "visit-validation").ConfigureAwait(false);
     }
 
+    [Then("captured static content retains complete canonical guidance offline")]
+    public async Task CheckCapturedStaticContentAsync()
+    {
+        string[] ids = ["blazor.project-static-child-content"];
+        await CheckWebRecipesAsync(ids, "captured-static-content").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        Assert.Contains("Cross-render-mode static content; not delegate serialization or arbitrary live callbacks.", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("prerender", requirements.GetProperty("prerequisites").ToString(), StringComparison.Ordinal);
+        Assert.Contains("RenderFragment<T>", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
