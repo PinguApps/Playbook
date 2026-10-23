@@ -7,6 +7,7 @@
     <EmbeddedResource Include="../../samples/net*/TideCharts/*.cs;../../samples/net*/TideCharts/*.csproj;../../samples/net*/TideCharts/*.razor;../../samples/net*/TideCharts/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/HarbourManifest/*.cs;../../samples/net*/HarbourManifest/*.razor;../../samples/net*/HarbourManifest/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/WorkshopViews/*.cs;../../samples/net*/WorkshopViews/*.razor" LogicalName="SdkInput.%(Identity)" />
+    <EmbeddedResource Include="../../samples/net*/OrchardJournal/*.cs;../../samples/net*/OrchardJournal/*.razor;../../samples/net*/OrchardJournal/*.csproj;../../samples/net*/OrchardJournal/global.json;../../samples/net*/OrchardJournal/wwwroot/*.js;../../samples/net*/OrchardJournal/wwwroot/*.css" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/MuseumRows/*.cs;../../samples/net*/MuseumRows/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/LanternQueue/*.cs;../../samples/net*/LanternQueue/*.razor;../../samples/net*/LanternQueue/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/QuarryLedger/*.cs;../../samples/net*/QuarryLedger/*.razor" LogicalName="SdkInput.%(Identity)" />
