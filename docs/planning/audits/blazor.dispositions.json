@@ -99,7 +99,7 @@
       "id": "virtualization",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Web\\.Virtualization\\.",
       "owner": "PIN-784/PIN-785/PIN-786",
-      "disposition": "grouped"
+      "disposition": "grouped; PIN-785 initial/programmatic reveal delivered with real delayed-provider and rendered-target proof in docs/verification/PIN-785.md; PIN-784/PIN-786 retain anchoring/CSP"
     },
     {
       "id": "quickgrid",

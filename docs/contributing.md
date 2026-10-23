@@ -4,6 +4,11 @@ Restrictive style CSP uses the original BeaconReadings .NET 10/11 samples.
 [PIN-786](verification/PIN-786.md) records actual enforcing headers, visible distant
 rows, old exception/strict-negative comparisons and the tested offline Inspector path.
 
+Virtual-list item reveal uses the original .NET 10/11 LanternQueue samples.
+[PIN-785](verification/PIN-785.md) records held-provider initial/programmatic
+reveal, actual rendered ticket/viewport assertions, bounds and complete offline
+installed retrieval. It keeps QuickGrid positioning and list anchoring separate.
+
 Virtualized QuickGrid row positioning uses original HarbourManifest .NET 10/11 samples. [PIN-783](verification/PIN-783.md) records real Chrome initial/programmatic scrolling, identity and Start anchoring, plus the tested offline Inspector path.
 
 Shareable table views use the original .NET 10/11 WorkshopViews samples.
