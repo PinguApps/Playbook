@@ -19,6 +19,23 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("selected rows retain canonical guidance and interactive requirements offline")]
+    public async Task CheckSelectedRowsAsync()
+    {
+        string[] ids = ["blazor.act-on-selected-row"];
+        await CheckWebRecipesAsync(ids, "museum-rows").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.act-on-selected-row/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        Assert.Contains("Static SSR", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("OnRowClick", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
     [Then("alternative parameter shapes retain canonical guidance and JSON boundaries offline")]
     public async Task CheckAlternativeParameterShapesAsync()
     {

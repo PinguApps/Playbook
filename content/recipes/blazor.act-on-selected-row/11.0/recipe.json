@@ -1,0 +1,157 @@
+{
+  "id": "blazor.act-on-selected-row",
+  "edition": "11.0",
+  "title": "Open the chosen table item",
+  "goal": "Act on a QuickGrid row click.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "museum-rows"
+  ],
+  "apis": [
+    "QuickGrid.OnRowClick"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Interactive; no static SSR."
+        ],
+        "requirements": {
+          "runtime": {
+            "reason": "The callback is on the .NET 11 QuickGrid consumer.",
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family"
+          },
+          "sdk": {
+            "reason": "Build net11.0 with matching Razor/reference assets; the RC2 pin reproduces verification.",
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family"
+          },
+          "language": {
+            "reason": "Canonical current sample language mode; the callback does not require a C# 15-specific construct.",
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact"
+          },
+          "frameworks": [
+            "ASP.NET Core 11"
+          ],
+          "packages": [
+            {
+              "reason": "OnRowClick belongs to this separate NuGet package.",
+              "name": "Microsoft.AspNetCore.Components.QuickGrid",
+              "version": "11.0",
+              "match": "release-family"
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "net11.0; SDK browser assets"
+          ],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core server"
+          ],
+          "renderingModes": [
+            "Interactive Server"
+          ],
+          "prerequisites": [
+            "Use Microsoft.NET.Sdk.Web, net11.0, nullable and implicit usings; reference QuickGrid 11 with matching ASP.NET Core reference/runtime and SDK Internal.Assets browser files.",
+            "Register AddInteractiveServerComponents and AddInteractiveServerRenderMode, load blazor.web.js and activate an interactive component. No database provider or optional workload is required."
+          ],
+          "constraints": [
+            "QuickGrid OnRowClick; interactive handler required. Static SSR and prerender alone do not dispatch .NET click handlers.",
+            "Keep a keyboard-accessible button or link for the same action; row clicks do not add keyboard focus or activation.",
+            "Nested controls bubble to the row; stop propagation when a control handles its own action. Validate authorization at the real action boundary; a row item is not authority.",
+            "The .NET 10 button comparison is compiled and executed, not an older-target OnRowClick route. No WebAssembly/Auto, other-platform, AOT or GA execution is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2; GA proof pending."
+          ]
+        },
+        "usage": "primary",
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/MuseumRows/MuseumRows.csproj"
+        ],
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.quickgrid.quickgrid-1.onrowclick?view=aspnetcore-11.0"
+        ],
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "QuickGrid interactive row callback, accessibility and bubbling",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/quickgrid?view=aspnetcore-11.0"
+    },
+    {
+      "title": "OnRowClick typed item callback",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.quickgrid.quickgrid-1.onrowclick?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned RC2 row event implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/QuickGrid.razor"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK consumer. Separate real browser execution checks correct selected item, keyboard button, callback count and static SSR exclusion; no mocks.",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/MuseumRows/MuseumRows.csproj",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK consumer. Separate real browser execution checks correct selected item, keyboard button, callback count and static SSR exclusion; no mocks.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/MuseumRows/MuseumRows.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "table",
+      "language": "razor",
+      "path": "samples/net10.0/MuseumRows/MuseumTable.razor"
+    },
+    "newer": {
+      "region": "table",
+      "language": "razor",
+      "path": "samples/net11.0/MuseumRows/MuseumTable.razor"
+    },
+    "host": {
+      "region": "host",
+      "language": "csharp",
+      "path": "samples/net11.0/MuseumRows/Program.cs"
+    },
+    "document": {
+      "region": "document",
+      "language": "razor",
+      "path": "samples/net11.0/MuseumRows/App.razor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual local Interactive Server browser checks and static negative control; no external resource. Broader rendering modes and GA are unverified."
+  }
+}

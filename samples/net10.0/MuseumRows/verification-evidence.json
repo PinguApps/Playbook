@@ -1,0 +1,41 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/MuseumRows/MuseumRows.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Program Files\\dotnet\\dotnet.exe build MuseumRows.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-23T01:46:17.2304134+00:00",
+  "sourceCommit": "fe9e7f0e75e10498c84d71a891187ce990d8a318",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net10.0/MuseumRows/_Imports.razor": "71a71a0b3d8671cd6ea0137f5416784b7016dc6ee133c25cecc0dc34fcaddc73",
+    "samples/net10.0/MuseumRows/App.razor": "f34f857f0377daa2f5dae0888768ffdc205157dcee367a5ae978cab2bbce5a80",
+    "samples/net10.0/MuseumRows/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+    "samples/net10.0/MuseumRows/Interactive.razor": "4c68c624c5a399a8e00be4248747f33bb822e1d2bf56bdc2c6a45915755e2dd3",
+    "samples/net10.0/MuseumRows/MuseumRows.csproj": "e568edd1e14e14e7e28b8a7c53bc265936a305479adb0744a2a10c629185e491",
+    "samples/net10.0/MuseumRows/MuseumTable.razor": "2948b9433238035daf13b8ad93a34f8d38c2a172570558908b9b7496355b8590",
+    "samples/net10.0/MuseumRows/packages.lock.json": "27e8cbeb2bcd02b4ac4bb8a126d92236ce1455434ffaba94ce835b0d04b9a524",
+    "samples/net10.0/MuseumRows/Program.cs": "ea9df704a1fd0dfea61bc0f49a83639eccfb4bbdd184db7417d09c51263be499",
+    "samples/net10.0/MuseumRows/Static.razor": "d20ee14412952f052657c18579c16f6194210380c150654852ae1814c2a63ba0",
+    "samples/net10.0/MuseumRows/verification.json": "6a8b84f5905c9649026c8cf356a37065afda57b4144526e08410f7b6c0bf7373"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13",
+    "Microsoft.AspNetCore.Components.QuickGrid/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\agent-pin-782-04-010-interactive-quickgrid-row-selection\\samples\\net10.0\\MuseumRows\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  MuseumRows -> V:\\_worktrees\\Playbook\\agent-pin-782-04-010-interactive-quickgrid-row-selection\\samples\\net10.0\\MuseumRows\\bin\\Release\\net10.0\\MuseumRows.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.41"
+}
