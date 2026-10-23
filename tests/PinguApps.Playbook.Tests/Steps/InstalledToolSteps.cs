@@ -19,6 +19,26 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("virtual list reveal retains complete canonical guidance offline")]
+    public async Task CheckVirtualListRevealAsync()
+    {
+        const string id = "blazor.reveal-virtual-item";
+        await CheckWebRecipesAsync([id], "lantern-queue").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        Assert.Contains("InitialItemIndex", markdown, StringComparison.Ordinal);
+        Assert.Contains("ScrollToItemAsync", markdown, StringComparison.Ordinal);
+        Assert.Contains("provider timing", route.GetProperty("requirements").GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+    }
+
     [Then("selected rows retain canonical guidance and interactive requirements offline")]
     public async Task CheckSelectedRowsAsync()
     {

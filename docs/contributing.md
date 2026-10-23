@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+Virtual-list item reveal uses the original .NET 10/11 LanternQueue samples.
+[PIN-785](verification/PIN-785.md) records held-provider initial/programmatic
+reveal, actual rendered ticket/viewport assertions, bounds and complete offline
+installed retrieval. It keeps QuickGrid positioning and list anchoring separate.
+
 Shareable table views use the original .NET 10/11 WorkshopViews samples.
 [PIN-781](verification/PIN-781.md) records independent two-grid URL state,
 immutable sort keys with separately editable captions, real static links and

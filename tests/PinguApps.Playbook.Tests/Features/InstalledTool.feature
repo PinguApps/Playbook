@@ -269,5 +269,6 @@ Feature: Installed offline guidance
     And shareable grid views retain complete canonical guidance offline
     And selected rows retain canonical guidance and interactive requirements offline
     And static subtree caching retains complete canonical guidance offline
+    And virtual list reveal retains complete canonical guidance offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
