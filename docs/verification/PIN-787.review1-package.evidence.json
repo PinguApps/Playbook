@@ -1,0 +1,137 @@
+{
+  "results": {
+    "full": {
+      "failed": 0,
+      "passed": 36,
+      "total": 36,
+      "seconds": 54.779
+    },
+    "smoke": {
+      "failed": 0,
+      "passed": 1,
+      "total": 1,
+      "seconds": 2.025
+    }
+  },
+  "runtime": "Microsoft.NETCore.App 10.0.12 / Linux x64",
+  "mountedInputs": [
+    "/artifacts readonly",
+    "/suite readonly",
+    "/test/Test-Package.ps1 readonly",
+    "/results writable"
+  ],
+  "base": "e47df37ad47aff5ccaebca7a66a26d5cbdb9b227",
+  "assertions": [
+    "Both new full canonical Markdown bodies reconstructed independently from embedded sample inputs",
+    "Every authored route property DeepEquals including complete nested requirements, sources, evidence, selection and target",
+    "Edition 11.0, target-10 no_applicable_edition rejection and current evidence freshness",
+    "All prior BeaconReadings, OrchardJournal, LanternQueue and other recipe assertions retained in unchanged 36-scenario wrapper",
+    "All raw response and per-summary byte guards unchanged"
+  ],
+  "environment": {
+    "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH": "0",
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "1",
+    "DOTNET_NOLOGO": "1"
+  },
+  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "recordedAt": "2026-10-23T05:21:20.8096820+00:00",
+  "commands": [
+    "/usr/bin/pwsh -NoProfile -File /test/Test-Package.ps1 -Artifacts /artifacts -Suite /suite -PackageVersion 0.0.0-pin787-review1 -RuntimeMajor 10 -Results /results/full",
+    "/usr/bin/pwsh -NoProfile -File /test/Test-Package.ps1 -Artifacts /artifacts -Suite /suite -PackageVersion 0.0.0-pin787-review1 -RuntimeMajor 10 -Smoke -Results /results/smoke"
+  ],
+  "checkoutMounted": false,
+  "packageVersion": "0.0.0-pin787-review1",
+  "kind": "actual-packed-tool-network-none-no-checkout",
+  "sourceCommit": "ddcba822033a9728ae0f2e188c8bd2ecb49a80ad",
+  "network": "none",
+  "artifacts": [
+    {
+      "sha256": "992370b8202a935df6e9c71a8a356f33ce30535412ac1edc8ae0e828644dc573",
+      "path": "artifacts/PinguApps.Playbook.0.0.0-pin787-review1.nupkg"
+    },
+    {
+      "sha256": "ff5def949f5e85eadde652eae0378c84f2c09bd63b14a364c932ae56c7bf575b",
+      "path": "artifacts/release-fixture/PinguApps.Playbook.0.0.0-pin787-review1.nupkg"
+    },
+    {
+      "sha256": "660ece8aed8552a9e5ce3b6ae02c31de04bc7d96ba62e438fc6fbefb6ec1d099",
+      "path": "tests/PinguApps.Playbook.Tests/bin/Release/net10.0/PinguApps.Playbook.Tests.dll"
+    },
+    {
+      "sha256": "67dd7b8bebfdbace7306e82439707ef64a3410917ee8e24a2823dc9a7db9d9f5",
+      "path": "tests/PinguApps.Playbook.Tests/bin/Release/net10.0/PinguApps.Playbook.Tests.deps.json"
+    },
+    {
+      "sha256": "a217d17be0661abf2717a26937c6e379c33542cb6f292fd3fc5a2d5113a9d6dc",
+      "path": "tests/PinguApps.Playbook.Tests/bin/Release/net10.0/PinguApps.Playbook.Tests.runtimeconfig.json"
+    },
+    {
+      "sha256": "08726593defbbc2e3c2251f396212f2ced84eaa1ea3adc5dec855addb66e2195",
+      "path": "artifacts/TestResults/pin787-review1/full/playbook.trx"
+    },
+    {
+      "sha256": "bdcd1a3dfc2f038cbf0d31de95799cf9c8d5e76ae31287cb8d4ca1917bb17ef5",
+      "path": "artifacts/TestResults/pin787-review1/smoke/playbook.trx"
+    },
+    {
+      "sha256": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
+      "path": "eng/Test-Package.ps1"
+    }
+  ],
+  "measurements": [
+    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=26475, result=67171 UTF-8 bytes",
+    "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
+    "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
+    "all 20: summary=1397, structured=26477, result=67175 UTF-8 bytes",
+    "all 50: summary=1397, structured=67260, result=169716 UTF-8 bytes",
+    "10.0: count=9, largest summary=2009, structured=13704, result=34909 UTF-8 bytes",
+    "11.0: count=20, largest summary=1982, structured=26475, result=67171 UTF-8 bytes"
+  ],
+  "sourceDirty": true,
+  "dirtyPaths": [
+    " M content/recipes/blazor.drain-active-circuits/11.0/recipe.md",
+    " M content/recipes/blazor.pause-idle-tab/11.0/recipe.md",
+    " M docs/verification/PIN-787.md",
+    " M samples/net10.0/TideCharts/Worksheet.razor",
+    " M samples/net10.0/TideCharts/verification-evidence.json",
+    " M samples/net11.0/TideCharts/Worksheet.razor",
+    " M samples/net11.0/TideCharts/verification-evidence.json",
+    "?? docs/verification/PIN-787.review-fix.evidence.json"
+  ],
+  "inputs": [
+    {
+      "sha256": "c4e81465a07353b6f831895d14f03beffd4e52396e6421351f6a2c09026a30b7",
+      "path": "content/recipes/blazor.pause-idle-tab/11.0/recipe.md"
+    },
+    {
+      "sha256": "d5ee46c02baf0a7c0bbca5c9c3d675db69300e01ae92252db7fd28f41fb4b38e",
+      "path": "content/recipes/blazor.pause-idle-tab/11.0/recipe.json"
+    },
+    {
+      "sha256": "50e494a8a6650e6434002f2d65f7bc743b54bf24779e28e8bcd400a7e5a04dd7",
+      "path": "content/recipes/blazor.drain-active-circuits/11.0/recipe.md"
+    },
+    {
+      "sha256": "a19b82627633ab3fb374e47f38ac9c0d29f75e4433260de663c9109d5f6d6e4f",
+      "path": "content/recipes/blazor.drain-active-circuits/11.0/recipe.json"
+    },
+    {
+      "sha256": "560426a925c333d068e3f4976a57960c0b6709ca3138045971c75fcfb17e6722",
+      "path": "samples/net10.0/TideCharts/Worksheet.razor"
+    },
+    {
+      "sha256": "560426a925c333d068e3f4976a57960c0b6709ca3138045971c75fcfb17e6722",
+      "path": "samples/net11.0/TideCharts/Worksheet.razor"
+    },
+    {
+      "sha256": "057c1318373f5188dce86c69a34eefc02ea96db0e0d027864a91bfd738540924",
+      "path": "samples/net10.0/TideCharts/verification-evidence.json"
+    },
+    {
+      "sha256": "e912167d01050f2c2cc3673a9f4568e3e17c6d5706f0b3576fd6e0010b9ccc4b",
+      "path": "samples/net11.0/TideCharts/verification-evidence.json"
+    }
+  ],
+  "provenance": "Review-fix working tree at ddcba822, with exact dirty paths/served inputs retained. Package and suite built sequentially before report-only ledger edits; sample execution has separate exact input/artifact fingerprints. This is not relabeled as a clean final-head package."
+}

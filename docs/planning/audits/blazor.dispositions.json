@@ -110,7 +110,7 @@
     {
       "id": "pause",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(AutoPause|Server\\.Circuits\\.Circuit)",
-      "owner": "PIN-787",
+      "owner": "PIN-787; delivered 11.0 editions in docs/verification/PIN-787.md",
       "disposition": "grouped"
     },
     {
@@ -203,7 +203,7 @@
       "id": "package-pause",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.components\\.server\\.autopause",
       "disposition": "grouped",
-      "owner": "PIN-787"
+      "owner": "PIN-787; delivered 11.0 editions in docs/verification/PIN-787.md"
     },
     {
       "id": "template-worker",

@@ -1,0 +1,1556 @@
+{
+  "kind": "review-fix-real-execution",
+  "feedback": "PRRT_kwDOVLXtCs6vemwG",
+  "recordedAt": "2026-10-23T06:11:15.4121679+01:00",
+  "sourceCommit": "ddcba822033a9728ae0f2e188c8bd2ecb49a80ad",
+  "dirtyPaths": [
+    " M samples/net10.0/TideCharts/Worksheet.razor",
+    " M samples/net10.0/TideCharts/verification-evidence.json",
+    " M samples/net11.0/TideCharts/Worksheet.razor",
+    " M samples/net11.0/TideCharts/verification-evidence.json"
+  ],
+  "routes": [
+    {
+      "sample": "samples/net10.0/TideCharts/TideCharts.csproj",
+      "artifacts": [
+        {
+          "sha256": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/global.json"
+        },
+        {
+          "sha256": "2b9618c0c0d416734ad4b7ac8fca1320f0c062f329f89eaed206d23a380c3502",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.deps.json"
+        },
+        {
+          "sha256": "fb0754ba3a3a5453e31eebf9f57d598fdf5c75e01b6123d252111dfb30313091",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.dll"
+        },
+        {
+          "sha256": "964fadbeb21b34c3db32c8ebd6576d687d0f7c81656ab674c4b1e71dbcbcbd0f",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.exe"
+        },
+        {
+          "sha256": "eac70ff22b01c852e0517463f713e74a872c51a633745dc0cea7287640356bf4",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.pdb"
+        },
+        {
+          "sha256": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.runtimeconfig.json"
+        },
+        {
+          "sha256": "4682aff66586de194540f6621d2766d7ac80b0cc78d91a4d864ac5b58c2913d6",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.staticwebassets.endpoints.json"
+        },
+        {
+          "sha256": "450e5f494594975f5cb2d294237205f7d6c2deb81e01c7632c555f4b177899a2",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/TideCharts.staticwebassets.runtime.json"
+        },
+        {
+          "sha256": "4c44897c1f1569e1ee787a8ca3756ae8fce80efd3714f3c61af756700584b9de",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/verification-evidence.json"
+        },
+        {
+          "sha256": "abc8608d4aaeaaf468b65ad893c01128167f1072187fd3d80de3f248feab7f81",
+          "path": "samples/net10.0/TideCharts/bin/Release/net10.0/verification.json"
+        }
+      ],
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/TideCharts.browser.js": "c1357d8fb48209a5826c5e9cc2989c65d479a3175fd7d8cf47e1ddba756ba6ee",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net10.0/TideCharts/_Imports.razor": "d646e32d77a8f64816f6939e2ccf486f2ce32f616904d90fc2a05f277fde4705",
+        "samples/net10.0/TideCharts/App.razor": "8b98e6596dc3bac566835c6e586f1b4cce4bd45bd0aecc149a12002e4ee8964a",
+        "samples/net10.0/TideCharts/CircuitLease.cs": "20249d3aa542e237c29350dc2ea5845abe7e952822b7f252070ccbb23073b35b",
+        "samples/net10.0/TideCharts/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+        "samples/net10.0/TideCharts/MaintenanceRegistry.cs": "4b1dcf0e673a9cea6d1629560a8d1df807063797c62fe52b2fecada1f72e19ad",
+        "samples/net10.0/TideCharts/MaintenanceShutdown.cs": "82ac69210ae8241b34a93c39e4cab9425acd5a4c516f498302cf811e6d1f11dc",
+        "samples/net10.0/TideCharts/packages.lock.json": "e6b005c31db81096ca37b683f4d9a416477d9d4a00f2d5aeed3a8efa21242924",
+        "samples/net10.0/TideCharts/PauseJournal.cs": "bbaf7b2b501979db9a1eaba7007b02cafafddabd4d8a3e793d5e175f6c09af00",
+        "samples/net10.0/TideCharts/Program.cs": "5af7198a2bf6e729509410869fea7b465800540b82b236869d5a4545fc061e89",
+        "samples/net10.0/TideCharts/TideCharts.csproj": "e5e2c6dc102a9698e2ba059b35012fdfa45c76f6d77a89db9c4b5b48729f5228",
+        "samples/net10.0/TideCharts/verification.json": "abc8608d4aaeaaf468b65ad893c01128167f1072187fd3d80de3f248feab7f81",
+        "samples/net10.0/TideCharts/Worksheet.razor": "560426a925c333d068e3f4976a57960c0b6709ca3138045971c75fcfb17e6722",
+        "samples/net10.0/TideCharts/wwwroot/tide.js": "f0d6df543132a78d712bba1da666b2e45e7481fb6a78b404bcfaba656db8a14a"
+      }
+    },
+    {
+      "sample": "samples/net11.0/TideCharts/TideCharts.csproj",
+      "artifacts": [
+        {
+          "sha256": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/global.json"
+        },
+        {
+          "sha256": "4def294e2d18a7bc269c238ff1211a04b1538ed01d4c9bbccfdfbf00bb49f101",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/Microsoft.AspNetCore.Components.Server.AutoPause.dll"
+        },
+        {
+          "sha256": "0bc65ce06aa057503e7fa8f4459d9964f36f54102f8339b87d7da01ef028ad77",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.deps.json"
+        },
+        {
+          "sha256": "0608d60a935334942098ce980629e02c373d3b6575f47c3c48f551af4d37cc25",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.dll"
+        },
+        {
+          "sha256": "44227a713a8050b5585c41edeb88a5ec7082ed2bb088bdc1e4b110db874eba74",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.exe"
+        },
+        {
+          "sha256": "cf62d7c4980bc0743f442f9adbe58f8b67fa8b526fe6c5474d7b9dbd8203ec18",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.pdb"
+        },
+        {
+          "sha256": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.runtimeconfig.json"
+        },
+        {
+          "sha256": "b317e9f419846c60587da287d97dde5ddb224dd44700a37c099b1c1a773ef1b2",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.staticwebassets.endpoints.json"
+        },
+        {
+          "sha256": "69179423c5a563f18556c60618673ebf4db1e40f8492e310c1cc41e51d30bb46",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/TideCharts.staticwebassets.runtime.json"
+        },
+        {
+          "sha256": "00f74b71fb6367d1417f792cff5e22124044a653a86221386722e5242e6e8527",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/verification-evidence.json"
+        },
+        {
+          "sha256": "c8fe69d9b53085064c5703cdf60158239b37793f3648ed79ad4a33ebd6456c79",
+          "path": "samples/net11.0/TideCharts/bin/Release/net11.0/verification.json"
+        }
+      ],
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/TideCharts.browser.js": "c1357d8fb48209a5826c5e9cc2989c65d479a3175fd7d8cf47e1ddba756ba6ee",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net11.0/TideCharts/_Imports.razor": "d646e32d77a8f64816f6939e2ccf486f2ce32f616904d90fc2a05f277fde4705",
+        "samples/net11.0/TideCharts/App.razor": "8b98e6596dc3bac566835c6e586f1b4cce4bd45bd0aecc149a12002e4ee8964a",
+        "samples/net11.0/TideCharts/CircuitLease.cs": "20249d3aa542e237c29350dc2ea5845abe7e952822b7f252070ccbb23073b35b",
+        "samples/net11.0/TideCharts/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+        "samples/net11.0/TideCharts/MaintenanceRegistry.cs": "dab54d9bf6f2e0e92a7fcf5bf7f3dbc98705bec014b3e951b87f50de052444d2",
+        "samples/net11.0/TideCharts/MaintenanceShutdown.cs": "82ac69210ae8241b34a93c39e4cab9425acd5a4c516f498302cf811e6d1f11dc",
+        "samples/net11.0/TideCharts/packages.lock.json": "191e3920728071e79f95b7852bfa3e1a8c52994e2ae695a35b13cf2ab7fa7ffb",
+        "samples/net11.0/TideCharts/PauseJournal.cs": "bbaf7b2b501979db9a1eaba7007b02cafafddabd4d8a3e793d5e175f6c09af00",
+        "samples/net11.0/TideCharts/Program.cs": "4848d0e33c691c6ff29dc522a8fdfb18dd7688e4208002f8d55a957652e233ce",
+        "samples/net11.0/TideCharts/TideCharts.csproj": "eeacadef162e74649c0a5f0964d8cd202c5fdb6ed1d12c27f6c9056c64406a93",
+        "samples/net11.0/TideCharts/verification.json": "c8fe69d9b53085064c5703cdf60158239b37793f3648ed79ad4a33ebd6456c79",
+        "samples/net11.0/TideCharts/Worksheet.razor": "560426a925c333d068e3f4976a57960c0b6709ca3138045971c75fcfb17e6722",
+        "samples/net11.0/TideCharts/wwwroot/tide.js": "7a585846e2d1879c41f08a5f46b12e7a28caa65d1ca43e760f834d80b07b90db"
+      }
+    }
+  ],
+  "browser": {
+    "net11": [
+      {
+        "label": "initial",
+        "at": "2026-10-23T05:06:27.068Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          }
+        ],
+        "lease": "210b8bab14744a758d9d0bc40ebaeb3f",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "hidden-paused",
+        "at": "2026-10-23T05:07:02.597Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          }
+        ],
+        "lease": "210b8bab14744a758d9d0bc40ebaeb3f",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "resumed",
+        "at": "2026-10-23T05:07:02.823Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:02.8197946+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "up",
+            "process": 131764
+          }
+        ],
+        "lease": "210b8bab14744a758d9d0bc40ebaeb3f",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "idle-restored-settled",
+        "at": "2026-10-23T05:07:16.415Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:02.8197946+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3762915+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3793609+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3822804+01:00",
+            "id": "e5e325414ec2467dbb91b860b5236b9c",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:16.4095839+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "up",
+            "process": 131764
+          }
+        ],
+        "lease": "37cbc5e555bd4880822f2b6584fb0f6a",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "short-hide-return",
+        "at": "2026-10-23T05:07:16.836Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:02.8197946+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3762915+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3793609+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3822804+01:00",
+            "id": "e5e325414ec2467dbb91b860b5236b9c",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:16.4095839+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "up",
+            "process": 131764
+          }
+        ],
+        "lease": "37cbc5e555bd4880822f2b6584fb0f6a",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "held-start",
+        "at": "2026-10-23T05:07:17.196Z",
+        "busy": "True",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:02.8197946+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3762915+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3793609+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3822804+01:00",
+            "id": "e5e325414ec2467dbb91b860b5236b9c",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:16.4095839+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "up",
+            "process": 131764
+          }
+        ],
+        "lease": "37cbc5e555bd4880822f2b6584fb0f6a",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "held-hidden-beyond-delay",
+        "at": "2026-10-23T05:07:22.538Z",
+        "busy": "True",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:02.8197946+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3762915+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3793609+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3822804+01:00",
+            "id": "e5e325414ec2467dbb91b860b5236b9c",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:16.4095839+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "up",
+            "process": 131764
+          }
+        ],
+        "lease": "37cbc5e555bd4880822f2b6584fb0f6a",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "released-hidden",
+        "at": "2026-10-23T05:07:27.112Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:02.8197946+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3762915+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3793609+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3822804+01:00",
+            "id": "e5e325414ec2467dbb91b860b5236b9c",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:16.4095839+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:22.586581+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:22.5873683+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:22.5880471+01:00",
+            "id": "37cbc5e555bd4880822f2b6584fb0f6a",
+            "name": "resource-disposed",
+            "process": 131764
+          }
+        ],
+        "lease": "37cbc5e555bd4880822f2b6584fb0f6a",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "released-resumed",
+        "at": "2026-10-23T05:07:27.259Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.0847734+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4081926+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4088043+01:00",
+            "id": "CO_FWbkLovY-NC47WdITxcWMstit8ttwgcJDFgOOinQ",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:31.4097913+01:00",
+            "id": "210b8bab14744a758d9d0bc40ebaeb3f",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:02.8197946+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3762915+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3793609+01:00",
+            "id": "Sk9OF_rKtQj--lF8xRtTexa_WcRRCK91i8wS24i8C4Q",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:07.3822804+01:00",
+            "id": "e5e325414ec2467dbb91b860b5236b9c",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:16.4095839+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "up",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:22.586581+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "down",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:22.5873683+01:00",
+            "id": "VCcCIjJLLcaHSMuzGZGl9JNoqymkGxHQFKlb1eT2nUA",
+            "name": "closed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:22.5880471+01:00",
+            "id": "37cbc5e555bd4880822f2b6584fb0f6a",
+            "name": "resource-disposed",
+            "process": 131764
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:27.2294015+01:00",
+            "id": "tCZhhVTWNS8t3zJmhYHioXExnbl7ZFiYJ-9MsbEWYSc",
+            "name": "up",
+            "process": 131764
+          }
+        ],
+        "lease": "e15db3996d634bbd97cb61fc0dea75a7",
+        "readings": "1",
+        "sheet": "599c2aab399749d6b01767c788eb772b",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      }
+    ],
+    "net10": [
+      {
+        "label": "initial",
+        "at": "2026-10-23T05:06:27.491Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.7144834+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "up",
+            "process": 60300
+          }
+        ],
+        "lease": "ab39e8e89ab44c16a6151dd0976d7c30",
+        "readings": "1",
+        "sheet": "0d3715458e8d428597b529223c3d5470",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "hidden-paused",
+        "at": "2026-10-23T05:07:02.867Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.7144834+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "up",
+            "process": 60300
+          }
+        ],
+        "lease": "ab39e8e89ab44c16a6151dd0976d7c30",
+        "readings": "1",
+        "sheet": "0d3715458e8d428597b529223c3d5470",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "resumed",
+        "at": "2026-10-23T05:07:03.04Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.7144834+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "up",
+            "process": 60300
+          }
+        ],
+        "lease": "ab39e8e89ab44c16a6151dd0976d7c30",
+        "readings": "1",
+        "sheet": "0d3715458e8d428597b529223c3d5470",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "idle-hidden-complete",
+        "at": "2026-10-23T05:07:27.3Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.7144834+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "up",
+            "process": 60300
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:20.4294725+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "down",
+            "process": 60300
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:20.4309174+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "closed",
+            "process": 60300
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:20.4319237+01:00",
+            "id": "ab39e8e89ab44c16a6151dd0976d7c30",
+            "name": "resource-disposed",
+            "process": 60300
+          }
+        ],
+        "lease": "ab39e8e89ab44c16a6151dd0976d7c30",
+        "readings": "1",
+        "sheet": "0d3715458e8d428597b529223c3d5470",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "idle-restored-settled",
+        "at": "2026-10-23T05:07:53.585Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:06:26.7144834+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "up",
+            "process": 60300
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:20.4294725+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "down",
+            "process": 60300
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:20.4309174+01:00",
+            "id": "UJbAv21-xXUA64YjNTAHzWNarbroUuWdrI1Conzrq6Q",
+            "name": "closed",
+            "process": 60300
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:20.4319237+01:00",
+            "id": "ab39e8e89ab44c16a6151dd0976d7c30",
+            "name": "resource-disposed",
+            "process": 60300
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:07:27.4398946+01:00",
+            "id": "wUszWPuJdn18VZVPdVpULJItrjgDk9aErUw-7pCAVHQ",
+            "name": "up",
+            "process": 60300
+          }
+        ],
+        "lease": "466cdcdc9cd147c69e30fb8595e035e7",
+        "readings": "1",
+        "sheet": "0d3715458e8d428597b529223c3d5470",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "restart-restored-before-maintenance",
+        "at": "2026-10-23T05:08:52.572Z",
+        "busy": "False",
+        "events": [],
+        "lease": "466cdcdc9cd147c69e30fb8595e035e7",
+        "readings": "1",
+        "sheet": "0d3715458e8d428597b529223c3d5470",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "restart-restored-settled",
+        "at": "2026-10-23T05:09:00.627Z",
+        "busy": "False",
+        "events": [],
+        "lease": "466cdcdc9cd147c69e30fb8595e035e7",
+        "readings": "1",
+        "sheet": "0d3715458e8d428597b529223c3d5470",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      }
+    ],
+    "maintenance": [
+      {
+        "label": "session-one-initial-hidden",
+        "at": "2026-10-23T05:08:46.78Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.010491+01:00",
+            "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+            "name": "up",
+            "process": 83312
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.9146285+01:00",
+            "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+            "name": "up",
+            "process": 83312
+          }
+        ],
+        "lease": "2d84c532c8e04367bc34289b1232c113",
+        "readings": "1",
+        "sheet": "1baefaf5b7a843d8b4173e88af1aaf78",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "session-two-initial",
+        "at": "2026-10-23T05:08:46.821Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.010491+01:00",
+            "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+            "name": "up",
+            "process": 83312
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.9146285+01:00",
+            "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+            "name": "up",
+            "process": 83312
+          }
+        ],
+        "lease": "430dd264d82f423e948ba32cfc273871",
+        "readings": "2",
+        "sheet": "96b09af7cc604c41b0995921612229c3",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "opt-out-hidden-beyond-delay",
+        "at": "2026-10-23T05:08:52.077Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.010491+01:00",
+            "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+            "name": "up",
+            "process": 83312
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.9146285+01:00",
+            "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+            "name": "up",
+            "process": 83312
+          }
+        ],
+        "lease": "2d84c532c8e04367bc34289b1232c113",
+        "readings": "1",
+        "sheet": "1baefaf5b7a843d8b4173e88af1aaf78",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "second-before-maintenance",
+        "at": "2026-10-23T05:08:52.117Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.010491+01:00",
+            "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+            "name": "up",
+            "process": 83312
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:08:44.9146285+01:00",
+            "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+            "name": "up",
+            "process": 83312
+          }
+        ],
+        "lease": "430dd264d82f423e948ba32cfc273871",
+        "readings": "2",
+        "sheet": "96b09af7cc604c41b0995921612229c3",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "session-one-after-process-restart",
+        "at": "2026-10-23T05:09:37.338Z",
+        "busy": "False",
+        "events": [],
+        "lease": "2d84c532c8e04367bc34289b1232c113",
+        "readings": "1",
+        "sheet": "1baefaf5b7a843d8b4173e88af1aaf78",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "session-two-after-process-restart",
+        "at": "2026-10-23T05:09:37.47Z",
+        "busy": "False",
+        "events": [],
+        "lease": "430dd264d82f423e948ba32cfc273871",
+        "readings": "2",
+        "sheet": "96b09af7cc604c41b0995921612229c3",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "session-one-explicit-resume",
+        "at": "2026-10-23T05:09:46.102Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:45.9307019+01:00",
+            "id": "PhfMhnd7pmAXayOdUlTiSgEmEGh-3exWvS4k81YeNjY",
+            "name": "up",
+            "process": 108744
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:45.946554+01:00",
+            "id": "UhTjOATvx6eQWAWhRMOLL68bnKJsXwvKHgnyod4DtjQ",
+            "name": "up",
+            "process": 108744
+          }
+        ],
+        "lease": "bbd86cda0fb742e1a8fd3e940708127d",
+        "readings": "1",
+        "sheet": "1baefaf5b7a843d8b4173e88af1aaf78",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      },
+      {
+        "label": "session-two-explicit-resume",
+        "at": "2026-10-23T05:09:46.144Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:45.9307019+01:00",
+            "id": "PhfMhnd7pmAXayOdUlTiSgEmEGh-3exWvS4k81YeNjY",
+            "name": "up",
+            "process": 108744
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:45.946554+01:00",
+            "id": "UhTjOATvx6eQWAWhRMOLL68bnKJsXwvKHgnyod4DtjQ",
+            "name": "up",
+            "process": 108744
+          }
+        ],
+        "lease": "dbd6bbacc6b346f08e24f0e2c2c3d26e",
+        "readings": "2",
+        "sheet": "96b09af7cc604c41b0995921612229c3",
+        "syntheticVisibility": false,
+        "visibility": "hidden"
+      }
+    ],
+    "net10Maintenance": [
+      {
+        "label": "active-before-maintenance",
+        "at": "2026-10-23T05:09:46.179Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:27.4458113+01:00",
+            "id": "zClA4RfLHWwBAoYBZFksEjIHdSN_OoXPqXiixlH3gQE",
+            "name": "up",
+            "process": 54476
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:31.4147878+01:00",
+            "id": "zClA4RfLHWwBAoYBZFksEjIHdSN_OoXPqXiixlH3gQE",
+            "name": "down",
+            "process": 54476
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:31.4159934+01:00",
+            "id": "zClA4RfLHWwBAoYBZFksEjIHdSN_OoXPqXiixlH3gQE",
+            "name": "closed",
+            "process": 54476
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:31.4170845+01:00",
+            "id": "2013e172d91640c185e2c37ad90352b4",
+            "name": "resource-disposed",
+            "process": 54476
+          },
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:09:32.4559867+01:00",
+            "id": "HegGCKRpkCgjBCLpvnSkMMr2Oo8l-aE1sV2S-HmQlt4",
+            "name": "up",
+            "process": 54476
+          }
+        ],
+        "lease": "4e0cfe4cb39d49c4a75a4ae5eb8675d0",
+        "readings": "1",
+        "sheet": "3da19fb093484ee1ad50b73c6cb97f89",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "resumed-after-actual-maintenance-restart",
+        "at": "2026-10-23T05:10:03.28Z",
+        "busy": "False",
+        "events": [],
+        "lease": "4e0cfe4cb39d49c4a75a4ae5eb8675d0",
+        "readings": "1",
+        "sheet": "3da19fb093484ee1ad50b73c6cb97f89",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      },
+      {
+        "label": "resumed-after-restart-settled",
+        "at": "2026-10-23T05:10:12.543Z",
+        "busy": "False",
+        "events": [
+          {
+            "accepted": null,
+            "at": "2026-10-23T06:10:03.2967478+01:00",
+            "id": "nTTKgZ6a4Uan2WJBUlsURJJCoOrYbEEtN3JHknUW4BA",
+            "name": "up",
+            "process": 70820
+          }
+        ],
+        "lease": "f59b775a7f52467591e216e850613525",
+        "readings": "1",
+        "sheet": "3da19fb093484ee1ad50b73c6cb97f89",
+        "syntheticVisibility": false,
+        "visibility": "visible"
+      }
+    ]
+  },
+  "lifecycle": [
+    {
+      "name": "review-maintenance-net11.0.ndjson",
+      "events": [
+        {
+          "name": "up",
+          "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+          "accepted": null,
+          "at": "2026-10-23T06:08:44.010491+01:00",
+          "process": 83312
+        },
+        {
+          "name": "up",
+          "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+          "accepted": null,
+          "at": "2026-10-23T06:08:44.9146285+01:00",
+          "process": 83312
+        },
+        {
+          "name": "host-stopping",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0338077+01:00",
+          "process": 83312
+        },
+        {
+          "name": "cancelled-request",
+          "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+          "accepted": false,
+          "at": "2026-10-23T06:09:01.0375337+01:00",
+          "process": 83312
+        },
+        {
+          "name": "cancelled-request",
+          "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+          "accepted": false,
+          "at": "2026-10-23T06:09:01.0384278+01:00",
+          "process": 83312
+        },
+        {
+          "name": "pause-request",
+          "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+          "accepted": true,
+          "at": "2026-10-23T06:09:01.0392838+01:00",
+          "process": 83312
+        },
+        {
+          "name": "acceptance",
+          "id": "",
+          "accepted": true,
+          "at": "2026-10-23T06:09:01.0397736+01:00",
+          "process": 83312
+        },
+        {
+          "name": "pause-request",
+          "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+          "accepted": true,
+          "at": "2026-10-23T06:09:01.0403638+01:00",
+          "process": 83312
+        },
+        {
+          "name": "acceptance",
+          "id": "",
+          "accepted": true,
+          "at": "2026-10-23T06:09:01.0408668+01:00",
+          "process": 83312
+        },
+        {
+          "name": "down",
+          "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0700682+01:00",
+          "process": 83312
+        },
+        {
+          "name": "down",
+          "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0706883+01:00",
+          "process": 83312
+        },
+        {
+          "name": "closed",
+          "id": "xU6jQb2scblSB_1Lu9bwshHZ4_BI5Tx8cODs15Uefeo",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0711893+01:00",
+          "process": 83312
+        },
+        {
+          "name": "closed",
+          "id": "Qdn6Kg18fT_FBv9i4j1DBlLo9BACBMeQaLhEIIBarIk",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0715023+01:00",
+          "process": 83312
+        },
+        {
+          "name": "resource-disposed",
+          "id": "2d84c532c8e04367bc34289b1232c113",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0720605+01:00",
+          "process": 83312
+        },
+        {
+          "name": "resource-disposed",
+          "id": "430dd264d82f423e948ba32cfc273871",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0725835+01:00",
+          "process": 83312
+        },
+        {
+          "name": "drain-observed",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0730274+01:00",
+          "process": 83312
+        },
+        {
+          "name": "host-stopped",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0807469+01:00",
+          "process": 83312
+        },
+        {
+          "name": "host-stopped",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:01.0817182+01:00",
+          "process": 83312
+        }
+      ]
+    },
+    {
+      "name": "review-restart-net10.0.ndjson",
+      "events": [
+        {
+          "name": "up",
+          "id": "zClA4RfLHWwBAoYBZFksEjIHdSN_OoXPqXiixlH3gQE",
+          "accepted": null,
+          "at": "2026-10-23T06:09:27.4458113+01:00",
+          "process": 54476
+        },
+        {
+          "name": "down",
+          "id": "zClA4RfLHWwBAoYBZFksEjIHdSN_OoXPqXiixlH3gQE",
+          "accepted": null,
+          "at": "2026-10-23T06:09:31.4147878+01:00",
+          "process": 54476
+        },
+        {
+          "name": "closed",
+          "id": "zClA4RfLHWwBAoYBZFksEjIHdSN_OoXPqXiixlH3gQE",
+          "accepted": null,
+          "at": "2026-10-23T06:09:31.4159934+01:00",
+          "process": 54476
+        },
+        {
+          "name": "resource-disposed",
+          "id": "2013e172d91640c185e2c37ad90352b4",
+          "accepted": null,
+          "at": "2026-10-23T06:09:31.4170845+01:00",
+          "process": 54476
+        },
+        {
+          "name": "up",
+          "id": "HegGCKRpkCgjBCLpvnSkMMr2Oo8l-aE1sV2S-HmQlt4",
+          "accepted": null,
+          "at": "2026-10-23T06:09:32.4559867+01:00",
+          "process": 54476
+        },
+        {
+          "name": "host-stopping",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:46.5350884+01:00",
+          "process": 54476
+        },
+        {
+          "name": "cancelled-request",
+          "id": "HegGCKRpkCgjBCLpvnSkMMr2Oo8l-aE1sV2S-HmQlt4",
+          "accepted": false,
+          "at": "2026-10-23T06:09:46.5363934+01:00",
+          "process": 54476
+        },
+        {
+          "name": "pause-request",
+          "id": "HegGCKRpkCgjBCLpvnSkMMr2Oo8l-aE1sV2S-HmQlt4",
+          "accepted": true,
+          "at": "2026-10-23T06:09:46.5411725+01:00",
+          "process": 54476
+        },
+        {
+          "name": "acceptance",
+          "id": "",
+          "accepted": true,
+          "at": "2026-10-23T06:09:46.5421552+01:00",
+          "process": 54476
+        },
+        {
+          "name": "down",
+          "id": "HegGCKRpkCgjBCLpvnSkMMr2Oo8l-aE1sV2S-HmQlt4",
+          "accepted": null,
+          "at": "2026-10-23T06:09:46.5430637+01:00",
+          "process": 54476
+        },
+        {
+          "name": "closed",
+          "id": "HegGCKRpkCgjBCLpvnSkMMr2Oo8l-aE1sV2S-HmQlt4",
+          "accepted": null,
+          "at": "2026-10-23T06:09:46.5434637+01:00",
+          "process": 54476
+        },
+        {
+          "name": "resource-disposed",
+          "id": "4e0cfe4cb39d49c4a75a4ae5eb8675d0",
+          "accepted": null,
+          "at": "2026-10-23T06:09:46.5438891+01:00",
+          "process": 54476
+        },
+        {
+          "name": "drain-observed",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:46.5442722+01:00",
+          "process": 54476
+        },
+        {
+          "name": "host-stopped",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:46.5553603+01:00",
+          "process": 54476
+        },
+        {
+          "name": "host-stopped",
+          "id": "",
+          "accepted": null,
+          "at": "2026-10-23T06:09:46.5560343+01:00",
+          "process": 54476
+        }
+      ]
+    }
+  ],
+  "regression": [
+    {
+      "fixtureSource": "using System.Reflection;\nusing Microsoft.JSInterop;\nusing Playbook.Samples;\nvar type = typeof(Worksheet);\nforeach (var disconnect in new[] { false, true })\n{\n    var instance = new Worksheet();\n    type.GetProperty(\"JS\", BindingFlags.Instance | BindingFlags.NonPublic)!.SetValue(instance, new FailingJs(disconnect));\n    var task = (Task)type.GetMethod(\"HoldAsync\", BindingFlags.Instance | BindingFlags.NonPublic)!.Invoke(instance, null)!;\n    try { await task; if (!disconnect) throw new Exception(\"Failure was swallowed.\"); }\n    catch (JSException) when (!disconnect) { }\n    if ((bool)type.GetField(\"busy\", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(instance)!) throw new Exception(\"busy remained true\");\n    Console.WriteLine($\"PASS actual Worksheet HoldAsync: {(disconnect ? \"disconnect contained\" : \"JSException propagated\")}; busy=False\");\n}\nsealed class FailingJs(bool disconnect) : IJSRuntime\n{\n    public ValueTask<T> InvokeAsync<T>(string identifier, object?[]? args) => InvokeAsync<T>(identifier, default, args);\n    public ValueTask<T> InvokeAsync<T>(string identifier, CancellationToken cancellationToken, object?[]? args) => ValueTask.FromException<T>(disconnect ? new JSDisconnectedException(\"fixture disconnect\") : new JSException(\"fixture rejected promise\"));\n}",
+      "fixtureProject": "<Project Sdk=\"Microsoft.NET.Sdk\"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup><ItemGroup><FrameworkReference Include=\"Microsoft.AspNetCore.App\"/><Reference Include=\"TideCharts\"><HintPath>V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net10.0\\TideCharts\\bin\\Release\\net10.0\\TideCharts.dll</HintPath></Reference></ItemGroup></Project>",
+      "output": "PASS actual Worksheet HoldAsync: JSException propagated; busy=False\r\nPASS actual Worksheet HoldAsync: disconnect contained; busy=False\r\n",
+      "kind": "actual generated Razor component invoked with failing IJSRuntime test double, not browser execution",
+      "target": "net10.0"
+    },
+    {
+      "fixtureSource": "using System.Reflection;\nusing Microsoft.JSInterop;\nusing Playbook.Samples;\nvar type = typeof(Worksheet);\nforeach (var disconnect in new[] { false, true })\n{\n    var instance = new Worksheet();\n    type.GetProperty(\"JS\", BindingFlags.Instance | BindingFlags.NonPublic)!.SetValue(instance, new FailingJs(disconnect));\n    var task = (Task)type.GetMethod(\"HoldAsync\", BindingFlags.Instance | BindingFlags.NonPublic)!.Invoke(instance, null)!;\n    try { await task; if (!disconnect) throw new Exception(\"Failure was swallowed.\"); }\n    catch (JSException) when (!disconnect) { }\n    if ((bool)type.GetField(\"busy\", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(instance)!) throw new Exception(\"busy remained true\");\n    Console.WriteLine($\"PASS actual Worksheet HoldAsync: {(disconnect ? \"disconnect contained\" : \"JSException propagated\")}; busy=False\");\n}\nsealed class FailingJs(bool disconnect) : IJSRuntime\n{\n    public ValueTask<T> InvokeAsync<T>(string identifier, object?[]? args) => InvokeAsync<T>(identifier, default, args);\n    public ValueTask<T> InvokeAsync<T>(string identifier, CancellationToken cancellationToken, object?[]? args) => ValueTask.FromException<T>(disconnect ? new JSDisconnectedException(\"fixture disconnect\") : new JSException(\"fixture rejected promise\"));\n}",
+      "fixtureProject": "<Project Sdk=\"Microsoft.NET.Sdk\"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net11.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup><ItemGroup><FrameworkReference Include=\"Microsoft.AspNetCore.App\"/><Reference Include=\"TideCharts\"><HintPath>V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts\\bin\\Release\\net11.0\\TideCharts.dll</HintPath></Reference></ItemGroup></Project>",
+      "output": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\hold-regression-net11.0\\Program.cs(17,79): warning BL0016: JS interop call 'InvokeAsync' is not guarded with a try/catch block. [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\hold-regression-net11.0\\Hold.csproj]\r\nPASS actual Worksheet HoldAsync: JSException propagated; busy=False\r\nPASS actual Worksheet HoldAsync: disconnect contained; busy=False\r\n",
+      "kind": "actual generated Razor component invoked with failing IJSRuntime test double, not browser execution",
+      "target": "net11.0"
+    }
+  ],
+  "limits": [
+    "Native tab focus and unmodified document visibility; no synthetic visibility override",
+    "Post-restart Resume button clicks did not establish recovery; awaited actual Blazor.resumeCircuit followed by settled state established new lease and same saved values",
+    "Initial Production launch could not serve development framework assets; rerun uses explicit Development. No production publish proof claimed.",
+    "Opt-out launch at5390 failed bind AddressInUse; no successful execution there. Rerun uses released owned5387.",
+    "One fresh net10 locator click timed out; inspected state then real DOM click via supported CDP executed the event.",
+    "Historical negative StopApplication race remains retained; no OS signal/forced kill guarantee"
+  ],
+  "runtimeDelayGuard": {
+    "exitCode": -532462766,
+    "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts",
+    "result": "PASS actual pinned AutoPause rejects zero delay before serving",
+    "arguments": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe bin/Release/net11.0/TideCharts.dll --urls http://localhost:5387 --environment Development --HiddenDelay 0",
+    "output": "info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[63]\r\n      User profile is available. Using 'C:\\Users\\pingu\\AppData\\Local\\ASP.NET\\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.\r\nUnhandled exception. System.ArgumentOutOfRangeException: HiddenDelay must be greater than zero. (Parameter 'configure')\r\nActual value was 00:00:00.\r\n   at Microsoft.AspNetCore.Components.AutoPauseBrowserOptionsExtensions.AddAutoPause(BrowserOptions options, Action`1 configure)\r\n   at Program.<>c__DisplayClass0_0.<<Main>$>b__1(BrowserOptions options) in V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts\\Program.cs:line 17\r\n   at Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions.WithBrowserOptions(RazorComponentsEndpointConventionBuilder builder, Action`1 configureOptions)\r\n   at Program.<Main>$(String[] args) in V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts\\Program.cs:line 16\r\n"
+  },
+  "browserOperations": [
+    "Existing Chrome extension supported CDP; Emulation.setFocusEmulationEnabled false and actual Page.bringToFront",
+    "Runtime.evaluate only reads native visibility and actual worksheet IDs/events; no property override or synthetic visibility event",
+    "Actual button clicks and tide.release(); real pending JS invocation protects lifetime until released",
+    "Same document after server restart: awaited real Blazor.resumeCircuit(), then settled snapshot confirms same sheet/readings and new actual circuit/resource",
+    "Actual localhost POST /proof/stop initiates app.StopAsync and real IHostedLifecycleService.StoppingAsync; awaited owned processes exit"
+  ],
+  "launches": [
+    {
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net10.0\\TideCharts",
+      "executable": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "arguments": [
+        "bin/Release/net10.0/TideCharts.dll --urls http://localhost:5388 --environment Development --Verification true",
+        "--HiddenDelay",
+        "4000",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\review-net10.0.ndjson"
+      ]
+    },
+    {
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts",
+      "executable": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe",
+      "arguments": [
+        "bin/Release/net11.0/TideCharts.dll --urls http://localhost:5387 --environment Development --Verification true",
+        "--HiddenDelay",
+        "4000",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\review-net11.0.ndjson"
+      ]
+    },
+    {
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net10.0\\TideCharts",
+      "executable": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "arguments": [
+        "bin/Release/net10.0/TideCharts.dll --urls http://localhost:5388 --environment Development --Verification true",
+        "--HiddenDelay",
+        "4000",
+        "--AutoPause",
+        "false",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\review-maintenance-net10.0.ndjson"
+      ]
+    },
+    {
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts",
+      "executable": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe",
+      "arguments": [
+        "bin/Release/net11.0/TideCharts.dll --urls http://localhost:5387 --environment Development --Verification true",
+        "--HiddenDelay",
+        "4000",
+        "--AutoPause",
+        "false",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\review-maintenance-net11.0.ndjson"
+      ]
+    },
+    {
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net10.0\\TideCharts",
+      "executable": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "arguments": [
+        "bin/Release/net10.0/TideCharts.dll --urls http://localhost:5388 --environment Development --Verification true",
+        "--HiddenDelay",
+        "4000",
+        "--AutoPause",
+        "false",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\review-restart-net10.0.ndjson"
+      ]
+    },
+    {
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net11.0\\TideCharts",
+      "executable": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe",
+      "arguments": [
+        "bin/Release/net11.0/TideCharts.dll --urls http://localhost:5387 --environment Development --Verification true",
+        "--HiddenDelay",
+        "4000",
+        "--AutoPause",
+        "false",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\review-restart-net11.0.ndjson"
+      ]
+    },
+    {
+      "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-787-04-015-idle-and-maintenance-circuit-pause-workflows\\samples\\net10.0\\TideCharts",
+      "executable": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "arguments": [
+        "bin/Release/net10.0/TideCharts.dll --urls http://localhost:5388 --environment Development --Verification true",
+        "--JournalFile",
+        "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin787-attempt1\\review-final10.ndjson"
+      ]
+    }
+  ]
+}
