@@ -209,7 +209,7 @@
       "id": "template-worker",
       "pattern": "^templates/content/BlazorWebWorker-CSharp/",
       "disposition": "grouped",
-      "owner": "PIN-792"
+      "owner": "PIN-792; blazor.offload-browser-computation edition 11.0; G25 + E03 delivered with actual generated client and real browser proof in docs/verification/PIN-792.md"
     },
     {
       "id": "template-service-defaults",

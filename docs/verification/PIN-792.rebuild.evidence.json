@@ -1,0 +1,35 @@
+{
+  "rebuiltSourceCommit": "ab4ca5fc7bd9435cbb0030df5fc022ffc0afd737",
+  "kind": "actual-clean-rebuild-and-refreshed-browser-execution",
+  "rebuiltSourceDirty": false,
+  "command": "Matching SDK 10/11 build FossilDesk.csproj -c Release -t:Rebuild --no-restore in each sample cwd; worker compiled through real reference; then fresh hosts and complete eng/FossilDesk.browser.js execution for both apps",
+  "finalBrowserRecord": "PIN-792.execution.evidence.json",
+  "scope": "Historical clean ab4ca5f rebuild changed copied compilation evidence and asset manifests; actual browser execution was refreshed. A later indentation-only net10 project cleanup required refreshed SDK10 compilation and final real Chrome execution for BOTH canonical apps at dirty 3df9c5e, recorded in PIN-792.execution.evidence.json and committed as 2df59b0. Original SDK11/worker compilation records retain dirty 8959bb6 provenance. No clean-state relabelling or equality exemption for changed artifacts.",
+  "changedOutputCopiesAndManifests": [
+    {
+      "current": "2107075fd71b26b4409b0965b2c5f376693a1e7dce9ae75a52f5682556dd5343",
+      "path": "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.endpoints.json",
+      "previous": "1f4ff8e4049fe58bd60e7c851d8b528ded14582be324dc185408f51212635df5"
+    },
+    {
+      "current": "aaa35ca15cefc9262812e335eb84f902f8360f440b7951b486a70c82090ebf64",
+      "path": "samples/net10.0/FossilDesk/bin/Release/net10.0/verification-evidence.json",
+      "previous": "87b988b0a4b0aeb7e5de23851bc9bf4a972a239990e82303dd2257422d8eb169"
+    },
+    {
+      "current": "fabe63be718361d5f909e976ceede39b78e9adb001126aae5f4689e0ecbff2c6",
+      "path": "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.endpoints.json",
+      "previous": "ebd2dc88b610dc8278db5f8ff64f5d33ad04b2b7f3ebf0555b398f3ab7a69fb5"
+    },
+    {
+      "current": "407da902cdfed2758b936c38a1b090b2e26f2886a441d7bb68aff9a201e85106",
+      "path": "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json",
+      "previous": "fafb67a3ebd1f812b4cf58d724482641ab07610c272c6b52096403c7e4508566"
+    },
+    {
+      "current": "e6ec3bb36514b6e511b5f0eb95df340adc16af3bf113dd47a2a7a4bae6a08993",
+      "path": "samples/net11.0/FossilDesk/bin/Release/net11.0/verification-evidence.json",
+      "previous": "bf3cd07434fd85d04e7d8467edd6aa6506346b9176d9f9d4baa399bbc4260656"
+    }
+  ]
+}
