@@ -64,6 +64,8 @@ bound value; a non-nullable int naturally shows zero when no saved value exists.
    namespace to Playbook.Samples. Put the shown root in App.razor and the page
    implementations in Progress.razor and Review.razor. Inject NavigationManager
    as Navigation on Progress. Use the same root/imports in the older project.
+   At the top of Progress.razor add @page "/progress" and
+   @inject NavigationManager Navigation. Review.razor starts with @page "/review".
 4. Submit berth North-12 at /progress. Follow /review twice: both reads must
    show step 1 and North-12. Submit East-4 from /progress and expect step 2.
    A separate browser/cookie jar must start at step 0 with no berth.
@@ -108,7 +110,9 @@ before the await establishes that cookie instead.
 {{snippet:old-stream}}
 
 For this local check only, put InspectionGate in namespace Playbook.Samples,
-register it with builder.Services.AddSingleton<InspectionGate>() before Build,
+and start Stream.razor with @page "/stream", @attribute [StreamRendering] and
+@inject InspectionGate Gate. These directives apply to both release comparisons.
+Register it with builder.Services.AddSingleton<InspectionGate>() before Build,
 and map POST /control/arm to gate.Arm() and POST /control/release to gate.Release().
 These test endpoints never belong in production. The held work has no external
 provider; the request's cancellation token releases it if the client disconnects.

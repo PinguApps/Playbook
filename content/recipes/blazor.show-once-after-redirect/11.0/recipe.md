@@ -71,6 +71,10 @@ applies with the session-storage TempData provider.
    Playbook.Samples in _Imports.razor; set its namespace to Playbook.Samples.
    Put the App component below in App.razor. NavigationManager is injected as
    Navigation in Apply.razor. Use the same App/imports in the previous sample.
+   Add the page directives at the top of the named files: Apply.razor uses
+   @page "/apply" and @inject NavigationManager Navigation; Outcome.razor uses
+   @page "/outcome". On .NET 10, both pages also use
+   @inject Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionaryFactory Factory.
 4. Keep the writer and consumer non-streaming for the default cookie provider.
    Submit /apply with its antiforgery token, follow the redirect to /outcome,
    then request /outcome again. Expect the confirmation, then “No new outcome.”
