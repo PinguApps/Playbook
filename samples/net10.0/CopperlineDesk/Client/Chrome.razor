@@ -1,0 +1,32 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using CopperlineDesk.Client
+<header>
+    <span data-chrome="identity">Copperline parcel desk</span>
+    @if (Is("Review") || Is("Training"))
+    {
+        <strong data-chrome="review">Rehearsal parcels: no live dispatch</strong>
+    }
+    @if (!Is("Production") && !Is("Retired"))
+    {
+        <button type="button" data-chrome="rehearse">Open rehearsal notes</button>
+    }
+    @if ((Is("Production") || Is("Review")) && !Is("Review") && !Is("Production"))
+    {
+        <span data-chrome="blocked">Excluded notice</span>
+    }
+    @if (Is("Production"))
+    {
+        <a href="#receipts" data-chrome="receipts">Live parcel receipts</a>
+    }
+    <span data-chrome="whitespace">Desk help</span>
+    <span data-chrome="empty-list">Contact the desk team</span>
+</header>
+<p>Hidden chrome is not authorization. Protect every operation on the server.</p>
+
+@code {
+    [Parameter, EditorRequired] public string EnvironmentName { get; set; } = "";
+    private bool Is(string name) => string.Equals(EnvironmentName.Trim(), name, StringComparison.OrdinalIgnoreCase);
+}
+<!-- endsnippet:complete -->

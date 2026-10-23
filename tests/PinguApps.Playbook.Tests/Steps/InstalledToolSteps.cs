@@ -78,6 +78,58 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("environment chrome retains complete canonical guidance and renderer boundaries offline")]
+    public async Task CheckEnvironmentChromeAsync()
+    {
+        const string id = "blazor.show-environment-specific-content";
+        await CheckWebRecipesAsync([id], "copperline-chrome", 4).ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Environment chrome applicability {property.Name}, including all nested requirements, must survive real offline stdio delivery.");
+        }
+
+        foreach (string field in new[] { "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+        {
+            Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Environment chrome {field}");
+        }
+
+        JsonElement[] actualEvidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        foreach (JsonElement declaration in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(actualEvidence, entry => entry.GetProperty("sample").GetString() == declaration.GetProperty("sample").GetString());
+            foreach (JsonProperty property in declaration.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Environment chrome evidence {property.Name}");
+            }
+
+            Assert.NotEmpty(actual.GetProperty("inputs").EnumerateObject());
+            Assert.Contains("Build succeeded.", actual.GetProperty("output").GetString(), StringComparison.Ordinal);
+        }
+
+        string markdown = recipe.GetProperty("markdown").GetString()!;
+        foreach (string contract in new[] { "Hidden chrome is not authorization", "IHostEnvironment", "IWebAssemblyHostEnvironment", "adapter", "ordinal case-insensitive", "Exclude wins", "prerender: false", "UseStaticWebAssets", "<WasmBuildNative>false</WasmBuildNative>", "RC2", "not a new .NET 10 foundation" })
+        {
+            Assert.Contains(contract, markdown, StringComparison.OrdinalIgnoreCase);
+        }
+
+        foreach (string target in new[] { "net10.0", "net11.0" })
+        {
+            foreach (string part in new[] { "Host", "Client" })
+            {
+                using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/CopperlineDesk/{part}/global.json").ConfigureAwait(false));
+                Assert.Contains(sdk.RootElement.GetProperty("sdk").GetProperty("version").GetString()!, markdown, StringComparison.Ordinal);
+            }
+        }
+
+        foreach (string file in new[] { "Host/Program.cs", "Client/Program.cs", "Host/App.razor", "Host/Routes.razor", "Host/Browser.razor", "Host/wwwroot/chrome-start.js" })
+        {
+            Assert.Equal(await ReadSdkInputAsync($"samples/net10.0/CopperlineDesk/{file}").ConfigureAwait(false), await ReadSdkInputAsync($"samples/net11.0/CopperlineDesk/{file}").ConfigureAwait(false));
+        }
+    }
+
     [Then("browser configuration retains complete canonical guidance and precedence requirements offline")]
     public async Task CheckBrowserConfigurationAsync()
     {
