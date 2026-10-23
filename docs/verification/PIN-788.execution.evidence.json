@@ -1,7 +1,7 @@
 {
   "sourceCommit": "54f02c212a8633e1af19e35afe4887d23b7f8d13",
   "sourceDirty": true,
-  "recordedAt": "2026-10-23T05:11:53.6492520+00:00",
+  "recordedAt": "2026-10-23T06:11:53.649252+01:00",
   "stability": {
     "beforeCommit": "324c8d7",
     "afterCommit": "54f02c2",
@@ -577,5 +577,27 @@
       "path": "eng/Test-TideDeskHttp.ps1",
       "sha256": "902279e66242a4235d758e3cd3d29b24ddcdda6bd3b2c53ada5e14ed2bd2f7ce"
     }
-  ]
+  ],
+  "cleanRebuild": {
+    "kind": "actual-clean-rebuild-and-hash-comparison",
+    "sourceCommit": "da2223db7df6a195a4c36c4db6f665e511ba2cc6",
+    "sourceDirty": false,
+    "recordedAt": "2026-10-23T05:40:15.2874861+00:00",
+    "commands": [
+      {
+        "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-788-04-016-server-configured-blazor-browser-startup\\samples\\net10.0\\TideDesk",
+        "command": "& 'C:\\Program Files\\dotnet\\dotnet.exe' build TideDesk.csproj -c Release -p:RestoreLockedMode=true"
+      },
+      {
+        "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-788-04-016-server-configured-blazor-browser-startup\\samples\\net11.0\\TideDesk",
+        "command": "& 'C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe' build TideDesk.csproj -c Release -p:RestoreLockedMode=true"
+      },
+      {
+        "workingDirectory": "V:\\_worktrees\\Playbook\\agent-pin-788-04-016-server-configured-blazor-browser-startup",
+        "command": "& ./eng/Test-TideDeskEvidence.ps1"
+      }
+    ],
+    "result": "Both actual host/client pairs rebuilt with zero warnings/errors; every recorded source, managed/browser artifact and probe hash matched.",
+    "scope": "A clean rebuild and exact hash comparison, not a new browser execution. Browser execution retains the earlier sourceCommit/sourceDirty above; reuse is supported only by equal inputs and artifacts."
+  }
 }
