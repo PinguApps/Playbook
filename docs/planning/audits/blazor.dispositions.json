@@ -128,8 +128,8 @@
     {
       "id": "environment",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Web\\.EnvironmentView",
-      "owner": "PIN-795",
-      "disposition": "grouped"
+      "owner": "PIN-795; G12/WEB-012 blazor.show-environment-specific-content edition 11.0",
+      "disposition": "included; original net10/net11 CopperlineDesk comparison, actual SSR and browser environment proof, full offline stdio guidance; docs/verification/PIN-795.md. RC2 proof only; GA reconciliation remains explicit."
     },
     {
       "id": "ai",
