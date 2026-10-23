@@ -1,0 +1,70 @@
+{
+  "kind": "execution-fingerprints",
+  "samples": [
+    {
+      "artifacts": {
+        "samples/net10.0/NavigationAtlas/bin/Release/net10.0/NavigationAtlas.runtimeconfig.json": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+        "samples/net10.0/NavigationAtlas/bin/Release/net10.0/NavigationAtlas.dll": "d9f4d61f42510dac079ee8027743bdbf23eccdfb1b286bc88abf12773670e84c",
+        "samples/net10.0/NavigationAtlas/bin/Release/net10.0/NavigationAtlas.deps.json": "8d5ba494ed326977945da768244217ba5bf71355bfffc38ff010d6b0acd984dd"
+      },
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/NavigationAtlas.browser.js": "f0a1edc562869864b5f47b804352ef4ae368ae68ade933054b4a2d2040436103",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-NavigationAtlas.ps1": "9cd1fc3d7c40bf3a2be6a29e2a5ec5a5349b045141b3132dc4be419adbefb849",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net10.0/NavigationAtlas/_Imports.razor": "2e2e19c3a16ae399c48d75bc70461b7d0b2d27d959fd1a2d3aedd78d9c3940fb",
+        "samples/net10.0/NavigationAtlas/App.razor": "8cb82919ca772e01f6dbb231c542f5219687c495bf14c69c2514469043527b6f",
+        "samples/net10.0/NavigationAtlas/CollectionPage.razor": "0aa51706809471d0f2f5e9afff95c6570176eaaf6b8985af16d58feda3ca21f8",
+        "samples/net10.0/NavigationAtlas/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+        "samples/net10.0/NavigationAtlas/NavigationAtlas.csproj": "7e1a4d0660d5802401b89d204fac3469155ab230a317b25806d07b57b997d6ae",
+        "samples/net10.0/NavigationAtlas/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
+        "samples/net10.0/NavigationAtlas/Program.cs": "283bc1a9e6f1b5fdea9a595e630654329ed3bd58e963edb3d736c5d74e07ba33",
+        "samples/net10.0/NavigationAtlas/Routes.razor": "767ad4ac302edef4dad26a28f18e3da7497e3c965d24c988d2e8e965ee2c23b3",
+        "samples/net10.0/NavigationAtlas/verification.json": "a1580d0408deb352d40fddff8b64a33d12e3018322f3ddd6cdd6413fd3cb7b38"
+      },
+      "sample": "samples/net10.0/NavigationAtlas/NavigationAtlas.csproj"
+    },
+    {
+      "artifacts": {
+        "samples/net11.0/NavigationAtlas/bin/Release/net11.0/NavigationAtlas.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+        "samples/net11.0/NavigationAtlas/bin/Release/net11.0/NavigationAtlas.deps.json": "e3e37c1325f81a0a3d957f289291b61a34c98b5700d78c333d4788c38b6c7b0a",
+        "samples/net11.0/NavigationAtlas/bin/Release/net11.0/NavigationAtlas.dll": "0777e5383ce0ab138cb65267a2c6dff0d6e8172656c1ce071cf02b2cb5e6a5d2"
+      },
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/NavigationAtlas.browser.js": "f0a1edc562869864b5f47b804352ef4ae368ae68ade933054b4a2d2040436103",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-NavigationAtlas.ps1": "9cd1fc3d7c40bf3a2be6a29e2a5ec5a5349b045141b3132dc4be419adbefb849",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net11.0/NavigationAtlas/_Imports.razor": "2e2e19c3a16ae399c48d75bc70461b7d0b2d27d959fd1a2d3aedd78d9c3940fb",
+        "samples/net11.0/NavigationAtlas/App.razor": "f2c0206b21fbaf2c8365c779a4dd69f9db89a6c02130502af57fb82e9d4055af",
+        "samples/net11.0/NavigationAtlas/CollectionPage.razor": "7c7b9993ac922346b6ae9697d4443fbda6f161e5675567c9e9930513ffa6ccca",
+        "samples/net11.0/NavigationAtlas/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+        "samples/net11.0/NavigationAtlas/NavigationAtlas.csproj": "442e021cb4ed561840962e4133262ce2cb0eb78df217a65ca69b5ce2ba4cf788",
+        "samples/net11.0/NavigationAtlas/packages.lock.json": "a15384b18ca015107576fc2fbee8527fb39e57391227fc3491b92b6c794d2a31",
+        "samples/net11.0/NavigationAtlas/Program.cs": "283bc1a9e6f1b5fdea9a595e630654329ed3bd58e963edb3d736c5d74e07ba33",
+        "samples/net11.0/NavigationAtlas/Routes.razor": "a1b7de789dbc4ea7ab07c3627b7c733ec6716fb1e40c34a013d9484b1375d8d0",
+        "samples/net11.0/NavigationAtlas/verification.json": "c411308432a0bb0a7c800fd49de55306462839b47f16952da7196b547aac7e4a"
+      },
+      "sample": "samples/net11.0/NavigationAtlas/NavigationAtlas.csproj"
+    }
+  ],
+  "reports": {
+    "docs/verification/PIN-777.browser.evidence.json": "0d67455d7c0b0ea48a40300394a7dc0fb3144f4ac3e7cf42de80d29e0f38075d",
+    "docs/verification/PIN-777.http10.evidence.json": "7ed0790d565dfe3f2f7452f155efa6f59677d2028217e1c15363711472825a70",
+    "docs/verification/PIN-777.http11.evidence.json": "4e9cfdd607963d1fb02ac86d18b08ec55d7717e4de53f528eb6fdf2f9da44008",
+    "docs/verification/PIN-777.alternate.evidence.json": "1aca56af7f05319d5ed1db98d55968476e4bb3c38274ebe7495cd84a7c8889ca"
+  },
+  "recordedAt": "2026-10-23T00:59:52.5648472+01:00",
+  "scope": "Binds the saved actual HTTP/Chromium reports to the exact canonical app/test inputs and managed assemblies. Compilation is recorded separately.",
+  "lockNormalization": "packages.lock.json CRLF normalized to LF, both projects recompiled, every executed DLL/deps/runtimeconfig SHA-256 unchanged; execution reports reused against identical binaries."
+}

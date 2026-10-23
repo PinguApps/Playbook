@@ -1,0 +1,41 @@
+{
+  "kind": "packed-tool-execution",
+  "recordedAt": "2026-10-23T00:46:28.4227356+00:00",
+  "package": "PinguApps.Playbook.0.0.0-navigation.nupkg",
+  "sha256": "52a225f6317ccc25db6edddf9203bb8f6de1fd761f2533117f9ea36635205f51",
+  "packageBytes": 2121945,
+  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "runtime": "Microsoft.NETCore.App 10.0.12",
+  "isolation": "Docker --network none; only artifacts, compiled test suite and Test-Package.ps1 mounted; isolated local feed/cache and unrelated cwd",
+  "counts": {
+    "failed": 0,
+    "passed": 35,
+    "total": 35,
+    "skipped": 0
+  },
+  "focusedCases": [
+    {
+      "name": "Default and maximum discovery pages have practical response size budgets",
+      "outcome": "Passed",
+      "output": [
+        "traversal fixture 20: summary=1063, structured=22188, result=57516 UTF-8 bytes",
+        "traversal fixture 50: summary=1063, structured=54108, result=140256 UTF-8 bytes",
+        "all 20: summary=1397, structured=29571, result=73473 UTF-8 bytes",
+        "all 50: summary=1397, structured=67681, result=169957 UTF-8 bytes",
+        "CoreCLR path = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/libcoreclr.so', CoreCLR dir = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/'"
+      ]
+    },
+    {
+      "name": "Survey forms preserve validation label and caption guidance offline",
+      "outcome": "Passed",
+      "output": [
+        "And captured static content retains complete canonical guidance offline",
+        "And base aware navigation retains complete canonical guidance offline",
+        "-> done: InstalledToolSteps.CheckBaseAwareNavigationAsync() (0.0s)",
+        "CoreCLR path = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/libcoreclr.so', CoreCLR dir = '/usr/share/dotnet/shared/Microsoft.NETCore.App/10.0.12/'"
+      ]
+    }
+  ],
+  "baseCommit": "ff90b07cf9524ce73a39613553790042e6e66e02",
+  "sourceMergeCommit": "63736473d290b67c8a9b8a03e5155f1db1456dae"
+}

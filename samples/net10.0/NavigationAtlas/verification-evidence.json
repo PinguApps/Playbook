@@ -1,0 +1,41 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/NavigationAtlas/NavigationAtlas.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Program Files\\dotnet\\dotnet.exe build NavigationAtlas.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-23T00:02:03.0551278+00:00",
+  "sourceCommit": "1614f24e74f5e9ee4951d45633a7b772e0cf62f5",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/NavigationAtlas.browser.js": "f0a1edc562869864b5f47b804352ef4ae368ae68ade933054b4a2d2040436103",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Test-NavigationAtlas.ps1": "9cd1fc3d7c40bf3a2be6a29e2a5ec5a5349b045141b3132dc4be419adbefb849",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net10.0/NavigationAtlas/_Imports.razor": "2e2e19c3a16ae399c48d75bc70461b7d0b2d27d959fd1a2d3aedd78d9c3940fb",
+    "samples/net10.0/NavigationAtlas/App.razor": "8cb82919ca772e01f6dbb231c542f5219687c495bf14c69c2514469043527b6f",
+    "samples/net10.0/NavigationAtlas/CollectionPage.razor": "0aa51706809471d0f2f5e9afff95c6570176eaaf6b8985af16d58feda3ca21f8",
+    "samples/net10.0/NavigationAtlas/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+    "samples/net10.0/NavigationAtlas/NavigationAtlas.csproj": "7e1a4d0660d5802401b89d204fac3469155ab230a317b25806d07b57b997d6ae",
+    "samples/net10.0/NavigationAtlas/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
+    "samples/net10.0/NavigationAtlas/Program.cs": "283bc1a9e6f1b5fdea9a595e630654329ed3bd58e963edb3d736c5d74e07ba33",
+    "samples/net10.0/NavigationAtlas/Routes.razor": "767ad4ac302edef4dad26a28f18e3da7497e3c965d24c988d2e8e965ee2c23b3",
+    "samples/net10.0/NavigationAtlas/verification.json": "a1580d0408deb352d40fddff8b64a33d12e3018322f3ddd6cdd6413fd3cb7b38"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\agent-pin-777-04-005-base-aware-blazor-navigation\\samples\\net10.0\\NavigationAtlas\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  NavigationAtlas -> V:\\_worktrees\\Playbook\\agent-pin-777-04-005-base-aware-blazor-navigation\\samples\\net10.0\\NavigationAtlas\\bin\\Release\\net10.0\\NavigationAtlas.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.94"
+}

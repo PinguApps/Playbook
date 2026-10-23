@@ -1,0 +1,46 @@
+@page "/collections/{Collection}/{Panel}"
+@inject NavigationManager Nav
+
+<h1>Tide archive: @Collection / @Panel</h1>
+<!-- snippet:links -->
+<nav aria-label="Collection">
+    <NavLink id="sibling" href="@Sibling("notes")">Collection notes</NavLink>
+    <NavLink id="application-home" href="collections/kelp/overview">Archive home</NavLink>
+    <button id="imperative" @onclick="OpenChecklist">Open checklist</button>
+</nav>
+<!-- endsnippet:links -->
+<!-- snippet:sections -->
+<nav aria-label="Sections">
+    <a id="section-link" href="@SectionLink("packing")">Packing instructions</a>
+    <a id="prefixed-section-link" href="@SectionLink("#packing")">Same section with hash prefix</a>
+    <a id="clear-fragment" href="@SectionLink(null)">Remove section</a>
+</nav>
+<!-- endsnippet:sections -->
+<p id="ready">Interactive navigation ready: @_interactive</p>
+<p>Each collection has an overview, notes and checklist. Section links keep the current page and query.</p>
+<div style="height: 110vh" aria-hidden="true"></div>
+<section id="packing"><h2>Packing instructions</h2><p>Keep dried specimens flat in the archive sleeves.</p></section>
+<div style="height: 100vh" aria-hidden="true"></div>
+
+@code {
+    [Parameter] public string Collection { get; set; } = "";
+    [Parameter] public string Panel { get; set; } = "";
+    private bool _interactive;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) { _interactive = true; StateHasChanged(); }
+    }
+
+    // snippet:navigate
+    private string Sibling(string leaf) => new Uri(new Uri(Nav.Uri), leaf).AbsoluteUri;
+    private void OpenChecklist() => Nav.NavigateTo(Sibling("checklist"));
+    // endsnippet:navigate
+
+    // snippet:fragment
+    private string SectionLink(string? fragment) => new UriBuilder(Nav.Uri)
+    {
+        Fragment = fragment?.TrimStart('#') ?? ""
+    }.Uri.AbsoluteUri;
+    // endsnippet:fragment
+}
