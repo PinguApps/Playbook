@@ -1,6 +1,4 @@
 // snippet:host
-using System.Security.Cryptography;
-using System.Text;
 using BrackenMenu.Host;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,13 +8,9 @@ app.UsePathBase("/bracken");
 app.UseRouting();
 app.Use(async (context, next) =>
 {
-    const string handler = "this.closest('bracken-menu').querySelector('input').checked = false";
-    var attributePolicy = builder.Configuration.GetValue<bool>("AllowInlineMenu")
-        ? "'unsafe-hashes' 'sha256-" + Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(handler))) + "'"
-        : "'none'";
     context.Response.Headers.ContentSecurityPolicy =
         "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; " +
-        "script-src 'self' 'wasm-unsafe-eval'; script-src-attr " + attributePolicy + "; " +
+        "script-src 'self' 'wasm-unsafe-eval'; script-src-attr 'none'; " +
         "style-src 'self'; connect-src 'self' ws://localhost:*";
     await next();
 });

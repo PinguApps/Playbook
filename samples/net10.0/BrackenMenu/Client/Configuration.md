@@ -44,3 +44,23 @@ input:checked ~ .nav-scrollable { display: block; }
 a, button, label { margin: .5rem; }
 #outside { padding: 1rem; border: 1px solid #777; }
 // endsnippet:host-wwwroot-menu-css
+
+// snippet:directory-build-props
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors><Deterministic>true</Deterministic>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <EnableSourceLink>false</EnableSourceLink><EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+</Project>
+// endsnippet:directory-build-props
+
+// snippet:directory-build-targets
+<Project />
+// endsnippet:directory-build-targets
+
+// snippet:directory-packages-props
+<Project><PropertyGroup><ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally></PropertyGroup></Project>
+// endsnippet:directory-packages-props
