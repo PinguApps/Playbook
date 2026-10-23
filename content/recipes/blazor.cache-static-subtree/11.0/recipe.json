@@ -1,8 +1,8 @@
 {
   "id": "blazor.cache-static-subtree",
   "edition": "11.0",
-  "title": "Reuse cached page sections",
-  "goal": "Reuse static SSR output safely across requests.",
+  "title": "Cache static sections",
+  "goal": "Reuse costly SSR subtrees.",
   "areas": [
     "blazor"
   ],
@@ -31,7 +31,7 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Static SSR only; cache hits skip child lifecycle; isolate user-specific markup."
+          "Static SSR only; hits skip child lifecycle; isolate users."
         ],
         "requirements": {
           "runtime": {
@@ -53,7 +53,7 @@
             "reason": "Declared canonical sample language mode; preview language syntax is not required."
           },
           "frameworks": [
-            "ASP.NET Core 11 Web SDK"
+            "ASP.NET Core"
           ],
           "packages": [
             {
@@ -65,16 +65,16 @@
           ],
           "workloads": [],
           "packageAssets": [
-            "Internal.Assets (SDK-aligned)"
+            "Internal.Assets"
           ],
           "providers": [
-            "Memory / HybridCache-local"
+            "Local memory"
           ],
           "platforms": [
-            "Windows x64 server tested"
+            "Windows x64 proof"
           ],
           "renderingModes": [
-            "Static SSR GET"
+            "SSR GET"
           ],
           "prerequisites": [
             "Use the .NET 11 Web SDK/runtime with C# 15.0 and the locked sample assets. No workload, external service or experimental opt-in.",
@@ -83,7 +83,8 @@
             "Default CacheView memory store, or HybridCache local memory without IDistributedCache; both executed.",
             "ASP.NET Core server; Windows x64 execution. Other OS and multi-node providers untested.",
             "Static SSR GET only. Interactive rendering and CacheView inside a streaming subtree bypass caching.",
-            "Stable API in .NET 11 RC2; GA reconciliation pending. Local memory execution does not prove distributed eviction or multi-node consistency."
+            "Stable API in .NET 11 RC2; GA reconciliation pending. Local memory execution does not prove distributed eviction or multi-node consistency.",
+            "ASP.NET Core 11 Web SDK"
           ],
           "constraints": [
             "Static SSR only; cache hits skip child lifecycle; isolate user-specific markup.",
@@ -94,7 +95,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 proof; GA pending."
+            "RC2; GA pending"
           ]
         },
         "sourceUrls": [

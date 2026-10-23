@@ -1,4 +1,4 @@
-# Reuse cached page sections
+# Cache static sections
 
 ## Goal
 
