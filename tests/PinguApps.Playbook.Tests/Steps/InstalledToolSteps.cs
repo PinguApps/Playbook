@@ -46,7 +46,9 @@ public sealed class InstalledToolSteps : IDisposable
             {
                 string source = await ReadSdkInputAsync($"samples/{target}/BeaconWatch/{file}").ConfigureAwait(false);
                 foreach (string line in source.Split('\n', StringSplitOptions.RemoveEmptyEntries).Where(line => !line.Contains("snippet:", StringComparison.Ordinal)))
+                {
                     Assert.Contains(line.Trim(), markdown, StringComparison.Ordinal);
+                }
             }
 
             using JsonDocument sdk = JsonDocument.Parse(await ReadSdkInputAsync($"samples/{target}/BeaconWatch/global.json").ConfigureAwait(false));
