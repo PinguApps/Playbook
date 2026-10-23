@@ -1,0 +1,9 @@
+{
+  "clicks": 4,
+  "count": 4,
+  "delayMs": 200,
+  "kind": "real-browser-controlled-old-loop-reproduction",
+  "pollMs": 50,
+  "recordedAt": "2026-10-23T05:50:49.805Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) T3CodeNightly/0.1.2-nightly.20261022.3541 Chrome/152.0.7977.167 Electron/44.9.3 Safari/537.36"
+}

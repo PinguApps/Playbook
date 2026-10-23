@@ -5,6 +5,12 @@ For server circuit transport, ticket expiry and buffering, use the
 It displays the full original .NET 10/11 comparison, exact policy applicability
 and saved evidence through real stdio list/get.
 
+For nested Blazor startup options across legacy and Web App scripts, use the
+[tested PIN-789 walkthrough](verification/PIN-789.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 setup, discovery and applicability,
+including retained flat legacy compatibility and actual browser evidence.
+
+
 For periodic work owned by a browser application, use the
 [tested PIN-791 walkthrough](verification/PIN-791.md#inspect-what-an-agent-receives).
 It displays the complete .NET 10/11 WebAssembly comparison, orderly cancellation
