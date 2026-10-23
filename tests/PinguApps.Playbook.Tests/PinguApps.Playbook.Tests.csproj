@@ -5,7 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="../../samples/net*/TideCharts/*.cs;../../samples/net*/TideCharts/*.csproj;../../samples/net*/TideCharts/*.razor;../../samples/net*/TideCharts/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
-
     <EmbeddedResource Include="../../samples/net*/BeaconReadings/*.cs;../../samples/net*/BeaconReadings/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/HarbourManifest/*.cs;../../samples/net*/HarbourManifest/*.razor;../../samples/net*/HarbourManifest/wwwroot/*.js" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/WorkshopViews/*.cs;../../samples/net*/WorkshopViews/*.razor" LogicalName="SdkInput.%(Identity)" />
