@@ -1,0 +1,206 @@
+{
+  "checks": [
+    "initial ticket is absent while its real provider is held",
+    "initial index resolves to the correct rendered ticket",
+    "programmatic ticket is absent while its real provider is held",
+    "awaited reveal has not reported completion before provider readiness",
+    "programmatic index resolves to the correct rendered ticket",
+    "application rejects index -1 without calling the provider",
+    "application rejects index 200 without calling the provider",
+    "boundary 0 resolves to its actual ticket",
+    "boundary 199 resolves to its actual ticket",
+    "initial index -20 clamps to rendered ticket 0",
+    "initial index 900 clamps to rendered ticket 199",
+    "list remains virtualized rather than rendering all tickets"
+  ],
+  "completed": {
+    "events": [
+      {
+        "count": 7,
+        "phase": "started",
+        "start": 67
+      },
+      {
+        "count": 7,
+        "phase": "completed",
+        "start": 67
+      },
+      {
+        "count": 14,
+        "phase": "started",
+        "start": 67
+      },
+      {
+        "count": 28,
+        "phase": "started",
+        "start": 67
+      },
+      {
+        "count": 0,
+        "phase": "canceled",
+        "start": 67
+      },
+      {
+        "count": 28,
+        "phase": "started",
+        "start": 147
+      },
+      {
+        "count": 0,
+        "phase": "canceled",
+        "start": 67
+      },
+      {
+        "count": 28,
+        "phase": "completed",
+        "start": 147
+      },
+      {
+        "count": 28,
+        "phase": "started",
+        "start": 0
+      },
+      {
+        "count": 28,
+        "phase": "completed",
+        "start": 0
+      },
+      {
+        "count": 28,
+        "phase": "started",
+        "start": 172
+      },
+      {
+        "count": 28,
+        "phase": "completed",
+        "start": 172
+      }
+    ],
+    "held": false,
+    "pending": 0
+  },
+  "initialHeld": {
+    "events": [
+      {
+        "count": 7,
+        "phase": "started",
+        "start": 67
+      }
+    ],
+    "held": true,
+    "pending": 1
+  },
+  "origin": "http://localhost:5376",
+  "positions": [
+    {
+      "index": 70,
+      "rendered": 7,
+      "rowBottom": 232.109375,
+      "rowTop": 192.109375,
+      "scrollTop": 2801,
+      "text": "Lantern collection 070",
+      "viewportBottom": 434.109375,
+      "viewportTop": 192.109375,
+      "visible": true
+    },
+    {
+      "index": 150,
+      "rendered": 28,
+      "rowBottom": 232.109375,
+      "rowTop": 192.109375,
+      "scrollTop": 6001,
+      "text": "Lantern collection 150",
+      "viewportBottom": 434.109375,
+      "viewportTop": 192.109375,
+      "visible": true
+    },
+    {
+      "index": 0,
+      "rendered": 28,
+      "rowBottom": 232.109375,
+      "rowTop": 192.109375,
+      "scrollTop": 1,
+      "text": "Lantern collection 000",
+      "viewportBottom": 434.109375,
+      "viewportTop": 192.109375,
+      "visible": true
+    },
+    {
+      "index": 199,
+      "rendered": 28,
+      "rowBottom": 433.109375,
+      "rowTop": 393.109375,
+      "scrollTop": 7760,
+      "text": "Lantern collection 199",
+      "viewportBottom": 434.109375,
+      "viewportTop": 192.109375,
+      "visible": true
+    },
+    {
+      "index": 0,
+      "rendered": 15,
+      "rowBottom": 233.109375,
+      "rowTop": 193.109375,
+      "scrollTop": 0,
+      "text": "Lantern collection 000",
+      "viewportBottom": 434.109375,
+      "viewportTop": 192.109375,
+      "visible": true
+    },
+    {
+      "index": 199,
+      "rendered": 7,
+      "rowBottom": 433.109375,
+      "rowTop": 393.109375,
+      "scrollTop": 7760,
+      "text": "Lantern collection 199",
+      "viewportBottom": 434.109375,
+      "viewportTop": 192.109375,
+      "visible": true
+    }
+  ],
+  "programmaticHeld": {
+    "events": [
+      {
+        "count": 7,
+        "phase": "started",
+        "start": 67
+      },
+      {
+        "count": 7,
+        "phase": "completed",
+        "start": 67
+      },
+      {
+        "count": 14,
+        "phase": "started",
+        "start": 67
+      },
+      {
+        "count": 28,
+        "phase": "started",
+        "start": 67
+      },
+      {
+        "count": 0,
+        "phase": "canceled",
+        "start": 67
+      },
+      {
+        "count": 28,
+        "phase": "started",
+        "start": 147
+      },
+      {
+        "count": 0,
+        "phase": "canceled",
+        "start": 67
+      }
+    ],
+    "held": true,
+    "pending": 1
+  },
+  "result": "PASS",
+  "run": "reveal-8e93ecb2-d120-480f-840b-c8498d60ce07",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36"
+}
