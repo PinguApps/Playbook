@@ -1,0 +1,63 @@
+{
+  "sourceCommit": "09d71b21bf15975ba301d2feba851126edc5569b",
+  "sourceDirty": true,
+  "capturedAt": "2026-10-23T13:39:07.4967457+01:00",
+  "scope": "Final inspected artifact and frozen offline suite; dirty authoring capture, not later reviewed-head execution. Canonical and reconstructed sample behavior predates final test-only timestamp assertion; exact full returned recipe/body and source asset equality preserve that proof.",
+  "package": {
+    "sha256": "1631ac7048c8783b9cd72131a6706677ea183a2b28f09c5cd780ca547f862b77",
+    "version": "1.0.0-pin799.2"
+  },
+  "fixtureSha256": "c925e410f1005c9917b999ce85ca3c06e29354a30ed51970cfde600a0e43f8ac",
+  "wrapperSha256": "27e49dccea7cd72180a1c39ffc8478748dc34c44fb9c268b423679dbefb4f63f",
+  "suiteFiles": 99,
+  "image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+  "runtime": "10.0.12",
+  "network": "none",
+  "checkoutMounted": false,
+  "full": {
+    "failed": 0,
+    "passed": 36,
+    "trxSha256": "d8740e8b135e00cff557b6d57329fdfbb3a86728b94bdcdb2b8fb8fda57df68f"
+  },
+  "smoke": {
+    "failed": 0,
+    "passed": 1,
+    "trxSha256": "176a187509c9ecba66917be46c92afef95d4b90b4fde1884fa3415dfa29c1aac"
+  },
+  "returnedRecipeSha256": "b5259afd725af157f947eeee7a7253bc54290a556123813816f91aa5026e80ed",
+  "returnedMarkdownSha256": "bf5bccf149d1206ae1f53686a33905b9eead5ec9df57f8ca82d86b519a479f0d",
+  "markdownCharacters": 14710,
+  "unchangedReturnedBodyAcrossPackages1And2": true,
+  "verifiers": {
+    "eng/Test-CairnSignalsConsumer.ps1": "43abaace48908663412db31d4e9f185f86981a3e6da949e2d222a011fa4945c1",
+    "eng/Inspect-CairnSignals.ps1": "8e2903a7989d98ccf8d889256a5b4d55e63587bbb42526a2a9571c7cb2b6dfd6",
+    "eng/CairnSignals.browser.js": "0b5c37fd398cde32722c9e7c4cb01e2df965c6766dfdca137b594d2b1990b58c",
+    "eng/CairnSignals.prepare.js": "3722f92aa5920c60b3a29bdd1951f58446d8573ed208bc13962ca89e35702085",
+    "eng/Test-CairnSignals.ps1": "405fd90a4fa1006e827d069bcc5e1eaacec0016319d93a5c5dddd8432dfff24a"
+  },
+  "receipts": {
+    "reconstruction.evidence.json": "3a1d388c0e197ce27866ee3ccee3a0bcc877c758f00aeffb45aba937d6cc1138",
+    "consumer-http.evidence.json": "a3479422048484ffc51d110a7f87919dfdc0df9838956d0bd1d41ed4e19e736e",
+    "canonical-http.evidence.json": "fba951899cd76cb92cb4ad6a931960cb30f011ddcbed9464aa510d95ebc16ec8",
+    "canonical-runtime.evidence.json": "31619334701755f1d0f8f4c5785827bf91040dd0f49220321533ab67a2b26e5f",
+    "installed-discovery.json": "172c7a9a6810bc2ccc8f374beea1bc3b0f4f57a58058653d03828b833ae0402f",
+    "frozen-manifest.json": "cfcf552f2c5dd50c0fc8b4547bfc450f1343242da3283b60aa8cd1c99f71fc47",
+    "consumer-browser.evidence.json": "020fd38315c2433eac331709b4d3f4d1e84875cb06eda9c0faf07f935703e654",
+    "canonical-browser.evidence.json": "44537b052f24cd3f92ab859bbb3b05f02635572585d96e83a36a09a69942e857",
+    "consumer-runtime.evidence.json": "975c3c856581473cc639bdace6aa33343342382e4c500f42b1324398d03ff682"
+  },
+  "failedReceipts": {
+    "normalization": "Initial lock-file CRLF guard failed; normalized LF, refreshed compile records and proved exact sample DLL equality before reusing browser proof",
+    "initialFullResult": "35/36; new raw timestamp-string assertion rejected equivalent normalized offset; fixed to compare exact DateTimeOffset instant",
+    "initialFullTrxSha256": "96a592ade416e7a44a23800df5f13ae556da325fd40108e5468eef9ffd154f05",
+    "smokeInvocation": "First smoke invocation expanded a string incorrectly before tests began; rerun with literal -Smoke passed",
+    "earlierStartup": "beforeWebStart receives options, not Blazor; corrected to afterWebStarted and reran canonical and reconstructed native browser proof"
+  },
+  "documentedOfflineExample": {
+    "originalSuccessfulTrxPreserved": "artifacts/pin799/frozen-final/results/full-original/playbook.trx",
+    "passed": 36,
+    "workingDirectory": "C:\\Windows",
+    "failed": 0,
+    "trxSha256": "650ef678d679fffd6456f037c576c8b94820e0788b492d25d18dcb23d9ae63ba"
+  }
+}

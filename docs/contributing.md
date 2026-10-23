@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+Custom event alias migration uses original CairnSignals .NET 10/11 consumers.
+[PIN-799](verification/PIN-799.md) records actual same-name rejection, native
+beforeinput payload/dispatch, complete returned-Markdown reconstruction and the
+tested installed Inspector handoff.
+
 Unified JavaScript startup options use the original .NET 10/11 ParcelStartup
 Server/WASM legacy and Web App consumers. [PIN-789](verification/PIN-789.md)
 records effective callbacks, browser culture, responsive controls, retained flat

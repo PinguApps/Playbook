@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For custom browser-event alias migration, use the
+[tested PIN-799 walkthrough](verification/PIN-799.md#inspect-what-an-agent-receives).
+It displays complete original .NET 10/11 consumers, full installed Markdown,
+same-name rejection, paired JS/Razor renaming and the RC2/Interactive Server limits.
+
 For one-use redirect confirmations and persistent static SSR progress, use the
 [tested PIN-776 walkthrough](verification/PIN-776.md#inspect-what-an-agent-receives).
 It shows both goals, complete canonical comparisons and provider applicability,
