@@ -1,6 +1,6 @@
 {
   "kind": "real-installed-tool-execution",
-  "recordedAt": "2026-10-23T22:33:19.7315281+00:00",
+  "recordedAt": "2026-10-23T23:33:19.7315281+01:00",
   "sourceCommit": "8c69f8e58393a257843943250d3dcc3ddc77b0d4",
   "sourceDirty": false,
   "version": "0.0.0-pin790-resume1",
@@ -295,12 +295,14 @@
     "originalBoundEndedAt": "2026-10-23T07:46:01.527Z",
     "resumption": {
       "authorizedBy": "Explicit user $finish-pr invocation after reported bound stop",
-      "startedAt": "2026-10-23T23:14:18.3098942+01:00",
+      "startedAt": "2026-10-23T22:12:20.570Z",
       "reviewRoundsAtResume": 1,
       "originalClockRetained": true,
-      "timeAllowanceEndsAt": "2026-10-24T01:14:18.3098942+01:00",
+      "timeAllowanceEndsAt": "2026-10-24T00:12:20.321Z",
       "pushesAtResume": 3,
-      "originalBoundReached": true
+      "originalBoundReached": true,
+      "recordedAt": "2026-10-23T23:14:18.3098942+01:00",
+      "requestedAt": "2026-10-23T22:12:20.321Z"
     }
   }
 }
