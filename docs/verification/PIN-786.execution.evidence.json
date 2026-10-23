@@ -1,0 +1,161 @@
+{
+  "sourceCommit": "39bf807c6bb67e645bf70c88e801e524a2c465eb",
+  "sourceDirty": true,
+  "browserInputHash": "451b817740269518192bd13cb21178deeb8d1f55076ff62a8139019936c14cf0",
+  "samples": [
+    {
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net10.0/BeaconReadings/_Imports.razor": "59600f2f504912c79d6ef683a06019bd325fb5cdb5e2d85d2e4cc8ed2142955e",
+        "samples/net10.0/BeaconReadings/App.razor": "adf243ce01c2b2ba9736fe18bd73cbef2e4d698658c34e087b89d94044b002cb",
+        "samples/net10.0/BeaconReadings/BeaconReadings.csproj": "bb8d4ed6825183c8bb35d87a578711c89da45af1f4076c733004845ccc9a09c1",
+        "samples/net10.0/BeaconReadings/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+        "samples/net10.0/BeaconReadings/packages.lock.json": "4851aab479c5f9a6ffbda507bd9c920ba9785b5a24f1a9bce3ca576576a967eb",
+        "samples/net10.0/BeaconReadings/Program.cs": "e41f8c34e2b94c5906e405c7e90bfc3f47106b797700deef061555e7f2b44865",
+        "samples/net10.0/BeaconReadings/Readings.razor": "e14f2331ccb8851ba72314db1c9b7c510a4ca46666a92e11935966d503ba5f71",
+        "samples/net10.0/BeaconReadings/verification.json": "b76b5212466f9fae00a241bb7f324a5c3352998b5473687d13c9788b0e71603c",
+        "samples/net10.0/BeaconReadings/wwwroot/policy-probe.js": "81c80a5d804e048e3ab79eb08f24b84558d2cae01de84a56e19cc84a1e59ebf2",
+        "samples/net10.0/BeaconReadings/wwwroot/readings.css": "cba7c341bf1f918ce1a051fb5611e41277e129e198819702dd7973b28d808528"
+      },
+      "artifacts": [
+        {
+          "sha256": "15eaac66998d4dd29552d1c5268ab705edb93d51bc60de2a02e96ea197f4a6a7",
+          "path": "BeaconReadings.deps.json"
+        },
+        {
+          "sha256": "ee02bd96082261470bcaa36917763a91be1f1c3a16a4340da6e305cba0b27621",
+          "path": "BeaconReadings.dll"
+        },
+        {
+          "sha256": "77ff81a1c8885d0c35e4f996206eb43912ccb0688ff2709a9963ec9456430f26",
+          "path": "BeaconReadings.exe"
+        },
+        {
+          "sha256": "b0beac962a5671846d0dc744a3587a7d7cd10efaccaecd334efe42cb27df3e4b",
+          "path": "BeaconReadings.pdb"
+        },
+        {
+          "sha256": "41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65",
+          "path": "BeaconReadings.runtimeconfig.json"
+        },
+        {
+          "sha256": "8f6f15c15364640d60d6dfd6ead59979722d72b5132e0215ff135fca641ef07c",
+          "path": "BeaconReadings.staticwebassets.endpoints.json"
+        },
+        {
+          "sha256": "99f1f3c33ca8f9f028fced37df69ed8714ed7f3a8444c1cf6c9163092c8ed93f",
+          "path": "BeaconReadings.staticwebassets.runtime.json"
+        },
+        {
+          "sha256": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+          "path": "global.json"
+        },
+        {
+          "sha256": "b76b5212466f9fae00a241bb7f324a5c3352998b5473687d13c9788b0e71603c",
+          "path": "verification.json"
+        }
+      ],
+      "sample": "samples/net10.0/BeaconReadings/BeaconReadings.csproj"
+    },
+    {
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+        "samples/net11.0/BeaconReadings/_Imports.razor": "59600f2f504912c79d6ef683a06019bd325fb5cdb5e2d85d2e4cc8ed2142955e",
+        "samples/net11.0/BeaconReadings/App.razor": "8a418b653dc1cdc6923f470876699b8648536ad2bf683f7537ef62ea589ba1ab",
+        "samples/net11.0/BeaconReadings/BeaconReadings.csproj": "3b7dae95bfea5aa31b122496d538dc98cfca9dcdda1588b105992a6947a35c1e",
+        "samples/net11.0/BeaconReadings/global.json": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+        "samples/net11.0/BeaconReadings/packages.lock.json": "21a60233da5c81bba55b56e6b57b7ca580a07d00bc7d5eaa6dc493be7763db10",
+        "samples/net11.0/BeaconReadings/Program.cs": "40754925459c8c90bbd8f04cc6e00ee9e4fa44aab0894eee7dfea7fdcd07753f",
+        "samples/net11.0/BeaconReadings/Readings.razor": "489f1963b0ad9206d2e9766b6515e7b0156293a22981a77d56afba35d3eb8ba2",
+        "samples/net11.0/BeaconReadings/verification.json": "18c1b4ec41339c9054f89f486aeae88ecde46b8c904cecbb5a927bc5004576cc",
+        "samples/net11.0/BeaconReadings/wwwroot/policy-probe.js": "81c80a5d804e048e3ab79eb08f24b84558d2cae01de84a56e19cc84a1e59ebf2",
+        "samples/net11.0/BeaconReadings/wwwroot/readings.css": "cba7c341bf1f918ce1a051fb5611e41277e129e198819702dd7973b28d808528"
+      },
+      "artifacts": [
+        {
+          "sha256": "f5c94822a0c39590555fb3d6ad7e881863867e8025b7727726300747a0449d56",
+          "path": "BeaconReadings.deps.json"
+        },
+        {
+          "sha256": "f2e5047cfcab1a201bd83bd55623beb4f556026a30275aa0bd02cb231360be7b",
+          "path": "BeaconReadings.dll"
+        },
+        {
+          "sha256": "8844cf02eed739ece42246adf95a328726fe892b9b8c9851c9a10c1cb040d07f",
+          "path": "BeaconReadings.exe"
+        },
+        {
+          "sha256": "877d346638a8551237b4d30adfab610e1a6e8b8760c6dbd8a7911c31adefa660",
+          "path": "BeaconReadings.pdb"
+        },
+        {
+          "sha256": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6",
+          "path": "BeaconReadings.runtimeconfig.json"
+        },
+        {
+          "sha256": "47d4787d24d0db868ca4f3eb92dafd79a6df892222ac6e1cab2d534e65903a88",
+          "path": "BeaconReadings.staticwebassets.endpoints.json"
+        },
+        {
+          "sha256": "3ad7e2398bcfb6f405199afd8d3383d2e18df15cc33a19e0756f4fc7d202748d",
+          "path": "BeaconReadings.staticwebassets.runtime.json"
+        },
+        {
+          "sha256": "e1263d1bd9b93c86546c89fa261e16ceecd1c1068a56abcb2bc31e6e2d9381b1",
+          "path": "global.json"
+        },
+        {
+          "sha256": "18c1b4ec41339c9054f89f486aeae88ecde46b8c904cecbb5a927bc5004576cc",
+          "path": "verification.json"
+        }
+      ],
+      "sample": "samples/net11.0/BeaconReadings/BeaconReadings.csproj"
+    }
+  ],
+  "dirtyPaths": [
+    "?? docs/verification/PIN-786.execution.evidence.json",
+    "?? docs/verification/PIN-786.newer.browser.json",
+    "?? docs/verification/PIN-786.olderLegacy.browser.json",
+    "?? docs/verification/PIN-786.olderStrict.browser.json",
+    "?? docs/verification/PIN-786.sources.json",
+    "?? eng/BeaconReadings.browser.js",
+    "?? samples/net10.0/BeaconReadings/",
+    "?? samples/net11.0/BeaconReadings/"
+  ],
+  "reports": [
+    {
+      "path": "docs/verification/PIN-786.newer.browser.json",
+      "sha256": "53f3675e30ed081da5d3359806e17bf73ced7c439650d17b740fa9c1b4ddc82d"
+    },
+    {
+      "path": "docs/verification/PIN-786.olderStrict.browser.json",
+      "sha256": "a12ad73975190e8e14edba4e7e2b09d6a5c7e604cb729bf2f1e0e2ba98854d91"
+    },
+    {
+      "path": "docs/verification/PIN-786.olderLegacy.browser.json",
+      "sha256": "87fb97f9fc352046d7450c108942294fd070215f25262d7abc7a92a5b9aef13b"
+    }
+  ],
+  "frameworkArtifacts": [
+    {
+      "path": "C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App\\10.0.13\\Microsoft.AspNetCore.Components.Web.dll",
+      "sha256": "b8775f0e27435ced7874cc28c6ad81cc705a3bfa774c29990c8a39d96efa0da6"
+    },
+    {
+      "path": "C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App\\11.0.0-rc.2.26504.105\\Microsoft.AspNetCore.Components.Web.dll",
+      "sha256": "772379264d90c925c7114f75b2eaba3bdb3b267e6a340e25efda2f1a00ecc0b4"
+    }
+  ]
+}
