@@ -10,15 +10,27 @@
     }
   ],
   "from": "C:\\Windows",
-  "serverSha256": "4eabdc90a9e73bb82abc088d9eca7127cf0cb1cb062e18d4d3d5894c16dbc5f9",
-  "output": "artifacts/inspector-pin776-after90.log",
+  "serverSha256": "acdd1ce7872d028c94114cd7d20a677295e722db1ffee4298b21226d0e4964e3",
+  "output": "artifacts/inspector-pin776-after91.log",
   "passed": true,
   "pathChecks": {
+    "User": true,
     "Process": true,
-    "Machine": true,
-    "User": true
+    "Machine": true
   },
-  "sourceCommit": "057de7729d5d0a6636e4707484227ce9ebc6b9ba",
+  "sourceCommit": "9dbb008772675f062e9fcff62adde143ee35440e",
   "scriptSha256": "b5df6ea9e5599b7412f1f87ef5b9f92cc5933b08c0d987bad96ee47ce1bfd8ad",
-  "sourceClean": true
+  "sourceClean": true,
+  "installed": {
+    "editions": "11.0",
+    "packageSha256": "0ba3683706b8d1f704fcdfde18614a095a66d31b8c87fe5861bc5662b03a9a3c",
+    "sourceCommit": "9dbb008772675f062e9fcff62adde143ee35440e",
+    "localFeedCacheAndUnrelatedCwd": true,
+    "responsesDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-pin776\\after91-installed\\responses",
+    "bothBodiesEqualBuiltAndReconstructed": true,
+    "routeCounts": {
+      "session": 1,
+      "tempData": 2
+    }
+  }
 }
