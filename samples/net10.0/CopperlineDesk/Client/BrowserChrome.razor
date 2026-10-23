@@ -1,0 +1,10 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using CopperlineDesk.Client
+@inject Microsoft.AspNetCore.Components.WebAssembly.Hosting.IWebAssemblyHostEnvironment BrowserEnvironment
+<main data-runtime="@System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription" data-renderer="client" data-environment="@BrowserEnvironment.Environment">
+    <h1>Copperline browser desk</h1>
+    <Chrome EnvironmentName="@BrowserEnvironment.Environment" />
+</main>
+<!-- endsnippet:complete -->

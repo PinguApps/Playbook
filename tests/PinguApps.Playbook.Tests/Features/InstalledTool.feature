@@ -279,5 +279,6 @@ Feature: Installed offline guidance
     And circuit pause retains complete canonical guidance and persistence requirements offline
     And periodic browser work retains complete canonical guidance and lifetime limits offline
     And browser workers retain complete canonical guidance and cancellation limits offline
+    And environment chrome retains complete canonical guidance and renderer boundaries offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
