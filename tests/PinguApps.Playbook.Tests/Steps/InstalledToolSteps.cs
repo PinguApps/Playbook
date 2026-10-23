@@ -19,6 +19,26 @@ public sealed class InstalledToolSteps : IDisposable
     private int _requestId;
     private string _packageVariable = "PLAYBOOK_TEST_PACKAGE";
 
+    [Then("static subtree caching retains complete canonical guidance offline")]
+    public async Task CheckStaticSubtreeCachingAsync()
+    {
+        string[] ids = ["blazor.cache-static-subtree"];
+        await CheckWebRecipesAsync(ids, "static-subtree-cache").ConfigureAwait(false);
+        JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id = ids[0], targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+        JsonElement requirements = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray()).GetProperty("requirements");
+        using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync("content/recipes/blazor.cache-static-subtree/11.0/recipe.json").ConfigureAwait(false));
+        JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+        foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+        {
+            Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive packaging and stdio retrieval.");
+        }
+        Assert.Contains("Static SSR only; cache hits skip child lifecycle; isolate user-specific markup.", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("HybridCache rejects ExpiresSliding", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("permission", requirements.GetProperty("constraints").ToString(), StringComparison.Ordinal);
+        Assert.Contains("VaryByUser=\"true\"", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+        Assert.Contains("logical invalidation", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+    }
+
     [Then("alternative parameter shapes retain canonical guidance and JSON boundaries offline")]
     public async Task CheckAlternativeParameterShapesAsync()
     {
