@@ -1,0 +1,16 @@
+<!-- snippet:callers -->
+@page "/"
+
+<h1>Bracken Seed Library</h1>
+<SeedBadge Label="Collect from shelf Fern" />
+<SeedBadge Label="@boundText" />
+<SeedBadge Label="@richLabel" />
+<BatchPanel Choice="@batch" @rendermode="InteractiveServer" />
+<BatchPanel Choice="Reserve at the desk" @rendermode="InteractiveServer" />
+
+@code {
+    private readonly BadgeLabel boundText = "Return unused packets";
+    private readonly BadgeLabel richLabel = (RenderFragment)(@<strong>Keep the envelopes dry</strong>);
+    private readonly SeedChoice batch = new SeedBatch("Sea kale", 4);
+}
+<!-- endsnippet:callers -->

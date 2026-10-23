@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+Alternative component values use the original .NET 10/11 SeedLabels applications.
+[PIN-779](verification/PIN-779.md) records native C# 15 literal/bound parameters,
+real JSON interop/prerender persistence and delegate-union rejection, with the
+tested Inspector handoff and existing packed-tool harness.
+
 Captured static child content uses the original .NET 10/11 ArchiveCards samples.
 [PIN-778](verification/PIN-778.md) records real SSR/Interactive Server execution,
 generic/delegate/prerender restrictions and the tested offline Inspector path.

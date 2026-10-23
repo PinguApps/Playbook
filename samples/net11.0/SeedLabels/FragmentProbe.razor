@@ -1,0 +1,51 @@
+@page "/probe/fragment"
+@rendermode InteractiveServer
+@implements IDisposable
+@inject IJSRuntime JS
+@inject PersistentComponentState State
+
+<h1>Local fragment boundary probe</h1>
+<SeedBadge Label="@label" />
+<button @onclick="TryInterop">Try fragment interop</button>
+<p id="fragment-result">@result</p>
+
+@code {
+    public static int PersistenceRejections { get; private set; }
+    private readonly BadgeLabel label = (RenderFragment)(@<em>Local markup only</em>);
+    private string result = "Not attempted";
+    private PersistingComponentStateSubscription subscription;
+
+    protected override void OnInitialized()
+    {
+        subscription = State.RegisterOnPersisting(() =>
+        {
+            try
+            {
+                State.PersistAsJson("fragment", label);
+                throw new InvalidOperationException("A fragment unexpectedly persisted.");
+            }
+            catch (NotSupportedException)
+            {
+                PersistenceRejections++;
+                result = "Persistence rejected RenderFragment";
+            }
+
+            return Task.CompletedTask;
+        });
+    }
+
+    private async Task TryInterop()
+    {
+        try
+        {
+            await JS.InvokeVoidAsync("seedEcho", label);
+            result = "Unexpected fragment interop success";
+        }
+        catch (NotSupportedException)
+        {
+            result = "Interop rejected RenderFragment";
+        }
+    }
+
+    public void Dispose() => subscription.Dispose();
+}

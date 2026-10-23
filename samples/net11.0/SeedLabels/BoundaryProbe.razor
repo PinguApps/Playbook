@@ -1,0 +1,7 @@
+@page "/probe/boundary"
+
+<SeedBadge Label="@label" @rendermode="InteractiveServer" />
+
+@code {
+    private readonly BadgeLabel label = (RenderFragment)(@<em>This union is not a captured fragment parameter</em>);
+}
