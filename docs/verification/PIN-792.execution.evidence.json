@@ -1,45 +1,588 @@
 {
-  "sourceDirty": false,
-  "kind": "actual-browser-input-and-artifact-fingerprint",
-  "limits": "Compile records and actual Windows Chrome execution are separate. Fresh real browser execution after separate clean sample rebuild. Original dirty compilation records remain distinct. No cross-compilation, mocks, GA, AOT, mobile, SSR, Auto, hosted deployment or durable work claimed.",
+  "sourceDirty": true,
   "samples": {
-    "net10.0": {
+    "net11.0": {
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/FossilDesk.browser.js": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net11.0/FossilDesk/Desk.razor": "29c255ab6a77d24f7285c777771ad868a3c91876aa65a81f26ad72b86f1c6681",
+        "samples/net11.0/FossilDesk/Directory.Packages.props": "1306372fbeb70090e5cf74e682c60d09a6ceb7f56e449305a89052944ee54117",
+        "samples/net11.0/FossilDesk/FossilDesk.csproj": "f655f2770085a339029b0746bd2d01b3ffc7e90c0783ab95bc6bd91b7146993d",
+        "samples/net11.0/FossilDesk/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
+        "samples/net11.0/FossilDesk/packages.lock.json": "c00c0fd7425aeb35c89794cdb23ab488b2a11eadc48bbf42c669136a52ab086b",
+        "samples/net11.0/FossilDesk/Program.cs": "9f31ddcb9d76258d6f1a5f8e5182322d3638d71e0a64eafc061a5c12aba8a44d",
+        "samples/net11.0/FossilDesk/verification.json": "b1a80bd2c1c540be297e5ac8a7d0abd7164db7f5acfbc6c3c6278515c9e1c18f",
+        "samples/net11.0/FossilDesk/WorkerProbe.cs": "00575cf79533805e4078c2477cb51167ccfa584fde2af85a7aee6649402c1bab",
+        "samples/net11.0/FossilDesk/wwwroot/fossil-observe.js": "9994dd478837324372d3e03f84a93236eb8a9310a6d5730e5e0caf68e3ef64ca",
+        "samples/net11.0/FossilDesk/wwwroot/index.html": "0103e59ee47112f503773f7257defa51502d634c4a4cadeb648b0de7fce9a973",
+        "samples/net11.0/FossilWorker/Directory.Packages.props": "1306372fbeb70090e5cf74e682c60d09a6ceb7f56e449305a89052944ee54117",
+        "samples/net11.0/FossilWorker/FossilWorker.csproj": "30222750f7106f102a1daa24962fe43c56370e8a2de329ec6cb4d2efc6ba5f7a",
+        "samples/net11.0/FossilWorker/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
+        "samples/net11.0/FossilWorker/packages.lock.json": "908a016417b33d2d06a725227cd6f6f76a173141382344f951e45a8913aabec0",
+        "samples/net11.0/FossilWorker/verification.json": "bfa571607c20640f33be0c93f928600bd97bef7b7089e6df2381dbe15e0dda28",
+        "samples/net11.0/FossilWorker/WebWorkerClient.cs": "81d25cc029a5e261d137ec6cf265f77c0e512a5461c9ae62bd7aef15933e7a79",
+        "samples/net11.0/FossilWorker/WorkerMethods.cs": "16d939716bf25f6f3599b732bf38a9afcdff7142a353452afac44acd79ad66cc",
+        "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker-client.js": "5ee43d6ef1171431a1c4e68a12ab87426279d7d23465bd63d553039f7417dc1e",
+        "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker.js": "2133f470a9f90e4cfd6e343ea18e39fb088965c631e27dffebc5edd22cb6403a"
+      },
       "execution": {
         "kind": "real-browser-webassembly-native-worker",
-        "recordedAt": "2026-10-23T08:10:04.621Z",
+        "recordedAt": "2026-10-23T08:22:01.052Z",
+        "url": "http://localhost:5832/",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "newer": true,
+        "trace": [
+          {
+            "phase": "responsive-during-cpu",
+            "frames": 50,
+            "state": "Computing",
+            "clicks": 1
+          },
+          {
+            "phase": "completed",
+            "result": "Score 445449 | Westmere-A:1"
+          },
+          {
+            "phase": "invocation-timeout-work-continued",
+            "state": "Wait failed: Unable to invoke the web worker JavaScript function: Worker method 'FossilWorker.WorkerMethods.Score' timed out\nError: Worker method 'FossilWorker.WorkerMethods.Score' timed out\n    at http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js:4:33",
+            "result": "Score 445449 | Westmere-A:1 | Westmere-A:2"
+          },
+          {
+            "phase": "invocation-cancel-work-continued",
+            "state": "Wait cancelled",
+            "result": "Score 445449 | Westmere-A:1 | Westmere-A:2 | Westmere-A:3"
+          },
+          {
+            "phase": "both-waits-ended-before-actual-worker-completion",
+            "verifiedCalls": 2
+          },
+          {
+            "phase": "creation-timeout-terminated",
+            "message": "Unable to create the web worker JavaScript object: Worker initialization timed out\nError: Worker initialization timed out\n    at http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js:4:33"
+          },
+          {
+            "phase": "creation-await-cancelled-worker-still-booted",
+            "observerCleanupRequired": true
+          }
+        ],
+        "finalState": "Worker released",
+        "workers": [
+          {
+            "url": "_content/FossilWorker/dotnet-web-worker.js",
+            "createdAt": 2477.099999964237,
+            "events": [
+              {
+                "direction": "sent",
+                "at": 2477.2999999523163,
+                "data": {
+                  "type": "init",
+                  "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
+                  "assemblyName": "FossilWorker"
+                }
+              },
+              {
+                "direction": "received",
+                "at": 3255.199999988079,
+                "data": {
+                  "type": "ready"
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 3338.099999964237,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Label",
+                  "args": [
+                    "Westmere-A"
+                  ],
+                  "requestId": 1
+                }
+              },
+              {
+                "direction": "received",
+                "at": 3339.2999999523163,
+                "data": {
+                  "type": "result",
+                  "requestId": 1
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 10949.299999952316,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Score",
+                  "args": [
+                    1200
+                  ],
+                  "requestId": 2
+                }
+              },
+              {
+                "direction": "received",
+                "at": 12153.099999964237,
+                "data": {
+                  "type": "result",
+                  "requestId": 2,
+                  "result": 445449
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 12155.799999952316,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Report",
+                  "args": [],
+                  "requestId": 3
+                }
+              },
+              {
+                "direction": "received",
+                "at": 12166.5,
+                "data": {
+                  "type": "result",
+                  "requestId": 3,
+                  "result": "Westmere-A:1"
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 12186.799999952316,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Score",
+                  "args": [
+                    1200
+                  ],
+                  "requestId": 4
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 12212.299999952316,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Report",
+                  "args": [],
+                  "requestId": 5
+                }
+              },
+              {
+                "direction": "received",
+                "at": 13387.399999976158,
+                "data": {
+                  "type": "result",
+                  "requestId": 4,
+                  "result": 178358
+                }
+              },
+              {
+                "direction": "received",
+                "at": 13387.5,
+                "data": {
+                  "type": "result",
+                  "requestId": 5,
+                  "result": "Westmere-A:2"
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 13413.099999964237,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Score",
+                  "args": [
+                    1200
+                  ],
+                  "requestId": 6
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 13467.799999952316,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Report",
+                  "args": [],
+                  "requestId": 7
+                }
+              },
+              {
+                "direction": "received",
+                "at": 14615,
+                "data": {
+                  "type": "result",
+                  "requestId": 6,
+                  "result": 676186
+                }
+              },
+              {
+                "direction": "received",
+                "at": 14615.099999964237,
+                "data": {
+                  "type": "result",
+                  "requestId": 7,
+                  "result": "Westmere-A:3"
+                }
+              },
+              {
+                "direction": "sent",
+                "at": 15251.599999964237,
+                "data": {
+                  "method": "FossilWorker.WorkerMethods.Score",
+                  "args": [
+                    1200
+                  ],
+                  "requestId": 8
+                }
+              }
+            ],
+            "terminatedAt": 15360.799999952316
+          },
+          {
+            "url": "_content/FossilWorker/dotnet-web-worker.js",
+            "createdAt": 14624.299999952316,
+            "events": [
+              {
+                "direction": "sent",
+                "at": 14624.399999976158,
+                "data": {
+                  "type": "init",
+                  "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
+                  "assemblyName": "FossilWorker"
+                }
+              }
+            ],
+            "terminatedAt": 14626.899999976158
+          },
+          {
+            "url": "_content/FossilWorker/dotnet-web-worker.js",
+            "createdAt": 14632.699999988079,
+            "events": [
+              {
+                "direction": "sent",
+                "at": 14632.799999952316,
+                "data": {
+                  "type": "init",
+                  "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
+                  "assemblyName": "FossilWorker"
+                }
+              },
+              {
+                "direction": "received",
+                "at": 15230,
+                "data": {
+                  "type": "ready"
+                }
+              }
+            ],
+            "terminatedAt": 15249.399999976158
+          }
+        ],
+        "resources": [
+          "http://localhost:5832/fossil-observe.js",
+          "http://localhost:5832/_framework/blazor.webassembly.js",
+          "http://localhost:5832/_framework/dotnet.js",
+          "http://localhost:5832/_framework/dotnet.runtime.okxdo5zwwj.js",
+          "http://localhost:5832/_framework/dotnet.native.ric31difde.js",
+          "http://localhost:5832/_framework/dotnet.native.89gvfkserh.wasm",
+          "http://localhost:5832/_framework/FossilWorker.7cvdkbydr9.pdb",
+          "http://localhost:5832/_framework/FossilDesk.7tg6k72ti2.pdb",
+          "http://localhost:5832/_framework/FossilWorker.54oo5zkr85.wasm",
+          "http://localhost:5832/_framework/FossilDesk.wbgnpit18c.wasm",
+          "http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js",
+          "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js",
+          "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js"
+        ],
+        "limit": "Real foreground browser; deterministic init-message hold for creation cancellation only. No mock worker; no GA/AOT/mobile/SSR/Auto/deployment or durable-work proof."
+      },
+      "browserVerifierSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
+      "expressionSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
+      "artifacts": {
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.js": "d9c7926b353e0a802efbe060c60d2ec5e804e62bb9b6f95d31e816a1d448fea4",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.js.map": "ee53f820720a378f3451b35994bc8d1a9bc258834fdf91f0f5dfdc9f610a516f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.native.js": "ddc8ff57061165f6cea6032307824d64cdc8da7f8865a5776658448122c45ae4",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.native.wasm": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js.map": "6ebd0a1b7435a9ce802e194a251baa39fc5d95609fdbfb69351da605cdc20953",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.dll": "5258ec3a591d81236aad3554d013b4682d4bf179b3bf5236a37ba059ace50242",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.pdb": "65f54ad63280339dba9856b6018939b722b31e0916364412e383571a4cda410b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.endpoints.json": "fabe63be718361d5f909e976ceede39b78e9adb001126aae5f4689e0ecbff2c6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.runtime.json": "4a973a0468519076bf765fa72a866dd68bf3e73fd9dbc785a66d90364d5f9d3b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.dll": "6a382409fcc0518a91b63018692390733547b27fa5fa65b0de282d75a44278a3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.pdb": "e7dfe775561c1e76532daeaccdb2678690c8e3d9742f2678d22ec91a2ee34d3c",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "407da902cdfed2758b936c38a1b090b2e26f2886a441d7bb68aff9a201e85106",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.runtime.json": "d4f7d5f1d7e930e63ab0d90b0e72d38f213213664f7cdc5cb99c70bcd628eaf5",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/icudt_CJK.dat": "799b97d299edad4c0dac098508cc29c498c5037fccca2feb5b6c7d98467e31b8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/icudt_EFIGS.dat": "4907316fe6ddc7651750253db4574e582af80ad93ae318210a7af42462d658a4",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/icudt_no_CJK.dat": "4fc625972969c725a9f40ab802217e04c031297a98cb3581f5103946a635f6fb",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Authorization.dll": "ce937c67957e198686fe5ae22835bd7284f354802e8b092d587a901724cbbd1c",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.dll": "ce1eb38aa46b71503ab5b4c19331483113e29a0a2340bb9c9c01de970dd2c03d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.Forms.dll": "300e6d4eeed0fc246cbf787b78f9b11808e3126d9bc7e52ca52ff09d82f177f4",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.Web.dll": "68138670c8b2f8297455eaeece181f3ba24274bd8dd869a0898697fbbae2369e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.WebAssembly.dll": "b245417f44d0e0c8b314876d4d4fb4b815079f100df36e235a4107a75eb9aaf0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Metadata.dll": "be73d202c0f70c583d3853e6ca85c91f18eb8ab237a18ccead3064e870fe9258",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.CSharp.dll": "0986f553a7cc690bc5b3c699a60ec5371fa8c7774108f72e65deb4fea99a92c6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Caching.Abstractions.dll": "40bb46c28dcb5234eb67055e1a49cd398943c859c14b4e1b560c1288b070f322",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.Abstractions.dll": "8bf69b9b4604b90370cd2ed1d0649b2d2b486c9e4165754ebe56c4d5e51b4bae",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.Binder.dll": "6f2e82b992b654046bb8d4eb0f0256d2e8d6ff031f088eb869be53c7a1fcfa7c",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.dll": "66a8c3f6fb532c45f6e3060f263a30166aca323a896b836a4afa6292fac6132c",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": "28863375aa52c04307a5817efc588ab0e606a12c7310d058b79b53a68a8a0fd7",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.FileExtensions.dll": "c554c0b02e9dd8fb129073a1aec4ce15565c557112233ef81280ebf1f1fa0fb3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.Json.dll": "05719d61b3dce1dc3324e6602eef4941fd000d822d0afe819156624018a444b0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": "b0d17ccd7de7a9489669f4c8c12449f27b1d25409c39794a6b038ec97667a017",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.DependencyInjection.dll": "642983f61ced02961727b6b5df8bf2a76a43d70f64c91188d4e6efe4a1e25fe7",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": "0c6f5d25969f18dd78a07c717ec085440de9fff9990629046181012881354e36",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Diagnostics.dll": "7d6d093fda1a6f34a03854fd49dd79171b73a79abf8eee0351f69929ba3eb7ec",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.FileProviders.Abstractions.dll": "7d22a8b698d3e2b433dcb6cfdb6ef4a3f1e12b064e6c946717821c8c24a52623",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.FileProviders.Physical.dll": "0d0bdd32a5a4ee692057f77c5a31832041312aa2a639e4a77649f949f0f46876",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.FileSystemGlobbing.dll": "3a7560a4bbbffa4aa940f760831c74aa278fff1361b1fdecfa912de27e63457e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Hosting.Abstractions.dll": "ace5721b0fbca74802107f531ca47e897eeea46d9ac5d54bb91e51ddaac961f0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Localization.Abstractions.dll": "79aaf77d1d921f795c4f33f4c2057ac6e28884e268c49349eb9193861b2c90f3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Logging.Abstractions.dll": "8fc91d891446ef78e8ecf7a7f2c9f917b98494ce226a0e607a0e10a819048fb9",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Logging.dll": "f25d423883523259100e0b0f03ade2d843c6a122cd474ca5351573fc46cdec5a",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": "7451a8b935ed94e8b4255394b7749b90798e4e9184030b081e87d0c290722c73",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Options.dll": "9a15a228580e3ed50f68d4a99cf8d4cb0b1b940b8904e56ddc37a3a799346a0c",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Primitives.dll": "878f790a4c880fae837016f4762f3be80b1c932b625434eaf2bd1a558c61a851",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Validation.dll": "238370c5921c16b9fb165f799787876d88742f03e9ba950d95390d9912143d59",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.JSInterop.dll": "429b2304055239fc1fe6dbf9c710ab7ad7b4cfe13b41e85151cb736695d4bad8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.JSInterop.WebAssembly.dll": "8cb1ffbd35d4396cec5325f1a45162fce53a4ebfb83254e007bacdb090a320f8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.VisualBasic.Core.dll": "0cb6db644b14fb586feb662c8a9ba29028bf8a0d9168db9baa6470af034338c7",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.VisualBasic.dll": "65c769b78ff1f70ff76353617b6b9872d419c6dac4ba9e778d77d7f3360b848b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Win32.Primitives.dll": "7e068bdeb387f60b1510ca20e71385d334978d9f71d02ba183c8f2ce4d8e3ac0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Win32.Registry.dll": "42a3f8a626240a2f59350505a0142c546bb8117bd6623db94a90ec77303ddbde",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/mscorlib.dll": "93de0913de44cb8622643cffc1b3b6457890b9272926f1371d5d6a2db636abec",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/netstandard.dll": "409cfba2f660f080ba319fef4874eb05790f2654074ce8dd95b01093a457643f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.AppContext.dll": "2e320dce0660525b979de489e73411e5add2447a5af9413938ce16ad73e91536",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Buffers.dll": "1b34bcef4eb4ec6d470fcd345f0691d93bc115bac47ff6bd77e8f74502e36546",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.Concurrent.dll": "46d61985a9114a92ba94f07abd94669f7c4efff2eb18737e4f0ed50109aa28c8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.dll": "2fe84a5641e1a8dedac857638367bb0a0fa8b1ded8e4647e3dfea38f76fd4c70",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.Immutable.dll": "7a01c2c20e65f5855ca6a7c14d21ba52be8edbdafee035f0b8970fe4b48fd5e3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.NonGeneric.dll": "0c6ccb7afd71095f3f3c56919d4e43972b446a088b6aa92122c2114236f86f7f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.Specialized.dll": "1cd6a80c00529554dfacdaf985f77ac328c9fbccc90d28f3d5cb50f9ccc0d4b1",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.Annotations.dll": "f7df64140943ca504ff9aedb29bbfb79ebc9366c7f1503a0804d9c0f2e0789df",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.DataAnnotations.dll": "8c76042d6f2af2f0df43fbc3abab9a1da8928446d96d268ff2e5c0e04637ce53",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.dll": "00b8cbc19703d48918347cee44350b0aea0da7072db59c0490e8db222e15b563",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.EventBasedAsync.dll": "6ffae2ab2ee7ffdf3ab566a50435ef363f102bbc0d1f876923a771f2329704bc",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.Primitives.dll": "a5f0d36266137d94830cb6b4f989cef81ff38b22a28648964381b453f6bb3e50",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.TypeConverter.dll": "813fef501c9764164bfb9bd6c9f5a0338dba39b1d33fe4eec31c7b43d935b0a0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Configuration.dll": "4186388afbd9967e858dd5bd2fb12df3b699f04c3fb66728cfa353cfdae75b3e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Console.dll": "54e1a5fa8a617ff0043d5752a6383d30b00bc1dc790fc438954ab7c361156dd6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Core.dll": "d7b3837991e2706aea8bf952563caa27850c53c9d71d5894710a6eeea44217b6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Data.Common.dll": "61a6454ab7495046cd82666d97c70c6a28d789dc07fa230fac24fccccf7d7791",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Data.DataSetExtensions.dll": "d2e65da958e524d1ad85e641ba5db66590dea5fc3dd3c1f3c57563f3ed19830a",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Data.dll": "77bdda7c3cfec6084cb3930db6b8f5e700cdd8edd7c1a5591a2a096e6549c3a7",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Contracts.dll": "390b7c3addb6aee4d30d6c28f902a77da18bea35ff69a61d4c965317df238b61",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Debug.dll": "32bac1a0734eb246549e763b1f7b9067af694a5d96eb42634a9c75516eb84781",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.DiagnosticSource.dll": "99fc7dcfdb8e2a67ed3d52fe5b3cf8c567ad3c1cf8caf7754cf6c7839a9cebb6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.FileVersionInfo.dll": "797d705ed86ee4f028840baaf72eb71fc9d30aa7d6bb8b253b46b5ad8ae09487",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Process.dll": "aa16bec9bbe726b927697fbea93e73ec580fa9ca5525b3076bfde55a20531b47",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.StackTrace.dll": "d089f448d2fd965a04af5063c3307a64054aba370d7ebc7a75932b46cef3b52d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.TextWriterTraceListener.dll": "ec972c557dab7ce5df9a7971a918f114e5fbac6d584b9fe6ca2eb632d48c279d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Tools.dll": "166864776c0b4c002dfb61d0d2d3569bf21ac32bc06aacaf3cf4018a9b721cce",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.TraceSource.dll": "bb7e8f6c9170a3c1110154bc1ef3bf3e7fb19526648598b2798f0fc2313a9828",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Tracing.dll": "24fa42e8afb90fe52440152074dc1cdbc8c8136fe3d31c05edad4c26316d79ea",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.dll": "84df7439d36679e0e0880fd98e745a1ab74df664734b6b32e487086319cfa9a9",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Drawing.dll": "945497ffb94138965b7aa6d694d3e23d94049369bd34619225df1b17646f1901",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Drawing.Primitives.dll": "c575dcef9292357404e24dafcced96965e6f0673e4e7105a4a1faf91ff450814",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Dynamic.Runtime.dll": "882fc80d5512e700de4a0279a49391e72fb1f039ee58b95d12b35be3d19cb3ce",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Formats.Asn1.dll": "03f516aab210136aa32ed3049a99a1851207f5d88483f637f78a21179106ed0e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Formats.Tar.dll": "b91166f0fd635c5e6ac495e2f828d3fd07016ab59e1be7608ae8b61cbca502c8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Globalization.Calendars.dll": "344e9fad200bc65b059e434eab92a54bc3fe223d3e0623c6f3c1a7230ff79190",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Globalization.dll": "4bdb45463311466d5999d5e5888ce483f605e68a5b592053bc2b6fd0fac9a36a",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Globalization.Extensions.dll": "ea747749c3ab25379991c06e8a57cf95831caa91cd0a3ed3fafb64dd48d1cfe7",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.Brotli.dll": "6aa5d40ff1c4fc269d961d875f0283f849dc1f3d2e8999c9741b2db21051d4c1",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.dll": "82140ed74d5b18976673df16d11acc053c37cb9fb9d572cf7c4aab9bd4105f9e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.FileSystem.dll": "9e323566d6706505e60b6041cb2ffefbbbde43b3f2196a1119692eaf4a39189d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.ZipFile.dll": "011b8e2567a0ca74f023357d059b929706768aaf6cec8e20896ee644a9e8b851",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.dll": "4f220e92107be0327006a0a145d4cc14fff4ea051e4f87448198ff4dbb1f58f9",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.AccessControl.dll": "7821b417acf22f09f7b4f3e57c611ecd70593d7b2e70613b856e74d73d3e186b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.dll": "cee6e7c4641d05788619dcb16b44ceed0ca57795beb0c367be7b5822923f8fc1",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.DriveInfo.dll": "7b919747f786ee64dd14532db35c3ebc2c3cdad6671ef2542246c6ab64d161dc",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.Primitives.dll": "477131532ead66a743c294bd3f9065d8352d9a70c6beaac9c46a4bc4e1eafa51",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.Watcher.dll": "7437bbc96cb94300a9fb58b5109bc6d228753007be3b37a3f2a32d340880d558",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.IsolatedStorage.dll": "ce8839cc65a617de736e8d998092521cb83498523e759d9f82208a993095b625",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.MemoryMappedFiles.dll": "f0522eaf943a7fa2dd0122b86fa9961e747de370e581a70c71bc16aa6732df07",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Pipelines.dll": "ded2ba9d5a07bae574cb17174584c356ebb8e258b414b2e506ec6332a20fcf98",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Pipes.AccessControl.dll": "f19a55d7b23771c53f2e7b12464bf7536877d6955b42f5ba6618739c1d381eb3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Pipes.dll": "5a8f4b3767aebe57617bd15d2d20f1b12d5a33e18393f0098688c5cb6037ce9f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.UnmanagedMemoryStream.dll": "f48a6d6300a7a081d29f80dbba49f8adc7a8cd09659ee63dbcc54548c93cf74f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.AsyncEnumerable.dll": "f4288400dd8e69f0d8719eb4655c551ab94359195b4b976d0befd5126252a20d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.dll": "90b12dee61909768b747e0059dc5baf73c1ecd3ae81464fedf00c08ff98f1a72",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.Expressions.dll": "133d2b54331d4dfa9b738f6f46353e8d84bd13166227950668be3754c7b8c396",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.Parallel.dll": "54cd912782086628a65f7f1efc0547962a12a56c1b4342a2e87b78982d47fb63",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.Queryable.dll": "ae9bc6e192ad79dc2291f640339779853985d826d4a99dbd60f3ec1b8d735a68",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Memory.dll": "9ab4ceee3c157fd0a3db4f6442e98aee583ff1e90872f2a715e21addb56de710",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.dll": "f0677b0c67497c747fc591328781648a9ad3a500998d4a2acbf18506c9c89476",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Http.dll": "3a16a179f7a110f9fee2d9bc52da838ff4102afa3560599c0bc8afc8977715a3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Http.Json.dll": "8281126ce6fe9fe226ec7054f11d1790f0f92ef80863847166ab0e02f4538a53",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.HttpListener.dll": "17dbf92fda0bc78994aae3936d8d62e9867e13a277dddb0d356da69a7eecec3b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Mail.dll": "81d106ec0b8f64f762b2cd5641914bf447505544ab7c3ac092b1bf339be644c6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.NameResolution.dll": "658f16128b3aa2a5c92ec0a6f8f3ed70926db1c8b8802a08218b59d2b2c56b74",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.NetworkInformation.dll": "8bc61f1f233b6c29022858ff8afc91327de5623145be869431ad54eb8a1df9d8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Ping.dll": "e584645e106529b8bf640376b6eca173df0daa12c050fb4ab3a9d6514906348d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Primitives.dll": "8ac4bfb0faf86c857d7d0b3b4e932814d75b4138913c94701249d24a52714940",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Quic.dll": "993ecdf405474faa5f9af86f675414aa9649ce4f9a0b7ae9c52858b0402833ed",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Requests.dll": "16b9257fafbd719735585d119b2b46925749e7ac321c45ed05395ed3a13a5cd6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Security.dll": "7d82f534a0aaf0bd1a7a14c6ec515f778e0aff375d912b6470f54b74e2829fee",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.ServerSentEvents.dll": "44fc52e86ffce03a1bfd195d9d63b557e90337fea160c4b1b261f6e8728f19b1",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.ServicePoint.dll": "ada3646342992674e42e7b0601a5daaeb1dd6f9ae8b950d19b81be13efb43e29",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Sockets.dll": "d6996687a76f7b8c78282a7d039e60c012310e5c40abf3fd63548ff510663274",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebClient.dll": "44a37c6f031224a73b0b5179f7cc421a8c8f8234031b2750cc78203f238fd71e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebHeaderCollection.dll": "f0a8ab5507b67cda421dee5b3a7a24bb93355744bca1e8e384e199ed2966bcd0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebProxy.dll": "63873c5f540b71d65a32687ea0506cbad13f45b89bf0b1391347eb6a489ffe1b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebSockets.Client.dll": "663d4fbaeb91b7563c520d98df9fb527fe4de66a53b030096da217457a7c5cbe",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebSockets.dll": "e555546cbce61c01b4f431ff3c84c0098d49c83097d71e8c1f2fe6abce3473c3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Numerics.dll": "52d3691e1e7d23ddedc0678a0ef5371498fc2455e062594a40c6718da3d456dd",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Numerics.Vectors.dll": "b1f83e3898d614f37a4cfbdc1e280e5b74eef3df4991f62e22d1523c5f5a57ff",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ObjectModel.dll": "29de0b1621fbbc01597c166c8a55a5f1887a2205eed2314e9dddcd2219571f27",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.CoreLib.dll": "024d6f41107a7a4a15650d3721ffa2dc074ad5b4ec21048e2245b7c614f297d0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.DataContractSerialization.dll": "4b7f28245244743f238ea5d63f2e7e532b575033a1a0c0732db2dfac8b8851c3",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.Uri.dll": "867a34e5369a2f51db832d656bb17f1f68b14d1686780af613d8021b9a30a97f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.Xml.dll": "dc25f8835b9f3d5dcb51ac90c47851e01fc8a9f26c008bfc4a169d351d095fcd",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.Xml.Linq.dll": "fff239f9655f3a8fb13d2816d528a400ce33a1b4b12610e212a872ed24f69871",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.DispatchProxy.dll": "d96e73faef59db2e67fcbed92e74ce8a4b16595f955067366ee40101c937e10d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.dll": "aefd8505e1743cbd37e27c972c0ad2f3c0c0905ac9049db426ace0d592fd60bf",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Emit.dll": "aafa480d302a52f67a7757ab674f822b1bb98d6d19257fd15fa7767e84f53581",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Emit.ILGeneration.dll": "51ca74f7b11c730aeddb4bceda7837a59238f9ae342e5edb555b6b8f948a7bfe",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Emit.Lightweight.dll": "9dc2c207d1c720712b6fd25f3ef96782e3b0d08cfbf3900efdc72d085e21c920",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Extensions.dll": "879e5af5d5f75d50079c4f50c9c9c5d07dc349fab17dc2e92bad780be8543bd5",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Metadata.dll": "2fd40c343880b18babaed7acf35c8bb7cb946d4198e2fd19828baa7f73acdd95",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Primitives.dll": "5f8d31a2d0c9ee750e72866cb5637d0471a0310e39905ca20b4b64ef0346be8e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.TypeExtensions.dll": "4203a8a712daed4f207568290940a2916bf0671c41aee9284d51fc0a054df1f9",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Resources.Reader.dll": "ee8b35bd2548afcce3dbf2b26886f0ede0f603185eca84714f8739aa495ac726",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Resources.ResourceManager.dll": "94b6e95d093eaefc571235ea343a985fbd0c13ab44451b4d86d9599a4b45407f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Resources.Writer.dll": "8968fc4b401735a266832910dd0dff88d6b2432497baa0c335df8e728ba61bc4",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.CompilerServices.Unsafe.dll": "83f71bd72545b440b18e936e2dc58ffac3cefcec84915a2e6a24c03dadf37eb1",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.CompilerServices.VisualC.dll": "ef63705962be8f9deb46cdff7f9d1245bcdfcf93fdb2e20fe773ebf9e72e7dd7",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.dll": "8b99bddcdcdb858d118104f1dfcde65edaab18624bd14fe5c9db33fb6fee97a6",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Extensions.dll": "9e30573219e2e50cd08e7b16d615568d29c295ff775bd3d340d0e04cdfa09823",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Handles.dll": "f3e1c9346ed08e18ade9f5a30624fc39fca3eb7aab2d7947958f0601de6bb27f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.InteropServices.dll": "f4fe487e5812b695c70ead804a94ede628d54423b55bc82a870c2ee68f71c272",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.InteropServices.JavaScript.dll": "c84a0837396428db56c5263982b901547c8747e9e8d521401db5d49ea4cbff86",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.InteropServices.RuntimeInformation.dll": "342bb699be70d193d8c0f0f1a3d642eb9a4291b499177af4f4ddd074222ecfc2",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Intrinsics.dll": "c693bfc22450069951bd29ab14a8050f8b1893e0818638cc508c744e3dae58aa",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Loader.dll": "146f2f64a7dee87f45840af5ad7db095020c771aa60487d4ccac8b2ae3c29015",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Numerics.dll": "fa5ce79dd0a912e1b3a5d485508a1361ef73f22bf34596bfb91f487f8d94d855",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.dll": "2b903850aba5df31c10716ac4b76c10fb1146689585d99b00e50aa7cc96d96ce",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Formatters.dll": "4d31c2e5e6a779480049cd78fbebb0fac8b77811d9e46c85eeee938f17dff779",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Json.dll": "275752c47635d7d9bee34fdff5611e9d0dc7073398c7bfe0c05c2864ebce2aa1",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Primitives.dll": "d0d1ad98d9e00b5cc220e128b15876291051d45033c52e3ab5eec02ce67e1a1f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Xml.dll": "5a1780a66bca3d207bf6696f16192c9e95dece03bd253db824a702c7e4160acf",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.AccessControl.dll": "8cf98792214902cf17c05ca632211dced674331077299f1ce2495707c24e13b0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Claims.dll": "4c4dfb6eede11dc0da5f908cc4d53204212fa31c2c1d5163b8acb5cf77f0b21d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Algorithms.dll": "d8cff5f17740270fde4ac26a44b0d1acb169d8ae2335e933531cd4cb2a4c9d5f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Cng.dll": "189316e4f21e0d48e476f1fdac10febb7d48b1f46f543c5efe54e3b65d54635f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Csp.dll": "30302f240f6e43a8c3a6f37018f07307a79baf5f9bf404dc4c76d426ed6d1b04",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.dll": "807264d6569449f017d47e618cd234caac67a872bb3cc733ed2317c8a50d05fd",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Encoding.dll": "66e95cba8010d73b2bd7341ce45d129918da1cbd0782230a766148a3dc25d9a2",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.OpenSsl.dll": "3cba2e48564e428d1a08f6b8d6efb63d67bab7e9702d41ec1df9ac87d82ac23a",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Primitives.dll": "87ca66910278067807586bf2e4d8e0eb781038b3c15ce99876184297a45560c4",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.X509Certificates.dll": "d202f62c5590301991eba64ae654eeaca52498cc5b9d99ee4eac8a65456888c0",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.dll": "45c2fe0b1810e11716bd0145e285d9dc92bb2f2121a28a4208a34d031445427b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Principal.dll": "ec0ade2d663fdd49fc14b20932c7988c20ada33912a434d5ed49e7f7984ecd05",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Principal.Windows.dll": "24395e4885f226ccff7cb98f3acf3f97b69f2a36978880490aa10df813b592c9",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.SecureString.dll": "b6c814f2ae2efe86f3c586d5e85a1f6864ad6945efeff17196bb5a1ea2d60c88",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ServiceModel.Web.dll": "ad39f86b215f83aeff7074823bd896a1c588e4fa1c4e248f55566432f2883e8a",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ServiceProcess.dll": "4fb0bc34a96848854f30340e0dc6ab7ce4a80648cec4f0f0005de13899703061",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encoding.CodePages.dll": "5858a64e2663045d88ccd31ce88519145a7713c4c415389a7b5f37f45a6b05b8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encoding.dll": "e2c9c2e3bea82755e474e16f598b5910d93789919f8be4ecb80dd4395ca4635e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encoding.Extensions.dll": "4ad92217bde4f90e8fcafc2b6f39934560033c690ef20e6c0a5e5de204a4d282",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encodings.Web.dll": "6cb49ad436947efa2c0996aa57d5c7a52836f53179ec5fbdc0af02d936596e9c",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Json.dll": "96373b3c87bfcc233ccc7a8d036c449094530232b373c01c9b1f421211a66d6b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.RegularExpressions.dll": "1f78bf56e149741d5abd89aad76373a8e3b5235a558092cccd8bdd9970feb0fb",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.AccessControl.dll": "4f7a51f8e69d06bcd7abe59cb4a4f785ce11db482971f973ad4d1938393c8994",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Channels.dll": "37834c6ffb01b7f40fb9686de914a5779b73665333c1eaf3303c6b999f9c7933",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.dll": "dce1aecf9fd7e66cd78efe12ab03d532812a72ad6217102bc6c27ba6c2a257f8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Overlapped.dll": "f4c12d3c8cc0a46312fc5967266c2d429ad74a5d02cd3bd0e9ef83fc81b7e614",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.Dataflow.dll": "89fb9259e96ac2ede5935bd8b9065debb717573174865be2cbd9ec081fc355df",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.dll": "e845a3965bcd7c96c18c246fe8f076951e3591aa13efdb15142f352d6e4af202",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.Extensions.dll": "adaf5c18c3f02deff4b3d0fdffe55f1a6b4c7b05e6d5d36b688ef63a1b68a768",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.Parallel.dll": "1f84601b78fc81de916b7028e6edd56bd0b6edcd6b809d95c3bc777097edb35f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Thread.dll": "4c8836cfabd35b9b21160dc4f2672002ca0ac4bddd3886a4e4404c00ce22b184",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.ThreadPool.dll": "4a3b7ae2f6d04fc84bcbd833aed1bfc9832401a0b907e7a1c81b0c5c2faf3d35",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Timer.dll": "5ab2bf9c0334392242d8cd545ff3fe5fb5f01009d5f31364ee1ce649afd592e8",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Transactions.dll": "3f5405de883e1e738feab1a950e75dd826ac1c2147a5f33bbc32742d6ed6e13e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Transactions.Local.dll": "65d06c023c073600f2d156b2b6a37c41f35827c458ac1acb138676a289f2102d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ValueTuple.dll": "bd7f95740b1eabcf5f070a59329930287ddbb79c4622a467075fa7c93a71121b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Web.dll": "e065b546f4b33c52566ada1890b6662d46a29bcdf790636837ff51f4184eb411",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Web.HttpUtility.dll": "d75c896b094499d5e1f892659b44db8c4d645cdeaf3a839fae10890d91afedf9",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Windows.dll": "ae91ffc6ca6a0502179219c420685116404dcc7d1b69c39fa4a5b72201ec858b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.dll": "bc9a8a873c7ce1f554564fb1909b3d38c780e792d9a7df38265925a5a54e4452",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.Linq.dll": "b08823e76d2f1d848f8d77b9517e3c003140c433a96c976d7f62ffe18408fb2a",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.ReaderWriter.dll": "4c8b2a46a0a8e4e31c368f77e73ef2c566bdc4fc4962bea3b207396e985d60ee",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.Serialization.dll": "f317041e2004a316df9bbbaff609f700e97a1ba7eee1efb925165e839cf54d1b",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XDocument.dll": "6ce8bdc3f97eaa43d0b6d22990123455a233a784541ba2460bb45fd050eb4fd9",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XmlDocument.dll": "67a7f36ed6b3aadeca76439e1304a3a39dba41fed98c93493d69b2eb020a110d",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XmlSerializer.dll": "dd3ad5f8f6bce2927b93230a776c98bd72c2cef7a97e7c9759fcc2c200a8cd64",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.dll": "4de49b8ef1422f1b4d19dad40c3e10c3936c03cae730533679281ed736c9fa1e",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.XDocument.dll": "b3c9396753122a8af449803b536b74eb0baaec2dd240878c84b361dd76a67d7a",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification-evidence.json": "e6ec3bb36514b6e511b5f0eb95df340adc16af3bf113dd47a2a7a4bae6a08993",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification.json": "b1a80bd2c1c540be297e5ac8a7d0abd7164db7f5acfbc6c3c6278515c9e1c18f",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/WindowsBase.dll": "39bd19606e4439bd4a47a62c23d43cf982ae0cc67634dd2fc3213b2185d79b81",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "cf51afcaf0cdbd8afa9191630aa5e1001767d2008361eed7a0adbd44b734b654",
+        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js.gz": "ed926d04ae1534bd1670c977228f21ba04edb6e585a92ad12cef2fec01bfad75"
+      }
+    },
+    "net10.0": {
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/FossilDesk.browser.js": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+        "samples/net10.0/FossilDesk/Desk.razor": "c598d22511ef38598c04d9ca4cbac658f6a3e37fc6ec9aa2ff71d2edc3d8621e",
+        "samples/net10.0/FossilDesk/Directory.Packages.props": "eaf65006de988b1545d9633a8c01b0d4925734707bd19f4c19d5d35e057d14bf",
+        "samples/net10.0/FossilDesk/FossilDesk.csproj": "45aa07995cd5421a8ba0c1013cfdd25e5997c7c1a8345503af2df9d779a53d9f",
+        "samples/net10.0/FossilDesk/global.json": "11b40500122dc2f69bc6dc3d81f9c989472d5f6c2de1ff80dea3c02fe6f32e63",
+        "samples/net10.0/FossilDesk/packages.lock.json": "9cc3199c7134bb643a1cbacca62699a25ca79c3bc548c7994cfb7952ccae2359",
+        "samples/net10.0/FossilDesk/Program.cs": "ab8458bd36fd8913aaf274e24f92b368baa6b9d5c300b419dcf236074af78351",
+        "samples/net10.0/FossilDesk/verification.json": "e09efb6be27d74dbceffaed9e1b8cf27463b9a2406cf9752ce563305aa585134",
+        "samples/net10.0/FossilDesk/wwwroot/fossil-client.js": "d098c06aec69fbcdf1d643685c26a75187d5b632e2bfd87f389a76f967ae5197",
+        "samples/net10.0/FossilDesk/wwwroot/fossil-observe.js": "9994dd478837324372d3e03f84a93236eb8a9310a6d5730e5e0caf68e3ef64ca",
+        "samples/net10.0/FossilDesk/wwwroot/fossil-score.js": "e9ae2b5d53922b286405a4d17e9bfc3daf2f16ce44261d9a8ad97428ea4ff872",
+        "samples/net10.0/FossilDesk/wwwroot/index.html": "0103e59ee47112f503773f7257defa51502d634c4a4cadeb648b0de7fce9a973"
+      },
+      "execution": {
+        "kind": "real-browser-webassembly-native-worker",
+        "recordedAt": "2026-10-23T08:21:43.313Z",
         "url": "http://localhost:5831/",
         "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
         "newer": false,
         "trace": [
           {
             "phase": "responsive-during-cpu",
-            "frames": 49,
+            "frames": 50,
             "state": "Computing",
             "clicks": 1
           },
           {
             "phase": "completed",
-            "result": "Score 284677"
+            "result": "Score 461271"
           }
         ],
         "finalState": "Worker released",
         "workers": [
           {
             "url": "http://localhost:5831/fossil-score.js",
-            "createdAt": 2013.300000011921,
+            "createdAt": 2696.199999988079,
             "events": [
               {
                 "direction": "sent",
-                "at": 2013.5999999642372,
+                "at": 2696.399999976158,
                 "data": 1200
               },
               {
                 "direction": "received",
-                "at": 3249.300000011921,
-                "data": 284677
+                "at": 3920.699999988079,
+                "data": 461271
               }
             ],
-            "terminatedAt": 3278
+            "terminatedAt": 3945.600000023842
           }
         ],
         "resources": [
@@ -57,26 +600,7 @@
         "limit": "Real foreground browser; deterministic init-message hold for creation cancellation only. No mock worker; no GA/AOT/mobile/SSR/Auto/deployment or durable-work proof."
       },
       "browserVerifierSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
-      "inputs": {
-        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
-        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-        "eng/FossilDesk.browser.js": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
-        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
-        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
-        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
-        "samples/net10.0/FossilDesk/Desk.razor": "c598d22511ef38598c04d9ca4cbac658f6a3e37fc6ec9aa2ff71d2edc3d8621e",
-        "samples/net10.0/FossilDesk/Directory.Packages.props": "eaf65006de988b1545d9633a8c01b0d4925734707bd19f4c19d5d35e057d14bf",
-        "samples/net10.0/FossilDesk/FossilDesk.csproj": "5a3b1c8a906658e2fa082377949843b8acfc8108f67696476d5c51eda0e5020e",
-        "samples/net10.0/FossilDesk/global.json": "11b40500122dc2f69bc6dc3d81f9c989472d5f6c2de1ff80dea3c02fe6f32e63",
-        "samples/net10.0/FossilDesk/packages.lock.json": "9cc3199c7134bb643a1cbacca62699a25ca79c3bc548c7994cfb7952ccae2359",
-        "samples/net10.0/FossilDesk/Program.cs": "ab8458bd36fd8913aaf274e24f92b368baa6b9d5c300b419dcf236074af78351",
-        "samples/net10.0/FossilDesk/verification.json": "e09efb6be27d74dbceffaed9e1b8cf27463b9a2406cf9752ce563305aa585134",
-        "samples/net10.0/FossilDesk/wwwroot/fossil-client.js": "d098c06aec69fbcdf1d643685c26a75187d5b632e2bfd87f389a76f967ae5197",
-        "samples/net10.0/FossilDesk/wwwroot/fossil-observe.js": "9994dd478837324372d3e03f84a93236eb8a9310a6d5730e5e0caf68e3ef64ca",
-        "samples/net10.0/FossilDesk/wwwroot/fossil-score.js": "e9ae2b5d53922b286405a4d17e9bfc3daf2f16ce44261d9a8ad97428ea4ff872",
-        "samples/net10.0/FossilDesk/wwwroot/index.html": "0103e59ee47112f503773f7257defa51502d634c4a4cadeb648b0de7fce9a973"
-      },
+      "expressionSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
       "artifacts": {
         "samples/net10.0/FossilDesk/bin/Release/net10.0/dotnet.js": "0501da3cf18e752361a4d3af7880c7ff2fd65e6d8ade7e19601c993d622cb68e",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/dotnet.js.map": "df01b85ffce84a6d71508ba1bf48bc85e3eb5b15fef39a3b1e4b975fd8d15de8",
@@ -87,7 +611,7 @@
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.dll": "9ba0a3a369edcce9b75e4c3c4d2e00eb4561eeed3df3dfca9d2550bd178be405",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.pdb": "9f77649499966a0bf8106d0cabf27d46cb6f52fbdd0b30d99146a217d52eb8cf",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.runtimeconfig.json": "5de634df6202f2ec72e8e65d93bf8875fcd9205967adfee92bff47d87de1d451",
-        "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.endpoints.json": "2107075fd71b26b4409b0965b2c5f376693a1e7dce9ae75a52f5682556dd5343",
+        "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.endpoints.json": "a70a0c5e2a29080c03f8a4edae907529e9f4d4ae71ba482f49ff1fe9b4e2340b",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/FossilDesk.staticwebassets.runtime.json": "a37883898c6670bc895a9e1bc73a331a7b2ae00885458deb28d9f9c0f142c2e3",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/global.json": "11b40500122dc2f69bc6dc3d81f9c989472d5f6c2de1ff80dea3c02fe6f32e63",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/icudt_CJK.dat": "4992ed42745cd09930a8769bd155153fb4f7b813d2798cf1cc39e9c4fa549c79",
@@ -713,536 +1237,12 @@
         "samples/net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/System.Xml.XPath.XDocument.11s7vlb7t3.wasm.gz": "46be21b37180a9caf4e0e46fbfa3059fcb05725f520a86ed8c1ba8987367d639",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/WindowsBase.z3dgnpnt6r.wasm": "5fd11cc96415ad120c1e088f1da63f03231057eebf3d74bd241883951bd3ead9",
         "samples/net10.0/FossilDesk/bin/Release/net10.0/wwwroot/_framework/WindowsBase.z3dgnpnt6r.wasm.gz": "4edd7f938efc972e5538e035ee398a4238b381bcde939d657154a2a3018ede06"
-      },
-      "expressionSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597"
-    },
-    "net11.0": {
-      "execution": {
-        "kind": "real-browser-webassembly-native-worker",
-        "recordedAt": "2026-10-23T08:09:43.198Z",
-        "url": "http://localhost:5832/",
-        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
-        "newer": true,
-        "trace": [
-          {
-            "phase": "responsive-during-cpu",
-            "frames": 50,
-            "state": "Computing",
-            "clicks": 1
-          },
-          {
-            "phase": "completed",
-            "result": "Score 543846 | Westmere-A:1"
-          },
-          {
-            "phase": "invocation-timeout-work-continued",
-            "state": "Wait failed: Unable to invoke the web worker JavaScript function: Worker method 'FossilWorker.WorkerMethods.Score' timed out\nError: Worker method 'FossilWorker.WorkerMethods.Score' timed out\n    at http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js:4:33",
-            "result": "Score 543846 | Westmere-A:1 | Westmere-A:2"
-          },
-          {
-            "phase": "invocation-cancel-work-continued",
-            "state": "Wait cancelled",
-            "result": "Score 543846 | Westmere-A:1 | Westmere-A:2 | Westmere-A:3"
-          },
-          {
-            "phase": "both-waits-ended-before-actual-worker-completion",
-            "verifiedCalls": 2
-          },
-          {
-            "phase": "creation-timeout-terminated",
-            "message": "Unable to create the web worker JavaScript object: Worker initialization timed out\nError: Worker initialization timed out\n    at http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js:4:33"
-          },
-          {
-            "phase": "creation-await-cancelled-worker-still-booted",
-            "observerCleanupRequired": true
-          }
-        ],
-        "finalState": "Worker released",
-        "workers": [
-          {
-            "url": "_content/FossilWorker/dotnet-web-worker.js",
-            "createdAt": 2173,
-            "events": [
-              {
-                "direction": "sent",
-                "at": 2173.100000023842,
-                "data": {
-                  "type": "init",
-                  "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
-                  "assemblyName": "FossilWorker"
-                }
-              },
-              {
-                "direction": "received",
-                "at": 2725.400000035763,
-                "data": {
-                  "type": "ready"
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 2786.699999988079,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Label",
-                  "args": [
-                    "Westmere-A"
-                  ],
-                  "requestId": 1
-                }
-              },
-              {
-                "direction": "received",
-                "at": 2787.800000011921,
-                "data": {
-                  "type": "result",
-                  "requestId": 1
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 59835.10000002384,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Score",
-                  "args": [
-                    1200
-                  ],
-                  "requestId": 2
-                }
-              },
-              {
-                "direction": "received",
-                "at": 61039.69999998808,
-                "data": {
-                  "type": "result",
-                  "requestId": 2,
-                  "result": 543846
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 61042.40000003576,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Report",
-                  "args": [],
-                  "requestId": 3
-                }
-              },
-              {
-                "direction": "received",
-                "at": 61052.80000001192,
-                "data": {
-                  "type": "result",
-                  "requestId": 3,
-                  "result": "Westmere-A:1"
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 61072.19999998808,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Score",
-                  "args": [
-                    1200
-                  ],
-                  "requestId": 4
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 61097.40000003576,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Report",
-                  "args": [],
-                  "requestId": 5
-                }
-              },
-              {
-                "direction": "received",
-                "at": 62272.60000002384,
-                "data": {
-                  "type": "result",
-                  "requestId": 4,
-                  "result": 330907
-                }
-              },
-              {
-                "direction": "received",
-                "at": 62273,
-                "data": {
-                  "type": "result",
-                  "requestId": 5,
-                  "result": "Westmere-A:2"
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 62277.40000003576,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Score",
-                  "args": [
-                    1200
-                  ],
-                  "requestId": 6
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 62332.5,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Report",
-                  "args": [],
-                  "requestId": 7
-                }
-              },
-              {
-                "direction": "received",
-                "at": 63478,
-                "data": {
-                  "type": "result",
-                  "requestId": 6,
-                  "result": 95742
-                }
-              },
-              {
-                "direction": "received",
-                "at": 63478.19999998808,
-                "data": {
-                  "type": "result",
-                  "requestId": 7,
-                  "result": "Westmere-A:3"
-                }
-              },
-              {
-                "direction": "sent",
-                "at": 64126.80000001192,
-                "data": {
-                  "method": "FossilWorker.WorkerMethods.Score",
-                  "args": [
-                    1200
-                  ],
-                  "requestId": 8
-                }
-              }
-            ],
-            "terminatedAt": 64234.40000003576
-          },
-          {
-            "url": "_content/FossilWorker/dotnet-web-worker.js",
-            "createdAt": 63497.10000002384,
-            "events": [
-              {
-                "direction": "sent",
-                "at": 63497.19999998808,
-                "data": {
-                  "type": "init",
-                  "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
-                  "assemblyName": "FossilWorker"
-                }
-              }
-            ],
-            "terminatedAt": 63499.19999998808
-          },
-          {
-            "url": "_content/FossilWorker/dotnet-web-worker.js",
-            "createdAt": 63504.69999998808,
-            "events": [
-              {
-                "direction": "sent",
-                "at": 63504.69999998808,
-                "data": {
-                  "type": "init",
-                  "dotnetJsUrl": "http://localhost:5832/_framework/dotnet.js",
-                  "assemblyName": "FossilWorker"
-                }
-              },
-              {
-                "direction": "received",
-                "at": 64107.60000002384,
-                "data": {
-                  "type": "ready"
-                }
-              }
-            ],
-            "terminatedAt": 64124.90000003576
-          }
-        ],
-        "resources": [
-          "http://localhost:5832/fossil-observe.js",
-          "http://localhost:5832/_framework/blazor.webassembly.js",
-          "http://localhost:5832/_framework/dotnet.js",
-          "http://localhost:5832/_framework/dotnet.runtime.okxdo5zwwj.js",
-          "http://localhost:5832/_framework/dotnet.native.ric31difde.js",
-          "http://localhost:5832/_framework/dotnet.native.89gvfkserh.wasm",
-          "http://localhost:5832/_framework/FossilWorker.7cvdkbydr9.pdb",
-          "http://localhost:5832/_framework/FossilDesk.7tg6k72ti2.pdb",
-          "http://localhost:5832/_framework/FossilWorker.54oo5zkr85.wasm",
-          "http://localhost:5832/_framework/FossilDesk.wbgnpit18c.wasm",
-          "http://localhost:5832/_content/FossilWorker/dotnet-web-worker-client.js",
-          "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js",
-          "http://localhost:5832/_content/FossilWorker/dotnet-web-worker.js"
-        ],
-        "limit": "Real foreground browser; deterministic init-message hold for creation cancellation only. No mock worker; no GA/AOT/mobile/SSR/Auto/deployment or durable-work proof."
-      },
-      "browserVerifierSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
-      "inputs": {
-        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
-        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
-        "eng/FossilDesk.browser.js": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597",
-        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
-        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-        "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
-        "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
-        "samples/net11.0/FossilDesk/Desk.razor": "29c255ab6a77d24f7285c777771ad868a3c91876aa65a81f26ad72b86f1c6681",
-        "samples/net11.0/FossilDesk/Directory.Packages.props": "1306372fbeb70090e5cf74e682c60d09a6ceb7f56e449305a89052944ee54117",
-        "samples/net11.0/FossilDesk/FossilDesk.csproj": "f655f2770085a339029b0746bd2d01b3ffc7e90c0783ab95bc6bd91b7146993d",
-        "samples/net11.0/FossilDesk/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
-        "samples/net11.0/FossilDesk/packages.lock.json": "c00c0fd7425aeb35c89794cdb23ab488b2a11eadc48bbf42c669136a52ab086b",
-        "samples/net11.0/FossilDesk/Program.cs": "9f31ddcb9d76258d6f1a5f8e5182322d3638d71e0a64eafc061a5c12aba8a44d",
-        "samples/net11.0/FossilDesk/verification.json": "b1a80bd2c1c540be297e5ac8a7d0abd7164db7f5acfbc6c3c6278515c9e1c18f",
-        "samples/net11.0/FossilDesk/WorkerProbe.cs": "00575cf79533805e4078c2477cb51167ccfa584fde2af85a7aee6649402c1bab",
-        "samples/net11.0/FossilDesk/wwwroot/fossil-observe.js": "9994dd478837324372d3e03f84a93236eb8a9310a6d5730e5e0caf68e3ef64ca",
-        "samples/net11.0/FossilDesk/wwwroot/index.html": "0103e59ee47112f503773f7257defa51502d634c4a4cadeb648b0de7fce9a973",
-        "samples/net11.0/FossilWorker/Directory.Packages.props": "1306372fbeb70090e5cf74e682c60d09a6ceb7f56e449305a89052944ee54117",
-        "samples/net11.0/FossilWorker/FossilWorker.csproj": "30222750f7106f102a1daa24962fe43c56370e8a2de329ec6cb4d2efc6ba5f7a",
-        "samples/net11.0/FossilWorker/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
-        "samples/net11.0/FossilWorker/packages.lock.json": "908a016417b33d2d06a725227cd6f6f76a173141382344f951e45a8913aabec0",
-        "samples/net11.0/FossilWorker/verification.json": "bfa571607c20640f33be0c93f928600bd97bef7b7089e6df2381dbe15e0dda28",
-        "samples/net11.0/FossilWorker/WebWorkerClient.cs": "81d25cc029a5e261d137ec6cf265f77c0e512a5461c9ae62bd7aef15933e7a79",
-        "samples/net11.0/FossilWorker/WorkerMethods.cs": "16d939716bf25f6f3599b732bf38a9afcdff7142a353452afac44acd79ad66cc",
-        "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker-client.js": "5ee43d6ef1171431a1c4e68a12ab87426279d7d23465bd63d553039f7417dc1e",
-        "samples/net11.0/FossilWorker/wwwroot/dotnet-web-worker.js": "2133f470a9f90e4cfd6e343ea18e39fb088965c631e27dffebc5edd22cb6403a"
-      },
-      "artifacts": {
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.js": "d9c7926b353e0a802efbe060c60d2ec5e804e62bb9b6f95d31e816a1d448fea4",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.js.map": "ee53f820720a378f3451b35994bc8d1a9bc258834fdf91f0f5dfdc9f610a516f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.native.js": "ddc8ff57061165f6cea6032307824d64cdc8da7f8865a5776658448122c45ae4",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.native.wasm": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/dotnet.runtime.js.map": "6ebd0a1b7435a9ce802e194a251baa39fc5d95609fdbfb69351da605cdc20953",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.dll": "5258ec3a591d81236aad3554d013b4682d4bf179b3bf5236a37ba059ace50242",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.pdb": "65f54ad63280339dba9856b6018939b722b31e0916364412e383571a4cda410b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.runtimeconfig.json": "50ed2b871bd809cc4dc97f5813b9d0fab41ccb93ada1fee6f8a2868565c5baf1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.endpoints.json": "fabe63be718361d5f909e976ceede39b78e9adb001126aae5f4689e0ecbff2c6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilDesk.staticwebassets.runtime.json": "4a973a0468519076bf765fa72a866dd68bf3e73fd9dbc785a66d90364d5f9d3b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.dll": "6a382409fcc0518a91b63018692390733547b27fa5fa65b0de282d75a44278a3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.pdb": "e7dfe775561c1e76532daeaccdb2678690c8e3d9742f2678d22ec91a2ee34d3c",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.endpoints.json": "407da902cdfed2758b936c38a1b090b2e26f2886a441d7bb68aff9a201e85106",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/FossilWorker.staticwebassets.runtime.json": "d4f7d5f1d7e930e63ab0d90b0e72d38f213213664f7cdc5cb99c70bcd628eaf5",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/global.json": "411fbfb72cf5f5d52e25f8679b21f9decd06dac5e23d078f93dd63562e029324",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/icudt_CJK.dat": "799b97d299edad4c0dac098508cc29c498c5037fccca2feb5b6c7d98467e31b8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/icudt_EFIGS.dat": "4907316fe6ddc7651750253db4574e582af80ad93ae318210a7af42462d658a4",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/icudt_no_CJK.dat": "4fc625972969c725a9f40ab802217e04c031297a98cb3581f5103946a635f6fb",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Authorization.dll": "ce937c67957e198686fe5ae22835bd7284f354802e8b092d587a901724cbbd1c",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.dll": "ce1eb38aa46b71503ab5b4c19331483113e29a0a2340bb9c9c01de970dd2c03d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.Forms.dll": "300e6d4eeed0fc246cbf787b78f9b11808e3126d9bc7e52ca52ff09d82f177f4",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.Web.dll": "68138670c8b2f8297455eaeece181f3ba24274bd8dd869a0898697fbbae2369e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Components.WebAssembly.dll": "b245417f44d0e0c8b314876d4d4fb4b815079f100df36e235a4107a75eb9aaf0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.AspNetCore.Metadata.dll": "be73d202c0f70c583d3853e6ca85c91f18eb8ab237a18ccead3064e870fe9258",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.CSharp.dll": "0986f553a7cc690bc5b3c699a60ec5371fa8c7774108f72e65deb4fea99a92c6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Caching.Abstractions.dll": "40bb46c28dcb5234eb67055e1a49cd398943c859c14b4e1b560c1288b070f322",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.Abstractions.dll": "8bf69b9b4604b90370cd2ed1d0649b2d2b486c9e4165754ebe56c4d5e51b4bae",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.Binder.dll": "6f2e82b992b654046bb8d4eb0f0256d2e8d6ff031f088eb869be53c7a1fcfa7c",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.dll": "66a8c3f6fb532c45f6e3060f263a30166aca323a896b836a4afa6292fac6132c",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.EnvironmentVariables.dll": "28863375aa52c04307a5817efc588ab0e606a12c7310d058b79b53a68a8a0fd7",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.FileExtensions.dll": "c554c0b02e9dd8fb129073a1aec4ce15565c557112233ef81280ebf1f1fa0fb3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Configuration.Json.dll": "05719d61b3dce1dc3324e6602eef4941fd000d822d0afe819156624018a444b0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": "b0d17ccd7de7a9489669f4c8c12449f27b1d25409c39794a6b038ec97667a017",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.DependencyInjection.dll": "642983f61ced02961727b6b5df8bf2a76a43d70f64c91188d4e6efe4a1e25fe7",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": "0c6f5d25969f18dd78a07c717ec085440de9fff9990629046181012881354e36",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Diagnostics.dll": "7d6d093fda1a6f34a03854fd49dd79171b73a79abf8eee0351f69929ba3eb7ec",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.FileProviders.Abstractions.dll": "7d22a8b698d3e2b433dcb6cfdb6ef4a3f1e12b064e6c946717821c8c24a52623",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.FileProviders.Physical.dll": "0d0bdd32a5a4ee692057f77c5a31832041312aa2a639e4a77649f949f0f46876",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.FileSystemGlobbing.dll": "3a7560a4bbbffa4aa940f760831c74aa278fff1361b1fdecfa912de27e63457e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Hosting.Abstractions.dll": "ace5721b0fbca74802107f531ca47e897eeea46d9ac5d54bb91e51ddaac961f0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Localization.Abstractions.dll": "79aaf77d1d921f795c4f33f4c2057ac6e28884e268c49349eb9193861b2c90f3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Logging.Abstractions.dll": "8fc91d891446ef78e8ecf7a7f2c9f917b98494ce226a0e607a0e10a819048fb9",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Logging.dll": "f25d423883523259100e0b0f03ade2d843c6a122cd474ca5351573fc46cdec5a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": "7451a8b935ed94e8b4255394b7749b90798e4e9184030b081e87d0c290722c73",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Options.dll": "9a15a228580e3ed50f68d4a99cf8d4cb0b1b940b8904e56ddc37a3a799346a0c",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Primitives.dll": "878f790a4c880fae837016f4762f3be80b1c932b625434eaf2bd1a558c61a851",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Extensions.Validation.dll": "238370c5921c16b9fb165f799787876d88742f03e9ba950d95390d9912143d59",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.JSInterop.dll": "429b2304055239fc1fe6dbf9c710ab7ad7b4cfe13b41e85151cb736695d4bad8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.JSInterop.WebAssembly.dll": "8cb1ffbd35d4396cec5325f1a45162fce53a4ebfb83254e007bacdb090a320f8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.VisualBasic.Core.dll": "0cb6db644b14fb586feb662c8a9ba29028bf8a0d9168db9baa6470af034338c7",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.VisualBasic.dll": "65c769b78ff1f70ff76353617b6b9872d419c6dac4ba9e778d77d7f3360b848b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Win32.Primitives.dll": "7e068bdeb387f60b1510ca20e71385d334978d9f71d02ba183c8f2ce4d8e3ac0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/Microsoft.Win32.Registry.dll": "42a3f8a626240a2f59350505a0142c546bb8117bd6623db94a90ec77303ddbde",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/mscorlib.dll": "93de0913de44cb8622643cffc1b3b6457890b9272926f1371d5d6a2db636abec",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/netstandard.dll": "409cfba2f660f080ba319fef4874eb05790f2654074ce8dd95b01093a457643f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.AppContext.dll": "2e320dce0660525b979de489e73411e5add2447a5af9413938ce16ad73e91536",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Buffers.dll": "1b34bcef4eb4ec6d470fcd345f0691d93bc115bac47ff6bd77e8f74502e36546",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.Concurrent.dll": "46d61985a9114a92ba94f07abd94669f7c4efff2eb18737e4f0ed50109aa28c8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.dll": "2fe84a5641e1a8dedac857638367bb0a0fa8b1ded8e4647e3dfea38f76fd4c70",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.Immutable.dll": "7a01c2c20e65f5855ca6a7c14d21ba52be8edbdafee035f0b8970fe4b48fd5e3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.NonGeneric.dll": "0c6ccb7afd71095f3f3c56919d4e43972b446a088b6aa92122c2114236f86f7f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Collections.Specialized.dll": "1cd6a80c00529554dfacdaf985f77ac328c9fbccc90d28f3d5cb50f9ccc0d4b1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.Annotations.dll": "f7df64140943ca504ff9aedb29bbfb79ebc9366c7f1503a0804d9c0f2e0789df",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.DataAnnotations.dll": "8c76042d6f2af2f0df43fbc3abab9a1da8928446d96d268ff2e5c0e04637ce53",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.dll": "00b8cbc19703d48918347cee44350b0aea0da7072db59c0490e8db222e15b563",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.EventBasedAsync.dll": "6ffae2ab2ee7ffdf3ab566a50435ef363f102bbc0d1f876923a771f2329704bc",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.Primitives.dll": "a5f0d36266137d94830cb6b4f989cef81ff38b22a28648964381b453f6bb3e50",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ComponentModel.TypeConverter.dll": "813fef501c9764164bfb9bd6c9f5a0338dba39b1d33fe4eec31c7b43d935b0a0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Configuration.dll": "4186388afbd9967e858dd5bd2fb12df3b699f04c3fb66728cfa353cfdae75b3e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Console.dll": "54e1a5fa8a617ff0043d5752a6383d30b00bc1dc790fc438954ab7c361156dd6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Core.dll": "d7b3837991e2706aea8bf952563caa27850c53c9d71d5894710a6eeea44217b6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Data.Common.dll": "61a6454ab7495046cd82666d97c70c6a28d789dc07fa230fac24fccccf7d7791",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Data.DataSetExtensions.dll": "d2e65da958e524d1ad85e641ba5db66590dea5fc3dd3c1f3c57563f3ed19830a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Data.dll": "77bdda7c3cfec6084cb3930db6b8f5e700cdd8edd7c1a5591a2a096e6549c3a7",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Contracts.dll": "390b7c3addb6aee4d30d6c28f902a77da18bea35ff69a61d4c965317df238b61",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Debug.dll": "32bac1a0734eb246549e763b1f7b9067af694a5d96eb42634a9c75516eb84781",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.DiagnosticSource.dll": "99fc7dcfdb8e2a67ed3d52fe5b3cf8c567ad3c1cf8caf7754cf6c7839a9cebb6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.FileVersionInfo.dll": "797d705ed86ee4f028840baaf72eb71fc9d30aa7d6bb8b253b46b5ad8ae09487",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Process.dll": "aa16bec9bbe726b927697fbea93e73ec580fa9ca5525b3076bfde55a20531b47",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.StackTrace.dll": "d089f448d2fd965a04af5063c3307a64054aba370d7ebc7a75932b46cef3b52d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.TextWriterTraceListener.dll": "ec972c557dab7ce5df9a7971a918f114e5fbac6d584b9fe6ca2eb632d48c279d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Tools.dll": "166864776c0b4c002dfb61d0d2d3569bf21ac32bc06aacaf3cf4018a9b721cce",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.TraceSource.dll": "bb7e8f6c9170a3c1110154bc1ef3bf3e7fb19526648598b2798f0fc2313a9828",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Diagnostics.Tracing.dll": "24fa42e8afb90fe52440152074dc1cdbc8c8136fe3d31c05edad4c26316d79ea",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.dll": "84df7439d36679e0e0880fd98e745a1ab74df664734b6b32e487086319cfa9a9",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Drawing.dll": "945497ffb94138965b7aa6d694d3e23d94049369bd34619225df1b17646f1901",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Drawing.Primitives.dll": "c575dcef9292357404e24dafcced96965e6f0673e4e7105a4a1faf91ff450814",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Dynamic.Runtime.dll": "882fc80d5512e700de4a0279a49391e72fb1f039ee58b95d12b35be3d19cb3ce",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Formats.Asn1.dll": "03f516aab210136aa32ed3049a99a1851207f5d88483f637f78a21179106ed0e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Formats.Tar.dll": "b91166f0fd635c5e6ac495e2f828d3fd07016ab59e1be7608ae8b61cbca502c8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Globalization.Calendars.dll": "344e9fad200bc65b059e434eab92a54bc3fe223d3e0623c6f3c1a7230ff79190",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Globalization.dll": "4bdb45463311466d5999d5e5888ce483f605e68a5b592053bc2b6fd0fac9a36a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Globalization.Extensions.dll": "ea747749c3ab25379991c06e8a57cf95831caa91cd0a3ed3fafb64dd48d1cfe7",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.Brotli.dll": "6aa5d40ff1c4fc269d961d875f0283f849dc1f3d2e8999c9741b2db21051d4c1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.dll": "82140ed74d5b18976673df16d11acc053c37cb9fb9d572cf7c4aab9bd4105f9e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.FileSystem.dll": "9e323566d6706505e60b6041cb2ffefbbbde43b3f2196a1119692eaf4a39189d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Compression.ZipFile.dll": "011b8e2567a0ca74f023357d059b929706768aaf6cec8e20896ee644a9e8b851",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.dll": "4f220e92107be0327006a0a145d4cc14fff4ea051e4f87448198ff4dbb1f58f9",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.AccessControl.dll": "7821b417acf22f09f7b4f3e57c611ecd70593d7b2e70613b856e74d73d3e186b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.dll": "cee6e7c4641d05788619dcb16b44ceed0ca57795beb0c367be7b5822923f8fc1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.DriveInfo.dll": "7b919747f786ee64dd14532db35c3ebc2c3cdad6671ef2542246c6ab64d161dc",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.Primitives.dll": "477131532ead66a743c294bd3f9065d8352d9a70c6beaac9c46a4bc4e1eafa51",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.FileSystem.Watcher.dll": "7437bbc96cb94300a9fb58b5109bc6d228753007be3b37a3f2a32d340880d558",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.IsolatedStorage.dll": "ce8839cc65a617de736e8d998092521cb83498523e759d9f82208a993095b625",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.MemoryMappedFiles.dll": "f0522eaf943a7fa2dd0122b86fa9961e747de370e581a70c71bc16aa6732df07",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Pipelines.dll": "ded2ba9d5a07bae574cb17174584c356ebb8e258b414b2e506ec6332a20fcf98",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Pipes.AccessControl.dll": "f19a55d7b23771c53f2e7b12464bf7536877d6955b42f5ba6618739c1d381eb3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.Pipes.dll": "5a8f4b3767aebe57617bd15d2d20f1b12d5a33e18393f0098688c5cb6037ce9f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.IO.UnmanagedMemoryStream.dll": "f48a6d6300a7a081d29f80dbba49f8adc7a8cd09659ee63dbcc54548c93cf74f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.AsyncEnumerable.dll": "f4288400dd8e69f0d8719eb4655c551ab94359195b4b976d0befd5126252a20d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.dll": "90b12dee61909768b747e0059dc5baf73c1ecd3ae81464fedf00c08ff98f1a72",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.Expressions.dll": "133d2b54331d4dfa9b738f6f46353e8d84bd13166227950668be3754c7b8c396",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.Parallel.dll": "54cd912782086628a65f7f1efc0547962a12a56c1b4342a2e87b78982d47fb63",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Linq.Queryable.dll": "ae9bc6e192ad79dc2291f640339779853985d826d4a99dbd60f3ec1b8d735a68",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Memory.dll": "9ab4ceee3c157fd0a3db4f6442e98aee583ff1e90872f2a715e21addb56de710",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.dll": "f0677b0c67497c747fc591328781648a9ad3a500998d4a2acbf18506c9c89476",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Http.dll": "3a16a179f7a110f9fee2d9bc52da838ff4102afa3560599c0bc8afc8977715a3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Http.Json.dll": "8281126ce6fe9fe226ec7054f11d1790f0f92ef80863847166ab0e02f4538a53",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.HttpListener.dll": "17dbf92fda0bc78994aae3936d8d62e9867e13a277dddb0d356da69a7eecec3b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Mail.dll": "81d106ec0b8f64f762b2cd5641914bf447505544ab7c3ac092b1bf339be644c6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.NameResolution.dll": "658f16128b3aa2a5c92ec0a6f8f3ed70926db1c8b8802a08218b59d2b2c56b74",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.NetworkInformation.dll": "8bc61f1f233b6c29022858ff8afc91327de5623145be869431ad54eb8a1df9d8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Ping.dll": "e584645e106529b8bf640376b6eca173df0daa12c050fb4ab3a9d6514906348d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Primitives.dll": "8ac4bfb0faf86c857d7d0b3b4e932814d75b4138913c94701249d24a52714940",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Quic.dll": "993ecdf405474faa5f9af86f675414aa9649ce4f9a0b7ae9c52858b0402833ed",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Requests.dll": "16b9257fafbd719735585d119b2b46925749e7ac321c45ed05395ed3a13a5cd6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Security.dll": "7d82f534a0aaf0bd1a7a14c6ec515f778e0aff375d912b6470f54b74e2829fee",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.ServerSentEvents.dll": "44fc52e86ffce03a1bfd195d9d63b557e90337fea160c4b1b261f6e8728f19b1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.ServicePoint.dll": "ada3646342992674e42e7b0601a5daaeb1dd6f9ae8b950d19b81be13efb43e29",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.Sockets.dll": "d6996687a76f7b8c78282a7d039e60c012310e5c40abf3fd63548ff510663274",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebClient.dll": "44a37c6f031224a73b0b5179f7cc421a8c8f8234031b2750cc78203f238fd71e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebHeaderCollection.dll": "f0a8ab5507b67cda421dee5b3a7a24bb93355744bca1e8e384e199ed2966bcd0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebProxy.dll": "63873c5f540b71d65a32687ea0506cbad13f45b89bf0b1391347eb6a489ffe1b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebSockets.Client.dll": "663d4fbaeb91b7563c520d98df9fb527fe4de66a53b030096da217457a7c5cbe",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Net.WebSockets.dll": "e555546cbce61c01b4f431ff3c84c0098d49c83097d71e8c1f2fe6abce3473c3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Numerics.dll": "52d3691e1e7d23ddedc0678a0ef5371498fc2455e062594a40c6718da3d456dd",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Numerics.Vectors.dll": "b1f83e3898d614f37a4cfbdc1e280e5b74eef3df4991f62e22d1523c5f5a57ff",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ObjectModel.dll": "29de0b1621fbbc01597c166c8a55a5f1887a2205eed2314e9dddcd2219571f27",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.CoreLib.dll": "024d6f41107a7a4a15650d3721ffa2dc074ad5b4ec21048e2245b7c614f297d0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.DataContractSerialization.dll": "4b7f28245244743f238ea5d63f2e7e532b575033a1a0c0732db2dfac8b8851c3",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.Uri.dll": "867a34e5369a2f51db832d656bb17f1f68b14d1686780af613d8021b9a30a97f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.Xml.dll": "dc25f8835b9f3d5dcb51ac90c47851e01fc8a9f26c008bfc4a169d351d095fcd",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Private.Xml.Linq.dll": "fff239f9655f3a8fb13d2816d528a400ce33a1b4b12610e212a872ed24f69871",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.DispatchProxy.dll": "d96e73faef59db2e67fcbed92e74ce8a4b16595f955067366ee40101c937e10d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.dll": "aefd8505e1743cbd37e27c972c0ad2f3c0c0905ac9049db426ace0d592fd60bf",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Emit.dll": "aafa480d302a52f67a7757ab674f822b1bb98d6d19257fd15fa7767e84f53581",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Emit.ILGeneration.dll": "51ca74f7b11c730aeddb4bceda7837a59238f9ae342e5edb555b6b8f948a7bfe",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Emit.Lightweight.dll": "9dc2c207d1c720712b6fd25f3ef96782e3b0d08cfbf3900efdc72d085e21c920",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Extensions.dll": "879e5af5d5f75d50079c4f50c9c9c5d07dc349fab17dc2e92bad780be8543bd5",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Metadata.dll": "2fd40c343880b18babaed7acf35c8bb7cb946d4198e2fd19828baa7f73acdd95",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.Primitives.dll": "5f8d31a2d0c9ee750e72866cb5637d0471a0310e39905ca20b4b64ef0346be8e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Reflection.TypeExtensions.dll": "4203a8a712daed4f207568290940a2916bf0671c41aee9284d51fc0a054df1f9",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Resources.Reader.dll": "ee8b35bd2548afcce3dbf2b26886f0ede0f603185eca84714f8739aa495ac726",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Resources.ResourceManager.dll": "94b6e95d093eaefc571235ea343a985fbd0c13ab44451b4d86d9599a4b45407f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Resources.Writer.dll": "8968fc4b401735a266832910dd0dff88d6b2432497baa0c335df8e728ba61bc4",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.CompilerServices.Unsafe.dll": "83f71bd72545b440b18e936e2dc58ffac3cefcec84915a2e6a24c03dadf37eb1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.CompilerServices.VisualC.dll": "ef63705962be8f9deb46cdff7f9d1245bcdfcf93fdb2e20fe773ebf9e72e7dd7",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.dll": "8b99bddcdcdb858d118104f1dfcde65edaab18624bd14fe5c9db33fb6fee97a6",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Extensions.dll": "9e30573219e2e50cd08e7b16d615568d29c295ff775bd3d340d0e04cdfa09823",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Handles.dll": "f3e1c9346ed08e18ade9f5a30624fc39fca3eb7aab2d7947958f0601de6bb27f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.InteropServices.dll": "f4fe487e5812b695c70ead804a94ede628d54423b55bc82a870c2ee68f71c272",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.InteropServices.JavaScript.dll": "c84a0837396428db56c5263982b901547c8747e9e8d521401db5d49ea4cbff86",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.InteropServices.RuntimeInformation.dll": "342bb699be70d193d8c0f0f1a3d642eb9a4291b499177af4f4ddd074222ecfc2",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Intrinsics.dll": "c693bfc22450069951bd29ab14a8050f8b1893e0818638cc508c744e3dae58aa",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Loader.dll": "146f2f64a7dee87f45840af5ad7db095020c771aa60487d4ccac8b2ae3c29015",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Numerics.dll": "fa5ce79dd0a912e1b3a5d485508a1361ef73f22bf34596bfb91f487f8d94d855",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.dll": "2b903850aba5df31c10716ac4b76c10fb1146689585d99b00e50aa7cc96d96ce",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Formatters.dll": "4d31c2e5e6a779480049cd78fbebb0fac8b77811d9e46c85eeee938f17dff779",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Json.dll": "275752c47635d7d9bee34fdff5611e9d0dc7073398c7bfe0c05c2864ebce2aa1",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Primitives.dll": "d0d1ad98d9e00b5cc220e128b15876291051d45033c52e3ab5eec02ce67e1a1f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Runtime.Serialization.Xml.dll": "5a1780a66bca3d207bf6696f16192c9e95dece03bd253db824a702c7e4160acf",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.AccessControl.dll": "8cf98792214902cf17c05ca632211dced674331077299f1ce2495707c24e13b0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Claims.dll": "4c4dfb6eede11dc0da5f908cc4d53204212fa31c2c1d5163b8acb5cf77f0b21d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Algorithms.dll": "d8cff5f17740270fde4ac26a44b0d1acb169d8ae2335e933531cd4cb2a4c9d5f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Cng.dll": "189316e4f21e0d48e476f1fdac10febb7d48b1f46f543c5efe54e3b65d54635f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Csp.dll": "30302f240f6e43a8c3a6f37018f07307a79baf5f9bf404dc4c76d426ed6d1b04",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.dll": "807264d6569449f017d47e618cd234caac67a872bb3cc733ed2317c8a50d05fd",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Encoding.dll": "66e95cba8010d73b2bd7341ce45d129918da1cbd0782230a766148a3dc25d9a2",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.OpenSsl.dll": "3cba2e48564e428d1a08f6b8d6efb63d67bab7e9702d41ec1df9ac87d82ac23a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.Primitives.dll": "87ca66910278067807586bf2e4d8e0eb781038b3c15ce99876184297a45560c4",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Cryptography.X509Certificates.dll": "d202f62c5590301991eba64ae654eeaca52498cc5b9d99ee4eac8a65456888c0",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.dll": "45c2fe0b1810e11716bd0145e285d9dc92bb2f2121a28a4208a34d031445427b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Principal.dll": "ec0ade2d663fdd49fc14b20932c7988c20ada33912a434d5ed49e7f7984ecd05",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.Principal.Windows.dll": "24395e4885f226ccff7cb98f3acf3f97b69f2a36978880490aa10df813b592c9",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Security.SecureString.dll": "b6c814f2ae2efe86f3c586d5e85a1f6864ad6945efeff17196bb5a1ea2d60c88",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ServiceModel.Web.dll": "ad39f86b215f83aeff7074823bd896a1c588e4fa1c4e248f55566432f2883e8a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ServiceProcess.dll": "4fb0bc34a96848854f30340e0dc6ab7ce4a80648cec4f0f0005de13899703061",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encoding.CodePages.dll": "5858a64e2663045d88ccd31ce88519145a7713c4c415389a7b5f37f45a6b05b8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encoding.dll": "e2c9c2e3bea82755e474e16f598b5910d93789919f8be4ecb80dd4395ca4635e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encoding.Extensions.dll": "4ad92217bde4f90e8fcafc2b6f39934560033c690ef20e6c0a5e5de204a4d282",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Encodings.Web.dll": "6cb49ad436947efa2c0996aa57d5c7a52836f53179ec5fbdc0af02d936596e9c",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.Json.dll": "96373b3c87bfcc233ccc7a8d036c449094530232b373c01c9b1f421211a66d6b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Text.RegularExpressions.dll": "1f78bf56e149741d5abd89aad76373a8e3b5235a558092cccd8bdd9970feb0fb",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.AccessControl.dll": "4f7a51f8e69d06bcd7abe59cb4a4f785ce11db482971f973ad4d1938393c8994",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Channels.dll": "37834c6ffb01b7f40fb9686de914a5779b73665333c1eaf3303c6b999f9c7933",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.dll": "dce1aecf9fd7e66cd78efe12ab03d532812a72ad6217102bc6c27ba6c2a257f8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Overlapped.dll": "f4c12d3c8cc0a46312fc5967266c2d429ad74a5d02cd3bd0e9ef83fc81b7e614",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.Dataflow.dll": "89fb9259e96ac2ede5935bd8b9065debb717573174865be2cbd9ec081fc355df",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.dll": "e845a3965bcd7c96c18c246fe8f076951e3591aa13efdb15142f352d6e4af202",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.Extensions.dll": "adaf5c18c3f02deff4b3d0fdffe55f1a6b4c7b05e6d5d36b688ef63a1b68a768",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Tasks.Parallel.dll": "1f84601b78fc81de916b7028e6edd56bd0b6edcd6b809d95c3bc777097edb35f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Thread.dll": "4c8836cfabd35b9b21160dc4f2672002ca0ac4bddd3886a4e4404c00ce22b184",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.ThreadPool.dll": "4a3b7ae2f6d04fc84bcbd833aed1bfc9832401a0b907e7a1c81b0c5c2faf3d35",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Threading.Timer.dll": "5ab2bf9c0334392242d8cd545ff3fe5fb5f01009d5f31364ee1ce649afd592e8",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Transactions.dll": "3f5405de883e1e738feab1a950e75dd826ac1c2147a5f33bbc32742d6ed6e13e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Transactions.Local.dll": "65d06c023c073600f2d156b2b6a37c41f35827c458ac1acb138676a289f2102d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.ValueTuple.dll": "bd7f95740b1eabcf5f070a59329930287ddbb79c4622a467075fa7c93a71121b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Web.dll": "e065b546f4b33c52566ada1890b6662d46a29bcdf790636837ff51f4184eb411",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Web.HttpUtility.dll": "d75c896b094499d5e1f892659b44db8c4d645cdeaf3a839fae10890d91afedf9",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Windows.dll": "ae91ffc6ca6a0502179219c420685116404dcc7d1b69c39fa4a5b72201ec858b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.dll": "bc9a8a873c7ce1f554564fb1909b3d38c780e792d9a7df38265925a5a54e4452",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.Linq.dll": "b08823e76d2f1d848f8d77b9517e3c003140c433a96c976d7f62ffe18408fb2a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.ReaderWriter.dll": "4c8b2a46a0a8e4e31c368f77e73ef2c566bdc4fc4962bea3b207396e985d60ee",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.Serialization.dll": "f317041e2004a316df9bbbaff609f700e97a1ba7eee1efb925165e839cf54d1b",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XDocument.dll": "6ce8bdc3f97eaa43d0b6d22990123455a233a784541ba2460bb45fd050eb4fd9",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XmlDocument.dll": "67a7f36ed6b3aadeca76439e1304a3a39dba41fed98c93493d69b2eb020a110d",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XmlSerializer.dll": "dd3ad5f8f6bce2927b93230a776c98bd72c2cef7a97e7c9759fcc2c200a8cd64",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.dll": "4de49b8ef1422f1b4d19dad40c3e10c3936c03cae730533679281ed736c9fa1e",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/System.Xml.XPath.XDocument.dll": "b3c9396753122a8af449803b536b74eb0baaec2dd240878c84b361dd76a67d7a",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification-evidence.json": "e6ec3bb36514b6e511b5f0eb95df340adc16af3bf113dd47a2a7a4bae6a08993",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/verification.json": "b1a80bd2c1c540be297e5ac8a7d0abd7164db7f5acfbc6c3c6278515c9e1c18f",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/WindowsBase.dll": "39bd19606e4439bd4a47a62c23d43cf982ae0cc67634dd2fc3213b2185d79b81",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js": "cf51afcaf0cdbd8afa9191630aa5e1001767d2008361eed7a0adbd44b734b654",
-        "samples/net11.0/FossilDesk/bin/Release/net11.0/wwwroot/_framework/dotnet.js.gz": "ed926d04ae1534bd1670c977228f21ba04edb6e585a92ad12cef2fec01bfad75"
-      },
-      "expressionSha256": "ab72d28ccc21219688c1d5a941bc2392c619dcccfde32eacb35154c96d604597"
+      }
     }
   },
-  "recordedAt": "2026-10-23T08:10:46.7904665+00:00",
-  "sourceCommit": "ab4ca5fc7bd9435cbb0030df5fc022ffc0afd737",
-  "invocation": "Chrome extension CDP Runtime.evaluate; exact eng/FossilDesk.browser.js fetched from owned loopback capture server and evaluated without transformation after Ready, foreground tab"
+  "limits": "Compile records and actual Windows Chrome execution are separate. Fresh real browser execution against final compiled inputs, including the formatting-only net10 project cleanup. Original compilation records retain their actual provenance. No cross-compilation, mocks, GA, AOT, mobile, SSR, Auto, hosted deployment or durable work claimed.",
+  "invocation": "Chrome extension CDP Runtime.evaluate; exact eng/FossilDesk.browser.js fetched from owned loopback capture server and evaluated without transformation after Ready, foreground tab",
+  "recordedAt": "2026-10-23T08:22:51.0854011+00:00",
+  "kind": "actual-browser-input-and-artifact-fingerprint",
+  "sourceCommit": "3df9c5e790744ad899e2f6a6e124d06531570db1"
 }
