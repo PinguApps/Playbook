@@ -290,5 +290,6 @@ Feature: Installed offline guidance
     And custom event migration retains complete canonical guidance and collision requirements offline
     And browser component activity retains complete setup and collector requirements offline
     And deliberate resource hints retain complete guidance and actual target boundaries offline
+    And component property injection void interop and MathML retain complete guidance offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

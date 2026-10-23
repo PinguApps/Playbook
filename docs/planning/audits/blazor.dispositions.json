@@ -134,8 +134,8 @@
     {
       "id": "activation",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.IComponentPropertyActivator",
-      "owner": "PIN-801",
-      "disposition": "grouped"
+      "owner": "PIN-801; WEB-028/WEB_W17; blazor.customize-injected-properties/11.0",
+      "disposition": "delivered; original BreakwaterLab adapter/property-policy comparison and actual keyed/unkeyed browser circuit; closed component set, concurrency/trimming unverified; docs/verification/PIN-801-803.md"
     },
     {
       "id": "environment",
@@ -187,6 +187,18 @@
     }
   ],
   "toolingGroups": [
+    {
+      "id": "interactive-mathml",
+      "pattern": "^src/Components/Web.JS/src/Rendering/(BrowserRenderer|LogicalElements)\\.ts",
+      "owner": "PIN-803; WEB-043/WEB_W18C; blazor.render-mathematical-markup/11.0",
+      "disposition": "delivered; original old JS-owned MathML/new direct Razor, real namespace/update proof and old HTML-namespace failure control; docs/verification/PIN-801-803.md"
+    },
+    {
+      "id": "void-call-authoring",
+      "pattern": "^src/Components/Analyzers/src/DiagnosticDescriptors\\.cs",
+      "owner": "PIN-802 for BL0010 authoring only; remaining diagnostics retain their existing owners",
+      "disposition": "delivered blazor.use-void-interop-intent/11.0; actual old generic/new void browser calls plus supported old void use; no analyzer-internals or new runtime capability claim; docs/verification/PIN-801-803.md"
+    },
     {
       "id": "custom-event-name-collision",
       "pattern": "^src/Components/Web.JS/src/Rendering/Events/EventTypes\\.ts",

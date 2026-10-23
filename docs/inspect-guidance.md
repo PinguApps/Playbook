@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For custom component property injection, no-result browser actions and changing
+mathematical notation, use the [PIN-801/802/803 walkthrough](verification/PIN-801-803.md#inspect-what-an-agent-receives).
+It displays all three goal-based descriptions, full original .NET 10/11
+comparisons, applicability and evidence through the real installed stdio server.
+
 For server circuit transport, ticket expiry and buffering, use the
 [tested PIN-790 walkthrough](verification/PIN-790.md#inspect-what-an-agent-receives).
 It displays the full original .NET 10/11 comparison, exact policy applicability
