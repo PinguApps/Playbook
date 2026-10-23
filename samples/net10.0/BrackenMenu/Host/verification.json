@@ -1,0 +1,21 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "dependencies": [
+    "BrackenMenu.Client/1.0.0",
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13",
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/10.0.13",
+    "Microsoft.AspNetCore.Components.WebAssembly/10.0.13",
+    "Microsoft.JSInterop.WebAssembly/10.0.13"
+  ],
+  "buildArguments": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/net10.0/BrackenMenu/Directory.Build.props",
+    "samples/net10.0/BrackenMenu/Directory.Build.targets",
+    "samples/net10.0/BrackenMenu/Directory.Packages.props",
+    "samples/net10.0/BrackenMenu/Client"
+  ]
+}

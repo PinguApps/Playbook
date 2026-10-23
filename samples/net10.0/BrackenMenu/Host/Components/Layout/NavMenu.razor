@@ -1,0 +1,19 @@
+<!-- snippet:menu -->
+@inject NavigationManager Navigation
+@if (External) {
+    <script type="module" src="@Assets["Components/Layout/NavMenu.razor.js"]"></script>
+}
+<bracken-menu>
+    <label for="menu-open">Bracken walks menu</label>
+    <input id="menu-open" type="checkbox" aria-label="Show walks" />
+    <div class="nav-scrollable" onclick="@(External ? null : InlineHandler)">
+        <nav aria-label="Walks"><a id="fern-link" href="@("fern" + Suffix)">Fern trail</a>
+        <a id="reed-link" href="@("reed" + Suffix)"><span>Reed trail</span></a></nav>
+    </div>
+</bracken-menu>
+@code {
+    private const string InlineHandler = "this.closest('bracken-menu').querySelector('input').checked = false";
+    private bool External => new Uri(Navigation.Uri).Query.Contains("external=true", StringComparison.Ordinal);
+    private string Suffix => External ? "?external=true" : "";
+}
+<!-- endsnippet:menu -->

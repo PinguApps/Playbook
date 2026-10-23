@@ -1,0 +1,11 @@
+<!-- snippet:menu -->
+<script type="module" src="@Assets["Components/Layout/NavMenu.razor.js"]"></script>
+<bracken-menu>
+    <label for="menu-open">Bracken walks menu</label>
+    <input id="menu-open" type="checkbox" aria-label="Show walks" />
+    <div class="nav-scrollable" >
+        <nav aria-label="Walks"><a id="fern-link" href="@("fern")">Fern trail</a>
+        <a id="reed-link" href="@("reed")"><span>Reed trail</span></a></nav>
+    </div>
+</bracken-menu>
+<!-- endsnippet:menu -->
