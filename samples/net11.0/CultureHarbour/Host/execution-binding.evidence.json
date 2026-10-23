@@ -1,18 +1,18 @@
 {
   "kind": "post-execution-artifact-equality",
-  "recordedAt": "2026-10-23T08:28:28.6271010+00:00",
-  "sourceCommit": "a0cc3f74562123fc07379e5d8fce6d367c3d1f3e",
+  "recordedAt": "2026-10-23T09:26:04.1359910+00:00",
+  "sourceCommit": "23a961e709ed2e796f63bf9e21ea49893433d2b2",
   "sourceDirty": true,
   "provenance": "Original dirty-checkout browser captures retain their own timestamps. This later binding fingerprints settled inputs and verifies every fetched artifact against actual current build bytes. It does not relabel execution as clean or later execution.",
   "evaluatedExpression": "Exact UTF-8 eng/CultureHarbour.browser.js, without transformation, passed to Chrome extension CDP Runtime.evaluate with awaitPromise/returnByValue.",
-  "expressionSha256": "d34e3393af189055e6d068e7cd0eee9bacca16e583313d08444dfb826c5cb442",
-  "verifierSha256": "2f6514e9ba7c8a9c9c88b5b8526435c8084b696c0f182259024c328ee619e355",
+  "expressionSha256": "d34deafa6eda61101e408356e19e7f9c5aa3ac38bc95c3a8d0ba2d97db60a09f",
+  "verifierSha256": "799d61fb120bb5775af1ddda762b509c1bfd10665e169f9080cec508ea776691",
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
-    "eng/CultureHarbour.browser.js": "d34e3393af189055e6d068e7cd0eee9bacca16e583313d08444dfb826c5cb442",
+    "eng/CultureHarbour.browser.js": "d34deafa6eda61101e408356e19e7f9c5aa3ac38bc95c3a8d0ba2d97db60a09f",
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
     "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
-    "eng/Test-CultureHarbourEvidence.ps1": "2f6514e9ba7c8a9c9c88b5b8526435c8084b696c0f182259024c328ee619e355",
+    "eng/Test-CultureHarbourEvidence.ps1": "799d61fb120bb5775af1ddda762b509c1bfd10665e169f9080cec508ea776691",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/net11.0/CultureHarbour/Client/Client.csproj": "be359c772c24b6e29c52fb3ad19e5fdceb93219916a3911d5e7ac7d11505feae",
     "samples/net11.0/CultureHarbour/Client/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
@@ -36,25 +36,25 @@
     "samples/net11.0/CultureHarbour/Host/Program.cs": "73a4c1c9ece7aba07927e70c43cb543984785e91f5a4c2f3386800d4024fd640",
     "samples/net11.0/CultureHarbour/Host/Routes.razor": "b125b86b36a079c2acca94b3a70a28231cdc2415bdadff863a29bd6da0e27229",
     "samples/net11.0/CultureHarbour/Host/verification.json": "e1a264830739fbb0f754651594ea7671c01453a672e58dfb0ad2045ab9cd9310",
-    "samples/net11.0/CultureHarbour/Host/wwwroot/culture.js": "7625965db9e635b7ffea963da78e375eb7708abfe6fea039f3f6a27488dc82ea"
+    "samples/net11.0/CultureHarbour/Host/wwwroot/culture.js": "c028ae4f56749aed94b9a5e91e096c69c319d91ac34bde096e0c2a034ae025f2"
   },
   "artifacts": {
     "samples/net11.0/CultureHarbour/Host/obj/Release/net11.0/staticwebassets/fx/Microsoft.AspNetCore.App.Internal.Assets/_framework/blazor.web.js": "065eac53496a10915dc8c3e19894d6bbb673c804c4f7ae7573a8364cc0e060c7",
-    "samples/net11.0/CultureHarbour/Host/wwwroot/culture.js": "7625965db9e635b7ffea963da78e375eb7708abfe6fea039f3f6a27488dc82ea",
+    "samples/net11.0/CultureHarbour/Host/wwwroot/culture.js": "c028ae4f56749aed94b9a5e91e096c69c319d91ac34bde096e0c2a034ae025f2",
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/dotnet.runtime.js": "386749a9483f4ca362116adbb596072c4833b46f4f82b8808b583413110aa5ad",
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/dotnet.native.js": "ddc8ff57061165f6cea6032307824d64cdc8da7f8865a5776658448122c45ae4",
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/dotnet.native.wasm": "0ce33792a9efe66754eeda042f9b99212221eb40f9dea45197b40d929f4cb672",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/CultureHarbour.Client.pdb": "209aebf7cfa18a3a023ad73245f7627b88e3ec3d0a169d720c1b8153bbbff68b",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/CultureHarbour.Client.pdb": "5fe1b708fc5d7f7756f4fadc0c5bb90fcad046731db3005e11f72e65774f4a36",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/CultureHarbour.Client.wasm": "6c27df79368ca58c6cc5b88be602bc83f5e612d9e258f15b5eb58bbfa9f978b4",
     "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/fx/CultureHarbour.Client/_framework/icudt.dat": "e417e1ce03864118d68fdf7a00eb0af190fdeef806c570f951ca32f61fa4047f",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/CultureHarbour.Client.wasm": "a2a1835abece06a5db7dfc4719e7cdd7f56885058a46630b6d72dd4081f54901",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/fr-FR/CultureHarbour.Client.resources.wasm": "c9f6c38deda0b4e7a21f5ad46fc004614cebe251d7d42da90fea9ceccc7759e4",
-    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/de-DE/CultureHarbour.Client.resources.wasm": "85743da165e02e0ce4fbf40e12b75d51ce4886acd01fff162a5704aab6f04553",
-    "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.dll": "2e71d19960b1cbf461e7c694fd7e4107b0ec2375b5de9e9e2c1b320bea3f3752",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/fr-FR/CultureHarbour.Client.resources.wasm": "f1f2565286b93158f4ef5d28d985c4851a4dadc61cd747b10e646c0fb61d58a1",
+    "samples/net11.0/CultureHarbour/Client/obj/Release/net11.0/webcil/de-DE/CultureHarbour.Client.resources.wasm": "0be3c423400cb584efb403b3aa096179cca52febbf1e8bbfa94f000f23640c5e",
+    "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.dll": "74d08ff0841e41b4578d7cb3d88e3049ca00068c364e29aef6381ed9680e5050",
     "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.deps.json": "cf8a1cfff80931e401dd8f9a78b0c5227bed7c7b73792fafaa8ce888444c90be",
     "samples/net11.0/CultureHarbour/Host/bin/Release/net11.0/CultureHarbour.Host.runtimeconfig.json": "4c6db706a13c6f6de4e265029f2fb807e5b7d2f20978b135f764a6ac0a884ec6"
   },
   "reports": {
-    "aligned": "0cde2fb8729665e53ee23e72b5e1754789ba9752830a681cc782aaddf6751e8d",
-    "independent": "24387824c533b148459d77fa60028953b02cabe498c9ebd8b95da55613d02539"
+    "aligned": "70cb86751c0e28e6dc892f7ea0f89568dce2141371256cc4ce291aafc1654567",
+    "independent": "2a8c0b5382f205a362065b64c93b97693d8d99be81dfb3017eee3fd2e7f39a72"
   }
 }

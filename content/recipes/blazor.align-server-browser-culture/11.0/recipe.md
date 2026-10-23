@@ -82,6 +82,8 @@ The client Localization implementation is deliberately pinned to 10.0.13 in both
 
 ## Shared complete files
 
+The first-render JavaScript observation also sets document.documentElement.lang to the chosen UI culture. This keeps the document language aligned with its translated content when the independent client intentionally changes language after prerendering.
+
 Save these files in both edition directories. Host/Routes.razor, Client/Program.cs, Client/Manifest.razor and all resource files are byte-identical between the canonical editions. Imports and namespaces are explicit in each Razor component; no _Imports.razor, template scaffold, hidden CSS, JS initializer or service worker is required. The full document CSS and boot JavaScript were supplied above.
 
 Client Program records the initial runtime cultures before RunAsync. In the .NET 11 aligned route it makes no selection: RunAsync restores persisted server culture later, then loads that culture's resources before rendering. Never assume the server culture is already visible while Program is configuring services. The .NET 10 aligned route and both independent routes select explicitly before RunAsync.

@@ -16,6 +16,7 @@
     : { culture: 'en-GB', ui: 'fr-FR', date: '19/07/2032', number: '12,345.67', translation: 'Gardez la caisse bleue debout.' };
   for (const [key, value] of Object.entries(expected)) assert(hydrated[key] === value, `${key}: ${hydrated[key]} != ${value}`);
   assert(hydrated.phase === 'Interactive WASM', 'Not interactive');
+  assert(document.documentElement.lang === expected.ui, 'Document language must follow the chosen UI culture');
   const html = await (await fetch('/', { cache: 'no-store' })).text();
   const ssr = new DOMParser().parseFromString(html, 'text/html');
   const prerendered = Object.fromEntries(['culture', 'ui', 'date', 'number', 'translation', 'phase'].map(id => [id, ssr.getElementById(id).textContent]));
@@ -39,7 +40,7 @@
   }
   const configuration = html.match(/<!--Blazor-Configuration:([^>]+)-->/);
   return { kind: 'real-browser-webassembly', recordedAt: new Date().toISOString(), url: location.href, userAgent: navigator.userAgent,
-    navigatorLanguage: navigator.language, edition: document.body.dataset.edition, independent, prerendered, hydrated,
+    navigatorLanguage: navigator.language, documentLanguage: document.documentElement.lang, edition: document.body.dataset.edition, independent, prerendered, hydrated,
     capturedInitialDocument: journal.prerender, events: journal.events, satellite, artifacts, confirmations: 1,
     emittedBrowserConfiguration: configuration ? JSON.parse(atob(configuration[1])) : null,
     limits: 'Local interpreted development assets; no AOT, Auto, production publication, remote provider, tab-lifetime or GA execution claim.' };

@@ -37,6 +37,16 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Culture {field} must survive packaging.");
         }
 
+        JsonElement[] evidence = [.. recipe.GetProperty("evidence").EnumerateArray()];
+        foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+        {
+            JsonElement actual = Assert.Single(evidence, entry => entry.GetProperty("sample").GetString() == expected.GetProperty("sample").GetString());
+            foreach (JsonProperty property in expected.EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored culture evidence {property.Name} must survive packaging.");
+            }
+        }
+
         string markdown = recipe.GetProperty("markdown").GetString()!;
         foreach (string contract in new[] { "Components:UseCultureFromServer=false", "Prerendered WASM in Blazor Web Apps; satellite assembly timing.", "BlazorWebAssemblyLoadAllGlobalizationData", "DefaultThreadCurrentUICulture", "19/07/2032", "19.07.2032", "Gardez la caisse bleue debout.", "Die blaue Kiste aufrecht halten." })
         {

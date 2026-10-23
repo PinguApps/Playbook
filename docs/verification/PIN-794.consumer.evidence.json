@@ -1,11 +1,11 @@
 {
   "kind": "standalone-returned-body-compilation",
-  "recordedAt": "2026-10-23T08:33:13.1020129+00:00",
+  "recordedAt": "2026-10-23T09:27:20.9600910+00:00",
   "source": "Actual built stdio get_recipe via tested Inspector",
   "recipe": "blazor.align-server-browser-culture",
   "edition": "11.0",
-  "bodySha256": "63d75435c9c13221529f37ffb0812aa529fa9044b825d0a2bda89911c01cb10a",
-  "consumerPath": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-PIN-794-attempt1\\returned-body-consumers",
+  "bodySha256": "7dbbc3e5bc03ff5d2f33a78ef3a6f544d8e000fa52a35bf54a3954e5d194b485",
+  "consumerPath": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-PIN-794-attempt1\\returned-body-consumers-v2",
   "inputs": {
     "net10/Client/Client.csproj": "80c70fc0ca45f8df3033f2929e0646dd36a565dfa906d9cf99254d12e5a8ef17",
     "net10/Client/Directory.Build.props": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
@@ -25,7 +25,7 @@
     "net10/Host/Host.csproj": "fb8f6031c43cadf290eb4621038a563d95eb9827bd4142684568a339d01cda6c",
     "net10/Host/Program.cs": "0a7f09d90c74bc02178abd92dc80443da1271b06b1ff6354a6ff1930ba5007be",
     "net10/Host/Routes.razor": "ddd1edad8d18fd2ac2d656deb519cec9a90059afc754253ed4461eff6eac23c4",
-    "net10/Host/wwwroot/culture.js": "865ce9d29124885d6c1b00556f622e5ba4f86bf18c187913b171f56d76ce27aa",
+    "net10/Host/wwwroot/culture.js": "50bca5cdb8bfef6fd84ff142306572738aa75030e6cb72a7b423a9bdd3d064a0",
     "net11/Client/Client.csproj": "4dfb79e01cb7274972abc844ede43fc62d02c2f2b1a82c5bd32332e83502628a",
     "net11/Client/Directory.Build.props": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
     "net11/Client/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
@@ -44,7 +44,7 @@
     "net11/Host/Host.csproj": "81702d3fe74be244bcfc205ba16e650f5e381515363dd7c3ce70cc714123f5ec",
     "net11/Host/Program.cs": "f948913de44cf481fe81637673c413286fc0a981beb3bfa2b6382b2d1025990d",
     "net11/Host/Routes.razor": "ddd1edad8d18fd2ac2d656deb519cec9a90059afc754253ed4461eff6eac23c4",
-    "net11/Host/wwwroot/culture.js": "05cf75e2471bf987f1c4b8b610e629bcd96087c2ad5949b4572d287a6201413f"
+    "net11/Host/wwwroot/culture.js": "312f9a3175a5069649e1269879c861e60625c8d18730eb9763117c9f58a0b8e3"
   },
   "result": "Actual matching SDK Host and Client builds for .NET 10/11; no files copied from checkout samples, no parent build/package inheritance."
 }

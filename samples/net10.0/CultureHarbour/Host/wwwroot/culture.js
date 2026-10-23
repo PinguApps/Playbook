@@ -8,6 +8,7 @@ window.cultureHarbour = {
     return [desk.serverCulture, desk.serverUi];
   },
   observe(kind, culture, ui) {
+    if (kind === 'first-render') document.documentElement.lang = ui;
     this.events.push({ kind, culture, ui, at: performance.now() });
   }
 };

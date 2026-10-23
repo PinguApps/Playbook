@@ -21,7 +21,7 @@ foreach ($version in @(10, 11)) {
         $report.satellite.bytes -le 0) { throw 'Missing actual different-culture satellite timing.' }
     $culture = if ($mode -eq 'independent') { 'de-DE' } else { 'en-GB' }
     $ui = if ($mode -eq 'independent') { 'de-DE' } else { 'fr-FR' }
-    if ($report.hydrated.culture -cne $culture -or $report.hydrated.ui -cne $ui -or
+    if ($report.hydrated.culture -cne $culture -or $report.hydrated.ui -cne $ui -or $report.documentLanguage -cne $ui -or
         $report.prerendered.culture -cne 'en-GB' -or $report.prerendered.ui -cne 'fr-FR') { throw 'Wrong server/client culture policy.' }
     foreach ($artifact in $report.artifacts) {
       if ($artifact.url -match '/culture.js$') { $local = Join-Path $directory 'wwwroot/culture.js' }
