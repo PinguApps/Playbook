@@ -1,5 +1,7 @@
 # Inspect the guidance an agent receives
 
+For experimental streamed conversation history and browser form protection, use the [tested PIN-804/808 walkthrough](verification/PIN-804-808.md#inspect-what-an-agent-receives). It displays both full .NET 10/11 comparisons, experimental package requirements, RC2 MVC opt-in and retained token exceptions through real installed stdio.
+
 For custom component property injection, no-result browser actions and changing
 mathematical notation, use the [PIN-801/802/803 walkthrough](verification/PIN-801-803.md#inspect-what-an-agent-receives).
 It displays all three goal-based descriptions, full original .NET 10/11

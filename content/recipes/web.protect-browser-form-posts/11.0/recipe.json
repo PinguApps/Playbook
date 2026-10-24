@@ -1,0 +1,267 @@
+{
+  "id": "web.protect-browser-form-posts",
+  "edition": "11.0",
+  "title": "Simplify browser form protection while retaining necessary tokens",
+  "goal": "Remove token setup only from form paths that can use automatic cross-origin checks, while preserving token-dependent browsers, custom data and compliance defenses.",
+  "areas": [
+    "aspnetcore",
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quay-permits",
+    "csrf"
+  ],
+  "apis": [
+    "UseAntiforgery",
+    "RequireAntiforgeryToken",
+    "IAntiforgeryAdditionalDataProvider",
+    "ICsrfProtection",
+    "CORS"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "RC2 behavior: automatic SSR/Minimal API and explicitly opted-in MVC; Razor Pages retains its token filter."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution is not GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build matching Razor and framework assets; reproducible SDK pin is in the sample."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Tested compiler mode; the sample does not require a new language construct."
+          },
+          "frameworks": [
+            "ASP.NET Core Blazor",
+            "ASP.NET Core Minimal APIs",
+            "ASP.NET Core MVC",
+            "ASP.NET Core Razor Pages"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework and Microsoft.AspNetCore.App.Internal.Assets; CsrfProtectionMiddleware is automatically wired by WebApplication.CreateBuilder"
+          ],
+          "workloads": [],
+          "providers": [
+            "Default ICsrfProtection; built-in antiforgery/Data Protection; PermitAdditionalData in retained-token mode"
+          ],
+          "platforms": [
+            "ASP.NET Core server; modern browser with Fetch Metadata or Origin; actual Windows x64 Chrome 155 and loopback HTTP"
+          ],
+          "renderingModes": [
+            "Blazor static SSR",
+            "Minimal API form binding",
+            "MVC opt-in through RequireAntiforgeryToken",
+            "Razor Pages with retained token filter"
+          ],
+          "prerequisites": [
+            "Use every listed file in standalone QuayPermits. Preserve Pages/Permit.cshtml's first @page directive. Empty Directory files isolate parent build/package configuration. Restore matching framework assets before offline builds."
+          ],
+          "constraints": [
+            "Default automatic verdict is enforced at protected form consumers. SSR and form-bound Minimal APIs work without token middleware; MVC must opt in with RequireAntiforgeryToken in this RC2 artifact. ValidateAntiForgeryToken remains a token filter; do not combine both attributes. Razor Pages retains tokens because its automatic filter still demands them.",
+            "Retain AddAntiforgery/UseAntiforgery, form/cookie token pairs and IAntiforgeryAdditionalDataProvider when older browsers, additional token data or compliance require token defense. The sample --keep-tokens true does so; --reject-additional true is a deliberate negative control. RC2 token middleware can overwrite the automatic verdict, so coexistence is not proof of two independent enforced layers.",
+            "JSON endpoints are unchanged. Headerless non-browser requests are allowed by automatic protection; do not mistake this for authentication. Neither token defense nor CORS replaces authorization, input validation or HTTPS. The sample stores no application data and implements no authentication.",
+            "Only explicit credentialed CORS trust is accepted: /trusted permits http://localhost:6019 with AllowCredentials. Wildcard or public-read policies do not grant CSRF trust. Do not opt browser/cookie endpoints out with DisableAntiforgery or IgnoreAntiforgeryToken merely to suppress a rejection."
+          ],
+          "optIns": [
+            "MVC RequireAntiforgeryToken; retain --keep-tokens true for token-dependent consumers"
+          ],
+          "stabilityLimitations": [
+            "Stable API designation with RC2 artifact-specific evidence. Current migration prose overstates the tested MVC legacy-filter/Razor Pages integration; GA reconciliation remains required."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0#automatic-csrf-protection",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/DefaultCsrfProtection.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/CsrfProtectionMiddleware.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ViewFeatures/src/Filters/AntiforgeryApplicationModelProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.RazorPages/src/ApplicationModels/AutoValidateAntiforgeryPageApplicationModelProvider.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuayPermits/QuayPermits.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Automatic CSRF migration guidance (reconcile against pinned artifact)",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0#automatic-csrf-protection"
+    },
+    {
+      "title": "Actual RC2 origin and credentialed CORS rules",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/DefaultCsrfProtection.cs"
+    },
+    {
+      "title": "Actual RC2 middleware verdict",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/CsrfProtectionMiddleware.cs"
+    },
+    {
+      "title": "Actual MVC opt-in and legacy filter distinction",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ViewFeatures/src/Filters/AntiforgeryApplicationModelProvider.cs"
+    },
+    {
+      "title": "Actual Razor Pages retained token filter",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.RazorPages/src/ApplicationModels/AutoValidateAntiforgeryPageApplicationModelProvider.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuayPermits/QuayPermits.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records actual loopback requests and browser form posts, token/additional-data failures, CORS and JSON controls. No cross-compilation, live model/account, broad platform or GA execution claim."
+    },
+    {
+      "sample": "samples/net11.0/QuayPermits/QuayPermits.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records actual loopback requests and browser form posts, token/additional-data failures, CORS and JSON controls. No cross-compilation, live model/account, broad platform or GA execution claim."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/QuayPermits/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/QuayPermits/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/QuayPermits/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/QuayPermits/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-quaypermits-csproj": {
+      "path": "samples/net10.0/QuayPermits/QuayPermits.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/QuayPermits/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-formdocument-cs": {
+      "path": "samples/net10.0/QuayPermits/FormDocument.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-permitcontroller-cs": {
+      "path": "samples/net10.0/QuayPermits/PermitController.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-app-razor": {
+      "path": "samples/net10.0/QuayPermits/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-pages-permit-cshtml": {
+      "path": "samples/net10.0/QuayPermits/Pages/Permit.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-pages-permit-cshtml-cs": {
+      "path": "samples/net10.0/QuayPermits/Pages/Permit.cshtml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/QuayPermits/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/QuayPermits/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/QuayPermits/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/QuayPermits/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-quaypermits-csproj": {
+      "path": "samples/net11.0/QuayPermits/QuayPermits.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/QuayPermits/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-formdocument-cs": {
+      "path": "samples/net11.0/QuayPermits/FormDocument.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-permitcontroller-cs": {
+      "path": "samples/net11.0/QuayPermits/PermitController.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/QuayPermits/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-pages-permit-cshtml": {
+      "path": "samples/net11.0/QuayPermits/Pages/Permit.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-pages-permit-cshtml-cs": {
+      "path": "samples/net11.0/QuayPermits/Pages/Permit.cshtml.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local application/browser checks need no account or Human-only resource. No external provisioning or publication. GA and broader platform/client evaluation are separate work."
+  }
+}

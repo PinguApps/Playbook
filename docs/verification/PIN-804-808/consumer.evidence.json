@@ -1,0 +1,43 @@
+{
+  "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53",
+  "records": [
+    {
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net10.0\\QuayChat",
+      "sourceCount": 9,
+      "responseSha256": "9747d58e98de9063bdedc71c2d1b2611aac182c51131c0f024b958e83dd11be5",
+      "id": "blazor.stream-agent-conversation",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net10.0\\QuayChat\\QuayChat.csproj (in 992 ms).\r\n  QuayChat -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net10.0\\QuayChat\\bin\\Release\\net10.0\\QuayChat.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.85\r\n"
+    },
+    {
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayChat",
+      "sourceCount": 9,
+      "responseSha256": "9747d58e98de9063bdedc71c2d1b2611aac182c51131c0f024b958e83dd11be5",
+      "id": "blazor.stream-agent-conversation",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayChat\\QuayChat.csproj (in 574 ms).\r\nC:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayChat\\QuayChat.csproj]\r\n  QuayChat -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayChat\\bin\\Release\\net11.0\\QuayChat.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.48\r\n"
+    },
+    {
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net10.0\\QuayPermits",
+      "sourceCount": 11,
+      "responseSha256": "eca7ba51a5aece2fbbacbd9d77c2f9db3837a38142d11a019f88bd48dd3217c5",
+      "id": "web.protect-browser-form-posts",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net10.0\\QuayPermits\\QuayPermits.csproj (in 533 ms).\r\n  QuayPermits -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net10.0\\QuayPermits\\bin\\Release\\net10.0\\QuayPermits.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.23\r\n"
+    },
+    {
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayPermits",
+      "sourceCount": 11,
+      "responseSha256": "eca7ba51a5aece2fbbacbd9d77c2f9db3837a38142d11a019f88bd48dd3217c5",
+      "id": "web.protect-browser-form-posts",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayPermits\\QuayPermits.csproj (in 89 ms).\r\nC:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayPermits\\QuayPermits.csproj]\r\n  QuayPermits -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-consumer-0965086e4fe34c03bafd18063fe99e53\\net11.0\\QuayPermits\\bin\\Release\\net11.0\\QuayPermits.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.65\r\n"
+    }
+  ],
+  "kind": "compilation-from-installed-Markdown-only",
+  "scope": "No canonical checkout files copied. Restores and compiles returned consumers; canonical browser/HTTP receipts separately prove runtime behavior."
+}

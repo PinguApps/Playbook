@@ -1,0 +1,9 @@
+{
+  "inspectorVersion": "2.11.0",
+  "workingDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-inspect-9e150a13fa1d4d25ac1712e00105bab1",
+  "recordedAt": "2026-10-24T16:15:22.2680811+00:00",
+  "packageVersion": "0.0.0-pin804-808",
+  "isolatedFeed": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-inspect-9e150a13fa1d4d25ac1712e00105bab1\\feed",
+  "isolatedCache": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-quay-inspect-9e150a13fa1d4d25ac1712e00105bab1\\cache",
+  "packageSha256": "63f0711a632155cf4f2bdd097a2195b9d4778561aec5046b039550b88a8f705d"
+}

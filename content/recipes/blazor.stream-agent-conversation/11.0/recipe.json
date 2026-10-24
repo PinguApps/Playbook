@@ -1,0 +1,245 @@
+{
+  "id": "blazor.stream-agent-conversation",
+  "edition": "11.0",
+  "title": "Stream replies while retaining conversation history (Experimental)",
+  "goal": "Compose an experimental agent boundary, message input and content-block renderer when streamed replies must remain visible alongside earlier turns.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quay-chat",
+    "streaming"
+  ],
+  "apis": [
+    "UIAgent",
+    "AgentBoundary",
+    "MessageList",
+    "MessageInput",
+    "BlockRenderer",
+    "RichContentBlock",
+    "IChatClient"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Experimental throughout .NET 11. Actual pinned package and Interactive Server renderer, with a scripted local chat source."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution is not GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build matching Razor and framework assets; reproducible SDK pin is in the sample."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Tested compiler mode; the sample does not require a new language construct."
+          },
+          "frameworks": [
+            "ASP.NET Core Blazor"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.AI",
+              "version": "0.1.0-preview.1.26466.103",
+              "match": "exact",
+              "reason": "Experimental net11.0-only asset actually restored and rendered."
+            },
+            {
+              "name": "Microsoft.Extensions.AI.Abstractions",
+              "version": "10.6.0",
+              "match": "exact",
+              "reason": "IChatClient contract used by both independently compiled consumers."
+            }
+          ],
+          "packageAssets": [
+            "Components.AI lib/net11.0/Microsoft.AspNetCore.Components.AI.dll and ai-chat.css; matching ASP.NET Core shared framework/blazor.web.js",
+            "Microsoft.Extensions.AI.Abstractions net10.0 asset selected for both targets; framework package pruning supplies Components.Web from ASP.NET Core"
+          ],
+          "workloads": [],
+          "providers": [
+            "SurveyChatClient: deterministic local IChatClient stream, not a model, remote service or AG-UI provider"
+          ],
+          "platforms": [
+            "ASP.NET Core server and browser; actual Windows x64 Chrome 155 check"
+          ],
+          "renderingModes": [
+            "Web App Interactive Server (prerender disabled)"
+          ],
+          "prerequisites": [
+            "Restore pinned packages before offline builds. No account, key or workload. Place every listed file in a standalone QuayChat directory; empty Directory files isolate repository build/package inheritance."
+          ],
+          "constraints": [
+            "Components.AI is experimental throughout .NET 11. This package has only net11.0; no compatible net10.0 Components.AI route is established. The .NET 10 comparison manually consumes IChatClient with its actual compatible Abstractions asset.",
+            "BlockRenderer<RichContentBlock> renders encoded RawText; no raw HTML or Markdown rendering is claimed. Message IDs stay constant across fragments. Conversation history remains in this circuit only; no durable restart/restore, AG-UI, tool execution, approval, state prediction or live model behavior is proved.",
+            "The scripted source pauses after the first fragment until Release reply. Actual package rendering, block lifecycle and multi-turn message history were observed. This is neither a model-quality test nor a mock renderer."
+          ],
+          "optIns": [
+            "Explicit experimental package reference; no experimental diagnostic suppression required by this package"
+          ],
+          "stabilityLimitations": [
+            "Experimental throughout .NET 11; package APIs may change. Exact package pins and RC2 host execution do not establish GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#experimental-blazor-ai-components-for-agentic-user-interfaces",
+          "https://www.nuget.org/packages/Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103",
+          "https://github.com/dotnet/dotnet/blob/b2f96bd7ac75c07fb8067c05c54767d3d5e12e8d/src/aspnetcore/src/Components/AI/src/Components/MessageList.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuayChat/QuayChat.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Experimental Blazor AI components in .NET 11",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#experimental-blazor-ai-components-for-agentic-user-interfaces"
+    },
+    {
+      "title": "Actual experimental package 0.1.0-preview.1.26466.103",
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103"
+    },
+    {
+      "title": "Package source: pinned MessageList and renderer registration",
+      "url": "https://github.com/dotnet/dotnet/blob/b2f96bd7ac75c07fb8067c05c54767d3d5e12e8d/src/aspnetcore/src/Components/AI/src/Components/MessageList.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuayChat/QuayChat.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records real browser rendering with scripted IChatClient, block lifecycle and retained history. No cross-compilation, live model/account, broad platform or GA execution claim."
+    },
+    {
+      "sample": "samples/net11.0/QuayChat/QuayChat.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records real browser rendering with scripted IChatClient, block lifecycle and retained history. No cross-compilation, live model/account, broad platform or GA execution claim."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/QuayChat/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/QuayChat/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/QuayChat/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/QuayChat/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-quaychat-csproj": {
+      "path": "samples/net10.0/QuayChat/QuayChat.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/QuayChat/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-app-razor": {
+      "path": "samples/net10.0/QuayChat/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-surveychatclient-cs": {
+      "path": "samples/net10.0/QuayChat/SurveyChatClient.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-surveypanel-razor": {
+      "path": "samples/net10.0/QuayChat/SurveyPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/QuayChat/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/QuayChat/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/QuayChat/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/QuayChat/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-quaychat-csproj": {
+      "path": "samples/net11.0/QuayChat/QuayChat.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/QuayChat/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/QuayChat/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-surveychatclient-cs": {
+      "path": "samples/net11.0/QuayChat/SurveyChatClient.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-surveypanel-razor": {
+      "path": "samples/net11.0/QuayChat/SurveyPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local application/browser checks need no account or Human-only resource. No external provisioning or publication. GA and broader platform/client evaluation are separate work."
+  }
+}
