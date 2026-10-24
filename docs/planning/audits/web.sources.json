@@ -1,0 +1,2241 @@
+{
+  "reviewed": "2026-10-24",
+  "scope": "PIN-709 non-Blazor web: Minimal APIs, MVC/Razor Pages, hosting/HTTP/caching, Identity/auth, SignalR/OpenAPI, gRPC",
+  "sources": [
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/blazor-custom-event-name-collision.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/blazor-custom-event-name-collision.md",
+      "sha256": "8fa36ed58cad7440f77aca24c4392859f04d56e29a3d847c08dd47c04fdf6d3f",
+      "headings": [
+        "# Blazor custom event registration throws when name matches a browser event",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/blazor-enhanced-nav-preloading-disabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/blazor-enhanced-nav-preloading-disabled.md",
+      "sha256": "019e51f011d3423e02d9e7fc253156e8c53bee08a8336d7b7616646f8caca3ff",
+      "headings": [
+        "# Blazor enhanced navigation no longer preloads resources",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/blazor-obsolete-apis-removed.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/blazor-obsolete-apis-removed.md",
+      "sha256": "a2273d237563d58d6cf887fe45daa2c6665507156419d18d05a4ef23932e1719",
+      "headings": [
+        "# Obsolete Blazor APIs removed",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "### Microsoft.AspNetCore.Components",
+        "### Microsoft.AspNetCore.Components.Forms",
+        "### Microsoft.AspNetCore.Components.Web",
+        "### Microsoft.AspNetCore.Components.WebAssembly",
+        "### Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/blazor-server-side-rendering-deferred-cross-site-request-forgery-protection.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/blazor-server-side-rendering-deferred-cross-site-request-forgery-protection.md",
+      "sha256": "d50c714a6478bbdef062298f2f7a9c74c4279ffeeae8348434050d4a168d2d85",
+      "headings": [
+        "# Blazor server-side rendering defers antiforgery validation to middleware",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/concurrencylimiter-removed.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/concurrencylimiter-removed.md",
+      "sha256": "f76397552453b4a930072edd82455e981c28920b5d18b4982b8b1f065513509b",
+      "headings": [
+        "# ConcurrencyLimiter middleware removed",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/http-activity-otel-semconv.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/http-activity-otel-semconv.md",
+      "sha256": "8e1b6f5af943a5171ea5b808fe587f3410f59cfe0d7c095f5b013bd33b6fc1a6",
+      "headings": [
+        "# ASP.NET Core hosting emits OpenTelemetry HTTP semantic-convention tags by default",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/httpsys-channel-binding-token-enabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/httpsys-channel-binding-token-enabled.md",
+      "sha256": "ff490560b9f3239d7999e07d44e241584e4eaf8b00782b058d3d739fdfb0f332",
+      "headings": [
+        "# HttpSys enables TLS channel binding token exposure by default",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/image-tag-helper-obsolete-members-removed.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/image-tag-helper-obsolete-members-removed.md",
+      "sha256": "006a34a29386b1f62917e7d2f5f07e082c0f981f448836120c0cbdd24b2cf9d8",
+      "headings": [
+        "# Obsolete ImageTagHelper members removed",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/kestrel-strict-protocol-compliance.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/kestrel-strict-protocol-compliance.md",
+      "sha256": "ca17e8e8ba85e931e7746228b0157820c0e248efcbcb3540b6dce30909ac1abe",
+      "headings": [
+        "# Kestrel tightens HTTP protocol compliance",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/microsoft-openapi-3x.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/microsoft-openapi-3x.md",
+      "sha256": "7aad440a398e88411f449cd48e5a3a6e63b6b627d985295b86181c16b06b8da4",
+      "headings": [
+        "# Microsoft.OpenApi upgraded to 3.x",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/modelmetadataidentity-forproperty-removed.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/modelmetadataidentity-forproperty-removed.md",
+      "sha256": "90243c00ff685e373b57bbc8082bddb07de0de4fcea4f98b58e9f888da16af64",
+      "headings": [
+        "# Obsolete `ModelMetadataIdentity.ForProperty` overload removed",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/mvc-compatibility-options-removed.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/mvc-compatibility-options-removed.md",
+      "sha256": "9108e1230d7f73a92afa36c49c03af9e79c6e3f8d716d8076c12e4a35fb21aff",
+      "headings": [
+        "# MVC compatibility options removed",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/openapi-multiple-produces-per-status.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/openapi-multiple-produces-per-status.md",
+      "sha256": "6343f91e051ef9cb1caad00f06bdd0fd2b49ba4852e23b4fc2c3537562717604",
+      "headings": [
+        "# OpenAPI document includes all ProducesResponseType entries per status code",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/openapi-server-url-trailing-slash.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/openapi-server-url-trailing-slash.md",
+      "sha256": "9b94a798959663018a4b2e150af214f373f755b8d708e62a415afee048cad1a9",
+      "headings": [
+        "# OpenAPI server URL no longer has a trailing slash when PathBase is empty",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/openapi-version-default-3-2.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/openapi-version-default-3-2.md",
+      "sha256": "96de0f612ed62e0362c2b52a8e6e2442dbe42e95f5774de1fec531a280f15d31",
+      "headings": [
+        "# OpenApiVersion defaults to OpenApi3_2",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/overview.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/overview.md",
+      "sha256": "fc00fb5db517f70b2273910fdefd3baaf3b847dc31b7d5120fef3ee68abe8d66",
+      "headings": [
+        "# Breaking changes in ASP.NET Core 11"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/passkey-signin-enforces-confirmation-lockout.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/passkey-signin-enforces-confirmation-lockout.md",
+      "sha256": "d89129bf722b068e292cd1ff28704afd7bc2b328aa3a0abdcd185ee0d615e41b",
+      "headings": [
+        "# Passkey sign-in enforces email/phone confirmation and lockout",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/quickgrid-controls-render-as-links.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/quickgrid-controls-render-as-links.md",
+      "sha256": "fd13bff05753e84f834bb698f4e86f67bfd636d885a482017c260798caafe11b",
+      "headings": [
+        "# QuickGrid sorting and pagination controls render as links",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/response-compression-always-vary.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/response-compression-always-vary.md",
+      "sha256": "c0b2a21a78a84060f5b1e28bb008253eb0574a9fedc2851d0511f2776e1bd911",
+      "headings": [
+        "# Response compression always emits Vary: Accept-Encoding",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/sqlclient-azure-extensions-required.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/sqlclient-azure-extensions-required.md",
+      "sha256": "2f3f0b663bccf65416cd7432247320d89c056e3fc9f61ba6c8faaa52756774c8",
+      "headings": [
+        "# SqlClient Active Directory authentication moved to a separate package",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/breaking-changes/11/wasm-env-vars-in-configuration.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/wasm-env-vars-in-configuration.md",
+      "sha256": "43bbefed7c0a8169a658123ab6d2418a84d7241027aa9740a5896a33886511db",
+      "headings": [
+        "# WebAssemblyHostBuilder loads environment variables into IConfiguration",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/migration/100-to-110.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/migration/100-to-110.md",
+      "sha256": "9768c2012fb26d5bd401b847ad4ec7a93d882e30a67bdf2274f27cf13536f93e",
+      "headings": [
+        "# Migrate from ASP.NET Core in .NET 10 to ASP.NET Core in .NET 11",
+        "## Prerequisites",
+        "# [Visual Studio](#tab/visual-studio)",
+        "# [Visual Studio Code](#tab/visual-studio-code)",
+        "## Update the .NET SDK version in `global.json`",
+        "## Update the target framework",
+        "## Update package references",
+        "## Blazor",
+        "## Security",
+        "## ASP.NET Core MVC",
+        "## OpenAPI",
+        "## Breaking changes"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/migration/100-to-110/includes/blazor.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/migration/100-to-110/includes/blazor.md",
+      "sha256": "ebfd5b9af2ab20c873ce92eb37d26c62b73eedcb32aac657b987d65146958f31",
+      "headings": [
+        "### Blazor release notes",
+        "### Adopt Inline JS event handler removed from the `NavMenu` component",
+        "### QuickGrid adopts URL-based pagination and sorting",
+        "### Upgrade from the experimental `ValidatableTypeAttribute` and `SkipValidationAttribute` in .NET 10"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11.md",
+      "sha256": "31bf3fb3ec8226dcd1653a6c02f1c290f16a0709bf7e928021d0cd4277ad9c77",
+      "headings": [
+        "# What's new in ASP.NET Core in .NET 11",
+        "## Blazor",
+        "## Blazor Hybrid",
+        "## SignalR",
+        "## Minimal APIs",
+        "## OpenAPI",
+        "## Authentication and authorization",
+        "## Miscellaneous",
+        "## Breaking changes"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/blazor-hybrid.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/blazor-hybrid.md",
+      "sha256": "4319f11616bff3c1a60b8d7268c91f3ba91a9ac7b9aba72ffb5d102efdc5cb97",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/blazor.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/blazor.md",
+      "sha256": "2483965b3fa443e5f61393ea1875347b90c0bbddeac4a3267ea6f9cbecd62b60",
+      "headings": [
+        "### New `DisplayName` component and support for `[Display]` and `[DisplayName]` attributes",
+        "### Blazor Web script startup options format now supported for Blazor Server and Blazor WebAssembly scripts",
+        "### New `BasePath` component",
+        "### Inline JS event handler removed from the `NavMenu` component",
+        "### `NavigateTo` and `NavLink` support for relative navigation",
+        "### Persist temporary data between HTTP requests during static server-side rendering (static SSR)",
+        "### New Blazor Web Worker template (`blazorwebworker`)",
+        "### Virtualization enhancements",
+        "### New service defaults library project template for Blazor WebAssembly apps",
+        "### New development server for Blazor WebAssembly apps",
+        "### Server-triggered circuit pause",
+        "### Smaller Blazor WebAssembly publish output",
+        "### `QuickGrid` improvements",
+        "#### Pagination modes",
+        "#### Query parameter names",
+        "#### Multiple grids on the same page",
+        "#### Sort by column",
+        "#### Title-based sort identification",
+        "#### Paginator",
+        "#### CSS breaking change",
+        "#### How to disable URL-based navigation",
+        "#### Row click event (`OnRowClick`)",
+        "### Client-side prerendering in a Blazor Web App preserves the server's culture",
+        "### Persist session data between HTTP requests during static server-side rendering (static SSR)",
+        "### `GetUriWithFragment` extension method",
+        "### `EnvironmentView` component",
+        "### MathML namespace support",
+        "### `InvokeVoidAsync()` analyzer",
+        "### `IComponentPropertyActivator`",
+        "### SignalR `ConfigureConnection` for Interactive Server components",
+        "### `IHostedService` support in Blazor WebAssembly",
+        "### Configure Blazor client behavior from the server",
+        "### Environment variables in Blazor WebAssembly configuration",
+        "### Blazor WebAssembly component metrics and tracing",
+        "### Enable container support in Blazor Web App template",
+        "### Static SSR supports client-side validation",
+        "### Asynchronous form validation support",
+        "### Fixes to TempData and `[SupplyParameterFromSession]` persistence for streaming SSR",
+        "### Antiforgery middleware (`app.UseAntiforgery()`) optional in Blazor Web Apps",
+        "### Blazor Virtualize can scroll to an item",
+        "### Automatic circuit pause on tab inactivity",
+        "### Wider support for `AuthorizationPolicy` and `IAuthorizationRequirementData`",
+        "### QuickGrid APIs from Virtualize are exposed",
+        "### Cache rendered output of a component subtree during static SSR",
+        "### Blazor Server circuits update after authentication refresh",
+        "### Experimental Blazor AI components for agentic user interfaces",
+        "#### Get started",
+        "#### Build a basic streaming conversation",
+        "#### Render content blocks",
+        "#### Render structured rich text",
+        "#### Render server tool calls",
+        "#### Run frontend tools",
+        "#### Require approval before tools run",
+        "#### Display activities",
+        "#### Shared state",
+        "#### Show predictive UI state",
+        "#### Persist and restore conversations",
+        "### Validation attributes are no longer experimental"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/performance-improvements.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/performance-improvements.md",
+      "sha256": "37cf081a8f92e7ed5ae41a2de0b5fcb5d2979c154f221cb6d2153290d077e9a1",
+      "headings": [
+        "### Performance improvements"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/validation-localization.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/validation-localization.md",
+      "sha256": "b221dcd66da9984bcdfb100edced4726bac6680c43d577c7278c5808803fa7dc",
+      "headings": [
+        "### Validation localization is built in"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview1/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/aspnetcore.md",
+      "sha256": "2786cd33e79a0bce13cff7ae1c2a07b293890f41d74548d8870545a483d80318",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Preview 1 - Release Notes",
+        "## EnvironmentBoundary component",
+        "## Label component for forms",
+        "## DisplayName component",
+        "## QuickGrid `OnRowClick` event",
+        "## Relative navigation with `RelativeToCurrentUri`",
+        "## `GetUriWithHash()` extension method",
+        "## BasePath component",
+        "## MathML namespace support",
+        "## `InvokeVoidAsync()` analyzer",
+        "## `IComponentPropertyActivator`",
+        "## SignalR `ConfigureConnection` for Interactive Server components",
+        "## Unified startup options format for Blazor scripts",
+        "## `IHostedService` support in Blazor WebAssembly",
+        "## Environment variables in Blazor WebAssembly configuration",
+        "## Blazor WebAssembly component metrics and tracing",
+        "## Enable container support in Blazor Web App template",
+        "## OpenAPI schema support for binary file responses",
+        "## `IOutputCachePolicyProvider`",
+        "## Auto-trust development certificates in WSL",
+        "# Automatically trusts certificates in both WSL and Windows",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview2/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview2/aspnetcore.md",
+      "sha256": "df8db5c12ffd8628543d7961ca3e43af1f5084b368d5a51dec458487d8577f55",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Preview 2 - Release Notes",
+        "## Native OpenTelemetry tracing for ASP.NET Core",
+        "## TempData support for Blazor",
+        "## OpenAPI 3.2.0 support (Breaking Change)",
+        "## .NET Web Worker project template",
+        "# Create a .NET Web Worker project",
+        "## Infer passkey display name from authenticator",
+        "## Performance improvements",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview3/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview3/aspnetcore.md",
+      "sha256": "e155b9c3fa2908e6d01dca4e69de9d46d8182e0361dbe00d203494de14506ff5",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Preview 3 - Release Notes",
+        "## Zstandard response compression and request decompression",
+        "## Virtualize adapts to variable-height items at runtime",
+        "## HTTP/3 starts processing requests earlier",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview4/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/aspnetcore.md",
+      "sha256": "b3a1353dd620e2ac5dd01398bd9c9026af94077710a2a59ee3ad492ec10ec3ea",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Preview 4 - Release Notes",
+        "## HTTP QUERY in generated OpenAPI documents",
+        "## `SupplyParameterFromTempData` for Blazor",
+        "## Server-initiated Blazor Server circuit pause",
+        "## Virtualize keeps the viewport stable when content above it changes",
+        "## Virtualize AnchorMode for stable viewports during prepend and append",
+        "## Blazor WebAssembly service defaults template",
+        "## MCP Server template ships with the .NET SDK",
+        "## Blazor Web Worker template updates",
+        "## TLS handshake observability in Kestrel",
+        "## Response compression always emits `Vary: Accept-Encoding`",
+        "## File result types appear in OpenAPI documents",
+        "## Endpoint filters observe parameter-binding failures",
+        "## Smaller Blazor WebAssembly publish output",
+        "## Runtime-async enabled for shared framework libraries",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview5/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/aspnetcore.md",
+      "sha256": "b2dda5dbad1fdb5469f07db6556036c66891730b608a42550cc6a7db5e99b88c",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Preview 5 - Release Notes",
+        "## Blazor SSR supports client-side validation",
+        "## Blazor supports async form validation",
+        "## Blazor and Minimal APIs support error localization",
+        "## QuickGrid works without interactivity",
+        "## Blazor WebAssembly preserves server culture",
+        "## SupplyParameterFromSession for Blazor",
+        "## Blazor WebAssembly Gateway",
+        "## Pass child content across render mode boundaries",
+        "## Kestrel applies trailer header timeouts",
+        "## OpenAPI schemas better match ASP.NET Core behavior",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview6/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/aspnetcore.md",
+      "sha256": "a80ac9772864cf19c1350116f87b28ad4e697e56088d3c3d707b1eee6f38de80",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Preview 6 - Release Notes",
+        "## Async validation for minimal APIs",
+        "## Automatic cross-origin (CSRF) protection",
+        "## Blazor Virtualize can scroll to an item",
+        "## Configure Blazor client behavior from the server",
+        "## Blazor Gateway can proxy backend API calls",
+        "## OpenAPI 3.2 by default",
+        "## Unions in ASP.NET Core",
+        "## Short-circuit endpoints with an attribute",
+        "## SignalR authentication refresh",
+        "## Cancel hub invocations from the client",
+        "## dotnet user-jwts supports file-based apps",
+        "## Preview API changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/preview7/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/aspnetcore.md",
+      "sha256": "b511955dd370c331fef2320cacd2736c0d8cc39bb229c759d2da7b7d494998c9",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Preview 7 - Release Notes",
+        "## Auto pause Blazor circuits on inactivity",
+        "## Cache Blazor SSR output with `CacheView`",
+        "## New Blazor analyzers",
+        "## Blazor `Virtualize` no longer requires an `ItemComparer`",
+        "## `QuickGrid` supports `InitialItemIndex` and `ScrollToItemAsync`",
+        "## `wasm-tools` uses Emscripten 6",
+        "## Razor accepts literal attributes for union-typed component parameters",
+        "## Blazor SSR client-side form validation improvements",
+        "## Validation localization is built in",
+        "## Validation attributes are no longer experimental",
+        "## SignalR .NET client supports auth refresh after redirects",
+        "## Consistent authorization metadata across the stack",
+        "## OpenAPI Server-Sent Events in OpenAPI 3.2",
+        "## TLS channel-binding token access from `ITlsConnectionFeature`",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md",
+      "sha256": "5763176b954e88405fc98bb6e95ba0890f4e61a7edef45cca7f2d8d139b6b658",
+      "headings": [
+        "# ASP.NET Core in .NET 11 Release Candidate 1 (RC1) - Release Notes",
+        "## SignalR authentication refresh APIs are finalized",
+        "## SignalR TypeScript client supports authentication refresh",
+        "## Blazor Server circuits update after authentication refresh",
+        "## OpenAPI reflects obsolete APIs",
+        "## Validation localization uses message conventions",
+        "## Blazor browser options are finalized",
+        "## Select an environment for build-time OpenAPI",
+        "## Negotiate authentication uses TLS channel binding",
+        "## Experimental Device Bound Session Credentials support",
+        "## Experimental Blazor AI components for agentic user interfaces",
+        "### Get started",
+        "### Build a basic streaming conversation",
+        "### Render content blocks",
+        "### Render structured rich text",
+        "### Render server tool calls",
+        "### Run frontend tools",
+        "### Require approval before tools run",
+        "### Display activities",
+        "### Shared state",
+        "### Show predictive UI state",
+        "### Persist and restore conversations",
+        "## Breaking changes",
+        "### Sign-in confirmation requirements apply after registration",
+        "### Preview-only insecure chunked parsing switch removed",
+        "### Bootstrap 4 Identity UI is obsolete",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/aspnetcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/aspnetcore.md",
+      "sha256": "90027fcf57209cca739f5cfb8c33c80c06a36a3f38ca24dc3fb0882a8c314cd7",
+      "headings": [
+        "# ASP.NET Core in .NET 11 RC 2 - Release Notes",
+        "## `QuickGrid` virtualization APIs are no longer experimental",
+        "## Breaking changes from .NET 10",
+        "## Changes since the previous preview",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "5e19883f3aca93e649d9e3fb72b0b89091d7079f",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/11.md",
+      "sha256": "2af47a9c0a709f24149168b43d2429c062a9f115ccee6a06fde62aa4d5edf23a",
+      "headings": [
+        "# Breaking changes in .NET 11",
+        "## ASP.NET Core",
+        "## Core .NET libraries",
+        "## Cryptography",
+        "## Deployment",
+        "## Entity Framework Core",
+        "## Extensions",
+        "## Globalization",
+        "## Interop",
+        "## JIT compiler",
+        "## Networking",
+        "## .NET MAUI",
+        "## SDK and MSBuild"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "5e19883f3aca93e649d9e3fb72b0b89091d7079f",
+      "path": "docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "sha256": "5ae71d3612ef4b297aea6aa570eaa48d7ae8347a1030974b90bd835c14b24600",
+      "headings": [
+        "# API obsoletions with non-default diagnostic IDs (.NET 11)",
+        "## Change description",
+        "## Version introduced",
+        "## Type of breaking change",
+        "## Recommended action",
+        "## Affected APIs",
+        "### SYSLIB0064",
+        "### SYSLIB0066",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "5e19883f3aca93e649d9e3fb72b0b89091d7079f",
+      "path": "docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "sha256": "941c7b40230151c34bba11d2a5a0d7fc5cfb17a532111622d7854cf385e6d826",
+      "headings": [
+        "# Obsolete features in .NET 5+",
+        "## SYSLIB obsoletions",
+        "## EXTOBS obsoletions",
+        "## Suppress warnings",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/diagnostics/aspdepr-ids.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/diagnostics/aspdepr-ids.md",
+      "sha256": "fcb18396e05b7ba25d2a4fd2a91f2cce590f8c10d804b973c5bf0006746a6e99",
+      "headings": [
+        "# ASPDEPR diagnostics overview",
+        "## ASPDEPR diagnostics"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/migration/100-to-110/includes/mvc.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/migration/100-to-110/includes/mvc.md",
+      "sha256": "75f625631bfa80550df8531410edcafe5bc88160d36f2731d3ea08d4b563af10",
+      "headings": [
+        "### Upgrading F# MVC applications from .NET 10 to .NET 11"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/migration/100-to-110/includes/openapi.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/migration/100-to-110/includes/openapi.md",
+      "sha256": "e77fa8423b928a2a252df4546bf808e40638f4369c3c17f207fc1f80c0ae01eb",
+      "headings": [
+        "### Microsoft.OpenApi upgraded to 3.x"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/migration/100-to-110/includes/security.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/migration/100-to-110/includes/security.md",
+      "sha256": "151abbfd4bad01953cf108565d17154c09a3eb0166660a0bd5e5a566073c5be3",
+      "headings": [
+        "### Automatic CSRF protection"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/async-validation-minimal-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/async-validation-minimal-apis.md",
+      "sha256": "941d204f65394dfc948033100aa86fe07c4752d515a11c6585f259f0f71b2153",
+      "headings": [
+        "### Async validation for Minimal APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/consistent-authorization-metadata.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/consistent-authorization-metadata.md",
+      "sha256": "baf7004abed5f7ace256838698ee895bc16c69b1febe521a43d8d3c120e70c6f",
+      "headings": [
+        "### Consistent authorization metadata across the stack"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/csharp-unions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/csharp-unions.md",
+      "sha256": "b397aaa63a20646092c8d3833f7a2b3a3f6646d921e3dae4bc68e0a4d4250d16",
+      "headings": [
+        "### C# union types"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/development-certificate-trust.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/development-certificate-trust.md",
+      "sha256": "e15dab5626c37fb0fd7e55b12b6b72199ef39c8a613412de2cb2ee882da32c24",
+      "headings": [
+        "### Auto-trust development certificates in WSL",
+        "# Automatically trusts certificates in both WSL and Windows"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/device-bound-sessions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/device-bound-sessions.md",
+      "sha256": "e55b72ee962904db520f9ea1be0f532007e31b2a0aba6594b7ee3f3100b25f79",
+      "headings": [
+        "### Experimental Device Bound Session Credentials support"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/direct-tls-transport.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/direct-tls-transport.md",
+      "sha256": "f9b114f148f3ad068b2dbe007a0b8918b31a3a2e7056766cec5a44997dae7e8b",
+      "headings": [
+        "### Experimental DirectTls transport"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/endpoint-filters-binding-failures.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/endpoint-filters-binding-failures.md",
+      "sha256": "2db6f927804b37cc72e859520ebf3afc8e238a067d257145b922b03c1329933b",
+      "headings": [
+        "### Endpoint filters observe parameter-binding failures"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/file-result-openapi.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/file-result-openapi.md",
+      "sha256": "46e3912c41825c17bce2de8d0add24e2b1c0d1ac37c6db3d0ddc8169c62e6939",
+      "headings": [
+        "### File stream result types appear in OpenAPI documents"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/http-query-openapi.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/http-query-openapi.md",
+      "sha256": "03120528c2d1630dbb0153949e8a10c5b001bda801bf593eb61e46268a812037",
+      "headings": [
+        "### HTTP QUERY in generated OpenAPI documents"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/http3-early-request-processing.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/http3-early-request-processing.md",
+      "sha256": "37c77e0b2e6770d09e6b4fdf07afc1ef7d2cf7601a29c5cb5e7ed00b4bb2a4ae",
+      "headings": [
+        "### HTTP/3 starts processing requests earlier"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/identity-time-provider.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/identity-time-provider.md",
+      "sha256": "c1c4403b056b4368299ce2a2597b66da22298bfb22c9b9daced80293b6952e9a",
+      "headings": [
+        "### `TimeProvider` support in ASP.NET Core Identity"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/infer-passkey-display-name.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/infer-passkey-display-name.md",
+      "sha256": "f488aa29d245bb870992fb68368883042cdcba0f0382b469a60ec81e7674dac5",
+      "headings": [
+        "### Infer passkey display name from authenticator"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/kestrel-trailer-header-timeouts.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/kestrel-trailer-header-timeouts.md",
+      "sha256": "7dade6dff2985175aba4b637fb08a8b04fef41bb69c2c6868e97ef80bcb6ecf9",
+      "headings": [
+        "### Kestrel applies trailer header timeouts"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/mcp-server-template.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/mcp-server-template.md",
+      "sha256": "dcee67aa6761b619f638c61a8c2cee4ccadf694e78ae4ef5209a2f8847e17db1",
+      "headings": [
+        "### MCP Server template ships with the .NET SDK"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/native-otel-tracing.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/native-otel-tracing.md",
+      "sha256": "f422ee5ec5d81b1b611a8580fb61e57d804e69662a019161f37cf42c0d2c700a",
+      "headings": [
+        "### Native OpenTelemetry tracing for ASP.NET Core"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/negotiate-tls-channel-binding.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/negotiate-tls-channel-binding.md",
+      "sha256": "50520df5d9bb235e4b7c73af4b440681976d4baa7906c44ed8a71e95d368f6c0",
+      "headings": [
+        "### Negotiate authentication uses TLS channel binding"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/openapi-3-2-default.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/openapi-3-2-default.md",
+      "sha256": "821329ad896ed233ae9374c3269a77958be41bbd074d06ef21690cf7b8d3f7d3",
+      "headings": [
+        "### OpenAPI 3.2 by default"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/openapi-3-2-support.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/openapi-3-2-support.md",
+      "sha256": "c74762d80061551387b2e244e35ba54f1490a4e94eb1d0bb7385442590cdbcf6",
+      "headings": [
+        "### OpenAPI 3.2.0 support (Breaking Change)"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/openapi-binary-file-response.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/openapi-binary-file-response.md",
+      "sha256": "4d562b38aef72f99b13e36a2bcaff87c7861ebe188a023714f4c2337731e0f6d",
+      "headings": [
+        "### Describe binary file responses",
+        "#### [Minimal APIs](#tab/minimal-apis)",
+        "#### [Controllers](#tab/controllers)"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/openapi-generation-environment.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/openapi-generation-environment.md",
+      "sha256": "8cd7967e7a79e9e0437562bb1cab73bdc046db9ad8608f996b00dfd1b05bae55",
+      "headings": [
+        "### Select an environment for build-time OpenAPI document generation"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/openapi-obsolete-apis.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/openapi-obsolete-apis.md",
+      "sha256": "45caf66ac370c3ec499e7659d63bca4114a80ebe88f369322cd55f17831296c1",
+      "headings": [
+        "### OpenAPI reflects obsolete APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/openapi-schema-improvements.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/openapi-schema-improvements.md",
+      "sha256": "acb26659bb6a8ec924d83f152e8c10d7e9fa4ded874fe989198e623e42b11436",
+      "headings": [
+        "### OpenAPI schemas better match ASP.NET Core behavior"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/openapi-server-sent-events.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/openapi-server-sent-events.md",
+      "sha256": "1b0397e6b134434a123b135033a749310c3b8dd851a7446eaedb5ce67833341f",
+      "headings": [
+        "### Server-Sent Events support in OpenAPI 3.2"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/output-cache-policy-provider.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/output-cache-policy-provider.md",
+      "sha256": "d1f5cbb40f455d8d749b65d7a38901bc885c52aa88f7734ef86865313e3dc211",
+      "headings": [
+        "### `IOutputCachePolicyProvider` interface"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/rate-limiting-retry-after.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/rate-limiting-retry-after.md",
+      "sha256": "806f282121c8576fc244a409c4b201fb691db43ce9bda9e7c10a6735aa200dbd",
+      "headings": [
+        "### Rate-limiting middleware returns accurate `Retry-After` headers"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/response-compression-vary-header.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/response-compression-vary-header.md",
+      "sha256": "a9584188130082fb0b39f9a5a141f3180327d9262acbc41b0662c338be91b965",
+      "headings": [
+        "### Response compression always emits `Vary: Accept-Encoding`"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/runtime-async-shared-framework.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/runtime-async-shared-framework.md",
+      "sha256": "e48a8eff5bde4c77c14e8c5f64c0b85b739850f246a8cf863380f9399508037d",
+      "headings": [
+        "### Runtime-async enabled for shared framework libraries"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/short-circuit-endpoints-attribute.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/short-circuit-endpoints-attribute.md",
+      "sha256": "8676901d36dd313c7f8bdb491020afcd14c2524a7cac8b369fdc0db23333048e",
+      "headings": [
+        "### Short-circuit endpoints with an attribute"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/signalr-authentication-refresh.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/signalr-authentication-refresh.md",
+      "sha256": "79dea5bdfb075715d7dc95ba1e732c1ef1a28b7c24a6c2c87535f1559112bf55",
+      "headings": [
+        "### SignalR authentication refresh"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/signalr-cancel-hub-invocations.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/signalr-cancel-hub-invocations.md",
+      "sha256": "a550e5e285f0776fd9d169f8896baecef7ed6ce6e6d347674a24c96188264a5c",
+      "headings": [
+        "### Cancel hub invocations from the client"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/signalr-typescript-authentication-refresh.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/signalr-typescript-authentication-refresh.md",
+      "sha256": "0b6d949a3eef692f7dddcd1e5f0d1f0c28149fabdc826c835fe5f74f25fc64e3",
+      "headings": [
+        "### SignalR TypeScript client supports authentication refresh"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/tls-channel-binding-token.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/tls-channel-binding-token.md",
+      "sha256": "d1dca9461d13cb1a2d711d2b1c37781b53bc7aabbb5e1c0b66302c105e2a8212",
+      "headings": [
+        "### TLS channel-binding token access from `ITlsConnectionFeature`"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/tls-handshake-observability.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/tls-handshake-observability.md",
+      "sha256": "40534ebd17b8278212225c935bf39841ddbbbf238a9b869ae8303355642b786e",
+      "headings": [
+        "### TLS handshake observability in Kestrel"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/user-jwts-file-based-apps.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/user-jwts-file-based-apps.md",
+      "sha256": "af3c0b815a9719fa82b2fc5ad84af58ea603076c5c91d099966086f238851c51",
+      "headings": [
+        "### `dotnet user-jwts` supports file-based apps"
+      ]
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/release-notes/aspnetcore-11/includes/zstandard-compression.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/zstandard-compression.md",
+      "sha256": "4b2a8124c971915a3478b9ecbb54d9cd8977ffe5c1ea8ec296f37dceaba57841",
+      "headings": [
+        "### Zstandard response compression and request decompression"
+      ]
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Antiforgery/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Antiforgery/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/Abstractions/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/Abstractions/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "sha256": "4ecfd1cf4631c0efb88bed0ee9f9608b8ecf8a09a792ebd72548dbf96b1eeffe",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/Cryptography.Internal/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/Cryptography.Internal/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/Cryptography.KeyDerivation/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/Cryptography.KeyDerivation/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/DataProtection/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/DataProtection/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "sha256": "1df6fd8a68dced2bc16c2b5c8abc79a7b5d7f06ff40edf8c193188f2b2c56a2f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/Extensions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/Extensions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/StackExchangeRedis/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/StackExchangeRedis/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Hosting/Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Hosting/Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Hosting/Hosting/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Hosting/Hosting/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Hosting/Server.Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Hosting/Server.Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Hosting/TestHost/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Hosting/TestHost/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Hosting/WindowsServices/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Hosting/WindowsServices/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Authentication.Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Authentication.Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Authentication.Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Authentication.Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Headers/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Headers/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Http.Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "d433be8e0b892d3c240f32152bbed87c3147b71f2f82810b6e4f870f3a9e004e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Http.Extensions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Extensions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Http.Features/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Features/src/PublicAPI.Unshipped.txt",
+      "sha256": "11b7fb6c9abb028fa3fb158e5ef90fe6621f23b627a783f99981339608d433d7",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Http.Results/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Results/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Http/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Metadata/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Metadata/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Owin/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Owin/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Routing.Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing.Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Routing/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing/src/PublicAPI.Unshipped.txt",
+      "sha256": "b8ee51e796c960aed7d591474da640c1a2c5dbc9c602b3e01d1bfbb626b24265",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/WebUtilities/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/WebUtilities/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Identity/Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Identity/EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Identity/Extensions.Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Extensions.Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "6f80a6a9fdd6bbbe22ea762f1e889010b13debf779b33a6106f8d7b09488d26b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Identity/Extensions.Stores/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Extensions.Stores/src/PublicAPI.Unshipped.txt",
+      "sha256": "7c39c3f6f5b75c659bf9685a06fb9579ab14d997c8254b7c26ee7e668398a96f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Identity/UI/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/UI/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/CORS/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/CORS/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Diagnostics.Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Diagnostics.Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Diagnostics.EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Diagnostics.EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Diagnostics/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Diagnostics/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/HeaderPropagation/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/HeaderPropagation/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/HealthChecks.EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/HealthChecks.EntityFrameworkCore/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/HealthChecks/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/HealthChecks/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/HostFiltering/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/HostFiltering/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/HttpLogging/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/HttpLogging/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/HttpOverrides/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/HttpOverrides/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/HttpsPolicy/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/HttpsPolicy/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Localization.Routing/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Localization.Routing/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Localization/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Localization/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Microsoft.AspNetCore.OutputCaching.StackExchangeRedis/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Microsoft.AspNetCore.OutputCaching.StackExchangeRedis/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/MiddlewareAnalysis/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/MiddlewareAnalysis/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/OutputCaching/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/OutputCaching/src/PublicAPI.Unshipped.txt",
+      "sha256": "6b79ce547d5f773264a43cf63bf7ceac65c33be461635c182db28f1a563652cf",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/RateLimiting/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/RateLimiting/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/RequestDecompression/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/RequestDecompression/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/ResponseCaching.Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/ResponseCaching.Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/ResponseCaching/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/ResponseCaching/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/ResponseCompression/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/ResponseCompression/src/PublicAPI.Unshipped.txt",
+      "sha256": "acfb9aed7937616dc3403766b4daa043f67a093b64fb01d1727c49f8f99ba2a9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Rewrite/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Rewrite/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Session/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Session/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/Spa/SpaServices.Extensions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/Spa/SpaServices.Extensions/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/StaticFiles/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/StaticFiles/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Middleware/WebSockets/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Middleware/WebSockets/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Abstractions/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Abstractions/src/PublicAPI.Unshipped.txt",
+      "sha256": "1c34bd06d5325b07935c9a995c1af61d63aa212c724b1ba9e21a864be8891ec5",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.ApiExplorer/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ApiExplorer/src/PublicAPI.Unshipped.txt",
+      "sha256": "988a3054bfe4699e186ace7268d50849299a4e307c083186f18c118bc6b776d0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "e2efe1875c17c11639ee21f2792b5ff830239454231eb37542e1b79b08e94186",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Cors/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Cors/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.DataAnnotations/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.DataAnnotations/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Formatters.Json/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Formatters.Json/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Formatters.Xml/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Formatters.Xml/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Localization/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Localization/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.NewtonsoftJson/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.NewtonsoftJson/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Razor.RuntimeCompilation/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Razor.RuntimeCompilation/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Razor/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Razor/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.RazorPages/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.RazorPages/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.TagHelpers/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.TagHelpers/src/PublicAPI.Unshipped.txt",
+      "sha256": "f8d20bdb855bc6e97a85e941f31d7a7bd0777653c8864f348ef4aa2d69044f41",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Testing/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Testing/src/PublicAPI.Unshipped.txt",
+      "sha256": "49751baa1bf1a01dd8d3ca81a0a6d39bfc1945e0f239b5e9cddd94ae306b1df7",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.ViewFeatures/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ViewFeatures/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/OpenApi/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/OpenApi/src/PublicAPI.Unshipped.txt",
+      "sha256": "d55558d43b163a79a94e10543c47d5bc8a6abae49904d85da2c9b43063f9705a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/BearerToken/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/BearerToken/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/Certificate/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/Certificate/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/Cookies/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/Cookies/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/Facebook/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/Facebook/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/Google/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/Google/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/JwtBearer/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/JwtBearer/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/MicrosoftAccount/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/MicrosoftAccount/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/Negotiate/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/Negotiate/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/OAuth/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/OAuth/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/OpenIdConnect/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/OpenIdConnect/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/Twitter/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/Twitter/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authentication/WsFederation/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authentication/WsFederation/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authorization/Core/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authorization/Core/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "sha256": "64f121a38efd162e30d1af810eb575f2c97cc781bcc3572fd86db789a5686978",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/Authorization/Policy/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authorization/Policy/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Security/CookiePolicy/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/CookiePolicy/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/Connections.Abstractions/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Connections.Abstractions/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "sha256": "7de9f2f763fedad6210317607858c2532b63a8cdf09a74ddf693f735d4372f0a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/Connections.Abstractions/src/PublicAPI/netstandard2.1/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Connections.Abstractions/src/PublicAPI/netstandard2.1/PublicAPI.Unshipped.txt",
+      "sha256": "4a4de9b5aae5c3dfe080e818b6417fec1437bd77ad4f71d7f2e5577f82dbbbf0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/HttpSys/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/HttpSys/src/PublicAPI.Unshipped.txt",
+      "sha256": "7ab2dbe97a77a25c41dffc03d0252bc41248c283245f039b53eaac752ca28ec4",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/IIS/IIS/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/IIS/IIS/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/IIS/IISIntegration/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/IIS/IISIntegration/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/Kestrel/Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "3bb787ef755a2335258c16508de2f12d8b9941820c721a4cfccb50275b324caf",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/Kestrel/Kestrel/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Kestrel/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/Kestrel/Transport.NamedPipes/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Transport.NamedPipes/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/Kestrel/Transport.Quic/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Transport.Quic/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/Kestrel/Transport.Sockets/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Transport.Sockets/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/clients/csharp/Client.Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client.Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "6803c4e1bc64c3c815148b03d1884afab2e8a92c88cd5c25fa19fc10fb66d172",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/clients/csharp/Client/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/clients/csharp/Http.Connections.Client/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Http.Connections.Client/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/common/Http.Connections.Common/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections.Common/src/PublicAPI.Unshipped.txt",
+      "sha256": "8766f27ea8e1a905b3d6458c38124e5226f23252db811b77178a2cce6f14a585",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/common/Http.Connections/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/PublicAPI.Unshipped.txt",
+      "sha256": "4d9c3dd1ac542ba5971bf728a013415205f7391e752f61c91ab67af4d587f121",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/common/Protocols.Json/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Protocols.Json/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/common/Protocols.MessagePack/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Protocols.MessagePack/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/common/Protocols.NewtonsoftJson/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Protocols.NewtonsoftJson/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/common/SignalR.Common/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/SignalR.Common/src/PublicAPI/net11.0/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/server/Core/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/PublicAPI.Unshipped.txt",
+      "sha256": "318779be7b5ec8164b2afa5d50a0d87ca606daea2a4fb88e602c8ac362defd3b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/server/SignalR/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/SignalR/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/server/StackExchangeRedis/src/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/StackExchangeRedis/src/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/Abstractions/src/ISpanDataProtector.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/Abstractions/src/ISpanDataProtector.cs",
+      "sha256": "1a871c18e636cc8e8d4ec8b99e762c90b7c48a40d4339792e2aa206727dbb484",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DataProtection/DataProtection/src/AuthenticatedEncryption/ISpanAuthenticatedEncryptor.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/DataProtection/src/AuthenticatedEncryption/ISpanAuthenticatedEncryptor.cs",
+      "sha256": "8cf315f615b22f6f53b4778c5e6851e12d7854ec1d9055d8779be077c284197c",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/OpenApi/src/Extensions/IAdditionalOpenApiDocumentNamesResolver.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/OpenApi/src/Extensions/IAdditionalOpenApiDocumentNamesResolver.cs",
+      "sha256": "163314cc8136ba742d661dc399e331330cd057c7e1463384d1390415d198631e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/OpenApi/src/Extensions/OpenApiServiceCollectionExtensions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/OpenApi/src/Extensions/OpenApiServiceCollectionExtensions.cs",
+      "sha256": "44742195a61853c588f0f4551512d501e1c5ffcc6cbe446f793f81b125fd9fa3",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/HttpSys/src/IHttpSysRequestPropertyFeature.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/HttpSys/src/IHttpSysRequestPropertyFeature.cs",
+      "sha256": "01b6ff3e1c294de2ababc5331838696c50b8ef7802635040337626aaa0d603a0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/HttpSys/src/HttpSysOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/HttpSys/src/HttpSysOptions.cs",
+      "sha256": "c3c8dd5ca52e65dbb970799f6914bdf1ba834b4110c4686699f8eb6b26efaa8a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/HttpSys/src/HttpSysListener.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/HttpSys/src/HttpSysListener.cs",
+      "sha256": "69e1058b371e4dcd41baadffd1805ba4221911dbddbe3a2a0b75aab091eeea72",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/HttpSys/src/RequestProcessing/RequestContext.FeatureCollection.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/HttpSys/src/RequestProcessing/RequestContext.FeatureCollection.cs",
+      "sha256": "f0e85833c12371b7a9f40b5dec030f8aea64d330fac09d78c049ca89c1d87d48",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Mvc/Mvc.Abstractions/src/ApiExplorer/ApiDescription.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Abstractions/src/ApiExplorer/ApiDescription.cs",
+      "sha256": "d3f08504ac66beea6b924ed95e7118995a9781553d8a996b81e7b888be791e71",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/SignalR/common/Http.Connections/src/HttpConnectionDispatcherOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/common/Http.Connections/src/HttpConnectionDispatcherOptions.cs",
+      "sha256": "7df53b0e335c6c2a7071030a612eeb24d1b7c8490bcf8b3c7cb73d13d5f21050",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/StaticAssets/src/StaticAssetDescriptor.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetDescriptor.cs",
+      "sha256": "66c7c789e6834a8666966ea86da79546cd9595dfe90cf4706cd264b26c402f34",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/DefaultBuilder/src/Internal/DefaultCsrfProtection.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/DefaultCsrfProtection.cs",
+      "sha256": "633150abdc0c992e8a10a323f12a5d838e863481e97a12cc1046a00cec975812",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Http/Http.Abstractions/src/Antiforgery/ICsrfProtection.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Abstractions/src/Antiforgery/ICsrfProtection.cs",
+      "sha256": "7c06920b8edafa57c6405183d0bd8a086a9d550385ed67f9ec8df1352c0726e9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Framework/AspNetCoreAnalyzers/src/Analyzers/DiagnosticDescriptors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Framework/AspNetCoreAnalyzers/src/Analyzers/DiagnosticDescriptors.cs",
+      "sha256": "7c9bef93d094c2216ad7a73fd0800dcfa2c2a21e58c37921a6a2cb8db834f779",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/AspNetCore.Docs",
+      "commit": "ecf7aca5136aea60aa8db7330f66ac799d3edcf7",
+      "path": "aspnetcore/diagnostics/aspdepr002.md",
+      "url": "https://raw.githubusercontent.com/dotnet/AspNetCore.Docs/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/diagnostics/aspdepr002.md",
+      "sha256": "a2b7fcae7298326d49703c80ebc8d3fa8ec488e6eda4b733caa24966b42c2bd2",
+      "headings": [
+        "# ASPDEPR002: `WithOpenApi` is deprecated",
+        "## Workarounds",
+        "## Suppress a warning",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Features/JsonPatch.SystemTextJson/src/Operations/Operation.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Features/JsonPatch.SystemTextJson/src/Operations/Operation.cs",
+      "sha256": "5858b9347885f0b926a8c8418b4102ce32da407d04a0daa9389e34aab289576e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Features/JsonPatch.SystemTextJson/src/Operations/OperationBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Features/JsonPatch.SystemTextJson/src/Operations/OperationBase.cs",
+      "sha256": "027254cf0f350c6a94d4f20d3b9f26f456a07b24c600f6437d463fd3768e8d5f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Servers/HttpSys/src/NativeInterop/UrlGroup.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/HttpSys/src/NativeInterop/UrlGroup.cs",
+      "sha256": "b677ca6e74829ff769d58fb1d063f939436c192d317511536468ef1430fd7ff0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/StaticAssets/src/StaticAssetEndpointFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetEndpointFactory.cs",
+      "sha256": "d97a8aa02bc8134efedc756e835901e57ebf064a9908230f35fae60a076c8ccc",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Tools/GetDocumentInsider/src/Commands/GetDocumentCommandWorker.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Tools/GetDocumentInsider/src/Commands/GetDocumentCommandWorker.cs",
+      "sha256": "d5c6986cb154d44d7e1b4eadd821999a14fe3bdb8347b43db842b46411d97ca6",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/OpenApi/src/Services/OpenApiDocumentProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/OpenApi/src/Services/OpenApiDocumentProvider.cs",
+      "sha256": "06746c147ef8ec4b381adf8dc823b402640ae64956fab53a2294904189ff1938",
+      "headings": []
+    }
+  ]
+}

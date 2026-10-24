@@ -17,6 +17,9 @@
 # Inspect-BlazorApis.ps1 output; review its script, source/disposition manifests and .md audit.
 /docs/planning/audits/blazor.assets.json
 
+# Inspect-WebApis.ps1 output; review its script, source/disposition manifests and .md audit.
+/docs/planning/audits/web.assets.json
+
 # Inspect-DataIoApis.ps1 output; review its script, source/disposition manifests and .md audit.
 /docs/planning/audits/data-io.assets.json
 

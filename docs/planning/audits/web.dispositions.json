@@ -1,0 +1,236 @@
+{
+  "groups": [
+    {
+      "id": "data-protection-span",
+      "pattern": " Microsoft\\.AspNetCore\\.DataProtection\\.(ISpanDataProtector|AuthenticatedEncryption\\.ISpanAuthenticatedEncryptor)",
+      "owner": "W01",
+      "disposition": "included"
+    },
+    {
+      "id": "csrf-policy",
+      "pattern": " Microsoft\\.AspNetCore\\.Antiforgery\\.(ICsrfProtection|CsrfProtectionResult)",
+      "owner": "PIN-808 integration; W02 custom service",
+      "disposition": "grouped/included"
+    },
+    {
+      "id": "authorization",
+      "pattern": " Microsoft\\.AspNetCore\\.Authorization\\.AuthorizationPolicy::CombineAsync",
+      "owner": "PIN-809",
+      "disposition": "grouped"
+    },
+    {
+      "id": "live-auth",
+      "pattern": " Microsoft\\.AspNetCore\\.(Connections\\.Features\\.(IAuthenticationRefreshFeature|IConnectionAuthenticationRefreshFeature|AuthenticationRefreshContext)|Http\\.Connections\\.(AuthenticationRefreshMetadata|NegotiationResponse::.*TokenLifetime|HttpConnectionDispatcherOptions::.*(AuthenticationRefresh|AuthenticationExpiration))|SignalR\\.(Client\\.(AuthenticationRefresh|HubConnection::.*(?:AuthenticationRefresh|RefreshAuthentication)|HubConnectionBuilderExtensions::WithAuthenticationRefresh)|Hub::OnAuthenticationRefreshedAsync|HubConnectionContext::.*UserIdentifier))",
+      "owner": "PIN-813",
+      "disposition": "grouped"
+    },
+    {
+      "id": "http-client-refresh",
+      "pattern": " Microsoft\\.AspNetCore\\.Http\\.Connections\\.Client\\.HttpConnection",
+      "owner": "PIN-813; implements refresh feature",
+      "disposition": "grouped"
+    },
+    {
+      "id": "tls-observability",
+      "pattern": " Microsoft\\.AspNetCore\\.(Connections\\.Features\\.ITlsHandshakeFeature::.*Exception|Hosting\\.ListenOptionsHttpsExtensions::UseTlsClientHelloListener|Server\\.Kestrel\\.Https\\.HttpsConnectionAdapterOptions::TlsClientHelloBytesCallback)",
+      "owner": "PIN-830",
+      "disposition": "grouped"
+    },
+    {
+      "id": "tls-binding",
+      "pattern": " Microsoft\\.AspNetCore\\.(Http\\.Features\\.ITlsConnectionFeature::TryGetChannelBindingBytes|Server\\.HttpSys\\.(HttpAuthenticationHardeningLevel|HttpSysOptions::.*HttpAuthenticationHardeningLevel))",
+      "owner": "PIN-831",
+      "disposition": "grouped"
+    },
+    {
+      "id": "old-token-binding",
+      "pattern": " Microsoft\\.AspNetCore\\.Http\\.Features\\.ITlsTokenBindingFeature",
+      "owner": "W15; ASPDEPR010, unrelated to channel binding",
+      "disposition": "included"
+    },
+    {
+      "id": "native-request-property",
+      "pattern": " Microsoft\\.AspNetCore\\.Server\\.HttpSys\\.IHttpSysRequestPropertyFeature::TryGetRequestProperty",
+      "owner": "W05",
+      "disposition": "included"
+    },
+    {
+      "id": "direct-tls",
+      "pattern": " Microsoft\\.AspNetCore\\.(Hosting\\.WebHostBuilderDirectTlsExtensions|Server\\.Kestrel\\.Transport\\.DirectTls\\.)",
+      "owner": "W11; RC1-only artifact/source conflict",
+      "disposition": "unresolved"
+    },
+    {
+      "id": "http3-budgets",
+      "pattern": " Microsoft\\.AspNetCore\\.Server\\.Kestrel\\.Transport\\.Quic\\.QuicTransportOptions::(MaxBidirectionalStreamCount|MaxUnidirectionalStreamCount|MaxReadBufferSize|MaxWriteBufferSize)",
+      "owner": "W12; RequiresPreviewFeatures removed",
+      "disposition": "included"
+    },
+    {
+      "id": "short-circuit",
+      "pattern": " Microsoft\\.AspNetCore\\.Routing\\.(IShortCircuitMetadata|ShortCircuitAttribute)",
+      "owner": "PIN-816",
+      "disposition": "grouped"
+    },
+    {
+      "id": "image-helper",
+      "pattern": " Microsoft\\.AspNetCore\\.Mvc\\.TagHelpers\\.ImageTagHelper",
+      "owner": "PIN-838",
+      "disposition": "grouped"
+    },
+    {
+      "id": "metadata-identity",
+      "pattern": " Microsoft\\.AspNetCore\\.Mvc\\.ModelBinding\\.Metadata\\.ModelMetadataIdentity::ForProperty",
+      "owner": "PIN-839",
+      "disposition": "grouped"
+    },
+    {
+      "id": "mvc-compatibility",
+      "pattern": " (Microsoft\\.AspNetCore\\.Mvc\\.(CompatibilityVersion|Infrastructure\\.(ConfigureCompatibilityOptions|MvcCompatibilityOptions))|Microsoft\\.Extensions\\.DependencyInjection\\.MvcCoreMvc(Builder|CoreBuilder)Extensions::SetCompatibilityVersion)",
+      "owner": "PIN-837",
+      "disposition": "grouped"
+    },
+    {
+      "id": "route-pattern",
+      "pattern": " Microsoft\\.AspNetCore\\.Mvc\\.ApiExplorer\\.ApiDescription::.*RoutePattern",
+      "owner": "W03",
+      "disposition": "included"
+    },
+    {
+      "id": "api-description-nullability",
+      "pattern": " Microsoft\\.AspNetCore\\.Mvc\\.ApiExplorer\\.ApiDescription",
+      "owner": "Nullable accessor/type metadata outside RoutePattern; preserve null handling",
+      "disposition": "excluded standalone"
+    },
+    {
+      "id": "json-syntax",
+      "pattern": " Microsoft\\.AspNetCore\\.Identity\\.SignInManager`1::(PasskeySignInAsync|PerformPasskeyAssertionAsync|PerformPasskeyAttestationAsync)",
+      "owner": "PIN-812; StringSyntax annotation is not a new sign-in operation",
+      "disposition": "grouped/excluded"
+    },
+    {
+      "id": "aaguid",
+      "pattern": " Microsoft\\.AspNetCore\\.Identity\\.(UserPasskeyInfo|IdentityPasskeyData)::.*Aaguid",
+      "owner": "PIN-811",
+      "disposition": "grouped"
+    },
+    {
+      "id": "identity-metadata",
+      "pattern": " Microsoft\\.AspNetCore\\.Identity\\.(UserOptions|RoleStoreBase`4::ConvertIdFromString|UserStoreBase`5::ConvertIdFromString)",
+      "owner": "Nullable context or spelling in trimming justification only",
+      "disposition": "excluded standalone"
+    },
+    {
+      "id": "route-dictionary-spelling",
+      "pattern": " Microsoft\\.AspNetCore\\.Routing\\.RouteValueDictionary::\\.ctor",
+      "owner": "specificed -> specified in trimming message",
+      "disposition": "excluded"
+    },
+    {
+      "id": "unauthorized-metadata",
+      "pattern": " Microsoft\\.AspNetCore\\.Http\\.HttpResults\\.UnauthorizedHttpResult",
+      "owner": "PIN-821/PIN-823; IEndpointMetadataProvider for generated 401 contract",
+      "disposition": "grouped"
+    },
+    {
+      "id": "dynamic-openapi",
+      "pattern": " (Microsoft\\.AspNetCore\\.OpenApi\\.IAdditionalOpenApiDocumentNameResolver|Microsoft\\.Extensions\\.DependencyInjection\\.OpenApiServiceCollectionExtensions::AddOpenApiCore)",
+      "owner": "W04",
+      "disposition": "included"
+    },
+    {
+      "id": "output-policy",
+      "pattern": " Microsoft\\.AspNetCore\\.OutputCaching\\.IOutputCachePolicyProvider",
+      "owner": "PIN-834",
+      "disposition": "grouped"
+    },
+    {
+      "id": "zstd",
+      "pattern": " Microsoft\\.AspNetCore\\.ResponseCompression\\.Zstandard",
+      "owner": "PIN-835",
+      "disposition": "grouped"
+    },
+    {
+      "id": "static-asset-order",
+      "pattern": " Microsoft\\.AspNetCore\\.StaticAssets\\.StaticAssetDescriptor::.*Order",
+      "owner": "W06",
+      "disposition": "included"
+    },
+    {
+      "id": "grpc-swagger",
+      "pattern": " Microsoft\\.Extensions\\.DependencyInjection\\.GrpcSwagger",
+      "owner": "W10",
+      "disposition": "included"
+    },
+    {
+      "id": "runtime-compilation",
+      "pattern": " Microsoft\\.Extensions\\.DependencyInjection\\.RazorRuntimeCompilationMvc",
+      "owner": "PIN-840; ASPDEPR003",
+      "disposition": "grouped"
+    },
+    {
+      "id": "json-patch",
+      "pattern": " Microsoft\\.AspNetCore\\.JsonPatch\\.SystemTextJson\\.Operations\\.",
+      "owner": "W13; default obsolete diagnostic and wire metadata",
+      "disposition": "included"
+    },
+    {
+      "id": "web-test-builder",
+      "pattern": " Microsoft\\.AspNetCore\\.Mvc\\.Testing\\.WebApplicationFactory`1::ConfigureWebApplicationBuilder",
+      "owner": "W14; new protected hook; preview-only rename",
+      "disposition": "included"
+    }
+  ],
+  "toolingGroups": [
+    {
+      "id": "fsharp-compiled-views",
+      "pattern": "^templates/content/StarterWeb-FSharp/.*(?:\\.fs|\\.fsproj)$",
+      "owner": "W16; actual F# view compilation and registration; default source-generator removal differs from C#"
+    },
+    {
+      "id": "mcp-template",
+      "pattern": "^templates/mcp/",
+      "owner": "PIN-819; actual bundled local/remote template project inputs; not a Playbook MCP contract change"
+    },
+    {
+      "id": "grpc-transcoding-build",
+      "pattern": "^packageFiles/microsoft\\.aspnetcore\\.grpc\\.jsontranscoding/",
+      "owner": "W10; TFM relocation/build wiring recorded; unchanged JSON-transcoding API is not itself a new recipe"
+    },
+    {
+      "id": "api-generation",
+      "pattern": "^packageFiles/microsoft\\.extensions\\.apidescription\\.server/",
+      "owner": "PIN-826/W04; environment/document names"
+    },
+    {
+      "id": "identity-ui",
+      "pattern": "^packageFiles/microsoft\\.aspnetcore\\.identity\\.ui/",
+      "owner": "W08; Bootstrap4 warning; automatic vendor/static-asset updates excluded"
+    },
+    {
+      "id": "runtime-compilation",
+      "pattern": "^packageFiles/microsoft\\.aspnetcore\\.mvc\\.razor\\.runtimecompilation/",
+      "owner": "PIN-840"
+    },
+    {
+      "id": "test-host",
+      "pattern": "^packageFiles/microsoft\\.aspnetcore\\.mvc\\.testing/",
+      "owner": "W14"
+    },
+    {
+      "id": "web-sdk",
+      "pattern": "^webTooling/",
+      "owner": "PIN-817/PIN-818; tool layout/hashes; web build PIN-707; automatic-only updates excluded"
+    },
+    {
+      "id": "templates",
+      "pattern": "^templates/",
+      "owner": "PIN-811/PIN-819/PIN-842; W07/W08/W10; SDK TFM updates PIN-707; branding/default CSS excluded"
+    },
+    {
+      "id": "typescript",
+      "pattern": "^typeScript/",
+      "owner": "PIN-813/PIN-814; published Preview7 contract versus final RC names remains unresolved"
+    }
+  ]
+}
