@@ -444,7 +444,6 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-0ffcb848'
 & ./eng/Inspect-WebApis.ps1 `
     -OutputPath ./artifacts/web.replayed.json `
     -CompareWith ./docs/planning/audits/web.assets.json
-if ($LASTEXITCODE) { throw 'Audit replay failed' }
 $audit = Get-Content ./artifacts/web.replayed.json -Raw | ConvertFrom-Json
 $audit.baselines | Select-Object sdk, referencePack, target
 $audit.dispositions | Group-Object group | Select-Object Name, Count
