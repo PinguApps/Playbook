@@ -1,0 +1,35 @@
+<!-- snippet:complete -->
+@namespace QuayChat
+@using Microsoft.AspNetCore.Components.AI
+@using Microsoft.AspNetCore.Components.Web
+@implements IDisposable
+@inject SurveyChatClient ChatClient
+
+<section aria-label="Survey conversation">
+    <AgentBoundary Agent="_agent">
+        <MessageList>
+            <ChildContent>
+                <BlockRenderer TBlock="RichContentBlock" Context="block">
+                    <article data-role="@block.Role.ToString()" data-block="@block.Id" data-state="@block.LifecycleState">
+                        @block.RawText
+                    </article>
+                </BlockRenderer>
+            </ChildContent>
+            <EmptyContent><p>No survey messages yet.</p></EmptyContent>
+            <Footer Context="conversation">
+                <p role="status">@conversation.Status</p>
+            </Footer>
+        </MessageList>
+        <MessageInput Placeholder="Ask about the quay" />
+    </AgentBoundary>
+    <button @onclick="ChatClient.Release">Release reply</button>
+</section>
+
+@code {
+    private UIAgent _agent = default!;
+
+    protected override void OnInitialized() => _agent = new(ChatClient);
+
+    public void Dispose() => _agent.Dispose();
+}
+<!-- endsnippet:complete -->

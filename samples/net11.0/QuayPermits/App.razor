@@ -1,0 +1,28 @@
+<!-- snippet:complete -->
+@namespace QuayPermits
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><base href="/" /><title>Quay cargo permits</title></head>
+<body>
+    <h1>Quay cargo permits</h1>
+    <EditForm Model="Permit!" FormName="cargo-permit" OnSubmit="Submit">
+        <label>Cargo <InputText @bind-Value="Permit!.Cargo" /></label>
+        <button>Submit permit</button>
+    </EditForm>
+    <p id="result">@_result</p>
+    <a href="/minimal">Minimal API form</a>
+    <a href="/mvc">MVC form</a>
+    <a href="/page">Razor Page form</a>
+</body>
+</html>
+@code {
+    [SupplyParameterFromForm] public CargoPermit? Permit { get; set; }
+    private string _result = "";
+    protected override void OnInitialized() => Permit ??= new();
+    private void Submit() => _result = "SSR accepted: " + Permit!.Cargo;
+    public sealed class CargoPermit { public string Cargo { get; set; } = "lanterns"; }
+}
+<!-- endsnippet:complete -->
