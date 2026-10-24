@@ -19,6 +19,20 @@ new goals are **included — delivery outstanding**, including experimental hook
 B16's restore APIs require an actual available artifact. Compilation, real behavior,
 installed-MCP retrieval, GA reconciliation and publication gates remain open.
 
+### Supplemental non-Blazor web API reconciliation
+
+[PIN-709's pinned artifact/source audit](../audits/web.md) extends this baseline
+with the selected Minimal API, MVC/Razor Pages, hosting/HTTP/cache, Identity,
+SignalR/OpenAPI and gRPC public surfaces and real package/tool/template contracts.
+Sixteen sized review drafts (W01–W16) retain uncovered authoring goals, including
+default-diagnostic obsoletions and source-only F# view/Identity migrations. These
+do not revise the historical 156-row count. Existing owners remain accountable;
+all new recipes are **delivery outstanding**. DirectTls and published TypeScript
+availability gaps, actual consumer/runtime/installed-MCP proof and GA reconciliation
+remain explicit. The earlier no-distinct-gRPC-feature row is qualified by W10's
+removed Grpc.Swagger adapter; unchanged transport API metadata is not blanket
+no-change evidence.
+
 ## Source register and reading rules
 
 - [W] is the cumulative ASP.NET Core article. Its source composes individual [official include files][WI]; the feature names in the tables identify the relevant include/section.

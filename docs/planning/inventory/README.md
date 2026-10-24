@@ -22,6 +22,15 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [non-Blazor web API audit](../audits/web.md) compares actual .NET 10 and pinned
+.NET 11 RC2 framework, package, web-tooling, C#/F# template and published SignalR
+TypeScript assets against 212 immutable official files. Every selected API delta
+has an owner. Existing web/migration tickets retain their scope; sixteen additional
+recipe drafts await PIN-986 review. gRPC's unchanged selected transport APIs do not
+erase its removed Swagger adapter. DirectTls and final TypeScript refresh APIs
+retain artifact/documentation gaps. Audit closure delivers no content, runtime
+proof or GA/publication permission.
+
 The [native deployment-artifact audit](../audits/native-deployment.md) resolves the
 three assigned mitigations against 21 pinned official files. Runtime-setting
 precedence and Unix native-library naming retain two approval-only delivery
