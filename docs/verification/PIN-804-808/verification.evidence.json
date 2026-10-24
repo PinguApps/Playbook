@@ -40,5 +40,7 @@
     "method": "SurveyFormsPreserveValidationLabelAndCaptionGuidanceOffline"
   },
   "policy": "PASS: 529 extracted dependencies; 486 protected sample entries; root permissions unchanged",
-  "hostSmoke": "1 passed"
+  "hostSmoke": "1 passed",
+  "httpReceiptSha256": "c6bb6fc54bb9806438d53485c466cf13b9c6c9fe7cbdc0a867f3a3b97067c0c7",
+  "httpObservationCount": 70
 }
