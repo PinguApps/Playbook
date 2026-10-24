@@ -1,0 +1,198 @@
+{
+  "kind": "actual-Chrome-extension-renderer",
+  "observations": [
+    {
+      "major": 11,
+      "phase": "first-held",
+      "url": "http://127.0.0.1:6011/",
+      "blocks": [
+        {
+          "id": "a6b55be2164a450ab12762b8f9ce45d5",
+          "role": "user",
+          "state": "Inactive",
+          "text": "First survey"
+        },
+        {
+          "id": "survey-1",
+          "role": "assistant",
+          "state": "Active",
+          "text": "Survey 1:"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Streaming"
+    },
+    {
+      "major": 11,
+      "phase": "first-complete",
+      "url": "http://127.0.0.1:6011/",
+      "blocks": [
+        {
+          "id": "a6b55be2164a450ab12762b8f9ce45d5",
+          "role": "user",
+          "state": "Inactive",
+          "text": "First survey"
+        },
+        {
+          "id": "survey-1",
+          "role": "assistant",
+          "state": "Inactive",
+          "text": "Survey 1: North quay is sheltered. Input messages=1. <script>untrusted</script>"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Idle"
+    },
+    {
+      "major": 11,
+      "phase": "second-held",
+      "url": "http://127.0.0.1:6011/",
+      "blocks": [
+        {
+          "id": "a6b55be2164a450ab12762b8f9ce45d5",
+          "role": "user",
+          "state": "Inactive",
+          "text": "First survey"
+        },
+        {
+          "id": "survey-1",
+          "role": "assistant",
+          "state": "Inactive",
+          "text": "Survey 1: North quay is sheltered. Input messages=1. <script>untrusted</script>"
+        },
+        {
+          "id": "2eca8f8827d9403aa418e3cfd8c343c6",
+          "role": "user",
+          "state": "Inactive",
+          "text": "Second survey"
+        },
+        {
+          "id": "survey-2",
+          "role": "assistant",
+          "state": "Active",
+          "text": "Survey 2:"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Streaming"
+    },
+    {
+      "major": 11,
+      "phase": "second-complete",
+      "url": "http://127.0.0.1:6011/",
+      "blocks": [
+        {
+          "id": "a6b55be2164a450ab12762b8f9ce45d5",
+          "role": "user",
+          "state": "Inactive",
+          "text": "First survey"
+        },
+        {
+          "id": "survey-1",
+          "role": "assistant",
+          "state": "Inactive",
+          "text": "Survey 1: North quay is sheltered. Input messages=1. <script>untrusted</script>"
+        },
+        {
+          "id": "2eca8f8827d9403aa418e3cfd8c343c6",
+          "role": "user",
+          "state": "Inactive",
+          "text": "Second survey"
+        },
+        {
+          "id": "survey-2",
+          "role": "assistant",
+          "state": "Inactive",
+          "text": "Survey 2: North quay is sheltered. Input messages=3. <script>untrusted</script>"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Idle"
+    },
+    {
+      "major": 10,
+      "phase": "first-held",
+      "url": "http://127.0.0.1:6010/",
+      "blocks": [
+        {
+          "role": "user",
+          "text": "First survey"
+        },
+        {
+          "role": "assistant",
+          "text": "Survey 1:"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Streaming"
+    },
+    {
+      "major": 10,
+      "phase": "first-complete",
+      "url": "http://127.0.0.1:6010/",
+      "blocks": [
+        {
+          "role": "user",
+          "text": "First survey"
+        },
+        {
+          "role": "assistant",
+          "text": "Survey 1: North quay is sheltered. Input messages=1. <script>untrusted</script>"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Ready"
+    },
+    {
+      "major": 10,
+      "phase": "second-held",
+      "url": "http://127.0.0.1:6010/",
+      "blocks": [
+        {
+          "role": "user",
+          "text": "First survey"
+        },
+        {
+          "role": "assistant",
+          "text": "Survey 1: North quay is sheltered. Input messages=1. <script>untrusted</script>"
+        },
+        {
+          "role": "user",
+          "text": "Second survey"
+        },
+        {
+          "role": "assistant",
+          "text": "Survey 2:"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Streaming"
+    },
+    {
+      "major": 10,
+      "phase": "second-complete",
+      "url": "http://127.0.0.1:6010/",
+      "blocks": [
+        {
+          "role": "user",
+          "text": "First survey"
+        },
+        {
+          "role": "assistant",
+          "text": "Survey 1: North quay is sheltered. Input messages=1. <script>untrusted</script>"
+        },
+        {
+          "role": "user",
+          "text": "Second survey"
+        },
+        {
+          "role": "assistant",
+          "text": "Survey 2: North quay is sheltered. Input messages=3. <script>untrusted</script>"
+        }
+      ],
+      "scriptExecuted": false,
+      "status": "Ready"
+    }
+  ],
+  "capture": "async (tab, phase, major) => ({major,phase,url:await tab.url(),...(await tab.playwright.evaluate(() => ({blocks:[...document.querySelectorAll('article')].map(n=>({text:n.textContent.trim(),role:n.dataset.role,id:n.dataset.block,state:n.dataset.state})),status:document.querySelector('[role=\"status\"]')?.textContent,scriptExecuted:!!document.querySelector('article script')})))})"
+}

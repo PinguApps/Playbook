@@ -972,6 +972,45 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("quay conversations and browser form protection retain complete guidance offline")]
+    public async Task CheckQuayGuidanceAsync()
+    {
+        await CheckWebRecipesAsync(["blazor.stream-agent-conversation"], "quay-chat").ConfigureAwait(false);
+        await CheckWebRecipesAsync(["web.protect-browser-form-posts"], "quay-permits").ConfigureAwait(false);
+        foreach (string id in new[] { "blazor.stream-agent-conversation", "web.protect-browser-form-posts" })
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete Quay metadata {id}/{field}");
+            }
+
+            foreach (JsonElement declaration in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+            {
+                string sample = declaration.GetProperty("sample").GetString()!;
+                JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString() == sample);
+                foreach (JsonProperty property in declaration.EnumerateObject())
+                {
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Declared Quay evidence {sample}/{property.Name}");
+                }
+
+                string directory = sample[..sample.LastIndexOf('/')];
+                using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
+                foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
+                {
+                    if (property.Name == "recordedAt")
+                    {
+                        Assert.Equal(property.Value.GetDateTimeOffset(), actual.GetProperty(property.Name).GetDateTimeOffset());
+                        continue;
+                    }
+
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Saved Quay evidence {sample}/{property.Name}");
+                }
+            }
+        }
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
@@ -1000,7 +1039,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(metadata.RootElement.GetProperty("title").GetString(), summary.GetProperty("title").GetString());
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
             Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
-            Assert.Equal("stable", recipe.GetProperty("stability").GetString());
+            Assert.Equal(metadata.RootElement.GetProperty("stability").GetString(), recipe.GetProperty("stability").GetString());
             AssertSelection(summary, recipe);
             JsonElement routes = recipe.GetProperty("applicability").GetProperty("routes");
             Assert.Equal(metadata.RootElement.GetProperty("applicability").GetProperty("routes").GetArrayLength(), routes.GetArrayLength());

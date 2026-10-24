@@ -1,5 +1,7 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+PIN-804 delivers the actually available streaming subset through `blazor.stream-agent-conversation/11.0`, using pinned Components.AI **0.1.0-preview.1.26466.103**, the real Interactive Server renderer and a clearly scripted IChatClient. PIN-808 delivers `web.protect-browser-form-posts/11.0`: real RC2 requests require MVC `[RequireAntiforgeryToken]`; legacy MVC and automatic Razor Pages filters still require tokens. [Original samples, source reconciliation, real browser/HTTP and installed offline evidence](../../verification/PIN-804-808.md) preserve these limits. Later AI tools/restore and GA reconciliation remain separate work.
+
 PIN-801/802/803 deliver the three BreakwaterLab 11.0 editions for explicit
 component property activation, no-result interop intent and direct interactive
 MathML. The [original comparison and actual browser/installed-tool evidence](../../verification/PIN-801-803.md)

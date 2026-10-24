@@ -1,0 +1,54 @@
+<!-- snippet:complete -->
+@namespace QuayChat
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.AI
+@implements IDisposable
+@inject SurveyChatClient ChatClient
+
+<section aria-label="Survey conversation">
+    @foreach (ChatMessage message in _messages)
+    {
+        <article data-role="@message.Role.ToString()">@message.Text</article>
+    }
+    <label>Question <input @bind="_question" @bind:event="oninput" disabled="@_streaming" /></label>
+    <button @onclick="SendAsync" disabled="@_streaming">Send question</button>
+    <button @onclick="ChatClient.Release" disabled="@(!_streaming)">Release reply</button>
+    <p role="status">@(_streaming ? "Streaming" : "Ready")</p>
+</section>
+
+@code {
+    private readonly List<ChatMessage> _messages = [];
+    private readonly CancellationTokenSource _lifetime = new();
+    private string _question = "";
+    private bool _streaming;
+
+    private async Task SendAsync()
+    {
+        if (string.IsNullOrWhiteSpace(_question) || _streaming) { return; }
+        _messages.Add(new(ChatRole.User, _question));
+        _question = "";
+        ChatMessage[] input = _messages.ToArray();
+        ChatMessage reply = new(ChatRole.Assistant, "");
+        _messages.Add(reply);
+        _streaming = true;
+        try
+        {
+            await foreach (ChatResponseUpdate update in ChatClient.GetStreamingResponseAsync(
+                input, cancellationToken: _lifetime.Token))
+            {
+                foreach (AIContent content in update.Contents) { reply.Contents.Add(content); }
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+        catch (OperationCanceledException) when (_lifetime.IsCancellationRequested) { }
+        finally { _streaming = false; }
+    }
+
+    public void Dispose()
+    {
+        _lifetime.Cancel();
+        _lifetime.Dispose();
+    }
+}
+<!-- endsnippet:complete -->

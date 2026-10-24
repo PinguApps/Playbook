@@ -1,0 +1,9 @@
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/ - 200 - text/html;+charset=utf-8 4.6971ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/minimal - 200 26 text/plain;+charset=utf-8 0.2840ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/mvc - 200 22 text/plain;+charset=utf-8 0.6167ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/page - 200 - text/html;+charset=utf-8 0.9424ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/ - 400 - text/html;+charset=utf-8 0.4483ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/minimal - 400 - text/html;+charset=utf-8 13.5891ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/mvc - 400 0 - 0.4284ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/page - 400 0 - 0.4960ms
+      Request finished HTTP/1.1 POST http://127.0.0.1:6013/trusted - 200 26 text/plain;+charset=utf-8 0.3230ms

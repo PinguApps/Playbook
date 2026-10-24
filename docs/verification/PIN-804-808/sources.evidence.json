@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/DefaultCsrfProtection.cs",
+      "kind": "official-source-review",
+      "sha256": "633150abdc0c992e8a10a323f12a5d838e863481e97a12cc1046a00cec975812"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/CsrfProtectionMiddleware.cs",
+      "kind": "official-source-review",
+      "sha256": "db766af933b1267f8b790104b20a98a15cb2186a72730ced097dbca9cc063cad"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ViewFeatures/src/Filters/AntiforgeryApplicationModelProvider.cs",
+      "kind": "official-source-review",
+      "sha256": "c67a18b61e55f7c4bc7d7521a96d9847dac14dd75a891d02c45d8c8a89ca3e68"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ViewFeatures/src/Filters/ValidateAntiforgeryTokenAuthorizationFilter.cs",
+      "kind": "official-source-review",
+      "sha256": "4a0dde2ffec0c98f67a0d051121059e54f01701716a67ea30db9362df38e8cb3"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.RazorPages/src/ApplicationModels/AutoValidateAntiforgeryPageApplicationModelProvider.cs",
+      "kind": "official-source-review",
+      "sha256": "4f68844f70d463db90caa0356ea9ccfea245f569ee54cd717f3bc47303f0814f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/b2f96bd7ac75c07fb8067c05c54767d3d5e12e8d/src/aspnetcore/src/Components/AI/src/Components/MessageList.cs",
+      "kind": "official-source-review",
+      "sha256": "b7006ea1165874ab2c1d162da6c95ca966679a5af6088ab230794c05dcd0cd62"
+    }
+  ],
+  "package": {
+    "sourceCommit": "b2f96bd7ac75c07fb8067c05c54767d3d5e12e8d",
+    "asset": "lib/net11.0/Microsoft.AspNetCore.Components.AI.dll",
+    "version": "0.1.0-preview.1.26466.103",
+    "sha256": "eab6ca276be5a6a94289d5ea2fb15ed8cddcb63478408caaf42aa57fd763393a"
+  },
+  "reviewedAt": "2026-10-24T16:00:08.1798904+00:00"
+}

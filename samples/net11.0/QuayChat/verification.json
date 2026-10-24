@@ -1,0 +1,15 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103",
+    "Microsoft.Extensions.AI.Abstractions/10.6.0"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}

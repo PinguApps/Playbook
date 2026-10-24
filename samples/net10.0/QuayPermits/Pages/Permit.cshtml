@@ -1,0 +1,16 @@
+@page "/page"
+<!-- snippet:complete -->
+@model QuayPermits.Pages.PermitModel
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Quay page permit</title></head>
+<body>
+<form method="post">
+    @if (Model.Mode.KeepTokens) { @Html.AntiForgeryToken() }
+    <label>Cargo <input name="cargo" value="lanterns" /></label>
+    <button>Submit permit</button>
+</form>
+<p>@Model.Result</p>
+</body>
+</html>
+<!-- endsnippet:complete -->

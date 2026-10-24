@@ -1,5 +1,7 @@
 # Contribute and verify an original recipe
 
+Streamed conversation history and browser form protection use original QuayChat/QuayPermits comparisons. [PIN-804/808](verification/PIN-804-808.md) records the real experimental renderer, 70 form/JSON/CORS HTTP checks, browser submissions and complete installed offline retrieval.
+
 Deliberate circuit transport uses original LockhouseSessions .NET 10/11 hosts.
 [PIN-790](verification/PIN-790.md) records actual WebSocket/fallback, cookie-expiry
 controls and payloads above configured pipe thresholds, with complete offline delivery.

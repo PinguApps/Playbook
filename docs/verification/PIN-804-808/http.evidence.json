@@ -1,0 +1,741 @@
+{
+  "observations": [
+    {
+      "path": "/",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/page",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "tokens10",
+      "origin": "http://127.0.0.1:6012",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/page",
+      "host": "tokens10",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/json",
+      "origin": "http://attacker.invalid",
+      "status": 200,
+      "host": "tokens10"
+    },
+    {
+      "path": "/",
+      "host": "automatic11",
+      "origin": "http://127.0.0.1:6013",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "automatic11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "automatic11",
+      "origin": "",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "automatic11",
+      "origin": "http://127.0.0.1:6013",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "automatic11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "automatic11",
+      "origin": "",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "automatic11",
+      "origin": "http://127.0.0.1:6013",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "automatic11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "automatic11",
+      "origin": "",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": false,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "automatic11",
+      "origin": "http://127.0.0.1:6013",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "automatic11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "automatic11",
+      "origin": "http://127.0.0.1:6013",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/page",
+      "host": "automatic11",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/json",
+      "origin": "http://attacker.invalid",
+      "status": 200,
+      "host": "automatic11"
+    },
+    {
+      "path": "/",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/minimal",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/mvc",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/page",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "tokens11",
+      "origin": "http://127.0.0.1:6014",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/page",
+      "host": "tokens11",
+      "origin": "http://attacker.invalid",
+      "accepted": true,
+      "status": 200,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/json",
+      "origin": "http://attacker.invalid",
+      "status": 200,
+      "host": "tokens11"
+    },
+    {
+      "path": "/",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/minimal",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/minimal",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/minimal",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/mvc",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/mvc",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/mvc",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/page",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": false
+    },
+    {
+      "path": "/page",
+      "host": "additional11",
+      "origin": "http://127.0.0.1:6015",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/page",
+      "host": "additional11",
+      "origin": "http://attacker.invalid",
+      "accepted": false,
+      "status": 400,
+      "renderedToken": true,
+      "sentToken": true
+    },
+    {
+      "path": "/json",
+      "origin": "http://attacker.invalid",
+      "status": 200,
+      "host": "additional11"
+    },
+    {
+      "path": "/minimal",
+      "origin": "http://127.0.0.1:6013",
+      "status": 400,
+      "host": "automatic11",
+      "fetchSite": "cross-site"
+    },
+    {
+      "path": "/minimal",
+      "origin": "http://127.0.0.1:6013",
+      "status": 400,
+      "host": "automatic11",
+      "fetchSite": "same-site"
+    },
+    {
+      "path": "/minimal",
+      "origin": "http://attacker.invalid",
+      "status": 200,
+      "host": "automatic11",
+      "fetchSite": "same-origin"
+    },
+    {
+      "path": "/trusted",
+      "origin": "http://localhost:6019",
+      "status": 200,
+      "host": "automatic11"
+    },
+    {
+      "path": "/trusted",
+      "origin": "http://attacker.invalid",
+      "status": 400,
+      "host": "automatic11"
+    }
+  ],
+  "kind": "actual-loopback-http",
+  "hosts": [
+    {
+      "port": 6010,
+      "sha256": "83774f316095e4cd0c2b2b421daeb0807500721042f838150ce580058aa4dab8",
+      "dll": "V:\\_worktrees\\Playbook\\t3-aacbceff\\samples\\net10.0\\QuayChat\\bin\\Release\\net10.0\\QuayChat.dll",
+      "arguments": "",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.13\\coreclr.dll"
+        }
+      ],
+      "name": "chat10",
+      "pid": 144136
+    },
+    {
+      "port": 6011,
+      "sha256": "fbf4ba093f86dd3ba8f6f594039691e561c7368fdd1bc90927aec6de87ddd868",
+      "dll": "V:\\_worktrees\\Playbook\\t3-aacbceff\\samples\\net11.0\\QuayChat\\bin\\Release\\net11.0\\QuayChat.dll",
+      "arguments": "",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\11.0.0-rc.2.26504.105\\coreclr.dll"
+        }
+      ],
+      "name": "chat11",
+      "pid": 16528
+    },
+    {
+      "port": 6012,
+      "sha256": "cdbbc061fd4ccf125cef801f7d59ba272568f9376b0d2c45c9fcae6a13dbcb3c",
+      "dll": "V:\\_worktrees\\Playbook\\t3-aacbceff\\samples\\net10.0\\QuayPermits\\bin\\Release\\net10.0\\QuayPermits.dll",
+      "arguments": "",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\10.0.13\\coreclr.dll"
+        }
+      ],
+      "name": "tokens10",
+      "pid": 60072
+    },
+    {
+      "port": 6013,
+      "sha256": "6cc52bf694a4054d19cc1b2015cce3bf3054736b06c85b621bebd616193b5be0",
+      "dll": "V:\\_worktrees\\Playbook\\t3-aacbceff\\samples\\net11.0\\QuayPermits\\bin\\Release\\net11.0\\QuayPermits.dll",
+      "arguments": "",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\11.0.0-rc.2.26504.105\\coreclr.dll"
+        }
+      ],
+      "name": "automatic11",
+      "pid": 125228
+    },
+    {
+      "port": 6014,
+      "sha256": "6cc52bf694a4054d19cc1b2015cce3bf3054736b06c85b621bebd616193b5be0",
+      "dll": "V:\\_worktrees\\Playbook\\t3-aacbceff\\samples\\net11.0\\QuayPermits\\bin\\Release\\net11.0\\QuayPermits.dll",
+      "arguments": "--keep-tokens true",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\11.0.0-rc.2.26504.105\\coreclr.dll"
+        }
+      ],
+      "name": "tokens11",
+      "pid": 142944
+    },
+    {
+      "port": 6015,
+      "sha256": "6cc52bf694a4054d19cc1b2015cce3bf3054736b06c85b621bebd616193b5be0",
+      "dll": "V:\\_worktrees\\Playbook\\t3-aacbceff\\samples\\net11.0\\QuayPermits\\bin\\Release\\net11.0\\QuayPermits.dll",
+      "arguments": "--keep-tokens true --reject-additional true",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\11.0.0-rc.2.26504.105\\coreclr.dll"
+        }
+      ],
+      "name": "additional11",
+      "pid": 98748
+    },
+    {
+      "port": 6019,
+      "sha256": "6cc52bf694a4054d19cc1b2015cce3bf3054736b06c85b621bebd616193b5be0",
+      "dll": "V:\\_worktrees\\Playbook\\t3-aacbceff\\samples\\net11.0\\QuayPermits\\bin\\Release\\net11.0\\QuayPermits.dll",
+      "arguments": "",
+      "runtimeModules": [
+        {
+          "ModuleName": "hostfxr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\host\\fxr\\11.0.0-rc.2.26504.105\\hostfxr.dll"
+        },
+        {
+          "ModuleName": "coreclr.dll",
+          "FileName": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App\\11.0.0-rc.2.26504.105\\coreclr.dll"
+        }
+      ],
+      "name": "dispatch-source",
+      "pid": 11644
+    }
+  ],
+  "recordedAt": "2026-10-24T15:58:40.9525228+00:00",
+  "scope": "Real Kestrel form/JSON requests. Origin headers here are synthetic; separate browser receipts establish browser-origin behavior and rendered streaming."
+}

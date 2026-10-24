@@ -1,0 +1,20 @@
+<!-- snippet:complete -->
+@namespace QuayChat
+@using Microsoft.AspNetCore.Components.Web
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <title>Quay survey conversation</title>
+
+</head>
+<body>
+    <h1>Quay survey conversation</h1>
+    <p>Scripted local chat source.</p>
+    <SurveyPanel @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:complete -->
