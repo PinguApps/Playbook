@@ -10,8 +10,8 @@ param(
 
 # Inspect downloaded source and ECMA metadata only; never execute inspected code.
 $ErrorActionPreference = 'Stop'
-$output = [IO.Path]::GetFullPath($OutputPath)
-if ($CompareWith -and $output -eq [IO.Path]::GetFullPath($CompareWith)) {
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
+if ($CompareWith -and $output -eq $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($CompareWith)) {
   throw 'Comparison output must not overwrite the committed baseline.'
 }
 $inputs = Get-Content -LiteralPath $Manifest -Raw | ConvertFrom-Json

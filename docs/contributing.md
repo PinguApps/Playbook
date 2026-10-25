@@ -204,8 +204,8 @@ Run `pwsh -NoProfile -File ./eng/Test-Evidence.ps1` to check unchanged reuse and
 
 ### Hand off provider and native checks
 
-For the current Windows x64 and Docker authoring routes, run the
-[native capability preflight](verification/native-authoring.md). Its measured inventory
+For Windows x64 and Docker authoring routes, consult the historical
+[native access assessment](verification/native-authoring.md) and recheck the required capability. Its measured inventory
 and explicit owner handoffs distinguish available access from missing Arm/SVE,
 CoreCLR WebAssembly relinking and Podman proof. It does not replace recipe evidence.
 

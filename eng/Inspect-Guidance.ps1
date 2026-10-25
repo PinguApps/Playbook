@@ -11,7 +11,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
-$output = [IO.Path]::GetFullPath($OutputDirectory)
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputDirectory)
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 Push-Location -LiteralPath $root
 try {

@@ -6,7 +6,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
-$output = [IO.Path]::GetFullPath($OutputPath)
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
 New-Item -ItemType Directory -Path (Split-Path $output -Parent) -Force | Out-Null
 $recipe = (Get-Content -LiteralPath $ResponsePath -Raw | ConvertFrom-Json).result.structuredContent.recipe
 $markdown = $recipe.markdown
