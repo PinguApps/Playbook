@@ -2762,4 +2762,3 @@
   ],
   "scope": "Observed tool calls, commands, generated changes and visible answers; reasoning items excluded. All truncated tool items recovered through durable T3 read continuations; no coaching or rerun."
 }
-
