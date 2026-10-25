@@ -1,0 +1,89 @@
+[
+  {
+    "identity": "SDK 10.0.402",
+    "asset": "FSharp/FSharp.Core.dll",
+    "sha256": "7c1574193332ea24678d32103df140c094c85cf1b08708ffda88ef44540b03a6",
+    "assemblyVersion": "10.1.0.0",
+    "targetFramework": ".NETStandard,Version=v2.0",
+    "attributePresent": false,
+    "declarations": []
+  },
+  {
+    "identity": "SDK 11.0.100-rc.2.26504.105",
+    "asset": "FSharp/FSharp.Core.dll",
+    "sha256": "cc9140abff3283005b2418dd270c6a097e70abcb90c22af3473fafac0d2687ca",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETCoreApp,Version=v10.0",
+    "attributePresent": true,
+    "declarations": [
+      "Microsoft.FSharp.Core.CompilationMappingAttribute(Microsoft.FSharp.Core.SourceConstructFlags=3) []",
+      "Microsoft.FSharp.Core.SealedAttribute() []",
+      "System.AttributeUsageAttribute(System.AttributeTargets=2048) [AllowMultiple=False]",
+      "System.Void .ctor()",
+      "public=True; sealed=True; base=System.Attribute"
+    ]
+  },
+  {
+    "identity": "FSharp.Core 10.1.402",
+    "asset": "lib/netstandard2.0/FSharp.Core.dll",
+    "sha256": "bfefba2d3ed46914b63e71b20b9be8f461b58147556b1dc59b0d9feab5a8654d",
+    "assemblyVersion": "10.1.0.0",
+    "targetFramework": ".NETStandard,Version=v2.0",
+    "attributePresent": false,
+    "declarations": []
+  },
+  {
+    "identity": "FSharp.Core 10.1.402",
+    "asset": "lib/netstandard2.1/FSharp.Core.dll",
+    "sha256": "e6c3cadfe4adf7edb64ee23880a37ba462246d2c28e0f3495f5cb3913ea6008d",
+    "assemblyVersion": "10.1.0.0",
+    "targetFramework": ".NETStandard,Version=v2.1",
+    "attributePresent": false,
+    "declarations": []
+  },
+  {
+    "identity": "FSharp.Core 11.0.101-rc2.26504.105",
+    "asset": "lib/net10.0/FSharp.Core.dll",
+    "sha256": "3745f5c62bb8fa82ad8cb5070963959807239fa8c08383dc5ae609139ae76058",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETCoreApp,Version=v10.0",
+    "attributePresent": true,
+    "declarations": [
+      "Microsoft.FSharp.Core.CompilationMappingAttribute(Microsoft.FSharp.Core.SourceConstructFlags=3) []",
+      "Microsoft.FSharp.Core.SealedAttribute() []",
+      "System.AttributeUsageAttribute(System.AttributeTargets=2048) [AllowMultiple=False]",
+      "System.Void .ctor()",
+      "public=True; sealed=True; base=System.Attribute"
+    ]
+  },
+  {
+    "identity": "FSharp.Core 11.0.101-rc2.26504.105",
+    "asset": "lib/netstandard2.0/FSharp.Core.dll",
+    "sha256": "4d5d3f8c368a1d98d84983554b8acf22820228f02af609438947c4d96f369ff5",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETStandard,Version=v2.0",
+    "attributePresent": true,
+    "declarations": [
+      "Microsoft.FSharp.Core.CompilationMappingAttribute(Microsoft.FSharp.Core.SourceConstructFlags=3) []",
+      "Microsoft.FSharp.Core.SealedAttribute() []",
+      "System.AttributeUsageAttribute(System.AttributeTargets=2048) [AllowMultiple=False]",
+      "System.Void .ctor()",
+      "public=True; sealed=True; base=System.Attribute"
+    ]
+  },
+  {
+    "identity": "FSharp.Core 11.0.101-rc2.26504.105",
+    "asset": "lib/netstandard2.1/FSharp.Core.dll",
+    "sha256": "b5193c807769bcad19edf67e302d8dfaa4e0c5f089736395111599dfafde145b",
+    "assemblyVersion": "11.0.0.0",
+    "targetFramework": ".NETStandard,Version=v2.1",
+    "attributePresent": true,
+    "declarations": [
+      "Microsoft.FSharp.Core.CompilationMappingAttribute(Microsoft.FSharp.Core.SourceConstructFlags=3) []",
+      "Microsoft.FSharp.Core.SealedAttribute() []",
+      "System.AttributeUsageAttribute(System.AttributeTargets=2048) [AllowMultiple=False]",
+      "System.Void .ctor()",
+      "public=True; sealed=True; base=System.Attribute"
+    ]
+  }
+]
