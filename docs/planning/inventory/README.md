@@ -28,6 +28,16 @@ the pinned runtime diagnostic registry. Core-summary omissions are explicit;
 pipe delivery and two cryptography proposals retain their existing owners.
 Index closure does not deliver those recipes or clear PIN-986/PIN-959 gates.
 
+The [automatic/no-change exclusion recheck](../audits/automatic-exclusions.md)
+dispositions all thirteen assigned rows against 34 pinned official files and
+seven actual FSharp.Core metadata assets. Three compound exclusions are partially
+reversed: explicit F# callback annotations, IEEE-decimal result comparisons and
+Linux Negotiate channel-binding policy. Three narrow delivery drafts await
+PIN-986 approval. Earlier watcher, transport,
+WebAssembly and build owners remain explicit; automatic residuals stay excluded.
+The initial exclusion counts above are historical. Source/metadata closure does
+not deliver these recipes or waive consumer, GA or publication evidence.
+
 The [non-Blazor web API audit](../audits/web.md) compares actual .NET 10 and pinned
 .NET 11 RC2 framework, package, web-tooling, C#/F# template and published SignalR
 TypeScript assets against 212 immutable official files. Every selected API delta
