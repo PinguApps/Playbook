@@ -1,0 +1,1083 @@
+{
+  "reviewed": "2026-10-25",
+  "scope": "PIN-694 named MAUI/platform API gaps, RC2 source and reference evidence only",
+  "sources": [
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "55b4711dff6ee12c2f658c16a724ab22453d6d87b7637f4eb66556662adaccdf"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "c021e08f721ad93a098c9869331446583b3115f6bb1ce9dc75a42df0cf731216"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "a10bfaea27f1691624c0e652b4e3b2933c2fcc92b01425b664687f3a3ba3ba05"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "052dd307871422d543957141ead9efa9ce078e521d3deb72aff07abb76f29cc2"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "a10bfaea27f1691624c0e652b4e3b2933c2fcc92b01425b664687f3a3ba3ba05"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "052dd307871422d543957141ead9efa9ce078e521d3deb72aff07abb76f29cc2"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "876448d94c656d90088967e7af199c41373820f8fd20a8de80dd73bba6095fa7"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "052dd307871422d543957141ead9efa9ce078e521d3deb72aff07abb76f29cc2"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "11f35266e18dbdb86510bc025adaee112ddacc3f0e1d1e2a1d0fb920bc0e96d3"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "052dd307871422d543957141ead9efa9ce078e521d3deb72aff07abb76f29cc2"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "f98ce99a9acc2078a6da89de3875fa9a9907fe0a39dede410389d44c4f14db3f"
+    },
+    {
+      "id": "src/BlazorWebView/src/Maui/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "052dd307871422d543957141ead9efa9ce078e521d3deb72aff07abb76f29cc2"
+    },
+    {
+      "id": "src/BlazorWebView/src/WindowsForms/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/WindowsForms/PublicAPI.Shipped.txt",
+      "sha256": "192dd7b069ece25ef743a2e59c6a8e62ff50a5fdc77256fa010c0a593aae2f71"
+    },
+    {
+      "id": "src/BlazorWebView/src/WindowsForms/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/WindowsForms/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/BlazorWebView/src/Wpf/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Wpf/PublicAPI.Shipped.txt",
+      "sha256": "ac18699914f3a78ff41132c6c8f2a7f0c49b449eecdb0e9b16c9349e2c2467ae"
+    },
+    {
+      "id": "src/BlazorWebView/src/Wpf/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Wpf/PublicAPI.Unshipped.txt",
+      "sha256": "0fceb6e40ae50a01996182c692b7a1309291ebe75365021febda1afd5661590c"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "d6b69d805fdb80d25a6502badeb070f8224a8bc3b52069d8a23f01715c9480ce"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "e0bca2600a4e6319bdaff43c6450df14358d1debf5e5979f5619cc5bb591b6b5"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "d6b69d805fdb80d25a6502badeb070f8224a8bc3b52069d8a23f01715c9480ce"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "e0bca2600a4e6319bdaff43c6450df14358d1debf5e5979f5619cc5bb591b6b5"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "d6b69d805fdb80d25a6502badeb070f8224a8bc3b52069d8a23f01715c9480ce"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "e0bca2600a4e6319bdaff43c6450df14358d1debf5e5979f5619cc5bb591b6b5"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "d6b69d805fdb80d25a6502badeb070f8224a8bc3b52069d8a23f01715c9480ce"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "5a856e8c7a463bf086559b546ca62f25ac4e6900723eba8d00bbf83ae5fa3c53"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "d6b69d805fdb80d25a6502badeb070f8224a8bc3b52069d8a23f01715c9480ce"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "5a856e8c7a463bf086559b546ca62f25ac4e6900723eba8d00bbf83ae5fa3c53"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "d6b69d805fdb80d25a6502badeb070f8224a8bc3b52069d8a23f01715c9480ce"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "e0bca2600a4e6319bdaff43c6450df14358d1debf5e5979f5619cc5bb591b6b5"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "d6b69d805fdb80d25a6502badeb070f8224a8bc3b52069d8a23f01715c9480ce"
+    },
+    {
+      "id": "src/Controls/Maps/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/Maps/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "e0bca2600a4e6319bdaff43c6450df14358d1debf5e5979f5619cc5bb591b6b5"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "4ff3840dba56c583ab649e2f5f495398b3d71a473d98dce2912b8452be917959"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "1e43d62ca6be82549fc85cd54c37d9db81c4008d12a72abdf0a69740779250dc"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "0300b91876448d43e2afc7210fc14597c4b4cd4aea8147e15f0c160f2e5267cf"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "fc04f12401b073645fcfdf9d1a04bdf4f10269d2dc88b3c81f0f3b503bf4b92b"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "0300b91876448d43e2afc7210fc14597c4b4cd4aea8147e15f0c160f2e5267cf"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "7a157b3cca46210928710b2a16313362a7466f3941209833b41c0bbc5872ebec"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "457b8988d09d2928b4b6893a502747ee791ef46e9c1c9186c7a136f8c26602ce"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "8ad237c407492abfb01ec95b48b9475d74998ef320c06865f21ee8f82c27d615"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "85fce6add2bc2454433bf3521b74cc7e9e79af6321dc0537da612e57eda6164d"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "498500c23bf7d712926dc25d608095864c44890924d7c58d8dd8e883fc293f53"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "82288158574da14001f765e7ff9e197b7794de1e3b8ca46478add3b841e8a8c1"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "fca342529b8ec0d299acc4487d5d6315f6a618c0c3923c2723903ca96bf6b078"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "82288158574da14001f765e7ff9e197b7794de1e3b8ca46478add3b841e8a8c1"
+    },
+    {
+      "id": "src/Controls/src/Core/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "75a46c21cb0a9a9fc09604cb68c814cebb72f848b58de6797faf13913f77343a"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "6896965bb6f3076fe8e506bfa9d0c7d9bab0501e744950ce490054a9b8da0b43"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "41cfd68803d7d39a13f145f73962e5d6fc3498a750936db8dd92deeea95f0cd0"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "6896965bb6f3076fe8e506bfa9d0c7d9bab0501e744950ce490054a9b8da0b43"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "41cfd68803d7d39a13f145f73962e5d6fc3498a750936db8dd92deeea95f0cd0"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "6896965bb6f3076fe8e506bfa9d0c7d9bab0501e744950ce490054a9b8da0b43"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "41cfd68803d7d39a13f145f73962e5d6fc3498a750936db8dd92deeea95f0cd0"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "6896965bb6f3076fe8e506bfa9d0c7d9bab0501e744950ce490054a9b8da0b43"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "41cfd68803d7d39a13f145f73962e5d6fc3498a750936db8dd92deeea95f0cd0"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "6896965bb6f3076fe8e506bfa9d0c7d9bab0501e744950ce490054a9b8da0b43"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "41cfd68803d7d39a13f145f73962e5d6fc3498a750936db8dd92deeea95f0cd0"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "6896965bb6f3076fe8e506bfa9d0c7d9bab0501e744950ce490054a9b8da0b43"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "793cdacc20fa672815f2cab02cb1d39311c8ceda1fe1153289fe98836eff5194"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "6896965bb6f3076fe8e506bfa9d0c7d9bab0501e744950ce490054a9b8da0b43"
+    },
+    {
+      "id": "src/Controls/src/Xaml/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "a9dcc8c834ce203d72a37be5436b4f3699a12d52643e07738ddf4d8ad26d9e70"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "5eefe40a982c13437d37dc8d5402cee05a6f5e7990705adc9b635534902f9924"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "74b16d8b8c3d82eee041e15d855223e8a5fddf9c44ba99c491a926201f41ed75"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "1966fccfab6a96fbec5da447ada039235625d692c50869ef98bf57b8101f9c45"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "cb5eb2b1ca1c8e8ad7d1fc5d922623a7c5b3636caf5908ae4540a00681eb246f"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "1966fccfab6a96fbec5da447ada039235625d692c50869ef98bf57b8101f9c45"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "cb5eb2b1ca1c8e8ad7d1fc5d922623a7c5b3636caf5908ae4540a00681eb246f"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "4466c8cbbb85993073dce035f1d720ec209abfc63e2a1d6c685904534a3e23ea"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "6a72c61cb2546b91baba1ea68f25bfd3a086f0e53f899d3af76e3bf38fbff3a9"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "e55b86e5463f42dfcfb8738127ff41023c414ff320988fc0940ca5f7706f26d9"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "f0c186257fc169229b91f978dc959d3073359941d6047aa0bbc8b40adbe34cc8"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "f640f2c92b2190293dd8b871cf927bb92263db29cc9f54db6f69e20f5eb85ead"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "1baefcdd06c2a0e52b3429f8c90e4fefc2b1d3f9bb6c00f462c263a2ecf6276d"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "f640f2c92b2190293dd8b871cf927bb92263db29cc9f54db6f69e20f5eb85ead"
+    },
+    {
+      "id": "src/Core/maps/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/maps/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "1baefcdd06c2a0e52b3429f8c90e4fefc2b1d3f9bb6c00f462c263a2ecf6276d"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "52cfcd1b42267cf65d5f9f29151f3dc29bd4ec68d3ddc9e4ca25f3680d1dba79"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "2cab2d89043499d780286b2bd806934e3fdfe2024066963065deb352c1c6ba56"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "b29392cda8edd06083b215f6fd9ce8602e621026e640329130784f16f9ab7aa9"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "357e3002ae3c99eb5b965f5f07f80838f783ff19047d9d6704082b71d33803b1"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "7afee4889a6cd3a3ce6d29e987a4eafbdcf0478e96926a43c97cf6f821944378"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "04d2994c01a856d25bae7a50189397d9634d01a202ef4b46687bde766f9dab06"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "9adec30e0c947b6ce1dd3a7affef30065d2d140b4cfc8b0e646232eea226b777"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "914c41295d0f7501941285b1875dd580bba645e86c46c8811cb704382b725bed"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "b8d0ac448be15c005529382ada06c6d1b47ba21eab193f26177f771c16f0e3af"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "c68c93a18cc31d39c2bbaaf17052b2bf4aa3ae82c364797cd4e43997c7a721cf"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "d61430efb177a79db617313bdb23acf7338346901e26f26d58919c8adbb7bbd4"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "47e42966e2a19755a7f5ec6410406168b93603c9262f0fdad9fb4a054363af6b"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "d61430efb177a79db617313bdb23acf7338346901e26f26d58919c8adbb7bbd4"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "734427202d1c1e5780bf19d72c994d27bb1f65e7da745dab98b7c5fd48c52975"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/netstandard2.0/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/netstandard2.0/PublicAPI.Shipped.txt",
+      "sha256": "05804a55e01d3d097dad5e96ef0db51ad24e97c058f399be8b2af52f23de7223"
+    },
+    {
+      "id": "src/Core/src/PublicAPI/netstandard2.0/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/PublicAPI/netstandard2.0/PublicAPI.Unshipped.txt",
+      "sha256": "05ddb05d2362e7cb916ac2936df62426179d348446fd5449ce8be5b5dc9cfb6f"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "be019f3994b974c9328c60e91466ae500871bdd14cc0ba8ea9801b25ea73f1da"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "0e7d9bf720f10841a1be01e6c03cbd3222daf80c102e9050e7e4bac7fb42655f"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "eae9143bb9e0c7f9b2c8096c7545656231ef10763dd9c7d8d39784524f0895b7"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "96a29b5dcbdf4076147f71413688902401a1d8f15bd9fb4e2d0eb7c56786ab20"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "eae9143bb9e0c7f9b2c8096c7545656231ef10763dd9c7d8d39784524f0895b7"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "96a29b5dcbdf4076147f71413688902401a1d8f15bd9fb4e2d0eb7c56786ab20"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "3a8372550d3f127de648b253dfa2b25e4ccd541ff6e5bcc7c4a671cc55da4d80"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "1de88ef10f5f5d30abb01e6b86e70f28d44f13a6d3c1a2100e2de2c1181886e8"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "adebbfd64c25474fbc7699ae3a4b4b65243950ef57ca95e3cf6cad6c16bff93e"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "a8be51c639dccef5e4234c586b446d8ade326c68e535c2cb84d1eeb17aa26e6e"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "d40533cda251ce7250b87e1c627e366f2643b6b551cea8a348275c665cc8abf2"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "0f571a6c5fee1a0b89d3dc9ed81e7bd4cb704f8a648a58eeb0e07a8f574f8411"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "d40533cda251ce7250b87e1c627e366f2643b6b551cea8a348275c665cc8abf2"
+    },
+    {
+      "id": "src/Essentials/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "0f571a6c5fee1a0b89d3dc9ed81e7bd4cb704f8a648a58eeb0e07a8f574f8411"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia.GtkSharp/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia.GtkSharp/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "8264d5bcea64b105190921b980db96efef49adc82ccb0c0c7a3f443109521ad6"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia.GtkSharp/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia.GtkSharp/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia.WPF/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia.WPF/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "54178f1bbcba6dde9f8ef0caec64e7c7f72827f5aa25e3335f205c386b3de4a9"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia.WPF/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia.WPF/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "93f4de6ff87c9a30ef7e3e7faec4687be27c8d73f321f0c6e4bb222c3e94c92d"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "2897fb5e63d606750f351b7a476b1139ab3c370f71e900a304bb560298784e98"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "2897fb5e63d606750f351b7a476b1139ab3c370f71e900a304bb560298784e98"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-macos/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-macos/PublicAPI.Shipped.txt",
+      "sha256": "5665489010e0e0119174062b97f5ab35e0391a17041690f270ff6e9c358e15f8"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-macos/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-macos/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "e75b1cafec15a0d08e65e42dc578734eeadf874eb6f0f9a789fd26c4c48585ea"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "e75289977e18ad7dfa090c6e90ed61fc8180ef1d1d46aad636ed37b2f2e055db"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "923c6edeec823659db09b840e404f3eb2b767368d5db4d6cf27007ccf58d74ed"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "923c6edeec823659db09b840e404f3eb2b767368d5db4d6cf27007ccf58d74ed"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Skia/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Skia/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Win2D/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Win2D/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "0d271d21bf02e5460b32627a618f82a1a0ddf1e7800ca6bcebe9681ced524f9a"
+    },
+    {
+      "id": "src/Graphics/src/Graphics.Win2D/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics.Win2D/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-android/PublicAPI.Shipped.txt",
+      "sha256": "38f2d6a5afa267610cff0cbf887465554b4c27cac70accc2bf1d606e913ea7a4"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-android/PublicAPI.Unshipped.txt",
+      "sha256": "a28fb9e054ff9a67be014083cb993243d43071706b6675117617e291fe5bfec5"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-ios/PublicAPI.Shipped.txt",
+      "sha256": "1a36e126baadf78f5ecf32fae44273f506cb39d69fbb2a23957d2bba6e4cceee"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-ios/PublicAPI.Unshipped.txt",
+      "sha256": "a1d49704297eb4da41fb91946a1bc74296740c225400475b72783f943c9c3303"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-maccatalyst/PublicAPI.Shipped.txt",
+      "sha256": "1a36e126baadf78f5ecf32fae44273f506cb39d69fbb2a23957d2bba6e4cceee"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-maccatalyst/PublicAPI.Unshipped.txt",
+      "sha256": "a1d49704297eb4da41fb91946a1bc74296740c225400475b72783f943c9c3303"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-macos/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-macos/PublicAPI.Shipped.txt",
+      "sha256": "70ee20ba73828eaaa0e2d58d2bbff57e68367b6bb34894bc0e7b9a98b3b9f16c"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-macos/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-macos/PublicAPI.Unshipped.txt",
+      "sha256": "b0e807d8089fcced3dac7a36323093e35a7b07ea197f6d8bdb5387116866ccd9"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-tizen/PublicAPI.Shipped.txt",
+      "sha256": "ceda5794812222d70c1e46d1972296f98a5e1a4318d6489dfacaf5fc8e0ae3c3"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-tizen/PublicAPI.Unshipped.txt",
+      "sha256": "b0e807d8089fcced3dac7a36323093e35a7b07ea197f6d8bdb5387116866ccd9"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-windows/PublicAPI.Shipped.txt",
+      "sha256": "be5402b5d9a01a5a8001ffa123b2f82b260133cf9631fe8427f55ea34c1d8b98"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net-windows/PublicAPI.Unshipped.txt",
+      "sha256": "b0e807d8089fcced3dac7a36323093e35a7b07ea197f6d8bdb5387116866ccd9"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net/PublicAPI.Shipped.txt",
+      "sha256": "ceda5794812222d70c1e46d1972296f98a5e1a4318d6489dfacaf5fc8e0ae3c3"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "a1d49704297eb4da41fb91946a1bc74296740c225400475b72783f943c9c3303"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "ceda5794812222d70c1e46d1972296f98a5e1a4318d6489dfacaf5fc8e0ae3c3"
+    },
+    {
+      "id": "src/Graphics/src/Graphics/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "a1d49704297eb4da41fb91946a1bc74296740c225400475b72783f943c9c3303"
+    },
+    {
+      "id": "src/Graphics/src/Text.Markdig/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Text.Markdig/PublicAPI/netstandard/PublicAPI.Shipped.txt",
+      "sha256": "7a702ee31a9f0b1abc4f2f095e83f20dbb2d13f32702702b54ec2bb8995a93b1"
+    },
+    {
+      "id": "src/Graphics/src/Text.Markdig/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Text.Markdig/PublicAPI/netstandard/PublicAPI.Unshipped.txt",
+      "sha256": "3c3b422dddb1efeb0fc5b228608fd8682452b2a9507d4031894bce3c4dedadbd"
+    },
+    {
+      "id": "preview1",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview1/dotnetmaui.md",
+      "sha256": "bf298f13b8127c47dc95ee2c15663a3ed9a3d4fcfd57e1a326578c01c85e0df0"
+    },
+    {
+      "id": "preview2",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview2/dotnetmaui.md",
+      "sha256": "74b3d55cd74a2a375346c98bc3bce1b6e7d82b7653d80be3c7849ddcc61c5bc7"
+    },
+    {
+      "id": "preview3",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/dotnetmaui.md",
+      "sha256": "7af74c1b22786d486dbda7155ffeb98e8f184fe59ce20d86b675a14fc7ea2c0f"
+    },
+    {
+      "id": "preview4",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
+      "sha256": "85adfdfe1f9303440126543e2f5e083c9e02af08fac00b9e7221e5ac2bff7cf0"
+    },
+    {
+      "id": "preview5",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/dotnetmaui.md",
+      "sha256": "115c7b8d0bc18305efe84d153787cfef216a66a9f3d3608b913b44238fb1403e"
+    },
+    {
+      "id": "preview6",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/dotnetmaui.md",
+      "sha256": "a7824c7d1b0cfb1e39750d91b82fc40c70834f95e6ab0d7e65bc09b64a55312e"
+    },
+    {
+      "id": "preview7",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/dotnetmaui.md",
+      "sha256": "fa85e80fdbc4ce811ebd7b5ea2df0dc2952426e8b580089625caa708d7cb83be"
+    },
+    {
+      "id": "rc1",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/dotnetmaui.md",
+      "sha256": "a98010aa3f678eb03508759c63d4ebf8f14aa2b92ec0d35002a7029f14bdddc7"
+    },
+    {
+      "id": "rc2",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+      "sha256": "ce8de3f99ea7b5c9e0b51b2d0fc3c558770f65b654486690950bde5008a38917"
+    },
+    {
+      "id": "alerts",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/AlertManager/IAlertManager.cs",
+      "sha256": "b646ce988f5d26e0412f382e08739e9bad93bde059d2cfad674a74dee1780298"
+    },
+    {
+      "id": "assets",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.After.targets",
+      "sha256": "51d223922f2187c45d219e0bad4fc2392a08cf4cc766403d5f38943bcd800000"
+    },
+    {
+      "id": "binding",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Binding.cs",
+      "sha256": "cb238d7ae268189d431bed3eab9d115def62d832871f92db8341d4098474a823"
+    },
+    {
+      "id": "binding-markup",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Xaml/MarkupExtensions/BindingExtension.cs",
+      "sha256": "d2c6ff3296a62a231d1aa5aafe408bd27d5c22d3c133957b0a44f2b051c3205d"
+    },
+    {
+      "id": "binding-tests",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/Core.UnitTests/BindingUnitTests.cs",
+      "sha256": "25dfbcaba109dbca903e37b594ac2c2882bf676fb1a85be93071421a0033d991"
+    },
+    {
+      "id": "blazor-backend",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/MauiBlazorWebViewBuilderExtensions.cs",
+      "sha256": "13723c189870d6c059d12928cb1f71b3bc06649ce4aa1ed775eec095c377bc12"
+    },
+    {
+      "id": "color",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/Color.cs",
+      "sha256": "9913b250c296918d83bb4e573ac2715b564b4a0fa0ac483906805cef63c736a9"
+    },
+    {
+      "id": "compiled-binding",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/SourceGen/CompiledBindingMarkup.cs",
+      "sha256": "17a2a863847d2a4266966096e76f737b57307f767ec6ba69c86307bb68b7c8b8"
+    },
+    {
+      "id": "core-font",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Primitives/Font.cs",
+      "sha256": "dcde6a6909f8525a2f28602afa6ea97d75a3769c3af20f2eca3a1e16da94dd91"
+    },
+    {
+      "id": "culture-tests",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/Core.UnitTests/BindingConverterCultureTests.cs",
+      "sha256": "a68376ce15c8f03647294826d4af77a42f05b777e666877b79cc59c4c33df14d"
+    },
+    {
+      "id": "gestures",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/IGesturePlatformManagerFactory.cs",
+      "sha256": "128e6686ee0c21045a58a1d341aaa7de4e1db7ea8dbb99009a997f457a259293"
+    },
+    {
+      "id": "multibinding",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/MultiBinding.cs",
+      "sha256": "01a44ddc81c1f1334b516faaeb5fd5b5c6ddf8887d2daf5975c939e972c0c667"
+    },
+    {
+      "id": "screenshot",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Essentials/src/Screenshot/Screenshot.shared.cs",
+      "sha256": "235eb96c94f85c603ee3b845ba124d6925316c3db670acfd6ba814b0be60aaeb"
+    },
+    {
+      "id": "screenshot-dispatch",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/ScreenshotDispatch.cs",
+      "sha256": "d85b32763eb8791a4ed6b92441c1440090674ce2060fbc37a8f0bcfec7935320"
+    },
+    {
+      "id": "singleproject",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.SingleProject.targets",
+      "sha256": "bd03b6ad5f785cf5688d04d22cbab59b1bf917e746bd4b08f1a8ac1373c6ce62"
+    },
+    {
+      "id": "typedbinding",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TypedBinding.cs",
+      "sha256": "da6bf71dbddb2e1b6c7afb3079f35f1e2576fc9e88241a7d9d1738c5beb78280"
+    },
+    {
+      "id": "font",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/Font.cs",
+      "sha256": "f696be34bce2ba9d4802d4ff99c0dab267d108882ae2af99322c0840623efd56"
+    },
+    {
+      "id": "old-font",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Graphics/src/Graphics/Font.cs",
+      "sha256": "54c1c4b418939c8e871b9a6ee443e283d1ce856e94bfd09c60f1fc621117e607"
+    },
+    {
+      "id": "old-binding",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Binding.cs",
+      "sha256": "25e449b6223611fd588e92e80b6c4530d92ba7a95ed90ccdf0e042046f9cd31a"
+    },
+    {
+      "id": "nullable",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/BindingExpressionHelper.cs",
+      "sha256": "c5f84bdc97aeaf9c4fd109394aa257661164338fbc3b098565d9f3f23499328a"
+    },
+    {
+      "id": "old-nullable",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/BindingExpressionHelper.cs",
+      "sha256": "4aea9fdf4d2d9f51b4d2db61ff6ac1964aeb5633a9a478a470727877120f3d39"
+    },
+    {
+      "id": "old-essentials",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Essentials/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "sha256": "bde4eee331846c4f9bc0e13dced2cb10fd0592132c22542601a94af580496ce8"
+    },
+    {
+      "id": "apple-src/HomeKit/HMEnums.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/HomeKit/HMEnums.cs",
+      "sha256": "041ccc867a0f1751a8d6aa75605a4a32c2e84c4a251c6e0d4f768b6d5bf688c4"
+    },
+    {
+      "id": "apple-src/appkit.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/appkit.cs",
+      "sha256": "8063bd11a4f78305887248af68d2d32fe81dc78dfbe0dfbb6c4b10d1cbaa9c9e"
+    },
+    {
+      "id": "apple-src/corenfc.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/src/corenfc.cs",
+      "sha256": "5903409eb4b56f29deed2b558b03a310efc1cbe09cdfbc1a7a5fb5b5e77c8879"
+    },
+    {
+      "id": "apple-configure",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/configure",
+      "sha256": "07decfe22771b84b5058a0502e139a52fefcdc80e889174b5fe3e549c097ec04"
+    },
+    {
+      "id": "apple-tools/apidiff/suppression-files/iOS.xml",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/tools/apidiff/suppression-files/iOS.xml",
+      "sha256": "e0a7b6d6d78e2023a56e376ddf1a132c0dcd15977e7c7efbbab8926e4a7af020"
+    },
+    {
+      "id": "apple-tools/apidiff/suppression-files/tvOS.xml",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/tools/apidiff/suppression-files/tvOS.xml",
+      "sha256": "e0a7b6d6d78e2023a56e376ddf1a132c0dcd15977e7c7efbbab8926e4a7af020"
+    },
+    {
+      "id": "apple-tools/apidiff/suppression-files/MacCatalyst.xml",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/tools/apidiff/suppression-files/MacCatalyst.xml",
+      "sha256": "e0a7b6d6d78e2023a56e376ddf1a132c0dcd15977e7c7efbbab8926e4a7af020"
+    },
+    {
+      "id": "apple-tools/apidiff/suppression-files/macOS.xml",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/tools/apidiff/suppression-files/macOS.xml",
+      "sha256": "a534cfac9fba2a6e77a94df76031542b027d2da6ddaaf471eabe2bfd3bbb848a"
+    },
+    {
+      "id": "old-appkit",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/02143bbba452212f54277876f361d57b44a7cc12/src/appkit.cs",
+      "sha256": "e8c98fc063839c75e83bc54c253e6fedb138386f15c5f2bb4f4263b06b68983a"
+    },
+    {
+      "id": "old-nfc",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/3f29def653534301b485d30fda386ea8760b0590/src/corenfc.cs",
+      "sha256": "d7c741282e51869cf64c7206f235aa4307d76cd18d51c019c0b9cf8d61eedde8"
+    }
+  ],
+  "checks": [
+    {
+      "id": "culture-api",
+      "source": "src/Controls/src/Core/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "text": "Binding.ConverterCulture.get",
+      "present": true
+    },
+    {
+      "id": "culture-markup-api",
+      "source": "src/Controls/src/Xaml/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "text": "BindingExtension.ConverterCulture.set",
+      "present": true
+    },
+    {
+      "id": "culture-old",
+      "source": "old-binding",
+      "text": "ConverterCulture",
+      "present": false
+    },
+    {
+      "id": "culture-default",
+      "source": "binding",
+      "text": "_converterCulture ?? CultureInfo.CurrentUICulture",
+      "present": true
+    },
+    {
+      "id": "culture-sourcegen",
+      "source": "compiled-binding",
+      "text": "ConverterCulture = extension.ConverterCulture",
+      "present": true
+    },
+    {
+      "id": "view-screenshot-api",
+      "source": "src/Essentials/src/PublicAPI/net/PublicAPI.Unshipped.txt",
+      "text": "IViewScreenshot.CaptureViewAsync(object! platformView) -> System.Threading.Tasks.Task<Microsoft.Maui.Media.IScreenshotResult?>!",
+      "present": true
+    },
+    {
+      "id": "view-screenshot-old",
+      "source": "old-essentials",
+      "text": "IViewScreenshot",
+      "present": false
+    },
+    {
+      "id": "screenshot-di",
+      "source": "screenshot-dispatch",
+      "text": "GetService(typeof(IScreenshot))",
+      "present": true
+    },
+    {
+      "id": "font-readonly",
+      "source": "font",
+      "text": "public readonly struct Font : IFont",
+      "present": true
+    },
+    {
+      "id": "font-private-old",
+      "source": "old-font",
+      "text": "public string Name { get; private set; }",
+      "present": true
+    },
+    {
+      "id": "core-font-distinct",
+      "source": "core-font",
+      "text": "public readonly struct Font : IEquatable<Font>",
+      "present": true
+    },
+    {
+      "id": "nullable-empty",
+      "source": "nullable",
+      "text": "underlyingType != null && value is string && string.IsNullOrEmpty(stringValue)",
+      "present": true
+    },
+    {
+      "id": "nullable-old",
+      "source": "old-nullable",
+      "text": "string.IsNullOrEmpty(stringValue)",
+      "present": false
+    },
+    {
+      "id": "nullable-tests",
+      "source": "binding-tests",
+      "text": "TwoWayBindingToNullableIntPropertyWithWhitespaceRetainsPreviousValue",
+      "present": true
+    },
+    {
+      "id": "color-record",
+      "source": "color",
+      "text": "public sealed record class Color",
+      "present": true
+    },
+    {
+      "id": "quota-conditional",
+      "source": "apple-src/HomeKit/HMEnums.cs",
+      "text": "#if !XAMCORE_5_0\n\t\t// iOS 26.1 - Apple removed this enum value from native headers in Xcode 26.4",
+      "present": true
+    },
+    {
+      "id": "appkit-null-result",
+      "source": "apple-src/appkit.cs",
+      "text": "[return: NullAllowed]\n\t\tNSWindow WindowWithWindowNumber",
+      "present": true
+    },
+    {
+      "id": "appkit-old-result",
+      "source": "old-appkit",
+      "text": "[return: NullAllowed]\n\t\tNSWindow WindowWithWindowNumber",
+      "present": false
+    },
+    {
+      "id": "nfc-null-error",
+      "source": "apple-src/corenfc.cs",
+      "text": "delegate void NFCQueryNdefStatusCompletionHandler (NFCNdefStatus status, nuint capacity, NSError? error)",
+      "present": true
+    },
+    {
+      "id": "nfc-old-error",
+      "source": "old-nfc",
+      "text": "delegate void NFCQueryNdefStatusCompletionHandler (NFCNdefStatus status, nuint capacity, NSError error)",
+      "present": true
+    },
+    {
+      "id": "no-xcode-contributor",
+      "source": "apple-configure",
+      "text": "This won't produce anything useful",
+      "present": true
+    }
+  ],
+  "packages": [
+    {
+      "platform": "ios",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.ios.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.ios.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "566683bad91183e13bd5528ed35e9d20708f97e9045acf2645a3d1a6c87643c8",
+      "asset": "ref/net11.0/Microsoft.iOS.dll",
+      "hmErrorFields": 108,
+      "quotaValue": 106
+    },
+    {
+      "platform": "tvos",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.tvos.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.tvos.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "cb7205695e579658101448ca7dfb6e2cf0177d2fc91be13ab9b7ff404557dc75",
+      "asset": "ref/net11.0/Microsoft.tvOS.dll",
+      "hmErrorFields": 108,
+      "quotaValue": 106
+    },
+    {
+      "platform": "maccatalyst",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maccatalyst.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.maccatalyst.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "90202970a90521ffd5543e593f003674e1776fa5adc1f04833c7e9fccc371f67",
+      "asset": "ref/net11.0/Microsoft.MacCatalyst.dll",
+      "hmErrorFields": 108,
+      "quotaValue": 106
+    },
+    {
+      "platform": "macos",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.macos.ref.net11.0_27.0/27.0.12212-net11-rc.2/microsoft.macos.ref.net11.0_27.0.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "f2beb9c5c4a1c8bfff80b15badd28b6c178f189e66b190fba42e2ccc4d25ff70",
+      "asset": "ref/net11.0/Microsoft.macOS.dll",
+      "hmErrorFields": 0,
+      "quotaValue": null
+    }
+  ]
+}
