@@ -9,6 +9,15 @@ The [larger-catalogue extension](agent-usability-larger-catalogue.md) freezes th
 second checkpoint's paging/neutral-guidance additions. Its [PIN-978 report](verification/PIN-978.md)
 retains three passing scenarios and one failed recovery-filter check.
 
+For the single PIN-1018 recovery follow-up, copy the current
+[companion instruction](agent-instructions.md), including its recovery paragraph,
+into a new seed revision; retain the earlier seed and receipts. Use the unchanged
+D prompt and checks below for one fresh ordinary thread, bounded to five execution
+minutes. Record the actual first retry's target, areas, languages and shared
+setting against the empty request/suggestion, and any later narrowing separately.
+Keep failures without coaching or rerunning. This does not rerun or relabel PIN-978.
+See the [follow-up receipt](verification/PIN-1018.md).
+
 ## Prepare
 
 1. Record the current source commit and clean production paths. Build/pack the ordinary

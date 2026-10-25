@@ -47,6 +47,13 @@ routes are separate choices. Exact evidence baselines are test records, not
 required installation versions; RC evidence is not GA verification. Check
 coverage: an empty result does not prove a capability is unavailable.
 
+When discovery is empty and offers a suggested retry, first retry with the
+original target selection, areas, languages and includeShared, changing only
+keywords or paging as suggested. If useful afterwards, make a separate narrower
+search and explain which filters changed; distinguish it from replaying the
+suggestion. When no safe retry is offered, explain the unmatched combination
+and coverage limits.
+
 If the real Playbook MCP tools are unavailable, report that prerequisite and stop.
 Do not substitute Inspector, a mock, source files or a shell implementation.
 Finish within five execution minutes; preserve partial work and report a timeout.
