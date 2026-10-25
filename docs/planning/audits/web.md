@@ -97,8 +97,8 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | Async Minimal API validation, localization, stabilized validation attributes | PIN-774/775 and PIN-748/PIN-706 retain shared validation ownership; PIN-841 retains the .NET 9/10 synchronous foundation. No duplicate endpoint-only catalogue. |
 | Binding-failure filters; unions; ShortCircuitAttribute/IShortCircuitMetadata | PIN-815, PIN-820, PIN-816. Preserve Development ThrowOnBadRequest=false, JSON-only union binding, and skipped-middleware safety. |
 | ICsrfProtection/CsrfProtectionResult and automatic middleware | PIN-808 owns form/startup/CORS/token exceptions; **W02** owns custom service authoring. Source requires a specific allowed origin **and SupportsCredentials** for CORS-derived CSRF trust; AllowAnyOrigin is not trust. JSON endpoints remain unchanged. |
-| AuthorizationPolicy.CombineAsync metadata overload | PIN-809; common requirement/policy metadata, with legacy non-endpoint MVC excluded from the new behavior. |
-| Identity TimeProvider | PIN-810; actual lockout/token clock behavior needs real Identity proof. An API diff alone does not establish clock injection behavior. |
+| AuthorizationPolicy.CombineAsync metadata overload | Delivered PIN-809 ([proof](../../verification/PIN-809-810.md)); common requirement/policy metadata, with legacy non-endpoint MVC excluded from the new behavior. |
+| Identity TimeProvider | Delivered PIN-810 ([proof](../../verification/PIN-809-810.md)): real UserManager threshold/end/expiry with controlled TimeProvider. Token/cookie paths are not inferred from lockout proof. |
 | Aaguid on UserPasskeyInfo/IdentityPasskeyData; template authenticator names | PIN-811; persisted/display mapping and rename fallback. Automatic built-in names alone are excluded. |
 | Passkey denial and JSON StringSyntax annotations | PIN-812 owns real lockout/confirmation outcomes. StringSyntax is tooling guidance, not a new sign-in operation. Registration confirmation is distinct: **W07**. |
 | Identity UI Bootstrap4 MSBuild warning | **W08**; authored project property and customized UI/assets. Automatic Bootstrap vendor updates alone are excluded. |

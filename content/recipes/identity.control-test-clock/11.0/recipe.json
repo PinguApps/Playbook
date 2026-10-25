@@ -1,0 +1,220 @@
+{
+  "id": "identity.control-test-clock",
+  "edition": "11.0",
+  "title": "Verify Identity lockout boundaries with a controlled clock",
+  "goal": "Advance a test TimeProvider through a real Identity lockout boundary without sleeping or changing the stored end timestamp.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "mooring-clock",
+    "identity",
+    "testing"
+  ],
+  "apis": [
+    "TimeProvider",
+    "UserManager.AccessFailedAsync",
+    "UserManager.IsLockedOutAsync",
+    "UserManager.GetLockoutEndDateAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "ASP.NET Core Identity UserManager lockout; single-user memory fixture, not database, token, cookie or timer execution.",
+          "Inject TimeProvider into the same service provider that creates UserManager. RC2 remains locked at the exact end timestamp."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution is not GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build matching Razor and framework assets; reproducible SDK pin is in the sample."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested compiler mode for this sample; no C# 15-only construct is needed by the demonstrated API."
+          },
+          "frameworks": [
+            "ASP.NET Core Identity"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework/reference pack; no additional NuGet package"
+          ],
+          "workloads": [],
+          "providers": [
+            "Real UserManager<IdentityUser>; original single-user IUserLockoutStore fixture; original UTC-only ManualClock"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual evidence is Windows x64 loopback"
+          ],
+          "renderingModes": [
+            "Server-side Identity service/test; no browser rendering required"
+          ],
+          "prerequisites": [
+            "Create every listed file in the standalone MooringClock directory. The empty Directory files isolate surrounding build/package rules. Restore matching framework packs once, then build offline. Exact SDK pins reproduce the evidence; they are not minimum product versions."
+          ],
+          "constraints": [
+            "Register the controlled TimeProvider before resolving UserManager, in the same service provider. Injecting a clock into a separate application service does not prove Identity uses it. Use the normal system clock in production unless the application deliberately requires another clock.",
+            "The .NET 11 RC2 check keeps the user locked one tick before and exactly at the end timestamp, then unlocks one tick after it. The stored LockoutEnd remains unchanged. Do not assume an exclusive boundary or sleep for the configured seventeen minutes.",
+            "The .NET 10 UserManager path in this actual comparison reads wall time. Registering TimeProvider does not redirect it. The older fixture sets an already-expired stored timestamp to test the decision; that is useful but does not test the passage of time or the newer injected-clock behavior.",
+            "ManualClock controls GetUtcNow only. It does not virtualize timers, Task.Delay, browser time or arbitrary services. The single-user store persists fields in memory and supplies no concurrency guarantees. This is actual Identity execution with a test storage adapter, not a mocked time-sensitive service.",
+            "The focused claim is UserManager lockout, including the failed-attempt threshold and expiry. Cookie validation, security stamps, password/reset tokens, external providers, database persistence and sign-in middleware need their own targeted checks; the recipe does not infer those behaviors from this one path."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable APIs with .NET 11 RC2 compilation/execution. This is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#timeprovider-support-in-aspnet-core-identity",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Extensions.Core/src/UserManager.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Identity/Extensions.Core/src/UserManager.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MooringClock/MooringClock.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Identity TimeProvider release notes",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#timeprovider-support-in-aspnet-core-identity"
+    },
+    {
+      "title": "Pinned UserManager clock resolution and inclusive end check",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Extensions.Core/src/UserManager.cs"
+    },
+    {
+      "title": "Previous-release UserManager wall clock",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Identity/Extensions.Core/src/UserManager.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MooringClock/MooringClock.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/PIN-809-810.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
+    },
+    {
+      "sample": "samples/net11.0/MooringClock/MooringClock.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/PIN-809-810.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MooringClock/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MooringClock/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MooringClock/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/MooringClock/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-manualclock-cs": {
+      "path": "samples/net10.0/MooringClock/ManualClock.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-memorylockoutstore-cs": {
+      "path": "samples/net10.0/MooringClock/MemoryLockoutStore.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-mooringclock-csproj": {
+      "path": "samples/net10.0/MooringClock/MooringClock.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MooringClock/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MooringClock/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MooringClock/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MooringClock/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MooringClock/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-manualclock-cs": {
+      "path": "samples/net11.0/MooringClock/ManualClock.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-memorylockoutstore-cs": {
+      "path": "samples/net11.0/MooringClock/MemoryLockoutStore.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-mooringclock-csproj": {
+      "path": "samples/net11.0/MooringClock/MooringClock.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MooringClock/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused local HTTP/component/Identity checks need no owner-only resource. No provisioning or publication. GA and wider platform/client checks are separate."
+  }
+}
