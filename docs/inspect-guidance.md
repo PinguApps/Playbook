@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For shaped scalar-binding failures and deliberate standalone responses, use the
+[tested PIN-815–816 walkthrough](verification/PIN-815-816.md#inspect-what-an-agent-receives).
+It displays both goals, complete original .NET 10/11 consumers and applicability,
+including retained older filter behavior, early JSON failures and routing safety.
+
 For shared authorization metadata and controlled Identity lockout time, use the
 [tested PIN-809–810 walkthrough](verification/PIN-809-810.md#inspect-what-an-agent-receives).
 It displays both discovery goals, full old/new Markdown and applicability,

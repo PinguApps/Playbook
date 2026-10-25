@@ -1027,6 +1027,45 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("endpoint binding and routing retain complete guidance and safety constraints offline")]
+    public async Task CheckEndpointGuidanceAsync()
+    {
+        await CheckWebRecipesAsync(["minimal-api.shape-binding-error"], "parcel-intake").ConfigureAwait(false);
+        await CheckWebRecipesAsync(["web.short-circuit-simple-endpoint"], "signal-cabin").ConfigureAwait(false);
+        foreach (string id in new[] { "minimal-api.shape-binding-error", "web.short-circuit-simple-endpoint" })
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete endpoint metadata {id}/{field}");
+            }
+
+            foreach (JsonElement expected in metadata.RootElement.GetProperty("evidence").EnumerateArray())
+            {
+                string sample = expected.GetProperty("sample").GetString()!;
+                JsonElement actual = Assert.Single(recipe.GetProperty("evidence").EnumerateArray(), item => item.GetProperty("sample").GetString() == sample);
+                foreach (JsonProperty property in expected.EnumerateObject())
+                {
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Authored endpoint evidence {sample}/{property.Name}");
+                }
+
+                string directory = sample[..sample.LastIndexOf('/')];
+                using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync($"{directory}/verification-evidence.json").ConfigureAwait(false));
+                foreach (JsonProperty property in saved.RootElement.EnumerateObject().Where(property => property.Name != "scope"))
+                {
+                    if (property.Name == "recordedAt")
+                    {
+                        Assert.Equal(property.Value.GetDateTimeOffset(), actual.GetProperty(property.Name).GetDateTimeOffset());
+                        continue;
+                    }
+
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Saved endpoint compilation {sample}/{property.Name}");
+                }
+            }
+        }
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));

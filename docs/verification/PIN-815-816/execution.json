@@ -1,0 +1,39 @@
+{
+  "kind": "real-loopback-binding-and-routing-execution",
+  "scope": "Real ephemeral Kestrel HTTP requests. Scalar binding/filter timing, malformed JSON and content-type controls; instrumented routing with real authentication/authorization/CORS middleware. Header credentials are a local fixture. No browser, external account, benchmark, platform matrix or GA claim.",
+  "recordedAt": "2026-10-25T12:53:25.9916927+00:00",
+  "records": [
+    {
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  ParcelIntake -> V:\\_worktrees\\Playbook\\t3-4b61c520\\samples\\net10.0\\ParcelIntake\\bin\\Release\\net10.0\\ParcelIntake.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.13\r\n",
+      "evidenceSha256": "d6e20cff7c7c1d7c9eed7d7a6eadf5b183c9fae0bdb203385b3b5f65896f01c8",
+      "sdk": "10.0.402",
+      "output": "/intake/letters?slots=3: 400 intake_binding_failed, handler=0\r\n/intake/8?slots=many: 400 intake_binding_failed, handler=0\r\n/intake/8: 400 intake_binding_failed, handler=0\r\nValid: 200; domain error preserved; malformed JSON: empty 400/filter=0; wrong media: 415/filter=0\r\nDevelopment throw control: 400, filter=0, shaped=0, handler=0\r\nPASS: ParcelIntake real Kestrel requests on .NET 10.0.13\r\n",
+      "sample": "samples/net10.0/ParcelIntake/ParcelIntake.csproj",
+      "assemblySha256": "53a4e34ec48d93dd5737e58911b9435eb2be69aceeb10341f5a3217d9da229ca"
+    },
+    {
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  SignalCabin -> V:\\_worktrees\\Playbook\\t3-4b61c520\\samples\\net10.0\\SignalCabin\\bin\\Release\\net10.0\\SignalCabin.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.11\r\n",
+      "evidenceSha256": "744ffaccf50c3a2c0e0bf3754a244b0a814060799b7e8c9331c20654485a11dd",
+      "sdk": "10.0.402",
+      "output": "/signal/standalone: 200, before=visited, after=False\r\n/signal/convention: 202, before=visited, after=False\r\n/signal/ordinary: 200, before=visited, after=True\r\ncrew=: 401, after=visited\r\ncrew=no: 403, after=visited\r\ncrew=yes: 200, after=visited\r\n/unsafe/auth: 500 InvalidOperationException, unsafeHandlers=0\r\n/unsafe/cors: 500 InvalidOperationException, unsafeHandlers=0\r\nPASS: SignalCabin real Kestrel routing/authentication/authorization/CORS on .NET 10.0.13\r\n",
+      "sample": "samples/net10.0/SignalCabin/SignalCabin.csproj",
+      "assemblySha256": "c9670b936e40aaf176ba5a244028a25442f0e684778533aea402ce06241ca7fe"
+    },
+    {
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-4b61c520\\samples\\net11.0\\ParcelIntake\\ParcelIntake.csproj]\r\n  ParcelIntake -> V:\\_worktrees\\Playbook\\t3-4b61c520\\samples\\net11.0\\ParcelIntake\\bin\\Release\\net11.0\\ParcelIntake.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.26\r\n",
+      "evidenceSha256": "bb5bc62ee5bbb2ad76c74c35729802e61191e5c08f84f27c767ee0c444d833ed",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "output": "/intake/letters?slots=3: 400 intake_binding_failed, handler=0\r\n/intake/8?slots=many: 400 intake_binding_failed, handler=0\r\n/intake/8: 400 intake_binding_failed, handler=0\r\nValid: 200; domain error preserved; malformed JSON: empty 400/filter=0; wrong media: 415/filter=0\r\nDevelopment throw control: 400, filter=0, shaped=0, handler=0\r\nPASS: ParcelIntake real Kestrel requests on .NET 11.0.0-rc.2.26504.105\r\n",
+      "sample": "samples/net11.0/ParcelIntake/ParcelIntake.csproj",
+      "assemblySha256": "c23d2502fe952a0a9df0cd84c58eafc61972cb75ea5309017e8a6ac575411669"
+    },
+    {
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-4b61c520\\samples\\net11.0\\SignalCabin\\SignalCabin.csproj]\r\n  SignalCabin -> V:\\_worktrees\\Playbook\\t3-4b61c520\\samples\\net11.0\\SignalCabin\\bin\\Release\\net11.0\\SignalCabin.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.21\r\n",
+      "evidenceSha256": "8e1055c657bccd6009bf2c2bab7d4a6cbb76ee6f605c23cba345d962591b11df",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "output": "/signal/standalone: 200, before=visited, after=False\r\n/signal/convention: 202, before=visited, after=False\r\n/signal/ordinary: 200, before=visited, after=True\r\ncrew=: 401, after=visited\r\ncrew=no: 403, after=visited\r\ncrew=yes: 200, after=visited\r\n/unsafe/auth: 500 InvalidOperationException, unsafeHandlers=0\r\n/unsafe/cors: 500 InvalidOperationException, unsafeHandlers=0\r\nPASS: SignalCabin real Kestrel routing/authentication/authorization/CORS on .NET 11.0.0-rc.2.26504.105\r\n",
+      "sample": "samples/net11.0/SignalCabin/SignalCabin.csproj",
+      "assemblySha256": "6705b92c48465784c1b89550de189798567f342e631d2283e3475f677672f5e1"
+    }
+  ]
+}

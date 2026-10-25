@@ -1,0 +1,27 @@
+{
+  "kind": "official-source-review",
+  "recordedAt": "2026-10-25T12:56:12.8891466+00:00",
+  "finding": "Scalar-failure filters already present in v10.0.0 source; early JSON/content-type return bypasses filters in the pinned RequestDelegateFactory path. ShortCircuitAttribute supplies IShortCircuitMetadata, with default routing security guards.",
+  "sources": [
+    {
+      "file": "EndpointRoutingMiddleware.cs",
+      "sha256": "b190f2fb9322fee1f11a142a690d64ea8b39a6d174d9539c4a7776ccded8f43b",
+      "source": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing/src/EndpointRoutingMiddleware.cs"
+    },
+    {
+      "file": "old-RequestDelegateFactory.cs",
+      "sha256": "ef57ac823cb031df235992ade3ac7e95c846727f570c977d081e7089e3fc0b80",
+      "source": "https://raw.githubusercontent.com/dotnet/aspnetcore/v10.0.0/src/Http/Http.Extensions/src/RequestDelegateFactory.cs"
+    },
+    {
+      "file": "RequestDelegateFactory.cs",
+      "sha256": "395b4b6e704a9c7bc34e82d78c8ccefd1b0aa3726bda5a275c8d83e9e984360b",
+      "source": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Extensions/src/RequestDelegateFactory.cs"
+    },
+    {
+      "file": "ShortCircuitAttribute.cs",
+      "sha256": "8a0fe74bf72aab3aeb7b5694dcf50360eda1abb4f6b054d3909abd4a7a37430d",
+      "source": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing/src/ShortCircuit/ShortCircuitAttribute.cs"
+    }
+  ]
+}
