@@ -22,6 +22,12 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [obsolete diagnostic ownership map](../audits/obsolete-index.md) enumerates
+all 68 published SYSLIB/EXTOBS obsoletions and separately owns every other row in
+the pinned runtime diagnostic registry. Core-summary omissions are explicit;
+pipe delivery and two cryptography proposals retain their existing owners.
+Index closure does not deliver those recipes or clear PIN-986/PIN-959 gates.
+
 The [automatic/no-change exclusion recheck](../audits/automatic-exclusions.md)
 dispositions all thirteen assigned rows against 34 pinned official files and
 seven actual FSharp.Core metadata assets. Three compound exclusions are partially
