@@ -80,6 +80,15 @@ The [serialization API audit](../audits/serialization.md) records the bounded .N
 
 The web register resolves stale cumulative guidance against canonical RC2 notes for QuickGrid experimental diagnostics, validation-message formatting, browser-option names/lookup, and BasePath namespace. [PIN-692's DBSC audit](../audits/dbsc-availability.md) closes the historical unresolved candidate as **unavailable on pinned RC2**: actual package/API artifacts corroborate the removal. Its RC1 history remains visible and PIN-964 / GA_WEB must separately recheck final artifacts. Include genuinely experimental APIs, but do not teach unavailable RC-only contracts as GA features.
 
+The [mobile composition/status audit](../audits/mobile-baselines.md) reconciles
+both RC2 sets against nine actual packages and pinned status sources. Their
+18-entry manifest maps are identical despite different set provenance; Apple12212
+overrides the historical 12211 dependency/comment for these preparation sets.
+Preview XAML, experimental platform NativeAOT and MAUIAI0001 stay visible.
+The separately pinned AI package has net10 assets and is not a MAUI RC2 workload
+pack. These two source findings are reconciled; historical counts above remain
+unchanged. Native compilation and GA evidence remain delivery work.
+
 Native workload evidence includes source/version conflicts and real Mac/Xcode requirements. The documented macios contributor `--no-xcode` mode is not a consumer Apple application build route. No native compilation or runtime behavior was established here.
 
 Remaining delivery work includes full linked migration/compiler-note review, earlier milestone reconciliation where noted, public API diffs, exact SDK/package/workload/native pins, older-target route verification, original previous/current examples, compilation, focused behavior checks, packed-tool/client checks, and GA reconciliation. No unresolved qualifying change may silently disappear or be labelled verified. The compatibility index itself is still evolving; each file states the actual source boundary and gaps.
