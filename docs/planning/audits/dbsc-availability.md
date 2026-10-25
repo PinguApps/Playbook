@@ -84,4 +84,3 @@ RC1-on-RC2 compatibility proof, or a live browser/protocol/security test. It doe
 not establish that an archived RC1 binary cannot execute on a newer runtime.
 No final GA artifacts were verified. No inspected code is executed or installed;
 PATH, certificate trust, persistent settings and running services are untouched.
-See the [verification ledger](../../verification/PIN-692.md) for executed checks.

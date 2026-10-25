@@ -1,5 +1,8 @@
 [CmdletBinding()]
-param([string]$ResponsePath = (Join-Path $PSScriptRoot '../artifacts/pin788/returned.json'))
+param(
+  [string]$ResponsePath = (Join-Path $PSScriptRoot '../artifacts/inspection/blazor.configure-browser-from-server.json'),
+  [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/tide-desk/consumer.json')
+)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
@@ -65,5 +68,7 @@ try {
   }
 }
 finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previous }
-$report | ConvertTo-Json -Depth 20 | Set-Content (Join-Path $root 'docs/verification/PIN-788.consumer.evidence.json')
+$output = [IO.Path]::GetFullPath($OutputPath)
+New-Item -ItemType Directory -Path (Split-Path $output -Parent) -Force | Out-Null
+$report | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath $output
 Write-Host 'PASS: both returned-body host/client pairs compile outside the checkout; actual RC2 HTTP options match.'

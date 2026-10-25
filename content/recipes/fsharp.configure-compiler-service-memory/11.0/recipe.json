@@ -200,7 +200,7 @@
   ],
   "evidence": [
     {
-      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "10.0",
       "sdk": "10.0.402",
@@ -208,7 +208,7 @@
       "target": "net10.0"
     },
     {
-      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/PIN-757-980-981.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
+      "scope": "Actual restored dependencies, compilation and managed execution on Windows x64. Focused emitted-code/lifetime/compiler/host checks are documented in docs/verification/runtime-async.md; no mocks, cross-compilation, native/AOT, debugger integration or GA proof.",
       "kind": "compile-and-run",
       "language": "11.0",
       "sdk": "11.0.100-rc.2.26504.105",

@@ -95,12 +95,12 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | Surface / source finding | Authored impact and accountable disposition |
 | --- | --- |
 | Async Minimal API validation, localization, stabilized validation attributes | PIN-774/775 and PIN-748/PIN-706 retain shared validation ownership; PIN-841 retains the .NET 9/10 synchronous foundation. No duplicate endpoint-only catalogue. |
-| Binding-failure filters | Delivered PIN-815 ([proof](../../verification/PIN-815-816.md)). Scalar failure filters also work on actual .NET 10 and in official v10.0.0 source; release-note placement does not establish novelty. Development requires ThrowOnBadRequest=false. Malformed JSON returns before filters on both tested runtimes. |
-| ShortCircuitAttribute/IShortCircuitMetadata | Delivered PIN-816 ([proof](../../verification/PIN-815-816.md)). Minimal API attribute/convention comparison with real before/after-routing traces, ordinary authorization/CORS and rejected conflicting metadata. The .NET 10 convention remains valid. |
+| Binding-failure filters | Delivered PIN-815 ([proof](../../verification/endpoint-policies.md)). Scalar failure filters also work on actual .NET 10 and in official v10.0.0 source; release-note placement does not establish novelty. Development requires ThrowOnBadRequest=false. Malformed JSON returns before filters on both tested runtimes. |
+| ShortCircuitAttribute/IShortCircuitMetadata | Delivered PIN-816 ([proof](../../verification/endpoint-policies.md)). Minimal API attribute/convention comparison with real before/after-routing traces, ordinary authorization/CORS and rejected conflicting metadata. The .NET 10 convention remains valid. |
 | Union binding | PIN-820 retains JSON-only body binding; no route/query/header/form claim. |
 | ICsrfProtection/CsrfProtectionResult and automatic middleware | PIN-808 owns form/startup/CORS/token exceptions; **W02** owns custom service authoring. Source requires a specific allowed origin **and SupportsCredentials** for CORS-derived CSRF trust; AllowAnyOrigin is not trust. JSON endpoints remain unchanged. |
-| AuthorizationPolicy.CombineAsync metadata overload | Delivered PIN-809 ([proof](../../verification/PIN-809-810.md)); common requirement/policy metadata, with legacy non-endpoint MVC excluded from the new behavior. |
-| Identity TimeProvider | Delivered PIN-810 ([proof](../../verification/PIN-809-810.md)): real UserManager threshold/end/expiry with controlled TimeProvider. Token/cookie paths are not inferred from lockout proof. |
+| AuthorizationPolicy.CombineAsync metadata overload | Delivered PIN-809 ([proof](../../verification/authorization-and-clock.md)); common requirement/policy metadata, with legacy non-endpoint MVC excluded from the new behavior. |
+| Identity TimeProvider | Delivered PIN-810 ([proof](../../verification/authorization-and-clock.md)): real UserManager threshold/end/expiry with controlled TimeProvider. Token/cookie paths are not inferred from lockout proof. |
 | Aaguid on UserPasskeyInfo/IdentityPasskeyData; template authenticator names | PIN-811; persisted/display mapping and rename fallback. Automatic built-in names alone are excluded. |
 | Passkey denial and JSON StringSyntax annotations | PIN-812 owns real lockout/confirmation outcomes. StringSyntax is tooling guidance, not a new sign-in operation. Registration confirmation is distinct: **W07**. |
 | Identity UI Bootstrap4 MSBuild warning | **W08**; authored project property and customized UI/assets. Automatic Bootstrap vendor updates alone are excluded. |
@@ -445,7 +445,7 @@ both mixed-version controls. This is a behavioral change in existing invocation
 APIs, so the public-signature diff alone cannot establish it. The TypeScript
 inventory does not imply a unary cancellation API: this guidance is explicitly
 .NET-client-only. Authentication-refresh TypeScript findings remain with PIN-813.
-See [the exact artifacts and offline retrieval proof](../../verification/PIN-814.md).
+See [the exact artifacts and offline retrieval proof](../../verification/invocation-cancellation.md).
 
 Prerequisites: PowerShell 7 on the recorded Windows lane, the two exact SDK/root
 layouts above, and network access to public NuGet/npm/raw GitHub. No installation,
@@ -466,6 +466,5 @@ $audit.dispositions | Group-Object group | Select-Object Name, Count
 Expect exact artifact/tooling/template/API equality, 212 verified immutable source
 hashes and no unowned difference. Missing roots, archives, hashes, ownership or
 changed bytes must fail. The generated report can be removed afterward. Replay
-was checked from an unrelated directory; [the verification ledger](../../verification/PIN-709.md)
 records executed checks and remaining gaps. No runtime/recipe/MCP behavior is
 established by this audit; every delivery proposal keeps those acceptance gates.

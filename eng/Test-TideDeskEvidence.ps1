@@ -1,6 +1,8 @@
+[CmdletBinding()]
+param([string]$EvidencePath = (Join-Path $PSScriptRoot '../docs/verification/browser-startup.execution.json'))
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
-$execution = Get-Content (Join-Path $root 'docs/verification/PIN-788.execution.evidence.json') -Raw | ConvertFrom-Json
+$execution = Get-Content -LiteralPath $EvidencePath -Raw | ConvertFrom-Json
 foreach ($sample in $execution.samples) {
   foreach ($input in $sample.inputs.PSObject.Properties) {
     if ((Get-FileHash -LiteralPath (Join-Path $root $input.Name)).Hash.ToLowerInvariant() -cne $input.Value) { throw "Changed executed input: $($input.Name)" }

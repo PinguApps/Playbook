@@ -128,7 +128,7 @@
     {
       "sample": "samples/net10.0/FossilDesk/FossilDesk.csproj",
       "sdk": "10.0.402",
-      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
+      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
       "target": "net10.0",
       "kind": "compile",
       "language": "14.0"
@@ -136,7 +136,7 @@
     {
       "sample": "samples/net11.0/FossilDesk/FossilDesk.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
+      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
       "target": "net11.0",
       "kind": "compile",
       "language": "15.0"
@@ -144,7 +144,7 @@
     {
       "sample": "samples/net11.0/FossilWorker/FossilWorker.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
+      "scope": "Actual matching SDK and locked dependencies; compilation only. Separate real Chrome/native-worker execution and exact input/artifact/verifier identities in https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-792.execution.evidence.json prove rendering during CPU work, generated value/void calls, timeouts, managed cancellation and termination. Creation cancellation uses a disclosed real init-message hold; no mocks or cross-compilation.",
       "target": "net11.0",
       "kind": "compile",
       "language": "15.0"

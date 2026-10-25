@@ -143,7 +143,7 @@
       "language": "14.0",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/Soundings/Soundings.csproj",
-      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/PIN-814.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
+      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/invocation-cancellation.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
       "kind": "compile",
       "target": "net10.0"
     },
@@ -151,7 +151,7 @@
       "language": "15.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/Soundings/Soundings.csproj",
-      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/PIN-814.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
+      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/invocation-cancellation.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
       "kind": "compile",
       "target": "net11.0"
     }

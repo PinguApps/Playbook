@@ -75,7 +75,7 @@ Discovery omits version justifications, detailed prerequisites/constraints, rout
 
 This is an incompatible (`major`) public response-shape change. Migrate discovery readers that need `reason`, `prerequisites`, `constraints`, `sourceUrls` or `evidenceSamples` to `get_recipe`; do not treat absent discovery fields as unrestricted applicability. Clients still receive the complete tool-specific object identically in structured content and JSON text. No third tool or per-summary call is needed for basic selection. Development packages remain unpublished preview candidates.
 
-Response sizes and practical regression budgets are documented in [PIN-974 verification](../verification/PIN-974.md). Budgets fail verification; the server never shortens safety information to meet them.
+Response sizes and practical regression budgets are documented in [PIN-974 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-974.md). Budgets fail verification; the server never shortens safety information to meet them.
 
 PIN-750/751 measures 162,974 bytes for the 50-item real-content fixture page
 after adding required cryptography provider/experimental conditions. Its practical
@@ -106,7 +106,7 @@ An empty `recipes` page includes optional `recovery` in the same complete struct
 
 `suggestedRequest`, when present, is a complete arguments object for the existing `list_recipes` tool: `targetVersion`, `areas`, `languages`, `query`, `includeShared`, `offset`, `limit`. It retains the caller's original alias or deliberate `latest`, set values/order, shared setting and page size. Keyword removal also resets offset to 0 for the changed result set. Blank keywords normalize to null with unchanged matching semantics. The caller decides whether to execute it. The server never retries automatically, changes compatibility filters, searches online, invents matches, or claims the consumer meets recipe requirements. Check full detail before applying a recovered recipe.
 
-Recovery is one explanation and at most one request, without candidate previews or a separate search tool. A representative ordinary recovery object must fit 1,200 UTF-8 bytes; existing discovery budgets still apply. Caller-supplied filter/query lengths remain variable: the server never truncates them or essential disclosures to fit a budget. This optional additive response capability is `minor` under the package SemVer policy. Development packages remain unpublished candidates. See the [tested Inspector recovery walkthrough](../verification/PIN-975.md).
+Recovery is one explanation and at most one request, without candidate previews or a separate search tool. A representative ordinary recovery object must fit 1,200 UTF-8 bytes; existing discovery budgets still apply. Caller-supplied filter/query lengths remain variable: the server never truncates them or essential disclosures to fit a budget. This optional additive response capability is `minor` under the package SemVer policy. Development packages remain unpublished candidates. See the [tested Inspector recovery walkthrough](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-975.md).
 
 Exact error codes and transport serialization remain to design within standard MCP behavior; this is the intended caller-visible contract.
 

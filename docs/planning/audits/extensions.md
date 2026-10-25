@@ -118,5 +118,3 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a24bddf7'
     -OutputPath ./artifacts/extensions.replay.json `
     -CompareWith ./docs/planning/audits/extensions.assets.json
 ```
-
-Expected: exact package/tooling/reference/declaration/disposition match and **53 immutable official source hashes** pass, followed by per-asset added/removed counts. A changed asset, unowned declaration, missing pack/package or source hash mismatch fails. The block is verified from an unrelated directory. [Verification ledger](../../verification/PIN-706.md) maps acceptance and saved tracker state. Metadata/source review is the new evidence; unchanged-host smoke does not execute the proposed consumers. No MCP tool or served recipe changes, so no changed-server response is claimed.

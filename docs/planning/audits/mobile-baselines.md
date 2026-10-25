@@ -158,7 +158,6 @@ hash, set mapping, selected pack, provenance commit, asset path or missing
 experimental annotation fails. A mutable-source drift failure requires fresh
 source review; never simply bless a new hash. Nothing is installed or left running.
 
-The [criterion/Linear ledger](../../verification/PIN-695.md) records checks and
 scope. No served recipe or MCP tool changes in this research task. Actual
 previous/current consumer compilation, native platform behavior, external-service
 or AI execution remain with their content slices; final GA reconciliation remains

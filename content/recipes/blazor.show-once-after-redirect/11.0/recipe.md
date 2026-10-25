@@ -197,7 +197,7 @@ fails instead of fabricating state.
 The offline package test uses the existing real installed-tool feed/cache and
 unrelated working directory. It compares complete rendered Markdown with the
 canonical inputs, selection requirements and edition 11.0, and rejects target
-10.0. See the repository report docs/verification/PIN-776.md and its fingerprinted
+10.0. See the repository report docs/verification/redirect-and-session.md and its fingerprinted
 PIN-776.http.evidence.json for commands/artifacts. No mocks, cross-compilation,
 browser UI, multi-server provider, interactive or GA execution is claimed.
 

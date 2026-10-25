@@ -222,7 +222,7 @@ one-use behavior through a real redirect and second read under both providers.
 The existing packed-tool harness installs from an isolated local feed/cache,
 calls real stdio list/get outside the checkout, and checks the complete rendered
 canonical body, applicability and edition 11.0 offline. Target 10.0 is rejected
-for this new edition. docs/verification/PIN-776.md and the fingerprinted
+for this new edition. docs/verification/redirect-and-session.md and the fingerprinted
 PIN-776.http.evidence.json retain exact commands/artifacts. No mock,
 cross-compilation, browser UI, interactive, multi-server or GA execution is claimed.
 

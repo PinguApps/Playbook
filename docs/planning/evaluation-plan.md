@@ -1,5 +1,8 @@
 # Manual product evaluation
 
+Choose checks and retain results using [the contribution policy](../contributing.md#choose-the-check-and-retain-its-result). Routine setup/build output belongs in ignored `artifacts/` or existing CI artifacts. These bounded manual evaluations retain actual calls, frozen controls, outcomes and meaningful failures for the named release/product decision; trim duplicate setup and package logs. Required proof must outlive expiring CI artifacts.
+
+
 Status: the small manual with/without comparison is accepted in Round 6; the four task goals and budget below are accepted in Round 7. Exact API/check details must be frozen against verified artifacts before running. No scaffolds, evaluation checks, or agent runs have been created.
 
 ## Accepted task goals

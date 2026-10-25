@@ -154,7 +154,7 @@
       "kind": "compile",
       "language": "14.0",
       "sample": "samples/net10.0/CultureHarbour/Host/Host.csproj",
-      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
       "sdk": "10.0.402"
     },
     {
@@ -162,7 +162,7 @@
       "kind": "compile",
       "language": "14.0",
       "sample": "samples/net10.0/CultureHarbour/Client/Client.csproj",
-      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
       "sdk": "10.0.402"
     },
     {
@@ -170,7 +170,7 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/CultureHarbour/Host/Host.csproj",
-      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
       "sdk": "11.0.100-rc.2.26504.105"
     },
     {
@@ -178,7 +178,7 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/CultureHarbour/Client/Client.csproj",
-      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/PIN-794.md. No mocks/cross-compilation.",
+      "scope": "Actual matching SDK compilation only. Separate real HTTP/Chrome WASM records prove prerendered formatting/translation, initial en-US, aligned en-GB/fr-FR or explicit independent de-DE, actual satellite fetch-before-render and working event handler. Exact input/verifier/executed artifact hashes and capture provenance: docs/verification/browser-culture.md. No mocks/cross-compilation.",
       "sdk": "11.0.100-rc.2.26504.105"
     }
   ],

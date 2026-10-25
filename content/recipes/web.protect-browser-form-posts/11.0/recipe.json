@@ -137,7 +137,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records actual loopback requests and browser form posts, token/additional-data failures, CORS and JSON controls. No cross-compilation, live model/account, broad platform or GA execution claim."
+      "scope": "Actual matching-SDK compilation. docs/verification/streaming-and-form-protection.md separately records actual loopback requests and browser form posts, token/additional-data failures, CORS and JSON controls. No cross-compilation, live model/account, broad platform or GA execution claim."
     },
     {
       "sample": "samples/net11.0/QuayPermits/QuayPermits.csproj",
@@ -145,7 +145,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records actual loopback requests and browser form posts, token/additional-data failures, CORS and JSON controls. No cross-compilation, live model/account, broad platform or GA execution claim."
+      "scope": "Actual matching-SDK compilation. docs/verification/streaming-and-form-protection.md separately records actual loopback requests and browser form posts, token/additional-data failures, CORS and JSON controls. No cross-compilation, live model/account, broad platform or GA execution claim."
     }
   ],
   "snippets": {

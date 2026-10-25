@@ -1,25 +1,15 @@
-# PR Agent review scope; Git tracking and build/validation gates are unchanged.
-# Use $pragent-ignore when reassessing generated outputs; keep inputs reviewable.
+# PR Agent review scope; Git tracking and verification gates are unchanged.
+# Full actual-call T3 serializations support costly manual evaluations.
+# Review the capability reports, frozen prompts, metrics and consumer evidence.
+/docs/verification/agent-usability-expanded.a.json
+/docs/verification/agent-usability-expanded.b.json
+/docs/verification/agent-usability-expanded.c.json
+/docs/verification/agent-usability-expanded.d.json
+/docs/verification/agent-recovery.agent.json
 
-# Raw durable T3 tool/command receipts; review frozen prompts, PIN-978.md,
-# catalogue, metrics and independently executed consumer evidence instead.
-/docs/verification/PIN-978.a.json
-/docs/verification/PIN-978.b.json
-/docs/verification/PIN-978.c.json
-/docs/verification/PIN-978.d.json
-
-# Complete durable T3 recovery follow-up; review PIN-1018.md and the normal instruction.
-/docs/verification/PIN-1018.agent.json
-
-# Raw local HTTP query receipts; review decoded browser records and TernLedger exporters/verifier.
-/docs/verification/PIN-800.canonical-5991.raw.json
-/docs/verification/PIN-800.canonical-5992.raw.json
-/docs/verification/PIN-800.consumer-5991.raw.json
-/docs/verification/PIN-800.consumer-5992.raw.json
-
-# Raw official collector OTLP lines; Test-LoomReceipts.ps1 and PIN-797.md explain/verify them.
-/docs/verification/PIN-797.receipts.jsonl
-/docs/verification/PIN-797.consumer.receipts.jsonl
+# Selected official collector output; Test-LoomReceipts.ps1 checks actual receipt.
+/docs/verification/browser-telemetry.receipts.jsonl
+/docs/verification/browser-telemetry.consumer.receipts.jsonl
 
 # Inspect-BlazorRemovedApis.ps1 output; review its script and the matching .md audit.
 /docs/planning/audits/blazor-removed-apis.assets.json
@@ -48,5 +38,5 @@
 # Inspect-WindowsDesktopApis.ps1 output; review its script, source manifest and .md audit.
 /docs/planning/audits/windowsdesktop.assets.json
 
-# Inspect-FSharpContracts.ps1 output; review its script, PIN-681.sources.json and PIN-681.md.
-/docs/verification/PIN-681.assets.json
+# Inspect-FSharpContracts.ps1 output; review the script, source manifest and audit.
+/docs/planning/audits/fsharp-contracts.assets.json

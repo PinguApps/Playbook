@@ -196,6 +196,6 @@ identity and overscan. The browser script marks user-scroll intent before moving
 the viewport, uses real framework observers and reads rendered geometry. No
 mocked browser, cross-compilation, WebAssembly/Auto, Safari/table-layout, other
 platform or GA execution is claimed. Exact inputs, artifacts and limitations are
-in `docs/verification/PIN-784.md` and its browser/package reports. Installed offline
+in `docs/verification/list-anchoring.md` and its browser/package reports. Installed offline
 stdio checks independently reconstruct the full Markdown and compare all authored
 applicability fields; they prove delivery, not the consumer's layout or environment.

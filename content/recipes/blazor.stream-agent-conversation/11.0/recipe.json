@@ -135,7 +135,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records real browser rendering with scripted IChatClient, block lifecycle and retained history. No cross-compilation, live model/account, broad platform or GA execution claim."
+      "scope": "Actual matching-SDK compilation. docs/verification/streaming-and-form-protection.md separately records real browser rendering with scripted IChatClient, block lifecycle and retained history. No cross-compilation, live model/account, broad platform or GA execution claim."
     },
     {
       "sample": "samples/net11.0/QuayChat/QuayChat.csproj",
@@ -143,7 +143,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation. docs/verification/PIN-804-808.md separately records real browser rendering with scripted IChatClient, block lifecycle and retained history. No cross-compilation, live model/account, broad platform or GA execution claim."
+      "scope": "Actual matching-SDK compilation. docs/verification/streaming-and-form-protection.md separately records real browser rendering with scripted IChatClient, block lifecycle and retained history. No cross-compilation, live model/account, broad platform or GA execution claim."
     }
   ],
   "snippets": {

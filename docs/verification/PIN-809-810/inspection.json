@@ -1,9 +1,0 @@
-{
-  "recordedAt": "2026-10-25T10:29:30.1809999+00:00",
-  "workingDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-inspect-57749e252a6743e48b29866bf5867bc1",
-  "isolatedFeed": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-inspect-57749e252a6743e48b29866bf5867bc1\\feed",
-  "isolatedCache": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-inspect-57749e252a6743e48b29866bf5867bc1\\cache",
-  "inspectorVersion": "2.11.0",
-  "packageVersion": "1.0.0-preview.978.1",
-  "packageSha256": "c16b30dd670221309f1ea193db95bd38817a63c2f4d5e0010b187d395be96104"
-}

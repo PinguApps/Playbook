@@ -150,7 +150,7 @@ foreach ($baseline in $assets) {
 }
 ```
 
-Expected: `PASS` for both artifact hashes and selected signatures; the same optional ResourceAsset constructor in both; no proposed BrowserFileStreamOptions type in either; RemoteBrowserFileStreamOptions removed; no RC2 RendererId init modifier/setter and no renderer-ID constructor parameter. A hash/signature difference is a failure requiring review, not automatic permission to update the committed evidence. Full command results, focused compiler probes and limitations are recorded in [PIN-691 verification](../../verification/PIN-691.md).
+Expected: `PASS` for both artifact hashes and selected signatures; the same optional ResourceAsset constructor in both; no proposed BrowserFileStreamOptions type in either; RemoteBrowserFileStreamOptions removed; no RC2 RendererId init modifier/setter and no renderer-ID constructor parameter. A hash/signature difference is a failure requiring review, not automatic permission to update the committed evidence. Full command results, focused compiler probes and limitations are recorded in [PIN-691 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-691.md).
 
 [article]: https://github.com/dotnet/AspNetCore.Docs/blob/28f92a7807fc1f492f6a9739902ff1753d6ef832/aspnetcore/breaking-changes/11/blazor-obsolete-apis-removed.md
 [removal]: https://github.com/dotnet/aspnetcore/pull/62755

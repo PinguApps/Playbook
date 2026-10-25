@@ -149,7 +149,7 @@ Blazor JS interop authoring only; analyzer internals, diagnostic implementation 
 API stability is stable in discovery/detail; the measured artifact is RC2, not GA.
 Compilation records preserve exact inputs, SDK, target, language, dependencies and
 source dirty state. Browser execution is separate from compilation. The focused
-receipts are documented in docs/verification/PIN-801-803.md. This recipe makes no
+receipts are documented in docs/verification/component-interop.md. This recipe makes no
 cross-platform, trimming, NativeAOT, Hot Reload or general concurrent-container
 support promise. The eight .NET 10 foundation editions are unchanged.
 

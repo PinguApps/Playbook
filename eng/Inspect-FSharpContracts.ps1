@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [string]$Manifest = (Join-Path $PSScriptRoot '../docs/verification/PIN-681.sources.json'),
+  [string]$Manifest = (Join-Path $PSScriptRoot '../docs/planning/audits/fsharp-contracts.sources.json'),
   [string]$Net10Root = 'C:/Program Files/dotnet',
   [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
   [string]$ReferencePackVersion = '10.0.13',

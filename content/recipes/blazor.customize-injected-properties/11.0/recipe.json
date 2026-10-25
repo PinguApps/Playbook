@@ -113,7 +113,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation. Separate real browser receipts and built DLL/framework hashes in docs/verification/PIN-801-803.md establish keyed/unkeyed activation, no-result interop and dynamic MathML updates. No cross-compilation, mock, trimmed/AOT or GA execution claim."
+      "scope": "Actual matching-SDK compilation. Separate real browser receipts and built DLL/framework hashes in docs/verification/component-interop.md establish keyed/unkeyed activation, no-result interop and dynamic MathML updates. No cross-compilation, mock, trimmed/AOT or GA execution claim."
     },
     {
       "sample": "samples/net11.0/BreakwaterLab/BreakwaterLab.csproj",
@@ -121,7 +121,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation. Separate real browser receipts and built DLL/framework hashes in docs/verification/PIN-801-803.md establish keyed/unkeyed activation, no-result interop and dynamic MathML updates. No cross-compilation, mock, trimmed/AOT or GA execution claim."
+      "scope": "Actual matching-SDK compilation. Separate real browser receipts and built DLL/framework hashes in docs/verification/component-interop.md establish keyed/unkeyed activation, no-result interop and dynamic MathML updates. No cross-compilation, mock, trimmed/AOT or GA execution claim."
     }
   ],
   "snippets": {
