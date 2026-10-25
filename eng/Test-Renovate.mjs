@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs/promises';
+import { createRequire } from 'node:module';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -8,6 +9,46 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const renovateRoot = process.argv[2];
 assert(renovateRoot && path.isAbsolute(renovateRoot), 'Pass the absolute installed Renovate package directory.');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// Reuse the YAML parser from the pinned policy tool; do not introduce another dependency.
+const { parse: parseYaml } = createRequire(path.join(renovateRoot, 'package.json'))('yaml');
+const workflows = {};
+for (const name of ['publish-release-draft', 'publish', '_run-tests', 'pr-validation']) {
+  workflows[name] = parseYaml(await fs.readFile(path.join(root, '.github', 'workflows', `${name}.yml`), 'utf8'));
+}
+const verificationPermissions = { contents: 'read', actions: 'read', checks: 'write', 'pull-requests': 'write' };
+const publishingPermissions = { contents: 'read', 'id-token': 'write' };
+const ranks = { none: 0, read: 1, write: 2 };
+function checkWorkflowCall(callerName, jobName, calleeName) {
+  const caller = workflows[callerName].jobs[jobName];
+  const callee = workflows[calleeName];
+  assert.equal(caller.uses, `./.github/workflows/${calleeName}.yml`);
+  assert(callee.on.workflow_call, `${calleeName} must remain reusable`);
+  for (const [name, job] of Object.entries(callee.jobs)) {
+    for (const [permission, level] of Object.entries(job.permissions ?? callee.permissions)) {
+      const allowed = caller.permissions[permission] ?? 'none';
+      assert(ranks[allowed] >= ranks[level],
+        `${callerName}.${jobName} -> ${calleeName}.${name}: requests ${permission}: ${level}, caller allows ${allowed}`);
+    }
+  }
+}
+// GitHub validates nested permissions even when the publishing jobs will be skipped.
+checkWorkflowCall('publish-release-draft', 'publish_packages', 'publish');
+checkWorkflowCall('publish', 'verify', '_run-tests');
+checkWorkflowCall('pr-validation', 'tests', '_run-tests');
+assert.deepEqual(workflows['publish-release-draft'].jobs.publish_packages.permissions,
+  { ...verificationPermissions, 'id-token': 'write' });
+assert.deepEqual(workflows.publish.jobs.verify.permissions, verificationPermissions);
+assert.deepEqual(workflows['pr-validation'].jobs.tests.permissions, verificationPermissions);
+assert.deepEqual(workflows['_run-tests'].permissions, verificationPermissions);
+assert.deepEqual(workflows.publish.permissions, { contents: 'read' });
+assert.deepEqual(workflows.publish.jobs.publish.permissions, publishingPermissions);
+assert.deepEqual(workflows.publish.on.release.types, ['published']);
+assert.equal(workflows.publish.on.workflow_dispatch.inputs.tag.required, true);
+assert.equal(workflows.publish.on.workflow_call.inputs.tag.required, true);
+assert.equal(workflows['publish-release-draft'].jobs.publish_draft.if, "vars.ENABLE_WEEKLY_PUBLISH == 'true'");
+assert.equal(workflows['publish-release-draft'].jobs.publish_packages.if, "needs.publish_draft.outputs.tag != ''");
+console.log('PASS: reusable workflow permission chains, job-level OIDC and existing publication gates.');
+
 const load = (name) => import(pathToFileURL(path.join(renovateRoot, 'dist', name)).href);
 const { init } = await load('logger/index.js');
 await init();
