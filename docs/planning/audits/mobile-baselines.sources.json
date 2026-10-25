@@ -1,0 +1,376 @@
+{
+  "reviewed": "2026-10-25",
+  "scope": "PIN-695 RC2 mobile composition and status; no installation, compilation or native execution",
+  "sources": [
+    {
+      "id": "rc2-notes",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+      "sha256": "ce8de3f99ea7b5c9e0b51b2d0fc3c558770f65b654486690950bde5008a38917"
+    },
+    {
+      "id": "preview4-notes",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
+      "sha256": "85adfdfe1f9303440126543e2f5e083c9e02af08fac00b9e7221e5ac2bff7cf0"
+    },
+    {
+      "id": "preview5-notes",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/dotnetmaui.md",
+      "sha256": "115c7b8d0bc18305efe84d153787cfef216a66a9f3d3608b913b44238fb1403e"
+    },
+    {
+      "id": "maui-sdk",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/global.json",
+      "sha256": "ede3eb933fed7416c1d357c65b199180b552e781ab4181888af5e0fd324b0ff4"
+    },
+    {
+      "id": "maui-build-dependencies",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/eng/Versions.props",
+      "sha256": "54e8efd229e654f066f499acdac243875cc170ae4deffa6e4e88d2aed50953c1"
+    },
+    {
+      "id": "xaml-targets",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "sha256": "24ffd4f2231b792c987cec4b669bf7f288359d5614caa212202e01eb10826b4c"
+    },
+    {
+      "id": "apple-nativeaot",
+      "url": "https://raw.githubusercontent.com/dotnet/macios/a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d/docs/nativeaot.md",
+      "sha256": "91908cb35bed6609319e942a8818c15aa1b1e1ba5f1793dd1c5552a48126d412"
+    },
+    {
+      "id": "overview",
+      "url": "https://raw.githubusercontent.com/dotnet/docs-maui/e0fae4d0def74961bfe9633f96ca3420b18c4364/docs/whats-new/dotnet-11.md",
+      "sha256": "d1a5b70860961ae57559feefbb88dee44b944e3c9106302c8b827670ddb96435"
+    },
+    {
+      "id": "ai-overview",
+      "url": "https://raw.githubusercontent.com/dotnet/docs-maui/e0fae4d0def74961bfe9633f96ca3420b18c4364/docs/ai/index.md",
+      "sha256": "5fb26144e0042ba166da52139928b6e682d72898c75fdd4e9d0e480053f90780"
+    },
+    {
+      "id": "ai-requirements",
+      "url": "https://raw.githubusercontent.com/dotnet/docs-maui/e0fae4d0def74961bfe9633f96ca3420b18c4364/docs/ai/requirements-apple.md",
+      "sha256": "7cbaa5a43e91ca9e6d5f9f0b4a401686c54e181db9da846dbdcb34f36379beef"
+    },
+    {
+      "id": "apple-release",
+      "url": "https://api.github.com/repos/dotnet/macios/releases/tags/dotnet-11.0.1xx-rc2-12212",
+      "sha256": "265eb378cf6503c7aed94957218bba077132a209113ac42c761d3491b5b02c73",
+      "jsonField": "body"
+    },
+    {
+      "id": "maui-release",
+      "url": "https://api.github.com/repos/dotnet/maui/releases/tags/11.0.100-rc.2.26513.2",
+      "sha256": "7ee4cf2e74de18a900bee174ab4884da058a89f5d59b6d5ce34b43431e82eb18",
+      "jsonField": "body"
+    },
+    {
+      "id": "apple-known-issues",
+      "url": "https://raw.githubusercontent.com/wiki/dotnet/macios/Known-issues-in-.NET11.md",
+      "sha256": "f33f98785a83a1e30aa452b0a8301c55993b3743ed887b29174f982bcf37a297"
+    },
+    {
+      "id": "ai-chat",
+      "url": "https://raw.githubusercontent.com/dotnet/maui-labs/bf5365abb26e85c3076e4a9c1395e55d9cad765a/src/AI/Microsoft.Maui.Essentials.AI/Platform/MaciOS/AppleIntelligenceChatClient.cs",
+      "sha256": "edeaca5eaed4b55fa1da225c55c5e8f2d5833c3aaa1a3c66e4a40714a8ea4fc9"
+    },
+    {
+      "id": "ai-embeddings",
+      "url": "https://raw.githubusercontent.com/dotnet/maui-labs/bf5365abb26e85c3076e4a9c1395e55d9cad765a/src/AI/Microsoft.Maui.Essentials.AI/Platform/MaciOS/NLEmbeddingGenerator.cs",
+      "sha256": "cb14c936a79282ea0d426b3b44db7c79ab08858ab035980f936787b436502380"
+    },
+    {
+      "id": "ai-assembly",
+      "url": "https://raw.githubusercontent.com/dotnet/maui-labs/bf5365abb26e85c3076e4a9c1395e55d9cad765a/src/AI/Microsoft.Maui.Essentials.AI/Properties/AssemblyInfo.cs",
+      "sha256": "568d19a01243760d8056d243845a34594fca39d58600df1ca5311929f5437213"
+    }
+  ],
+  "packages": [
+    {
+      "id": "Microsoft.NET.Workloads.11.0.100-rc.2",
+      "version": "11.100.0-rc.2.26509.2",
+      "kind": "set",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.workloads.11.0.100-rc.2/11.100.0-rc.2.26509.2/microsoft.net.workloads.11.0.100-rc.2.11.100.0-rc.2.26509.2.nupkg",
+      "sha256": "2dea91c19b8a13c739f61612ab0e3b27e684fd0973c5e218459d54089e707d3c",
+      "repositoryCommit": "f15e4a7d836bbc5245fd2dd98635fd64ab27588a",
+      "manifests": {
+        "Microsoft.NET.Workload.Emscripten.Current": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net6": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net7": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net8": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net9": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net10": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.Android": "37.2.0-rc.2.84/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.iOS": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.MacCatalyst": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.macOS": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.Maui": "11.0.0-rc.2.26505.5/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.tvOS": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.Current": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net6": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net7": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net8": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net9": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net10": "11.0.100-rc.2.26504.105/11.0.100-rc.2"
+      }
+    },
+    {
+      "id": "Microsoft.NET.Workloads.11.0.100-rc.2",
+      "version": "11.100.0-rc.2.26513.2",
+      "kind": "set",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.workloads.11.0.100-rc.2/11.100.0-rc.2.26513.2/microsoft.net.workloads.11.0.100-rc.2.11.100.0-rc.2.26513.2.nupkg",
+      "sha256": "97402ade7a626857fa6addabd94466e283278f9fefe418c33209a04447401542",
+      "repositoryCommit": "b87f5469a4cba33c3f57f7a58e76e984ec0e57f5",
+      "manifests": {
+        "Microsoft.NET.Workload.Emscripten.Current": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net6": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net7": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net8": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net9": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Emscripten.net10": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.Android": "37.2.0-rc.2.84/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.iOS": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.MacCatalyst": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.macOS": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.Maui": "11.0.0-rc.2.26505.5/11.0.100-rc.2",
+        "Microsoft.NET.Sdk.tvOS": "27.0.12212-net11-rc.2/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.Current": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net6": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net7": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net8": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net9": "11.0.100-rc.2.26504.105/11.0.100-rc.2",
+        "Microsoft.NET.Workload.Mono.ToolChain.net10": "11.0.100-rc.2.26504.105/11.0.100-rc.2"
+      }
+    },
+    {
+      "id": "Microsoft.NET.Sdk.iOS.Manifest-11.0.100-rc.2",
+      "version": "27.0.12212-net11-rc.2",
+      "kind": "manifest",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.ios.manifest-11.0.100-rc.2/27.0.12212-net11-rc.2/microsoft.net.sdk.ios.manifest-11.0.100-rc.2.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "18bda94867c74b8d563014172b746cabc9a1a4f00dcb99d2c54d7c87e228638b",
+      "repositoryCommit": "a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d",
+      "packs": {
+        "Microsoft.iOS.Sdk.net11.0_27.0": "27.0.12212-net11-rc.2",
+        "Microsoft.iOS.Ref.net11.0_27.0": "27.0.12212-net11-rc.2"
+      }
+    },
+    {
+      "id": "Microsoft.NET.Sdk.tvOS.Manifest-11.0.100-rc.2",
+      "version": "27.0.12212-net11-rc.2",
+      "kind": "manifest",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.tvos.manifest-11.0.100-rc.2/27.0.12212-net11-rc.2/microsoft.net.sdk.tvos.manifest-11.0.100-rc.2.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "6646d0e09d08915d2b0ce194974e74cb54c9e2b2af57f2491ad49ecb243e868d",
+      "repositoryCommit": "a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d",
+      "packs": {
+        "Microsoft.tvOS.Sdk.net11.0_27.0": "27.0.12212-net11-rc.2",
+        "Microsoft.tvOS.Ref.net11.0_27.0": "27.0.12212-net11-rc.2"
+      }
+    },
+    {
+      "id": "Microsoft.NET.Sdk.MacCatalyst.Manifest-11.0.100-rc.2",
+      "version": "27.0.12212-net11-rc.2",
+      "kind": "manifest",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.maccatalyst.manifest-11.0.100-rc.2/27.0.12212-net11-rc.2/microsoft.net.sdk.maccatalyst.manifest-11.0.100-rc.2.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "f0d4ce9ab92aefcae42af835d283b31127fa5a83802d057fdaa80a20c826cea3",
+      "repositoryCommit": "a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d",
+      "packs": {
+        "Microsoft.MacCatalyst.Ref.net11.0_27.0": "27.0.12212-net11-rc.2",
+        "Microsoft.MacCatalyst.Sdk.net11.0_27.0": "27.0.12212-net11-rc.2"
+      }
+    },
+    {
+      "id": "Microsoft.NET.Sdk.macOS.Manifest-11.0.100-rc.2",
+      "version": "27.0.12212-net11-rc.2",
+      "kind": "manifest",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.macos.manifest-11.0.100-rc.2/27.0.12212-net11-rc.2/microsoft.net.sdk.macos.manifest-11.0.100-rc.2.27.0.12212-net11-rc.2.nupkg",
+      "sha256": "0669a135e778b99c6158777c43927a47c706c81d991e1b91248e7b775bbc7ce4",
+      "repositoryCommit": "a75b11fe9cdbd66a6ddb8bfea120d006c1ec1e8d",
+      "packs": {
+        "Microsoft.macOS.Ref.net11.0_27.0": "27.0.12212-net11-rc.2",
+        "Microsoft.macOS.Sdk.net11.0_27.0": "27.0.12212-net11-rc.2"
+      }
+    },
+    {
+      "id": "Microsoft.NET.Sdk.Maui.Manifest-11.0.100-rc.2",
+      "version": "11.0.0-rc.2.26505.5",
+      "kind": "manifest",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.maui.manifest-11.0.100-rc.2/11.0.0-rc.2.26505.5/microsoft.net.sdk.maui.manifest-11.0.100-rc.2.11.0.0-rc.2.26505.5.nupkg",
+      "sha256": "35a23794bf34917e845deab9b0d30662f8374625161c031024331352e644ee5f",
+      "repositoryCommit": "d32b79928709cf53b671336dabd0caef5a679fc2",
+      "packs": {
+        "Microsoft.Maui.Essentials": "11.0.0-rc.2.26505.5",
+        "Microsoft.Maui.Templates.net10": "10.0.110",
+        "Microsoft.AspNetCore.Components.WebView.Maui": "11.0.0-rc.2.26505.5",
+        "Microsoft.Maui.Templates.net11": "11.0.0-rc.2.26505.5",
+        "Microsoft.Maui.Graphics": "11.0.0-rc.2.26505.5",
+        "Microsoft.Maui.Sdk.net10": "10.0.110",
+        "Microsoft.Maui.Sdk.net11": "11.0.0-rc.2.26505.5",
+        "Microsoft.Maui.Controls": "11.0.0-rc.2.26505.5"
+      }
+    },
+    {
+      "id": "Microsoft.NET.Sdk.Android.Manifest-11.0.100-rc.2",
+      "version": "37.2.0-rc.2.84",
+      "kind": "manifest",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.sdk.android.manifest-11.0.100-rc.2/37.2.0-rc.2.84/microsoft.net.sdk.android.manifest-11.0.100-rc.2.37.2.0-rc.2.84.nupkg",
+      "sha256": "0dc3033b3c0f4b0d91afb3f43a8d6ffa366637f5acb449505457575d7a08de91",
+      "repositoryCommit": "801f9ecbab5118b13d21cb52409e507ad4b2feb7",
+      "packs": {
+        "Microsoft.Android.Ref.37.2": "37.2.0-rc.2.84",
+        "Microsoft.Android.Sdk.net11": "37.2.0-rc.2.84",
+        "Microsoft.Android.Sdk.net10": "36.1.118",
+        "Microsoft.Android.Runtime.CoreCLR.37.android-arm64": "37.2.0-rc.2.84"
+      }
+    },
+    {
+      "id": "Microsoft.Maui.Essentials.AI",
+      "version": "11.0.0-preview.7.26512.5",
+      "kind": "ai",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.essentials.ai/11.0.0-preview.7.26512.5/microsoft.maui.essentials.ai.11.0.0-preview.7.26512.5.nupkg",
+      "sha256": "879ebc349f1b7260ab7ff40644b6b126cf65376cf358110669f754b39c3c734f",
+      "repositoryCommit": "bf5365abb26e85c3076e4a9c1395e55d9cad765a",
+      "assets": [
+        "lib/net10.0-android36.0/Microsoft.Maui.Essentials.AI.dll",
+        "lib/net10.0-ios26.0/Microsoft.Maui.Essentials.AI.dll",
+        "lib/net10.0-maccatalyst26.0/Microsoft.Maui.Essentials.AI.dll",
+        "lib/net10.0-macos26.0/Microsoft.Maui.Essentials.AI.dll",
+        "lib/net10.0-windows10.0.19041/Microsoft.Maui.Essentials.AI.dll",
+        "lib/net10.0/Microsoft.Maui.Essentials.AI.dll"
+      ],
+      "experimentalAsset": "lib/net10.0-ios26.0/Microsoft.Maui.Essentials.AI.dll",
+      "requiredTypes": [
+        "AppleIntelligenceChatClient",
+        "NLEmbeddingGenerator"
+      ],
+      "diagnostic": "MAUIAI0001"
+    }
+  ],
+  "checks": [
+    {
+      "present": true,
+      "id": "12211 comment",
+      "source": "rc2-notes",
+      "text": "Apple workload packages 27.0.12211-net11-rc.2"
+    },
+    {
+      "present": true,
+      "id": "12211 source dependency",
+      "source": "maui-build-dependencies",
+      "text": "27.0.12211-net11-rc.2"
+    },
+    {
+      "present": true,
+      "id": "SDK baseline",
+      "source": "maui-sdk",
+      "text": "11.0.100-rc.2.26504.105"
+    },
+    {
+      "present": true,
+      "id": "12212 release",
+      "source": "apple-release",
+      "text": "27.0.12212-net11-rc.2"
+    },
+    {
+      "present": true,
+      "id": "stale installation prose",
+      "source": "apple-release",
+      "text": "sixth preview"
+    },
+    {
+      "present": true,
+      "id": "Apple workload set",
+      "source": "apple-release",
+      "text": "11.0.100-rc.2.26509.2"
+    },
+    {
+      "present": true,
+      "id": "Xcode requirement",
+      "source": "apple-release",
+      "text": "Xcode 27.0"
+    },
+    {
+      "present": true,
+      "id": "macOS authoring requirement",
+      "source": "apple-release",
+      "text": "macOS 26.6+"
+    },
+    {
+      "present": true,
+      "id": "rebuilt set",
+      "source": "maui-release",
+      "text": "11.0.100-rc.2.26513.2"
+    },
+    {
+      "present": true,
+      "id": "stale Xcode",
+      "source": "overview",
+      "text": "Xcode 26.4 Stable"
+    },
+    {
+      "present": true,
+      "id": "preview expressions",
+      "source": "rc2-notes",
+      "text": "<EnablePreviewFeatures>true</EnablePreviewFeatures>"
+    },
+    {
+      "present": true,
+      "id": "preview xCode",
+      "source": "preview4-notes",
+      "text": "The `EnablePreviewFeatures` flag is required"
+    },
+    {
+      "present": true,
+      "id": "preview incremental reload",
+      "source": "rc2-notes",
+      "text": "XAML Incremental Hot Reload is a preview feature in .NET 11."
+    },
+    {
+      "present": true,
+      "id": "Debug incremental default",
+      "source": "xaml-targets",
+      "text": "and '$(Configuration)' == 'Debug'"
+    },
+    {
+      "present": true,
+      "id": "SourceGen default",
+      "source": "xaml-targets",
+      "text": "<_MauiXamlInflator Condition=\" '$(MauiXamlInflator)' == '' \">SourceGen</_MauiXamlInflator>"
+    },
+    {
+      "present": true,
+      "id": "experimental Apple publishing",
+      "source": "apple-nativeaot",
+      "text": "*experimental* support"
+    },
+    {
+      "present": true,
+      "id": "experimental Android publishing",
+      "source": "overview",
+      "text": "experimental, opt-in publishing"
+    },
+    {
+      "present": true,
+      "id": "stable wording retains diagnostic",
+      "source": "preview5-notes",
+      "text": "behind the `MAUIAI0001` experimental"
+    },
+    {
+      "present": true,
+      "id": "experimental AI",
+      "source": "ai-overview",
+      "text": "This API is experimental"
+    },
+    {
+      "present": true,
+      "id": "experimental assembly",
+      "source": "ai-assembly",
+      "text": "[assembly: Experimental(DiagnosticIds.Experiments.EssentialsAI)]"
+    },
+    {
+      "present": true,
+      "id": "feature specific AI prerequisites",
+      "source": "ai-requirements",
+      "text": "It does **not** require Apple Intelligence."
+    }
+  ]
+}
