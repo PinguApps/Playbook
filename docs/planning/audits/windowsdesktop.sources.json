@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "reviewed": "2026-10-25",
+  "baseline": "RC2 preparation, not GA or RC3 reconciliation",
+  "sources": [
+    {
+      "id": "preview1-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview1/README.md",
+      "sha256": "afbb65139b00f68d3edf629af8605ffa27c9f6b1d16701c4cc4e864a1f97ae37"
+    },
+    {
+      "id": "preview1-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview1/wpf.md",
+      "sha256": "5d144c560986edff72f19084a0ca5d91b6d3237bafe375a320c0bd43762cf825"
+    },
+    {
+      "id": "preview1-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview1/winforms.md",
+      "sha256": "3ead41289519f2549d506d848d73666829dfefe137621df34179c18e89b9cf78"
+    },
+    {
+      "id": "preview1-api-11.0-preview1",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview1/api-diff/Microsoft.WindowsDesktop.App/11.0-preview1.md",
+      "sha256": "f8507edd83f15c4ad889587200081f6ce64d1e8f47ddfa58d92f37e5650555ef"
+    },
+    {
+      "id": "preview1-api-11.0-preview1_System.Windows.Forms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview1/api-diff/Microsoft.WindowsDesktop.App/11.0-preview1_System.Windows.Forms.md",
+      "sha256": "809691c23d4ab7e5ffa1d586be0dbdd3a7c8ff625168ebf41f13efbadaf4ba37"
+    },
+    {
+      "id": "preview2-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview2/README.md",
+      "sha256": "eca72282c82f989c8fb39c37cc596f9b27d7185f9191b28ff7981797e0f74585"
+    },
+    {
+      "id": "preview2-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview2/wpf.md",
+      "sha256": "204992e1940d637858f13b5b45302420d394401edf2d103364ccb4bf8297dd30"
+    },
+    {
+      "id": "preview2-api-11.0-preview2",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview2/api-diff/Microsoft.WindowsDesktop.App/11.0-preview2.md",
+      "sha256": "f57bb0e7e72bf821ec8a6dbd32b5d201acee23bc5af5e9e13dbb808d9727da18"
+    },
+    {
+      "id": "preview3-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/README.md",
+      "sha256": "af07d84bde49908711fa44af3e806f7ed03a2debee12084188875ef39582e16c"
+    },
+    {
+      "id": "preview3-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/wpf.md",
+      "sha256": "63f49ce0948ecaf62286b9db9e075c2c7cb944e8692acc5ec09cc6cfcd26999f"
+    },
+    {
+      "id": "preview3-api-11.0-preview3",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/api-diff/Microsoft.WindowsDesktop.App/11.0-preview3.md",
+      "sha256": "7e595799a659139541c26364da0dd64ac18117eac60092219e02834db33bf087"
+    },
+    {
+      "id": "preview4-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/README.md",
+      "sha256": "781ea6e16cdc53230164f3656b1f886c629566791f2d904e6e6b2b7330715e93"
+    },
+    {
+      "id": "preview4-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/wpf.md",
+      "sha256": "82b50c5127eecde216a6ea693dcc7321a09e8f3a5f8611c704ba2cbe5e18d154"
+    },
+    {
+      "id": "preview4-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/winforms.md",
+      "sha256": "a706a962cd4d8d1d1ba1da00effbdee3cd4380b0a7e32c732178583b1b30f90b"
+    },
+    {
+      "id": "preview4-api-11.0-preview4",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/api-diff/Microsoft.WindowsDesktop.App/11.0-preview4.md",
+      "sha256": "491363f560612759a4e88c1f1fa6ab4604cf34408ad8f556782cdd1edc88e949"
+    },
+    {
+      "id": "preview4-api-11.0-preview4_System.Diagnostics.EventLog",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/api-diff/Microsoft.WindowsDesktop.App/11.0-preview4_System.Diagnostics.EventLog.md",
+      "sha256": "122e9f505aa605bb5d0cc096b4b75aed71956501cca14975e650b3341bffc8d3"
+    },
+    {
+      "id": "preview5-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/README.md",
+      "sha256": "ad9b1e3c4873907900650f7595fcec4c31159cf03d7308f78ec96487085d6669"
+    },
+    {
+      "id": "preview5-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/wpf.md",
+      "sha256": "435357fdff60c9a5ccbd925eb248b31e5afabb987cf49700352f63d873b2e31d"
+    },
+    {
+      "id": "preview5-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/winforms.md",
+      "sha256": "c1334fe367ea4c64f746195d1a2ebdb92484a953e245dea6df809b8ecb910fba"
+    },
+    {
+      "id": "preview6-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/README.md",
+      "sha256": "7e68b5ada2ce2eca79ac9f51bee49063d8a08c2dd4dcf243ffa59e4a4a5b594f"
+    },
+    {
+      "id": "preview6-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/wpf.md",
+      "sha256": "8d73986e09c0f617ddfc47c26cb5a202f2f9880284c58ae6218c974e0f866047"
+    },
+    {
+      "id": "preview6-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/winforms.md",
+      "sha256": "eb0e325879476ec5d0e08243aaf3cfeb18dfb5691d660a78f9f8222f5a258e1a"
+    },
+    {
+      "id": "preview6-api-11.0-preview6",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/api-diff/Microsoft.WindowsDesktop.App/11.0-preview6.md",
+      "sha256": "8c033b49ca47468bb65b3e9603769b38e12e66e0bc1f3f430995dc1ee6a8718e"
+    },
+    {
+      "id": "preview7-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/README.md",
+      "sha256": "b10900ed736d864aefb73b1d50c41da6840116152a6285204074fbc529624812"
+    },
+    {
+      "id": "preview7-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/wpf.md",
+      "sha256": "b47de3c1c88a0fd31c9c3c9601050d8550744af77cc58b00b01d58f8694c871b"
+    },
+    {
+      "id": "preview7-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/winforms.md",
+      "sha256": "f59c31f2224a1070fe7ca19d35b770c06e56ff99cffa3ede120b9ecc57f16024"
+    },
+    {
+      "id": "preview7-api-11.0-preview7",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/api-diff/Microsoft.WindowsDesktop.App/11.0-preview7.md",
+      "sha256": "33d4d4a26821a523dab4658b88e73f62e1a4d4e501aefae7c12dc178abf8fbd9"
+    },
+    {
+      "id": "preview7-api-11.0-preview7_Microsoft.VisualBasic.Forms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/api-diff/Microsoft.WindowsDesktop.App/11.0-preview7_Microsoft.VisualBasic.Forms.md",
+      "sha256": "916a6833a0a6809212f3c3aa73dfd3bbc629e5fb53d1169f3e37b55b00338bea"
+    },
+    {
+      "id": "preview7-api-11.0-preview7_System.Windows.Forms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/api-diff/Microsoft.WindowsDesktop.App/11.0-preview7_System.Windows.Forms.md",
+      "sha256": "b11330afe3059253fa6fb89385b2079ba92d4a57d27febb390ae1bf3942666da"
+    },
+    {
+      "id": "rc1-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/README.md",
+      "sha256": "f09bf8100c207ff9a1abadcda2992f7b1fca424c558e7cc64bf314474f44515d"
+    },
+    {
+      "id": "rc1-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/wpf.md",
+      "sha256": "add6c39f620f75c8c511cae4f1054e70c60ece388496b8106721ae84cf0a1e7f"
+    },
+    {
+      "id": "rc1-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/winforms.md",
+      "sha256": "47fd70137a25bb31f01c83492fd562f52c8a4c4435ff1ee81f93657b47be83c1"
+    },
+    {
+      "id": "rc2-index",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/README.md",
+      "sha256": "d3889fe70411e87d8fb2459876b0377c43e428a3399b83228bf64271ed91fbed"
+    },
+    {
+      "id": "rc2-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/wpf.md",
+      "sha256": "7fc2893da4901ce224720822e4c64311733fd26adc416998c6aa291d58422234"
+    },
+    {
+      "id": "rc2-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md",
+      "sha256": "d3fe092186394ae7c92ea737e59bdc7a709aa6a7a51cc2a294b76618a8dbfa92"
+    },
+    {
+      "id": "rc2-AnalyzerReleases.Shipped.md-0",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers/src/AnalyzerReleases.Shipped.md",
+      "sha256": "3314750e5aefc528024f8e9808e0947c26b0f1d21093ff0d1e1385a00490770d"
+    },
+    {
+      "id": "rc2-AnalyzerReleases.Unshipped.md-1",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers/src/AnalyzerReleases.Unshipped.md",
+      "sha256": "9ebd69ae6744cd047ccbee0edeb6d3dd3023568364b357811028d48cb4577224"
+    },
+    {
+      "id": "rc2-AnalyzerReleases.Shipped.md-2",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.CSharp/src/AnalyzerReleases.Shipped.md",
+      "sha256": "4913b8bc347c0327703a46df49f1956443803c5bd63ab391544c390f0feaec0d"
+    },
+    {
+      "id": "rc2-AnalyzerReleases.Unshipped.md-3",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.CSharp/src/AnalyzerReleases.Unshipped.md",
+      "sha256": "c64e0d654899260a88e5e5550b491425985470b93f415c0cac5c541cee230a85"
+    },
+    {
+      "id": "rc2-AnalyzerReleases.Shipped.md-4",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.VisualBasic/src/AnalyzerReleases.Shipped.md",
+      "sha256": "9f779a413edf28ca3feb12679b8a378dbcd49d031aaf1f5eba5cfdf3abf72249"
+    },
+    {
+      "id": "rc2-AnalyzerReleases.Unshipped.md-5",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.VisualBasic/src/AnalyzerReleases.Unshipped.md",
+      "sha256": "c64e0d654899260a88e5e5550b491425985470b93f415c0cac5c541cee230a85"
+    },
+    {
+      "id": "rc2-DiagnosticIDs.cs-6",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers/src/System/Windows/Forms/Analyzers/Diagnostics/DiagnosticIDs.cs",
+      "sha256": "9b53d0e1a7c1b2c62ed7a7c066f6988e4e8c03622ed049ce53a3f0a1b594c225"
+    },
+    {
+      "id": "rc2-SharedDiagnosticDescriptors.cs-7",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers/src/System/Windows/Forms/Analyzers/Diagnostics/SharedDiagnosticDescriptors.cs",
+      "sha256": "cf8a20b59510e8c58d00786acd22b5ed95c2df58fecc1c0e8a79fb5bdaaae794"
+    },
+    {
+      "id": "rc2-CSharpDiagnosticDescriptors.cs-8",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.CSharp/src/System/Windows/Forms/CSharp/Analyzers/Diagnostics/CSharpDiagnosticDescriptors.cs",
+      "sha256": "895400ecb18f5ec29f20bed00db8525e14188055fd0f7514f2f27f4352b7dfa7"
+    },
+    {
+      "id": "rc2-VisualBasicDiagnosticDescriptors.vb-9",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.VisualBasic/src/Diagnostic/VisualBasicDiagnosticDescriptors.vb",
+      "sha256": "cbf287456c96a92ef76374544dcd1dfd4f8da04df5b03fe225f83e5af005da24"
+    },
+    {
+      "id": "rc2-ApplyApplicationDefaultsEventArgs.vb-10",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/Microsoft.VisualBasic.Forms/src/Microsoft/VisualBasic/ApplicationServices/ApplyApplicationDefaultsEventArgs.vb",
+      "sha256": "1e20f7993ae9bd0e42128da907c920f4c30251990bcc918286c2f577a2e7ff62"
+    },
+    {
+      "id": "rc2-WindowsFormsApplicationBase.vb-11",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/Microsoft.VisualBasic.Forms/src/Microsoft/VisualBasic/ApplicationServices/WindowsFormsApplicationBase.vb",
+      "sha256": "4e4e44d740ce0aba232bfb3687d80fd8e06437bc323189e9037b6c8201771fe7"
+    },
+    {
+      "id": "rc2-ControlMutationExtensions.cs-12",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/ControlMutationExtensions.cs",
+      "sha256": "5485fcb9cfa0b05fb20f904df21618871cf73a9d090c14200c3ebe26d8bbf849"
+    },
+    {
+      "id": "rc2-Control.VisualStylesMode.Docs.cs-13",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/Control.VisualStylesMode.Docs.cs",
+      "sha256": "989ce4d90de28bd99493a5a7cd8e52a4c1cab42f71099628107c82884721fb0d"
+    },
+    {
+      "id": "rc2-KioskModeManager.cs-14",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/Components/KioskModeManager/KioskModeManager.cs",
+      "sha256": "6191b5f8b3fafc7fd42d1e1dac539a99adc13bd8107bc0f4a96c4fbe472d442d"
+    },
+    {
+      "id": "rc2-clipboard-0",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Drawing.Common/src/System/Drawing/LocalAppContextSwitches.cs",
+      "sha256": "d2c19cd433fa2497245cc312724d3ae10a28f1ee6f3dbae102fdaf00551fb7ec"
+    },
+    {
+      "id": "rc2-clipboard-1",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Drawing.Common/src/System/LocalAppContextSwitches.Common.cs",
+      "sha256": "c910b1d9b459c49170c8fba6271b823fd50a84d4dea336926509876c12331be9"
+    },
+    {
+      "id": "rc2-clipboard-2",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Private.Windows.Core/src/System/Private/Windows/CoreAppContextSwitches.cs",
+      "sha256": "b57359b2713f8421cbbe6ed9726b2608b43d3280cfa54d4c6d67e220f4ddc766"
+    },
+    {
+      "id": "rc2-clipboard-3",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Private.Windows.Core/src/System/Private/Windows/Ole/ClipboardCore.cs",
+      "sha256": "1fd9ee9f92377295ebc43dae4da5a794fb6ba3dd156a04df9df4019e7abe9869"
+    },
+    {
+      "id": "rc2-clipboard-4",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Primitives/src/System/LocalAppContextSwitches/LocalAppContextSwitches.cs",
+      "sha256": "ce0b04735c75b923d9d1b37e86781d7a2328b602f09272ca879b6e9fb0d19274"
+    },
+    {
+      "id": "rc2-clipboard-5",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/Controls/DataGridView/DataGridViewClipboardCopyMode.cs",
+      "sha256": "0020e62d19ff1d2265e6ddb6f128b5ce609f9add21a88e83a84c6762861fe921"
+    },
+    {
+      "id": "rc2-clipboard-6",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/OLE/Clipboard.cs",
+      "sha256": "e218ab79d7fe61cddb89b7e5f4357f1fce737e75163caae37017fe994d4cf31c"
+    },
+    {
+      "id": "rc2-clipboard-7",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/OLE/ClipboardUtilities.cs",
+      "sha256": "19068c40632c770fe7d0b5f5517a3c31dd2e99cae16fd4cca6865b6f60af4206"
+    },
+    {
+      "id": "rc2-wpf-clipboard",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/wpf/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/clipboard.cs",
+      "sha256": "0e107f9098d30f7d6d288074c34ed8a59605be1f924b8db362fdb78f05b88f38"
+    },
+    {
+      "id": "overview-winforms",
+      "url": "https://raw.githubusercontent.com/dotnet/docs-desktop/1c487f4e64ba00769475c03aa8a65f05f137c13d/dotnet-desktop-guide/winforms/whats-new/net110.md",
+      "sha256": "050bf2717290ada755f3dda1a807dd32b5ffdc6008cfbb1d5b7a688725cb36fa"
+    },
+    {
+      "id": "overview-wpf",
+      "url": "https://raw.githubusercontent.com/dotnet/docs-desktop/1c487f4e64ba00769475c03aa8a65f05f137c13d/dotnet-desktop-guide/wpf/whats-new/net110.md",
+      "sha256": "83b3d5fe2ab2a29472083205c79bff6da460602469b13f18212932791b83fc19"
+    },
+    {
+      "id": "rc2-native-adapter",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Private.Windows.Core/src/System/Private/Windows/Ole/Composition.NativeToManagedAdapter.cs",
+      "sha256": "4d5980ad181abb601b0ae19664620012fbc94f07f031fb948dbad18f251888a4"
+    },
+    {
+      "id": "rc2-designer-readme",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/docs/designer/readme.md",
+      "sha256": "2ff58c11ff6b079777537af9085b33f83a369aec40e6145e15c71326f3078b7d"
+    },
+    {
+      "id": "designer-extensibility-readme",
+      "url": "https://raw.githubusercontent.com/microsoft/winforms-designer-extensibility/4959e7c5076faf3d8b095db36951fa3c6d77cb79/README.md",
+      "sha256": "804a3fc7b52f98730f35650c350e94d0b51d46046c08a1d0f4c8eab66a70d298"
+    },
+    {
+      "id": "designer-overview",
+      "url": "https://raw.githubusercontent.com/dotnet/docs-desktop/1c487f4e64ba00769475c03aa8a65f05f137c13d/dotnet-desktop-guide/winforms/controls-design/designer-overview.md",
+      "sha256": "d45884c9b79e08c2d919c4b03b643f79cadf9465f77d15a3a9ad9dcf9ae5f87d"
+    }
+  ],
+  "missingNotes": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview2/winforms.md",
+      "historyUrl": "https://api.github.com/repos/dotnet/core/commits?sha=60871330fce2b3da383461be027ebdf3ce30f8fb&path=release-notes/11.0/preview/preview2/winforms.md&per_page=100"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/winforms.md",
+      "historyUrl": "https://api.github.com/repos/dotnet/core/commits?sha=60871330fce2b3da383461be027ebdf3ce30f8fb&path=release-notes/11.0/preview/preview3/winforms.md&per_page=100"
+    }
+  ],
+  "packages": [
+    {
+      "id": "net10",
+      "version": "10.0.14",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/10.0.14/microsoft.windowsdesktop.app.ref.10.0.14.nupkg"
+    },
+    {
+      "id": "preview1",
+      "version": "11.0.0-preview.1.26104.118",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-preview.1.26104.118/microsoft.windowsdesktop.app.ref.11.0.0-preview.1.26104.118.nupkg"
+    },
+    {
+      "id": "preview2",
+      "version": "11.0.0-preview.2.26159.112",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-preview.2.26159.112/microsoft.windowsdesktop.app.ref.11.0.0-preview.2.26159.112.nupkg"
+    },
+    {
+      "id": "preview3",
+      "version": "11.0.0-preview.3.26207.106",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-preview.3.26207.106/microsoft.windowsdesktop.app.ref.11.0.0-preview.3.26207.106.nupkg"
+    },
+    {
+      "id": "preview4",
+      "version": "11.0.0-preview.4.26230.115",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-preview.4.26230.115/microsoft.windowsdesktop.app.ref.11.0.0-preview.4.26230.115.nupkg"
+    },
+    {
+      "id": "preview5",
+      "version": "11.0.0-preview.5.26302.115",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-preview.5.26302.115/microsoft.windowsdesktop.app.ref.11.0.0-preview.5.26302.115.nupkg"
+    },
+    {
+      "id": "preview6",
+      "version": "11.0.0-preview.6.26359.118",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-preview.6.26359.118/microsoft.windowsdesktop.app.ref.11.0.0-preview.6.26359.118.nupkg"
+    },
+    {
+      "id": "preview7",
+      "version": "11.0.0-preview.7.26381.103",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-preview.7.26381.103/microsoft.windowsdesktop.app.ref.11.0.0-preview.7.26381.103.nupkg"
+    },
+    {
+      "id": "rc1",
+      "version": "11.0.0-rc.1.26425.128",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-rc.1.26425.128/microsoft.windowsdesktop.app.ref.11.0.0-rc.1.26425.128.nupkg"
+    },
+    {
+      "id": "rc2",
+      "version": "11.0.0-rc.2.26504.105",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.ref/11.0.0-rc.2.26504.105/microsoft.windowsdesktop.app.ref.11.0.0-rc.2.26504.105.nupkg"
+    }
+  ],
+  "designerSdk": {
+    "version": "1.13.0-preview.2.24575.3",
+    "url": "https://api.nuget.org/v3-flatcontainer/microsoft.winforms.designer.sdk/1.13.0-preview.2.24575.3/microsoft.winforms.designer.sdk.1.13.0-preview.2.24575.3.nupkg"
+  }
+}

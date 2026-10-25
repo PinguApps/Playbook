@@ -45,5 +45,8 @@
 # Inspect-RuntimeSecurityApis.ps1 output; review its script, source/disposition inputs and .md audit.
 /docs/planning/audits/runtime-security.assets.json
 
+# Inspect-WindowsDesktopApis.ps1 output; review its script, source manifest and .md audit.
+/docs/planning/audits/windowsdesktop.assets.json
+
 # Inspect-FSharpContracts.ps1 output; review its script, PIN-681.sources.json and PIN-681.md.
 /docs/verification/PIN-681.assets.json
