@@ -17,6 +17,8 @@ The production project declares no package version. `eng/Test-Smoke.ps1` and `en
 
 The inexpensive dependency inventory check runs on every PR. The real Renovate rule checks run when a PR changes workflows, engineering scripts, dependency policy/configuration, project/solution files or shared build/package/SDK/tool files (including previous names of renamed files). Full and manual validation always run them. Failure to retrieve the changed-file list fails validation rather than skipping policy checks.
 
+The policy check also parses the publishing and validation YAML to check reusable-workflow permission contracts. The release-draft caller must grant `actions: read` through `publish.yml` to verification, even when publication is gated off: GitHub validates the composed workflow before evaluating job conditions. OIDC remains scoped to the publishing job and its reusable caller. See [PIN-1023 verification](verification/PIN-1023.md) for the reproduced failure and safe hosted validation.
+
 Run the same smoke locally with PowerShell 7 and SDK 10.0.402:
 
 ```powershell
