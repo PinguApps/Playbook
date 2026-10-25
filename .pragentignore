@@ -8,6 +8,9 @@
 /docs/verification/PIN-978.c.json
 /docs/verification/PIN-978.d.json
 
+# Complete durable T3 recovery follow-up; review PIN-1018.md and the normal instruction.
+/docs/verification/PIN-1018.agent.json
+
 # Raw local HTTP query receipts; review decoded browser records and TernLedger exporters/verifier.
 /docs/verification/PIN-800.canonical-5991.raw.json
 /docs/verification/PIN-800.canonical-5992.raw.json
