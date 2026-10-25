@@ -22,6 +22,12 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [obsolete diagnostic ownership map](../audits/obsolete-index.md) enumerates
+all 68 published SYSLIB/EXTOBS obsoletions and separately owns every other row in
+the pinned runtime diagnostic registry. Core-summary omissions are explicit;
+pipe delivery and two cryptography proposals retain their existing owners.
+Index closure does not deliver those recipes or clear PIN-986/PIN-959 gates.
+
 The [non-Blazor web API audit](../audits/web.md) compares actual .NET 10 and pinned
 .NET 11 RC2 framework, package, web-tooling, C#/F# template and published SignalR
 TypeScript assets against 212 immutable official files. Every selected API delta

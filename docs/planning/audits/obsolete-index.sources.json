@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 1,
+  "reviewed": "2026-10-25",
+  "scope": "PIN-689 finite obsolete/diagnostic index; immutable text, no consumer execution",
+  "sources": [
+    {
+      "id": "global-index",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "sha256": "941c7b40230151c34bba11d2a5a0d7fc5cfb17a532111622d7854cf385e6d826"
+    },
+    {
+      "id": "core-11",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/core-libraries/11/obsolete-apis.md",
+      "sha256": "5ae71d3612ef4b297aea6aa570eaa48d7ae8347a1030974b90bd835c14b24600"
+    },
+    {
+      "id": "crypto-11",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/cryptography/11/obsolete-apis.md",
+      "sha256": "8edb6f62cef11529cd0a3dbe67e2974e172e282ea7f04b468ca0c5603ace16d9"
+    },
+    {
+      "id": "runtime-registry",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/f0c7a08c8dea85b0271b5ed128530169b9ad79ff/docs/project/list-of-diagnostics.md",
+      "sha256": "a841269e16b7cdc35949202e8b3db790c5a356a319e78b57973b61469ab6075e"
+    },
+    {
+      "id": "SYSLIB0001",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0001.md",
+      "sha256": "d97833c66d97570c2056403f7f8527625452a0b31a567dfaf54e89d5aee1721e"
+    },
+    {
+      "id": "SYSLIB0002",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0002.md",
+      "sha256": "f0116d17cc87223c6947c081d74be8947f1e225909e3f73aa3bb2761017a7673"
+    },
+    {
+      "id": "SYSLIB0003",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0003.md",
+      "sha256": "966882955ccb6a86e1c36d468845be55d9c9368aef1a476be0a70759e37d55bf"
+    },
+    {
+      "id": "SYSLIB0004",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0004.md",
+      "sha256": "b9f20ec474db160b6f3d352b9ed36bf8982f997efcfc907e55efb9d56fb2c982"
+    },
+    {
+      "id": "SYSLIB0005",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0005.md",
+      "sha256": "7c0191e9890d058e59231d597cac0f6c6103e3611f00b1d1a47ab3fccbd0cbed"
+    },
+    {
+      "id": "SYSLIB0006",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0006.md",
+      "sha256": "0dd2f3fcd890bbe3e4dc47106db58f599ea09a15da0a5ab5e6bba7085bec8d20"
+    },
+    {
+      "id": "SYSLIB0007",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0007.md",
+      "sha256": "18f382e4fa2d020f72fe809bf3c388f3fefd165b4041f306586ed48c0b1ec879"
+    },
+    {
+      "id": "SYSLIB0008",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0008.md",
+      "sha256": "34974bf5cd12094234e28f9dd00f85efa68a44069c4d04db44a5b3e93da933df"
+    },
+    {
+      "id": "SYSLIB0009",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0009.md",
+      "sha256": "8a7048e9441aba9805eaaa1e147cd116996238471ad28ca54adcdab5f28d75fe"
+    },
+    {
+      "id": "SYSLIB0010",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0010.md",
+      "sha256": "a54ceedbbb52cf4486ec4a8612ddea67b33f5c9f01d421d2c5228ecc10218e92"
+    },
+    {
+      "id": "SYSLIB0011",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0011.md",
+      "sha256": "f662a278c27bc4f10ac8f14308238380bdfb1e30cdde2f4da11d494871a1ee11"
+    },
+    {
+      "id": "SYSLIB0012",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0012.md",
+      "sha256": "43fbccf0e57f5ac0cc3721e35732a9671e24163b298de8356480234f96a70637"
+    },
+    {
+      "id": "SYSLIB0013",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0013.md",
+      "sha256": "0d64ee0bfd72ec1a59d2d062b16bada4364be75393ce894c6418e7eafaf655f9"
+    },
+    {
+      "id": "SYSLIB0014",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0014.md",
+      "sha256": "791466c1006162b125c37d1e76198f6d2060d195a61a257e7606c75d4c7a230b"
+    },
+    {
+      "id": "SYSLIB0015",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0015.md",
+      "sha256": "4b4c8fbec0827042b89345ef24c775c9514c825b4634aa4f573b87f390f5863f"
+    },
+    {
+      "id": "SYSLIB0016",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0016.md",
+      "sha256": "63ef189d2f17b7759e2f4683ff8fe2a1520087c86da5822ead19390f85336472"
+    },
+    {
+      "id": "SYSLIB0017",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0017.md",
+      "sha256": "8290c349a043a6554f54eadccaab0e7ecedbdb00d9a4bff2acdb41858e21a97a"
+    },
+    {
+      "id": "SYSLIB0018",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0018.md",
+      "sha256": "970fc7e7fb9a8c276bd8bfd230ea094be44e11aa113b768c6a9e88af4ae1c76f"
+    },
+    {
+      "id": "SYSLIB0019",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0019.md",
+      "sha256": "7c7f1af151e747a22f894eae2f8a45fa6ee68df43f83f39f18c636c832f4c9af"
+    },
+    {
+      "id": "SYSLIB0020",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0020.md",
+      "sha256": "6b7abe4aff6384ce051c7648e30ed08879f484f0227cd6a549a81d6b6cb03d75"
+    },
+    {
+      "id": "SYSLIB0021",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0021.md",
+      "sha256": "d4c8098a3ae3c74ad2c29906ff5866faa19884030ba08c37f81f83dc136e0f70"
+    },
+    {
+      "id": "SYSLIB0022",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0022.md",
+      "sha256": "c517d0d8beb643c0cc4953a665185a8b26041a309fe3aa417856857e0b9c7b5d"
+    },
+    {
+      "id": "SYSLIB0023",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0023.md",
+      "sha256": "b2e0fe42f0b030b24e9563175b01cb4f385907e09197746d878dcdc5e3c83709"
+    },
+    {
+      "id": "SYSLIB0024",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0024.md",
+      "sha256": "d6cf2c0bc5faae96e20067889ab8d0458553072b97d6742795a6c6da52266e4c"
+    },
+    {
+      "id": "SYSLIB0025",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0025.md",
+      "sha256": "f592262e4ea7843a23407a47ba312b78a5a7595212f3d38568503cd0a2b4c577"
+    },
+    {
+      "id": "SYSLIB0026",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0026.md",
+      "sha256": "c6615195184b366fdcda6ae9b1e063007bddc85c90e006022fd78fa6e99eef81"
+    },
+    {
+      "id": "SYSLIB0027",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0027.md",
+      "sha256": "2376d88f955d5efb1d934b0664f21a206a66157405a63f5db08bb918e6bdabb5"
+    },
+    {
+      "id": "SYSLIB0028",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0028.md",
+      "sha256": "645711d0e0cdbf4558bc97cca5421cdda52d295c2696f988a4cfa9c9afa304b3"
+    },
+    {
+      "id": "SYSLIB0029",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0029.md",
+      "sha256": "b51a459cb4e6bb06625cfab5da0d652d05816fb2acaf84080f0476669638aaad"
+    },
+    {
+      "id": "SYSLIB0030",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0030.md",
+      "sha256": "027f0e9d7826e543ff4e12b49178cbc7181b013baa4c61c6092372256b31395f"
+    },
+    {
+      "id": "SYSLIB0031",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0031.md",
+      "sha256": "e6d8e4906bed90b87e933feb2986e9515c301d24bf35f93fb716c4c442f8bb06"
+    },
+    {
+      "id": "SYSLIB0032",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0032.md",
+      "sha256": "948be0053f245fa3c143f72960c59cd37afbedd79f2f1d11b939a4842f0b263e"
+    },
+    {
+      "id": "SYSLIB0033",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0033.md",
+      "sha256": "48101598035ca88f480514c429933574982caf453dbfbc5fd1d3fad2fdfca17e"
+    },
+    {
+      "id": "SYSLIB0034",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0034.md",
+      "sha256": "ef163f6d9e203d9f2ff69c9833dd7903ae1116c087ebc96a16b70d55e26c5570"
+    },
+    {
+      "id": "SYSLIB0035",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0035.md",
+      "sha256": "201eac2c88bf94fa607ace4f75a56eb9b68c4f3db4afe8a83088543b8886f96d"
+    },
+    {
+      "id": "SYSLIB0036",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0036.md",
+      "sha256": "c61cd9242cf9c82ed5b3d28af3eebd7e8f9e1e6fac395d1e45e79dfb4ce77db5"
+    },
+    {
+      "id": "SYSLIB0037",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0037.md",
+      "sha256": "146072ee6ea85744b8980f42c383688086b28692f06984efa1a381fefb348617"
+    },
+    {
+      "id": "SYSLIB0038",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0038.md",
+      "sha256": "910fbc0af10a1acd2371836cc8e623e0eba7396499f2b86038a93b34db2e51cc"
+    },
+    {
+      "id": "SYSLIB0039",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0039.md",
+      "sha256": "1fad192fb342d5a750f412f192562a00fd94483f35c5242bf3b974c7a759e064"
+    },
+    {
+      "id": "SYSLIB0040",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0040.md",
+      "sha256": "5061cc6eae87f940ecf9863c1e3e0e65069db59171532397a2aa4d313a9ee27e"
+    },
+    {
+      "id": "SYSLIB0041",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0041.md",
+      "sha256": "65a2ce28f9014903385933ec45fbc9d02fe40f33bb6393539c78b9893c66807a"
+    },
+    {
+      "id": "SYSLIB0042",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0042.md",
+      "sha256": "5d579163524a260077932e1f5f84d496cf8d1f29e5329fad299435069ec2a9d2"
+    },
+    {
+      "id": "SYSLIB0043",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0043.md",
+      "sha256": "e5fa575e3d07b636bb8615b602b1b3d7aac6b613e0e2c81bcc6f2389809a8bbf"
+    },
+    {
+      "id": "SYSLIB0044",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0044.md",
+      "sha256": "137ca6871dbaa38ac0c7b6f892dd6e22fb9ecba767d5d28fca3199b61f9e0c37"
+    },
+    {
+      "id": "SYSLIB0045",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0045.md",
+      "sha256": "eb6023b28540bccf92c950639e825c2e30b255c6c1230fe1af047412f1e31987"
+    },
+    {
+      "id": "SYSLIB0046",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0046.md",
+      "sha256": "d312603bdc5812327a30cdd79b24048c8438321caf0b1f40531159192b07a05a"
+    },
+    {
+      "id": "SYSLIB0047",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0047.md",
+      "sha256": "5d09bf0eb6e7a7af7193326a8c358aaea9e3ff788aca191e858051df05193086"
+    },
+    {
+      "id": "SYSLIB0048",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0048.md",
+      "sha256": "e066f73759888d9258bfe44ffbb42309fa216fd733a40235ca74857b13313aac"
+    },
+    {
+      "id": "SYSLIB0049",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0049.md",
+      "sha256": "7c493fd6b999c9a2ae5922e37ccfa3e6ef1dbf1b837a7617365fa1ef3ba9d136"
+    },
+    {
+      "id": "SYSLIB0050",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0050.md",
+      "sha256": "04a8b855c83ee7cfefa5f014985b447eec395ac668b8d46c2a3b5c57cb35391c"
+    },
+    {
+      "id": "SYSLIB0051",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0051.md",
+      "sha256": "9d089e17096636e769b1221bf6fa744fc3128f74405d0573268ca44c62e30e6c"
+    },
+    {
+      "id": "SYSLIB0052",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0052.md",
+      "sha256": "c56232d2b57764248272ca2cfb5ae7a32a5f1ee32ba26d55fdaeeb158794281b"
+    },
+    {
+      "id": "SYSLIB0053",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0053.md",
+      "sha256": "93df21aca1d865f2468b4349cc7d06c0d13b1848593fd2decfb39778cfdff3c7"
+    },
+    {
+      "id": "SYSLIB0054",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0054.md",
+      "sha256": "f4a63d1cc3fd71eda113b47d525489c4dd865dd16e33fd87c0781101e7f25d19"
+    },
+    {
+      "id": "SYSLIB0055",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0055.md",
+      "sha256": "e4bf3ae8859e4ad21dd9d0f008d97ea1e70f97d890b5a4dd2e8849aa3edab8b3"
+    },
+    {
+      "id": "SYSLIB0056",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0056.md",
+      "sha256": "a651e4ceaf9965bd98471fc36824b1dc361e7486046fae6b1ac6160de3a45869"
+    },
+    {
+      "id": "SYSLIB0057",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0057.md",
+      "sha256": "70009b996f57e429ac3c879fb322ec6355057ce7e383e4a1fb81d712d7bbec49"
+    },
+    {
+      "id": "SYSLIB0058",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0058.md",
+      "sha256": "a128a9a70bf23b8a4b9525475bb6f5f4a95b030e8fae3dd5cfe89dcc24b125ca"
+    },
+    {
+      "id": "SYSLIB0059",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0059.md",
+      "sha256": "2ac578bb9a4a94fd4f56c2a9b4199e7970c064c2c545a4703701ec783ebf0382"
+    },
+    {
+      "id": "SYSLIB0060",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0060.md",
+      "sha256": "8eb89fac9821789acba98f8983e9ad87cd45bd312e126cab37572f3d35ae4b27"
+    },
+    {
+      "id": "SYSLIB0061",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0061.md",
+      "sha256": "b95b60926f4314027368f677b1ae68457730d032fa0b31ebe283991b0edf25c5"
+    },
+    {
+      "id": "SYSLIB0062",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0062.md",
+      "sha256": "34a2769abe6eae9640c0c8d3fee2a5faf7afc808fb929c8ee6f824416277c6d6"
+    },
+    {
+      "id": "SYSLIB0063",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0063.md",
+      "sha256": "8ae25e0180c5b8d5348d4acd9d4a143262e6b5e348154faf8dbe3f366c2cded7"
+    },
+    {
+      "id": "SYSLIB0064",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0064.md",
+      "sha256": "3765e4377d65086062513d13d004c0c1e24574d8a51846b266c07f7532cc847d"
+    },
+    {
+      "id": "SYSLIB0065",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0065.md",
+      "sha256": "9a671a6c1c267cdb5168a88ff1ff30ab19d80c62ca700381f47db393adb5aca4"
+    },
+    {
+      "id": "SYSLIB0066",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/syslib0066.md",
+      "sha256": "2f161d41b7a72a4bb3bf40ff6d7ae0dfdf376b1b5de7e8f075a2572105ac533f"
+    },
+    {
+      "id": "EXTOBS0001",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/extobs0001.md",
+      "sha256": "a6a32fb3b66c822cac3ad627bb16bec6ab653a5eb39454ec222b4c8209a9665b"
+    },
+    {
+      "id": "EXTOBS0002",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/extobs0002.md",
+      "sha256": "f9a31d3889d1668dc01747e4105a4be046d887a5974ace798f46cb50616a1c05"
+    }
+  ]
+}

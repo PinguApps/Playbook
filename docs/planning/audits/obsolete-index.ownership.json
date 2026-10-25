@@ -1,0 +1,797 @@
+{
+  "schemaVersion": 1,
+  "reviewed": "2026-10-25",
+  "owners": [
+    {
+      "issue": "PIN-703",
+      "family": "Data, text, numerics and I/O",
+      "url": "https://linear.app/pinguapps/issue/PIN-703",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/planning/audits/data-io.md"
+    },
+    {
+      "issue": "PIN-704",
+      "family": "Serialization and data contracts",
+      "url": "https://linear.app/pinguapps/issue/PIN-704",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/planning/audits/serialization.md"
+    },
+    {
+      "issue": "PIN-705",
+      "family": "Runtime, interop, transport and security",
+      "url": "https://linear.app/pinguapps/issue/PIN-705",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/planning/audits/runtime-security.md"
+    },
+    {
+      "issue": "PIN-706",
+      "family": "Extensions configuration, options and diagnostics",
+      "url": "https://linear.app/pinguapps/issue/PIN-706",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/planning/audits/extensions.md"
+    },
+    {
+      "issue": "PIN-693",
+      "family": "WindowsDesktop source and diagnostic audit",
+      "url": "https://linear.app/pinguapps/issue/PIN-693",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/planning/inventory/03-desktop-mobile.md"
+    },
+    {
+      "issue": "PIN-741",
+      "family": "Pipe handles and mobile locking delivery",
+      "url": "https://linear.app/pinguapps/issue/PIN-741",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/planning/audits/archive-path-handle-clock.md"
+    },
+    {
+      "issue": "PIN-686",
+      "family": "Cryptography platform migration audit",
+      "url": "https://linear.app/pinguapps/issue/PIN-686",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/planning/audits/cryptography-platforms.md"
+    },
+    {
+      "issue": "PIN-746",
+      "family": "Options validation delivery",
+      "url": "https://linear.app/pinguapps/issue/PIN-746",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/verification/PIN-745-747.md"
+    },
+    {
+      "issue": "PIN-715",
+      "family": "Unsafe boundary delivery",
+      "url": "https://linear.app/pinguapps/issue/PIN-715",
+      "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
+      "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
+      "evidence": "docs/verification/PIN-715.md"
+    }
+  ],
+  "entries": [
+    {
+      "id": "SYSLIB0001",
+      "subject": "UTF-7 encoding",
+      "owner": "PIN-703",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/data-io.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0002",
+      "subject": "PrincipalPermissionAttribute",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0003",
+      "subject": "Code access security",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0004",
+      "subject": "Constrained execution regions",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0005",
+      "subject": "Global assembly cache",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0006",
+      "subject": "Thread.Abort",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0007",
+      "subject": "Unsupported default cryptographic implementation",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0008",
+      "subject": "DebugInfoGenerator.CreatePdbGenerator",
+      "owner": "PIN-703",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/data-io.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0009",
+      "subject": "AuthenticationManager",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0010",
+      "subject": "Remoting APIs",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0011",
+      "subject": "BinaryFormatter",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0012",
+      "subject": "Assembly.CodeBase and EscapedCodeBase",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0013",
+      "subject": "Uri.EscapeUriString",
+      "owner": "PIN-703",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/data-io.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0014",
+      "subject": "WebRequest, HttpWebRequest, ServicePoint and WebClient",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0015",
+      "subject": "DisablePrivateReflectionAttribute",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0016",
+      "subject": "Graphics.GetContextInfo parameterless overload",
+      "owner": "PIN-693",
+      "outcome": "historical",
+      "evidence": "docs/planning/inventory/03-desktop-mobile.md"
+    },
+    {
+      "id": "SYSLIB0017",
+      "subject": "Strong-name signing",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0018",
+      "subject": "Reflection-only loading",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0019",
+      "subject": "RuntimeEnvironment legacy runtime interfaces",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0020",
+      "subject": "JsonSerializerOptions.IgnoreNullValues",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0021",
+      "subject": "Derived cryptographic implementation types",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0022",
+      "subject": "Rijndael and RijndaelManaged",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0023",
+      "subject": "RNGCryptoServiceProvider",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0024",
+      "subject": "AppDomain creation and unloading",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0025",
+      "subject": "SuppressIldasmAttribute",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0026",
+      "subject": "Certificate mutability APIs",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0027",
+      "subject": "PublicKey.Key",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0028",
+      "subject": "X509Certificate2.PrivateKey",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0029",
+      "subject": "Legacy HMAC values",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0030",
+      "subject": "HMACSHA1 useManagedSha1 constructor",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0031",
+      "subject": "CryptoConfig.EncodeOID",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0032",
+      "subject": "HandleProcessCorruptedStateExceptionsAttribute",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0033",
+      "subject": "Rfc2898DeriveBytes.CryptDeriveKey",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0034",
+      "subject": "CmsSigner CspParameters constructor",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0035",
+      "subject": "SignerInfo parameterless countersigning",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0036",
+      "subject": "Regex.CompileToAssembly",
+      "owner": "PIN-703",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/data-io.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0037",
+      "subject": "AssemblyName legacy metadata",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0038",
+      "subject": "SerializationFormat.Binary",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0039",
+      "subject": "TLS 1.0 and TLS 1.1",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0040",
+      "subject": "NoEncryption and AllowNoEncryption policies",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0041",
+      "subject": "Rfc2898DeriveBytes implicit hash/iterations",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0042",
+      "subject": "ECC XML key import/export",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0043",
+      "subject": "ECDiffieHellmanPublicKey byte-array format",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0044",
+      "subject": "AssemblyName.CodeBase and EscapedCodeBase",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0045",
+      "subject": "Cryptographic factories taking an algorithm name",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0046",
+      "subject": "ControlledExecution.Run",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0047",
+      "subject": "XmlSecureResolver",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0048",
+      "subject": "RSA.EncryptValue and DecryptValue",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0049",
+      "subject": "JsonSerializerOptions.AddContext",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0050",
+      "subject": "Formatter-based serialization",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0051",
+      "subject": "Formatter serialization support members",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0052",
+      "subject": "Legacy Regex extensibility",
+      "owner": "PIN-703",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/data-io.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0053",
+      "subject": "AesGcm implicit tag size",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0054",
+      "subject": "Thread.VolatileRead and VolatileWrite",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0055",
+      "subject": "Signed AdvSimd narrowing overloads",
+      "owner": "PIN-703",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/data-io.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0056",
+      "subject": "Assembly.LoadFrom custom hash overload",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0057",
+      "subject": "Binary/file certificate constructors",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0058",
+      "subject": "SslStream legacy cipher/algorithm properties",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0059",
+      "subject": "SystemEvents.EventsThreadShutdown",
+      "owner": "PIN-693",
+      "outcome": "historical",
+      "evidence": "docs/planning/inventory/03-desktop-mobile.md"
+    },
+    {
+      "id": "SYSLIB0060",
+      "subject": "Rfc2898DeriveBytes constructors",
+      "owner": "PIN-705",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/runtime-security.md#complete-source-only-and-obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0061",
+      "subject": "Queryable MinBy/MaxBy wrong-comparer overloads",
+      "owner": "PIN-703",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/data-io.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0062",
+      "subject": "XsltSettings.EnableScript",
+      "owner": "PIN-704",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/serialization.md#obsolete-index-ownership"
+    },
+    {
+      "id": "SYSLIB0063",
+      "subject": "NamedPipeClientStream isConnected constructor",
+      "owner": "PIN-741",
+      "outcome": "grouped-delivery-outstanding",
+      "evidence": "docs/planning/audits/archive-path-handle-clock.md"
+    },
+    {
+      "id": "SYSLIB0064",
+      "subject": "RSACryptoServiceProvider Boolean padding overloads",
+      "owner": "PIN-686",
+      "outcome": "grouped-proposal-outstanding",
+      "evidence": "docs/planning/audits/cryptography-platforms.md#f-make-legacy-rsa-encryption-padding-explicit--m-3"
+    },
+    {
+      "id": "SYSLIB0065",
+      "subject": "AsnEncodedData.RawData setter",
+      "owner": "PIN-686",
+      "outcome": "grouped-proposal-outstanding",
+      "evidence": "docs/planning/audits/cryptography-platforms.md#e-update-decoded-asn1-extension-state-through-supported-apis--s-2"
+    },
+    {
+      "id": "SYSLIB0066",
+      "subject": "IStartupValidator",
+      "owner": "PIN-746",
+      "outcome": "delivered",
+      "evidence": "docs/verification/PIN-745-747.md"
+    },
+    {
+      "id": "EXTOBS0001",
+      "subject": "IResourceMonitor and related APIs",
+      "owner": "PIN-706",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/extensions.md#obsolete-index-ownership"
+    },
+    {
+      "id": "EXTOBS0002",
+      "subject": "AddServiceLogEnricher overloads",
+      "owner": "PIN-706",
+      "outcome": "historical",
+      "evidence": "docs/planning/audits/obsolete-index.md#historical-and-non-obsolete-boundaries"
+    }
+  ],
+  "otherDiagnostics": [
+    {
+      "owner": "PIN-693",
+      "kind": "experimental allocation (including retired IDs)",
+      "ids": [
+        "SYSLIB5002"
+      ]
+    },
+    {
+      "owner": "PIN-703",
+      "kind": "experimental allocation (including retired IDs)",
+      "ids": [
+        "SYSLIB5001"
+      ]
+    },
+    {
+      "owner": "PIN-703",
+      "kind": "generator allocation (including reserved IDs)",
+      "ids": [
+        "SYSLIB1040",
+        "SYSLIB1041",
+        "SYSLIB1042",
+        "SYSLIB1043",
+        "SYSLIB1044",
+        "SYSLIB1045",
+        "SYSLIB1046",
+        "SYSLIB1047",
+        "SYSLIB1048",
+        "SYSLIB1049"
+      ]
+    },
+    {
+      "owner": "PIN-704",
+      "kind": "experimental allocation (including retired IDs)",
+      "ids": [
+        "SYSLIB5005"
+      ]
+    },
+    {
+      "owner": "PIN-704",
+      "kind": "generator allocation (including reserved IDs)",
+      "ids": [
+        "SYSLIB1030",
+        "SYSLIB1031",
+        "SYSLIB1032",
+        "SYSLIB1033",
+        "SYSLIB1034",
+        "SYSLIB1035",
+        "SYSLIB1036",
+        "SYSLIB1037",
+        "SYSLIB1038",
+        "SYSLIB1039",
+        "SYSLIB1220",
+        "SYSLIB1221",
+        "SYSLIB1222",
+        "SYSLIB1223",
+        "SYSLIB1224",
+        "SYSLIB1225",
+        "SYSLIB1226",
+        "SYSLIB1227",
+        "SYSLIB1228",
+        "SYSLIB1229",
+        "SYSLIB1240",
+        "SYSLIB1241",
+        "SYSLIB1242",
+        "SYSLIB1243",
+        "SYSLIB1244",
+        "SYSLIB1245",
+        "SYSLIB1246",
+        "SYSLIB1247",
+        "SYSLIB1248",
+        "SYSLIB1249"
+      ]
+    },
+    {
+      "owner": "PIN-705",
+      "kind": "analyzer suppression",
+      "ids": [
+        "SYSLIBSUPPRESS0001"
+      ]
+    },
+    {
+      "owner": "PIN-705",
+      "kind": "experimental allocation (including retired IDs)",
+      "ids": [
+        "SYSLIB5003",
+        "SYSLIB5004",
+        "SYSLIB5006",
+        "SYSLIB5007",
+        "SYSLIB5008",
+        "SYSLIB5009"
+      ]
+    },
+    {
+      "owner": "PIN-705",
+      "kind": "generator allocation (including reserved IDs)",
+      "ids": [
+        "SYSLIB1050",
+        "SYSLIB1051",
+        "SYSLIB1052",
+        "SYSLIB1053",
+        "SYSLIB1054",
+        "SYSLIB1055",
+        "SYSLIB1056",
+        "SYSLIB1057",
+        "SYSLIB1058",
+        "SYSLIB1059",
+        "SYSLIB1060",
+        "SYSLIB1061",
+        "SYSLIB1062",
+        "SYSLIB1063",
+        "SYSLIB1064",
+        "SYSLIB1065",
+        "SYSLIB1066",
+        "SYSLIB1067",
+        "SYSLIB1068",
+        "SYSLIB1069",
+        "SYSLIB1070",
+        "SYSLIB1071",
+        "SYSLIB1072",
+        "SYSLIB1073",
+        "SYSLIB1074",
+        "SYSLIB1075",
+        "SYSLIB1076",
+        "SYSLIB1077",
+        "SYSLIB1078",
+        "SYSLIB1079",
+        "SYSLIB1080",
+        "SYSLIB1081",
+        "SYSLIB1082",
+        "SYSLIB1083",
+        "SYSLIB1084",
+        "SYSLIB1085",
+        "SYSLIB1086",
+        "SYSLIB1087",
+        "SYSLIB1088",
+        "SYSLIB1089",
+        "SYSLIB1090",
+        "SYSLIB1091",
+        "SYSLIB1092",
+        "SYSLIB1093",
+        "SYSLIB1094",
+        "SYSLIB1095",
+        "SYSLIB1096",
+        "SYSLIB1097",
+        "SYSLIB1098",
+        "SYSLIB1099",
+        "SYSLIB1230",
+        "SYSLIB1231",
+        "SYSLIB1232",
+        "SYSLIB1233",
+        "SYSLIB1234",
+        "SYSLIB1235",
+        "SYSLIB1236",
+        "SYSLIB1237",
+        "SYSLIB1238",
+        "SYSLIB1239"
+      ]
+    },
+    {
+      "owner": "PIN-706",
+      "kind": "analyzer suppression",
+      "ids": [
+        "SYSLIBSUPPRESS0002",
+        "SYSLIBSUPPRESS0003"
+      ]
+    },
+    {
+      "owner": "PIN-706",
+      "kind": "generator allocation (including reserved IDs)",
+      "ids": [
+        "SYSLIB1001",
+        "SYSLIB1002",
+        "SYSLIB1003",
+        "SYSLIB1004",
+        "SYSLIB1005",
+        "SYSLIB1006",
+        "SYSLIB1007",
+        "SYSLIB1008",
+        "SYSLIB1009",
+        "SYSLIB1010",
+        "SYSLIB1011",
+        "SYSLIB1012",
+        "SYSLIB1013",
+        "SYSLIB1014",
+        "SYSLIB1015",
+        "SYSLIB1016",
+        "SYSLIB1017",
+        "SYSLIB1018",
+        "SYSLIB1019",
+        "SYSLIB1020",
+        "SYSLIB1021",
+        "SYSLIB1022",
+        "SYSLIB1023",
+        "SYSLIB1024",
+        "SYSLIB1025",
+        "SYSLIB1026",
+        "SYSLIB1027",
+        "SYSLIB1028",
+        "SYSLIB1029",
+        "SYSLIB1100",
+        "SYSLIB1101",
+        "SYSLIB1102",
+        "SYSLIB1103",
+        "SYSLIB1104",
+        "SYSLIB1105",
+        "SYSLIB1106",
+        "SYSLIB1107",
+        "SYSLIB1108",
+        "SYSLIB1109",
+        "SYSLIB1110",
+        "SYSLIB1111",
+        "SYSLIB1112",
+        "SYSLIB1113",
+        "SYSLIB1114",
+        "SYSLIB1115",
+        "SYSLIB1116",
+        "SYSLIB1117",
+        "SYSLIB1118",
+        "SYSLIB1201",
+        "SYSLIB1202",
+        "SYSLIB1203",
+        "SYSLIB1204",
+        "SYSLIB1205",
+        "SYSLIB1206",
+        "SYSLIB1207",
+        "SYSLIB1208",
+        "SYSLIB1209",
+        "SYSLIB1210",
+        "SYSLIB1211",
+        "SYSLIB1212",
+        "SYSLIB1213",
+        "SYSLIB1214",
+        "SYSLIB1215",
+        "SYSLIB1216",
+        "SYSLIB1217",
+        "SYSLIB1218",
+        "SYSLIB1219"
+      ]
+    }
+  ]
+}
