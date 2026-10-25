@@ -1,0 +1,91 @@
+{
+  "recordedAt": "2026-10-25T13:48:28.2714155+00:00",
+  "samples": [
+    {
+      "assemblySha256": "d789cfc6bb65595e14021da0c1f0f84e943ef5660607bb5d6f149d3b6a842e30",
+      "sdk": "10.0.402",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-Soundings.ps1": "ea7cc550458d3e690adfab1cef820a604bc7e8e546437cc0b1f418808b88db48",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/net10.0/Soundings/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net10.0/Soundings/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net10.0/Soundings/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net10.0/Soundings/global.json": "bdd07c2963bfb07c17e13de19a79d4f021c976fdc1ee92bba4dca9b1a4764c9d",
+        "samples/net10.0/Soundings/packages.lock.json": "040b8090076e245986a02e9ae1fce0697bd9ae12b046d8254d781638a4877330",
+        "samples/net10.0/Soundings/Program.cs": "b56a636003d456be832611a5a3ff215511b3c55839055a7f7c9671163056c94a",
+        "samples/net10.0/Soundings/Proof.cs": "4bd4f8563354a13b0eff1340116342d99881202b9334f66f0f0b356ab4c62e37",
+        "samples/net10.0/Soundings/SoundingHub.cs": "bdf361a3c556817da8d4407758e8bff4abf5d66b3631c8135c0eb9598227c232",
+        "samples/net10.0/Soundings/Soundings.csproj": "416bc8790a0ec10761415e5a17d8b67f416ce0a2067aad7c41b1b769b6cc2e34",
+        "samples/net10.0/Soundings/SoundingWork.cs": "d3cd1f6a9fc43d7296c40dea2ce96b3a046f63c237a4ee336ca97595492f954a",
+        "samples/net10.0/Soundings/verification.json": "f05872c887e5f327e5c9413f85ac5e47d1a6f125b76f5b1d0eed9019898df876"
+      },
+      "sample": "samples/net10.0/Soundings/Soundings.csproj",
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Soundings -> V:\\_worktrees\\Playbook\\t3-1b678e3d\\samples\\net10.0\\Soundings\\bin\\Release\\net10.0\\Soundings.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.73\r\n"
+    },
+    {
+      "assemblySha256": "c907f1df7b919299c5fb543b402dfb91df691bc97fb16b0cd5c4403eb23a5a2b",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "inputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "eng/Test-Soundings.ps1": "ea7cc550458d3e690adfab1cef820a604bc7e8e546437cc0b1f418808b88db48",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/net11.0/Soundings/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net11.0/Soundings/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net11.0/Soundings/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net11.0/Soundings/global.json": "e608edfd2abefa08b8a119d721f5d48b35b1ca2add0d201a028354c2fb09945b",
+        "samples/net11.0/Soundings/packages.lock.json": "94561ab625608ec232aea52de07d43ee80cc2b88ed4e2472d265e0a4df051713",
+        "samples/net11.0/Soundings/Program.cs": "f3dfb62cd18575087974c14689a329637f9c171909acbed97aba12946d7518e8",
+        "samples/net11.0/Soundings/Proof.cs": "06eb572ec2f1cb4195e1d19170d6bc50cee3c83962b4b01c34cfde53c19d57e4",
+        "samples/net11.0/Soundings/SoundingHub.cs": "0a643337ee89331d077ab5be22898df8d7e06cb713e4911d791d254a3f307cfc",
+        "samples/net11.0/Soundings/Soundings.csproj": "55286bb34876d1cbdc8dcc5f0554aca98064ff25b15ccc0f24e38bf86a6d0358",
+        "samples/net11.0/Soundings/SoundingWork.cs": "d3cd1f6a9fc43d7296c40dea2ce96b3a046f63c237a4ee336ca97595492f954a",
+        "samples/net11.0/Soundings/verification.json": "642476a23d7a20bfdaf650a9a49691db3382d674890d66564a16a2e57c4c0b66"
+      },
+      "sample": "samples/net11.0/Soundings/Soundings.csproj",
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-1b678e3d\\samples\\net11.0\\Soundings\\Soundings.csproj]\r\n  Soundings -> V:\\_worktrees\\Playbook\\t3-1b678e3d\\samples\\net11.0\\Soundings\\bin\\Release\\net11.0\\Soundings.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.30\r\n"
+    }
+  ],
+  "scope": "Real non-streaming InvokeAsync over loopback WebSockets, both matched and both mixed .NET 10/11 pairs. Client cancellation, server state, connection reuse, normal completion and disconnect fallback. Held work and HTTP observation are local test instrumentation, not mocks. No browser/Java/Swift, MessagePack, service provider, external resource, platform matrix or GA claim.",
+  "records": [
+    {
+      "output": "Client: .NET 10.0.13; SignalR 10.0.13.0; server11=False\r\nClient task canceled.\r\nPASS: a missing new client/server capability cancels only the client wait; server work remains running.\r\nPASS: stopping the connection cancels server work through its connection-aborted token.\r\n",
+      "client": 10,
+      "server": 10,
+      "workingDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\soundings-6e3bd10978604385a36bb212d0ce11d7"
+    },
+    {
+      "output": "Client: .NET 11.0.0-rc.2.26504.105; SignalR 11.0.0.0; server11=False\r\nClient task canceled.\r\nPASS: a missing new client/server capability cancels only the client wait; server work remains running.\r\nPASS: stopping the connection cancels server work through its connection-aborted token.\r\n",
+      "client": 11,
+      "server": 10,
+      "workingDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\soundings-6e3bd10978604385a36bb212d0ce11d7"
+    },
+    {
+      "serverOutput": "Server: .NET 10.0.13; ASP.NET Core 10.0.0.0\r\n",
+      "server": 10,
+      "serverError": ""
+    },
+    {
+      "output": "Client: .NET 10.0.13; SignalR 10.0.13.0; server11=True\r\nClient task canceled.\r\nPASS: a missing new client/server capability cancels only the client wait; server work remains running.\r\nPASS: stopping the connection cancels server work through its connection-aborted token.\r\n",
+      "client": 10,
+      "server": 11,
+      "workingDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\soundings-6e3bd10978604385a36bb212d0ce11d7"
+    },
+    {
+      "output": "Client: .NET 11.0.0-rc.2.26504.105; SignalR 11.0.0.0; server11=True\r\nClient task canceled.\r\nPASS: non-streaming server work canceled; the same connection still answers Echo.\r\nPASS: an uncanceled invocation completes normally on that connection.\r\n",
+      "client": 11,
+      "server": 11,
+      "workingDirectory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\soundings-6e3bd10978604385a36bb212d0ce11d7"
+    },
+    {
+      "serverOutput": "Server: .NET 11.0.0-rc.2.26504.105; ASP.NET Core 11.0.0.0\r\n",
+      "server": 11,
+      "serverError": ""
+    }
+  ],
+  "kind": "real-dotnet-client-and-kestrel-websocket-execution"
+}

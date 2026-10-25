@@ -226,4 +226,7 @@
   <ItemGroup>
     <EmbeddedResource Include="../../samples/net*/ParcelIntake/*.cs;../../samples/net*/ParcelIntake/*.csproj;../../samples/net*/ParcelIntake/*.props;../../samples/net*/ParcelIntake/*.targets;../../samples/net*/ParcelIntake/global.json;../../samples/net*/ParcelIntake/verification-evidence.json;../../samples/net*/SignalCabin/*.cs;../../samples/net*/SignalCabin/*.csproj;../../samples/net*/SignalCabin/*.props;../../samples/net*/SignalCabin/*.targets;../../samples/net*/SignalCabin/global.json;../../samples/net*/SignalCabin/verification-evidence.json;../../content/recipes/minimal-api.shape-binding-error/11.0/recipe.json;../../content/recipes/minimal-api.shape-binding-error/11.0/recipe.md;../../content/recipes/web.short-circuit-simple-endpoint/11.0/recipe.json;../../content/recipes/web.short-circuit-simple-endpoint/11.0/recipe.md" LogicalName="SdkInput.%(Identity)" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/Soundings/*.cs;../../samples/net*/Soundings/*.csproj;../../samples/net*/Soundings/*.props;../../samples/net*/Soundings/*.targets;../../samples/net*/Soundings/global.json;../../samples/net*/Soundings/verification-evidence.json;../../content/recipes/signalr.cancel-active-operation/11.0/recipe.json;../../content/recipes/signalr.cancel-active-operation/11.0/recipe.md" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
 </Project>
