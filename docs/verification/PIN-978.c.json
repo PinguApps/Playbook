@@ -1,0 +1,2355 @@
+{
+  "scenario": "C",
+  "prompt": "Assess whether this consumer's current configuration can represent three unrelated synchronization result records as one language-enforced closed result type. Consult the connected Playbook. Keep the current target framework, language version and SDK pin; do not enable experimental features. Compare the prerequisites of close alternatives before recommending one. Give a recommendation grounded in the consumer and retrieved requirements. Do not edit files.",
+  "selection": {
+    "instanceId": "codex",
+    "model": "gpt-6.1-sol",
+    "options": [
+      {
+        "id": "reasoningEffort",
+        "value": "high"
+      },
+      {
+        "id": "serviceTier",
+        "value": "default"
+      }
+    ]
+  },
+  "thread": {
+    "threadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+    "projectId": "mcp:cb660864-7bf7-43f9-b205-1a54c5e763cf",
+    "title": "PIN-978 C — larger catalogue first pass",
+    "createdBy": "agent",
+    "creationSource": "mcp",
+    "status": "completed",
+    "latestRunId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+    "activeRunId": null,
+    "providerInstanceId": "codex",
+    "model": "gpt-6.1-sol",
+    "runtimeMode": "full-access",
+    "interactionMode": "default",
+    "linkedPullRequest": null,
+    "pullRequests": [],
+    "titleRegeneration": null,
+    "branch": "verify/pin978-c",
+    "worktreePath": "V:\\_worktrees\\PlaybookVerification\\verify-pin978-c",
+    "parentThreadId": null,
+    "relationshipToParent": null,
+    "runCount": 1,
+    "itemCount": 17,
+    "pendingRequestCount": 0,
+    "archived": false,
+    "settled": false,
+    "settledAt": null,
+    "snoozed": false,
+    "snoozedUntil": null,
+    "createdAt": "2026-10-25T10:29:14.201Z",
+    "updatedAt": "2026-10-25T10:30:35.286Z"
+  },
+  "run": {
+    "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+    "ordinal": 1,
+    "status": "completed",
+    "providerInstanceId": "codex",
+    "model": "gpt-6.1-sol",
+    "requestedAt": "2026-10-25T10:29:14.206Z",
+    "startedAt": "2026-10-25T10:29:16.083Z",
+    "completedAt": "2026-10-25T10:30:35.286Z"
+  },
+  "executionSeconds": 79.203,
+  "activity": [
+    {
+      "position": 0,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:message:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "createdBy": "agent",
+      "creationSource": "mcp",
+      "senderThreadId": "ad363f36-11cf-4f4f-8dbd-156cf956cf14",
+      "type": "user_message",
+      "status": "completed",
+      "title": null,
+      "text": "Assess whether this consumer's current configuration can represent three unrelated synchronization result records as one language-enforced closed result type. Consult the connected Playbook. Keep the current target framework, language version and SDK pin; do not enable experimental features. Compare the prerequisites of close alternatives before recommending one. Give a recommendation grounded in the consumer and retrieved requirements. Do not edit files.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:14.206Z"
+    },
+    {
+      "position": 1,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:workspace-preparation%3Arun%3Athread%3Amcp%253A16a3bd70-74a7-48c8-a85f-8664a3c6eed5%3Aordinal%3A1",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": "Workspace ready",
+      "text": "$ Preparing workspace\nWorkspace preparation completed.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:14.884Z"
+    },
+    {
+      "position": 2,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:msg_0ea36eeb66e8b035016addda10df1c81919c4dd8adfe1d8e88",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": "message:provider:codex:native-item:msg_0ea36eeb66e8b035016addda10df1c81919c4dd8adfe1d8e88",
+      "createdBy": "agent",
+      "creationSource": "provider",
+      "type": "assistant_message",
+      "status": "completed",
+      "title": null,
+      "text": "I’ll inspect the consumer’s framework, language version and SDK pin, then compare the relevant Playbook routes. I won’t edit files.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:31.083Z"
+    },
+    {
+      "position": 3,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:exec-09b1211d-3008-4f73-a3b0-2b7da6f50ffa",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command \"Get-Location; rg --files -g AGENTS.md -g global.json -g '*.csproj' -g 'Directory.Build.*' -g '*.cs' -g '*.props' -g '*.targets' -g README.md\"\n\r\nREADME.md\nconsumer\\Program.cs\nconsumer\\global.json\nconsumer\\Directory.Packages.props\nconsumer\\Directory.Build.targets\nconsumer\\Directory.Build.props\nconsumer\\Consumer.csproj\nAGENTS.md\nPath\r\n----\r\nV:\\_worktrees\\PlaybookVerification\\verify-pin978-c\r\n\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:35.492Z"
+    },
+    {
+      "position": 4,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:exec-a6d7e5b2-6e04-468d-8ffb-fdea0bee9381",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath AGENTS.md,README.md,consumer\\\\Consumer.csproj,consumer\\\\Directory.Build.props,consumer\\\\Directory.Build.targets,consumer\\\\Directory.Packages.props,consumer\\\\global.json,consumer\\\\Program.cs\"\n# Verification consumer\r\n\r\nUse only this checkout. Keep PATH and persistent environment variables unchanged.\r\nUse absolute executable paths. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in every\r\n.NET child process; disable workload update notifications. No installers,\r\nglobal configuration edits, commits, pushes, PRs or delegated work are needed.\r\n\r\nBefore applicable .NET implementation work, consult Playbook. Inspect the\r\napplication's target frameworks, project/build files and global.json; choose\r\nits target release, not its SDK version. Supply targetVersion on every\r\nlist_recipes page and get_recipe call; calls share no target state. Use latest\r\ndeliberately for exploration or an unknown target: it means the newest installed\r\ncatalogue target and does not establish compatibility. Discover relevant recipes,\r\nretrieve full detail, then check each route's requirements and stability against\r\nthe application before applying and verifying guidance. Primary and optional\r\nroutes are separate choices. Exact evidence baselines are test records, not\r\nrequired installation versions; RC evidence is not GA verification. Check\r\ncoverage: an empty result does not prove a capability is unavailable.\r\n\r\nIf the real Playbook MCP tools are unavailable, report that prerequisite and stop.\r\nDo not substitute Inspector, a mock, source files or a shell implementation.\r\nFinish within five execution minutes; preserve partial work and report a timeout.\r\n\r\nThe installed SDK executable is\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe.\r\nBuild from consumer/ so its global.json applies. Run the resulting\r\nconsumer/bin/Debug/net10.0/Consumer.dll with\r\nC:\\Program Files\\dotnet\\dotnet.exe, which has the .NET 10 runtime.\r\n# Isolated Playbook verification workspace\r\n<Project Sdk=\"Microsoft.NET.Sdk\">\r\n  <PropertyGroup>\r\n    <OutputType>Exe</OutputType>\r\n    <TargetFramework>net10.0</TargetFramework>\r\n    <LangVersion>14.0</LangVersion>\r\n    <Nullable>enable</Nullable>\r\n    <ImplicitUsings>enable</ImplicitUsings>\r\n    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>\r\n  </PropertyGroup>\r\n</Project>\r\n<Project />\r\n<Project />\r\n<Project />\r\n{\r\n  \"sdk\": {\r\n    \"rollForward\": \"disable\",\r\n    \"version\": \"11.0.100-rc.2.26504.105\"\r\n  }\r\n}\r\nvar item = new StockLabel(\"  bay-a  \");\r\nif (item.Code != \"BAY-A\") throw new Exception(\"Constructor normalization\");\r\nitem.Code = \" rack-b \";\r\nif (item.Code != \"RACK-B\") throw new Exception(\"Assignment normalization\");\r\ntry { item.Code = \" \"; throw new Exception(\"Blank accepted\"); }\r\ncatch (ArgumentException) { }\r\ntry { _ = new StockLabel(\" \"); throw new Exception(\"Blank constructor accepted\"); }\r\ncatch (ArgumentException) { }\r\nif (item.Code != \"RACK-B\") throw new Exception(\"Invalid assignment mutated value\");\r\nConsole.WriteLine(\"PASS: constructor, assignment, rejection and retained value\");\r\n\r\npublic sealed class StockLabel\r\n{\r\n    private string code = \"UNASSIGNED\";\r\n    public StockLabel(string code) => Code = code;\r\n    public string Code\r\n    {\r\n        get => code;\r\n        set\r\n        {\r\n            ArgumentException.ThrowIfNullOrWhiteSpace(value);\r\n            code = value.Trim().ToUpperInvariant();\r\n        }\r\n    }\r\n}\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:41.222Z"
+    },
+    {
+      "position": 11,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:msg_0ea36eeb66e8b035016addda29fbfc8191975b7cd96454fb9b",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": "message:provider:codex:native-item:msg_0ea36eeb66e8b035016addda29fbfc8191975b7cd96454fb9b",
+      "createdBy": "agent",
+      "creationSource": "provider",
+      "type": "assistant_message",
+      "status": "completed",
+      "title": null,
+      "text": "The consumer targets `net10.0` with C# `14.0`, despite its .NET 11 RC SDK pin. Playbook’s .NET 10 catalogue has no matching recipe and reports incomplete coverage. I’m checking the .NET 11 recipes for explicit prerequisites and alternatives; that does not establish compatibility with this consumer.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:57.501Z"
+    },
+    {
+      "position": 14,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:exec-420e3edb-6be8-451d-b6a9-694f73bef456",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "web_search",
+      "status": "completed",
+      "title": null,
+      "text": "{\n  \"patterns\": [\n    \"https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning\",\n    \"https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning\"\n  ]\n}",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:11.402Z"
+    },
+    {
+      "position": 15,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:msg_0ea36eeb66e8b035016addda442f5481919f8c406c1d7bb260",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": "message:provider:codex:native-item:msg_0ea36eeb66e8b035016addda442f5481919f8c406c1d7bb260",
+      "createdBy": "agent",
+      "creationSource": "provider",
+      "type": "assistant_message",
+      "status": "completed",
+      "title": null,
+      "text": "**The current configuration cannot provide a native, language-enforced closed result type.** It can provide a constrained wrapper, but C# 14 will not recognise its three payload types as an exhaustive set.\n\nThe consumer fixes:\n\n- `net10.0`, C# `14.0` and warnings as errors in [Consumer.csproj](V:/_worktrees/PlaybookVerification/verify-pin978-c/consumer/Consumer.csproj).\n- SDK `11.0.100-rc.2.26504.105`, with roll-forward disabled, in [global.json](V:/_worktrees/PlaybookVerification/verify-pin978-c/consumer/global.json).\n\nThe newer SDK does not override the explicit language version or supply .NET 11 contracts to the .NET 10 target. Microsoft also documents C# 15 on older target frameworks as unsupported. [Language compatibility](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning).\n\nI retrieved the full connected Playbook recipes `csharp.closed-results` and `csharp.closed-hierarchies`. Their alternatives compare as follows:\n\n1. **Native union:** Best conceptual fit for three unrelated records. Playbook requires **.NET 11 runtime/reference assemblies, SDK 11 and C# 15**. It needs no experimental opt-in, packages or workloads, but violates your framework and language constraints. Default storage remains an unassigned case requiring explicit handling. [Union reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union).\n\n2. **Native closed hierarchy:** Has the same version prerequisites. It additionally requires an owned inheritance family, with direct descendants in the declaring assembly and sealed leaves to prevent further inheritance. It is appropriate when outcomes need shared inherited members; it is less suitable for retaining unrelated records. [Closed hierarchy reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed).\n\n3. **Handwritten typed wrapper:** Playbook’s older approach works with **.NET 10/C# 14**. Three typed constructors or factories can restrict ordinary creation to your three records. However, matching the stored payload still needs null/default handling and a defensive fallback; the compiler cannot enforce exhaustive handling.\n\n**Recommendation:** Preserve the configuration and use the typed wrapper if restricted construction is sufficient. If compiler-enforced exhaustiveness is mandatory, defer the feature: neither retrieved native route meets your constraints.\n\nPlaybook’s empty .NET 10 discovery result was not treated as proof of absence; its coverage is incomplete. Its .NET 10 evidence verifies the handwritten approach, while native-feature evidence is RC2-only, not GA verification. Exact recorded SDK versions are test baselines, not installation requirements.\n\nNo files or environment settings changed. No builds or tests ran.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:35.200Z"
+    },
+    {
+      "position": 16,
+      "visibility": "local",
+      "sourceThreadId": "mcp:16a3bd70-74a7-48c8-a85f-8664a3c6eed5",
+      "itemId": "turn-item:provider:codex:native-item:checkpoint%3Acheckpoint%3Ascope%3Acheckpoint-scope%253Athread%253Amcp%25253A16a3bd70-74a7-48c8-a85f-8664a3c6eed5%253Aname%253Aroot%3Aname%3A1",
+      "runId": "run:thread:mcp%3A16a3bd70-74a7-48c8-a85f-8664a3c6eed5:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "checkpoint",
+      "status": "completed",
+      "title": null,
+      "text": "[]",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:35.286Z"
+    }
+  ],
+  "toolCalls": [
+    {
+      "position": 5,
+      "itemId": "turn-item:provider:codex:native-item:exec-51ae3718-640a-4b26-ab98-acecab1628de",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "targetVersion": "10",
+        "query": "union",
+        "limit": 50
+      },
+      "output": {
+        "resolvedTarget": "10.0",
+        "requestedTarget": "10",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "fsharp",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "csharp",
+          "fsharp",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 0,
+        "offset": 0,
+        "limit": 50,
+        "nextOffset": null,
+        "recipes": [],
+        "recovery": {
+          "reason": "no_matches",
+          "message": "No installed recipe matches all keywords with this target and filters. You may retry without keywords; compatibility filters are unchanged. This is not proof that the capability does not exist; inspect coverage.",
+          "filters": {
+            "areas": [],
+            "languages": [],
+            "query": "union",
+            "includeShared": true
+          },
+          "suggestedRequest": {
+            "targetVersion": "10",
+            "areas": [],
+            "languages": [],
+            "query": null,
+            "includeShared": true,
+            "offset": 0,
+            "limit": 50
+          }
+        }
+      }
+    },
+    {
+      "position": 6,
+      "itemId": "turn-item:provider:codex:native-item:exec-128df361-b062-470e-af77-f6c168bded1b",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "targetVersion": "10",
+        "query": "closed",
+        "limit": 50
+      },
+      "output": {
+        "resolvedTarget": "10.0",
+        "requestedTarget": "10",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "fsharp",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "csharp",
+          "fsharp",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 0,
+        "offset": 0,
+        "limit": 50,
+        "nextOffset": null,
+        "recipes": [],
+        "recovery": {
+          "reason": "no_matches",
+          "message": "No installed recipe matches all keywords with this target and filters. You may retry without keywords; compatibility filters are unchanged. This is not proof that the capability does not exist; inspect coverage.",
+          "filters": {
+            "areas": [],
+            "languages": [],
+            "query": "closed",
+            "includeShared": true
+          },
+          "suggestedRequest": {
+            "targetVersion": "10",
+            "areas": [],
+            "languages": [],
+            "query": null,
+            "includeShared": true,
+            "offset": 0,
+            "limit": 50
+          }
+        }
+      }
+    },
+    {
+      "position": 7,
+      "itemId": "turn-item:provider:codex:native-item:exec-2c1dbc9e-362e-46b0-a5b4-6ee9a7244ae7",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "targetVersion": "10",
+        "limit": 50
+      },
+      "output": {
+        "resolvedTarget": "10.0",
+        "requestedTarget": "10",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "fsharp",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "csharp",
+          "fsharp",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 9,
+        "offset": 0,
+        "limit": 50,
+        "nextOffset": null,
+        "recipes": [
+          {
+            "id": "csharp.extend-uneditable-types",
+            "edition": "10.0",
+            "title": "Add computed properties to types you cannot edit",
+            "goal": "Use a C# extension property for a cheap computed observation of an existing type. Retain method syntax for older targets or operations that behave like actions.",
+            "introducedIn": "10.0",
+            "areas": [
+              "csharp"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Computed property only: no receiver storage, caching, synchronization or private-member access.",
+                    "Import the extension namespace; existing applicable instance members take precedence.",
+                    "This foundation uses C# 14 independently of C# 15 collection arguments and indexers."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10.0"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "csharp.validate-property-assignment",
+            "edition": "10.0",
+            "title": "Normalize and validate properties with the C# field keyword",
+            "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
+            "introducedIn": "10.0",
+            "areas": [
+              "csharp"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Concurrent mutation needs separate synchronization."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": []
+                  }
+                },
+                {
+                  "target": "10.0",
+                  "sharedAreas": [],
+                  "neutralLanguages": [],
+                  "conditional": true,
+                  "usage": "optional-alternative",
+                  "selectionNotes": [
+                    "Concurrent mutation needs separate synchronization.",
+                    "The .NET 10 targeting pack is required; retain net10.0 and C# 14."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Only the recorded .NET 11 RC SDK was executed for this alternative; GA reconciliation is pending. The recorded SDK is a test baseline, not an exact installation requirement."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "fsharp.configure-compiler-service-memory",
+            "edition": "11.0",
+            "title": "Choose imported-assembly sharing in an F# compiler host (preview package)",
+            "goal": "Choose default imported-assembly sharing or a deliberate checker opt-out when hosting FCS, while preserving each project reference closure and diagnostics.",
+            "introducedIn": "11.0",
+            "areas": [
+              "fsharp"
+            ],
+            "exampleLanguages": [
+              "fsharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "preview",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": true,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "New preview FCS package; default sharing is already enabled. Exact FCS/Core pair; .NET 10 host route is separately verified."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "F#",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "frameworks": [],
+                    "packages": [
+                      {
+                        "name": "FSharp.Compiler.Service",
+                        "version": "43.13.101-rc2.26504.105",
+                        "match": "exact"
+                      },
+                      {
+                        "name": "FSharp.Core",
+                        "version": "11.0.101-rc2.26504.105",
+                        "match": "exact"
+                      }
+                    ],
+                    "workloads": [],
+                    "packageAssets": [
+                      "FSharp.Compiler.Service lib/netstandard2.0/FSharp.Compiler.Service.dll",
+                      "FSharp.Core lib/net10.0/FSharp.Core.dll"
+                    ],
+                    "providers": [],
+                    "platforms": [
+                      ".NET managed host; Windows x64 execution verified"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Actual RC2 evidence; final GA reconciliation is separate."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "json.reject-malformed-contracts",
+            "edition": "10.0",
+            "title": "Reject malformed JSON at an import boundary",
+            "goal": "Reject structurally malformed imported JSON before applying separate business validation.",
+            "introducedIn": "10.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Strict checks input structure; domain rules remain separate.",
+                    ".NET 9 is comparison-only; the manual duplicate check covers this flat root."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "linq.retain-unmatched-rows",
+            "edition": "10.0",
+            "title": "Preserve unmatched records on the required side of a join",
+            "goal": "Compare expected and observed records while retaining every entry from the side that must remain complete.",
+            "introducedIn": "10.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Choose LeftJoin to retain expected rows or RightJoin to retain observed rows; neither retains both unmatched sides.",
+                    "Queryable availability does not establish database-provider translation."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "linq.transform-async-stream",
+            "edition": "10.0",
+            "title": "Filter and enrich an asynchronous stream as records arrive",
+            "goal": "Produce selected, enriched results incrementally while preserving pull-based enumeration and cooperative cancellation.",
+            "introducedIn": "10.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Where and Select process one pulled record at a time; cancellation depends on the source and enrichment honoring the token.",
+                    "Remove conflicting System.Linq.Async compile assets when migrating; this route needs no package."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "nuget.migrate-client-library-hosts",
+            "edition": "11.0",
+            "title": "Retarget a NuGet client-library host",
+            "goal": "Choose a compatible runtime and actual package assets for a utility directly referencing NuGet client libraries, without retargeting ordinary package-consuming applications.",
+            "introducedIn": "11.0",
+            "areas": [
+              "nuget",
+              "sdk"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": true,
+                  "usage": "optional-alternative",
+                  "selectionNotes": [
+                    "NuGet client hosts are separate from ordinary package-consuming application TFMs.",
+                    "Current net10.0 assets also have a verified conditional .NET 10 host route; no Framework route is advertised."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [
+                      {
+                        "name": "NuGet.Packaging",
+                        "version": "8.0.0-rc.605",
+                        "match": "exact"
+                      },
+                      {
+                        "name": "System.Security.Cryptography.Pkcs",
+                        "version": "8.0.2",
+                        "match": "exact"
+                      }
+                    ],
+                    "workloads": [],
+                    "packageAssets": [
+                      "NuGet.Packaging/8.0.0-rc.605: lib/net10.0/NuGet.Packaging.dll selected for compile and runtime."
+                    ],
+                    "providers": [],
+                    "platforms": [
+                      "Platforms supported by the declared .NET SDK/runtime; actual sample execution was Windows x64 only."
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified with SDK 11.0.100-rc.2.26504.105 (RC2), not GA. No publisher-designated experimental API; GA reconciliation remains separate."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "sdk.compose-file-apps",
+            "edition": "11.0",
+            "title": "Grow a file application with shared code and explicit dependencies",
+            "goal": "Add source, project or DLL references to a file utility and keep SDK, metadata and central-package requirements explicit.",
+            "introducedIn": "11.0",
+            "areas": [
+              "sdk"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": true,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Inspect the selected SDK independently of the application target; retrieve detail before applying commands.",
+                    "Source include is serviced into SDK 10.0.300. The SDK-11/net10.0 conditional route verifies source inclusion and quoted package/property metadata with C# 14 and a .NET 10 runtime; it does not establish older-target DLL/reference-editing routes."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [
+                      {
+                        "name": "System.CommandLine",
+                        "version": "2.0.1",
+                        "match": "exact"
+                      }
+                    ],
+                    "workloads": [],
+                    "packageAssets": [
+                      "System.CommandLine 2.0.1 lib/net8.0 on both targets."
+                    ],
+                    "providers": [],
+                    "platforms": [
+                      "Platforms supported by the selected .NET SDK; command behavior measured on Windows x64."
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "sdk.run-file-utility",
+            "edition": "10.0",
+            "title": "Run a repository utility directly from a C# file",
+            "goal": "Use a file application for a small validated repository utility while retaining inherited build and package policy.",
+            "introducedIn": "10.0",
+            "areas": [
+              "sdk"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Inspect the selected SDK independently of the application target; retrieve detail before applying commands."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Platforms supported by the selected .NET SDK; command behavior measured on Windows x64."
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "position": 9,
+      "itemId": "turn-item:provider:codex:native-item:exec-966ea889-b948-41f5-85cd-baff3736f129",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "targetVersion": "11",
+        "query": "union",
+        "limit": 50
+      },
+      "output": {
+        "resolvedTarget": "11.0",
+        "requestedTarget": "11",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "fsharp",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "csharp",
+          "fsharp",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 5,
+        "offset": 0,
+        "limit": 50,
+        "nextOffset": null,
+        "recipes": [
+          {
+            "id": "blazor.accept-alternative-parameter-shapes",
+            "edition": "11.0",
+            "title": "Offer one component setting for alternative UI values",
+            "goal": "Accept text or markup through one Blazor parameter; transfer only JSON data.",
+            "introducedIn": "11.0",
+            "areas": [
+              "blazor"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "C# 15; Blazor/Razor; fragments differ from JSON data."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [
+                      "ASP.NET Core 11"
+                    ],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [
+                      "SDK Internal.Assets 11"
+                    ],
+                    "providers": [],
+                    "platforms": [
+                      "ASP.NET Core server"
+                    ],
+                    "renderingModes": [
+                      "SSR; Interactive Server"
+                    ],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "RC2; GA reconciliation pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "csharp.closed-results",
+            "edition": "11.0",
+            "title": "Model distinct outcomes with a C# union",
+            "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+            "introducedIn": "11.0",
+            "areas": [
+              "csharp"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Handle null/default explicitly.",
+                    "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "fsharp.format-without-reflection",
+            "edition": "11.0",
+            "title": "Render record and union diagnostics without reflection formatting",
+            "goal": "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application.",
+            "introducedIn": "11.0",
+            "areas": [
+              "fsharp"
+            ],
+            "exampleLanguages": [
+              "fsharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "F#",
+                      "version": "11.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [
+                      {
+                        "name": "FSharp.Core",
+                        "version": "11.0",
+                        "match": "release-family"
+                      }
+                    ],
+                    "workloads": [],
+                    "packageAssets": [
+                      "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package"
+                    ],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [
+                      "OtherFlags=--reflectionfree"
+                    ],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "json.serialize-closed-results",
+            "edition": "11.0",
+            "title": "Preserve a union's distinct cases through JSON",
+            "goal": "Persist and restore C# union outcomes with generated metadata and deliberate case selection. Apply structural classification when required root property names distinguish object payloads.",
+            "introducedIn": "11.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Handle null/default explicitly.",
+                    "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "json.serialize-fsharp-unions",
+            "edition": "11.0",
+            "title": "Round-trip F# union values with built-in JSON support",
+            "goal": "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+            "introducedIn": "11.0",
+            "areas": [
+              "json"
+            ],
+            "exampleLanguages": [
+              "fsharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+                    "Reflection-only; no source generation, trimming or Native AOT."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "F#",
+                      "version": "11.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [
+                      {
+                        "name": "FSharp.Core",
+                        "version": "11.0",
+                        "match": "release-family"
+                      }
+                    ],
+                    "workloads": [],
+                    "packageAssets": [
+                      "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package",
+                      "System.Text.Json 11.0.0-rc.2.26504.105 from Microsoft.NETCore.App; framework asset, no separate package"
+                    ],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "position": 10,
+      "itemId": "turn-item:provider:codex:native-item:exec-f3adbea9-45fe-4e72-bb2b-dfb31bbf1ecf",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "targetVersion": "11",
+        "query": "closed",
+        "limit": 50
+      },
+      "output": {
+        "resolvedTarget": "11.0",
+        "requestedTarget": "11",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "fsharp",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "csharp",
+          "fsharp",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 4,
+        "offset": 0,
+        "limit": 50,
+        "nextOffset": null,
+        "recipes": [
+          {
+            "id": "csharp.closed-hierarchies",
+            "edition": "11.0",
+            "title": "Match every permitted state in an inheritance family",
+            "goal": "Use a closed C# hierarchy when one assembly owns the direct states and consumers should match every permitted case. Seal leaves to bound further inheritance.",
+            "introducedIn": "11.0",
+            "areas": [
+              "csharp"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Seal leaves to bound transitive inheritance.",
+                    "Type-driven discriminator names can change stored contracts.",
+                    "Source-generated contracts must enable inference during compilation."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "csharp.closed-results",
+            "edition": "11.0",
+            "title": "Model distinct outcomes with a C# union",
+            "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+            "introducedIn": "11.0",
+            "areas": [
+              "csharp"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Handle null/default explicitly.",
+                    "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "json.infer-closed-polymorphism",
+            "edition": "11.0",
+            "title": "Infer JSON contracts for a closed state family",
+            "goal": "Infer JSON derived contracts for an owned closed hierarchy when type-driven discriminators suit the data contract. Check source-generation settings and retain explicit registrations for stable wire names.",
+            "introducedIn": "11.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Seal leaves to bound transitive inheritance.",
+                    "Type-driven discriminator names can change stored contracts.",
+                    "Source-generated contracts must enable inference during compilation."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "json.serialize-closed-results",
+            "edition": "11.0",
+            "title": "Preserve a union's distinct cases through JSON",
+            "goal": "Persist and restore C# union outcomes with generated metadata and deliberate case selection. Apply structural classification when required root property names distinguish object payloads.",
+            "introducedIn": "11.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "blazor",
+                    "aspnetcore",
+                    "wpf",
+                    "winforms",
+                    "maui"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Handle null/default explicitly.",
+                    "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "position": 12,
+      "itemId": "turn-item:provider:codex:native-item:exec-c1fffba4-cb42-4147-a248-75b9994829a1",
+      "toolName": "playbook.get_recipe",
+      "input": {
+        "id": "csharp.closed-results",
+        "targetVersion": "11"
+      },
+      "output": {
+        "resolvedTarget": "11.0",
+        "requestedTarget": "11",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "recipe": {
+          "id": "csharp.closed-results",
+          "edition": "11.0",
+          "title": "Model distinct outcomes with a C# union",
+          "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+          "areas": [
+            "csharp"
+          ],
+          "exampleLanguages": [
+            "csharp"
+          ],
+          "languageNeutral": false,
+          "tags": [
+            "closed",
+            "outcomes",
+            "json"
+          ],
+          "apis": [
+            "union",
+            "IUnion"
+          ],
+          "introducedIn": "11.0",
+          "supportedTargets": [
+            "11.0"
+          ],
+          "stability": "stable",
+          "applicability": {
+            "routes": [
+              {
+                "target": "11.0",
+                "sharedAreas": [
+                  "blazor",
+                  "aspnetcore",
+                  "wpf",
+                  "winforms",
+                  "maui"
+                ],
+                "neutralLanguages": [],
+                "conditional": false,
+                "usage": "primary",
+                "selectionNotes": [
+                  "Handle null/default explicitly.",
+                  "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+                ],
+                "requirements": {
+                  "runtime": {
+                    "name": ".NET",
+                    "version": "11.0",
+                    "match": "release-family",
+                    "reason": "The union and closed-family runtime contracts are supplied by .NET 11."
+                  },
+                  "sdk": {
+                    "name": ".NET SDK",
+                    "version": "11.0",
+                    "match": "release-family",
+                    "reason": "Compile the net11.0 application with the SDK family providing C# 15 and matching reference assemblies."
+                  },
+                  "language": {
+                    "name": "C#",
+                    "version": "15.0",
+                    "match": "exact",
+                    "reason": "This route uses C# 15 union and closed declarations, stabilized in the canonical RC1 notes."
+                  },
+                  "frameworks": [],
+                  "packages": [],
+                  "workloads": [],
+                  "packageAssets": [],
+                  "providers": [],
+                  "platforms": [
+                    "Any platform supported by .NET 11"
+                  ],
+                  "renderingModes": [],
+                  "prerequisites": [
+                    "Target net11.0 and set LangVersion to 15.0; use framework System.Text.Json and the supplied metadata contexts."
+                  ],
+                  "constraints": [
+                    "Default union storage has no active case; handle null explicitly.",
+                    "Two object cases require deliberate classification; root-property matching does not inspect values or nested content.",
+                    "Structural classification excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+                  ],
+                  "optIns": [],
+                  "stabilityLimitations": [
+                    "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                  ]
+                },
+                "sourceUrls": [
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed",
+                  "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
+                  "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
+                  "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+                ],
+                "evidenceSamples": [
+                  "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj"
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "title": "Microsoft C# union reference",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union"
+            },
+            {
+              "title": "Microsoft closed modifier reference",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed"
+            },
+            {
+              "title": "Microsoft union serialization",
+              "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types"
+            },
+            {
+              "title": "Microsoft polymorphic serialization",
+              "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism"
+            },
+            {
+              "title": "Canonical RC1 C# stabilization",
+              "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+            },
+            {
+              "title": "Microsoft C# and target compatibility",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+            }
+          ],
+          "evidence": [
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net10.0/ClosedOutcomes/ClosedOutcomes.csproj",
+              "target": "net10.0",
+              "sdk": "10.0.402",
+              "language": "14.0",
+              "command": "C:\\Program Files\\dotnet\\dotnet.exe build ClosedOutcomes.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Program Files\\dotnet\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\ClosedOutcomes\\bin\\Release\\net10.0\\ClosedOutcomes.dll",
+              "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+              "recordedAt": "2026-10-21T13:21:32.7432874+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/ClosedOutcomeChecks.cs": "41fbbb6f9cabd4f2fc1cf4ac3dfa043cd7621cab3c01d30dd0bcb305264695cc",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net10.0/ClosedOutcomes/ClosedOutcomes.csproj": "505c85d1335733263d783ff0539c9d93812fd8b6394bd12b577c5fee870bb811",
+                "samples/net10.0/ClosedOutcomes/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+                "samples/net10.0/ClosedOutcomes/Outcomes.cs": "4ac5460d5fcf1537f71b0d4de7cd0cb99ef328bde9711d92538206a1593d5a9b",
+                "samples/net10.0/ClosedOutcomes/verification.json": "dbc8eb87a14c5de11e3f7ac841704a028e7f2f94f3cbdfbf397db9e3cbdf8841"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\ClosedOutcomes\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  ClosedOutcomes -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\ClosedOutcomes\\bin\\Release\\net10.0\\ClosedOutcomes.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.56\nstored:C-24 -> {\"ShelfCode\":\"C-24\"}\r\nrefused:humidity -> {\"ReasonCode\":\"humidity\"}\r\nqueued:17 -> {\"$type\":\"waiting\",\"QueueNumber\":17}\r\ncatalogued:C-24 -> {\"$type\":\"catalogued\",\"ShelfCode\":\"C-24\"}\r\nPASS: outcome matching, JSON cases, null/default, ambiguity and hierarchy checks; runtime 10.0.13",
+              "freshness": "current"
+            },
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj",
+              "target": "net11.0",
+              "sdk": "11.0.100-rc.2.26504.105",
+              "language": "15.0",
+              "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build ClosedOutcomes.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\bin\\Release\\net11.0\\ClosedOutcomes.dll",
+              "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+              "recordedAt": "2026-10-21T13:24:14.7260323+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/ClosedOutcomeChecks.cs": "41fbbb6f9cabd4f2fc1cf4ac3dfa043cd7621cab3c01d30dd0bcb305264695cc",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj": "1e74846ab59e650a1d9ef1969f74d0c97dce1950bb87cd544b671ca587882f6d",
+                "samples/net11.0/ClosedOutcomes/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+                "samples/net11.0/ClosedOutcomes/Outcomes.cs": "9529ab4df490a9f4fa007f9ab65464d35a60d1bc999bea57ecbd208b8ec1e675",
+                "samples/net11.0/ClosedOutcomes/verification.json": "dbc8eb87a14c5de11e3f7ac841704a028e7f2f94f3cbdfbf397db9e3cbdf8841"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\ClosedOutcomes.csproj]\r\n  ClosedOutcomes -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\bin\\Release\\net11.0\\ClosedOutcomes.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.43\nstored:C-24 -> {\"ShelfCode\":\"C-24\"}\r\nrefused:humidity -> {\"ReasonCode\":\"humidity\"}\r\nqueued:17 -> {\"$type\":\"Waiting\",\"QueueNumber\":17}\r\ncatalogued:C-24 -> {\"$type\":\"Catalogued\",\"ShelfCode\":\"C-24\"}\r\nPASS: outcome matching, JSON cases, null/default, ambiguity and hierarchy checks; runtime 11.0.0",
+              "freshness": "current"
+            }
+          ],
+          "humanProof": {
+            "status": "not-required",
+            "scope": "Portable compiler and serializer behavior is covered by real builds and executions; no targeted native Human proof is required."
+          },
+          "markdown": "# Model distinct outcomes with a C# union\n\n## Goal\n\nReturn either an archive receipt or a refusal without accepting arbitrary objects. Use a union when the alternatives already exist as unrelated types and callers should handle each case. The museum example keeps a shelf location separate from a refusal reason; both remain recoverable after persistence.\n\n## Older approach\n\n.NET 10 / C# 14 has no union declaration. A small wrapper with typed constructors can constrain assignment while retaining unrelated payload types. Matching its object-valued property needs a defensive fallback because the compiler cannot infer the complete set. This remains a valid choice for an older target or a deliberately custom representation.\n\nIn a console project targeting net10.0 with LangVersion 14.0, use `using System.Text.Json;`, `using System.Text.Json.Serialization;` and the file-scoped namespace `Playbook.Samples`. The following model, converter and context are complete together:\n\n```csharp\npublic sealed record ArchiveReceipt([property: JsonRequired] string ShelfCode);\npublic sealed record ArchiveRefusal([property: JsonRequired] string ReasonCode);\n\n[JsonConverter(typeof(OutcomeConverter))]\npublic readonly struct Outcome\n{\n    public Outcome(ArchiveReceipt receipt) => Value = receipt;\n    public Outcome(ArchiveRefusal refusal) => Value = refusal;\n    public object? Value { get; }\n}\n\npublic static class OutcomeWorkflow\n{\n    public static Outcome Receipt(string shelf) => new(new ArchiveReceipt(shelf));\n    public static Outcome Refusal(string reason) => new(new ArchiveRefusal(reason));\n    public static string Describe(Outcome outcome) => outcome.Value switch\n    {\n        ArchiveReceipt receipt => \"stored:\" + receipt.ShelfCode,\n        ArchiveRefusal refusal => \"refused:\" + refusal.ReasonCode,\n        null => \"unassigned\",\n        _ => throw new InvalidOperationException(\"Unexpected outcome type.\")\n    };\n\n    public static string Serialize(Outcome outcome) => JsonSerializer.Serialize(outcome, OutcomeJson.Default.Outcome);\n    public static Outcome Deserialize(string json) => JsonSerializer.Deserialize(json, OutcomeJson.Default.Outcome);\n}\n```\n```csharp\npublic sealed class OutcomeConverter : JsonConverter<Outcome>\n{\n    public override Outcome Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)\n    {\n        if (reader.TokenType == JsonTokenType.Null) { return default; }\n        using JsonDocument document = JsonDocument.ParseValue(ref reader);\n        JsonElement root = document.RootElement;\n        if (root.ValueKind != JsonValueKind.Object) { throw new JsonException(\"Expected an archive outcome object.\"); }\n        bool receipt = root.TryGetProperty(\"ShelfCode\", out _);\n        bool refusal = root.TryGetProperty(\"ReasonCode\", out _);\n        if (receipt == refusal) { throw new JsonException(\"Expected exactly one archive outcome case.\"); }\n        return receipt\n            ? new Outcome(root.Deserialize(OutcomeJson.Default.ArchiveReceipt) ?? throw new JsonException())\n            : new Outcome(root.Deserialize(OutcomeJson.Default.ArchiveRefusal) ?? throw new JsonException());\n    }\n\n    public override void Write(Utf8JsonWriter writer, Outcome value, JsonSerializerOptions options)\n    {\n        switch (value.Value)\n        {\n            case ArchiveReceipt receipt: JsonSerializer.Serialize(writer, receipt, OutcomeJson.Default.ArchiveReceipt); break;\n            case ArchiveRefusal refusal: JsonSerializer.Serialize(writer, refusal, OutcomeJson.Default.ArchiveRefusal); break;\n            case null: writer.WriteNullValue(); break;\n            default: throw new JsonException(\"Unexpected outcome type.\");\n        }\n    }\n}\n```\n```csharp\n[JsonSerializable(typeof(Outcome))]\n[JsonSerializable(typeof(ArchiveReceipt))]\n[JsonSerializable(typeof(ArchiveRefusal))]\ninternal partial class OutcomeJson : JsonSerializerContext;\n```\n\n## Newer approach\n\nTarget net11.0 with LangVersion 15.0. Keep the same imports and namespace. The compiler supplies a struct wrapper, constructors, implicit conversions and union-aware matching. The null arm is intentional: default storage has no active case. The JSON attribute selects between two object-shaped payloads by required root properties. The metadata context supplies serialization contracts without reflection-based fallback.\n\n```csharp\npublic sealed record ArchiveReceipt([property: JsonRequired] string ShelfCode);\npublic sealed record ArchiveRefusal([property: JsonRequired] string ReasonCode);\n\n[JsonUnion(TypeClassifier = typeof(JsonUnionTypeStructuralClassifier))]\npublic union Outcome(ArchiveReceipt, ArchiveRefusal);\n\npublic static class OutcomeWorkflow\n{\n    public static Outcome Receipt(string shelf) => new ArchiveReceipt(shelf);\n    public static Outcome Refusal(string reason) => new ArchiveRefusal(reason);\n    public static string Describe(Outcome outcome) => outcome switch\n    {\n        ArchiveReceipt receipt => \"stored:\" + receipt.ShelfCode,\n        ArchiveRefusal refusal => \"refused:\" + refusal.ReasonCode,\n        null => \"unassigned\"\n    };\n\n    public static string Serialize(Outcome outcome) => JsonSerializer.Serialize(outcome, OutcomeJson.Default.Outcome);\n    public static Outcome Deserialize(string json) => JsonSerializer.Deserialize(json, OutcomeJson.Default.Outcome);\n}\n```\n```csharp\n[JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata)]\n[JsonSerializable(typeof(Outcome))]\ninternal partial class OutcomeJson : JsonSerializerContext;\n```\n\nFor example, `Outcome value = OutcomeWorkflow.Receipt(\"C-24\");` followed by `OutcomeWorkflow.Describe(value)` returns `stored:C-24`. Serializing and deserializing through these helpers retains that result. Use `OutcomeWorkflow.Refusal(\"humidity\")` to get the distinct `refused:humidity` result. See recipe `json.serialize-closed-results` for the classification and persistence tradeoffs.\n\n## Migration\n\n1. Keep each payload's meaning and validation rules. Replace the handwritten wrapper with the union declaration; remove only that wrapper's now-redundant constructors and storage.\n2. Switch on the union itself instead of its Value property. Handle every payload plus null; treat an unassigned result deliberately instead of inventing a successful payload.\n3. Retain the JSON classifier and generated context when persisting these object cases. Test existing payloads before removing the old converter.\n4. Compile consumers with warnings treated as errors. Adding a third case must force review of incomplete switch expressions; don't mask it with a discard arm.\n5. Escape existing type identifiers named `union` or `closed` as `@union` or `@closed` at declaration and affected uses when migrating to C# 15.\n\n## Constraints\n\nThis route needs .NET 11 runtime/reference assemblies and the .NET 11 SDK with C# 15. No preview language flag, extra package, workload, provider, UI framework or rendering mode is used. No supported down-level C# 15 route is claimed. The verification baseline is RC2, not GA verification.\n\nA declared union stores object-backed state; value-type payloads box. It supplies neither record equality nor a domain-specific empty case. `default(Outcome)` has null Value; JSON null maps to that default when no case accepts null. Nullable wrapper absence and empty underlying storage can both match null. Do not rely on a nullability annotation to make default impossible. Union declarations cannot add instance fields, auto-properties, field-like events or public single-parameter constructors. Custom union implementations must obey the compiler's soundness and access rules; this recipe uses the generated representation.\n\nExhaustiveness diagnoses omitted known cases; it does not validate payload properties or prove persisted data is trustworthy. Use a closed hierarchy when the alternatives need common inherited members (`csharp.closed-hierarchies`).\n\n## Evidence\n\nThe original .NET 10/C# 14 and .NET 11 RC2/C# 15 projects compile and execute the same case/payload, null/default and JSON ambiguity checks. The .NET 11 consumer probe omits a union case and requires CS8509, promoted to an error. Evidence records retain exact SDKs, dependencies, inputs and actual output. No mocks, Native AOT publishing, GA execution or UI/client matrix is represented as proof. Portable execution needs no targeted Human proof.\n"
+        }
+      }
+    },
+    {
+      "position": 13,
+      "itemId": "turn-item:provider:codex:native-item:exec-5d8e4ffd-d8fb-4005-85b9-950bb9d35bce",
+      "toolName": "playbook.get_recipe",
+      "input": {
+        "id": "csharp.closed-hierarchies",
+        "targetVersion": "11"
+      },
+      "output": {
+        "resolvedTarget": "11.0",
+        "requestedTarget": "11",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "recipe": {
+          "id": "csharp.closed-hierarchies",
+          "edition": "11.0",
+          "title": "Match every permitted state in an inheritance family",
+          "goal": "Use a closed C# hierarchy when one assembly owns the direct states and consumers should match every permitted case. Seal leaves to bound further inheritance.",
+          "areas": [
+            "csharp"
+          ],
+          "exampleLanguages": [
+            "csharp"
+          ],
+          "languageNeutral": false,
+          "tags": [
+            "closed",
+            "outcomes",
+            "json"
+          ],
+          "apis": [
+            "closed"
+          ],
+          "introducedIn": "11.0",
+          "supportedTargets": [
+            "11.0"
+          ],
+          "stability": "stable",
+          "applicability": {
+            "routes": [
+              {
+                "target": "11.0",
+                "sharedAreas": [
+                  "blazor",
+                  "aspnetcore",
+                  "wpf",
+                  "winforms",
+                  "maui"
+                ],
+                "neutralLanguages": [],
+                "conditional": false,
+                "usage": "primary",
+                "selectionNotes": [
+                  "Seal leaves to bound transitive inheritance.",
+                  "Type-driven discriminator names can change stored contracts.",
+                  "Source-generated contracts must enable inference during compilation."
+                ],
+                "requirements": {
+                  "runtime": {
+                    "name": ".NET",
+                    "version": "11.0",
+                    "match": "release-family",
+                    "reason": "The union and closed-family runtime contracts are supplied by .NET 11."
+                  },
+                  "sdk": {
+                    "name": ".NET SDK",
+                    "version": "11.0",
+                    "match": "release-family",
+                    "reason": "Compile the net11.0 application with the SDK family providing C# 15 and matching reference assemblies."
+                  },
+                  "language": {
+                    "name": "C#",
+                    "version": "15.0",
+                    "match": "exact",
+                    "reason": "This route uses C# 15 union and closed declarations, stabilized in the canonical RC1 notes."
+                  },
+                  "frameworks": [],
+                  "packages": [],
+                  "workloads": [],
+                  "packageAssets": [],
+                  "providers": [],
+                  "platforms": [
+                    "Any platform supported by .NET 11"
+                  ],
+                  "renderingModes": [],
+                  "prerequisites": [
+                    "Target net11.0 and set LangVersion to 15.0; use framework System.Text.Json and the supplied metadata contexts."
+                  ],
+                  "constraints": [
+                    "Closure limits direct inheritance to the declaring assembly; use closed intermediates and sealed leaves.",
+                    "Inferred discriminators are type-driven; changing from explicit names can change the stored wire contract.",
+                    "Generated metadata must enable inference at compile time; a runtime-only option cannot repair omitted contracts."
+                  ],
+                  "optIns": [],
+                  "stabilityLimitations": [
+                    "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                  ]
+                },
+                "sourceUrls": [
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed",
+                  "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
+                  "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
+                  "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+                ],
+                "evidenceSamples": [
+                  "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj"
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "title": "Microsoft C# union reference",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union"
+            },
+            {
+              "title": "Microsoft closed modifier reference",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed"
+            },
+            {
+              "title": "Microsoft union serialization",
+              "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types"
+            },
+            {
+              "title": "Microsoft polymorphic serialization",
+              "url": "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism"
+            },
+            {
+              "title": "Canonical RC1 C# stabilization",
+              "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md"
+            },
+            {
+              "title": "Microsoft C# and target compatibility",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+            }
+          ],
+          "evidence": [
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net10.0/ClosedOutcomes/ClosedOutcomes.csproj",
+              "target": "net10.0",
+              "sdk": "10.0.402",
+              "language": "14.0",
+              "command": "C:\\Program Files\\dotnet\\dotnet.exe build ClosedOutcomes.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Program Files\\dotnet\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\ClosedOutcomes\\bin\\Release\\net10.0\\ClosedOutcomes.dll",
+              "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+              "recordedAt": "2026-10-21T13:21:32.7432874+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/ClosedOutcomeChecks.cs": "41fbbb6f9cabd4f2fc1cf4ac3dfa043cd7621cab3c01d30dd0bcb305264695cc",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net10.0/ClosedOutcomes/ClosedOutcomes.csproj": "505c85d1335733263d783ff0539c9d93812fd8b6394bd12b577c5fee870bb811",
+                "samples/net10.0/ClosedOutcomes/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+                "samples/net10.0/ClosedOutcomes/Outcomes.cs": "4ac5460d5fcf1537f71b0d4de7cd0cb99ef328bde9711d92538206a1593d5a9b",
+                "samples/net10.0/ClosedOutcomes/verification.json": "dbc8eb87a14c5de11e3f7ac841704a028e7f2f94f3cbdfbf397db9e3cbdf8841"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\ClosedOutcomes\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  ClosedOutcomes -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\ClosedOutcomes\\bin\\Release\\net10.0\\ClosedOutcomes.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.56\nstored:C-24 -> {\"ShelfCode\":\"C-24\"}\r\nrefused:humidity -> {\"ReasonCode\":\"humidity\"}\r\nqueued:17 -> {\"$type\":\"waiting\",\"QueueNumber\":17}\r\ncatalogued:C-24 -> {\"$type\":\"catalogued\",\"ShelfCode\":\"C-24\"}\r\nPASS: outcome matching, JSON cases, null/default, ambiguity and hierarchy checks; runtime 10.0.13",
+              "freshness": "current"
+            },
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj",
+              "target": "net11.0",
+              "sdk": "11.0.100-rc.2.26504.105",
+              "language": "15.0",
+              "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build ClosedOutcomes.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\bin\\Release\\net11.0\\ClosedOutcomes.dll",
+              "scope": "Original case/payload matching and generated-metadata JSON round trips, null/default and ambiguous-object rejection. RC2 additionally executes explicit-registration precedence and missing-generated-inference failure. Exact records captured by eng/Record-Evidence.ps1; eng/Verify.ps1 reruns samples.",
+              "recordedAt": "2026-10-21T13:24:14.7260323+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/ClosedOutcomeChecks.cs": "41fbbb6f9cabd4f2fc1cf4ac3dfa043cd7621cab3c01d30dd0bcb305264695cc",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj": "1e74846ab59e650a1d9ef1969f74d0c97dce1950bb87cd544b671ca587882f6d",
+                "samples/net11.0/ClosedOutcomes/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+                "samples/net11.0/ClosedOutcomes/Outcomes.cs": "9529ab4df490a9f4fa007f9ab65464d35a60d1bc999bea57ecbd208b8ec1e675",
+                "samples/net11.0/ClosedOutcomes/verification.json": "dbc8eb87a14c5de11e3f7ac841704a028e7f2f94f3cbdfbf397db9e3cbdf8841"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\ClosedOutcomes.csproj]\r\n  ClosedOutcomes -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\ClosedOutcomes\\bin\\Release\\net11.0\\ClosedOutcomes.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.43\nstored:C-24 -> {\"ShelfCode\":\"C-24\"}\r\nrefused:humidity -> {\"ReasonCode\":\"humidity\"}\r\nqueued:17 -> {\"$type\":\"Waiting\",\"QueueNumber\":17}\r\ncatalogued:C-24 -> {\"$type\":\"Catalogued\",\"ShelfCode\":\"C-24\"}\r\nPASS: outcome matching, JSON cases, null/default, ambiguity and hierarchy checks; runtime 11.0.0",
+              "freshness": "current"
+            }
+          ],
+          "humanProof": {
+            "status": "not-required",
+            "scope": "Portable compiler and serializer behavior is covered by real builds and executions; no targeted native Human proof is required."
+          },
+          "markdown": "# Match every permitted state in an inheritance family\n\n## Goal\n\nKeep an intake workflow's states in one owned inheritance family and make callers account for each direct case. Choose this when states share a base contract, rather than merely wrapping unrelated types. A queued museum intake carries a queue number; a catalogued intake carries its shelf location.\n\n## Older approach\n\n.NET 10 supports abstract bases and sealed leaves. A private-protected constructor restricts ordinary subclass construction to derived types in the owning assembly. The assembly can still add cases, and the compiler does not treat the base as a closed set: matching retains a defensive fallback. Explicit JsonDerivedType entries define its persisted contracts. Those registrations remain useful when stable external discriminator names matter.\n\nCreate a net10.0 console project with LangVersion 14.0, `using System.Text.Json;`, `using System.Text.Json.Serialization;` and namespace `Playbook.Samples`:\n\n```csharp\n[JsonDerivedType(typeof(Waiting), \"waiting\")]\n[JsonDerivedType(typeof(Catalogued), \"catalogued\")]\npublic abstract record IntakeState\n{\n    private protected IntakeState() { }\n}\npublic sealed record Waiting(int QueueNumber) : IntakeState;\npublic sealed record Catalogued(string ShelfCode) : IntakeState;\n\npublic static class StateWorkflow\n{\n    public static string Describe(IntakeState? state) => state switch\n    {\n        Waiting waiting => \"queued:\" + waiting.QueueNumber,\n        Catalogued catalogued => \"catalogued:\" + catalogued.ShelfCode,\n        null => \"absent\",\n        _ => throw new InvalidOperationException(\"Unexpected intake state.\")\n    };\n    public static string Serialize(IntakeState? state) => JsonSerializer.Serialize(state, StateJson.Default.IntakeState);\n    public static IntakeState? Deserialize(string json) => JsonSerializer.Deserialize(json, StateJson.Default.IntakeState);\n}\n```\n```csharp\n[JsonSerializable(typeof(IntakeState))]\ninternal partial class StateJson : JsonSerializerContext;\n```\n\n## Newer approach\n\nIn net11.0 / C# 15, mark the root closed and keep the leaves sealed. A closed root is implicitly abstract. Consumers can match the known descendants without a catch-all. Null remains a separate input to handle. The source-generated metadata context opts into inference at build time as well as the per-type setting.\n\nUse the same imports and namespace:\n\n```csharp\n[JsonPolymorphic(InferClosedTypePolymorphism = true)]\npublic closed record IntakeState;\npublic sealed record Waiting(int QueueNumber) : IntakeState;\npublic sealed record Catalogued(string ShelfCode) : IntakeState;\n\npublic static class StateWorkflow\n{\n    public static string Describe(IntakeState? state) => state switch\n    {\n        Waiting waiting => \"queued:\" + waiting.QueueNumber,\n        Catalogued catalogued => \"catalogued:\" + catalogued.ShelfCode,\n        null => \"absent\"\n    };\n    public static string Serialize(IntakeState? state) => JsonSerializer.Serialize(state, StateJson.Default.IntakeState);\n    public static IntakeState? Deserialize(string json) => JsonSerializer.Deserialize(json, StateJson.Default.IntakeState);\n}\n```\n```csharp\n[JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata,\n    InferClosedTypePolymorphism = true)]\n[JsonSerializable(typeof(IntakeState))]\ninternal partial class StateJson : JsonSerializerContext;\n```\n\n`StateWorkflow.Describe(new Waiting(17))` returns `queued:17`; a `new Catalogued(\"C-24\")` returns `catalogued:C-24`. Both round-trip through Serialize/Deserialize. See `json.infer-closed-polymorphism` before changing an existing persisted contract.\n\n## Migration\n\n1. Identify the assembly that owns every direct descendant. Move a directly derived external type into that assembly or keep an intentionally open hierarchy.\n2. Replace the abstract root modifier with closed. Do not combine closed with an explicit abstract, sealed or static modifier. Keep leaf types sealed if the whole family should remain bounded.\n3. List each case in consumer switch expressions and include null when the input may be absent. Remove a catch-all only after a warning-as-error build proves all cases are covered.\n4. Review serialization separately. Keep explicit registrations for established wire names, or adopt the generated context and inference with an intentional data migration.\n5. Rebuild downstream consumers when changing the set. Escape existing contextual type names as `@closed` and `@union` where C# 15 requires it.\n\n## Constraints\n\nClosed limits direct inheritance to the declaring assembly, not to one source file or enclosing type. It is not transitive: an unsealed, non-closed child can allow further inheritance from other assemblies. Use closed intermediate nodes and sealed terminal nodes when that boundary is required. Adding a case is still an evolution event for separately compiled consumers and persisted data; compiler exhaustiveness does not upgrade old binaries.\n\nNull is not an instance of a leaf. This sample returns `absent` for it and persists it as JSON null. Payload validation is a separate responsibility. Inference uses type-derived discriminators; the .NET 10 example uses explicit lowercase names, so these sample wire formats differ. Do not silently replace registrations in a stored or public contract.\n\nThe route requires .NET 11 / SDK 11 / C# 15 with no experimental opt-in, workloads, packages, providers or rendering context. Only RC2 artifacts were executed; this is not GA verification or a supported older-target route. Source generation here uses metadata mode; no Native AOT publish was performed.\n\n## Evidence\n\nBoth real target projects compile and execute queued/catalogued and null JSON round trips. An external consumer omitting Catalogued fails with CS8509. A direct external descendant fails with CS9382. The escaped identifiers compile. The saved sample evidence identifies exact artifacts and inputs; the compiler checks are reproduced by eng/Test-ClosedOutcomes.ps1 after building the .NET 11 sample. No mock or cross-compilation substitutes for the recorded portable executions; no targeted Human proof is required.\n"
+        }
+      }
+    }
+  ],
+  "scope": "Observed tool calls, commands, generated changes and visible answers; reasoning items excluded. All truncated tool items recovered through durable T3 read continuations; no coaching or rerun."
+}
+

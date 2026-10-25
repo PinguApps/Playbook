@@ -1,5 +1,10 @@
 # Inspect the guidance an agent receives
 
+For shared authorization metadata and controlled Identity lockout time, use the
+[tested PIN-809–810 walkthrough](verification/PIN-809-810.md#inspect-what-an-agent-receives).
+It displays both discovery goals, full old/new Markdown and applicability,
+including the legacy MVC restriction and actual inclusive lockout boundary.
+
 For experimental streamed conversation history and browser form protection, use the [tested PIN-804/808 walkthrough](verification/PIN-804-808.md#inspect-what-an-agent-receives). It displays both full .NET 10/11 comparisons, experimental package requirements, RC2 MVC opt-in and retained token exceptions through real installed stdio.
 
 For custom component property injection, no-result browser actions and changing

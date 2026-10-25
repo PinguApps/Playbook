@@ -1,0 +1,39 @@
+{
+  "kind": "real-loopback-and-component-rendering-and-Identity-execution",
+  "scope": "Real Kestrel HTTP/WebSocket hub calls and HtmlRenderer output. Test-only authentication and single-user memory persistence; no browser, database, cookies, token expiry, timers, concurrency, external accounts or GA claim.",
+  "records": [
+    {
+      "sample": "samples/net10.0/JettyAccess/JettyAccess.csproj",
+      "output": "HTTP legacy=False /launch allowed=False: 403\r\nHTTP legacy=False /manifest allowed=False: 403\r\nRENDER route=False allowed=False: Not authorized\r\nRENDER route=True allowed=False: Not authorized\r\nHUB allowed=False: {\"type\":3,\"invocationId\":\"proof\",\"error\":\"Failed to invoke 'Read' because user is unauthorized\"}\r\nHTTP legacy=False /launch allowed=True: 200\r\nHTTP legacy=False /manifest allowed=True: 200\r\nRENDER route=False allowed=True: manifest granted\r\nRENDER route=True allowed=True: manifest granted\r\nHUB allowed=True: {\"type\":3,\"invocationId\":\"proof\",\"result\":\"manifest granted\"}\r\nHTTP legacy=True /manifest allowed=False: 403\r\nHTTP legacy=True /manifest/legacy-safe allowed=False: 403\r\nHTTP legacy=True /manifest allowed=True: 200\r\nHTTP legacy=True /manifest/legacy-safe allowed=True: 200\r\nPASS: actual HTTP, SignalR invocation, AuthorizeView/AuthorizeRouteView and legacy MVC controls. Runtime: .NET 10.0.13\r\n",
+      "evidenceSha256": "d02abb7d6f40271d2e7f6e6d25c83b055d06dc8ccee4b92dfe283aa472e886e7",
+      "sdk": "10.0.402",
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  JettyAccess -> V:\\_worktrees\\Playbook\\t3-9c711f88\\samples\\net10.0\\JettyAccess\\bin\\Release\\net10.0\\JettyAccess.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.41\r\n",
+      "assemblySha256": "aff355e9c343418901cd353e28089e34bf2d57c311fab39a018125c213ee2ae3"
+    },
+    {
+      "sample": "samples/net10.0/MooringClock/MooringClock.csproj",
+      "output": "PASS: real .NET 10 UserManager ignores injected clock; future/past stored-state checks without sleeping. Runtime: .NET 10.0.13\r\n",
+      "evidenceSha256": "729fad4a24524c49a326a946abf175ad69a21476b3e51d5cd0b8f5ed14e11197",
+      "sdk": "10.0.402",
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  MooringClock -> V:\\_worktrees\\Playbook\\t3-9c711f88\\samples\\net10.0\\MooringClock\\bin\\Release\\net10.0\\MooringClock.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.08\r\n",
+      "assemblySha256": "799b28e54c73cedf7192245fd5a75ed2777e9ba7c0c163b1692bd8b2ae6babe0"
+    },
+    {
+      "sample": "samples/net11.0/JettyAccess/JettyAccess.csproj",
+      "output": "HTTP legacy=False /launch allowed=False: 403\r\nHTTP legacy=False /manifest allowed=False: 403\r\nRENDER route=False allowed=False: Not authorized\r\nRENDER route=True allowed=False: Not authorized\r\nHUB allowed=False: {\"type\":3,\"invocationId\":\"proof\",\"error\":\"Failed to invoke 'Read' because user is unauthorized\"}\r\nHTTP legacy=False /launch allowed=True: 200\r\nHTTP legacy=False /manifest allowed=True: 200\r\nRENDER route=False allowed=True: manifest granted\r\nRENDER route=True allowed=True: manifest granted\r\nHUB allowed=True: {\"type\":3,\"invocationId\":\"proof\",\"result\":\"manifest granted\"}\r\nHTTP legacy=True /manifest allowed=False: 200\r\nHTTP legacy=True /manifest/legacy-safe allowed=False: 403\r\nHTTP legacy=True /manifest allowed=True: 200\r\nHTTP legacy=True /manifest/legacy-safe allowed=True: 200\r\nPASS: actual HTTP, SignalR invocation, AuthorizeView/AuthorizeRouteView and legacy MVC controls. Runtime: .NET 11.0.0-rc.2.26504.105\r\n",
+      "evidenceSha256": "ebb0419362a17ecc873b486cec8df8c3d755d9f3c14f53b88bd12cb34fd5fb81",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-9c711f88\\samples\\net11.0\\JettyAccess\\JettyAccess.csproj]\r\n  JettyAccess -> V:\\_worktrees\\Playbook\\t3-9c711f88\\samples\\net11.0\\JettyAccess\\bin\\Release\\net11.0\\JettyAccess.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.29\r\n",
+      "assemblySha256": "36e4b7b0bf4b76884c97b89f095d006520c6b9dde80ee54124c1f6941460fd26"
+    },
+    {
+      "sample": "samples/net11.0/MooringClock/MooringClock.csproj",
+      "output": "PASS: real UserManager, two failures, injected end 2032-04-08T09:17:00.0000000+00:00, one tick before, exactly at and one tick after expiry; no sleeping or end-date edits. Runtime: .NET 11.0.0-rc.2.26504.105\r\n",
+      "evidenceSha256": "a0d49e80bf9a082ae34032683bb41b35259eb7beb0264c7442f716303891e93a",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "build": "  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-9c711f88\\samples\\net11.0\\MooringClock\\MooringClock.csproj]\r\n  MooringClock -> V:\\_worktrees\\Playbook\\t3-9c711f88\\samples\\net11.0\\MooringClock\\bin\\Release\\net11.0\\MooringClock.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.23\r\n",
+      "assemblySha256": "bf6d2bfefab0b677fd2f0e74eb3036249e7cd19dbc02e6093f134d6de480bfa0"
+    }
+  ],
+  "recordedAt": "2026-10-25T10:27:29.3173740+00:00"
+}

@@ -1,0 +1,1892 @@
+[
+  {
+    "id": "archive.control-entry-access",
+    "title": "Choose ZIP entry access without retaining unwanted content",
+    "goal": "Read, replace or modify a ZIP entry with an explicit access mode and inspect its compression method before processing it.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "archive.handle-corruption",
+    "title": "Reject damaged ZIP entries and TAR headers",
+    "goal": "Handle ZIP CRC and TAR header-checksum failures at the complete read boundary, without treating checksums as authentication.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "archive.protect-entries",
+    "title": "Protect ZIP entry contents with a supported password algorithm",
+    "goal": "Create and read password-protected ZIP entries with explicit algorithm selection, failure handling and compatibility limits.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "archive.select-tar-format",
+    "title": "Choose a TAR format the receiver can read",
+    "goal": "Select V7, Ustar, PAX or GNU when creating TAR archives and distinguish sparse-file representation from logical content.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "authorization.share-policy-metadata",
+    "title": "Share access requirements across endpoints, views and hub methods",
+    "goal": "Apply one authorization requirement to server operations and matching component visibility; retain named policies on legacy MVC without endpoint routing.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.accept-alternative-parameter-shapes",
+    "title": "Offer one component setting for alternative UI values",
+    "goal": "Accept text or markup through one Blazor parameter; transfer only JSON data.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.act-on-selected-row",
+    "title": "Open the chosen table item",
+    "goal": "Act on a QuickGrid row click.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.align-server-browser-culture",
+    "title": "Keep culture through hydration",
+    "goal": "Align prerendered WASM formatting and translations, or choose an independent client.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.associate-generated-inputs",
+    "title": "Associate labels with reusable form inputs",
+    "goal": "Use wrapping or separate Label components with generated input IDs and collection expression prefixes so repeated editors identify distinct controls.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.await-form-rules",
+    "title": "Wait for remote form checks before accepting an edit",
+    "goal": "Await a submitted form's remote rules and cancel superseded field checks; progress and live validation depend on render mode.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.build-section-link",
+    "title": "Link page sections",
+    "goal": "Keep page and query in section links.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.cache-static-subtree",
+    "title": "Cache static sections",
+    "goal": "Reuse costly SSR subtrees.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.check-input-before-post",
+    "title": "Check a server-rendered form before posting",
+    "goal": "Use model-derived browser feedback for static SSR forms while keeping enhanced and plain posts subject to authoritative server validation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.configure-browser-from-server",
+    "title": "Set browser startup policy from C#",
+    "goal": "Manage Blazor startup and reconnection from C#.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.control-circuit-transport",
+    "title": "Set circuit transport policy",
+    "goal": "Choose transports, expiry and buffers.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.customize-injected-properties",
+    "title": "Customize component property injection",
+    "goal": "Use an explicit component property policy when advanced DI needs control over service selection.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.drain-active-circuits",
+    "title": "Pause for maintenance",
+    "goal": "Ask active browsers to save and pause.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.hold-list-edge",
+    "title": "Keep a changing list in place",
+    "goal": "Anchor changing Virtualize lists.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.host-browser-client-with-backends",
+    "title": "Route a browser client",
+    "goal": "Serve WASM deep links and backend calls through Gateway.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.navigate-within-current-path",
+    "title": "Link nearby routes",
+    "goal": "Resolve links from this page.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.observe-browser-components",
+    "title": "Collect browser component activity",
+    "goal": "Find slow WASM interactions with component metrics and correlated traces.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.offload-browser-computation",
+    "title": "Offload browser computation",
+    "goal": "Keep rendering responsive during CPU work.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.pause-idle-tab",
+    "title": "Pause hidden tabs",
+    "goal": "Release idle circuits; restore saved state.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.preload-needed-resources",
+    "title": "Load needed resources during enhanced navigation",
+    "goal": "Keep deliberate resource hints for pages reached by enhanced navigation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.project-static-child-content",
+    "title": "Place server-rendered content inside interactive controls",
+    "goal": "Project captured non-generic static content into an interactive component without a wrapper; use for cross-render-mode composition, not live callbacks.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.rename-custom-event",
+    "title": "Keep custom events distinct",
+    "goal": "Rename a custom event when its browser trigger has the same name.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.render-application-base",
+    "title": "Render app base",
+    "goal": "Match base markup to the hosting path.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.render-mathematical-markup",
+    "title": "Render changing mathematical notation",
+    "goal": "Write MathML in an interactive component when a changing formula needs the correct browser namespace.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.retain-session-progress",
+    "title": "Resume progress across server-rendered pages",
+    "goal": "Keep static SSR progress across reads and pages.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.reuse-field-captions",
+    "title": "Reuse model captions across form views",
+    "goal": "Render field captions from Display or DisplayName metadata with Display precedence, property-name fallback and resource-based localization.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.reveal-grid-row",
+    "title": "Keep a place in a grid",
+    "goal": "Reveal rows; retain position.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.reveal-virtual-item",
+    "title": "Reveal a virtual list item",
+    "goal": "Jump to a chosen item in a virtualized list.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.run-browser-background-service",
+    "title": "Run browser work",
+    "goal": "Start periodic WASM work; stop with its owned lifetime.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.share-grid-view",
+    "title": "Share sorted grid pages",
+    "goal": "Bookmark each grid's sorted page.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.show-environment-specific-content",
+    "title": "Show environment-specific chrome",
+    "goal": "Mark test environments and show the controls intended for each renderer.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.show-once-after-redirect",
+    "title": "Show one confirmation after a redirect",
+    "goal": "Carry one-use feedback across a static SSR redirect with TempData.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.stream-agent-conversation",
+    "title": "Stream replies while retaining conversation history (Experimental)",
+    "goal": "Compose an experimental agent boundary, message input and content-block renderer when streamed replies must remain visible alongside earlier turns.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.supply-browser-configuration",
+    "title": "Reuse a browser build",
+    "goal": "Supply public WASM settings per environment; preserve provider precedence.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.toggle-navigation-with-csp",
+    "title": "Operate navigation without an inline script exception",
+    "goal": "Keep a Blazor Web App menu working under strict handler CSP.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.unify-startup-script-options",
+    "title": "Unify Blazor startup",
+    "goal": "Share nested options across hosts; legacy flat still works.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.use-void-interop-intent",
+    "title": "Express no-result JavaScript calls",
+    "goal": "Use InvokeVoidAsync when a browser action has no result, while still awaiting completion and handling failures.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "blazor.virtualize-under-csp",
+    "title": "Scroll long lists under restrictive style policies",
+    "goal": "Use Virtualize without an inline-style exception.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "cache.observe-memory-cache",
+    "title": "Observe cache requests, entries, evictions and estimated size",
+    "goal": "Collect built-in in-process cache metrics and statistics while keeping estimated size in consistent application-defined units.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "cache.select-options-from-value",
+    "title": "Choose cache lifetimes after loading a value",
+    "goal": "Derive cache entry lifetimes from factory output using the documented mutable context, with the measured RC LocalSize limitation visible.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "cbor.read-chunks",
+    "title": "Read CBOR records across incoming chunks",
+    "goal": "Decode a finite CBOR measurement array while retaining only incomplete token bytes between incoming chunks.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "collections.compare-by-key",
+    "title": "Match records by a selected key and define ordering separately",
+    "goal": "Match records using a selected key with consistent equality and hashing, and choose an independent sort order and tie-break.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "collections.count-and-build-bits",
+    "title": "Build compact flags from spans and count enabled positions",
+    "goal": "Read packed bytes, words or switches into an owned bit collection and count logical enabled positions with explicit bit order.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "compression.handle-empty-payloads",
+    "title": "Emit valid compressed frames for empty messages",
+    "goal": "Handle the changed output of a finalised Deflate or GZip stream that receives no writes.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "compression.process-buffers",
+    "title": "Compress independent buffers and reuse codec state",
+    "goal": "Encode and decode Deflate, ZLib and GZip buffers with status checks, bounded destinations and Reset between independent messages.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "compression.use-zstandard",
+    "title": "Exchange Zstandard frames with built-in codecs",
+    "goal": "Use the .NET 11 Zstandard stream or buffer API with explicit format negotiation, finalisation, reset and window limits.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "configuration.await-change-callback",
+    "title": "Complete asynchronous reload work before rearming notifications",
+    "goal": "Run asynchronous change work without overlap, coalesce intermediate notifications and report failures inside the callback.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "configuration.exclude-properties",
+    "title": "Keep runtime-owned properties out of configuration binding",
+    "goal": "Bind configuration into a model while preserving selected runtime-owned properties, even when matching input keys are present.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "console.color-piped-output",
+    "title": "Choose colour policy for redirected console output",
+    "goal": "Request ANSI colour for a piped Unix console application, or disable it without changing persistent environment settings.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "crypto.compare-fixed-secret",
+    "title": "Compare a secret buffer with a repeated byte",
+    "goal": "Check a fixed-length secret against a repeated byte with FixedTimeEquals; keep timing claims local to the primitive.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "crypto.encapsulate-hybrid-secrets",
+    "title": "Negotiate experimental composite key encapsulation",
+    "goal": "Negotiate supported experimental composite ML-KEM; distinguish experimental HPKE, which implements classical suites in RC2.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "crypto.encrypt-cms-with-mlkem",
+    "title": "Encrypt a CMS envelope for a pure ML-KEM recipient",
+    "goal": "Encrypt CMS for pure ML-KEM on non-Windows with the net11.0 Pkcs asset; composite CMS remains unsupported.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "crypto.exchange-x25519",
+    "title": "Exchange keys with the platform X25519 implementation",
+    "goal": "Derive a purpose-specific key with X25519, checking provider support and authenticating peer keys.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "crypto.wrap-keys",
+    "title": "Wrap encryption keys in the negotiated AES format",
+    "goal": "Wrap key material with RFC 3394 AES-KW when negotiated; retain RFC 5649 KWP for its distinct padded format.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.audit-memory-boundaries",
+    "title": "Express and check unsafe memory boundaries (experimental)",
+    "goal": "Use experimental unsafe member contracts when a raw memory operation imposes caller obligations; review declaration accessibility and keep checked wrappers available.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.closed-hierarchies",
+    "title": "Match every permitted state in an inheritance family",
+    "goal": "Use a closed C# hierarchy when one assembly owns the direct states and consumers should match every permitted case. Seal leaves to bound further inheritance.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.closed-results",
+    "title": "Model distinct outcomes with a C# union",
+    "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.configure-collection-construction",
+    "title": "Construct collections with deliberate capacity and comparison",
+    "goal": "Use collection-expression arguments when constructor or builder configuration must accompany the elements. Preserve capacity, ordering and comparison semantics.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.control-nested-loops",
+    "title": "Stop or continue an enclosing loop directly",
+    "goal": "Use labeled break and continue in C# 15 when a nested traversal must stop an enclosing loop or skip its remaining work while preserving cleanup.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.extend-uneditable-types",
+    "title": "Add computed properties to types you cannot edit",
+    "goal": "Use a C# extension property for a cheap computed observation of an existing type. Retain method syntax for older targets or operations that behave like actions.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.index-existing-types",
+    "title": "Add indexed access without editing a collection type",
+    "goal": "Use extension indexers when a type you cannot edit needs bracket reads or writes. Define bounds, null handling and traversal cost explicitly.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.static-interface-helpers",
+    "title": "Share helpers on an interface without adding implementation requirements",
+    "goal": "Use non-virtual static interface helpers when a contract owns shared implementation code and callers need one fixed implementation without adding duties for implementing types.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "csharp.validate-property-assignment",
+    "title": "Normalize and validate properties with the C# field keyword",
+    "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "dns.resolve-service-records",
+    "title": "Resolve advertised service targets and ports",
+    "goal": "Read SRV target, port, priority, weight and TTL while distinguishing missing names from successful empty results, using the appropriate platform resolver.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.adapt-generic-operations",
+    "title": "Adapt existing types to generic operations (preview)",
+    "goal": "Use preview SRTP resolution to adapt an existing type to a generic F# operation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.author-runtime-async-builder",
+    "title": "Author a small runtime-async workflow (experimental)",
+    "goal": "Author a deliberately small experimental F# builder when a workflow needs runtime-managed waits and explicit failure and asynchronous cleanup rules.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.author-runtime-async-sequence",
+    "title": "Produce pull-driven asynchronous results (experimental)",
+    "goal": "Author a bounded experimental F# asynchronous producer when callers need incremental results, cancellation propagation and awaited cleanup on early exit or failure.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.bound-async-work",
+    "title": "Bound asynchronous work before it starts",
+    "goal": "Bound async workflows or task starts while retaining batch results in input order.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.compose-records",
+    "title": "Compose record fields without repeating declarations and copies",
+    "goal": "Use record spreads when a new named or anonymous F# record reuses existing fields and needs explicit additions or replacements.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.configure-compiler-service-memory",
+    "title": "Choose imported-assembly sharing in an F# compiler host (preview package)",
+    "goal": "Choose default imported-assembly sharing or a deliberate checker opt-out when hosting FCS, while preserving each project reference closure and diagnostics.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "preview",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.construct-records",
+    "title": "Construct record values with positional or named arguments (preview)",
+    "goal": "Use preview record constructor syntax when an F# record call benefits from positional arguments or reordered named arguments; retain record expressions when preview is unsuitable.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.dispose-async-resources-in-fsi",
+    "title": "Await asynchronous cleanup in F# Interactive",
+    "goal": "Choose the FSI toolset asset and await asynchronous resource cleanup before script completion, including body failures and measured cleanup-error limitations.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.format-without-reflection",
+    "title": "Render record and union diagnostics without reflection formatting",
+    "goal": "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.migrate-based-arrays-for-aot",
+    "title": "Preserve coordinates when migrating arrays to Native AOT",
+    "goal": "Preserve external two-dimensional coordinates and values when replacing based array allocation with zero-based storage for a Native AOT application.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.migrate-enum-flags",
+    "title": "Migrate unsupported enum flag operations",
+    "goal": "Replace rejected non-integer enum bit operations with integer-backed permissions.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.pass-methods-as-delegates",
+    "title": "Pass compatible methods directly to delegates",
+    "goal": "Pass a compatible F# method to a .NET delegate; retain adapters when arguments need transformation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.preserve-interpolation-culture",
+    "title": "Keep an explicit display culture in F# diagnostic messages",
+    "goal": "Format dates and numbers with an explicit culture before interpolating them when diagnostic messages must retain a chosen region across F# 10 and F# 11.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.require-named-arguments",
+    "title": "Require meaningful argument names at F# calls (preview)",
+    "goal": "Require names on selected F# preview calls to prevent same-typed argument swaps.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.rethrow-in-computations",
+    "title": "Preserve failure stacks in computations (preview)",
+    "goal": "Preserve an original failure stack inside F# async or task handlers with preview reraise.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.reuse-api-documentation",
+    "title": "Reuse inherited and external API documentation",
+    "goal": "Reuse shared F# API summaries through inherited or external XML documentation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "fsharp.start-async-on-caller",
+    "title": "Start an asynchronous computation on the caller",
+    "goal": "Start a blocking async prefix on the caller, outside a SynchronizationContext.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "hosting.report-assembly-location",
+    "title": "Report logical assembly locations and handle missing physical files",
+    "goal": "Give diagnostics a stable logical assembly label while preserving unrelated locations and handling stream-loaded, single-file and Native AOT assemblies without physical paths.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "http.bound-initial-h2-streams",
+    "title": "Bound HTTP/2 requests before server settings arrive",
+    "goal": "Limit the initial HTTP/2 request burst for a known low-capacity peer, then honor its advertised concurrent-stream setting.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "http.compress-request-body",
+    "title": "Compress outgoing HTTP request bodies",
+    "goal": "Reduce upload bytes with gzip, Brotli or Zstandard when the receiving service supports the declared request encoding.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "http.retire-connections",
+    "title": "Retire pooled connections using a cached policy (experimental)",
+    "goal": "Stop reusing pooled transports after a cached endpoint policy changes, using the experimental SYSLIB5008 callback while active requests can finish.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "identity.control-test-clock",
+    "title": "Verify Identity lockout boundaries with a controlled clock",
+    "goal": "Advance a test TimeProvider through a real Identity lockout boundary without sleeping or changing the stored end timestamp.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "io.adapt-existing-buffers",
+    "title": "Pass existing buffers to stream consumers",
+    "goal": "Adapt borrowed memory, segmented bytes or encoded text to a Stream reader without first flattening the whole input.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.bind-reference-constructors",
+    "title": "Bind JSON to constructors with reference parameters",
+    "goal": "Deserialize models with in/ref/ref readonly constructors and distinguish out outputs from writable-property assignment.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.configure-generic-contracts",
+    "title": "Resolve generic JSON converters and derived contracts",
+    "goal": "Resolve reusable generic JSON contracts without per-closure registration or converter factories; reject incompatible shapes.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.configure-member-conventions",
+    "title": "Define JSON naming and omission rules at the type boundary",
+    "goal": "Apply type and member naming/ignore conventions with explicit precedence and stable wire contracts.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.describe-binary-schema",
+    "title": "Export JSON schema for binary buffer values",
+    "goal": "Export byte-array and memory-buffer schema annotations without a redundant base64 transform.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.generate-private-contracts",
+    "title": "Generate JSON contracts for deliberately included private state",
+    "goal": "Generate serialization metadata for intentionally included private members and constructors without exposing public model state.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.infer-closed-polymorphism",
+    "title": "Infer JSON contracts for a closed state family",
+    "goal": "Infer JSON derived contracts for an owned closed hierarchy when type-driven discriminators suit the data contract. Check source-generation settings and retain explicit registrations for stable wire names.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.preserve-omitted-initializers",
+    "title": "Preserve initialized values when generated JSON omits a member",
+    "goal": "Keep init-property defaults during generated deserialization while distinguishing omission from explicit values or null.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.reject-malformed-contracts",
+    "title": "Reject malformed JSON at an import boundary",
+    "goal": "Reject structurally malformed imported JSON before applying separate business validation.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.retrieve-typed-metadata",
+    "title": "Retrieve typed JSON metadata and distinguish resolution misses",
+    "goal": "Retrieve typed serializer metadata and distinguish an unregistered contract from resolver or configuration failures.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.reuse-writer",
+    "title": "Reuse a flushed JSON writer with different options",
+    "goal": "Reuse a completed JSON writer across output targets and options while preserving stream ownership.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.serialize-closed-results",
+    "title": "Preserve a union's distinct cases through JSON",
+    "goal": "Persist and restore C# union outcomes with generated metadata and deliberate case selection. Apply structural classification when required root property names distinguish object payloads.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.serialize-fsharp-unions",
+    "title": "Round-trip F# union values with built-in JSON support",
+    "goal": "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.stream-json-lines",
+    "title": "Stream JSON records without collecting the input",
+    "goal": "Write and read independent JSON Lines records while an asynchronous producer is still running.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "json.use-numeric-collection-contracts",
+    "title": "Serialize numeric values and read-only collection contracts",
+    "goal": "Use supported numeric, read-only-set and extension-data contracts on the .NET 11 target asset; preserve numeric representation choices.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "linq.reconcile-all-rows",
+    "title": "Reconcile records while preserving both unmatched sides",
+    "goal": "Find matched, missing and unexpected records in one reconciliation without losing entries from either input.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "linq.retain-unmatched-rows",
+    "title": "Preserve unmatched records on the required side of a join",
+    "goal": "Compare expected and observed records while retaining every entry from the side that must remain complete.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "linq.transform-async-stream",
+    "title": "Filter and enrich an asynchronous stream as records arrive",
+    "goal": "Produce selected, enriched results incrementally while preserving pull-based enumeration and cooperative cancellation.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "logging.generate-generic-messages",
+    "title": "Generate structured logging methods for generic values",
+    "goal": "Keep reusable log methods generic with source generation, and guard expensive arguments when disabled logging must do no work.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "metrics.read-observable-http-data",
+    "title": "Poll observable HTTP request and connection instruments",
+    "goal": "Update a custom MeterListener to poll current HTTP request and connection measurements when event-counter accumulation no longer matches the instruments.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "minimal-api.await-model-rules",
+    "title": "Check remote business rules before entering an endpoint handler",
+    "goal": "Await asynchronous model rules before a Minimal API handler runs, retaining field-keyed validation failures and request cancellation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "msbuild.archive-build-artifacts",
+    "title": "Create and extract build archives with MSBuild tasks",
+    "goal": "Package build output into a tar artifact and recover its files when a custom build needs inbox archive tasks instead of a separate helper process.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "msbuild.inspect-item-globs",
+    "title": "Explain build item patterns and selected files",
+    "goal": "Report include, exclude and remove patterns alongside expanded items when diagnosing why a build selected a file.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": true
+  },
+  {
+    "id": "msbuild.migrate-xml-inputs",
+    "title": "Migrate build XML to the current DTD policy",
+    "goal": "Keep custom XML build tasks working after an SDK upgrade by removing DTDs or explicitly ignoring them for trusted input.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": true
+  },
+  {
+    "id": "msbuild.retire-old-wave-optouts",
+    "title": "Retire build change-wave opt-outs",
+    "goal": "Remove retired MSBuild change-wave switches after checking custom build outputs, and recognize the clamping diagnostic instead of treating it as restored compatibility.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": true
+  },
+  {
+    "id": "nuget.delay-new-package-selection",
+    "title": "Delay selection of newly published packages",
+    "goal": "Set a source cooldown when adding or updating dependencies, while distinguishing automatic selection from explicit-version restore and floating-reference conflicts.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": true
+  },
+  {
+    "id": "nuget.make-package-timestamps-reproducible",
+    "title": "Produce repeatable package timestamps",
+    "goal": "Freeze NuGet archive timestamps across repeated builds by opting into a fixed pack timestamp, while checking the other inputs needed for reproducibility.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "nuget.migrate-client-library-hosts",
+    "title": "Retarget a NuGet client-library host",
+    "goal": "Choose a compatible runtime and actual package assets for a utility directly referencing NuGet client libraries, without retargeting ordinary package-consuming applications.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "nuget.update-vulnerable-dependencies",
+    "title": "Update vulnerable dependencies under strict warnings",
+    "goal": "Apply vulnerability-driven package updates without permanently weakening warnings-as-errors, then restore and test the resulting dependency graph.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": true
+  },
+  {
+    "id": "numerics.choose-ieee-decimal",
+    "title": "Choose decimal precision and special-value behavior",
+    "goal": "Choose System.Decimal or IEEE decimal floating point when accumulating base-ten measurements with an explicit precision and nonfinite-value policy.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "numerics.generate-generic-random",
+    "title": "Generate bounded random values for generic numeric calculations",
+    "goal": "Generate simulation integers and binary fractions for supported numeric types, with explicit range bounds and a separate cryptographic alternative.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "numerics.parse-delimited-values",
+    "title": "Parse numeric cells while retaining the consumed boundary",
+    "goal": "Read semicolon-delimited numeric values from character or UTF-8 spans while rejecting malformed prefixes and preserving the next-field offset.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "numerics.preserve-conversion-intent",
+    "title": "Preserve decimal intent across numeric conversions",
+    "goal": "Separate decimal source values from binary measurements when an upgrade changes conversion rounding, and choose an explicit rounding rule for displayed amounts.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "numerics.roundtrip-float-bits",
+    "title": "Round-trip floating values and raw BFloat16 payloads",
+    "goal": "Persist finite floating-point values in readable hexadecimal form, or use explicit-endian raw bits when signed zeros and NaN payloads must survive unchanged.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "numerics.select-complex-precision",
+    "title": "Choose the scalar representation for complex arithmetic",
+    "goal": "Rotate complex measurements using a chosen floating-point representation instead of always storing real and imaginary parts as double.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "options.validate-asynchronously",
+    "title": "Await settings validation before application startup completes",
+    "goal": "Await service-dependent settings checks during supported host startup, with explicit synchronous access and reload restrictions.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "options.validate-with-di",
+    "title": "Validate settings with a dependency-injected validator",
+    "goal": "Register a reusable settings validator by type and resolve its policy dependencies through DI before startup accepts work.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "process.capture-output",
+    "title": "Capture command output and cancel its execution",
+    "goal": "Run a command that produces both output and diagnostics, and terminate it when the caller cancels.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "process.control-lifetime",
+    "title": "Choose child lifetime independently of process bookkeeping",
+    "goal": "Choose whether a worker survives its launcher, detaches from its console or is terminated when its parent exits.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "process.control-native-handles",
+    "title": "Own process and redirected handles explicitly",
+    "goal": "Start and wait for a native child while retaining clear ownership of its process and standard handles.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "process.inspect-termination",
+    "title": "Distinguish normal exit from signal termination",
+    "goal": "Report a native worker’s exit status without treating a POSIX signal as an ordinary application exit code.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "process.prepare-before-start",
+    "title": "Prepare a suspended child before allowing execution",
+    "goal": "Perform post-creation setup before a worker executes, and terminate it if setup fails.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "quic.prioritize-streams",
+    "title": "Prioritize outgoing QUIC streams on one connection",
+    "goal": "Express relative send priority for competing QUIC streams after checking native transport support; retain application deadlines and flow-control policy.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "reflection.inspect-loaded-metadata",
+    "title": "Inspect metadata-only assemblies and handle unavailable caller information",
+    "goal": "Find a metadata-only assembly's owning context, inspect nullable and constructor metadata, and report caller information with explicit deployment fallbacks.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "regex.handle-unicode-newlines",
+    "title": "Match mixed newline conventions deliberately",
+    "goal": "Apply regex anchors and dot to CRLF, CR, LF and Unicode line separators with an explicit newline policy.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "runtime.audit-hardware-baseline",
+    "title": "Check CPU requirements before a runtime upgrade",
+    "goal": "Check the .NET 11 x86/x64 CPU baseline before deployment and distinguish a startup requirement from a ReadyToRun optimization target.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "runtime.choose-async-codegen",
+    "title": "Choose runtime-async compilation deliberately (experimental)",
+    "goal": "Choose experimental runtime-async code generation when upgrading, and distinguish live diagnostics from failure stacks and removed runtime switches.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "runtime.configure-crash-reporting",
+    "title": "Capture a crash report inside a failing process",
+    "goal": "Configure Unix CoreCLR crash evidence before startup when an external createdump process is unsuitable, and distinguish report-only capture from memory dumps.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.compose-file-apps",
+    "title": "Grow a file application with shared code and explicit dependencies",
+    "goal": "Add source, project or DLL references to a file utility and keep SDK, metadata and central-package requirements explicit.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.configure-cli-telemetry",
+    "title": "Choose CLI telemetry collection and export explicitly",
+    "goal": "Apply a deliberate process-scoped CLI telemetry policy, distinguishing Microsoft collection, optional OTLP export and application telemetry.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.configure-test-runs",
+    "title": "Run selected test projects with deliberate runner and limits",
+    "goal": "Choose the test runner, project or built modules, and whole-run limits when a test command must select the intended work and return meaningful failure codes.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.create-test-runner-projects",
+    "title": "Create executable tests with an explicit framework and runner",
+    "goal": "Create xUnit v3 or NUnit test projects when their package assets, entry point and dotnet test runner must agree.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.declare-static-asset-groups",
+    "title": "Publish selected static asset groups and compiled TypeScript",
+    "goal": "Extend static web asset discovery when related assets need group selection, extra endpoints or generated TypeScript output in the publish artifact.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.filter-solutions",
+    "title": "Build a selected part of a solution with a maintained filter",
+    "goal": "Create and edit a solution filter when a task should build selected entry projects while preserving the parent solution.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.format-targeted-code",
+    "title": "Format only the intended file and framework",
+    "goal": "Limit formatting to selected files, a file application or one workspace target while using applicable configuration.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.install-preview-templates",
+    "title": "Choose preview templates deliberately and keep exact pins reproducible",
+    "goal": "Try prerelease scaffolding intentionally, then compile the generated app with its independently required SDK and workloads.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.keep-build-configuration-explicit",
+    "title": "Select build and publish configurations explicitly",
+    "goal": "Keep local and release outputs on the intended configuration despite ambient Configuration defaults and SDK changes.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.migrate-single-file-output",
+    "title": "Choose single-file extraction and locate deployed files correctly",
+    "goal": "Publish a single-file application when assembly file paths and extraction settings must match the delivered artifact.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.package-tools-correctly",
+    "title": "Package an installable command with the SDK tool contract",
+    "goal": "Package a command-line utility for local or global tool installation when SDK-generated tool settings and package layout must remain valid.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.pass-launch-settings",
+    "title": "Keep launch arguments, build properties and environment values distinct",
+    "goal": "Pass evaluated launch arguments and process environment deliberately, preserving the SDK/MSBuild/application boundaries.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.publish-multiarch-with-podman",
+    "title": "Build a multi-architecture image with Podman",
+    "goal": "Choose Podman explicitly and publish an image index when Linux x64 and Arm64 consumers need the corresponding image from one tag.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.publish-reproducible-containers",
+    "title": "Publish repeatable container images from fixed inputs",
+    "goal": "Control timestamps, base-image identity and build inputs when repeated container publishes need comparable image digests.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.run-file-utility",
+    "title": "Run a repository utility directly from a C# file",
+    "goal": "Use a file application for a small validated repository utility while retaining inherited build and package policy.",
+    "introducedIn": "10.0",
+    "supportedTargets": [
+      "10.0",
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.select-local-container-engine",
+    "title": "Choose the local engine for container publishing",
+    "goal": "Pin the intended local container engine when SDK defaults could load images into a different engine or image store.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "sdk.watch-app-hosts-and-devices",
+    "title": "Choose the application host and device for a local watch loop (mobile proof pending)",
+    "goal": "Select an explicit local app host and configuration; check independent SDK, Aspire and mobile-device prerequisites before adopting watch routes.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "simd.arrange-lanes",
+    "title": "Arrange planar and interleaved vector lanes portably",
+    "goal": "Interleave and recover independent channels, select vector halves and construct numeric lane patterns using portable vector operations.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "simd.select-supported-instructions",
+    "title": "Select supported vector instructions with a correct scalar fallback",
+    "goal": "Select exact supported instruction families and signed SVE loop predicates while preserving a scalar numeric fallback; experimental SVE and advanced-hardware proof remains pending.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "text.compare-characters",
+    "title": "Choose a character comparison policy explicitly",
+    "goal": "Compare single UTF-16 characters or Unicode scalars using an explicit ordinal or culture-sensitive policy.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "text.encode-base64",
+    "title": "Encode binary data directly into Base64 buffers",
+    "goal": "Round-trip binary payloads as standard padded Base64 characters or UTF-8 while retaining buffer and final-block contracts.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "text.handle-unicode-scalars",
+    "title": "Transform text without splitting Unicode scalars",
+    "goal": "Search or replace supplementary characters and retain explicit UTF-16 positions and replacement information.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "text.locate-invalid-unicode",
+    "title": "Report the first malformed Unicode subsequence",
+    "goal": "Locate invalid UTF-8 or UTF-16 input with offsets in the original encoding before decoding or transforming it.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "text.transfer-builder-content",
+    "title": "Transfer accumulated text and empty its builder",
+    "goal": "Hand accumulated text to a new StringBuilder while reusing an emptied source for the next batch.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "tls.drive-handshake-io",
+    "title": "Drive TLS with caller-owned buffers and I/O (experimental)",
+    "goal": "Use the experimental SYSLIB5007 TLS state machine when an application must schedule ciphertext transfers itself and retain unconsumed input.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "experimental",
+    "languageNeutral": false
+  },
+  {
+    "id": "tooling.annotate-code-strings",
+    "title": "Annotate embedded code strings for editor tooling",
+    "goal": "Mark string parameters as C#, F# or Visual Basic source so supporting editors can recognise the embedded language without implying runtime validation or execution.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "tracing.configure-source-rules",
+    "title": "Select activity sources and operations with refreshable tracing rules",
+    "goal": "Choose sources, operations, listener names and local/global scope through tracing configuration when manual listener wiring becomes repetitive.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "uri.identify-data-uris",
+    "title": "Recognise embedded URI payloads and describe video media types",
+    "goal": "Distinguish an absolute data URI from a remote clip address and assign a supported video media-type label without confusing scheme recognition with payload validation.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "validation.cover-nested-models",
+    "title": "Validate nested records and collection entries",
+    "goal": "Discover a form's complete editable graph, retain deliberate SkipValidation boundaries and remove the old experimental-attribute suppression when moving to .NET 11.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "validation.format-localized-rules",
+    "title": "Format validation messages using the rule's own arguments",
+    "goal": "Supply a translated validation template while the attribute fills its placeholders under the configured formatting culture.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "validation.translate-model-feedback",
+    "title": "Return the same translated validation messages in forms and endpoints",
+    "goal": "Share resource conventions and custom ValidationAttribute.FormatMessage formatting across generated Blazor and Minimal API validation; RC2 replaces the earlier formatter interface.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "validation.validate-asynchronously",
+    "title": "Await data validation before accepting a model",
+    "goal": "Use asynchronous DataAnnotations rules when acceptance needs an awaited check, preserving cancellation and synchronous rule failures.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  },
+  {
+    "id": "web.protect-browser-form-posts",
+    "title": "Simplify browser form protection while retaining necessary tokens",
+    "goal": "Remove token setup only from form paths that can use automatic cross-origin checks, while preserving token-dependent browsers, custom data and compliance defenses.",
+    "introducedIn": "11.0",
+    "supportedTargets": [
+      "11.0"
+    ],
+    "stability": "stable",
+    "languageNeutral": false
+  }
+]

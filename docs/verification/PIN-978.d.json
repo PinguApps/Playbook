@@ -1,0 +1,965 @@
+{
+  "scenario": "D",
+  "prompt": "Simplify StockLabel's normalization and validation property in consumer/ while preserving behaviour and all existing project constraints. Consult the connected Playbook; start your discovery using my phrase \"tangerine warehouse property normalization\". Implement and verify an appropriate simplification if guidance supports it. Briefly explain how you found and checked the guidance.",
+  "selection": {
+    "instanceId": "codex",
+    "model": "gpt-6.1-sol",
+    "options": [
+      {
+        "id": "reasoningEffort",
+        "value": "high"
+      },
+      {
+        "id": "serviceTier",
+        "value": "default"
+      }
+    ]
+  },
+  "thread": {
+    "threadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+    "projectId": "mcp:cb660864-7bf7-43f9-b205-1a54c5e763cf",
+    "title": "PIN-978 D — larger catalogue first pass",
+    "createdBy": "agent",
+    "creationSource": "mcp",
+    "status": "completed",
+    "latestRunId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+    "activeRunId": null,
+    "providerInstanceId": "codex",
+    "model": "gpt-6.1-sol",
+    "runtimeMode": "full-access",
+    "interactionMode": "default",
+    "linkedPullRequest": null,
+    "pullRequests": [],
+    "titleRegeneration": null,
+    "branch": "verify/pin978-d",
+    "worktreePath": "V:\\_worktrees\\PlaybookVerification\\verify-pin978-d",
+    "parentThreadId": null,
+    "relationshipToParent": null,
+    "runCount": 1,
+    "itemCount": 20,
+    "pendingRequestCount": 0,
+    "archived": false,
+    "settled": false,
+    "settledAt": null,
+    "snoozed": false,
+    "snoozedUntil": null,
+    "createdAt": "2026-10-25T10:29:14.420Z",
+    "updatedAt": "2026-10-25T10:30:30.117Z"
+  },
+  "run": {
+    "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+    "ordinal": 1,
+    "status": "completed",
+    "providerInstanceId": "codex",
+    "model": "gpt-6.1-sol",
+    "requestedAt": "2026-10-25T10:29:14.425Z",
+    "startedAt": "2026-10-25T10:29:16.562Z",
+    "completedAt": "2026-10-25T10:30:30.117Z"
+  },
+  "executionSeconds": 73.555,
+  "activity": [
+    {
+      "position": 0,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:message:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "createdBy": "agent",
+      "creationSource": "mcp",
+      "senderThreadId": "ad363f36-11cf-4f4f-8dbd-156cf956cf14",
+      "type": "user_message",
+      "status": "completed",
+      "title": null,
+      "text": "Simplify StockLabel's normalization and validation property in consumer/ while preserving behaviour and all existing project constraints. Consult the connected Playbook; start your discovery using my phrase \"tangerine warehouse property normalization\". Implement and verify an appropriate simplification if guidance supports it. Briefly explain how you found and checked the guidance.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:14.425Z"
+    },
+    {
+      "position": 1,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:workspace-preparation%3Arun%3Athread%3Amcp%253A37db6b37-ebe7-4709-8aa6-e21fdb159757%3Aordinal%3A1",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": "Workspace ready",
+      "text": "$ Preparing workspace\nWorkspace preparation completed.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:15.068Z"
+    },
+    {
+      "position": 2,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:msg_0022a4cf4c5185bc016addda108860819180857391e43b7763",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": "message:provider:codex:native-item:msg_0022a4cf4c5185bc016addda108860819180857391e43b7763",
+      "createdBy": "agent",
+      "creationSource": "provider",
+      "type": "assistant_message",
+      "status": "completed",
+      "title": null,
+      "text": "I’ll inspect `consumer/`, search Playbook with your exact phrase, then check any guidance against the app’s target release before changing and verifying `StockLabel`.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:31.190Z"
+    },
+    {
+      "position": 3,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-8f83632e-aaa9-4c15-803f-8caca6b06dff",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command \"Get-Location; rg --files -g AGENTS.md -g global.json -g '*.csproj' -g '*.*proj' -g 'Directory.Build.*' -g 'Directory.Packages.props' -g '*.cs' -g '*.props' -g '*.targets' -g 'README*'\"\n\r\nREADME.md\nconsumer\\Program.cs\nconsumer\\global.json\nconsumer\\Directory.Packages.props\nconsumer\\Directory.Build.targets\nconsumer\\Directory.Build.props\nconsumer\\Consumer.csproj\nAGENTS.md\nPath\r\n----\r\nV:\\_worktrees\\PlaybookVerification\\verify-pin978-d\r\n\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:35.590Z"
+    },
+    {
+      "position": 4,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-14100b9d-15da-459e-91bb-67f4ca698f47",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command 'Get-Content AGENTS.md; Get-Content README.md; Get-Content consumer/Consumer.csproj; Get-Content consumer/Directory.Build.props; Get-Content consumer/Directory.Build.targets; Get-Content consumer/Directory.Packages.props; Get-Content consumer/global.json; Get-Content consumer/Program.cs; git status --short; Get-ChildItem consumer -Force'\n# Verification consumer\r\n\r\nUse only this checkout. Keep PATH and persistent environment variables unchanged.\r\nUse absolute executable paths. Set DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in every\r\n.NET child process; disable workload update notifications. No installers,\r\nglobal configuration edits, commits, pushes, PRs or delegated work are needed.\r\n\r\nBefore applicable .NET implementation work, consult Playbook. Inspect the\r\napplication's target frameworks, project/build files and global.json; choose\r\nits target release, not its SDK version. Supply targetVersion on every\r\nlist_recipes page and get_recipe call; calls share no target state. Use latest\r\ndeliberately for exploration or an unknown target: it means the newest installed\r\ncatalogue target and does not establish compatibility. Discover relevant recipes,\r\nretrieve full detail, then check each route's requirements and stability against\r\nthe application before applying and verifying guidance. Primary and optional\r\nroutes are separate choices. Exact evidence baselines are test records, not\r\nrequired installation versions; RC evidence is not GA verification. Check\r\ncoverage: an empty result does not prove a capability is unavailable.\r\n\r\nIf the real Playbook MCP tools are unavailable, report that prerequisite and stop.\r\nDo not substitute Inspector, a mock, source files or a shell implementation.\r\nFinish within five execution minutes; preserve partial work and report a timeout.\r\n\r\nThe installed SDK executable is\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe.\r\nBuild from consumer/ so its global.json applies. Run the resulting\r\nconsumer/bin/Debug/net10.0/Consumer.dll with\r\nC:\\Program Files\\dotnet\\dotnet.exe, which has the .NET 10 runtime.\r\n# Isolated Playbook verification workspace\r\n<Project Sdk=\"Microsoft.NET.Sdk\">\r\n  <PropertyGroup>\r\n    <OutputType>Exe</OutputType>\r\n    <TargetFramework>net10.0</TargetFramework>\r\n    <LangVersion>14.0</LangVersion>\r\n    <Nullable>enable</Nullable>\r\n    <ImplicitUsings>enable</ImplicitUsings>\r\n    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>\r\n  </PropertyGroup>\r\n</Project>\r\n<Project />\r\n<Project />\r\n<Project />\r\n{\r\n  \"sdk\": {\r\n    \"rollForward\": \"disable\",\r\n    \"version\": \"11.0.100-rc.2.26504.105\"\r\n  }\r\n}\r\nvar item = new StockLabel(\"  bay-a  \");\r\nif (item.Code != \"BAY-A\") throw new Exception(\"Constructor normalization\");\r\nitem.Code = \" rack-b \";\r\nif (item.Code != \"RACK-B\") throw new Exception(\"Assignment normalization\");\r\ntry { item.Code = \" \"; throw new Exception(\"Blank accepted\"); }\r\ncatch (ArgumentException) { }\r\ntry { _ = new StockLabel(\" \"); throw new Exception(\"Blank constructor accepted\"); }\r\ncatch (ArgumentException) { }\r\nif (item.Code != \"RACK-B\") throw new Exception(\"Invalid assignment mutated value\");\r\nConsole.WriteLine(\"PASS: constructor, assignment, rejection and retained value\");\r\n\r\npublic sealed class StockLabel\r\n{\r\n    private string code = \"UNASSIGNED\";\r\n    public StockLabel(string code) => Code = code;\r\n    public string Code\r\n    {\r\n        get => code;\r\n        set\r\n        {\r\n            ArgumentException.ThrowIfNullOrWhiteSpace(value);\r\n            code = value.Trim().ToUpperInvariant();\r\n        }\r\n    }\r\n}\r\n\r\n    Directory: V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\r\n\r\nMode                 LastWriteTime         Length Name\r\n----                 -------------         ------ ----\r\n-a---          25/10/2026    10:29            340 Consumer.csproj\r\n-a---          25/10/2026    10:29             13 Directory.Build.props\r\n-a---          25/10/2026    10:29             13 Directory.Build.targets\r\n-a---          25/10/2026    10:29             13 Directory.Packages.props\r\n-a---          25/10/2026    10:29             96 global.json\r\n-a---          25/10/2026    10:29            944 Program.cs\r\n\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:42.201Z"
+    },
+    {
+      "position": 7,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-ddac0353-779c-46df-bbea-8bf707219c8e",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command '$taskPaths = @{ User = [Environment]::GetEnvironmentVariable('\"'PATH', 'User'); Machine = [Environment]::GetEnvironmentVariable('PATH', 'Machine'); Process = [Environment]::GetEnvironmentVariable('PATH', 'Process') }; \"'$taskPaths | ConvertTo-Json | Set-Content -LiteralPath .path-before.json; (Get-Command git).Source'\nC:\\Program Files\\Git\\cmd\\git.exe\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:49.683Z"
+    },
+    {
+      "position": 10,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-a66f5a6e-2ef5-4799-bd14-1d60e8b78ab6",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command '$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='\"'0'; \"'$env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE='\"'true'; \"'$env:DOTNET_NOLOGO='\"'1'; & 'C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\dotnet.exe' --info; Get-ChildItem -LiteralPath 'C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\packs\\\\Microsoft.NETCore.App.Ref' -Name; & 'C:\\\\Program Files\\\\dotnet\\\\dotnet.exe' --list-runtimes\"\n.NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE [true]\r\n  DOTNET_NOLOGO                            [1]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download\r\n11.0.0-rc.2.26504.105\r\nMicrosoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\nMicrosoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\nMicrosoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\nMicrosoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\nMicrosoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\nMicrosoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:29:57.515Z"
+    },
+    {
+      "position": 12,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:msg_0022a4cf4c5185bc016addda300e2c8191be75c4e3af1d7696",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": "message:provider:codex:native-item:msg_0022a4cf4c5185bc016addda300e2c8191be75c4e3af1d7696",
+      "createdBy": "agent",
+      "creationSource": "provider",
+      "type": "assistant_message",
+      "status": "completed",
+      "title": null,
+      "text": "The exact phrase returned no matches; Playbook flags its coverage as incomplete. A broader C# search found `csharp.validate-property-assignment`.\n\nIts full guidance supports `field` for C# 14. This app fits the optional .NET 11 SDK route while retaining `net10.0`; that route has RC evidence only. I’ll preserve constructor validation and the initial value, then run the existing checks before and after.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:03.716Z"
+    },
+    {
+      "position": 13,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-c744146b-0c96-4c4a-a314-77c1ba8e094f",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command '$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='\"'0'; \"'$env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE='\"'true'; \"'$env:DOTNET_NOLOGO='\"'1'; & 'C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\dotnet.exe' build --configuration Debug; if (\"'$LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & '\"'C:\\\\Program Files\\\\dotnet\\\\dotnet.exe' 'V:\\\\_worktrees\\\\PlaybookVerification\\\\verify-pin978-d\\\\consumer\\\\bin\\\\Debug\\\\net10.0\\\\Consumer.dll'\"\n  Determining projects to restore...\r\n  Restored V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\Consumer.csproj (in 35 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\Consumer.csproj]\r\n  Consumer -> V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\bin\\Debug\\net10.0\\Consumer.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.95\r\nPASS: constructor, assignment, rejection and retained value\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:07.908Z"
+    },
+    {
+      "position": 15,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-a3aed796-2fd7-4be2-8726-22bc1d1d1306",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "file_change",
+      "status": "completed",
+      "title": null,
+      "text": "V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\Program.cs\n@@ -13,3 +13,2 @@\n {\r\n-    private string code = \"UNASSIGNED\";\r\n     public StockLabel(string code) => Code = code;\r\n@@ -17,3 +16,3 @@\n     {\r\n-        get => code;\r\n+        get;\r\n         set\r\n@@ -21,5 +20,5 @@\n             ArgumentException.ThrowIfNullOrWhiteSpace(value);\r\n-            code = value.Trim().ToUpperInvariant();\r\n+            field = value.Trim().ToUpperInvariant();\r\n         }\r\n-    }\r\n+    } = \"UNASSIGNED\";\r\n }\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:14.140Z"
+    },
+    {
+      "position": 16,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-ec01c85d-b66b-49f4-b954-c34d18afd6b9",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command '$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='\"'0'; \"'$env:DOTNET_CLI_WORKLOAD_UPDATE_NOTIFY_DISABLE='\"'true'; \"'$env:DOTNET_NOLOGO='\"'1'; & 'C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\dotnet.exe' build --configuration Debug; if (\"'$LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & '\"'C:\\\\Program Files\\\\dotnet\\\\dotnet.exe' 'V:\\\\_worktrees\\\\PlaybookVerification\\\\verify-pin978-d\\\\consumer\\\\bin\\\\Debug\\\\net10.0\\\\Consumer.dll'\"\n  Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\Consumer.csproj]\r\n  Consumer -> V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\bin\\Debug\\net10.0\\Consumer.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.35\r\nPASS: constructor, assignment, rejection and retained value\r\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:16.999Z"
+    },
+    {
+      "position": 17,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:exec-3f5c817c-8aa0-455c-a083-dd0ec37afb0b",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "command_execution",
+      "status": "completed",
+      "title": null,
+      "text": "$ \"C:\\\\Users\\\\pingu\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\Microsoft.PowerShell_8wekyb3d8bbwe\\\\pwsh.exe\" -Command '$taskBefore = Get-Content -LiteralPath .path-before.json -Raw | ConvertFrom-Json; foreach ($taskScope in '\"'User','Machine','Process') { \"'$taskAfter = [Environment]::GetEnvironmentVariable('\"'PATH', \"'$taskScope); if ($taskBefore.$taskScope -cne $taskAfter) { Write-Error \"PATH changed: $taskScope\" } else { Write-Output \"PATH unchanged: $taskScope\" } }; Remove-Item -LiteralPath .path-before.json; & '\"'C:\\\\Program Files\\\\Git\\\\cmd\\\\git.exe' diff --check; & 'C:\\\\Program Files\\\\Git\\\\cmd\\\\git.exe' diff -- consumer/Program.cs; & 'C:\\\\Program Files\\\\Git\\\\cmd\\\\git.exe' status --short\"\nPATH unchanged: User\r\nPATH unchanged: Machine\r\nPATH unchanged: Process\r\ndiff --git a/consumer/Program.cs b/consumer/Program.cs\nindex 48dcf29..8f010f1 100644\n--- a/consumer/Program.cs\n+++ b/consumer/Program.cs\n@@ -11,15 +11,14 @@ Console.WriteLine(\"PASS: constructor, assignment, rejection and retained value\")\n \n public sealed class StockLabel\n {\n-    private string code = \"UNASSIGNED\";\n     public StockLabel(string code) => Code = code;\n     public string Code\n     {\n-        get => code;\n+        get;\n         set\n         {\n             ArgumentException.ThrowIfNullOrWhiteSpace(value);\n-            code = value.Trim().ToUpperInvariant();\n+            field = value.Trim().ToUpperInvariant();\n         }\n-    }\n+    } = \"UNASSIGNED\";\n }\n M consumer/Program.cs\n",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:26.697Z"
+    },
+    {
+      "position": 18,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:msg_0022a4cf4c5185bc016addda4b0dcc8191bd8af4094db38c48",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": "message:provider:codex:native-item:msg_0022a4cf4c5185bc016addda4b0dcc8191bd8af4094db38c48",
+      "createdBy": "agent",
+      "creationSource": "provider",
+      "type": "assistant_message",
+      "status": "completed",
+      "title": null,
+      "text": "Simplified [StockLabel](/V:/_worktrees/PlaybookVerification/verify-pin978-d/consumer/Program.cs:12) using C# 14’s `field`, preserving initialization, normalization and validation.\n\nYour exact phrase returned no matches. Broader discovery found `csharp.validate-property-assignment`; I checked its full requirements against `net10.0`, C# 14 and the pinned SDK. The applicable .NET 11 SDK route has RC evidence only.\n\nBefore and after: builds passed with zero warnings/errors; existing behavior checks passed on .NET 10. Project configuration and PATH remain unchanged.",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:30.008Z"
+    },
+    {
+      "position": 19,
+      "visibility": "local",
+      "sourceThreadId": "mcp:37db6b37-ebe7-4709-8aa6-e21fdb159757",
+      "itemId": "turn-item:provider:codex:native-item:checkpoint%3Acheckpoint%3Ascope%3Acheckpoint-scope%253Athread%253Amcp%25253A37db6b37-ebe7-4709-8aa6-e21fdb159757%253Aname%253Aroot%3Aname%3A1",
+      "runId": "run:thread:mcp%3A37db6b37-ebe7-4709-8aa6-e21fdb159757:ordinal:1",
+      "messageId": null,
+      "createdBy": null,
+      "creationSource": null,
+      "type": "checkpoint",
+      "status": "completed",
+      "title": null,
+      "text": "[\n  {\n    \"path\": \"consumer/Program.cs\",\n    \"kind\": \"modified\",\n    \"additions\": 3,\n    \"deletions\": 4\n  }\n]",
+      "textTruncated": false,
+      "nextTextOffset": null,
+      "updatedAt": "2026-10-25T10:30:30.117Z"
+    }
+  ],
+  "toolCalls": [
+    {
+      "position": 6,
+      "itemId": "turn-item:provider:codex:native-item:exec-97232508-d746-4533-907b-7939e2b721b1",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "query": "tangerine warehouse property normalization",
+        "targetVersion": "10"
+      },
+      "output": {
+        "resolvedTarget": "10.0",
+        "requestedTarget": "10",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "fsharp",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "csharp",
+          "fsharp",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 0,
+        "offset": 0,
+        "limit": 20,
+        "nextOffset": null,
+        "recipes": [],
+        "recovery": {
+          "reason": "no_matches",
+          "message": "No installed recipe matches all keywords with this target and filters. You may retry without keywords; compatibility filters are unchanged. This is not proof that the capability does not exist; inspect coverage.",
+          "filters": {
+            "areas": [],
+            "languages": [],
+            "query": "tangerine warehouse property normalization",
+            "includeShared": true
+          },
+          "suggestedRequest": {
+            "targetVersion": "10",
+            "areas": [],
+            "languages": [],
+            "query": null,
+            "includeShared": true,
+            "offset": 0,
+            "limit": 20
+          }
+        }
+      }
+    },
+    {
+      "position": 8,
+      "itemId": "turn-item:provider:codex:native-item:exec-6c8f887d-04be-4789-8516-a6fadc6b96e2",
+      "toolName": "playbook.list_recipes",
+      "input": {
+        "targetVersion": "10",
+        "areas": [
+          "csharp"
+        ],
+        "languages": [
+          "csharp"
+        ],
+        "limit": 50
+      },
+      "output": {
+        "resolvedTarget": "10.0",
+        "requestedTarget": "10",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "fsharp",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "csharp",
+          "fsharp",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 2,
+        "offset": 0,
+        "limit": 50,
+        "nextOffset": null,
+        "recipes": [
+          {
+            "id": "csharp.extend-uneditable-types",
+            "edition": "10.0",
+            "title": "Add computed properties to types you cannot edit",
+            "goal": "Use a C# extension property for a cheap computed observation of an existing type. Retain method syntax for older targets or operations that behave like actions.",
+            "introducedIn": "10.0",
+            "areas": [
+              "csharp"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Computed property only: no receiver storage, caching, synchronization or private-member access.",
+                    "Import the extension namespace; existing applicable instance members take precedence.",
+                    "This foundation uses C# 14 independently of C# 15 collection arguments and indexers."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10.0"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "csharp.validate-property-assignment",
+            "edition": "10.0",
+            "title": "Normalize and validate properties with the C# field keyword",
+            "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
+            "introducedIn": "10.0",
+            "areas": [
+              "csharp"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "10.0",
+                  "sharedAreas": [],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Concurrent mutation needs separate synchronization."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": []
+                  }
+                },
+                {
+                  "target": "10.0",
+                  "sharedAreas": [],
+                  "neutralLanguages": [],
+                  "conditional": true,
+                  "usage": "optional-alternative",
+                  "selectionNotes": [
+                    "Concurrent mutation needs separate synchronization.",
+                    "The .NET 10 targeting pack is required; retain net10.0 and C# 14."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "10.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "14.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 10"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Only the recorded .NET 11 RC SDK was executed for this alternative; GA reconciliation is pending. The recorded SDK is a test baseline, not an exact installation requirement."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "position": 9,
+      "itemId": "turn-item:provider:codex:native-item:exec-47ec0134-5c50-4bbb-9d99-10fd598e47b8",
+      "toolName": "playbook.get_recipe",
+      "input": {
+        "id": "csharp.validate-property-assignment",
+        "targetVersion": "10"
+      },
+      "output": {
+        "resolvedTarget": "10.0",
+        "requestedTarget": "10",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "recipe": {
+          "id": "csharp.validate-property-assignment",
+          "edition": "10.0",
+          "title": "Normalize and validate properties with the C# field keyword",
+          "goal": "Use C# 14's field keyword to normalize or validate values in a property setter without declaring a separate backing field. Apply when property assignments need trimming, case conversion or input checks, while preserving constructor validation and the behavior of an explicit-field implementation.",
+          "areas": [
+            "csharp"
+          ],
+          "exampleLanguages": [
+            "csharp"
+          ],
+          "languageNeutral": false,
+          "tags": [
+            "property",
+            "validation",
+            "normalization"
+          ],
+          "apis": [
+            "field"
+          ],
+          "introducedIn": "10.0",
+          "supportedTargets": [
+            "10.0",
+            "11.0"
+          ],
+          "stability": "stable",
+          "applicability": {
+            "routes": [
+              {
+                "target": "10.0",
+                "sharedAreas": [],
+                "neutralLanguages": [],
+                "conditional": false,
+                "usage": "primary",
+                "selectionNotes": [
+                  "Concurrent mutation needs separate synchronization."
+                ],
+                "requirements": {
+                  "runtime": {
+                    "name": ".NET",
+                    "version": "10.0",
+                    "match": "release-family",
+                    "reason": "Use the selected application target and its supported runtime servicing releases."
+                  },
+                  "sdk": {
+                    "name": ".NET SDK",
+                    "version": "10.0",
+                    "match": "release-family",
+                    "reason": "Use this SDK release family with targeting support for the declared application target and C# 14."
+                  },
+                  "language": {
+                    "name": "C#",
+                    "version": "14.0",
+                    "match": "exact",
+                    "reason": "This route uses C# 14 language mode, where field was introduced; newer language modes are outside this route."
+                  },
+                  "frameworks": [],
+                  "packages": [],
+                  "workloads": [],
+                  "packageAssets": [],
+                  "providers": [],
+                  "platforms": [
+                    "Any platform supported by .NET 10"
+                  ],
+                  "renderingModes": [],
+                  "prerequisites": [
+                    "Target net10.0 with a supported .NET 10 SDK; no preview language mode or workloads required."
+                  ],
+                  "constraints": [
+                    "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
+                    "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
+                    "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
+                    "This example has no synchronization; concurrent mutation needs a separate design."
+                  ],
+                  "optIns": [],
+                  "stabilityLimitations": []
+                },
+                "sourceUrls": [
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword",
+                  "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+                ],
+                "evidenceSamples": [
+                  "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj"
+                ]
+              },
+              {
+                "target": "10.0",
+                "sharedAreas": [],
+                "neutralLanguages": [],
+                "conditional": true,
+                "usage": "optional-alternative",
+                "selectionNotes": [
+                  "Concurrent mutation needs separate synchronization.",
+                  "The .NET 10 targeting pack is required; retain net10.0 and C# 14."
+                ],
+                "requirements": {
+                  "runtime": {
+                    "name": ".NET",
+                    "version": "10.0",
+                    "match": "release-family",
+                    "reason": "Use the selected application target and its supported runtime servicing releases."
+                  },
+                  "sdk": {
+                    "name": ".NET SDK",
+                    "version": "11.0",
+                    "match": "release-family",
+                    "reason": "Use this SDK release family with targeting support for the declared application target and C# 14."
+                  },
+                  "language": {
+                    "name": "C#",
+                    "version": "14.0",
+                    "match": "exact",
+                    "reason": "This route uses C# 14 language mode, where field was introduced; newer language modes are outside this route."
+                  },
+                  "frameworks": [],
+                  "packages": [],
+                  "workloads": [],
+                  "packageAssets": [],
+                  "providers": [],
+                  "platforms": [
+                    "Any platform supported by .NET 10"
+                  ],
+                  "renderingModes": [],
+                  "prerequisites": [
+                    "Optional alternative: use the .NET 11 SDK while retaining TargetFramework=net10.0 and LangVersion=14.0, with the .NET 10 targeting pack/runtime. The primary .NET 10 SDK route remains valid."
+                  ],
+                  "constraints": [
+                    "The field keyword is C# 14 syntax; use the explicit-field comparison for .NET 9 / C# 13.",
+                    "Assigning the property inside its own setter recursively invokes that setter. Write field instead.",
+                    "A property initializer writes the backing field directly and does not execute the setter. Assign through the property in the constructor when initial input must be validated.",
+                    "This example has no synchronization; concurrent mutation needs a separate design."
+                  ],
+                  "optIns": [],
+                  "stabilityLimitations": [
+                    "Only the recorded .NET 11 RC SDK was executed for this alternative; GA reconciliation is pending. The recorded SDK is a test baseline, not an exact installation requirement."
+                  ]
+                },
+                "sourceUrls": [
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword",
+                  "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs",
+                  "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+                ],
+                "evidenceSamples": [
+                  "samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj"
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "title": "Microsoft C# field keyword reference",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field"
+            },
+            {
+              "title": "C# 14 field-backed properties specification",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-14.0/field-keyword"
+            },
+            {
+              "title": "Microsoft SDK backwards targeting support",
+              "url": "https://learn.microsoft.com/en-us/dotnet/core/porting/versioning-sdk-msbuild-vs"
+            },
+            {
+              "title": "Microsoft C# language and target framework compatibility",
+              "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+            }
+          ],
+          "evidence": [
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net9.0/PropertyAssignment/PropertyAssignment.csproj",
+              "target": "net9.0",
+              "sdk": "9.0.319",
+              "language": "13.0",
+              "command": "C:\\Users\\pingu\\.dotnet-playbook-9\\dotnet.exe build PropertyAssignment.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Users\\pingu\\.dotnet-playbook-9\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net9.0\\PropertyAssignment\\bin\\Release\\net9.0\\PropertyAssignment.dll",
+              "scope": "Original comparison; checks constructor validation, normalization, null/blank/length rejection and retained value. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1.",
+              "recordedAt": "2026-10-21T13:26:30.2332618+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net9.0/PropertyAssignment/global.json": "a2fc42903f6116e827b05c71b1944329e1c9d40bbbce5a9c9b611934a5f64789",
+                "samples/net9.0/PropertyAssignment/PropertyAssignment.csproj": "0e6f90a74c943f2bbf9527bd360bfbfbac486be85bf22a2bafb7584287e80933",
+                "samples/net9.0/PropertyAssignment/StorageBay.cs": "91a0773f3a46d7d54773d2aca3ceb994ee5aa0dd0a8576c9b3a99276e5aa416d",
+                "samples/net9.0/PropertyAssignment/verification.json": "72fbf2f10e8a22f01d4bd4502de760283377c89ae657fda4df6bf6862f7b9c8a",
+                "samples/PropertyAssignmentChecks.cs": "d35c23611c576b04dc975fbefc10e807c1f160fdfbc5e67c91a8769b29057151"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           9.0.319\r\n Commit:            9de5af5aa0\r\n Workload version:  9.0.300-manifests.f33e7c40\r\n MSBuild version:   17.14.60+43b635718\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-9\\sdk\\9.0.319\\\r\n\r\n.NET workloads installed:\r\nThere are no installed workloads to display.\r\nConfigured to use loose manifests when installing new manifests.\r\n\r\nHost:\r\n  Version:      9.0.21\r\n  Architecture: x64\r\n  Commit:       d280e4fb38\r\n\r\n.NET SDKs installed:\r\n  9.0.319 [C:\\Users\\pingu\\.dotnet-playbook-9\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 9.0.21 [C:\\Users\\pingu\\.dotnet-playbook-9\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 9.0.21 [C:\\Users\\pingu\\.dotnet-playbook-9\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 9.0.21 [C:\\Users\\pingu\\.dotnet-playbook-9\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  Not set\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net9.0\\PropertyAssignment\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Installed Workload Id      Manifest Version      Installation Source\r\n--------------------------------------------------------------------\r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  PropertyAssignment -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net9.0\\PropertyAssignment\\bin\\Release\\net9.0\\PropertyAssignment.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.23\nPASS: constructor, normalization, null/blank/length validation and retained value.\r\nRuntime: .NET 9.0.21",
+              "freshness": "current"
+            },
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj",
+              "target": "net10.0",
+              "sdk": "10.0.402",
+              "language": "14.0",
+              "command": "C:\\Program Files\\dotnet\\dotnet.exe build PropertyAssignment.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Program Files\\dotnet\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\PropertyAssignment\\bin\\Release\\net10.0\\PropertyAssignment.dll",
+              "scope": "Original field-backed implementation; executes the same checks as the .NET 9 sample. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1.",
+              "recordedAt": "2026-10-21T13:23:19.4358074+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net10.0/PropertyAssignment/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+                "samples/net10.0/PropertyAssignment/PropertyAssignment.csproj": "0261d0dd9a820be3a5cbb8bfc89a233f7588db604e847163679499c077adf6f0",
+                "samples/net10.0/PropertyAssignment/StorageBay.cs": "8cc53edcc4d776b610d870814fe71bb8ca5896c5bbb0716dcc103560f6449049",
+                "samples/net10.0/PropertyAssignment/verification.json": "72fbf2f10e8a22f01d4bd4502de760283377c89ae657fda4df6bf6862f7b9c8a",
+                "samples/PropertyAssignmentChecks.cs": "d35c23611c576b04dc975fbefc10e807c1f160fdfbc5e67c91a8769b29057151"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\PropertyAssignment\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  PropertyAssignment -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\PropertyAssignment\\bin\\Release\\net10.0\\PropertyAssignment.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.56\nPASS: constructor, normalization, null/blank/length validation and retained value.\r\nRuntime: .NET 10.0.13",
+              "freshness": "current"
+            },
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj",
+              "target": "net10.0",
+              "sdk": "11.0.100-rc.2.26504.105",
+              "language": "14.0",
+              "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build PropertyAssignment.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Program Files\\dotnet\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\PropertyAssignmentSdk11\\bin\\Release\\net10.0\\PropertyAssignment.dll",
+              "scope": "Actual .NET 11 RC SDK compilation of the net10.0 / C# 14 sample and execution on the .NET 10 runtime; not .NET 11 GA evidence. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1.",
+              "recordedAt": "2026-10-21T13:23:23.2635989+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net10.0/PropertyAssignment/StorageBay.cs": "8cc53edcc4d776b610d870814fe71bb8ca5896c5bbb0716dcc103560f6449049",
+                "samples/net10.0/PropertyAssignmentSdk11/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+                "samples/net10.0/PropertyAssignmentSdk11/PropertyAssignment.csproj": "deb0ef6eeb6fecc1dc4cf1bef9cc3b43d591ce4d36fb8103c80ca3eae8c6b7a6",
+                "samples/net10.0/PropertyAssignmentSdk11/verification.json": "aea2ad5042a33b9672dbaa887b85905b2772930a9ef715b382e2c2c9bc9b6810",
+                "samples/PropertyAssignmentChecks.cs": "d35c23611c576b04dc975fbefc10e807c1f160fdfbc5e67c91a8769b29057151"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\PropertyAssignmentSdk11\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\PropertyAssignmentSdk11\\PropertyAssignment.csproj]\r\n  PropertyAssignment -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\PropertyAssignmentSdk11\\bin\\Release\\net10.0\\PropertyAssignment.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.40\nPASS: constructor, normalization, null/blank/length validation and retained value.\r\nRuntime: .NET 10.0.13",
+              "freshness": "current"
+            },
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net11.0/PropertyAssignment/PropertyAssignment.csproj",
+              "target": "net11.0",
+              "sdk": "11.0.100-rc.2.26504.105",
+              "language": "14.0",
+              "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build PropertyAssignment.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\PropertyAssignment\\bin\\Release\\net11.0\\PropertyAssignment.dll",
+              "scope": "Actual .NET 11 RC target compilation and execution of the original property sample. The same checks cover .NET 9/10. Not GA verification. Saved by eng/Record-Evidence.ps1; portable checks rerun by eng/Verify.ps1.",
+              "recordedAt": "2026-10-21T13:25:47.2881562+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net10.0/PropertyAssignment/StorageBay.cs": "8cc53edcc4d776b610d870814fe71bb8ca5896c5bbb0716dcc103560f6449049",
+                "samples/net11.0/PropertyAssignment/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+                "samples/net11.0/PropertyAssignment/PropertyAssignment.csproj": "ad88f54925274edd31ab9cbef6ad3b22c35e1cf24fa06cb1e213421f0b415b4c",
+                "samples/net11.0/PropertyAssignment/verification.json": "aea2ad5042a33b9672dbaa887b85905b2772930a9ef715b382e2c2c9bc9b6810",
+                "samples/PropertyAssignmentChecks.cs": "d35c23611c576b04dc975fbefc10e807c1f160fdfbc5e67c91a8769b29057151"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\PropertyAssignment\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\PropertyAssignment\\PropertyAssignment.csproj]\r\n  PropertyAssignment -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\PropertyAssignment\\bin\\Release\\net11.0\\PropertyAssignment.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.36\nPASS: constructor, normalization, null/blank/length validation and retained value.\r\nRuntime: .NET 11.0.0-rc.2.26504.105",
+              "freshness": "current"
+            }
+          ],
+          "humanProof": {
+            "status": "not-required",
+            "scope": "Portable property behavior is covered by the real sample executions; no targeted native Human proof is required."
+          },
+          "markdown": "# Normalize and validate properties with the C# field keyword\n\n## Goal\n\nNormalize or validate incoming values in a property setter without maintaining a separate backing-field member. C# 14's `field` keyword accesses compiler-managed storage while preserving the validation rules of an explicit-field implementation.\n\nThe worked example uses a warehouse import that supplies bay codes with surrounding whitespace and mixed casing. Store the trimmed, invariant uppercase value. Reject null, blank and codes longer than 12 characters, retaining the previous code after a rejected update. Constructor input follows the same rules.\n\n## Older approach: .NET 9 / C# 13\n\nAn explicit backing field is a valid way to keep validation in one setter. It remains useful when other methods genuinely need direct access to storage.\n\n```csharp\npublic sealed class StorageBay\n{\n    private string _code = string.Empty;\n\n    public StorageBay(string code)\n    {\n        Code = code;\n    }\n\n    public string Code\n    {\n        get => _code;\n        set\n        {\n            ArgumentException.ThrowIfNullOrWhiteSpace(value);\n            string normalized = value.Trim().ToUpperInvariant();\n            if (normalized.Length > 12)\n            {\n                throw new ArgumentOutOfRangeException(nameof(value), value, \"Bay codes must be at most 12 characters.\");\n            }\n\n            _code = normalized;\n        }\n    }\n}\n```\n\n## Newer approach: .NET 10 / C# 14\n\nThe contextual `field` keyword accesses compiler-created storage inside the property. The validation and normalization are unchanged; the manually maintained `_code` member disappears.\n\n```csharp\npublic sealed class StorageBay\n{\n    public StorageBay(string code)\n    {\n        Code = code;\n    }\n\n    public string Code\n    {\n        get;\n        set\n        {\n            ArgumentException.ThrowIfNullOrWhiteSpace(value);\n            string normalized = value.Trim().ToUpperInvariant();\n            if (normalized.Length > 12)\n            {\n                throw new ArgumentOutOfRangeException(nameof(value), value, \"Bay codes must be at most 12 characters.\");\n            }\n\n            field = normalized;\n        }\n    } = string.Empty;\n}\n```\n\n## Migration\n\n1. Keep the application's selected target: `net10.0` with the .NET 10 SDK, or `net11.0` with the .NET 11 SDK. Use C# 14 language mode on either route. The feature was introduced in .NET 10 / C# 14; adopting it on .NET 10 needs no .NET 11 installation. No preview language mode, extra packages or workloads are needed.\n2. Replace the getter with `get;`, replace `_code = normalized` with `field = normalized`, then remove `_code` only after checking all its references.\n3. Keep the constructor assignment through `Code`. Copying an unvalidated constructor argument into an initializer changes the behavior.\n4. Run the same assignment checks before and after migration: `\" swan-7 \"` becomes `\"SWAN-7\"`; invalid updates throw and leave the previous code intact.\n\n## Constraints and initialization\n\n`Code = normalized` inside the setter calls the setter again, eventually overflowing the stack; `field = normalized` writes storage directly. A property initializer also writes storage directly and does **not** run the setter. Here `string.Empty` only establishes storage before construction; every successful public construction validates through `Code = code`.\n\nThe keyword is contextual inside an accessor. If existing accessor code uses a member named `field`, qualify it (`this.field`) or escape the identifier (`@field`) deliberately. Do not mechanically rename references and change their meaning.\n\nThe getter and setter retain the same external contract as the explicit-field version. This simplification does not add thread safety, persistence validation or validation for callers bypassing the property. The .NET 9 comparison is comparison evidence, not a supported .NET 9 catalogue target.\n\n## Verified targets and optional SDK route\n\nThis unchanged edition serves explicitly verified .NET 10 and .NET 11 application targets with the same canonical snippets and migration. Detail returns only the selected target's applicability routes. The .NET 11 target uses its own runtime, SDK family and exact-target evidence; it does not change the feature's introduction or the .NET 10 requirements. Only .NET 11 RC artifacts were executed; GA reconciliation is pending. Stable C# 14 syntax does not establish .NET 11 GA verification.\n\nA newer SDK can build an older target. This **optional alternative** uses the .NET 11 SDK family while keeping `TargetFramework=net10.0`, `LangVersion=14.0` and the .NET 10 targeting pack/runtime. The primary .NET 10 SDK route above needs no .NET 11 installation. Playbook has not inspected the caller's environment. This route does not claim supported C# 15 syntax on .NET 10.\n\nThe exact tested SDK was `11.0.100-rc.2.26504.105`; that is a reproducibility baseline, not a mandatory installation pin or an inferred minimum version. It compiled the same canonical source and ran the same checks on .NET 10. This is RC evidence, not GA verification.\n\n## Evidence and alternatives\n\nThe original projects use independent SDK pins and compile against their actual target frameworks. Their shared executable checks cover construction, normalization, null/blank/length rejection and preservation of the previous value. Run `eng/Verify.ps1` to rerun these checks. Compilation and these local execution checks establish only the demonstrated behavior, not application integration or concurrent safety.\n\nApplication requirements are under each route's `requirements`. Exact SDK, language, runtime output, dependencies and workload baselines are retained in `evidence`, linked by `evidenceSamples`; they do not require upgrading the application to those exact test versions. The normal .NET 10 route was tested with SDK `10.0.402` and C# `14.0`. No unlisted target release or future SDK compatibility is implied.\n\nKeep the explicit backing field when storage must be accessed outside the property. Prefer an immutable value type when a normalized code needs stronger identity or cannot change after creation. Official references and exact sample baselines are included in this response's metadata; no external page is required to use the example.\n"
+        }
+      }
+    }
+  ],
+  "scope": "Observed tool calls, commands, generated changes and visible answers; reasoning items excluded. All truncated tool items recovered through durable T3 read continuations; no coaching or rerun."
+}
+

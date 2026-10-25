@@ -1,6 +1,13 @@
 # PR Agent review scope; Git tracking and build/validation gates are unchanged.
 # Use $pragent-ignore when reassessing generated outputs; keep inputs reviewable.
 
+# Raw durable T3 tool/command receipts; review frozen prompts, PIN-978.md,
+# catalogue, metrics and independently executed consumer evidence instead.
+/docs/verification/PIN-978.a.json
+/docs/verification/PIN-978.b.json
+/docs/verification/PIN-978.c.json
+/docs/verification/PIN-978.d.json
+
 # Raw local HTTP query receipts; review decoded browser records and TernLedger exporters/verifier.
 /docs/verification/PIN-800.canonical-5991.raw.json
 /docs/verification/PIN-800.canonical-5992.raw.json
