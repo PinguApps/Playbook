@@ -178,6 +178,10 @@ an analyzer executed. No unowned API delta or index item is silently excluded.
    while canonical RC2 explicitly removes its implementation. Keep the original
    availability finding and PIN-692 ownership; experimental eligibility is not
    rejected. Its relation is context, not a native prerequisite of this audit.
+   **25 October follow-up:** [PIN-692](dbsc-availability.md) now closes that pinned
+   RC2 finding as unavailable using actual RC1 package/RC2 reference metadata and
+   the official version index. The history above is retained; PIN-964 / GA_WEB
+   independently rechecks actual final artifacts before stable publication.
 5. **ConcurrencyLimiter:** the full note describes no new 11 package and also
    permits temporarily retaining an older package on net11. PIN-836 must verify
    the actual package/TFM rather than interpret absent 11.x as a universal restore
