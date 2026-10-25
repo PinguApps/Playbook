@@ -1,0 +1,41 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/Soundings/Soundings.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe build Soundings.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-25T13:48:20.1416188+00:00",
+  "sourceCommit": "fea36f50ea3f48412493929c8c58876a707ef708",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Test-Soundings.ps1": "ea7cc550458d3e690adfab1cef820a604bc7e8e546437cc0b1f418808b88db48",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net10.0/Soundings/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/Soundings/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/Soundings/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/Soundings/global.json": "bdd07c2963bfb07c17e13de19a79d4f021c976fdc1ee92bba4dca9b1a4764c9d",
+    "samples/net10.0/Soundings/packages.lock.json": "040b8090076e245986a02e9ae1fce0697bd9ae12b046d8254d781638a4877330",
+    "samples/net10.0/Soundings/Program.cs": "b56a636003d456be832611a5a3ff215511b3c55839055a7f7c9671163056c94a",
+    "samples/net10.0/Soundings/Proof.cs": "4bd4f8563354a13b0eff1340116342d99881202b9334f66f0f0b356ab4c62e37",
+    "samples/net10.0/Soundings/SoundingHub.cs": "bdf361a3c556817da8d4407758e8bff4abf5d66b3631c8135c0eb9598227c232",
+    "samples/net10.0/Soundings/Soundings.csproj": "416bc8790a0ec10761415e5a17d8b67f416ce0a2067aad7c41b1b769b6cc2e34",
+    "samples/net10.0/Soundings/SoundingWork.cs": "d3cd1f6a9fc43d7296c40dea2ce96b3a046f63c237a4ee336ca97595492f954a",
+    "samples/net10.0/Soundings/verification.json": "f05872c887e5f327e5c9413f85ac5e47d1a6f125b76f5b1d0eed9019898df876"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.Http.Connections.Client/10.0.13",
+    "Microsoft.AspNetCore.SignalR.Client.Core/10.0.13",
+    "Microsoft.AspNetCore.SignalR.Client/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.da132f47\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.0/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.0\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.0.11017/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.0.11017\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.0.11017/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.0.11017\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.2/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.2\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  10.0.303 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n  10.0.402 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-1b678e3d\\samples\\net10.0\\Soundings\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.da132f47\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.2/10.0.100          VS 18.11.12306.390 \r\nios                        26.0.11017/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.0.11017/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.0/10.0.100          VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Soundings -> V:\\_worktrees\\Playbook\\t3-1b678e3d\\samples\\net10.0\\Soundings\\bin\\Release\\net10.0\\Soundings.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.44"
+}

@@ -1,5 +1,10 @@
 # Contribute and verify an original recipe
 
+Non-streaming SignalR cancellation uses original Soundings .NET 10/11 consumers.
+[PIN-814](verification/PIN-814.md) records real matched and mixed-version .NET
+client/Kestrel WebSocket calls, server cancellation, connection reuse and the
+tested installed offline retrieval path.
+
 Scalar-binding filters and deliberately standalone responses use the original
 ParcelIntake/SignalCabin .NET 10/11 consumers. [PIN-815–816](verification/PIN-815-816.md)
 records actual request timing, retained older behavior, routing/security controls

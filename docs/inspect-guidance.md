@@ -1,5 +1,11 @@
 # Inspect the guidance an agent receives
 
+For canceling an abandoned non-streaming hub invocation, use the
+[tested PIN-814 walkthrough](verification/PIN-814.md#inspect-what-an-agent-receives).
+It displays the original .NET 10/11 comparison, goal, complete Markdown and
+applicability, including matched client/server capabilities and cooperative
+cancellation limits.
+
 For shaped scalar-binding failures and deliberate standalone responses, use the
 [tested PIN-815–816 walkthrough](verification/PIN-815-816.md#inspect-what-an-agent-receives).
 It displays both goals, complete original .NET 10/11 consumers and applicability,

@@ -1,0 +1,255 @@
+{
+  "id": "signalr.cancel-active-operation",
+  "edition": "11.0",
+  "title": "Stop abandoned hub work while keeping the live connection",
+  "goal": "Cancel a non-streaming SignalR invocation and pass its token into server work while keeping the connection usable; requires matched new .NET client/server capabilities.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "soundings",
+    "cancellation",
+    "signalr",
+    "invoke"
+  ],
+  "apis": [
+    "HubConnection.InvokeAsync",
+    "CancellationToken",
+    "Context.ConnectionAborted",
+    "HubConnection.StopAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Non-streaming invocation; matched new client/server capabilities.",
+          ".NET client and ASP.NET Core 11 server together; cancellation is cooperative. A canceled client task does not prove server cleanup."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution does not establish GA verification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compile against matching ASP.NET Core framework assets; exact reproducible pin is included."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested C# 15 mode; this example requires no new C# 15 syntax."
+          },
+          "frameworks": [
+            "ASP.NET Core SignalR server",
+            ".NET SignalR client"
+          ],
+          "packages": [
+            {
+              "version": "11.0.0-rc.2.26504.105",
+              "name": "Microsoft.AspNetCore.SignalR.Client",
+              "match": "exact",
+              "reason": "Exact tested RC2 client baseline with non-streaming cancellation; matching server capability is also required."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App 11 shared framework/reference pack",
+            "Microsoft.AspNetCore.SignalR.Client and Client.Core net11.0 assets; matching Http.Connections.Client dependency"
+          ],
+          "workloads": [],
+          "providers": [
+            "Self-hosted Kestrel; built-in JSON hub protocol over WebSockets; no external service"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual execution evidence is Windows x64 loopback"
+          ],
+          "renderingModes": [
+            "Non-streaming server hub invocation from a .NET client; no Blazor rendering mode required"
+          ],
+          "prerequisites": [
+            "Both client and server must support non-streaming invocation cancellation. The canonical complete consumers pin SDK 10.0.402 / 11.0.100-rc.2.26504.105, C# 14 / 15 and client packages 10.0.13 / 11.0.0-rc.2.26504.105. Restore matching packs/packages before offline sample use; Playbook itself is offline."
+          ],
+          "constraints": [
+            "Non-streaming invocation; matched new client/server capabilities. No .NET 10 target route is declared. Tested mixed pairs retain only local wait cancellation until the connection is stopped.",
+            "The server-supplied CancellationToken parameter is not a serialized client argument. Pass the final InvokeAsync token into all cancellable hub work. Cancellation is cooperative, races completion and cannot undo committed effects.",
+            "A canceled caller Task does not acknowledge server cleanup. OperationCanceledException escaping the hub is an error completion; SendAsync has no result-waiting invocation to cancel.",
+            "The older valid fallback uses a dedicated connection and Context.ConnectionAborted; StopAsync abandons all work on that connection and requires reconnection.",
+            "Loopback HTTP observation/control endpoints and the singleton held-work registry are proof instrumentation only. Do not deploy them as a cancellation/authorization service. No browser/Java/Swift client, Azure SignalR Service, MessagePack, database, other transport or platform execution is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework APIs; .NET 11 evidence uses RC2 and is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#cancel-hub-invocations-from-the-client",
+          "https://learn.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-11.0#cancel-a-hub-method-invocation",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/DefaultHubDispatcher.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/HubMethodDescriptor.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/Soundings/Soundings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "SignalR cancellation release notes",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#cancel-hub-invocations-from-the-client"
+    },
+    {
+      "title": "The .NET client cancellation contract",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-11.0#cancel-a-hub-method-invocation"
+    },
+    {
+      "title": "Pinned RC2 client cancellation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs"
+    },
+    {
+      "title": "Pinned RC2 server dispatch",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/DefaultHubDispatcher.cs"
+    },
+    {
+      "title": "Pinned RC2 synthetic hub arguments",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/server/Core/src/Internal/HubMethodDescriptor.cs"
+    },
+    {
+      "title": "Previous-release client implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/SignalR/clients/csharp/Client.Core/src/HubConnection.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/Soundings/Soundings.csproj",
+      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/PIN-814.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
+      "kind": "compile",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/Soundings/Soundings.csproj",
+      "scope": "Matching-SDK compilation with exact locked client assets. Actual .NET-client/Kestrel WebSocket cancellation and mixed-pair execution is recorded separately by eng/Test-Soundings.ps1 and docs/verification/PIN-814.md. No mocks, cross-compilation, browser, external provider, platform matrix or GA proof.",
+      "kind": "compile",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/Soundings/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/Soundings/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/Soundings/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/Soundings/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-soundings-csproj": {
+      "path": "samples/net10.0/Soundings/Soundings.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/Soundings/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-soundinghub-cs": {
+      "path": "samples/net10.0/Soundings/SoundingHub.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-soundingwork-cs": {
+      "path": "samples/net10.0/Soundings/SoundingWork.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-proof-cs": {
+      "path": "samples/net10.0/Soundings/Proof.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/Soundings/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/Soundings/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/Soundings/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/Soundings/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-soundings-csproj": {
+      "path": "samples/net11.0/Soundings/Soundings.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/Soundings/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-soundinghub-cs": {
+      "path": "samples/net11.0/Soundings/SoundingHub.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-soundingwork-cs": {
+      "path": "samples/net11.0/Soundings/SoundingWork.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-proof-cs": {
+      "path": "samples/net11.0/Soundings/Proof.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "scope": "Real managed loopback checks require no owner-only resource. No provisioning/publication; GA and broader clients/platforms remain separate.",
+    "status": "not-required"
+  }
+}

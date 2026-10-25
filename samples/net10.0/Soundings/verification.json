@@ -1,0 +1,16 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-Soundings.ps1"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.Http.Connections.Client/10.0.13",
+    "Microsoft.AspNetCore.SignalR.Client.Core/10.0.13",
+    "Microsoft.AspNetCore.SignalR.Client/10.0.13"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}

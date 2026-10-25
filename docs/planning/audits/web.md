@@ -435,6 +435,14 @@ F#-specific artifact path. M includes actual published consumption.
 
 ## Reproduce and inspect
 
+PIN-814 now delivers `signalr.cancel-active-operation/11.0` with original
+.NET 10/11 consumers and actual .NET client/Kestrel cancellation checks, including
+both mixed-version controls. This is a behavioral change in existing invocation
+APIs, so the public-signature diff alone cannot establish it. The TypeScript
+inventory does not imply a unary cancellation API: this guidance is explicitly
+.NET-client-only. Authentication-refresh TypeScript findings remain with PIN-813.
+See [the exact artifacts and offline retrieval proof](../../verification/PIN-814.md).
+
 Prerequisites: PowerShell 7 on the recorded Windows lane, the two exact SDK/root
 layouts above, and network access to public NuGet/npm/raw GitHub. No installation,
 trust operation, native server setup or application build is required for this
