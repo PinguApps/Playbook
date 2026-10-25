@@ -293,5 +293,6 @@ Feature: Installed offline guidance
     And component property injection void interop and MathML retain complete guidance offline
     And quay conversations and browser form protection retain complete guidance offline
     And shared authorization and Identity clocks retain complete guidance offline
+    And endpoint binding and routing retain complete guidance and safety constraints offline
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr

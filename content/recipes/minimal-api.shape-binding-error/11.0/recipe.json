@@ -1,0 +1,215 @@
+{
+  "id": "minimal-api.shape-binding-error",
+  "edition": "11.0",
+  "title": "Return a consistent explanation before a bound endpoint can run",
+  "goal": "Shape failed numeric route/query binding in an endpoint filter before handler execution; retain ThrowOnBadRequest=false in Development and distinguish earlier body-read failures.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "parcel-intake",
+    "binding-routing"
+  ],
+  "apis": [
+    "EndpointFilterInvocationContext",
+    "RouteHandlerOptions.ThrowOnBadRequest",
+    "AddEndpointFilter",
+    "Results.Problem"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Scalar binding failures with a registered filter; Development requires ThrowOnBadRequest=false. Handler execution is not required.",
+          "This behavior is also verified on .NET 10; .NET 11 release-note placement does not make it a new exclusive API. Malformed JSON can return before filters."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution does not establish GA verification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compile against matching ASP.NET Core framework assets; exact reproducible pin is included."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested C# 15 mode; this example requires no new C# 15 syntax."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework/reference pack; no additional NuGet package"
+          ],
+          "workloads": [],
+          "providers": [
+            "Real RequestDelegateFactory, Kestrel and endpoint filter pipeline; no application data provider"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual execution evidence is Windows x64 loopback"
+          ],
+          "renderingModes": [
+            "Server HTTP endpoints; no Blazor rendering mode required"
+          ],
+          "prerequisites": [
+            "Create every file below in a standalone ParcelIntake directory for the chosen target. Empty Directory files isolate surrounding build/package rules. Restore the matching framework packs once; installed guidance itself remains offline. SDK 10.0.402 / 11.0.100-rc.2.26504.105 and C# 14.0 / 15.0 reproduce actual evidence, not minimum language-feature requirements."
+          ],
+          "constraints": [
+            "Set RouteHandlerOptions.ThrowOnBadRequest=false explicitly in Development. Otherwise BadHttpRequestException leaves binding before a filter can shape the failure. This setting is the normal non-Development default; it does not suppress arbitrary handler exceptions.",
+            "Inspect HttpContext.Response.StatusCode==400 at filter entry, before next(context). Failed arguments may contain defaults or nulls: do not dereference or repair them, call business services or call next on that path. A 400 produced later by the handler is a separate domain decision and must retain its own body.",
+            "Scope the filter to the endpoints whose binding-error contract you own. A status code is not a typed diagnostic: an earlier component could also set 400. Do not install another earlier status writer and assume every 400 means numeric binding failed.",
+            "In the tested .NET 10/11 RequestDelegateFactory path, malformed JSON and unsupported content types return before the filter: empty 400 and 415 respectively in this app. No ProblemDetails service or status pages are configured in the control. Use a separately configured ProblemDetails/status-code middleware policy for broader body-read failures; this filter is not universal exception or JSON error handling.",
+            "The original .NET 10 comparison uses the same valid filter technique and passes the same actual requests. No older workaround is required. The .NET 10 source already contains scalar-failure filter invocation. The .NET 10 directory is comparison evidence, not an additional curated foundation or advertised target-10 route.",
+            "Numeric route values must reach binding: a route constraint such as {dock:int} can reject the route earlier with 404. These samples deliberately use {dock}. Binding failures are different from model/business validation; no automatic validation service is enabled."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework APIs; .NET 11 evidence uses RC2 and is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#endpoint-filters-observe-parameter-binding-failures",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Extensions/src/RequestDelegateFactory.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Http/Http.Extensions/src/RequestDelegateFactory.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-10.0#binding-failures"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ParcelIntake/ParcelIntake.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official release-note description and Development prerequisite",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#endpoint-filters-observe-parameter-binding-failures"
+    },
+    {
+      "title": "Pinned RequestDelegateFactory scalar checks and earlier JSON read path",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Extensions/src/RequestDelegateFactory.cs"
+    },
+    {
+      "title": "Official .NET 10 source already invokes scalar-failure filters",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Http/Http.Extensions/src/RequestDelegateFactory.cs"
+    },
+    {
+      "title": "Binding sources and distinct failure statuses",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/parameter-binding?view=aspnetcore-10.0#binding-failures"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ParcelIntake/ParcelIntake.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/PIN-815-816.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
+    },
+    {
+      "sample": "samples/net11.0/ParcelIntake/ParcelIntake.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/PIN-815-816.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ParcelIntake/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ParcelIntake/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ParcelIntake/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-parcelintake-csproj": {
+      "path": "samples/net10.0/ParcelIntake/ParcelIntake.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ParcelIntake/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-proof-cs": {
+      "path": "samples/net10.0/ParcelIntake/Proof.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ParcelIntake/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ParcelIntake/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ParcelIntake/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ParcelIntake/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-parcelintake-csproj": {
+      "path": "samples/net11.0/ParcelIntake/ParcelIntake.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ParcelIntake/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-proof-cs": {
+      "path": "samples/net11.0/ParcelIntake/Proof.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ParcelIntake/global.json",
+      "region": "complete",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed local request checks need no owner-only resources. No provisioning or publication; GA and broader platform/client proof remain separate."
+  }
+}

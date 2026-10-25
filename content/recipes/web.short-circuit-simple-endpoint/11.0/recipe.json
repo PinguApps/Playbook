@@ -1,0 +1,230 @@
+{
+  "id": "web.short-circuit-simple-endpoint",
+  "edition": "11.0",
+  "title": "Bypass unneeded middleware for a deliberately standalone response",
+  "goal": "Run a public standalone endpoint immediately after routing with ShortCircuitAttribute, while keeping endpoints that need authentication, CORS or other downstream middleware on the ordinary pipeline.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "signal-cabin",
+    "binding-routing"
+  ],
+  "apis": [
+    "ShortCircuitAttribute",
+    "IShortCircuitMetadata",
+    "ShortCircuit",
+    "UseRouting"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Standalone responses only: must not require skipped authentication, CORS or other middleware. Middleware before UseRouting still runs.",
+          "The .NET 10 ShortCircuit() convention remains valid on .NET 11; the attribute is the newer declarative form."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution does not establish GA verification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compile against matching ASP.NET Core framework assets; exact reproducible pin is included."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested C# 15 mode; this example requires no new C# 15 syntax."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework/reference pack; no additional NuGet package"
+          ],
+          "workloads": [],
+          "providers": [
+            "Real Kestrel routing, CORS and authorization middleware; local header authentication fixture for proof only"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual execution evidence is Windows x64 loopback"
+          ],
+          "renderingModes": [
+            "Server HTTP endpoints; no Blazor rendering mode required"
+          ],
+          "prerequisites": [
+            "Create every file below in a standalone SignalCabin directory for the chosen target. Empty Directory files isolate surrounding build/package rules. Restore the matching framework packs once; installed guidance itself remains offline. SDK 10.0.402 / 11.0.100-rc.2.26504.105 and C# 14.0 / 15.0 reproduce actual evidence, not minimum language-feature requirements."
+          ],
+          "constraints": [
+            "Use only for a deliberately public, self-contained response that does not need skipped authentication, CORS, antiforgery, rate limiting, session, telemetry enrichment or any other downstream middleware. Audit default/fallback policies and custom checks too: the framework cannot discover every application-specific dependency.",
+            "Short-circuiting runs the endpoint during UseRouting and omits the remaining middleware. Middleware placed before UseRouting still executes. Place any checks that must apply to every request before routing or keep the endpoint on the ordinary pipeline. The endpoint still executes; short-circuiting does not mean returning without its handler.",
+            "With the default security-metadata checks, combining short-circuit metadata with authorization or CORS metadata throws InvalidOperationException. Required antiforgery metadata on relevant form methods is also rejected. Do not suppress those checks to make an unsafe endpoint work; remove short-circuiting from endpoints that need those protections.",
+            "The optional status code supplies the response status before the endpoint executes; it does not remove the endpoint, authorize callers or guarantee the final result will not set another status. The retained convention sample returns plain text with status 202.",
+            "The new attribute is in Microsoft.AspNetCore.Routing and implements IShortCircuitMetadata. It targets methods/classes, is not inherited and is single-use per target. It can be placed on a controller/action or Minimal API handler; this canonical proof selects Minimal APIs. The existing ShortCircuit() convention remains valid; the .NET 10 sample uses it for the same goal.",
+            "The X-Test-Crew authentication scheme and developer exception page exist only to expose the local comparison. Never trust that client header as a production credential or expose developer exception details in production. No performance saving, browser CORS enforcement, proxy behavior or production security configuration is measured here."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework APIs; .NET 11 evidence uses RC2 and is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#short-circuit-endpoints-with-an-attribute",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0#short-circuit-middleware-after-routing",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing/src/ShortCircuit/ShortCircuitAttribute.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing/src/EndpointRoutingMiddleware.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Http/Routing/src/ShortCircuit/RouteShortCircuitEndpointConventionBuilderExtensions.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SignalCabin/SignalCabin.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official ShortCircuit attribute release notes",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#short-circuit-endpoints-with-an-attribute"
+    },
+    {
+      "title": "Routing order and short-circuit security restrictions",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0#short-circuit-middleware-after-routing"
+    },
+    {
+      "title": "Pinned ShortCircuitAttribute metadata contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing/src/ShortCircuit/ShortCircuitAttribute.cs"
+    },
+    {
+      "title": "Pinned routing execution and security guards",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Routing/src/EndpointRoutingMiddleware.cs"
+    },
+    {
+      "title": "Previous-release endpoint convention",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Http/Routing/src/ShortCircuit/RouteShortCircuitEndpointConventionBuilderExtensions.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/SignalCabin/SignalCabin.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/PIN-815-816.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
+    },
+    {
+      "sample": "samples/net11.0/SignalCabin/SignalCabin.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/PIN-815-816.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/SignalCabin/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/SignalCabin/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/SignalCabin/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fixtureauthentication-cs": {
+      "path": "samples/net10.0/SignalCabin/FixtureAuthentication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/SignalCabin/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-proof-cs": {
+      "path": "samples/net10.0/SignalCabin/Proof.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-signalcabin-csproj": {
+      "path": "samples/net10.0/SignalCabin/SignalCabin.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/SignalCabin/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/SignalCabin/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/SignalCabin/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/SignalCabin/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fixtureauthentication-cs": {
+      "path": "samples/net11.0/SignalCabin/FixtureAuthentication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/SignalCabin/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-proof-cs": {
+      "path": "samples/net11.0/SignalCabin/Proof.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-signalcabin-csproj": {
+      "path": "samples/net11.0/SignalCabin/SignalCabin.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/SignalCabin/global.json",
+      "region": "complete",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed local request checks need no owner-only resources. No provisioning or publication; GA and broader platform/client proof remain separate."
+  }
+}
