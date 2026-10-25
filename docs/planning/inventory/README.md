@@ -10,7 +10,7 @@ Documentation-backed planning pass, 16 October 2026, using the .NET 11 RC2 prepa
 
 The initial planning pass recorded **406 source-disposition rows and 310 included candidate rows**. Later audit additions are identified separately below and in the area registers; those historical counts are not a current delivery total. These are not 310 finalized distinct recipes: source families overlap, shared subtopics need linking, and some goals may split or merge after original samples establish the right boundary. The eight curated .NET 10 foundations remain the previously approved historical backfill, not a full additional release audit.
 
-`included` means eligible under the agreed authoring criterion, pending exact API and example evidence. `grouped` assigns coverage to another goal. `excluded` records an upgrade-only benefit, an out-of-boundary product, or another stated reason. `unresolved` records a missing source/API/availability fact. It does not mean experimental features are disallowed.
+`included` means eligible under the agreed authoring criterion, pending exact API and example evidence. `grouped` assigns coverage to another goal. `excluded` records an upgrade-only benefit, an out-of-boundary product, or another stated reason. `unresolved` records a missing source/API/availability fact. It does not mean experimental features are disallowed. `unavailable` closes an availability finding for stated artifacts, retaining its history and separate GA recheck.
 
 ## Cross-family shaping
 
@@ -78,7 +78,7 @@ The [data/text/numerics/I/O API audit](../audits/data-io.md) records actual .NET
 
 The [serialization API audit](../audits/serialization.md) records the bounded .NET 10 / .NET 11 RC2 asset and canonical-source comparison, including package target differences, generator diagnostics and historical obsoletions. It assigns existing goals and proposes two missing delivery slices; their content/evidence and final GA reconciliation remain outstanding.
 
-The web register resolves stale cumulative guidance against canonical RC2 notes for QuickGrid experimental diagnostics, validation-message formatting, browser-option names/lookup, and BasePath namespace. DBSC remains an availability finding because the canonical RC2 notes remove its implementation despite older cumulative guidance. Include genuinely experimental APIs, but do not teach unavailable RC-only contracts as GA features.
+The web register resolves stale cumulative guidance against canonical RC2 notes for QuickGrid experimental diagnostics, validation-message formatting, browser-option names/lookup, and BasePath namespace. [PIN-692's DBSC audit](../audits/dbsc-availability.md) closes the historical unresolved candidate as **unavailable on pinned RC2**: actual package/API artifacts corroborate the removal. Its RC1 history remains visible and PIN-964 / GA_WEB must separately recheck final artifacts. Include genuinely experimental APIs, but do not teach unavailable RC-only contracts as GA features.
 
 Native workload evidence includes source/version conflicts and real Mac/Xcode requirements. The documented macios contributor `--no-xcode` mode is not a consumer Apple application build route. No native compilation or runtime behavior was established here.
 
