@@ -54,6 +54,7 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'Test-SdkWorkflows.ps1'), (Join-Path $PSScriptRoot 'Test-WatchHosts.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-SdkDelivery.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-HarbourPermit.ps1') (Join-Path $fixture 'eng')
+  Copy-Item (Join-Path $PSScriptRoot 'Test-EndpointGuidance.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-SurveyForms.ps1'), (Join-Path $PSScriptRoot 'SurveyForms.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-VisitBookings.ps1'), (Join-Path $PSScriptRoot 'VisitBookings.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'Test-ArchiveCards.ps1'), (Join-Path $PSScriptRoot 'ArchiveCards.browser.js') (Join-Path $fixture 'eng')

@@ -1,0 +1,12 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-EndpointGuidance.ps1"
+  ],
+  "dependencies": [],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}
