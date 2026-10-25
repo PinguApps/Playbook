@@ -1,0 +1,43 @@
+{
+  "records": [
+    {
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "id": "authorization.share-policy-metadata",
+      "sourceCount": 10,
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net10.0\\JettyAccess\\JettyAccess.csproj (in 75 ms).\r\n  JettyAccess -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net10.0\\JettyAccess\\bin\\Release\\net10.0\\JettyAccess.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.00\r\nHTTP legacy=False /launch allowed=False: 403\r\nHTTP legacy=False /manifest allowed=False: 403\r\nRENDER route=False allowed=False: Not authorized\r\nRENDER route=True allowed=False: Not authorized\r\nHUB allowed=False: {\"type\":3,\"invocationId\":\"proof\",\"error\":\"Failed to invoke 'Read' because user is unauthorized\"}\r\nHTTP legacy=False /launch allowed=True: 200\r\nHTTP legacy=False /manifest allowed=True: 200\r\nRENDER route=False allowed=True: manifest granted\r\nRENDER route=True allowed=True: manifest granted\r\nHUB allowed=True: {\"type\":3,\"invocationId\":\"proof\",\"result\":\"manifest granted\"}\r\nHTTP legacy=True /manifest allowed=False: 403\r\nHTTP legacy=True /manifest/legacy-safe allowed=False: 403\r\nHTTP legacy=True /manifest allowed=True: 200\r\nHTTP legacy=True /manifest/legacy-safe allowed=True: 200\r\nPASS: actual HTTP, SignalR invocation, AuthorizeView/AuthorizeRouteView and legacy MVC controls. Runtime: .NET 10.0.13\r\n",
+      "responseSha256": "ec4314b7e7dcd72fa27866fff5612c964eeff45cbdc5d39ef85f249265eb603a",
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net10.0\\JettyAccess"
+    },
+    {
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "id": "authorization.share-policy-metadata",
+      "sourceCount": 10,
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\JettyAccess\\JettyAccess.csproj (in 10 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\JettyAccess\\JettyAccess.csproj]\r\n  JettyAccess -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\JettyAccess\\bin\\Release\\net11.0\\JettyAccess.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.83\r\nHTTP legacy=False /launch allowed=False: 403\r\nHTTP legacy=False /manifest allowed=False: 403\r\nRENDER route=False allowed=False: Not authorized\r\nRENDER route=True allowed=False: Not authorized\r\nHUB allowed=False: {\"type\":3,\"invocationId\":\"proof\",\"error\":\"Failed to invoke 'Read' because user is unauthorized\"}\r\nHTTP legacy=False /launch allowed=True: 200\r\nHTTP legacy=False /manifest allowed=True: 200\r\nRENDER route=False allowed=True: manifest granted\r\nRENDER route=True allowed=True: manifest granted\r\nHUB allowed=True: {\"type\":3,\"invocationId\":\"proof\",\"result\":\"manifest granted\"}\r\nHTTP legacy=True /manifest allowed=False: 200\r\nHTTP legacy=True /manifest/legacy-safe allowed=False: 403\r\nHTTP legacy=True /manifest allowed=True: 200\r\nHTTP legacy=True /manifest/legacy-safe allowed=True: 200\r\nPASS: actual HTTP, SignalR invocation, AuthorizeView/AuthorizeRouteView and legacy MVC controls. Runtime: .NET 11.0.0-rc.2.26504.105\r\n",
+      "responseSha256": "ec4314b7e7dcd72fa27866fff5612c964eeff45cbdc5d39ef85f249265eb603a",
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\JettyAccess"
+    },
+    {
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "id": "identity.control-test-clock",
+      "sourceCount": 8,
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net10.0\\MooringClock\\MooringClock.csproj (in 76 ms).\r\n  MooringClock -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net10.0\\MooringClock\\bin\\Release\\net10.0\\MooringClock.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.43\r\nPASS: real .NET 10 UserManager ignores injected clock; future/past stored-state checks without sleeping. Runtime: .NET 10.0.13\r\n",
+      "responseSha256": "bc8ab71b09e41f42ffb4342fbc289befb1cf05fafd6f724fa8fec28109555531",
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net10.0\\MooringClock"
+    },
+    {
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "id": "identity.control-test-clock",
+      "sourceCount": 8,
+      "output": "  Determining projects to restore...\r\n  Restored C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\MooringClock\\MooringClock.csproj (in 1 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\MooringClock\\MooringClock.csproj]\r\n  MooringClock -> C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\MooringClock\\bin\\Release\\net11.0\\MooringClock.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.47\r\nPASS: real UserManager, two failures, injected end 2032-04-08T09:17:00.0000000+00:00, one tick before, exactly at and one tick after expiry; no sleeping or end-date edits. Runtime: .NET 11.0.0-rc.2.26504.105\r\n",
+      "responseSha256": "bc8ab71b09e41f42ffb4342fbc289befb1cf05fafd6f724fa8fec28109555531",
+      "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5\\net11.0\\MooringClock"
+    }
+  ],
+  "directory": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-jetty-consumer-243110cdaf264540ade16695304458f5",
+  "scope": "No canonical checkout files copied. Restores, compiles and executes returned consumers with actual loopback HTTP/hub/component and Identity decisions; no canonical checkout source copied.",
+  "kind": "compilation-and-execution-from-installed-Markdown-only"
+}

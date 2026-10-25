@@ -1,0 +1,261 @@
+{
+  "id": "authorization.share-policy-metadata",
+  "edition": "11.0",
+  "title": "Share access requirements across endpoints, views and hub methods",
+  "goal": "Apply one authorization requirement to server operations and matching component visibility; retain named policies on legacy MVC without endpoint routing.",
+  "areas": [
+    "aspnetcore",
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "jetty-access",
+    "authorization",
+    "policy"
+  ],
+  "apis": [
+    "AuthorizationPolicy.CombineAsync",
+    "IAuthorizeData",
+    "IAuthorizationRequirementData",
+    "AuthorizeView",
+    "AuthorizeRouteView",
+    "AuthorizeFilter"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Endpoint routing for MVC; legacy EnableEndpointRouting=false still needs named policies or explicit filters.",
+          "AuthorizeView.Policy is a policy name; this sample supplies requirement metadata through its protected IAuthorizeData adapter.",
+          "Component visibility is not server-side access enforcement; secure each endpoint and hub operation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual net11.0 ASP.NET Core consumer; RC2 execution is not GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build matching Razor and framework assets; reproducible SDK pin is in the sample."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested compiler mode for this sample; no C# 15-only construct is needed by the demonstrated API."
+          },
+          "frameworks": [
+            "ASP.NET Core authorization",
+            "Blazor components",
+            "MVC",
+            "SignalR"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework/reference pack; no additional NuGet package"
+          ],
+          "workloads": [],
+          "providers": [
+            "Built-in authorization/policy provider; original CrewPermitHandler; local test authentication only"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual evidence is Windows x64 loopback"
+          ],
+          "renderingModes": [
+            "Server-rendered AuthorizeView adapter",
+            "Server-rendered AuthorizeRouteView",
+            "MVC endpoint routing",
+            "SignalR hub method",
+            "Minimal API"
+          ],
+          "prerequisites": [
+            "Create every listed file in the standalone JettyAccess directory. The empty Directory files isolate surrounding build/package rules. Restore matching framework packs once, then build offline. Exact SDK pins reproduce the evidence; they are not minimum product versions."
+          ],
+          "constraints": [
+            "Keep the same server-side requirement handler across every protected operation. Hiding a view never secures a callable API or hub. Production authentication must establish trusted claims; never deploy the sample X-Probe-Permit header scheme.",
+            "Legacy MVC with EnableEndpointRouting=false is unchanged. The new attribute by itself only triggers the default authenticated-user policy on that path: the denied-but-authenticated probe receives 200. Retain the named crew-permit policy on /manifest/legacy-safe, which returns 403. That deliberate negative control must not become a production endpoint.",
+            "AuthorizeView.Policy remains a string policy name. PermitView overrides the public protected GetAuthorizeData hook and returns the same dual-interface attribute. Ordinary AuthorizeView can keep a named policy; AuthorizeRouteView reads the attribute on the routed component. Do not invent an object-valued Policy parameter or put component authentication schemes on the metadata.",
+            "The new CombineAsync overload accepts IEnumerable<object>. An IAuthorizeData-typed overload retains its older semantics and does not inspect requirement metadata. The helper deliberately uses object[]; the executable check verifies one CrewPermit requirement from the dual-interface attribute.",
+            "The focused proof starts ephemeral loopback Kestrel hosts, sends real allowed/denied HTTP and WebSocket SignalR invocations, and renders real components with isolated authentication-state scopes. It proves these server decisions and rendered strings, not interactive browser routing, client trust, resource-based authorization or all policy composition combinations."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable APIs with .NET 11 RC2 compilation/execution. This is not GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#consistent-authorization-metadata-across-the-stack",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authorization/Core/src/AuthorizationPolicy.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Authorization/src/AuthorizeViewCore.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Authorization/src/AttributeAuthorizeDataCache.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Core/src/ApplicationModels/AuthorizationApplicationModelProvider.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/JettyAccess/JettyAccess.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Consistent authorization metadata release notes",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#consistent-authorization-metadata-across-the-stack"
+    },
+    {
+      "title": "Pinned metadata combination and overloads",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Security/Authorization/Core/src/AuthorizationPolicy.cs"
+    },
+    {
+      "title": "Pinned component metadata evaluation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Authorization/src/AuthorizeViewCore.cs"
+    },
+    {
+      "title": "Pinned component route metadata",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Authorization/src/AttributeAuthorizeDataCache.cs"
+    },
+    {
+      "title": "Pinned legacy MVC filter path",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Core/src/ApplicationModels/AuthorizationApplicationModelProvider.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/JettyAccess/JettyAccess.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/PIN-809-810.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
+    },
+    {
+      "sample": "samples/net11.0/JettyAccess/JettyAccess.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/PIN-809-810.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/JettyAccess/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/JettyAccess/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/JettyAccess/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/JettyAccess/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-jettyaccess-csproj": {
+      "path": "samples/net10.0/JettyAccess/JettyAccess.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-permit-cs": {
+      "path": "samples/net10.0/JettyAccess/Permit.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-policymetadata-cs": {
+      "path": "samples/net10.0/JettyAccess/PolicyMetadata.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/JettyAccess/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-proof-cs": {
+      "path": "samples/net10.0/JettyAccess/Proof.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-surfaces-cs": {
+      "path": "samples/net10.0/JettyAccess/Surfaces.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/JettyAccess/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/JettyAccess/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/JettyAccess/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/JettyAccess/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-jettyaccess-csproj": {
+      "path": "samples/net11.0/JettyAccess/JettyAccess.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-permit-cs": {
+      "path": "samples/net11.0/JettyAccess/Permit.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-policymetadata-cs": {
+      "path": "samples/net11.0/JettyAccess/PolicyMetadata.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/JettyAccess/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-proof-cs": {
+      "path": "samples/net11.0/JettyAccess/Proof.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-surfaces-cs": {
+      "path": "samples/net11.0/JettyAccess/Surfaces.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused local HTTP/component/Identity checks need no owner-only resource. No provisioning or publication. GA and wider platform/client checks are separate."
+  }
+}

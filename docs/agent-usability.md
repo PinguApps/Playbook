@@ -5,6 +5,10 @@ This is separate from the four-task [with/without launch evaluation](planning/ev
 The first [checkpoint receipt](verification/PIN-977.md) records actual outcomes;
 a failed scenario is evidence, not permission to coach it into a first-pass success.
 
+The [larger-catalogue extension](agent-usability-larger-catalogue.md) freezes the
+second checkpoint's paging/neutral-guidance additions. Its [PIN-978 report](verification/PIN-978.md)
+retains three passing scenarios and one failed recovery-filter check.
+
 ## Prepare
 
 1. Record the current source commit and clean production paths. Build/pack the ordinary

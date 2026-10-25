@@ -220,4 +220,7 @@
     <EmbeddedResource Include="../../content/recipes/tls.*/**/recipe.json;../../content/recipes/tls.*/**/recipe.md;../../content/recipes/quic.*/**/recipe.json;../../content/recipes/quic.*/**/recipe.md;../../content/recipes/runtime.*/**/recipe.json;../../content/recipes/runtime.*/**/recipe.md" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/CallerTls/*.cs;../../samples/net*/QuicPriority/*.cs;../../samples/net*/CrashEvidence/*.cs;../../samples/net*/HardwareBaseline/*.cs" LogicalName="SdkInput.%(Identity)" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/JettyAccess/*.cs;../../samples/net*/JettyAccess/*.csproj;../../samples/net*/JettyAccess/*.props;../../samples/net*/JettyAccess/*.targets;../../samples/net*/JettyAccess/global.json;../../samples/net*/JettyAccess/verification-evidence.json;../../content/recipes/authorization.share-policy-metadata/11.0/recipe.json;../../content/recipes/authorization.share-policy-metadata/11.0/recipe.md;../../samples/net*/MooringClock/*.cs;../../samples/net*/MooringClock/*.csproj;../../samples/net*/MooringClock/*.props;../../samples/net*/MooringClock/*.targets;../../samples/net*/MooringClock/global.json;../../samples/net*/MooringClock/verification-evidence.json;../../content/recipes/identity.control-test-clock/11.0/recipe.json;../../content/recipes/identity.control-test-clock/11.0/recipe.md" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
 </Project>

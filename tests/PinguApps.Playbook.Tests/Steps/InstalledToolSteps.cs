@@ -1011,6 +1011,22 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("shared authorization and Identity clocks retain complete guidance offline")]
+    public async Task CheckJettyGuidanceAsync()
+    {
+        await CheckWebRecipesAsync(["authorization.share-policy-metadata"], "jetty-access").ConfigureAwait(false);
+        await CheckWebRecipesAsync(["identity.control-test-clock"], "mooring-clock").ConfigureAwait(false);
+        foreach (string id in new[] { "authorization.share-policy-metadata", "identity.control-test-clock" })
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete authorization/Identity metadata {id}/{field}");
+            }
+        }
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));

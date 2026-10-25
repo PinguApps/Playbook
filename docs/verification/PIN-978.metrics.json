@@ -1,0 +1,235 @@
+[
+  {
+    "scenario": "a",
+    "seconds": 78.03,
+    "outputs": [
+      {
+        "position": 5,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "10",
+          "languages": [
+            "csharp"
+          ],
+          "limit": 3,
+          "offset": 0
+        },
+        "outputBytes": 5297
+      },
+      {
+        "position": 8,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "10",
+          "languages": [
+            "csharp"
+          ],
+          "limit": 3,
+          "offset": 3
+        },
+        "outputBytes": 4973
+      },
+      {
+        "position": 9,
+        "tool": "playbook.get_recipe",
+        "input": {
+          "targetVersion": "10",
+          "id": "csharp.validate-property-assignment"
+        },
+        "outputBytes": 38229,
+        "markdownCharacters": 6286
+      }
+    ],
+    "truncatedItems": 0
+  },
+  {
+    "scenario": "b",
+    "seconds": 85.54,
+    "outputs": [
+      {
+        "position": 4,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "latest",
+          "query": "union",
+          "limit": 50
+        },
+        "outputBytes": 7519
+      },
+      {
+        "position": 5,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "latest",
+          "query": "source",
+          "limit": 50
+        },
+        "outputBytes": 22267
+      },
+      {
+        "position": 6,
+        "tool": "playbook.get_recipe",
+        "input": {
+          "targetVersion": "latest",
+          "id": "csharp.closed-results"
+        },
+        "outputBytes": 27340,
+        "markdownCharacters": 8359
+      },
+      {
+        "position": 7,
+        "tool": "playbook.get_recipe",
+        "input": {
+          "targetVersion": "latest",
+          "id": "json.serialize-closed-results"
+        },
+        "outputBytes": 27658,
+        "markdownCharacters": 8572
+      },
+      {
+        "position": 8,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "latest",
+          "areas": [
+            "msbuild"
+          ],
+          "languages": [
+            "csharp",
+            "fsharp"
+          ],
+          "limit": 50
+        },
+        "outputBytes": 7134
+      },
+      {
+        "position": 10,
+        "tool": "playbook.get_recipe",
+        "input": {
+          "targetVersion": "latest",
+          "id": "msbuild.inspect-item-globs"
+        },
+        "outputBytes": 17672,
+        "markdownCharacters": 7167
+      }
+    ],
+    "truncatedItems": 0
+  },
+  {
+    "scenario": "c",
+    "seconds": 79.203,
+    "outputs": [
+      {
+        "position": 5,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "10",
+          "query": "union",
+          "limit": 50
+        },
+        "outputBytes": 1364
+      },
+      {
+        "position": 6,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "10",
+          "query": "closed",
+          "limit": 50
+        },
+        "outputBytes": 1365
+      },
+      {
+        "position": 7,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "10",
+          "limit": 50
+        },
+        "outputBytes": 13697
+      },
+      {
+        "position": 9,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "11",
+          "query": "union",
+          "limit": 50
+        },
+        "outputBytes": 7515
+      },
+      {
+        "position": 10,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "11",
+          "query": "closed",
+          "limit": 50
+        },
+        "outputBytes": 6013
+      },
+      {
+        "position": 12,
+        "tool": "playbook.get_recipe",
+        "input": {
+          "id": "csharp.closed-results",
+          "targetVersion": "11"
+        },
+        "outputBytes": 27336,
+        "markdownCharacters": 8359
+      },
+      {
+        "position": 13,
+        "tool": "playbook.get_recipe",
+        "input": {
+          "id": "csharp.closed-hierarchies",
+          "targetVersion": "11"
+        },
+        "outputBytes": 25139,
+        "markdownCharacters": 6140
+      }
+    ],
+    "truncatedItems": 0
+  },
+  {
+    "scenario": "d",
+    "seconds": 73.555,
+    "outputs": [
+      {
+        "position": 6,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "query": "tangerine warehouse property normalization",
+          "targetVersion": "10"
+        },
+        "outputBytes": 1401
+      },
+      {
+        "position": 8,
+        "tool": "playbook.list_recipes",
+        "input": {
+          "targetVersion": "10",
+          "areas": [
+            "csharp"
+          ],
+          "languages": [
+            "csharp"
+          ],
+          "limit": 50
+        },
+        "outputBytes": 4208
+      },
+      {
+        "position": 9,
+        "tool": "playbook.get_recipe",
+        "input": {
+          "id": "csharp.validate-property-assignment",
+          "targetVersion": "10"
+        },
+        "outputBytes": 38229,
+        "markdownCharacters": 6286
+      }
+    ],
+    "truncatedItems": 0
+  }
+]

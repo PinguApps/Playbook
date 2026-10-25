@@ -1,0 +1,50 @@
+{
+  "records": [
+    {
+      "scenario": "a",
+      "status": [
+        " M consumer/Program.cs"
+      ],
+      "directory": "V:\\_worktrees\\PlaybookVerification\\verify-pin978-a",
+      "independentBuild": "C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\PlaybookVerification\\verify-pin978-a\\consumer\\Consumer.csproj]\r\n  Consumer -> V:\\_worktrees\\PlaybookVerification\\verify-pin978-a\\consumer\\bin\\Debug\\net10.0\\Consumer.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.12\r\n",
+      "diff": "diff --git a/consumer/Program.cs b/consumer/Program.cs\r\nindex 48dcf29..8f010f1 100644\r\n--- a/consumer/Program.cs\r\n+++ b/consumer/Program.cs\r\n@@ -11,15 +11,14 @@ Console.WriteLine(\"PASS: constructor, assignment, rejection and retained value\")\r\n \r\n public sealed class StockLabel\r\n {\r\n-    private string code = \"UNASSIGNED\";\r\n     public StockLabel(string code) => Code = code;\r\n     public string Code\r\n     {\r\n-        get => code;\r\n+        get;\r\n         set\r\n         {\r\n             ArgumentException.ThrowIfNullOrWhiteSpace(value);\r\n-            code = value.Trim().ToUpperInvariant();\r\n+            field = value.Trim().ToUpperInvariant();\r\n         }\r\n-    }\r\n+    } = \"UNASSIGNED\";\r\n }\r\n",
+      "configurationUnchanged": true,
+      "independentRun": "PASS: constructor, assignment, rejection and retained value\r\n"
+    },
+    {
+      "scenario": "b",
+      "status": [],
+      "directory": "V:\\_worktrees\\PlaybookVerification\\verify-pin978-b",
+      "independentBuild": null,
+      "diff": "",
+      "configurationUnchanged": true,
+      "independentRun": null
+    },
+    {
+      "scenario": "c",
+      "status": [],
+      "directory": "V:\\_worktrees\\PlaybookVerification\\verify-pin978-c",
+      "independentBuild": null,
+      "diff": "",
+      "configurationUnchanged": true,
+      "independentRun": null
+    },
+    {
+      "scenario": "d",
+      "status": [
+        " M consumer/Program.cs"
+      ],
+      "directory": "V:\\_worktrees\\PlaybookVerification\\verify-pin978-d",
+      "independentBuild": "C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\Consumer.csproj]\r\n  Consumer -> V:\\_worktrees\\PlaybookVerification\\verify-pin978-d\\consumer\\bin\\Debug\\net10.0\\Consumer.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.11\r\n",
+      "diff": "diff --git a/consumer/Program.cs b/consumer/Program.cs\r\nindex 48dcf29..8f010f1 100644\r\n--- a/consumer/Program.cs\r\n+++ b/consumer/Program.cs\r\n@@ -11,15 +11,14 @@ Console.WriteLine(\"PASS: constructor, assignment, rejection and retained value\")\r\n \r\n public sealed class StockLabel\r\n {\r\n-    private string code = \"UNASSIGNED\";\r\n     public StockLabel(string code) => Code = code;\r\n     public string Code\r\n     {\r\n-        get => code;\r\n+        get;\r\n         set\r\n         {\r\n             ArgumentException.ThrowIfNullOrWhiteSpace(value);\r\n-            code = value.Trim().ToUpperInvariant();\r\n+            field = value.Trim().ToUpperInvariant();\r\n         }\r\n-    }\r\n+    } = \"UNASSIGNED\";\r\n }\r\n",
+      "configurationUnchanged": true,
+      "independentRun": "PASS: constructor, assignment, rejection and retained value\r\n"
+    }
+  ],
+  "scope": "Independent coordinator builds and executions after the four first-pass runs; not extra agent attempts.",
+  "pathUnchanged": {
+    "Process": true,
+    "User": true,
+    "Machine": true
+  }
+}
