@@ -1,0 +1,335 @@
+{
+  "reviewed": "2026-10-25",
+  "scope": "PIN-690 bounded thirteen-row source-only exclusion audit; attribute metadata, no consumer execution",
+  "sources": [
+    {
+      "id": "compatibility-index",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/11.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/11.md",
+      "sha256": "1dede22a71bcf370e2eabde836495cf31625933e8711a3d323bc3c85d60ecd7e"
+    },
+    {
+      "id": "cumulative-libraries",
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/whats-new/dotnet-11/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/libraries.md",
+      "sha256": "66789f6faf28cdff61927df7bd9bf6c36c9fd2f438c20d059b3ddba7c07152f0"
+    },
+    {
+      "id": "cumulative-runtime",
+      "repository": "dotnet/docs",
+      "commit": "dfe6ae54d3cf986ba03d95075e61ae006fefb9f9",
+      "path": "docs/core/whats-new/dotnet-11/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/whats-new/dotnet-11/runtime.md",
+      "sha256": "9e5d82ba828a78a7e7b50d713628983f1b0015edbc428ae932f6beca80e6d725"
+    },
+    {
+      "id": "cumulative-sdk",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/whats-new/dotnet-11/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/whats-new/dotnet-11/sdk.md",
+      "sha256": "a8b85c18246ff80f0e3d184f3258996378db3e8d3c2fb5860eb8f38b2f0dd92c"
+    },
+    {
+      "id": "docs_core_compatibility_sdk_11_native-cli-command-handling-enabled.md",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/sdk/11/native-cli-command-handling-enabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/native-cli-command-handling-enabled.md",
+      "sha256": "a44761615e37279eea43732c76430e865151f44a028ac5eb05e2d53123561a77"
+    },
+    {
+      "id": "fsharp-10-LanguageFeatures",
+      "repository": "dotnet/dotnet",
+      "commit": "a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+      "path": "src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+      "sha256": "f29e38f04782497af6c9cd40ee3208c43d298d5e071971176bdc1dad5ad543e7"
+    },
+    {
+      "id": "fsharp-10-prim-types",
+      "repository": "dotnet/dotnet",
+      "commit": "a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+      "path": "src/fsharp/src/FSharp.Core/prim-types.fsi",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/fsharp/src/FSharp.Core/prim-types.fsi",
+      "sha256": "ed1e460e8651d1bc5bba3c608f2b8c75113964f9bd7f2d67e94d7d7432d43355"
+    },
+    {
+      "id": "fsharp-11-LanguageFeatures",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+      "sha256": "b0ff92c106dc30ac0a0e3e2f140fe1806609d89bfd6e1dbd162c9c666845018c"
+    },
+    {
+      "id": "fsharp-11-OptimizeClosureIfNotInlined",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs",
+      "sha256": "a48852ce3251634c0078959fb7ed22764e79e2100c95f423f9cb6ed2f73f986a"
+    },
+    {
+      "id": "fsharp-11-prim-types",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/fsharp/src/FSharp.Core/prim-types.fsi",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/prim-types.fsi",
+      "sha256": "50f5506c6ac4761a32d35db51f0a59559eaa9bdee38afe96d19ed67ba867cd90"
+    },
+    {
+      "id": "negotiate-10-ExtendedProtectionPolicy",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "sha256": "daa0d61c7ee70e0fdaf4cc7a59e4afe2375258d2d14fb74f2554d5eb3bdf93d5"
+    },
+    {
+      "id": "negotiate-10-NegotiateAuthenticationPal.Unix",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "sha256": "5f6716f8459f8599fbccb2839eebd12f848593ce2dc1120509ad12cb52506f67"
+    },
+    {
+      "id": "negotiate-10-NegotiateAuthenticationServerOptions",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "sha256": "84b37263699dafaf3de54459ab89d3c7eb8ada1ce720f3051d210b3e5108c0a3"
+    },
+    {
+      "id": "negotiate-11-ExtendedProtectionPolicy",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Security/Authentication/ExtendedProtection/ExtendedProtectionPolicy.cs",
+      "sha256": "185c53155544e80507f3d4239006f31526258d29caee1e6a30086054e7a24955"
+    },
+    {
+      "id": "negotiate-11-native",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Net.Security.Native/pal_gssapi.c",
+      "sha256": "3689f8fc42ac4f1b2262e1a6ec5c45a65659184a903f327726a97ab35eaa556e"
+    },
+    {
+      "id": "negotiate-11-NegotiateAuthenticationPal.Unix",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/NegotiateAuthenticationPal.Unix.cs",
+      "sha256": "8859b53e4a4173a29731a52d4c426fa031f0abbf59ded209714ce2b5042d3305"
+    },
+    {
+      "id": "negotiate-11-NegotiateAuthenticationServerOptions",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/NegotiateAuthenticationServerOptions.cs",
+      "sha256": "84b37263699dafaf3de54459ab89d3c7eb8ada1ce720f3051d210b3e5108c0a3"
+    },
+    {
+      "id": "rc1-containers",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/containers.md",
+      "sha256": "87303b6987eac6f8f3b3a7ca67586289c02565682a48f78dd122bc5887f94244"
+    },
+    {
+      "id": "rc1-fsharp",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/fsharp.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/fsharp.md",
+      "sha256": "def3a7e5025c09485be523b55d5b23e9115b62ddca1c40675d8b2e50d888fc48"
+    },
+    {
+      "id": "rc1-libraries",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/libraries.md",
+      "sha256": "1e7992ffaf1c7b29cb0ada2f788df23ee9485700cb5af5c4480d2b2ffd4c102b"
+    },
+    {
+      "id": "rc1-msbuild",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/msbuild.md",
+      "sha256": "8324a98b55985390bbcc93670113ab1e7227da36c6b8b87a8467c03e4d88c33f"
+    },
+    {
+      "id": "rc1-nuget",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/nuget.md",
+      "sha256": "315fcd6afd1d3ae651d195cec131f90cd2f31b1bbf29ceae8555c15d04728439"
+    },
+    {
+      "id": "rc1-runtime",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/runtime.md",
+      "sha256": "7331c1664d38458cd1c2ac70c7240a96a4b392ba7856a3a095878afcc8d63824"
+    },
+    {
+      "id": "rc1-sdk",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc1/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/sdk.md",
+      "sha256": "f39cc8619eb6bbeff3fd9680475906dab8125ac96aae4ba2fa29f12a5969f194"
+    },
+    {
+      "id": "rc2-containers",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/containers.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/containers.md",
+      "sha256": "530257ca1c893dfdaa306ba45d0c904a9748bb64fe1bd5c263b4088a884ee272"
+    },
+    {
+      "id": "rc2-fsharp",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/fsharp.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/fsharp.md",
+      "sha256": "27f7c7dfd80b2d9469ce6b738216fce2312008247371dbdae96695e8f0470486"
+    },
+    {
+      "id": "rc2-libraries",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/libraries.md",
+      "sha256": "734c02c4df51d49b63e6b722426669189214f2614838b85091f141b87a65e19c"
+    },
+    {
+      "id": "rc2-msbuild",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/msbuild.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/msbuild.md",
+      "sha256": "5da76128ca19a11afc8d4e3f9dc09a300fc2b958576211d24d35d72169fec667"
+    },
+    {
+      "id": "rc2-nuget",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/nuget.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/nuget.md",
+      "sha256": "1f273e435afa10b884dd07ba93954ce146b50c4dc44dd9ec7813b7c08e4c654f"
+    },
+    {
+      "id": "rc2-runtime",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/runtime.md",
+      "sha256": "187adb9fec68becb58366c1c2cec42b41b71fe9393dc32e0144f3f408108e7e7"
+    },
+    {
+      "id": "rc2-sdk",
+      "repository": "dotnet/core",
+      "commit": "ffed591b0fb8f9aab50ecc28f2c765049fb28d8f",
+      "path": "release-notes/11.0/preview/rc2/sdk.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc2/sdk.md",
+      "sha256": "c94b0a8c9bd4937bb6400338f0352eef221cc945d2f022e8044ae427ed0da904"
+    },
+    {
+      "id": "watcher-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "sha256": "ad76f89a502f454b94f1bc7601827568b73a62b757d137665c9b6e654f7ba146"
+    },
+    {
+      "id": "watcher-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.FileProviders.Physical/src/PhysicalFilesWatcher.cs",
+      "sha256": "fbe90d5d9ca411957409088cf8279131fde94a5cedd7ecf9b8f495ac4b0c4877"
+    },
+    {
+      "id": "watcher-paths",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/extensions/11/physicalfileswatcher-validates-root-path.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/physicalfileswatcher-validates-root-path.md",
+      "sha256": "744150d1eaedb8fc8fe2c5aabbc18edb0a7884715c8c51cd0feaf49faa49bd73"
+    }
+  ],
+  "packages": [
+    {
+      "assets": [
+        "lib/netstandard2.0/FSharp.Core.dll",
+        "lib/netstandard2.1/FSharp.Core.dll"
+      ],
+      "url": "https://api.nuget.org/v3-flatcontainer/fsharp.core/10.1.402/fsharp.core.10.1.402.nupkg",
+      "version": "10.1.402",
+      "id": "FSharp.Core",
+      "sha256": "daf0c4384edfe40f687e856628ad52cb5c55e5a3389d80190dc0449c758b9df7",
+      "repository": {
+        "type": "git",
+        "commit": "a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+        "url": "https://github.com/dotnet/dotnet"
+      },
+      "dependencies": [
+        {
+          "targetFramework": ".NETStandard2.0",
+          "packages": []
+        },
+        {
+          "targetFramework": ".NETStandard2.1",
+          "packages": []
+        }
+      ]
+    },
+    {
+      "assets": [
+        "lib/net10.0/FSharp.Core.dll",
+        "lib/netstandard2.0/FSharp.Core.dll",
+        "lib/netstandard2.1/FSharp.Core.dll"
+      ],
+      "url": "https://api.nuget.org/v3-flatcontainer/fsharp.core/11.0.101-rc2.26504.105/fsharp.core.11.0.101-rc2.26504.105.nupkg",
+      "version": "11.0.101-rc2.26504.105",
+      "id": "FSharp.Core",
+      "sha256": "80a0c07fd939ae86bc72edfa4415378a4e6e84951fc863352d1d902470b46527",
+      "repository": {
+        "type": "git",
+        "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+        "url": "https://github.com/dotnet/dotnet"
+      },
+      "dependencies": [
+        {
+          "targetFramework": ".NETStandard2.0",
+          "packages": []
+        },
+        {
+          "targetFramework": ".NETStandard2.1",
+          "packages": []
+        },
+        {
+          "targetFramework": "net10.0",
+          "packages": []
+        }
+      ]
+    }
+  ]
+}
