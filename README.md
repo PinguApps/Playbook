@@ -2,17 +2,7 @@
 
 Original .NET guidance served offline to coding agents through a client-owned stdio MCP process.
 
-This development slice contains `csharp.validate-property-assignment`, comparing a .NET 9 explicit backing field with the .NET 10 / C# 14 `field` keyword, using one canonical edition for explicitly verified .NET 10 and .NET 11 targets. Both tools require an explicit target release or deliberate `latest` choice; `latest` means the newest target release in the installed catalogue, not an exact SDK version or consumer compatibility. Requirements include a verified .NET 11 SDK route for .NET 10. Coverage distinguishes curated .NET 10 from the comprehensive .NET 11 launch commitment; both remain incomplete. It is not ready for public publication.
-
-Four .NET 11 recipes also cover C# unions, closed hierarchies, union JSON round trips and inferred polymorphism. Their original .NET 10 comparisons and .NET 11 RC2 samples execute real matching and serializer checks. See [the evidence and inspection commands](docs/verification/PIN-711.md), including null/default handling, assembly boundaries, generated metadata and wire-contract migration limits.
-
-`csharp.control-nested-loops` covers stopping or continuing an enclosing loop with C# 15 labeled jumps. Original .NET 10 and .NET 11 traversals produce identical results and ordered cleanup traces. See [the evidence and inspection commands](docs/verification/PIN-713.md).
-
-The .NET 11 `csharp.static-interface-helpers` recipe explains fixed helper implementations without adding implementer obligations. Its [comparison, compiler checks and inspection commands](docs/verification/PIN-714.md) also show that ordinary static interface helpers already work on .NET 10; C# 15's change removes a restriction for runtimes without default interface methods.
-
-Five .NET 11 F# recipes cover record spreads, preview record constructors, built-in union JSON, explicit diagnostic cultures and reflection-free formatting. Their [original comparisons, evidence and inspection commands](docs/verification/PIN-716-718.md) keep compiler gates and serialization/deployment restrictions visible.
-
-Eleven JSON recipes cover incremental JSONL, writer reuse, generic resolution, typed metadata, generated private models/initializers/constructors, naming/ignore precedence, numeric/collection contracts, binary schema and strict imports. The [comparisons and verification walkthrough](docs/verification/PIN-726-730.md) distinguish .NET 11 RC2 evidence from the retained .NET 10 strict-import foundation and its .NET 9 comparison.
+The development catalogue covers .NET 11 goals with original previous-release comparisons and selected .NET 10 foundations. Coverage and release proof remain incomplete; it is not ready for public publication. Both tools require an explicit application target or deliberate `latest` choice. `latest` means the newest release in the installed catalogue, not an SDK build or consumer compatibility.
 
 ```powershell
 playbook --help

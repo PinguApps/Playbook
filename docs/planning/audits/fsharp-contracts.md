@@ -1,4 +1,4 @@
-# Fsharp contracts audit
+# F# contracts audit
 
 Reviewed **20 October 2026**. This closes the bounded source/asset investigation, **not recipe coverage**. The dispositions below describe the source review at capture. The current inventory and served recipes record later delivery; this audit is not current coverage status.
 

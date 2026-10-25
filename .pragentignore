@@ -5,6 +5,11 @@
 /docs/verification/agent-usability-expanded.b.json
 /docs/verification/agent-usability-expanded.c.json
 /docs/verification/agent-usability-expanded.d.json
+/docs/verification/agent-usability-initial.a.json
+/docs/verification/agent-usability-initial.b.json
+/docs/verification/agent-usability-initial.c.json
+/docs/verification/agent-usability-initial.d.json
+/docs/verification/agent-connection.calls.json
 /docs/verification/agent-recovery.agent.json
 
 # Selected official collector output; Test-LoomReceipts.ps1 checks actual receipt.

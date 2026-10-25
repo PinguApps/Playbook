@@ -1,12 +1,15 @@
 # Bounded agent usability checkpoint
 
+Choose checks and retain results using [the contribution policy](contributing.md#choose-the-check-and-retain-its-result). Routine setup/build output belongs in ignored `artifacts/` or existing CI artifacts. These bounded manual evaluations retain actual calls, frozen controls, outcomes and meaningful failures for the named release/product decision; trim duplicate setup and package logs. Required proof must outlive expiring CI artifacts.
+
+
 Run manually outside CI after the [isolated T3 setup](t3-verification.md).
 This is separate from the four-task [with/without launch evaluation](planning/evaluation-plan.md).
-The first [checkpoint receipt](verification/PIN-977.md) records actual outcomes;
+The first [checkpoint receipt](verification/agent-usability-initial.md) records actual outcomes;
 a failed scenario is evidence, not permission to coach it into a first-pass success.
 
 The [larger-catalogue extension](agent-usability-larger-catalogue.md) freezes the
-second checkpoint's paging/neutral-guidance additions. Its [PIN-978 report](verification/PIN-978.md)
+second checkpoint's paging/neutral-guidance additions. Its [PIN-978 report](verification/agent-usability-expanded.md)
 retains three passing scenarios and one failed recovery-filter check.
 
 For the single PIN-1018 recovery follow-up, copy the current
@@ -16,7 +19,7 @@ D prompt and checks below for one fresh ordinary thread, bounded to five executi
 minutes. Record the actual first retry's target, areas, languages and shared
 setting against the empty request/suggestion, and any later narrowing separately.
 Keep failures without coaching or rerunning. This does not rerun or relabel PIN-978.
-See the [follow-up receipt](verification/PIN-1018.md).
+See the [follow-up receipt](verification/agent-recovery.md).
 
 ## Prepare
 
@@ -38,16 +41,7 @@ See the [follow-up receipt](verification/PIN-1018.md).
    `766aac805f7f8e9071cb69a2e4890e8d992ad4de`); preserve existing checkouts/work.
    The script does not select branches, commit or remove files.
 
-The first checkpoint used this preparation from an unrelated directory:
-
-```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d85e439b'
-& ./eng/Prepare-AgentUsability.ps1 `
-  -Seed 'V:\_Scratch\PlaybookVerification' `
-  -Playbook 'V:\_Scratch\PlaybookVerification\packages\pin977-1\tool\playbook.exe'
-```
-
-This preparation is intentionally once per clean seed revision; do not rerun it
+Call `eng/Prepare-AgentUsability.ps1 -Seed <authorized-seed> -Playbook <absolute-installed-executable>` from the selected worktree. Preparation is intentionally once per clean seed revision; do not rerun it
 against the retained prepared seed. Build using the absolute SDK 11 executable
 from `consumer/`; run the built DLL using the system .NET 10 executable. Record
 actual SDK/runtime versions and baseline assertions. Do not run an installer or

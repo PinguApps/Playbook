@@ -1,9 +1,6 @@
 # Invocation cancellation evidence
 
-Historical authoring observations from October 2026. Compilation stays in the
-sample records; these observations do not establish a new run, broader platform
-support or GA verification. Reuse only while the claim and relevant inputs remain
-valid; see [capture and refresh](../contributing.md#capture-and-refresh-sample-evidence).
+Historical October 2026 authoring observations. Follow the [evidence reuse policy](../contributing.md#choose-the-check-and-retain-its-result).
 [Original capture and detailed provenance](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-814.md).
 
 ## Actual behavior and artifacts

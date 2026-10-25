@@ -1,4 +1,4 @@
-# Compiler contracts audit
+# C# and VB compiler contracts audit
 
 Reviewed **20 October 2026**. This is an official-source audit and delivery proposal, not a delivered recipe or proof of catalogue completeness. The two inventory identities remain `vb.release-review` and `languages.compiler-migrations`. No language version is inferred from the .NET release number.
 
