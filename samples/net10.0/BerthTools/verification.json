@@ -1,0 +1,16 @@
+{
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebTooling.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.Extensions.AI.Abstractions/10.8.3",
+    "ModelContextProtocol.AspNetCore/2.1.0",
+    "ModelContextProtocol.Core/2.1.0",
+    "ModelContextProtocol/2.1.0"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}

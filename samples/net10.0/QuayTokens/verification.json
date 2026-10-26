@@ -1,0 +1,21 @@
+{
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebTooling.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.Authentication.JwtBearer/10.0.13",
+    "Microsoft.Bcl.Cryptography/10.0.2",
+    "Microsoft.IdentityModel.Abstractions/8.19.2",
+    "Microsoft.IdentityModel.JsonWebTokens/8.19.2",
+    "Microsoft.IdentityModel.Logging/8.19.2",
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect/8.19.2",
+    "Microsoft.IdentityModel.Protocols/8.19.2",
+    "Microsoft.IdentityModel.Tokens/8.19.2",
+    "System.IdentityModel.Tokens.Jwt/8.19.2"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}

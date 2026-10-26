@@ -1,0 +1,6 @@
+<!-- snippet:complete -->
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally><CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled></PropertyGroup>
+  <ItemGroup><PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.13" /></ItemGroup>
+</Project>
+<!-- endsnippet:complete -->
