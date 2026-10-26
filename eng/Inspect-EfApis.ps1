@@ -11,8 +11,8 @@ param(
 
 # Metadata/text only. No inspected code, restore, SDK setup or PATH changes.
 $ErrorActionPreference = 'Stop'
-$output = [IO.Path]::GetFullPath($OutputPath)
-if ($CompareWith -and $output -eq [IO.Path]::GetFullPath($CompareWith)) { throw 'Comparison output must not overwrite the baseline.' }
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
+if ($CompareWith -and $output -eq $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($CompareWith)) { throw 'Comparison output must not overwrite the baseline.' }
 function Get-Hash([string]$Path) { (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant() }
 function Get-Ordinal($Values) {
   [string[]]$items = @($Values)
@@ -342,4 +342,3 @@ try {
   if (-not $resolved.StartsWith($tempRoot,[StringComparison]::OrdinalIgnoreCase)) { throw 'Unsafe temporary path.' }
   Remove-Item -LiteralPath $resolved -Recurse -Force
 }
-
