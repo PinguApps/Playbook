@@ -32,6 +32,10 @@ The original .NET 10.0.0 SignInManager source omitted PreSignInCheck for passkey
 
 {{snippet:n10-global-json}}
 
+### .NET 10: `KeysPanel.razor`
+
+{{snippet:n10-keyspanel-razor}}
+
 ### .NET 10: `MemoryKeyStore.cs`
 
 {{snippet:n10-memorykeystore-cs}}
@@ -89,6 +93,10 @@ PasskeyLabels adds a fictional fleet AAGUID suggestion and preserves a selected 
 ### .NET 11: `global.json`
 
 {{snippet:n11-global-json}}
+
+### .NET 11: `KeysPanel.razor`
+
+{{snippet:n11-keyspanel-razor}}
 
 ### .NET 11: `MemoryKeyStore.cs`
 

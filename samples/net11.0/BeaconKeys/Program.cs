@@ -20,6 +20,15 @@ builder.Services.AddDataProtection().UseEphemeralDataProtectionProvider();
 await using WebApplication app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapGet("/keys", async (HttpContext context, UserManager<IdentityUser> users) =>
+{
+    IdentityUser? owner = await users.GetUserAsync(context.User);
+    if (owner is null) { return Results.Unauthorized(); }
+    return (IResult)new Microsoft.AspNetCore.Http.HttpResults.RazorComponentResult<KeysPanel>(new
+    {
+        Passkeys = await users.GetPasskeysAsync(owner)
+    });
+}).RequireAuthorization();
 app.MapGet("/options", async (SignInManager<IdentityUser> signIn) => Results.Content(await signIn.MakePasskeyRequestOptionsAsync(null), "application/json"));
 app.MapPost("/signin", async (HttpRequest request, SignInManager<IdentityUser> signIn) =>
 {

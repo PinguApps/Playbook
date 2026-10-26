@@ -1,0 +1,20 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Identity
+@using System.Buffers.Text
+@namespace BeaconKeys
+
+<h1>Your Beacon passkeys</h1>
+<ul>
+    @foreach (UserPasskeyInfo passkey in Passkeys)
+    {
+        <li>
+            <span>@(passkey.Name ?? "Unnamed passkey")</span>
+            <a href="@($"/keys/rename/{Base64Url.EncodeToString(passkey.CredentialId)}")">Rename</a>
+        </li>
+    }
+</ul>
+
+@code {
+    [Parameter, EditorRequired] public IList<UserPasskeyInfo> Passkeys { get; set; } = [];
+}
+<!-- endsnippet:complete -->

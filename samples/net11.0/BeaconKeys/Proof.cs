@@ -59,6 +59,9 @@ public static class Proof
         Check(missingToken.StatusCode == HttpStatusCode.BadRequest, "Rename accepted no antiforgery token.");
         using HttpResponseMessage renamed = await client.PostAsync(new Uri(rename, UriKind.Relative), new FormUrlEncodedContent(new Dictionary<string, string> { ["name"] = "  Stores spare  ", ["__RequestVerificationToken"] = token }));
         Check(renamed.StatusCode == HttpStatusCode.Redirect, "Rename did not complete.");
+        using HttpResponseMessage destination = await client.GetAsync(renamed.Headers.Location);
+        string savedList = await destination.Content.ReadAsStringAsync();
+        Check(destination.IsSuccessStatusCode && savedList.Contains("Stores spare", StringComparison.Ordinal), "Rename destination did not display the saved name.");
         Check((await users.GetPasskeyAsync(owner, unknown.CredentialId))?.Name == "Stores spare", "Rename was not saved.");
         Check(!await PasskeyLabels.RenameAsync(users, new IdentityUser("stranger"), unknown.CredentialId, "Stolen"), "Cross-owner rename accepted.");
         Check(!await PasskeyLabels.RenameAsync(users, owner, unknown.CredentialId, "  "), "Blank name accepted.");
