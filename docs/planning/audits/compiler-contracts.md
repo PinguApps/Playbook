@@ -130,10 +130,10 @@ Unresolved API rows above are **not approved extra goals**. Their exact missing 
 
 ## Verification and reproduction
 
-Start anywhere inside the PR checkout. The following PowerShell 7 block was executed from this checkout and from a nested directory in a separate temporary clone. It fetches only pinned public files into a temporary directory, validates all 23 hashes, recomputes all three ordinal API differences and compares the exact signatures with the saved manifest. Network access is required for this source-review reproduction; installed Playbook remains offline. It does not compile or execute recipe examples.
+The following PowerShell 7 block selects this worktree explicitly and was verified from an unrelated starting directory. It fetches only pinned public files into a temporary directory, validates all 23 hashes, recomputes all three ordinal API differences and compares the exact signatures with the saved manifest. Network access is required for this source-review reproduction; installed Playbook remains offline. It does not compile or execute recipe examples.
 
 ```powershell
-Set-Location -LiteralPath (git rev-parse --show-toplevel)
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 $manifest = Get-Content -Raw ./docs/planning/audits/compiler-contracts.sources.json | ConvertFrom-Json
 $auditTemp = Join-Path ([IO.Path]::GetTempPath()) ('pin682-' + [guid]::NewGuid())
 New-Item -ItemType Directory $auditTemp | Out-Null
@@ -168,9 +168,12 @@ try {
     "PASS: $($manifest.sources.Count) source hashes and all API signatures"
 }
 finally {
+    if ((Split-Path $auditTemp -Parent) -ne ([IO.Path]::GetTempPath()).TrimEnd('\', '/')) {
+        throw 'Audit cleanup path is outside the temporary directory.'
+    }
     Remove-Item -LiteralPath $auditTemp -Recurse -Force
 }
-git diff --check
+& 'C:\Program Files\Git\cmd\git.exe' diff --check
 ```
 
 Expected: `Core: +62 -13`, `CSharp: +101 -2`, `VisualBasic: +5 -0`, followed by `PASS: 23 source hashes and all API signatures`; diff checking produces no errors. A changed count/signature or hash fails explicitly. Cleanup removes only the freshly created temporary directory.
