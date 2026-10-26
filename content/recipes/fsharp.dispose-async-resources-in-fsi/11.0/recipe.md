@@ -45,4 +45,4 @@ Append `showCore ()` and `Task.Run(fun () -> checkCases false inspectBeacon).Get
 
 ## Evidence
 
-Both scripts ran through the actual declared `dotnet fsi --exec` processes, with loaded asset identity and all four cases recorded in the embedded compilation/execution evidence. The older binding rejection is also recorded. See `docs/verification/PIN-982-984.md` for the tested commands. Official task signatures, FSI toolset source and release notes are listed in the structured sources.
+Both scripts ran through the actual declared `dotnet fsi --exec` processes, with loaded asset identity and all four cases recorded in the embedded compilation/execution evidence. The older binding rejection is also recorded. See `docs/verification/fsharp-lifetimes.md` for the tested commands. Official task signatures, FSI toolset source and release notes are listed in the structured sources.

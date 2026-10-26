@@ -127,7 +127,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/EstuaryBoard/EstuaryBoard.csproj",
       "sdk": "10.0.402",
-      "scope": "Actual older SDK compilation only. Separate real Chrome WASM checks prove manual provider, two public profiles on unchanged assets, JSON fallback and later-provider precedence. Exact hashes/provenance/limits: docs/verification/PIN-793.md."
+      "scope": "Actual older SDK compilation only. Separate real Chrome WASM checks prove manual provider, two public profiles on unchanged assets, JSON fallback and later-provider precedence. Exact hashes/provenance/limits: docs/verification/browser-configuration.md."
     },
     {
       "target": "net11.0",
@@ -135,7 +135,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/EstuaryBoard/EstuaryBoard.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual RC2 SDK compilation only. Separate real Chrome WASM checks prove default provider, two public profiles on unchanged assets and duplicate-registration precedence regression. Exact hashes/provenance/limits: docs/verification/PIN-793.md."
+      "scope": "Actual RC2 SDK compilation only. Separate real Chrome WASM checks prove default provider, two public profiles on unchanged assets and duplicate-registration precedence regression. Exact hashes/provenance/limits: docs/verification/browser-configuration.md."
     }
   ],
   "snippets": {

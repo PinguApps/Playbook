@@ -4,7 +4,7 @@ Reviewed **21 October 2026**. This is a source-only audit, not recipe delivery, 
 
 ## Scope, provenance and evidence boundary
 
-[PIN-683](https://linear.app/pinguapps/issue/PIN-683), `SPEC.md` at `0a8989814ea11346354464b845c79c15bb71c5e9`, stories 47, 101, 158 and 159; approved proposal `b3778cc`, key `SH_Q03`; inventory `migration.numeric-and-parsing`. Read the target and comments, the cited spec/proposal, current planning README, implementation/coverage/verification plans, glossary, ADRs 0001–0004, contribution/evidence rules, [PIN-703's API audit](data-io.md) and [delivered numeric evidence](../../verification/PIN-736-738.md). Root `PLAN.md`, `CONTEXT.md` and `CONTEXT-MAP.md` are absent. No explicit provenance pointer is unavailable. Historical planning claims that implementation has not begun are stale; the current package and evidence harness exist.
+[PIN-683](https://linear.app/pinguapps/issue/PIN-683), `SPEC.md` at `0a8989814ea11346354464b845c79c15bb71c5e9`, stories 47, 101, 158 and 159; approved proposal `b3778cc`, key `SH_Q03`; inventory `migration.numeric-and-parsing`. Read the target and comments, the cited spec/proposal, current planning README, implementation/coverage/verification plans, glossary, ADRs 0001–0004, contribution/evidence rules, [PIN-703's API audit](data-io.md) and [delivered numeric evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-736-738.md). Root `PLAN.md`, `CONTEXT.md` and `CONTEXT-MAP.md` are absent. No explicit provenance pointer is unavailable. Historical planning claims that implementation has not begun are stale; the current package and evidence harness exist.
 
 The target belongs to PinguApps team `62f80270-b641-4fa3-b60c-46be4c4df2c8`, Playbook project `b22380c7-6fde-49f4-8826-e5631dc5df7a`. It has no native blocker. A paginated, archived-inclusive scoped query returned **317** issues; every team/project boundary was verified. Scoped numeric, parsing, tensor, calendar and rounding searches and the full project titles found no existing separate delivery owner for the proposals. PIN-736/737/738 are Done after PR #43; their full descriptions/comments were read. PIN-703 explicitly retains this semantic audit, including tensor Clamp/Round. These are the only related full-issue reads that affect the decisions here. Completed tickets are not reopened or re-estimated.
 
@@ -126,7 +126,6 @@ finally {
 }
 ```
 
-Expected: nine proposal headings, then PASS. A failed download, hash or mitigation section is a verification failure, not an exclusion. Hash replay verifies the reviewed inputs, not the correctness of these dispositions. Human review must compare the full mitigation and proposed acceptance with each table row. No new recipe/MCP behavior is claimed, so building/inspecting the unchanged server would not validate this audit. The separate [verification ledger](../../verification/PIN-683.md) records criterion coverage and the actual checks.
 
 [date-parsing]: https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md
 [conversions]: https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md

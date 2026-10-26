@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [string]$Manifest = (Join-Path $PSScriptRoot '../docs/verification/PIN-681.sources.json'),
+  [string]$Manifest = (Join-Path $PSScriptRoot '../docs/planning/audits/fsharp-contracts.sources.json'),
   [string]$Net10Root = 'C:/Program Files/dotnet',
   [string]$Net11Root = 'C:/Users/pingu/.dotnet-playbook-11',
   [string]$ReferencePackVersion = '10.0.13',
@@ -10,8 +10,8 @@ param(
 
 # Inspect downloaded source and ECMA metadata only; never execute inspected code.
 $ErrorActionPreference = 'Stop'
-$output = [IO.Path]::GetFullPath($OutputPath)
-if ($CompareWith -and $output -eq [IO.Path]::GetFullPath($CompareWith)) {
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
+if ($CompareWith -and $output -eq $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($CompareWith)) {
   throw 'Comparison output must not overwrite the committed baseline.'
 }
 $inputs = Get-Content -LiteralPath $Manifest -Raw | ConvertFrom-Json

@@ -4,7 +4,7 @@ Use the existing [bounded runbook](agent-usability.md), dedicated verification
 project, independent consumer and five-minute-per-scenario / twenty-minute-total
 execution bounds. This second checkpoint keeps the original four cases. The
 following prompts were frozen before launch; do not supply this coordinator's
-checks or earlier answers to a test thread. [Actual report](verification/PIN-978.md).
+checks or earlier answers to a test thread. [Actual report](verification/agent-usability-expanded.md).
 
 The .NET 10 / C# 14 consumer and exact SDK 11 baseline are unchanged. The package
 connection uses a fresh installed slot. Existing threads/slots are preserved.

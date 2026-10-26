@@ -260,7 +260,7 @@ Get-Content -LiteralPath ./docs/planning/audits/automatic-exclusions.md |
 Expect seven asset records (three absent/four present attributes), exact baseline
 match, thirteen row dispositions and three approval-only drafts. A changed source,
 package or metadata baseline fails replay; do not overwrite the committed input
-to manufacture a match. [Verification and criterion ledger](../../verification/PIN-690.md)
+to manufacture a match. [Verification and criterion ledger](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-690.md)
 distinguishes these results from the unchanged-host package smoke.
 
 No proposed consumer was built or run. No native TLS/profiler/browser/workload,

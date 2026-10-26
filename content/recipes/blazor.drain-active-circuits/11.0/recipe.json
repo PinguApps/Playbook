@@ -117,7 +117,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/native-hidden-tab and host lifecycle execution proves circuit closure, resource disposal, saved-state resume and process-restart recovery. Exact inputs/artifacts and negative ordering trace: docs/verification/PIN-787.md. No mocks or cross-compilation."
+      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/native-hidden-tab and host lifecycle execution proves circuit closure, resource disposal, saved-state resume and process-restart recovery. Exact inputs/artifacts and negative ordering trace: docs/verification/circuit-persistence.md. No mocks or cross-compilation."
     },
     {
       "sample": "samples/net11.0/TideCharts/TideCharts.csproj",
@@ -125,7 +125,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/native-hidden-tab and host lifecycle execution proves circuit closure, resource disposal, saved-state resume and process-restart recovery. Exact inputs/artifacts and negative ordering trace: docs/verification/PIN-787.md. No mocks or cross-compilation."
+      "scope": "Actual pinned Web SDK compilation. Separate real Chrome/native-hidden-tab and host lifecycle execution proves circuit closure, resource disposal, saved-state resume and process-restart recovery. Exact inputs/artifacts and negative ordering trace: docs/verification/circuit-persistence.md. No mocks or cross-compilation."
     }
   ],
   "snippets": {

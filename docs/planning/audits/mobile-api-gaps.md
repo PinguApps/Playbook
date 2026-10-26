@@ -142,5 +142,5 @@ or served recipe was built/run by this audit. Reference presence proves the name
 declaration, not native support or native behavior. No MCP contract/content changes
 are made, so no new guidance retrieval is claimed.
 
-The [criterion and Linear ledger](../../verification/PIN-694.md) records coverage,
+The [criterion and Linear ledger](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-694.md) records coverage,
 source provenance, scoped owner decisions and the verification actually run.

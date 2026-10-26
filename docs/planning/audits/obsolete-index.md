@@ -59,7 +59,7 @@ does not transfer their work or establish complete execution evidence.
 | [SYSLIB0063][0063]: `NamedPipeClientStream(PipeDirection, bool, bool, SafePipeHandle)` | [PIN-741](https://linear.app/pinguapps/issue/PIN-741), established by [PIN-703](data-io.md#obsolete-index-ownership) and [PIN-684](archive-path-handle-clock.md). | The existing ticket must deliver the three-argument constructor migration, real connection/handle ownership checks and installed offline guidance. No duplicate ticket. |
 | [SYSLIB0064][0064]: Boolean-padding `RSACryptoServiceProvider.Encrypt` and `Decrypt` | [PIN-686](https://linear.app/pinguapps/issue/PIN-686), [proposal F](cryptography-platforms.md#f-make-legacy-rsa-encryption-padding-explicit--m-3), **M (3)**. | Approval and actual Windows provider/interoperability evidence plus recipe delivery remain outstanding. Explicit padding must preserve the agreed protocol/provider; the audit rejects an unsupported OAEP-SHA256 substitution. |
 | [SYSLIB0065][0065]: `AsnEncodedData.RawData` **setter**, not getter | [PIN-686](https://linear.app/pinguapps/issue/PIN-686), [proposal E](cryptography-platforms.md#e-update-decoded-asn1-extension-state-through-supported-apis--s-2), **S (2)**. | Approval, typed constructor/CopyFrom state checks and recipe delivery remain outstanding. Getter-only use is not a newly obsolete goal. |
-| [SYSLIB0066][0066]: `IStartupValidator` | [PIN-746](https://linear.app/pinguapps/issue/PIN-746), [served source](../../../content/recipes/options.validate-asynchronously/11.0/recipe.md), [recorded evidence](../../verification/PIN-745-747.md). | Already delivered: custom `IAsyncStartupValidator` registration and awaited startup. Existing custom-factory/legacy-precedence limitations remain source-only. No fresh consumer execution or new suppression fixture is claimed by this audit. |
+| [SYSLIB0066][0066]: `IStartupValidator` | [PIN-746](https://linear.app/pinguapps/issue/PIN-746), [served source](../../../content/recipes/options.validate-asynchronously/11.0/recipe.md), [recorded evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-745-747.md). | Already delivered: custom `IAsyncStartupValidator` registration and awaited startup. Existing custom-factory/legacy-precedence limitations remain source-only. No fresh consumer execution or new suppression fixture is claimed by this audit. |
 
 The .NET 11 core summary omits **0063**. Its dedicated article explicitly names
 .NET 11, and PIN-703's actual RC2 reference comparison already establishes it.
@@ -136,8 +136,6 @@ the semantic dispositions: review those against the linked family evidence.
 The block was verified from an unrelated directory. It changes no served MCP
 tool/recipe, so there is no changed discovery/Markdown/applicability response to
 demonstrate. Future delivery must use the existing actual installed-MCP harness.
-[The verification ledger](../../verification/PIN-689.md) records criterion
-coverage, negative controls, repository checks and tracker boundaries.
 
 [core]: https://github.com/dotnet/docs/blob/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/core-libraries/11/obsolete-apis.md
 [crypto]: https://github.com/dotnet/docs/blob/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/cryptography/11/obsolete-apis.md

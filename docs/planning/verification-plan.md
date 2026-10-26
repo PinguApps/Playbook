@@ -1,5 +1,8 @@
 # Verification plan
 
+Choose checks and retain results using [the contribution policy](../contributing.md#choose-the-check-and-retain-its-result). Routine setup/build output belongs in ignored `artifacts/` or existing CI artifacts. These bounded manual evaluations retain actual calls, frozen controls, outcomes and meaningful failures for the named release/product decision; trim duplicate setup and package logs. Required proof must outlive expiring CI artifacts.
+
+
 Status: evidence principles, minimal CI/client/evaluation boundaries and native authoring cadence accepted through Round 8. No implementation or executable checks have run during planning.
 
 ## Tool and portable checks

@@ -1,8 +1,11 @@
 # Isolated T3 Code verification
 
-Use this owner-authorized setup for fresh Playbook agent checks outside CI. It uses the [documented Codex connection](clients.md#t3-code), a dedicated Git repository/T3 project, and an explicit installed-tool path. It adds no service, schedule or model matrix. The [PIN-976 receipt](verification/PIN-976.md) records the actual configuration, package and calls.
+Choose checks and retain results using [the contribution policy](contributing.md#choose-the-check-and-retain-its-result). Routine setup/build output belongs in ignored `artifacts/` or existing CI artifacts. These bounded manual evaluations retain actual calls, frozen controls, outcomes and meaningful failures for the named release/product decision; trim duplicate setup and package logs. Required proof must outlive expiring CI artifacts.
 
-For recipe-selection and application checks, use the [bounded usability runbook](agent-usability.md) and [first checkpoint report](verification/PIN-977.md). These preserve the separate launch with/without evaluation.
+
+Use this owner-authorized setup for fresh Playbook agent checks outside CI. It uses the [documented Codex connection](clients.md#t3-code), a dedicated Git repository/T3 project, and an explicit installed-tool path. It adds no service, schedule or model matrix. The [PIN-976 receipt](verification/agent-connection.md) records the actual configuration, package and calls.
+
+For recipe-selection and application checks, use the [bounded usability runbook](agent-usability.md) and [first checkpoint report](verification/agent-usability-initial.md). These preserve the separate launch with/without evaluation.
 
 ## Prepared environment
 
@@ -29,7 +32,7 @@ On another machine, the owner first enables/signs into the Codex provider throug
 Requires PowerShell 7 and repository SDK `10.0.402`. This block targets the already prepared seed above. It builds/packs an unpublished local version, installs into a **new** slot/cache even when reusing a version, and commits only the dedicated seed's MCP connection. Close completed test sessions before retiring their package slots; never replace a running server's files. Run in a fresh PowerShell process; environment assignments below affect only it and children. PATH is never assigned.
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ac9a569a'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $dotnet = 'C:\Program Files\dotnet\dotnet.exe'
@@ -119,7 +122,7 @@ Keep the seed/project and current installed slot for later checks. First save ca
 After verifying the exact path belongs to this verification repository, remove only the completed test worktree. This example removed the initial receipt's files and Git registration, then correctly reported the Windows directory lock described below. It deliberately refuses a dirty worktree and does not use force:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ac9a569a'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 $git = 'C:\Program Files\Git\cmd\git.exe'
 $seed = 'V:\_Scratch\PlaybookVerification'
 $temporary = 'V:\_worktrees\PlaybookVerification\verify-pin-976-trusted'
@@ -141,7 +144,7 @@ Windows caveat: the initial probes exposed provider/MCP processes retaining open
 For that two-stage case, first confirm the test threads are idle/archived and their Git worktree registrations are gone. Then retry only the exact empty residual directories. This block was verified from an unrelated directory after the handles cleared:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ac9a569a'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 $ErrorActionPreference = 'Stop'
 foreach ($path in @(
   'V:\_worktrees\PlaybookVerification\verify-pin-976-connection',

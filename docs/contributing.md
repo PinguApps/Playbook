@@ -1,130 +1,22 @@
 # Contribute and verify an original recipe
 
-Non-streaming SignalR cancellation uses original Soundings .NET 10/11 consumers.
-[PIN-814](verification/PIN-814.md) records real matched and mixed-version .NET
-client/Kestrel WebSocket calls, server cancellation, connection reuse and the
-tested installed offline retrieval path.
+## Choose the check and retain its result
 
-Scalar-binding filters and deliberately standalone responses use the original
-ParcelIntake/SignalCabin .NET 10/11 consumers. [PIN-815–816](verification/PIN-815-816.md)
-records actual request timing, retained older behavior, routing/security controls
-and the tested offline installed-tool handoff.
+1. Name the behaviour or claim the change could break. Choose the narrowest meaningful existing check in `eng/` or the installed-package scenarios.
+2. Reuse unchanged evidence only while its relevant inputs and claimed conditions remain valid. Refresh affected evidence, not the whole catalogue.
+3. For prose/link edits, check the affected paths and content. Served content needs a rebuild and real list/get inspection. Documentation-only work does not trigger an unrelated package/browser/native matrix.
+4. Runtime, dependency, generated-consumer and deployment claims need the affected real consumer/artifact path. Source review, mocks, compilation and execution prove different things.
+5. Stop after the relevant checks pass. Broaden or repeat only for a change, failure or unresolved concern.
 
-Streamed conversation history and browser form protection use original QuayChat/QuayPermits comparisons. [PIN-804/808](verification/PIN-804-808.md) records the real experimental renderer, 70 form/JSON/CORS HTTP checks, browser submissions and complete installed offline retrieval.
+Report commands, results and limitations in the PR and final handoff. **Do not create per-ticket verification documents or commit raw run output by default.** Use ignored `artifacts/` or existing CI artifacts for routine logs, TRX, Inspector responses, hashes and temporary consumer reports.
 
-Deliberate circuit transport uses original LockhouseSessions .NET 10/11 hosts.
-[PIN-790](verification/PIN-790.md) records actual WebSocket/fallback, cookie-expiry
-controls and payloads above configured pipe thresholds, with complete offline delivery.
+Commit evidence only for a named ongoing check, supported claim, release decision or exceptional manual/evaluation proof. Keep:
 
-Deliberate enhanced-navigation resource hints use original TernLedger .NET 10/11
-consumers. [PIN-800](verification/PIN-800.md) records actual hinted/control requests,
-deferred module execution, cache reuse and complete installed-body reconstruction.
-Navigation without inline-handler exceptions uses the original BrackenMenu host/client
-comparisons. [PIN-798](verification/PIN-798.md) records both real module paths,
-strict-policy controls, older backport and complete returned-body reconstruction.
+- **Sample evidence:** `samples/**/verification.json` and saved `verification-evidence.json` (or selected records). These drive compilation/input-freshness and release gates.
+- **Exceptional proof:** compact capability observations and necessary inputs under `docs/verification/`; source-disposition manifests/baselines beside their audits under `docs/planning/audits/`. Actual agent decisions, native interaction and measured failures may be costly to repeat. Preserve their identities, conditions and limitations.
+- **Disposable output:** ordinary build, package, consumer and Inspector receipts. Existing repeatable checks and the PR handoff normally suffice.
 
-Custom event alias migration uses original CairnSignals .NET 10/11 consumers.
-[PIN-799](verification/PIN-799.md) records actual same-name rejection, native
-beforeinput payload/dispatch, complete returned-Markdown reconstruction and the
-tested installed Inspector handoff.
-
-Browser component activity uses original .NET 10/11 LoomActivity consumers and
-the official local OTLP collector. [PIN-797](verification/PIN-797.md) records
-actual received metrics, event/route/child correlation, artifact/source equality,
-standalone reconstruction and installed offline MCP retrieval.
-
-Unified JavaScript startup options use the original .NET 10/11 ParcelStartup
-Server/WASM legacy and Web App consumers. [PIN-789](verification/PIN-789.md)
-records effective callbacks, browser culture, responsive controls, retained flat
-legacy compatibility and the tested offline Inspector handoff.
-
-Server-configured browser startup uses the original .NET 10/11 TideDesk host/client
-pairs. [PIN-788](verification/PIN-788.md) records generated endpoint/component
-options, real reconnection, Server/WASM/Auto execution, a bounded separate-request
-RC2 sharing probe and complete offline installed retrieval.
-
-Restrictive style CSP uses the original BeaconReadings .NET 10/11 samples.
-[PIN-786](verification/PIN-786.md) records actual enforcing headers, visible distant
-rows, old exception/strict-negative comparisons and the tested offline Inspector path.
-
-Virtual-list item reveal uses the original .NET 10/11 LanternQueue samples.
-[PIN-785](verification/PIN-785.md) records held-provider initial/programmatic
-reveal, actual rendered ticket/viewport assertions, bounds and complete offline
-installed retrieval. It keeps QuickGrid positioning and list anchoring separate.
-
-Virtualized QuickGrid row positioning uses original HarbourManifest .NET 10/11 samples. [PIN-783](verification/PIN-783.md) records real Chrome initial/programmatic scrolling, identity and Start anchoring, plus the tested offline Inspector path.
-
-Shareable table views use the original .NET 10/11 WorkshopViews samples.
-[PIN-781](verification/PIN-781.md) records independent two-grid URL state,
-immutable sort keys with separately editable captions, real static links and
-interactive history, plus complete installed MCP retrieval.
-
-Changing list anchoring uses the original .NET 10/11 OrchardJournal apps.
-[PIN-784](verification/PIN-784.md) records rendered prepend/append/expansion,
-provider identity, deliberate overscan and the tested offline Inspector path.
-
-Interactive QuickGrid selection uses original .NET 10/11 MuseumRows apps.
-[PIN-782](verification/PIN-782.md) records actual typed row events, accessible
-button alternatives, static SSR exclusion and the tested Inspector handoff.
-
-Safe static-subtree caching uses the original .NET 10/11 QuarryLedger samples.
-[PIN-780](verification/PIN-780.md) records real cache-provider rendering,
-variation/invalidation/isolation checks and the tested offline Inspector path.
-
-Alternative component values use the original .NET 10/11 SeedLabels applications.
-[PIN-779](verification/PIN-779.md) records native C# 15 literal/bound parameters,
-real JSON interop/prerender persistence and delegate-union rejection, with the
-tested Inspector handoff and existing packed-tool harness.
-
-Captured static child content uses the original .NET 10/11 ArchiveCards samples.
-[PIN-778](verification/PIN-778.md) records real SSR/Interactive Server execution,
-generic/delegate/prerender restrictions and the tested offline Inspector path.
-
-F# array migration, FSI asynchronous cleanup and experimental pull-driven
-sequences use the six original `FSharpArrayAot`, `FSharpFsiCleanup` and
-`FSharpSequence` samples. [PIN-982–984](verification/PIN-982-984.md) records the
-one-machine Windows Native AOT publish/run, real FSI assets, measured RC2 cleanup
-limitation and focused `eng/Test-FSharpLifetimes.ps1` diagnostics. Native proof
-remains an authoring check reused while its inputs stay unchanged; routine
-verification runs the five managed comparisons and consumes the saved native
-record without adding a native build matrix.
-
-Runtime-async and compiler-host examples use seven real managed sample paths and
-the bounded `eng/Test-RuntimeAsync.ps1` authoring check. See
-[PIN-757/980/981](verification/PIN-757-980-981.md) for exact assets, diagnostic
-differences, the .NET 10 FCS host route and installed-tool inspection.
-
-TLS, QUIC and runtime evidence uses the bounded authoring checks in
-[PIN-752/755/756](verification/PIN-752-755-756.md). Windows checks exercise real TLS
-and QUIC; `eng/Test-CrashEvidence.ps1` compiles and crashes only disposable Linux
-children to verify report output. No recurring native CI matrix is added.
-
-HTTP capacity and DNS service samples use the actual HttpCapacity and DnsServices
-projects, real local TCP/UDP peers and the existing installed-tool harness.
-[PIN-753–754](verification/PIN-753-754.md) records experimental eviction, delayed
-HTTP/2 settings, Windows resolver restrictions and the independent older package
-asset. On Windows the DNS authoring check needs a free UDP 127.0.0.1:53; it never changes
-system DNS configuration. No native CI matrix is added.
-
-Key-material and post-quantum guidance uses independently pinned KeyMaterial and
-PostQuantum projects. [PIN-750–751](verification/PIN-750-751.md) records real
-Windows comparisons and bounded Linux/OpenSSL authoring checks through
-`eng/Test-CryptoPlatforms.ps1`, plus complete packed offline retrieval. This
-does not add a recurring native CI matrix.
-
-A complete contribution includes original comparison samples, metadata, offline instructions and fresh compilation evidence, plus focused execution evidence for claims that need it. A source audit or inventory entry does not deliver a recipe. Missing compilation blocks build/pack and publication; pending targeted Human proof blocks release readiness. Passing these gates alone does not establish the separate catalogue, client, evaluation or GA launch requirements.
-
-File-application examples use the same capture/freshness pipeline as project samples. Declare TargetFramework and LangVersion explicitly in each evidence entry point, pin global.json, and declare external includes/imports as additionalInputs. `eng/Test-SdkWorkflows.ps1` checks actual CLI behavior; `eng/Test-WatchHosts.ps1` is a bounded Windows authoring check, not a native CI matrix. [PIN-759–761](verification/PIN-759-761.md) records its unresolved mobile proof and combined publication gate.
-
-Runner, tool/single-file and static-assets samples use the bounded Windows authoring check `eng/Test-SdkDelivery.ps1`; its actual SDK/RID/Node requirements and installed inspection are in [PIN-762–764](verification/PIN-762-764.md). Saved compilation and execution evidence is reused by portable package validation; no new native CI matrix is added.
-
-The host remains a workload-free .NET 10 tool. Keep sample SDKs, provider dependencies and native workloads under `samples/` and on suitable authoring machines, outside the host's project and solution. Installed Playbook reads embedded guidance; it neither inspects the consumer nor builds its application.
-
-Shared validation/tracing/logging/HTTP guidance uses actual .NET 10/11 projects
-under ValidationRules, TracingLogging and HttpObservations. The authoring check
-`eng/Test-Observability.ps1` verifies real SYSLIB1011/CA1873 rejection and restores
-the ordinary build. [PIN-748–749](verification/PIN-748-749.md) records the managed
-and real loopback checks, package assets and installed offline retrieval.
+Historical capture links use immutable commits, not moving branches. They support the recorded observation, not a new run or GA proof. Evidence still required for a product/release claim must remain in durable versioned storage or an immutable retained artifact; an expiring CI upload alone is insufficient. Do not retain a report merely because another document links it. Keep essential served instructions complete offline.
 
 ## Delivery order
 
@@ -134,14 +26,14 @@ and real loopback checks, package assets and installed offline retrieval.
 4. Validate content, build, run pack rejection checks and pack the ordinary tool. Install that exact artifact and inspect discovery, full Markdown, applicability and evidence.
 5. Review the full contribution against its goal and source register. Record what actually ran and any remaining proof. Publish only after all applicable release gates are satisfied; leave merging/releasing to the owner.
 
-The seed workflow below follows these steps using `csharp.validate-property-assignment`. [The verification record](verification/PIN-674.md) records the commands exercised for this guide.
+The property recipe provides the worked metadata and sample example below.
 
 ## Quick pull request check
 
 Ordinary PRs build/pack the tool and run one installed MCP smoke scenario. With PowerShell 7 and .NET SDK 10.0.402:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6e51df7e'
+Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
 & ./eng/Test-Smoke.ps1
 ```
 
@@ -152,28 +44,28 @@ Expect one passed scenario and a final `PASS` message. This checks installation,
 Build prerequisites: PowerShell 7, .NET SDK **10.0.402**, **9.0.319** and **11.0.100-rc.2.26504.105**. The .NET 9 SDK is needed only for the historical comparison, never for installing or running Playbook. The .NET 11 SDK verifies that target and the optional older-target route of the shared edition. No optional workloads are used.
 
 ```powershell
-Set-Location <path-to-Playbook>
+Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
 pwsh -NoProfile -File ./eng/Verify.ps1
 ```
 
 If .NET 9 or 11 is installed separately, pass its executable with `-Net9Dotnet <path-to-dotnet>` or `-Net11Dotnet <path-to-dotnet>`. The script rejects the focused invalid-content fixture, compiles and executes the real .NET 9/10/11 samples, including a .NET 11 SDK build of a .NET 10 target, then builds the solution with analyzers/warnings as errors and checks real `pack --no-build` rejection of incomplete/stale content. It packs the ordinary artifact once and tests it; its SHA-256 identifies that package. A second package under `artifacts/release-fixture/` contains contract-only identities and is never published. Fixture packing restores ordinary build output afterwards.
 
-The `Rejected ...` and `Pack --no-build rejected ...` messages are expected passing checks. Temporary fixtures deliberately contain invalid content or stale/missing evidence; these messages confirm the guards refuse them. They do not mean your authored recipe or final package was rejected. A successful run ends with all 35 scenarios passing, zero failures/skips and a package SHA-256. `NETSDK1057` is informational for the pinned RC SDK; a TRX overwrite warning replaces the previous report. An unhandled error, nonzero script exit or failed test indicates failure.
+The `Rejected ...` and `Pack --no-build rejected ...` messages are expected passing checks. Temporary fixtures deliberately contain invalid content or stale/missing evidence; these messages confirm the guards refuse them. They do not mean your authored recipe or final package was rejected. A successful run ends with all selected scenarios passing, zero failures/skips and a package SHA-256. `NETSDK1057` is informational for the pinned RC SDK; a TRX overwrite warning replaces the previous report. An unhandled error, nonzero script exit or failed test indicates failure.
 
-Thirty-four focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, exactly two read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on both tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, unchanged edition reuse, retained changed editions, conditional routes, response-size budgets, empty-search recovery and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
+The focused Reqnroll scenarios install from a local-only feed and new cache under unrelated temporary directories. They exercise bare/help/version, stdio initialization/instructions, exactly two read-only tools and output schemas, required nonnullable target schemas, omitted/null/blank rejection on both tools, deliberate catalogue-only `latest`, independent list/get selection, complete structured/JSON-text equality, canonical snippets, aliases, coverage, unchanged edition reuse, retained changed editions, conditional routes, response-size budgets, empty-search recovery and actionable errors. The fixture scenario tests newest-compatible selection when editions overlap, a known ID without an applicable edition, and a pre-introduction conditional route. Generation also rejects that route without its conditional flag. Synthetic fixture introduction metadata is not API introduction or release coverage evidence. All scenarios require a clean shutdown and stderr diagnostics; none project-reference production code. Temporary installs are deleted afterwards.
 
 Fresh `DOTNET_CLI_HOME` directories trigger SDK first-run setup. Every harness child sets `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` so the SDK cannot register temporary `.dotnet/tools` directories in the user's PATH, even when installation uses `--tool-path`. The obsolete `DOTNET_SKIP_FIRST_TIME_EXPERIENCE` setting does not prevent that write. The harness launches the installed tool by its absolute path and checks that process PATH, plus saved user/machine PATH on Windows, remain unchanged across each real install. An unexpected difference fails the scenario; the harness never restores shared environment settings from a snapshot.
 
 Local checks set unusable HTTP proxies, which establishes proxy-independent operation but is **not** network isolation. On Linux use `pwsh -NoProfile -File ./eng/Verify.ps1 -IsolateNetwork`: after build/pack, the installed-consumer tests run under `sudo unshare --net` with no external network routes. Only the local package feed is available. SDK downloads/restores happen before network isolation.
 
-With Docker available, run `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 10` and `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 11` after verification. Each reruns all 35 Reqnroll scenarios against the exact package with `--network none`. Only package artifacts, test binaries and the artifact-consumer script are mounted; no recipe or sample source is accessible. Canonical sample text is embedded independently in the test assembly for comparison. Both images are digest-pinned, with only runtime 10.0.12 or 11.0.0-rc.2.26504.105 available; pulling them is an online preparation step. Host traces assert the installed server's actual CoreCLR path. The .NET 11 lane explicitly permits prerelease selection and verifies the package's own major roll-forward policy. CI also downloads the same package and compiled suite for one brief Windows and one brief macOS smoke. See [packed-host evidence and commands](verification/PIN-673.md).
+With Docker available, run `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 10` and `pwsh -NoProfile -File ./eng/Test-Offline.ps1 -RuntimeMajor 11` after verification. Each reruns all Reqnroll scenarios against the exact package with `--network none`. Only package artifacts, test binaries and the artifact-consumer script are mounted; no recipe or sample source is accessible. Canonical sample text is embedded independently in the test assembly for comparison. Both images are digest-pinned, with only runtime 10.0.12 or 11.0.0-rc.2.26504.105 available; pulling them is an online preparation step. Host traces assert the installed server's actual CoreCLR path. The .NET 11 lane explicitly permits prerelease selection and verifies the package's own major roll-forward policy. CI also downloads the same package and compiled suite for one brief Windows and one brief macOS smoke. See [packed-host evidence and commands](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-673.md).
 
 ## Inspect the development package
 
 From the repository root after verification:
 
 ```powershell
-Set-Location <path-to-Playbook>
+Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
 # Use fresh directories; if these exist from an earlier run, choose new names.
 New-Item -ItemType Directory ./artifacts/manual-feed | Out-Null
 Copy-Item ./artifacts/PinguApps.Playbook.1.0.0-preview.1.nupkg ./artifacts/manual-feed/
@@ -181,11 +73,16 @@ $feed = (Resolve-Path ./artifacts/manual-feed).Path
 $config = Join-Path $feed 'NuGet.Config'
 '<configuration><packageSources><clear/><add key="local" value="{0}"/></packageSources></configuration>' -f [Security.SecurityElement]::Escape($feed) | Set-Content $config
 $previousPackages = $env:NUGET_PACKAGES
+$previousToolPathIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
+    $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     $env:NUGET_PACKAGES = Join-Path $feed 'cache'
     dotnet tool install PinguApps.Playbook --version 1.0.0-preview.1 --tool-path ./artifacts/manual-tool --configfile $config --no-cache
 }
-finally { $env:NUGET_PACKAGES = $previousPackages }
+finally {
+    $env:NUGET_PACKAGES = $previousPackages
+    $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousToolPathIntegration
+}
 ./artifacts/manual-tool/playbook --help
 ./artifacts/manual-tool/playbook --version
 ```
@@ -233,19 +130,19 @@ Keep one edition when its canonical snippets, migration and feature requirements
 
 The property recipe uses edition `10.0` for targets `10.0` and `11.0`, retaining its .NET 10 / C# 14 introduction. Both serve identical offline Markdown and snippets. .NET 10 keeps its primary route and optional SDK 11 alternative; .NET 11 has its own runtime/SDK route and RC disclosure. Distinct baselines stay linked separately even when they compile the same source. Existing evidence freshness and stale-pack gates still apply to every sample and to changed metadata/Markdown.
 
-Add a newer edition only when guidance or applicable feature requirements genuinely change; retain the historical edition and its verified targets. Discovery and detail select the numerically newest edition explicitly declaring the requested target. Overlapping targets are allowed: a changed edition may supersede earlier guidance for one target while the earlier edition still serves another. Do not duplicate unchanged content just to label a new target. The unpublished `fixture.changed-guidance` tests this with an additional migration check; it is not another shipped recipe or an API claim. See the [tested two-target walkthrough](verification/PIN-973.md).
+Add a newer edition only when guidance or applicable feature requirements genuinely change; retain the historical edition and its verified targets. Discovery and detail select the numerically newest edition explicitly declaring the requested target. Overlapping targets are allowed: a changed edition may supersede earlier guidance for one target while the earlier edition still serves another. Do not duplicate unchanged content just to label a new target. The unpublished `fixture.changed-guidance` tests this with an additional migration check; it is not another shipped recipe or an API claim. See the [historical two-target walkthrough](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-973.md).
 
 ### Separate requirements from test baselines
 
 Author each route's application conditions inside `requirements`, following [the contract](planning/tool-contract.md#requirements-and-verification-baselines). Runtime/SDK/language and each package/workload condition use `name`, `version`, `match` (`release-family` or `exact`) and a source-supported `reason`. Use major.minor for a release family; it does not mean an open-ended minimum. Preserve a necessary exact pin only when official source/artifact evidence establishes it. One successful test at a pinned SDK does not justify either an exact installation requirement or a minimum. Keep assets, providers, platforms, rendering restrictions, opt-ins and stability limitations in the same requirements object.
 
-List the normal route first with `usage: primary`; label another choice `optional-alternative`. Requirements on alternatives are not cumulative. Keep `conditional` for release-routing conditions. Link each route through `evidenceSamples` and declared `sourceUrls`; preserve exact sample pins and complete saved evidence using the existing [freshness workflow](verification/PIN-672.md). Generation labels those records `verification-baseline` without changing their identity or hashes. Exact measured runtime output, SDK/language, resolved dependencies, workloads/native versions and commands describe tests, not consumer upgrades. Keep RC-only/GA-pending limitations explicit even for stable syntax.
+List the normal route first with `usage: primary`; label another choice `optional-alternative`. Requirements on alternatives are not cumulative. Keep `conditional` for release-routing conditions. Link each route through `evidenceSamples` and declared `sourceUrls`; preserve exact sample pins and complete saved evidence using the existing [freshness workflow](#capture-and-refresh-sample-evidence). Generation labels those records `verification-baseline` without changing their identity or hashes. Exact measured runtime output, SDK/language, resolved dependencies, workloads/native versions and commands describe tests, not consumer upgrades. Keep RC-only/GA-pending limitations explicit even for stable syntax.
 
-The property recipe's normal route needs .NET 10 / C# 14, not SDK 10.0.402 specifically. Its optional .NET 11 SDK route retains `net10.0` and C# 14. Both choices have distinct evidence links. The schema and real build/pack gates reject old prose requirements, malformed family pins and contradictory SDK/language baselines; author review must still establish supported compatibility. See the [tested inspection example](verification/PIN-972.md).
+The property recipe's normal route needs .NET 10 / C# 14, not SDK 10.0.402 specifically. Its optional .NET 11 SDK route retains `net10.0` and C# 14. Both choices have distinct evidence links. The schema and real build/pack gates reject old prose requirements, malformed family pins and contradictory SDK/language baselines; author review must still establish supported compatibility. See the [historical requirements inspection](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-972.md).
 
-Use the canonical Draft-07 dialect identifier `http://json-schema.org/draft-07/schema#` in the local schemas. PowerShell 7.6.7 resolves that registered identifier without external fetching; the HTTPS spelling is not treated as the same identifier. Do not enable schema downloading for offline validation. See [the reproduced build fix](verification/PIN-974.md#powershell-767-validation-correction).
+Use the canonical Draft-07 dialect identifier `http://json-schema.org/draft-07/schema#` in the local schemas. PowerShell 7.6.7 resolves that registered identifier without external fetching; the HTTPS spelling is not treated as the same identifier. Do not enable schema downloading for offline validation. See [the reproduced build fix](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-974.md#powershell-767-validation-correction).
 
-Declare `selectionNotes` on each route: concise, complete free-text conditions that affect whether to select it. Preserve essential restrictions from detailed prerequisites/constraints here; do not copy implementation steps or omit a restriction just to meet a size budget. An empty array is valid only when structured requirements and warnings fully describe selection. Review notes whenever requirements change. Discovery automatically retains all version conditions (without justifications), frameworks, packages/workloads, assets, providers, platforms, rendering modes, opt-ins and stability limitations. It keeps each alternative separate. Full reasons, prerequisites, constraints, route sources and evidence links remain in detail. The server does not truncate any field. See [the contract and migration](planning/tool-contract.md#concise-discovery-pin-974) and [measured budgets](verification/PIN-974.md).
+Declare `selectionNotes` on each route: concise, complete free-text conditions that affect whether to select it. Preserve essential restrictions from detailed prerequisites/constraints here; do not copy implementation steps or omit a restriction just to meet a size budget. An empty array is valid only when structured requirements and warnings fully describe selection. Review notes whenever requirements change. Discovery automatically retains all version conditions (without justifications), frameworks, packages/workloads, assets, providers, platforms, rendering modes, opt-ins and stability limitations. It keeps each alternative separate. Full reasons, prerequisites, constraints, route sources and evidence links remain in detail. The server does not truncate any field. See [the contract and migration](planning/tool-contract.md#concise-discovery-pin-974) and [historical measured budgets](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-974.md#measured-response-sizes-and-budgets).
 
 Discovery filters use ordinal, case-sensitive area/language identifiers advertised by the installed catalogue. Queries require all whitespace-separated terms, case-insensitively, across title/goal/tags/API names. Areas and languages each use OR; filter types use AND. Results select the newest compatible edition before filtering, then page in ordinal stable-ID order (default 20, maximum 50), with `total`, `offset`, `limit` and nullable `nextOffset`. Keep the same filters when following `nextOffset`; an offset beyond the total succeeds empty. Unknown filters and invalid ranges are tool errors rather than ignored input.
 
@@ -279,10 +176,10 @@ Give each sample its own exact SDK pin in `global.json` and explicit target/lang
 - `workloads`: required `id/manifest-version` entries measured by `dotnet workload list`, not every installed workload.
 - `nativeToolchains`: required measured `name/version` entries. Keep the native version commands/results in a linked report; the helper checks the supplied declaration, not the tool's authenticity.
 
-Run from the repository root in PowerShell 7. These seed commands use the normal .NET 10 executable and the separate .NET 9/11 installations on this authoring machine. Substitute your actual executables, or `dotnet` when the pins are available in one installation. Do not change persistent PATH or environment variables.
+Only when refreshing affected sample inputs, run from the repository root in PowerShell 7. These example capture commands use the normal .NET 10 executable and the separate .NET 9/11 installations on this authoring machine. Substitute your actual executables, or `dotnet` when the pins are available in one installation. Do not change persistent PATH or environment variables.
 
 ```powershell
-Set-Location <path-to-Playbook>
+Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
 $net9 = 'C:\Users\pingu\.dotnet-playbook-9\dotnet.exe'
 $net11 = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
 pwsh -NoProfile -File ./eng/Record-Evidence.ps1 -Sample samples/net9.0/PropertyAssignment/PropertyAssignment.csproj -Dotnet $net9
@@ -295,7 +192,7 @@ Expect four successful builds and executions of the same property behavior check
 
 The helper writes `verification-evidence.json` only after successful commands, exact SDK/dependency/workload checks and unchanged before/after inputs. It records source commit/dirty state, per-input SHA-256, sample/target/language, commands/output, dependencies, workloads/native versions, host and SDK/workload inventory. Review and commit the record with the sample. Capture changes embedded content, so rebuild before `pack --no-build`. `eng/Verify.ps1` reruns portable checks but does **not** refresh saved records.
 
-Use `-Kind compile` for build-only proof and `-Kind cross-compile` for an actual cross-compilation. Neither executes the DLL. Default `compile-and-run` runs the built DLL; it is suitable for these console samples, not a generic browser, database, UI or device test runner. Separate records selected by `record` may use `official-review`, `mock` or `execution`; those classifications do not replace compilation. See [the full evidence contract and capture limits](verification/PIN-672.md).
+Use `-Kind compile` for build-only proof and `-Kind cross-compile` for an actual cross-compilation. Neither executes the DLL. Default `compile-and-run` runs the built DLL; it is suitable for these console samples, not a generic browser, database, UI or device test runner. Separate records selected by `record` may use `official-review`, `mock` or `execution`; those classifications do not replace compilation. The record classifications above are independent; an execution-only record cannot satisfy compilation.
 
 ### Decide when proof must be refreshed
 
@@ -307,8 +204,8 @@ Run `pwsh -NoProfile -File ./eng/Test-Evidence.ps1` to check unchanged reuse and
 
 ### Hand off provider and native checks
 
-For the current Windows x64 and Docker authoring routes, run the
-[native capability preflight](verification/PIN-678.md). Its measured inventory
+For Windows x64 and Docker authoring routes, consult the historical
+[native access assessment](verification/native-authoring.md) and recheck the required capability. Its measured inventory
 and explicit owner handoffs distinguish available access from missing Arm/SVE,
 CoreCLR WebAssembly relinking and Podman proof. It does not replace recipe evidence.
 
@@ -324,10 +221,10 @@ Commit native authoring evidence for routine validation to consume without insta
 
 ## Review the delivered artifact
 
-After capture or an edit, follow `eng/Verify.ps1` above: content/evidence fixtures, seventy real portable sample paths plus the focused SDK workflow commands, Release solution build, real pack rejection checks, one ordinary package and the separate unpublished contract fixture, then installed stdio MCP scenarios. For manual build/pack separation:
+For packaging or content-pipeline changes, run the relevant content/evidence fixtures, Release build, pack rejection checks and installed stdio scenarios. Full release/manual validation remains `eng/Verify.ps1`; ordinary documentation edits do not require every sample or platform. For manual build/pack separation:
 
 ```powershell
-Set-Location <path-to-Playbook>
+Set-Location -LiteralPath 'V:/_worktrees/Playbook/t3-4d84c6cb'
 pwsh -NoProfile -File ./eng/Test-Content.ps1
 pwsh -NoProfile -File ./eng/Test-Evidence.ps1
 dotnet build PinguApps.Playbook.slnx -c Release
@@ -341,7 +238,3 @@ Use the installed-package scenarios from `Verify.ps1` for the final artifact che
 Before handoff, account for each recipe claim with official source support, current compilation and the specific execution check it needs. Check original authorship, fair previous-release behavior, complete offline steps, snippet identity, stable IDs/editions, requirements versus test pins, target-specific routes, experimental labels, register disposition and unresolved gaps. Passing schema or tool tests does not establish native/provider behavior or comprehensive release readiness. Report exact commands, versions, actual results and unverified scope.
 
 Shared style and analyzer configuration adapts the MIT-licensed PinguApps Template's generated-app configuration. The [reference map](planning/reference-repositories.md) records the layout, packaging and scenario conventions used. Recipe prose and samples were authored independently; no guide example implementation was reused.
-
-The [PIN-787 circuit pause proof](verification/PIN-787.md) records original
-TideCharts .NET 10/RC2 compilation, native hidden-tab resource/state recovery,
-real host lifecycle maintenance/cancellation and complete packed offline retrieval.

@@ -139,7 +139,6 @@ finally {
 }
 ```
 
-Expected: three proposal headings and PASS. A missing file, hash or full-note section fails. The block was tested from an unrelated temporary directory. The [verification ledger](../../verification/PIN-685.md) maps acceptance and saved tracker state. No MCP tools/served recipes change, so server execution is not required or claimed here; each future recipe must establish its own actual compilation, runtime and installed-tool evidence.
 
 [host-note]: https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md
 [reload-note]: https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/fileconfigurationprovider-reload-token-load-failure.md

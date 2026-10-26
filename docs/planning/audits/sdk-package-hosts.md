@@ -142,7 +142,6 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-c76ebb7d'
 & ./eng/Inspect-SdkPackageHosts.ps1 -Net11SdkDirectory 'C:\Users\pingu\.dotnet-playbook-11\sdk\11.0.100-rc.2.26504.105'
 ```
 
-Expected: **PASS: 32 immutable source hashes, seven full notes, 23 package ZIPs and nine approval-only proposals.** Any unavailable source, changed hash, package metadata/API mismatch or missing proposal fails. This block was tested from an unrelated directory. The [verification ledger](../../verification/PIN-688.md) records actual checks and tracker coverage. MCP tools and served recipes are unchanged; this audit makes no claim of new installed guidance.
 
 [dnx-note]: https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/dnx-scripts-bypass-global-json.md
 [mono-note]: https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/sdk/11/mono-launch-target-removed.md

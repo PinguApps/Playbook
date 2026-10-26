@@ -124,7 +124,7 @@
       "kind": "compile",
       "language": "14.0",
       "sample": "samples/net10.0/BeaconWatch/BeaconWatch.csproj",
-      "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/PIN-791.md. No mocks or cross-compilation.",
+      "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/browser-service-lifetime.md. No mocks or cross-compilation.",
       "sdk": "10.0.402"
     },
     {
@@ -132,7 +132,7 @@
       "kind": "compile",
       "language": "15.0",
       "sample": "samples/net11.0/BeaconWatch/BeaconWatch.csproj",
-      "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/PIN-791.md. No mocks or cross-compilation.",
+      "scope": "Actual pinned SDK build only. Separate real WASM browser execution proves startup, responsive UI, timer cancellation, awaited service stop, root disposal and no further ticks after owned in-app shutdown. Exact source/artifact fingerprints and limits: docs/verification/browser-service-lifetime.md. No mocks or cross-compilation.",
       "sdk": "11.0.100-rc.2.26504.105"
     }
   ],

@@ -129,7 +129,7 @@
       "target": "net10.0",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/CopperlineDesk/Host/Host.csproj",
-      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/environment-content.md; compilation alone does not establish browser behavior.",
       "kind": "compile"
     },
     {
@@ -137,7 +137,7 @@
       "target": "net10.0",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/CopperlineDesk/Client/Client.csproj",
-      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/environment-content.md; compilation alone does not establish browser behavior.",
       "kind": "compile"
     },
     {
@@ -145,7 +145,7 @@
       "target": "net11.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/CopperlineDesk/Host/Host.csproj",
-      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/environment-content.md; compilation alone does not establish browser behavior.",
       "kind": "compile"
     },
     {
@@ -153,7 +153,7 @@
       "target": "net11.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/CopperlineDesk/Client/Client.csproj",
-      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/PIN-795.md; compilation alone does not establish browser behavior.",
+      "scope": "Actual declared project built with matching SDK and restored pinned dependencies, not cross-compilation. Separate real HTTP/server and Chrome/WASM rendering records include input, executable, downloaded runtime, source and verifier identities in docs/verification/environment-content.md; compilation alone does not establish browser behavior.",
       "kind": "compile"
     }
   ],

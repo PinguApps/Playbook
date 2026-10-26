@@ -11,18 +11,22 @@ The six GitHub Actions roles follow the examples in `V:/Aspire.Hosting.Dashboard
 
 The production project declares no package version. `eng/Test-Smoke.ps1` and `eng/Verify.ps1` have local development defaults; Actions passes its CI/release version explicitly through build and pack.
 
+## Verification output
+
+Use [the contribution check-selection and retention policy](contributing.md#choose-the-check-and-retain-its-result). Routine local output defaults to ignored `artifacts/`; CI keeps its existing artifact uploads. Report commands/results/limits in the PR rather than adding a ticket report. Required sample evidence and exceptional release/product proof remain durable and cannot depend solely on expiring CI artifacts.
+
 ## Pull request smoke coverage
 
 `eng/Test-Smoke.ps1` builds both maintained root consumers with analyzers and warnings as errors. Normal build/pack content generation still checks all recipe metadata, canonical snippets and saved evidence freshness. It installs the actual package from a fresh local feed/cache outside the checkout, checks help/version, initializes MCP, discovers both tools, lists recipes, retrieves one known ID with complete Markdown/applicability, checks canonical snippets, then verifies clean shutdown. Exactly one passing scenario is required; failed, skipped or empty test selections fail the job. Recipe-specific scenarios are reserved for full validation, so adding a recipe does not add another PR test.
 
 The inexpensive dependency inventory check runs on every PR. The real Renovate rule checks run when a PR changes workflows, engineering scripts, dependency policy/configuration, project/solution files or shared build/package/SDK/tool files (including previous names of renamed files). Full and manual validation always run them. Failure to retrieve the changed-file list fails validation rather than skipping policy checks.
 
-The policy check also parses the publishing and validation YAML to check reusable-workflow permission contracts. The release-draft caller must grant `actions: read` through `publish.yml` to verification, even when publication is gated off: GitHub validates the composed workflow before evaluating job conditions. OIDC remains scoped to the publishing job and its reusable caller. See [PIN-1023 verification](verification/PIN-1023.md) for the reproduced failure and safe hosted validation.
+The policy check also parses the publishing and validation YAML to check reusable-workflow permission contracts. The release-draft caller must grant `actions: read` through `publish.yml` to verification, even when publication is gated off: GitHub validates the composed workflow before evaluating job conditions. OIDC remains scoped to the publishing job and its reusable caller. See [PIN-1023 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-1023.md) for the reproduced failure and safe hosted validation.
 
 Run the same smoke locally with PowerShell 7 and SDK 10.0.402:
 
 ```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6e51df7e'
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 & ./eng/Test-Smoke.ps1
 ```
 
@@ -34,7 +38,7 @@ Full-validation artifact consumers check `package.sha256` before installation. E
 
 `eng/Test-Package.ps1` rejects mixed-major runtime inventories. The installed server writes a host trace, and its actual CoreCLR path must match the lane's expected major. The test runner's `dotnet exec --roll-forward Major` applies only to the runner; the installed command uses the package's own `Major` policy without a `DOTNET_ROLL_FORWARD` override. The .NET 11 lane explicitly permits prerelease runtime selection with `DOTNET_ROLL_FORWARD_TO_PRERELEASE=1`; that is RC evidence, not GA evidence. [Host tracing documentation](https://learn.microsoft.com/dotnet/core/tools/dotnet-environment-variables#dotnet_host_trace).
 
-Linux TRX files, server traces and package/runtime identity records are retained in `test-results`; desktop equivalents are in `smoke-Windows` and `smoke-macOS`. `playbook-package` contains the ordinary package and its manifest; `playbook-consumer-suite` contains the compiled tests, not another product. The final job summarizes all four TRX files and reports elapsed validation time alongside the sum of all three validation runners' full job durations. Its own reporting-job duration is explicitly excluded from that in-run subtotal; include it when auditing the completed workflow through the [jobs API](https://docs.github.com/rest/actions/workflow-jobs). Execution seconds do not establish billed cost: provider rates, discounts and rounding need separate billing evidence. See [PIN-673 verification](verification/PIN-673.md) for actual measurements and copyable commands.
+Linux TRX files, server traces and package/runtime identity records are retained in `test-results`; desktop equivalents are in `smoke-Windows` and `smoke-macOS`. `playbook-package` contains the ordinary package and its manifest; `playbook-consumer-suite` contains the compiled tests, not another product. The final job summarizes all four TRX files and reports elapsed validation time alongside the sum of all three validation runners' full job durations. Its own reporting-job duration is explicitly excluded from that in-run subtotal; include it when auditing the completed workflow through the [jobs API](https://docs.github.com/rest/actions/workflow-jobs). Execution seconds do not establish billed cost: provider rates, discounts and rounding need separate billing evidence. See [PIN-673 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-673.md) for actual measurements and copyable commands.
 
 ## Owner-controlled publication setup
 

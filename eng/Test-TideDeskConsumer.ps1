@@ -1,8 +1,13 @@
 [CmdletBinding()]
-param([string]$ResponsePath = (Join-Path $PSScriptRoot '../artifacts/pin788/returned.json'))
+param(
+  [string]$ResponsePath = (Join-Path $PSScriptRoot '../artifacts/inspection/blazor.configure-browser-from-server.json'),
+  [string]$OutputPath = (Join-Path $PSScriptRoot '../artifacts/tide-desk/consumer.json')
+)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
+New-Item -ItemType Directory -Path (Split-Path $output -Parent) -Force | Out-Null
 $recipe = (Get-Content -LiteralPath $ResponsePath -Raw | ConvertFrom-Json).result.structuredContent.recipe
 $markdown = $recipe.markdown
 $consumer = Join-Path ([IO.Path]::GetTempPath()) ('playbook-tide-consumer-' + [guid]::NewGuid().ToString('N'))
@@ -52,7 +57,7 @@ try {
       try { $null = Invoke-WebRequest 'http://127.0.0.1:5399/server'; break }
       catch { if ($process.HasExited -or $i -eq 99) { throw }; Start-Sleep -Milliseconds 100 }
     }
-    $http = Join-Path $root 'artifacts/pin788/consumer-http.evidence.json'
+    $http = Join-Path (Split-Path $output -Parent) 'consumer-http.json'
     & (Join-Path $PSScriptRoot 'Test-TideDeskHttp.ps1') -BaseUri 'http://127.0.0.1:5399' -OutputPath $http
     $report.http = Get-Content -LiteralPath $http -Raw | ConvertFrom-Json
   }
@@ -65,5 +70,5 @@ try {
   }
 }
 finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previous }
-$report | ConvertTo-Json -Depth 20 | Set-Content (Join-Path $root 'docs/verification/PIN-788.consumer.evidence.json')
+$report | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath $output
 Write-Host 'PASS: both returned-body host/client pairs compile outside the checkout; actual RC2 HTTP options match.'

@@ -64,7 +64,7 @@
       "url": "https://linear.app/pinguapps/issue/PIN-746",
       "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
       "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
-      "evidence": "docs/verification/PIN-745-747.md"
+      "evidence": "https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-745-747.md"
     },
     {
       "issue": "PIN-715",
@@ -72,7 +72,7 @@
       "url": "https://linear.app/pinguapps/issue/PIN-715",
       "teamId": "62f80270-b641-4fa3-b60c-46be4c4df2c8",
       "projectId": "b22380c7-6fde-49f4-8826-e5631dc5df7a",
-      "evidence": "docs/verification/PIN-715.md"
+      "evidence": "https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-715.md"
     }
   ],
   "entries": [
@@ -536,7 +536,7 @@
       "subject": "IStartupValidator",
       "owner": "PIN-746",
       "outcome": "delivered",
-      "evidence": "docs/verification/PIN-745-747.md"
+      "evidence": "https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-745-747.md"
     },
     {
       "id": "EXTOBS0001",

@@ -230,7 +230,7 @@
     {
       "id": "typescript",
       "pattern": "^typeScript/",
-      "owner": "PIN-813 authentication-refresh TypeScript contract remains unresolved; PIN-814 cancellation is .NET-client-only, verified with matched RC2 assets and both mixed-version controls; see docs/verification/PIN-814.md"
+      "owner": "PIN-813 authentication-refresh TypeScript contract remains unresolved; PIN-814 cancellation is .NET-client-only, verified with matched RC2 assets and both mixed-version controls; see docs/verification/invocation-cancellation.md"
     }
   ]
 }

@@ -110,7 +110,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual pinned SDK compilation, not cross-compilation. Separate real Chrome native-beforeinput receipts and served JS/DLL hashes in docs/verification/PIN-799.md establish old double delivery, new same-name rejection and renamed payload dispatch. Compilation alone is not browser proof."
+      "scope": "Actual pinned SDK compilation, not cross-compilation. Separate real Chrome native-beforeinput receipts and served JS/DLL hashes in docs/verification/custom-event-alias.md establish old double delivery, new same-name rejection and renamed payload dispatch. Compilation alone is not browser proof."
     },
     {
       "sample": "samples/net11.0/CairnSignals/CairnSignals.csproj",
@@ -118,7 +118,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual pinned SDK compilation, not cross-compilation. Separate real Chrome native-beforeinput receipts and served JS/DLL hashes in docs/verification/PIN-799.md establish old double delivery, new same-name rejection and renamed payload dispatch. Compilation alone is not browser proof."
+      "scope": "Actual pinned SDK compilation, not cross-compilation. Separate real Chrome native-beforeinput receipts and served JS/DLL hashes in docs/verification/custom-event-alias.md establish old double delivery, new same-name rejection and renamed payload dispatch. Compilation alone is not browser proof."
     }
   ],
   "snippets": {

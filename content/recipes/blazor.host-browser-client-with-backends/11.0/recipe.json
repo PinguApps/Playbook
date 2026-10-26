@@ -159,7 +159,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/QuaysideRoutes/Backend/QuaysideRoutes.Backend.csproj",
       "sdk": "10.0.402",
-      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/PIN-796.md."
+      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/browser-gateway.md."
     },
     {
       "target": "net10.0",
@@ -167,7 +167,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/QuaysideRoutes/Client/QuaysideRoutes.Client.csproj",
       "sdk": "10.0.402",
-      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/PIN-796.md."
+      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/browser-gateway.md."
     },
     {
       "target": "net10.0",
@@ -175,7 +175,7 @@
       "language": "14.0",
       "sample": "samples/net10.0/QuaysideRoutes/Host/QuaysideRoutes.Host.csproj",
       "sdk": "10.0.402",
-      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/PIN-796.md."
+      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/browser-gateway.md."
     },
     {
       "target": "net11.0",
@@ -183,7 +183,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/QuaysideRoutes/Backend/QuaysideRoutes.Backend.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/PIN-796.md."
+      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/browser-gateway.md."
     },
     {
       "target": "net11.0",
@@ -191,7 +191,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/QuaysideRoutes/Client/QuaysideRoutes.Client.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/PIN-796.md."
+      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/browser-gateway.md."
     },
     {
       "target": "net11.0",
@@ -199,7 +199,7 @@
       "language": "15.0",
       "sample": "samples/net11.0/QuaysideRoutes/Defaults/QuaysideRoutes.Defaults.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/PIN-796.md."
+      "scope": "Actual matching SDK compilation, not server execution by Record-Evidence. Separate real Chrome WASM and loopback backend/Gateway receipts, exact artifacts and limits: docs/verification/browser-gateway.md."
     }
   ],
   "snippets": {

@@ -106,7 +106,7 @@ composition are not silently added to a desktop Unix verification claim.
 
 Reviewed the actual [recipe](../../../content/recipes/reflection.inspect-loaded-metadata/11.0/recipe.md),
 DeploymentInspection comparisons, shared checks, both deployment.evidence.json
-records and [PIN-742–744 report](../../verification/PIN-742-744.md).
+records and [PIN-742–744 report](../../verification/assembly-deployments.md).
 All recorded input hashes in both deployment records match current files. Their
 saved Windows x64 outputs cover:
 

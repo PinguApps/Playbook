@@ -130,7 +130,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/PIN-815-816.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/endpoint-policies.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
     },
     {
       "sample": "samples/net11.0/SignalCabin/SignalCabin.csproj",
@@ -138,7 +138,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/PIN-815-816.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Real Kestrel request execution is recorded separately in docs/verification/endpoint-policies.md and its execution receipt. No browser, production authentication, external resource, performance benchmark, platform matrix or GA claim."
     }
   ],
   "snippets": {

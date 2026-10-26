@@ -131,7 +131,7 @@ finally {
 }
 ```
 
-Expected: A–G headings followed by PASS. A failed download, hash, section or proposal count is a failure requiring review. Hashes do not validate the migration conclusions; compare the complete notes and qualified implementation paths with the dispositions. No new served recipe means no changed discovery/Markdown/applicability response to demonstrate. Future delivery must satisfy the common real installed-MCP acceptance above. Actual checks, scope gaps and tracker state are recorded in [PIN-686 verification](../../verification/PIN-686.md).
+Expected: A–G headings followed by PASS. A failed download, hash, section or proposal count is a failure requiring review. Hashes do not validate the migration conclusions; compare the complete notes and qualified implementation paths with the dispositions. No new served recipe means no changed discovery/Markdown/applicability response to demonstrate. Future delivery must satisfy the common real installed-MCP acceptance above. Actual checks, scope gaps and tracker state are recorded in [PIN-686 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-686.md).
 
 [dsa]: https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/dsa-removed-macos.md
 [composite]: https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/compositemldsa-windows-native.md

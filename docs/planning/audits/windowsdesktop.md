@@ -94,7 +94,7 @@ of the seven existing desktop delivery slices.
 | ListControl.DataSource converter and framework Designer metadata | **Excluded automatic residual.** Preview 1 adds DataSourceConverter metadata; ComponentTray's paired metadata and version-qualified editor/converter attributes do not establish an authored application migration. Framework `System.Windows.Forms.Design`/`.Editors` assets are inspected separately from the external extension SDK. A concrete failing custom-designer workflow would reopen the decision. | Retained `desktop.automatic-reliability-fixes` |
 | WPF references and supporting facade/DirectoryServices attributes | **Excluded metadata residual.** Paired WPF/Ribbon/XAML/DirectoryServices changes serialize framework type names at assembly version 11 instead of 10; no new callable WPF member is established. Do not invent a WPF or VB feature from these records. | Retained exclusion |
 | EventLog reference annotations | **Grouped existing exclusion.** Preview 4's canonical EventLog diff and actual desktop reference changes concern nullable/flow/default metadata, not a new logging operation. Respect nullable results. The [Extensions audit](extensions.md) already owns this family and its exact package evidence; desktop pack membership does not create a second recipe. | [PIN-706](https://linear.app/pinguapps/issue/PIN-706) |
-| Pkcs key-encapsulation/CMS additions | **Grouped existing coverage.** Actual RC2 desktop references include CmsRecipient factories, KemRecipientInfo/RecipientInfoType and composite Decrypt overloads with their experimental attributes. The [runtime/security audit](runtime-security.md) and [actual cryptography evidence](../../verification/PIN-750-751.md) retain supported versus unsupported operations. Desktop reference presence adds no native success or blanket platform proof. | [PIN-751](https://linear.app/pinguapps/issue/PIN-751) |
+| Pkcs key-encapsulation/CMS additions | **Grouped existing coverage.** Actual RC2 desktop references include CmsRecipient factories, KemRecipientInfo/RecipientInfoType and composite Decrypt overloads with their experimental attributes. The [runtime/security audit](runtime-security.md) and [actual cryptography evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-750-751.md) retain supported versus unsupported operations. Desktop reference presence adds no native success or blanket platform proof. | [PIN-751](https://linear.app/pinguapps/issue/PIN-751) |
 
 ## Diagnostics and Designer SDK composition
 
@@ -188,8 +188,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f53726dc'
 Expect exact source/archive/asset hashes and matching declaration/diagnostic
 inventories, including zero P1→P2/P2→P3 changes. A hash/evidence mismatch fails;
 inspect it before updating a baseline. This frozen replay does not discover new
-releases. [The verification ledger](../../verification/PIN-693.md) records actual
-executed checks, negative control and environment results.
+releases.
 
 The inventory's stable audit ID is now reconciled. Its historical counts stay
 unchanged; there is no new recipe count claim. The seven existing delivery

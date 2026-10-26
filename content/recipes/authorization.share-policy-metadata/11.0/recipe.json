@@ -141,7 +141,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/PIN-809-810.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/authorization-and-clock.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
     },
     {
       "sample": "samples/net11.0/JettyAccess/JettyAccess.csproj",
@@ -149,7 +149,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "compile",
-      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/PIN-809-810.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
+      "scope": "Actual matching-SDK compilation, not cross-compilation or mocks. Focused real execution is recorded separately in docs/verification/authorization-and-clock.md and its execution receipt. No browser, database, live account, timer/token-expiry, concurrent-store or GA claim."
     }
   ],
   "snippets": {

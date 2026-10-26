@@ -197,8 +197,8 @@ fails instead of fabricating state.
 The offline package test uses the existing real installed-tool feed/cache and
 unrelated working directory. It compares complete rendered Markdown with the
 canonical inputs, selection requirements and edition 11.0, and rejects target
-10.0. See the repository report docs/verification/PIN-776.md and its fingerprinted
-PIN-776.http.evidence.json for commands/artifacts. No mocks, cross-compilation,
+10.0. See the repository report docs/verification/redirect-and-session.md and its fingerprinted
+[HTTP execution capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-776.http.evidence.json) for commands/artifacts. No mocks, cross-compilation,
 browser UI, multi-server provider, interactive or GA execution is claimed.
 
 Official source review: [Blazor server state](https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0),

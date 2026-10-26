@@ -88,7 +88,7 @@ $detail.result.structuredContent.recipe.markdown
 $detail.result.structuredContent.recipe.applicability | ConvertTo-Json -Depth 15
 ```
 
-Expect exactly `list_recipes` and `get_recipe`, then the property recipe's ID, reusable title/goal, full Markdown and explicit applicability routes. Both tools require a target on every request. Current .NET 10 and .NET 11 coverage is incomplete. Inspector downloads on first use; that download is separate from Playbook's offline operation. Inspector initializes and closes each server connection; no process needs stopping afterwards. See [the extended walkthrough](inspect-guidance.md) for filters, paging and errors, and [PIN-675 verification](verification/PIN-675.md) for tested launch paths and limits.
+Expect exactly `list_recipes` and `get_recipe`, then the property recipe's ID, reusable title/goal, full Markdown and explicit applicability routes. Both tools require a target on every request. Current .NET 10 and .NET 11 coverage is incomplete. Inspector downloads on first use; that download is separate from Playbook's offline operation. Inspector initializes and closes each server connection; no process needs stopping afterwards. See [the Inspector walkthrough](inspect-guidance.md) for inspection commands and limitations, [the discovery contract](planning/tool-contract.md#catalogue-discovery) for filters, paging and errors, and [PIN-675 verification](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-675.md) for tested launch paths and limits.
 
 ## Offline operation and completeness
 

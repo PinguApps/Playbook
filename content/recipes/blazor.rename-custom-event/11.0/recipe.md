@@ -197,7 +197,7 @@ inspection and browser execution are distinct records; none is a DOM mock.
 The installed packed tool returns this complete expanded body and every authored
 applicability/evidence field over offline stdio. Temporary consumers are reconstructed
 solely from that returned Markdown, then built and exercised separately.
-See the repository's `docs/verification/PIN-799.md` for exact artifacts, source
+See the repository's `docs/verification/custom-event-alias.md` for exact artifacts, source
 commit/dirty provenance, commands and measured limits. No package publication or
 external resource is required.
 
