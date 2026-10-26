@@ -1,0 +1,310 @@
+{
+  "id": "identity.name-passkey-authenticator",
+  "edition": "11.0",
+  "title": "Give saved passkeys recognisable names and a rename fallback",
+  "goal": "Extend Identity template authenticator mappings, preserve chosen labels and offer an owner-scoped rename flow for unknown authenticators.",
+  "areas": [
+    "aspnetcore",
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "beacon-keys",
+    "identity",
+    "passkeys",
+    "name"
+  ],
+  "apis": [
+    "UserPasskeyInfo.Aaguid",
+    "UserPasskeyInfo.Name",
+    "UserManager.AddOrUpdatePasskeyAsync",
+    "SignInManager.PasskeySignInAsync",
+    "SignInManager.PreSignInCheck",
+    "SignInResult.IsLockedOut",
+    "SignInResult.IsNotAllowed"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "stabilityLimitations": [
+            "RC2 compilation/execution is not GA evidence. No physical authenticator, attestation or browser-ceremony claim."
+          ],
+          "constraints": [
+            "Identity passkey UI only. AAGUID naming is a template/application concern, not a framework naming service. Built-in automatic names alone are excluded: customize the mapping and preserve the rename fallback. .NET 10 comparison does not declare an older-target route or a ninth foundation.",
+            "Authenticator names and AAGUIDs are presentation hints, not proof of device identity, attestation trust, ownership, hardware storage or authorization. The fictional Beacon fleet GUID must be replaced with a reviewed real mapping for production. Decode AAGUID bytes in network order.",
+            "After successful attestation in an existing app, save through UserManager and check the result before redirecting. Unknown authenticators still need a rename page. Preserve a user-selected name, including after a mapping update. Resolve a rename credential within the signed-in owner collection; validate the name and protect the POST with antiforgery.",
+            "Use SignInManager.PasskeySignInAsync and handle LockedOut, NotAllowed and Failed without issuing a replacement cookie. .NET 11 performs shared PreSignInCheck. Never weaken PreSignInCheck or confirmation settings to make a passkey succeed: that changes other sign-in paths too.",
+            "The original .NET 10.0.0 source omitted PreSignInCheck on passkey sign-in, as the .NET 11 change note describes. The actually tested .NET 10.0.13 runtime already includes the policy check. Use the serviced framework and handle its results; do not add an unnecessary sign-in adapter or weaken shared policy. This is a patch-level reconciliation, not a claim that the original omission applies to every .NET 10 installation.",
+            "The complete BeaconKeys executable is an isolated loopback self-test that starts and stops automatically. MemoryKeyStore holds one fictional account; SoftwareKey signs assertions for pre-seeded public keys. Real Identity verifies challenges, origin, signatures and policy; registration/attestation, physical authenticators, browser credential APIs, database persistence and concurrency are outside the proof.",
+            "The custom Razor sign-in panel is rendered through actual HTTP requests. This proves returned HTML and policy/cookie outcomes, not browser focus, layout, assistive technology behavior or a physical WebAuthn ceremony. Do not expose this fixture as an application or copy its mutable test options/store into production.",
+            "In a real application retain the existing HTTPS/RP ID, challenge lifecycle, authenticated account management, passkey-capable persistence, recovery/confirmation flow and template antiforgery protections. The sample uses HTTP loopback solely for software-protocol checks and ephemeral data-protection keys; it does not configure production TLS.",
+            "Stable API surface; actual .NET 11 evidence uses RC2, not GA. No experimental opt-in, workload, account, provisioning or package publication is needed for the focused checks."
+          ],
+          "renderingModes": [
+            "Custom server-rendered Razor sign-in and rename UI; no interactive Blazor mode or WebAssembly runtime required"
+          ],
+          "sdk": {
+            "reason": "Matching framework/Razor assets and Identity template. Exact sample pin reproduces the evidence, not a mandatory patch-level upgrade.",
+            "match": "release-family",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "providers": [
+            "Real Identity SignInManager, UserManager and PasskeyHandler; original one-account memory-store and signed software-authenticator fixture"
+          ],
+          "packages": [],
+          "prerequisites": [
+            "Create all listed files in each standalone BeaconKeys directory. Empty Directory files isolate surrounding build/package settings. Install the declared SDKs and restore matching assets before offline compilation. Running the executable performs disposable HTTP checks and exits. An existing production Identity app needs its own configured passkey store, HTTPS and confirmation/recovery services."
+          ],
+          "workloads": [],
+          "language": {
+            "reason": "Explicit tested compiler mode; these operations do not require C# 15-only syntax.",
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "runtime": {
+            "reason": "ASP.NET Core Identity 11 passkey policy and stored AAGUID; recorded execution is RC2.",
+            "match": "release-family",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual execution Windows x64 with .NET 10.0.13 and .NET 11 RC2"
+          ],
+          "optIns": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App framework/reference pack; SDK 11 Blazor Individual-auth template for PasskeyAuthenticators. No extra production NuGet package; RC2 SDK restores Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105 for the sample."
+          ],
+          "frameworks": [
+            "ASP.NET Core Identity",
+            "Blazor Razor components"
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Extend Identity template authenticator mappings, preserve chosen labels and offer an owner-scoped rename flow for unknown authenticators.",
+          "Identity passkey UI; original .NET 10 comparison is not a declared older-target route. Software assertions prove server policy, not physical authenticator interoperability."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#infer-passkey-display-name-from-authenticator",
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/passkey-signin-enforces-confirmation-lockout",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Core/src/SignInManager.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Identity/Core/src/SignInManager.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Identity/Core/src/SignInManager.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/passkeys/?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Account/PasskeyAuthenticators.cs"
+        ],
+        "target": "11.0",
+        "neutralLanguages": [],
+        "evidenceSamples": [
+          "samples/net11.0/BeaconKeys/BeaconKeys.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "ASP.NET Core 11 authenticator naming",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#infer-passkey-display-name-from-authenticator"
+    },
+    {
+      "title": "Passkey sign-in policy change",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/passkey-signin-enforces-confirmation-lockout"
+    },
+    {
+      "title": "Pinned .NET 11 SignInManager implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/Core/src/SignInManager.cs"
+    },
+    {
+      "title": "Previous-release SignInManager implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.0/src/Identity/Core/src/SignInManager.cs"
+    },
+    {
+      "title": "Patched .NET 10.0.13 shared policy",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Identity/Core/src/SignInManager.cs"
+    },
+    {
+      "title": "Identity WebAuthn prerequisites and storage",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/passkeys/?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned template authenticator mapping",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/BlazorWeb-CSharp/BlazorWebCSharp.1/Components/Account/PasskeyAuthenticators.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BeaconKeys/BeaconKeys.csproj",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "scope": "Actual matching-SDK build and .NET 10.0.13 execution: software-signed assertions through default real Identity, including the serviced policy checks, rendered denial UI, cookie checks and persisted owner/antiforgery-protected rename. No mocked Identity, physical authenticator, browser ceremony, database or GA claim."
+    },
+    {
+      "sample": "samples/net11.0/BeaconKeys/BeaconKeys.csproj",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "scope": "Actual matching-SDK build and RC2 execution: real default Identity passkey checks with software-signed assertions, rendered denial UI, cookie checks, custom AAGUID naming and persisted owner/antiforgery-protected rename. Actual SDK template mappings checked separately by eng/Test-PasskeyTemplate.ps1. No physical authenticator, browser ceremony, attestation, database or GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-beaconkeys-csproj": {
+      "path": "samples/net10.0/BeaconKeys/BeaconKeys.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/BeaconKeys/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/BeaconKeys/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/BeaconKeys/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/BeaconKeys/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-keyspanel-razor": {
+      "path": "samples/net10.0/BeaconKeys/KeysPanel.razor",
+      "language": "razor",
+      "region": "complete"
+    },
+    "n10-memorykeystore-cs": {
+      "path": "samples/net10.0/BeaconKeys/MemoryKeyStore.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-passkeylabels-cs": {
+      "path": "samples/net10.0/BeaconKeys/PasskeyLabels.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/BeaconKeys/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-proof-cs": {
+      "path": "samples/net10.0/BeaconKeys/Proof.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-renamepanel-razor": {
+      "path": "samples/net10.0/BeaconKeys/RenamePanel.razor",
+      "language": "razor",
+      "region": "complete"
+    },
+    "n10-signinoutcome-cs": {
+      "path": "samples/net10.0/BeaconKeys/SignInOutcome.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-signinpanel-razor": {
+      "path": "samples/net10.0/BeaconKeys/SignInPanel.razor",
+      "language": "razor",
+      "region": "complete"
+    },
+    "n10-softwarekey-cs": {
+      "path": "samples/net10.0/BeaconKeys/SoftwareKey.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-beaconkeys-csproj": {
+      "path": "samples/net11.0/BeaconKeys/BeaconKeys.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/BeaconKeys/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/BeaconKeys/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/BeaconKeys/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/BeaconKeys/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-keyspanel-razor": {
+      "path": "samples/net11.0/BeaconKeys/KeysPanel.razor",
+      "language": "razor",
+      "region": "complete"
+    },
+    "n11-memorykeystore-cs": {
+      "path": "samples/net11.0/BeaconKeys/MemoryKeyStore.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-passkeylabels-cs": {
+      "path": "samples/net11.0/BeaconKeys/PasskeyLabels.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/BeaconKeys/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-proof-cs": {
+      "path": "samples/net11.0/BeaconKeys/Proof.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-renamepanel-razor": {
+      "path": "samples/net11.0/BeaconKeys/RenamePanel.razor",
+      "language": "razor",
+      "region": "complete"
+    },
+    "n11-signinoutcome-cs": {
+      "path": "samples/net11.0/BeaconKeys/SignInOutcome.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-signinpanel-razor": {
+      "path": "samples/net11.0/BeaconKeys/SignInPanel.razor",
+      "language": "razor",
+      "region": "complete"
+    },
+    "n11-softwarekey-cs": {
+      "path": "samples/net11.0/BeaconKeys/SoftwareKey.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "scope": "The claim is server policy, template mapping and server-rendered rename behavior. Software assertions and actual template execution cover it without a physical ceremony. Device interoperability, native/browser interaction and GA are excluded, not marked verified.",
+    "status": "not-required"
+  }
+}

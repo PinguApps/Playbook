@@ -11,6 +11,22 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("passkey guidance retains canonical bodies complete applicability and target editions")]
+    public async Task CheckPasskeyGuidanceAsync()
+    {
+        string[] ids = ["identity.handle-passkey-denial", "identity.name-passkey-authenticator"];
+        await CheckWebRecipesAsync(ids, "beacon-keys", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete passkey {field} must survive offline packaging.");
+            }
+        }
+    }
+
     [Then("circuit transport retains complete canonical guidance and connection requirements offline")]
     public async Task CheckCircuitTransportAsync()
     {
@@ -1102,7 +1118,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2)
+    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2, string evidenceKind = "compile")
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(ids, RecipeIds(catalogue));
@@ -1142,7 +1158,7 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(evidenceCount, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
-                Assert.Equal("compile", evidence.GetProperty("kind").GetString());
+                Assert.Equal(evidenceKind, evidence.GetProperty("kind").GetString());
                 Assert.Equal("current", evidence.GetProperty("freshness").GetString());
             });
         }

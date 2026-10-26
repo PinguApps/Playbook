@@ -105,13 +105,13 @@
     {
       "id": "json-syntax",
       "pattern": " Microsoft\\.AspNetCore\\.Identity\\.SignInManager`1::(PasskeySignInAsync|PerformPasskeyAssertionAsync|PerformPasskeyAttestationAsync)",
-      "owner": "PIN-812; StringSyntax annotation is not a new sign-in operation",
+      "owner": "PIN-812 delivered identity.handle-passkey-denial with real policy execution; StringSyntax annotation is not a new sign-in operation",
       "disposition": "grouped/excluded"
     },
     {
       "id": "aaguid",
       "pattern": " Microsoft\\.AspNetCore\\.Identity\\.(UserPasskeyInfo|IdentityPasskeyData)::.*Aaguid",
-      "owner": "PIN-811",
+      "owner": "PIN-811 delivered identity.name-passkey-authenticator; actual SDK template extension, original AAGUID naming and owner-scoped rename execution; no physical authenticator claim",
       "disposition": "grouped"
     },
     {
