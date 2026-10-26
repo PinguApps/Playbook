@@ -33,6 +33,18 @@ remain explicit. The earlier no-distinct-gRPC-feature row is qualified by W10's
 removed Grpc.Swagger adapter; unchanged transport API metadata is not blanket
 no-change evidence.
 
+### Supplemental EF/provider API reconciliation
+
+The [PIN-710 audit](../audits/ef.md) compares actual EF10/EF11 RC2 assemblies,
+first-party providers, public task/tooling assets and complete canonical sources.
+Its [reproducible deltas](../audits/ef.assets.json) and
+[ownership rules](../audits/ef.dispositions.json) retain all raw public/protected
+differences, obsoletions and unresolved extension contracts. PIN-842–889 preserve
+the existing 48 delivery goals below; E1–E31 are additional estimated drafts for
+PIN-986 approval, not authored/verified recipes. Source/artifact conflicts,
+provider prerequisites, targeted Human proofs and PIN-965 GA reconciliation remain
+explicit. The historical inventory counts are not a completed coverage claim.
+
 ## Source register and reading rules
 
 - [W] is the cumulative ASP.NET Core article. Its source composes individual [official include files][WI]; the feature names in the tables identify the relevant include/section.

@@ -1,0 +1,1301 @@
+{
+  "reviewed": "2026-10-26",
+  "sources": [
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/preview1/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview1/efcore.md",
+      "sha256": "462024dbf889fbb863af64e0c7a5a9128b13d8263e98b9eda7fd32744f86ebf3",
+      "headings": [
+        "# Entity Framework Core in .NET 11 Preview 1 - Release Notes"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/preview2/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview2/efcore.md",
+      "sha256": "cc600fe50d8dd7f46206b4786bc3314afea8bf5882f334a61e73a31d372fcafd",
+      "headings": [
+        "# Entity Framework Core & Data in .NET 11 Preview 2 - Release Notes"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/preview3/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/efcore.md",
+      "sha256": "46bd54280a22afa055376e42e555a44a96cb90dbc120575a2e357369812024ad",
+      "headings": [
+        "# EF Core in .NET 11 Preview 3 - Release Notes",
+        "## `ChangeTracker.GetEntriesForState()` avoids extra change detection",
+        "## DbContext configuration can remove providers and add pooled factories",
+        "## Migrations get more control and clearer feedback",
+        "## SQL generation removes unnecessary joins and SQL Server adds JSON APIs",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/preview4/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/efcore.md",
+      "sha256": "53422cbb4fcd5c34f48733998fafbac54229e73e49a9625593101b8188099719",
+      "headings": [
+        "# Entity Framework Core in .NET 11 Preview 4 - Release Notes",
+        "## Approximate vector search for SQL Server 2025",
+        "## JSON mapping is fully integrated into the relational model",
+        "## Temporal period properties can map to CLR properties",
+        "## More SQL Server `DateTimeOffset` translations",
+        "## `dotnet ef` reads defaults from `dotnet-ef.json`",
+        "# No more --project / --startup-project / --context on every invocation",
+        "## Clearer warning when a migration snapshot is from an older EF Core version",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/preview5/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview5/efcore.md",
+      "sha256": "948eadb5e1a5aec93ff2c5082edc062e514cfc3501e5fd0da364a1c45dc6cc2a",
+      "headings": [
+        "# Entity Framework Core in .NET 11 Preview 5 - Release Notes",
+        "## `dotnet ef` supports file-based apps",
+        "## Configuration file support for `dotnet ef`",
+        "## EF1004 warns when async EF queries run synchronously",
+        "## SQL Server 2022 compatibility is now the default",
+        "## Temporal period properties can map to CLR properties",
+        "## Generated C# uses file-scoped namespaces",
+        "## Query translation produces cleaner SQL",
+        "## Breaking changes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/preview6/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md",
+      "sha256": "50118b3e9d4a0735eeaa845f5119c30cac51a4b7e3c9abb9475fee43a5dcecc1",
+      "headings": [
+        "# Entity Framework Core in .NET 11 Preview 6 - Release Notes",
+        "## LINQ query translation improvements",
+        "### FULL OUTER JOIN support in LINQ",
+        "### Translate to NULLIF",
+        "### Null propagation removes redundant IS NOT NULL checks",
+        "### Translate `List<T>.Exists` to SQL",
+        "### Translate TimeOnly members on SQLite",
+        "### Translate string.Join/Concat with ordering on SQLite",
+        "## Keys and indexes traverse complex-type properties",
+        "### SQL Server JSON indexes",
+        "## Unconstrained foreign key relationships",
+        "## Azure Cosmos DB provider improvements",
+        "### JSON, composite, include, and exclude indexes",
+        "### Improved cast and convert support",
+        "## Migrations improvements",
+        "### Index changes use DROP_EXISTING on SQL Server",
+        "### Skip ALTER COLUMN for computed columns when only CLR type changes",
+        "### Wildcard `*` support in `dotnet ef` commands",
+        "### Temporal period columns can be configured as not hidden",
+        "## Microsoft.Data.Sqlite now depends on SQLite3MC.PCLRaw.bundle",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/preview7/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md",
+      "sha256": "60538c44dd54fe7be59e8defa687b899c434b3b112821bcaaccb66ccff7f125c",
+      "headings": [
+        "# Entity Framework Core in .NET 11 Preview 7 - Release Notes",
+        "## LINQ query translation improvements",
+        "### Translate `int.Parse`, `long.Parse`, and friends on SQL Server",
+        "### Lift `GroupBy` aggregates over reference navigations into a single join",
+        "### Compose over `GroupBy` + `First` per group",
+        "### Reuse a single-result subquery across projected members",
+        "### Fold `ValueTuple`/`Tuple` member access through constructor-bound projections",
+        "### Materialize left-joined non-entity projections as `null` on no-match",
+        "## Azure Cosmos DB provider improvements",
+        "### Modernize the query materializer and serialization pipeline",
+        "### Cosmos requests retry through the execution strategy",
+        "## Migrations improvements",
+        "### `Add-Migration -NoBuild` and `Update-Database -NoBuild` for PMC",
+        "### `migrations bundle` works with Central Package Management",
+        "### `dotnet ef` honors `ProjectDepsFileName` and `ProjectRuntimeConfigFileName`",
+        "### Reordered migrations for TPC sequence transitions",
+        "## `Half` type support on SQLite",
+        "## Breaking changes",
+        "### `Microsoft.Data.Sqlite` no longer targets `netstandard2.0`",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/rc1/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/efcore.md",
+      "sha256": "80f57036806362c15d0cf7d435cd8fc861f2663aff63f32f100f1718d988f4d8",
+      "headings": [
+        "# Entity Framework Core in .NET 11 RC 1 - Release Notes",
+        "## Bug fixes",
+        "## Community contributors"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/rc2/efcore.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/efcore.md",
+      "sha256": "3b89fa45cd6f91d08265a263c84f2ba506388cc5f7abd19a916ec52cb4d03e19",
+      "headings": [
+        "# EF Core in .NET 11 RC 2 - Release Notes",
+        "## Bug fixes"
+      ]
+    },
+    {
+      "repository": "dotnet/core",
+      "commit": "60871330fce2b3da383461be027ebdf3ce30f8fb",
+      "path": "release-notes/11.0/preview/rc2/release.json",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/release.json",
+      "sha256": "c99300a7acf2ac2d569a27164ac84c2066a3ba0f22da88d94bf3163f206481d9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/EntityFramework.Docs",
+      "commit": "aa051c4c1cad21b2dc03fa401ac0e925c3644606",
+      "path": "entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md",
+      "url": "https://raw.githubusercontent.com/dotnet/EntityFramework.Docs/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md",
+      "sha256": "204275393b372227f21733322cfd99fc3abecc7fecc511f7289ff7d75f6d34df",
+      "headings": [
+        "# What's New in EF Core 11",
+        "## Complex types",
+        "### Complex types and JSON columns on entity types with TPT/TPC inheritance",
+        "### Complex types in Azure Cosmos DB",
+        "### Configuring complex type properties via lambda chaining",
+        "### Keys and indexes on complex type properties",
+        "### Stabilization and bug fixes",
+        "## LINQ and SQL translation",
+        "### Better SQL for to-one joins",
+        "### GroupBy enhancements",
+        "### Support for the new .NET 11 `FullJoin` operator",
+        "### Stripping of no-op CASTs",
+        "### MaxBy and MinBy",
+        "### EF.Functions.JsonPathExists()",
+        "## SQL Server",
+        "### VECTOR_SEARCH() and vector indexes",
+        "### Vector properties not loaded by default",
+        "### Full-text search improvements",
+        "#### Full-text search catalog and index creation",
+        "#### Full-text search table-valued functions",
+        "#### Hybrid search",
+        "### Contains operations using JSON_CONTAINS",
+        "#### EF.Functions.JsonContains()",
+        "### JSON indexes",
+        "### Temporal period properties mapped to CLR properties",
+        "### Additional DateTimeOffset and date/time translations",
+        "### Other changes",
+        "## SQLite",
+        "### Ordering in string aggregation",
+        "### UInt128 support",
+        "## Cosmos DB",
+        "### Complex types",
+        "#### [Fluent API](#tab/fluent-api)",
+        "#### [Data Annotations](#tab/data-annotations)",
+        "### Indexes and indexing policy",
+        "### Transactional batches",
+        "### Bulk execution",
+        "### Session token management",
+        "### Modernized JSON serializer",
+        "### Consistent behavior for undefined values in projections",
+        "## Migrations",
+        "### Excluding foreign key constraints from migrations",
+        "### Latest migration ID recorded in model snapshot",
+        "### Create and apply migrations in one step",
+        "### Connection and offline options for migrations remove",
+        "# Remove migration with specific connection",
+        "# Remove migration without connecting to database (offline mode)",
+        "# Revert and remove applied migration",
+        "# Drop specific database by connection string",
+        "### Configuration file for dotnet ef",
+        "### `-NoBuild` for PMC migrations commands",
+        "### Wildcard context support for migration commands",
+        "## Other improvements"
+      ]
+    },
+    {
+      "repository": "dotnet/EntityFramework.Docs",
+      "commit": "aa051c4c1cad21b2dc03fa401ac0e925c3644606",
+      "path": "entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+      "url": "https://raw.githubusercontent.com/dotnet/EntityFramework.Docs/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+      "sha256": "80db44715d59e38fa6575ec3e42e559a23cfb7ce1ab8c0e6735bd2a7eeee3ebf",
+      "headings": [
+        "# Breaking changes in EF Core 11 (EF11)",
+        "## Summary",
+        "## High-impact changes",
+        "### Cosmos: Unmapped properties are no longer preserved",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "## Medium-impact changes",
+        "### Sync I/O via the Azure Cosmos DB provider has been fully removed",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Microsoft.Data.SqlClient has been updated to 7.0",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Cosmos: illegal `id` characters are no longer escaped",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Cosmos: exception thrown when a projection evaluates to undefined",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "## Low-impact changes",
+        "### Cosmos: `__jObject` shadow property removed; JObject no longer used for serialization",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### SQL Server compatibility level now defaults to 160",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### EF Core now throws by default when no migrations are found",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### `EFOptimizeContext` MSBuild property has been removed",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### EF tools packages no longer reference Microsoft.EntityFrameworkCore.Design",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### SqlVector properties are no longer loaded by default",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Cosmos: empty owned collections now return an empty collection instead of null",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Cosmos: the default discriminator property is now named `Discriminator` in the model",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Cosmos: Floating-point values are now truncated when materializing to fixed-point types",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Owned JSON collections without an explicit key are obsolete",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### `Property` no longer configures primitive collections",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "### Split queries now throw when concurrent modifications are detected",
+        "#### Old behavior",
+        "#### New behavior",
+        "#### Why",
+        "#### Mitigations",
+        "## Microsoft.Data.Sqlite breaking changes",
+        "### Summary",
+        "### Medium-impact changes",
+        "#### Microsoft.Data.Sqlite no longer supports .NET Framework",
+        "##### Old behavior",
+        "##### New behavior",
+        "##### Why",
+        "##### Mitigations",
+        "#### Some SQLitePCLRaw bundle packages are no longer maintained",
+        "##### Old behavior",
+        "##### New behavior",
+        "##### Why",
+        "##### Mitigations",
+        "### Low-impact changes",
+        "#### SQLite no longer supports UWP and classic Xamarin",
+        "##### Old behavior",
+        "##### New behavior",
+        "##### Why",
+        "##### Mitigations"
+      ]
+    },
+    {
+      "repository": "dotnet/EntityFramework.Docs",
+      "commit": "aa051c4c1cad21b2dc03fa401ac0e925c3644606",
+      "path": "entity-framework/core/what-is-new/ef-core-11.0/provider-facing-changes.md",
+      "url": "https://raw.githubusercontent.com/dotnet/EntityFramework.Docs/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/provider-facing-changes.md",
+      "sha256": "a45f24c142e3c354b0a5f2fceac8ebf9641e16630d451d69feb7066f3e2f76e7",
+      "headings": [
+        "# Provider-facing changes in EF Core 11 (EF11)",
+        "## Changes",
+        "## Test changes"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "5e19883f3aca93e649d9e3fb72b0b89091d7079f",
+      "path": "docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/fundamentals/syslib-diagnostics/obsoletions-overview.md",
+      "sha256": "941c7b40230151c34bba11d2a5a0d7fc5cfb17a532111622d7854cf385e6d826",
+      "headings": [
+        "# Obsolete features in .NET 5+",
+        "## SYSLIB obsoletions",
+        "## EXTOBS obsoletions",
+        "## Suppress warnings",
+        "#pragma warning disable SYSLIB0001",
+        "#pragma warning restore SYSLIB0001",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Tasks/buildTransitive/Microsoft.EntityFrameworkCore.Tasks.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Tasks/buildTransitive/Microsoft.EntityFrameworkCore.Tasks.targets",
+      "sha256": "915998988ddffed74346d1966a4b8d1b25ba6e3cbda6a87b228937787a955973",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Tasks/buildTransitive/Microsoft.EntityFrameworkCore.Tasks.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Tasks/buildTransitive/Microsoft.EntityFrameworkCore.Tasks.targets",
+      "sha256": "4b55fe2f3564afd28e5e78f3136c94c8601da7976c8f1e5d6c4da7d0e6a4f015",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Shipped.md",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Shipped.md",
+      "sha256": "7287ec73545604f6af9d05df05a048ee8b1aba8f042e039ed0d3e76c61fbd00d",
+      "headings": [
+        "## Release 2.1.0",
+        "### New Rules",
+        "## Release 3.0.0",
+        "### New Rules",
+        "### Removed Rules",
+        "## Release 8.0.0",
+        "### New Rules",
+        "## Release 10.0.0",
+        "### New Rules"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Unshipped.md",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Unshipped.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Analyzers/Properties/AnalyzerStrings.resx",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Analyzers/Properties/AnalyzerStrings.resx",
+      "sha256": "00e50d8b65a88e854c318322e71c3bdc4469dd2174284bcf8bf36a8daa2690f1",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Analyzers/InternalUsageDiagnosticAnalyzer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Analyzers/InternalUsageDiagnosticAnalyzer.cs",
+      "sha256": "dafd3d940a133c81bca72f40bad973217f11af7da3d4b16b12ef9ab2a1617af1",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Analyzers/StringsUsageInRawQueriesDiagnosticAnalyzer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Analyzers/StringsUsageInRawQueriesDiagnosticAnalyzer.cs",
+      "sha256": "44b15c7c69f2b586607cf4d0adc80acec62d0b2fdec2ace853201b783a7132a3",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DatabaseUpdateCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DatabaseUpdateCommand.Configure.cs",
+      "sha256": "a6b9507feb646e112d01fda7271bc495b50155f432ddd6a6e23066e2c502941d",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsRemoveCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsRemoveCommand.Configure.cs",
+      "sha256": "af6a6dcf5c44669f2bec459cba5c1a1ffc9720dcc1504bc1f595bcec0ae89fbe",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/ContextCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/ContextCommandBase.cs",
+      "sha256": "32b142f2a34b733626795d4f3308c3298274d8effed64a16921af39f17802191",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextOptimizeCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextOptimizeCommand.Configure.cs",
+      "sha256": "fe84453f2af41434314f735f6aaea2e3ecfccd0300a393b5803c11a9ae84bee9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/dotnet-ef/Project.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/dotnet-ef/Project.cs",
+      "sha256": "cbca0dba993fdced08ef7a4ce8c5d4eb62d74f03746fdef5de51612a69a2825e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/dotnet-ef/RootCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/dotnet-ef/RootCommand.cs",
+      "sha256": "9e9d8844787c0caa1a9a2c5b5d94ec55d309579a6300a5ccd91421f2bc8514d7",
+      "headings": [
+        "#if !NET8_0",
+        "#error Target framework needs to be updated here, as well as in Microsoft.EntityFrameworkCore.Tasks.props and EntityFrameworkCore.psm1",
+        "#endif"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/ChangeTracking/ChangeTracker.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/ChangeTracking/ChangeTracker.cs",
+      "sha256": "582e8635d51dcc69f0556370f9a0cf8f805b7a31c174ecaa2af8bb76cf0639db",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/Extensions/EntityFrameworkServiceCollectionExtensions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/Extensions/EntityFrameworkServiceCollectionExtensions.cs",
+      "sha256": "b2bc4266f93b60294b7f26357e36466db370e4567bb5fef0221d5aa4bbff84c9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/Microsoft.Data.Sqlite.Core/SqliteValueBinder.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/Microsoft.Data.Sqlite.Core/SqliteValueBinder.cs",
+      "sha256": "2ff48f46e3b59a49d704d1178c0a685632f8556b7eea6c0a37223f01a9d52be7",
+      "headings": [
+        "#if NET6_0_OR_GREATER",
+        "#endif",
+        "#if NET6_0_OR_GREATER",
+        "#endif"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/Storage/CoreTypeMapping.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/Storage/CoreTypeMapping.cs",
+      "sha256": "ac4a3b95cfaf2303154ef96d3a94d497d85a91c0fbc149ee4f421bd880a7096e",
+      "headings": [
+        "#pragma warning disable CS0612 // Type or member is obsolete",
+        "#pragma warning restore CS0612 // Type or member is obsolete"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Relational/Storage/RelationalTypeMapping.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Relational/Storage/RelationalTypeMapping.cs",
+      "sha256": "7db2ae9a4bb17202f68d05498025f4ba6eac4e3d4e3bf67043158eb5840cfd71",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore.Relational/Update/ColumnModificationParameters.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Relational/Update/ColumnModificationParameters.cs",
+      "sha256": "73e97f585816ebd70e9a5f89e36ef3f9be46f4c40229a2213d701c813427038b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Shipped.md",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Shipped.md",
+      "sha256": "7287ec73545604f6af9d05df05a048ee8b1aba8f042e039ed0d3e76c61fbd00d",
+      "headings": [
+        "## Release 2.1.0",
+        "### New Rules",
+        "## Release 3.0.0",
+        "### New Rules",
+        "### Removed Rules",
+        "## Release 8.0.0",
+        "### New Rules",
+        "## Release 10.0.0",
+        "### New Rules"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Unshipped.md",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/AnalyzerReleases.Unshipped.md",
+      "sha256": "4011f36eef7ed5ea6f2f3bc3e23f6567b6aca09a6c020ec599b0231b2922f8e0",
+      "headings": [
+        "### New Rules"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Analyzers/Properties/AnalyzerStrings.resx",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/Properties/AnalyzerStrings.resx",
+      "sha256": "6ec4e04c299b68029e8962aa214aad8f1a99f7ed2038c6f7cdb0c60e9401c6fa",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Analyzers/ToAsyncEnumerableOnQueryableDiagnosticAnalyzer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/ToAsyncEnumerableOnQueryableDiagnosticAnalyzer.cs",
+      "sha256": "6d7a8ababab3b248b862c5a57990e97a1b3a216b0bfbac480eac69953718a4f0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Analyzers/InternalUsageDiagnosticAnalyzer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/InternalUsageDiagnosticAnalyzer.cs",
+      "sha256": "f2a763fd22cef9173eb0515c8c0810eec478eaef61265acaf0856cb3f23532b3",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Analyzers/StringsUsageInRawQueriesDiagnosticAnalyzer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/StringsUsageInRawQueriesDiagnosticAnalyzer.cs",
+      "sha256": "c789e76636d1224fbad5b9fdfbbdd0732e8ea5ef3cf6a6390c08dcb8646070bc",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DatabaseUpdateCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DatabaseUpdateCommand.Configure.cs",
+      "sha256": "f8453fe0ae97a29cd04d9be14723b78da8025ec6985aaada1d3a75db83b76b02",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsRemoveCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsRemoveCommand.Configure.cs",
+      "sha256": "800477fedb0473ae77ed223f0c95f22b5b2a85d8dc1be276be330ec0837404ee",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/ContextCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/ContextCommandBase.cs",
+      "sha256": "32b142f2a34b733626795d4f3308c3298274d8effed64a16921af39f17802191",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextOptimizeCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextOptimizeCommand.Configure.cs",
+      "sha256": "fe84453f2af41434314f735f6aaea2e3ecfccd0300a393b5803c11a9ae84bee9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/dotnet-ef/Project.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/dotnet-ef/Project.cs",
+      "sha256": "974c744616034f7c5975749f01501c265edb86eb9ab1fb8c94396daeab49dca2",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/dotnet-ef/RootCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/dotnet-ef/RootCommand.cs",
+      "sha256": "591058b617c21ef42b47755e89ff29a17b4772aeeefcb12f814a5ee02db73286",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/ChangeTracking/ChangeTracker.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/ChangeTracking/ChangeTracker.cs",
+      "sha256": "8deca6b00218150dcaeeaedf228dfbcf9498db815437adc76e4b908188878800",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/Extensions/EntityFrameworkServiceCollectionExtensions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Extensions/EntityFrameworkServiceCollectionExtensions.cs",
+      "sha256": "2cb4187c0c73a71a94dd9100045aface14a01d94ab2473fdce057c6cda8695c0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/Microsoft.Data.Sqlite.Core/SqliteValueBinder.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/Microsoft.Data.Sqlite.Core/SqliteValueBinder.cs",
+      "sha256": "617c2aaf686c5834e62b35968070363809d5d0784cab29b4246a38c995e3b3ae",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/Storage/CoreTypeMapping.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Storage/CoreTypeMapping.cs",
+      "sha256": "806ab0c37787e6e2de950fa23da8c9bdf722ccd97a1a8a2dde11051f079e178e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Relational/Storage/RelationalTypeMapping.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Storage/RelationalTypeMapping.cs",
+      "sha256": "2c47d8ad24009ce56fb05fcac23632678110046bc8f31d4a9f14e0ebeaa622c9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore.Relational/Update/ColumnModificationParameters.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Update/ColumnModificationParameters.cs",
+      "sha256": "7aead29f16fde15b90384e71f715d1dc2f050388a4bc19e57d0dde1b6798dadc",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/ChangeTracking/PropertyEntry.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/ChangeTracking/PropertyEntry.cs",
+      "sha256": "7da41ed50807e003b8c413204d66a438912a24315853278ed876db5fb1074487",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/DbContextOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/DbContextOptions.cs",
+      "sha256": "80696c76a0cdda7b8771549c203f680b6021c4e365f68183b1b5a466c1e657d0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/DbContextOptionsBuilder.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/DbContextOptionsBuilder.cs",
+      "sha256": "b043c1d7b7a1cd09019dad77ea5e41c76371802245d6862631ca74b4b4c8eacb",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/Infrastructure/DatabaseFacade.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/Infrastructure/DatabaseFacade.cs",
+      "sha256": "3bfbc3901326f2129526abb924ffab9c35c7e1283a263a55d52c4f46c3bbbca7",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/EFCore/Metadata/Builders/PropertyBuilder.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore/Metadata/Builders/PropertyBuilder.cs",
+      "sha256": "76a8dc4ae4e78034191fff146f2173da9671a249bd2777b60db5a4358100396b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/CommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/CommandBase.cs",
+      "sha256": "543c6a8b8039aeb48bdffe6bd1602ddfec54262b54ba748493b391c9a74baeb9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DatabaseCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DatabaseCommand.cs",
+      "sha256": "7d1c25602863373471f682a2af6a8869d27e5ee659595e0e6d9869340df47ac1",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DatabaseDropCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DatabaseDropCommand.Configure.cs",
+      "sha256": "73145e5974170e2df8618f8321f6e406fb0370d314276dd534919b64adc78e40",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DatabaseDropCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DatabaseDropCommand.cs",
+      "sha256": "da63f0fe0aa90b9eaf718cd1bd65eb77b92c3e67ee87142ec3f07f22dd9490cd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DatabaseUpdateCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DatabaseUpdateCommand.cs",
+      "sha256": "1ccb418a386ae60a8712dd6e87f23cd2577e3072b84e7756193871f8ec9e83e1",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextCommand.cs",
+      "sha256": "8ee5df93f36351c77e8dd9f38921298af86fbb9888a4549c332881fbd373b41f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextInfoCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextInfoCommand.Configure.cs",
+      "sha256": "e43bd5a69fd2db8c60375a9d6baaa9dae4dff9f52d4b0cf40d4957c736453bd9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextInfoCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextInfoCommand.cs",
+      "sha256": "c2acc713318c64764ff9b6103d103638feb6bc574427e75d88248e58d964c737",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextListCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextListCommand.Configure.cs",
+      "sha256": "0be45afe6575aa7afa428da0800a06199d2b27c0415d6cceec637f23cc4c6eb8",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextListCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextListCommand.cs",
+      "sha256": "1d43c9714333fae019185b2d890380a941324b8f3bdbb1fb234ce9574376d306",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextOptimizeCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextOptimizeCommand.cs",
+      "sha256": "a6a9a0f0205586c78b2f846ddf761c8e6048e6d619edf3d256e5981a13a58a4a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextScaffoldCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextScaffoldCommand.Configure.cs",
+      "sha256": "6aa3352296f1c3a2502e8bc36dafa2cc5249db4876742f19bffaa0f4a0083ad4",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextScaffoldCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextScaffoldCommand.cs",
+      "sha256": "b73c6999d0c03c78d1934a3bd1bd13cce58e9569df780e97c02652ccc2cb05d9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextScriptCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextScriptCommand.Configure.cs",
+      "sha256": "09bb4c79d6cc0827753fe3af11feda20a10227cf7e09aa38e75c178be08de2bf",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/DbContextScriptCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/DbContextScriptCommand.cs",
+      "sha256": "9d8c117ec95d01ee9d1811a8e6813e9adde16a37c21277f8754e99bf921898ac",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/EFCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/EFCommandBase.cs",
+      "sha256": "71c677478bc7b98d91fe0f50c903dc0897da7f56cd21c4081a363b8a21a54eab",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/HelpCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/HelpCommandBase.cs",
+      "sha256": "22b750e8adbef37e3a799e7aa579de8109ff4b77b08f96e5e48a7ed6b39cba73",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsAddCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsAddCommand.Configure.cs",
+      "sha256": "99fc9fc8faa45c6efbc1336f3c63e7088688e06b85db9ae7473f01922734ac1a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsAddCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsAddCommand.cs",
+      "sha256": "0dee854410265857c4fd8110330ebc2afc8c0e3aa605319c1de4ef859bf0164b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsBundleCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsBundleCommand.Configure.cs",
+      "sha256": "6753a09594732c0ca4e085c18ca71d66912303559b7c0e8322777b86377a7d83",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsBundleCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsBundleCommand.cs",
+      "sha256": "f144e61dbfca5859dd2e1dedb4204ad42a13c35a4da6dcda92c86e1c0eea8100",
+      "headings": [
+        "#if !NET",
+        "#else",
+        "#endif"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsCommand.cs",
+      "sha256": "e83bb8e42a29f621c382816f255f359d9bb1cb709c560ba3f5a146d84cfc3eee",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.Configure.cs",
+      "sha256": "82732e7bc5c93b8cfca92bda2b58a598b6a07d1237db190f0b09234a29b0f847",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.cs",
+      "sha256": "141df8e43849e8d3d2eb84d52f2df88055e82c521df5336975cbd0f9aaf9c8d3",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsListCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsListCommand.Configure.cs",
+      "sha256": "391e831e7d918c5a26f68159cfe068ed2e6b2d18851f185197a3a904493e5773",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsListCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsListCommand.cs",
+      "sha256": "b4c4fbf7b9855a350593e05f0cdb8b7d6487beba83d570bce9f7740f630d24ba",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsRemoveCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsRemoveCommand.cs",
+      "sha256": "105fa0a5f0b6cb237fe3ad56d5d8f7e54c0d24f3d35e3aa6f32b47fc867ac3b8",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsScriptCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsScriptCommand.Configure.cs",
+      "sha256": "f76c66c77593aa7e54684800ccc7f198ad3093d2dc511b0107cca3e4bcb6c3b5",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/MigrationsScriptCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/MigrationsScriptCommand.cs",
+      "sha256": "92a6ce4e97af26ed3f10bf1f55cdf55116b7ac32427af7ae38ed4c851d8f2ea0",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/ProjectCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/ProjectCommandBase.cs",
+      "sha256": "49b53ac896d069555641ed54806602a7e270b773365ce25010f56d0b7136d869",
+      "headings": [
+        "#if NET",
+        "#else",
+        "#endif",
+        "#if !NET",
+        "#endif"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/efcore/src/ef/Commands/RootCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/ef/Commands/RootCommand.cs",
+      "sha256": "143bc0b75e91cce688676fe48b9601827927c24b0276c15c1d58bc6bb04ef54d",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/ChangeTracking/PropertyEntry.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/ChangeTracking/PropertyEntry.cs",
+      "sha256": "90fbdfafe54b1c41f1c00e2a4862c4f54de4a9684fbd13d13d1d9ffd1ad262b2",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/DbContextOptions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/DbContextOptions.cs",
+      "sha256": "e192829fc0c98091ff0e8b2b292eaea52b87c8357d2256c28bf9dc14e242f05a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/DbContextOptionsBuilder.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/DbContextOptionsBuilder.cs",
+      "sha256": "305f9818ce9629606bf74bf009683cc29450d78b034c97ad8a1d8dc8c3de2943",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/Infrastructure/DatabaseFacade.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Infrastructure/DatabaseFacade.cs",
+      "sha256": "71ddb2ce55ef091fabc0518c413fafbd3da49249a47a936d2fff833c2a397869",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/EFCore/Metadata/Builders/PropertyBuilder.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Metadata/Builders/PropertyBuilder.cs",
+      "sha256": "130b323ac5938f63836c72113acfcfe8661e077ad8624c9ae8d838c2f0f2656a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/CommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/CommandBase.cs",
+      "sha256": "543c6a8b8039aeb48bdffe6bd1602ddfec54262b54ba748493b391c9a74baeb9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DatabaseCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DatabaseCommand.cs",
+      "sha256": "7d1c25602863373471f682a2af6a8869d27e5ee659595e0e6d9869340df47ac1",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DatabaseDropCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DatabaseDropCommand.Configure.cs",
+      "sha256": "b47d8ec835ca055f5a4c21985032f842ad5f72932567ed548af642cd507d8256",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DatabaseDropCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DatabaseDropCommand.cs",
+      "sha256": "c9c99b4a681b14d28a4c64ab0c1ac24b2ec6bf196b0fe64c0dccc62b1ee4f32a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DatabaseUpdateCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DatabaseUpdateCommand.cs",
+      "sha256": "7323e3774326377fb624a6098a67fc224044e2d2f8330a88c330a08b001869fd",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextCommand.cs",
+      "sha256": "8ee5df93f36351c77e8dd9f38921298af86fbb9888a4549c332881fbd373b41f",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextInfoCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextInfoCommand.Configure.cs",
+      "sha256": "e43bd5a69fd2db8c60375a9d6baaa9dae4dff9f52d4b0cf40d4957c736453bd9",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextInfoCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextInfoCommand.cs",
+      "sha256": "c2acc713318c64764ff9b6103d103638feb6bc574427e75d88248e58d964c737",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextListCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextListCommand.Configure.cs",
+      "sha256": "0be45afe6575aa7afa428da0800a06199d2b27c0415d6cceec637f23cc4c6eb8",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextListCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextListCommand.cs",
+      "sha256": "543885957093dc035c52d3249ee919124b50d7619f95e9b5700136a005c53a9d",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextOptimizeCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextOptimizeCommand.cs",
+      "sha256": "a6a9a0f0205586c78b2f846ddf761c8e6048e6d619edf3d256e5981a13a58a4a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextScaffoldCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextScaffoldCommand.Configure.cs",
+      "sha256": "6aa3352296f1c3a2502e8bc36dafa2cc5249db4876742f19bffaa0f4a0083ad4",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextScaffoldCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextScaffoldCommand.cs",
+      "sha256": "827cc98dc9987ebda22fa51d3db3ed4cce055f8c6fee8f3584a4e8bf00e21bfa",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextScriptCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextScriptCommand.Configure.cs",
+      "sha256": "09bb4c79d6cc0827753fe3af11feda20a10227cf7e09aa38e75c178be08de2bf",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/DbContextScriptCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/DbContextScriptCommand.cs",
+      "sha256": "6f461ce04bda8dc196a6f4671f1e1d1d26f2e3c086b2b089f63115362eb79534",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/EFCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/EFCommandBase.cs",
+      "sha256": "71c677478bc7b98d91fe0f50c903dc0897da7f56cd21c4081a363b8a21a54eab",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/HelpCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/HelpCommandBase.cs",
+      "sha256": "22b750e8adbef37e3a799e7aa579de8109ff4b77b08f96e5e48a7ed6b39cba73",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsAddCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsAddCommand.Configure.cs",
+      "sha256": "99fc9fc8faa45c6efbc1336f3c63e7088688e06b85db9ae7473f01922734ac1a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsAddCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsAddCommand.cs",
+      "sha256": "0dee854410265857c4fd8110330ebc2afc8c0e3aa605319c1de4ef859bf0164b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsBundleCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsBundleCommand.Configure.cs",
+      "sha256": "6753a09594732c0ca4e085c18ca71d66912303559b7c0e8322777b86377a7d83",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsBundleCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsBundleCommand.cs",
+      "sha256": "4bed1027f2d6a6b587d1f1e33255c2624281e9ad0276d4bcd32fc0c22982a236",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsCommand.cs",
+      "sha256": "e83bb8e42a29f621c382816f255f359d9bb1cb709c560ba3f5a146d84cfc3eee",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.Configure.cs",
+      "sha256": "82732e7bc5c93b8cfca92bda2b58a598b6a07d1237db190f0b09234a29b0f847",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsHasPendingModelChangesCommand.cs",
+      "sha256": "141df8e43849e8d3d2eb84d52f2df88055e82c521df5336975cbd0f9aaf9c8d3",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsListCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsListCommand.Configure.cs",
+      "sha256": "391e831e7d918c5a26f68159cfe068ed2e6b2d18851f185197a3a904493e5773",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsListCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsListCommand.cs",
+      "sha256": "9b0ba2ce83cd833cc43a56318a8ce270c641b356cdc51279b4a49cddec643522",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsRemoveCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsRemoveCommand.cs",
+      "sha256": "11a93ac5dd3ecf05f43c4ddaa908f6addde1a61535ec879e5784ecf3eb8d79fc",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsScriptCommand.Configure.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsScriptCommand.Configure.cs",
+      "sha256": "f76c66c77593aa7e54684800ccc7f198ad3093d2dc511b0107cca3e4bcb6c3b5",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/MigrationsScriptCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/MigrationsScriptCommand.cs",
+      "sha256": "1d3509ffacad56dc2dd98de58e131d5ac01aad0bfafd0871f2e8a800b53aac54",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/ProjectCommandBase.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/ProjectCommandBase.cs",
+      "sha256": "bcc2a81ee56ef2586657b50d1aff5c00dd56ea63ceba2f95fa1750b2bcac0928",
+      "headings": [
+        "#if !NET",
+        "#endif"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/efcore/src/ef/Commands/RootCommand.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/ef/Commands/RootCommand.cs",
+      "sha256": "dc87d56a809213cc71db9eccf72a43ff40787b02075fb268cd26245cee325fb7",
+      "headings": []
+    }
+  ]
+}

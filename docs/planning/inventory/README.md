@@ -22,6 +22,14 @@ First-party MAUI template integration can document its required Avalonia depende
 
 ## Current corrections and remaining evidence
 
+The [EF/provider API audit](../audits/ef.md) compares actual EF10/EF11 RC2
+model/query/migration, first-party provider and shipped tooling assets against
+123 pinned official files. Existing PIN-842–889 owners remain responsible for
+their recipes; 31 additional delivery drafts await PIN-986 review. Default
+CS0618/CS0619 removals and unresolved extension contracts remain visible alongside
+the global obsolete-index map. Audit closure supplies no database execution,
+delivered guidance or comprehensive/GA publication permission.
+
 The [obsolete diagnostic ownership map](../audits/obsolete-index.md) enumerates
 all 68 published SYSLIB/EXTOBS obsoletions and separately owns every other row in
 the pinned runtime diagnostic registry. Core-summary omissions are explicit;

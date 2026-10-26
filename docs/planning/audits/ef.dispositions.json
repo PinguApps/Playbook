@@ -1,0 +1,343 @@
+{
+  "note": "First matching rule owns every raw declaration delta and every obsolete/experimental declaration. Ownership records audit responsibility, not delivered content. E proposals and U unknowns are defined in ef.md.",
+  "groups": [
+    {
+      "id": "formatter-history",
+      "pattern": "System.ObsoleteAttribute\\(System.String:\"This API supports obsolete formatter-based serialization",
+      "disposition": "historical",
+      "owner": "PIN-704",
+      "reason": "Existing SYSLIB0051 restriction; no formatter revival or additional foundation."
+    },
+    {
+      "id": "tracker-state",
+      "pattern": "ChangeTracker::GetEntriesForState",
+      "disposition": "proposed",
+      "owner": "E1",
+      "reason": "Explicit state selection avoids implicit DetectChanges; stale state must be taught."
+    },
+    {
+      "id": "provider-replacement",
+      "pattern": "::(RemoveDbContext|WithoutExtension|RemoveExtension)\\b",
+      "disposition": "proposed",
+      "owner": "E2",
+      "reason": "Deliberate registration/options replacement for an isolated test provider."
+    },
+    {
+      "id": "pooled-factory",
+      "pattern": "EntityFrameworkServiceCollectionExtensions::AddPooledDbContextFactory",
+      "disposition": "proposed",
+      "owner": "E3",
+      "reason": "New configuration-free overload composes existing ConfigureDbContext; pool lifecycle remains explicit."
+    },
+    {
+      "id": "scalar-load-state",
+      "pattern": "PropertyEntry::(?:get_|set_)?IsLoaded|::.*(?:IsAutoLoaded|AutoLoadChanged)|\\.AutoLoadConvention\\b|IPropertyAutoLoadChangedConvention|SqlServerAutoLoadConvention",
+      "disposition": "proposed",
+      "owner": "E4",
+      "reason": "Suppressing writes of unloaded scalar values is distinct from vector query projection."
+    },
+    {
+      "id": "legacy-transactions",
+      "pattern": "::(?:get_|set_)?AutoTransactionsEnabled\\b",
+      "disposition": "proposed",
+      "owner": "E5",
+      "reason": "Removed Boolean control must migrate to explicit relational transaction behavior; Cosmos batching stays PIN-867."
+    },
+    {
+      "id": "collection-translation",
+      "pattern": "::TranslateParameterizedCollectionsTo(?:Constants|Parameters)",
+      "disposition": "proposed",
+      "owner": "E6",
+      "reason": "Migrate removed configuration methods to existing UseParameterizedCollectionMode with real query evidence."
+    },
+    {
+      "id": "raw-sql-migration",
+      "pattern": "::(?:FromSqlInterpolated|ExecuteSqlInterpolated(?:Async)?|ExecuteSqlRawAsync|SqlQueryRaw)\\b",
+      "disposition": "proposed",
+      "owner": "E7",
+      "reason": "New obsolete annotations and argument-contract changes; preserve parameterization, cancellation and injection boundaries."
+    },
+    {
+      "id": "azure-defaults",
+      "pattern": "::UseAzureSqlDefaults\\b",
+      "disposition": "proposed",
+      "owner": "E8",
+      "reason": "Removed helper is replaced with UseAzureSql rather than silently changing provider assumptions."
+    },
+    {
+      "id": "cosmos-partition-api",
+      "pattern": "Cosmos.*::(?:CanSetPartitionKey|HasPartitionKey|GetPartitionKeyProperty|GetPartitionKeyPropertyName|GetPartitionKeyPropertyNameConfigurationSource|SetPartitionKeyPropertyName)\\b",
+      "disposition": "proposed",
+      "owner": "E9",
+      "reason": "Removed singular partition metadata/configuration; preserve existing stored partition keys."
+    },
+    {
+      "id": "cosmos-content-response",
+      "pattern": "CosmosDbContextOptionsBuilder::ContentResponseOnWriteEnabled",
+      "disposition": "proposed",
+      "owner": "E10",
+      "reason": "New obsolete warning and nullable/default contract; remove ineffectual configuration without promising SDK-wide behavior."
+    },
+    {
+      "id": "generic-mapping",
+      "pattern": "\\.(?:CoreTypeMapping|RelationalTypeMapping|JsonTypeMapping|StructuralJsonTypeMapping|ValueComparer)(?:`\\d+)?(?:::|\\b)|\\.ValueConversion\\.|ITypeMappingSource::FindMapping",
+      "disposition": "proposed",
+      "owner": "E11",
+      "reason": "Generic mappings/default comparers and obsolete mapping contracts require an actual custom mapping consumer."
+    },
+    {
+      "id": "structured-json-path",
+      "pattern": "\\.(?:JsonPath|JsonPathSegment|StructuredJsonPath|StructuredJsonPathSegment)(?:::|\\b)|ColumnModification.*JsonPath|IColumnModification::get_JsonPath|ColumnModificationParameters::",
+      "disposition": "proposed",
+      "owner": "E12",
+      "reason": "Structured JSON update paths replace string/null checks in custom SQL generation."
+    },
+    {
+      "id": "value-generator-contract",
+      "pattern": "\\.ValueGeneration\\.",
+      "disposition": "proposed",
+      "owner": "E13",
+      "reason": "Removed selector/Create and constructor binding hooks require bounded custom value generation migration."
+    },
+    {
+      "id": "constructor-binding",
+      "pattern": "IConstructorBindingFactory::TryBindConstructor",
+      "disposition": "proposed",
+      "owner": "E16",
+      "reason": "Removed constructor binding hook needs an actual extension migrated to GetBindings."
+    },
+    {
+      "id": "materializer-contract",
+      "pattern": "\\.(?:IEntityMaterializerSource|EntityMaterializerSourceParameters|IStructuralTypeMaterializerSource|StructuralTypeMaterializerSourceParameters)\\b|InjectEntityMaterializers|ParameterQueryRootExpression|CollectionResultExpression",
+      "disposition": "proposed",
+      "owner": "E14",
+      "reason": "Legacy entity-only materializer/query roots are replaced by structural contracts; provider extension consumer required."
+    },
+    {
+      "id": "telemetry-history",
+      "pattern": "EntityFrameworkEventSource",
+      "disposition": "historical",
+      "owner": "PIN-710",
+      "reason": "EventSource was already obsolete in .NET 10 and remains so; no newly authored release migration established."
+    },
+    {
+      "id": "complex-mapping",
+      "pattern": "Complex(?:Element|Property)Entry.*::ComplexProperty",
+      "disposition": "grouped",
+      "owner": "PIN-845",
+      "reason": "Nested complex access belongs to the existing nested-value goal; entry annotation changes do not alone add a goal."
+    },
+    {
+      "id": "minmaxby",
+      "pattern": "EntityFrameworkQueryableExtensions::(?:MinByAsync|MaxByAsync)",
+      "disposition": "grouped",
+      "owner": "PIN-851",
+      "reason": "Async/sync database extrema remain one real-provider goal."
+    },
+    {
+      "id": "json-path-function",
+      "pattern": "RelationalDbFunctionsExtensions::JsonPathExists",
+      "disposition": "grouped",
+      "owner": "PIN-853",
+      "reason": "Existing path-existence recipe and provider/SQL prerequisites."
+    },
+    {
+      "id": "unconstrained-query",
+      "pattern": "::.*(?:IsConstrained|Constrainedness)|ForeignKeyConstrainedness",
+      "disposition": "proposed",
+      "owner": "E15",
+      "reason": "Missing-principal join semantics differ from merely omitting a database migration constraint."
+    },
+    {
+      "id": "foreign-keys",
+      "pattern": "::.*(?:ExcludeForeignKeyFromMigrations|IsExcludedFromMigrations)",
+      "disposition": "grouped",
+      "owner": "PIN-880",
+      "reason": "Separate unconstrained query semantics from constraint omission; retain existing FK goal with explicit scope qualification in report."
+    },
+    {
+      "id": "split-concurrency",
+      "pattern": "DbQueryConcurrencyException|SplitQuery",
+      "disposition": "grouped",
+      "owner": "PIN-888",
+      "reason": "Real concurrent-provider proof remains with the existing migration owner."
+    },
+    {
+      "id": "owned-json-warning",
+      "pattern": "OwnedEntityMappedToJsonCollectionWarning",
+      "disposition": "grouped",
+      "owner": "PIN-847",
+      "reason": "Keep the precise collection/non-shadow-key scope, not all owned mappings."
+    },
+    {
+      "id": "primitive-collection",
+      "pattern": "::(?:SetElementType|GetElementTypeConfigurationSource)|IConventionElementType::GetConfigurationSource",
+      "disposition": "grouped",
+      "owner": "PIN-848",
+      "reason": "Creation-time primitive collection metadata is the lower-level consequence of existing mapping migration."
+    },
+    {
+      "id": "sql-vector",
+      "pattern": "VectorSearch|VectorIndex|VectorMetric|VectorType|WithApproximate|IsVectorIndex|VectorDistance",
+      "disposition": "grouped",
+      "owner": "PIN-856",
+      "reason": "Actual experimental vector query/index/loading owner; no native execution inferred."
+    },
+    {
+      "id": "sql-fulltext",
+      "pattern": "FullText|FreeTextTable|ContainsTable",
+      "disposition": "grouped",
+      "owner": "PIN-857",
+      "reason": "Dedicated catalog/index/ranked-query owner; hybrid composition remains PIN-858.",
+      "assetPattern": "^microsoft.entityframeworkcore.sqlserver/"
+    },
+    {
+      "id": "sql-json-contains",
+      "pattern": "JsonContains",
+      "disposition": "grouped",
+      "owner": "PIN-854",
+      "reason": "Native SQL JSON containment and nullable fallback retain existing delivery."
+    },
+    {
+      "id": "sql-date",
+      "pattern": "DateTrunc|DateTimeOffset",
+      "disposition": "grouped",
+      "owner": "PIN-860",
+      "reason": "Server date/time and bucketing owner."
+    },
+    {
+      "id": "sql-temporal",
+      "pattern": "Temporal|PeriodStart|PeriodEnd|IsHidden",
+      "disposition": "grouped",
+      "owner": "PIN-859",
+      "reason": "CLR period properties and explicit hidden-column configuration form one goal."
+    },
+    {
+      "id": "cosmos-session",
+      "pattern": "SessionToken",
+      "disposition": "grouped",
+      "owner": "PIN-869",
+      "reason": "Explicit token propagation and consistency mode remain existing scope."
+    },
+    {
+      "id": "cosmos-bulk",
+      "pattern": "BulkExecutionAllowed",
+      "disposition": "grouped",
+      "owner": "PIN-868",
+      "reason": "Bulk configuration is distinct from atomicity."
+    },
+    {
+      "id": "cosmos-index",
+      "pattern": "Cosmos.*Index|Cosmos.*AutomaticIndexing",
+      "disposition": "grouped",
+      "owner": "PIN-866",
+      "reason": "Cosmos policy paths, vector and full-text settings remain existing scope.",
+      "assetPattern": "^microsoft.entityframeworkcore.cosmos/"
+    },
+    {
+      "id": "cosmos-values",
+      "pattern": "CosmosComplex",
+      "disposition": "grouped",
+      "owner": "PIN-865",
+      "reason": "Nested complex documents retain their existing real-service consumer owner."
+    },
+    {
+      "id": "diagnostic-support",
+      "pattern": "^\\w+ Microsoft\\.EntityFrameworkCore\\.(?:Diagnostics\\.|(?:Cosmos|SqlServer|Sqlite|InMemory)\\.Diagnostics\\.)",
+      "disposition": "excluded",
+      "owner": "PIN-710",
+      "reason": "Diagnostic resources/logging signatures are supporting implementation, not independent recipes; concrete behavior warnings retain explicit owners in ef.md."
+    },
+    {
+      "id": "compiler-state-machines",
+      "pattern": "^type Microsoft\\.EntityFrameworkCore\\.EntityFrameworkQueryableExtensions|^\\w+ Microsoft\\.EntityFrameworkCore\\.(?:DbContext|EntityFrameworkQueryableExtensions|RelationalDatabaseFacadeExtensions)::",
+      "disposition": "unresolved",
+      "owner": "U1",
+      "reason": "Residual annotation/call-shape pairs are retained for exact compiler-attribute review; no blanket semantic no-change claim."
+    },
+    {
+      "id": "fulljoin-expression",
+      "pattern": "FullJoinExpression|QueryableMethodTranslatingExpressionVisitor::TranslateFullJoin|QueryableMethods::.*FullJoin",
+      "disposition": "grouped",
+      "owner": "PIN-850",
+      "reason": "Queryable/provider full-join scaffolding is supporting surface for the already owned full reconciliation goal."
+    },
+    {
+      "id": "compiled-provider-identity",
+      "pattern": "DbContextModelAttribute|CompiledModelCodeGenerationOptions|RuntimeConstant|CSharpRuntimeAnnotationCodeGenerator",
+      "disposition": "grouped",
+      "owner": "PIN-887",
+      "reason": "Actual compiled-model/precompiled-query artifact capture must use the pinned provider identity/runtime-constant contract."
+    },
+    {
+      "id": "migration-operation",
+      "pattern": "OperationExecutor\\+AddAndApplyMigration",
+      "disposition": "grouped",
+      "owner": "PIN-878",
+      "reason": "The command implementation supports the existing scaffold/apply goal."
+    },
+    {
+      "id": "model-snapshot",
+      "pattern": "ModelSnapshot::.*MigrationId|MigrationsAssembly::.*MigrationId",
+      "disposition": "grouped",
+      "owner": "PIN-877",
+      "reason": "Snapshot migration identity remains the existing branch divergence goal."
+    },
+    {
+      "id": "scaffold-selector",
+      "pattern": "IModelCodeGeneratorSelector::Select",
+      "disposition": "proposed",
+      "owner": "E31",
+      "reason": "Removed selector overloads require explicit ModelCodeGenerationOptions in a real design-time extension."
+    },
+    {
+      "id": "provider-internal-support",
+      "pattern": "^\\w+ Microsoft\\.EntityFrameworkCore\\..*\\.Internal\\.|^\\w+ Microsoft\\.EntityFrameworkCore\\.Internal\\.",
+      "disposition": "excluded",
+      "owner": "PIN-710",
+      "reason": "Explicitly internal implementation support is not a supported standalone authoring goal. Public extension contracts are handled separately; raw deltas remain."
+    },
+    {
+      "id": "task-contract",
+      "pattern": "^\\w+ Microsoft\\.EntityFrameworkCore\\.Tools\\.|^\\w+ Microsoft\\.EntityFrameworkCore\\.Tasks\\.",
+      "disposition": "grouped",
+      "owner": "PIN-887",
+      "reason": "Public build-task parameter changes and stage selection require actual generated artifact evidence."
+    },
+    {
+      "id": "sqlite-direct",
+      "pattern": "^\\w+ Microsoft\\.Data\\.Sqlite\\.",
+      "disposition": "unresolved",
+      "owner": "U2",
+      "reason": "Exact direct-SQLite differences retained; Half/UInt128/target and native-bundle decisions are mapped individually in ef.md."
+    },
+    {
+      "id": "metadata-traversal",
+      "pattern": "::(?:get_)?DeclaringEntityType|::(?:GetColumnBaseName|GetDefaultColumnBaseName|GetContainerColumnTypeMapping|SetContainerColumnTypeMapping|GetContainerColumnTypeMappingConfigurationSource|GetDefaultColumnMappings|GetTableColumnMappings|GetViewColumnMappings|GetMappedStoreObjects)\\b|\\.(?:I(?:ReadOnly|Mutable|Convention)?Index|RuntimeIndex|KeyComplexPropertyConvention|RelationalJsonIndex)(?:::|\\b)",
+      "disposition": "proposed",
+      "owner": "E17",
+      "reason": "Explicit model inspection must distinguish entity/complex declaring types and relational store mappings."
+    },
+    {
+      "id": "type-ignore-conventions",
+      "pattern": "IEntityTypeIgnoredConvention|ITypeIgnoredConvention|AnnotatableBuilder.*::RemoveAnnotation",
+      "disposition": "proposed",
+      "owner": "E18",
+      "reason": "Custom conventions migrate ignored-type callbacks and removed annotation removal hook."
+    },
+    {
+      "id": "snapshot-warning",
+      "pattern": "OldMigrationVersionWarning",
+      "disposition": "proposed",
+      "owner": "E28",
+      "reason": "An old snapshot version needs a deliberate artifact reconciliation, not a new migration added blindly."
+    },
+    {
+      "id": "extension-contract-residual",
+      "pattern": "^\\w+ (?:Microsoft\\.EntityFrameworkCore\\.|Microsoft\\.Extensions\\.)",
+      "disposition": "unresolved",
+      "owner": "U3",
+      "reason": "Finite remaining metadata, conventions, query/scaffolding and provider extension differences remain visible; no exclusion or compatibility conclusion inferred."
+    }
+  ]
+}

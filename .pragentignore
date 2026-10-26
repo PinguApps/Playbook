@@ -45,3 +45,6 @@
 
 # Inspect-FSharpContracts.ps1 output; review the script, source manifest and audit.
 /docs/planning/audits/fsharp-contracts.assets.json
+
+# Inspect-EfApis.ps1 output; review its script, source/disposition manifests and audit.
+/docs/planning/audits/ef.assets.json
