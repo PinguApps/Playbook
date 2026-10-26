@@ -1,5 +1,10 @@
 # Recipe inventory
 
+The [audit proposal decision record](../audit-proposal-review.md) reconciles the
+historical audit drafts with approved delivery tickets and existing coverage.
+Use its retained owners instead of treating old draft numbers or approval notes
+as the current backlog. It preserves outstanding evidence and publication gates.
+
 Documentation-backed planning pass, 16 October 2026, using the .NET 11 RC2 preparation baseline. Guidance targets GA, with explicitly experimental APIs included and labelled. This expands the earlier headline coverage map into proposed goals and source dispositions; it does not establish that samples compile or that every public API change has been audited.
 
 ## Read by area
