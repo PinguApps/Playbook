@@ -270,7 +270,7 @@ Get-Content ./docs/planning/audits/runtime-security.md
 
 Expect exact package/tool/reference hashes and complete declaration differences to
 match, all 167 source hashes to pass, and two browser-tooling comparisons owned by
-R14. An unowned declaration or changed source/artifact fails the command. The
-negative checks. This research changes no served recipe/tool, so no changed MCP
+R14. An unowned declaration or changed source/artifact fails the command.
+This research changes no served recipe/tool, so no changed MCP
 response or Inspector example is asserted. Real installed MCP checks are mandatory
 acceptance for every eventual delivery draft above.

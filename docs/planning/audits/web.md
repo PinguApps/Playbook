@@ -465,6 +465,6 @@ $audit.dispositions | Group-Object group | Select-Object Name, Count
 
 Expect exact artifact/tooling/template/API equality, 212 verified immutable source
 hashes and no unowned difference. Missing roots, archives, hashes, ownership or
-changed bytes must fail. The generated report can be removed afterward. Replay
-records executed checks and remaining gaps. No runtime/recipe/MCP behavior is
+changed bytes must fail. The generated report can be removed afterward.
+No runtime/recipe/MCP behavior is
 established by this audit; every delivery proposal keeps those acceptance gates.

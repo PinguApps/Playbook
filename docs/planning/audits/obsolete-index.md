@@ -136,7 +136,6 @@ the semantic dispositions: review those against the linked family evidence.
 The block was verified from an unrelated directory. It changes no served MCP
 tool/recipe, so there is no changed discovery/Markdown/applicability response to
 demonstrate. Future delivery must use the existing actual installed-MCP harness.
-coverage, negative controls, repository checks and tracker boundaries.
 
 [core]: https://github.com/dotnet/docs/blob/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/core-libraries/11/obsolete-apis.md
 [crypto]: https://github.com/dotnet/docs/blob/5e19883f3aca93e649d9e3fb72b0b89091d7079f/docs/core/compatibility/cryptography/11/obsolete-apis.md

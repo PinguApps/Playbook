@@ -188,7 +188,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f53726dc'
 Expect exact source/archive/asset hashes and matching declaration/diagnostic
 inventories, including zero P1→P2/P2→P3 changes. A hash/evidence mismatch fails;
 inspect it before updating a baseline. This frozen replay does not discover new
-executed checks, negative control and environment results.
+releases.
 
 The inventory's stable audit ID is now reconciled. Its historical counts stay
 unchanged; there is no new recipe count claim. The seven existing delivery
