@@ -223,7 +223,7 @@ The existing packed-tool harness installs from an isolated local feed/cache,
 calls real stdio list/get outside the checkout, and checks the complete rendered
 canonical body, applicability and edition 11.0 offline. Target 10.0 is rejected
 for this new edition. docs/verification/redirect-and-session.md and the fingerprinted
-PIN-776.http.evidence.json retain exact commands/artifacts. No mock,
+[HTTP execution capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-776.http.evidence.json) retain exact commands/artifacts. No mock,
 cross-compilation, browser UI, interactive, multi-server or GA execution is claimed.
 
 Official source review: [Blazor state](https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/server?view=aspnetcore-11.0),
