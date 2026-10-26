@@ -1,6 +1,14 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @PasskeyGuidance
+  Scenario: Passkey naming and denial guidance retain complete offline contracts
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then passkey guidance retains canonical bodies complete applicability and target editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @UnionParameters
   Scenario: Alternative component values retain literal markup and JSON boundaries offline
     Given the actual package is installed from an isolated local feed and cache
