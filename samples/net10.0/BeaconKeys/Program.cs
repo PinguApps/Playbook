@@ -12,7 +12,7 @@ builder.Services.AddRazorComponents();
 builder.Services.AddAuthorization();
 builder.Services.AddSingleton<MemoryKeyStore>();
 builder.Services.AddScoped<IUserStore<IdentityUser>>(services => services.GetRequiredService<MemoryKeyStore>());
-builder.Services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddSignInManager<GuardedSignInManager>();
+builder.Services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddSignInManager();
 builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
 builder.Services.Configure<IdentityPasskeyOptions>(options => options.ServerDomain = "localhost");
 // Keep data-protection keys in memory for this disposable loopback fixture.
