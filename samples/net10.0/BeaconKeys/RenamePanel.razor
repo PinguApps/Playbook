@@ -1,0 +1,16 @@
+<!-- snippet:complete -->
+@namespace BeaconKeys
+
+<h1>Name your Beacon passkey</h1>
+<form method="post">
+    <input type="hidden" name="__RequestVerificationToken" value="@Token" />
+    <label for="key-name">A name you will recognise</label>
+    <input id="key-name" name="name" value="@Name" required maxlength="200" />
+    <button type="submit">Save passkey name</button>
+</form>
+
+@code {
+    [Parameter, EditorRequired] public string Token { get; set; } = "";
+    [Parameter] public string? Name { get; set; }
+}
+<!-- endsnippet:complete -->

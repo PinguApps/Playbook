@@ -1,0 +1,15 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Identity
+@namespace BeaconKeys
+
+<h1>Beacon stores sign-in</h1>
+<p role="status">@SignInOutcome.Message(Result)</p>
+@if (!Result.Succeeded)
+{
+    <a href="/Account/Login">Choose another sign-in method</a>
+}
+
+@code {
+    [Parameter, EditorRequired] public SignInResult Result { get; set; } = SignInResult.Failed;
+}
+<!-- endsnippet:complete -->
