@@ -1,6 +1,14 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @WebToolContracts
+  Scenario: Development authentication bundled web tools and union bodies remain complete offline
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then development web tool guidance retains canonical bodies and exact applicability
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @PasskeyGuidance
   Scenario: Passkey naming and denial guidance retain complete offline contracts
     Given the actual package is installed from an isolated local feed and cache

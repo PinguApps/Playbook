@@ -7,6 +7,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-  <ItemGroup><Compile Include="../../HarbourBodiesChecks.cs" Link="BodyChecks.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../../net11.0/HarbourBodies/BodyChecks.cs" Link="BodyChecks.cs" /></ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

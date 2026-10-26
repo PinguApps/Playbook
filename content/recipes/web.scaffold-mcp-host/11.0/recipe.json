@@ -1,0 +1,223 @@
+{
+  "id": "web.scaffold-mcp-host",
+  "edition": "11.0",
+  "title": "Start a callable web tool from the SDK-bundled MCP template",
+  "goal": "Generate mcpserver with its remote HTTP transport, replace the demonstration with an original tool, and verify initialize, discovery and calls through an MCP client.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-tool-contracts",
+    "berthtools"
+  ],
+  "apis": [
+    "dotnet new mcpserver",
+    "WithHttpTransport",
+    "WithTools",
+    "MapMcp",
+    "McpServerTool"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "Generate mcpserver with its remote HTTP transport, replace the demonstration with an original tool, and verify initialize, discovery and calls through an MCP client.",
+          "SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.402 or 11.0.100-rc.2.26504.105. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical net11.0 managed server; actual authoring evidence is RC2."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual pin 11.0.100-rc.2.26504.105; SDK CLI/template behavior is verified independently of target selection."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested language mode; no new C# 15 syntax is needed."
+          },
+          "frameworks": [
+            "ASP.NET Core Web SDK"
+          ],
+          "packages": [
+            {
+              "name": "ModelContextProtocol.AspNetCore",
+              "version": "2.1.0",
+              "match": "exact",
+              "reason": "Actual authoring dependency; inspect package assets and lock file before updating."
+            }
+          ],
+          "packageAssets": [
+            "ModelContextProtocol.AspNetCore 2.1.0 lib/net10.0 (also consumed by net11.0); resolved transitive packages are pinned in packages.lock.json."
+          ],
+          "workloads": [],
+          "providers": [
+            "Official MCP C# SDK over real loopback Kestrel HTTP; no external data provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; execution measured on Windows x64 only."
+          ],
+          "renderingModes": [
+            "Server HTTP APIs; no Blazor rendering mode required."
+          ],
+          "prerequisites": [
+            "Restore the declared dependencies/framework packs before running samples. Reading installed guidance needs no network, account or key.",
+            "PowerShell 7 for the repository verification helper; exact .NET 10/11 SDK pins are included in canonical files."
+          ],
+          "constraints": [
+            "SDK-bundled mcpserver: no dotnet new install is needed on either measured SDK 10.0.402 or 11.0.100-rc.2.26504.105. This corrects the historical release-note implication of .NET 11 exclusivity; earliest servicing introduction was not established.",
+            "Choose --transport remote explicitly: the template defaults to local stdio. The measured route uses stateless Streamable HTTP, framework-dependent managed execution and ModelContextProtocol.AspNetCore 2.1.0. Neither AOT nor self-contained publication is claimed.",
+            "The SDK template emits an explicit package version. The canonical repository sample uses an isolated central version file and a versionless reference to keep the same dependency. Review generated references when moving it under another CPM boundary.",
+            "Loopback demonstration only; the sample has no authentication, authorization or internet exposure. Production hosting security and resource access require separate design. No package publication, account or remote service provisioning is required.",
+            "This is an example agent-facing application, separate from Playbook's installed stdio documentation host. Template availability, MCP library maturity and .NET RC verification are separate facts."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#mcp-server-template-ships-with-the-net-sdk",
+          "https://github.com/modelcontextprotocol/csharp-sdk",
+          "https://learn.microsoft.com/en-us/dotnet/ai/quickstarts/build-mcp-server",
+          "https://www.nuget.org/packages/ModelContextProtocol.AspNetCore/2.1.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BerthTools/BerthTools.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Bundled template release note",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#mcp-server-template-ships-with-the-net-sdk"
+    },
+    {
+      "title": "Official MCP C# SDK",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk"
+    },
+    {
+      "title": "Template transports and extension points",
+      "url": "https://learn.microsoft.com/en-us/dotnet/ai/quickstarts/build-mcp-server"
+    },
+    {
+      "title": "Verified package baseline",
+      "url": "https://www.nuget.org/packages/ModelContextProtocol.AspNetCore/2.1.0"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/BerthTools/BerthTools.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes SDK-bundled generation and real HTTP MCP initialize/list/call on the generated project. No mocks, AOT or publication."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/BerthTools/BerthTools.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes SDK-bundled generation and real HTTP MCP initialize/list/call on the generated project. No mocks, AOT or publication."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/BerthTools/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/BerthTools/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/BerthTools/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-berthtools-csproj": {
+      "path": "samples/net10.0/BerthTools/BerthTools.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/BerthTools/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-berthlookup-cs": {
+      "path": "samples/net10.0/BerthTools/BerthLookup.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/BerthTools/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/BerthTools/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/BerthTools/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/BerthTools/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-berthtools-csproj": {
+      "path": "samples/net11.0/BerthTools/BerthTools.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/BerthTools/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-berthlookup-cs": {
+      "path": "samples/net11.0/BerthTools/BerthLookup.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/BerthTools/global.json",
+      "region": "complete",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed loopback checks use no owner-only resources. GA reconciliation and product-wide publication gates remain separate."
+  }
+}

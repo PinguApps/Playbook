@@ -8,7 +8,7 @@ builder.Logging.ClearProviders();
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
 WebApplication app = builder.Build();
-app.MapPost("/minimal", (Delivery delivery) => Results.Ok(delivery));
+app.MapPost("/minimal", (Delivery delivery) => delivery.Value is null ? Results.BadRequest() : Results.Ok(delivery));
 app.MapControllers();
 app.MapHub<DeliveryHub>("/deliveries");
 await BodyChecks.RunAsync(app);
@@ -29,12 +29,14 @@ namespace HarbourBodies
     public sealed class DeliveryController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
         [Microsoft.AspNetCore.Mvc.HttpPost]
-        public Delivery Echo([Microsoft.AspNetCore.Mvc.FromBody] Delivery delivery) => delivery;
+        public Microsoft.AspNetCore.Mvc.ActionResult<Delivery> Echo([Microsoft.AspNetCore.Mvc.FromBody] Delivery delivery) =>
+            delivery.Value is null ? BadRequest() : Ok(delivery);
     }
 
     public sealed class DeliveryHub : Hub
     {
-        public Delivery Echo(Delivery delivery) => delivery;
+        public Delivery Echo(Delivery delivery) =>
+            delivery.Value is null ? throw new HubException("Choose one delivery shape.") : delivery;
     }
 }
 // endsnippet:complete

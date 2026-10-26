@@ -1,0 +1,200 @@
+{
+  "id": "web.test-file-app-authentication",
+  "edition": "11.0",
+  "title": "Call a secured file-based endpoint with a development token",
+  "goal": "Use dotnet user-jwts --file to create a local test token and exercise a protected file-based web endpoint without configuring an identity provider.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-tool-contracts",
+    "quaytokens"
+  ],
+  "apis": [
+    "dotnet user-jwts create --file",
+    "AddJwtBearer",
+    "RequireAuthorization"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "Use dotnet user-jwts --file to create a local test token and exercise a protected file-based web endpoint without configuring an identity provider.",
+          "Development only: the sample refuses other environments. A user-jwts signing key is not a production issuer or an identity provider. Keep generated tokens and user secrets outside source control."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical net11.0 managed server; actual authoring evidence is RC2."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual pin 11.0.100-rc.2.26504.105; SDK CLI/template behavior is verified independently of target selection."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested language mode; no new C# 15 syntax is needed."
+          },
+          "frameworks": [
+            "ASP.NET Core Web SDK"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Authentication.JwtBearer",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Actual authoring dependency; inspect package assets and lock file before updating."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.AspNetCore.Authentication.JwtBearer 11 RC2 lib/net11.0; comparison 10.0.13 lib/net10.0. Transitive packages are pinned in packages.lock.json."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local SDK user-jwts and JWT bearer handler; no external identity provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; execution measured on Windows x64 only."
+          ],
+          "renderingModes": [
+            "Server HTTP APIs; no Blazor rendering mode required."
+          ],
+          "prerequisites": [
+            "Restore the declared dependencies/framework packs before running samples. Reading installed guidance needs no network, account or key.",
+            "PowerShell 7 for the repository verification helper; exact .NET 10/11 SDK pins are included in canonical files."
+          ],
+          "constraints": [
+            "Development only: the sample refuses other environments. A user-jwts signing key is not a production issuer or an identity provider. Keep generated tokens and user secrets outside source control.",
+            "The new selector needs the .NET 11 SDK. The .NET 10 comparison uses a real Web SDK project with --project; it is comparison evidence, not a target-10 catalogue route.",
+            "Run commands from the application directory, create appsettings.Development.json containing {} before using --appsettings-file, and set the same audience URL used by the server. WebApplication loads its UserSecretsId in Development.",
+            "The file uses the shared SDK file-app directives, versionless #:package plus the supplied CPM boundary, and PublishAot=false. No native AOT, trimming, production authorization policy or browser flow is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#dotnet-user-jwts-supports-file-based-apps",
+          "https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps",
+          "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-10.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuayTokens/quay.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Development JWT file selector",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0#dotnet-user-jwts-supports-file-based-apps"
+    },
+    {
+      "title": "File directives, package management and AOT defaults",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/sdk/file-based-apps"
+    },
+    {
+      "title": "Development JWT CLI",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-10.0"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/QuayTokens/QuayTokens.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes the matching selector and signed/absent/invalid-token requests in an isolated user-secrets home. No mocks, AOT or publication."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/QuayTokens/quay.cs",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual canonical sample compilation only. eng/Test-WebTooling.ps1 separately executes the matching selector and signed/absent/invalid-token requests in an isolated user-secrets home. No mocks, AOT or publication."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/QuayTokens/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/QuayTokens/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/QuayTokens/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-quaytokens-csproj": {
+      "path": "samples/net10.0/QuayTokens/QuayTokens.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/QuayTokens/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/QuayTokens/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/QuayTokens/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/QuayTokens/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/QuayTokens/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-quay-cs": {
+      "path": "samples/net11.0/QuayTokens/quay.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/QuayTokens/global.json",
+      "region": "complete",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed loopback checks use no owner-only resources. GA reconciliation and product-wide publication gates remain separate."
+  }
+}

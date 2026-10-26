@@ -19,7 +19,7 @@ internal static class BodyChecks
             string address = app.Services.GetRequiredService<IServer>().Features.Get<IServerAddressesFeature>()!.Addresses.Single();
             using HttpClient client = new() { BaseAddress = new Uri(address) };
             string[] valid = ["""{"lockerCode":"B7"}""", """{"streetAddress":"4 Gull Lane"}"""];
-            string[] invalid = ["{}", """{"other":"B7"}""", """{"lockerCode":"B7","streetAddress":"4 Gull Lane"}""", """{"lockerCode":12}""", "true"];
+            string[] invalid = ["null", "{}", """{"other":"B7"}""", """{"lockerCode":"B7","streetAddress":"4 Gull Lane"}""", """{"lockerCode":12}""", "true"];
             foreach (string route in new[] { "/minimal", "/mvc" })
             {
                 foreach (string json in valid.Concat(invalid))
@@ -54,7 +54,7 @@ internal static class BodyChecks
                 }
                 else if (!root.TryGetProperty("error", out _)) { throw new InvalidOperationException("Invalid hub argument accepted."); }
             }
-            Console.WriteLine("PASS Minimal API, MVC and real SignalR JSON WebSocket: both delivery shapes round-trip; ambiguous, unknown, empty, wrong-value and non-object payloads rejected.");
+            Console.WriteLine("PASS Minimal API, MVC and real SignalR JSON WebSocket: both delivery shapes round-trip; null, ambiguous, unknown, empty, wrong-value and non-object payloads rejected.");
         }
         finally { await app.StopAsync(); await app.DisposeAsync(); }
     }
