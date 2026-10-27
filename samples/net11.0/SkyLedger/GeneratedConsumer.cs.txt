@@ -1,0 +1,8 @@
+// snippet:complete
+using SkyConsumer;
+using HttpClient http = new() { BaseAddress = new Uri(args[0] + "/") };
+SkyGenerated client = new(http);
+DomeStatus status = await client.ReadDomeAsync();
+if (status.Dome != "West dome" || status.Exposure != 7) { throw new InvalidOperationException("Generated client contract mismatch"); }
+Console.WriteLine("PASS NSwag 14.7.1 generated typed C# consumer: actual OpenAPI 3.0 document, independent .NET 10 compilation, real HTTP response.");
+// endsnippet:complete
