@@ -1,0 +1,31 @@
+// snippet:complete
+using System.Text.Json;
+using ArchiveConsumer;
+
+using HttpClient http = new() { BaseAddress = new Uri(args[0] + "/") };
+ArchiveGenerated client = new(http);
+Response reading = await client.ReadSummaryAsync("json");
+Check(((JsonElement)reading.AdditionalProperties["name"]).GetString() == "Soundings", "generated JSON name");
+Check(((JsonElement)reading.AdditionalProperties["count"]).GetInt32() == 2, "generated JSON count");
+Response empty = await client.ReadSummaryAsync("empty");
+Check(((JsonElement)empty.AdditionalProperties["reason"]).GetString() == "No readings", "generated alternative JSON");
+Response2 mvcReading = await client.SummaryAsync("json");
+Check(((JsonElement)mvcReading.AdditionalProperties["count"]).GetInt32() == 2, "generated MVC JSON");
+Response2 mvcEmpty = await client.SummaryAsync("empty");
+Check(((JsonElement)mvcEmpty.AdditionalProperties["reason"]).GetString() == "No readings", "generated MVC alternative JSON");
+try
+{
+    await client.ReadSummaryAsync("text");
+    throw new InvalidOperationException("Expected generator's unsupported text branch to fail.");
+}
+catch (ApiException exception) when (exception.InnerException is JsonException)
+{
+    Console.WriteLine("EXPECTED LIMIT: NSwag 14.7.1 selects JSON for status 200; the text branch requires a separate client path.");
+}
+Console.WriteLine("PASS NSwag 14.7.1 generated C# compiled and executed: Minimal API/MVC both JSON cases preserved as extension data, not strongly typed anyOf cases. Typed HttpClient sample covers all media. No universal generator claim.");
+
+static void Check(bool condition, string claim)
+{
+    if (!condition) { throw new InvalidOperationException(claim); }
+}
+// endsnippet:complete
