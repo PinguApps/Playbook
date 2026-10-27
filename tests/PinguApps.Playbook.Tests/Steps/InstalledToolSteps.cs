@@ -17,6 +17,19 @@ public sealed class InstalledToolSteps : IDisposable
         string[] ids = ["openapi.describe-body-query", "openapi.describe-download", "openapi.describe-response-variants"];
         await CheckWebRecipesAsync(ids[..2], "archive-contracts", evidenceKind: "compile-and-run", expectedCatalogueIds: ids).ConfigureAwait(false);
         await CheckWebRecipesAsync([ids[2]], "archive-contracts", evidenceCount: 3, evidenceKind: "compile-and-run", expectedCatalogueIds: ids, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
+    [Then("stream version and environment guidance retain complete offline contracts")]
+    public async Task CheckSkyLedgerAsync()
+    {
+        string[] ids = ["openapi.describe-event-stream", "openapi.generate-for-environment", "openapi.select-contract-version"];
+        await CheckWebRecipesAsync(ids, "sky-ledger", evidenceCount: 4, evidenceKind: "compile-and-run", additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
+    private async Task CheckCompleteOpenApiMetadataAsync(string[] ids)
+    {
         foreach (string id in ids)
         {
             using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));

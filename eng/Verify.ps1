@@ -25,6 +25,8 @@ try {
   foreach ($sample in @(
     @{ Path = 'net10.0/ArchiveContracts'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/ArchiveContracts'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/SkyLedger'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/SkyLedger'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/BeaconKeys'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/BeaconKeys'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/HttpCapacity'; Dotnet = 'dotnet' },
@@ -147,6 +149,7 @@ try {
     finally { Pop-Location }
   }
   & (Join-Path $PSScriptRoot 'Test-PasskeyTemplate.ps1') -Dotnet $Net11Dotnet
+  & (Join-Path $PSScriptRoot 'Test-SkyLedger.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-OptionsStartup.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-NuGetGuidance.ps1') -Net10Dotnet (Get-Command dotnet).Source -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-Observability.ps1') -Net11Dotnet $Net11Dotnet

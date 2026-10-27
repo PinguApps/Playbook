@@ -1,0 +1,257 @@
+{
+  "id": "openapi.select-contract-version",
+  "edition": "11.0",
+  "title": "Choose a document version your client can use",
+  "goal": "Select the OpenAPI specification version independently of the OpenAPI.NET package API, and verify a generated client before distributing a service contract.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sky-ledger",
+    "openapi"
+  ],
+  "apis": [
+    "OpenApiOptions.OpenApiVersion",
+    "OpenApiSpecVersion",
+    "AddOpenApi"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "The .NET 11 default is OpenAPI 3.2, versus 3.1 on .NET 10. Keep an explicit earlier version for a verified consumer when needed. OpenAPI document versions and Microsoft.OpenApi package/source API versions are separate choices."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "New server behavior is verified with the actual .NET 11 RC2 runtime; not a GA execution claim."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Sample pin 11.0.100-rc.2.26504.105; restore/build net11.0 assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample's explicit language mode; no experimental language opt-in."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs"
+          ],
+          "packages": [
+            {
+              "reason": "net11.0 server generation, pinned RC2 11.0.0-rc.2.26504.105 in the canonical sample.",
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.AspNetCore.OpenApi"
+            },
+            {
+              "reason": "Required for the build-time path; actual pinned build/tool assets 11.0.0-rc.2.26504.105.",
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.Extensions.ApiDescription.Server"
+            }
+          ],
+          "packageAssets": [
+            "Newer: Microsoft.AspNetCore.OpenApi and Microsoft.Extensions.ApiDescription.Server 11.0.0-rc.2.26504.105, Microsoft.OpenApi 3.10.2, net11.0. Older comparison: OpenApi 10.0.13, ApiDescription.Server 10.0.0, Microsoft.OpenApi 2.12.2, net10.0. Locked resolved graphs are saved independently. NSwag.ConsoleCore 14.7.1/NJsonSchema 11.6.1 verifies the selected OpenAPI 3.0 client document; it is not a server or Playbook dependency."
+          ],
+          "workloads": [],
+          "providers": [
+            "Built-in ASP.NET Core OpenAPI generator, ApiDescription.Server build tool, Kestrel and System.Text.Json; NSwag only for the representative generated consumer. No database/cloud provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual managed execution on Windows x64."
+          ],
+          "renderingModes": [
+            "Server HTTP APIs; no Blazor rendering mode or browser required."
+          ],
+          "prerequisites": [
+            "Restore pinned packages and framework packs before execution. The installed Playbook guidance itself is complete offline and needs no account/key.",
+            "Use the canonical separate SDK pins for the older/newer examples. These verification pins are distinct from consumer release-family requirements."
+          ],
+          "constraints": [
+            "The .NET 11 default is OpenAPI 3.2, versus 3.1 on .NET 10. Keep an explicit earlier version for a verified consumer when needed. OpenAPI document versions and Microsoft.OpenApi package/source API versions are separate choices.",
+            "The examples use separate net10.0/C# 14 and net11.0/C# 15 SDK/package baselines. The historical .NET 10 comparison is not an older-target route for the .NET 11 APIs. No .NET 9 foundation or extra edition is introduced.",
+            "The generated client check covers the ordinary status endpoint from an explicit 3.0 document. It establishes neither OpenAPI 3.2 parsing nor generated SSE consumption. The hand-written stream check reads actual SSE frames. No experimental API opt-in is used."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework capability, prepared with .NET 11 RC2 artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-11.0",
+          "https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/fundamentals/openapi/include-metadata.md",
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/microsoft-openapi-3x",
+          "https://github.com/RicoSuter/NSwag/wiki/CSharpClientGenerator",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/aspnetcore.md",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview7/aspnetcore.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SkyLedger/SkyLedger.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official OpenAPI generation, versions and build environments",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Official SSE metadata and itemSchema",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/fundamentals/openapi/include-metadata.md"
+    },
+    {
+      "title": "OpenAPI.NET source API migration",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/microsoft-openapi-3x"
+    },
+    {
+      "title": "NSwag C# client generator",
+      "url": "https://github.com/RicoSuter/NSwag/wiki/CSharpClientGenerator"
+    },
+    {
+      "title": "Canonical ASP.NET Core 11 RC1 notes",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/aspnetcore.md"
+    },
+    {
+      "title": "Canonical ASP.NET Core 11 Preview7 SSE notes",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview7/aspnetcore.md"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual compilation and loopback execution: default/explicit document versions, two typed SSE frames with payload/name/id, raw async-enumerable JSON and runtime environment metadata. .NET 11 additionally checks itemSchema payload references and the older-spec extension.",
+      "sample": "samples/net10.0/SkyLedger/SkyLedger.csproj",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "language": "14.0"
+    },
+    {
+      "kind": "execution",
+      "record": "samples/net10.0/SkyLedger/contracts.evidence.json",
+      "scope": "Real Development/Production build-time documents and endpoint/transformer differences, using the older process environment and newer supported MSBuild property. Actual selected 3.0 document generates a typed NSwag 14.7.1 C# client, independently compiled on .NET 10 and executed against this server. No 3.2/SSE generator support claim.",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/SkyLedger/SkyLedger.csproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual compilation and loopback execution: default/explicit document versions, two typed SSE frames with payload/name/id, raw async-enumerable JSON and runtime environment metadata. .NET 11 additionally checks itemSchema payload references and the older-spec extension.",
+      "sample": "samples/net11.0/SkyLedger/SkyLedger.csproj",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "language": "15.0"
+    },
+    {
+      "kind": "execution",
+      "record": "samples/net11.0/SkyLedger/contracts.evidence.json",
+      "scope": "Real Development/Production build-time documents and endpoint/transformer differences, using the older process environment and newer supported MSBuild property. Actual selected 3.0 document generates a typed NSwag 14.7.1 C# client, independently compiled on .NET 10 and executed against this server. No 3.2/SSE generator support claim.",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/SkyLedger/SkyLedger.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "humanProof": {
+    "scope": "Managed compilation, real local HTTP/SSE, actual build tools and generated consumer require no owner-only resource. GA reconciliation and comprehensive catalogue readiness remain separate.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/SkyLedger/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/SkyLedger/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/SkyLedger/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/SkyLedger/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-skyledger-csproj": {
+      "path": "samples/net10.0/SkyLedger/SkyLedger.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/SkyLedger/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/SkyLedger/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/SkyLedger/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/SkyLedger/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/SkyLedger/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-skyledger-csproj": {
+      "path": "samples/net11.0/SkyLedger/SkyLedger.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/SkyLedger/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "checks": {
+      "path": "samples/net11.0/SkyLedger/ContractChecks.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "consumer": {
+      "path": "samples/net11.0/SkyLedger/GeneratedConsumer.cs.txt",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "focus": {
+      "path": "samples/net11.0/SkyLedger/Program.cs",
+      "language": "csharp",
+      "region": "versions"
+    }
+  }
+}
