@@ -1,0 +1,219 @@
+{
+  "id": "openapi.describe-body-query",
+  "edition": "11.0",
+  "title": "Describe a structured search carried by HTTP QUERY",
+  "goal": "Map a read-only search body with HTTP QUERY and choose its native OpenAPI 3.2 operation or earlier-version extension after checking client support.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "archive-contracts",
+    "openapi"
+  ],
+  "apis": [
+    "MapMethods",
+    "FromBodyAttribute",
+    "AddOpenApi",
+    "OpenApiSpecVersion.OpenApi3_2",
+    "x-oai-additionalOperations"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "HTTP QUERY needs end-to-end method/body support. OpenAPI 3.2 uses query; 3.0/3.1 use x-oai-additionalOperations. A generator may ignore the extension. RFC 10008 supersedes the draft named by older release notes."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "New server behavior is verified with the actual .NET 11 RC2 runtime; not a GA execution claim."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Sample pin 11.0.100-rc.2.26504.105; restore/build net11.0 assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample's explicit language mode; no experimental language opt-in."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs and MVC"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.OpenApi",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0-rc.2.26504.105."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0-rc.2.26504.105 and Microsoft.OpenApi 3.10.2 net11.0-compatible assets in saved locked restore. Older comparison uses OpenApi 10.0.13 and Microsoft.OpenApi 2.12.2 on net10.0."
+          ],
+          "workloads": [],
+          "providers": [
+            "Built-in ASP.NET Core OpenAPI generator, Kestrel and System.Text.Json; no database or cloud provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual managed execution on Windows x64."
+          ],
+          "renderingModes": [
+            "Server HTTP APIs; no Blazor rendering mode or browser required."
+          ],
+          "prerequisites": [
+            "Restore pinned packages and framework packs before execution. The installed Playbook guidance itself is complete offline and needs no account/key.",
+            "Use the canonical separate SDK pins for the older/newer examples. These verification pins are distinct from consumer release-family requirements."
+          ],
+          "constraints": [
+            "HTTP QUERY needs end-to-end method/body support. OpenAPI 3.2 uses query; 3.0/3.1 use x-oai-additionalOperations. A generator may ignore the extension. RFC 10008 supersedes the draft named by older release notes.",
+            "The inventory/release notes call QUERY a proposal; the linked IETF draft now resolves to the June 2026 Proposed Standard RFC 10008. That source correction does not establish universal adoption. Test method allowlists, browser CORS/preflight, gateways, caches and client generators in your deployment; the sample proves HttpClient to loopback Kestrel only. An extension can be retained by a parser and still be ignored by a generator. Request bodies do not remove size limits or supply validation/access control. Caching and automatic retries require the real method semantics and appropriate implementation; no cache or intermediary behavior is demonstrated."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework capability, prepared with .NET 11 RC2 artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://www.rfc-editor.org/rfc/rfc10008.html",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview4/aspnetcore.md",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-11.0",
+          "https://spec.openapis.org/oas/v3.2.0.html#path-item-object"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ArchiveContracts/ArchiveContracts.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "RFC 10008 HTTP QUERY, superseding the safe-method-with-body draft",
+      "url": "https://www.rfc-editor.org/rfc/rfc10008.html"
+    },
+    {
+      "title": "ASP.NET Core 11 canonical release notes",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview4/aspnetcore.md"
+    },
+    {
+      "title": "OpenAPI generation and explicit version selection",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-11.0"
+    },
+    {
+      "title": "OpenAPI 3.2 Path Item operations",
+      "url": "https://spec.openapis.org/oas/v3.2.0.html#path-item-object"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ArchiveContracts/ArchiveContracts.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real .NET 10/11 compilation and loopback execution: actual QUERY JSON body/search result; .NET 10 POST fallback and omitted QUERY; .NET 11 native 3.2 QUERY and 3.0/3.1 extension, required body properties and 200 response."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ArchiveContracts/ArchiveContracts.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real .NET 10/11 compilation and loopback execution: actual QUERY JSON body/search result; .NET 10 POST fallback and omitted QUERY; .NET 11 native 3.2 QUERY and 3.0/3.1 extension, required body properties and 200 response."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed loopback and generated-client checks require no owner-only resource. This does not close product-wide or final GA publication gates."
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ArchiveContracts/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ArchiveContracts/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ArchiveContracts/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ArchiveContracts/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-archivecontracts-csproj": {
+      "path": "samples/net10.0/ArchiveContracts/ArchiveContracts.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ArchiveContracts/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ArchiveContracts/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ArchiveContracts/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ArchiveContracts/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ArchiveContracts/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-archivecontracts-csproj": {
+      "path": "samples/net11.0/ArchiveContracts/ArchiveContracts.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ArchiveContracts/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "contract-checks": {
+      "path": "samples/net11.0/ArchiveContracts/ContractChecks.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "focus": {
+      "language": "csharp",
+      "region": "query",
+      "path": "samples/net11.0/ArchiveContracts/Program.cs"
+    }
+  }
+}

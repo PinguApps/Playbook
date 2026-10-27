@@ -1,6 +1,14 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @ArchiveContracts
+  Scenario: OpenAPI downloads searches and response variants retain complete offline contracts
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then archive OpenAPI guidance retains canonical bodies full applicability and target editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @WebToolContracts
   Scenario: Development authentication bundled web tools and union bodies remain complete offline
     Given the actual package is installed from an isolated local feed and cache

@@ -129,7 +129,7 @@
     {
       "id": "unauthorized-metadata",
       "pattern": " Microsoft\\.AspNetCore\\.Http\\.HttpResults\\.UnauthorizedHttpResult",
-      "owner": "PIN-821/PIN-823; IEndpointMetadataProvider for generated 401 contract",
+      "owner": "PIN-823 delivered; ArchiveContracts compares explicit .NET 10 401 declaration with .NET 11 inferred UnauthorizedHttpResult metadata and actual 401 response",
       "disposition": "grouped"
     },
     {

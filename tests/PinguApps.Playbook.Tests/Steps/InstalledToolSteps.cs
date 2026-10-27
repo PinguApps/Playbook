@@ -11,6 +11,42 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("archive OpenAPI guidance retains canonical bodies full applicability and target editions")]
+    public async Task CheckArchiveContractsAsync()
+    {
+        string[] ids = ["openapi.describe-body-query", "openapi.describe-download", "openapi.describe-response-variants"];
+        await CheckWebRecipesAsync(ids[..2], "archive-contracts", evidenceKind: "compile-and-run", expectedCatalogueIds: ids).ConfigureAwait(false);
+        await CheckWebRecipesAsync([ids[2]], "archive-contracts", evidenceCount: 3, evidenceKind: "compile-and-run", expectedCatalogueIds: ids, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete OpenAPI {field} must survive offline packaging.");
+            }
+
+            JsonElement[] expected = [.. metadata.RootElement.GetProperty("evidence").EnumerateArray()];
+            JsonElement[] actual = [.. recipe.GetProperty("evidence").EnumerateArray()];
+            for (int index = 0; index < expected.Length; index++)
+            {
+                foreach (JsonProperty property in expected[index].EnumerateObject().Where(property => property.Name != "record"))
+                {
+                    Assert.True(JsonElement.DeepEquals(property.Value, actual[index].GetProperty(property.Name)), $"Authored OpenAPI evidence {property.Name} must survive packaging.");
+                }
+
+                if (expected[index].TryGetProperty("record", out JsonElement record))
+                {
+                    using JsonDocument saved = JsonDocument.Parse(await ReadSdkInputAsync(record.GetString()!).ConfigureAwait(false));
+                    foreach (string field in new[] { "command", "inputs", "output" })
+                    {
+                        Assert.True(JsonElement.DeepEquals(saved.RootElement.GetProperty(field), actual[index].GetProperty(field)), $"Selected generated-client evidence {field} must survive packaging.");
+                    }
+                }
+            }
+        }
+    }
+
     [Then("development web tool guidance retains canonical bodies and exact applicability")]
     public async Task CheckWebToolContractsAsync()
     {
@@ -1136,10 +1172,10 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2, string evidenceKind = "compile")
+    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2, string evidenceKind = "compile", string[]? expectedCatalogueIds = null, string? additionalEvidenceKind = null)
     {
         JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
-        Assert.Equal(ids, RecipeIds(catalogue));
+        Assert.Equal(expectedCatalogueIds ?? ids, RecipeIds(catalogue));
         JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query }).ConfigureAwait(false));
         Assert.Empty(RecipeIds(older));
         foreach (string id in ids)
@@ -1176,7 +1212,12 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal(evidenceCount, recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
-                Assert.Equal(evidenceKind, evidence.GetProperty("kind").GetString());
+                string? kind = evidence.GetProperty("kind").GetString();
+                if (kind != evidenceKind)
+                {
+                    Assert.Equal(additionalEvidenceKind, kind);
+                }
+
                 Assert.Equal("current", evidence.GetProperty("freshness").GetString());
             });
         }
