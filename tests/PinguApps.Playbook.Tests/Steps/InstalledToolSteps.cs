@@ -11,6 +11,14 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("Fen contract guidance retains canonical bodies full applicability and target editions")]
+    public async Task CheckFenContractsAsync()
+    {
+        string[] ids = ["openapi.migrate-transformer-model", "openapi.retain-server-url-contract", "openapi.retire-contract-member"];
+        await CheckWebRecipesAsync(ids, "fen-contracts", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
     [Then("archive OpenAPI guidance retains canonical bodies full applicability and target editions")]
     public async Task CheckArchiveContractsAsync()
     {
