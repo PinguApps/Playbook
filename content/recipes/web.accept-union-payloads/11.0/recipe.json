@@ -1,0 +1,207 @@
+{
+  "id": "web.accept-union-payloads",
+  "edition": "11.0",
+  "title": "Accept several JSON body shapes through one explicit contract",
+  "goal": "Use a C# 15 native union and a JSON structural classifier when one body contract permits distinct object shapes across Minimal APIs, MVC or the SignalR JSON protocol.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-tool-contracts",
+    "harbourbodies"
+  ],
+  "apis": [
+    "union",
+    "JsonUnionAttribute",
+    "JsonUnionTypeStructuralClassifier",
+    "JsonUnmappedMemberHandling",
+    "JsonHubProtocol"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "Use a C# 15 native union and a JSON structural classifier when one body contract permits distinct object shapes across Minimal APIs, MVC or the SignalR JSON protocol.",
+          "Minimal API/MVC JSON bodies and SignalR JsonHubProtocol only. Do not apply this binding to route/query/header/form values, MessagePack or Newtonsoft.Json protocols."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical net11.0 managed server; actual authoring evidence is RC2."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual pin 11.0.100-rc.2.26504.105; SDK CLI/template behavior is verified independently of target selection."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Native union syntax; compiled in C# 15 without a preview language switch."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs, MVC and SignalR JSON"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App and System.Text.Json net11.0 framework/reference assets; no additional package."
+          ],
+          "workloads": [],
+          "providers": [
+            "System.Text.Json structural classifier and real ASP.NET Core endpoints; no data provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; execution measured on Windows x64 only."
+          ],
+          "renderingModes": [
+            "Server HTTP APIs; no Blazor rendering mode required."
+          ],
+          "prerequisites": [
+            "Restore the declared dependencies/framework packs before running samples. Reading installed guidance needs no network, account or key.",
+            "PowerShell 7 for the repository verification helper; exact .NET 10/11 SDK pins are included in canonical files."
+          ],
+          "constraints": [
+            "Minimal API/MVC JSON bodies and SignalR JsonHubProtocol only. Do not apply this binding to route/query/header/form values, MessagePack or Newtonsoft.Json protocols.",
+            "C# 15 native union and .NET 11 System.Text.Json are required by the new sample. There is no native C# 14/.NET 10 equivalent. The original .NET 10 converter preserves the same untagged wire shapes without parallel DTO endpoint routing.",
+            "Both cases are JSON objects, so token kind alone cannot select one. JsonUnionTypeStructuralClassifier classifies root property names and required properties, not values or nested content; no-match and multiple-match inputs fail. Disallow unmapped members on both cases rejects mixed/unknown shapes.",
+            "Classification is not business validation: this sample does not validate addresses, nonempty strings or ownership. Schema changes can change classification, so version the wire contract deliberately.",
+            "Minimal APIs/MVC use Web JSON defaults, which permit reading numbers from strings; overlapping numeric/string cases can therefore need a classifier even when SignalR's JSON protocol can distinguish those token kinds. This sample avoids that overlap with two distinct property names.",
+            "Structural classification scans the object and has limits: nested unions, polymorphic cases and ReferenceHandler.Preserve are not supported. No trimming/AOT or source-generation guarantee follows from these reflection-based server checks."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+          ]
+        },
+        "sourceUrls": [
+          "https://devblogs.microsoft.com/dotnet/unions-and-closed-hierarchies-in-aspnetcore/",
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#union-types",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HarbourBodies/HarbourBodies.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "ASP.NET Core union boundaries and serializer differences",
+      "url": "https://devblogs.microsoft.com/dotnet/unions-and-closed-hierarchies-in-aspnetcore/"
+    },
+    {
+      "title": "System.Text.Json union classifier contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#union-types"
+    },
+    {
+      "title": "Current C# union language contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/HarbourBodies/HarbourBodies.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real compilation and execution of both delivery shapes and invalid bodies through loopback Minimal API, MVC and SignalR JSON WebSockets. No mocks or cross-compilation."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/HarbourBodies/HarbourBodies.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real compilation and execution of both delivery shapes and invalid bodies through loopback Minimal API, MVC and SignalR JSON WebSockets. No mocks or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/HarbourBodies/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/HarbourBodies/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/HarbourBodies/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-harbourbodies-csproj": {
+      "path": "samples/net10.0/HarbourBodies/HarbourBodies.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/HarbourBodies/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/HarbourBodies/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/HarbourBodies/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/HarbourBodies/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/HarbourBodies/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-harbourbodies-csproj": {
+      "path": "samples/net11.0/HarbourBodies/HarbourBodies.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/HarbourBodies/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/HarbourBodies/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "body-checks": {
+      "path": "samples/net11.0/HarbourBodies/BodyChecks.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed loopback checks use no owner-only resources. GA reconciliation and product-wide publication gates remain separate."
+  }
+}

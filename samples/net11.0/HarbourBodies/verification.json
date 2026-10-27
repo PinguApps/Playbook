@@ -1,0 +1,11 @@
+{
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/net11.0/HarbourBodies/BodyChecks.cs"
+  ],
+  "buildArguments": [],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": []
+}

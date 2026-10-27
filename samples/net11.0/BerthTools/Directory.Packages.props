@@ -1,0 +1,6 @@
+<!-- snippet:complete -->
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally><CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled></PropertyGroup>
+  <ItemGroup><PackageVersion Include="ModelContextProtocol.AspNetCore" Version="2.1.0" /></ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

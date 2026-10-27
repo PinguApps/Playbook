@@ -11,6 +11,24 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("development web tool guidance retains canonical bodies and exact applicability")]
+    public async Task CheckWebToolContractsAsync()
+    {
+        string[] ids = ["web.accept-union-payloads", "web.scaffold-mcp-host", "web.test-file-app-authentication"];
+        await CheckWebRecipesAsync([ids[0]], "harbourbodies", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckWebRecipesAsync([ids[1]], "berthtools").ConfigureAwait(false);
+        await CheckWebRecipesAsync([ids[2]], "quaytokens").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
+            {
+                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete web tool {field} must survive offline packaging.");
+            }
+        }
+    }
+
     [Then("passkey guidance retains canonical bodies complete applicability and target editions")]
     public async Task CheckPasskeyGuidanceAsync()
     {
