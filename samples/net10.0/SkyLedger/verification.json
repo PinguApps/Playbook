@@ -1,0 +1,17 @@
+{
+  "nativeToolchains": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/net11.0/SkyLedger/ContractChecks.cs",
+    "samples/net11.0/SkyLedger/GeneratedConsumer.cs.txt",
+    "eng/Test-SkyLedger.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "workloads": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.OpenApi/10.0.13",
+    "Microsoft.Extensions.ApiDescription.Server/10.0.0",
+    "Microsoft.OpenApi/2.12.2"
+  ]
+}
