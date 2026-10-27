@@ -13,7 +13,17 @@ public sealed class FenDocumentTransformer : IOpenApiDocumentTransformer
         document.Info.Title = "Alder Fen observations";
         document.Components ??= new OpenApiComponents();
         document.Components.Responses ??= new Dictionary<string, IOpenApiResponse>();
-        document.Components.Responses["GaugeOffline"] = new OpenApiResponse { Description = "The observation gauge is offline." };
+        Dictionary<string, OpenApiMediaType> media = new()
+        {
+            ["text/plain"] = new OpenApiMediaType
+            {
+                Schema = new OpenApiSchema { Type = JsonSchemaType.String }
+            }
+        };
+        document.Components.Responses["GaugeOffline"] = new OpenApiResponse
+        {
+            Description = "The observation gauge is offline.", Content = media
+        };
         document.Extensions ??= new Dictionary<string, IOpenApiExtension>();
         document.Extensions["x-observation-area"] = new JsonNodeExtension(new JsonObject { ["name"] = "Alder Fen", ["revision"] = 7 });
         return Task.CompletedTask;

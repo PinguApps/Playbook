@@ -437,6 +437,47 @@ view-missing negative control. Verify .Views assembly discovery/load context.
 PIN-840 retains ordinary registration removal; it cannot substitute for this
 F#-specific artifact path. M includes actual published consumption.
 
+## Fen contract delivery: PIN-827–PIN-829
+
+The stable goals `openapi.retire-contract-member`,
+`openapi.migrate-transformer-model` and `openapi.retain-server-url-contract` now
+have original 11.0 editions. The matching source-disposition rows in the
+[web inventory](../inventory/02-web-data.md) retain their identities. The
+`samples/net10.0/FenContracts` and `samples/net11.0/FenContracts` projects compile
+and execute against SDK 10.0.402 / 11.0.100-rc.2.26504.105, ASP.NET OpenApi
+10.0.13 / 11.0.0-rc.2.26504.105, and transitive Microsoft.OpenApi 2.12.2 / 3.10.2.
+Their saved compilation records contain the locked graphs and actual runtime
+output; these are managed Windows x64 checks, not GA or native-platform proof.
+
+The source/artifact reconciliation matters: the official 3.x compatibility
+article's illustrative Any/Models code does not describe the actual 2.12.2 API.
+That baseline already has interface schemas, reference holders and
+JsonNodeExtension. The original comparison retains those valid patterns and
+changes the explicit response-reference metadata type from
+OpenApiReferenceWithDescription to OpenApiReferenceWithDescriptionAndSummary,
+plus the response content dictionary from OpenApiMediaType to IOpenApiMediaType.
+The package repository commits are
+[`a24aac5`](https://github.com/microsoft/OpenAPI.NET/blob/a24aac560adbf013ff5aa63a873e5a7babce38d2/src/Microsoft.OpenApi/Models/References/OpenApiResponseReference.cs)
+and
+[`c3e9fad`](https://github.com/microsoft/OpenAPI.NET/blob/c3e9fad2fb3191ca0cb96aa4265c65df38ebad67/src/Microsoft.OpenApi/Models/References/OpenApiResponseReference.cs).
+
+Real loopback documents verify retiring operations/types/properties, current
+controls, custom document/operation/schema transformers, response references and
+description overrides, and JSON object/scalar extensions. The raw .NET 10 control
+lacks deprecation flags; its custom transformers match .NET 11's built-in result.
+Empty PathBase changes the root slash; `/fen` remains unchanged. Exact URL
+fixtures and real composed HTTP requests pass on both versions, including the
+optional root-only compatibility transform. No universal client failure or
+third-party generated-client compatibility is inferred.
+
+The `FenContracts` scenario reuses the actual packed/installed stdio harness with
+isolated feed/cache and unrelated working directory. It checks canonical body
+equality, discovery goal, full applicability/sources/evidence, JSON/text equality
+and target edition. Local proxy blocking is separate from the existing
+network-disabled CI lane. Full offline inspection commands remain in the
+[Inspector walkthrough](../../inspect-guidance.md); the recipe bodies contain all
+canonical files. No new OS, browser, provider or native matrix is needed.
+
 ## Reproduce and inspect
 
 PIN-814 now delivers `signalr.cancel-active-operation/11.0` with original

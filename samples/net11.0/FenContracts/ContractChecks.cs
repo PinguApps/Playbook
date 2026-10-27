@@ -36,6 +36,8 @@ internal static class ContractChecks
                 Require(response.GetProperty("description").GetString() == "Retry the gauge later.", "reference description override");
                 Require(root.GetProperty("components").GetProperty("responses").GetProperty("GaugeOffline").GetProperty("description").GetString() == "The observation gauge is offline.", "referenced response target");
 
+                Require(root.GetProperty("components").GetProperty("responses").GetProperty("GaugeOffline").GetProperty("content").GetProperty("text/plain").GetProperty("schema").GetProperty("type").GetString() == "string", "media interface content schema");
+
                 // snippet:urls
                 var server = root.GetProperty("servers")[0].GetProperty("url").GetString()!;
                 var expectedServer = address + (pathBase.Length > 0 ? pathBase : documentName == "slash" ? "/" : "");

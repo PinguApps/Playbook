@@ -1,0 +1,236 @@
+{
+  "id": "openapi.retire-contract-member",
+  "edition": "11.0",
+  "title": "Carry retirement warnings into the API contract",
+  "goal": "Use Obsolete declarations to mark retiring operations, response types and properties in generated OpenAPI, then remove only transformers that duplicate those flags.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fen-contracts",
+    "openapi"
+  ],
+  "apis": [
+    "ObsoleteAttribute",
+    "IOpenApiSchemaTransformer",
+    "IOpenApiOperationTransformer"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Operations, schema types and schema properties are covered. Obsolete messages are source warnings; the generated boolean does not communicate a retirement date or remove an endpoint. This example retains runtime access and suppresses CS0618 only at intentional uses of retiring declarations. Do not remove unrelated transformer behavior, documentation or an enforcement policy."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "New server behavior is verified with the actual .NET 11 RC2 runtime; not a GA execution claim."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Sample pin 11.0.100-rc.2.26504.105; restore/build net11.0 assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample's explicit language mode; no experimental language opt-in."
+          },
+          "frameworks": [
+            "ASP.NET Core built-in OpenAPI generation; canonical Minimal API example"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.OpenApi",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "net11.0 built-in document generator; actual verification pin 11.0.0-rc.2.26504.105."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0; Microsoft.AspNetCore.OpenApi 11.0.0-rc.2.26504.105 and Microsoft.OpenApi 3.10.2 lib/net8.0 model assets in saved locked restore. Older comparison uses OpenApi 10.0.13 lib/net10.0 and Microsoft.OpenApi 2.12.2 lib/net8.0 on net10.0."
+          ],
+          "workloads": [],
+          "providers": [
+            "Built-in ASP.NET Core OpenAPI generator, loopback Kestrel and System.Text.Json; no database or cloud resource."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual managed execution on Windows x64."
+          ],
+          "renderingModes": [
+            "Server HTTP APIs; no Blazor rendering mode or browser required."
+          ],
+          "prerequisites": [
+            "Restore pinned packages and framework packs before execution. The installed Playbook guidance itself is complete offline and needs no account/key.",
+            "Use the canonical separate SDK pins for the older/newer examples. These verification pins are distinct from consumer release-family requirements."
+          ],
+          "constraints": [
+            "Operations, schema types and schema properties are covered. Obsolete messages are source warnings; the generated boolean does not communicate a retirement date or remove an endpoint. This example retains runtime access and suppresses CS0618 only at intentional uses of retiring declarations. Do not remove unrelated transformer behavior, documentation or an enforcement policy."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework capability, prepared with .NET 11 RC2 artifacts under ADR 0004. GA source/package/runtime reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/customize-openapi?view=aspnetcore-11.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FenContracts/FenContracts.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11?view=aspnetcore-11.0",
+      "title": "ASP.NET Core 11 Obsolete metadata support"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/customize-openapi?view=aspnetcore-11.0",
+      "title": "Customize generated OpenAPI documents"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "scope": "Actual declared .NET 10/11 SDK compilation and loopback Kestrel execution: raw/authored Obsolete operation/type/property flags with current controls; document/operation/schema transformers, inline traversal, response reference and override, object/scalar JSON extensions; exact empty/non-empty PathBase server fixtures, optional root-slash transform and composed HTTP requests. No mock, cross-compilation or third-party generated-client claim.",
+      "sample": "samples/net10.0/FenContracts/FenContracts.csproj"
+    },
+    {
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual declared .NET 10/11 SDK compilation and loopback Kestrel execution: raw/authored Obsolete operation/type/property flags with current controls; document/operation/schema transformers, inline traversal, response reference and override, object/scalar JSON extensions; exact empty/non-empty PathBase server fixtures, optional root-slash transform and composed HTTP requests. No mock, cross-compilation or third-party generated-client claim.",
+      "sample": "samples/net11.0/FenContracts/FenContracts.csproj"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed loopback checks require no owner-only resource, browser or native workload. Product-wide Human and final GA gates remain separate."
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/Directory.Build.props",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/global.json",
+      "language": "json"
+    },
+    "n10-fencontracts-csproj": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/FenContracts.csproj",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/Program.cs",
+      "language": "csharp"
+    },
+    "n10-readings-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/Readings.cs",
+      "language": "csharp"
+    },
+    "n10-transformers-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/Transformers.cs",
+      "language": "csharp"
+    },
+    "n10-contractchecks-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/ContractChecks.cs",
+      "language": "csharp"
+    },
+    "n10-legacydeprecationtransformer-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/FenContracts/LegacyDeprecationTransformer.cs",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/Directory.Build.props",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/global.json",
+      "language": "json"
+    },
+    "n11-fencontracts-csproj": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/FenContracts.csproj",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/Program.cs",
+      "language": "csharp"
+    },
+    "n11-readings-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/Readings.cs",
+      "language": "csharp"
+    },
+    "n11-transformers-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/Transformers.cs",
+      "language": "csharp"
+    },
+    "n11-contractchecks-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/ContractChecks.cs",
+      "language": "csharp"
+    },
+    "focus": {
+      "region": "complete",
+      "path": "samples/net11.0/FenContracts/Readings.cs",
+      "language": "csharp"
+    }
+  }
+}

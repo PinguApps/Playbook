@@ -1,9 +1,9 @@
 // snippet:complete
+using FenContracts;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.OpenApi;
-using FenContracts;
 
 await using var app = CreateApplication(args);
 await app.StartAsync();
