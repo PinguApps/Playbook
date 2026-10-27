@@ -1,0 +1,6 @@
+<!-- snippet:complete -->
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally><CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled></PropertyGroup>
+  <ItemGroup><PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="11.0.0-rc.2.26504.105" /></ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

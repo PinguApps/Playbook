@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "Microsoft.AspNetCore.OpenApi/11.0.0-rc.2.26504.105",
+    "Microsoft.OpenApi/3.10.2"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
