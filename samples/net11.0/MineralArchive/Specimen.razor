@@ -1,0 +1,19 @@
+<!-- snippet:complete -->
+@page "/"
+@page "/specimens/{Code}"
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@inject NavigationManager Navigation
+
+<h2 id="specimen">Specimen: @(Code ?? "catalogue")</h2>
+<button id="open-specimen" @onclick="Open">Open fluorite with return selection</button>
+<a id="intercepted" href="specimens/galena">Open galena link</a>
+
+@code {
+    [Parameter] public string? Code { get; set; }
+    private void Open() => Navigation.NavigateTo("specimens/fluorite", new NavigationOptions
+    {
+        HistoryEntryState = "return-selection=drawer-7"
+    });
+}
+<!-- endsnippet:complete -->
