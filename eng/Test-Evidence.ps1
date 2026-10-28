@@ -28,7 +28,7 @@ try {
   # their size, outputs can contain configuration names Windows copy normalizes.
   foreach ($file in (Get-ChildItem (Join-Path $root 'samples') -Recurse -File -Force)) {
     $relative = [IO.Path]::GetRelativePath($root, $file.FullName).Replace('\', '/')
-    if ($relative -match '(^|/)(bin|obj)/') { continue }
+    if ($relative -match '(^|/)(bin|obj|node_modules)/') { continue }
     $destination = Join-Path $fixture $relative
     New-Item -ItemType Directory -Path (Split-Path $destination) -Force | Out-Null
     Copy-Item -LiteralPath $file.FullName -Destination $destination
@@ -74,6 +74,12 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'QuaysideRoutes.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'CopperlineDesk.browser.js'), (Join-Path $PSScriptRoot 'Test-CopperlineDesk.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'CairnSignals.prepare.js'), (Join-Path $PSScriptRoot 'CairnSignals.browser.js'), (Join-Path $PSScriptRoot 'Test-CairnSignals.ps1') (Join-Path $fixture 'eng')
+  # Retain every recorded helper input, including newly authored browser checks.
+  foreach ($inputPath in ($inputPaths | Where-Object { $_.StartsWith('eng/', [StringComparison]::Ordinal) })) {
+    $destination = Join-Path $fixture $inputPath
+    New-Item -ItemType Directory -Path (Split-Path $destination) -Force | Out-Null
+    Copy-Item -LiteralPath (Join-Path $root $inputPath) -Destination $destination
+  }
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
   & pwsh @buildArgs
