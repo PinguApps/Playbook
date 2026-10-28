@@ -1,0 +1,44 @@
+<!-- snippet:complete -->
+@namespace WillowQuay
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@implements IDisposable
+@inject IJSRuntime JS
+@inject PanelAudit Audit
+<section>
+    <h2>Water-level instrument panel</h2>
+    <button id="read-panel" @onclick="ReadPanel">Read instrument</button>
+    <output id="instrument">@reading</output>
+</section>
+@code {
+    private DotNetObjectReference<InstrumentPanel>? reference;
+    private string reading = "Ready";
+
+    private async Task ReadPanel()
+    {
+        reference ??= DotNetObjectReference.Create(this);
+        try
+        {
+            reading = await JS.InvokeAsync<string>("willowPanel.read", reference);
+        }
+        catch (JSException)
+        {
+            reading = "Callback unavailable";
+        }
+    }
+
+    [JSInvokable("AcceptLevel")]
+    public string ReceiveLevel(int centimeters)
+    {
+        // Public interop access grants no permission to perform privileged work.
+        if (centimeters is < 0 or > 500) throw new ArgumentOutOfRangeException(nameof(centimeters));
+        return $"Level {centimeters} cm";
+    }
+
+    public void Dispose()
+    {
+        reference?.Dispose();
+        Audit.PanelDisposed();
+    }
+}
+<!-- endsnippet:complete -->

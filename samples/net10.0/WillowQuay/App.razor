@@ -1,0 +1,15 @@
+<!-- snippet:complete -->
+@namespace WillowQuay
+@using Microsoft.AspNetCore.Components.Web
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><base href="/" /><title>Willow Quay action desk</title></head>
+<body>
+    <h1>Willow Quay action desk</h1>
+    <ActionDesk @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <script src="@Assets["panel.js"]"></script>
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:complete -->
