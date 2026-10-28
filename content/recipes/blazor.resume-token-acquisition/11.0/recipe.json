@@ -113,7 +113,9 @@
         ],
         "evidenceSamples": [
           "samples/net11.0/HydrophoneArchive/HydrophoneArchive.csproj"
-        ]
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
       }
     ]
   },

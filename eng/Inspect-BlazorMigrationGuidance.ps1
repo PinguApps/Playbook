@@ -70,8 +70,8 @@ try {
         if ($found.Count -ne 1) { throw "Missing or duplicate discovery: $id" }
         $metadata = Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/11.0/recipe.json") -Raw | ConvertFrom-Json
         foreach ($route in $metadata.applicability.routes) {
-          $route | Add-Member -NotePropertyName sharedAreas -NotePropertyValue @()
-          $route | Add-Member -NotePropertyName neutralLanguages -NotePropertyValue @()
+          if (-not $route.PSObject.Properties['sharedAreas']) { $route | Add-Member -NotePropertyName sharedAreas -NotePropertyValue @() }
+          if (-not $route.PSObject.Properties['neutralLanguages']) { $route | Add-Member -NotePropertyName neutralLanguages -NotePropertyValue @() }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
         $response = Invoke-RecipeTool 'get_recipe' @("id=$id")

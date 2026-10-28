@@ -31,7 +31,7 @@ try {
     $negativeOutput = & $Net11Dotnet build -c Release --no-restore -p:UseRazorSourceGenerator=true | Out-String
     $generated = Get-ChildItem -LiteralPath (Join-Path $gallery11 'obj/Release/net11.0/generated') -Recurse -Filter 'App_razor.g.cs' | Select-Object -First 1
     $code = Get-Content -LiteralPath $generated.FullName -Raw
-    if ($code -notmatch 'Assets\[@"images/sounding.svg"\]' -or $code -notmatch 'source=\\"~/images/sounding.svg\\"') {
+    if ($code -notmatch 'Assets\[@"images/sounding.svg"\]' -or $code -notmatch 'museum-image[^\r\n]*source=(?:\\"|"")~/images/sounding.svg') {
       throw 'RC2 source-generator control changed: reconcile the route before recapturing evidence.'
     }
     $negativeOutput += "`nPASS: component parameter expands; custom HTML remains a literal ~/ path with source generation."

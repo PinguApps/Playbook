@@ -2,7 +2,7 @@ Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
   @RemovedBlazorMigration
-  Scenario: Router and manual validation migrations retain verified offline guidance
+  Scenario: Router validation token and asset migrations retain verified offline guidance
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then removed Blazor migrations retain complete canonical guidance and execution evidence
