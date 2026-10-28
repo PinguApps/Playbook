@@ -1,0 +1,19 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using MaritimeGallery
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head><base href="/museum/" /><title>Maritime museum</title></head>
+<body>
+<h1>Lead-line collection</h1>
+<ExhibitImage Source="@Assets["images/sounding.svg"]" Caption="~/images/sounding.svg" />
+<museum-image id="custom" source="@Assets["images/sounding.svg"]"></museum-image>
+<ExhibitImage Source="images/unknown.svg" Caption="Unlisted asset stays literal" />
+<museum-image id="bare" source="images/sounding.svg"></museum-image>
+<img id="builtin" src="@Assets["images/sounding.svg"]" alt="Lead line" />
+<museum-image id="unknown" source="images/unknown.svg"></museum-image>
+<museum-image id="arbitrary" source="collection:lead-line"></museum-image>
+<span id="plain" data-path="~/images/sounding.svg">Unmarked HTML attribute</span>
+</body></html>
+<!-- endsnippet:complete -->

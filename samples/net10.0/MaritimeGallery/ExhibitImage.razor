@@ -1,0 +1,10 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using MaritimeGallery
+<img id="exhibit" src="@Source" alt="Sounding weight" />
+<span id="caption">@Caption</span>
+@code {
+    [Parameter] public string? Source { get; set; }
+    [Parameter] public string? Caption { get; set; }
+}
+<!-- endsnippet:complete -->

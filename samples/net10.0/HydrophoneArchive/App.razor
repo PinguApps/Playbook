@@ -1,0 +1,72 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using HydrophoneArchive
+@using Microsoft.AspNetCore.Components.Web
+@inject NavigationManager Navigation
+@inject IAccessTokenProvider Tokens
+@inject ArchiveProvider Boundary
+
+<h1>Hydrophone archive</h1>
+<p>Controlled result handling; no external sign-in or protected download occurs.</p>
+<button id="success" @onclick='() => Download("success")'>Use available token</button>
+<button id="redirect" @onclick='() => Download("redirect")'>Request interaction</button>
+<button id="exception" @onclick='() => Download("exception")'>Existing exception caller</button>
+<button id="exception-default" @onclick='() => Download("exception-default")'>Exception with options</button>
+<button id="fallback" @onclick='() => Download("fallback")'>Exception without options</button>
+<button id="modern-fallback" @onclick='() => Download("modern-fallback")'>Old fallback with new producer</button>
+<button id="legacy" @onclick='() => Download("legacy")'>Old result producer</button>
+<p id="outcome">@outcome</p>
+<p id="request">@Boundary.LastRequest</p>
+
+@code {
+    private string outcome = "Ready";
+
+    private async Task Download(string mode)
+    {
+        Boundary.Mode = mode;
+        // Fixed application-owned return location: never accept an arbitrary query URL.
+        var returnUrl = Navigation.ToAbsoluteUri("recordings/reef-17").AbsoluteUri;
+        var result = await Tokens.RequestAccessToken(new AccessTokenRequestOptions
+        {
+            Scopes = ["recordings.read"], ReturnUrl = returnUrl
+        });
+        if (result.TryGetToken(out var token))
+        {
+            // A real app uses the token in its authorized API request; don't display it.
+            outcome = token.GrantedScopes.Contains("recordings.read") ? "Token available; no navigation" : "Missing scope";
+            return;
+        }
+        if (mode == "modern-fallback")
+        {
+            try { new AccessTokenNotAvailableException(Navigation, result, ["recordings.read"]).Redirect(); }
+            catch (ArgumentNullException) { outcome = "Old fallback cannot read the current URL"; }
+            return;
+        }
+        if (mode is "exception" or "exception-default" or "fallback")
+        {
+            var exception = new AccessTokenNotAvailableException(Navigation, result, ["recordings.read"]);
+            if (mode == "exception")
+                exception.Redirect(options => options.TryAddAdditionalParameter("prompt", "consent"));
+            else
+                exception.Redirect(); // Existing parameterless caller: no-options fallback.
+            return;
+        }
+        if (mode == "legacy")
+        {
+#pragma warning disable CS0618 // .NET 10 migration fixture only; removed in .NET 11.
+            Navigation.NavigateTo(result.RedirectUrl!);
+#pragma warning restore CS0618
+            return;
+        }
+        if (result.Status == AccessTokenResultStatus.RequiresRedirect &&
+            result.InteractiveRequestUrl is { } login && result.InteractionOptions is { } options)
+        {
+            Navigation.NavigateToLogin(login, options);
+            return;
+        }
+        throw new InvalidOperationException("Interactive result must include URL and options.");
+    }
+}
+<!-- endsnippet:complete -->
