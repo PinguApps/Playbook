@@ -90,6 +90,10 @@ hosts after HTTP checks. It does not automate the browser or count HTTP as inter
 
 Installed guidance inspection and independent consumer reconstruction:
 
+Requires Node.js **22.19+** with npm (or pass absolute `-Node`), and network access
+for the first pinned Inspector 2.11.0 installation and any uncached .NET/package
+restore. The installed guidance itself is embedded and works offline afterwards.
+
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2aa91b80'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 -BuildAndPack `

@@ -10,9 +10,10 @@ disk storage, a bulk upload service or a file-format parser.
 ## Older approach
 
 The .NET 10 app deliberately retains dead `RemoteBrowserFileStreamOptions`
-registration as a migration fixture. It exercises the constructor and all three
-properties: `MaxSegmentSize`, `MaxBufferSize` and `SegmentFetchTimeout`. The narrow
-CS0618 suppression surrounds only that obsolete registration. Its values no longer
+registration as a migration fixture. It configures all three properties:
+`MaxSegmentSize`, `MaxBufferSize` and `SegmentFetchTimeout`. Options activation
+would use the public parameterless constructor, but this app never resolves the
+unused options. The narrow CS0618 suppression surrounds only that registration. Its values no longer
 control this transfer. The real size/cancellation policy is already at
 `IBrowserFile.OpenReadStream(long, CancellationToken)`, which remains valid on .NET 10.
 Removing the dead registration is also a supported .NET 10 cleanup.
