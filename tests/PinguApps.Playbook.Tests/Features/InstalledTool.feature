@@ -1,6 +1,14 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @RequestPolicies
+  Scenario: Tenant cache encoding and concurrency policies retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then request policy guidance retains canonical bodies full applicability and target editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @LanternTransport
   Scenario: TLS protocol and tracing guidance retain complete offline contracts
     Given the actual package is installed from an isolated local feed and cache

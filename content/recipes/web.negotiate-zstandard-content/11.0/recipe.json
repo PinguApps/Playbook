@@ -1,0 +1,200 @@
+{
+  "id": "web.negotiate-zstandard-content",
+  "edition": "11.0",
+  "title": "Choose response compression and accepted request encodings",
+  "goal": "Offer Zstandard with a gzip fallback and limit accepted compressed uploads when clients support different content encodings.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-request-policy",
+    "harbourencoding"
+  ],
+  "apis": [
+    "ZstandardCompressionProvider",
+    "ZstandardCompressionProviderOptions",
+    "AddResponseCompression",
+    "AddRequestDecompression",
+    "DecompressionProviders"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "ASP.NET Core 11 supplies the new surface; exact observed runtime is RC2, not GA evidence."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100-rc.2.26504.105."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample mode; older comparison uses C# 14 with SDK 10.0.402."
+          },
+          "frameworks": [
+            "ASP.NET Core on Kestrel"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0 shared framework and Microsoft.NETCore.App runtime assets. The comparison uses corresponding net10.0 assets. No separate package for the new API."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback HTTP server; process-local state only. No account, database or remote service."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actually executed on Windows x64 only. No browser/WASI, native, AOT or cross-platform execution claim."
+          ],
+          "renderingModes": [
+            "Server HTTP endpoints; no Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "Save each complete sample in its own directory with the shown SDK/project/build/package files. Restore framework packs before executing. The installed guidance is offline."
+          ],
+          "constraints": [
+            "Explicit response providers replace automatic defaults: zstd and gzip only here. Explicitly remove br/deflate from the built-in request decoder registry; unsupported or stacked encodings normally pass through the middleware, so this app returns 415 when Content-Encoding remains. Response negotiation and request decoding are independent. HTTPS compression stays disabled because reflected secrets can leak through compressed size. Limit decompressed bodies as well as wire bytes. Built-in Zstandard needs .NET 11; no external .NET 10 codec route is verified. Browser/WASI are unsupported by the built-in codec."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API intent prepared from pinned .NET 11 RC2 artifacts under ADR 0004; GA reconciliation remains pending. No experimental opt-in applies."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/HarbourEncoding/HarbourEncoding.csproj"
+        ],
+        "selectionNotes": [
+          "Explicit response providers replace automatic defaults: zstd and gzip only here. Explicitly remove br/deflate from the built-in request decoder registry; unsupported or stacked encodings normally pass through the middleware, so this app returns 415 when Content-Encoding remains. Response negotiation and request decoding are independent. HTTPS compression stays disabled because reflected secrets can leak through compressed size. Limit decompressed bodies as well as wire bytes. Built-in Zstandard needs .NET 11; no external .NET 10 codec route is verified. Browser/WASI are unsupported by the built-in codec."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/request-decompression?view=aspnetcore-11.0",
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview3/aspnetcore.md",
+          "https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/RequestDecompression/src/RequestDecompressionOptions.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Response compression and explicit provider selection",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Request decompression and size limits",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/request-decompression?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Zstandard middleware introduction",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/preview3/aspnetcore.md"
+    },
+    {
+      "title": "RC2 built-in request decoder registry",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/RequestDecompression/src/RequestDecompressionOptions.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/HarbourEncoding/HarbourEncoding.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 .NET 10.0.13 compilation/execution: explicit gzip response and upload round trips; zstd-only response uses identity; quality/exclusion and unsupported response fallback; unsupported/stacked request 415; decompressed gzip exceeding 1024 bytes returns 413. No zstd codec or external interoperability claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/HarbourEncoding/HarbourEncoding.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 .NET 11 RC2 compilation/execution: raw zstd/gzip response negotiation and decompressed body equality, quality weighting/q=0, identity and unsupported fallback; real zstd/gzip uploads, unsupported/stacked 415 and decompressed 1024-byte limit returning 413 for both codecs. No browser/proxy/HTTPS or third-party peer test."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused HTTP behavior runs locally without owner-only resources. Does not settle product-wide client/platform coverage or GA/publication gates."
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/HarbourEncoding/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/HarbourEncoding/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/HarbourEncoding/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/HarbourEncoding/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-harbourencoding-csproj": {
+      "path": "samples/net10.0/HarbourEncoding/HarbourEncoding.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/HarbourEncoding/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/HarbourEncoding/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/HarbourEncoding/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/HarbourEncoding/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/HarbourEncoding/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-harbourencoding-csproj": {
+      "path": "samples/net11.0/HarbourEncoding/HarbourEncoding.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/HarbourEncoding/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

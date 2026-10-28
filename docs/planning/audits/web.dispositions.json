@@ -141,13 +141,13 @@
     {
       "id": "output-policy",
       "pattern": " Microsoft\\.AspNetCore\\.OutputCaching\\.IOutputCachePolicyProvider",
-      "owner": "PIN-834",
+      "owner": "PIN-834 delivered caching.resolve-policy-dynamically; actual StationCache .NET 10/11 HTTP cache hits, tenant/revision isolation and changing policy snapshots; GA reconciliation pending",
       "disposition": "grouped"
     },
     {
       "id": "zstd",
       "pattern": " Microsoft\\.AspNetCore\\.ResponseCompression\\.Zstandard",
-      "owner": "PIN-835",
+      "owner": "PIN-835 delivered web.negotiate-zstandard-content; actual HarbourEncoding explicit provider selection, raw response negotiation, request decoding, unsupported/stacked 415 and expanded-body 413; GA reconciliation pending",
       "disposition": "grouped"
     },
     {

@@ -1,0 +1,199 @@
+{
+  "id": "caching.resolve-policy-dynamically",
+  "edition": "11.0",
+  "title": "Select output caching from current tenant policy",
+  "goal": "Resolve named output-cache policies dynamically when tenant settings change, keeping cache entries separated by tenant and policy revision.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-request-policy",
+    "stationcache"
+  ],
+  "apis": [
+    "IOutputCachePolicyProvider",
+    "IOutputCachePolicy",
+    "OutputCacheContext",
+    "CacheOutput"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "ASP.NET Core 11 supplies the new surface; exact observed runtime is RC2, not GA evidence."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 application with an SDK supporting that target; sample pin is 11.0.100-rc.2.26504.105."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample mode; older comparison uses C# 14 with SDK 10.0.402."
+          },
+          "frameworks": [
+            "ASP.NET Core on Kestrel"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0 shared framework and Microsoft.NETCore.App runtime assets. The comparison uses corresponding net10.0 assets. No separate package for the new API."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback HTTP server; process-local state only. No account, database or remote service."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actually executed on Windows x64 only. No browser/WASI, native, AOT or cross-platform execution claim."
+          ],
+          "renderingModes": [
+            "Server HTTP endpoints; no Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "Save each complete sample in its own directory with the shown SDK/project/build/package files. Restore framework packs before executing. The installed guidance is offline."
+          ],
+          "constraints": [
+            "The provider receives a policy name, not HttpContext or cancellation. Use request context deliberately; never keep tenant state in singleton fields. Named-policy resolution can run in several stages: snapshot once per request. Partition public output by tenant and revision; changing policy does not evict existing cache entries. Every enable/disable transition must increase the revision or a prior entry can revive until expiry. Unknown tenants bypass caching. This example caches only unauthenticated GET/HEAD 200 responses without Set-Cookie; it is not a private-data cache or an authorization boundary."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API intent prepared from pinned .NET 11 RC2 artifacts under ADR 0004; GA reconciliation remains pending. No experimental opt-in applies."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/StationCache/StationCache.csproj"
+        ],
+        "selectionNotes": [
+          "The provider receives a policy name, not HttpContext or cancellation. Use request context deliberately; never keep tenant state in singleton fields. Named-policy resolution can run in several stages: snapshot once per request. Partition public output by tenant and revision; changing policy does not evict existing cache entries. Every enable/disable transition must increase the revision or a prior entry can revive until expiry. Unknown tenants bypass caching. This example caches only unauthenticated GET/HEAD 200 responses without Set-Cookie; it is not a private-data cache or an authorization boundary."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11#ioutputcachepolicyprovider-interface",
+          "https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/OutputCaching/src/IOutputCachePolicyProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/OutputCaching/src/Policies/NamedPolicy.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-11.0"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Output-cache policy provider in ASP.NET Core 11",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11#ioutputcachepolicyprovider-interface"
+    },
+    {
+      "title": "RC2 provider contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/OutputCaching/src/IOutputCachePolicyProvider.cs"
+    },
+    {
+      "title": "RC2 named-policy resolution at each cache stage",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v11.0.0-rc.2.26504.105/src/Middleware/OutputCaching/src/Policies/NamedPolicy.cs"
+    },
+    {
+      "title": "Output caching and custom policies",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/StationCache/StationCache.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 .NET 10.0.13 compilation and execution: 11 loopback HTTP requests, 7 handler executions, tenant isolation, cache hits, disable/re-enable, revision invalidation and unknown-station bypass through a registered custom IOutputCachePolicy. One rule read per request."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/StationCache/StationCache.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 .NET 11 RC2 compilation and execution: 11 loopback HTTP requests, 7 handler executions, tenant isolation, cache hits, disable/re-enable, revision invalidation and unknown-station bypass through IOutputCachePolicyProvider. One rule read per request despite multiple named-policy stages."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused HTTP behavior runs locally without owner-only resources. Does not settle product-wide client/platform coverage or GA/publication gates."
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/StationCache/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/StationCache/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/StationCache/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/StationCache/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-stationcache-csproj": {
+      "path": "samples/net10.0/StationCache/StationCache.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/StationCache/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/StationCache/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/StationCache/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/StationCache/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/StationCache/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-stationcache-csproj": {
+      "path": "samples/net11.0/StationCache/StationCache.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/StationCache/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

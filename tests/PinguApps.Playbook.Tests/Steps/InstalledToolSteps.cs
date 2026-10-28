@@ -11,6 +11,14 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("request policy guidance retains canonical bodies full applicability and target editions")]
+    public async Task CheckRequestPoliciesAsync()
+    {
+        string[] ids = ["caching.resolve-policy-dynamically", "web.migrate-concurrency-middleware", "web.negotiate-zstandard-content"];
+        await CheckWebRecipesAsync(ids, "web-request-policy", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
     [Then("lantern transport guidance retains canonical bodies full applicability and target editions")]
     public async Task CheckLanternTransportAsync()
     {
