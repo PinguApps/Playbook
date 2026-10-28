@@ -1,8 +1,8 @@
+// snippet:model
 using System.ComponentModel.DataAnnotations;
 
 namespace Playbook.Samples;
 
-// snippet:model
 public sealed class RepairJob
 {
     [AllowedMaterial]

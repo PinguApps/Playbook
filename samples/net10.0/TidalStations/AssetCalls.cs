@@ -1,8 +1,8 @@
+// snippet:assets
 using Microsoft.AspNetCore.Components;
 
 namespace Playbook.Samples;
 
-// snippet:assets
 public static class AssetCalls
 {
     // These calls compile unchanged on both actual targets. The second argument is optional.

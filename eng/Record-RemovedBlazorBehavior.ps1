@@ -43,7 +43,11 @@ try {
     if (($after | ConvertTo-Json -Compress) -cne ($record.inputs | ConvertTo-Json -Compress)) { throw 'Inputs changed during actual execution.' }
     $record.kind = 'execution'
     $record.command = $command
-    $record.scope = if ($name -eq 'SailRepairs') { 'Real scoped DI, field/submit validation, one handler/message, three replacements, detached old subscriptions and final disposal; .NET 10 providerless failure fixtures. Synchronous catalogue rule; no generated graph or async-rule claim.' } else { 'Real HTTP static SSR exact/parameter routes and live Interactive Server navigation with prerender disabled. Asset constructor calls are compilation-only evidence.' }
+    $record.scope = if ($name -eq 'SailRepairs') {
+      'Real scoped DI, field/submit validation, one handler/message, three replacements, detached old subscriptions and final disposal. ' +
+        $(if ($record.target -eq 'net10.0') { '.NET 10 providerless failure fixtures. ' } else { 'Providerless failure fixtures are covered by the separate .NET 10 record. ' }) +
+        'Synchronous catalogue rule; no generated graph or async-rule claim.'
+    } else { 'Real HTTP static SSR exact/parameter routes and live Interactive Server navigation with prerender disabled. Asset constructor calls are compilation-only evidence.' }
     $record.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
     $record.output = $output
     $record.sourceCommit = (& (Get-Command git -CommandType Application).Source -C $root rev-parse HEAD).Trim()

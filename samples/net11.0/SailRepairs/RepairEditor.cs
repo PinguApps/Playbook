@@ -1,8 +1,8 @@
+// snippet:lifetime
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace Playbook.Samples;
 
-// snippet:lifetime
 public sealed class RepairEditor : IDisposable
 {
     private readonly IServiceProvider _services;

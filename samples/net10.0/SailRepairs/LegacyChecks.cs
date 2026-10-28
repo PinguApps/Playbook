@@ -1,8 +1,8 @@
+// snippet:legacy
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace Playbook.Samples;
 
-// snippet:legacy
 public static class LegacyChecks
 {
     public static void Run()

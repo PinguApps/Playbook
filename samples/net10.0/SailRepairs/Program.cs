@@ -1,6 +1,6 @@
+// snippet:startup
 using Playbook.Samples;
 
-// snippet:startup
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddScoped<MaterialCatalogue>();

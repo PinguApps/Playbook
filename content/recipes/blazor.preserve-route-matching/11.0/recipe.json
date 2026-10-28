@@ -93,7 +93,9 @@
         ],
         "evidenceSamples": [
           "samples/net11.0/TidalStations/TidalStations.csproj"
-        ]
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
       }
     ]
   },

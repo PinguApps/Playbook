@@ -16,6 +16,7 @@ public sealed class InstalledToolSteps : IDisposable
     {
         string[] ids = ["blazor.preserve-route-matching", "blazor.validate-with-scoped-services"];
         await CheckWebRecipesAsync(ids, "removed-api", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
         foreach (string id in ids)
         {
             JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");

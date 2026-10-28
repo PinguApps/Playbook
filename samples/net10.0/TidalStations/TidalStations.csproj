@@ -3,8 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>14.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <!-- Only the historical inert Router parameter below requires this warning suppression. -->
+    <!-- This historical fixture intentionally suppresses CS0618 project-wide for its inert Router parameter. -->
     <NoWarn>$(NoWarn);CS0618</NoWarn>
   </PropertyGroup>
 </Project>

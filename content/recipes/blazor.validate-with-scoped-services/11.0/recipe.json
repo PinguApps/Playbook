@@ -95,7 +95,9 @@
         ],
         "evidenceSamples": [
           "samples/net11.0/SailRepairs/SailRepairs.csproj"
-        ]
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
       }
     ]
   },
@@ -146,7 +148,7 @@
       "language": "15.0",
       "kind": "execution",
       "record": "samples/net11.0/SailRepairs/behavior.evidence.json",
-      "scope": "Actual Chromium field/submit rejection and acceptance; scoped catalogue, three editor replacements, one current handler/message, old/final subscription disposal. .NET 10 providerless fixtures cannot resolve the service."
+      "scope": "Actual Chromium field/submit rejection and acceptance; scoped catalogue, three editor replacements, one current handler/message, old/final subscription disposal. The separate .NET 10 record covers the providerless failure fixtures."
     }
   ],
   "snippets": {
