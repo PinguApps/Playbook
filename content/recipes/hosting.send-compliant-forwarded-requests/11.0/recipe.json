@@ -107,7 +107,7 @@
       "kind": "compile-and-run",
       "language": "14.0",
       "sample": "samples/net10.0/LanternForwarding/LanternForwarding.csproj",
-      "scope": "Actual TCP HTTP/1.1 ambiguous framing closes after response; corrected requests reuse the connection. Raw HPACK HTTP/2 and QPACK HTTP/3 send six malformed/corrected pairs each. RC2 rejects all six; .NET 10.0.13 accepts four obsolete headers and rejects Connection/invalid TE. Corrected requests receive OK. Request counters exclude accidental application acceptance; MsQuic 2.5.11.159415436 used on Windows x64."
+      "scope": "Actual .NET 10.0.13 TCP HTTP/1.1 ambiguous framing closes after processing; corrected pipeline reuses connection. Raw HTTP/2 and HTTP/3 six malformed/corrected pairs each: four obsolete fields accepted per protocol, Connection/invalid TE rejected. Corrected controls return OK and the real origin checks absence of proxy credentials/challenges, Trailer and Connection-nominated fields. Handler count 23. Windows x64 MsQuic 2.5.11.159415436."
     },
     {
       "target": "net11.0",
@@ -115,7 +115,7 @@
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/LanternForwarding/LanternForwarding.csproj",
-      "scope": "Actual TCP HTTP/1.1 ambiguous framing closes after response; corrected requests reuse the connection. Raw HPACK HTTP/2 and QPACK HTTP/3 send six malformed/corrected pairs each. RC2 rejects all six; .NET 10.0.13 accepts four obsolete headers and rejects Connection/invalid TE. Corrected requests receive OK. Request counters exclude accidental application acceptance; MsQuic 2.5.11.159415436 used on Windows x64."
+      "scope": "Actual .NET 11 RC2 TCP HTTP/1.1 ambiguous framing closes after processing; corrected pipeline reuses connection. Six raw HPACK HTTP/2 and QPACK HTTP/3 malformed/corrected pairs each: all malformed requests rejected, corrected requests return OK and the real origin checks absence of proxy credentials/challenges, Trailer and Connection-nominated fields. Handler count 15. Windows x64 MsQuic 2.5.11.159415436."
     }
   ],
   "humanProof": {

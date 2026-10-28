@@ -28,6 +28,11 @@ await using var app = builder.Build();
 app.MapMethods("/delivery", ["GET", "POST"], async context =>
 {
     Interlocked.Increment(ref accepted);
+    if (context.Request.Headers.ContainsKey("x-lantern-station"))
+    {
+        string[] localFields = ["proxy-authorization", "proxy-authenticate", "trailer", "x-lantern-internal"];
+        Require(!localFields.Any(context.Request.Headers.ContainsKey), "Proxy credentials or connection-local fields reached the origin.");
+    }
     await context.Request.Body.CopyToAsync(Stream.Null);
     context.Response.ContentLength = 2;
     await context.Response.WriteAsync("OK");
@@ -50,8 +55,10 @@ Require((await SendHttp1Async(pipeline)).Split("200 OK").Length == 3, "Corrected
 foreach (var header in new[] { ("connection", "close"), ("proxy-connection", "keep-alive"), ("keep-alive", "timeout=5"), ("transfer-encoding", "chunked"), ("upgrade", "h2c"), ("te", "gzip") })
 {
     bool reset = await SendHttp2Async([header]);
-    Require(reset, $"Malformed H2 {header.Item1} must reset the stream.");
-    var clean = ForwardHeaders([header, ("x-lantern-station", "north"), ("te", "trailers")], 2).ToArray();
+    Require(reset, $"Malformed H2 {header.Item1} must be rejected.");
+    var clean = ForwardHeaders([header, ("x-lantern-station", "north"), ("te", "trailers"),
+        ("connection", "x-lantern-internal"), ("x-lantern-internal", "local"),
+        ("proxy-authorization", "Basic Zml4dHVyZTpsb2NhbA=="), ("proxy-authenticate", "Basic"), ("trailer", "x-checksum")], 2).ToArray();
     Require(!await SendHttp2Async(clean), $"Corrected H2 {header.Item1} must receive a response.");
     if (OperatingSystem.IsWindows() || OperatingSystem.IsLinux() || OperatingSystem.IsMacOS())
     {
@@ -72,7 +79,8 @@ static IEnumerable<(string Name, string Value)> ForwardHeaders(IEnumerable<(stri
     var headers = incoming.ToArray();
     var remove = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
     {
-        "connection", "proxy-connection", "keep-alive", "transfer-encoding", "upgrade", "content-length", "host"
+        "connection", "proxy-connection", "keep-alive", "transfer-encoding", "upgrade", "content-length", "host",
+        "proxy-authorization", "proxy-authenticate", "trailer"
     };
     // Also remove fields nominated by an incoming HTTP/1 Connection header.
     foreach (var header in headers.Where(header => header.Name.Equals("connection", StringComparison.OrdinalIgnoreCase)))
@@ -85,7 +93,7 @@ static IEnumerable<(string Name, string Value)> ForwardHeaders(IEnumerable<(stri
         if (header.Name.Equals("te", StringComparison.OrdinalIgnoreCase) && (protocolMajor < 2 || !header.Value.Trim().Equals("trailers", StringComparison.OrdinalIgnoreCase))) { continue; }
         yield return (header.Name.ToLowerInvariant(), header.Value);
     }
-    // Regenerate authority and body framing from the outbound request; never copy wire framing blindly.
+    // This filter only removes inbound fields. The outbound writer must generate authority and body framing.
 }
 // endsnippet:filter
 

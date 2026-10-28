@@ -114,7 +114,7 @@
       "kind": "compile-and-run",
       "language": "14.0",
       "sample": "samples/net10.0/LanternTraces/LanternTraces.csproj",
-      "scope": "Real MVC success and unhandled-error requests exported through OpenTelemetry 1.20.1 with a custom domain processor and exporter. Exactly one native server span per request; method/status tags, resolved conventional routes, Error/null description and error.type asserted. Fresh-process suppression verifies absent native HTTP/route tags, Unset error status, continued spans/domain tags and null description. Older .NET 10 uses AspNetCore instrumentation 1.20.1 and raw conventional route template. No remote collector or metric execution claim."
+      "scope": "Actual .NET 10.0.13 MVC success/error requests through OpenTelemetry and AspNetCore instrumentation 1.20.1, with a custom domain processor/exporter. Exactly two distinct server spans, source identity, domain enrichment, method tag, raw conventional route template and Error/null description asserted. No fresh-process suppression, resolved-route or error.type assertion is claimed on this target."
     },
     {
       "target": "net11.0",
@@ -122,7 +122,7 @@
       "kind": "compile-and-run",
       "language": "15.0",
       "sample": "samples/net11.0/LanternTraces/LanternTraces.csproj",
-      "scope": "Real MVC success and unhandled-error requests exported through OpenTelemetry 1.20.1 with a custom domain processor and exporter. Exactly one native server span per request; method/status tags, resolved conventional routes, Error/null description and error.type asserted. Fresh-process suppression verifies absent native HTTP/route tags, Unset error status, continued spans/domain tags and null description. Older .NET 10 uses AspNetCore instrumentation 1.20.1 and raw conventional route template. No remote collector or metric execution claim."
+      "scope": "Actual .NET 11 RC2 MVC success/error requests through OpenTelemetry 1.20.1 with a custom domain processor/exporter and no AspNetCore instrumentation dependency. Exactly two distinct native server spans, source identity, domain enrichment, method/response tags, resolved conventional routes, Error/null description and error.type asserted. Fresh-process suppression asserts absent native HTTP/route tags, Unset error status, continued spans/domain tags and null description. No remote collector or metric execution claim."
     }
   ],
   "humanProof": {
