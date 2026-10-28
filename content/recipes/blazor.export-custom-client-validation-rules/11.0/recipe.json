@@ -1,0 +1,209 @@
+{
+  "id": "blazor.export-custom-client-validation-rules",
+  "edition": "11.0",
+  "title": "Connect a custom server form rule to browser validation",
+  "goal": "Export a custom DataAnnotations rule into static SSR browser feedback while preserving authoritative validation for enhanced, plain and bypassed posts.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "forms",
+    "validation",
+    "custom-rules",
+    "garden-library"
+  ],
+  "apis": [
+    "ClientValidationProvider",
+    "ClientValidationRule",
+    "IClientValidationRuleProvider",
+    "DisableClientValidation",
+    "Blazor.formValidation.addValidator"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Static SSR enhanced/plain forms only; interactive forms use .NET EditContext validation.",
+          "Only one top-level synchronous shape rule; server validation remains authoritative."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins identify measured proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical language mode; no preview syntax required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser/static assets; implicit dependency locked at 11.0.0-rc.2.26504.105 in the measured sample. No additional PackageReference."
+          ],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core server; measured Windows x64. No native toolchain/workload requirement."
+          ],
+          "renderingModes": [
+            "Blazor static SSR; enhanced and plain form posts"
+          ],
+          "prerequisites": [
+            "Use the Web SDK with nullable and implicit usings enabled, namespace Playbook.Samples and the complete offline host/components/initializers below."
+          ],
+          "constraints": [
+            "Static SSR enhanced/plain forms only; interactive forms use .NET EditContext validation.",
+            "Only one top-level synchronous shape rule; server validation remains authoritative.",
+            "No older-target package route, trimming/AOT, other-browser or GA execution claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "GA-targeted 11.0 guidance verified against RC2, not actual GA; inspected APIs carry no experimental opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation-client-side?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Forms/IClientValidationRuleProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Forms/DataAnnotationsClientValidationProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/ClientValidation/ClientValidationProvider.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/GardenAccession/GardenAccession.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official static SSR client validation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation-client-side?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned custom rule export",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Forms/IClientValidationRuleProvider.cs"
+    },
+    {
+      "title": "Pinned framework provider mapping",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Forms/DataAnnotationsClientValidationProvider.cs"
+    },
+    {
+      "title": "Pinned provider contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/ClientValidation/ClientValidationProvider.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/GardenAccession/GardenAccession.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation with locked implicit assets. Does not establish browser/request behavior."
+    },
+    {
+      "sample": "samples/net10.0/GardenAccession/GardenAccession.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "record": "samples/net10.0/GardenAccession/behavior.evidence.json",
+      "scope": "Actual Chromium enhanced/plain client feedback, valid/bypassed/direct server posts; RC2 rule mapping and per-form/global opt-outs."
+    },
+    {
+      "sample": "samples/net11.0/GardenAccession/GardenAccession.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation with locked implicit assets. Does not establish browser/request behavior."
+    },
+    {
+      "sample": "samples/net11.0/GardenAccession/GardenAccession.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "record": "samples/net11.0/GardenAccession/behavior.evidence.json",
+      "scope": "Actual Chromium enhanced/plain client feedback, valid/bypassed/direct server posts; RC2 rule mapping and per-form/global opt-outs."
+    }
+  ],
+  "snippets": {
+    "older-rule": {
+      "path": "samples/net10.0/GardenAccession/AccessionAttribute.cs",
+      "region": "rule",
+      "language": "csharp"
+    },
+    "model": {
+      "path": "samples/net11.0/GardenAccession/AccessionAttribute.cs",
+      "region": "model",
+      "language": "csharp"
+    },
+    "older-form": {
+      "path": "samples/net10.0/GardenAccession/Entry.razor",
+      "region": "form",
+      "language": "razor"
+    },
+    "older-client": {
+      "path": "samples/net10.0/GardenAccession/wwwroot/GardenAccession.lib.module.js",
+      "region": "client",
+      "language": "javascript"
+    },
+    "newer-rule": {
+      "path": "samples/net11.0/GardenAccession/AccessionAttribute.cs",
+      "region": "rule",
+      "language": "csharp"
+    },
+    "newer-form": {
+      "path": "samples/net11.0/GardenAccession/Entry.razor",
+      "region": "form",
+      "language": "razor"
+    },
+    "newer-client": {
+      "path": "samples/net11.0/GardenAccession/wwwroot/GardenAccession.lib.module.js",
+      "region": "client",
+      "language": "javascript"
+    },
+    "document": {
+      "path": "samples/net11.0/GardenAccession/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "host": {
+      "path": "samples/net11.0/GardenAccession/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "counts": {
+      "path": "samples/net11.0/GardenAccession/SubmissionCounts.cs",
+      "region": "counts",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused automated real browser/HTTP proof; no Human-only gate for these bounded claims. Other platforms, screen-reader, distributed provider, AOT and GA are not established."
+  }
+}

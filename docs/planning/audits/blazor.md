@@ -1,5 +1,15 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+PIN-1160/1161 deliver the B06/B07 11.0 editions
+blazor.export-custom-client-validation-rules and blazor.declare-component-cache-safety.
+Original GardenAccession/LibraryBadges .NET 10/RC2 consumers cover real browser
+feedback, custom rule mapping, enhanced/plain/direct invalid posts and opt-outs;
+real two-user SSR covers live output, parameter replay, conditional capture and
+refusal. RC2 refuses capture after child initialization; it is not a side-effect
+guard. Canonical compilation/execution records and installed offline checks bind
+these bounded claims. No older-target backport, extra .NET 10 foundation,
+HybridCache/distributed or GA claim is added. PIN-959/PIN-964 remain open.
+
 PIN-1156/1157 deliver `blazor.supply-attribute-selected-state/11.0` and
 `blazor.reuse-contravariant-item-fragments/11.0`. Original ReedArchive and
 AsterObservatory .NET 10/RC2 consumers execute real HtmlRenderer selection,

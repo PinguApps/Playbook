@@ -1,0 +1,10 @@
+@page "/{Mode}"
+<!-- snippet:page -->
+<p id="request" data-ticket="@Ticket">Library request</p>
+<PublicShelf />
+<LiveBadge Ticket="@Ticket" />
+@code {
+    [Parameter] public string Mode { get; set; } = "live";
+    private string Ticket { get; } = Guid.NewGuid().ToString("N");
+}
+<!-- endsnippet:page -->

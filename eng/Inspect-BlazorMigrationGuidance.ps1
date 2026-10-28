@@ -89,7 +89,8 @@ try {
         foreach ($snippet in $metadata.snippets.PSObject.Properties) {
           $value = $snippet.Value
           $source = (Get-Content -LiteralPath (Join-Path $root $value.path) -Raw).Replace("`r`n","`n")
-          $match = [regex]::Match($source,'(?ms)^(?://|<!--) snippet:complete(?: -->)?\n(.*?)^(?://|<!--) endsnippet:complete(?: -->)?')
+          $region = [regex]::Escape($value.region)
+          $match = [regex]::Match($source,"(?ms)^[ \t]*(?://|<!--) snippet:${region}(?: -->)?\n(.*?)^[ \t]*(?://|<!--) endsnippet:${region}(?: -->)?$")
           if (-not $match.Success) { throw "Missing canonical region: $($value.path)" }
           $code = $match.Groups[1].Value.TrimEnd()
           $expectedBody = $expectedBody.Replace('{{snippet:' + $snippet.Name + '}}', ('```' + $value.language + "`n" + $code + "`n" + '```'))

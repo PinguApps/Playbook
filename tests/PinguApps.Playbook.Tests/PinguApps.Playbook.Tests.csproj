@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/GardenAccession/*.cs;../../samples/net*/GardenAccession/*.razor;../../samples/net*/GardenAccession/wwwroot/*.js;../../samples/net*/LibraryBadges/*.cs;../../samples/net*/LibraryBadges/*.razor" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/HydrophoneArchive/*.*;../../samples/net*/HydrophoneArchive/wwwroot/index.html;../../samples/net*/MaritimeGallery/*.*;../../samples/net*/MaritimeGallery/wwwroot/images/sounding.svg" WithCulture="false" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/TidalStations/*.*;../../samples/net*/SailRepairs/*.*" WithCulture="false" LogicalName="SdkInput.%(Identity)" />
     <EmbeddedResource Include="../../samples/net*/QuayArchive/*.*;../../samples/net*/FernPosters/**/*.*;../../samples/net*/BeaconLabels/*.*;../../content/recipes/mvc.remove-compatibility-shims/11.0/recipe.*;../../content/recipes/razor.update-image-helper-extension/11.0/recipe.*;../../content/recipes/mvc.update-property-metadata-identity/11.0/recipe.*" Exclude="../../samples/net*/FernPosters/bin/**;../../samples/net*/FernPosters/obj/**" WithCulture="false" LogicalName="SdkInput.%(Identity)" />
