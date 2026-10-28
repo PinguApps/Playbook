@@ -1,0 +1,13 @@
+<!-- snippet:complete -->
+@namespace GreenhouseValves
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><base href="/" /><title>Greenhouse valve panel</title></head>
+<body>
+    <ValvePanel @rendermode="InteractiveServer" />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+<!-- endsnippet:complete -->
