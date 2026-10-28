@@ -1,0 +1,11 @@
+@* snippet:complete *@
+@using Microsoft.AspNetCore.Components
+@namespace ReedArchive
+@if (show) { <ArchivePanel /> }
+@code {
+    [Parameter] public Action<ArchiveHost>? Capture { get; set; }
+    private bool show = true;
+    protected override void OnInitialized() => Capture?.Invoke(this);
+    public Task HideAsync() => InvokeAsync(() => { show = false; StateHasChanged(); });
+}
+@* endsnippet:complete *@

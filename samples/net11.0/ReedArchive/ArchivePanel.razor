@@ -1,0 +1,11 @@
+@* snippet:complete *@
+@using Microsoft.AspNetCore.Components
+@namespace ReedArchive
+@implements IArchiveSubscriber
+<p>letters:@Letters.Count; maps:@Maps.Count</p>
+@code {
+    [FromArchive("letters")] public CollectionContext Letters { get; set; } = default!;
+    [FromArchive("maps")] public CollectionContext Maps { get; set; } = default!;
+    public Task RefreshArchiveAsync() => InvokeAsync(StateHasChanged);
+}
+@* endsnippet:complete *@
