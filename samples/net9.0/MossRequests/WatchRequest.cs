@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MossObservatory;
 
-// Keep the public model and AddValidation call in this assembly so generation discovers it.
+// The .NET 9 endpoint filter validates this public model explicitly.
 public sealed class WatchRequest
 {
     [Required, StringLength(24)]
