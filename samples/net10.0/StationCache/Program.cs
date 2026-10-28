@@ -30,9 +30,11 @@ store.Set("west", new StationRule(true, 3));
 string revised = await client.GetStringAsync(new Uri("/cards/west", UriKind.Relative));
 if (revised == west || revised == disabled || revised != await client.GetStringAsync(new Uri("/cards/west", UriKind.Relative))) { throw new Exception("New revision reused stale output or failed to cache."); }
 if (east != await client.GetStringAsync(new Uri("/cards/east", UriKind.Relative))) { throw new Exception("Unchanged station lost its cache."); }
-if (store.Reads != 9 || store.Executions != 5) { throw new Exception($"Expected one rule snapshot per request and five handler calls: {store.Reads}/{store.Executions}."); }
+string unknown = await client.GetStringAsync(new Uri("/cards/unknown", UriKind.Relative));
+if (unknown == await client.GetStringAsync(new Uri("/cards/unknown", UriKind.Relative))) { throw new Exception("Unknown station reused cached output."); }
+if (store.Reads != 11 || store.Executions != 7) { throw new Exception($"Expected one rule snapshot per request and seven handler calls: {store.Reads}/{store.Executions}."); }
 await app.StopAsync();
-Console.WriteLine($"PASS {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}: 9 real HTTP requests, 5 endpoint executions; tenant separation, disable/re-enable and revision invalidation; one rule read/request through the registered request-dispatch policy.");
+Console.WriteLine($"PASS {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}: 11 real HTTP requests, 7 endpoint executions; tenant separation, disable/re-enable, revision invalidation and unknown-station bypass; one rule read/request through the registered request-dispatch policy.");
 
 sealed record StationRule(bool Enabled, int Revision);
 sealed class StationRules

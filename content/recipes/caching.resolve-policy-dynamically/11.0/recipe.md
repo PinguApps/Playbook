@@ -2,7 +2,7 @@
 
 ## Goal
 
-A station directory serves public cards for two customer stations. West pauses caching during maintenance while East keeps its cached card. When West changes its policy again, it must not revive a card stored under the previous revision.
+A station directory serves public cards for two customer stations. West pauses caching during maintenance while East keeps its cached card. When West changes its policy again, it must not revive a card stored under the previous revision. Unknown stations bypass caching.
 
 Use `IOutputCachePolicyProvider` on ASP.NET Core 11 when named policies come from current settings rather than a fixed `AddPolicy` table. This edition compares .NET 10 with .NET 11 RC2. It is not an additional .NET 10 foundation or a claim that the provider exists on .NET 10.
 
@@ -63,9 +63,9 @@ Save the newer files in a separate directory.
 1. Inventory the named and base policies your endpoints actually use. Move their selection to the provider, preserving defaults deliberately rather than silently dropping them.
 2. Establish the tenant using the application's normal trusted routing/authentication boundary before output caching. These public station cards contain no private or user-specific data; a route value is sufficient for this fixture, not proof of customer authorization.
 3. Snapshot the selected rule once per request. Keep shared provider state thread-safe and request state in the request.
-4. Partition cache entries by every input that changes output. Here the URL and explicit station/revision vary values prevent cross-station and old-revision reuse. If output also depends on query values, culture or other inputs, add those deliberately. A policy change alone does not evict stored responses; a new revision changes the key. Old entries expire after 30 seconds.
+4. Partition cache entries by every input that changes output. Here the URL and explicit station/revision vary values prevent cross-station and old-revision reuse. If output also depends on query values, culture or other inputs, add those deliberately. A policy change alone does not evict stored responses; a new revision changes the key. **Every enable/disable transition must increase the revision**, as both samples do. Re-enabling with the previous revision can revive its stored card until expiry. Old entries expire after 30 seconds.
 5. Retain eligibility rules: unauthenticated GET/HEAD only, no Authorization header, 200 responses, no Set-Cookie. Do not use this public-card policy for private responses. Authentication/authorization middleware must run before caching when those features are present.
-6. In each sample directory, use its declared SDK to run `dotnet build --configuration Release`, then `dotnet bin/Release/net10.0/StationCache.dll` or the corresponding `net11.0` path. Use absolute executable paths and set `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` if using an isolated CLI home. Expect nine real HTTP requests and five endpoint executions.
+6. In each sample directory, use its declared SDK to run `dotnet build --configuration Release`, then `dotnet bin/Release/net10.0/StationCache.dll` or the corresponding `net11.0` path. Use absolute executable paths and set `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` if using an isolated CLI home. Expect eleven real HTTP requests and seven endpoint executions.
 
 ## Constraints and alternatives
 
@@ -78,7 +78,7 @@ Save the newer files in a separate directory.
 
 ## Evidence
 
-Both complete pinned projects compiled and executed with real loopback requests through `eng/Record-Evidence.ps1`. Each recorded nine requests and five handler executions, including hits for two stations, cache bypass while disabled, a fresh entry after a revision change, and the unaffected station's retained hit. One rule read per request establishes snapshot selection across cache stages. These are local runtime checks, not mocks, cross-compilation or external-provider evidence.
+Both complete pinned projects compiled and executed with real loopback requests through `eng/Record-Evidence.ps1`. Each recorded eleven requests and seven handler executions, including hits for two stations, cache bypass while disabled, a fresh entry after a revision change, the unaffected station's retained hit, and two uncached unknown-station requests. One rule read per request establishes snapshot selection across cache stages. These are local runtime checks, not mocks, cross-compilation or external-provider evidence.
 
 The existing packed-tool harness checks complete canonical Markdown, discovery title/goal, full applicability and edition 11.0 over real stdio list/get after an isolated local-feed/cache installation outside the checkout. Target 10.0 has no applicable edition. The stable identity is `caching.resolve-policy-dynamically` / WEB-072.
 
