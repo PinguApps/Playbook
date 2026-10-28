@@ -135,7 +135,7 @@ complete projects solely from returned Markdown, then builds their actual SDK an
 dependency sets. An unusable proxy proves proxy-independent retrieval, not network
 isolation; a separate network-disabled container check establishes that boundary.
 
-The same package, SHA-256
+The initially inspected package, SHA-256
 `fe3fee5856d2fdda163d5d8c5b8c82e5dff554e4d7c427d1aa16bbb61fc44f21`,
 passed real list/get in the existing digest-pinned .NET 10 SDK container
 `mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317`
