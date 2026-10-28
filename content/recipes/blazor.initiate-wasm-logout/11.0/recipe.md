@@ -48,6 +48,12 @@ Save these complete files at the shown paths in a fresh .NET 10 directory. Local
 
 {{snippet:n10-permits-razor}}
 
+### .NET 10: Probe.razor
+
+Local verification only: the invalid/missing buttons supply deliberate failure inputs; the default button exercises the other supported logout overload. Exclude this probe page from a deployed app.
+
+{{snippet:n10-probe-razor}}
+
 ### .NET 10: wwwroot/index.html
 
 {{snippet:n10-wwwroot-index-html}}
@@ -95,6 +101,12 @@ Create a separate .NET 11 directory with these files. The stable replacement alr
 ### .NET 11: Permits.razor
 
 {{snippet:n11-permits-razor}}
+
+### .NET 11: Probe.razor
+
+Use this local verification page for the same invalid/missing/default checks on the current release. It is not a production sign-out flow.
+
+{{snippet:n11-probe-razor}}
 
 ### .NET 11: wwwroot/index.html
 

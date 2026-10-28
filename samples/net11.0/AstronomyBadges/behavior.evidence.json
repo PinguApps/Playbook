@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build AstronomyBadges.csproj --configuration Release -p:RestoreLockedMode=true; & 'C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe' publish -c Release -p:RestoreLockedMode=true; & 'C:\\Program Files\\nodejs\\node.exe' 'V:\\_worktrees\\Playbook\\t3-060ade47\\eng/Test-WasmAuthentication.mjs' 'C:\\Users\\pingu\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1248\\chrome-headless-shell-win64\\chrome-headless-shell.exe' 'V:\\_worktrees\\Playbook\\t3-060ade47\\artifacts\\authentication\\browser.json'",
   "scope": "Actual WASM, real DI/options/logging/service aliases and account mapping; controlled local JS success/redirect token paths. No external login or real token issuance.",
-  "recordedAt": "2026-10-28T21:00:08.2669481+00:00",
-  "sourceCommit": "fc82de700cd1fc7f0fa423253491eb22f82c1f2d",
+  "recordedAt": "2026-10-28T21:31:25.5722266+00:00",
+  "sourceCommit": "3f199905cc828a414267d15341a2ac7de0a3ab28",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",

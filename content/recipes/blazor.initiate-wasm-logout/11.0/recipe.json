@@ -225,6 +225,11 @@
       "region": "complete",
       "language": "razor"
     },
+    "n10-probe-razor": {
+      "path": "samples/net10.0/WetlandPermits/Probe.razor",
+      "region": "complete",
+      "language": "razor"
+    },
     "n10-wwwroot-index-html": {
       "path": "samples/net10.0/WetlandPermits/wwwroot/index.html",
       "region": "complete",
@@ -272,6 +277,11 @@
     },
     "n11-permits-razor": {
       "path": "samples/net11.0/WetlandPermits/Permits.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-probe-razor": {
+      "path": "samples/net11.0/WetlandPermits/Probe.razor",
       "region": "complete",
       "language": "razor"
     },

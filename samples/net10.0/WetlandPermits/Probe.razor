@@ -1,3 +1,4 @@
+<!-- snippet:complete -->
 @using Microsoft.AspNetCore.Components
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.AspNetCore.Components.Routing
@@ -11,3 +12,4 @@
 <button id="invalid" @onclick='() => Navigation.NavigateTo("authentication/logout", new NavigationOptions { HistoryEntryState = "{\"interaction\":0,\"returnUrl\":\"permits\"}" })'>Invalid non-null state</button>
 <button id="missing" @onclick='() => Navigation.NavigateTo("authentication/logout?returnUrl=permits")'>Missing state</button>
 <button id="default-logout" @onclick='() => Navigation.NavigateToLogout("authentication/logout")'>Default return path</button>
+<!-- endsnippet:complete -->
