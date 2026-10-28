@@ -1,0 +1,203 @@
+{
+  "id": "mvc.remove-compatibility-shims",
+  "edition": "11.0",
+  "title": "Start MVC after removing retired compatibility settings",
+  "goal": "Migrate MVC startup to ASP.NET Core 11 by removing CompatibilityVersion registrations and retired option types; rebuild applications and dependent libraries that referenced them.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "mvc-migration",
+    "quayarchive"
+  ],
+  "apis": [
+    "CompatibilityVersion",
+    "SetCompatibilityVersion",
+    "MvcCompatibilityOptions",
+    "ConfigureCompatibilityOptions<TOptions>",
+    "AddControllers"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Migrate MVC startup to ASP.NET Core 11 by removing CompatibilityVersion registrations and retired option types; rebuild applications and dependent libraries that referenced them.",
+          "Historical .NET 10 code is comparison-only. The supported replacement already worked on .NET 10; these samples do not add a curated foundation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "An ASP.NET Core 11 migration; the recorded execution baseline is RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer with matching framework references; exact reproduction pin is shown."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Tested language mode, not a claim that this migration needs C# 15 syntax. The .NET 10 comparison uses C# 14."
+          },
+          "frameworks": [
+            "ASP.NET Core MVC"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework and reference pack; no additional NuGet package"
+          ],
+          "workloads": [],
+          "providers": [
+            "Real MVC dependency injection, routing and Kestrel; no application data provider"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual evidence is Windows x64"
+          ],
+          "renderingModes": [
+            "Server MVC controller requests; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Create the complete QuayArchive directory for one target, including the three empty Directory files that isolate surrounding MSBuild/central package configuration. Use the pinned SDK and restore framework assets before offline builds. Run with the sample directory as the working directory."
+          ],
+          "constraints": [
+            "MVC source and binary migration only. Removing the no-op registration does not opt an ASP.NET Core 2.x application into equivalent behavior; a 2.x upgrade needs its own migration analysis.",
+            "The removed surfaces include SetCompatibilityVersion for IMvcBuilder and IMvcCoreBuilder, CompatibilityVersion, MvcCompatibilityOptions and ConfigureCompatibilityOptions<TOptions>. Remove usages rather than inventing implementations under the retired names.",
+            "The sample proves controller startup and one successful request. It does not prove every MVC option, view, formatter or third-party dependency is compatible. Recompile dependent binaries to avoid removed type/method references."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100-rc.2.26504.105. GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/mvc-compatibility-options-removed",
+          "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/mvc-compatibility-options-removed.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuayArchive/QuayArchive.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official ASP.NET Core 11 migration and removed APIs",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/mvc-compatibility-options-removed"
+    },
+    {
+      "title": "Pinned official migration source used for RC2 preparation",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/mvc-compatibility-options-removed.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuayArchive/QuayArchive.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real Kestrel startup and GET /archive/crates/27 return the same representative MVC response on both baselines. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."
+    },
+    {
+      "sample": "samples/net11.0/QuayArchive/QuayArchive.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real Kestrel startup and GET /archive/crates/27 return the same representative MVC response on both baselines. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/QuayArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-quayarchive-csproj": {
+      "path": "samples/net10.0/QuayArchive/QuayArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/QuayArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/QuayArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/QuayArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/QuayArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-cratescontroller-cs": {
+      "path": "samples/net10.0/QuayArchive/CratesController.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/QuayArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-quayarchive-csproj": {
+      "path": "samples/net11.0/QuayArchive/QuayArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/QuayArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/QuayArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/QuayArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/QuayArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-cratescontroller-cs": {
+      "path": "samples/net11.0/QuayArchive/CratesController.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed local consumers require no owner-only account or resource. GA reconciliation and wider platform claims remain separate; no provisioning or publication."
+  }
+}
