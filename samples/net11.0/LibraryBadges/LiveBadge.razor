@@ -1,0 +1,12 @@
+<!-- snippet:live -->
+@attribute [CacheBehavior(CacheBehavior.Rerender)]
+@inject LibraryState State
+<p id="live" data-run="@Run" data-ticket="@Ticket">Reader @Viewer</p>
+@code {
+    [CascadingParameter] private HttpContext Context { get; set; } = default!;
+    [Parameter] public string Ticket { get; set; } = "";
+    private string Viewer => Context.User.Identity?.Name ?? "anonymous";
+    private int Run;
+    protected override void OnInitialized() => Run = State.Enter("live");
+}
+<!-- endsnippet:live -->

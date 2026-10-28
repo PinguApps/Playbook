@@ -1,0 +1,43 @@
+{
+  "kind": "execution",
+  "sample": "samples/net10.0/LibraryBadges/LibraryBadges.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "& 'C:\\Program Files\\nodejs\\node.exe' 'V:\\_worktrees\\Playbook\\t3-8fca8201\\eng/Test-GardenLibrary.mjs' 'V:\\_worktrees\\Playbook\\t3-8fca8201\\artifacts\\browser\\node_modules\\playwright-core' 'C:\\Users\\pingu\\AppData\\Local\\ms-playwright\\chromium-1248\\chrome-win64\\chrome.exe' 'C:\\Program Files\\dotnet\\dotnet.exe' 'C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe' 'V:\\_worktrees\\Playbook\\t3-8fca8201\\artifacts\\garden-library\\behavior.json'",
+  "scope": "Actual cookie-authenticated SSR requests for two fictional users; lifecycle counts, public reuse, live output, captured parameter replay and .NET 11 Throw/User condition refusal/isolation. No HybridCache claim.",
+  "recordedAt": "2026-10-28T22:05:26.5100922+00:00",
+  "sourceCommit": "2c3fc4e45928df8a57cabd74c27eba32815a6d6b",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Record-GardenLibrary.ps1": "948be32d36eab75cce4a79a5185a3684ade517de55b7517687645fd25e1d8c14",
+    "eng/Test-GardenLibrary.mjs": "90f2cf831888cfff9e7d40610e944da3bcb65b5ab1d7193db1018d556627d309",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net10.0/LibraryBadges/_Imports.razor": "0595a1b77b7d89a61a90d009db8fdb6a3b8577ae36098707bd5b4290c5bceee8",
+    "samples/net10.0/LibraryBadges/App.razor": "f56b54d1bfb05545412703273e2971470ff142ddbc1accc1871a1a3384ce2ab1",
+    "samples/net10.0/LibraryBadges/global.json": "d1bb820bf074027be921b263729d1fba343d34328f0c4b7484d10162287c059e",
+    "samples/net10.0/LibraryBadges/LibraryBadges.csproj": "ba70bc19b1547fa1bed644c27fffa0ca522790352eea830e673e9aef23838819",
+    "samples/net10.0/LibraryBadges/LibraryState.cs": "f103ec0c5bb8614223ddc4ab352f82687283fe5900001e0881c86dc7aa07a3d4",
+    "samples/net10.0/LibraryBadges/LiveBadge.razor": "6a39adaead890ef7d0ad46c1154be3440a83095dc744b9b061ec10dd98ed90b9",
+    "samples/net10.0/LibraryBadges/packages.lock.json": "8f3cf641e053b0d8b69a5890c179779c3ce3e7e37bf0a102ee170196cf431f2c",
+    "samples/net10.0/LibraryBadges/Program.cs": "e518c8a3d5e9c584b5ae98daddd31dab1df5428c940195fdb2dd4234b641ff64",
+    "samples/net10.0/LibraryBadges/PublicShelf.razor": "a6590e00af4dba144042d27f2b4f1b6b74d1c9b178b78f43820a08cf604e2ae4",
+    "samples/net10.0/LibraryBadges/ShelfPage.razor": "ab171fa42e8003191cf62f6c2063807307f1b4ccdf0d4fba164560ec0c46b525",
+    "samples/net10.0/LibraryBadges/verification.json": "2718f1ec5f69d4c7cd98b237e6f9e63a669f8f874a3d6559c097447428385750"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-8fca8201\\samples\\net10.0\\LibraryBadges\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "PASS: Chromium 156.0.8078.4\n{\r\n  \"builtArtifacts\": [\r\n    {\r\n      \"file\": \"LibraryBadges.dll\",\r\n      \"sha256\": \"4938c4c2e685c504b3b39726cd30e714d611af6478ed5b859dee9e1c004fa8a2\"\r\n    },\r\n    {\r\n      \"file\": \"LibraryBadges.deps.json\",\r\n      \"sha256\": \"33a3b2802890f3464d1b1e66e5c3b4077a4271a121953d2dd60644871db576ef\"\r\n    },\r\n    {\r\n      \"file\": \"LibraryBadges.runtimeconfig.json\",\r\n      \"sha256\": \"41442586a8262bc96a1c80f82f4d9384c03bfd465d221cbf01fb3563170f9e65\"\r\n    }\r\n  ],\r\n  \"cases\": [\r\n    {\r\n      \"version\": \"10.0\",\r\n      \"sample\": \"LibraryBadges\",\r\n      \"counts\": {\r\n        \"shelf\": 1,\r\n        \"live\": 3\r\n      },\r\n      \"publicDataReused\": true,\r\n      \"explicitLiveBoundary\": true\r\n    }\r\n  ]\r\n}"
+}
