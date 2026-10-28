@@ -27,7 +27,7 @@
         await dome.StartAsync("#dome", "Dome");
         await orrery.StartAsync("#orrery", "Orrery");
         identities = $"Renderer IDs: {dome.Identity}, {orrery.Identity}";
-        
+
         try { await JS.InvokeVoidAsync("planetarium.complete", new[] { dome.Identity, orrery.Identity }); }
         catch (JSException error) { identities = $"Browser setup failed: {error.Message}"; }
         StateHasChanged();
