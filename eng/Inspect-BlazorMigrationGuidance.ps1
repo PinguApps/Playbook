@@ -105,7 +105,10 @@ try {
   finally { Pop-Location }
 }
 finally {
-  foreach ($key in $previous.Keys) { [Environment]::SetEnvironmentVariable($key,$previous[$key]) }
+  foreach ($key in $previous.Keys) {
+    if ($null -eq $previous[$key]) { Remove-Item -LiteralPath "Env:$key" -ErrorAction SilentlyContinue }
+    else { [Environment]::SetEnvironmentVariable($key,$previous[$key]) }
+  }
   foreach ($scope in $before.Keys) { if ($before[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "Unexpected $scope PATH change; shared settings preserved." } }
   # Keep the unique local-only feed/tool as disposable inspection evidence under TEMP.
 }

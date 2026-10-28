@@ -1,0 +1,43 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.Extensions.Logging
+@using Microsoft.JSInterop
+@inject IServiceProvider Services
+@inject ILoggerFactory Logs
+@inject IJSRuntime JS
+@implements IAsyncDisposable
+
+<h1>Planetarium controls</h1>
+<p id="identities">@identities</p>
+<div id="dome"></div>
+<div id="orrery"></div>
+<p id="legacy">@legacy</p>
+
+@code {
+    private PlanetariumRenderer? dome;
+    private PlanetariumRenderer? orrery;
+    private string identities = "Starting";
+    private string legacy = "No init assignment in the current host.";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        dome = new(Services, Logs);
+        orrery = new(Services, Logs);
+        await dome.StartAsync("#dome", "Dome");
+        await orrery.StartAsync("#orrery", "Orrery");
+        identities = $"Renderer IDs: {dome.Identity}, {orrery.Identity}";
+        using var probe = new InertIdentityProbe(Services, Logs);
+        legacy = $"Requested init ID: 900; actual hook ID: {probe.Identity}";
+        try { await JS.InvokeVoidAsync("planetarium.complete", new[] { dome.Identity, orrery.Identity }); }
+        catch (JSException error) { identities = $"Browser setup failed: {error.Message}"; }
+        StateHasChanged();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (dome is not null) await dome.ShutdownAsync();
+        if (orrery is not null) await orrery.ShutdownAsync();
+    }
+}
+<!-- endsnippet:complete -->
