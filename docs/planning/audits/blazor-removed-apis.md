@@ -73,7 +73,7 @@ consumers compile with exact matching authentication packages. Selected
 success, interaction, both exception overloads and no-options fallback execution.
 The provider boundary is controlled; no external token issuance, protected API
 response or recording download is claimed. The old four-argument no-options
-result actually fails in .NET 10's legacy-URL fallback; RC2 uses the current URL.
+result actually fails in .NET 10's legacy-URL fallback; RC2 reads InteractiveRequestUrl.
 Supported .NET 10 interaction remains demonstrated. Installed ordinary-tool
 inspection verifies the complete canonical recipe. Aggregate WEB-089,
 PIN-959 and actual-GA PIN-964 remain open.
