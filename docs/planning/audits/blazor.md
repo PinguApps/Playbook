@@ -1,5 +1,38 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+## B11 and B15 delivery, 28 October 2026
+
+PIN-1165 delivers `blazor.handle-js-invocation-failures/11.0` with original
+ReadingRoom .NET 10/RC2 consumers. Actual compiler controls reproduce RC2 BL0016
+and its syntactic enclosing-catch limitation. Real Chromium/Interactive Server
+calls prove success, a thrown JS error, the printed-list fallback, a successful
+next call, an unrelated visible application error and disconnected renderer
+teardown. **Measured reconciliation:** RC2's `JSObjectReference.DisposeAsync`
+already catches `JSDisconnectedException`; the pinned .NET 10 implementation
+propagates it. The module's actual `closeReader` invocation still throws on both
+disconnected runtimes, separately from reference disposal. Explicit browser
+disconnect can dispose immediately; the one-second retention control is not a
+claim that every teardown waits for retention expiry.
+
+PIN-1169 delivers `blazor.dispose-input-file-subclass-resources/11.0` with
+original RestorationBench consumers. The actual old hook override fails with
+CS0115; the working older wrapper remains valid. The current derived InputFile
+always chains base cleanup. Both rendered file inputs select/read actual bytes,
+deliver status, remove twice across two component lifetimes, cancel each owned
+subscription once, stop subsequent notifications and reject the saved actual
+framework callback relay after removal. Completed reads remain displayed;
+cancellation does not undo an upload or prove concurrent stream cancellation.
+
+`eng/Record-OwnedLifetimes.ps1` captures current compilation/execution records,
+SDK/compiler/analyzer/framework identities and exact input hashes. SDKs remain
+10.0.402 and 11.0.100-rc.2.26504.105; actual framework/implicit Internal.Assets
+remain 10.0.13 and 11.0.0-rc.2.26504.105. The recipes include complete original
+canonical project files. `eng/Test-OwnedLifetimesConsumer.ps1` rebuilds and runs
+all four consumers solely from installed MCP Markdown. No extra framework
+package, native workload, experimental suppression or ninth foundation is added.
+These bounded Interactive Server checks establish no arbitrary callback race,
+WASM/Hybrid, upload storage, AOT or actual-GA guarantee. PIN-959/PIN-964 stay open.
+
 PIN-1158/1159 deliver experimental `blazor.update-staged-render-attribute/11.0`
 and `blazor.configure-circuit-json-metadata/11.0`. Original MossGallery consumers
 execute custom-renderer batches, real HTML output, null/replacement and documented

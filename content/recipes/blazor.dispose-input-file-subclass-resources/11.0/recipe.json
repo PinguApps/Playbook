@@ -1,0 +1,257 @@
+{
+  "id": "blazor.dispose-input-file-subclass-resources",
+  "edition": "11.0",
+  "title": "Clean up resources owned by an InputFile subclass",
+  "goal": "Release a derived file-input component's cancellable status subscription when it leaves the rendered UI, preserving InputFile's own callback cleanup and normal file selection.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "file-input",
+    "components",
+    "disposal",
+    "owned-lifetimes"
+  ],
+  "apis": [
+    "InputFile.Dispose(bool)",
+    "InputFile",
+    "IDisposable",
+    "CancellationTokenSource",
+    "CancellationTokenRegistration"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "conditional": false,
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/InputFile.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/Forms/InputFile.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/component-disposal?view=aspnetcore-11.0"
+        ],
+        "requirements": {
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "runtime": {
+            "version": "11.0",
+            "reason": "The primary route uses .NET 11 ASP.NET Core framework contracts/analyzers.",
+            "name": ".NET",
+            "match": "release-family"
+          },
+          "workloads": [],
+          "platforms": [
+            "ASP.NET Core server and JavaScript-enabled browser; measured Windows x64/Chromium. No native toolchain required."
+          ],
+          "constraints": [
+            "Override Dispose(bool), guard managed cleanup with disposing, and always call base.Dispose(disposing). Do not replace the explicit IDisposable entry point.",
+            "The .NET 10 comparison composes an InputFile inside a disposable owner; its renderer independently disposes the child.",
+            "Cancellation unsubscribes future status notifications. It neither reverses completed reads/uploads nor joins a callback already copied by the publisher.",
+            "Only Interactive Server component removal and bounded file reading are executed; no remote upload/storage, removed stream-option migration, WebAssembly, trimming/AOT or actual-GA guarantee."
+          ],
+          "packageAssets": [
+            "Implicit SDK-aligned Microsoft.AspNetCore.App.Internal.Assets; measured lock pins 11.0.0-rc.2.26504.105. No additional PackageReference."
+          ],
+          "renderingModes": [
+            "Blazor Interactive Server; sample disables prerender"
+          ],
+          "prerequisites": [
+            "Use the complete original project files below with nullable and implicit usings enabled. Permit the normal local Blazor WebSocket connection and same-origin module/static asset loading."
+          ],
+          "stabilityLimitations": [
+            "GA-targeted 11.0 edition qualified on SDK 11.0.100-rc.2.26504.105 and framework RC2. No experimental suppression is required by the inspected API/analyzer."
+          ],
+          "packages": [],
+          "sdk": {
+            "version": "11.0",
+            "reason": "Build against .NET 11 references. Exact RC2 pins identify measured evidence, not GA verification.",
+            "name": ".NET SDK",
+            "match": "release-family"
+          },
+          "language": {
+            "version": "15.0",
+            "reason": "Declared canonical language mode; the example uses no C# 15-only syntax.",
+            "name": "C#",
+            "match": "exact"
+          },
+          "providers": [
+            "Local in-process demonstration state; ephemeral Data Protection. No external provider or account."
+          ],
+          "optIns": []
+        },
+        "evidenceSamples": [
+          "samples/net11.0/RestorationBench/RestorationBench.csproj"
+        ],
+        "selectionNotes": [
+          "Override Dispose(bool), guard managed cleanup with disposing, and always call base.Dispose(disposing). Do not replace the explicit IDisposable entry point.",
+          "The older comparison remains valid; no ninth .NET 10 foundation or older-target analyzer/hook backport is added."
+        ],
+        "usage": "primary",
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned current InputFile protected disposal hook and callback cleanup",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Web/src/Forms/InputFile.cs"
+    },
+    {
+      "title": "Pinned previous InputFile explicit disposal without subclass hook",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/Forms/InputFile.cs"
+    },
+    {
+      "title": "Official component disposal and subscription ownership",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/components/component-disposal?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual pinned Web SDK/Razor compilation and locked implicit browser assets; execution is separate.",
+      "kind": "compile",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/RestorationBench/RestorationBench.csproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Real file input/read, status delivery, repeated removal, exactly-once subscription cancellation and actual disposed framework relay rejection.",
+      "kind": "execution",
+      "language": "14.0",
+      "record": "samples/net10.0/RestorationBench/behavior.evidence.json",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/RestorationBench/RestorationBench.csproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual pinned Web SDK/Razor compilation and locked implicit browser assets; execution is separate.",
+      "kind": "compile",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/RestorationBench/RestorationBench.csproj",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Real file input/read, status delivery, repeated removal, exactly-once subscription cancellation and actual disposed framework relay rejection.",
+      "kind": "execution",
+      "language": "15.0",
+      "record": "samples/net11.0/RestorationBench/behavior.evidence.json",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/RestorationBench/RestorationBench.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/RestorationBench/global.json",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/RestorationBench/Directory.Build.props",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/RestorationBench/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/RestorationBench/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n10-restorationbench-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/RestorationBench/RestorationBench.csproj",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/RestorationBench/Program.cs",
+      "region": "complete"
+    },
+    "n10-app-razor": {
+      "language": "razor",
+      "path": "samples/net10.0/RestorationBench/App.razor",
+      "region": "complete"
+    },
+    "n10-desk-razor": {
+      "language": "razor",
+      "path": "samples/net10.0/RestorationBench/Desk.razor",
+      "region": "complete"
+    },
+    "n10-statusfeed-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/RestorationBench/StatusFeed.cs",
+      "region": "complete"
+    },
+    "n10-restorationinput-razor": {
+      "language": "razor",
+      "path": "samples/net10.0/RestorationBench/RestorationInput.razor",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/RestorationBench/global.json",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/RestorationBench/Directory.Build.props",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/RestorationBench/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/RestorationBench/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n11-restorationbench-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/RestorationBench/RestorationBench.csproj",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/RestorationBench/Program.cs",
+      "region": "complete"
+    },
+    "n11-app-razor": {
+      "language": "razor",
+      "path": "samples/net11.0/RestorationBench/App.razor",
+      "region": "complete"
+    },
+    "n11-desk-razor": {
+      "language": "razor",
+      "path": "samples/net11.0/RestorationBench/Desk.razor",
+      "region": "complete"
+    },
+    "n11-statusfeed-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/RestorationBench/StatusFeed.cs",
+      "region": "complete"
+    },
+    "n11-restorationinput-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/RestorationBench/RestorationInput.cs",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "scope": "Automated actual browser/renderer and compiler controls cover these bounded claims. Other rendering modes, platforms, production integration and actual GA remain unverified.",
+    "status": "not-required"
+  }
+}

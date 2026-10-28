@@ -62,8 +62,8 @@
     {
       "id": "input-file-lifetime",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Forms\\.InputFile::Dispose",
-      "owner": "B15",
-      "disposition": "included"
+      "owner": "B15; PIN-1169; blazor.dispose-input-file-subclass-resources/11.0",
+      "disposition": "delivered; actual .NET 10 wrapper and RC2 override, real file selection/read, two subscription cancellation/removal cycles and disposed framework callback relay rejection. Sample compilation/execution records retain exact inputs. No upload rollback or GA claim."
     },
     {
       "id": "removed-api",
@@ -198,6 +198,12 @@
       "pattern": "^src/Components/Analyzers/src/DiagnosticDescriptors\\.cs",
       "owner": "PIN-802 for BL0010; PIN-1162/1163/1164 delivered BL0012/BL0014/BL0015 through the original WillowQuay consumers and their fresh selected behavior.evidence.json records; other diagnostics retain their existing owners",
       "disposition": "delivered blazor.use-void-interop-intent/11.0; actual old generic/new void browser calls plus supported old void use; no analyzer-internals or new runtime capability claim; docs/verification/component-interop.md"
+    },
+    {
+      "id": "guarded-js-invocation",
+      "pattern": "^src/Components/Analyzers/src/JSInteropAnalyzer\\.cs",
+      "owner": "B11; PIN-1165; blazor.handle-js-invocation-failures/11.0",
+      "disposition": "delivered; actual BL0016 before/after and irrelevant-catch control, paired real browser success/JS failure recovery, visible application failure and disconnected renderer teardown. RC2 reference disposal handles disconnection internally; actual closeReader calls still throw. No arbitrary race, retry or GA guarantee."
     },
     {
       "id": "component-action-diagnostics",

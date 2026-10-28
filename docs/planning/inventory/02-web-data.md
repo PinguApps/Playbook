@@ -8,6 +8,19 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
+**B11 / PIN-1165** delivers `blazor.handle-js-invocation-failures/11.0`:
+original .NET 10/RC2 browser module consumers, actual analyzer controls, scoped
+JS recovery, visible application errors and disconnected renderer teardown.
+RC2 reference disposal catches disconnection internally; ordinary module calls
+still require the chosen recovery. **B15 / PIN-1169** delivers
+`blazor.dispose-input-file-subclass-resources/11.0`: old wrapper/current override,
+real file reads, exactly-once subscription cancellation across two removals and
+actual disposed framework callback rejection. Complete canonical files and current
+sample records qualify these narrow Interactive Server claims. See the
+[source audit](../audits/blazor.md#b11-and-b15-delivery-28-october-2026).
+No upload rollback, arbitrary callback-race, extra .NET 10 foundation or GA proof
+is implied; comprehensive and actual-GA reconciliation gates remain open.
+
 **B04 / PIN-1158** delivers experimental pending attribute replacement
 (`blazor.update-staged-render-attribute/11.0`) with actual .NET 10 rebuild and
 RC2 custom-renderer/HTML/failure consumers. **B05 / PIN-1159** delivers experimental
