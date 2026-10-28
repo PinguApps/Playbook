@@ -1,6 +1,22 @@
 # Removed Blazor APIs: bounded reconciliation and delivery proposal
 
-PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Recipe delivery remains outstanding.** This does not deliver `blazor.replace-removed-api`, original consumer examples, compilation/behavior evidence, installed recipe retrieval, comprehensive coverage or publication readiness.
+PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R3/R4 now have the focused delivery below; audit completion itself does not establish comprehensive coverage or publication readiness.
+
+## R3/R4 delivery, 28 October 2026
+
+PIN-986 approved the nine follow-ons ([decision record](../audit-proposal-review.md)).
+PIN-1148 delivers `blazor.bound-upload-read`, edition 11.0; PIN-1149 delivers
+`blazor.create-typed-event-callback`, edition 11.0. These goal IDs leave the
+`blazor.replace-removed-api` aggregate identity and all existing editions unchanged.
+Both include complete original .NET 10/11 samples, fresh actual compilation,
+[real browser observations](../../verification/blazor-streams-callbacks.md) and
+installed ordinary-tool offline inspection. R3 removes dead options while
+preserving the bounded/cancellable consumer; R4 compiles all twenty mappings
+and executes representative synchronous/asynchronous component callbacks.
+The stream-options rename and segment/buffer/timeout equivalence remain factual
+gaps, not implemented APIs. R1/R2/R5–R9, PIN-959 and actual-GA PIN-964 gates remain
+outstanding; no whole-family completion is claimed. The original proposal text
+below is retained as audit history rather than rewritten as delivery evidence.
 
 ## Boundary and provenance
 
@@ -127,7 +143,7 @@ All nine PRs must meet these common acceptance criteria:
 
 ## Outstanding coverage and related work
 
-`WEB-089` stays **included — delivery outstanding**, under the unchanged `blazor.replace-removed-api` planning ID. R1–R9 are proposed, not approved/published backlog or shipped content. Asset reconciliation adds no separate recipe because the real consumer signature/default is unchanged. The absent stream-options replacement claim remains visibly factual-unresolved; it does not block describing the evidenced consumer boundary with explicit limits.
+`WEB-089` stays **included — aggregate delivery outstanding**, under the unchanged `blazor.replace-removed-api` planning ID. R1–R9 were subsequently approved under PIN-986; only the R3/R4 delivery described above is established here. Asset reconciliation adds no separate recipe because the real consumer signature/default is unchanged. The absent stream-options replacement claim remains visibly factual-unresolved; it does not block describing the evidenced consumer boundary with explicit limits.
 
 [PIN-959](https://linear.app/pinguapps/issue/PIN-959) is the comprehensive coverage owner and already requires delivered audit follow-ons before publication; this document is its outstanding family ledger, not a coverage waiver. [PIN-708](https://linear.app/pinguapps/issue/PIN-708) explicitly cross-references assigned migrations, so it should reference this bounded removal audit rather than repeat it. [PIN-772](https://linear.app/pinguapps/issue/PIN-772) owns canonical nested/generated validation; R2 owns only the manual EditContext/service-provider migration. These three related issues were read with verified team/project scope and **were not changed**. No related issue was created. Current native blockers, not milestone order/shared files, determine implementation prerequisites.
 
