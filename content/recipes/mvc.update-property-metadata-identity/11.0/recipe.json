@@ -1,0 +1,209 @@
+{
+  "id": "mvc.update-property-metadata-identity",
+  "edition": "11.0",
+  "title": "Preserve property identity in a custom metadata provider",
+  "goal": "Migrate custom MVC model metadata creation to the PropertyInfo-based ModelMetadataIdentity.ForProperty overload on ASP.NET Core 11; retain property type, container, labels and accessors and rebuild dependent binaries.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "mvc-migration",
+    "beaconlabels"
+  ],
+  "apis": [
+    "ModelMetadataIdentity.ForProperty",
+    "PropertyInfo",
+    "DefaultModelMetadataProvider",
+    "DefaultMetadataDetails",
+    "IDisplayMetadataProvider"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Migrate custom MVC model metadata creation to the PropertyInfo-based ModelMetadataIdentity.ForProperty overload on ASP.NET Core 11; retain property type, container, labels and accessors and rebuild dependent binaries.",
+          "Historical .NET 10 code is comparison-only. The supported replacement already worked on .NET 10; these samples do not add a curated foundation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "An ASP.NET Core 11 migration; the recorded execution baseline is RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer with matching framework references; exact reproduction pin is shown."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Tested language mode, not a claim that this migration needs C# 15 syntax. The .NET 10 comparison uses C# 14."
+          },
+          "frameworks": [
+            "ASP.NET Core MVC custom model metadata providers"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework and reference pack; no additional NuGet package"
+          ],
+          "workloads": [],
+          "providers": [
+            "Real MVC model metadata and display-details providers; no application data provider"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual evidence is Windows x64"
+          ],
+          "renderingModes": [
+            "Server model metadata consumed by MVC/Razor Pages; console proof requires no view or Blazor rendering"
+          ],
+          "prerequisites": [
+            "Create the complete BeaconLabels directory for one target, including the three empty Directory files that isolate surrounding MSBuild/central package configuration. Use the pinned SDK and restore framework assets before offline builds. Run with the sample directory as the working directory."
+          ],
+          "constraints": [
+            "Custom MVC model metadata providers, not arbitrary reflection utilities. The removed string/type overload is a source and binary compatibility break; recompile dependents.",
+            "For inherited/hidden properties, choose the intended PropertyInfo and container deliberately. PropertyInfo.DeclaringType need not equal the model whose properties are being described. This sample uses one simple known model and proves no general inheritance or trimming strategy.",
+            "The modelType argument describes the metadata's model type. This sample uses the property's declared string type; advanced providers may intentionally use another type and must retain that policy.",
+            "Actual metadata, display label and accessors are exercised without rendering a form. No browser, validation integration, data provider, NativeAOT or trimming claim is made."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100-rc.2.26504.105. GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/modelmetadataidentity-forproperty-removed",
+          "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/modelmetadataidentity-forproperty-removed.md",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Core/src/ModelBinding/Metadata/DefaultModelMetadataProvider.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BeaconLabels/BeaconLabels.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official ASP.NET Core 11 migration and removed APIs",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/modelmetadataidentity-forproperty-removed"
+    },
+    {
+      "title": "Pinned official migration source used for RC2 preparation",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/modelmetadataidentity-forproperty-removed.md"
+    },
+    {
+      "title": "Pinned framework metadata provider and reflected property identity",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Core/src/ModelBinding/Metadata/DefaultModelMetadataProvider.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BeaconLabels/BeaconLabels.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "A real DefaultModelMetadataProvider subclass produces the expected property metadata, custom display label and working getter/setter on both baselines; .NET 11 also preserves reflected PropertyInfo. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."
+    },
+    {
+      "sample": "samples/net11.0/BeaconLabels/BeaconLabels.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "A real DefaultModelMetadataProvider subclass produces the expected property metadata, custom display label and working getter/setter on both baselines; .NET 11 also preserves reflected PropertyInfo. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/BeaconLabels/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-beaconlabels-csproj": {
+      "path": "samples/net10.0/BeaconLabels/BeaconLabels.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/BeaconLabels/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/BeaconLabels/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/BeaconLabels/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/BeaconLabels/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-exhibitmetadataprovider-cs": {
+      "path": "samples/net10.0/BeaconLabels/ExhibitMetadataProvider.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/BeaconLabels/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-beaconlabels-csproj": {
+      "path": "samples/net11.0/BeaconLabels/BeaconLabels.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/BeaconLabels/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/BeaconLabels/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/BeaconLabels/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/BeaconLabels/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-exhibitmetadataprovider-cs": {
+      "path": "samples/net11.0/BeaconLabels/ExhibitMetadataProvider.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed local consumers require no owner-only account or resource. GA reconciliation and wider platform claims remain separate; no provisioning or publication."
+  }
+}
