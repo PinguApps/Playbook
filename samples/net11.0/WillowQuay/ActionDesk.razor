@@ -1,0 +1,15 @@
+<!-- snippet:complete -->
+@namespace WillowQuay
+@using Microsoft.AspNetCore.Components.Web
+<TicketDisplay />
+<FeedingControls />
+<button id="toggle-panel" @onclick="TogglePanel">Toggle instrument panel</button>
+@if (showPanel)
+{
+    <InstrumentPanel />
+}
+@code {
+    private bool showPanel = true;
+    private void TogglePanel() => showPanel = !showPanel;
+}
+<!-- endsnippet:complete -->

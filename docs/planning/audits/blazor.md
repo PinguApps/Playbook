@@ -28,6 +28,30 @@ guard. Canonical compilation/execution records and installed offline checks bind
 these bounded claims. No older-target backport, extra .NET 10 foundation,
 HybridCache/distributed or GA claim is added. PIN-959/PIN-964 remain open.
 
+## B08–B10 delivery, 28 October 2026
+
+PIN-1162/1163/1164 deliver the 11.0 editions of
+`blazor.remove-redundant-render-notifications`, `blazor.capture-loop-items-safely`
+and `blazor.expose-js-invokable-callbacks`. Original WillowQuay consumers use
+SDK 10.0.402/framework 10.0.13 and SDK 11.0.100-rc.2.26504.105/framework RC2.
+All three fixes also work on .NET 10; the new diagnostics do not introduce those
+runtime rules. No ninth foundation or unsupported older-target analyzer route is added.
+
+`eng/Record-ComponentActions.ps1` builds actual before/after Razor consumers and
+records real Chrome interactions. RC2 reports BL0012 for the original render-notification
+component, BL0014 at the captured iterator and BL0015 at the private callback;
+the migrated consumers have none. Both runtimes reproduce first/last selection
+of 4/4 before and 1/3 after, safe foreach 1/3, private JS rejection, public declared
+identifier success and disposed-reference rejection. Removing only the external
+timer's render request leaves stale UI despite a confirmed callback; its explicit
+dispatcher/render call remains necessary. Compiler/analyzer hashes and actual
+runtime identities are in each sample's selected `behavior.evidence.json`.
+
+The recipes retain complete canonical files, conditions and offline instructions.
+Interactive Server without prerender is the bounded executed route; no WASM,
+Hybrid, trimming/AOT, general error recovery, performance or GA proof is inferred.
+PIN-959 comprehensive coverage and PIN-964 actual-GA reconciliation remain open.
+
 PIN-1156/1157 deliver `blazor.supply-attribute-selected-state/11.0` and
 `blazor.reuse-contravariant-item-fragments/11.0`. Original ReedArchive and
 AsterObservatory .NET 10/RC2 consumers execute real HtmlRenderer selection,

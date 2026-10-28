@@ -1,0 +1,53 @@
+<!-- snippet:complete -->
+@namespace WillowQuay
+@using Microsoft.AspNetCore.Components.Web
+@implements IDisposable
+@inject PanelAudit Audit
+<section>
+    <h2>Ferry ticket display</h2>
+    <output id="ticket">@ticket</output>
+    <button id="next-ticket" @onclick="NextTicket">Next ticket</button>
+    <button id="start-timer" @onclick="StartTimer">Receive external update</button>
+    <output id="timer">@externalUpdates</output>
+</section>
+@code {
+    private int ticket;
+    private int externalUpdates;
+    private System.Threading.Timer? timer;
+    private bool disposed;
+
+    protected override void OnInitialized()
+    {
+        ticket = 40;
+        StateHasChanged();
+    }
+
+    private void NextTicket()
+    {
+        ticket++;
+        StateHasChanged();
+    }
+
+    private void StartTimer()
+    {
+        timer?.Dispose();
+        timer = new System.Threading.Timer(_ => _ = ReceiveExternalUpdate(), null, 250, Timeout.Infinite);
+    }
+
+    private Task ReceiveExternalUpdate() => InvokeAsync(() =>
+    {
+        if (disposed) return;
+        externalUpdates++;
+#if !OMIT_TIMER_RENDER
+        StateHasChanged();
+#endif
+        Audit.TimerCompleted();
+    });
+
+    public void Dispose()
+    {
+        disposed = true;
+        timer?.Dispose();
+    }
+}
+<!-- endsnippet:complete -->

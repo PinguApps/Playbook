@@ -196,8 +196,14 @@
     {
       "id": "void-call-authoring",
       "pattern": "^src/Components/Analyzers/src/DiagnosticDescriptors\\.cs",
-      "owner": "PIN-802 for BL0010 authoring only; remaining diagnostics retain their existing owners",
+      "owner": "PIN-802 for BL0010; PIN-1162/1163/1164 delivered BL0012/BL0014/BL0015 through the original WillowQuay consumers and their fresh selected behavior.evidence.json records; other diagnostics retain their existing owners",
       "disposition": "delivered blazor.use-void-interop-intent/11.0; actual old generic/new void browser calls plus supported old void use; no analyzer-internals or new runtime capability claim; docs/verification/component-interop.md"
+    },
+    {
+      "id": "component-action-diagnostics",
+      "pattern": "^src/Components/Analyzers/src/(StateHasChangedAnalyzer|ForLoopIteratorInClosureAnalyzer|JSInvokableAnalyzer)\\.cs",
+      "owner": "PIN-1162; blazor.remove-redundant-render-notifications/11.0. PIN-1163; blazor.capture-loop-items-safely/11.0. PIN-1164; blazor.expose-js-invokable-callbacks/11.0",
+      "disposition": "delivered; actual pinned net10.0/net11.0 Razor compilation, RC2 before/after diagnostics, real Chrome failure/success, required timer-render negative control, safe foreach and disposed-reference rejection. Fixes remain valid on .NET 10. GA and comprehensive gates remain open."
     },
     {
       "id": "custom-event-name-collision",

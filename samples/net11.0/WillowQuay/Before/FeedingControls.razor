@@ -1,0 +1,21 @@
+<!-- snippet:complete -->
+@namespace WillowQuay
+@using Microsoft.AspNetCore.Components.Web
+<section>
+    <h2>Aquarium feeding controls</h2>
+    @for (int tank = 1; tank <= 3; tank++)
+    {
+        <button class="feeding" @onclick="() => SelectTank(tank)">Feed tank @tank</button>
+    }
+    @foreach (int tank in tanks)
+    {
+        <button class="foreach-feeding" @onclick="() => SelectTank(tank)">Check tank @tank</button>
+    }
+    <output id="selected-tank">@selectedTank</output>
+</section>
+@code {
+    private readonly int[] tanks = [1, 2, 3];
+    private int selectedTank;
+    private void SelectTank(int tank) => selectedTank = tank;
+}
+<!-- endsnippet:complete -->
