@@ -1,0 +1,12 @@
+<!-- snippet:guarded -->
+@attribute [CacheBehavior(CacheBehavior.Throw)]
+@attribute [CacheCondition(CacheVaryBy.User)]
+@inject LibraryState State
+<p id="guarded" data-run="@Run">Reserved shelf for @Viewer</p>
+@code {
+    [CascadingParameter] private HttpContext Context { get; set; } = default!;
+    private string Viewer => Context.User.Identity?.Name ?? "anonymous";
+    private int Run;
+    protected override void OnInitialized() => Run = State.Enter("guarded");
+}
+<!-- endsnippet:guarded -->

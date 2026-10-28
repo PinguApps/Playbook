@@ -1,0 +1,8 @@
+<!-- snippet:shelf -->
+@inject LibraryState State
+<section id="shelf" data-build="@Build">Public library shelf: botany</section>
+@code {
+    private int Build;
+    protected override void OnInitialized() => Build = State.Enter("shelf");
+}
+<!-- endsnippet:shelf -->

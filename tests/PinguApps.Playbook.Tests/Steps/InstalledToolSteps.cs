@@ -1258,6 +1258,25 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("custom client rules and component cache contracts retain canonical guidance and execution evidence")]
+    public async Task CheckGardenLibraryAsync()
+    {
+        string[] ids = ["blazor.declare-component-cache-safety", "blazor.export-custom-client-validation-rules"];
+        await CheckWebRecipesAsync(ids, "garden-library", 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive installed retrieval.");
+            }
+
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        }
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2, string evidenceKind = "compile", string[]? expectedCatalogueIds = null, string? additionalEvidenceKind = null, string targetVersion = "11.0", string? edition = null, bool absentOnNet10 = true)
     {
         edition ??= targetVersion;
