@@ -2,7 +2,7 @@
   "id": "aspnet-core.validate-requests",
   "edition": "10.0",
   "title": "Reject invalid Minimal API input before the handler runs",
-  "goal": "Use registered synchronous DataAnnotations validation for Minimal API request models on .NET 10 or later; replace a custom .NET 9 endpoint filter and verify invalid requests cause no handler work.",
+  "goal": "Reject invalid Minimal API input before handlers run. Use synchronous model validation on .NET 10 or 11.",
   "areas": [
     "aspnetcore"
   ],
@@ -79,14 +79,14 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "AddValidation/filter are stable; low-level .NET 10 experimental APIs are not used. .NET 11 evidence is RC2; GA reconciliation remains pending."
+            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 RC2 proof; reconcile at GA."
           ]
         },
         "evidenceSamples": [
           "samples/net10.0/MossRequests/MossRequests.csproj"
         ],
         "selectionNotes": [
-          "Synchronous same-assembly model/endpoint discovery; binding and business rules are separate. Async validation is a later edition."
+          "Synchronous same-assembly validation; binding, business rules and the later async edition are separate."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-10.0?view=aspnetcore-10.0#validation-support-in-minimal-apis",
@@ -145,14 +145,14 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "AddValidation/filter are stable; low-level .NET 10 experimental APIs are not used. .NET 11 evidence is RC2; GA reconciliation remains pending."
+            "Stable AddValidation/filter only; .NET 10 experimental APIs unused. .NET 11 RC2 proof; reconcile at GA."
           ]
         },
         "evidenceSamples": [
           "samples/net11.0/MossRequests/MossRequests.csproj"
         ],
         "selectionNotes": [
-          "Synchronous same-assembly model/endpoint discovery; binding and business rules are separate. Async validation is a later edition."
+          "Synchronous same-assembly validation; binding, business rules and the later async edition are separate."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-10.0?view=aspnetcore-10.0#validation-support-in-minimal-apis",
