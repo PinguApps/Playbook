@@ -147,7 +147,7 @@
     {
       "id": "zstd",
       "pattern": " Microsoft\\.AspNetCore\\.ResponseCompression\\.Zstandard",
-      "owner": "PIN-835",
+      "owner": "PIN-835 delivered web.negotiate-zstandard-content; actual HarbourEncoding explicit provider selection, raw response negotiation, request decoding, unsupported/stacked 415 and expanded-body 413; GA reconciliation pending",
       "disposition": "grouped"
     },
     {
