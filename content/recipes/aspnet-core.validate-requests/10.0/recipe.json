@@ -59,14 +59,14 @@
           ],
           "packages": [],
           "packageAssets": [
-            "Microsoft.AspNetCore.App net10.0 shared framework and Microsoft.NETCore.App runtime assets; no extra package in the current route. AddValidation and generated validation infrastructure are supplied by the web framework; this sample needs no explicit Microsoft.Extensions.Validation reference."
+            "Microsoft.AspNetCore.App net10.0 shared validation/generator assets; no extra package."
           ],
           "workloads": [],
           "providers": [
-            "Kestrel loopback HTTP; no database, account or external resource."
+            "Kestrel loopback HTTP; no external service or account."
           ],
           "platforms": [
-            "Supported ASP.NET Core server platforms; measured execution only Windows x64. No browser/WASI, native or AOT claim."
+            "ASP.NET Core server platforms; executed Windows x64 only. No AOT/WASI claim."
           ],
           "renderingModes": [
             "Server JSON HTTP endpoints; no component rendering mode."
@@ -79,14 +79,14 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The used public API is stable/non-experimental; .NET 11 routes are prepared with RC2 evidence under ADR 0004 and await GA reconciliation. AddValidation and the built-in filter are stable. The .NET 10 low-level resolver/attribute APIs can be experimental; this recipe does not call or suppress diagnostics for them."
+            "AddValidation/filter are stable; low-level .NET 10 experimental APIs are not used. .NET 11 evidence is RC2; GA reconciliation remains pending."
           ]
         },
         "evidenceSamples": [
           "samples/net10.0/MossRequests/MossRequests.csproj"
         ],
         "selectionNotes": [
-          "Synchronous DataAnnotations validation of a public same-assembly request model before the Minimal API handler. Binding/JSON parsing and business validation are separate. AddValidation must execute in the assembly containing the endpoint/model for generated metadata; moving models/endpoints requires registration in their assembly too. No asynchronous IAsyncValidatableObject implementation, external business check, auth, persistence or strict unmapped-JSON-member contract."
+          "Synchronous same-assembly model/endpoint discovery; binding and business rules are separate. Async validation is a later edition."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-10.0?view=aspnetcore-10.0#validation-support-in-minimal-apis",
@@ -125,14 +125,14 @@
           ],
           "packages": [],
           "packageAssets": [
-            "Microsoft.AspNetCore.App net11.0 shared framework and Microsoft.NETCore.App runtime assets; no extra package in the current route. AddValidation and generated validation infrastructure are supplied by the web framework; this sample needs no explicit Microsoft.Extensions.Validation reference."
+            "Microsoft.AspNetCore.App net11.0 shared validation/generator assets; no extra package."
           ],
           "workloads": [],
           "providers": [
-            "Kestrel loopback HTTP; no database, account or external resource."
+            "Kestrel loopback HTTP; no external service or account."
           ],
           "platforms": [
-            "Supported ASP.NET Core server platforms; measured execution only Windows x64. No browser/WASI, native or AOT claim."
+            "ASP.NET Core server platforms; executed Windows x64 only. No AOT/WASI claim."
           ],
           "renderingModes": [
             "Server JSON HTTP endpoints; no component rendering mode."
@@ -145,14 +145,14 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The used public API is stable/non-experimental; .NET 11 routes are prepared with RC2 evidence under ADR 0004 and await GA reconciliation. AddValidation and the built-in filter are stable. The .NET 10 low-level resolver/attribute APIs can be experimental; this recipe does not call or suppress diagnostics for them."
+            "AddValidation/filter are stable; low-level .NET 10 experimental APIs are not used. .NET 11 evidence is RC2; GA reconciliation remains pending."
           ]
         },
         "evidenceSamples": [
           "samples/net11.0/MossRequests/MossRequests.csproj"
         ],
         "selectionNotes": [
-          "Synchronous DataAnnotations validation of a public same-assembly request model before the Minimal API handler. Binding/JSON parsing and business validation are separate. AddValidation must execute in the assembly containing the endpoint/model for generated metadata; moving models/endpoints requires registration in their assembly too. No asynchronous IAsyncValidatableObject implementation, external business check, auth, persistence or strict unmapped-JSON-member contract."
+          "Synchronous same-assembly model/endpoint discovery; binding and business rules are separate. Async validation is a later edition."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-10.0?view=aspnetcore-10.0#validation-support-in-minimal-apis",
