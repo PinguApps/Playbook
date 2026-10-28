@@ -1,0 +1,8 @@
+<!-- snippet:parameter -->
+@page "/stations/{Code}"
+<h1 id="outcome">Station @Code</h1>
+<a id="to-new" href="/stations/new?interactive=1">Create station</a>
+@code {
+    [Parameter] public string Code { get; set; } = "";
+}
+<!-- endsnippet:parameter -->

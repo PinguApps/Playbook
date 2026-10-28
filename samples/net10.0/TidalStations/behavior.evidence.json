@@ -1,0 +1,43 @@
+{
+  "kind": "execution",
+  "sample": "samples/net10.0/TidalStations/TidalStations.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "& 'C:\\Program Files\\nodejs\\node.exe' 'V:\\_worktrees\\Playbook\\t3-6254a127\\eng/Test-RemovedBlazorConsumers.mjs' 'C:\\Users\\pingu\\AppData\\Local\\npm-cache\\_npx\\e41f203b7505f1fb\\node_modules\\playwright-core' 'C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe' 'C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe' 'V:\\_worktrees\\Playbook\\t3-6254a127\\artifacts\\removed-api\\behavior.json'",
+  "scope": "Real HTTP static SSR exact/parameter routes and live Interactive Server navigation with prerender disabled. Asset constructor calls are compilation-only evidence.",
+  "recordedAt": "2026-10-28T20:17:44.7478120+00:00",
+  "sourceCommit": "eeacc3b2b6e70eee516e40f9b14a8dfa0de4c440",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Record-RemovedBlazorBehavior.ps1": "a7bf8ab62dd329782c1919a46146ee5a68466e159728000c7fe0740e1d5fceef",
+    "eng/Test-RemovedBlazorConsumers.mjs": "928f76223563d034c91c630d493f5c5dacebbb00c664c74ab1b0d7ba4fa2cf1d",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net10.0/TidalStations/_Imports.razor": "9432bcacc0d4ee10898fec5a244f19de89036a0beeb6611b38975d29d3d27435",
+    "samples/net10.0/TidalStations/App.razor": "32b11cd8b35fffe0dfce9cb41bdb64158cfcfa98fd6a5fcdd369f15ee97644ac",
+    "samples/net10.0/TidalStations/AssetCalls.cs": "170b34466476205ea5ad933501e49742c6066ffdcb5870a5105d64cccb591a1d",
+    "samples/net10.0/TidalStations/global.json": "01a63dc7bf0d696d6b73bda18ddd6c46287fa4a74102291711f557f935d27f7e",
+    "samples/net10.0/TidalStations/NewStation.razor": "51dc2c0d858a57b6e98aae86edb618617a325f5cf31ad21d4153e40664349d6d",
+    "samples/net10.0/TidalStations/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
+    "samples/net10.0/TidalStations/Program.cs": "0e74cd016a0ed214904ad4161b1174301386ca9378eafed61077ee61d38475e3",
+    "samples/net10.0/TidalStations/Routes.razor": "efafff797e88b63355d59d88bec50245ada21ca7a214911cc55372922c84b3a9",
+    "samples/net10.0/TidalStations/Station.razor": "8b5827cacc5cba47527274673fed16fa1aa2099d79d59bf8f61740d5d5970459",
+    "samples/net10.0/TidalStations/TidalStations.csproj": "2134fe266e01e330e1548a60f195312e13816f0650f5e6f23af1ba61ba6d23bc",
+    "samples/net10.0/TidalStations/verification.json": "bccd9d856103414cb99da6a80814955840b0278317cc15ca8d2640628d7cc7f2"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.da132f47\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.0/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.0\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.0.11017/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.0.11017\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.0.11017/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.0.11017\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.2/10.0.100\r\n   Manifest Path:       C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.2\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  10.0.303 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n  10.0.402 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.11 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-6254a127\\samples\\net10.0\\TidalStations\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.da132f47\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.2/10.0.100          VS 18.11.12306.390 \r\nios                        26.0.11017/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.0.11017/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.0/10.0.100          VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "PASS: Chromium 153.0.8010.12\n{\r\n  \"version\": \"10.0\",\r\n  \"sample\": \"TidalStations\",\r\n  \"staticRequests\": [\r\n    \"new=Create station\",\r\n    \"SA7=Station SA7\"\r\n  ],\r\n  \"interactive\": \"new → SA7 → new; same document; prerender disabled\"\r\n}"
+}

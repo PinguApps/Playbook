@@ -1,0 +1,35 @@
+<!-- snippet:form -->
+@page "/"
+@implements IDisposable
+@inject IServiceProvider Services
+@inject MaterialCatalogue Catalogue
+<EditForm EditContext="Editor.Context" OnSubmit="Submit" @key="Editor.Context">
+    <label for="material">Sail material</label>
+    <InputText id="material" @bind-Value="Editor.Model.Material" />
+    <ValidationMessage For="() => Editor.Model.Material" />
+    <button id="submit" type="submit">Check repair</button>
+</EditForm>
+<button id="replace" @onclick="Replace">Replace job</button>
+<output id="result">@Result</output>
+<output id="checks">@Catalogue.Checks</output>
+<output id="scope">@Catalogue.ScopeId</output>
+<output id="detached">@Detached</output>
+@code {
+    private RepairEditor Editor = default!;
+    private string Result = "Ready";
+    private string Detached = "";
+    protected override void OnInitialized() => Editor = new RepairEditor(Services);
+    private async Task Submit() => Result = await Editor.Context.ValidateAsync() ? "Accepted" : "Rejected";
+    private async Task Replace()
+    {
+        var old = Editor.Context;
+        Editor.Replace();
+        var before = Catalogue.Checks;
+        old.NotifyFieldChanged(new FieldIdentifier(old.Model, nameof(RepairJob.Material)));
+        await old.ValidateAsync();
+        Detached = Catalogue.Checks == before ? "Old context detached" : "Old handler still active";
+        Result = "Ready";
+    }
+    public void Dispose() => Editor.Dispose();
+}
+<!-- endsnippet:form -->

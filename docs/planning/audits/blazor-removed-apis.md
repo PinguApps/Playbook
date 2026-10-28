@@ -1,6 +1,15 @@
 # Removed Blazor APIs: bounded reconciliation and delivery proposal
 
-PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R3/R4 now have the focused delivery below; audit completion itself does not establish comprehensive coverage or publication readiness.
+PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R1–R4 now have the focused deliveries below; audit completion itself does not establish comprehensive coverage or publication readiness.
+
+## R1/R2 delivery, 28 October 2026
+
+PIN-1146 delivers `blazor.preserve-route-matching/11.0`; PIN-1147 delivers
+`blazor.validate-with-scoped-services/11.0`. Both include original .NET 10/11 RC2
+consumers, fresh compilation and actual HTTP/Chromium/scoped-DI execution records,
+plus installed ordinary-tool stdio retrieval. ResourceAsset remains an unchanged
+optional-parameter correction inside R1. The aggregate identity and existing
+editions are preserved; R5–R9 and GA/comprehensive gates remain open.
 
 ## R3/R4 delivery, 28 October 2026
 
@@ -14,7 +23,7 @@ installed ordinary-tool offline inspection. R3 removes dead options while
 preserving the bounded/cancellable consumer; R4 compiles all twenty mappings
 and executes representative synchronous/asynchronous component callbacks.
 The stream-options rename and segment/buffer/timeout equivalence remain factual
-gaps, not implemented APIs. R1/R2/R5–R9, PIN-959 and actual-GA PIN-964 gates remain
+gaps, not implemented APIs. R5–R9, PIN-959 and actual-GA PIN-964 gates remain
 outstanding; no whole-family completion is claimed. The original proposal text
 below is retained as audit history rather than rewritten as delivery evidence.
 

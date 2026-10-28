@@ -1,0 +1,210 @@
+{
+  "id": "blazor.validate-with-scoped-services",
+  "edition": "11.0",
+  "title": "Keep service-backed validation when migrating an EditContext",
+  "goal": "Supply the scoped application provider to manual EditContext data-annotations validation and dispose its subscription when replacing or closing an interactive editor.",
+  "areas": [
+    "aspnetcore",
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "validation",
+    "sail-repairs",
+    "removed-api"
+  ],
+  "apis": [
+    "EditContext",
+    "EnableDataAnnotationsValidation",
+    "AddDataAnnotationsValidation",
+    "IServiceProvider",
+    "IDisposable"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Manual top-level synchronous data-annotations rules with real scoped DI; retain and dispose exactly one returned subscription per EditContext.",
+          "Do not add DataAnnotationsValidator as a second subscriber to this manually enabled context."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run with the matching ASP.NET Core shared framework. .NET 10 is the separately executed comparison."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 against matching reference/browser assets. Exact RC2 pin records the test baseline, not a universal exact installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; no preview-only syntax is required. Previous sample declares C# 14."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.Components and Components.Web from the matching shared/reference framework; locked Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105 browser files supplied by the measured Web SDK."
+          ],
+          "providers": [
+            "Application-owned scoped MaterialCatalogue resolved from the actual component service provider. No external provider/account."
+          ],
+          "platforms": [
+            "ASP.NET Core server and modern browser; verified Windows x64 / Chromium 153. No native toolchain or workload."
+          ],
+          "renderingModes": [
+            "Interactive Server, prerender disabled for the measured form lifecycle."
+          ],
+          "prerequisites": [
+            "Use net11.0 Web SDK, register Razor components/Interactive Server and map component endpoints/static assets with antiforgery.",
+            "The previous net10.0 comparison uses SDK 10.0.402, framework/browser assets 10.0.13 and C# 14; the current sample uses SDK/framework RC2 11.0.100-rc.2.26504.105 / 11.0.0-rc.2.26504.105.",
+            "Inject the component's scoped IServiceProvider; register MaterialCatalogue as scoped. Do not create a root provider or a separate scope solely to enable validation."
+          ],
+          "constraints": [
+            "Manual top-level synchronous data-annotations rules with real scoped DI; retain and dispose exactly one returned subscription per EditContext.",
+            "Do not add DataAnnotationsValidator as a second subscriber to this manually enabled context.",
+            "Interactive Server lifecycle only. Static SSR, generated/nested graph validation, asynchronous catalogue rules, WASM and Auto are outside this example."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable supported replacement APIs already exist in .NET 10. Current execution uses .NET 11 RC2; GA reconciliation remains pending. No conditional older-target package route is advertised."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation?view=aspnetcore-11.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SailRepairs/SailRepairs.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous manual validation overloads",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs"
+    },
+    {
+      "title": "Current provider-aware validation and subscription disposal",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs"
+    },
+    {
+      "title": "Official Blazor data-annotations validation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/validation?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/SailRepairs/SailRepairs.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching target, SDK and locked SDK-aligned browser assets; no cross-compilation."
+    },
+    {
+      "sample": "samples/net10.0/SailRepairs/SailRepairs.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "record": "samples/net10.0/SailRepairs/behavior.evidence.json",
+      "scope": "Actual Chromium field/submit rejection and acceptance; scoped catalogue, three editor replacements, one current handler/message, old/final subscription disposal. .NET 10 providerless fixtures cannot resolve the service."
+    },
+    {
+      "sample": "samples/net11.0/SailRepairs/SailRepairs.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching target, SDK and locked SDK-aligned browser assets; no cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/SailRepairs/SailRepairs.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "record": "samples/net11.0/SailRepairs/behavior.evidence.json",
+      "scope": "Actual Chromium field/submit rejection and acceptance; scoped catalogue, three editor replacements, one current handler/message, old/final subscription disposal. The separate .NET 10 record covers the providerless failure fixtures."
+    }
+  ],
+  "snippets": {
+    "legacy": {
+      "path": "samples/net10.0/SailRepairs/LegacyChecks.cs",
+      "region": "legacy",
+      "language": "csharp"
+    },
+    "older": {
+      "path": "samples/net10.0/SailRepairs/RepairEditor.cs",
+      "region": "lifetime",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/SailRepairs/RepairEditor.cs",
+      "region": "lifetime",
+      "language": "csharp"
+    },
+    "model": {
+      "path": "samples/net11.0/SailRepairs/RepairJob.cs",
+      "region": "model",
+      "language": "csharp"
+    },
+    "form": {
+      "path": "samples/net11.0/SailRepairs/Repair.razor",
+      "region": "form",
+      "language": "razor"
+    },
+    "startup": {
+      "path": "samples/net11.0/SailRepairs/Program.cs",
+      "region": "startup",
+      "language": "csharp"
+    },
+    "hosting": {
+      "path": "samples/net11.0/SailRepairs/Program.cs",
+      "region": "hosting",
+      "language": "csharp"
+    },
+    "shell": {
+      "path": "samples/net11.0/SailRepairs/App.razor",
+      "region": "shell",
+      "language": "razor"
+    },
+    "router": {
+      "path": "samples/net11.0/SailRepairs/Routes.razor",
+      "region": "router",
+      "language": "razor"
+    },
+    "project": {
+      "path": "samples/net11.0/SailRepairs/SailRepairs.csproj",
+      "region": "project",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual local HTTP/Chromium and real matching-runtime checks cover these bounded claims. No Human-only prerequisite, production/provider/native deployment or GA proof is claimed."
+  }
+}
