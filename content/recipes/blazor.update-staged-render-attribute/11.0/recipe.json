@@ -1,0 +1,187 @@
+{
+  "id": "blazor.update-staged-render-attribute",
+  "edition": "11.0",
+  "title": "Replace a staged renderer attribute deliberately",
+  "goal": "Replace a known pending attribute after constructing an owned render tree when building an advanced renderer integration. Use the experimental indexed operation before submission; ordinary components should render their final values directly.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "experimental",
+    "mossgallery"
+  ],
+  "apis": [
+    "RenderTreeBuilder.SetAttributeValue",
+    "Renderer",
+    "RenderTreeFrame"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Replace a known pending attribute after constructing an owned render tree when building an advanced renderer integration. Use the experimental indexed operation before submission; ordinary components should render their final values directly.",
+          "Advanced in-process custom Renderer and HtmlRenderer output only; no browser DOM adapter, live batch mutation or stable rendering abstraction."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Execute the ASP.NET Core 11 shared-framework API; the actual evidence is RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 using the matching compiler/reference assets. Exact sample SDK pins are verification baselines."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview syntax is required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Razor"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Shared-framework Components/Web reference and runtime assemblies; no external packages."
+          ],
+          "providers": [],
+          "platforms": [
+            "Portable managed server/renderer; executed on Windows x64. No native SDK or optional workload."
+          ],
+          "renderingModes": [
+            "Advanced in-process custom Renderer and HtmlRenderer output only; no browser DOM adapter, live batch mutation or stable rendering abstraction."
+          ],
+          "prerequisites": [
+            "Use all files below as one project per release, including wwwroot when present. The .NET 10 comparison remains valid; no new API route on net10.0 is claimed."
+          ],
+          "constraints": [
+            "Moss Gallery stages a figure caption, then selects its final value before BuildRenderTree returns. The .NET 10 path rebuilds this tiny owned tree; this remains valid on .NET 11.",
+            "The argument is a zero-based frame index, not a source sequence number. Index 1 is established by this fixed tree; production adapters must track their own attribute frame and reject other layouts. Duplicate-attribute processing can move frames.",
+            "Only replace a staged attribute of the same intended meaning. This sample has a plain string data attribute; changing event callbacks/handler IDs or parameter contracts is outside scope.",
+            "Setting null leaves an attribute frame with a null value. It does not replay AddAttribute omission rules or compact the tree. The real HTML renderer omits this null-valued attribute; that output does not imply the frame disappeared.",
+            "Wrong frame type throws InvalidOperationException. Negative or count-or-higher indices throw ArgumentOutOfRangeException. Do not edit GetFrames().Array, retained renderer frames or an already submitted RenderBatch."
+          ],
+          "optIns": [
+            "Local #pragma warning disable/restore ASP0032 around SetAttributeValue, with BL0006 confined to intentional frame/Renderer boundaries. Never suppress these project-wide."
+          ],
+          "stabilityLimitations": [
+            "Experimental API; compatibility can change. Actual evidence: SDK 10.0.402 / runtime 10.0.13 and SDK 11.0.100-rc.2.26504.105 / runtime 11.0.0-rc.2.26504.105. GA reconciliation and comprehensive publication remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/Rendering/RenderTreeBuilder.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/Rendering/RenderTreeBuilder.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/RenderTree/Renderer.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MossGallery/MossGallery.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous builder contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/Rendering/RenderTreeBuilder.cs"
+    },
+    {
+      "title": "Experimental staged attribute replacement",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/Rendering/RenderTreeBuilder.cs"
+    },
+    {
+      "title": "Framework renderer contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/RenderTree/Renderer.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MossGallery/MossGallery.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Both real consumers compile and execute through Record-Evidence.ps1. Four custom-renderer batches and four actual HTML outputs cover replacement, encoding, null and subsequent replacement. The RC2 consumer executes wrong-frame and both index-boundary failures; Test-StagedAttribute.ps1 compiles independent negative consumers for CS1061, ASP0032 and BL0006. No DOM, event-handler mutation, performance or cross-version renderer compatibility is claimed."
+    },
+    {
+      "sample": "samples/net11.0/MossGallery/MossGallery.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Both real consumers compile and execute through Record-Evidence.ps1. Four custom-renderer batches and four actual HTML outputs cover replacement, encoding, null and subsequent replacement. The RC2 consumer executes wrong-frame and both index-boundary failures; Test-StagedAttribute.ps1 compiles independent negative consumers for CS1061, ASP0032 and BL0006. No DOM, event-handler mutation, performance or cross-version renderer compatibility is claimed."
+    }
+  ],
+  "snippets": {
+    "n10-gallerycard-cs": {
+      "path": "samples/net10.0/MossGallery/GalleryCard.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-galleryrenderer-cs": {
+      "path": "samples/net10.0/MossGallery/GalleryRenderer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/MossGallery/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-mossgallery-csproj": {
+      "path": "samples/net10.0/MossGallery/MossGallery.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MossGallery/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-gallerycard-cs": {
+      "path": "samples/net11.0/MossGallery/GalleryCard.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-galleryrenderer-cs": {
+      "path": "samples/net11.0/MossGallery/GalleryRenderer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MossGallery/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-mossgallery-csproj": {
+      "path": "samples/net11.0/MossGallery/MossGallery.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MossGallery/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Required managed/compiler/renderer checks executed locally; no Human-only, native/device or external-provider claims."
+  }
+}

@@ -1,5 +1,23 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+PIN-1158/1159 deliver experimental `blazor.update-staged-render-attribute/11.0`
+and `blazor.configure-circuit-json-metadata/11.0`. Original MossGallery consumers
+execute custom-renderer batches, real HTML output, null/replacement and documented
+index/frame failures on the actual .NET 10/RC2 baselines. Original CedarPlanetarium
+consumers execute real Interactive Server JS interop and DI protected session
+storage, generated metadata precedence, unhandled reflection fallback, retained
+ElementReference conversion, two isolated circuits/tabs and tamper rejection.
+The generated resolver overload accepts the framework's already read-only options;
+constructing a new context around those options fails. The exact SDK/runtime,
+resolved Internal.Assets dependency and fresh input hashes are in each sample's
+compilation and browser execution records. `eng/Test-StagedAttribute.ps1` and
+`eng/Test-CircuitJsonBoundary.ps1` verify unavailable older APIs and localized
+ASP0032/BL0006/ASPNETCORE9004 opt-ins. `eng/Record-CedarPayload.ps1` captures the
+real browser checks; `eng/Test-RendererPayloadConsumer.ps1` reconstructs all four
+consumers from installed MCP Markdown and reruns their actual behavior.
+No DOM adapter, live-batch mutation, full circuit-protocol, trimming, NativeAOT,
+production key-management or actual-GA support is claimed. PIN-959/PIN-964 remain open.
+
 PIN-1160/1161 deliver the B06/B07 11.0 editions
 blazor.export-custom-client-validation-rules and blazor.declare-component-cache-safety.
 Original GardenAccession/LibraryBadges .NET 10/RC2 consumers cover real browser
@@ -159,8 +177,8 @@ source-only scripts, defaults, markup, manifests and removable workarounds.
 | RenderFragment<T> contravariance | Reuse a base-item renderer for a derived-item slot; does **not** serialize generic delegates across rendering modes. | **B03 / PIN-1157 delivered**: `blazor.reuse-contravariant-item-fragments/11.0`; separate from PIN-778's non-generic static fragment boundary. |
 | AssetPath/AcceptsAssetPath/AssetPathAttributes, compiler metadata | Mark component parameters/custom HTML attributes for compiler asset expansion instead of scattering explicit lookup. | **B01**. PropertyMetadata.AcceptsStringLiteral delivered with [PIN-779's union-valued markup](../../verification/component-values.md); AssetPath remains B01. |
 | CascadingParameterSubscription/TryAddCascadingValueSupplier<TAttribute> | Attribute-selected scoped suppliers, notification and disposal, rather than component property injection. ComponentState is a framework-facing seam. | **B02 / PIN-1156 delivered**: `blazor.supply-attribute-selected-state/11.0`; real removal/scoped cleanup checks, no BL0006 at the actual RC2 access and no blanket stable/AOT guarantee. |
-| RenderTreeBuilder.SetAttributeValue | Experimental **ASP0032**, indexed pending attribute-frame replacement; not an ordinary application rendering recommendation. | **B04**, advanced renderer authoring only. |
-| CircuitOptions.JsonTypeInfoResolvers | Experimental **ASPNETCORE9004**, EditorBrowsable Never. RemoteJSRuntime and protected-browser-storage source insert resolvers in registration order before reflection fallback. | **B05**, no blanket circuit protocol or NativeAOT compatibility claim. |
+| RenderTreeBuilder.SetAttributeValue | Experimental **ASP0032**, indexed pending attribute-frame replacement; not an ordinary application rendering recommendation. | **B04 / PIN-1158 delivered**: `blazor.update-staged-render-attribute/11.0`; real renderer/HTML and failure checks, advanced pending-tree authoring only. |
+| CircuitOptions.JsonTypeInfoResolvers | Experimental **ASPNETCORE9004**, EditorBrowsable Never. RemoteJSRuntime and protected-browser-storage source insert resolvers in registration order before reflection fallback. | **B05 / PIN-1159 delivered**: `blazor.configure-circuit-json-metadata/11.0`; real interop/DI storage and scope/fallback checks; no full circuit-protocol or NativeAOT claim. |
 | InputFile protected virtual Dispose(bool) | New subclass cleanup hook; existing public IDisposable behavior remains. | **B15**. |
 | Razor compiler document constructors/output flags/GetCSharpDocument | Optional parameters preserve some source calls but change CLR constructor identity; custom compiled tool hosts must rebuild against matching tooling. | **B12**. |
 | Intermediate-node CloneNode overrides | Authored custom Razor transformations can copy nodes; not a guarantee of deep-copying every mutable descendant. | **B13**. |

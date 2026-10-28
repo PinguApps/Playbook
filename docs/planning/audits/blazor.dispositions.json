@@ -170,8 +170,8 @@
     {
       "id": "renderer-hooks",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(Rendering\\.RenderTreeBuilder::SetAttributeValue|Server\\.CircuitOptions)",
-      "owner": "B04/B05",
-      "disposition": "included; experimental"
+      "owner": "PIN-1158 delivered blazor.update-staged-render-attribute/11.0; PIN-1159 delivered blazor.configure-circuit-json-metadata/11.0; real .NET 10/RC2 renderer, browser interop and DI protected-storage consumers",
+      "disposition": "delivered; experimental; GA reconciliation pending"
     },
     {
       "id": "runtime-compilation",

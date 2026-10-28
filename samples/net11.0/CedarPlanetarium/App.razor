@@ -1,0 +1,14 @@
+<!-- snippet:complete -->
+@page "/"
+@namespace CedarPlanetarium
+@using Microsoft.AspNetCore.Components.Web
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><base href="/" /><title>Cedar Planetarium</title></head>
+<body>
+    <PayloadPanel @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <script src="payload.js"></script>
+    <script src="_framework/blazor.web.js"></script>
+</body>
+</html>
+<!-- endsnippet:complete -->
