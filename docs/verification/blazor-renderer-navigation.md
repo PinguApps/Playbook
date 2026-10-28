@@ -145,6 +145,15 @@ available. Discovery and both complete recipe objects matched Windows exactly,
 including text/structured equality, and the server shut down cleanly. The existing
 installed HostSmoke scenario also passed (1/1). No recurring matrix was added.
 
+After the two wording corrections and normal integration of the R1/R2 main-branch
+delivery, the final ordinary package has SHA-256
+`e15b36b2c4867e54239ee083161a4d77f67da18ffffec293b0ff47b94fb6cc38`.
+Its real installed list/get responses again matched full canonical Markdown and
+applicability with current evidence, and the network-disabled container matched
+both complete responses with clean shutdown. HostSmoke passed again (1/1).
+The four consumer source sets and compilation inputs are unchanged; their actual
+build/browser evidence remains applicable.
+
 ## Retained limits
 
 RC2 is not GA proof. Other browsers/OS, workers, AOT/published linking, deployment,
