@@ -193,7 +193,7 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 | — Response compression always emits `Vary` | No source change required; cache configuration review only if custom behavior depends on it. | Shared-cache correctness fix; zstd policy recipe remains separate. | [WB] | excluded — no universal header-removal recipe |
 | `sql.retain-entra-authentication` — Restore database authentication after driver dependency changes | Add SqlClient Azure extension explicitly; replace obsolete password mode where used. | EF SQL Server and SQL distributed cache; shared dependency-migration goal. | [WB], [EB] | included |
 | `blazor.supply-browser-configuration` | Environment variables now participate in configuration precedence. | Remove duplicate source or intentionally override conflicts. | [WB] | grouped |
-| `razor.replace-runtime-compilation-registration` — Build views without newly obsolete registration calls | Remove extra runtime-compilation overloads; use build-time compilation/Hot Reload. | MVC/Razor Pages; `ASPDEPR003`; runtime behavior unchanged. | [WR2] | included — RC2 addition beyond current WB list |
+| `razor.replace-runtime-compilation-registration` — Build views without newly obsolete registration calls | Remove runtime-compilation overloads/package; use default build-time compilation and choose Hot Reload for authoring. | MVC/Razor Pages; `ASPDEPR003`; diagnostic completion leaves runtime behavior unchanged. Real .NET 10/RC2 render and encoding checks; live Hot Reload edit not claimed; F# publishing remains separate. | [WR2] | delivered — PIN-840, 11.0 edition; GA reconciliation pending |
 
 ## EF Core cumulative feature inventory
 

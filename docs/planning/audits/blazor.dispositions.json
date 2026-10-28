@@ -176,8 +176,8 @@
     {
       "id": "runtime-compilation",
       "pattern": " Microsoft\\.Extensions\\.DependencyInjection\\.RazorRuntimeCompilationMvc",
-      "owner": "PIN-840",
-      "disposition": "grouped"
+      "owner": "PIN-840 delivered razor.replace-runtime-compilation-registration/11.0; .NET 10 RuntimeCompilation 10.0.13 versus package-free RC2 MVC/Razor Pages render and encoding checks; ASPDEPR003 diagnostic completion, runtime behavior unchanged",
+      "disposition": "delivered; GA reconciliation pending"
     },
     {
       "id": "metadata-only",
@@ -266,9 +266,9 @@
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.components\\.webassembly"
     },
     {
-      "owner": "PIN-840",
+      "owner": "PIN-840 delivered razor.replace-runtime-compilation-registration/11.0; locked net10.0 RuntimeCompilation comparison and package-free RC2 build-time compilation",
       "id": "runtime-compilation-build",
-      "disposition": "grouped",
+      "disposition": "delivered; GA reconciliation pending",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.mvc\\.razor\\.runtimecompilation/"
     },
     {

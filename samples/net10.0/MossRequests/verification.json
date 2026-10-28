@@ -1,0 +1,12 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": [],
+  "dependencies": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/net10.0/MossRequests/MossRequestChecks.cs"
+  ]
+}

@@ -165,8 +165,8 @@
     {
       "id": "runtime-compilation",
       "pattern": " Microsoft\\.Extensions\\.DependencyInjection\\.RazorRuntimeCompilationMvc",
-      "owner": "PIN-840; ASPDEPR003",
-      "disposition": "grouped"
+      "owner": "PIN-840 delivered razor.replace-runtime-compilation-registration/11.0; original .NET 10 RuntimeCompilation 10.0.13 versus package-free .NET 11 RC2 MVC/Razor Pages, actual render/encoding requests; ASPDEPR003 diagnostic completion, runtime behavior unchanged; Hot Reload choice documented, live edit not exercised; F# publishing remains W16",
+      "disposition": "delivered; GA reconciliation pending"
     },
     {
       "id": "json-patch",
@@ -210,7 +210,7 @@
     {
       "id": "runtime-compilation",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.mvc\\.razor\\.runtimecompilation/",
-      "owner": "PIN-840"
+      "owner": "PIN-840 delivered razor.replace-runtime-compilation-registration/11.0; historical locked net10.0 package comparison and package-free RC2 build-time compilation"
     },
     {
       "id": "test-host",

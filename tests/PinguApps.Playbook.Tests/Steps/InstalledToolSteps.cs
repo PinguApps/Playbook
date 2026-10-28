@@ -11,6 +11,18 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("Razor compilation and synchronous validation retain complete offline guidance")]
+    public async Task CheckMossGuidanceAsync()
+    {
+        await CheckWebRecipesAsync(["razor.replace-runtime-compilation-registration"], "razor-compilation", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(["razor.replace-runtime-compilation-registration"]).ConfigureAwait(false);
+        foreach (string target in new[] { "10.0", "11.0" })
+        {
+            await CheckWebRecipesAsync(["aspnet-core.validate-requests"], "request-validation", evidenceCount: 3, evidenceKind: "compile-and-run", targetVersion: target, edition: "10.0", absentOnNet10: false).ConfigureAwait(false);
+            await CheckCompleteOpenApiMetadataAsync(["aspnet-core.validate-requests"], "10.0", target).ConfigureAwait(false);
+        }
+    }
+
     [Then("MVC migration guidance retains canonical bodies full applicability and target editions")]
     public async Task CheckMvcMigrationsAsync()
     {
@@ -66,15 +78,18 @@ public sealed class InstalledToolSteps : IDisposable
         await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
     }
 
-    private async Task CheckCompleteOpenApiMetadataAsync(string[] ids)
+    private async Task CheckCompleteOpenApiMetadataAsync(string[] ids, string edition = "11.0", string targetVersion = "11.0")
     {
         foreach (string id in ids)
         {
-            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
-            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/{edition}/recipe.json").ConfigureAwait(false));
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion }).ConfigureAwait(false)).GetProperty("recipe");
             foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })
             {
-                Assert.True(JsonElement.DeepEquals(metadata.RootElement.GetProperty(field), recipe.GetProperty(field)), $"Complete OpenAPI {field} must survive offline packaging.");
+                JsonElement expectedValue = field == "applicability"
+                    ? JsonSerializer.SerializeToElement(new { routes = metadata.RootElement.GetProperty(field).GetProperty("routes").EnumerateArray().Where(route => route.GetProperty("target").GetString() == targetVersion).ToArray() })
+                    : metadata.RootElement.GetProperty(field);
+                Assert.True(JsonElement.DeepEquals(expectedValue, recipe.GetProperty(field)), $"Complete selected applicability and metadata {field} must survive offline packaging.");
             }
 
             JsonElement[] expected = [.. metadata.RootElement.GetProperty("evidence").EnumerateArray()];
@@ -1223,16 +1238,24 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2, string evidenceKind = "compile", string[]? expectedCatalogueIds = null, string? additionalEvidenceKind = null)
+    private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2, string evidenceKind = "compile", string[]? expectedCatalogueIds = null, string? additionalEvidenceKind = null, string targetVersion = "11.0", string? edition = null, bool absentOnNet10 = true)
     {
-        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "11.0", query, limit = 50 }).ConfigureAwait(false));
+        edition ??= targetVersion;
+        JsonElement catalogue = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion, query, limit = 50 }).ConfigureAwait(false));
         Assert.Equal(expectedCatalogueIds ?? ids, RecipeIds(catalogue));
-        JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query }).ConfigureAwait(false));
-        Assert.Empty(RecipeIds(older));
+        if (absentOnNet10)
+        {
+            JsonElement older = AssertMatchingRepresentations(await CallAsync("list_recipes", new { targetVersion = "10.0", query }).ConfigureAwait(false));
+            Assert.Empty(RecipeIds(older));
+        }
         foreach (string id in ids)
         {
-            AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
-            string path = $"content/recipes/{id}/11.0";
+            if (absentOnNet10)
+            {
+                AssertToolError(await CallAsync("get_recipe", new { id, targetVersion = "10.0" }).ConfigureAwait(false), "no_applicable_edition");
+            }
+
+            string path = $"content/recipes/{id}/{edition}";
             using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"{path}/recipe.json").ConfigureAwait(false));
             string expected = await ReadSdkInputAsync($"{path}/recipe.md").ConfigureAwait(false);
             foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
@@ -1245,19 +1268,19 @@ public sealed class InstalledToolSteps : IDisposable
                 expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{language}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
             }
 
-            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion }).ConfigureAwait(false)).GetProperty("recipe");
             JsonElement summary = Assert.Single(catalogue.GetProperty("recipes").EnumerateArray(), entry => entry.GetProperty("id").GetString() == id);
             Assert.Equal(metadata.RootElement.GetProperty("goal").GetString(), summary.GetProperty("goal").GetString());
             Assert.Equal(metadata.RootElement.GetProperty("title").GetString(), summary.GetProperty("title").GetString());
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
-            Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
+            Assert.Equal(edition, recipe.GetProperty("edition").GetString());
             Assert.Equal(metadata.RootElement.GetProperty("stability").GetString(), recipe.GetProperty("stability").GetString());
             AssertSelection(summary, recipe);
             JsonElement routes = recipe.GetProperty("applicability").GetProperty("routes");
-            Assert.Equal(metadata.RootElement.GetProperty("applicability").GetProperty("routes").GetArrayLength(), routes.GetArrayLength());
+            Assert.Equal(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray().Count(route => route.GetProperty("target").GetString() == targetVersion), routes.GetArrayLength());
             Assert.All(routes.EnumerateArray(), route =>
             {
-                Assert.Equal("11.0", route.GetProperty("target").GetString());
+                Assert.Equal(targetVersion, route.GetProperty("target").GetString());
                 Assert.NotEmpty(route.GetProperty("requirements").GetProperty("renderingModes").EnumerateArray());
             });
             Assert.Equal(evidenceCount, recipe.GetProperty("evidence").GetArrayLength());

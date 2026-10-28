@@ -23,6 +23,11 @@ try {
   & (Join-Path $PSScriptRoot 'Test-Content.ps1')
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1')
   foreach ($sample in @(
+    @{ Path = 'net9.0/MossRequests'; Dotnet = $Net9Dotnet },
+    @{ Path = 'net10.0/MossRequests'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/MossRequests'; Dotnet = $Net11Dotnet },
+    @{ Path = 'net10.0/MossViews'; Dotnet = 'dotnet' },
+    @{ Path = 'net11.0/MossViews'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/ArchiveContracts'; Dotnet = 'dotnet' },
     @{ Path = 'net11.0/ArchiveContracts'; Dotnet = $Net11Dotnet },
     @{ Path = 'net10.0/SkyLedger'; Dotnet = 'dotnet' },
