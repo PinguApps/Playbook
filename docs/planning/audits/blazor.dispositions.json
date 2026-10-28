@@ -68,7 +68,7 @@
     {
       "id": "removed-api",
       "pattern": " (Microsoft\\.AspNetCore\\.Components\\.(Routing\\.Router::(get_|set_)?PreferExactMatches|Forms\\.(RemoteBrowserFileStreamOptions|EditContextDataAnnotationsExtensions)|Web\\.WebEventCallbackFactoryEventArgsExtensions|RenderTree\\.WebRenderer::(get_|set_)?RendererId)|Microsoft\\.AspNetCore\\.Components\\.WebAssembly\\.(Infrastructure\\.JSInteropMethods::NotifyLocationChanged|Authentication\\.(AccessTokenResult|SignOutSessionStateManager|RemoteAuthenticationService`3::\\.ctor)))",
-      "owner": "PIN-691 R1-R9",
+      "owner": "PIN-691 R1-R9; R5 PIN-1150 blazor.allocate-web-renderer-identity; R6 PIN-1151 blazor.preserve-wasm-navigation-state",
       "disposition": "grouped"
     },
     {
