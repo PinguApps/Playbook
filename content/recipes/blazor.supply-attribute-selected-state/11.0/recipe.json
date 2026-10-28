@@ -1,0 +1,215 @@
+{
+  "id": "blazor.supply-attribute-selected-state",
+  "edition": "11.0",
+  "title": "Supply scoped values through a custom cascading attribute",
+  "goal": "Select multiple same-typed scoped component values with a custom attribute when named cascades are insufficient. Framework integration seam; retain explicit notification and disposal ownership.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "scoped-cascades"
+  ],
+  "apis": [
+    "TryAddCascadingValueSupplier<TAttribute>",
+    "CascadingParameterSubscription",
+    "ComponentState"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Select multiple same-typed scoped component values with a custom attribute when named cascades are insufficient. Framework integration seam; retain explicit notification and disposal ownership.",
+          "ComponentState is a framework implementation seam. Actual RC2 access emits no BL0006; a RenderTree.Renderer control does. No suppression, ExperimentalAttribute opt-in, thread-safety, trimming or NativeAOT guarantee."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run against ASP.NET Core 11 shared-framework component contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 with matching Razor compiler/reference assets; exact RC2 pin records verification."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample mode; no preview syntax is required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Razor"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.Components and Microsoft.AspNetCore.Components.Web from the matching shared framework; no external NuGet dependencies or native assets."
+          ],
+          "providers": [],
+          "platforms": [
+            "Portable managed renderer harness; Windows x64 execution verified. No native SDK, service account or optional workload."
+          ],
+          "renderingModes": [
+            "In-process HtmlRenderer execution; retained HTML output updated on its dispatcher. No browser transport or cross-render-mode execution claimed."
+          ],
+          "prerequisites": [
+            "Use the complete project, model, Razor components and Program below. AddLogging supplies HtmlRenderer; the harness does not start a web host.",
+            "ASP.NET Core 10 named cascades / typed adapters remain valid comparisons, not a second catalogue edition or a newer API route on net10.0."
+          ],
+          "constraints": [
+            "Only CollectionContext properties on IArchiveSubscriber components are supported; reject unknown collection names and other property types.",
+            "Mutate the same context object and dispatch notifications on the owning renderer. RefreshArchiveAsync rerenders it; no replacement-value or SetParametersAsync/lifecycle replay contract is provided.",
+            "Remove children through the renderer; custom subscriptions unsubscribe once. Dispose the DI scope after its renderer to clean subscriptions still active at full renderer teardown.",
+            "ComponentState is a framework implementation seam. Actual RC2 access emits no BL0006; a RenderTree.Renderer control does. No suppression, ExperimentalAttribute opt-in, thread-safety, trimming or NativeAOT guarantee."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual evidence: .NET 10.0.13 / SDK 10.0.402 and .NET 11.0.0-rc.2.26504.105 / SDK 11.0.100-rc.2.26504.105. GA reconciliation and comprehensive publication gates remain open.",
+            "Custom supplier is public but accepts framework-facing ComponentState; analyzer silence does not promise compatibility."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/CascadingValueServiceCollectionExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CascadingValueServiceCollectionExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CascadingParameterSubscription.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CascadingParameterValueProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/Rendering/ComponentState.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ReedArchive/ReedArchive.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous named cascade registration",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/CascadingValueServiceCollectionExtensions.cs"
+    },
+    {
+      "title": "Current custom supplier registration",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CascadingValueServiceCollectionExtensions.cs"
+    },
+    {
+      "title": "Subscription contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CascadingParameterSubscription.cs"
+    },
+    {
+      "title": "Framework subscription ownership",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CascadingParameterValueProvider.cs"
+    },
+    {
+      "title": "Component lifetime integration",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/Rendering/ComponentState.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ReedArchive/ReedArchive.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real HtmlRenderer execution: attribute/named selection, independent DI scopes and rendered updates; current custom subscriptions dispose once on child removal and scoped teardown fallback."
+    },
+    {
+      "sample": "samples/net11.0/ReedArchive/ReedArchive.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real HtmlRenderer execution: attribute/named selection, independent DI scopes and rendered updates; current custom subscriptions dispose once on child removal and scoped teardown fallback."
+    }
+  ],
+  "snippets": {
+    "n10-archivehost-razor": {
+      "path": "samples/net10.0/ReedArchive/ArchiveHost.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-archivepanel-razor": {
+      "path": "samples/net10.0/ReedArchive/ArchivePanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-archiveservices-cs": {
+      "path": "samples/net10.0/ReedArchive/ArchiveServices.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-archivestate-cs": {
+      "path": "samples/net10.0/ReedArchive/ArchiveState.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ReedArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ReedArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-reedarchive-csproj": {
+      "path": "samples/net10.0/ReedArchive/ReedArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-archivehost-razor": {
+      "path": "samples/net11.0/ReedArchive/ArchiveHost.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-archivepanel-razor": {
+      "path": "samples/net11.0/ReedArchive/ArchivePanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-archivestate-cs": {
+      "path": "samples/net11.0/ReedArchive/ArchiveState.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-archivesupplier-cs": {
+      "path": "samples/net11.0/ReedArchive/ArchiveSupplier.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ReedArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ReedArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-reedarchive-csproj": {
+      "path": "samples/net11.0/ReedArchive/ReedArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "All required managed renderer/compiler checks run locally. No Human-only environment, browser transport, provider, native/AOT or GA claim."
+  }
+}

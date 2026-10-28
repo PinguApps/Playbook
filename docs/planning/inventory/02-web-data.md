@@ -8,13 +8,24 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
+Delivered supplemental dispositions: **B02 / PIN-1156** supplies scoped values
+through a custom attribute (`blazor.supply-attribute-selected-state/11.0`), with
+actual named .NET 10 and custom RC2 renderer/lifetime consumers. **B03 / PIN-1157**
+reuses base-item fragments (`blazor.reuse-contravariant-item-fragments/11.0`), with
+actual adapter/direct-assignment consumers and compiler rejection controls.
+Their canonical sample records and focused `eng/Test-ArchiveFragments.ps1` checks
+support managed renderer behavior, not browser transport or delegate serialization.
+See the [updated source audit](../audits/blazor.md) for exact sources, runtime
+limits and scope teardown fallback. Other supplemental delivery and all actual-GA
+and comprehensive publication gates remain outstanding.
+
 [PIN-708's pinned artifact/source audit](../audits/blazor.md) extends this original
 headline inventory with complete selected public declarations, actual Razor
 compiler/task APIs, package build assets and SDK template differences. It assigns
 every API delta and retains 16 sized, approval-only delivery drafts (B01–B16).
 These supplemental findings do not revise the historical 156-row count or declare
 recipes delivered. Existing PIN-691 removal proposals and web recipe owners remain
-accountable; Components.AI documentation/package gaps stay explicit. All qualifying
+accountable; Components.AI documentation/package gaps stay explicit. Remaining qualifying
 new goals are **included — delivery outstanding**, including experimental hooks;
 B16's restore APIs require an actual available artifact. Compilation, real behavior,
 installed-MCP retrieval, GA reconciliation and publication gates remain open.

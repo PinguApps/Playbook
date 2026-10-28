@@ -1,0 +1,9 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@namespace ReedArchive
+<p>letters:@Letters.Count; maps:@Maps.Count</p>
+@code {
+    [CascadingParameter(Name = "letters")] public CollectionContext Letters { get; set; } = default!;
+    [CascadingParameter(Name = "maps")] public CollectionContext Maps { get; set; } = default!;
+}
+<!-- endsnippet:complete -->
