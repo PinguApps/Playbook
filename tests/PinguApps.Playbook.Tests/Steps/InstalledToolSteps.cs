@@ -23,6 +23,20 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("MVC migration guidance retains canonical bodies full applicability and target editions")]
+    public async Task CheckMvcMigrationsAsync()
+    {
+        string[] ids = ["mvc.remove-compatibility-shims", "mvc.update-property-metadata-identity", "razor.update-image-helper-extension"];
+        await CheckWebRecipesAsync(ids, "mvc-migration", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+                Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal));
+        }
+    }
+
     [Then("request policy guidance retains canonical bodies full applicability and target editions")]
     public async Task CheckRequestPoliciesAsync()
     {

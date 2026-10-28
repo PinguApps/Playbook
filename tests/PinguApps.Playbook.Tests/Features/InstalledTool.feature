@@ -9,6 +9,14 @@ Feature: Installed offline guidance
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 
+  @MvcMigration
+  Scenario: MVC and Razor migrations retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then MVC migration guidance retains canonical bodies full applicability and target editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @RequestPolicies
   Scenario: Tenant cache encoding and concurrency policies retain complete offline guidance
     Given the actual package is installed from an isolated local feed and cache

@@ -1,0 +1,250 @@
+{
+  "id": "razor.update-image-helper-extension",
+  "edition": "11.0",
+  "title": "Keep a derived image helper rendering versioned markup",
+  "goal": "Update a custom ImageTagHelper when moving MVC or Razor Pages to ASP.NET Core 11: use the supported three-service constructor and remove reads of the retired HostingEnvironment and Cache properties.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "mvc-migration",
+    "fernposters"
+  ],
+  "apis": [
+    "ImageTagHelper",
+    "IFileVersionProvider",
+    "HtmlEncoder",
+    "IUrlHelperFactory",
+    "HostingEnvironment",
+    "Cache"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Update a custom ImageTagHelper when moving MVC or Razor Pages to ASP.NET Core 11: use the supported three-service constructor and remove reads of the retired HostingEnvironment and Cache properties.",
+          "Historical .NET 10 code is comparison-only. The supported replacement already worked on .NET 10; these samples do not add a curated foundation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "An ASP.NET Core 11 migration; the recorded execution baseline is RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer with matching framework references; exact reproduction pin is shown."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Tested language mode, not a claim that this migration needs C# 15 syntax. The .NET 10 comparison uses C# 14."
+          },
+          "frameworks": [
+            "ASP.NET Core MVC / Razor Pages Tag Helpers"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App shared framework and reference pack; no additional NuGet package"
+          ],
+          "workloads": [],
+          "providers": [
+            "Real Razor activation, physical web-root file provider and IFileVersionProvider; no application data provider"
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual evidence is Windows x64"
+          ],
+          "renderingModes": [
+            "Server-rendered Razor views or Razor Pages; not Blazor components"
+          ],
+          "prerequisites": [
+            "Create the complete FernPosters directory for one target, including the three empty Directory files that isolate surrounding MSBuild/central package configuration. Use the pinned SDK and restore framework assets before offline builds. Run with the sample directory as the working directory."
+          ],
+          "constraints": [
+            "MVC and Razor Pages Tag Helpers only; this constructor migration does not apply to Blazor img elements.",
+            "Removed members are the five-argument constructor, protected HostingEnvironment and protected Cache. The three-argument constructor is not a new .NET 11 invention. Arbitrary precompiled subclasses must be rebuilt.",
+            "Both built-in and derived image helpers can match the same element when imported together. Import the replacement deliberately; the sample imports only its own assembly. For selective coexistence, choose mutually exclusive targets or scopes.",
+            "Versioning requires the real web-root file provider to find the image. A missing local asset may keep an unversioned URL. This sample tests generated markup with a local file, not browser image loading, a CDN or production cache invalidation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable framework migration; .NET 11 compilation and execution evidence uses 11.0.100-rc.2.26504.105. GA reconciliation remains separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/image-tag-helper-obsolete-members-removed",
+          "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/image-tag-helper-obsolete-members-removed.md",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.TagHelpers/src/ImageTagHelper.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FernPosters/FernPosters.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official ASP.NET Core 11 migration and removed APIs",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/image-tag-helper-obsolete-members-removed"
+    },
+    {
+      "title": "Pinned official migration source used for RC2 preparation",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/breaking-changes/11/image-tag-helper-obsolete-members-removed.md"
+    },
+    {
+      "title": "Supported image-helper construction in the pinned framework source",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.TagHelpers/src/ImageTagHelper.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FernPosters/FernPosters.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real MVC Razor activation resolves the derived helper's services and renders a versioned src, encoded custom attribute and retained alt text on both baselines. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."
+    },
+    {
+      "sample": "samples/net11.0/FernPosters/FernPosters.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real MVC Razor activation resolves the derived helper's services and renders a versioned src, encoded custom attribute and retained alt text on both baselines. Matching-SDK compilation and real execution; no mocks or cross-compilation. Windows x64 evidence does not establish GA or a platform matrix."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/FernPosters/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-fernposters-csproj": {
+      "path": "samples/net10.0/FernPosters/FernPosters.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/FernPosters/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/FernPosters/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/FernPosters/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/FernPosters/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-posterscontroller-cs": {
+      "path": "samples/net10.0/FernPosters/PostersController.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-fernimagetaghelper-cs": {
+      "path": "samples/net10.0/FernPosters/FernImageTagHelper.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-views-viewimports-cshtml": {
+      "path": "samples/net10.0/FernPosters/Views/_ViewImports.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-views-posters-index-cshtml": {
+      "path": "samples/net10.0/FernPosters/Views/Posters/Index.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-wwwroot-posters-fern-svg": {
+      "path": "samples/net10.0/FernPosters/wwwroot/posters/fern.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/FernPosters/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-fernposters-csproj": {
+      "path": "samples/net11.0/FernPosters/FernPosters.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/FernPosters/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/FernPosters/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/FernPosters/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/FernPosters/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-posterscontroller-cs": {
+      "path": "samples/net11.0/FernPosters/PostersController.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-fernimagetaghelper-cs": {
+      "path": "samples/net11.0/FernPosters/FernImageTagHelper.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-views-viewimports-cshtml": {
+      "path": "samples/net11.0/FernPosters/Views/_ViewImports.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-views-posters-index-cshtml": {
+      "path": "samples/net11.0/FernPosters/Views/Posters/Index.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-wwwroot-posters-fern-svg": {
+      "path": "samples/net11.0/FernPosters/wwwroot/posters/fern.svg",
+      "region": "complete",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed local consumers require no owner-only account or resource. GA reconciliation and wider platform claims remain separate; no provisioning or publication."
+  }
+}

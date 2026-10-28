@@ -117,7 +117,7 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | Native request traces/route tags/status descriptions | PIN-833. SuppressActivityOpenTelemetryData does not restore route substitution or StatusDescription. |
 | IOutputCachePolicyProvider | PIN-834; dynamic base/named policy selection, rather than fixed registration. |
 | Zstandard providers/decompression | PIN-835; explicit negotiation/decoding policy, not an automatic-default performance recipe. |
-| Removed concurrency middleware, MVC compatibility types, ImageTagHelper constructor/properties, ForProperty overload, runtime compilation registrations | PIN-836–840 respectively. Preserve source/binary versus behavioral distinctions; ASPDEPR003 is not runtime removal. **W16** handles F# compiled-view migration, which needs more than removing a registration. |
+| Removed concurrency middleware, MVC compatibility types, ImageTagHelper constructor/properties, ForProperty overload, runtime compilation registrations | PIN-836–840 respectively. PIN-837–839 deliver the three MVC/Razor migrations below. Preserve source/binary versus behavioral distinctions; ASPDEPR003 is not runtime removal. **W16** handles F# compiled-view migration, which needs more than removing a registration. |
 | ISpanDataProtector/ISpanAuthenticatedEncryptor | **W01**; writer-based protection and advanced custom encryptor contracts. New authored buffer ownership qualifies even when performance motivates it. |
 | StaticAssetDescriptor.Order | **W06**; authored endpoint manifest/routing precedence. Generated default changes do not each need a recipe. |
 | QUIC transport four buffer/stream properties lose RequiresPreviewFeatures | **W12**; explicit budgets and removal of a now-unnecessary preview workaround. Existing properties are not newly invented APIs. |
@@ -560,3 +560,34 @@ Markdown, ID/title/goal, all applicability/source metadata, evidence freshness,
 structured/text equality and target editions. No new OS/client/native test matrix
 is added. The grouped WEB-085 tracing portion is complete; its independent
 channel-binding work remains with PIN-831 and was not changed here.
+
+## Delivered MVC and Razor migrations: PIN-837–839
+
+The original QuayArchive, FernPosters and BeaconLabels .NET 10/11 pairs now back
+three stable goal identities: `mvc.remove-compatibility-shims`,
+`razor.update-image-helper-extension` and `mvc.update-property-metadata-identity`,
+each edition 11.0. These are migrations, not extra .NET 10 foundations.
+
+Actual SDK 10.0.402 / runtime 10.0.13 and SDK/runtime 11 RC2
+11.0.100-rc.2.26504.105 / 11.0.0-rc.2.26504.105 compile and execute the consumers.
+Saved evidence beside each project contains the actual commands, output and input
+hashes. Retargeting the historical sources to .NET 11 reproduces removed-API
+compiler errors; the migrated sources build and retain their intended outcomes.
+The local obsolete suppressions exist only in the .NET 10 migration inputs.
+
+QuayArchive starts Kestrel and checks a real MVC controller request after removing
+the compatibility registration. FernPosters uses real Razor activation of a
+derived ImageTagHelper and checks resolved/versioned image markup, encoded custom
+attributes and retained alt text. BeaconLabels executes a custom metadata provider
+and checks model type/container, display label and getter/setter; the new identity
+also retains the reflected PropertyInfo. The supported helper constructor and
+property-identity overload already worked in .NET 10; no novelty is invented.
+Recompile dependent binaries rather than assuming host recompilation fixes them.
+
+The `MvcMigration` scenario reuses the installed-package feed/cache and unrelated
+working-directory harness. It compares complete canonical Markdown, discovery
+ID/title/goal, full applicability and source metadata, current execution evidence,
+structured/text equality and target editions. No new platform/client matrix,
+resource provisioning or package publication is added. These managed Windows x64
+checks establish the named consumer behavior, not browser rendering, arbitrary
+third-party binary compatibility, trimming/NativeAOT or GA verification.

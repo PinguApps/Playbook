@@ -48,3 +48,8 @@
 
 # Inspect-EfApis.ps1 output; review its script, source/disposition manifests and audit.
 /docs/planning/audits/ef.assets.json
+
+# Decorative SVG fixtures: only their physical-file/versioned-URL behavior is claimed.
+# Review the helper, canonical snippet wiring and real Razor request checks instead.
+/samples/net10.0/FernPosters/wwwroot/posters/fern.svg
+/samples/net11.0/FernPosters/wwwroot/posters/fern.svg
