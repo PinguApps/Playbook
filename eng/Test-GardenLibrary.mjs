@@ -60,6 +60,7 @@ try {
             assert.deepEqual(rule.params, { letters: '2', digits: '4', separator: '-' });
           }
           const before = await counts();
+          let invalidClientBlocked = 0, directServerCases = 0;
           // Exercise case, separator, length, Unicode digit and whitespace boundaries in the real browser.
           for (const invalid of ['', 'ab-1234', 'AB_1234', 'AB-123', 'AB-１２３４', ' AB-1234']) {
             await page.locator('#code').fill(invalid);
@@ -68,6 +69,7 @@ try {
             await page.waitForFunction(() => document.body.textContent.includes('Enter an accession code.')
               || document.body.textContent.includes('Use two uppercase bed letters'));
             assert.deepEqual(await counts(), before);
+            invalidClientBlocked++;
           }
           await page.locator('#code').fill('AB-1234');
           await page.locator('#code').blur();
@@ -97,10 +99,11 @@ try {
               } });
               assert.equal(post.status(), 200);
               assert.ok((await post.text()).includes(`<output id="result">${code === 'AB-1234' ? 'Accepted' : 'Rejected'}</output>`));
+              directServerCases++;
             }
           } finally { await request.close(); }
           results.push({ version, sample: 'GardenAccession', mode, ruleMapping: version === '11.0',
-            invalidClientBlocked: 6, directServerCases: 7, bypassRejected: true, enhancedDocument: mode === 'enhanced' });
+            invalidClientBlocked, directServerCases, bypassRejected: true, enhancedDocument: mode === 'enhanced' });
         }
         if (version === '11.0') {
           await page.goto(base + '/optout');

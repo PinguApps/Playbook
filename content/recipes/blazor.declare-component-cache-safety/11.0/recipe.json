@@ -88,6 +88,7 @@
           ]
         },
         "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/cacheview-component?view=aspnetcore-11.0",
           "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheBehaviorAttribute.cs",
           "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheConditionAttribute.cs",
           "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheVaryBy.cs",
@@ -100,6 +101,10 @@
     ]
   },
   "sources": [
+    {
+      "title": "Official CacheView component and child compatibility",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/cacheview-component?view=aspnetcore-11.0"
+    },
     {
       "title": "Pinned live/refusal contract",
       "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheBehaviorAttribute.cs"
