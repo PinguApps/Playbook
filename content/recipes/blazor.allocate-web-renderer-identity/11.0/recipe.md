@@ -151,7 +151,7 @@ Previous exact baseline: SDK 10.0.402, net10.0/C# 14, ASP.NET Core packages and 
 
 ## Evidence
 
-Fresh canonical compile records retain exact SDK/dependency closure, commands and input hashes. The real reference/package artifact audit was rerun and matched the committed inventory. Separate real T3 integrated Chromium 152 browser checks, using actual WASM runtime assets, establish the focused behavior in docs/verification/blazor-renderer-navigation.md. They do not use mocked JS interop. The historical notification fixture is compile-only; no supported-path behavior relies on it.
+Fresh canonical compile records retain exact SDK/dependency closure, commands and input hashes. The real reference/package artifact audit was rerun and matched the committed inventory. Separate real T3 integrated Chromium 152 browser checks, using actual WASM runtime assets, establish the focused behavior in docs/verification/blazor-renderer-navigation.md. They do not use mocked JS interop.
 
 The exact ordinary packed tool was installed through an isolated local-only feed/cache, then list_recipes/get_recipe were called over real stdio from an unrelated directory with explicit target 11.0. Full canonical Markdown, discovery ID/title/goal, applicability, evidence freshness and JSON-text/structured equality are checked. Offline retrieval is separate from online restore/setup. Aggregate removed-API coverage, comprehensive PIN-959 and actual-GA PIN-964 remain open.
 
