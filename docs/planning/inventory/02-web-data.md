@@ -8,6 +8,15 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
+**B04 / PIN-1158** delivers experimental pending attribute replacement
+(`blazor.update-staged-render-attribute/11.0`) with actual .NET 10 rebuild and
+RC2 custom-renderer/HTML/failure consumers. **B05 / PIN-1159** delivers experimental
+application-payload metadata (`blazor.configure-circuit-json-metadata/11.0`),
+with actual old reflection/new generated resolver paths over real Interactive
+Server interop and DI protected session storage. Fresh sample records and focused
+checks preserve order, fallback, converters, scope isolation and tamper rejection.
+These bounded deliveries leave full protocol/AOT and actual-GA claims unverified.
+
 Delivered supplemental dispositions: **B02 / PIN-1156** supplies scoped values
 through a custom attribute (`blazor.supply-attribute-selected-state/11.0`), with
 actual named .NET 10 and custom RC2 renderer/lifetime consumers. **B03 / PIN-1157**

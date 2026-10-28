@@ -1,0 +1,250 @@
+{
+  "id": "blazor.configure-circuit-json-metadata",
+  "edition": "11.0",
+  "title": "Choose metadata for application-owned circuit JSON",
+  "goal": "Register generated metadata for application-owned payloads sent through Interactive Server JavaScript interop and DI protected browser storage when deliberately adopting the experimental circuit resolver hook. Keep reflection fallback and framework converters.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "experimental",
+    "cedarplanetarium"
+  ],
+  "apis": [
+    "CircuitOptions.JsonTypeInfoResolvers",
+    "IJsonTypeInfoResolver",
+    "ProtectedSessionStorage",
+    "IJSRuntime.InvokeAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Register generated metadata for application-owned payloads sent through Interactive Server JavaScript interop and DI protected browser storage when deliberately adopting the experimental circuit resolver hook. Keep reflection fallback and framework converters.",
+          "Real Interactive Server circuits after activation, same-origin JavaScript and server-side DI ProtectedSessionStorage; no prerender interop, WASM client, full circuit protocol or NativeAOT support."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Execute the ASP.NET Core 11 shared-framework API; the actual evidence is RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 using the matching compiler/reference assets. Exact sample SDK pins are verification baselines."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no preview syntax is required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Shared-framework Components and Server/JSInterop; SDK-resolved Microsoft.AspNetCore.App.Internal.Assets 11.0.0-rc.2.26504.105 supplies static framework assets."
+          ],
+          "providers": [
+            "ASP.NET Core Data Protection; ephemeral in-memory keys for this disposable sample only."
+          ],
+          "platforms": [
+            "Portable managed server/renderer; executed on Windows x64. No native SDK or optional workload."
+          ],
+          "renderingModes": [
+            "Real Interactive Server circuits after activation, same-origin JavaScript and server-side DI ProtectedSessionStorage; no prerender interop, WASM client, full circuit protocol or NativeAOT support."
+          ],
+          "prerequisites": [
+            "Use all files below as one project per release, including wwwroot when present. The .NET 10 comparison remains valid; no new API route on net10.0 is claimed."
+          ],
+          "constraints": [
+            "Cedar Planetarium sends ShowTicket through both real paths. TicketJson supplies generated metadata only for that record; ExtraNote deliberately falls through both resolvers to reflection. The first registered resolver wins; the second throws if asked to own ShowTicket.",
+            "Use injected ProtectedSessionStorage/ProtectedLocalStorage from framework DI. Manually constructing a storage instance does not use the configured resolver chain. Configure once at startup, before options are cached; do not put per-user mutable state in resolvers.",
+            "Resolvers return null for unhandled types. Preserve framework converters and reflection fallback. The sample passes a real ElementReference alongside each JS payload as a converter control; generated metadata does not make all framework messages source generated.",
+            "Protected session storage is server-side Data Protection over per-tab browser session storage. It is not authorization, a cross-tab/session data service or a guarantee against deletion/replay. Browser access is unavailable during prerender.",
+            "Ephemeral keys keep the demo disposable and create no persistent key ring. Restarting the host loses decryption ability. A production server needs its own reviewed persistent key lifecycle; this recipe does not deploy one.",
+            "The bounded trace observes options identities and type names, caps history at 64 entries and retains no payloads. It is test instrumentation. Distinct options/circuit state does not promise that configured resolver instances are per-circuit. Concurrent resolvers must be safe for shared use.",
+            "Server-side Blazor does not currently support trimming or NativeAOT. This is not a circuit-protocol, AOT, zero-reflection, external-provider or production-security qualification."
+          ],
+          "optIns": [
+            "Local #pragma warning disable/restore ASPNETCORE9004 around JsonTypeInfoResolvers registrations. The API is experimental and EditorBrowsable(Never); no project-wide suppression."
+          ],
+          "stabilityLimitations": [
+            "Experimental API; compatibility can change. Actual evidence: SDK 10.0.402 / runtime 10.0.13 and SDK 11.0.100-rc.2.26504.105 / runtime 11.0.0-rc.2.26504.105. GA reconciliation and comprehensive publication remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/CircuitOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/CircuitOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/RemoteJSRuntime.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/ProtectedBrowserStorage/ProtectedBrowserStorageJsonSerializerOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/DependencyInjection/ComponentServiceCollectionExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/ProtectedBrowserStorage/ProtectedBrowserStorage.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CedarPlanetarium/CedarPlanetarium.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous circuit options",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Server/src/CircuitOptions.cs"
+    },
+    {
+      "title": "Experimental resolver registration",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/CircuitOptions.cs"
+    },
+    {
+      "title": "Real remote interop resolver chain",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/Circuits/RemoteJSRuntime.cs"
+    },
+    {
+      "title": "Scoped storage serializer options",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/ProtectedBrowserStorage/ProtectedBrowserStorageJsonSerializerOptions.cs"
+    },
+    {
+      "title": "DI storage construction and trimming limitation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/DependencyInjection/ComponentServiceCollectionExtensions.cs"
+    },
+    {
+      "title": "Protected storage implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Server/src/ProtectedBrowserStorage/ProtectedBrowserStorage.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/CedarPlanetarium/CedarPlanetarium.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management."
+    },
+    {
+      "sample": "samples/net10.0/CedarPlanetarium/CedarPlanetarium.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.",
+      "record": "samples/net10.0/CedarPlanetarium/behavior.evidence.json"
+    },
+    {
+      "sample": "samples/net11.0/CedarPlanetarium/CedarPlanetarium.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management."
+    },
+    {
+      "sample": "samples/net11.0/CedarPlanetarium/CedarPlanetarium.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "scope": "Record-CedarPayload.ps1 captures exact compilation inputs/dependencies, then Test-CedarPayload.mjs runs both real local servers in Chromium with two separate circuits/tabs each. ShowTicket and ExtraNote round-trip over JS interop and DI protected session storage. Trace assertions distinguish four independent serializer options instances in RC2, preserve registration order and exercise reflection fallback; each app retains its own scope values and stored ticket. Ciphertext conceals the payload and an altered ciphertext is rejected by real Data Protection. Compile-only evidence is separate from saved execution records. These checks do not claim exhaustive security or production key management.",
+      "record": "samples/net11.0/CedarPlanetarium/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-app-razor": {
+      "path": "samples/net10.0/CedarPlanetarium/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-cedarplanetarium-csproj": {
+      "path": "samples/net10.0/CedarPlanetarium/CedarPlanetarium.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/CedarPlanetarium/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-payloadpanel-razor": {
+      "path": "samples/net10.0/CedarPlanetarium/PayloadPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/CedarPlanetarium/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-visitstate-cs": {
+      "path": "samples/net10.0/CedarPlanetarium/VisitState.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-wwwroot-payload-js": {
+      "path": "samples/net10.0/CedarPlanetarium/wwwroot/payload.js",
+      "region": "complete",
+      "language": "javascript"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/CedarPlanetarium/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-cedarplanetarium-csproj": {
+      "path": "samples/net11.0/CedarPlanetarium/CedarPlanetarium.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/CedarPlanetarium/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-payloadpanel-razor": {
+      "path": "samples/net11.0/CedarPlanetarium/PayloadPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/CedarPlanetarium/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-ticketresolver-cs": {
+      "path": "samples/net11.0/CedarPlanetarium/TicketResolver.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-visitstate-cs": {
+      "path": "samples/net11.0/CedarPlanetarium/VisitState.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-wwwroot-payload-js": {
+      "path": "samples/net11.0/CedarPlanetarium/wwwroot/payload.js",
+      "region": "complete",
+      "language": "javascript"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Required managed/compiler and real local browser/storage checks executed locally; no Human-only, native/device or external-provider claims."
+  }
+}

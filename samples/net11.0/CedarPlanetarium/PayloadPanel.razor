@@ -1,0 +1,57 @@
+<!-- snippet:complete -->
+@namespace CedarPlanetarium
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+@inject ProtectedSessionStorage Storage
+@inject VisitState Visit
+@inject MetadataTrace Trace
+
+<h1>Cedar Planetarium</h1>
+<p>Scope: <span id="scope">@Visit.Scope</span></p>
+<span id="interop-marker" @ref="marker">Payload checks</span>
+<button id="run" @onclick="RoundTripAsync">Round trip</button>
+<button id="read" @onclick="ReadAsync">Read stored ticket</button>
+<p id="status">@status</p>
+<p>Completed round trips: <span id="runs">@Visit.Runs</span></p>
+<pre id="trace" style="white-space:pre-wrap;overflow-wrap:anywhere">@System.Text.Json.JsonSerializer.Serialize(Trace.Snapshot())</pre>
+
+@code {
+    private ElementReference marker;
+    private string status = "ready";
+
+    private async Task RoundTripAsync()
+    {
+        var ticket = new ShowTicket("Cedar-" + Visit.Scope, 7);
+        var note = new ExtraNote("Meteor rehearsal");
+        try
+        {
+            var echo = await JS.InvokeAsync<ShowTicket>("cedar.echo", ticket, marker);
+            var fallback = await JS.InvokeAsync<ExtraNote>("cedar.echo", note, marker);
+            await Storage.SetAsync("cedar.ticket", ticket);
+            await Storage.SetAsync("cedar.note", note);
+            var stored = await Storage.GetAsync<ShowTicket>("cedar.ticket");
+            var storedNote = await Storage.GetAsync<ExtraNote>("cedar.note");
+            if (echo != ticket || fallback != note || !stored.Success || stored.Value != ticket ||
+                !storedNote.Success || storedNote.Value != note)
+                throw new InvalidOperationException("Round trip changed application values.");
+            Visit.Runs++;
+            status = "passed:" + ticket.Dome + ":" + ticket.Seats;
+        }
+        catch (JSException error) { status = "JS failure: " + error.Message; }
+    }
+
+    private async Task ReadAsync()
+    {
+        try
+        {
+            var stored = await Storage.GetAsync<ShowTicket>("cedar.ticket");
+            status = stored.Success ? "stored:" + stored.Value!.Dome : "missing";
+        }
+        catch (System.Security.Cryptography.CryptographicException) { status = "tamper rejected"; }
+        catch (JSException error) { status = "JS failure: " + error.Message; }
+    }
+}
+<!-- endsnippet:complete -->
