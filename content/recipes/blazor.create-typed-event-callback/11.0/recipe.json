@@ -1,0 +1,229 @@
+{
+  "id": "blazor.create-typed-event-callback",
+  "edition": "11.0",
+  "title": "Create typed event callbacks",
+  "goal": "Preserve event arguments and awaited component completion when replacing removed callback extensions.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "event-callbacks"
+  ],
+  "apis": [
+    "EventCallbackFactory.Create<TValue>",
+    "WebEventCallbackFactoryEventArgsExtensions"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "The supported consumer API already works on .NET 10; this edition addresses the .NET 11 removal."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The target-11 migration uses matching ASP.NET Core 11 components."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 Razor consumer and matching browser assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current sample compiler mode, not the introduction of these APIs."
+          },
+          "frameworks": [
+            "ASP.NET Core Blazor"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Matching Microsoft.AspNetCore.App reference/runtime assets and blazor.web.js"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "ASP.NET Core server and browser"
+          ],
+          "renderingModes": [
+            "Web App Interactive Server"
+          ],
+          "prerequisites": [
+            "Register Razor components and Interactive Server; keep an active circuit. Microsoft.NET.Sdk.Web supplies the matching implicit Internal.Assets package. No external provider, package or optional workload."
+          ],
+          "constraints": [
+            "Static SSR cannot execute component events. WebAssembly, Hybrid, other browsers, older-target/new-package and deployment routes are not verified.",
+            "Preserve the IHandleEvent receiver and return/await the Task; do not turn asynchronous handlers into async void."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API; measured current baseline is RC2, with GA reconciliation still pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/WebEventCallbackFactoryEventArgsExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/EventCallbackFactory.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/ComponentBase.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/GreenhouseValves/GreenhouseValves.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous twenty extensions",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Web/src/WebEventCallbackFactoryEventArgsExtensions.cs"
+    },
+    {
+      "title": "Supported generic factory",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/EventCallbackFactory.cs"
+    },
+    {
+      "title": "Component event receiver",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/ComponentBase.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/GreenhouseValves/GreenhouseValves.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK and matching dependency compilation. Separate real Chrome observations in docs/verification/blazor-streams-callbacks.md establish browser behaviour; compilation alone does not."
+    },
+    {
+      "sample": "samples/net11.0/GreenhouseValves/GreenhouseValves.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned SDK and matching dependency compilation. Separate real Chrome observations in docs/verification/blazor-streams-callbacks.md establish browser behaviour; compilation alone does not."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/GreenhouseValves/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/GreenhouseValves/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/GreenhouseValves/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/GreenhouseValves/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-greenhousevalves-csproj": {
+      "path": "samples/net10.0/GreenhouseValves/GreenhouseValves.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/GreenhouseValves/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-app-razor": {
+      "path": "samples/net10.0/GreenhouseValves/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-valveswitch-razor": {
+      "path": "samples/net10.0/GreenhouseValves/ValveSwitch.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-valvepanel-razor": {
+      "path": "samples/net10.0/GreenhouseValves/ValvePanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-callbackforms-cs": {
+      "path": "samples/net10.0/GreenhouseValves/CallbackForms.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/GreenhouseValves/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/GreenhouseValves/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/GreenhouseValves/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/GreenhouseValves/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-greenhousevalves-csproj": {
+      "path": "samples/net11.0/GreenhouseValves/GreenhouseValves.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/GreenhouseValves/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/GreenhouseValves/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-valveswitch-razor": {
+      "path": "samples/net11.0/GreenhouseValves/ValveSwitch.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-valvepanel-razor": {
+      "path": "samples/net11.0/GreenhouseValves/ValvePanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-callbackforms-cs": {
+      "path": "samples/net11.0/GreenhouseValves/CallbackForms.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local browser/file-transfer and component checks require no Human-only action or external account. Actual execution observations are recorded separately; no GA or deployment claim."
+  }
+}

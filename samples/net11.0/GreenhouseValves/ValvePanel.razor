@@ -1,0 +1,45 @@
+<!-- snippet:complete -->
+@namespace GreenhouseValves
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+<h1>Greenhouse valve panel</h1>
+<p id="interactive">Interactive: @interactive</p>
+<ValveSwitch Selection="@selection" Confirmation="@confirmation" />
+<p id="selection">Selected: @selected; updates: @selectionUpdates</p>
+<p id="confirmation">Confirmed: @confirmed; updates: @confirmationUpdates; phase: @phase</p>
+
+@code {
+    private EventCallback<KeyboardEventArgs> selection;
+    private EventCallback<PointerEventArgs> confirmation;
+    private bool interactive;
+    private string selected = "none", confirmed = "none", phase = "idle";
+    private int selectionUpdates, confirmationUpdates;
+
+    protected override void OnInitialized()
+    {
+
+        selection = EventCallback.Factory.Create<KeyboardEventArgs>(this, (Action<KeyboardEventArgs>)Select);
+        confirmation = EventCallback.Factory.Create<PointerEventArgs>(this, (Func<PointerEventArgs, Task>)Confirm);
+
+        CallbackForms.Check(this);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) { interactive = true; StateHasChanged(); }
+    }
+    private void Select(KeyboardEventArgs args)
+    {
+        selected = args.Key;
+        selectionUpdates++;
+    }
+    private async Task Confirm(PointerEventArgs args)
+    {
+        phase = "awaiting";
+        await Task.Delay(500);
+        confirmed = args.PointerType;
+        confirmationUpdates++;
+        phase = "complete";
+    }
+}
+<!-- endsnippet:complete -->

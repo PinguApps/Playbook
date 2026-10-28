@@ -1,0 +1,17 @@
+<!-- snippet:complete -->
+@namespace GreenhouseValves
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+<button type="button" @onkeydown="Selection" @onpointerdown="Confirm">Valve control</button>
+<p id="child-completion">Child observed completion: @completions</p>
+@code {
+    [Parameter] public EventCallback<KeyboardEventArgs> Selection { get; set; }
+    [Parameter] public EventCallback<PointerEventArgs> Confirmation { get; set; }
+    private int completions;
+    private async Task Confirm(PointerEventArgs args)
+    {
+        await Confirmation.InvokeAsync(args);
+        completions++;
+    }
+}
+<!-- endsnippet:complete -->
