@@ -1,0 +1,235 @@
+{
+  "id": "razor.replace-runtime-compilation-registration",
+  "edition": "11.0",
+  "title": "Render MVC and Razor Pages without obsolete runtime-compilation registration",
+  "goal": "Remove obsolete AddRazorRuntimeCompilation calls when rebuilding MVC or Razor Pages for .NET 11; keep default build-time view compilation and choose Hot Reload for local authoring.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "moss-observatory",
+    "razor-compilation"
+  ],
+  "apis": [
+    "AddRazorRuntimeCompilation",
+    "AddControllersWithViews",
+    "AddRazorPages",
+    "ASPDEPR003",
+    "dotnet watch"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "An SDK supporting this target is required; exact authoring pin is 11.0.100-rc.2.26504.105."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared example language mode, separate from runtime requirements."
+          },
+          "frameworks": [
+            "ASP.NET Core MVC and Razor Pages"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0 shared framework and Microsoft.NETCore.App runtime assets; no extra package in the current route. Historical .NET 10 comparison explicitly pins Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation 10.0.13 and its net10.0 asset."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback HTTP; no database, account or external resource."
+          ],
+          "platforms": [
+            "Supported ASP.NET Core server platforms; measured execution only Windows x64. No browser/WASI, native or AOT claim."
+          ],
+          "renderingModes": [
+            "Server-rendered MVC .cshtml views and Razor Pages; not Blazor components."
+          ],
+          "prerequisites": [
+            "Keep each complete project in a separate directory using the shown build/package boundary, SDK pin and source files. Restore the declared assets before running. Guidance retrieval itself is offline."
+          ],
+          "constraints": [
+            "MVC/Razor Pages only. ASPDEPR003 completes runtime-compilation obsoletion; the runtime behavior of retained registration is unchanged. Remove registration/package for default build-time compilation, use Hot Reload during development. Build-time compilation was already valid on .NET 10. Not F# compiled-view publishing, custom runtime file-provider equivalence or Blazor component guidance."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "The used public API is stable/non-experimental; .NET 11 routes are prepared with RC2 evidence under ADR 0004 and await GA reconciliation. ASPDEPR003 marks obsoletion, not an experimental API or a runtime behavior change."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/MossViews/MossViews.csproj"
+        ],
+        "selectionNotes": [
+          "MVC/Razor Pages only. ASPDEPR003 completes runtime-compilation obsoletion; the runtime behavior of retained registration is unchanged. Remove registration/package for default build-time compilation, use Hot Reload during development. Build-time compilation was already valid on .NET 10. Not F# compiled-view publishing, custom runtime file-provider equivalence or Blazor component guidance."
+        ],
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/aspnetcore.md",
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/10/razor-runtime-compilation-obsolete?view=aspnetcore-10.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/test/hot-reload?view=aspnetcore-11.0",
+          "https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/10.0.13"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Additional overloads now warn; runtime behavior is unchanged",
+      "url": "https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/aspnetcore.md"
+    },
+    {
+      "title": "Razor runtime compilation obsoletion and Hot Reload alternative",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/10/razor-runtime-compilation-obsolete?view=aspnetcore-10.0"
+    },
+    {
+      "title": "Razor SDK build-time compilation",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation?view=aspnetcore-11.0"
+    },
+    {
+      "title": "dotnet watch and Hot Reload",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/test/hot-reload?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Historical runtime compilation package",
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/10.0.13"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/MossViews/MossViews.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 .NET 10.0.13 build and two loopback HTTP requests through historical RuntimeCompilation 10.0.13 net10.0 assets: MVC and Razor Pages return original HTML and encode model data. Local ASPDEPR003 suppression for historical comparison only."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/MossViews/MossViews.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 .NET 11 RC2 build and two loopback HTTP requests: MVC and Razor Pages render build-time compiled views and encode model data without any runtime-compilation package or registration. No browser/Hot Reload edit execution or GA claim."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local compilation and real HTTP checks require no Human-only resource. No claim of Hot Reload edits, browser/device behavior, broad platform coverage, GA readiness or publication."
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MossViews/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MossViews/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MossViews/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/MossViews/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-mossviews-csproj": {
+      "path": "samples/net10.0/MossViews/MossViews.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MossViews/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-sightingscontroller-cs": {
+      "path": "samples/net10.0/MossViews/SightingsController.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-views-sightings-sightings-cshtml": {
+      "path": "samples/net10.0/MossViews/Views/Sightings/Sightings.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-pages-night-cshtml": {
+      "path": "samples/net10.0/MossViews/Pages/Night.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MossViews/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MossViews/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MossViews/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MossViews/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-mossviews-csproj": {
+      "path": "samples/net11.0/MossViews/MossViews.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MossViews/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-sightingscontroller-cs": {
+      "path": "samples/net11.0/MossViews/SightingsController.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-views-sightings-sightings-cshtml": {
+      "path": "samples/net11.0/MossViews/Views/Sightings/Sightings.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-pages-night-cshtml": {
+      "path": "samples/net11.0/MossViews/Pages/Night.cshtml",
+      "region": "complete",
+      "language": "razor"
+    }
+  }
+}

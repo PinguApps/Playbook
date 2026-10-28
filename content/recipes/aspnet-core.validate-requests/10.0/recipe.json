@@ -1,0 +1,326 @@
+{
+  "id": "aspnet-core.validate-requests",
+  "edition": "10.0",
+  "title": "Reject invalid Minimal API input before the handler runs",
+  "goal": "Use registered synchronous DataAnnotations validation for Minimal API request models on .NET 10 or later; replace a custom .NET 9 endpoint filter and verify invalid requests cause no handler work.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "moss-observatory",
+    "request-validation"
+  ],
+  "apis": [
+    "AddValidation",
+    "ValidationProblem",
+    "Validator.TryValidateObject",
+    "AddEndpointFilter",
+    "RequiredAttribute",
+    "RangeAttribute"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "10.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "An SDK supporting this target is required; exact authoring pin is 10.0.402."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Declared example language mode, separate from runtime requirements."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net10.0 shared framework and Microsoft.NETCore.App runtime assets; no extra package in the current route. AddValidation and generated validation infrastructure are supplied by the web framework; this sample needs no explicit Microsoft.Extensions.Validation reference."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback HTTP; no database, account or external resource."
+          ],
+          "platforms": [
+            "Supported ASP.NET Core server platforms; measured execution only Windows x64. No browser/WASI, native or AOT claim."
+          ],
+          "renderingModes": [
+            "Server JSON HTTP endpoints; no component rendering mode."
+          ],
+          "prerequisites": [
+            "Keep each complete project in a separate directory using the shown build/package boundary, SDK pin and source files. Restore the declared assets before running. Guidance retrieval itself is offline."
+          ],
+          "constraints": [
+            "Synchronous DataAnnotations validation of a public same-assembly request model before the Minimal API handler. Binding/JSON parsing and business validation are separate. AddValidation must execute in the assembly containing the endpoint/model for generated metadata; moving models/endpoints requires registration in their assembly too. No asynchronous IAsyncValidatableObject implementation, external business check, auth, persistence or strict unmapped-JSON-member contract."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "The used public API is stable/non-experimental; .NET 11 routes are prepared with RC2 evidence under ADR 0004 and await GA reconciliation. AddValidation and the built-in filter are stable. The .NET 10 low-level resolver/attribute APIs can be experimental; this recipe does not call or suppress diagnostics for them."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net10.0/MossRequests/MossRequests.csproj"
+        ],
+        "selectionNotes": [
+          "Synchronous DataAnnotations validation of a public same-assembly request model before the Minimal API handler. Binding/JSON parsing and business validation are separate. AddValidation must execute in the assembly containing the endpoint/model for generated metadata; moving models/endpoints requires registration in their assembly too. No asynchronous IAsyncValidatableObject implementation, external business check, auth, persistence or strict unmapped-JSON-member contract."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-10.0?view=aspnetcore-10.0#validation-support-in-minimal-apis",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-10.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/min-api-filters?view=aspnetcore-9.0",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validator.tryvalidateobject?view=net-9.0"
+        ]
+      },
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the matching ASP.NET Core server runtime. Recorded .NET 11 execution uses RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "An SDK supporting this target is required; exact authoring pin is 11.0.100-rc.2.26504.105."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared example language mode, separate from runtime requirements."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0 shared framework and Microsoft.NETCore.App runtime assets; no extra package in the current route. AddValidation and generated validation infrastructure are supplied by the web framework; this sample needs no explicit Microsoft.Extensions.Validation reference."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback HTTP; no database, account or external resource."
+          ],
+          "platforms": [
+            "Supported ASP.NET Core server platforms; measured execution only Windows x64. No browser/WASI, native or AOT claim."
+          ],
+          "renderingModes": [
+            "Server JSON HTTP endpoints; no component rendering mode."
+          ],
+          "prerequisites": [
+            "Keep each complete project in a separate directory using the shown build/package boundary, SDK pin and source files. Restore the declared assets before running. Guidance retrieval itself is offline."
+          ],
+          "constraints": [
+            "Synchronous DataAnnotations validation of a public same-assembly request model before the Minimal API handler. Binding/JSON parsing and business validation are separate. AddValidation must execute in the assembly containing the endpoint/model for generated metadata; moving models/endpoints requires registration in their assembly too. No asynchronous IAsyncValidatableObject implementation, external business check, auth, persistence or strict unmapped-JSON-member contract."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "The used public API is stable/non-experimental; .NET 11 routes are prepared with RC2 evidence under ADR 0004 and await GA reconciliation. AddValidation and the built-in filter are stable. The .NET 10 low-level resolver/attribute APIs can be experimental; this recipe does not call or suppress diagnostics for them."
+          ]
+        },
+        "evidenceSamples": [
+          "samples/net11.0/MossRequests/MossRequests.csproj"
+        ],
+        "selectionNotes": [
+          "Synchronous DataAnnotations validation of a public same-assembly request model before the Minimal API handler. Binding/JSON parsing and business validation are separate. AddValidation must execute in the assembly containing the endpoint/model for generated metadata; moving models/endpoints requires registration in their assembly too. No asynchronous IAsyncValidatableObject implementation, external business check, auth, persistence or strict unmapped-JSON-member contract."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-10.0?view=aspnetcore-10.0#validation-support-in-minimal-apis",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-10.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/min-api-filters?view=aspnetcore-9.0",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validator.tryvalidateobject?view=net-9.0"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Built-in synchronous Minimal API validation and assembly discovery",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-10.0?view=aspnetcore-10.0#validation-support-in-minimal-apis"
+    },
+    {
+      "title": "Validation prerequisites and generated metadata",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/validation?view=aspnetcore-10.0"
+    },
+    {
+      "title": "Endpoint filters on earlier releases",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/min-api-filters?view=aspnetcore-9.0"
+    },
+    {
+      "title": "Synchronous DataAnnotations object validation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validator.tryvalidateobject?view=net-9.0"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net9.0/MossRequests/MossRequests.csproj",
+      "target": "net9.0",
+      "sdk": "9.0.319",
+      "language": "13.0",
+      "scope": "Actual Windows x64 .NET 9 servicing runtime compilation/execution: four real HTTP requests prove invalid fields and malformed JSON return 400 before handler execution, a valid request executes once and a separate business conflict returns 409 from the handler. No mocks, cross-compilation or asynchronous validation. Generated model discovery is exercised by actual invalid-field rejection, not inferred from source."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/MossRequests/MossRequests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 .NET 10 servicing runtime compilation/execution: four real HTTP requests prove invalid fields and malformed JSON return 400 before handler execution, a valid request executes once and a separate business conflict returns 409 from the handler. No mocks, cross-compilation or asynchronous validation. Generated model discovery is exercised by actual invalid-field rejection, not inferred from source."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/MossRequests/MossRequests.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 .NET 11 RC2 compilation/execution: four real HTTP requests prove invalid fields and malformed JSON return 400 before handler execution, a valid request executes once and a separate business conflict returns 409 from the handler. No mocks, cross-compilation or asynchronous validation. Generated model discovery is exercised by actual invalid-field rejection, not inferred from source."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local compilation and real HTTP checks require no Human-only resource. No claim of Hot Reload edits, browser/device behavior, broad platform coverage, GA readiness or publication."
+  },
+  "snippets": {
+    "n9-directory-build-props": {
+      "path": "samples/net9.0/MossRequests/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n9-directory-build-targets": {
+      "path": "samples/net9.0/MossRequests/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n9-directory-packages-props": {
+      "path": "samples/net9.0/MossRequests/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n9-global-json": {
+      "path": "samples/net9.0/MossRequests/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n9-mossrequests-csproj": {
+      "path": "samples/net9.0/MossRequests/MossRequests.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n9-program-cs": {
+      "path": "samples/net9.0/MossRequests/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n9-watchrequest-cs": {
+      "path": "samples/net9.0/MossRequests/WatchRequest.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MossRequests/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MossRequests/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MossRequests/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/MossRequests/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-mossrequests-csproj": {
+      "path": "samples/net10.0/MossRequests/MossRequests.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MossRequests/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-watchrequest-cs": {
+      "path": "samples/net10.0/MossRequests/WatchRequest.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MossRequests/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MossRequests/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MossRequests/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MossRequests/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-mossrequests-csproj": {
+      "path": "samples/net11.0/MossRequests/MossRequests.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MossRequests/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-watchrequest-cs": {
+      "path": "samples/net11.0/MossRequests/WatchRequest.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "request-checks": {
+      "path": "samples/net10.0/MossRequests/MossRequestChecks.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

@@ -1,6 +1,14 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @MossGuidance
+  Scenario: Razor compilation and synchronous request validation retain full offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then Razor compilation and synchronous validation retain complete offline guidance
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @RequestPolicies
   Scenario: Tenant cache encoding and concurrency policies retain complete offline guidance
     Given the actual package is installed from an isolated local feed and cache
