@@ -1,5 +1,6 @@
 [CmdletBinding()]
 param(
+  [string[]]$RecipeId = @('blazor.bound-upload-read','blazor.create-typed-event-callback'),
   [string]$PackageVersion = '0.0.0-blazor-migrations',
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
@@ -9,7 +10,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
-$OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
+$OutputDirectory = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputDirectory)
 $session = Join-Path ([IO.Path]::GetTempPath()) ('playbook-blazor-migrations-' + [guid]::NewGuid().ToString('N'))
 $before = @{}
 foreach ($scope in 'Process','User','Machine') { $before[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
@@ -61,7 +62,7 @@ try {
         $entries += @($page.recipes)
         $offset = $page.nextOffset
       } while ($null -ne $offset)
-      foreach ($id in 'blazor.bound-upload-read','blazor.create-typed-event-callback') {
+      foreach ($id in $RecipeId) {
         $found = @($entries | Where-Object id -CEQ $id)
         if ($found.Count -ne 1) { throw "Missing or duplicate discovery: $id" }
         $metadata = Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/11.0/recipe.json") -Raw | ConvertFrom-Json
