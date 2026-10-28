@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param(
   [string[]]$RecipeId = @('blazor.bound-upload-read','blazor.create-typed-event-callback'),
-  [string]$Query = 'migration',
   [string]$PackageVersion = '0.0.0-blazor-migrations',
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
