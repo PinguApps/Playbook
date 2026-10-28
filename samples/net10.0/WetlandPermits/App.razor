@@ -1,0 +1,14 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using WetlandPermits
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="route"><RouteView RouteData="@route" /></Found>
+        <NotFound><h1>Page not found</h1></NotFound>
+    </Router>
+</CascadingAuthenticationState>
+<!-- endsnippet:complete -->

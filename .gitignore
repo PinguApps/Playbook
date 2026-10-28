@@ -4,3 +4,4 @@ artifacts/
 TestResults/
 .vs/
 .scratch/
+samples/WetlandIdentity/node_modules/

@@ -1,0 +1,23 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using WetlandPermits
+@page "/"
+@page "/permits"
+@inject NavigationManager Navigation
+
+<h1>Public wetland permits</h1>
+<AuthorizeView>
+    <Authorized><p id="identity">@context.User.Identity?.Name</p></Authorized>
+    <NotAuthorized><p id="identity">Signed out</p></NotAuthorized>
+</AuthorizeView>
+<button id="login" @onclick='() => Navigation.NavigateToLogin("authentication/login", new InteractiveRequestOptions { Interaction = InteractionType.SignIn, ReturnUrl = Navigation.ToAbsoluteUri("permits").AbsoluteUri })'>Sign in</button>
+<button id="logout" @onclick="SignOut">Sign out</button>
+
+@code {
+    private void SignOut() => Navigation.NavigateToLogout("authentication/logout", "permits");
+}
+<!-- endsnippet:complete -->

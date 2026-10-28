@@ -1,0 +1,37 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using AstronomyBadges
+@inject BadgeAuthentication Authentication
+@inject AuthenticationStateProvider StateProvider
+@inject IAccessTokenProvider Tokens
+@inject IRemoteAuthenticationService<RemoteAuthenticationState> Remote
+@inject NavigationManager Navigation
+<h1>Astronomy club badge</h1>
+<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized><p id="badge">@context.User.FindFirst("club:badge")?.Value</p></Authorized>
+        <NotAuthorized><p id="badge">No badge</p></NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+<p id="same-service">@(ReferenceEquals(Authentication, StateProvider) && ReferenceEquals(Authentication, Tokens) && ReferenceEquals(Authentication, Remote))</p>
+<button id="token" @onclick="RequestToken">Check observing-list access</button>
+<p id="token-result">@result</p>
+@code {
+    private string result = "Ready";
+    private async Task RequestToken()
+    {
+        var response = await Tokens.RequestAccessToken(new AccessTokenRequestOptions
+        {
+            Scopes = ["observations.read"],
+            ReturnUrl = Navigation.ToAbsoluteUri("badge").AbsoluteUri
+        });
+        result = response.TryGetToken(out var token)
+            ? $"Success: {string.Join(',', token.GrantedScopes)}"
+            : $"{response.Status}: {response.InteractionOptions?.ReturnUrl}; {string.Join(',', response.InteractionOptions?.Scopes ?? [])}";
+    }
+}
+<!-- endsnippet:complete -->

@@ -1,0 +1,13 @@
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using WetlandPermits
+@page "/proof"
+@inject NavigationManager Navigation
+<h1>Authoring failure probes</h1>
+<p>These deliberately invalid entries are test inputs, not sign-out alternatives.</p>
+<button id="invalid" @onclick='() => Navigation.NavigateTo("authentication/logout", new NavigationOptions { HistoryEntryState = "{\"interaction\":0,\"returnUrl\":\"permits\"}" })'>Invalid non-null state</button>
+<button id="missing" @onclick='() => Navigation.NavigateTo("authentication/logout?returnUrl=permits")'>Missing state</button>
+<button id="default-logout" @onclick='() => Navigation.NavigateToLogout("authentication/logout")'>Default return path</button>
