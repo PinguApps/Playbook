@@ -68,7 +68,7 @@
     {
       "id": "removed-api",
       "pattern": " (Microsoft\\.AspNetCore\\.Components\\.(Routing\\.Router::(get_|set_)?PreferExactMatches|Forms\\.(RemoteBrowserFileStreamOptions|EditContextDataAnnotationsExtensions)|Web\\.WebEventCallbackFactoryEventArgsExtensions|RenderTree\\.WebRenderer::(get_|set_)?RendererId)|Microsoft\\.AspNetCore\\.Components\\.WebAssembly\\.(Infrastructure\\.JSInteropMethods::NotifyLocationChanged|Authentication\\.(AccessTokenResult|SignOutSessionStateManager|RemoteAuthenticationService`3::\\.ctor)))",
-      "owner": "PIN-691 R1-R9; R5 PIN-1150 blazor.allocate-web-renderer-identity; R6 PIN-1151 blazor.preserve-wasm-navigation-state",
+      "owner": "PIN-691 R1-R9; R1 delivered by PIN-1146 blazor.preserve-route-matching/11.0 (unchanged optional ResourceAsset correction included); R2 delivered by PIN-1147 blazor.validate-with-scoped-services/11.0. Real .NET 10/11 RC2 compilation/HTTP/Chromium/scoped-DI and installed stdio checks. R3/R4 delivered independently by PIN-1148/PIN-1149; R5 delivered by PIN-1150 blazor.allocate-web-renderer-identity/11.0; R6 delivered by PIN-1151 blazor.preserve-wasm-navigation-state/11.0, with paired real WASM construction/event-dispatch and browser history-state proof plus installed offline stdio. R7-R9 and aggregate WEB-089 remain outstanding; GA pending",
       "disposition": "grouped"
     },
     {

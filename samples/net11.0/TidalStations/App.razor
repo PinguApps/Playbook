@@ -1,0 +1,17 @@
+<!-- snippet:shell -->
+@namespace Playbook.Samples
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><base href="/" /><title>Tidal observatory</title></head>
+<body>
+    <Routes @rendermode="Mode" />
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+</html>
+@code {
+    [CascadingParameter] public HttpContext Request { get; set; } = default!;
+    private IComponentRenderMode? Mode => Request.Request.Query["interactive"] == "1"
+        ? new InteractiveServerRenderMode(prerender: false) : null;
+}
+<!-- endsnippet:shell -->
