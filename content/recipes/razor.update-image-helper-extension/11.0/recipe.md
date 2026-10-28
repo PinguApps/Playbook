@@ -111,7 +111,7 @@ Use a separate directory for this target. Restore/build/run with the same comman
 1. Find derived ImageTagHelper constructors and usages of the retired HostingEnvironment and Cache properties. Remove the two unused constructor dependencies and property reads as shown. Rebuild affected libraries as well as the host.
 2. If your own extension actually needs an environment or cache for independent work, inject and retain that service in your own field. Removing a base property does not remove your extension's responsibilities. Delegate image versioning to IFileVersionProvider.
 3. Enable the derived helper in Views/_ViewImports.cshtml. This standalone sample imports only FernPosters; in an existing app with built-in MVC helpers imported, remove Microsoft.AspNetCore.Mvc.TagHelpers.ImageTagHelper from this view scope before adding the derived replacement, so both do not process the same image.
-4. Create the wwwroot/posters/fern.svg asset and Razor view exactly as shown. Keep the original src, alt and asp-append-version markup. The custom marker selects this derived helper; Process removes that marker from the result.
+4. Create the wwwroot/posters/fern.svg asset and Razor view as shown. The SVG is decorative: the migration requires a physical file at that path, not this particular artwork. Keep the original src, alt and asp-append-version markup. The custom marker selects this derived helper; Process removes that marker from the result.
 5. Restore, build and run from the chosen FernPosters directory. The application requests /posters through real MVC/Razor, checks the resolved /posters/fern.svg?v= URL, encoded Fern &amp; Moss attribute and alt text, and verifies helper-only attributes are absent before shutdown.
 
 ## Constraints
