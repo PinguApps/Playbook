@@ -1,0 +1,260 @@
+{
+  "id": "blazor.preserve-wasm-navigation-state",
+  "edition": "11.0",
+  "title": "Preserve WebAssembly navigation state",
+  "goal": "Preserve deliberate browser history state and observe committed locations when migrating application navigation away from framework-only notifications.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "navigation-state"
+  ],
+  "apis": [
+    "NavigationManager.NavigateTo",
+    "NavigationOptions.HistoryEntryState",
+    "NavigationManager.LocationChanged",
+    "JSInteropMethods.NotifyLocationChanged"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Client-side WebAssembly navigation with matching framework JS/managed assets; framework notifications are not supported application APIs.",
+          "History state belongs to an individual entry. A fresh intercepted link has no deliberate state; Back/Forward restores the target entry state."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run matching .NET 11 browser WebAssembly assets."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 WebAssembly application with its matching SDK assets."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current sample compiler mode, not the introduction of these APIs."
+          },
+          "frameworks": [
+            "ASP.NET Core Blazor"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "reason": "Matching browser component managed and JS assets.",
+              "match": "release-family"
+            },
+            {
+              "version": "11.0",
+              "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+              "reason": "Local sample development server, not a production requirement.",
+              "match": "release-family"
+            }
+          ],
+          "packageAssets": [
+            "Matching net11.0 managed compile/runtime assets, blazor.webassembly.js and browser-wasm runtime; sample pins 11.0.0-rc.2.26504.105"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Browser with WebAssembly; local development server on Windows x64 verified"
+          ],
+          "renderingModes": [
+            "Standalone client-side WebAssembly"
+          ],
+          "prerequisites": [
+            "Use Microsoft.NET.Sdk.BlazorWebAssembly and retain matching JS/managed/runtime assets. Default interpreted WASM builds need no optional workload, native SDK or provider; AOT and production publish are not demonstrated."
+          ],
+          "constraints": [
+            "Use NavigationManager for application navigation, and LocationChanged for committed URI/state observations. Neither NotifyLocationChanged overload navigates the browser or is supported for application use.",
+            "No relative-routing, CSP, remote authentication, server SSR, Hybrid, worker, deployment or older-target/new-package route is established."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Supported application APIs are stable; actual current evidence is RC2 and GA reconciliation remains pending."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Infrastructure/JSInteropMethods.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Infrastructure/JSInteropMethods.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Services/WebAssemblyNavigationManager.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MineralArchive/MineralArchive.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous framework implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly/src/Infrastructure/JSInteropMethods.cs"
+    },
+    {
+      "title": "Current framework implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Infrastructure/JSInteropMethods.cs"
+    },
+    {
+      "title": "History entry options",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/NavigationOptions.cs"
+    },
+    {
+      "title": "WebAssembly navigation implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly/src/Services/WebAssemblyNavigationManager.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MineralArchive/MineralArchive.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching SDK/dependency compilation; real browser attachment/dispatch or navigation history observations are separately retained in docs/verification/blazor-renderer-navigation.md. Compilation alone is not browser proof."
+    },
+    {
+      "sample": "samples/net11.0/MineralArchive/MineralArchive.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching SDK/dependency compilation; real browser attachment/dispatch or navigation history observations are separately retained in docs/verification/blazor-renderer-navigation.md. Compilation alone is not browser proof."
+    }
+  ],
+  "snippets": {
+    "n10-app-razor": {
+      "path": "samples/net10.0/MineralArchive/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MineralArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MineralArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MineralArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/MineralArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-legacyadapter-cs": {
+      "path": "samples/net10.0/MineralArchive/LegacyAdapter.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-mineralarchive-csproj": {
+      "path": "samples/net10.0/MineralArchive/MineralArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-navigationjournal-razor": {
+      "path": "samples/net10.0/MineralArchive/NavigationJournal.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MineralArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-specimen-razor": {
+      "path": "samples/net10.0/MineralArchive/Specimen.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-wwwroot-index-html": {
+      "path": "samples/net10.0/MineralArchive/wwwroot/index.html",
+      "region": "complete",
+      "language": "html"
+    },
+    "n10-wwwroot-legacy-adapter-js": {
+      "path": "samples/net10.0/MineralArchive/wwwroot/legacy-adapter.js",
+      "region": "complete",
+      "language": "javascript"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/MineralArchive/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MineralArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MineralArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MineralArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MineralArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-mineralarchive-csproj": {
+      "path": "samples/net11.0/MineralArchive/MineralArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-navigationjournal-razor": {
+      "path": "samples/net11.0/MineralArchive/NavigationJournal.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MineralArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-specimen-razor": {
+      "path": "samples/net11.0/MineralArchive/Specimen.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-wwwroot-index-html": {
+      "path": "samples/net11.0/MineralArchive/wwwroot/index.html",
+      "region": "complete",
+      "language": "html"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "All required local real-browser checks were performed without Human-only access. No production, GA, AOT or external-provider claim."
+  }
+}

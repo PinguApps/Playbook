@@ -1,0 +1,12 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+
+<h1>Mineral archive</h1>
+<NavigationJournal />
+<Router AppAssembly="typeof(App).Assembly">
+    <Found Context="route"><RouteView RouteData="route" /></Found>
+    <NotFound><p>Specimen route not found.</p></NotFound>
+</Router>
+<!-- endsnippet:complete -->

@@ -1,0 +1,28 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Routing
+@inject NavigationManager Navigation
+@implements IDisposable
+
+<p id="location">@Navigation.Uri</p>
+<p id="state">State: @(Navigation.HistoryEntryState ?? "(null)")</p>
+<ol id="observations">
+    @foreach (var entry in entries)
+    {
+        <li>@entry</li>
+    }
+</ol>
+
+@code {
+    private readonly List<string> entries = [];
+    protected override void OnInitialized() => Navigation.LocationChanged += Changed;
+
+    private void Changed(object? sender, LocationChangedEventArgs args)
+    {
+        entries.Add($"{entries.Count + 1}|{new Uri(args.Location).AbsolutePath}|{args.HistoryEntryState ?? "(null)"}|intercepted={args.IsNavigationIntercepted}");
+        _ = InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose() => Navigation.LocationChanged -= Changed;
+}
+<!-- endsnippet:complete -->
