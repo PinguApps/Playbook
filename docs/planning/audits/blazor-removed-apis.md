@@ -27,6 +27,20 @@ gaps, not implemented APIs. R5–R9, PIN-959 and actual-GA PIN-964 gates remain
 outstanding; no whole-family completion is claimed. The original proposal text
 below is retained as audit history rather than rewritten as delivery evidence.
 
+## R9 delivery, 28 October 2026
+
+PIN-1154 delivers `blazor.resume-token-acquisition/11.0`, combining result
+construction and URL/options consumption. Original HydrophoneArchive .NET 10/11
+consumers compile with exact matching authentication packages. Selected
+`behavior.evidence.json` records beside the samples retain real WASM browser
+success, interaction, both exception overloads and no-options fallback execution.
+The provider boundary is controlled; no external token issuance, protected API
+response or recording download is claimed. The old four-argument no-options
+result actually fails in .NET 10's legacy-URL fallback; RC2 uses the current URL.
+Supported .NET 10 interaction remains demonstrated. Installed ordinary-tool
+inspection verifies the complete canonical recipe. R5–R8, aggregate WEB-089,
+PIN-959 and actual-GA PIN-964 remain open.
+
 ## Boundary and provenance
 
 - Requirement: [PIN-691](https://linear.app/pinguapps/issue/PIN-691), SPEC.md at `0a8989814ea11346354464b845c79c15bb71c5e9` (stories 35–47, 126–127, 130, 133–134, 138–139, 158–160), approved `WEB_W18B` proposal at `b3778cc`.

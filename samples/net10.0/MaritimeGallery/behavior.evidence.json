@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "& 'V:\\_worktrees\\Playbook\\t3-498b2042\\eng/Record-TokenAssetBehavior.ps1' -Playwright 'C:\\Users\\pingu\\AppData\\Local\\npm-cache\\_npx\\e41f203b7505f1fb\\node_modules\\playwright-core' -Net10Dotnet 'C:\\Program Files\\dotnet\\dotnet.exe' -Net11Dotnet 'C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe' -Node 'C:\\Program Files\\nodejs\\node.exe'",
   "scope": "Actual generated C#, restored dependencies, published endpoint manifest, non-root fingerprinted asset HTTP retrieval and literal/unknown controls. RC2 task route; source-generator limitation retained.",
-  "recordedAt": "2026-10-28T21:16:16.2182315+00:00",
-  "sourceCommit": "e6100c57ec9f2777817b276b6575cbac3751c526",
+  "recordedAt": "2026-10-28T21:18:06.4898991+00:00",
+  "sourceCommit": "35f26e020e362f8ac314d782097d55ec15e10de2",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -23,7 +23,7 @@
     "samples/net10.0/MaritimeGallery/ExhibitImage.razor": "1969aad3d3fae161bc50ae5cc969ee4ab25fd0de0aa321a3822b56480d8e5236",
     "samples/net10.0/MaritimeGallery/global.json": "bdd07c2963bfb07c17e13de19a79d4f021c976fdc1ee92bba4dca9b1a4764c9d",
     "samples/net10.0/MaritimeGallery/MaritimeGallery.csproj": "841f7130ee77dfe01e58cbe675b438164835217ea90151965f1e4eae554c74f1",
-    "samples/net10.0/MaritimeGallery/packages.lock.json": "8f3cf641e053b0d8b69a5890c179779c3ce3e7e37bf0a102ee170196cf431f2c",
+    "samples/net10.0/MaritimeGallery/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
     "samples/net10.0/MaritimeGallery/Program.cs": "e007d5987e5b078102e9b2130d00d10792d266e46bb2e5e99bd5466482f085ac",
     "samples/net10.0/MaritimeGallery/verification.json": "922e89078124ce2929418866d647ad96d0a5a9f7ddfc7e907b1ea3a879eae63a",
     "samples/net10.0/MaritimeGallery/wwwroot/images/sounding.svg": "9812d482ee528b41f1cf850594a45e93845bec9633038a0c81f783b4df56bb5e"

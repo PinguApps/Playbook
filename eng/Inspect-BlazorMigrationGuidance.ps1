@@ -4,6 +4,8 @@ param(
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/blazor-migrations/inspection'),
+  [string[]]$RecipeId = @('blazor.bound-upload-read','blazor.create-typed-event-callback'),
+  [string]$Query = 'migration',
   [switch]$BuildAndPack
 )
 $ErrorActionPreference = 'Stop'
@@ -57,11 +59,13 @@ try {
       $entries = @()
       $offset = 0
       do {
-        $page = (Invoke-RecipeTool 'list_recipes' @('query=migration','limit=50',"offset=$offset")).result.structuredContent
+        $filters = @('limit=50',"offset=$offset")
+        if ($Query) { $filters += "query=$Query" }
+        $page = (Invoke-RecipeTool 'list_recipes' $filters).result.structuredContent
         $entries += @($page.recipes)
         $offset = $page.nextOffset
       } while ($null -ne $offset)
-      foreach ($id in 'blazor.bound-upload-read','blazor.create-typed-event-callback') {
+      foreach ($id in $RecipeId) {
         $found = @($entries | Where-Object id -CEQ $id)
         if ($found.Count -ne 1) { throw "Missing or duplicate discovery: $id" }
         $metadata = Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/11.0/recipe.json") -Raw | ConvertFrom-Json
