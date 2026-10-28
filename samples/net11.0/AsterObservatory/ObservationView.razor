@@ -1,4 +1,4 @@
-@* snippet:complete *@
+<!-- snippet:complete -->
 @using Microsoft.AspNetCore.Components
 @namespace AsterObservatory
 <section>@ItemTemplate(Item)</section>
@@ -9,4 +9,4 @@
     private static readonly RenderFragment<Observation?> BaseTemplate = item => builder =>
         builder.AddContent(0, item is null ? "No observation selected" : $"Aster: {item.Name}");
 }
-@* endsnippet:complete *@
+<!-- endsnippet:complete -->

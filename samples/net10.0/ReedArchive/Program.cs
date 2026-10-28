@@ -17,15 +17,16 @@ var capture = ParameterView.FromDictionary(new Dictionary<string, object?> { ["C
 var rootA = await rendererA.Dispatcher.InvokeAsync(() => rendererA.RenderComponentAsync<ArchiveHost>(capture));
 var rootB = await rendererB.Dispatcher.InvokeAsync(() => rendererB.RenderComponentAsync<ArchiveHost>());
 Check(!ReferenceEquals(a, b) && !ReferenceEquals(a.Letters, b.Letters), "independent DI scopes");
-Check(await rendererA.Dispatcher.InvokeAsync(rootA.ToHtmlString) == "<p>letters:0; maps:0</p>", "initial selection");
+Check(await rendererA.Dispatcher.InvokeAsync(() => Html(rootA.ToHtmlString())) == "<p>letters:0; maps:0</p>", "initial selection");
 await rendererA.Dispatcher.InvokeAsync(a.AddLettersAsync);
-Check(await rendererA.Dispatcher.InvokeAsync(rootA.ToHtmlString) == "<p>letters:1; maps:0</p>", "letters notification rendered");
+Check(await rendererA.Dispatcher.InvokeAsync(() => Html(rootA.ToHtmlString())) == "<p>letters:1; maps:0</p>", "letters notification rendered");
 await rendererA.Dispatcher.InvokeAsync(a.AddMapsAsync);
-Check(await rendererA.Dispatcher.InvokeAsync(rootA.ToHtmlString) == "<p>letters:1; maps:1</p>", "maps notification rendered independently");
-Check(await rendererB.Dispatcher.InvokeAsync(rootB.ToHtmlString) == "<p>letters:0; maps:0</p>", "other scope unchanged");
+Check(await rendererA.Dispatcher.InvokeAsync(() => Html(rootA.ToHtmlString())) == "<p>letters:1; maps:1</p>", "maps notification rendered independently");
+Check(await rendererB.Dispatcher.InvokeAsync(() => Html(rootB.ToHtmlString())) == "<p>letters:0; maps:0</p>", "other scope unchanged");
 await hostA!.HideAsync();
 await rendererA.Dispatcher.InvokeAsync(a.AddLettersAsync);
-Check((await rendererA.Dispatcher.InvokeAsync(rootA.ToHtmlString)).Length == 0, "removed subscriber stays absent");
+Check((await rendererA.Dispatcher.InvokeAsync(() => Html(rootA.ToHtmlString()))).Length == 0, "removed subscriber stays absent");
 Console.WriteLine($"PASS ReedArchive: real HtmlRenderer selection, updates, scope isolation and removal; runtime {Environment.Version}.");
 static void Check(bool condition, string claim) { if (!condition) throw new InvalidOperationException(claim); }
+static string Html(string value) => System.Text.RegularExpressions.Regex.Replace(value, @"<!-- (?:end)?snippet:complete -->\s*", "").Trim();
 // endsnippet:complete

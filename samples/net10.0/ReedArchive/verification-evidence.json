@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "C:\\Program Files\\dotnet\\dotnet.exe build ReedArchive.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Program Files\\dotnet\\dotnet.exe V:\\_worktrees\\Playbook\\t3-eb5dfb03\\samples\\net10.0\\ReedArchive\\bin\\Release\\net10.0\\ReedArchive.dll",
   "scope": "See recipe scope; output records only the commands actually performed.",
-  "recordedAt": "2026-10-28T21:23:34.0435460+00:00",
-  "sourceCommit": "d27969f94334261a18237e9e6e65b15b75b3f414",
+  "recordedAt": "2026-10-28T21:27:55.7543844+00:00",
+  "sourceCommit": "38028ceb4d4e86cd76bfd39bcc79e994541c98c9",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -17,15 +17,15 @@
     "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
     "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
     "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
-    "samples/net10.0/ReedArchive/ArchiveHost.razor": "3efa79e4cb6607f22ae908a39815a27ed32d94dca2bfe49e9298541617489897",
-    "samples/net10.0/ReedArchive/ArchivePanel.razor": "1d0ce5256e8950dc28df62eef8711b051942da127473f1dd6fca6b7ec973d78f",
-    "samples/net10.0/ReedArchive/ArchiveServices.cs": "e3568ec20b7b8003ab240c9ce7af0d0340ffa00a00ec436f157796670b83acb1",
-    "samples/net10.0/ReedArchive/ArchiveState.cs": "6d95cc2a365d40aea045e01730e2c6dedfe3909a210340d8afb475d8a2a89095",
-    "samples/net10.0/ReedArchive/global.json": "3a9a95a66ad4a529ad620cc90d4d7c88b3555acdad6f5ea0b81e73c5c8833cc1",
-    "samples/net10.0/ReedArchive/packages.lock.json": "2241481b7e74dcdcd600303146b730ecc12cbd8e49aa55755ef95ee499fe229a",
-    "samples/net10.0/ReedArchive/Program.cs": "aeb4ef031d16a2340e326f5689bf020791084dd45b2f2f5ebb21507323621264",
-    "samples/net10.0/ReedArchive/ReedArchive.csproj": "957da638370fe8efe334ae0d59d8b32296934b54385a4523c78e7c16248de7cf",
-    "samples/net10.0/ReedArchive/verification.json": "a2e2f692d172006d07c3b3c851f044c7741ea786289ece7f3ad211b03e71c893"
+    "samples/net10.0/ReedArchive/ArchiveHost.razor": "69af786178404ee2789cdb2a3a4e90e83cea1cbedee20515c51e5e8033adb6a0",
+    "samples/net10.0/ReedArchive/ArchivePanel.razor": "1e07cb8476a6381a8f8b0d4579a5435e9dd34f1c47b5b22ea6d037a684e89325",
+    "samples/net10.0/ReedArchive/ArchiveServices.cs": "36415651bf82e9a3e2e505a914de894e1c83b7d35d19fed1019e47b23167c67a",
+    "samples/net10.0/ReedArchive/ArchiveState.cs": "32bbae91fb1301a1a26ea6f57eb8efa6ed4f5b68be04c1876f1b393783f7db8a",
+    "samples/net10.0/ReedArchive/global.json": "bdd07c2963bfb07c17e13de19a79d4f021c976fdc1ee92bba4dca9b1a4764c9d",
+    "samples/net10.0/ReedArchive/packages.lock.json": "03eeadc5ef377c17f787ab65f41fb4c8a9c936bb7f7f4171111fdeec8a81cb46",
+    "samples/net10.0/ReedArchive/Program.cs": "6a0bcbae48eb6c543b6a4ffa693146d03e8b4f55dc786d27bc5ba4c1bc51d92c",
+    "samples/net10.0/ReedArchive/ReedArchive.csproj": "a9c7c423e7f86befe4766aa224432d8db4a5c5b8e99bb282d142182c7dffdcc2",
+    "samples/net10.0/ReedArchive/verification.json": "bf03a43cc5a22cca9e72129ed24e3177ab369a3ec0073ed0d41b1dfe370ba93c"
   },
   "dependencies": [],
   "workloads": [],
@@ -33,5 +33,5 @@
   "host": "Microsoft Windows 10.0.26200 / X64",
   "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-eb5dfb03\\samples\\net10.0\\ReedArchive\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
   "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
-  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  ReedArchive -> V:\\_worktrees\\Playbook\\t3-eb5dfb03\\samples\\net10.0\\ReedArchive\\bin\\Release\\net10.0\\ReedArchive.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.14\nPASS ReedArchive: real HtmlRenderer selection, updates, scope isolation and removal; runtime 10.0.13."
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  ReedArchive -> V:\\_worktrees\\Playbook\\t3-eb5dfb03\\samples\\net10.0\\ReedArchive\\bin\\Release\\net10.0\\ReedArchive.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:02.35\nPASS ReedArchive: real HtmlRenderer selection, updates, scope isolation and removal; runtime 10.0.13."
 }

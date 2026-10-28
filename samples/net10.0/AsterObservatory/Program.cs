@@ -14,11 +14,12 @@ await renderer.Dispatcher.InvokeAsync(async () =>
         ["Item"] = new SpecialObservation("Comet & dust", 30)
     });
     var root = await renderer.RenderComponentAsync<ObservationView>(parameters);
-    if (root.ToHtmlString() != "<section>Aster: Comet &amp; dust</section>")
+    if (Html(root.ToHtmlString()) != "<section>Aster: Comet &amp; dust</section>")
         throw new InvalidOperationException("Derived item must render through the base template with HTML encoding.");
     root = await renderer.RenderComponentAsync<ObservationView>(ParameterView.FromDictionary(new Dictionary<string, object?> { ["Item"] = null }));
-    if (root.ToHtmlString() != "<section>No observation selected</section>")
+    if (Html(root.ToHtmlString()) != "<section>No observation selected</section>")
         throw new InvalidOperationException("Null policy must render.");
 });
 Console.WriteLine($"PASS AsterObservatory: real HtmlRenderer derived content, encoding and null policy; runtime {Environment.Version}.");
+static string Html(string value) => System.Text.RegularExpressions.Regex.Replace(value, @"<!-- (?:end)?snippet:complete -->\s*", "").Trim();
 // endsnippet:complete

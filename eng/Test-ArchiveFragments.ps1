@@ -4,6 +4,8 @@ param(
   [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
 )
 $ErrorActionPreference = 'Stop'
+# Expected negative compiler/runtime exits are checked explicitly below.
+$PSNativeCommandUseErrorActionPreference = $false
 $root = Split-Path $PSScriptRoot -Parent
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 $paths = @{}
@@ -77,6 +79,21 @@ public static class InternalRenderer
 }
 '@)
   Invoke-Build $directory $Net11Dotnet 'BL0006'
+  foreach ($case in 'unknown-name','wrong-property','missing-receiver') {
+    $directory = Copy-Probe 'ReedArchive' 11 $case
+    $path = Join-Path $directory 'ArchivePanel.razor'
+    $source = Get-Content -LiteralPath $path -Raw
+    $expected = switch ($case) {
+      'unknown-name' { $source = $source.Replace('[FromArchive("maps")]', '[FromArchive("unknown")]'); 'Unknown archive collection' }
+      'wrong-property' { $source = $source.Replace('@code {', '@code { [FromArchive("maps")] public string Invalid { get; set; } = "";'); 'FromArchive requires CollectionContext' }
+      'missing-receiver' { $source = $source.Replace('@implements IArchiveSubscriber', ''); 'Archive recipient must implement IArchiveSubscriber' }
+    }
+    [IO.File]::WriteAllText($path, $source)
+    Invoke-Build $directory $Net11Dotnet
+    $output = & $Net11Dotnet (Join-Path $directory 'bin/Release/net11.0/ReedArchive.dll') 2>&1 | Out-String
+    if ($LASTEXITCODE -eq 0 -or $output -notmatch $expected) { throw "Missing expected runtime rejection: $case`n$output" }
+    Write-Host "PASS: real renderer rejected $case"
+  }
   Write-Host 'PASS: real renderer behavior, old-target availability, variance rejection and BL0006 analyzer control.'
   Write-Host "Disposable failure consumers: $scratch"
 } finally {

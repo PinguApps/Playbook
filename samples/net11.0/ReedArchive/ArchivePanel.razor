@@ -1,4 +1,4 @@
-@* snippet:complete *@
+<!-- snippet:complete -->
 @using Microsoft.AspNetCore.Components
 @namespace ReedArchive
 @implements IArchiveSubscriber
@@ -8,4 +8,4 @@
     [FromArchive("maps")] public CollectionContext Maps { get; set; } = default!;
     public Task RefreshArchiveAsync() => InvokeAsync(StateHasChanged);
 }
-@* endsnippet:complete *@
+<!-- endsnippet:complete -->

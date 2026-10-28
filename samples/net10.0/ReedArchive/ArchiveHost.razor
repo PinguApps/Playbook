@@ -1,4 +1,4 @@
-@* snippet:complete *@
+<!-- snippet:complete -->
 @using Microsoft.AspNetCore.Components
 @namespace ReedArchive
 @if (show) { <ArchivePanel /> }
@@ -8,4 +8,4 @@
     protected override void OnInitialized() => Capture?.Invoke(this);
     public Task HideAsync() => InvokeAsync(() => { show = false; StateHasChanged(); });
 }
-@* endsnippet:complete *@
+<!-- endsnippet:complete -->
