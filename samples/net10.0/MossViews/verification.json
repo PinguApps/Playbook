@@ -1,0 +1,20 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.Mvc.Razor.Extensions/6.0.0",
+    "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/10.0.13",
+    "Microsoft.AspNetCore.Razor.Language/6.0.0",
+    "Microsoft.CodeAnalysis.Analyzers/3.3.2",
+    "Microsoft.CodeAnalysis.Common/4.0.0",
+    "Microsoft.CodeAnalysis.CSharp/4.0.0",
+    "Microsoft.CodeAnalysis.Razor/6.0.0",
+    "Microsoft.Extensions.DependencyModel/10.0.13"
+  ],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ]
+}
