@@ -53,3 +53,8 @@
 # Review the helper, canonical snippet wiring and real Razor request checks instead.
 /samples/net10.0/FernPosters/wwwroot/posters/fern.svg
 /samples/net11.0/FernPosters/wwwroot/posters/fern.svg
+
+# Decorative SVG fixtures: Test-TokenAssetConsumers.mjs verifies exact published bytes.
+# Review the canonical snippet mapping, compiler and real HTTP checks instead.
+/samples/net10.0/MaritimeGallery/wwwroot/images/sounding.svg
+/samples/net11.0/MaritimeGallery/wwwroot/images/sounding.svg

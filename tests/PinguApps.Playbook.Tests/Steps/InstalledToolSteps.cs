@@ -14,7 +14,7 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("removed Blazor migrations retain complete canonical guidance and execution evidence")]
     public async Task CheckRemovedBlazorMigrationsAsync()
     {
-        string[] ids = ["blazor.preserve-route-matching", "blazor.validate-with-scoped-services"];
+        string[] ids = ["blazor.preserve-route-matching", "blazor.resume-token-acquisition", "blazor.validate-with-scoped-services"];
         await CheckWebRecipesAsync(ids, "removed-api", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
         await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
         foreach (string id in ids)
@@ -25,6 +25,10 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Contains("RC2", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         }
+
+        string[] assets = ["blazor.expand-component-asset-paths"];
+        await CheckWebRecipesAsync(assets, "static-assets", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(assets).ConfigureAwait(false);
     }
 
     [Then("Razor compilation and synchronous validation retain complete offline guidance")]

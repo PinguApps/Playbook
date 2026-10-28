@@ -1,6 +1,6 @@
 # Removed Blazor APIs: bounded reconciliation and delivery proposal
 
-PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R1–R8 now have the focused deliveries below; audit completion itself does not establish comprehensive coverage or publication readiness.
+PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R1–R9 now have the focused deliveries below; audit completion itself does not establish comprehensive coverage or publication readiness.
 
 ## R5/R6 delivery, 28 October 2026
 
@@ -63,6 +63,20 @@ recipes. The aggregate identity, existing editions and eight .NET 10 foundations
 are unchanged. R9, unresolved factual caveats, comprehensive PIN-959 and
 actual-GA PIN-964 gates remain open. No production/public publication or
 external-provider verification is claimed.
+
+## R9 delivery, 28 October 2026
+
+PIN-1154 delivers `blazor.resume-token-acquisition/11.0`, combining result
+construction and URL/options consumption. Original HydrophoneArchive .NET 10/11
+consumers compile with exact matching authentication packages. Selected
+`behavior.evidence.json` records beside the samples retain real WASM browser
+success, interaction, both exception overloads and no-options fallback execution.
+The provider boundary is controlled; no external token issuance, protected API
+response or recording download is claimed. The old four-argument no-options
+result actually fails in .NET 10's legacy-URL fallback; RC2 reads InteractiveRequestUrl.
+Supported .NET 10 interaction remains demonstrated. Installed ordinary-tool
+inspection verifies the complete canonical recipe. Aggregate WEB-089,
+PIN-959 and actual-GA PIN-964 remain open.
 
 ## Boundary and provenance
 
