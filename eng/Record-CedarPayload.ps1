@@ -39,7 +39,8 @@ try {
     $record.scope = 'Real Interactive Server JS interop and DI protected session storage; app record and unhandled reflection fallback, ElementReference converter, two isolated circuits/tabs and storage, ciphertext tampering; RC2 resolver precedence and separate per-scope options. Ephemeral local Data Protection only; no AOT, full protocol or GA proof.'
     $record.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
     $record.output = "Chromium $($report.browser); Node $($report.node); Playwright core 1.61.1`n" + ($results | ConvertTo-Json -Depth 30)
-    $record | ConvertTo-Json -Depth 40 | Set-Content -LiteralPath (Join-Path (Split-Path (Join-Path $root $record.sample)) 'behavior.evidence.json') -Encoding utf8
+    $destination = Join-Path (Split-Path (Join-Path $root $record.sample)) 'behavior.evidence.json'
+    [IO.File]::WriteAllText($destination, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }
   Write-Host 'PASS: two unchanged-input real circuit/browser execution records saved.'
 } finally {

@@ -9,6 +9,5 @@
     <LangVersion>14.0</LangVersion>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
-  
 </Project>
 <!-- endsnippet:complete -->
