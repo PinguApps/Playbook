@@ -1,0 +1,12 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@namespace AsterObservatory
+<section>@ItemTemplate(Item)</section>
+@code {
+    [Parameter] public SpecialObservation? Item { get; set; }
+    private readonly RenderFragment<SpecialObservation?> ItemTemplate = BaseTemplate;
+    // The base template deliberately accepts null; variance does not add a null policy.
+    private static readonly RenderFragment<Observation?> BaseTemplate = item => builder =>
+        builder.AddContent(0, item is null ? "No observation selected" : $"Aster: {item.Name}");
+}
+<!-- endsnippet:complete -->

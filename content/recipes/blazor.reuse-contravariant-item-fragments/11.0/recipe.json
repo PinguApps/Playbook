@@ -1,0 +1,181 @@
+{
+  "id": "blazor.reuse-contravariant-item-fragments",
+  "edition": "11.0",
+  "title": "Reuse a base-item rendering fragment for derived items",
+  "goal": "Reuse a base-type RenderFragment<T> directly in a derived-item slot within one compatible rendering context. Retain a null policy; generic delegates cannot cross render-mode boundaries.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "generic-templates"
+  ],
+  "apis": [
+    "RenderFragment<in TValue>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Reuse a base-type RenderFragment<T> directly in a derived-item slot within one compatible rendering context. Retain a null policy; generic delegates cannot cross render-mode boundaries.",
+          "Keep the generic delegate in one compatible render context. Contravariance does not serialize delegates or permit generic fragments across render modes; blazor.project-static-child-content remains limited to non-generic captured static content."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run against ASP.NET Core 11 shared-framework component contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 with matching Razor compiler/reference assets; exact RC2 pin records verification."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical sample mode; no preview syntax is required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Razor"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.Components and Microsoft.AspNetCore.Components.Web from the matching shared framework; no external NuGet dependencies or native assets."
+          ],
+          "providers": [],
+          "platforms": [
+            "Portable managed renderer harness; Windows x64 execution verified. No native SDK, service account or optional workload."
+          ],
+          "renderingModes": [
+            "In-process HtmlRenderer execution; retained HTML output updated on its dispatcher. No browser transport or cross-render-mode execution claimed."
+          ],
+          "prerequisites": [
+            "Use the complete project, model, Razor components and Program below. AddLogging supplies HtmlRenderer; the harness does not start a web host.",
+            "ASP.NET Core 10 named cascades / typed adapters remain valid comparisons, not a second catalogue edition or a newer API route on net10.0."
+          ],
+          "constraints": [
+            "RenderFragment<Observation?> can be used for SpecialObservation? because it accepts every possible derived input. The reverse conversion is unsafe and rejected; .NET 10 requires the typed adapter.",
+            "Choose nullable reference inputs deliberately. This template renders a placeholder for null and uses AddContent to encode item text.",
+            "Keep the generic delegate in one compatible render context. Contravariance does not serialize delegates or permit generic fragments across render modes; blazor.project-static-child-content remains limited to non-generic captured static content."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual evidence: .NET 10.0.13 / SDK 10.0.402 and .NET 11.0.0-rc.2.26504.105 / SDK 11.0.100-rc.2.26504.105. GA reconciliation and comprehensive publication gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/RenderFragment.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/RenderFragment.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/AsterObservatory/AsterObservatory.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Previous invariant delegate",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/Components/src/RenderFragment.cs"
+    },
+    {
+      "title": "Current contravariant delegate",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/RenderFragment.cs"
+    },
+    {
+      "title": "Generic render-mode boundary restriction",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/Rendering/SSRRenderModeBoundary.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/AsterObservatory/AsterObservatory.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real HtmlRenderer execution: derived-item content, HTML encoding and explicit null policy. Unsafe reverse assignment and older direct assignment are rejected separately by eng/Test-ArchiveFragments.ps1."
+    },
+    {
+      "sample": "samples/net11.0/AsterObservatory/AsterObservatory.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real HtmlRenderer execution: derived-item content, HTML encoding and explicit null policy. Unsafe reverse assignment and older direct assignment are rejected separately by eng/Test-ArchiveFragments.ps1."
+    }
+  ],
+  "snippets": {
+    "n10-asterobservatory-csproj": {
+      "path": "samples/net10.0/AsterObservatory/AsterObservatory.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/AsterObservatory/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-observation-cs": {
+      "path": "samples/net10.0/AsterObservatory/Observation.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-observationview-razor": {
+      "path": "samples/net10.0/AsterObservatory/ObservationView.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/AsterObservatory/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-asterobservatory-csproj": {
+      "path": "samples/net11.0/AsterObservatory/AsterObservatory.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/AsterObservatory/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-observation-cs": {
+      "path": "samples/net11.0/AsterObservatory/Observation.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-observationview-razor": {
+      "path": "samples/net11.0/AsterObservatory/ObservationView.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/AsterObservatory/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "All required managed renderer/compiler checks run locally. No Human-only environment, browser transport, provider, native/AOT or GA claim."
+  }
+}

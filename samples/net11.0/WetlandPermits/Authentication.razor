@@ -1,0 +1,15 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using WetlandPermits
+@page "/authentication/{Action}"
+<RemoteAuthenticatorView Action="@Action">
+    <LogOutFailed Context="message"><p id="logout-error">@message</p></LogOutFailed>
+</RemoteAuthenticatorView>
+@code {
+    [Parameter] public string? Action { get; set; }
+}
+<!-- endsnippet:complete -->

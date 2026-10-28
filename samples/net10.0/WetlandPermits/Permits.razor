@@ -1,0 +1,31 @@
+<!-- snippet:complete -->
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using WetlandPermits
+@page "/"
+@page "/permits"
+@inject NavigationManager Navigation
+
+<h1>Public wetland permits</h1>
+<AuthorizeView>
+    <Authorized><p id="identity">@context.User.Identity?.Name</p></Authorized>
+    <NotAuthorized><p id="identity">Signed out</p></NotAuthorized>
+</AuthorizeView>
+<button id="login" @onclick='() => Navigation.NavigateToLogin("authentication/login", new InteractiveRequestOptions { Interaction = InteractionType.SignIn, ReturnUrl = Navigation.ToAbsoluteUri("permits").AbsoluteUri })'>Sign in</button>
+<button id="logout" @onclick="SignOut">Sign out</button>
+<button id="supported-logout" @onclick='() => Navigation.NavigateToLogout("authentication/logout", "permits")'>Sign out using supported navigation</button>
+
+@code {
+#pragma warning disable CS0618 // Migration fixture only: the .NET 10 session-storage fallback.
+    [Inject] public SignOutSessionStateManager SignOutState { get; set; } = default!;
+    private async Task SignOut()
+    {
+        await SignOutState.SetSignOutState();
+        Navigation.NavigateTo("authentication/logout?returnUrl=permits");
+    }
+#pragma warning restore CS0618
+}
+<!-- endsnippet:complete -->

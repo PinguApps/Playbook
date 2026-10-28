@@ -170,6 +170,7 @@ try {
   & (Join-Path $PSScriptRoot 'Test-FSharpBoundaries.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-RuntimeAsync.ps1') -Net11Dotnet $Net11Dotnet
   & (Join-Path $PSScriptRoot 'Test-UnsafeBoundaries.ps1') -Net11Dotnet $Net11Dotnet
+  & (Join-Path $PSScriptRoot 'Test-ArchiveFragments.ps1') -Net10Dotnet (Get-Command dotnet -CommandType Application).Source -Net11Dotnet $Net11Dotnet
   dotnet build PinguApps.Playbook.slnx --configuration Release -p:Version=$PackageVersion
   & (Join-Path $PSScriptRoot 'Test-Content.ps1') -Pack
   & (Join-Path $PSScriptRoot 'Test-Evidence.ps1') -Pack

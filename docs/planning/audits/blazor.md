@@ -1,5 +1,18 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+PIN-1156/1157 deliver `blazor.supply-attribute-selected-state/11.0` and
+`blazor.reuse-contravariant-item-fragments/11.0`. Original ReedArchive and
+AsterObservatory .NET 10/RC2 consumers execute real HtmlRenderer selection,
+notifications, scope isolation, child removal, subscription cleanup, derived
+content and null handling. `eng/Test-ArchiveFragments.ps1` checks unavailable
+older registration/direct conversion, unsafe reverse conversions and a BL0006
+control. ComponentState access itself emits no BL0006 on RC2; no suppression is
+needed. Full renderer teardown does not unsubscribe the custom provider, so the
+scoped owner supplies fallback cleanup after renderer disposal. Browser transport,
+thread safety, trimming, NativeAOT, actual GA and comprehensive coverage remain
+unverified. Canonical saved sample evidence and installed-MCP consumer checks
+support these bounded claims; PIN-959/PIN-964 remain open.
+
 PIN-804 delivers the actually available streaming subset through `blazor.stream-agent-conversation/11.0`, using pinned Components.AI **0.1.0-preview.1.26466.103**, the real Interactive Server renderer and a clearly scripted IChatClient. PIN-808 delivers `web.protect-browser-form-posts/11.0`: real RC2 requests require MVC `[RequireAntiforgeryToken]`; legacy MVC and automatic Razor Pages filters still require tokens. [Original samples, source reconciliation, real browser/HTTP and installed offline evidence](../../verification/streaming-and-form-protection.md) preserve these limits. Later AI tools/restore and GA reconciliation remain separate work.
 
 PIN-801/802/803 deliver the three BreakwaterLab 11.0 editions for explicit
@@ -133,9 +146,9 @@ source-only scripts, defaults, markup, manifests and removable workarounds.
 | Gateway/Gateway.Cli build targets, endpoint/development manifests, SPA fallback, proxy/service-defaults inputs | Replace DevServer; route actual backend traffic and standalone fallback, remove obsolete inspectUri/UseWebAssemblyDebugging (ASPDEPR011). Generated service defaults are not proof that Aspire orchestration has run. | Grouped: PIN-796. |
 | IComponentPropertyActivator | Keyed/unkeyed injection and activation lifetime, distinct from cascading subscriptions. | Grouped: PIN-801. |
 | MathML rendering, NavMenu external JS, custom event collision, removed implicit enhanced-nav preload | Authored markup/JS or removable exception qualifies despite small/no API delta. | PIN-799 delivered blazor.rename-custom-event/11.0 with original old/new native-browser proof and installed offline retrieval; [evidence](../../verification/custom-event-alias.md). NavMenu delivered: PIN-798 original BrackenMenu comparisons, both real module paths and strict CSP controls; [evidence](../../verification/navigation-policy.md). PIN-803/PIN-800 remain separately assigned. |
-| RenderFragment<T> contravariance | Reuse a base-item renderer for a derived-item slot; does **not** serialize generic delegates across rendering modes. | **B03**, separate from PIN-778's non-generic static fragment boundary. |
+| RenderFragment<T> contravariance | Reuse a base-item renderer for a derived-item slot; does **not** serialize generic delegates across rendering modes. | **B03 / PIN-1157 delivered**: `blazor.reuse-contravariant-item-fragments/11.0`; separate from PIN-778's non-generic static fragment boundary. |
 | AssetPath/AcceptsAssetPath/AssetPathAttributes, compiler metadata | Mark component parameters/custom HTML attributes for compiler asset expansion instead of scattering explicit lookup. | **B01**. PropertyMetadata.AcceptsStringLiteral delivered with [PIN-779's union-valued markup](../../verification/component-values.md); AssetPath remains B01. |
-| CascadingParameterSubscription/TryAddCascadingValueSupplier<TAttribute> | Attribute-selected scoped suppliers, notification and disposal, rather than component property injection. ComponentState is a framework-facing seam. | **B02**; acknowledge BL0006 where emitted, no blanket stable/AOT guarantee. |
+| CascadingParameterSubscription/TryAddCascadingValueSupplier<TAttribute> | Attribute-selected scoped suppliers, notification and disposal, rather than component property injection. ComponentState is a framework-facing seam. | **B02 / PIN-1156 delivered**: `blazor.supply-attribute-selected-state/11.0`; real removal/scoped cleanup checks, no BL0006 at the actual RC2 access and no blanket stable/AOT guarantee. |
 | RenderTreeBuilder.SetAttributeValue | Experimental **ASP0032**, indexed pending attribute-frame replacement; not an ordinary application rendering recommendation. | **B04**, advanced renderer authoring only. |
 | CircuitOptions.JsonTypeInfoResolvers | Experimental **ASPNETCORE9004**, EditorBrowsable Never. RemoteJSRuntime and protected-browser-storage source insert resolvers in registration order before reflection fallback. | **B05**, no blanket circuit protocol or NativeAOT compatibility claim. |
 | InputFile protected virtual Dispose(bool) | New subclass cleanup hook; existing public IDisposable behavior remains. | **B15**. |

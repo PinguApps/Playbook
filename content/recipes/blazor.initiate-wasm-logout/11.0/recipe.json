@@ -1,0 +1,298 @@
+{
+  "id": "blazor.initiate-wasm-logout",
+  "edition": "11.0",
+  "title": "Initiate WebAssembly logout through supported navigation",
+  "goal": "Replace legacy sign-out session setup with NavigateToLogout when migrating a browser-hosted remote authentication app, preserving provider logout, callback and local return navigation.",
+  "areas": [
+    "aspnetcore",
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "authentication",
+    "migration",
+    "webassembly"
+  ],
+  "apis": [
+    "SignOutSessionStateManager",
+    "SetSignOutState",
+    "ValidateSignOutState",
+    "NavigateToLogout",
+    "RemoteAuthenticatorView"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "NavigateToLogout already works on .NET 10; .NET 11 removes SignOutSessionStateManager.",
+          "Both reject invalid non-null history. With null history .NET 10 checks session storage; RC2 accepts the request without that fallback.",
+          "Requires browser-hosted WASM, the framework auth route and a registered provider; not server cookie logout or authorization enforcement."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET browser runtime",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Execute net11.0 WASM with matching managed/browser assets; server rendering does not execute this flow."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 with matching Blazor WASM assets. Exact RC2 test pins are separate evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current project mode; previous declares C# 14. No preview-only syntax is needed."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk.BlazorWebAssembly"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Match WASM/authentication compile and JavaScript assets outside the shared framework reference pack."
+            },
+            {
+              "name": "Microsoft.AspNetCore.Components.WebAssembly.Authentication",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Match WASM/authentication compile and JavaScript assets outside the shared framework reference pack."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Current lib/net11.0 WASM Authentication plus matching authentication JS and browser runtime; comparison uses actual matching net10.0 assets. Locked exact resolved package sets are retained beside each sample."
+          ],
+          "providers": [
+            "Already registered OIDC provider with code/PKCE, RP-initiated logout and exact login/logout callback URIs. Authoring proof: one loopback oidc-provider 9.5.1 with a fixed fictional account and in-memory signing/session state."
+          ],
+          "platforms": [
+            "Modern WebAssembly browser with history/session storage; verified Windows x64 / Chromium. No optional native SDK/workload or AOT/relinking claim."
+          ],
+          "renderingModes": [
+            "Browser-hosted interactive WebAssembly only; no static SSR or Interactive Server authentication claim."
+          ],
+          "prerequisites": [
+            "Register AddOidcAuthentication; load matching AuthenticationService.js before Blazor; map authentication/{Action} to RemoteAuthenticatorView.",
+            "Register the exact /authentication/login-callback and /authentication/logout-callback origins at the provider, and the public /permits return route.",
+            "Loopback HTTP/fixed identity are authoring-only; real deployments need the provider's HTTPS/account/session/redirect policies."
+          ],
+          "constraints": [
+            "NavigateToLogout already works on .NET 10; .NET 11 removes SignOutSessionStateManager.",
+            "Both reject invalid non-null history. With null history .NET 10 checks session storage; RC2 accepts the request without that fallback.",
+            "Requires browser-hosted WASM, the framework auth route and a registered provider; not server cookie logout or authorization enforcement."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable supported replacements already available in .NET 10; current evidence is .NET 11 RC2, with GA reconciliation pending.",
+            "No older-target/newer-package route is advertised. The separate net10.0 consumer uses matching 10.0.13 packages; the eight foundations remain unchanged."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/AspNetCore.Docs/blob/28f92a7807fc1f492f6a9739902ff1753d6ef832/aspnetcore/breaking-changes/11/blazor-obsolete-apis-removed.md",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly.Authentication/src/Services/SignOutSessionStateManager.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly.Authentication/src/RemoteAuthenticatorViewCore.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly.Authentication/src/RemoteAuthenticatorViewCore.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly.Authentication/src/NavigationManagerExtensions.cs",
+          "https://github.com/panva/node-oidc-provider/blob/v9.5.1/docs/README.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WetlandPermits/WetlandPermits.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official removed API inventory; source/artifact corrections retained",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/28f92a7807fc1f492f6a9739902ff1753d6ef832/aspnetcore/breaking-changes/11/blazor-obsolete-apis-removed.md"
+    },
+    {
+      "title": "Previous manager really writes/reads/removes session storage",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly.Authentication/src/Services/SignOutSessionStateManager.cs"
+    },
+    {
+      "title": "Previous authenticator null-history validation fallback",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Components/WebAssembly/WebAssembly.Authentication/src/RemoteAuthenticatorViewCore.cs"
+    },
+    {
+      "title": "Current authenticator invalid/absent history distinction",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly.Authentication/src/RemoteAuthenticatorViewCore.cs"
+    },
+    {
+      "title": "Supported logout navigation overloads",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/WebAssembly/WebAssembly.Authentication/src/NavigationManagerExtensions.cs"
+    },
+    {
+      "title": "Local OIDC provider configuration and RP-initiated logout",
+      "url": "https://github.com/panva/node-oidc-provider/blob/v9.5.1/docs/README.md"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/WetlandPermits/WetlandPermits.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching target/SDK and locked WASM/Authentication/managed browser runtime assets; no cross-compilation."
+    },
+    {
+      "sample": "samples/net10.0/WetlandPermits/WetlandPermits.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "record": "samples/net10.0/WetlandPermits/behavior.evidence.json",
+      "scope": "Actual published WASM with a loopback OIDC provider: code/PKCE/signed login, session logout, callback/public return, valid/invalid/missing history, session operations and fresh interaction after logout. No external-provider/production-security/GA claim."
+    },
+    {
+      "sample": "samples/net11.0/WetlandPermits/WetlandPermits.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching target/SDK and locked WASM/Authentication/managed browser runtime assets; no cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/WetlandPermits/WetlandPermits.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "record": "samples/net11.0/WetlandPermits/behavior.evidence.json",
+      "scope": "Actual published WASM with a loopback OIDC provider: code/PKCE/signed login, session logout, callback/public return, valid/invalid/missing history, session operations and fresh interaction after logout. No external-provider/production-security/GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/WetlandPermits/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/WetlandPermits/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/WetlandPermits/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/WetlandPermits/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-wetlandpermits-csproj": {
+      "path": "samples/net10.0/WetlandPermits/WetlandPermits.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/WetlandPermits/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-app-razor": {
+      "path": "samples/net10.0/WetlandPermits/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-authentication-razor": {
+      "path": "samples/net10.0/WetlandPermits/Authentication.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-permits-razor": {
+      "path": "samples/net10.0/WetlandPermits/Permits.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-probe-razor": {
+      "path": "samples/net10.0/WetlandPermits/Probe.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-wwwroot-index-html": {
+      "path": "samples/net10.0/WetlandPermits/wwwroot/index.html",
+      "region": "complete",
+      "language": "html"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/WetlandPermits/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/WetlandPermits/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/WetlandPermits/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/WetlandPermits/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-wetlandpermits-csproj": {
+      "path": "samples/net11.0/WetlandPermits/WetlandPermits.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/WetlandPermits/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/WetlandPermits/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-authentication-razor": {
+      "path": "samples/net11.0/WetlandPermits/Authentication.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-permits-razor": {
+      "path": "samples/net11.0/WetlandPermits/Permits.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-probe-razor": {
+      "path": "samples/net11.0/WetlandPermits/Probe.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-wwwroot-index-html": {
+      "path": "samples/net11.0/WetlandPermits/wwwroot/index.html",
+      "region": "complete",
+      "language": "html"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded real local browser/protocol proof needs no external account. No production identity service, provider certification or GA proof."
+  }
+}
