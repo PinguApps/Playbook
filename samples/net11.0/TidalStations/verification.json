@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "eng/Test-RemovedBlazorConsumers.mjs",
+    "eng/Record-RemovedBlazorBehavior.ps1"
+  ]
+}
