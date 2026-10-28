@@ -31,10 +31,12 @@ try {
     $negativeOutput = & $Net11Dotnet build -c Release --no-restore -p:UseRazorSourceGenerator=true | Out-String
     $generated = Get-ChildItem -LiteralPath (Join-Path $gallery11 'obj/Release/net11.0/generated') -Recurse -Filter 'App_razor.g.cs' | Select-Object -First 1
     $code = Get-Content -LiteralPath $generated.FullName -Raw
-    if ($code -notmatch 'Assets\[@"images/sounding.svg"\]' -or $code -notmatch 'museum-image[^\r\n]*source=(?:\\"|"")~/images/sounding.svg') {
+    if ($code -notmatch 'Assets\[@"images/sounding.svg"\]' -or
+        $code -notmatch 'museum-image[^\r\n]*source=(?:\\"|"")~/images/sounding.svg' -or
+        $code -notmatch '<img[^\r\n]*src=(?:\\"|"")~/images/sounding.svg') {
       throw 'RC2 source-generator control changed: reconcile the route before recapturing evidence.'
     }
-    $negativeOutput += "`nPASS: component parameter expands; custom HTML remains a literal ~/ path with source generation."
+    $negativeOutput += "`nPASS: component parameter expands; custom and built-in HTML remain literal ~/ paths with source generation."
   }
   finally { Pop-Location }
   $publishOutput = @{}
@@ -70,7 +72,7 @@ try {
     $record.kind = 'execution'
     $record.command = "& '$PSScriptRoot/Record-TokenAssetBehavior.ps1' -Playwright '$Playwright' -Net10Dotnet '$Net10Dotnet' -Net11Dotnet '$Net11Dotnet' -Node '$Node'"
     $record.scope = if ($name -eq 'HydrophoneArchive') { 'Real WASM token-result consumers and browser history state; controlled IAccessTokenProvider boundary only. No provider issuance or authorized API/download claim.' } else { 'Actual generated C#, restored dependencies, published endpoint manifest, non-root fingerprinted asset HTTP retrieval and literal/unknown controls. RC2 task route; source-generator limitation retained.' }
-    $record.output = "Chromium $($report.browser)`n" + ($execution[0] | ConvertTo-Json -Depth 20) + "`n" + ($tooling -join "`n")
+    $record.output = "PASS: Chromium $($report.browser)`n" + ($execution[0] | ConvertTo-Json -Depth 20) + "`n" + ($tooling -join "`n")
     if ($name -eq 'MaritimeGallery') {
       $record.output += "`n$($publishOutput[$version])"
       if ($version -eq '11.0') { $record.output += "`n$negativeCommand`n$negativeOutput" }

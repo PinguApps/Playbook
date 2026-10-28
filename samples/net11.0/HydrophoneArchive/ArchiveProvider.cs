@@ -28,7 +28,7 @@ public sealed class ArchiveProvider(NavigationManager navigation) : IAccessToken
         };
         if (Mode == "success")
             return ValueTask.FromResult(new AccessTokenResult(AccessTokenResultStatus.Success, token, null, null));
-        var interaction = Mode is "fallback" or "modern-fallback" ? null : new InteractiveRequestOptions
+        var interaction = Mode == "fallback" ? null : new InteractiveRequestOptions
         {
             Interaction = InteractionType.GetToken, ReturnUrl = target.AbsoluteUri,
             Scopes = (options.Scopes ?? []).ToArray()

@@ -95,7 +95,7 @@
             "Only the IAccessTokenProvider boundary is controlled; the matching WASM runtime and NavigationManager execute in Chromium. No external provider, issued token, authorized API response or downloaded recording is claimed.",
             "Use TryGetToken before RequiresRedirect; successful results need no navigation. A current interactive result needs both InteractiveRequestUrl and InteractionOptions.",
             "ReturnUrl is constructed from a fixed application-owned route and checked against BaseUri. Do not accept an unvalidated external or query-supplied return location.",
-            ".NET 10 parameterless Redirect reads legacy RedirectUrl when options are absent. A four-argument no-options result has no legacy URL and fails; RC2 reads InteractiveRequestUrl instead.",
+            ".NET 10 parameterless Redirect reads legacy RedirectUrl when options are absent. A four-argument no-options result has no legacy URL and fails; RC2 reads the result's InteractiveRequestUrl instead.",
             "Redirect(Action<InteractiveRequestOptions>) requires actual options; do not use it for a no-options result. Existing exception signatures remain unchanged."
           ],
           "optIns": [],

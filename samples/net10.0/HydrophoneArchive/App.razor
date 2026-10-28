@@ -12,9 +12,9 @@
 <p>Controlled result handling; no external sign-in or protected download occurs.</p>
 <button id="success" @onclick='() => Download("success")'>Use available token</button>
 <button id="redirect" @onclick='() => Download("redirect")'>Request interaction</button>
-<button id="exception" @onclick='() => Download("exception")'>Existing exception caller</button>
-<button id="exception-default" @onclick='() => Download("exception-default")'>Exception with options</button>
-<button id="fallback" @onclick='() => Download("fallback")'>Exception without options</button>
+<button id="exception" @onclick='() => Download("exception")'>Redirect(configure) with options</button>
+<button id="exception-default" @onclick='() => Download("exception-default")'>Redirect() with options</button>
+<button id="fallback" @onclick='() => Download("fallback")'>Redirect() without options</button>
 <button id="modern-fallback" @onclick='() => Download("modern-fallback")'>Old fallback with new producer</button>
 <button id="legacy" @onclick='() => Download("legacy")'>Old result producer</button>
 <p id="outcome">@outcome</p>

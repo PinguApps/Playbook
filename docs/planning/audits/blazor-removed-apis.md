@@ -1,6 +1,6 @@
 # Removed Blazor APIs: bounded reconciliation and delivery proposal
 
-PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R1–R6 now have the focused deliveries below; audit completion itself does not establish comprehensive coverage or publication readiness.
+PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R1–R6 and R9 now have the focused deliveries below; audit completion itself does not establish comprehensive coverage or publication readiness.
 
 ## R5/R6 delivery, 28 October 2026
 

@@ -85,6 +85,7 @@ try {
             branches.push({ mode, options, result: 'real NavigateToLogin history state; no identity provider contacted' });
           }
         }
+        branches.at(-1).url = page.url();
       }
       assert.deepEqual(errors, []);
       results.push({ version, sample: 'HydrophoneArchive', branches });

@@ -21,7 +21,7 @@ public sealed class InstalledToolSteps : IDisposable
         {
             JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
             Assert.All(recipe.GetProperty("evidence").EnumerateArray().Where(evidence => evidence.GetProperty("kind").GetString() == "execution"), evidence =>
-                Assert.Contains("Chromium", evidence.GetProperty("output").GetString(), StringComparison.Ordinal));
+                Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal));
             Assert.Contains("RC2", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         }
