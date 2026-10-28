@@ -76,7 +76,7 @@ The root component files below are working .NET 10 equivalents. The Before files
 
 ## Newer approach
 
-Keep only the necessary external-callback render. The RC2 analyzer flags both calls in the original lifecycle/event methods when that original source is built as a real net11.0 Razor consumer. The corrected component removes them and has no BL0012. InvokeAsync moves the timer work onto the renderer dispatcher; StateHasChanged requests the otherwise missing render. Disposing the component stops its timer and ignores already-queued callbacks.
+Keep only the necessary external-callback render. The RC2 analyzer reports BL0012 for the original component when that source is built as a real net11.0 Razor consumer. The corrected component removes the redundant calls and has no BL0012. InvokeAsync moves the timer work onto the renderer dispatcher; StateHasChanged requests the otherwise missing render. The component owns and disposes its timer and checks a disposed flag inside dispatched work. Disposal with an already-queued timer callback was not exercised.
 
 No suppression or experimental opt-in is required. The new warning does not introduce new runtime behavior. Retain the other working components and complete host setup when copying this self-contained example.
 
@@ -168,7 +168,7 @@ To reproduce the original diagnostics, stop the host and rebuild with `-t:Rebuil
 
 ## Evidence
 
-Both actual dependency sets compile with fresh sample evidence. The authoring check builds before, after and missing-timer-render variants on both matching runtimes and uses installed Chrome through Playwright. It asserts each observable result above, the foreach control and disposed-reference rejection. RC2 analyzer and Razor compiler hashes are recorded alongside runtime identities. The ordinary package is separately installed from a local-only feed/cache; real offline stdio list/get must preserve ID, title, goal, edition, full canonical files, applicability and current evidence. Browser and package checks prove different claims.
+Both actual dependency sets compile with fresh sample evidence. The authoring check builds before, after and missing-timer-render variants on both matching runtimes and uses installed Chrome through Playwright. It checks framework-event updates and the necessary external-timer render; the shared harness also exercises the loop and interop controls. RC2 analyzer and Razor compiler hashes are recorded alongside runtime identities. The saved records retain their capture commit and dirty state; freshness binds their exact input hashes, rather than requiring the capture commit to equal the current Git HEAD. The ordinary package is separately installed from a local-only feed/cache; real offline stdio list/get must preserve ID, title, goal, edition, full canonical files, applicability and current evidence. Browser and package checks prove different claims.
 
 ## References
 

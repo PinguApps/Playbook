@@ -10,8 +10,8 @@ All three fixes also work on .NET 10; the new diagnostics do not introduce those
 runtime rules. No ninth foundation or unsupported older-target analyzer route is added.
 
 `eng/Record-ComponentActions.ps1` builds actual before/after Razor consumers and
-records real Chrome interactions. RC2 reports BL0012 at the redundant lifecycle
-and event calls, BL0014 at the captured iterator and BL0015 at the private callback;
+records real Chrome interactions. RC2 reports BL0012 for the original render-notification
+component, BL0014 at the captured iterator and BL0015 at the private callback;
 the migrated consumers have none. Both runtimes reproduce first/last selection
 of 4/4 before and 1/3 after, safe foreach 1/3, private JS rejection, public declared
 identifier success and disposed-reference rejection. Removing only the external

@@ -168,7 +168,7 @@ To reproduce the original diagnostics, stop the host and rebuild with `-t:Rebuil
 
 ## Evidence
 
-Both actual dependency sets compile with fresh sample evidence. The authoring check builds before, after and missing-timer-render variants on both matching runtimes and uses installed Chrome through Playwright. It asserts each observable result above, the foreach control and disposed-reference rejection. RC2 analyzer and Razor compiler hashes are recorded alongside runtime identities. The ordinary package is separately installed from a local-only feed/cache; real offline stdio list/get must preserve ID, title, goal, edition, full canonical files, applicability and current evidence. Browser and package checks prove different claims.
+Both actual dependency sets compile with fresh sample evidence. The authoring check builds before, after and missing-timer-render variants on both matching runtimes and uses installed Chrome through Playwright. It checks first/last for-loop selections and the safe foreach control; the shared harness separately exercises render and interop controls. RC2 analyzer and Razor compiler hashes are recorded alongside runtime identities. The saved records retain their capture commit and dirty state; freshness binds their exact input hashes, rather than requiring the capture commit to equal the current Git HEAD. The ordinary package is separately installed from a local-only feed/cache; real offline stdio list/get must preserve ID, title, goal, edition, full canonical files, applicability and current evidence. Browser and package checks prove different claims.
 
 ## References
 

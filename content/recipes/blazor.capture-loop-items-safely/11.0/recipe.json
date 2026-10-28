@@ -18,8 +18,7 @@
   "apis": [
     "EventCallback",
     "ComponentBase",
-    "for",
-    "foreach"
+    "BL0014"
   ],
   "introducedIn": "11.0",
   "supportedTargets": [
