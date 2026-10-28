@@ -15,6 +15,6 @@ app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapGet("/counts", (SubmissionCounts counts) => new { counts.Posts, counts.Accepted });
 app.MapRazorComponents<App>();
+Console.WriteLine($"Sample runtime: {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}");
 app.Run();
 // endsnippet:host
-

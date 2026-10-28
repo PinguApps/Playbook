@@ -31,5 +31,6 @@ if (app.Environment.IsDevelopment())
 }
 // snippet:run
 app.MapRazorComponents<App>();
+Console.WriteLine($"Sample runtime: {System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}");
 app.Run();
 // endsnippet:run

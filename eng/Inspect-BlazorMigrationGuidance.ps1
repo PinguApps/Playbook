@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
   [string[]]$RecipeId = @('blazor.bound-upload-read','blazor.create-typed-event-callback'),
+  [string]$Query = 'migration',
   [string]$PackageVersion = '0.0.0-blazor-migrations',
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
@@ -58,7 +59,7 @@ try {
       $entries = @()
       $offset = 0
       do {
-        $page = (Invoke-RecipeTool 'list_recipes' @('query=migration','limit=50',"offset=$offset")).result.structuredContent
+        $page = (Invoke-RecipeTool 'list_recipes' @("query=$Query",'limit=50',"offset=$offset")).result.structuredContent
         $entries += @($page.recipes)
         $offset = $page.nextOffset
       } while ($null -ne $offset)
@@ -86,7 +87,8 @@ try {
         foreach ($snippet in $metadata.snippets.PSObject.Properties) {
           $value = $snippet.Value
           $source = (Get-Content -LiteralPath (Join-Path $root $value.path) -Raw).Replace("`r`n","`n")
-          $match = [regex]::Match($source,'(?ms)^(?://|<!--) snippet:complete(?: -->)?\n(.*?)^(?://|<!--) endsnippet:complete(?: -->)?')
+          $region = [regex]::Escape($value.region)
+          $match = [regex]::Match($source,"(?ms)^[ \t]*(?://|<!--) snippet:${region}(?: -->)?\n(.*?)^[ \t]*(?://|<!--) endsnippet:${region}(?: -->)?$")
           if (-not $match.Success) { throw "Missing canonical region: $($value.path)" }
           $code = $match.Groups[1].Value.TrimEnd()
           $expectedBody = $expectedBody.Replace('{{snippet:' + $snippet.Name + '}}', ('```' + $value.language + "`n" + $code + "`n" + '```'))

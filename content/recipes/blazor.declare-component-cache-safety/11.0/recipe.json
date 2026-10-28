@@ -1,0 +1,217 @@
+{
+  "id": "blazor.declare-component-cache-safety",
+  "edition": "11.0",
+  "title": "Declare how a reusable child behaves inside a cached section",
+  "goal": "Keep request-aware components live or refuse subtree capture unless the enclosing static SSR cache declares the required variation, accounting for captured parameter replay.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "caching",
+    "components",
+    "request-state",
+    "garden-library"
+  ],
+  "apis": [
+    "CacheBehavior",
+    "CacheBehaviorAttribute",
+    "CacheConditionAttribute",
+    "CacheVaryBy",
+    "CacheView"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Static SSR GET capture; Rerender runs lifecycle with parameters replayed unchanged.",
+          "Throw refuses capture after child initialization; never use it to prevent lifecycle side effects."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses .NET 11 framework contracts."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins identify measured proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical language mode; no preview syntax required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "SDK-aligned Microsoft.AspNetCore.App.Internal.Assets browser/static assets; implicit dependency locked at 11.0.0-rc.2.26504.105 in the measured sample. No additional PackageReference."
+          ],
+          "providers": [
+            "Default process-local CacheView memory store; cookie authentication with Development-only fictional sign-in controls."
+          ],
+          "platforms": [
+            "ASP.NET Core server; measured Windows x64. No native toolchain/workload requirement."
+          ],
+          "renderingModes": [
+            "Blazor static SSR GET requests"
+          ],
+          "prerequisites": [
+            "Use the Web SDK with nullable and implicit usings enabled, namespace Playbook.Samples and the complete offline host/components/initializers below."
+          ],
+          "constraints": [
+            "Static SSR GET capture; Rerender runs lifecycle with parameters replayed unchanged.",
+            "Throw refuses capture after child initialization; never use it to prevent lifecycle side effects.",
+            "User variation does not infer permissions/tenants or anonymous private session state.",
+            "Default local memory only; HybridCache, distributed consistency, interactive modes, trimming/AOT and GA execution remain outside scope."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "GA-targeted 11.0 guidance verified against RC2, not actual GA; inspected APIs carry no experimental opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheBehaviorAttribute.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheConditionAttribute.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheVaryBy.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheView.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/LibraryBadges/LibraryBadges.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned live/refusal contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheBehaviorAttribute.cs"
+    },
+    {
+      "title": "Pinned conditional capture contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheConditionAttribute.cs"
+    },
+    {
+      "title": "Pinned variation dimensions",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Components/src/CacheVaryBy.cs"
+    },
+    {
+      "title": "Pinned SSR cache renderer",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Endpoints/src/CacheView/CacheView.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/LibraryBadges/LibraryBadges.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation with locked implicit assets. Does not establish browser/request behavior."
+    },
+    {
+      "sample": "samples/net10.0/LibraryBadges/LibraryBadges.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "record": "samples/net10.0/LibraryBadges/behavior.evidence.json",
+      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; RC2 captured parameter replay, conditional capture and refusal timing."
+    },
+    {
+      "sample": "samples/net11.0/LibraryBadges/LibraryBadges.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual pinned Web SDK compilation with locked implicit assets. Does not establish browser/request behavior."
+    },
+    {
+      "sample": "samples/net11.0/LibraryBadges/LibraryBadges.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "record": "samples/net11.0/LibraryBadges/behavior.evidence.json",
+      "scope": "Real cookie-authenticated SSR requests for two users; lifecycle counts and fresh output; RC2 captured parameter replay, conditional capture and refusal timing."
+    }
+  ],
+  "snippets": {
+    "older-shelf": {
+      "path": "samples/net10.0/LibraryBadges/PublicShelf.razor",
+      "region": "shelf",
+      "language": "razor"
+    },
+    "older-page": {
+      "path": "samples/net10.0/LibraryBadges/ShelfPage.razor",
+      "region": "page",
+      "language": "razor"
+    },
+    "older-live": {
+      "path": "samples/net10.0/LibraryBadges/LiveBadge.razor",
+      "region": "live",
+      "language": "razor"
+    },
+    "live": {
+      "path": "samples/net11.0/LibraryBadges/LiveBadge.razor",
+      "region": "live",
+      "language": "razor"
+    },
+    "guarded": {
+      "path": "samples/net11.0/LibraryBadges/GuardedBadge.razor",
+      "region": "guarded",
+      "language": "razor"
+    },
+    "page": {
+      "path": "samples/net11.0/LibraryBadges/ShelfPage.razor",
+      "region": "page",
+      "language": "razor"
+    },
+    "document": {
+      "path": "samples/net11.0/LibraryBadges/App.razor",
+      "region": "document",
+      "language": "razor"
+    },
+    "host": {
+      "path": "samples/net11.0/LibraryBadges/Program.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "run": {
+      "path": "samples/net11.0/LibraryBadges/Program.cs",
+      "region": "run",
+      "language": "csharp"
+    },
+    "shelf": {
+      "path": "samples/net11.0/LibraryBadges/PublicShelf.razor",
+      "region": "shelf",
+      "language": "razor"
+    },
+    "state": {
+      "path": "samples/net11.0/LibraryBadges/LibraryState.cs",
+      "region": "state",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused automated real browser/HTTP proof; no Human-only gate for these bounded claims. Other platforms, screen-reader, distributed provider, AOT and GA are not established."
+  }
+}

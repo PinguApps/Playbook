@@ -32,6 +32,9 @@ async function withServer(version, dotnet, sample, args, action) {
       child.on('exit', code => { clearTimeout(timer); reject(new Error(`Exit ${code}: ${logs}`)); });
     });
     await action(base);
+    const runtime = logs.match(/Sample runtime: ([^\r\n]+)/)?.[1];
+    assert.ok(runtime?.startsWith('.NET ' + version + '.'));
+    for (const result of results.filter(r => r.version === version && r.sample === sample)) result.runtime = runtime;
   } catch (error) { throw new Error(`${version} ${sample}: ${error.message}\n${logs}`, { cause: error }); }
   finally {
     child.kill();
@@ -173,4 +176,3 @@ try {
   await writeFile(output, JSON.stringify({ recordedAt: new Date().toISOString(), browser: browser.version(), results }, null, 2) + '\n');
   console.log(`PASS: ${results.length} actual garden browser/POST and library authenticated SSR cases. Report: ${output}`);
 } finally { await browser.close(); }
-
