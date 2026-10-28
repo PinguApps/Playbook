@@ -1,0 +1,28 @@
+@page "/{Mode}"
+<!-- snippet:page -->
+<p id="request" data-ticket="@Ticket">Library request</p>
+@if (Mode == "live")
+{
+    <CacheView CacheKey="library-live-v1" ExpiresAfter="TimeSpan.FromMinutes(2)">
+        <PublicShelf />
+        <LiveBadge Ticket="@Ticket" />
+    </CacheView>
+}
+else if (Mode == "guarded")
+{
+    <CacheView CacheKey="library-guarded-v1" VaryByUser="true" ExpiresAfter="TimeSpan.FromMinutes(2)">
+        <PublicShelf />
+        <GuardedBadge />
+    </CacheView>
+}
+else if (Mode == "refuse")
+{
+    <CacheView CacheKey="library-refusal-v1" ExpiresAfter="TimeSpan.FromMinutes(2)">
+        <GuardedBadge />
+    </CacheView>
+}
+@code {
+    [Parameter] public string Mode { get; set; } = "live";
+    private string Ticket { get; } = Guid.NewGuid().ToString("N");
+}
+<!-- endsnippet:page -->

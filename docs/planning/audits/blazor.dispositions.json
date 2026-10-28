@@ -56,7 +56,7 @@
     {
       "id": "builtin-cache-contracts",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(Authorization\\.AuthorizeViewCore|Forms\\.AntiforgeryToken|Web\\.HeadOutlet)",
-      "owner": "PIN-780/B07",
+      "owner": "PIN-780/PIN-1161; B07 component contracts delivered, built-in annotations retain PIN-780 scope",
       "disposition": "grouped"
     },
     {
@@ -74,7 +74,7 @@
     {
       "id": "forms",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.Forms\\.(EditContext|ValidationRequestedEventArgs|DataAnnotationsValidator|ClientValidation|IClientValidation)| Microsoft\\.AspNetCore\\.Components\\.Endpoints\\.RazorComponentsServiceOptions::(get_|set_)?DisableClientValidation",
-      "owner": "PIN-772/PIN-774/PIN-775; B06 for custom client rules",
+      "owner": "PIN-772/PIN-774/PIN-775; B06 delivered by PIN-1160 blazor.export-custom-client-validation-rules/11.0 with paired compilation, actual Chromium/HTTP and installed offline proof; GA pending",
       "disposition": "grouped/included"
     },
     {
@@ -92,8 +92,8 @@
     {
       "id": "cache",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.(Cache|Endpoints\\.RazorComponentsServiceOptions::(get_|set_)?CacheView)",
-      "owner": "PIN-780; B07 for component cache contracts",
-      "disposition": "included; boundary/storage policy delivered with real local provider proof in docs/verification/subtree-cache.md; B07 component authoring remains outstanding"
+      "owner": "PIN-780; B07 delivered by PIN-1161 blazor.declare-component-cache-safety/11.0 with paired compilation, actual two-user SSR lifecycle/parameter/refusal proof and installed offline retrieval; GA pending",
+      "disposition": "included; boundary/storage policy delivered with real local provider proof in docs/verification/subtree-cache.md; B07 component authoring delivered; RC2 refusal occurs after child initialization"
     },
     {
       "id": "browser-options",

@@ -1,0 +1,25 @@
+@page "/{Mode}"
+@inject SubmissionCounts Counts
+<!-- snippet:form -->
+<h1>Walled garden accessions</h1>
+<EditForm Model="Model" FormName="accession" Enhance="@(Mode != "plain")"
+          OnValidSubmit="Accept" OnInvalidSubmit="Reject">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <label for="code">Accession code</label>
+    <InputText id="code" @bind-Value="Model.Code" />
+    <ValidationMessage For="() => Model.Code" />
+    <span id="legacy-error" role="alert"></span>
+    <button id="save" type="submit">Accession plant</button>
+    <button id="bypass" type="submit" formnovalidate>Ask the server</button>
+</EditForm>
+<output id="result">@Result</output>
+@code {
+    [Parameter] public string Mode { get; set; } = "enhanced";
+    [SupplyParameterFromForm] public PlantEntry Model { get; set; } = default!;
+    private string Result = "Not submitted";
+    protected override void OnInitialized() => Model ??= new();
+    private void Accept() { Counts.Accept(); Result = "Accepted"; }
+    private void Reject() => Result = "Rejected";
+}
+<!-- endsnippet:form -->

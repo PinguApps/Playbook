@@ -28,6 +28,35 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Custom client rules and component cache contracts
+
+This block builds/packs the ordinary tool and uses the existing isolated local-feed/cache
+Inspector harness. It changes to an unrelated temporary directory before calling
+the exact installed executable over stdio, and displays both recipes' ID, title,
+goal, complete Markdown, applicability and current compilation/execution evidence.
+Setup requires PowerShell 7, SDK 10.0.402 and Node 22.19+; Inspector 2.11.0 is
+installed locally when absent. Setup may use the network; retrieval uses unusable
+proxies, which demonstrates proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8fca8201'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('blazor.export-custom-client-validation-rules','blazor.declare-component-cache-safety') `
+  -Query 'garden-library' -PackageVersion '0.0.0-garden-library' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
+  -OutputDirectory ./artifacts/garden-library/inspection
+```
+
+Expect two explicit `11.0` editions, full canonical-source equality, complete
+static-SSR requirements and four current evidence records per recipe. The custom
+rule body includes the .NET 10 duplicate handler and .NET 11 provider/JS mapping;
+the cache body includes live parameter replay and refusal after initialization.
+These checks deliver the guidance; the paired real Chromium/HTTP evidence comes
+from `eng/Record-GardenLibrary.ps1`. RC2 is not GA proof. No native or distributed
+provider behavior is claimed. The helper retains its unique temporary install/feed
+for inspection and restores process settings; it does not install a global tool.
+
 ## Inspect a response directly
 
 ```powershell

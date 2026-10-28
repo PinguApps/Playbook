@@ -1,8 +1,16 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @GardenLibrary
+  Scenario: Custom client rules and reusable cache contracts retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then custom client rules and component cache contracts retain canonical guidance and execution evidence
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @RemovedBlazorMigration
-  Scenario: Router and manual validation migrations retain verified offline guidance
+  Scenario: Router validation token and asset migrations retain verified offline guidance
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
     Then removed Blazor migrations retain complete canonical guidance and execution evidence

@@ -14,7 +14,7 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("removed Blazor migrations retain complete canonical guidance and execution evidence")]
     public async Task CheckRemovedBlazorMigrationsAsync()
     {
-        string[] ids = ["blazor.preserve-route-matching", "blazor.validate-with-scoped-services"];
+        string[] ids = ["blazor.preserve-route-matching", "blazor.resume-token-acquisition", "blazor.validate-with-scoped-services"];
         await CheckWebRecipesAsync(ids, "removed-api", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
         await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
         foreach (string id in ids)
@@ -25,6 +25,10 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Contains("RC2", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         }
+
+        string[] assets = ["blazor.expand-component-asset-paths"];
+        await CheckWebRecipesAsync(assets, "static-assets", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(assets).ConfigureAwait(false);
     }
 
     [Then("Razor compilation and synchronous validation retain complete offline guidance")]
@@ -1251,6 +1255,25 @@ public sealed class InstalledToolSteps : IDisposable
 
                 Assert.True(JsonElement.DeepEquals(property.Value, actual.GetProperty(property.Name)), $"Saved SignalR compilation {sample}/{property.Name}");
             }
+        }
+    }
+
+    [Then("custom client rules and component cache contracts retain canonical guidance and execution evidence")]
+    public async Task CheckGardenLibraryAsync()
+    {
+        string[] ids = ["blazor.declare-component-cache-safety", "blazor.export-custom-client-validation-rules"];
+        await CheckWebRecipesAsync(ids, "garden-library", 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
+            JsonElement route = Assert.Single(recipe.GetProperty("applicability").GetProperty("routes").EnumerateArray());
+            foreach (JsonProperty property in Assert.Single(metadata.RootElement.GetProperty("applicability").GetProperty("routes").EnumerateArray()).EnumerateObject())
+            {
+                Assert.True(JsonElement.DeepEquals(property.Value, route.GetProperty(property.Name)), $"Complete applicability field {property.Name} must survive installed retrieval.");
+            }
+
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
         }
     }
 

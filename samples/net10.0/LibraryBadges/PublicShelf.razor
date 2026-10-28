@@ -1,0 +1,15 @@
+<!-- snippet:shelf -->
+@using Microsoft.Extensions.Caching.Memory
+@inject IMemoryCache Cache
+@inject LibraryState State
+<section id="shelf" data-build="@Build">Public library shelf: botany</section>
+@code {
+    private int Build;
+    protected override void OnInitialized() =>
+        Build = Cache.GetOrCreate("public-botany-v1", entry =>
+        {
+            entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(2);
+            return State.Enter("shelf");
+        });
+}
+<!-- endsnippet:shelf -->
