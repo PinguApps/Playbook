@@ -1,0 +1,31 @@
+<!-- snippet:complete -->
+@namespace RestorationBench
+@using Microsoft.AspNetCore.Components.Forms
+@implements IDisposable
+@inject StatusFeed Feed
+<InputFile OnChange="OnChange" @attributes="AdditionalAttributes" />
+@code {
+    [Parameter] public EventCallback<InputFileChangeEventArgs> OnChange { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public IDictionary<string, object>? AdditionalAttributes { get; set; }
+    [Parameter] public EventCallback<string> OnStatus { get; set; }
+    private readonly CancellationTokenSource _lifetime = new();
+    private CancellationTokenRegistration _subscription;
+    private volatile bool _disposed;
+    protected override void OnInitialized()
+    {
+        _subscription = Feed.Subscribe(status => InvokeAsync(async () =>
+        {
+            // A publisher may already have copied the callback when cancellation starts.
+            if (!_disposed) await OnStatus.InvokeAsync(status);
+        }), _lifetime.Token);
+    }
+    public void Dispose()
+    {
+        if (_disposed) return;
+        _disposed = true;
+        try { _lifetime.Cancel(); }
+        finally { _subscription.Dispose(); _lifetime.Dispose(); }
+        // The renderer independently disposes the child InputFile and its callback relay.
+    }
+}
+<!-- endsnippet:complete -->

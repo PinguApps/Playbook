@@ -57,6 +57,36 @@ from `eng/Record-GardenLibrary.ps1`. RC2 is not GA proof. No native or distribut
 provider behavior is claimed. The helper retains its unique temporary install/feed
 for inspection and restores process settings; it does not install a global tool.
 
+## JavaScript recovery and InputFile cleanup
+
+For JavaScript failure recovery and derived InputFile cleanup, this tested block
+builds/packs the ordinary tool, installs that exact package through the isolated
+local feed/cache, and calls real stdio list/get from an unrelated temporary
+directory. PowerShell 7, SDK 10.0.402 and Node 22.19+ are required for inspection;
+setup may use the network. Retrieval uses unusable proxies, which proves proxy
+independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e039c0ab'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('blazor.handle-js-invocation-failures','blazor.dispose-input-file-subclass-resources') `
+  -Query 'owned-lifetimes' -PackageVersion '0.0.0-owned-lifetimes' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
+  -OutputDirectory ./artifacts/owned-lifetimes/inspection
+```
+
+Expect both IDs/titles/goals, explicit 11.0 editions, complete expanded canonical
+.NET 10/11 files, applicability and four fresh compilation/execution records per
+recipe. Recovery preserves application errors; teardown distinguishes RC2's
+internally guarded reference disposal from an actual disconnected module call.
+InputFile cleanup preserves ordinary selection and its framework callback relay.
+The paired browser proof is separate from retrieval, and neither establishes GA.
+With both SDKs and the measured Chromium/Playwright installations available,
+`eng/Test-OwnedLifetimesConsumer.ps1` reconstructs all four projects solely from
+these responses and reruns their real browser/renderer checks. The script's
+`-Playwright` and `-Chromium` parameters take the absolute installed paths.
+
 ## Inspect a response directly
 
 ```powershell

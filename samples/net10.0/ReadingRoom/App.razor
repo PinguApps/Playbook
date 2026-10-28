@@ -1,0 +1,13 @@
+<!-- snippet:complete -->
+@page "/"
+@namespace ReadingRoom
+@using Microsoft.AspNetCore.Components.Web
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><base href="/" /><title>ReadingRoom</title></head>
+<body>
+    <Desk @rendermode="new InteractiveServerRenderMode(prerender: false)" />
+    <script src="_framework/blazor.web.js"></script>
+</body>
+</html>
+<!-- endsnippet:complete -->

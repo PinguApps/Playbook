@@ -1,0 +1,9 @@
+<!-- snippet:complete -->
+@namespace ReadingRoom
+@using Microsoft.AspNetCore.Components.Web
+<h1>Reading room desk</h1>
+<ErrorBoundary>
+    <ChildContent><ReadingPanel /></ChildContent>
+    <ErrorContent Context="failure"><p id="application-error">@failure.GetType().Name: @failure.Message</p></ErrorContent>
+</ErrorBoundary>
+<!-- endsnippet:complete -->

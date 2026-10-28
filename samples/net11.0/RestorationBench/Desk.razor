@@ -1,0 +1,28 @@
+<!-- snippet:complete -->
+@namespace RestorationBench
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
+@inject StatusFeed Feed
+<h1>Restoration workbench</h1>
+<button id="mount" @onclick="() => _show = true">Attach input</button>
+<button id="remove" @onclick="() => _show = false">Remove input</button>
+<button id="publish" @onclick='() => Feed.PublishAsync("Proof ready")'>Publish status</button>
+@if (_show)
+{
+    <RestorationInput id="manuscript" OnChange="ReadAsync" OnStatus="status => _status = status" />
+}
+<p id="file-result">@_file</p>
+<p id="status">@_status</p>
+@code {
+    private bool _show;
+    private string _file = "No file read";
+    private string _status = "Waiting for upload status";
+    private async Task ReadAsync(InputFileChangeEventArgs args)
+    {
+        if (args.FileCount == 0) return;
+        await using var stream = args.File.OpenReadStream(1024);
+        using var reader = new StreamReader(stream);
+        _file = args.File.Name + ": " + await reader.ReadToEndAsync();
+    }
+}
+<!-- endsnippet:complete -->
