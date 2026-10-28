@@ -1,0 +1,79 @@
+<!-- snippet:complete -->
+@namespace ReadingRoom
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Web
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+@inject ReadingAudit Audit
+<button id="read" disabled="@(_module is null)" @onclick="() => ReadAsync(false, false)">Read shelf label</button>
+<button id="js-failure" disabled="@(_module is null)" @onclick="() => ReadAsync(true, false)">Unreadable browser label</button>
+<button id="app-failure" disabled="@(_module is null)" @onclick="() => ReadAsync(false, true)">Invalid catalogue record</button>
+<p id="reading">@_reading</p>
+@code {
+    private IJSObjectReference? _module;
+    private bool _disposed;
+    private string _reading = "Waiting for browser";
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        IJSObjectReference? module = null;
+        try
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./reading.js");
+        }
+        catch (JSDisconnectedException) { _reading = "Connection lost; reopen the room"; }
+        catch (JSException) { _reading = "Browser label unavailable; use the printed shelf list"; }
+        if (_disposed)
+        {
+            if (module is not null) await ReleaseAsync(module);
+            return;
+        }
+        _module = module;
+        StateHasChanged();
+    }
+    private async Task ReadAsync(bool brokenLabel, bool invalidRecord)
+    {
+        if (_module is null || _disposed) return;
+        string label;
+        try
+        {
+            label = await _module.InvokeAsync<string>("readLabel", brokenLabel);
+        }
+        catch (JSDisconnectedException)
+        {
+            _reading = "Connection lost; reopen the room";
+            return;
+        }
+        catch (JSException)
+        {
+            _reading = "Browser label unavailable; use the printed shelf list";
+            return;
+        }
+        if (_disposed) return;
+        // Deliberately outside the browser recovery boundary: this is an app defect.
+        if (invalidRecord) throw new InvalidOperationException("Catalogue record has no shelf");
+        _reading = label;
+    }
+    public async ValueTask DisposeAsync()
+    {
+        if (_disposed) return;
+        _disposed = true;
+        try
+        {
+            if (_module is not null) await ReleaseAsync(_module);
+        }
+        finally { Audit.RecordDisposal(); }
+    }
+    private async ValueTask ReleaseAsync(IJSObjectReference module)
+    {
+        // Release only this module's in-memory reading session; no DOM manipulation.
+        try { await module.InvokeVoidAsync("closeReader"); }
+        catch (JSDisconnectedException) { Audit.RecordDisconnect(); }
+        finally
+        {
+            try { await module.DisposeAsync(); }
+            catch (JSDisconnectedException) { Audit.RecordReferenceDisconnect(); } // Needed by the .NET 10 comparison.
+        }
+    }
+}
+<!-- endsnippet:complete -->

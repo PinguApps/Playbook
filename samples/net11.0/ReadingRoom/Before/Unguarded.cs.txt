@@ -1,0 +1,9 @@
+// snippet:complete
+using Microsoft.JSInterop;
+namespace ReadingRoom;
+public static class Unguarded
+{
+    public static ValueTask<string> Read(IJSObjectReference module)
+        => module.InvokeAsync<string>("readLabel", false);
+}
+// endsnippet:complete
