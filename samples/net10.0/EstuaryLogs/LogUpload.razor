@@ -1,0 +1,73 @@
+<!-- snippet:complete -->
+@namespace EstuaryLogs
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Forms
+@implements IDisposable
+<h1>Estuary instrument log</h1>
+<p id="interactive">Interactive: @interactive</p>
+<label>One instrument log <InputFile OnChange="ReadLog" disabled="@busy" /></label>
+<button type="button" @onclick="Cancel" disabled="@(!busy)">Cancel read</button>
+<p id="status" role="status">@status</p>
+<p id="bytes">Bytes read: @bytesRead</p>
+<p id="processed">Processed logs: @processed</p>
+
+@code {
+    private const long MaximumLogBytes = 1024 * 1024;
+    private CancellationTokenSource? activeRead;
+    private bool interactive, busy;
+    private long bytesRead;
+    private int processed;
+    private string status = "Choose a log";
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) { interactive = true; StateHasChanged(); }
+    }
+
+    private async Task ReadLog(InputFileChangeEventArgs change)
+    {
+        if (busy) return;
+        using var cancellation = new CancellationTokenSource();
+        activeRead = cancellation;
+        busy = true;
+        bytesRead = 0;
+        status = "Reading";
+        try
+        {
+            // The framework rejects the selected file's reported size here,
+            // before the sample reads or processes any bytes. Do not trust Size
+            // as a server security boundary or use Name as a storage path.
+            await using var stream = change.File.OpenReadStream(MaximumLogBytes, cancellation.Token);
+            var buffer = new byte[4096];
+            int count;
+            while ((count = await stream.ReadAsync(buffer, cancellation.Token)) != 0)
+            {
+                bytesRead += count;
+                StateHasChanged();
+                // Simulated slow instrument decoding makes cancellation observable.
+                // This delay is application work, not a stream timeout setting.
+                await Task.Delay(50, cancellation.Token);
+            }
+            cancellation.Token.ThrowIfCancellationRequested();
+            processed++;
+            status = "Accepted";
+        }
+        catch (OperationCanceledException) when (cancellation.IsCancellationRequested)
+        {
+            status = "Cancelled";
+        }
+        catch (IOException)
+        {
+            status = "Rejected or transfer failed";
+        }
+        finally
+        {
+            activeRead = null;
+            busy = false;
+        }
+    }
+
+    private void Cancel() => activeRead?.Cancel();
+    public void Dispose() => activeRead?.Cancel();
+}
+<!-- endsnippet:complete -->
