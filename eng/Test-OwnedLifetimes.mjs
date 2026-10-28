@@ -10,6 +10,7 @@ const repository = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [playwright, chromiumPath, net10, net11, output = resolve(repository, 'artifacts/owned-lifetimes/browser.json'), sampleRoot = repository] = process.argv.slice(2);
 if (!playwright || !chromiumPath || !net10 || !net11) throw new Error('Supply Playwright, Chromium, and both absolute dotnet paths.');
 const { chromium } = createRequire(import.meta.url)(playwright);
+const playwrightVersion = createRequire(playwright)('./package.json').version;
 const browser = await chromium.launch({ executablePath: chromiumPath, headless: true });
 const results = [];
 async function serve(version, dotnet, name, action) {
@@ -122,6 +123,6 @@ try {
     });
   }
   await mkdir(dirname(output), { recursive: true });
-  await writeFile(output, JSON.stringify({ browser: browser.version(), node: process.version, results }, null, 2) + '\n');
-  console.log(JSON.stringify({ browser: browser.version(), results }, null, 2));
+  await writeFile(output, JSON.stringify({ browser: browser.version(), node: process.version, playwright: playwrightVersion, results }, null, 2) + '\n');
+  console.log(JSON.stringify({ browser: browser.version(), playwright: playwrightVersion, results }, null, 2));
 } finally { await browser.close(); }

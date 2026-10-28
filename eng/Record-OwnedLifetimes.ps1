@@ -49,10 +49,10 @@ try {
     $record.scope = if ($name -eq 'ReadingRoom') {
       'Real Interactive Server module success, actual JS exception/recovery/next-call success, unrelated application error visible through ErrorBoundary; connected cleanup and explicit-disconnect renderer disposal with actual closeReader JSDisconnectedException and separate old/current reference-disposal behavior. Actual BL0016 before/after and enclosing-catch limitation. No timeout, WASM, arbitrary race or GA guarantee.'
     } else {
-      'Real rendered file selection and bounded stream read; two mount/remove cycles, delivered status, one subscription cancellation per mount, no callbacks after removal, completed read retained and actual framework callback relay rejection proving base cleanup. Older hook rejected/current hook compiled. No upload rollback, remote storage or GA claim.'
+      'Real rendered file selection and bounded stream read; two mount/remove cycles, delivered status, one subscription cancellation per mount, no callbacks after removal, completed read retained and actual framework callback relay rejection proving base cleanup. Older hook rejected/current hook compiled in the separate ReadingRoom control project, whose canonical inputs are declared here. No upload rollback, remote storage or GA claim.'
     }
     $record.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
-    $record.output = "PASS: Chromium $($report.browser); Node $($report.node); Playwright core 1.61.1`n" + (@{
+    $record.output = "PASS: Chromium $($report.browser); Node $($report.node); Playwright core $($report.playwright)`n" + (@{
       cases=$cases; tooling=@($tooling); controls=@($analyzers | Where-Object target -EQ $record.target)
     } | ConvertTo-Json -Depth 20)
     [IO.File]::WriteAllText((Join-Path $directory 'behavior.evidence.json'), ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")

@@ -274,6 +274,16 @@
       "language": "javascript",
       "path": "samples/net11.0/ReadingRoom/wwwroot/reading.js",
       "region": "complete"
+    },
+    "n11-before-unguarded": {
+      "language": "csharp",
+      "path": "samples/net11.0/ReadingRoom/Before/Unguarded.cs.txt",
+      "region": "complete"
+    },
+    "n11-before-irrelevant-catch": {
+      "language": "csharp",
+      "path": "samples/net11.0/ReadingRoom/Before/IrrelevantCatch.cs.txt",
+      "region": "complete"
     }
   },
   "humanProof": {

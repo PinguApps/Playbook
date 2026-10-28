@@ -56,6 +56,22 @@ The scoped recovery below already works on .NET 10. It is a valid older approach
 
 .NET 11 adds BL0016 to identify unguarded interop calls. Keep the working boundary rather than adding a broad catch around the entire event handler. The actual RC2 analyzer accepts any enclosing catch, even an irrelevant FormatException catch around an unawaited operation. A clean diagnostic result therefore establishes neither exception handling nor safe rendering/disposal timing.
 
+These two deliberate controls are excluded from ordinary compilation by their
+`.cs.txt` suffix. To reproduce the diagnostic, copy only the first to
+`Unguarded.cs` in the .NET 11 project and build with warnings as errors. Then
+replace it with the second and build again: BL0016 disappears, although the
+unawaited browser failure is still not handled by that catch. Remove
+`Unguarded.cs` before using the working consumer. Do not adopt the second control
+as a recovery pattern; the awaited narrow catch in ReadingPanel is the solution.
+
+### .NET 11: `Before/Unguarded.cs.txt`
+
+{{snippet:n11-before-unguarded}}
+
+### .NET 11: `Before/IrrelevantCatch.cs.txt`
+
+{{snippet:n11-before-irrelevant-catch}}
+
 ### .NET 11: `global.json`
 
 {{snippet:n11-global-json}}
@@ -119,4 +135,4 @@ No extra package, workload, native toolchain, experimental opt-in, provider or a
 
 ## Evidence
 
-Both exact framework consumers compile with their own SDK and lock. eng/Test-OwnedLifetimes.ps1 demonstrates no older BL0016, actual RC2 BL0016 on the unguarded control, and a clean migration plus the irrelevant-catch limitation. eng/Record-OwnedLifetimes.ps1 records Chromium calls, a real thrown JavaScript Error, the chosen fallback and successful next call, visible unrelated application failure, connected module disposal and actual JSDisconnectedException from closeReader during disconnected renderer teardown. It separately asserts the old/current reference-disposal exception difference. Compiler/analyzer/framework hashes and current sample-input records identify what ran. The installed ordinary tool supplies these complete canonical files, applicability and separate compilation/execution records offline. RC2 execution is not GA proof; comprehensive and GA reconciliation gates remain open.
+Both exact framework consumers compile with their own SDK and lock. eng/Test-OwnedLifetimes.ps1 demonstrates no older BL0016, actual RC2 BL0016 on the unguarded control, and a clean migration plus the irrelevant-catch limitation. eng/Record-OwnedLifetimes.ps1 records Chromium calls, a real thrown JavaScript Error, the chosen fallback and successful next call, visible unrelated application failure, connected module disposal and actual JSDisconnectedException from closeReader during disconnected renderer teardown. The first disposal (`disposed=1`) is the ErrorBoundary removing the failed panel while its circuit remains connected; the second follows an explicit disconnect in a fresh circuit. It separately asserts the old/current reference-disposal exception difference. Compiler/analyzer/framework hashes and current sample-input records identify what ran. The installed ordinary tool supplies these complete canonical files, applicability and separate compilation/execution records offline. RC2 execution is not GA proof; comprehensive and GA reconciliation gates remain open.

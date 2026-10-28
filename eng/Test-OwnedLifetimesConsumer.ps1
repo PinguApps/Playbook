@@ -16,7 +16,7 @@ foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]:
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
-  foreach ($pair in @(@('blazor.handle-js-invocation-failures','ReadingRoom',22), @('blazor.dispose-input-file-subclass-resources','RestorationBench',20))) {
+  foreach ($pair in @(@('blazor.handle-js-invocation-failures','ReadingRoom',24), @('blazor.dispose-input-file-subclass-resources','RestorationBench',20))) {
     $recipe = (Get-Content -LiteralPath (Join-Path $InspectionDirectory "$($pair[0]).json") -Raw | ConvertFrom-Json).result.structuredContent.recipe
     $blocks = [regex]::Matches($recipe.markdown, '(?ms)^### \.NET (10|11): `([^`]+)`\n\n```[^\n]*\n(.*?)^```$')
     if ($blocks.Count -ne $pair[2]) { throw "Incomplete returned consumer: $($pair[0])" }

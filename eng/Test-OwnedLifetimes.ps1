@@ -28,8 +28,7 @@ try {
         if ($beforeExit -eq 0 -or $before -notmatch 'error BL0016:') { throw "Missing actual RC2 BL0016: $before" }
       } elseif ($beforeExit -ne 0 -or $before -match 'BL0016') { throw "Unexpected older analyzer outcome: $before" }
       # Any enclosing catch silences this analyzer; it does not prove correct recovery.
-      $guarded = (Get-Content -LiteralPath Unguarded.cs -Raw).Replace('=> module.InvokeAsync<string>("readLabel", false);', '{ try { return module.InvokeAsync<string>("readLabel", false); } catch (FormatException) { throw; } }')
-      [IO.File]::WriteAllText((Join-Path $control 'Unguarded.cs'), $guarded)
+      Copy-Item -LiteralPath (Join-Path $source 'Before/IrrelevantCatch.cs.txt') -Destination (Join-Path $control 'Unguarded.cs')
       $irrelevantCatch = & $dotnet build ReadingRoom.csproj -c Release --no-restore 2>&1 | Out-String
       if ($LASTEXITCODE -ne 0 -or $irrelevantCatch -match 'BL0016') { throw "Enclosing-catch control failed: $irrelevantCatch" }
       $hook = @'
@@ -46,7 +45,14 @@ public sealed class HookControl : InputFile
         if ($hookExit -eq 0 -or $hookOutput -notmatch 'CS0115') { throw "Older hook availability control failed: $hookOutput" }
       } elseif ($hookExit -ne 0) { throw "Actual RC2 hook unavailable: $hookOutput" }
       $report += @{ target="net$major.0"; before=$before.Trim(); irrelevantCatch=$irrelevantCatch.Trim(); hook=$hookOutput.Trim() }
-    } finally { Pop-Location }
+    } finally {
+      Pop-Location
+      $resolvedControl = [IO.Path]::GetFullPath($control)
+      $tempRoot = [IO.Path]::GetFullPath([IO.Path]::GetTempPath())
+      if (-not $resolvedControl.StartsWith($tempRoot, [StringComparison]::OrdinalIgnoreCase) -or
+          (Split-Path $resolvedControl -Leaf) -notlike 'playbook-lifetime-controls-*') { throw 'Unsafe control cleanup target.' }
+      Remove-Item -LiteralPath $resolvedControl -Recurse -Force
+    }
     foreach ($name in 'ReadingRoom','RestorationBench') {
       & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample "samples/net$major.0/$name/$name.csproj" -Dotnet $dotnet -Kind compile
     }

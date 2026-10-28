@@ -7,7 +7,9 @@ ReadingRoom .NET 10/RC2 consumers. Actual compiler controls reproduce RC2 BL0016
 and its syntactic enclosing-catch limitation. Real Chromium/Interactive Server
 calls prove success, a thrown JS error, the printed-list fallback, a successful
 next call, an unrelated visible application error and disconnected renderer
-teardown. **Measured reconciliation:** RC2's `JSObjectReference.DisposeAsync`
+teardown. The first, connected disposal is ErrorBoundary removing the failed
+panel; a fresh circuit supplies the explicit-disconnect teardown.
+**Measured reconciliation:** RC2's `JSObjectReference.DisposeAsync`
 already catches `JSDisconnectedException`; the pinned .NET 10 implementation
 propagates it. The module's actual `closeReader` invocation still throws on both
 disconnected runtimes, separately from reference disposal. Explicit browser

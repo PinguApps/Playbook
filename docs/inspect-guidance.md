@@ -57,7 +57,7 @@ from `eng/Record-GardenLibrary.ps1`. RC2 is not GA proof. No native or distribut
 provider behavior is claimed. The helper retains its unique temporary install/feed
 for inspection and restores process settings; it does not install a global tool.
 
-## Inspect a response directly
+## JavaScript recovery and InputFile cleanup
 
 For JavaScript failure recovery and derived InputFile cleanup, this tested block
 builds/packs the ordinary tool, installs that exact package through the isolated
@@ -86,6 +86,8 @@ With both SDKs and the measured Chromium/Playwright installations available,
 `eng/Test-OwnedLifetimesConsumer.ps1` reconstructs all four projects solely from
 these responses and reruns their real browser/renderer checks. The script's
 `-Playwright` and `-Chromium` parameters take the absolute installed paths.
+
+## Inspect a response directly
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'

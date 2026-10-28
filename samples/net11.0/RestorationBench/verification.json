@@ -11,6 +11,7 @@
     ".editorconfig",
     "eng/Test-OwnedLifetimes.mjs",
     "eng/Record-OwnedLifetimes.ps1",
-    "eng/Test-OwnedLifetimes.ps1"
+    "eng/Test-OwnedLifetimes.ps1",
+    "samples/net11.0/ReadingRoom"
   ]
 }
