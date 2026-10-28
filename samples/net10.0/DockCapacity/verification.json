@@ -1,0 +1,13 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.ConcurrencyLimiter/10.0.13"
+  ],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ]
+}
