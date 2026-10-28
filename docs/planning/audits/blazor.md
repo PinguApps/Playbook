@@ -51,6 +51,26 @@ runtime switches. [Actual compilation, browser receipt and correlation evidence]
 keeps source review, subscription and export/delivery distinct. This preserves
 the shared `tracing.configure-source-rules/11.0` recipe and the eight foundations.
 
+## B01 delivery, 28 October 2026
+
+PIN-1155 delivers `blazor.expand-component-asset-paths/11.0` with original
+MaritimeGallery .NET 10/11 consumers and selected sample execution records.
+Explicit older lookup remains valid. Real generated C#, restore/publish manifests,
+published HTTP image bytes and non-root `/museum/` URLs qualify the current route.
+Unmarked `~/` strings, bare paths and arbitrary strings remain literal; unknown
+`~/` keys lower to ordinary collection fallback and still return HTTP 404.
+
+**Compiler qualification:** SDK 11.0.100-rc.2.26504.105's default source generator
+expands marked component parameters but leaves custom/built-in HTML literals
+unchanged. The executed complete HTML route uses the documented
+`UseRazorSourceGenerator=false` task compiler. A repeatable negative compiler
+control and measured compiler hashes are retained in the current sample's
+`behavior.evidence.json`. Explicit lookup remains the alternative; no blanket
+source-generator, IDE/Hot Reload or GA claim is made. The public
+AssetPathAttributes class works in the app itself; no extra library is required.
+Both recipes are retrieved from the actual installed ordinary tool. Other
+supplemental goals, PIN-959 and actual-GA PIN-964 remain outstanding.
+
 ## Boundary and exact evidence
 
 [PIN-708](https://linear.app/pinguapps/issue/PIN-708), planning key `API_BLAZOR`,

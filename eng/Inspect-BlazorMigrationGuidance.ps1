@@ -6,6 +6,7 @@ param(
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/blazor-migrations/inspection'),
+  [string]$Query = 'migration',
   [switch]$BuildAndPack
 )
 $ErrorActionPreference = 'Stop'
@@ -59,7 +60,9 @@ try {
       $entries = @()
       $offset = 0
       do {
-        $page = (Invoke-RecipeTool 'list_recipes' @("query=$Query",'limit=50',"offset=$offset")).result.structuredContent
+        $filters = @('limit=50',"offset=$offset")
+        if ($Query) { $filters += "query=$Query" }
+        $page = (Invoke-RecipeTool 'list_recipes' $filters).result.structuredContent
         $entries += @($page.recipes)
         $offset = $page.nextOffset
       } while ($null -ne $offset)
@@ -68,8 +71,8 @@ try {
         if ($found.Count -ne 1) { throw "Missing or duplicate discovery: $id" }
         $metadata = Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/11.0/recipe.json") -Raw | ConvertFrom-Json
         foreach ($route in $metadata.applicability.routes) {
-          $route | Add-Member -NotePropertyName sharedAreas -NotePropertyValue @()
-          $route | Add-Member -NotePropertyName neutralLanguages -NotePropertyValue @()
+          if (-not $route.PSObject.Properties['sharedAreas']) { $route | Add-Member -NotePropertyName sharedAreas -NotePropertyValue @() }
+          if (-not $route.PSObject.Properties['neutralLanguages']) { $route | Add-Member -NotePropertyName neutralLanguages -NotePropertyValue @() }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
         $response = Invoke-RecipeTool 'get_recipe' @("id=$id")
