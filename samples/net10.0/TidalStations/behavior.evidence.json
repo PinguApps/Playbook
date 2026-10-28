@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "& 'C:\\Program Files\\nodejs\\node.exe' 'V:\\_worktrees\\Playbook\\t3-6254a127\\eng/Test-RemovedBlazorConsumers.mjs' 'C:\\Users\\pingu\\AppData\\Local\\npm-cache\\_npx\\e41f203b7505f1fb\\node_modules\\playwright-core' 'C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe' 'C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe' 'V:\\_worktrees\\Playbook\\t3-6254a127\\artifacts\\removed-api\\behavior.json'",
   "scope": "Real HTTP static SSR exact/parameter routes and live Interactive Server navigation with prerender disabled. Asset constructor calls are compilation-only evidence.",
-  "recordedAt": "2026-10-28T19:34:17.9169073+00:00",
-  "sourceCommit": "9f376e5a07823a5f3bc7e5b3e5a1b77de7ef0c08",
+  "recordedAt": "2026-10-28T19:35:35.1407005+00:00",
+  "sourceCommit": "709aef0b4cfc1932ce3e87dbafd74a82bcb088c7",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -24,12 +24,12 @@
     "samples/net10.0/TidalStations/AssetCalls.cs": "b6e4937b2b4925254b9f12eb611903fd88310878710b2d1725de5f8f97bf9df1",
     "samples/net10.0/TidalStations/global.json": "01a63dc7bf0d696d6b73bda18ddd6c46287fa4a74102291711f557f935d27f7e",
     "samples/net10.0/TidalStations/NewStation.razor": "51dc2c0d858a57b6e98aae86edb618617a325f5cf31ad21d4153e40664349d6d",
-    "samples/net10.0/TidalStations/packages.lock.json": "8f3cf641e053b0d8b69a5890c179779c3ce3e7e37bf0a102ee170196cf431f2c",
+    "samples/net10.0/TidalStations/packages.lock.json": "82607bfa04714b032a0a88029715156fe4e1cf7b3b424d295b4f834c2e1644a8",
     "samples/net10.0/TidalStations/Program.cs": "81460f2d840c656b17a7df8f957d49b1c158e4f2afec9e90c1e83d18bfe98886",
     "samples/net10.0/TidalStations/Routes.razor": "efafff797e88b63355d59d88bec50245ada21ca7a214911cc55372922c84b3a9",
     "samples/net10.0/TidalStations/Station.razor": "8b5827cacc5cba47527274673fed16fa1aa2099d79d59bf8f61740d5d5970459",
     "samples/net10.0/TidalStations/TidalStations.csproj": "e4d5dbbe63fd79f043e18ed01f36ae62fcb2231641c9af85d369c4d8eabc2808",
-    "samples/net10.0/TidalStations/verification.json": "6bf89ac99e64930f148dd4a4ee2a5ef67436ff20167f359b9c1322e0b8556bf9"
+    "samples/net10.0/TidalStations/verification.json": "bccd9d856103414cb99da6a80814955840b0278317cc15ca8d2640628d7cc7f2"
   },
   "dependencies": [
     "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"

@@ -11,6 +11,21 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("removed Blazor migrations retain complete canonical guidance and execution evidence")]
+    public async Task CheckRemovedBlazorMigrationsAsync()
+    {
+        string[] ids = ["blazor.preserve-route-matching", "blazor.validate-with-scoped-services"];
+        await CheckWebRecipesAsync(ids, "removed-api", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray().Where(evidence => evidence.GetProperty("kind").GetString() == "execution"), evidence =>
+                Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal));
+            Assert.Contains("RC2", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
+            Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+        }
+    }
+
     [Then("Razor compilation and synchronous validation retain complete offline guidance")]
     public async Task CheckMossGuidanceAsync()
     {

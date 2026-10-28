@@ -1,6 +1,6 @@
 # Removed Blazor APIs: bounded reconciliation and delivery proposal
 
-PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Recipe delivery remains outstanding.** This does not deliver `blazor.replace-removed-api`, original consumer examples, compilation/behavior evidence, installed recipe retrieval, comprehensive coverage or publication readiness.
+PIN-691 / `WEB_W18B` / `WEB-089`, reviewed **20 October 2026**. Source/API audit complete for the pinned baselines below. **Aggregate recipe delivery remains outstanding.** R1 is delivered by PIN-1146 (`blazor.preserve-route-matching/11.0`); R2 by PIN-1147 (`blazor.validate-with-scoped-services/11.0`). Both have original .NET 10/11 RC2 consumers, fresh compilation and real HTTP/Chromium/scoped-DI execution records, plus installed stdio retrieval. ResourceAsset remains an unchanged optional-parameter correction inside R1. R3–R9 and GA/comprehensive gates remain open. The historical proposal and source audit below retain their original scope. This does not deliver `blazor.replace-removed-api`, original consumer examples, compilation/behavior evidence, installed recipe retrieval, comprehensive coverage or publication readiness.
 
 ## Boundary and provenance
 
