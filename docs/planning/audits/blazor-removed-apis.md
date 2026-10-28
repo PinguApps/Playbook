@@ -29,7 +29,7 @@ installed ordinary-tool offline inspection. R3 removes dead options while
 preserving the bounded/cancellable consumer; R4 compiles all twenty mappings
 and executes representative synchronous/asynchronous component callbacks.
 The stream-options rename and segment/buffer/timeout equivalence remain factual
-gaps, not implemented APIs. R1/R2/R5–R9, PIN-959 and actual-GA PIN-964 gates remain
+gaps, not implemented APIs. R1/R2/R7–R9, PIN-959 and actual-GA PIN-964 gates remain
 outstanding; no whole-family completion is claimed. The original proposal text
 below is retained as audit history rather than rewritten as delivery evidence.
 
