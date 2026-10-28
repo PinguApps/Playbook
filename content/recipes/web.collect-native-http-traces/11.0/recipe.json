@@ -1,0 +1,194 @@
+{
+  "id": "web.collect-native-http-traces",
+  "edition": "11.0",
+  "title": "Collect framework traces without duplicate enrichment",
+  "goal": "Collect native ASP.NET Core request spans once, preserve application enrichment, and migrate exporters that depend on older HTTP tags, conventional routes or exception status descriptions.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lantern-transport",
+    "lanterntraces"
+  ],
+  "apis": [
+    "ActivitySource",
+    "Microsoft.AspNetCore",
+    "AddSource",
+    "SuppressActivityOpenTelemetryData",
+    "Activity.StatusDescription",
+    "http.route"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit sample language mode; .NET 10 comparison uses C# 14. No experimental language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "ASP.NET Core on Kestrel"
+          ],
+          "packages": [
+            {
+              "version": "1.20.1",
+              "match": "exact",
+              "reason": "Actual exported-span verification pin. Older comparison additionally uses OpenTelemetry.Instrumentation.AspNetCore 1.20.1; newer HTTP-only pipeline omits it.",
+              "name": "OpenTelemetry"
+            }
+          ],
+          "packageAssets": [
+            "OpenTelemetry 1.20.1 and transitive OpenTelemetry.Api/ProviderBuilderExtensions 1.20.1 compatible managed assets, verified by both locked restores. .NET 10 additionally references OpenTelemetry.Instrumentation.AspNetCore 1.20.1. No EF/database/provider assets."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback server; no database or external resource provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; actual managed Windows x64 execution. No browser, cloud account or remote collector required."
+          ],
+          "renderingModes": [
+            "Server HTTP endpoints; no Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "Use a separate directory for each complete sample below, retaining its SDK/project/package boundary. Restore required packs/packages before the sample runs. Installed Playbook guidance itself is fully offline.",
+            "Fixtures bind ephemeral loopback ports and stop their hosts. Certificates are temporary and are not added to shared trust stores."
+          ],
+          "constraints": [
+            "Subscribe to Microsoft.AspNetCore, not the activity operation name Microsoft.AspNetCore.Hosting.HttpRequestIn. Use one provider and export pipeline. Preserve non-HTTP instrumentation separately. The suppression switch is not a general rollback: RC2 removes native route/tags and error status, keeps span creation and does not restore exception StatusDescription. Native RC2 emits error.type but no exception event in this fixture; inspect actual exporter inputs."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API intent for .NET 11, verified with RC2 under ADR 0004. Final GA reconciliation remains pending; RC2 differences are disclosed in the body."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/LanternTraces/LanternTraces.csproj"
+        ],
+        "selectionNotes": [
+          "Subscribe to Microsoft.AspNetCore, not the activity operation name Microsoft.AspNetCore.Hosting.HttpRequestIn. Use one provider and export pipeline. Preserve non-HTTP instrumentation separately. The suppression switch is not a general rollback: RC2 removes native route/tags and error status, keeps span creation and does not restore exception StatusDescription. Native RC2 emits error.type but no exception event in this fixture; inspect actual exporter inputs."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/http-activity-otel-semconv"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official ASP.NET Core 11 capability and migration reference",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/http-activity-otel-semconv"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/LanternTraces/LanternTraces.csproj",
+      "scope": "Actual .NET 10.0.13 MVC success/error requests through OpenTelemetry and AspNetCore instrumentation 1.20.1, with a custom domain processor/exporter. Exactly two distinct server spans, source identity, domain enrichment, method tag, raw conventional route template and Error/null description asserted. No fresh-process suppression, resolved-route or error.type assertion is claimed on this target."
+    },
+    {
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/LanternTraces/LanternTraces.csproj",
+      "scope": "Actual .NET 11 RC2 MVC success/error requests through OpenTelemetry 1.20.1 with a custom domain processor/exporter and no AspNetCore instrumentation dependency. Exactly two distinct native server spans, source identity, domain enrichment, method/response tags, resolved conventional routes, Error/null description and error.type asserted. Fresh-process suppression asserts absent native HTTP/route tags, Unset error status, continued spans/domain tags and null description. No remote collector or metric execution claim."
+    }
+  ],
+  "humanProof": {
+    "scope": "All focused checks ran on the authoring machine without owner-only access. This does not settle product-wide or GA publication gates.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/LanternTraces/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/LanternTraces/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/LanternTraces/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/LanternTraces/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-lanterntraces-csproj": {
+      "path": "samples/net10.0/LanternTraces/LanternTraces.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/LanternTraces/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/LanternTraces/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/LanternTraces/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/LanternTraces/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/LanternTraces/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-lanterntraces-csproj": {
+      "path": "samples/net11.0/LanternTraces/LanternTraces.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/LanternTraces/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

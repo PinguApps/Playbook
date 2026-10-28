@@ -1,0 +1,197 @@
+{
+  "id": "hosting.send-compliant-forwarded-requests",
+  "edition": "11.0",
+  "title": "Make authored clients and proxy adapters accepted by the server",
+  "goal": "Repair outbound HTTP framing and remove connection-specific headers when a custom client or proxy receives stricter Kestrel protocol failures.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lantern-transport",
+    "lanternforwarding"
+  ],
+  "apis": [
+    "Kestrel",
+    "HttpProtocols",
+    "Content-Length",
+    "Transfer-Encoding",
+    "HTTP/2",
+    "HTTP/3"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit sample language mode; .NET 10 comparison uses C# 14. No experimental language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "ASP.NET Core on Kestrel"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0 and System.Net.Quic runtime/native MsQuic assets; no added NuGet dependency. Older comparison uses corresponding net10.0 assets."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback server; no database or external resource provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms. HTTP/3 execution additionally requires System.Net.Quic/MsQuic, supported OS TLS 1.3, UDP loopback access and QUIC support. Actual Windows x64 with msquic.dll 2.5.11.159415436; no cross-platform execution claim."
+          ],
+          "renderingModes": [
+            "Server HTTP endpoints; no Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "Use a separate directory for each complete sample below, retaining its SDK/project/package boundary. Restore required packs/packages before the sample runs. Installed Playbook guidance itself is fully offline.",
+            "Fixtures bind ephemeral loopback ports and stop their hosts. Certificates are temporary and are not added to shared trust stores."
+          ],
+          "constraints": [
+            "Correct the emitting client or proxy, not a fabricated server compatibility switch. HTTP/2 and HTTP/3 prohibit connection-specific headers except TE: trailers; remove Connection-nominated fields and regenerate outbound authority/framing. HTTP/1.1 CL+TE is processed then closed, not categorically rejected; closure is also serviced to older supported releases."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API intent for .NET 11, verified with RC2 under ADR 0004. Final GA reconciliation remains pending; RC2 differences are disclosed in the body."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/LanternForwarding/LanternForwarding.csproj"
+        ],
+        "selectionNotes": [
+          "Correct the emitting client or proxy, not a fabricated server compatibility switch. HTTP/2 and HTTP/3 prohibit connection-specific headers except TE: trailers; remove Connection-nominated fields and regenerate outbound authority/framing. HTTP/1.1 CL+TE is processed then closed, not categorically rejected; closure is also serviced to older supported releases."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/kestrel-strict-protocol-compliance"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official ASP.NET Core 11 capability and migration reference",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/kestrel-strict-protocol-compliance"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/LanternForwarding/LanternForwarding.csproj",
+      "scope": "Actual .NET 10.0.13 TCP HTTP/1.1 ambiguous framing closes after processing; corrected pipeline reuses connection. Raw HTTP/2 and HTTP/3 six malformed/corrected pairs each: four obsolete fields accepted per protocol, Connection/invalid TE rejected. Corrected controls return OK and the real origin checks absence of proxy credentials/challenges, Trailer and Connection-nominated fields. Handler count 23. Windows x64 MsQuic 2.5.11.159415436."
+    },
+    {
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/LanternForwarding/LanternForwarding.csproj",
+      "scope": "Actual .NET 11 RC2 TCP HTTP/1.1 ambiguous framing closes after processing; corrected pipeline reuses connection. Six raw HPACK HTTP/2 and QPACK HTTP/3 malformed/corrected pairs each: all malformed requests rejected, corrected requests return OK and the real origin checks absence of proxy credentials/challenges, Trailer and Connection-nominated fields. Handler count 15. Windows x64 MsQuic 2.5.11.159415436."
+    }
+  ],
+  "humanProof": {
+    "scope": "All focused checks ran on the authoring machine without owner-only access. This does not settle product-wide or GA publication gates.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/LanternForwarding/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/LanternForwarding/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/LanternForwarding/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/LanternForwarding/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-lanternforwarding-csproj": {
+      "path": "samples/net10.0/LanternForwarding/LanternForwarding.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/LanternForwarding/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-http3probe-cs": {
+      "path": "samples/net10.0/LanternForwarding/Http3Probe.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/LanternForwarding/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/LanternForwarding/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/LanternForwarding/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/LanternForwarding/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-lanternforwarding-csproj": {
+      "path": "samples/net11.0/LanternForwarding/LanternForwarding.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/LanternForwarding/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-http3probe-cs": {
+      "path": "samples/net11.0/LanternForwarding/Http3Probe.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

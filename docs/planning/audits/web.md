@@ -509,3 +509,54 @@ hashes and no unowned difference. Missing roots, archives, hashes, ownership or
 changed bytes must fail. The generated report can be removed afterward.
 No runtime/recipe/MCP behavior is
 established by this audit; every delivery proposal keeps those acceptance gates.
+
+## Lantern transport delivery (PIN-830, PIN-832, PIN-833)
+
+The inventory now marks three original 11.0 editions delivered: TLS handshake
+inspection, compliant outbound requests, and native request traces. Separate
+.NET 10.0.13 / SDK 10.0.402 and .NET 11 RC2 / SDK
+11.0.100-rc.2.26504.105 projects retain canonical files, locked dependencies,
+compilation/execution records and input hashes. Final GA reconciliation remains
+open under ADR 0004. No package publication or resource provisioning occurred.
+
+`LanternTls` observes both real ClientHellos, completes HTTPS and rejects an
+incompatible TLS client. Only the newer connection middleware reads the retained
+`ITlsHandshakeFeature.Exception`; the .NET 10 callback cannot expose that property.
+Certificates remain local to the fixture and are not added to shared trust.
+
+`LanternForwarding` sends raw HPACK HTTP/2 and QPACK HTTP/3 requests, preventing
+high-level client normalization from disguising malformed headers. RC2 rejects
+six malformed cases per protocol and accepts their corrected controls. The old
+runtime tolerates four connection-specific fields per protocol; Connection and
+invalid TE already fail. Actual handler counts distinguish server rejection from
+accidental acceptance. The HTTP/1.1 dual-framing request is processed then closed
+on both measured runtimes (the change was serviced); corrected framing permits
+connection reuse. HTTP/3 ran on Windows x64 with msquic.dll 2.5.11.159415436.
+HTTP/2 protocol failures can surface as RST_STREAM, GOAWAY or a transport abort.
+
+`LanternTraces` exports real MVC success/error requests through OpenTelemetry
+1.20.1 with one application processor and one exporter. The .NET 10 comparison
+adds AspNetCore instrumentation 1.20.1; the native .NET 11 HTTP-only pipeline omits
+that dependency. Source `Microsoft.AspNetCore`, exactly one server span per
+request, business enrichment, resolved conventional routes, status and HTTP tags
+are checked. This does not claim remote collector or metrics execution.
+
+Two current-documentation qualifications are explicit in the served recipe:
+RC2's native error activity carries error.type but no exception event here;
+a fresh-process suppression control removes method/status/route tags and leaves
+the error activity Unset, while still exporting the native spans and business
+tags with a null description. The switch does not recreate the old route tag or
+exception description. The older OTel instrumentation already leaves descriptions
+null. These are actual artifact results, not a claim to reproduce every older
+uninstrumented framework behavior. Recheck these points at GA rather than
+relabeling RC2 records. The official references are the
+[TLS release notes](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11#tls-handshake-observability-in-kestrel),
+[protocol change](https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/kestrel-strict-protocol-compliance),
+and [HTTP tracing change](https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/11/http-activity-otel-semconv).
+
+The `LanternTransport` scenario reuses the existing actual-package isolated
+feed/cache and unrelated-directory stdio lifecycle. It checks full canonical
+Markdown, ID/title/goal, all applicability/source metadata, evidence freshness,
+structured/text equality and target editions. No new OS/client/native test matrix
+is added. The grouped WEB-085 tracing portion is complete; its independent
+channel-binding work remains with PIN-831 and was not changed here.

@@ -34,7 +34,7 @@
       "id": "tls-observability",
       "pattern": " Microsoft\\.AspNetCore\\.(Connections\\.Features\\.ITlsHandshakeFeature::.*Exception|Hosting\\.ListenOptionsHttpsExtensions::UseTlsClientHelloListener|Server\\.Kestrel\\.Https\\.HttpsConnectionAdapterOptions::TlsClientHelloBytesCallback)",
       "owner": "PIN-830",
-      "disposition": "grouped"
+      "disposition": "delivered; hosting.inspect-tls-handshake/11.0, actual old/new TLS and retained RC2 exception"
     },
     {
       "id": "tls-binding",
