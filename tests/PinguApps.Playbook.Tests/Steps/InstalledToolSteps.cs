@@ -27,7 +27,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string[] assets = ["blazor.expand-component-asset-paths"];
-        await CheckWebRecipesAsync(assets, assets[0], evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckWebRecipesAsync(assets, "static-assets", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
         await CheckCompleteOpenApiMetadataAsync(assets).ConfigureAwait(false);
     }
 
