@@ -1,0 +1,185 @@
+{
+  "id": "hosting.inspect-tls-handshake",
+  "edition": "11.0",
+  "title": "Record handshake failures and inspect ClientHello",
+  "goal": "Diagnose failed TLS connections in Kestrel by inspecting ClientHello bytes before HTTPS and reading the retained handshake exception after connection processing.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lantern-transport",
+    "lanterntls"
+  ],
+  "apis": [
+    "UseTlsClientHelloListener",
+    "ITlsHandshakeFeature.Exception",
+    "TlsClientHelloBytesCallback",
+    "UseHttps"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit sample language mode; .NET 10 comparison uses C# 14. No experimental language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "ASP.NET Core on Kestrel"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App net11.0 shared-framework assets; no added NuGet package. Older comparison uses net10.0 assets."
+          ],
+          "workloads": [],
+          "providers": [
+            "Kestrel loopback server; no database or external resource provider."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server OS; actual Windows x64 TLS 1.2/1.3 execution. Fixture needs both protocol versions enabled by the OS."
+          ],
+          "renderingModes": [
+            "Server HTTP endpoints; no Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "Use a separate directory for each complete sample below, retaining its SDK/project/package boundary. Restore required packs/packages before the sample runs. Installed Playbook guidance itself is fully offline.",
+            "Fixtures bind ephemeral loopback ports and stop their hosts. Certificates are temporary and are not added to shared trust stores."
+          ],
+          "constraints": [
+            "Kestrel connection middleware, ordered around UseHttps; HTTP request middleware cannot observe a failed TLS handshake. .NET 10 callback remains valid there; .NET 11 replaces it with UseTlsClientHelloListener. Do not retain borrowed ClientHello buffers."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API intent for .NET 11, verified with RC2 under ADR 0004. Final GA reconciliation remains pending; RC2 differences are disclosed in the body."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/LanternTls/LanternTls.csproj"
+        ],
+        "selectionNotes": [
+          "Kestrel connection middleware, ordered around UseHttps; HTTP request middleware cannot observe a failed TLS handshake. .NET 10 callback remains valid there; .NET 11 replaces it with UseTlsClientHelloListener. Do not retain borrowed ClientHello buffers."
+        ],
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11#tls-handshake-observability-in-kestrel"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official ASP.NET Core 11 capability and migration reference",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-11#tls-handshake-observability-in-kestrel"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/LanternTls/LanternTls.csproj",
+      "scope": "Real TLS 1.2 HTTPS success and incompatible TLS 1.3 failure on loopback. Both ClientHellos observed; .NET 11 retains exactly one AuthenticationException through ITlsHandshakeFeature after downstream completion. .NET 10 has no equivalent exception property."
+    },
+    {
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/LanternTls/LanternTls.csproj",
+      "scope": "Real TLS 1.2 HTTPS success and incompatible TLS 1.3 failure on loopback. Both ClientHellos observed; .NET 11 retains exactly one AuthenticationException through ITlsHandshakeFeature after downstream completion. .NET 10 has no equivalent exception property."
+    }
+  ],
+  "humanProof": {
+    "scope": "All focused checks ran on the authoring machine without owner-only access. This does not settle product-wide or GA publication gates.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/LanternTls/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/LanternTls/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/LanternTls/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/LanternTls/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-lanterntls-csproj": {
+      "path": "samples/net10.0/LanternTls/LanternTls.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/LanternTls/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/LanternTls/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/LanternTls/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/LanternTls/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/LanternTls/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-lanterntls-csproj": {
+      "path": "samples/net11.0/LanternTls/LanternTls.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/LanternTls/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

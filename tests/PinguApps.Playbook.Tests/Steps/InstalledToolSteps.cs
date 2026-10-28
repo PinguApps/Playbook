@@ -11,6 +11,14 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("lantern transport guidance retains canonical bodies full applicability and target editions")]
+    public async Task CheckLanternTransportAsync()
+    {
+        string[] ids = ["hosting.inspect-tls-handshake", "hosting.send-compliant-forwarded-requests", "web.collect-native-http-traces"];
+        await CheckWebRecipesAsync(ids, "lantern-transport", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
     [Then("Fen contract guidance retains canonical bodies full applicability and target editions")]
     public async Task CheckFenContractsAsync()
     {
