@@ -850,7 +850,8 @@ exact SDK10 executable (the SDK11 fixture is a separate authoring prerequisite):
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1121-03-026-consume-structured-assembly-conflict-and-server'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'msbuild.inspect-structured-build-events' -Query 'structured assembly' `
-  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1121' -BuildAndPack `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1121' -BuildAndPack `
   -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
   -Node 'C:/Program Files/nodejs/node.exe' `
   -OutputDirectory ./artifacts/pin1121/inspection
