@@ -28,6 +28,54 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Closed native build extensions
+
+This block builds/packs the ordinary tool, installs that exact artifact through
+the existing isolated local feed/cache, then calls real installed stdio list/get
+from an unrelated directory. It displays ID/title/goal, complete canonical
+Markdown, target11/edition11, applicability and both managed plus actual native
+evidence. PowerShell7, SDK10.0.402 and Node22.19+ are required for inspection.
+Setup may restore online; unusable proxies during retrieval establish proxy
+independence, not network isolation. The inspection itself needs no native tools.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1120-03-025-register-a-closed-set-of-build-extensions-in-an-aot'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'msbuild.register-aot-build-extensions' -Query 'native-build-extensions' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1120' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1120/inspection
+```
+
+Expect "Register a closed set of build extensions in an AOT host", its reusable
+goal, all project/SDK/task/resolver/logger/bootstrap/package snippets, numbered
+migration, exact package/toolchain conditions and three fresh evidence records.
+SDK10 retains the verified managed alternative. SDK11 uses public package18.11.0,
+distinct from bundled18.12; native execution verifies the fixed set and missing
+task/resolver MSB4283/MSB4282. IL2026 remains visible at the public build boundary.
+No analyzer-clean/general AOT, down-level native, arbitrary plugin or actual-GA
+claim is made. Target10 remains unsupported for this new registration recipe.
+
+To refresh the actual paired/native proof with the exact prerequisites recorded
+in the recipe and sample pins:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1120-03-025-register-a-closed-set-of-build-extensions-in-an-aot'
+& ./eng/Record-NorthQuayBuildHost.ps1 `
+  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+```
+
+This first restores both locked package closures, then invokes the existing
+sample evidence workflow and real ILC/platform-linker publish/native execution.
+An empty `-Packages <absolute-cache-directory>` is supported; no incidental older
+native compiler cache is required. It uses absolute executables and child-only
+native include/library inputs; PATH and persistent environment must stay unchanged.
+The public Framework package supplies the eight trim feature settings, checked
+in the actual ILC response. IL2026 is retained, not suppressed. The eight approved
+foundations and PIN-959/PIN-963/actual-GA/Human gates remain open.
+
 ## Partial project evaluation
 
 This block builds/packs the ordinary tool, installs that exact artifact through

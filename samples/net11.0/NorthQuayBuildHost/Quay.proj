@@ -1,0 +1,11 @@
+<!-- snippet:project -->
+<Project Sdk="Quay.Permits">
+  <PropertyGroup><PermitCode>NQ-017</PermitCode></PropertyGroup>
+  <UsingTask TaskName="IssueQuayPermit" AssemblyFile="$(PermitTaskAssembly)" />
+  <Target Name="IssuePermit" Returns="$(Receipt)">
+    <IssueQuayPermit Code="$(PermitCode)">
+      <Output TaskParameter="Receipt" PropertyName="Receipt" />
+    </IssueQuayPermit>
+  </Target>
+</Project>
+<!-- endsnippet:project -->
