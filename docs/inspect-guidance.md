@@ -28,6 +28,50 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Generated static endpoint order
+
+This builds/packs the ordinary tool and installs that exact artifact through the
+existing isolated local feed/cache. Real installed stdio list/get execute from an
+unrelated directory with unusable proxies, displaying ID/title/goal, full canonical
+Markdown, target11/edition11, applicability and fresh paired sample evidence.
+The extra get checks target10's `no_applicable_edition` response. Inspection needs
+PowerShell7, SDK10.0.402 and Node22.19+. The reconstructed consumer also requires
+SDK11.0.100-rc.2.26504.105 and its matching runtime, a preview RC2 baseline, not GA.
+The block passes both installed SDK executables explicitly; adjust those arguments
+for another installation. Setup may restore online. Retrieval proves proxy
+independence, not network isolation. No global installation is required.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1176-04-101-give-a-generated-static-endpoint-deliberate-route'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'web.order-static-asset-routes' -Query 'static-assets' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1176' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1176/inspection
+& ./eng/Test-AmberGalleryConsumer.ps1 `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+```
+
+Expect `web.order-static-asset-routes`, title "Give a generated static endpoint
+deliberate route precedence" and goal "Choose which static resource wins when
+generated asset routes overlap, using explicit endpoint order and verifying the
+resource actually served." Complete Markdown includes both original projects,
+physical assets, boundary files, manifest acquisition/projection and numbered
+migration. The final helper reconstructs only returned Markdown in a temporary
+unrelated directory, builds with both exact SDKs and no remote NuGet feeds, then
+executes actual manifest/HTTP/failure checks. It writes routine results under
+ignored `artifacts/pin1176/consumer`.
+
+Current results qualify default/explicit/invalid string order, numeric JSON
+failure, equal-order ambiguity and frozen-descriptor rejection; .NET10 retains
+its working convention alternative. Only the bounded generated-manifest consumer
+and Windows x64 managed HTTP lane are qualified, with no general arbitrary-schema,
+browser, published-layout or GA guarantee. The eight .NET10 foundations and
+PIN-959/PIN-963/PIN-964/Human gates remain unchanged.
+
 ## Dynamic OpenAPI document names
 
 This builds/packs the ordinary tool and installs that exact artifact through an

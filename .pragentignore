@@ -97,3 +97,8 @@
 # canonical reader and artifact pins. Existing sample gates check input freshness.
 /samples/net10.0/DepotEventReader/verification-evidence.json
 /samples/net11.0/DepotEventReader/verification-evidence.json
+
+# Record-Evidence generated SDK/manifest/HTTP capture; review AmberGallery sources,
+# artifact identities, locks and served recipe. Build/pack checks input freshness.
+/samples/net10.0/AmberGallery/verification-evidence.json
+/samples/net11.0/AmberGallery/verification-evidence.json

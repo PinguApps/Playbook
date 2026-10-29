@@ -419,3 +419,18 @@ are independently qualified; ApiDescription.Server10.0.0 is not relabelled as th
 audit's 10.0.13 archive. PIN-826 keeps environment-selection ownership. No additional
 .NET10 foundation, downlevel resolver route, universal provider or actual-GA claim;
 PIN-959/PIN-963/PIN-964 and unrelated Human gates remain open.
+
+### Generated static endpoint order: W06 / PIN-1176
+
+`web.order-static-asset-routes/11.0` delivers original AmberGallery .NET10 public
+conventions and .NET11 public descriptor Order/mapping consumers. An isolated
+copy of the SDK-generated manifest maps two competing physical static resources.
+Actual GET/HEAD bytes establish wins/yields, absent/null/empty -100, invalid
+text/overflow fallback, numeric JSON rejection, tied-order ambiguity and frozen
+metadata rejection. Reference hashes match PIN-709; compiler, loaded runtime,
+native-host and SDK-task identities are recorded separately. Complete installed
+guidance reconstructs and executes both consumers with no remote NuGet feeds.
+This is a bounded generated-manifest integration; ordinary apps should use public
+conventions rather than hand-edit generated files. Windows x64 RC2 evidence is
+not a general schema/publish/GA guarantee. No ninth .NET10 foundation or downlevel
+descriptor backport; PIN-959/PIN-963/PIN-964 and unrelated Human gates remain open.

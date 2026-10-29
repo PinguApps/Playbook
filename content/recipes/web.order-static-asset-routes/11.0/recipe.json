@@ -1,0 +1,256 @@
+{
+  "id": "web.order-static-asset-routes",
+  "edition": "11.0",
+  "title": "Give a generated static endpoint deliberate route precedence",
+  "goal": "Choose which static resource wins when generated asset routes overlap, using explicit endpoint order and verifying the resource actually served.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "static-assets",
+    "route-order",
+    "amber-gallery"
+  ],
+  "apis": [
+    "StaticAssetDescriptor.Order",
+    "StaticAssetsEndpointRouteBuilderExtensions.MapStaticAssets",
+    "StaticAssetsEndpointConventionBuilder.Add",
+    "RouteEndpointBuilder.Order"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "selectionNotes": [
+          "Use the .NET11 descriptor only in a version-qualified generated-manifest integration. Public conventions are the normal application alternative on both tested frameworks; this does not add a ninth .NET10 foundation."
+        ],
+        "target": "11.0",
+        "requirements": {
+          "prerequisites": [
+            "Build the complete standalone Web SDK projects below, including both physical assets and isolation files. The fixture acquires real generated manifests from each build output, preserves asset metadata and transforms only a temporary copy before public mapping."
+          ],
+          "providers": [
+            "SDK-produced version1 Build endpoint manifest; public MapStaticAssets with an explicit full path, public StaticAssetDescriptor serialization and endpoint conventions; physical web-root files."
+          ],
+          "constraints": [
+            "For ordinary application ordering prefer the public endpoint convention; do not hand-edit obj or generated manifests. The advanced descriptor route is a bounded generated-manifest integration, not a universal custom JSON authoring contract.",
+            "Order is a nullable string. Missing/null/empty, invalid text and Int32 overflow use -100 in the measured RC2 factory; JSON numeric Order fails parsing. Validate author-owned values rather than relying on silent fallback.",
+            "Descriptors freeze before endpoint conventions run. Set Order before serialization/mapping; conventions change RouteEndpointBuilder.Order, never descriptor metadata.",
+            "Lower Order is selected first among matching candidates. Route specificity, constraints, method/content negotiation and middleware still matter. Equal competing literal orders can be ambiguous; order is not authorization or fallback policy.",
+            ".NET10 lacks descriptor Order; the verified convention approach remains valid. No older-target Order backport, trimming/NativeAOT, arbitrary manifest schema, browser or deployment guarantee."
+          ],
+          "frameworks": [
+            "ASP.NET Core StaticAssets",
+            "ASP.NET Core routing",
+            "Kestrel"
+          ],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App framework reference supplied by Microsoft.NET.Sdk.Web. No restored NuGet libraries or package-native assets; no direct reference to internal build assets."
+          ],
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "match": "release-family",
+            "reason": "Descriptor Order requires ASP.NET Core 11. Exact execution evidence is RC2, not actual GA.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Tested mode. No C#15-only feature is needed; previous comparison uses C#14.",
+            "version": "15.0"
+          },
+          "optIns": [],
+          "renderingModes": [
+            "Server HTTP GET/HEAD; HTML is checked as response bytes. No browser, Blazor or interactive rendering claim."
+          ],
+          "platforms": [
+            "Windows x64 is the qualified reproduction lane. Other server platforms and deployment/publish layouts need their own checks; native host identity checks here use Windows file names."
+          ],
+          "packages": [],
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "The Web SDK generates the static endpoint manifest. Tested pins identify reproduction, not minimum servicing patches.",
+            "version": "11.0"
+          },
+          "workloads": [],
+          "stabilityLimitations": [
+            "No ExperimentalAttribute on the actual Order contract. Stable API designation with measured RC2 assets; actual-GA reconciliation PIN-964, comprehensive PIN-959, PIN-963 and unrelated Human gates remain open."
+          ]
+        },
+        "usage": "primary",
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetDescriptor.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetsEndpointRouteBuilderExtensions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetsEndpointConventionBuilder.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetEndpointFactory.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetEndpointDataSource.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-11.0#provide-a-custom-static-files-manifest",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0#route-template-precedence-and-endpoint-selection-order",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/StaticAssets/src/StaticAssetDescriptor.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/AmberGallery/AmberGallery.csproj"
+        ],
+        "conditional": false,
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Public descriptor and nullable string Order contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetDescriptor.cs"
+    },
+    {
+      "title": "Public mapping accepts an explicit manifest file path",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetsEndpointRouteBuilderExtensions.cs"
+    },
+    {
+      "title": "Public endpoint conventions",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetsEndpointConventionBuilder.cs"
+    },
+    {
+      "title": "Internal implementation context only: parsing/default and endpoint construction",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetEndpointFactory.cs"
+    },
+    {
+      "title": "Internal implementation context only: descriptors freeze before conventions",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/StaticAssets/src/StaticAssetEndpointDataSource.cs"
+    },
+    {
+      "title": "Build-generated manifests and custom manifest locations",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-11.0#provide-a-custom-static-files-manifest"
+    },
+    {
+      "title": "Endpoint order, route precedence and ambiguity",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0#route-template-precedence-and-endpoint-selection-order"
+    },
+    {
+      "title": "Previous descriptor has no Order property",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/StaticAssets/src/StaticAssetDescriptor.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/AmberGallery/AmberGallery.csproj",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "target": "net10.0",
+      "language": "14.0",
+      "scope": "SDK-generated manifest projected to two competing physical static endpoints; missing/ignored Order, public conventions win/yield, actual GET/HEAD response bytes and frozen Route rejection. Exact compiler/reference/loaded framework/native-host hashes; Windows x64, empty package closure."
+    },
+    {
+      "sample": "samples/net11.0/AmberGallery/AmberGallery.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "target": "net11.0",
+      "language": "15.0",
+      "scope": "SDK-generated manifest projected through public descriptors to two competing physical static endpoints; absent/null/empty -100, explicit win/yield, equal-order AmbiguousMatchException/HTTP500, invalid text/overflow fallback, numeric JSON failure, public conventions and frozen Order rejection. Real GET/HEAD bytes and unchanged input hashes; exact compiler/reference/loaded framework/native-host identities, Windows x64, empty package closure, RC2 not GA."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/global.json",
+      "language": "json"
+    },
+    "n10-ambergallery-csproj": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/AmberGallery.csproj",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/Directory.Build.props",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n10-artifactidentity-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/ArtifactIdentity.cs",
+      "language": "csharp"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/Program.cs",
+      "language": "csharp"
+    },
+    "n10-wwwroot-exhibits-amber-html": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/wwwroot/exhibits/amber.html",
+      "language": "html"
+    },
+    "n10-wwwroot-labels-amber-html": {
+      "region": "complete",
+      "path": "samples/net10.0/AmberGallery/wwwroot/labels/amber.html",
+      "language": "html"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/global.json",
+      "language": "json"
+    },
+    "n11-ambergallery-csproj": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/AmberGallery.csproj",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/Directory.Build.props",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n11-artifactidentity-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/ArtifactIdentity.cs",
+      "language": "csharp"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/Program.cs",
+      "language": "csharp"
+    },
+    "n11-wwwroot-exhibits-amber-html": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/wwwroot/exhibits/amber.html",
+      "language": "html"
+    },
+    "n11-wwwroot-labels-amber-html": {
+      "region": "complete",
+      "path": "samples/net11.0/AmberGallery/wwwroot/labels/amber.html",
+      "language": "html"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed local Kestrel/physical-file consumers need no owner account, external service, device or Human action. GA and unrelated Human checks remain separate."
+  }
+}
