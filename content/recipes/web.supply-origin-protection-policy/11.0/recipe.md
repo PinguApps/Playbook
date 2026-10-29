@@ -73,6 +73,9 @@ Human gates stay open. This comparison adds no ninth .NET10 foundation.
    CORS prevents JavaScript reading its result. Align both policies deliberately;
    CORS read failure does not undo an accepted write. Wildcard read permission
    alone grants no custom trust.
+   The hardcoded localhost:6181 CORS origins are demonstration fixtures, separate
+   from `TrustedOrigins`. Configure the application's CORS read allow-list as well
+   when deploying a different partner; changing write trust does not change CORS.
 6. Keep token-dependent clients, additional token data and compliance requirements
    on token-required paths. `--tokens true` runs a **separate** .NET11 token mode
    with the standard provider. RC2 token middleware can overwrite its automatic
@@ -220,7 +223,8 @@ Release, then run `bin/Release/net11.0/SeedExchange.dll --verify true` (substitu
 net10.0 for the older sample). Expect PASS lines with exact response/handler/DI
 counts and actual assembly identities. Add `--standard true` or `--tokens true`
 only for their .NET11 comparison modes. The repository's
-`eng/Record-SeedExchange.ps1` captures all four execution modes with locked restore
+`eng/Record-SeedExchange.ps1` requires explicit `-Net10Dotnet` and `-Net11Dotnet`
+absolute executable paths. It captures all four execution modes with locked restore
 and PATH preservation; it does not manufacture browser proof.
 
 For browser checks, run the app with

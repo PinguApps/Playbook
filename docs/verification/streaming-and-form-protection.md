@@ -27,7 +27,8 @@ The actual reference bytes were compared with the bounded web asset audit:
 | net10.0 | `0a9cf8792bd7d8ab7e9b8d31e9f144ad20f8fb4d28a822d9dc12242a04c62930` | `a06ee8f3ceb3a96ea99e0bbc7b920d74fd664a50a7fa52b7cc3e52fc59c8e61c` |
 | net11.0 | `164a21d5a05f7ab9f1dad2ddb8451caac71a27556998e11a2f146cbfa2e9beb4` | `3e0894ac29b8d7ff5af11d882e442250eeb22ea8b92a072d9cc8675687f53bef` |
 
-`eng/Record-SeedExchange.ps1` uses absolute matching SDK paths, locked restore,
+`eng/Record-SeedExchange.ps1` requires explicit `-Net10Dotnet`/`-Net11Dotnet`
+absolute matching SDK paths, locked restore,
 `eng/Record-Evidence.ps1` and before/after input fingerprints. It executes real
 Kestrel HTTP requests in four modes: .NET10 retained tokens+origin, .NET11 custom,
 standard and retained tokens. Records include loaded runtime assembly paths,
@@ -55,8 +56,11 @@ browser POSTs observed**, including that repeat; 164 distinct final control
 combinations. The browser reported same-origin / same-site / cross-site as expected.
 Server observations supplied status and handler counts even when CORS hid the
 response. The custom provider counter was exactly one for every custom browser
-form/fetch; a denial returned400/handler0, an acceptance200/handler1. No broad
+form/fetch; a denial returned status 400, handler count 0; an acceptance returned
+status 200, handler count 1. No broad
 authentication/security claim is inferred from these disposable counters.
+
+Table entries are HTTP status / handler invocation count.
 
 | Browser form source | Custom RC2, all four paths | Standard RC2 `/seed`, credentialed, public, wildcard | .NET10 token+origin, all four paths | .NET11 token mode, all four paths |
 | --- | --- | --- | --- | --- |
@@ -68,19 +72,20 @@ authentication/security claim is inferred from these disposable counters.
 For trusted partner fetch, credentialed CORS exposed both omit/include responses;
 the demo Lax cookie was absent/present respectively. Noncredentialed and wildcard
 CORS exposed omit responses, but include threw a browser TypeError **after** the
-custom handler executed200/1. Standard policy instead returned400/0 on those
+custom handler executed (status 200, handler count 1). Standard policy instead
+returned 400/0 on those
 noncredentialed/wildcard paths, regardless of actual credential mode. Hostile
-custom fetches returned400/0 even when wildcard omit exposed the rejection.
+custom fetches returned 400/0 even when wildcard omit exposed the rejection.
 Same-site untrusted submissions carried the demo cookie but still failed; cross-site
 Lax-cookie requests had no cookie, so those alone prove no production credentialed
 cross-site behavior. The cookie is demonstration state, not authentication.
 
-Missing/invalid token values with the own-origin cookie returned400/0 in both
-token modes. Fetch omit with a token also returned400/0, proving the cookie pair
+Missing/invalid token values with the own-origin cookie returned 400/0 in both
+token modes. Fetch omit with a token also returned 400/0, proving the cookie pair
 remained required. The .NET11 token-mode acceptance from localhost:6183 shows the
 standard automatic verdict can be overwritten; it is not a composed custom+token
-claim. Headerless non-browser HTTP requests returned200/1 under standard RC2,
-400/0 under custom RC2 and .NET10 explicit-origin policy. JSON executed200/1 with
+claim. Headerless non-browser HTTP requests returned 200/1 under standard RC2,
+400/0 under custom RC2 and .NET10 explicit-origin policy. JSON executed 200/1 with
 zero custom provider calls; that endpoint has no automatic form protection.
 
 The harness removes temporary forms/iframes. The owned browser tab was closed and

@@ -9,8 +9,8 @@
     {
       "id": "csrf-policy",
       "pattern": " Microsoft\\.AspNetCore\\.Antiforgery\\.(ICsrfProtection|CsrfProtectionResult)",
-      "owner": "PIN-808 integration; W02 custom service",
-      "disposition": "grouped/included"
+      "owner": "PIN-808 integration; W02 / PIN-1172; web.supply-origin-protection-policy/11.0",
+      "disposition": "grouped/included; delivered original token-plus-origin net10 and exact-origin ICsrfProtection net11 consumers, actual DI/handler counts and Chrome same-origin/site/cross-site/CORS controls. JSON and token-required modes remain separate; no net10 API backport or GA claim. PIN-959/PIN-964 remain open."
     },
     {
       "id": "authorization",

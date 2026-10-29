@@ -557,7 +557,8 @@ Expect edition11.0, complete original .NET10 token+origin/.NET11 custom/default/
 source, exact applicability and two current compile-and-run records. The helper
 asserts canonical body and structured/JSON-text equality. The custom rule trusts
 operator-owned exact origins independently of CORS reads; JSON and token-required
-clients remain separate. `eng/Record-SeedExchange.ps1` recaptures actual matching
+clients remain separate. `eng/Record-SeedExchange.ps1` requires explicit absolute
+`-Net10Dotnet` and `-Net11Dotnet` executable paths and recaptures actual matching
 consumer/HTTP proof; the existing form evidence document retains actual Chrome156
 loopback controls. No net10 ICsrfProtection route is advertised: explicit target10
 discovery has no matching edition and get returns an actionable no-applicable-edition
