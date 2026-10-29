@@ -69,8 +69,9 @@ Finally closes the console connection and verifies observed owned testhosts exit
 
 Save samples/TernTesting/TernTests.cs. This original adapter is loaded into the real
 VSTest testhost. Its arithmetic assertions produce two passes and one deliberate
-failure; cancellation is acknowledged by Cancel. Source-based execution honours
-the real platform filter. It also supplies the separate settings recipe's test.
+failure; cancellation is acknowledged by Cancel. When VSTest supplies test
+assemblies, the adapter applies its FullyQualifiedName filter. It also supplies
+the separate settings recipe's test.
 
 {{snippet:adapter}}
 
@@ -93,7 +94,8 @@ the real platform filter. It also supplies the separate settings recipe's test.
 4. Locate the matching CLI package's contentFiles/any/net10.0/vstest.console.dll in
    the actual restore cache. Keep that entire directory. Run the built TernHost.dll
    using the same absolute dotnet executable, passing the absolute console DLL and
-   built Tests/bin/Release/net10.0-or-net11.0/Tern.TestAdapter.dll as its two arguments.
+   built Tests/bin/Release/net10.0/Tern.TestAdapter.dll for target10, or
+   Tests/bin/Release/net11.0/Tern.TestAdapter.dll for target11, as its two arguments.
    Run from an unrelated directory. DOTNET_HOST_PATH and DOTNET_ROOT/X64 must select
    the intended child runtime; use the qualification helper for exact setup.
 5. Expect four distinct discovered tests. Each of two ordinary runs and the run

@@ -33,9 +33,11 @@ public sealed class Executor : ITestExecutor, IDisposable
     {
         var filter = runContext?.GetTestCaseFilter(["FullyQualifiedName"], _ => TestCaseProperties.FullyQualifiedName);
         var selected = sources?.SelectMany(Discoverer.Cases).Where(test => filter?.MatchTestCase(test, _ => test.FullyQualifiedName) ?? true);
-        RunTests(selected, runContext, frameworkHandle);
+        Execute(selected, runContext, frameworkHandle, requireSettings: true);
     }
     public void RunTests(IEnumerable<TestCase>? tests, IRunContext? runContext, IFrameworkHandle? frameworkHandle)
+        => Execute(tests, runContext, frameworkHandle, requireSettings: false);
+    private void Execute(IEnumerable<TestCase>? tests, IRunContext? runContext, IFrameworkHandle? frameworkHandle, bool requireSettings)
     {
         ArgumentNullException.ThrowIfNull(tests);
         ArgumentNullException.ThrowIfNull(runContext);
@@ -59,7 +61,7 @@ public sealed class Executor : ITestExecutor, IDisposable
                 else if (test.FullyQualifiedName.EndsWith("Capacity", StringComparison.Ordinal))
                     AssertEqual(13, Remaining(20, 7));
                 else
-                    CheckSettings(runContext.RunSettings?.SettingsXml, frameworkHandle);
+                    CheckSettings(runContext.RunSettings?.SettingsXml, frameworkHandle, requireSettings);
                 result.Outcome = TestOutcome.Passed;
             }
             catch (InvalidOperationException ex)
@@ -76,11 +78,16 @@ public sealed class Executor : ITestExecutor, IDisposable
     {
         if (expected != actual) throw new InvalidOperationException($"expected={expected};actual={actual}");
     }
-    private static void CheckSettings(string? xml, IFrameworkHandle handle)
+    private static void CheckSettings(string? xml, IFrameworkHandle handle, bool required)
     {
         var root = XDocument.Parse(xml ?? "<RunSettings />");
         var config = root.Root?.Element("Tern");
-        if (config is null) return; // The session recipe has no custom CLI settings.
+        if (config is null)
+        {
+            if (required) throw new InvalidOperationException("Tern settings are required for source-based execution.");
+            AssertEqual(0, Remaining(7, 7)); // Selected-test session runs have no custom settings.
+            return;
+        }
         var expected = new Dictionary<string, string>
         {
             ["Harbour"] = "North Quay", ["Pattern"] = @"^Tern\.Bay/West=13$", ["Literal"] = "--listTests=not a switch"
@@ -91,8 +98,11 @@ public sealed class Executor : ITestExecutor, IDisposable
             if (actual != pair.Value) throw new InvalidOperationException($"{pair.Key}: expected '{pair.Value}', got '{actual}'");
             handle.SendMessage(TestMessageLevel.Informational, $"TERN_EFFECTIVE {pair.Key}={actual}");
         }
-        if (config.Element("RejectSemicolon") is { } boundary && boundary.Value != "east;west")
-            throw new InvalidOperationException($"semicolon value changed: {boundary.Value}");
+        if (config.Element("RejectSemicolon") is { } boundary)
+        {
+            if (boundary.Value != "east;west") throw new InvalidOperationException($"semicolon value changed: {boundary.Value}");
+            handle.SendMessage(TestMessageLevel.Informational, $"TERN_EFFECTIVE RejectSemicolon={boundary.Value}");
+        }
     }
 }
 // endsnippet:adapter

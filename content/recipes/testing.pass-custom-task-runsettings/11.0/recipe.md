@@ -68,6 +68,9 @@ selects only Settings, so DeliberateFailure and Cancellation are not executed by
 this task. The actual adapter reads IRunContext.RunSettings.SettingsXml and checks
 three exact values. It logs the effective values into the real TRX; it does not
 substitute a hand-built XML object for task/runner execution.
+Assembly-based settings runs reject a missing Tern block. The shared session
+fixture's selected-test runs check the fully reserved harbour when no custom
+settings are supplied.
 
 {{snippet:adapter}}
 
@@ -95,6 +98,9 @@ current task/testhost reads that file and the same Settings test passes once,
 including the literal semicolon assertion. The qualification helper generates and
 executes this exact alternative. XML element text and CLI entry delimiters are
 different contracts; do not teach an XML document as VSTestCLIRunSettings.
+The helper verifies all four effective XML values in the real TRX, including
+RejectSemicolon=east;west. A separate real run with an empty RunSettings document
+must fail its selected settings test with the explicit missing-Tern error.
 
 ## Migration
 

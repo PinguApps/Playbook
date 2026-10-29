@@ -51,6 +51,8 @@ requestor, while the platform's .NET ALC path has a null requestor. Each custom
 task selects/passes exactly one settings test with spaces, backslashes, separators
 and switch-looking values unchanged. Old escaped literal semicolons survive;
 the current scalar rejects them and its XML-file alternative passes.
+Missing Tern settings must fail one selected test; XML verification also checks
+the effective literal-semicolon value in the real TRX.
 
 The resolver's old setter belongs to the audited SDK10 binary, **not** public18.7;
 public18.9 already has the constructor. The current package consumer works on10/11.

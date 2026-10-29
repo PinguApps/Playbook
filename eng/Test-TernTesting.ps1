@@ -158,9 +158,22 @@ try {
     $output = Invoke-Consumer $case.Dotnet $directory $arguments
     [xml]$trx = Get-Content (Join-Path $results 'settings.trx') -Raw
     if ($trx.TestRun.ResultSummary.Counters.total -ne '1' -or $trx.TestRun.ResultSummary.Counters.passed -ne '1') { throw 'Real settings test did not pass exactly once.' }
-    foreach ($value in 'Harbour=North Quay','Pattern=^Tern\.Bay/West=13$','Literal=--listTests=not a switch') { Assert-Text $trx.OuterXml $value }
+    foreach ($value in 'Harbour=North Quay','Pattern=^Tern\.Bay/West=13$','Literal=--listTests=not a switch') { Assert-Text $trx.OuterXml "TERN_EFFECTIVE $value" }
     $log.Add("effective-settings-trx=$($trx.OuterXml)")
     Write-Host "PASS real-task-settings $($case.Path): spaces/backslash/slash/equals/switch-looking value;one test passed"
+
+    # A real source-based settings test must fail when the XML/CLI configuration disappears.
+    $emptySettings = Join-Path $scratch 'missing-tern.runsettings'
+    Write-Lf $emptySettings '<RunSettings />'
+    $missingArguments = $arguments.Clone()
+    $missingArguments[1] = Join-Path $root 'samples/TernTesting/XmlTests.proj'
+    $missingArguments[-1] = "-p:TernResults=$results-missing"
+    $missingArguments += "-p:TernSettingsFile=$emptySettings"
+    $null = Invoke-Consumer $case.Dotnet $directory $missingArguments 1
+    [xml]$missingTrx = Get-Content "$results-missing/settings.trx" -Raw
+    if ($missingTrx.TestRun.ResultSummary.Counters.total -ne '1' -or $missingTrx.TestRun.ResultSummary.Counters.failed -ne '1') { throw 'Missing settings did not fail exactly one real test.' }
+    Assert-Text $missingTrx.OuterXml 'Tern settings are required for source-based execution.'
+    Write-Host "PASS missing-settings-rejected $($case.Path)"
 
     # Compile the old pooled API, setter and task assignment against both real package sets.
     $probe = Join-Path $scratch ("probe-" + $case.Path.Replace('/','-'))
@@ -216,7 +229,11 @@ try {
     $boundaryArguments[1] = $boundaryProject
     $boundaryArguments[-1] = "-p:TernResults=$results-boundary"
     $boundaryOutput = Invoke-Consumer $case.Dotnet $directory $boundaryArguments $(if ($old) { 0 } else { 1 })
-    if ($old) { Assert-Text $boundaryOutput 'Passed' }
+    if ($old) {
+      Assert-Text $boundaryOutput 'Passed'
+      [xml]$boundaryTrx = Get-Content "$results-boundary/settings.trx" -Raw
+      Assert-Text $boundaryTrx.OuterXml 'TERN_EFFECTIVE RejectSemicolon=east;west'
+    }
     else {
       if ($boundaryOutput -notmatch '(invalid|Invalid|semicolon|Test Run Failed|runsettings)') { throw 'Expected visible semicolon boundary failure.' }
       $xmlProject = Join-Path $root 'samples/TernTesting/XmlTests.proj'
@@ -225,7 +242,8 @@ try {
       $xmlArguments[-1] = "-p:TernResults=$results-xml"
       $null = Invoke-Consumer $case.Dotnet $directory $xmlArguments
       [xml]$xmlTrx = Get-Content "$results-xml/settings.trx" -Raw
-      if ($xmlTrx.TestRun.ResultSummary.Counters.passed -ne '1') { throw 'XML semicolon alternative did not pass.' }
+      if ($xmlTrx.TestRun.ResultSummary.Counters.total -ne '1' -or $xmlTrx.TestRun.ResultSummary.Counters.passed -ne '1') { throw 'XML semicolon alternative did not pass exactly once.' }
+      foreach ($value in 'Harbour=North Quay','Pattern=^Tern\.Bay/West=13$','Literal=--listTests=not a switch','RejectSemicolon=east;west') { Assert-Text $xmlTrx.OuterXml "TERN_EFFECTIVE $value" }
     }
     Write-Host "PASS semicolon boundary $($case.Path): old escaped item retained; new scalar rejected; new XML alternative verified where applicable"
   }
