@@ -1,0 +1,31 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebMigrationBatch.ps1",
+    "docs/planning/audits/web.assets.json",
+    "docs/planning/audits/web.sources.json"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/11.0.0-rc.2.26504.105",
+    "Microsoft.AspNetCore.Identity.UI/11.0.0-rc.2.26504.105",
+    "Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Abstractions/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Analyzers/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Relational/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Sqlite/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.DependencyModel/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.FileProviders.Embedded/11.0.0-rc.2.26504.105",
+    "SQLite/3.53.4",
+    "SQLitePCLRaw.bundle_e_sqlite3/3.0.5",
+    "SQLitePCLRaw.config.e_sqlite3/3.0.5",
+    "SQLitePCLRaw.core/3.0.5",
+    "SQLitePCLRaw.provider.e_sqlite3/3.0.5"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}

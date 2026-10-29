@@ -28,6 +28,67 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Identity UI, encoded routes and gRPC documents
+
+These three original 11.0 editions share one ordinary package inspection. Setup
+requires both exact sample SDK/runtime sets, PowerShell7, Node22.19+ and authenticated
+GitHub CLI access to the public pinned generator release. The first command restores
+the actual locked packages, verifies/acquires the Windows x64 generator, exercises
+the paired samples/publishes and refreshes saved sample records. It does not create
+fresh browser evidence. Existing browser observations remain valid only while their
+relevant page/layout/CSS/package inputs remain unchanged.
+
+The block was exercised from an unrelated directory. The Inspector builds/packs
+once, installs that exact artifact through a fresh local feed/cache, and performs
+real installed stdio list/get for **each** ID. It displays ID/title/goal, complete
+canonical Markdown, target11/edition11, applicability and fresh evidence, compares
+text/structured results, and checks target10's `no_applicable_edition` response.
+The final command reconstructs all six original consumers solely from those
+returned bodies. Prepared packages are reused with no remote NuGet feeds; remote
+proxies are unusable and loopback is explicitly bypassed for the real requests.
+This establishes proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:/_worktrees/Playbook/agent-pin-1178-04-103-move-customized-identity-ui-off-bootstrap-4'
+& ./eng/Test-WebMigrationBatch.ps1 `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' `
+  -OutputDirectory ./artifacts/batch04/verified -RecordEvidence
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('identity.migrate-ui-framework-selection', 'routing.preserve-encoded-segment', 'grpc.replace-swagger-adapter') `
+  -Query 'web-migration-batch' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1178-batch' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/batch04/inspection
+& ./eng/Test-WebMigrationConsumers.ps1 `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+```
+
+Expect these discoveries:
+
+- `identity.migrate-ui-framework-selection`: **Move customized Identity UI off
+  Bootstrap 4**. Goal: keep customized sign-in pages rendering by selecting
+  Bootstrap5 and migrating affected markup, styles and published assets.
+- `routing.preserve-encoded-segment`: **Preserve encoded route segments in
+  proxy-style requests**. Goal: retain encoded slashes inside identifiers and
+  remove compensation only after actual wire-level comparison.
+- `grpc.replace-swagger-adapter`: **Replace the retired gRPC Swagger integration**.
+  Goal: keep the transcoded JSON interface discoverable using a generated,
+  protobuf-derived build contract after adapter retirement.
+
+The Identity check uses published compiled pages/assets and retains antiforgery,
+confirmation and local-return behavior. The separate retained Chromium screenshots
+qualify login/validation rendering for the older, explicit5 and default publishes;
+the command block does not repeat a browser session. Routing proves the measured
+old absolute-form decoding difference and current preservation, with raw parser,
+middleware and handler observations. gRPC proves actual old adapter/new generator,
+gRPC and JSON values, nonempty operations/schemas/comments and negative requests.
+The replacement document is **Swagger2.0/OpenAPIv2**, not a runtime drop-in adapter
+or an automatic AddOpenApi integration. Neither generic provider compatibility,
+all Google annotation patterns, all browser/platforms nor actual-GA proof follows.
+Eight foundations and PIN-959/PIN-963/PIN-964/Human gates remain unchanged.
+
 ## Generated static endpoint order
 
 This builds/packs the ordinary tool and installs that exact artifact through the

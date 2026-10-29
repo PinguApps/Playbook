@@ -1,0 +1,22 @@
+{
+  "capturedAt": "2026-10-29T12:04:57Z",
+  "browser": "T3CodeNightly0.1.4 / Electron44.9.3 / Chromium152.0.7977.167 Windows x64",
+  "viewport": [
+    1280,
+    800
+  ],
+  "state": "Published login plus server validation after typing not-an-email and clicking Sign in with empty password",
+  "observed": "Both local CSS stylesheets loaded with actual CSS rules; one label per visible input; panel480px/button414px; green button rgb(35,102,75), error rgb(160,33,33), no horizontal overflow. Visual inspection: aligned controls, clear borders/spacing, legible errors, no clipping.",
+  "routes": "Bootstrap4 valid historical customization",
+  "screenshots": [
+    {
+      "path": "docs/verification/identity-ui/net10-login.png",
+      "sha256": "1bb4238e2fbd20ab8439cf61755e6146d8aa7a860d3409bd088debb981323b89"
+    },
+    {
+      "path": "docs/verification/identity-ui/net10-validation.png",
+      "sha256": "1dedc9d0a9ff1d5258421d597d62128738b14588d922cc85219c91f34e329cda"
+    }
+  ],
+  "limits": "Single Windows Chromium viewport; server validation only, not client JavaScript or all accessibility/mobile behavior."
+}

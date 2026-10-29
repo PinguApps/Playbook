@@ -1,0 +1,30 @@
+@* snippet:complete *@
+@page
+@model VolunteerAccess.LoginModel
+@{ Layout = "/Pages/Shared/_Layout.cshtml"; }
+<main class="container py-4">
+    <section class="volunteer-panel" aria-labelledby="login-title">
+        <p class="eyebrow">Bracken Rescue</p>
+        <h1 id="login-title">Volunteer sign-in</h1>
+        <p>Open your rescue rota using your confirmed volunteer account.</p>
+        <form method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email">E-mail address</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-describedby="email-error" />
+                <span asp-validation-for="Input.Email" id="email-error" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-describedby="password-error" />
+                <span asp-validation-for="Input.Password" id="password-error" class="text-danger"></span>
+            </div>
+            <div class="custom-control custom-checkbox mb-3">
+                <input asp-for="Input.RememberMe" class="custom-control-input" />
+                <label asp-for="Input.RememberMe" class="custom-control-label">Remember this browser</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </form>
+    </section>
+</main>
+@* endsnippet:complete *@

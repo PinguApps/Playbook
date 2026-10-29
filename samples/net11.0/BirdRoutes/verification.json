@@ -1,0 +1,14 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebMigrationBatch.ps1",
+    "docs/planning/audits/web.assets.json",
+    "docs/planning/audits/web.sources.json"
+  ],
+  "dependencies": [],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}

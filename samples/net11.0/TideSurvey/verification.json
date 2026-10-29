@@ -1,0 +1,30 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebMigrationBatch.ps1",
+    "docs/planning/audits/web.assets.json",
+    "docs/planning/audits/web.sources.json"
+  ],
+  "dependencies": [
+    "Google.Api.CommonProtos/2.15.0",
+    "Google.Protobuf/3.27.0",
+    "Grpc.AspNetCore.Server.ClientFactory/2.64.0",
+    "Grpc.AspNetCore.Server/2.64.0",
+    "Grpc.AspNetCore/2.64.0",
+    "Grpc.Core.Api/2.64.0",
+    "Grpc.Net.Client/2.64.0",
+    "Grpc.Net.ClientFactory/2.64.0",
+    "Grpc.Net.Common/2.64.0",
+    "Grpc.Tools/2.64.0",
+    "Microsoft.AspNetCore.Grpc.JsonTranscoding/11.0.0-rc.2.26504.105"
+  ],
+  "nativeToolchains": [
+    "protoc/26.1",
+    "grpc_csharp_plugin/2.64.0",
+    "protoc-gen-openapiv2/2.31.0"
+  ],
+  "workloads": [],
+  "buildArguments": []
+}

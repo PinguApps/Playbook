@@ -127,11 +127,25 @@ SignalR/OpenAPI and gRPC public surfaces and real package/tool/template contract
 Sixteen sized review drafts (W01–W16) retain uncovered authoring goals, including
 default-diagnostic obsoletions and source-only F# view/Identity migrations. These
 do not revise the historical 156-row count. Existing owners remain accountable;
-all new recipes are **delivery outstanding**. DirectTls and published TypeScript
+remaining new recipes are **delivery outstanding**. DirectTls and published TypeScript
 availability gaps, actual consumer/runtime/installed-MCP proof and GA reconciliation
 remain explicit. The earlier no-distinct-gRPC-feature row is qualified by W10's
 removed Grpc.Swagger adapter; unchanged transport API metadata is not blanket
 no-change evidence.
+
+W08/PIN-1178, W09/PIN-1179 and W10/PIN-1180 deliver three distinct 11.0 editions
+in one batch: `identity.migrate-ui-framework-selection`,
+`routing.preserve-encoded-segment` and `grpc.replace-swagger-adapter`.
+Original paired SDK10/framework10.0.13 and SDK11/framework11 RC2 consumers retain
+fresh sample evidence. Identity includes actual warning, explicit/default publish
+and Chromium login/validation with original markup/CSS. Routing includes real
+origin/absolute request bytes and honest serviced-old/control outcomes. gRPC
+qualifies the actual pinned generator before replacement, then executes old/new
+gRPC, JSON and nonempty document/schema/comment/failure checks. The generator
+emits Swagger2.0; no drop-in adapter or unqualified annotation coverage is claimed.
+Installed ordinary-artifact retrieval remains separate from runtime/browser proof.
+The exact eight foundations, stable identities, PIN-959/PIN-963/PIN-964, actual-GA
+and unrelated Human gates remain unchanged. No recurring platform matrix is added.
 
 ### Supplemental EF/provider API reconciliation
 

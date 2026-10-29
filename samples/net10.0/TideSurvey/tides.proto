@@ -1,0 +1,24 @@
+// snippet:complete
+syntax = "proto3";
+package tide;
+option csharp_namespace = "TideSurvey";
+import "google/api/annotations.proto";
+// Tide observations for a small estuary survey.
+service TideBoard {
+  // Read the next surveyed tide at a named station.
+  rpc ReadTide (TideRequest) returns (TideReading) {
+    option (google.api.http) = { get: "/v1/tides/{station}" };
+  }
+}
+message TideRequest {
+  // Lowercase station code from the survey register.
+  string station = 1;
+}
+// A surveyed water level, without a navigation guarantee.
+message TideReading {
+  string station = 1;
+  // Whole centimetres above the local survey marker.
+  int32 height_cm = 2;
+  string observed_at = 3;
+}
+// endsnippet:complete

@@ -158,7 +158,7 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     if (-not ($sampleDirectories | Where-Object { $snippetPath.StartsWith($_, [StringComparison]::OrdinalIgnoreCase) })) { throw "Snippet '$key' must belong to a declared evidence sample." }
     $source = Get-Content -LiteralPath $snippetPath -Raw
     $region = [regex]::Escape($snippet.region)
-    $matches = [regex]::Matches($source, "(?ms)^[ \t]*(?:// snippet:$region|<!-- snippet:$region -->)\r?\n(.*?)^[ \t]*(?:// endsnippet:$region|<!-- endsnippet:$region -->)\r?$")
+    $matches = [regex]::Matches($source, "(?ms)^[ \t]*(?://|#|/\*|@\*|<!--) snippet:$region(?: -->| \*/| \*@)?\r?\n(.*?)^[ \t]*(?://|#|/\*|@\*|<!--) endsnippet:$region(?: -->| \*/| \*@)?\r?$")
     if ($matches.Count -ne 1 -or [string]::IsNullOrWhiteSpace($matches[0].Groups[1].Value)) {
       throw "Expected one nonempty snippet '$key' in $($snippet.path)."
     }
