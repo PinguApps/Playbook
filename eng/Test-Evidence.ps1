@@ -74,8 +74,8 @@ try {
   Copy-Item (Join-Path $PSScriptRoot 'QuaysideRoutes.browser.js') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'CopperlineDesk.browser.js'), (Join-Path $PSScriptRoot 'Test-CopperlineDesk.ps1') (Join-Path $fixture 'eng')
   Copy-Item (Join-Path $PSScriptRoot 'CairnSignals.prepare.js'), (Join-Path $PSScriptRoot 'CairnSignals.browser.js'), (Join-Path $PSScriptRoot 'Test-CairnSignals.ps1') (Join-Path $fixture 'eng')
-  # Retain every recorded helper input, including newly authored browser checks.
-  foreach ($inputPath in ($inputPaths | Where-Object { $_.StartsWith('eng/', [StringComparison]::Ordinal) })) {
+  # Retain recorded helpers and audit manifests used by actual package consumers.
+  foreach ($inputPath in ($inputPaths | Where-Object { $_.StartsWith('eng/', [StringComparison]::Ordinal) -or $_.StartsWith('docs/', [StringComparison]::Ordinal) })) {
     $destination = Join-Path $fixture $inputPath
     New-Item -ItemType Directory -Path (Split-Path $destination) -Force | Out-Null
     Copy-Item -LiteralPath (Join-Path $root $inputPath) -Destination $destination

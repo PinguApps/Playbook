@@ -1,0 +1,12 @@
+<!-- snippet:collector-settings -->
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="WeatherStation"
+                     uri="datacollector://weatherstation/json/v1"
+                     assemblyQualifiedName="WeatherStation.WeatherCollector, WeatherStation.Collector"
+                     codebase="COLLECTOR_DLL" enabled="true" />
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
+<!-- endsnippet:collector-settings -->

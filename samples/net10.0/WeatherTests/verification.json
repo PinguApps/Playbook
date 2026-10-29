@@ -1,0 +1,19 @@
+{
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/WeatherJson",
+    "eng/Evidence.ps1",
+    "eng/Test-JsonDependencies.ps1",
+    "docs/planning/audits/sdk-package-hosts.assets.json",
+    "docs/planning/audits/sdk-package-hosts.sources.json"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.CodeCoverage/18.11.0",
+    "Microsoft.NET.Test.Sdk/18.11.0",
+    "Microsoft.TestPlatform.ObjectModel/18.11.0",
+    "Microsoft.TestPlatform.TestHost/18.11.0",
+    "Newtonsoft.Json/13.0.4"
+  ]
+}

@@ -1,0 +1,21 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <AssemblyName>WeatherTests</AssemblyName>
+    <IsTestProject>true</IsTestProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+
+    <Compile Include="WeatherChecks.cs" Link="WeatherChecks.cs" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->

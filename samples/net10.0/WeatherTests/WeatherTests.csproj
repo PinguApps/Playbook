@@ -1,0 +1,20 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <AssemblyName>WeatherTests</AssemblyName>
+    <IsTestProject>true</IsTestProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <Compile Include="../../WeatherJson/WeatherChecks.cs" Link="WeatherChecks.cs" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->

@@ -376,6 +376,42 @@ target. No UWP/classic Xamarin native execution or actual-GA proof is claimed.
 `eng/Record-SqliteRuntime.ps1` separately recaptures the four real consumers with
 the declared SDK10/SDK11 and Windows Framework runtime. Retrieval does not rerun SQL.
 
+## Test and extension JSON dependencies
+
+This verified block selects the assigned worktree from an unrelated directory,
+builds/packs the ordinary tool, installs that exact package in an isolated local
+feed/cache and calls real stdio list/get. Setup requires PowerShell7,
+SDK10.0.402 and Node22.19+; the helper installs Inspector2.11.0 locally if absent.
+Restores/setup use public packages; retrieval uses unusable proxies (proxy
+independence, not network isolation).
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1072-03-020-own-json-dependencies-in-test-projects-and-extensions'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'testing.declare-json-dependencies' -TargetVersion '11.0' `
+  -Query 'json-dependencies' -PackageVersion '0.0.0-json-dependencies' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/json-dependencies/inspection11
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'testing.declare-json-dependencies' -TargetVersion '10.0' `
+  -Query 'json-dependencies' -PackageVersion '0.0.0-json-dependencies' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/json-dependencies/inspection10
+```
+
+Expect ID/title/goal, edition11.0 on both explicit targets, full original
+Markdown/canonical snippets, the conditional newer-package target10 route and
+seven current compilation/execution records. The body distinguishes old
+transitive JSON, explicit runtime ownership, actual adapter/collector loading,
+missing-direct/runtime failures, SDK-root copies and VSTest/MTP selection.
+`eng/Test-JsonDependencies.ps1 -Record` separately captures the actual managed
+consumer checks with its explicit SDK10/SDK11 parameters. Native CodeCoverage,
+other operating systems and actual GA remain unverified; PIN-959/PIN-963 stay open.
+The seven sample projects and their exact locks remain author-maintained under
+the existing sample dependency policy; no new automatic update permission is added.
+
 ## Retired SQLite native bundle initialization
 
 This block was executed from an unrelated directory. It builds/packs the ordinary
