@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Text.Json;
+using System.Security.Cryptography;
 using Microsoft.Build.Framework;
 
 namespace Observatory;
@@ -33,6 +34,10 @@ public sealed class CheckedExposures : SummarizeExposures
         {
             pid = Environment.ProcessId, thread = Environment.CurrentManagedThreadId,
             start, end = DateTime.UtcNow.Ticks, cwd, unchanged = true,
+            runtimeDirectory = System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory(),
+            frameworkPath = typeof(ITask).Assembly.Location,
+            frameworkSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(ITask).Assembly.Location))).ToLowerInvariant(),
+            utilitiesPath = typeof(Microsoft.Build.Utilities.Task).Assembly.Location,
 #if TYPED_TASKS
             constructor = ConstructorUsed, project = TaskEnvironment.ProjectDirectory.Value,
             reportDirectory = ReportDirectory.Value,

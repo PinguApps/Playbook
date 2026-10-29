@@ -1,5 +1,7 @@
 # Bind typed file inputs in a custom MSBuild task
 
+## Goal
+
 Use this recipe when a custom task reads project-relative files and must also
 work under experimental multithreaded MSBuild. The fictional Meridian Ridge
 observatory has north and south projects, each with `frames/meridian.txt` and a
@@ -38,7 +40,7 @@ reference assembly, dotnet.exe, hostfxr and CoreCLR. Those identities are measur
 artifacts, separate from the prerequisites above. The resolved package closure is
 empty. Neither API metadata nor these hashes alone prove binding or concurrency.
 
-## Keep the valid older implementation
+## Older approach
 
 The older task accepts ordinary `ITaskItem[]`. Its caller supplies an **absolute**
 `ProjectDirectory="$(MSBuildProjectDirectory)"` and an explicit `ReportDirectory`.
@@ -57,7 +59,7 @@ Use the same item/target shape below for the older task, adding
 to its task invocation. Keep the older task in its own net10.0 assembly with SDK
 10 references; it is an alternative implementation of the same goal.
 
-## Bind the newer task's paths and metadata
+## Newer approach
 
 Include `using Microsoft.Build.Framework;` and `namespace Observatory;` before
 this class. `ITaskItem<FileInfo>.Value` carries the bound input while ordinary
@@ -107,7 +109,7 @@ net11 typed task compatible with SDK 10. Dropping the parameterless constructor
 would forfeit this older-host fallback; do so only after raising your minimum
 host and target requirements.
 
-## Migrate and check the result
+## Migration
 
 1. Inventory the actual build host, target/runtime, SDK selection and task DLL
    references. Retain the explicit-path task where an older host remains required.
@@ -139,6 +141,17 @@ host and target requirements.
    establish existence, permission, containment or protection against symlinks.
    Trusted build inputs and distinct outputs are assumptions of this example;
    add your own authorization/containment and I/O error policy where needed.
+
+## Constraints
+
+The attribute controls routing and requires a full thread-safety audit. Avoid
+process CWD/environment mutations, shared unsynchronized caches and output paths
+shared across projects. Use the ordinary host or unannotated sidecar route while
+that audit is incomplete. Typed paths still require the application's file access
+and error policy. This exact SDK/reference/runtime qualification does not imply
+compatibility with arbitrary package replacements, older hosts or other platforms.
+
+## Evidence
 
 The saved compile-and-run records use the existing sample-evidence workflow.
 The executable harness creates two actual project files in a disposable tree,

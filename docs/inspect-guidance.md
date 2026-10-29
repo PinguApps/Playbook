@@ -28,6 +28,54 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Typed custom build-task inputs
+
+This block builds/packs the ordinary artifact and uses the existing isolated
+local-only feed/cache Inspector harness. It invokes real installed stdio list/get
+from an unrelated directory, displaying ID/title/goal, full canonical Markdown,
+explicit target/edition, applicability and both fresh host evidence records.
+Setup requires PowerShell 7, SDK 10.0.402 and Node 22.19+; setup can restore online.
+Retrieval uses unusable proxies, proving proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1118-03-023-bind-typed-parameters-in-a-safe-custom-build-task'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'msbuild.bind-typed-task-inputs' -Query 'typed-task-inputs' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1118' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1118/inspection
+```
+
+Expect title "Bind typed file inputs in a custom MSBuild task", edition 11.0,
+target 11.0, experimental `-mt` conditions and two current compilation/execution
+records. Markdown retains the explicit-path older task, typed newer task,
+environment-dependent defaults, same-binary constructor fallback, numbered
+migration and exact-host limits. The saved runtime proof covers actual concurrent
+same-process/different-thread task execution, metadata, unchanged task process
+state, ordinary/sidecar controls and real missing-file failures. No down-level
+typed-task, server-reuse/performance or actual-GA route is claimed.
+
+To refresh the task evidence, run SDK 10 first because the SDK 11 constructor
+check executes that same older compatibility DLL. Neither command installs a
+global tool or changes PATH; SDK 11 and its matching runtime must already exist:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1118-03-023-bind-typed-parameters-in-a-safe-custom-build-task'
+$previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+try {
+  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+  & ./eng/Record-Evidence.ps1 -Sample 'samples/net10.0/ObservatoryTasks/ObservatoryTasks.csproj' `
+    -Dotnet 'C:\Program Files\dotnet\dotnet.exe'
+  & ./eng/Record-Evidence.ps1 -Sample 'samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj' `
+    -Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+}
+finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
+```
+
+PIN-959/PIN-963 and unrelated Human gates remain open. There is no recurring
+native/client/OS matrix for this managed Windows x64 recipe.
+
 ## Typed VSTest message readers
 
 This tested block builds/packs the ordinary tool, installs the exact package in
