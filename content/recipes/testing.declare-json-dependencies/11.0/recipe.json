@@ -109,7 +109,8 @@
             "Missing direct dependency fails CS0246; runtime-excluded test fails FileNotFoundException. Broken adapter discovery may exit zero with no tests; collector diagnostics must be checked.",
             "The tiny adapter only handles WeatherTests.dll and its one named method. This is bounded packaging proof, not a production test framework.",
             "CodeCoverage is present transitively but native coverage is not activated; only the original managed collector executes.",
-            "A Newtonsoft reference cannot restore removed communication APIs; no trimming, Native AOT, provider/device or cloud claim."
+            "A Newtonsoft reference cannot restore removed communication APIs; no trimming, Native AOT, provider/device or cloud claim.",
+            "The extensions deliberately match the managed CLI runtime; the usual portable netstandard extension recommendation and Visual Studio/.NET Framework processes are not validated by these examples."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -120,9 +121,10 @@
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
           "https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test",
-          "https://github.com/microsoft/vstest/blob/main/docs/overview.md",
+          "https://github.com/microsoft/vstest/blob/main/docs/Overview.md",
           "https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.4",
-          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies",
+          "https://github.com/Microsoft/vstest-docs/blob/main/docs/extensions/datacollector.md"
         ],
         "evidenceSamples": [
           "samples/net11.0/WeatherTests/WeatherTests.csproj",
@@ -208,7 +210,8 @@
             "Missing direct dependency fails CS0246; runtime-excluded test fails FileNotFoundException. Broken adapter discovery may exit zero with no tests; collector diagnostics must be checked.",
             "The tiny adapter only handles WeatherTests.dll and its one named method. This is bounded packaging proof, not a production test framework.",
             "CodeCoverage is present transitively but native coverage is not activated; only the original managed collector executes.",
-            "A Newtonsoft reference cannot restore removed communication APIs; no trimming, Native AOT, provider/device or cloud claim."
+            "A Newtonsoft reference cannot restore removed communication APIs; no trimming, Native AOT, provider/device or cloud claim.",
+            "The extensions deliberately match the managed CLI runtime; the usual portable netstandard extension recommendation and Visual Studio/.NET Framework processes are not validated by these examples."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -219,9 +222,10 @@
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
           "https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test",
-          "https://github.com/microsoft/vstest/blob/main/docs/overview.md",
+          "https://github.com/microsoft/vstest/blob/main/docs/Overview.md",
           "https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.4",
-          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies",
+          "https://github.com/Microsoft/vstest-docs/blob/main/docs/extensions/datacollector.md"
         ],
         "evidenceSamples": [
           "samples/net10.0/WeatherTests/WeatherTests.csproj",
@@ -241,7 +245,7 @@
       "title": "VSTest and Microsoft.Testing.Platform runner selection"
     },
     {
-      "url": "https://github.com/microsoft/vstest/blob/main/docs/overview.md",
+      "url": "https://github.com/microsoft/vstest/blob/main/docs/Overview.md",
       "title": "Official VSTest architecture and extension overview"
     },
     {
@@ -251,11 +255,15 @@
     {
       "url": "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies",
       "title": "PackageReference lock files and locked restore"
+    },
+    {
+      "url": "https://github.com/Microsoft/vstest-docs/blob/main/docs/extensions/datacollector.md",
+      "title": "Official collector naming, deployment and initialization contract"
     }
   ],
   "evidence": [
     {
-      "sample": "samples/net10.0/WeatherTestsLegacy/WeatherTestsLegacy.csproj",
+      "sample": "samples/WeatherJson/WeatherTestsLegacy.csproj",
       "target": "net10.0",
       "sdk": "10.0.402",
       "language": "14.0",
@@ -313,7 +321,7 @@
   ],
   "snippets": {
     "older-project": {
-      "path": "samples/net10.0/WeatherTestsLegacy/WeatherTestsLegacy.csproj",
+      "path": "samples/WeatherJson/WeatherTestsLegacy.csproj",
       "region": "project",
       "language": "xml"
     },
@@ -338,7 +346,7 @@
       "language": "xml"
     },
     "older-packages": {
-      "path": "samples/net10.0/WeatherTestsLegacy/Directory.Packages.props",
+      "path": "samples/WeatherJson/Directory.Packages.props",
       "region": "packages",
       "language": "xml"
     },

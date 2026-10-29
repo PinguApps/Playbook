@@ -6,6 +6,8 @@
     <LangVersion>14.0</LangVersion>
     <AssemblyName>WeatherStation.TestAdapter</AssemblyName>
     <IsTestProject>false</IsTestProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>

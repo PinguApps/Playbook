@@ -153,7 +153,7 @@ try {
     @{Path='net10.0/WeatherCollector';Name='WeatherCollector';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Extension=$true},
     @{Path='net11.0/WeatherCollector';Name='WeatherCollector';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Extension=$true},
     @{Path='net11.0/WeatherExtension';Name='WeatherExtension';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Extension=$true},
-    @{Path='net10.0/WeatherTestsLegacy';Name='WeatherTestsLegacy';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Extension=$false},
+    @{Path='WeatherJson';Name='WeatherTestsLegacy';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Extension=$false},
     @{Path='net10.0/WeatherTests';Name='WeatherTests';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.11.0';Extension=$false},
     @{Path='net11.0/WeatherTests';Name='WeatherTests';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Extension=$false}
   )
@@ -168,6 +168,11 @@ try {
     $restore = @('restore',"$($case.Name).csproj")
     if (Test-Path (Join-Path $directory 'packages.lock.json')) { $restore += '--locked-mode' }
     $null = Invoke-Consumer $dotnet $directory $restore
+    if ($Record) {
+      # NuGet writes CRLF on Windows; evidence must hash the same LF bytes Git stores.
+      $lock = Join-Path $directory 'packages.lock.json'
+      [IO.File]::WriteAllText($lock,(Get-Content $lock -Raw).Replace("`r`n","`n"))
+    }
     $assets = Read-Closure $directory $case.Target
     $dependencies = @($assets.libraries.Keys | Sort-Object -CaseSensitive)
     foreach ($package in ($packages | Where-Object { $_.version -ceq $case.Version })) {
@@ -213,7 +218,7 @@ try {
   }
   # The current package also supports an older target: the preceding net10 case ran it.
   # Missing direct dependency: update only Test.Sdk/TestHost, keep the original JSON source.
-  $probe = Copy-Probe (Join-Path $root 'samples/net10.0/WeatherTestsLegacy') 'no-direct-json'
+  $probe = Copy-Probe (Join-Path $root 'samples/WeatherJson') 'no-direct-json'
   $central = Join-Path $probe 'Directory.Packages.props'
   (Get-Content $central -Raw).Replace('[18.7.0]','[18.11.0]') | Set-Content $central
   $output = Invoke-Consumer $Net10Dotnet $probe @('build','WeatherTestsLegacy.csproj','-c','Release') 1

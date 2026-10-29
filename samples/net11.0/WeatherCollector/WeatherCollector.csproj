@@ -6,6 +6,8 @@
     <LangVersion>15.0</LangVersion>
     <AssemblyName>WeatherStation.Collector</AssemblyName>
     <IsTestProject>false</IsTestProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>

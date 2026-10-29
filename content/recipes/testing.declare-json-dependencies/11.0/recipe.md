@@ -97,11 +97,17 @@ adapter/collector projects target `net10.0`, declare C# 14 and ObjectModel
 18.7 and 18.11 runners. The .NET 11 extensions use ObjectModel **18.11.0**.
 This proves those exact public adapter/collector contracts, not arbitrary binary
 compatibility with older extensions.
+These extensions deliberately match the **managed CLI process runtime**. The
+publisher recommends portable netstandard extensions for broader use; a collector
+loaded by Visual Studio can run in a different runtime from the tests. Do not
+deploy these net10/net11-only examples into a .NET Framework collector process.
 
 ## Reproduce the deployment and failures
 
-Keep each project in its own directory under `samples/net10.0` or `samples/net11.0`;
-the `../../WeatherJson` paths above refer to the common original sources.
+Keep current projects in their own directories under `samples/net10.0` or
+`samples/net11.0`; the `../../WeatherJson` paths refer to the common original
+sources. The historical project lives directly in `samples/WeatherJson` and
+explicitly compiles only WeatherChecks.cs.
 Each directory has its own central package file and SDK pin. In `global.json`,
 set `sdk.version` to **10.0.402** or **11.0.100-rc.2.26504.105**,
 `sdk.rollForward` to `disable`, and `test.runner` to **VSTest**. C# mode is
@@ -208,10 +214,27 @@ only the public adapter/collector contracts. RC execution does not establish
 actual .NET 11 GA support. PIN-959 qualifying coverage/evidence and PIN-963 actual-GA
 reconciliation remain open; the exact eight .NET 10 foundations are unchanged.
 
+## Evidence
+
+All seven project closures have fresh compilation/execution records. Three real
+runner/test-host lanes each produce exactly one passed rainfall test, a successful
+discovery and collector initialization. Separate fresh consumers demonstrate
+CS0246, the test's missing-runtime FileNotFoundException, failed adapter discovery
+and the collector's missing-runtime initialization diagnostic. The net10 current
+lane executes Test.Sdk/TestHost 18.11.0 on runtime10; it is not cross-compilation
+presented as execution. Four audited ZIP hashes, restored bytes, selected assets,
+full locks, SDK-root manifests and exact CLI runner hashes qualify the claim.
+
+The bounded source audit establishes introduction and removal facts; actual
+consumers establish the behavior above. Installed-tool list/get inspection checks
+offline delivery, canonical snippet identity, edition, target conditions and
+evidence freshness. It does not establish untested platforms or GA readiness.
+
 ## Sources
 
 - [VSTest Newtonsoft removal and mitigation](https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json)
 - [VSTest versus MTP runner selection](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test)
-- [Test extension authoring](https://github.com/microsoft/vstest/blob/main/docs/overview.md)
+- [Test extension authoring](https://github.com/microsoft/vstest/blob/main/docs/Overview.md)
+- [Collector naming and deployment](https://github.com/Microsoft/vstest-docs/blob/main/docs/extensions/datacollector.md)
 - [Newtonsoft.Json 13.0.4 release](https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.4)
 - [Lock files and locked restore](https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies)

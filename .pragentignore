@@ -61,7 +61,7 @@
 
 # Test-JsonDependencies.ps1 generated command/SDK capture; review the harness,
 # canonical sources, locks, verification inputs and recipe. Pack checks freshness.
-/samples/net10.0/WeatherTestsLegacy/verification-evidence.json
+/samples/WeatherJson/verification-evidence.json
 /samples/net10.0/WeatherTests/verification-evidence.json
 /samples/net11.0/WeatherTests/verification-evidence.json
 /samples/net10.0/WeatherExtension/verification-evidence.json

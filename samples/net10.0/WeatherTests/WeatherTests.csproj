@@ -6,6 +6,8 @@
     <LangVersion>14.0</LangVersion>
     <AssemblyName>WeatherTests</AssemblyName>
     <IsTestProject>true</IsTestProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
