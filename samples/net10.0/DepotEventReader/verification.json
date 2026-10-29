@@ -1,7 +1,9 @@
 {
   "additionalInputs": [
     "samples/DepotEventProof",
-    "eng/Record-DepotEvents.ps1"
+    "eng/Record-DepotEvents.ps1",
+    "samples/net11.0/DepotEventReader/DepotProof.cs",
+    "samples/net11.0/DepotEventReader/DepotEvents.cs"
   ],
   "buildArguments": [
     "-p:UseSharedCompilation=false"

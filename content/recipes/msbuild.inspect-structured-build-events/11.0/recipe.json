@@ -177,7 +177,7 @@
   "snippets": {
     "reader": {
       "language": "csharp",
-      "path": "samples/DepotEventProof/DepotEvents.cs",
+      "path": "samples/net11.0/DepotEventReader/DepotEvents.cs",
       "region": "reader"
     },
     "settings": {
@@ -192,7 +192,7 @@
     },
     "constructors": {
       "language": "csharp",
-      "path": "samples/DepotEventProof/DepotProof.cs",
+      "path": "samples/net11.0/DepotEventReader/DepotProof.cs",
       "region": "constructors"
     }
   },

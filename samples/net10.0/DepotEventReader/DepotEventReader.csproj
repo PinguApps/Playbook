@@ -12,8 +12,8 @@
 <!-- endsnippet:settings -->
   <ItemGroup>
     <Compile Include="../../DepotEventProof/Bootstrap.cs" Link="Bootstrap.cs" />
-    <Compile Include="../../DepotEventProof/DepotProof.cs" Link="DepotProof.cs" />
-    <Compile Include="../../DepotEventProof/DepotEvents.cs" Link="DepotEvents.cs" />
+    <Compile Include="../../net11.0/DepotEventReader/DepotProof.cs" Link="DepotProof.cs" />
+    <Compile Include="../../net11.0/DepotEventReader/DepotEvents.cs" Link="DepotEvents.cs" />
     <None Include="../../DepotEventProof/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

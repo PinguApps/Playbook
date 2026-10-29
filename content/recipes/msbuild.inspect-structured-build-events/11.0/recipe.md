@@ -147,7 +147,7 @@ does not make an older host understand a newer event. In particular, actual
 the typed warning must not be required on that failure path. Both real consumers
 exercise that failure and check its stable error code.
 
-## Numbered migration steps
+## Migration
 
 1. Identify the actual build/logger/replay host and pin its full SDK closure.
    Keep application target, package build and SDK product version separate.
@@ -163,7 +163,7 @@ exercise that failure and check its stable error code.
 6. Check warning promotion and replay with matched tooling. Redact compact evidence
    while keeping graph identity; keep raw binlogs and private paths disposable.
 
-## Verification and boundaries
+## Evidence
 
 Run `eng/Record-DepotEvents.ps1` with absolute paths to the two complete SDK
 executables. It uses the existing sample-evidence workflow to compile and execute
@@ -181,6 +181,8 @@ and the separate warning-as-error binlog checks the real failure. No hand-made e
 substitutes for these checks. Exact raw commands/binlogs stay under ignored
 `artifacts/depot-events`; `<graph>`/`<dotnet-root>` in saved compact output stand
 for the generated directory and supplied SDK installation.
+
+## Constraints
 
 This is managed Windows x64 RC2 proof, with no Visual Studio/.NET Framework,
 independent package, NativeAOT, other-OS or universal server/reuse/performance claim.
