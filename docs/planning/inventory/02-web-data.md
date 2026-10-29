@@ -8,6 +8,18 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
+PIN-813 authors `signalr.refresh-live-credentials/11.0` and
+`blazor.react-to-refreshed-identity/11.0` with original CopperRidgeHub and
+ArchiveAccess .NET 10/RC2 comparisons. Real .NET and Node TypeScript WebSocket
+checks cover accepted/rejected refresh, events and a local negotiate gateway;
+real Chromium circuits cover notification-driven grant/revoke without navigation.
+The published Preview7 npm client lacks the final API: the current TypeScript
+route explicitly builds pinned first-party source, retaining its MIT license.
+This is development source-build evidence, not a published RC2 npm or Azure
+SignalR Service support claim. The older reconnect/manual-view actions remain
+valid. Fresh sample records and the existing isolated installed-MCP harness
+qualify the bounded content; comprehensive coverage and actual-GA gates stay open.
+
 **B11 / PIN-1165** delivers `blazor.handle-js-invocation-failures/11.0`:
 original .NET 10/RC2 browser module consumers, actual analyzer controls, scoped
 JS recovery, visible application errors and disconnected renderer teardown.

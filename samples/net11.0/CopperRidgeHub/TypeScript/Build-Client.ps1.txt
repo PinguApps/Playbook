@@ -1,0 +1,24 @@
+// snippet:complete
+[CmdletBinding()]
+param([string]$Node = 'C:\Program Files\nodejs\node.exe')
+$ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $true
+$root = $PSScriptRoot
+$commit = '4a70870818bf5662f21b0c28f9a8c267dccb77f0'
+$build = Join-Path $root 'generated'
+New-Item -ItemType Directory -Path $build -Force | Out-Null
+$archive = Join-Path $build 'aspnetcore.tar.gz'
+if (-not (Test-Path -LiteralPath $archive)) { Invoke-WebRequest "https://github.com/dotnet/aspnetcore/archive/$commit.tar.gz" -OutFile $archive }
+if ((Get-FileHash -LiteralPath $archive).Hash -cne '14B270942A1F1E547757ED3246950E34156A993B06BC98AEB4D4EA39299D9D3A') { throw 'First-party source archive differs.' }
+$tar = (Get-Command tar -CommandType Application).Source
+& $tar -xzf $archive -C $build "aspnetcore-$commit/src/SignalR/clients/ts/signalr/src" "aspnetcore-$commit/LICENSE.txt"
+$source = Join-Path $build "aspnetcore-$commit/src/SignalR/clients/ts/signalr/src"
+# Preserve the first-party source and its MIT notice. Only generated package version changes.
+[IO.File]::WriteAllText((Join-Path $source 'pkg-version.ts'), "export const VERSION = '11.0.0-dev-playbook-$($commit.Substring(0,7))';")
+$config = @{
+  compilerOptions = @{ target='es2019'; module='commonjs'; moduleResolution='node'; strict=$true; skipLibCheck=$true; declaration=$true; outDir=(Join-Path $build 'client'); types=@('node'); typeRoots=@((Join-Path $root 'node_modules/@types')); lib=@('es2019','dom') }
+  include = @((Join-Path $source '*.ts'))
+}
+$config | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $build 'tsconfig.json')
+& $Node (Join-Path $root 'node_modules/typescript/bin/tsc') --project (Join-Path $build 'tsconfig.json')
+// endsnippet:complete

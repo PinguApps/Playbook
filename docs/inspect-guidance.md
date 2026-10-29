@@ -87,6 +87,34 @@ With both SDKs and the measured Chromium/Playwright installations available,
 these responses and reruns their real browser/renderer checks. The script's
 `-Playwright` and `-Chromium` parameters take the absolute installed paths.
 
+## Live identity refresh
+
+For the live identity recipes, this block builds/packs the ordinary tool and
+uses the existing isolated local-feed/cache installation. It calls real stdio
+list/get from an unrelated directory and prints discovery ID/title/goal, complete
+canonical Markdown, applicability and fresh sample evidence. The walkthrough was
+launched from an unrelated directory. Setup may restore/download packages;
+retrieval uses unusable proxies, which establishes proxy independence rather
+than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2784b7c8'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('signalr.refresh-live-credentials','blazor.react-to-refreshed-identity') `
+  -Query 'live-identity' -PackageVersion '0.0.0-live-identity' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
+  -OutputDirectory ./artifacts/identity-tooling/inspection
+```
+
+Expect both explicit 11.0 editions, original .NET 10/RC2 consumers, the complete
+TypeScript development source-build prerequisite, local identity/provider limits
+and current compilation/execution records. `eng/Test-LiveIdentityConsumer.ps1`
+reconstructs the .NET and TypeScript consumers solely from these installed
+responses and executes their real hub and Interactive Server checks; supply
+absolute `-Playwright`, `-Chromium`, `-Dotnet` and `-Node` paths. This is bounded
+local execution, not Azure SignalR Service, production authentication or GA proof.
+
 ## Inspect a response directly
 
 ```powershell

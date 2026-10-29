@@ -1,0 +1,244 @@
+{
+  "id": "blazor.react-to-refreshed-identity",
+  "edition": "11.0",
+  "title": "Refresh user-specific content when authentication state changes",
+  "goal": "Subscribe to authentication-state notifications and reload user-specific content on the renderer dispatcher, keeping an Interactive Server page current without a forced reload.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "live-identity",
+    "archiveaccess",
+    "authentication"
+  ],
+  "apis": [
+    "AuthenticationStateProvider",
+    "AuthenticationStateChanged",
+    "NotifyAuthenticationStateChanged",
+    "InvokeAsync",
+    "BL0013"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Original old/new comparison; exact eight .NET 10 foundations unchanged.",
+          "Interactive Server; subscription already works on .NET 10, automatic propagation is context."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Primary route uses ASP.NET Core 11 contracts and analyzers."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assets; exact RC pins identify test evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical language mode; no C#15-only syntax is required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Implicit SDK-aligned Internal.Assets; actual dependencies and exact pins are in evidence."
+          ],
+          "providers": [
+            "Local demonstration identity; production trusted authentication is application-owned."
+          ],
+          "platforms": [
+            "ASP.NET Core server; measured Windows x64, Node 24.21.0 and Chromium. No native workload."
+          ],
+          "renderingModes": [
+            "Interactive Server; no prerender"
+          ],
+          "workloads": [],
+          "optIns": [],
+          "prerequisites": [
+            "Complete original projects below; local ephemeral listeners and matching SDKs."
+          ],
+          "constraints": [
+            "Local deterministic identity is test data, not production authentication.",
+            "No older-target refresh backport, provider/cloud, AOT or actual-GA guarantee."
+          ],
+          "stabilityLimitations": [
+            "GA-targeted edition verified on .NET 11 RC2; final GA reconciliation remains open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/security/authentication-state?view=aspnetcore-11.0",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Authorization/src/AuthenticationStateProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Analyzers/src/AuthenticationStateProviderAnalyzer.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ArchiveAccess/ArchiveAccess.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official authentication-state notifications",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/security/authentication-state?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Pinned authentication provider contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Authorization/src/AuthenticationStateProvider.cs"
+    },
+    {
+      "title": "Pinned authentication-state analyzer",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Components/Analyzers/src/AuthenticationStateProviderAnalyzer.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/ArchiveAccess/ArchiveAccess.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Razor compilation or actual Interactive Server authentication notification and content refresh; local provider only."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/ArchiveAccess/ArchiveAccess.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Razor compilation or actual Interactive Server authentication notification and content refresh; local provider only.",
+      "record": "samples/net10.0/ArchiveAccess/behavior.evidence.json"
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/ArchiveAccess/ArchiveAccess.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Razor compilation or actual Interactive Server authentication notification and content refresh; local provider only."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/ArchiveAccess/ArchiveAccess.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Razor compilation or actual Interactive Server authentication notification and content refresh; local provider only.",
+      "record": "samples/net11.0/ArchiveAccess/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-accessdesk-razor": {
+      "path": "samples/net10.0/ArchiveAccess/AccessDesk.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-app-razor": {
+      "path": "samples/net10.0/ArchiveAccess/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-archiveaccess-csproj": {
+      "path": "samples/net10.0/ArchiveAccess/ArchiveAccess.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-archiveidentity-cs": {
+      "path": "samples/net10.0/ArchiveAccess/ArchiveIdentity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ArchiveAccess/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ArchiveAccess/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ArchiveAccess/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ArchiveAccess/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ArchiveAccess/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-accessdesk-razor": {
+      "path": "samples/net11.0/ArchiveAccess/AccessDesk.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/ArchiveAccess/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-archiveaccess-csproj": {
+      "path": "samples/net11.0/ArchiveAccess/ArchiveAccess.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-archiveidentity-cs": {
+      "path": "samples/net11.0/ArchiveAccess/ArchiveIdentity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ArchiveAccess/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ArchiveAccess/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ArchiveAccess/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ArchiveAccess/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ArchiveAccess/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated real local runtime checks cover these bounded claims; production providers, cloud and actual GA remain unverified."
+  }
+}
