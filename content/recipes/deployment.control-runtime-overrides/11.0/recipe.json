@@ -1,0 +1,167 @@
+{
+  "id": "deployment.control-runtime-overrides",
+  "edition": "11.0",
+  "title": "Preserve production runtime settings while allowing development overrides",
+  "goal": "Keep production runtime settings reproducible while intentionally overriding duplicate host configuration properties during development, especially when moving from a .NET 10 host to .NET 11.",
+  "areas": [
+    "runtime",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "runtime-overrides",
+    "runtimeconfig",
+    "deployment",
+    "host-selection"
+  ],
+  "apis": [
+    "AppContext.GetData",
+    "RuntimeHostConfigurationOption",
+    "GenerateRuntimeConfigDevFile"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Use for .NET 11 host precedence; the .NET 10 consumer is a measured comparison, not a new target-10 foundation."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The native host parser changes duplicate configProperties precedence in .NET 11 Preview 6; identify hostfxr separately from the application target."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Builds the example; exact SDK pins and generation/copy behavior are recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C# 15 sample mode; the host configuration change itself is language independent."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "CoreCLR supported platforms; actual host and artifact execution verified on Windows x64 only."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Build with the intended SDK and run with an explicitly identified hostfxr/runtime; PowerShell 7 for the authoring check."
+          ],
+          "constraints": [
+            "Host runtimeOptions.configProperties only; no application-provider, Native AOT or universal publish-exclusion contract.",
+            "Deploy an inspected artifact set into a fresh directory; the three-file allowlist is valid only for this dependency-free sample."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Measured .NET 11 RC2 is not GA evidence; no experimental API or native workload is required."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/deployment/11/runtimeconfigdev-configproperties-precedence",
+          "https://learn.microsoft.com/en-us/dotnet/core/runtime-config/",
+          "https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#generateruntimeconfigurationfiles"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/deployment/11/runtimeconfigdev-configproperties-precedence",
+      "title": "Host configProperties precedence change"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/runtime-config/",
+      "title": "Durable runtime configuration inputs"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props#generateruntimeconfigurationfiles",
+      "title": "SDK runtime configuration properties"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/TidalDiagnostics/TidalDiagnostics.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual build and managed report execution; exact host behavior is separately verified in the execution record.",
+      "kind": "compile-and-run",
+      "target": "net10.0"
+    },
+    {
+      "sample": "samples/net10.0/TidalDiagnostics/TidalDiagnostics.csproj",
+      "record": "samples/net10.0/TidalDiagnostics/commands.evidence.json",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real isolated hostfxr/runtime precedence, nonduplicate merge, absent dev file, source regeneration, SDK generation/copy and production artifact execution; Windows x64 only.",
+      "kind": "execution",
+      "target": "net10.0"
+    },
+    {
+      "sample": "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual build and managed report execution; exact host behavior is separately verified in the execution record.",
+      "kind": "compile-and-run",
+      "target": "net11.0"
+    },
+    {
+      "sample": "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj",
+      "record": "samples/net11.0/TidalDiagnostics/commands.evidence.json",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real isolated hostfxr/runtime precedence, nonduplicate merge, absent dev file, source regeneration, SDK generation/copy and production artifact execution; Windows x64 only.",
+      "kind": "execution",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older-project": {
+      "language": "xml",
+      "path": "samples/net10.0/TidalDiagnostics/TidalDiagnostics.csproj",
+      "region": "project"
+    },
+    "report": {
+      "language": "csharp",
+      "path": "samples/net11.0/TidalDiagnostics/Program.cs",
+      "region": "report"
+    },
+    "newer-project": {
+      "language": "xml",
+      "path": "samples/net11.0/TidalDiagnostics/TidalDiagnostics.csproj",
+      "region": "project"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual managed CoreCLR host and artifact checks cover this bounded goal; no Human-only, native compiler or device requirement.",
+    "status": "not-required"
+  }
+}
