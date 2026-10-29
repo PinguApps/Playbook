@@ -17,7 +17,8 @@ foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]:
 $integration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 # The source audit selected primary packages, not these complete application/tool
 # closures. Qualify only these additional exact identities, with their reason;
-# Record-Evidence still requires the independent per-sample lock/manifest graph.
+# The map is batch-wide; each sample's independent lock/manifest graph is checked
+# before compilation or evidence capture in both operating modes.
 $additionalPackages = @{}
 foreach ($version in '10.0.13','11.0.0-rc.2.26504.105') {
   foreach ($id in @('Microsoft.Data.Sqlite.Core','Microsoft.EntityFrameworkCore.Abstractions',
@@ -38,7 +39,7 @@ foreach ($entry in @('Google.Api.CommonProtos/2.15.0','Google.Protobuf/3.27.0'))
 foreach ($entry in @('Microsoft.Extensions.ApiDescription.Server/6.0.5','Microsoft.OpenApi/1.6.14',
     'Swashbuckle.AspNetCore.Swagger/6.6.2','Swashbuckle.AspNetCore.SwaggerGen/6.6.2',
     'Swashbuckle.AspNetCore.SwaggerUI/6.6.2','Swashbuckle.AspNetCore/6.6.2')) {
-  $additionalPackages[$entry] = 'Historical Swagger0.10.11/Swashbuckle6.6.2 locked closure, distinct from newer OpenAPI audit selections; actual net10 service/document/comments/failures qualify this route only.'
+  $additionalPackages[$entry] = 'Batch-wide exact historical Swagger0.10.11/Swashbuckle6.6.2 identity, distinct from newer OpenAPI audit selections; consumer-checked by the actual net10 service/document/comments/failures in this batch.'
 }
 foreach ($entry in @('SQLitePCLRaw.bundle_e_sqlite3/2.1.13','SQLitePCLRaw.core/2.1.13',
     'SQLitePCLRaw.lib.e_sqlite3/2.1.13','SQLitePCLRaw.provider.e_sqlite3/2.1.13',
@@ -66,6 +67,46 @@ try {
       try {
         & $dotnetHost restore --locked-mode
         $properties = (& $dotnetHost msbuild -getProperty:NuGetPackageRoot,TargetFramework | ConvertFrom-Json).Properties
+        # Preflight the actual restored graph and ZIPs before any sample executes
+        # or Record-Evidence can write a new compilation record.
+        $assets = Get-Content 'obj/project.assets.json' -Raw | ConvertFrom-Json -AsHashtable
+        $manifest = Get-Content 'verification.json' -Raw | ConvertFrom-Json -AsHashtable
+        $resolved = @($assets.libraries.Keys | Sort-Object -CaseSensitive)
+        if ((ConvertTo-Json -InputObject $resolved -Compress) -cne (ConvertTo-Json -InputObject @($manifest.dependencies) -Compress)) {
+          throw "Restored graph differs from the per-sample verification manifest: $sample"
+        }
+        $lockedPackages = @{}
+        if ($resolved.Count -gt 0) {
+          $lock = Get-Content 'packages.lock.json' -Raw | ConvertFrom-Json -AsHashtable
+          $lockedPackages = $lock.dependencies[$properties.TargetFramework]
+        }
+        $baseline = $audit.baselines | Where-Object target -EQ "net$release.0"
+        $observations = [Collections.Generic.List[string]]::new()
+        $observations.Add('ACTUAL-RESOLVED-ASSETS ' + (ConvertTo-Json $assets.targets -Depth 50 -Compress))
+        foreach ($library in $resolved) {
+          $identity = $library.Split('/',2)
+          $locked = $lockedPackages[$identity[0]]
+          if ($null -eq $locked -or $locked.resolved -cne $identity[1] -or [string]::IsNullOrWhiteSpace($locked.contentHash)) {
+            throw "Missing exact package-lock identity/contentHash: $library"
+          }
+          $package = Join-Path $properties.NuGetPackageRoot ($library.ToLowerInvariant() + '/' + $library.Replace('/','.').ToLowerInvariant() + '.nupkg')
+          $hash = (Get-FileHash $package).Hash.ToLowerInvariant()
+          $audited = @($baseline.packages | Where-Object { "$($_.id)/$($_.version)" -ieq $library })
+          if ($audited.Count -eq 1) {
+            if ($hash -cne $audited[0].sha256) { throw "Audited ZIP mismatch: $library" }
+            $qualification = 'Exact ZIP matches the primary source audit.'
+          } elseif ($audited.Count -gt 1) {
+            throw "Ambiguous source-audit identity: $library"
+          } elseif ($additionalPackages.ContainsKey($library)) {
+            $qualification = $additionalPackages[$library]
+          } else {
+            throw "Unqualified additional package: $library. Review its exact identity and consumer before extending the qualification list."
+          }
+          [xml]$nuspec = Get-Content (Join-Path (Split-Path $package) ($identity[0].ToLowerInvariant() + '.nuspec')) -Raw
+          # NuGet's signed-package contentHash is not the raw ZIP file hash.
+          # Keep the independent lock value and observed ZIP SHA256 distinct.
+          $observations.Add("PACKAGE $library | SHA256=$hash | nugetLockContentHash=$($locked.contentHash) | auditMatch=$($audited.Count -eq 1) | qualification=$qualification | repository=$($nuspec.package.metadata.repository | ConvertTo-Json -Compress)")
+        }
         if ($name -eq 'TideSurvey' -and $release -eq '11') {
           & (Join-Path $directory 'Generate-Contract.ps1') -PackageRoot $properties.NuGetPackageRoot -Generator $generator
         }
@@ -83,7 +124,6 @@ try {
           & $dotnetHost build -c Release --no-restore
           if ($kind -eq 'compile-and-run') { & $dotnetHost "bin/Release/net$release.0/$name.dll" }
         }
-        $observations = [Collections.Generic.List[string]]::new()
         if ($name -eq 'VolunteerAccess') {
           $publish = Join-Path $output "volunteer$release"
           & $dotnetHost publish -c Release --no-restore -o $publish
@@ -113,26 +153,6 @@ try {
             # Leave ordinary build output consistent with the authored Bootstrap5 project.
             & $dotnetHost build -c Release --no-restore
           }
-        }
-        $assets = Get-Content 'obj/project.assets.json' -Raw | ConvertFrom-Json -AsHashtable
-        $baseline = $audit.baselines | Where-Object target -EQ "net$release.0"
-        $observations.Add('ACTUAL-RESOLVED-ASSETS ' + (ConvertTo-Json $assets.targets -Depth 50 -Compress))
-        foreach ($library in ($assets.libraries.Keys | Sort-Object -CaseSensitive)) {
-          $package = Join-Path $properties.NuGetPackageRoot ($library.ToLowerInvariant() + '/' + $library.Replace('/','.').ToLowerInvariant() + '.nupkg')
-          $hash = (Get-FileHash $package).Hash.ToLowerInvariant()
-          $audited = @($baseline.packages | Where-Object { "$($_.id)/$($_.version)" -ieq $library })
-          if ($audited.Count -eq 1) {
-            if ($hash -cne $audited[0].sha256) { throw "Audited ZIP mismatch: $library" }
-            $qualification = 'Exact ZIP matches the primary source audit.'
-          } elseif ($audited.Count -gt 1) {
-            throw "Ambiguous source-audit identity: $library"
-          } elseif ($additionalPackages.ContainsKey($library)) {
-            $qualification = $additionalPackages[$library]
-          } else {
-            throw "Unqualified additional package: $library. Review its exact identity and consumer before extending the qualification list."
-          }
-          [xml]$nuspec = Get-Content (Join-Path (Split-Path $package) ($library.Split('/')[0].ToLowerInvariant() + '.nuspec')) -Raw
-          $observations.Add("PACKAGE $library | SHA256=$hash | auditMatch=$($audited.Count -eq 1) | qualification=$qualification | repository=$($nuspec.package.metadata.repository | ConvertTo-Json -Compress)")
         }
         $framework = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
         $sdk = if ($release -eq '10') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
