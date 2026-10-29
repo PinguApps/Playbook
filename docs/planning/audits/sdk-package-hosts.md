@@ -37,7 +37,7 @@ The recipe retains this drift instead of claiming an unobserved default warning.
 Fresh sample evidence and exact installed-tool retrieval establish the bounded
 delivery; other proposals, actual GA reconciliation and PIN-959/PIN-963 remain open.
 
-Reviewed **21 October 2026**. This is a bounded source and distributable-metadata audit. Seven full compatibility notes and the affected-test claim have accountable dispositions. Nine narrow delivery proposals await backlog approval. No recipe, consumer implementation or release is delivered by closing this audit.
+Reviewed **21 October 2026**. This is a bounded source and distributable-metadata audit. Seven full compatibility notes and the affected-test claim have accountable dispositions. At that review, nine narrow delivery proposals awaited approval; subsequent deliveries are recorded above. Audit closure alone did not deliver a recipe, consumer implementation or release.
 
 ## Scope and provenance
 

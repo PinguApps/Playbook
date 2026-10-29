@@ -37,8 +37,9 @@ Use exact SDK **10.0.402 / 11.0.100-rc.2.26504.105** pins in `global.json`
 beside the matching project: `sdk.version` is the chosen version,
 `rollForward` is `disable`, and `allowPrerelease` is true only for RC2.
 Language modes are C# **14 / 15**; the restore change itself is language
-independent and was introduced in **.NET 11 RC1**. It is not enabled/disabled
-by lowering `SdkAnalysisLevel`.
+independent and was introduced in **.NET 11 RC1**. The restore checks below use
+each SDK's default analysis policy; only the separate pack recipe tests lowering
+`SdkAnalysisLevel`.
 
 ## Construct the controlled sources and caches
 
@@ -89,7 +90,8 @@ Run the matching absolute SDK executable from each consumer directory:
    and `packages.lock.json`. Build with
    `build Consumer.csproj -c Release --no-restore`, then execute
    `bin/Release/net11.0/Consumer.dll` (or `net10.0`). It prints `reading=12.5`
-   and the actually loaded library package version.
+   and the loaded library assembly version, which matches the packed package
+   version in this sample. Assets and lock files establish the package selection.
 
 SDK 10 selects **2.5.0**; SDK 11 selects **2.8.0**. On the actual tested
 artifacts, these default **direct** requests emit **NU1601**, rather than the
