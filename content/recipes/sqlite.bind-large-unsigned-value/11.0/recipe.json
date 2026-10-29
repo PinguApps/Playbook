@@ -67,7 +67,7 @@
               "name": "Microsoft.Data.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Current capability/analyzer verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
+              "reason": "Current capability verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
             }
           ],
           "packageAssets": [
@@ -141,7 +141,7 @@
               "name": "Microsoft.Data.Sqlite",
               "version": "11.0",
               "match": "release-family",
-              "reason": "Current capability/analyzer verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
+              "reason": "Current capability verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
             }
           ],
           "packageAssets": [

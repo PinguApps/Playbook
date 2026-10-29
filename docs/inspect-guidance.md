@@ -124,7 +124,8 @@ This checked example starts from an unrelated directory, selects this worktree,
 builds/packs the ordinary tool and uses the existing isolated feed/cache harness.
 It displays ID/title/goal, complete canonical Markdown, applicability and current
 sample evidence through real installed stdio list/get. Requires PowerShell 7,
-SDK 10.0.402 and Node 22.19+; setup can restore online. Retrieval uses unusable
+SDK 10.0.402 and Node 22.19+; the separate EF1004 reproduction additionally needs
+SDK 11.0.100-rc.2.26504.105. Setup can restore online. Retrieval uses unusable
 proxies, demonstrating proxy independence rather than network isolation.
 
 ```powershell

@@ -569,8 +569,9 @@ other platforms/providers, actual-GA and comprehensive publication gates open.
   before PIN-959 can claim comprehensive closure.
 - **U2 — direct SQLite differences.** The actual selected net8/net10 declarations
   are identical. Half/UInt128 support changes bind/map behavior without a new
-  direct public method. The source-backed E23/PIN-862 obligations remain;
-  identical API shape is not execution evidence or a no-content conclusion.
+  direct public method. Half (E23) remains separate; PIN-862 now delivers UInt128
+  binding, while reader UInt128 retrieval remains unsupported. Identical API
+  shape alone is not execution evidence or a no-content conclusion.
 - **U3 — residual extension contracts.** The finite raw lines/counts retain
   ModelValidator/dependency/member-classifier changes; remaining model/convention
   and JSON relational-element metadata; query SQL visitors/collation quoting,
