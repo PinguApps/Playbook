@@ -4,6 +4,9 @@
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>14.0</LangVersion>
     <IsTestProject>false</IsTestProject>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup>
@@ -12,7 +15,6 @@
     <Compile Include="../../LaboratoryMessages/TypedBridge.cs" Link="TypedBridge.cs" />
     <Compile Include="../../LaboratoryMessages/Program.cs" Link="Program.cs" />
     <Compile Include="../../LaboratoryMessages/SurfaceChecks.cs" Link="SurfaceChecks.cs" />
-
   </ItemGroup>
 </Project>
 <!-- endsnippet:project -->
