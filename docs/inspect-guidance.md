@@ -522,6 +522,36 @@ and omitted-initialization failure using SDK10.0.402 and SDK11 RC2. That helper
 records the loaded DLL/version/hash; retrieval does not execute SQL. Encryption,
 other platforms and actual GA remain unverified. No paid provider is selected.
 
+## Protect data into owned storage
+
+This checked block starts from an unrelated directory, selects the PIN-1171
+worktree, builds/packs the ordinary tool and installs that exact artifact in the
+existing isolated local feed/cache. It calls real stdio list/get and displays the
+ID/title/goal, full canonical Markdown, explicit target/edition, applicability and
+fresh evidence. Setup requires PowerShell7, SDK10.0.402 and Node22.19+; paired
+sample reproduction also requires SDK11.0.100-rc.2.26504.105 at its declared path.
+Setup may restore online; retrieval uses unusable proxies, demonstrating proxy
+independence rather than network isolation. Inspector2.11.0 is installed locally.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1171-04-096-protect-data-directly-into-an-owned-buffer'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'security.protect-into-buffer' -TargetVersion '11.0' `
+  -Query 'owned-buffer' -PackageVersion '0.0.0-museum-buffer' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/museum-buffer/inspection
+```
+
+Expect edition11.0, two current real compilation/execution records, complete
+original .NET10 array/.NET11 span/fallback source and advanced AAD checks. The
+actual Windows x64 framework CNG key encryptor handles token/empty/1MiB recovery;
+wrong purpose/key ring, tampering and changed AAD reject and clear failed output.
+Target10 has no applicable span edition; the old array comparison remains in the
+11.0 body. No universal allocation count, other backend/platform or actual-GA
+claim is made. PIN-959/PIN-964 and existing Human gates remain open. Samples stay
+author-maintained under the existing dependency boundary.
+
 ## SQLite time components
 
 This block was checked starting from an unrelated directory. It selects the exact

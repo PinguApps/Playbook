@@ -1,0 +1,11 @@
+{
+  "dependencies": [],
+  "nativeToolchains": [],
+  "buildArguments": [],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    ".editorconfig"
+  ]
+}
