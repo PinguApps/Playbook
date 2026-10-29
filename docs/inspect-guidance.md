@@ -28,6 +28,41 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Typed VSTest message readers
+
+This tested block builds/packs the ordinary tool, installs the exact package in
+an isolated local feed/cache, then calls installed stdio list/get from an
+unrelated directory. It prints ID/title/goal, complete canonical Markdown,
+explicit target/edition, applicability and all three current evidence records.
+PowerShell7, SDK 10.0.402 and Node22.19+ are required; setup may use the network.
+Retrieval uses unusable proxies, proving proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1073-03-021-read-vstest-messages-through-the-supported-typed'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'testing.migrate-vstest-message-readers' -Query 'vstest-messages' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1073' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1073/inspection
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'testing.migrate-vstest-message-readers' -Query 'vstest-messages' `
+  -TargetVersion '10.0' -PackageVersion '0.0.0-pin1073' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1073/inspection10
+```
+
+Expect title "Read VSTest messages through the supported typed contract",
+edition 11.0 and a conditional target10 route. The laboratory examples retain
+actual 18.7/18.11 package and SDK/runtime distinctions, typed TestCase/traits/
+TestResult/ITestRunStatistics checks, protocol/header/failure semantics and the
+concrete-statistics limitation. Custom resolver/converter extensions have no
+replacement promised. `eng/Test-VSTestMessages.ps1 -Record` captures the separate
+real published-consumer, foreign-wire, removed-symbol and ABI proof with both
+healthy pinned SDK executables. Retrieval is not actual-GA or arbitrary test-host
+integration evidence; PIN-959/PIN-963 and independent Human gates remain open.
+
 ## Deliberate database-provider replacement
 
 This tested example selects the PIN-1190 worktree from an unrelated directory,

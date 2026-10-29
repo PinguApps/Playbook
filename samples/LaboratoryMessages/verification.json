@@ -1,0 +1,21 @@
+{
+  "workloads": [],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.TestPlatform.ObjectModel/18.7.0",
+    "Microsoft.TestPlatform.TestHost/18.7.0",
+    "Newtonsoft.Json/13.0.3"
+  ],
+  "additionalInputs": [
+    "samples/LaboratoryMessages/LabRun.cs",
+    "samples/LaboratoryMessages/TypedBridge.cs",
+    "samples/LaboratoryMessages/LegacyReader.cs",
+    "samples/LaboratoryMessages/SurfaceChecks.cs",
+    "samples/LaboratoryMessages/Program.cs",
+    "eng/Evidence.ps1",
+    "eng/Test-VSTestMessages.ps1",
+    "docs/planning/audits/sdk-package-hosts.assets.json",
+    "docs/planning/audits/sdk-package-hosts.sources.json"
+  ],
+  "nativeToolchains": []
+}
