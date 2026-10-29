@@ -233,9 +233,9 @@ every old/current obsolete declaration rather than checking only custom IDs.
    actual asset. Source-name disagreement is retained rather than papered over.
 4. Preview 6 says the default SQLite dependency changed to SQLite3MC; the complete
    breaking article also describes bundle_e_sqlite3 2.1.12. Actual RC2 wrappers
-   depend on **SQLitePCLRaw.bundle_e_sqlite3/core 3.0.5**. PIN-864 must choose and
-   execute its explicit native route; no package identity implies encryption
-   compatibility.
+   depend on **SQLitePCLRaw.bundle_e_sqlite3/core 3.0.5**. PIN-864 delivered the
+   Windows x64 `provider.winsqlite3`/`SetProvider` route described above. These
+   historical dependency statements do not imply encryption compatibility.
 5. Documentation promises a later vector auto-load mechanism. RC2 exposes
    PropertyEntry.IsLoaded and mutable metadata flags, but that alone establishes
    no supported fluent loader. PIN-856's explicit projection stays valid; E4 must
