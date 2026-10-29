@@ -132,7 +132,14 @@ HTTP uploads are refused by default. The explicit insecure flag in this example
 is restricted to a disposable literal `127.0.0.1` fixture, checked for both the
 source and discovered endpoint. Its local service index needs its separate
 `PackageSource.AllowInsecureConnections` opt-in. Neither opt-in is a TLS trust
-override. Use the service's supported secure transport outside that fixture;
+override. With **either flag value**, this publisher additionally requires the
+advertised upload endpoint's scheme, host and port to match the service index
+before passing a key or file to NuGet. This is the example's explicit authorization
+policy, not a restriction imposed by the staging protocol. A legitimate provider
+using a different upload origin needs a separately reviewed explicit endpoint
+policy and real provider checks before adapting this example. Do not remove the
+guard merely because an index names another host. The index and its same-origin
+paths still need to be trusted. Use the service's supported secure transport outside that fixture;
 this recipe configures no certificates, global TLS bypass or certificate store.
 HTTPS trust/refusal, redirects, credentials and hosted authentication flows are
 not qualified by this HTTP-only protocol exercise.
@@ -192,9 +199,17 @@ multipart bytes/routes/key presence, HTTP400 failure and absence of the staging
 type. The current run verifies real network discovery/endpoint selection,
 original file names, byte identity, chunk framing, key present/absent, group
 present/null/empty, 201 success, HTTP400 rejection, unsupported resource absence,
-HTTP refusal before upload, loopback-only opt-in, cancellation and request
-timeout. The owned TCP listener/clients stop during async disposal; temporary
+HTTP refusal before upload, loopback-only opt-in, default/fixture origin rejection,
+cancellation and request timeout. URI-only checks separately verify host, scheme
+and port policy, including normalized host case/default port; they are not HTTPS
+transport evidence. Separate indexes omit the staging entry entirely or advertise
+an unsupported version. Real malformed header/chunk/length connections close
+without faulting fixture teardown. The owned TCP listener/clients stop during async disposal; temporary
 packages are deleted. Raw diagnostics remain ignored and keys are not logged.
+The capture wrapper's default SDK paths are local authoring-machine defaults;
+elsewhere pass both `-Net10Dotnet` and `-Net11Dotnet` as absolute executable paths
+for complete matching installations. No portability beyond the stated platform
+and prerequisites is claimed.
 
 Ordinary installed-tool stdio list/get verifies ID/title/**goal**, the entire
 expanded canonical body, explicit target11/edition11, applicability and current

@@ -946,7 +946,7 @@ handling." Saved paired proof records original SDK pack/PDB validation and real
 wire checks. Current staging verifies advertised endpoint/PUT/chunked multipart bytes,
 original filenames, route/query, group present/null/empty and key present/absent
 without printing its value, HTTP201/400, missing supported resource, default HTTP
-refusal, loopback-only insecure opt-in, received cancellation and request timeout.
+refusal, same-origin authorization with default/fixture flags, loopback-only insecure opt-in, received cancellation and request timeout. URI-only policy checks are separate from HTTPS transport proof; malformed header/chunk/length connections also close with complete owned cleanup.
 SDK10 verifies actual ordinary publication, fixed package.nupkg filename and its
 HTTP400 failure, with no staging API/group equivalent. The fixture stops its own
 listener/clients and removes temporary packages. Any nonzero exit, stale evidence,

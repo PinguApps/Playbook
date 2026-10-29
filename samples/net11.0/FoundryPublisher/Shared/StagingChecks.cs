@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.IO.Compression;
 using System.Net.Http.Headers;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Security.Cryptography;
@@ -17,6 +18,8 @@ internal static class StagingChecks
     public static async Task Run(string sdkRoot)
     {
         CheckArtifacts(sdkRoot);
+        await CheckOriginPolicy();
+        await CheckMalformedCleanup();
         string root = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../../.."));
         string fixture = Path.Combine(root, "artifacts", "foundry-staging", Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(fixture);
@@ -74,6 +77,8 @@ internal static class StagingChecks
             await Reject<InvalidOperationException>(() => Publisher.Stage(Publisher.Open(server.Origin + "/missing-publisher.json", true), package, symbols, null, null, true, CancellationToken.None));
             Require(server.Uploads.Count == before, "Missing resource sent data");
             await Reject<InvalidOperationException>(() => Publisher.Stage(Publisher.Open(server.Origin + "/alien.json", true), package, symbols, marker, null, true, CancellationToken.None));
+            // Discovery alone uses the fixture HTTP opt-in. Upload keeps its default false.
+            await Reject<InvalidOperationException>(() => Publisher.Stage(Publisher.Open(server.Origin + "/alien-default.json", true), package, symbols, marker, null, false, CancellationToken.None));
             Require(server.Uploads.Count == before, "Non-fixture discovered endpoint sent data");
             server.Status = 400;
             await Reject<HttpRequestException>(() => resource.PushPackageAsync(package, null, null, TimeSpan.FromSeconds(5), true, NullLogger.Instance, CancellationToken.None));
@@ -104,6 +109,9 @@ internal static class StagingChecks
             Check(receipt, package, "/published/", "package", marker, null, chunked: true, filename: "package.nupkg");
             server.Status = 400;
             await Reject<HttpRequestException>(() => Publisher.Publish(repository, package, marker, CancellationToken.None, allowLoopbackHttp: true));
+            int before = server.Uploads.Count;
+            await Reject<InvalidOperationException>(() => Publisher.Publish(Publisher.Open(server.Origin + "/alien-default.json", true), package, marker, CancellationToken.None));
+            Require(server.Uploads.Count == before, "Older default publisher sent data to another advertised origin");
             Console.WriteLine("PASS actual SDK10 lacks staging API; ordinary PackagePublish/2.0.0 discovery and real chunked multipart publication work; HTTP400 rejected. Fixed package.nupkg filename, no group metadata or staging equivalence.");
 #endif
             // Identify every SDK assembly actually loaded; compare its exact file to pins.
@@ -150,6 +158,52 @@ internal static class StagingChecks
         try { await operation(); }
         catch (T) { return; }
         throw new InvalidOperationException("Expected " + typeof(T).Name);
+    }
+
+    private static async Task CheckMalformedCleanup()
+    {
+        foreach (string request in new[]
+        {
+            "PUT /published/ HTTP/1.1\r\nMissingColon\r\n\r\n",
+            "PUT /published/ HTTP/1.1\r\nTransfer-Encoding: chunked\r\n\r\nZ\r\n",
+            "PUT /published/ HTTP/1.1\r\nContent-Length: nope\r\n\r\n"
+        })
+        {
+            await using var server = new WireServer();
+            using var client = new TcpClient();
+            await client.ConnectAsync("127.0.0.1", new Uri(server.Origin).Port);
+            var stream = client.GetStream();
+            await stream.WriteAsync(Encoding.ASCII.GetBytes(request));
+            byte[] probe = new byte[1];
+            try
+            {
+                Require(await stream.ReadAsync(probe).AsTask().WaitAsync(TimeSpan.FromSeconds(5)) == 0, "Malformed client did not close");
+            }
+            catch (IOException e) when (e.InnerException is SocketException { SocketErrorCode: SocketError.ConnectionReset })
+            {
+                // Closing a rejected request with unread bytes may reset the connection.
+            }
+            // Async disposal must finish after every rejected real connection.
+        }
+        Console.WriteLine("PASS malformed header/chunk/length connections close and owned fixture disposal completes.");
+    }
+
+    private static async Task CheckOriginPolicy()
+    {
+        var index = new Uri("https://foundry.example.invalid/index.json");
+        Publisher.CheckAdvertisedEndpoint(index, new Uri("https://FOUNDRY.example.invalid:443/staging/"), false);
+        foreach (string endpoint in new[] { "https://other.example.invalid/staging", "https://foundry.example.invalid:444/staging", "http://foundry.example.invalid/staging" })
+            await Reject<InvalidOperationException>(() =>
+            {
+                Publisher.CheckAdvertisedEndpoint(index, new Uri(endpoint), false);
+                return Task.CompletedTask;
+            });
+        await Reject<InvalidOperationException>(() =>
+        {
+            Publisher.CheckAdvertisedEndpoint(new Uri("http://127.0.0.1:42001/index.json"), new Uri("http://127.0.0.1:42002/staging"), true);
+            return Task.CompletedTask;
+        });
+        Console.WriteLine("PASS URI-only same-origin policy accepts equivalent default port/case and rejects changed host/port/scheme with default flags; fixture opt-in also rejects a changed port. No HTTPS transport is exercised by these URI checks.");
     }
 
     private static void CheckArtifacts(string sdkRoot)

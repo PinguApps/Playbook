@@ -56,6 +56,7 @@ internal sealed class WireServer : IAsyncDisposable
                 for (string line = await Line(stream); line.Length > 0; line = await Line(stream))
                 {
                     int colon = line.IndexOf(':', StringComparison.Ordinal);
+                    if (colon <= 0) throw new InvalidDataException("Malformed header");
                     headers.Add(line[..colon], line[(colon + 1)..].Trim());
                 }
                 if (headers.TryGetValue("Expect", out var expect) && expect == "100-continue")
@@ -73,14 +74,16 @@ internal sealed class WireServer : IAsyncDisposable
                 }
                 else if (headers.TryGetValue("Content-Length", out var size)) await Copy(stream, body, int.Parse(size));
                 string[] request = first.Split(' ');
+                if (request.Length != 3) throw new InvalidDataException("Malformed request line");
                 if (request[0] == "GET")
                 {
                     string type = request[1].Contains("missing", StringComparison.Ordinal) ? "PackageStaging/9.0.0" : "PackageStaging/1.0.0";
-                    var resources = new[]
+                    var resources = new List<Dictionary<string, string>>
                     {
                         new Dictionary<string, string> { ["@id"] = request[1].Contains("alien", StringComparison.Ordinal) ? Endpoint.Replace("127.0.0.1", "localhost", StringComparison.Ordinal) : Endpoint, ["@type"] = type },
-                        new Dictionary<string, string> { ["@id"] = Origin + "/published", ["@type"] = "PackagePublish/2.0.0" }
+                        new Dictionary<string, string> { ["@id"] = (request[1].Contains("alien", StringComparison.Ordinal) ? Origin.Replace("127.0.0.1", "localhost", StringComparison.Ordinal) : Origin) + "/published", ["@type"] = "PackagePublish/2.0.0" }
                     };
+                    if (request[1].Contains("missing-publisher", StringComparison.Ordinal)) resources.RemoveAt(0);
                     await Respond(stream, 200, JsonSerializer.SerializeToUtf8Bytes(new { version = "3.0.0", resources }));
                 }
                 else if (request[0] == "PUT" && request[1] is "/foundry/batches/package?lane=bronze" or "/foundry/batches/symbols?lane=bronze" or "/published/")
@@ -99,6 +102,10 @@ internal sealed class WireServer : IAsyncDisposable
             }
             catch (OperationCanceledException) when (stop.IsCancellationRequested) { }
             catch (IOException) { /* The client may disconnect after timeout/cancellation. */ }
+            catch (InvalidDataException) { /* Reject malformed framing and close only this client. */ }
+            catch (FormatException) { /* Invalid chunk size or content length. */ }
+            catch (OverflowException) { /* Out-of-range chunk size or content length. */ }
+            catch (ArgumentException) { /* Duplicate headers or invalid byte counts. */ }
         }
     }
 
@@ -136,12 +143,18 @@ internal sealed class WireServer : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        await stop.CancelAsync();
-        listener.Stop();
-        await accepting;
-        await Task.WhenAll(clients);
-        listener.Dispose();
-        stop.Dispose();
+        try
+        {
+            await stop.CancelAsync();
+            listener.Stop();
+            try { await accepting; }
+            finally { await Task.WhenAll(clients); }
+        }
+        finally
+        {
+            listener.Dispose();
+            stop.Dispose();
+        }
     }
 }
 

@@ -89,7 +89,7 @@
           "constraints": [
             "Discover using real core providers and SourceRepository.GetResourceAsync; the staging constructor is internal. Missing/unsupported resource fails without ordinary-push fallback.",
             "PUT chunked multipart original filename/bytes; package/symbols fields and routes, optional groupId, nonempty API-key header. SourceUri equals advertised endpoint; appended path retains query.",
-            "Default HTTP refused. Insecure opt-in is bounded to disposable literal127.0.0.1 source and discovered endpoint; no TLS override/store change. Generated fixture marker is never printed.",
+            "Both flag values additionally require the advertised endpoint scheme/host/port to match the index origin before any key/file is passed to NuGet. Cross-origin providers need a separately reviewed explicit endpoint policy. Default HTTP refused. Insecure opt-in is bounded to disposable literal127.0.0.1 source and discovered endpoint; no TLS override/store change. Generated fixture marker is never printed.",
             "Success is upload acceptance only: no final publication, atomic grouping, idempotency, rollback or hosted interoperability promise. Status/cancellation/timeout can leave partial service state.",
             "No independently distributed package8, down-level staging, private/reflection resource construction, mixed dependency ABI, HTTPS/certificate/redirect/authentication-flow or performance claim."
           ],
@@ -142,7 +142,7 @@
       "kind": "compile-and-run"
     },
     {
-      "scope": "Actual audited SDK NuGet8 closure and original nupkg/snupkg; real service-index discovery and exact endpoint/PUT/chunked multipart bytes/routes/filenames/content types; group present/null/empty, key present/absent, 201, HTTP400, missing/unsupported resource, HTTP refusal, loopback opt-in guards, received cancellation/request-timeout. Local protocol conformance, no hosted interoperability/TLS/GA proof.",
+      "scope": "Actual audited SDK NuGet8 closure and original nupkg/snupkg; real service-index discovery and exact endpoint/PUT/chunked multipart bytes/routes/filenames/content types; group present/null/empty, key present/absent, 201, HTTP400, distinct absent/unsupported resource, HTTP refusal, loopback/default origin guards, URI-only host/port/scheme controls, real malformed header/chunk/length cleanup, received cancellation/request-timeout. Local protocol conformance, no hosted interoperability/TLS/GA proof.",
       "language": "15.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "target": "net11.0",
