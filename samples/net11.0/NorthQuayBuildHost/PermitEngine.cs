@@ -39,6 +39,8 @@ internal static class PermitEngine
         {
             var project = ProjectInstance.FromFile(Path.Combine(AppContext.BaseDirectory, "Quay.proj"),
                 new ProjectOptions { ProjectCollection = projects, GlobalProperties = properties });
+            if (arguments.Contains("--missing-resolver"))
+                throw new InvalidOperationException("Missing resolver unexpectedly evaluated the project");
             if (project.GetPropertyValue("PermitOffice") != "North Quay" || project.GetPropertyValue("PermitCode") != "NQ-017")
                 throw new InvalidOperationException("Imported permit properties differ");
             Console.WriteLine("EVALUATED North Quay NQ-017; no task has run");

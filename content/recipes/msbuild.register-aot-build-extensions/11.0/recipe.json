@@ -1,0 +1,330 @@
+{
+  "id": "msbuild.register-aot-build-extensions",
+  "edition": "11.0",
+  "title": "Register a closed set of build extensions in an AOT host",
+  "goal": "Choose and verify a fixed resolver, task and logger set when embedding MSBuild in a native host, retaining a managed alternative for reflective execution and observing missing-registration failures.",
+  "areas": [
+    "msbuild",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "native-build-extensions",
+    "nativeaot",
+    "closed-set",
+    "host-registration"
+  ],
+  "apis": [
+    "SdkResolver.Register",
+    "Task.RegisterTask",
+    "TaskItem.RegisterTaskParameterItemType",
+    "TaskItem.RegisterTaskParameterValueType",
+    "ProjectCollection.RegisterLogger",
+    "BuildParameters.Loggers",
+    "BuildManager.Build"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "The host target is independent of its fixed evaluated project. Native execution is measured, not inferred from metadata or cross-compilation.",
+          "Keep the actual SDK10 managed alternative. Static registration does not exist there and the current package has net11.0 assets; no down-level route is advertised.",
+          "Retained IL2026 is an explicit limitation. Only the supplied closed set and toolchain were exercised."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0.0-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Managed comparison/runtime and native runtime pack; native executable includes its runtime."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0.100-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Exact qualified RC2 compiler/native publish and complete SDK toolset context; global.json rollForward=disable."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Actual compiled setting; no preview language syntax or switch required."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "Microsoft.Build",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Actual public net11.0 package assets, distinct from the bundled SDK18.12 build."
+            },
+            {
+              "name": "Microsoft.Build.Framework",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Actual public net11.0 package assets, distinct from the bundled SDK18.12 build."
+            },
+            {
+              "name": "Microsoft.Build.Utilities.Core",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Actual public net11.0 package assets, distinct from the bundled SDK18.12 build."
+            },
+            {
+              "name": "Microsoft.NET.StringTools",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Actual public net11.0 package assets, distinct from the bundled SDK18.12 build."
+            },
+            {
+              "name": "NuGet.Frameworks",
+              "version": "7.9.0",
+              "match": "exact",
+              "reason": "Actual net8.0 helper asset; complete locked framework-reader closure."
+            },
+            {
+              "name": "Microsoft.VisualStudio.SolutionPersistence",
+              "version": "1.0.52",
+              "match": "exact",
+              "reason": "Actual net8.0 helper asset; presence does not qualify solution execution."
+            },
+            {
+              "name": "System.Configuration.ConfigurationManager",
+              "version": "10.0.10",
+              "match": "exact",
+              "reason": "Transitive version in the actual reviewed package lock."
+            },
+            {
+              "name": "System.Diagnostics.EventLog",
+              "version": "10.0.10",
+              "match": "exact",
+              "reason": "Transitive version in the actual reviewed package lock."
+            },
+            {
+              "name": "System.Reflection.MetadataLoadContext",
+              "version": "10.0.10",
+              "match": "exact",
+              "reason": "Transitive version in the actual reviewed package lock."
+            },
+            {
+              "name": "System.Security.Cryptography.ProtectedData",
+              "version": "10.0.10",
+              "match": "exact",
+              "reason": "Transitive version in the actual reviewed package lock."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Current public MSBuild packages18.11.0 net11.0, product18.11.0-1.26512.6 at source1b17a019; not bundled18.12.0-1.26504.105. Native pack/ILCompiler/ILLink11RC2 are SDK-selected and locked.",
+            "Import the actual Framework buildTransitive/net10.0 target because the current-TFM placeholder can hide defaults. No copied SDK internals.",
+            "Older managed SDK10.0.402 MSBuild18.9.15 loads the complete installed closure through locked Locator1.11.2 net8.0; no older native or static-registration route."
+          ],
+          "providers": [],
+          "platforms": [
+            "Windows x64, actual ILC11.0.0-rc.2.26504.105, MSVC14.51.36231 cl/link and Windows Kit10.0.26100.0 libraries. No other OS/RID qualification."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete official SDK10.0.402/runtime10.0.13 and SDK11RC2/runtime-reference11RC2 for the paired managed proof; official NuGet packages and locked restore.",
+            "Supported Windows NativeAOT prerequisite is Visual Studio2022 or later with Desktop development with C++ and Windows SDK components. The listed exact VS18 toolchain was measured and used.",
+            "Set QUAY_MSBUILD_SDK to the matching complete SDK directory. Startup selects process-only MSBUILD_EXE_PATH; use fresh disposable processes and trusted fixed project/import files.",
+            "PowerShell7 for evidence/inspection; SDK10 and Node22.19+ for installed tool inspection. Native build uses absolute executables and child-only INCLUDE/LIB without PATH or persistent setting edits."
+          ],
+          "constraints": [
+            "Only the compiled Quay.Permits resolver, IssueQuayPermit string input/output task and direct ILogger instances are qualified; evaluation is distinct from target execution.",
+            "IL2026 remains visible at BuildManager.Build. WarningsNotAsErrors retains it as a warning; no suppression, analyzer-clean or general MSBuild AOT-safety claim. New diagnostics or extensions need fresh qualification.",
+            "Dynamic resolver/task/logger loading, project-cache plugins, workloads, solutions, generic TaskItem<T> binding, server reuse and performance claims are outside this evidence. This is not an untrusted-project sandbox.",
+            "Task registration is by simple type name and wins over UsingTask/runtime/architecture identities. Register the process-wide resolver/task set before first evaluation/build; parameter type registration is a separate responsibility.",
+            "Native missing task yields MSB4283, missing resolver MSB4282. The verified older managed alternative retains UsingTask/directory SDK loading and missing-task failure. No target10 catalogue route added."
+          ],
+          "optIns": [
+            "PublishAot=true and win-x64 with the exact RC2 toolchain; allowPrerelease=true in global.json.",
+            "Explicit import of the pinned public Framework package target and retained, inspected IL2026 build diagnostic. No -mt, diagnostic-ID experimental or preview-language opt-in."
+          ],
+          "stabilityLimitations": [
+            "Preview-qualified .NET11 SDK/runtime/package integration; package version numerals do not establish GA framework support.",
+            "Actual-GA/PIN-963, PIN-959 qualifying coverage/evidence, exactly eight .NET10 foundations and unrelated Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Utilities/Task.cs",
+          "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Framework/Sdk/SdkResolver.cs",
+          "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Build/Definition/ProjectCollection.cs",
+          "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Build/BackEnd/BuildManager/BuildManager.cs",
+          "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/documentation/aot/follow-up-work.md",
+          "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Framework/buildTransitive/Microsoft.Build.Framework.targets",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Cli/dotnet-aot/AotDependencies.props",
+          "https://www.nuget.org/packages/Microsoft.Build/18.11.0",
+          "https://learn.microsoft.com/dotnet/core/deploying/native-aot/",
+          "https://learn.microsoft.com/dotnet/core/deploying/native-aot/fixing-warnings",
+          "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Public task registration and rooting annotations",
+      "url": "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Utilities/Task.cs"
+    },
+    {
+      "title": "Public resolver registration and initialization timing",
+      "url": "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Framework/Sdk/SdkResolver.cs"
+    },
+    {
+      "title": "Direct logger instances and collection registration",
+      "url": "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Build/Definition/ProjectCollection.cs"
+    },
+    {
+      "title": "Retained build entry-point annotation",
+      "url": "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Build/BackEnd/BuildManager/BuildManager.cs"
+    },
+    {
+      "title": "NativeAOT remaining work and typed-item limitations",
+      "url": "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/documentation/aot/follow-up-work.md"
+    },
+    {
+      "title": "Packaged trim-safe feature defaults",
+      "url": "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Framework/buildTransitive/Microsoft.Build.Framework.targets"
+    },
+    {
+      "title": "Actual SDK package-target import workaround",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Cli/dotnet-aot/AotDependencies.props"
+    },
+    {
+      "title": "Independently distributed MSBuild package",
+      "url": "https://www.nuget.org/packages/Microsoft.Build/18.11.0"
+    },
+    {
+      "title": "NativeAOT platform prerequisites",
+      "url": "https://learn.microsoft.com/dotnet/core/deploying/native-aot/"
+    },
+    {
+      "title": "Interpret retained AOT diagnostics",
+      "url": "https://learn.microsoft.com/dotnet/core/deploying/native-aot/fixing-warnings"
+    },
+    {
+      "title": "Managed external-host Locator contract",
+      "url": "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual SDK10 managed host/Locator1.11.2 and complete installed closure; local SDK resolution, reflective UsingTask execution, input/output/logger, missing assembly failure and absent static APIs. Exact audited compiler/reference/runtime/MSBuild identities checked."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual independently acquired public MSBuild18.11.0 locked closure; managed host runs registered resolver/task/logger and verifies string binding, output target receipt and missing-task MSB4283. Public BuildManager IL2026 retained, no analyzer-clean claim."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "record": "samples/net11.0/NorthQuayBuildHost/native.evidence.json",
+      "scope": "Actual Windows x64 ILC/platform-linker native publish and native PE execution from unrelated directory; no CLR directory, receipt success, evaluation-only, missing-task MSB4283 and missing-resolver MSB4282. Packaged feature settings checked in real ILC response; exact toolchain/assembly/library hashes and retained IL2026. No suppression-based success, arbitrary extension, other platform or actual-GA claim."
+    }
+  ],
+  "snippets": {
+    "settings": {
+      "path": "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
+      "region": "settings",
+      "language": "xml"
+    },
+    "packages": {
+      "path": "samples/net11.0/NorthQuayBuildHost/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "package-targets": {
+      "path": "samples/net11.0/NorthQuayBuildHost/Directory.Build.targets",
+      "region": "package-targets",
+      "language": "xml"
+    },
+    "bootstrap": {
+      "path": "samples/net11.0/NorthQuayBuildHost/Bootstrap.cs",
+      "region": "bootstrap",
+      "language": "csharp"
+    },
+    "legacy-settings": {
+      "path": "samples/net10.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj",
+      "region": "legacy-settings",
+      "language": "xml"
+    },
+    "legacy-bootstrap": {
+      "path": "samples/net10.0/NorthQuayBuildHost/Bootstrap.cs",
+      "region": "legacy-bootstrap",
+      "language": "csharp"
+    },
+    "project": {
+      "path": "samples/net11.0/NorthQuayBuildHost/Quay.proj",
+      "region": "project",
+      "language": "xml"
+    },
+    "props": {
+      "path": "samples/net11.0/NorthQuayBuildHost/Sdk.props",
+      "region": "props",
+      "language": "xml"
+    },
+    "engine": {
+      "path": "samples/net11.0/NorthQuayBuildHost/PermitEngine.cs",
+      "region": "engine",
+      "language": "csharp"
+    },
+    "task": {
+      "path": "samples/net11.0/NorthQuayBuildHost/PermitEngine.cs",
+      "region": "task",
+      "language": "csharp"
+    },
+    "logger": {
+      "path": "samples/net11.0/NorthQuayBuildHost/PermitEngine.cs",
+      "region": "logger",
+      "language": "csharp"
+    },
+    "resolver": {
+      "path": "samples/net11.0/NorthQuayBuildHost/PermitEngine.cs",
+      "region": "resolver",
+      "language": "csharp"
+    },
+    "legacy-packages": {
+      "path": "samples/net10.0/NorthQuayBuildHost/Directory.Packages.props",
+      "region": "legacy-packages",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Programmatic proof includes real native compilation/link/execution and failures on the qualified Windows machine. No provider/device/Human proof is substituted. Independent Human/PIN-959/PIN-963/actual-GA gates stay open."
+  }
+}
