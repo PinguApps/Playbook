@@ -1,0 +1,335 @@
+{
+  "id": "identity.migrate-ui-framework-selection",
+  "edition": "11.0",
+  "title": "Move customized Identity UI off Bootstrap 4",
+  "goal": "Keep customized sign-in pages rendering when upgrading Identity UI by selecting Bootstrap 5 and migrating the affected markup, styles and published assets.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "identity",
+    "bootstrap",
+    "published-ui",
+    "web-migration-batch"
+  ],
+  "apis": [
+    "IdentityUIFrameworkVersion",
+    "IdentityDefaultUIFramework",
+    "AddDefaultIdentity",
+    "PasswordSignInAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "conditional": false,
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "match": "release-family",
+            "version": "11.0",
+            "reason": "Current route; exact execution uses RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "version": "11.0",
+            "reason": "Matching Web SDK/framework; exact reproduction pin is supplied separately."
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "version": "15.0",
+            "reason": "Tested current language mode; older consumer uses C#14. No C#15-only syntax is required."
+          },
+          "frameworks": [
+            "ASP.NET Core Identity",
+            "Razor Pages",
+            "EF Core",
+            "Kestrel"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Identity.UI",
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "Use a mutually compatible closure; complete sample pins and lock record the actual tested assets."
+            },
+            {
+              "name": "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "Use a mutually compatible closure; complete sample pins and lock record the actual tested assets."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "Use a mutually compatible closure; complete sample pins and lock record the actual tested assets."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Matching locked Identity.UI/store/SQLite packages, with actual ZIPs, selected net10.0/net11.0 assets and loaded native SQLite recorded separately. Package static web assets are published under /Identity; no CDN is used."
+          ],
+          "providers": [
+            "Real Identity EF SQLite store; ephemeral fixture data protection and two fictional local accounts. No third-party provider or real message transport."
+          ],
+          "platforms": [
+            "Qualified execution: Windows x64 only. No NativeAOT, trimming or other OS/native-provider execution claim."
+          ],
+          "renderingModes": [
+            "Published server-rendered Razor Pages, local Bootstrap CSS and authored CSS; actual Chromium login and server-validation rendering. No Blazor or JavaScript validation claim."
+          ],
+          "prerequisites": [
+            "Existing customized Identity UI plus its original Razor/layout/CSS assets. Restore all locked packages before offline use; a real browser is required to check presentation after publishing."
+          ],
+          "constraints": [
+            "Changing the property selects packaged UI/assets; it does not rewrite customized Razor or CSS. Only the bounded form/checkbox/button selectors shown here are migrated.",
+            "Bootstrap4 still builds in the measured RC2 package but produces an obsolete-support warning. Do not suppress that warning as a migration. Remove BOTH IdentityUIFrameworkVersion and an inherited IdentityDefaultUIFramework when choosing defaults. An empty GLOBAL MSBuild property is not equivalent to removing it.",
+            "Keep existing confirmation/lockout/session policy and antiforgery. This fixture uses PasswordSignInAsync, requires confirmed accounts, validates local return URLs and checks denied/allowed fresh principals. The form is not a complete production Identity replacement: add the application's existing 2FA, recovery, external-login and accessibility requirements when applicable.",
+            "Fixture-only accounts, ephemeral keys, EnsureCreated database and HTTP loopback are test infrastructure; use production key storage, HTTPS, schema migrations and legitimate account lifecycle services. The browser checks are one Windows Chromium viewport, not all assistive technology or mobile proof."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact reproduction uses SDK10.0.402 / framework10.0.13 / C#14 versus SDK11.0.100-rc.2.26504.105 / framework11.0.0-rc.2.26504.105 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md",
+          "https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.UI/11.0.0-rc.2.26504.105",
+          "https://getbootstrap.com/docs/5.3/migration/"
+        ],
+        "selectionNotes": [
+          "Current migration guidance with a real older comparison, not a ninth .NET10 foundation or a declared downlevel edition."
+        ],
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md",
+      "title": "Pinned ASP.NET RC1 migration changes retained in RC2"
+    },
+    {
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Identity.UI/11.0.0-rc.2.26504.105",
+      "title": "Exact Identity UI RC2 package and build assets"
+    },
+    {
+      "url": "https://getbootstrap.com/docs/5.3/migration/",
+      "title": "Bootstrap migration reference"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Both actual dependency sets compile. Published HTTP checks cover custom layout/CSS, missing-token 400, validation, denied unconfirmed account, allowed confirmed account and rejected external return URL. Actual package targets produce the Bootstrap4 warning. Both explicit5 and property-removal copies publish and execute. Chromium152/Electron44 on Windows at1280x800 rendered login and validation for all three publishes: loaded local stylesheets, labeled inputs, 480px panels, 414px buttons, readable red error text and no horizontal overflow; screenshots were visually inspected. This is server validation, not unobtrusive/client JavaScript proof.",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/VolunteerAccess/VolunteerAccess.csproj",
+      "kind": "compile",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
+      "record": "samples/net10.0/VolunteerAccess/artifacts.evidence.json",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/VolunteerAccess/VolunteerAccess.csproj",
+      "kind": "execution",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual published Chromium login/validation layout and local CSS observations, with visually inspected retained screenshots. Current explicit5 and property-removal publishes both exercised. Not client JavaScript, all accessibility/mobile or GA proof.",
+      "record": "samples/net10.0/VolunteerAccess/browser.evidence.json",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/VolunteerAccess/VolunteerAccess.csproj",
+      "kind": "execution",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Both actual dependency sets compile. Published HTTP checks cover custom layout/CSS, missing-token 400, validation, denied unconfirmed account, allowed confirmed account and rejected external return URL. Actual package targets produce the Bootstrap4 warning. Both explicit5 and property-removal copies publish and execute. Chromium152/Electron44 on Windows at1280x800 rendered login and validation for all three publishes: loaded local stylesheets, labeled inputs, 480px panels, 414px buttons, readable red error text and no horizontal overflow; screenshots were visually inspected. This is server validation, not unobtrusive/client JavaScript proof.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
+      "kind": "compile",
+      "language": "15.0",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
+      "record": "samples/net11.0/VolunteerAccess/artifacts.evidence.json",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
+      "kind": "execution",
+      "language": "15.0",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual published Chromium login/validation layout and local CSS observations, with visually inspected retained screenshots. Current explicit5 and property-removal publishes both exercised. Not client JavaScript, all accessibility/mobile or GA proof.",
+      "record": "samples/net11.0/VolunteerAccess/browser.evidence.json",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
+      "kind": "execution",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Disposable local application/tool/browser checks need no owner account, device, messages or production resource. Existing independent Human/GA gates remain open."
+  },
+  "snippets": {
+    "n10-areas-identity-pages-viewimports-cshtml": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Areas/Identity/Pages/_ViewImports.cshtml",
+      "language": "razor"
+    },
+    "n10-areas-identity-pages-account-login-cshtml": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Areas/Identity/Pages/Account/Login.cshtml",
+      "language": "razor"
+    },
+    "n10-areas-identity-pages-account-login-cshtml-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Areas/Identity/Pages/Account/Login.cshtml.cs",
+      "language": "csharp"
+    },
+    "n10-artifactidentity-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/ArtifactIdentity.cs",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Directory.Build.props",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/global.json",
+      "language": "json"
+    },
+    "n10-packages-lock-json": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/packages.lock.json",
+      "language": "json"
+    },
+    "n10-pages-shared-layout-cshtml": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Pages/Shared/_Layout.cshtml",
+      "language": "razor"
+    },
+    "n10-pages-shared-loginpartial-cshtml": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Pages/Shared/_LoginPartial.cshtml",
+      "language": "razor"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/Program.cs",
+      "language": "csharp"
+    },
+    "n10-volunteeraccess-csproj": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/VolunteerAccess.csproj",
+      "language": "xml"
+    },
+    "n10-wwwroot-css-volunteers-css": {
+      "region": "complete",
+      "path": "samples/net10.0/VolunteerAccess/wwwroot/css/volunteers.css",
+      "language": "css"
+    },
+    "n11-areas-identity-pages-viewimports-cshtml": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Areas/Identity/Pages/_ViewImports.cshtml",
+      "language": "razor"
+    },
+    "n11-areas-identity-pages-account-login-cshtml": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Areas/Identity/Pages/Account/Login.cshtml",
+      "language": "razor"
+    },
+    "n11-areas-identity-pages-account-login-cshtml-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Areas/Identity/Pages/Account/Login.cshtml.cs",
+      "language": "csharp"
+    },
+    "n11-artifactidentity-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/ArtifactIdentity.cs",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Directory.Build.props",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/global.json",
+      "language": "json"
+    },
+    "n11-packages-lock-json": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/packages.lock.json",
+      "language": "json"
+    },
+    "n11-pages-shared-layout-cshtml": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Pages/Shared/_Layout.cshtml",
+      "language": "razor"
+    },
+    "n11-pages-shared-loginpartial-cshtml": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Pages/Shared/_LoginPartial.cshtml",
+      "language": "razor"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/Program.cs",
+      "language": "csharp"
+    },
+    "n11-volunteeraccess-csproj": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/VolunteerAccess.csproj",
+      "language": "xml"
+    },
+    "n11-wwwroot-css-volunteers-css": {
+      "region": "complete",
+      "path": "samples/net11.0/VolunteerAccess/wwwroot/css/volunteers.css",
+      "language": "css"
+    }
+  }
+}

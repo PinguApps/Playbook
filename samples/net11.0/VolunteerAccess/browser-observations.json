@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-10-29T12:04:57Z",
+  "browser": "T3CodeNightly0.1.4 / Electron44.9.3 / Chromium152.0.7977.167 Windows x64",
+  "viewport": [
+    1280,
+    800
+  ],
+  "state": "Published login plus server validation after typing not-an-email and clicking Sign in with empty password",
+  "observed": "Both local CSS stylesheets loaded with actual CSS rules; one label per visible input; panel480px/button414px; green button rgb(35,102,75), error rgb(160,33,33), no horizontal overflow. Visual inspection: aligned controls, clear borders/spacing, legible errors, no clipping.",
+  "routes": [
+    "Bootstrap5 explicit project",
+    "property-removal copy defaulting to Bootstrap5"
+  ],
+  "screenshots": [
+    {
+      "path": "docs/verification/identity-ui/net11-default-login.png",
+      "sha256": "9529e40b4e71e51622833f47312ce16303e2b5b24cb1430d2e151c9d4c8e809d"
+    },
+    {
+      "path": "docs/verification/identity-ui/net11-default-validation.png",
+      "sha256": "792683cf1d4a3f87ab090c6229f7eca199a95b635e115868cb6598b69562c1cb"
+    },
+    {
+      "path": "docs/verification/identity-ui/net11-explicit-login.png",
+      "sha256": "9529e40b4e71e51622833f47312ce16303e2b5b24cb1430d2e151c9d4c8e809d"
+    },
+    {
+      "path": "docs/verification/identity-ui/net11-explicit-validation.png",
+      "sha256": "792683cf1d4a3f87ab090c6229f7eca199a95b635e115868cb6598b69562c1cb"
+    }
+  ],
+  "limits": "Single Windows Chromium viewport; server validation only, not client JavaScript or all accessibility/mobile behavior."
+}

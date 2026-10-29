@@ -1,0 +1,221 @@
+{
+  "id": "routing.preserve-encoded-segment",
+  "edition": "11.0",
+  "title": "Preserve encoded route segments in proxy-style requests",
+  "goal": "Keep encoded slashes inside identifiers when direct and proxy-style request targets reach Kestrel, and remove path compensation only after real wire-level comparison.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "routing",
+    "encoded-path",
+    "raw-http",
+    "web-migration-batch"
+  ],
+  "apis": [
+    "IHttpRequestFeature.RawTarget",
+    "HttpRequest.Path",
+    "UseRouting",
+    "HttpRequest.RouteValues"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "conditional": false,
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/BirdRoutes/BirdRoutes.csproj"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "match": "release-family",
+            "version": "11.0",
+            "reason": "Current route; exact execution uses RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "version": "11.0",
+            "reason": "Matching Web SDK/framework; exact reproduction pin is supplied separately."
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "version": "15.0",
+            "reason": "Tested current language mode; older consumer uses C#14. No C#15-only syntax is required."
+          },
+          "frameworks": [
+            "ASP.NET Core Kestrel",
+            "Endpoint routing"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "No NuGet packages, native provider, workload or experimental opt-in. Actual Kestrel/HTTP reference hashes match the source audit; loaded runtime bytes are recorded separately."
+          ],
+          "providers": [
+            "Direct loopback Kestrel HTTP/1.1 and a raw ASCII TCP client; no intermediary rewrites the request line."
+          ],
+          "platforms": [
+            "Qualified execution: Windows x64 only. No NativeAOT, trimming or other OS/native-provider execution claim."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Real Kestrel listeners and a client preserving absolute-form request-line bytes. The sample uses raw TCP, not HttpClient URI construction or a manually built HttpContext."
+          ],
+          "constraints": [
+            "RawTarget is the received request target, Path is the parsed server value, route values come from matching that Path, and middleware can change it before matching. Never assume those four representations are interchangeable.",
+            "The serviced .NET10.0.13 baseline actually splits an absolute-form %2F while its origin-form counterpart retains it. RC2 retains %2F/%2f on both forms. Ordinary slash and double-encoding already overlap; later serviced baselines must be measured rather than inferred from release-family labels.",
+            "The older preserve middleware is intentionally limited to this exact ASCII bird-id shape and HTTP absolute targets. It is not a general reverse-proxy parser. Prefer rejecting unsupported targets at the boundary or upgrading; never generalize it to Unicode, query strings, other schemes or arbitrary rewrites.",
+            "The decode mode is an explicitly unsafe failure control. Decoding the entire Path changes route boundaries on both targets, including double-encoded input. Remove demonstrated compensation; do not add decoding to authorization or convert a literal encoded identifier into a different resource key.",
+            "These diagnostic handlers deliberately report malformed/control values rather than accepting them into business storage. A real application must validate the opaque identifier against its own allowlist and enforce authorization after final routing. Parser acceptance is not application validity. Do not log untrusted control text without structured escaping.",
+            "No IIS, HTTP.sys, proxy, WAF, TLS, HTTP2/3, other OS or authorization-bypass protection claim follows from this loopback Kestrel fixture."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact reproduction uses SDK10.0.402 / framework10.0.13 / C#14 versus SDK11.0.100-rc.2.26504.105 / framework11.0.0-rc.2.26504.105 / C#15. These are tested pins, not minimum supported versions. RC2 is not actual-GA proof. The exact eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964 and unrelated Human gates remain unchanged."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/aspnetcore.md",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0#routing-with-special-characters"
+        ],
+        "selectionNotes": [
+          "Current migration guidance with a real older comparison, not a ninth .NET10 foundation or a declared downlevel edition."
+        ],
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/aspnetcore.md",
+      "title": "Pinned ASP.NET Preview4 encoded-slash change"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0#routing-with-special-characters",
+      "title": "ASP.NET route matching and encoded characters"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual raw TCP/Kestrel consumers execute nine paired targets in each of raw/preserve/decode modes per runtime, plus malformed request-line controls. They record RawTarget/Path/middleware/endpoint/handler/route values. Old encoded absolute targets split; the bounded older restoration works; current pairs retain the encoded segment without it. Ordinary slash, bad/incomplete escapes, double encoding and CRLF show the measured overlap. Encoded NUL is400 origin-form on both,200 absolute-form on10 and400 absolute-form on11; accepted CRLF is not asserted safe. Literal-space request lines return400. No mock context or proxy proof is substituted.",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/BirdRoutes/BirdRoutes.csproj",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
+      "record": "samples/net10.0/BirdRoutes/artifacts.evidence.json",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/BirdRoutes/BirdRoutes.csproj",
+      "kind": "execution",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual raw TCP/Kestrel consumers execute nine paired targets in each of raw/preserve/decode modes per runtime, plus malformed request-line controls. They record RawTarget/Path/middleware/endpoint/handler/route values. Old encoded absolute targets split; the bounded older restoration works; current pairs retain the encoded segment without it. Ordinary slash, bad/incomplete escapes, double encoding and CRLF show the measured overlap. Encoded NUL is400 origin-form on both,200 absolute-form on10 and400 absolute-form on11; accepted CRLF is not asserted safe. Literal-space request lines return400. No mock context or proxy proof is substituted.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/BirdRoutes/BirdRoutes.csproj",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "target": "net11.0"
+    },
+    {
+      "scope": "Actual selected managed/native/tool/package/compiler/reference qualification and published behavior where applicable; no mock, cross-compilation or source review substitutes for execution.",
+      "record": "samples/net11.0/BirdRoutes/artifacts.evidence.json",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/BirdRoutes/BirdRoutes.csproj",
+      "kind": "execution",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Disposable local application/tool/browser checks need no owner account, device, messages or production resource. Existing independent Human/GA gates remain open."
+  },
+  "snippets": {
+    "n10-birdroutes-csproj": {
+      "region": "complete",
+      "path": "samples/net10.0/BirdRoutes/BirdRoutes.csproj",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net10.0/BirdRoutes/Directory.Build.props",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net10.0/BirdRoutes/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net10.0/BirdRoutes/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "path": "samples/net10.0/BirdRoutes/global.json",
+      "language": "json"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/BirdRoutes/Program.cs",
+      "language": "csharp"
+    },
+    "n10-runtimeidentity-cs": {
+      "region": "complete",
+      "path": "samples/net10.0/BirdRoutes/RuntimeIdentity.cs",
+      "language": "csharp"
+    },
+    "n11-birdroutes-csproj": {
+      "region": "complete",
+      "path": "samples/net11.0/BirdRoutes/BirdRoutes.csproj",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "path": "samples/net11.0/BirdRoutes/Directory.Build.props",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "path": "samples/net11.0/BirdRoutes/Directory.Build.targets",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "path": "samples/net11.0/BirdRoutes/Directory.Packages.props",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "path": "samples/net11.0/BirdRoutes/global.json",
+      "language": "json"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/BirdRoutes/Program.cs",
+      "language": "csharp"
+    },
+    "n11-runtimeidentity-cs": {
+      "region": "complete",
+      "path": "samples/net11.0/BirdRoutes/RuntimeIdentity.cs",
+      "language": "csharp"
+    }
+  }
+}
