@@ -1,0 +1,239 @@
+{
+  "id": "mvc.compile-fsharp-views",
+  "edition": "11.0",
+  "title": "Publish F# MVC views without runtime compilation",
+  "goal": "Migrate an existing F# MVC app to build- and publish-time Razor compilation and explicit view-assembly registration so pages render from clean published output without source views or a runtime compiler.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "web-retirement",
+    "starsurvey"
+  ],
+  "apis": [
+    "UseRazorSourceGenerator",
+    "RazorCompileOnBuild",
+    "RazorCompileOnPublish",
+    "CompiledRazorAssemblyPart",
+    "AssemblyLoadContext.LoadFromAssemblyPath"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "F# cannot directly use the C# Razor source generator. Set UseRazorSourceGenerator=false, enable build/publish compilation and register the resulting .Views assembly; deleting runtime-compilation registration alone is insufficient.",
+          "F# Compile order matters: controller, compiled-view registration module, then Program.fs. Load StarSurvey.Views.dll from AppContext.BaseDirectory into the application assembly's own load context and add CompiledRazorAssemblyPart before building MVC.",
+          "The ordinary .NET10 runtime-compilation comparison retains its obsolete package and source views; it is historical, not recommended for new apps. Build-time compilation is not inherently .NET11-only; this edition qualifies the migrated route on .NET11, not an older-target backport.",
+          "Clean publish must contain StarSurvey.Views.dll but no .cshtml or RuntimeCompilation binary. A separate fresh disabled-compilation publish builds successfully yet produces the specific MVC missing-view failure.",
+          "The --expect-missing switch belongs to the automated negative fixture and skips registration only to expose actual MVC discovery failure. Normal startup loads the assembly and fails promptly if deployment omitted it."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Target release family; measured execution uses 11 RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 with the matching SDK. Exact reproduction pins are recorded separately."
+          },
+          "language": {
+            "name": "F#",
+            "version": "11.0",
+            "match": "exact",
+            "reason": "Explicit tested F# mode; older comparison uses F#10."
+          },
+          "frameworks": [
+            "ASP.NET Core"
+          ],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "version": "11.0.101-rc2.26504.105",
+              "match": "exact",
+              "reason": "Exact tested SDK-era F# core asset, not a minimum supported version."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Matching FSharp.Core compile/runtime package, Web/Razor SDK build tooling and generated C# StarSurvey.Views.dll. The old comparison additionally locks RuntimeCompilation10.0.13 and its compiler/dependency closure.",
+            "No package-native assets or workloads. Actual SDK10/11 template package and F# source hashes are checked against the web source audit; templates are inspected as evidence, not copied as examples."
+          ],
+          "providers": [
+            "Real Kestrel MVC and Razor compiler; no database, cloud service or mocked view engine."
+          ],
+          "platforms": [
+            "Windows x64 is the qualified managed execution lane; other deployment platforms need focused validation."
+          ],
+          "renderingModes": [
+            "Server-rendered MVC HTML and model encoding through real HTTP. No browser, Blazor, live edit or Hot Reload session is claimed."
+          ],
+          "prerequisites": [
+            "Use the complete independent files below and their exact SDK pins for reproduction. Restore once from each sample directory, retain packages.lock.json, then use locked restore. Application prerequisites and measured baselines are distinct."
+          ],
+          "constraints": [
+            "F# cannot directly use the C# Razor source generator. Set UseRazorSourceGenerator=false, enable build/publish compilation and register the resulting .Views assembly; deleting runtime-compilation registration alone is insufficient.",
+            "F# Compile order matters: controller, compiled-view registration module, then Program.fs. Load StarSurvey.Views.dll from AppContext.BaseDirectory into the application assembly's own load context and add CompiledRazorAssemblyPart before building MVC.",
+            "The ordinary .NET10 runtime-compilation comparison retains its obsolete package and source views; it is historical, not recommended for new apps. Build-time compilation is not inherently .NET11-only; this edition qualifies the migrated route on .NET11, not an older-target backport.",
+            "Clean publish must contain StarSurvey.Views.dll but no .cshtml or RuntimeCompilation binary. A separate fresh disabled-compilation publish builds successfully yet produces the specific MVC missing-view failure.",
+            "The --expect-missing switch belongs to the automated negative fixture and skips registration only to expose actual MVC discovery failure. Normal startup loads the assembly and fails promptly if deployment omitted it."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable migration goal prepared with SDK11.0.100-rc.2.26504.105/framework11.0.0-rc.2.26504.105. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/migration/100-to-110/includes/mvc.md",
+          "https://learn.microsoft.com/en-us/aspnet/core/razor-pages/sdk?view=aspnetcore-11.0",
+          "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/10/razor-runtime-compilation-obsolete",
+          "https://github.com/dotnet/aspnetcore/tree/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/StarterWeb-FSharp"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/StarSurvey/StarSurvey.fsproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "F# MVC migration requirements",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/migration/100-to-110/includes/mvc.md"
+    },
+    {
+      "title": "Razor SDK compilation properties",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/razor-pages/sdk?view=aspnetcore-11.0"
+    },
+    {
+      "title": "Runtime compilation was already obsolete in .NET10",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/breaking-changes/10/razor-runtime-compilation-obsolete"
+    },
+    {
+      "title": "Current F# MVC template",
+      "url": "https://github.com/dotnet/aspnetcore/tree/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/ProjectTemplates/Web.ProjectTemplates/content/StarterWeb-FSharp"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/StarSurvey/StarSurvey.fsproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "kind": "compile-and-run",
+      "scope": "Actual F#10/SDK10.0.402 with FSharp.Core10.1.402 and RuntimeCompilation10.0.13 locked compiler closure; real MVC view rendering and HTML encoding from source. Audited template/reference and actual compiler/runtime assets. Not a source-free published baseline."
+    },
+    {
+      "sample": "samples/net11.0/StarSurvey/StarSurvey.fsproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "kind": "compile-and-run",
+      "scope": "Actual F#11/SDK11 RC2 and FSharp.Core11.0.101-rc2.26504.105; build-time render plus clean source-free/package-free publish rendering and HTML encoding, .Views.dll identity/same-owner load context and a fresh build-success/missing-view500 control. Exact commands/asset hashes retained; no actual-GA or arbitrary load-context/trimming claim."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/StarSurvey/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/StarSurvey/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/StarSurvey/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/StarSurvey/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-starsurvey-fsproj": {
+      "path": "samples/net10.0/StarSurvey/StarSurvey.fsproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-nightcontroller-fs": {
+      "path": "samples/net10.0/StarSurvey/NightController.fs",
+      "region": "complete",
+      "language": "fsharp"
+    },
+    "n10-program-fs": {
+      "path": "samples/net10.0/StarSurvey/Program.fs",
+      "region": "complete",
+      "language": "fsharp"
+    },
+    "n10-views-night-index-cshtml": {
+      "path": "samples/net10.0/StarSurvey/Views/Night/Index.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/StarSurvey/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/StarSurvey/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/StarSurvey/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/StarSurvey/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-starsurvey-fsproj": {
+      "path": "samples/net11.0/StarSurvey/StarSurvey.fsproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-nightcontroller-fs": {
+      "path": "samples/net11.0/StarSurvey/NightController.fs",
+      "region": "complete",
+      "language": "fsharp"
+    },
+    "n11-surveyviews-fs": {
+      "path": "samples/net11.0/StarSurvey/SurveyViews.fs",
+      "region": "complete",
+      "language": "fsharp"
+    },
+    "n11-program-fs": {
+      "path": "samples/net11.0/StarSurvey/Program.fs",
+      "region": "complete",
+      "language": "fsharp"
+    },
+    "n11-views-night-index-cshtml": {
+      "path": "samples/net11.0/StarSurvey/Views/Night/Index.cshtml",
+      "region": "complete",
+      "language": "razor"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local automated managed consumers require no owner account, trusted certificate installation, production resource or physical device. Other Human and actual-GA gates remain separate."
+  }
+}

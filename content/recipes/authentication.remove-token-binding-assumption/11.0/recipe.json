@@ -1,0 +1,202 @@
+{
+  "id": "authentication.remove-token-binding-assumption",
+  "edition": "11.0",
+  "title": "Remove reliance on obsolete browser token binding",
+  "goal": "Remove abandoned RFC 8471 token-binding observation when modernizing authentication middleware, while preserving HTTPS enforcement, cookie authentication and the application's authorization policy.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-retirement",
+    "nightarchive"
+  ],
+  "apis": [
+    "ITlsTokenBindingFeature",
+    "CookieAuthenticationOptions",
+    "HttpRequest.IsHttps"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Remove only an optional RFC 8471 observation after establishing that it is not part of the application's authentication decision. Do not turn a required binding check into unconditional acceptance.",
+          "TLS Token Binding (RFC 8471) is distinct from RFC 5929 channel binding. This recipe implements no replacement device binding, proof of possession, relay defense or token theft mitigation.",
+          "Kestrel's absent feature is observed on actual .NET10 HTTPS requests. Authentication, curator role authorization and HTTPS enforcement remain effective on both targets.",
+          "The sample mints real protected cookies inside the isolated test harness, not through a public login endpoint. Production sign-in and keys remain application-owned. Temporary certificate validation matches only the exact test certificate; no trust store changes."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Target release family; measured execution uses 11 RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 with the matching SDK. Exact reproduction pins are recorded separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested C# mode; older comparison uses C#14."
+          },
+          "frameworks": [
+            "ASP.NET Core"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "ASP.NET Core shared-framework references; no NuGet libraries, package-native assets or workloads. The exact Http.Features reference hashes match the source audit."
+          ],
+          "providers": [
+            "Kestrel loopback HTTP/HTTPS, real cookie ticket handler and ephemeral Data Protection; no external identity provider."
+          ],
+          "platforms": [
+            "Windows x64 is the qualified managed execution lane; other deployment platforms need focused validation."
+          ],
+          "renderingModes": [
+            "No browser rendering or browser support claimed. Real HttpClient requests over TLS and HTTP."
+          ],
+          "prerequisites": [
+            "Use the complete independent files below and their exact SDK pins for reproduction. Restore once from each sample directory, retain packages.lock.json, then use locked restore. Application prerequisites and measured baselines are distinct."
+          ],
+          "constraints": [
+            "Remove only an optional RFC 8471 observation after establishing that it is not part of the application's authentication decision. Do not turn a required binding check into unconditional acceptance.",
+            "TLS Token Binding (RFC 8471) is distinct from RFC 5929 channel binding. This recipe implements no replacement device binding, proof of possession, relay defense or token theft mitigation.",
+            "Kestrel's absent feature is observed on actual .NET10 HTTPS requests. Authentication, curator role authorization and HTTPS enforcement remain effective on both targets.",
+            "The sample mints real protected cookies inside the isolated test harness, not through a public login endpoint. Production sign-in and keys remain application-owned. Temporary certificate validation matches only the exact test certificate; no trust store changes."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable migration goal prepared with SDK11.0.100-rc.2.26504.105/framework11.0.0-rc.2.26504.105. Actual-GA reconciliation, PIN-959/PIN-964 and unrelated Human gates remain open. No new experimental API opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Features/src/ITlsTokenBindingFeature.cs",
+          "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.features.itlstokenbindingfeature?view=aspnetcore-11.0",
+          "https://www.rfc-editor.org/rfc/rfc8471",
+          "https://www.rfc-editor.org/rfc/rfc5929"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NightArchive/NightArchive.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Obsolete token-binding feature",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Features/src/ITlsTokenBindingFeature.cs"
+    },
+    {
+      "title": "Official deprecation reason",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.features.itlstokenbindingfeature?view=aspnetcore-11.0"
+    },
+    {
+      "title": "RFC 8471 TLS Token Binding",
+      "url": "https://www.rfc-editor.org/rfc/rfc8471"
+    },
+    {
+      "title": "RFC 5929 channel bindings",
+      "url": "https://www.rfc-editor.org/rfc/rfc5929"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/NightArchive/NightArchive.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual Kestrel HTTPS with absent ITlsTokenBindingFeature and optional historical telemetry; real protected curator/visitor/invalid/absent cookies, exact 200/403/401 outcomes, HTTP400 and denied-handler exclusion. Audited reference identities and compiler/runtime hashes; no browser token-binding implementation."
+    },
+    {
+      "sample": "samples/net11.0/NightArchive/NightArchive.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual same authorization/HTTPS outcomes after removing feature lookup; isolated historical-source recompilation emits ASPDEPR010 on real RC2 references. No replacement protocol, production sign-in, channel-binding, browser or GA proof."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/NightArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/NightArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/NightArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/NightArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-nightarchive-csproj": {
+      "path": "samples/net10.0/NightArchive/NightArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/NightArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/NightArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/NightArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/NightArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/NightArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-nightarchive-csproj": {
+      "path": "samples/net11.0/NightArchive/NightArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/NightArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local automated managed consumers require no owner account, trusted certificate installation, production resource or physical device. Other Human and actual-GA gates remain separate."
+  }
+}

@@ -45,7 +45,7 @@
     {
       "id": "old-token-binding",
       "pattern": " Microsoft\\.AspNetCore\\.Http\\.Features\\.ITlsTokenBindingFeature",
-      "owner": "W15; ASPDEPR010, unrelated to channel binding",
+      "owner": "W15 / PIN-1185 delivered authentication.remove-token-binding-assumption/11.0; actual ASPDEPR010 control, paired real cookie authorization/HTTPS and Kestrel missing-feature requests; RFC8471 remains unrelated to RFC5929 channel binding",
       "disposition": "included"
     },
     {
@@ -185,7 +185,7 @@
     {
       "id": "fsharp-compiled-views",
       "pattern": "^templates/content/StarterWeb-FSharp/.*(?:\\.fs|\\.fsproj)$",
-      "owner": "W16; actual F# view compilation and registration; default source-generator removal differs from C#"
+      "owner": "W16 / PIN-1186 delivered mvc.compile-fsharp-views/11.0; actual F#10 runtime-compilation versus F#11 build/publish .Views assembly, same-context registration, clean source-free published requests and build-success/missing-view control; GA and PIN-959 remain open"
     },
     {
       "id": "mcp-template",
