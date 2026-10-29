@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<!-- snippet:settings -->
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Utilities.Core" HintPath="$(MSBuildBinPath)/Microsoft.Build.Utilities.Core.dll" Private="false" />
+  </ItemGroup>
+<!-- endsnippet:settings -->
+  <ItemGroup>
+    <None Include="Measure.proj" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../ObservatoryTaskProof/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="../../ObservatoryTaskProof/Runner.cs" Link="Runner.cs" />
+    <Compile Include="../../ObservatoryTaskProof/Probe.cs" Link="Probe.cs" />
+  </ItemGroup>
+</Project>
