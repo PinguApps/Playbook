@@ -6,7 +6,7 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <CheckSdkVulnerabilities>true</CheckSdkVulnerabilities>
   </PropertyGroup>
-  <ItemGroup><Compile Include="../../SkylarkBuild/Servicing.cs" Link="Program.cs" /></ItemGroup>
-  
+  <ItemGroup><Compile Include="../../net10.0/SkylarkServicing/Program.cs" Link="Program.cs" /></ItemGroup>
+
 </Project>
 <!-- endsnippet:project -->

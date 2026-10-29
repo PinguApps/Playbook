@@ -4,9 +4,9 @@
   "additionalInputs": [
     "eng/Evidence.ps1",
     "eng/Test-SkylarkBuild.ps1",
-    "samples/SkylarkBuild/Dispatch.cs",
-    "samples/SkylarkBuild/HotRules.cs",
-    "samples/SkylarkBuild/ColdRules.cs",
+    "samples/net10.0/SkylarkReadyToRun/Program.cs",
+    "samples/net10.0/SkylarkReadyToRun/HotRules.cs",
+    "samples/net10.0/SkylarkReadyToRun/ColdRules.cs",
     "samples/SkylarkBuild/artifacts.json"
   ],
   "buildArguments": [],

@@ -6,7 +6,7 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <PackAsTool>true</PackAsTool><PackageId>Skylark.Native.Tool</PackageId><ToolCommandName>skylark-native</ToolCommandName><Version>1.0.0</Version><PublishAot>true</PublishAot><IlcUseEnvironmentalTools>true</IlcUseEnvironmentalTools><ToolPackageRuntimeIdentifiers>win-x64</ToolPackageRuntimeIdentifiers><ToolPackageRuntimeIdentifiers Condition="'$(SkylarkInspectCandidateDefaults)' == 'true'">win-x64;win-arm64</ToolPackageRuntimeIdentifiers><RuntimeIdentifiers>win-x64</RuntimeIdentifiers><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
-  <ItemGroup><Compile Include="../../SkylarkBuild/Native.cs" Link="Program.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="../../net10.0/SkylarkNative/Program.cs" Link="Program.cs" /></ItemGroup>
   <ItemGroup><AdditionalNativeLibraryDirectories Include="$(SkylarkMsvcLibraries);$(SkylarkUmLibraries);$(SkylarkUcrtLibraries)" /></ItemGroup>
   <Target Name="ValidateSkylarkToolchain" BeforeTargets="PrepareForBuild;Publish" Condition="'$(RuntimeIdentifier)' != ''">
     <Error Condition="'$(RuntimeIdentifier)' != 'win-x64'" Text="SKYLARK001: only the measured Windows x64 toolchain is declared." />

@@ -7,7 +7,7 @@
   "additionalInputs": [
     "eng/Evidence.ps1",
     "eng/Test-SkylarkBuild.ps1",
-    "samples/SkylarkBuild/Native.cs",
+    "samples/net10.0/SkylarkNative/Program.cs",
     "samples/SkylarkBuild/artifacts.json"
   ],
   "buildArguments": [],

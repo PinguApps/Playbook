@@ -6,7 +6,7 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier><PublishReadyToRun>true</PublishReadyToRun><SelfContained>false</SelfContained><UseAppHost>false</UseAppHost>
   </PropertyGroup>
-  <ItemGroup><Compile Include="../../SkylarkBuild/Dispatch.cs" Link="Program.cs" /></ItemGroup>
+  <ItemGroup><Compile Include="Program.cs" Link="Program.cs" /></ItemGroup>
   <ItemGroup><ProjectReference Include="Hot/Skylark.HotRules.csproj" /><ProjectReference Include="Cold/Skylark.ColdRules.csproj" /></ItemGroup>
   <ItemGroup Condition="'$(SkylarkMode)' != 'full'"><PublishReadyToRunExclude Include="Skylark.HotRules.dll;Skylark.ColdRules.dll" /></ItemGroup>
 </Project>
