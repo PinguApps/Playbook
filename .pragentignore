@@ -74,3 +74,8 @@
 /samples/LaboratoryMessages/verification-evidence.json
 /samples/net10.0/LaboratoryBridge/verification-evidence.json
 /samples/net11.0/LaboratoryBridge/verification-evidence.json
+
+# Record-Evidence.ps1 museum host/SDK/import capture; review canonical readers,
+# MuseumChecks, artifact pins and locked dependencies. Pack checks freshness.
+/samples/net10.0/MuseumInventory/verification-evidence.json
+/samples/net11.0/MuseumInventory/verification-evidence.json
