@@ -39,26 +39,26 @@
         "sharedAreas": [],
         "selectionNotes": [
           "The tested package boundary is TestHost 18.7.0 versus 18.11.0, not a target-framework/package-major mapping.",
-          "Target10 deliberately adopts TestHost18.11.0; independent native net10 execution qualifies this conditional route and preserves the exact eight foundations."
+          "Target 10 deliberately adopts TestHost 18.11.0; independent .NET 10 execution qualifies this conditional route and preserves the exact eight foundations."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime10.0.13 or runtime11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.13 or runtime 11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual sample SDK10.0.402 and SDK11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.402 and SDK 11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
             "version": "15.0",
             "match": "exact",
-            "reason": "Declared C#14/15 baseline; the typed contract does not require a new language feature."
+            "reason": "Declared C# 14/15 baseline; the typed contract does not require a new language feature."
           },
           "frameworks": [
             "Microsoft.NET.Sdk framework-dependent executable for an independent advanced-host bridge; IsTestProject=false."
@@ -79,7 +79,7 @@
           ],
           "packageAssets": [
             "Both actual TestHost/ObjectModel versions select lib/net8.0 compile/runtime assets on the measured net10/net11 consumers.",
-            "Old TestHost18.7.0 directly brings Newtonsoft13.0.3 lib/net6.0. Current closure has no Newtonsoft; compiler controls independently add13.0.4 without restoring removed platform APIs.",
+            "Old TestHost 18.7.0 directly brings Newtonsoft 13.0.3 lib/net6.0. Current closure has no Newtonsoft; compiler controls independently add 13.0.4 without restoring removed platform APIs.",
             "Package ZIP and deployed CommunicationUtilities SHA-256 values match the audit. NuGet-generated locks pin the selected full closure. SDK-bundled 18.11.0-release-26504-105 assemblies are separate artifacts."
           ],
           "workloads": [],
@@ -89,22 +89,22 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7, public nuget.org access for restore and both pinned SDK/runtime installations for paired reproduction. No workloads/native toolchains/provider/device are required.",
+            "PowerShell 7, public nuget.org access for restore and both pinned SDK/runtime installations for paired reproduction. No workloads/native toolchains/provider/device are required.",
             "Use the complete package closure; publish the bridge and run its own DLL, not testhost.dll. Copying a communication DLL from the SDK is not this supported acquisition route.",
             "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in isolated CLI homes; preserve PATH and persistent environment settings."
           ],
           "constraints": [
-            "Known original laboratory payload uses TestCase, TestObject traits, TestResult and ITestRunStatistics; both protocol1/2 graphs and cross-version wires are executed.",
-            "Message.Version is0 when protocol1 serialization omits Version;2 remains2. RawMessage is the full unchanged JSON envelope, not the payload. Header parsing alone can accept malformed payload JSON.",
-            "Bridge accepts only message kind CwmLab.BatchCompleted and negotiated versions0/1/2, validates required domain fields and rejects null/malformed payloads. This is a local protocol example, not a VSTest transport/negotiation implementation.",
-            "Use ITestRunStatistics. On actual18.11 a concrete TestRunStatistics read preserves ExecutedTests but loses its Passed count; the measured limitation is explicit.",
-            "All eight named removed contracts have old compile and current failure controls, even with explicit Newtonsoft. The note names TestPlatformContractResolver<T>; actual18.7 exports the nongeneric TestPlatformContractResolver1. No generic equivalent is invented.",
+            "Known original laboratory payload uses TestCase, TestObject traits, TestResult and ITestRunStatistics; both protocol 1/2 graphs and cross-version wires are executed.",
+            "Message.Version is 0 when protocol 1 serialization omits Version; 2 remains 2. RawMessage is the full unchanged JSON envelope, not the payload. Header parsing alone can accept malformed payload JSON.",
+            "Bridge accepts only message kind CwmLab.BatchCompleted and negotiated versions 0/1/2, validates required domain fields and rejects null/malformed payloads. This is a local protocol example, not a VSTest transport/negotiation implementation.",
+            "Use ITestRunStatistics. On actual 18.11 a concrete TestRunStatistics read preserves ExecutedTests but loses its Passed count; the measured limitation is explicit.",
+            "All eight named removed contracts have old compile and current failure controls, even with explicit Newtonsoft. The note names TestPlatformContractResolver<T>; actual 18.7 exports the nongeneric TestPlatformContractResolver1. No generic equivalent is invented.",
             "No public configurable resolver/converter replacement is advertised; no internal converter is accessed. Existing custom Newtonsoft contracts need redesign outside this bounded typed graph. Adding Newtonsoft does not restore source or binary compatibility.",
             "No test execution, adapter/collector injection, VSTest process communication, arbitrary payload compatibility, trimming or Native AOT is claimed."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET11 SDK/runtime evidence is RC2, not actual GA reconciliation; TestHost18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
+            "The .NET 11 SDK/runtime evidence is RC2, not actual GA reconciliation; TestHost 18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA/Human gates remain open."
           ]
         },
@@ -126,26 +126,26 @@
         "sharedAreas": [],
         "selectionNotes": [
           "The tested package boundary is TestHost 18.7.0 versus 18.11.0, not a target-framework/package-major mapping.",
-          "Target10 deliberately adopts TestHost18.11.0; independent native net10 execution qualifies this conditional route and preserves the exact eight foundations."
+          "Target 10 deliberately adopts TestHost 18.11.0; independent .NET 10 execution qualifies this conditional route and preserves the exact eight foundations."
         ],
         "requirements": {
           "runtime": {
             "name": ".NET",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Observed Windows x64 runtime10.0.13 or runtime11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
+            "reason": "Observed Windows x64 runtime 10.0.13 or runtime 11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
           },
           "sdk": {
             "name": ".NET SDK",
             "version": "10.0",
             "match": "release-family",
-            "reason": "Actual sample SDK10.0.402 and SDK11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
+            "reason": "Actual sample SDK 10.0.402 and SDK 11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
           },
           "language": {
             "name": "C#",
             "version": "14.0",
             "match": "exact",
-            "reason": "Declared C#14/15 baseline; the typed contract does not require a new language feature."
+            "reason": "Declared C# 14/15 baseline; the typed contract does not require a new language feature."
           },
           "frameworks": [
             "Microsoft.NET.Sdk framework-dependent executable for an independent advanced-host bridge; IsTestProject=false."
@@ -166,7 +166,7 @@
           ],
           "packageAssets": [
             "Both actual TestHost/ObjectModel versions select lib/net8.0 compile/runtime assets on the measured net10/net11 consumers.",
-            "Old TestHost18.7.0 directly brings Newtonsoft13.0.3 lib/net6.0. Current closure has no Newtonsoft; compiler controls independently add13.0.4 without restoring removed platform APIs.",
+            "Old TestHost 18.7.0 directly brings Newtonsoft 13.0.3 lib/net6.0. Current closure has no Newtonsoft; compiler controls independently add 13.0.4 without restoring removed platform APIs.",
             "Package ZIP and deployed CommunicationUtilities SHA-256 values match the audit. NuGet-generated locks pin the selected full closure. SDK-bundled 18.11.0-release-26504-105 assemblies are separate artifacts."
           ],
           "workloads": [],
@@ -176,22 +176,22 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "PowerShell7, public nuget.org access for restore and both pinned SDK/runtime installations for paired reproduction. No workloads/native toolchains/provider/device are required.",
+            "PowerShell 7, public nuget.org access for restore and both pinned SDK/runtime installations for paired reproduction. No workloads/native toolchains/provider/device are required.",
             "Use the complete package closure; publish the bridge and run its own DLL, not testhost.dll. Copying a communication DLL from the SDK is not this supported acquisition route.",
             "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 in isolated CLI homes; preserve PATH and persistent environment settings."
           ],
           "constraints": [
-            "Known original laboratory payload uses TestCase, TestObject traits, TestResult and ITestRunStatistics; both protocol1/2 graphs and cross-version wires are executed.",
-            "Message.Version is0 when protocol1 serialization omits Version;2 remains2. RawMessage is the full unchanged JSON envelope, not the payload. Header parsing alone can accept malformed payload JSON.",
-            "Bridge accepts only message kind CwmLab.BatchCompleted and negotiated versions0/1/2, validates required domain fields and rejects null/malformed payloads. This is a local protocol example, not a VSTest transport/negotiation implementation.",
-            "Use ITestRunStatistics. On actual18.11 a concrete TestRunStatistics read preserves ExecutedTests but loses its Passed count; the measured limitation is explicit.",
-            "All eight named removed contracts have old compile and current failure controls, even with explicit Newtonsoft. The note names TestPlatformContractResolver<T>; actual18.7 exports the nongeneric TestPlatformContractResolver1. No generic equivalent is invented.",
+            "Known original laboratory payload uses TestCase, TestObject traits, TestResult and ITestRunStatistics; both protocol 1/2 graphs and cross-version wires are executed.",
+            "Message.Version is 0 when protocol 1 serialization omits Version; 2 remains 2. RawMessage is the full unchanged JSON envelope, not the payload. Header parsing alone can accept malformed payload JSON.",
+            "Bridge accepts only message kind CwmLab.BatchCompleted and negotiated versions 0/1/2, validates required domain fields and rejects null/malformed payloads. This is a local protocol example, not a VSTest transport/negotiation implementation.",
+            "Use ITestRunStatistics. On actual 18.11 a concrete TestRunStatistics read preserves ExecutedTests but loses its Passed count; the measured limitation is explicit.",
+            "All eight named removed contracts have old compile and current failure controls, even with explicit Newtonsoft. The note names TestPlatformContractResolver<T>; actual 18.7 exports the nongeneric TestPlatformContractResolver1. No generic equivalent is invented.",
             "No public configurable resolver/converter replacement is advertised; no internal converter is accessed. Existing custom Newtonsoft contracts need redesign outside this bounded typed graph. Adding Newtonsoft does not restore source or binary compatibility.",
             "No test execution, adapter/collector injection, VSTest process communication, arbitrary payload compatibility, trimming or Native AOT is claimed."
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "The .NET11 SDK/runtime evidence is RC2, not actual GA reconciliation; TestHost18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
+            "The .NET 11 SDK/runtime evidence is RC2, not actual GA reconciliation; TestHost 18.11.0 is the actual public stable package. No experimental API or opt-in is required.",
             "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA/Human gates remain open."
           ]
         },
@@ -235,7 +235,7 @@
       "kind": "compile-and-run",
       "sample": "samples/LaboratoryMessages/LaboratoryBridge.csproj",
       "sdk": "10.0.402",
-      "scope": "Actual audited18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
+      "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net10.0",
       "language": "14.0"
     },
@@ -243,7 +243,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net10.0/LaboratoryBridge/LaboratoryBridge.csproj",
       "sdk": "10.0.402",
-      "scope": "Actual audited18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
+      "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net10.0",
       "language": "14.0"
     },
@@ -251,7 +251,7 @@
       "kind": "compile-and-run",
       "sample": "samples/net11.0/LaboratoryBridge/LaboratoryBridge.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual audited18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
+      "scope": "Actual audited 18.7/18.11 advanced-host closures, independent framework-dependent deployments, typed laboratory platform graphs, protocol 1/2 foreign wires, null/malformed/header/version failures, every removed public symbol, retained serializer operations and a real old-binary/new-platform ABI control. Concrete statistics limitation retained.",
       "target": "net11.0",
       "language": "15.0"
     }

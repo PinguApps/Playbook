@@ -79,26 +79,26 @@ clear other proposals, PIN-959 qualifying coverage or PIN-963 actual-GA gates.
 Reviewed **21 October 2026**. This is a bounded source and distributable-metadata audit. Seven full compatibility notes and the affected-test claim have accountable dispositions. At that review, nine narrow delivery proposals awaited approval; subsequent deliveries are recorded above. Audit closure alone did not deliver a recipe, consumer implementation or release.
 
 Delivery update for proposal H: [PIN-1073](https://linear.app/pinguapps/issue/PIN-1073)
-adds `testing.migrate-vstest-message-readers`, edition11.0. Both audited TestHost
+adds `testing.migrate-vstest-message-readers`, edition 11.0. Both audited TestHost
 18.7.0/18.11.0 ZIPs and three pinned note/message/serializer sources are replayed.
 The packaged advanced-host acquisition route and complete real net8 asset closure
 are qualified by independent published old-net10/current-net10/current-net11
 executables. Original Cwm Laboratory TestCase/traits/TestResult/ITestRunStatistics
-messages round-trip and cross-read actual old/new protocol1/2 wire data. The old
+messages round-trip and cross-read actual old/new protocol 1/2 wire data. The old
 resolvers' known-graph reader is retained; the typed route needs no internal API.
 
 Actual18.7 exports nongeneric TestPlatformContractResolver1, qualifying the note's
 generic spelling. Actual18.11 concrete TestRunStatistics reads lose the Passed
 count; ITestRunStatistics preserves it. Header parsing can precede malformed
-payload rejection, protocol1 omits Version (read as0), and current RawMessage is
+payload rejection, protocol 1 omits Version (read as0), and current RawMessage is
 the unchanged full envelope. Focused execution asserts these facts, null/domain/
 malformed/version failures and all surviving public serializer operations. Every
 named removed symbol independently compiles old/fails new even with direct
-Newtonsoft13.0.4. A deployed old binary still fails TypeLoadException with the
+Newtonsoft 13.0.4. A deployed old binary still fails TypeLoadException with the
 current platform set and Newtonsoft present: adding JSON is not an ABI repair.
 
 Fresh sample evidence and installed offline retrieval establish this bounded
-M(3) delivery: artifact/support qualification, original bridge, protocol/failure/
+M (3) delivery: artifact/support qualification, original bridge, protocol/failure/
 surface/ABI checks and complete prose. No arbitrary custom resolver/converter
 extension, test execution/transport, Framework, other OS, trimming/AOT or actual
 GA claim is added. Unsupported extension subgoals remain explicit. Remaining

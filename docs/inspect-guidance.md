@@ -34,7 +34,7 @@ This tested block builds/packs the ordinary tool, installs the exact package in
 an isolated local feed/cache, then calls installed stdio list/get from an
 unrelated directory. It prints ID/title/goal, complete canonical Markdown,
 explicit target/edition, applicability and all three current evidence records.
-PowerShell7, SDK10.0.402 and Node22.19+ are required; setup may use the network.
+PowerShell7, SDK 10.0.402 and Node22.19+ are required; setup may use the network.
 Retrieval uses unusable proxies, proving proxy independence, not network isolation.
 
 ```powershell
@@ -54,8 +54,8 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1073-03-021-read-vst
 ```
 
 Expect title "Read VSTest messages through the supported typed contract",
-edition11.0 and a conditional target10 route. The laboratory examples retain
-actual18.7/18.11 package and SDK/runtime distinctions, typed TestCase/traits/
+edition 11.0 and a conditional target10 route. The laboratory examples retain
+actual 18.7/18.11 package and SDK/runtime distinctions, typed TestCase/traits/
 TestResult/ITestRunStatistics checks, protocol/header/failure semantics and the
 concrete-statistics limitation. Custom resolver/converter extensions have no
 replacement promised. `eng/Test-VSTestMessages.ps1 -Record` captures the separate

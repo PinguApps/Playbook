@@ -71,7 +71,9 @@ try {
     finally { $zip.Dispose() }
   }
   $sources = Get-Content (Join-Path $root 'docs/planning/audits/sdk-package-hosts.sources.json') -Raw | ConvertFrom-Json
-  foreach ($source in ($sources.sources | Where-Object id -In 'note-vstest-removes-newtonsoft-json','vstest11-message','vstest11-serializer')) {
+  $selectedSources = @($sources.sources | Where-Object id -In 'note-vstest-removes-newtonsoft-json','vstest11-message','vstest11-serializer')
+  if ($selectedSources.Count -ne 3) { throw 'Expected all three audited VSTest sources.' }
+  foreach ($source in $selectedSources) {
     $file = Join-Path $scratch "$($source.id).txt"
     Invoke-WebRequest $source.url -OutFile $file
     if ((Get-FileHash $file).Hash.ToLowerInvariant() -cne $source.sha256) { throw 'Audited source drift.' }

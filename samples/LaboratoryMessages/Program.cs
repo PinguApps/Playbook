@@ -78,6 +78,7 @@ var statsMessage = serializer.DeserializeMessage(statsWire);
 var contract = serializer.DeserializePayload<ITestRunStatistics>(statsMessage)!;
 if (contract.ExecutedTests != 1 || contract[TestOutcome.Passed] != 1) throw new InvalidDataException();
 var concrete = serializer.DeserializePayload<TestRunStatistics>(statsMessage)!;
+if (concrete.ExecutedTests != 1) throw new InvalidDataException("Concrete statistics lost the executed count.");
 #if LEGACY_PLATFORM
 if (concrete[TestOutcome.Passed] != 1) throw new InvalidDataException();
 #else

@@ -24,7 +24,7 @@ Its isolated `Directory.Packages.props` is:
 The original previous reader explicitly materializes the old `VersionedMessage`
 before reading its `Payload`. Merely calling `DeserializeMessage` did **not**
 populate `Payload` on the old default fast path either. The two public old
-resolvers select the platform converters for protocol1 versus protocol2:
+resolvers select the platform converters for protocol 1 versus protocol 2:
 
 {{snippet:legacy}}
 
@@ -52,15 +52,15 @@ actual **lib/net8.0** compile and runtime assets:
 {{snippet:newer-packages}}
 
 The independently compiled and executed .NET 10 route uses the same current
-package pin, SDK10.0.402/C#14/runtime10.0.13:
+package pin, SDK 10.0.402/C# 14/runtime 10.0.13:
 
 {{snippet:current10-project}}
 
 This conditional package-adoption route is not another .NET 10 foundation. No
 .NET 8/9/Framework route is advertised from asset-directory presence alone.
-TestHost18.11.0 is a stable public package; the .NET11 SDK/runtime proof remains
+TestHost 18.11.0 is a stable public package; the .NET 11 SDK/runtime proof remains
 RC2. The SDK's **18.11.0-release-26504-105** copies are separate artifacts, not the
-downloaded18.11 bytes used here. No experimental API or opt-in is required.
+downloaded 18.11 bytes used here. No experimental API or opt-in is required.
 
 Save this common source as `samples/LaboratoryMessages/LabRun.cs`. The statistics
 property deliberately uses the supported **ITestRunStatistics** contract:
@@ -80,21 +80,21 @@ Save `samples/LaboratoryMessages/TypedBridge.cs`:
 | --- | --- |
 | `Message.Payload` (`JToken`) | Read the known `LabRun` with `DeserializePayload<LabRun>(message)`. No DOM extraction or substitute parser. |
 | `VersionedMessage.Version` | Current `Message.Version` carries the header value; validate it before decoding. |
-| `DefaultTestPlatformContractResolver` | Remove caller-owned platform resolver configuration; the typed serializer owns the protocol2 graph. |
-| `TestPlatformContractResolver<T>` in the note | The actual18.7 assembly exports **nongeneric `TestPlatformContractResolver1`**, not that generic type. The old sample compiles the real class for protocol1; the new typed reader handles that known graph. No generic replacement is invented. |
-| `TestCaseConverter`, `TestObjectConverter`, `TestResultConverter` | One original payload demonstrates their shared goal: selected `TestCase`, `TestObject` bench trait and `TestResult` outcome/duration all survive both protocol1/2 and old/new wire reads. The platform chooses its converters. |
+| `DefaultTestPlatformContractResolver` | Remove caller-owned platform resolver configuration; the typed serializer owns the protocol 2 graph. |
+| `TestPlatformContractResolver<T>` in the note | The actual 18.7 assembly exports **nongeneric `TestPlatformContractResolver1`**, not that generic type. The old sample compiles the real class for protocol 1; the new typed reader handles that known graph. No generic replacement is invented. |
+| `TestCaseConverter`, `TestObjectConverter`, `TestResultConverter` | One original payload demonstrates their shared goal: selected `TestCase`, `TestObject` bench trait and `TestResult` outcome/duration all survive both protocol 1/2 and old/new wire reads. The platform chooses its converters. |
 | `TestRunStatisticsConverter` | Use **ITestRunStatistics** in the same payload. Direct typed interface reads preserve ExecutedTests and Passed counts. Do not assume concrete `TestRunStatistics` is equivalent. |
 
-The measured18.11 concrete `DeserializePayload<TestRunStatistics>` retains
+The measured 18.11 concrete `DeserializePayload<TestRunStatistics>` retains
 ExecutedTests=1 but returns Passed=0 for the original totals message. The interface
-read returns1 for both. This limitation is an asserted control, not a fabricated
+read returns 1 for both. This limitation is an asserted control, not a fabricated
 replacement for a missing extension point. Existing custom resolver inheritance,
 arbitrary converter registration, custom Newtonsoft attributes/settings and all
 other payload graphs need their own design/proof. There is **no public replacement
 advertised here for those subgoals**. Do not access remaining internal converters.
 
 Every named previous symbol compiles against the old package and fails against
-the current one with CS1061/CS0246/CS0122, **even with a direct Newtonsoft13.0.4
+the current one with CS1061/CS0246/CS0122, **even with a direct Newtonsoft 13.0.4
 reference**. The real old executable with a current matching platform assembly
 set and its Newtonsoft DLL still fails at runtime on a removed contract. Rebuild
 against supported APIs; adding Newtonsoft restores neither source nor binary
@@ -105,18 +105,18 @@ compatibility. JSON ownership in tests/extensions is a separate recipe.
 - `Message.MessageType` is the routing key. `RawMessage` is the **entire unchanged
   received JSON envelope**, including its payload. Current `ToString()` returns
   that raw text; an empty current Message returns `{}`. It is not a payload API.
-- Serializing with protocol1 omits Version; current `DeserializeMessage` reports
-  **0**. Explicit protocol2 reports **2**. This bridge accepts only its negotiated
-  0/1/2 set and exact completion kind. It rejects99 before decoding; the actual
-  serializer also rejects99. This is not a claim that VSTest supports only0/1/2.
+- Serializing with protocol 1 omits Version; current `DeserializeMessage` reports
+  **0**. Explicit protocol 2 reports **2**. This bridge accepts only its negotiated
+  0/1/2 set and exact completion kind. It rejects 99 before decoding; the actual
+  serializer also rejects 99. This is not a claim that VSTest supports only 0/1/2.
 - Canonical header parsing can succeed on truncated payload JSON. Reordered or
   whitespace-prefixed input uses the JSON fallback. A successful header is not
   payload validation. Always decode and check required domain values.
 - `DeserializePayload<LabRun>(null)` returns null on both packages; the new empty
   Message without RawMessage also returns null. The bridge rejects a null payload
   or missing domain fields with InvalidDataException. Malformed/incompatible JSON
-  throws Newtonsoft.Json exceptions on18.7 and System.Text.Json.JsonException on
-  the actual modern18.11 consumer. Handle failures at the receiving boundary;
+  throws Newtonsoft.Json exceptions on 18.7 and System.Text.Json.JsonException on
+  the actual modern 18.11 consumer. Handle failures at the receiving boundary;
   never count a header-only result as a completed laboratory batch.
 
 The public `JsonDataSerializer.Instance`, `DeserializeMessage`,
@@ -128,9 +128,9 @@ or converter factory is invented.
 ## Migration
 
 1. Inventory the caller's package/assembly provenance and payload contract. For
-   this bounded bridge, pin TestHost18.7/18.11 separately and use the matching
+   this bounded bridge, pin TestHost 18.7/18.11 separately and use the matching
    ObjectModel closure. The official removal note introduces the change in
-   .NET11 Preview4; it does not replace actual package qualification.
+   .NET 11 Preview 4; it does not replace actual package qualification.
 2. Lay out the projects and linked common sources at the shown paths. Put the
    legacy reader beside LabRun; define LEGACY_PLATFORM only in the old project.
    Keep examples isolated from root central-package inheritance. Use the complete
@@ -142,8 +142,8 @@ or converter factory is invented.
 4. Add `SurfaceChecks.cs` and `Program.cs` below. Pin each SDK with global.json
    (`rollForward: disable`), restore from nuget.org and commit the actual generated
    packages.lock.json. Use `restore --locked-mode` thereafter. Full old closure is
-   TestHost/ObjectModel18.7 + Newtonsoft13.0.3; full new closure is
-   TestHost/ObjectModel18.11, with no Newtonsoft dependency.
+   TestHost/ObjectModel 18.7 + Newtonsoft 13.0.3; full new closure is
+   TestHost/ObjectModel 18.11, with no Newtonsoft dependency.
 5. Build and publish framework-dependent output, retaining package runtime
    assets. Do not mark this executable's TestHost reference `PrivateAssets=all`:
    that excludes the dependency from these publish outputs. Run the published
@@ -152,7 +152,7 @@ or converter factory is invented.
 6. Run `eng/Test-VSTestMessages.ps1 -Record` with the two absolute healthy dotnet
    executables. It checks package/source hashes and selected compile/runtime
    assets, executes the real compilers, then builds/publishes all three consumers.
-   It exchanges actual old/new serialized protocol1/2 messages in both directions,
+   It exchanges actual old/new serialized protocol 1/2 messages in both directions,
    checks failures and all removed symbols, and saves fresh sample evidence.
 
 The sample common `Directory.Build.props` sets OutputType=Exe, Nullable=enable,
@@ -212,7 +212,7 @@ open; existing Human gates and the exact eight foundations remain unchanged.
 ## Sources
 
 - [Official VSTest public API removal](https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json).
-- [Publisher TestHost18.11 advanced-host acquisition](https://www.nuget.org/packages/Microsoft.TestPlatform.TestHost/18.11.0).
-- [Public serializer at the actual18.11 package source commit](https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.cs).
+- [Publisher TestHost 18.11 advanced-host acquisition](https://www.nuget.org/packages/Microsoft.TestPlatform.TestHost/18.11.0).
+- [Public serializer at the actual 18.11 package source commit](https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.cs).
 - [Modern serializer and protocol implementation](https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.CommunicationUtilities/JsonDataSerializer.Stj.cs).
 - [NuGet locked restoration](https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
