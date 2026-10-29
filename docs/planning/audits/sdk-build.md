@@ -168,13 +168,43 @@ Delivered B13 under **PIN-1130** as [edition11.0](../../../content/recipes/testi
 
 Proposed `sdk.check-sdk-servicing-status`. An original project enables CheckSdkVulnerabilities and owns SDK selection separately from NuGet package audit. Isolate its metadata cache/home, use real cache schema with controlled vulnerability/EOL/clear/missing/stale cases, run actual restore/build and capture NETSDK1236/1237 behavior. Distinguish controlled metadata from a live advisory check and verify no build-time network assumption. Never label a missing cache as a clean security result.
 
+Delivered under **PIN-1131** as [edition11.0](../../../content/recipes/sdk.check-sdk-servicing-status/11.0/recipe.md).
+Actual RC2 uses **NETSDK1238/1239**, superseding the draft diagnostic numbers.
+Original paired Skylark consumers exercise controlled missing/clear/vulnerable/
+EOL/stale/corrupt metadata with real restore/build; missing/corrupt skip and stale
+data still warns. Source-confirmed disk-only task and unusable-proxy execution do
+not establish live advisory freshness or OS-level network isolation. M(3) retains
+cache/schema/selection/diagnostic qualification. No extra foundation, down-level
+route, security verdict, GA or publication gate is claimed.
+
 ### B15. Publish a selected partial ReadyToRun set — L (5)
 
 Proposed `sdk.choose-partial-readytorun-inputs`. An original command tool selects PublishReadyToRunPartialAssemblies/Crossgen2ContainerFormat using the actual supported target contract, preserving a full/default control. Require matched runtime/crossgen artifacts and the platform execution route. Publish and inspect actual PE/native outputs, run both, verify exclusions/fallback and failure diagnostics. DLL property presence does not prove supported configuration; no startup/performance claim without a bounded measurement.
 
+Delivered under **PIN-1132** as [edition11.0](../../../content/recipes/sdk.choose-partial-readytorun-inputs/11.0/recipe.md).
+The authored property is **PublishReadyToRunContainerFormat**; Crossgen2ContainerFormat
+is the receiving task parameter. Actual paired full/selected publishing inspects
+PE/native/partial headers and runs ordinary/forced-JIT paths; excluded assemblies
+remain IL and invalid current format fails. Unprofiled partial output has zero
+native method bodies versus a nonempty full control; no particular native method
+execution is claimed. SDK10 whole-assembly exclusion is the
+valid older alternative. L(5) retains matched native compiler/runtime artifact,
+output and execution checks. Windows x64 PE only; no performance, other envelope,
+older-target partial, GA or publication claim.
+
 ### B16. Supply a deliberate native-tool package RID matrix — L (5)
 
 Proposed `sdk.customize-native-tool-package-rids`. Implement ComputeToolPackageRuntimeIdentifiersToPack with actual supported native toolchain/RIDs rather than depending on the host's conservative defaults. Pack original real native executables, inspect inner-build counts/package identities/RID graph and install/run on an available declared host; cross-compiled-but-unrun RIDs stay labelled. Test unsupported/missing toolchain failure. Prerequisites include each advertised target's compiler/runtime, not a dummy generated file. Distinct from PIN-763's basic tool layout.
+
+Delivered under **PIN-1133** as [edition11.0](../../../content/recipes/sdk.customize-native-tool-package-rids/11.0/recipe.md).
+Real ILC/MSVC-link builds create Windows x64 native tool payloads. The current
+extension selects one RID inner pack; actual packages/RID graph, isolated local
+installation/native execution and unsupported/missing-toolchain failures are
+checked. SDK10 uses explicit inner plus outer packing. Candidate win-arm64 defaults
+are evaluated separately; it is not declared or supplied as an unverified payload.
+L(5) retains native package/toolchain/installation qualification. Fresh input/lock/
+command evidence and installed offline retrieval remain required; all eight
+foundations, PIN-959/PIN-963/actual-GA and unrelated Human gates remain unchanged.
 
 ### B17. Avoid writing a disposable CI restore graph — S (2)
 

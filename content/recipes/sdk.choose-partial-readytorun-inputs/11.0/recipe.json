@@ -1,0 +1,182 @@
+{
+  "id": "sdk.choose-partial-readytorun-inputs",
+  "edition": "11.0",
+  "title": "Choose partial ReadyToRun assemblies and preserve JIT fallback",
+  "goal": "Select assemblies for partial native preparation during ReadyToRun publishing when a full compilation control, excluded IL assemblies and runtime fallback must remain verifiable.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "skylark-build",
+    "choose-partial-readytorun-inputs"
+  ],
+  "apis": [
+    "PublishReadyToRunPartialAssemblies",
+    "PublishReadyToRunContainerFormat",
+    "PublishReadyToRunExclude",
+    "Crossgen2ContainerFormat"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Windows x64 PE route only; matched runtime and Crossgen2 packages required. No startup or throughput improvement is claimed.",
+          "SDK 10 comparison excludes whole assemblies; partial compilation is a different SDK 11 contract. IL and a JIT-capable runtime remain required.",
+          "Unprofiled partial HotRules has zero native method bodies; full control and real JIT fallback are verified. No profile-guided hot-method set is claimed."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared net11.0 application/runtime; the SDK host is selected independently."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK family supplying the authored build contract; exact RC2 build is recorded evidence, not GA qualification."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Supported language setting for these net11.0 examples; no preview-language switch."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Crossgen2.win-x64 and Microsoft.NETCore.App.Runtime.win-x64 11.0.0-rc.2.26504.105; exact restored assets recorded."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64; no other OS, architecture, device or rendering route is qualified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete SDK/runtime installations; tested SDK10 10.0.402/runtime10.0.13 and SDK11 11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105.",
+            "PowerShell 7 for the authoring checks. Restore setup may need nuget.org; served guidance is embedded offline."
+          ],
+          "constraints": [
+            "Windows x64 PE route only; matched runtime and Crossgen2 packages required. No startup or throughput improvement is claimed.",
+            "SDK 10 comparison excludes whole assemblies; partial compilation is a different SDK 11 contract. IL and a JIT-capable runtime remain required.",
+            "Older samples are comparisons, not additional target-10 editions or foundations. No provider, UI rendering, optional workload, production resource or public publication is involved.",
+            "Unprofiled partial HotRules contains no native methods; a native header alone is not proof that a method executes native code."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Evidence is .NET 11 RC2. Reconcile actual GA artifacts separately under PIN-963; no API taught here is designated experimental."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.CrossGen.targets",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/PrepareForReadyToRunCompilation.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/RunReadyToRunCompiler.cs",
+          "https://learn.microsoft.com/en-us/dotnet/core/deploying/ready-to-run"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned actual SDK implementation and build contract",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.CrossGen.targets"
+    },
+    {
+      "title": "Official source or supported deployment guidance",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/PrepareForReadyToRunCompilation.cs"
+    },
+    {
+      "title": "Official source or supported deployment guidance",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/RunReadyToRunCompiler.cs"
+    },
+    {
+      "title": "Official source or supported deployment guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/ready-to-run"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real build/run and full/selected publishing, R2R header/partial/exclusion inspection, ordinary and forced-JIT execution and current invalid-format failure; Windows x64 only."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real build/run and full/selected publishing, R2R header/partial/exclusion inspection, ordinary and forced-JIT execution and current invalid-format failure; Windows x64 only."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/SkylarkReadyToRun/SkylarkReadyToRun.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "program": {
+      "path": "samples/net10.0/SkylarkReadyToRun/Program.cs",
+      "region": "dispatch",
+      "language": "csharp"
+    },
+    "hot-project-10": {
+      "path": "samples/net10.0/SkylarkReadyToRun/Hot/Skylark.HotRules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "cold-project-10": {
+      "path": "samples/net10.0/SkylarkReadyToRun/Cold/Skylark.ColdRules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "hot-project-11": {
+      "path": "samples/net11.0/SkylarkReadyToRun/Hot/Skylark.HotRules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "cold-project-11": {
+      "path": "samples/net11.0/SkylarkReadyToRun/Cold/Skylark.ColdRules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "hot": {
+      "path": "samples/net10.0/SkylarkReadyToRun/HotRules.cs",
+      "region": "hot",
+      "language": "csharp"
+    },
+    "cold": {
+      "path": "samples/net10.0/SkylarkReadyToRun/ColdRules.cs",
+      "region": "cold",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded local Windows x64 behavior is executed by the agent. No Human/device/provider/other-platform behavior or GA/publication gate is claimed."
+  }
+}

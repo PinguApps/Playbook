@@ -1,4 +1,12 @@
 # PR Agent review scope; Git tracking and verification gates are unchanged.
+# Test-SkylarkBuild generated SDK/command/PE/package captures. Review original
+# consumers, artifact pins, locks and recorder; ordinary build/pack checks freshness.
+/samples/net10.0/SkylarkServicing/verification-evidence.json
+/samples/net11.0/SkylarkServicing/verification-evidence.json
+/samples/net10.0/SkylarkReadyToRun/verification-evidence.json
+/samples/net11.0/SkylarkReadyToRun/verification-evidence.json
+/samples/net10.0/SkylarkNative/verification-evidence.json
+/samples/net11.0/SkylarkNative/verification-evidence.json
 # Test-TernTesting generated SDK/dependency/command/TRX captures. Review the canonical
 # host, adapter, resolver, artifact pins, locks and recorder; build/pack checks freshness.
 /samples/TernTesting/verification-evidence.json

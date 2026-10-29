@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "skylark.coldrules": {
+        "type": "Project"
+      },
+      "skylark.hotrules": {
+        "type": "Project"
+      }
+    },
+    "net11.0/win-x64": {}
+  }
+}

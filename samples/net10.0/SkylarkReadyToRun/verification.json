@@ -1,0 +1,17 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Test-SkylarkBuild.ps1",
+    "samples/net10.0/SkylarkReadyToRun/Program.cs",
+    "samples/net10.0/SkylarkReadyToRun/HotRules.cs",
+    "samples/net10.0/SkylarkReadyToRun/ColdRules.cs",
+    "samples/SkylarkBuild/artifacts.json"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Skylark.ColdRules/1.0.0",
+    "Skylark.HotRules/1.0.0"
+  ]
+}
