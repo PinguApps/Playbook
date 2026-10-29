@@ -474,6 +474,34 @@ and omitted-initialization failure using SDK10.0.402 and SDK11 RC2. That helper
 records the loaded DLL/version/hash; retrieval does not execute SQL. Encryption,
 other platforms and actual GA remain unverified. No paid provider is selected.
 
+## SQLite time components
+
+This block was checked starting from an unrelated directory. It selects the exact
+assigned worktree, builds/packs the ordinary tool, then uses the existing isolated
+local-feed/cache harness for real installed stdio list/get. Requires PowerShell7,
+SDK10.0.402 and Node22.19+; Inspector2.11.0 installs locally if absent. Setup may
+restore online. Retrieval uses unusable proxies, proving proxy independence rather
+than network isolation. Separate sample execution also needs SDK/runtime11 RC2.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1210-05-069-filter-sqlite-rows-by-time-components'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sqlite.query-time-components' -TargetVersion '11.0' `
+  -Query 'time-components' -PackageVersion '0.0.0-sqlite-components' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/sqlite-components/inspection
+```
+
+Expect ID/title/goal, explicit target11/edition11, complete canonical EF10/EF11
+Markdown, applicability and two current compilation/execution records. The older
+parameterized SQL remains server-side; the current predicates execute `%H`/`%M`/`%S`
+through SQLite strftime. Native versions3.53.3/3.53.4, stored fractions/boundaries,
+exact results and translation failures are captured by the separate HeronSignals
+sample records. Inspection does not rerun those databases. No EF11-on-net10,
+additional foundation, arbitrary precision/timezone, other-platform or actual-GA
+claim is added; PIN-959/PIN-965 and existing Human gates remain open.
+
 ## Inspect a response directly
 
 ```powershell
