@@ -1,3 +1,4 @@
+// snippet:complete
 // snippet:setup
 using HarbourMuseum;
 using System.Diagnostics;
@@ -157,3 +158,4 @@ sealed class ArrayOnlyProtector(IDataProtector inner) : IDataProtector
     public byte[] Protect(byte[] plaintext) => inner.Protect(plaintext);
     public byte[] Unprotect(byte[] protectedData) => inner.Unprotect(protectedData);
 }
+// endsnippet:complete

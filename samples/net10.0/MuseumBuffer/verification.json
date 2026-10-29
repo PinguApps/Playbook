@@ -4,8 +4,6 @@
   "buildArguments": [],
   "workloads": [],
   "additionalInputs": [
-    "samples/MuseumBuffer/OwnedBuffer.cs",
-    "samples/MuseumBuffer/Program.cs",
     "eng/Evidence.ps1",
     "eng/Record-Evidence.ps1",
     ".editorconfig"

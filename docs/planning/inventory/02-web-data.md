@@ -367,3 +367,12 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 [EB]: https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes
 [ER1]: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc1/efcore.md
 [ER2]: https://github.com/dotnet/core/blob/main/release-notes/11.0/preview/rc2/efcore.md
+
+### Owned-buffer data protection: W01 / PIN-1171
+
+`security.protect-into-buffer/11.0` delivers original museum-token framework10
+array and framework11 span examples, actual capability/fallback and real isolated
+key-ring round trips/failures. The advanced real encryptor verifies matching AAD
+and authentication rejection with full failed-output cleanup. Windows x64 RC2
+evidence does not establish zero allocations, other platforms or GA. No extra
+.NET10 foundation or older-target span route is added; PIN-959/PIN-964 stay open.

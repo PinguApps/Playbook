@@ -10,8 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <Compile Include="../../MuseumBuffer/OwnedBuffer.cs" Link="OwnedBuffer.cs" />
-    <Compile Include="../../MuseumBuffer/Program.cs" Link="Program.cs" />
   </ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

@@ -134,7 +134,7 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | IOutputCachePolicyProvider | PIN-834; dynamic base/named policy selection, rather than fixed registration. |
 | Zstandard providers/decompression | PIN-835; explicit negotiation/decoding policy, not an automatic-default performance recipe. |
 | Removed concurrency middleware, MVC compatibility types, ImageTagHelper constructor/properties, ForProperty overload, runtime compilation registrations | PIN-836–840 respectively. PIN-837–839 deliver the three MVC/Razor migrations below. Preserve source/binary versus behavioral distinctions; ASPDEPR003 is not runtime removal. **W16** handles F# compiled-view migration, which needs more than removing a registration. |
-| ISpanDataProtector/ISpanAuthenticatedEncryptor | **W01**; writer-based protection and advanced custom encryptor contracts. New authored buffer ownership qualifies even when performance motivates it. |
+| ISpanDataProtector/ISpanAuthenticatedEncryptor | **W01 / PIN-1171 delivered** `security.protect-into-buffer/11.0`: actual framework10 array and framework11 span/capability fallback, isolated real keys, empty/token/1MiB recovery, purpose/key/tampering and advanced AAD rejection; full failed-output cleanup. Reference hashes match this audit; no allocation-count, older-target span or actual-GA claim. |
 | StaticAssetDescriptor.Order | **W06**; authored endpoint manifest/routing precedence. Generated default changes do not each need a recipe. |
 | QUIC transport four buffer/stream properties lose RequiresPreviewFeatures | **W12**; explicit budgets and removal of a now-unnecessary preview workaround. Existing properties are not newly invented APIs. |
 | JSON Patch ShouldSerializeFrom obsoletion; from/value JSON metadata | **W13**; default compiler warning and actual wire representation, distinct from the unchanged Newtonsoft implementation. |
@@ -607,3 +607,19 @@ structured/text equality and target editions. No new platform/client matrix,
 resource provisioning or package publication is added. These managed Windows x64
 checks establish the named consumer behavior, not browser rendering, arbitrary
 third-party binary compatibility, trimming/NativeAOT or GA verification.
+
+## Owned-buffer delivery: W01 / PIN-1171
+
+The original M (3) scope remains one shared buffer-ownership goal, not algorithm
+design. The museum examples compile and execute on SDK10.0.402/framework10.0.13
+and SDK11.0.100-rc.2.26504.105/framework11 RC2, with original canonical source
+and fresh sample records. Both DataProtection reference assemblies match the
+original asset hashes; runtime identities are recorded separately. Actual
+IDataProtector discovery and a capability-hiding wrapper exercise span and real
+array fallback. Checks cover token/empty/1MiB, purpose/key/tampering, full-buffer
+cleanup and real framework-key encryptor AAD success/failures. Only Windows x64
+CNG execution is qualified; no custom algorithm, package backport, allocation
+count, other backend/platform or actual-GA claim. Installed ordinary-artifact
+list/get inspection uses the existing parameterized Inspector harness. The eight
+.NET10 foundations, retained identities, Human gates, PIN-959 and PIN-964 remain
+unchanged. This bounded delivery does not change the other outstanding drafts.
