@@ -1,0 +1,19 @@
+// snippet:instructions-1
+{
+  "runtimeOptions": {
+    "configProperties": {
+      "TidalStation.DiagnosticMode": "development",
+      "TidalStation.Operator": "night-watch"
+    }
+  }
+}
+// endsnippet:instructions-1
+
+// snippet:instructions-3
+<ItemGroup>
+  <None Update="development.json"
+        CopyToOutputDirectory="PreserveNewest"
+        CopyToPublishDirectory="Always"
+        TargetPath="TidalDiagnostics.runtimeconfig.dev.json" />
+</ItemGroup>
+// endsnippet:instructions-3

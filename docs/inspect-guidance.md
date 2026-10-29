@@ -122,6 +122,71 @@ The task-local SDK root above preserves the recorded 10.0.402/RC2 baselines
 after the machine's installation advanced to 10.0.403/RC3. An equivalent installed
 root containing those exact SDKs and runtimes can be supplied instead.
 
+## Runtime overrides and SDK selection for tool execution
+
+From PowerShell 7 with SDK 10.0.402 and Node 22.19+, this builds/packs the
+ordinary tool, then reuses the isolated local-feed/cache harness to inspect that
+exact artifact over real stdio from an unrelated temporary directory. Inspector
+2.11.0 is installed locally if missing. Setup may restore packages online;
+retrieval uses unusable proxies (proxy independence, not network isolation).
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72e14ee7'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('deployment.control-runtime-overrides','sdk.select-tool-execution-sdk') `
+  -Query 'host-selection' -PackageVersion '0.0.0-host-selection' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
+  -OutputDirectory ./artifacts/host-selection/inspection
+```
+
+Expect both IDs/titles/goals, explicit edition
+11.0, complete expanded canonical Markdown, applicability and four current
+compilation/execution records per recipe. The second recipe correctly reports
+introduction 10.0: wrapper bypass was serviced into 10.0.302/10.0.400 and was
+executed here on 10.0.402 and RC2. This adds no target-10 foundation. The existing
+helper's name is historical; its recipe-ID/query parameters accept both recipes.
+
+Actual behavior is separate from retrieval. `eng/Test-RuntimeOverrides.ps1`
+executes the original .NET 10/11 samples with isolated matching hostfxr/runtime,
+duplicate and nonduplicate properties, source regeneration, Release dev-file
+generation/copy and a fresh production artifact allowlist.
+`eng/Test-ToolSdkSelection.ps1` executes both original local packages, three SDK
+pins, both shipped Windows wrappers, exact quoted arguments and failure exits.
+These require the declared Windows x64 SDK/runtime installations; parameters
+accept alternate absolute installation paths. SDK 9 is a negative command case
+only. Unix wrapper execution and actual .NET 11 GA reconciliation remain unverified.
+## Nested EF scalars and primitive sequences
+
+This block builds/packs once, runs the existing installed MCP smoke scenario,
+then uses that same artifact through the existing local-feed/cache Inspector
+harness. It was checked starting from an unrelated directory. Requires PowerShell
+7, SDK 10.0.402 and Node 22.19+; the standalone consumer checks additionally need
+the declared .NET 10 and .NET 11 RC2 SDKs/packages. Setup may restore packages
+online. Retrieval uses unusable proxies, demonstrating proxy independence rather
+than network isolation. No external database or account is needed.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3101a2fc'
+& ./eng/Test-Smoke.ps1 -PackageVersion '0.0.0-ef-models'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.configure-nested-scalar','ef.configure-primitive-sequence') `
+  -Query 'ef-models' -PackageVersion '0.0.0-ef-models' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/ef-models/inspection
+```
+
+Despite the helper's historical name, its recipe/query parameters reuse the same
+packed stdio path for these EF recipes. Expect both IDs/titles/goals, explicit
+11.0 editions, full expanded original .NET 10/11 projects, applicability and two
+current compile-and-run records per recipe. EstuaryMarkers configures the nested
+`marker_code`; KilnReadings distinguishes primitive JSON sequences from a binary
+scalar. The inspection asserts full canonical body equality and matching
+applicability; it does not rerun SQLite. The sample records establish real Windows
+x64 SQLite model/schema/round-trips using EF 10.0.13 and EF11 RC2. Other providers,
+native platforms, production data conversion and actual GA remain unverified.
+
 ## Inspect a response directly
 
 ```powershell

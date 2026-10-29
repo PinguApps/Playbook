@@ -4,6 +4,16 @@ Reviewed **22 October 2026**. This source-only audit resolves the three assigned
 findings. Two additional delivery proposals await backlog approval. It creates no
 recipe and does not complete comprehensive coverage or permit publication.
 
+Delivery update, 29 October 2026: proposal A is implemented by
+[PIN-1064](https://linear.app/pinguapps/issue/PIN-1064), stable
+`deployment.control-runtime-overrides`, edition 11.0. Its original
+TidalDiagnostics .NET 10/11 consumers carry current compilation and actual
+isolated hostfxr/runtime execution records. SDK Release defaults, explicit dev
+generation/copy, regeneration and a fresh production artifact allowlist are
+measured rather than inferred from source. The historical proposal below remains
+the source of its bounded acceptance; Unix delivery, unsupported static-library
+availability and PIN-959/PIN-963's comprehensive/actual-GA gates remain separate.
+
 ## Boundary and provenance
 
 [PIN-687](https://linear.app/pinguapps/issue/PIN-687), planning key `SH_Q07`,
