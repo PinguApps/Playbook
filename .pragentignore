@@ -79,3 +79,9 @@
 # MuseumChecks, artifact pins and locked dependencies. Pack checks freshness.
 /samples/net10.0/MuseumInventory/verification-evidence.json
 /samples/net11.0/MuseumInventory/verification-evidence.json
+
+# Record-NorthQuayBuildHost.ps1 generated SDK/command/native capture; review the
+# harness, canonical hosts, artifact pins and locks. Pack checks input freshness.
+/samples/net10.0/NorthQuayBuildHost/verification-evidence.json
+/samples/net11.0/NorthQuayBuildHost/verification-evidence.json
+/samples/net11.0/NorthQuayBuildHost/native.evidence.json

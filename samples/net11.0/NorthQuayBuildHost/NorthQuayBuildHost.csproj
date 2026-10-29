@@ -1,0 +1,22 @@
+<!-- snippet:settings -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
+    <PublishAot>true</PublishAot><RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- Retain, print and inspect IL2026; this is NOT an analyzer-clean build claim. -->
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);IL2026</WarningsNotAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build" />
+    <PackageReference Include="Microsoft.Build.Framework" GeneratePathProperty="true" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" />
+    <PackageReference Include="NuGet.Frameworks" />
+    <PackageReference Include="Microsoft.VisualStudio.SolutionPersistence" />
+    <None Include="Quay.proj" Link="Quay.proj" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+    <None Include="Sdk.props" Link="Sdks/Quay.Permits/Sdk/Sdk.props" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+    <None Include="Sdk.targets" Link="Sdks/Quay.Permits/Sdk/Sdk.targets" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:settings -->

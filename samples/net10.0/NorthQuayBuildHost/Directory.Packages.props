@@ -1,0 +1,1 @@
+<Project><PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally><CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled></PropertyGroup><ItemGroup><PackageVersion Include="Microsoft.Build.Locator" Version="1.11.2" /></ItemGroup></Project>

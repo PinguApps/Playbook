@@ -1,0 +1,12 @@
+<!-- snippet:packages -->
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally><CentralPackageVersionOverrideEnabled>false</CentralPackageVersionOverrideEnabled></PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.Build" Version="18.11.0" />
+    <PackageVersion Include="Microsoft.Build.Framework" Version="18.11.0" />
+    <PackageVersion Include="Microsoft.Build.Utilities.Core" Version="18.11.0" />
+    <PackageVersion Include="NuGet.Frameworks" Version="7.9.0" />
+    <PackageVersion Include="Microsoft.VisualStudio.SolutionPersistence" Version="1.0.52" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:packages -->
