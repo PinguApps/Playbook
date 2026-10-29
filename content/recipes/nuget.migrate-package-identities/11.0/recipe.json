@@ -1,0 +1,179 @@
+{
+  "id": "nuget.migrate-package-identities",
+  "edition": "11.0",
+  "title": "Choose a compliant package identity during migration",
+  "goal": "Replace a legacy-valid restricted package ID, verify the replacement package and migrate direct and dependent consumers without assuming an identity redirect or public feed acceptance.",
+  "areas": [
+    "nuget",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "nuget-migration",
+    "package-sources"
+  ],
+  "apis": [
+    "PackageId",
+    "SdkAnalysisLevel",
+    "NU5052"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Target-11 edition with actual SDK 10.0.402 and 11 RC2 comparison; the exact eight .NET 10 foundations are unchanged."
+        ],
+        "sharedAreas": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Runtime required by the executed net11 consumer; SDK packing/restoring itself is a separate requirement."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK 11 implements the new NuGet behavior; exact verification uses RC2, compared with SDK 10.0.402."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Original current consumer/library uses C# 15; NuGet identity and version selection are language independent."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Original local Bérwyn.Wildlife.Tags and Berwyn.Wildlife.Tags/1.0.0; lib/net10.0 or lib/net11.0/WildlifeTags.dll, separate feeds/caches; Berwyn.Wildlife.Intake/1.0.0 and 2.0.0 dependencies."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Actual Windows x64 execution; no claim of other OS execution."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Installed SDK/runtime 10 and 11 for the comparison; PowerShell 7 for the local checks.",
+            "Separate explicit local sources, cache, CLI home and consumer directories per scenario; disable automatic global-tools PATH integration before first use."
+          ],
+          "constraints": [
+            "No public publication, account writes, shared-cache clearing, PATH or persistent environment changes.",
+            "Package source policy, actual selected assets and SDK analysis are separate decisions.",
+            "Legacy-invalid repeated and mixed dot/dash pairs fail packing on both SDKs; Unicode legacy-valid IDs demonstrate NU5052.",
+            "A package rename does not redirect direct or transitive references; deprecation/replacement is a future approved feed action."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Not an experimental API; actual SDK 11 RC2 evidence is not final GA verification. PIN-959/PIN-963 remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/nuget-pack-nu5052-packageid",
+          "https://github.com/NuGet/NuGet.Client/blob/623454983addd9cad23a4c16a28c8faf458c7546/src/NuGet.Core/NuGet.Packaging/PackageCreation/Utility/PackageIdValidator.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WildlifeTags/WildlifeTags.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/nuget-pack-nu5052-packageid",
+      "title": "Official SDK behavior and migration boundary"
+    },
+    {
+      "url": "https://github.com/NuGet/NuGet.Client/blob/623454983addd9cad23a4c16a28c8faf458c7546/src/NuGet.Core/NuGet.Packaging/PackageCreation/Utility/PackageIdValidator.cs",
+      "title": "Pinned official implementation: validation or restore candidate boundary"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "scope": "Actual original library compilation with no external dependency. Consumer behavior is recorded separately.",
+      "sample": "samples/net10.0/WildlifeTags/WildlifeTags.csproj",
+      "kind": "compile",
+      "target": "net10.0",
+      "language": "14.0"
+    },
+    {
+      "sdk": "10.0.402",
+      "scope": "Actual SDK 10/11 pack, Unicode NU5052 and analysis-level/warnings-as-errors controls; ASCII underscore acceptance, legacy repeated/mixed punctuation failures, archive identity/assets and compiled/executed direct plus repacked transitive consumers.",
+      "sample": "samples/net10.0/WildlifeTags/WildlifeTags.csproj",
+      "kind": "execution",
+      "target": "net10.0",
+      "record": "samples/net10.0/WildlifeTags/commands.evidence.json",
+      "language": "14.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual original library compilation with no external dependency. Consumer behavior is recorded separately.",
+      "sample": "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
+      "kind": "compile",
+      "target": "net11.0",
+      "language": "15.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual SDK 10/11 pack, Unicode NU5052 and analysis-level/warnings-as-errors controls; ASCII underscore acceptance, legacy repeated/mixed punctuation failures, archive identity/assets and compiled/executed direct plus repacked transitive consumers.",
+      "sample": "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
+      "kind": "execution",
+      "target": "net11.0",
+      "record": "samples/net11.0/WildlifeTags/commands.evidence.json",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older-project": {
+      "path": "samples/net10.0/WildlifeTags/WildlifeTags.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "older-consumer-project": {
+      "path": "samples/net10.0/WildlifeTags/Consumer.xml",
+      "language": "xml",
+      "region": "consumer-project"
+    },
+    "newer-project": {
+      "path": "samples/net11.0/WildlifeTags/WildlifeTags.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "newer-consumer-project": {
+      "path": "samples/net11.0/WildlifeTags/Consumer.xml",
+      "language": "xml",
+      "region": "consumer-project"
+    },
+    "library": {
+      "path": "samples/net11.0/WildlifeTags/TagRules.cs",
+      "language": "csharp",
+      "region": "library"
+    },
+    "consumer": {
+      "path": "samples/net11.0/WildlifeTags/Consumer.cs.txt",
+      "language": "csharp",
+      "region": "consumer"
+    },
+    "config": {
+      "path": "samples/net11.0/WildlifeTags/Feed.xml",
+      "language": "xml",
+      "region": "config"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded local-only package/consumer checks execute automatically on Windows x64; no provider/device/Human-only requirement or public feed operation."
+  }
+}

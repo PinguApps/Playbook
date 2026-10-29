@@ -12,6 +12,31 @@ other proposals, comprehensive coverage and actual GA reconciliation remain
 outside this delivery. The source-only audit below is historical evidence, not
 the execution record.
 
+Delivery update for proposals C/E: [PIN-1068](https://linear.app/pinguapps/issue/PIN-1068)
+and [PIN-1070](https://linear.app/pinguapps/issue/PIN-1070) add stable
+`nuget.migrate-package-identities` and `nuget.restore-from-declared-sources`,
+edition 11.0. Original WildlifeTags/StationReadings libraries are compiled with
+SDK 10.0.402 / 11.0.100-rc.2.26504.105 and their local packages are consumed and
+executed in separate caches. SDK-bundled NuGet artifacts are measured separately:
+7.9.0-rc.611 at VMR a8dd0577 and 8.0.0-rc.605 at VMR 820230c3; there is no
+external NuGet client-library dependency or native toolchain in these samples.
+
+The actual pack checks qualify C: repeated/mixed adjacent dots/dashes already
+fail **legacy validation** on both SDKs; the legacy-valid Unicode ID demonstrates
+NU5052 on SDK 11. Underscores, warnings-as-errors and lower analysis policy are
+separate controls. Direct and repacked transitive consumers prove identity and
+contents after renaming. No public feed validation/deprecation is performed.
+
+The actual restores qualify E's diagnostic shorthand: default direct approximate
+requests with generated lock files emit **NU1601**, and default transitive approximations emit neither
+NU1601 nor NU1603 on these artifacts. A fresh, explicitly documented legacy-
+resolver diagnostic control with lock generation disabled emits NU1603 on both SDKs. Default real cache/source
+selection still matches the source note, including new NU1102 without a higher
+source, unchanged exact cached minimum reuse and independently uncached consumers.
+The recipe retains this drift instead of claiming an unobserved default warning.
+Fresh sample evidence and exact installed-tool retrieval establish the bounded
+delivery; other proposals, actual GA reconciliation and PIN-959/PIN-963 remain open.
+
 Reviewed **21 October 2026**. This is a bounded source and distributable-metadata audit. Seven full compatibility notes and the affected-test claim have accountable dispositions. Nine narrow delivery proposals await backlog approval. No recipe, consumer implementation or release is delivered by closing this audit.
 
 ## Scope and provenance

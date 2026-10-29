@@ -152,6 +152,35 @@ applicability; it does not rerun SQLite. The sample records establish real Windo
 x64 SQLite model/schema/round-trips using EF 10.0.13 and EF11 RC2. Other providers,
 native platforms, production data conversion and actual GA remain unverified.
 
+## Package identity migration and restore sources
+
+From PowerShell 7 with SDK 10.0.402 and Node 22.19+, this builds/packs the
+ordinary tool and reuses the isolated local-feed/cache Inspector harness to call
+that exact installed artifact from an unrelated temporary directory. Inspector
+2.11.0 is installed locally if absent. Setup may use the network; retrieval uses
+unusable proxies, demonstrating proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fa570270'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('nuget.migrate-package-identities','nuget.restore-from-declared-sources') `
+  -Query 'nuget-migration' -PackageVersion '0.0.0-nuget-migration' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
+  -OutputDirectory ./artifacts/nuget-migration/inspection
+```
+
+Expect both discovery IDs/titles/goals, explicit 11.0 editions, full original
+.NET 10/11 canonical projects/code, applicability and four current compilation/
+execution records per recipe. The helper's historical name does not restrict its
+recipe parameters. Identity guidance distinguishes legacy-invalid punctuation
+from NU5052 and proves direct/transitive migration. Restore guidance records
+selected and executed versions for direct/transitive, source/cache/failure cases.
+`eng/Test-NuGetMigration.ps1` reproduces the paired local-feed behavior using the
+declared SDK/runtime installations; its parameters accept alternate absolute paths.
+No public feed operation, other OS execution or actual GA verification is claimed.
+Sample SDKs/packages remain author-maintained under the dependency policy.
+
 ## Inspect a response directly
 
 ```powershell
