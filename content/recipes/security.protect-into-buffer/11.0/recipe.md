@@ -65,8 +65,8 @@ existing recipe/edition identities remain unchanged.
    and provision capacity for your actual configuration. The test's payload+1024
    budget is a measured fixture allowance, not a general ciphertext-size formula.
    The writer refuses to grow and fails if the requested contiguous region does
-   not fit. Input and AAD must not overlap destination storage: the adapter checks
-   both before clearing and rejects overlap. Rejection also clears the destination,
+   not fit. The token adapter checks input overlap; the advanced envelope adapter
+   checks input and AAD overlap before clearing. Both reject overlap and clear the destination,
    so an aliased source is discarded too. Use separate buffers, without concurrent access.
 4. Call `MuseumToken.Transform(..., unprotect: false)` for protection and `true`
    for recovery. Consume only the successful `WrittenSpan`; its lifetime ends

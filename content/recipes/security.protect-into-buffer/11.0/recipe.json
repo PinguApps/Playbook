@@ -129,7 +129,7 @@
       "target": "net10.0",
       "sdk": "10.0.402",
       "language": "14.0",
-      "scope": "Actual isolated framework key rings: token/empty/1MiB round trips, array capability-hiding fallback, wrong purpose/key ring and tampering rejection, insufficient capacity and entire-buffer disposal/failed-output clearing. Runtime confirms both span interfaces are absent."
+      "scope": "Actual isolated framework key rings: token/empty/1MiB round trips, array capability-hiding fallback, wrong purpose/key ring and tampering rejection, input overlap refusal, insufficient capacity and entire-buffer disposal/failed-output clearing. Runtime confirms both span interfaces are absent."
     },
     {
       "kind": "compile-and-run",
@@ -137,7 +137,7 @@
       "target": "net11.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
-      "scope": "Actual isolated framework key rings: token/empty/1MiB round trips, array capability-hiding fallback, wrong purpose/key ring and tampering rejection, insufficient capacity and entire-buffer disposal/failed-output clearing. Actual framework key encryptor additionally verifies matching AAD and rejected mismatched AAD/tampering on all payload sizes."
+      "scope": "Actual isolated framework key rings: token/empty/1MiB round trips, array capability-hiding fallback, wrong purpose/key ring and tampering rejection, input/AAD overlap refusal, insufficient capacity and entire-buffer disposal/failed-output clearing. Actual framework key encryptor additionally verifies matching AAD and rejected mismatched AAD/tampering on all payload sizes."
     }
   ],
   "snippets": {
