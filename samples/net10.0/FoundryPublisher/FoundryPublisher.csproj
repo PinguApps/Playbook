@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<!-- snippet:settings -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NuGet.Protocol" HintPath="$(MSBuildBinPath)/NuGet.Protocol.dll" Private="false" />
+    <Reference Include="NuGet.Common" HintPath="$(MSBuildBinPath)/NuGet.Common.dll" Private="false" />
+    <Reference Include="NuGet.Configuration" HintPath="$(MSBuildBinPath)/NuGet.Configuration.dll" Private="false" />
+  </ItemGroup>
+<!-- endsnippet:settings -->
+  <ItemGroup>
+    <Compile Include="../../FoundryStaging/Bootstrap.cs" Link="Bootstrap.cs" />
+    <Compile Include="../../FoundryStaging/Publisher.cs" Link="Publisher.cs" />
+    <Compile Include="../../FoundryStaging/WireServer.cs" Link="WireServer.cs" />
+    <Compile Include="../../FoundryStaging/StagingChecks.cs" Link="StagingChecks.cs" />
+    <None Include="../../FoundryStaging/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

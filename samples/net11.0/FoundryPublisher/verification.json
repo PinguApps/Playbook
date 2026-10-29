@@ -1,0 +1,12 @@
+{
+  "dependencies": [],
+  "buildArguments": [
+    "-p:UseSharedCompilation=false"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/FoundryStaging",
+    "eng/Record-FoundryStaging.ps1"
+  ],
+  "workloads": []
+}
