@@ -22,6 +22,7 @@ installs that exact ordinary artifact and prints what an agent receives.
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-61e6bfa1'
 & ./eng/Test-WebRetirement.ps1 -RecordEvidence
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
   -PackageVersion '0.0.0-pin1185-1186' -Query 'web-retirement' `
   -RecipeId @('authentication.remove-token-binding-assumption','mvc.compile-fsharp-views') `
   -UnsupportedTargetVersion '10.0' -OutputDirectory ./artifacts/web-retirement/inspection
