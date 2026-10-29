@@ -54,7 +54,7 @@ endpoint has order `0`; the exhibit endpoint changes as follows:
 | Absent, `null`, or `""` | `-100` | Archived exhibit HTML, 200 |
 | `"-200"` | `-200` | Archived exhibit HTML, 200 |
 | `"50"` | `50` | Curator label HTML, 200 |
-| `"0"` | `0` | Equal literal candidates: ambiguity, 500 |
+| `"0"` | `0` | Equal literal candidates: routing ambiguity; fixture middleware returns 500 |
 | `"curator-first"` or `"2147483648"` | `-100` | Invalid text/Int32 overflow silently falls back; exhibit HTML, 200 |
 | JSON number `50` | No endpoint | Manifest parsing throws `JsonException` |
 
@@ -66,6 +66,9 @@ is invalid because the public property is a string; `null` and omission are vali
 Endpoint order is distinct from route-template precedence. HTTP methods, route
 specificity, constraints and selector policies still participate in selection.
 Do not use a tie as an ordering policy or treat this as an authorization rule.
+The fixture catches the actual routing ambiguity by exception type name and
+returns 500 itself; that response is the fixture's error handling, not a promised
+framework error-response contract.
 This example has two identical literal routes, no route constraints and no
 short-circuit middleware. It does not teach catch-all/fallback ordering or make
 claims about arbitrary compressed variants. The fixture selects uncompressed
@@ -105,7 +108,8 @@ mutable while preparing the isolated manifest.
    remain at `-100`; its reference contract has no `Order` property. Use conventions
    there, rather than pretending the new property was backported.
 6. Keep your production manifest lifecycle separate from this temporary fixture.
-   It deletes only its own temporary copies after disposing each host. A publish
+   It deletes only its own temporary copies after all scenarios complete and their
+   hosts have been disposed. A publish
    layout, incremental build integration, compression policy, NativeAOT/trimming,
    another OS or GA runtime needs its own relevant checks. This is not deployment
    or universal schema compatibility evidence.
@@ -218,7 +222,8 @@ with each sample project and its pinned SDK executable. The current consumer
 executes eleven scenarios (ten real GET/HEAD pairs plus numeric JSON rejection);
 the previous consumer executes four GET/HEAD pairs. Every successful GET compares
 the entire physical file, and every successful HEAD checks an empty body. The
-equal-order control captures the actual routing ambiguity and returns HTTP500.
+equal-order control captures the actual routing ambiguity; fixture middleware
+converts that exception to HTTP500.
 Default, invalid-string and overflow cases return the archived exhibit;
 explicit yield returns the curator label. The descriptor write fails after real
 endpoint construction. Generated/projected input hashes remain unchanged.

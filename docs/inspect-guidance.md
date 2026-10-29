@@ -34,9 +34,12 @@ This builds/packs the ordinary tool and installs that exact artifact through the
 existing isolated local feed/cache. Real installed stdio list/get execute from an
 unrelated directory with unusable proxies, displaying ID/title/goal, full canonical
 Markdown, target11/edition11, applicability and fresh paired sample evidence.
-The extra get checks target10's `no_applicable_edition` response. Requires
-PowerShell7, SDK10.0.402 and Node22.19+; setup may restore online. Retrieval proves
-proxy independence, not network isolation. No global installation is required.
+The extra get checks target10's `no_applicable_edition` response. Inspection needs
+PowerShell7, SDK10.0.402 and Node22.19+. The reconstructed consumer also requires
+SDK11.0.100-rc.2.26504.105 and its matching runtime, a preview RC2 baseline, not GA.
+The block passes both installed SDK executables explicitly; adjust those arguments
+for another installation. Setup may restore online. Retrieval proves proxy
+independence, not network isolation. No global installation is required.
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1176-04-101-give-a-generated-static-endpoint-deliberate-route'
@@ -47,7 +50,9 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1176-04-101-give-a-g
   -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/pin1176/inspection
-& ./eng/Test-AmberGalleryConsumer.ps1
+& ./eng/Test-AmberGalleryConsumer.ps1 `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
 ```
 
 Expect `web.order-static-asset-routes`, title "Give a generated static endpoint
