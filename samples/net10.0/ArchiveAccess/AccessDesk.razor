@@ -1,0 +1,32 @@
+<!-- snippet:complete -->
+@namespace ArchiveAccess
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Web
+@inject AuthenticationStateProvider Authentication
+@inject ArchiveIdentity Identity
+
+<h1>Archive reading desk</h1>
+<p id="circuit">@circuit</p>
+<p id="records">@records</p>
+<p id="notifications">@Identity.Notifications</p>
+<button id="grant" @onclick='() => Identity.ChangeClearance("curator")'>Grant catalogue access</button>
+<button id="revoke" @onclick='() => Identity.ChangeClearance("public")'>Revoke catalogue access</button>
+
+<button id="reload" @onclick="RefreshView">Refresh reading list</button>
+
+@code {
+    private readonly string circuit = Guid.NewGuid().ToString("N");
+    private string records = "Loading";
+    protected override async Task OnInitializedAsync()
+    {
+        await ReloadAsync(await Authentication.GetAuthenticationStateAsync());
+    }
+    private Task ReloadAsync(AuthenticationState state)
+    {
+        // Real applications must authorize data on the server too; hiding UI is insufficient.
+        records = state.User.FindFirst("clearance")?.Value == "curator" ? "Curator: sealed atlas" : "Public: tide tables";
+        return Task.CompletedTask;
+    }
+    private async Task RefreshView() => await ReloadAsync(await Authentication.GetAuthenticationStateAsync());
+}
+<!-- endsnippet:complete -->

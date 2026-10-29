@@ -6,6 +6,7 @@ param(
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/blazor-migrations/inspection'),
   [string]$Query = 'migration',
+  [ValidateSet('10.0','11.0')][string]$TargetVersion = '11.0',
   [switch]$BuildAndPack
 )
 $ErrorActionPreference = 'Stop'
@@ -48,7 +49,7 @@ try {
     Push-Location -LiteralPath $session
     try {
       function Invoke-RecipeTool([string]$Name, [string[]]$Arguments) {
-        $call = @('--format','json','--quiet','--method','tools/call','--tool-name',$Name,'--tool-arg','targetVersion="11.0"')
+        $call = @('--format','json','--quiet','--method','tools/call','--tool-name',$Name,'--tool-arg',('targetVersion="' + $TargetVersion + '"'))
         foreach ($argument in $Arguments) { $call += @('--tool-arg',$argument) }
         $response = & $Node $entry @call -- $tool mcp | ConvertFrom-Json
         if ($response.result.isError) { throw "MCP failure: $Name" }
@@ -69,12 +70,14 @@ try {
         $found = @($entries | Where-Object id -CEQ $id)
         if ($found.Count -ne 1) { throw "Missing or duplicate discovery: $id" }
         $metadata = Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/11.0/recipe.json") -Raw | ConvertFrom-Json
+        $metadata.applicability.routes = @($metadata.applicability.routes | Where-Object target -CEQ $TargetVersion)
         foreach ($route in $metadata.applicability.routes) {
           if (-not $route.PSObject.Properties['sharedAreas']) { $route | Add-Member -NotePropertyName sharedAreas -NotePropertyValue @() }
           if (-not $route.PSObject.Properties['neutralLanguages']) { $route | Add-Member -NotePropertyName neutralLanguages -NotePropertyValue @() }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
         $response = Invoke-RecipeTool 'get_recipe' @("id=$id")
+        if ($page.resolvedTarget -cne $TargetVersion -or $response.result.structuredContent.resolvedTarget -cne $TargetVersion) { throw "Wrong resolved target: $id" }
         $recipe = $response.result.structuredContent.recipe
         if ($recipe.id -cne $id -or $recipe.edition -cne '11.0' -or $recipe.markdown.Contains('{{snippet:')) { throw "Wrong edition or unexpanded body: $id" }
         $actualApplicability = [System.Text.Json.Nodes.JsonNode]::Parse(($recipe.applicability | ConvertTo-Json -Depth 100))

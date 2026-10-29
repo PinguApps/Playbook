@@ -1,0 +1,48 @@
+// snippet:complete
+import { strict as assert } from 'assert';
+import * as current from './generated/client/index';
+import * as previous from '@microsoft/signalr';
+
+async function check(address: string, newer: boolean): Promise<void> {
+    let ticket = 'mara:visitor';
+    let accepted = 0, rejected = 0, hubEvents = 0;
+    const connection = newer
+        ? new current.HubConnectionBuilder().withUrl(address, { accessTokenFactory: () => ticket })
+            .withAuthenticationRefresh({ enableAutoRefresh: false }).build()
+        : new previous.HubConnectionBuilder().withUrl(address, { accessTokenFactory: () => ticket }).build();
+    if (connection instanceof current.HubConnection) {
+        connection.onAuthenticationRefreshed(() => accepted++);
+        connection.onAuthenticationRefreshFailed(() => rejected++);
+        connection.on('ClearanceChanged', () => hubEvents++);
+    }
+    await connection.start();
+    try {
+        const original = await connection.invoke('Read');
+        ticket = 'mara:surveyor';
+        if (connection instanceof current.HubConnection) {
+            assert.ok((await connection.refreshAuthentication())! > 0);
+            const updated = await connection.invoke('Read');
+            assert.equal(updated.clearance, 'surveyor');
+            assert.equal(updated.connection, original.connection);
+            assert.equal(updated.user, original.user);
+            for (const token of ['mara:suspended', 'mara:', 'mara:unknown', 'other:surveyor']) {
+                ticket = token;
+                await assert.rejects(connection.refreshAuthentication(), (error: unknown) =>
+                    error instanceof current.HttpError && error.statusCode === 403);
+                assert.deepEqual(await connection.invoke('Read'), updated);
+            }
+            assert.deepEqual([accepted, rejected, hubEvents], [1, 4, 1]);
+        } else {
+            assert.equal((await connection.invoke('Read')).clearance, 'visitor');
+            await connection.stop();
+            await connection.start();
+            const updated = await connection.invoke('Read');
+            assert.equal(updated.clearance, 'surveyor');
+            assert.notEqual(updated.connection, original.connection);
+        }
+        console.log('PASS: real TypeScript hub ' + address + '; ' + (newer ? 'accept/reject/events and stable connection' : 'older reconnect'));
+    } finally { await connection.stop(); }
+}
+const [address, version] = process.argv.slice(2);
+check(address, version === '11').catch(error => { console.error(error); process.exitCode = 1; });
+// endsnippet:complete

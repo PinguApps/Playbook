@@ -1,5 +1,27 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+## Generated-document tool delivery: B12 / PIN-1166
+
+`razor.migrate-generated-document-contracts/11.0` uses original CatalogueCompiler
+modules against each exact SDK's compiler, Razor utility and Roslyn dependency
+set. Actual valid/invalid pipeline checks retain text, diagnostics, both mapping
+orders and line pragmas. The optional `reportDiagnostics` flag controls importing
+tree diagnostics, not later explicit `AddDiagnostic` calls. Declaration/stub flags
+label output; they do not regenerate it. An actual previously compiled constructor
+caller fails with MissingMethodException against current tooling; rebuilt source
+uses the new optional defaults successfully.
+
+**Older availability:** SDK 10.0.402 has no public generated-output reader. Its
+canonical public constructor module consumes an existing host's output; only the
+verification harness uses a pinned private-reader observation. No supported older
+reader or reflection-based consumer route is taught. Current SDK RC2 has a public
+reader. Actual mapping spans can begin at an emitted Write wrapper, and invalid
+input can retain a zero-length mapping; the module preserves these coordinates
+without claiming identical source/generated substrings. Fresh sample records and
+`eng/Record-CatalogueCompiler.ps1` retain the precise artifacts and observations.
+No arbitrary IDE host, generated application execution or actual-GA claim follows.
+PIN-959 and PIN-964 remain open.
+
 ## B11 and B15 delivery, 28 October 2026
 
 PIN-1165 delivers `blazor.handle-js-invocation-failures/11.0` with original

@@ -8,6 +8,22 @@ content or GA publication gates. No served recipe or MCP contract changes here.
 
 ## Boundary and reproducible evidence
 
+PIN-813's `signalr.refresh-live-credentials/11.0` comparison qualifies actual
+10.0.13 and 11.0.0-rc.2.26504.105 .NET client/server sets. Direct and locally
+redirected WebSocket checks observe accepted claims, policy/same-user rejection,
+success/failure and hub events, and unchanged current connection/user routing.
+The original gateway address needs its own refresh implementation; a negotiate
+redirect alone is insufficient. This local gateway proves no Azure Service support.
+The npm gap below remains a published-artifact fact. The authored TypeScript
+comparison instead builds and executes the first-party source at
+`4a70870818bf5662f21b0c28f9a8c267dccb77f0`, with a checked source archive,
+locked build/runtime dependencies and retained MIT notice. It is explicitly a
+development source build. ArchiveAccess separately observes actual Interactive
+Server authentication-state notifications and user-content updates; automatic
+SignalR/provider propagation is context, not a demonstrated production integration.
+See canonical sample records and `eng/Record-LiveIdentity.ps1`; actual GA and
+comprehensive publication gates remain outstanding.
+
 [PIN-709](https://linear.app/pinguapps/issue/PIN-709), planning key `API_WEB`,
 implements SPEC.md at `0a8989814ea11346354464b845c79c15bb71c5e9`, stories 47,
 107–113 and 158–160; approved proposal `b3778cc`. ADRs 0001–0004 retain the one

@@ -309,7 +309,7 @@
       "pattern": "^\\w+ Microsoft\\.Data\\.Sqlite\\.",
       "disposition": "unresolved",
       "owner": "U2",
-      "reason": "Exact direct-SQLite differences retained; Half/UInt128/target and native-bundle decisions are mapped individually in ef.md."
+      "reason": "Exact direct-SQLite differences retained. PIN-862 delivers UInt128 D39 TEXT binding and real net10/net11 execution; reader UInt128 retrieval remains unsupported. Half, target migration and native-bundle decisions retain their separate owners in ef.md."
     },
     {
       "id": "metadata-traversal",
