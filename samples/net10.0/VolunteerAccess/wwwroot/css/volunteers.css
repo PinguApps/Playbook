@@ -1,0 +1,11 @@
+/* snippet:complete */
+body { background: #f3f6f2; color: #213c32; }
+.rescue-header { background: #213c32; color: white; padding: 1rem 1.5rem; font-weight: 700; }
+.volunteer-panel { max-width: 30rem; margin: 1rem auto; padding: 2rem; background: white; border: 1px solid #c7d5ca; border-radius: .5rem; }
+.eyebrow { color: #516d5d; font-weight: 700; margin-bottom: .5rem; }
+.volunteer-panel .custom-control { margin-top: 1.25rem; }
+.volunteer-panel .btn-primary { background: #23664b; border-color: #23664b; }
+.volunteer-panel .text-danger { color: #a02121 !important; }
+.volunteer-panel input:focus, .volunteer-panel button:focus { outline: 3px solid #b17810; outline-offset: 2px; }
+@media (max-width: 480px) { .volunteer-panel { padding: 1.25rem; margin: 0 auto; } }
+/* endsnippet:complete */
