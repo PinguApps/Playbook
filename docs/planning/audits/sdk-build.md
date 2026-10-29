@@ -210,13 +210,45 @@ foundations, PIN-959/PIN-963/actual-GA and unrelated Human gates remain unchange
 
 Proposed `nuget.skip-disposable-restore-graph`. Compare real isolated restore outputs with RestoreDoNotWriteDependencyGraphSpec on/off and a normal incremental local control. Verify the nupkg closure/assets and build still work while dgspec presence differs; do not claim cache/no-op equivalence or speed savings without measurement. Exact NuGet/SDK pins and a local original feed avoid accidental network/cache success.
 
+Delivered under **PIN-1134** as [edition11.0](../../../content/recipes/nuget.skip-disposable-restore-graph/11.0/recipe.md).
+Original Beacon Quay consumers pack a real local tariff library, restore with
+fresh per-mode caches and inspect true/false/default dgspec output, exact package
+hashes and selected compile/runtime assets before real build/run. A default local
+repeat and missing-package failure remain separate controls. **Actual overlap:**
+SDK10.0.402/NuGet7.9 already honours the switch; no older absence, cache/no-op
+equivalence or speed saving is claimed. S(2) retains isolated restore/output/
+closure qualification. Fresh sample inputs/commands and installed offline retrieval
+are required; the eight foundations and PIN-959/PIN-963/Human gates stay open.
+
 ### B18. Include referenced symbols in published output — S (2)
 
 Proposed `sdk.publish-referenced-symbols`. An original project-reference application uses the actual **PublishReferencesSymbols** property. Publish true/false/default and incorrect-singular controls, inspect PDB/DLL output for references versus the application's own symbols, and execute the app. Compare the older baseline's explicit file-copy route only if its real artifacts need one. No source-only promise that every PDB or single-file mode behaves identically.
 
+Delivered under **PIN-1135** as [edition11.0](../../../content/recipes/sdk.publish-referenced-symbols/11.0/recipe.md).
+Actual plural true/false/default and ineffective singular-false controls inspect
+real DLL/portable-PDB bytes and execute every original Beacon application.
+SDK11 defaults true; false removes the reference PDB independently of the app's
+own symbol setting. SDK10 already publishes the project-reference PDB, so no
+redundant copy workaround is taught. The separate local snupkg is not restored
+as ordinary dependency symbols. S(2) retains actual output/control qualification;
+no arbitrary PDB mode, single-file/debugger or GA behaviour is inferred. Fresh
+sample evidence/installed offline retrieval and all existing gates remain required.
+
 ### B19. Inspect the actual build import tree — S (2)
 
 Proposed `msbuild.inspect-import-tree`. An original shared-build project opts into MSBuildProvideImportedProjects and reads paths, ImportingProjectPath and Sdk metadata. Verify real nested/conditional/SDK imports, ordering/duplicate behavior and the unset control; distinguish this from PIN-767's unevaluated item globs. A handwritten XML include list does not prove the evaluated closure.
+
+Delivered under **PIN-1136** as [edition11.0](../../../content/recipes/msbuild.inspect-import-tree/11.0/recipe.md).
+Both actual SDK CLIs evaluate original nested/conditional/implicit-SDK imports,
+check parent and optional Sdk metadata, unset/false empty controls, repeated
+path/parent order, conditional plus-one and duplicate MSB4011 suppression with
+first-parent retention, then execute the reporting target. **Actual overlap:**
+SDK10.0.402 already supplies these items. Filesystem access timestamps are not
+tree-contract equality; incidental metadata can change between evaluations.
+This is neither a handwritten include list nor PIN-767's unevaluated item globs.
+S(2) retains actual closure/metadata/control checks. Fresh commands/artifact/input
+records and installed offline retrieval qualify only the stated Windows SDK
+closures; no general ordering/Framework-MSBuild/GA guarantee or gate closure.
 
 ### B20. Verify the signature of a selected .NET base image — M (3)
 

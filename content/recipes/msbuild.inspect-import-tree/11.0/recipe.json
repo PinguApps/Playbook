@@ -1,0 +1,168 @@
+{
+  "id": "msbuild.inspect-import-tree",
+  "edition": "11.0",
+  "title": "Inspect the actual build import tree",
+  "goal": "Inspect evaluated build imports with their parent and SDK metadata when diagnosing nested imports and conditional shared build configuration.",
+  "areas": [
+    "msbuild",
+    "sdk"
+  ],
+  "exampleLanguages": [],
+  "languageNeutral": true,
+  "tags": [
+    "beacon-build",
+    "inspect-import-tree"
+  ],
+  "apis": [
+    "MSBuildProvideImportedProjects",
+    "MSBuildImportedProject",
+    "ImportingProjectPath",
+    "Sdk"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Actual SDK10.0.402 already exposes the evaluated import items. A handwritten XML include list and unevaluated item globs answer different questions.",
+          "Observed depth-first order and duplicate suppression describe these exact artifacts, not an immutable ordering or all-condition API guarantee."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [
+          "csharp",
+          "fsharp",
+          "vb"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared net11.0 application and SDK-host runtime. Exact RC2 artifacts are evidence, not GA qualification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Documented feature family and current route; actual SDK10 servicing overlap is recorded separately, not a general down-level route."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Language setting of the compiled companion application; the MSBuild configuration itself is language-neutral."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 is the executed platform; other platforms require separate qualification."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.402, runtime/ref10.0.13, C#14; SDK11.0.100-rc.2.26504.105, runtime/ref11RC2, C#15.",
+            "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
+          ],
+          "constraints": [
+            "Actual SDK10.0.402 already exposes the evaluated import items. A handwritten XML include list and unevaluated item globs answer different questions.",
+            "Observed depth-first order and duplicate suppression describe these exact artifacts, not an immutable ordering or all-condition API guarantee.",
+            "Only target11 is advertised. The real .NET10 comparison adds no ninth foundation or general SDK11-on-net10 route.",
+            "No optional workload, provider, native compiler, rendering mode, production resource or public publication is required."
+          ],
+          "optIns": [
+            "MSBuildProvideImportedProjects=true in the evaluated project or command line."
+          ],
+          "stabilityLimitations": [
+            "These controls are not designated experimental in the cited documentation. Actual verification uses RC2; PIN-959/PIN-963 and existing Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/msbuild.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Evaluation/Evaluator.cs",
+          "https://learn.microsoft.com/en-us/visualstudio/msbuild/evaluate-items-and-properties?view=visualstudio"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BeaconBuild/BeaconBuild.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official evaluated import-tree opt-in",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/msbuild.md"
+    },
+    {
+      "title": "Actual evaluated import collection",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Evaluation/Evaluator.cs"
+    },
+    {
+      "title": "Supported evaluated item query",
+      "url": "https://learn.microsoft.com/en-us/visualstudio/msbuild/evaluate-items-and-properties?view=visualstudio"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual CLI evaluation and target execution on paired SDKs; SDK/nested paths, parent/Sdk metadata, unset/false controls, conditional closure, repeated ordering and duplicate MSB4011 suppression. No XML-list emulation."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual CLI evaluation and target execution on paired SDKs; SDK/nested paths, parent/Sdk metadata, unset/false controls, conditional closure, repeated ordering and duplicate MSB4011 suppression. No XML-list emulation."
+    }
+  ],
+  "snippets": {
+    "imports-10": {
+      "path": "samples/net10.0/BeaconBuild/Imports/Beacon.proj",
+      "region": "imports",
+      "language": "xml"
+    },
+    "imports-11": {
+      "path": "samples/net11.0/BeaconBuild/Imports/Beacon.proj",
+      "region": "imports",
+      "language": "xml"
+    },
+    "shared": {
+      "path": "samples/net10.0/BeaconBuild/Imports/Shared.props",
+      "region": "shared",
+      "language": "xml"
+    },
+    "leaf": {
+      "path": "samples/net10.0/BeaconBuild/Imports/Leaf.props",
+      "region": "leaf",
+      "language": "xml"
+    },
+    "night": {
+      "path": "samples/net10.0/BeaconBuild/Imports/Night.props",
+      "region": "night",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded local Windows x64 compilation and behaviour are agent-executed. No Human, device, external provider or GA gate is satisfied."
+  }
+}

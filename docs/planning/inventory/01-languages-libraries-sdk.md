@@ -260,6 +260,20 @@ The exact eight foundations, PIN-959 comprehensive coverage, PIN-963 actual-GA
 reconciliation and unrelated Human gates remain open. No recurring native matrix
 or public publication is added.
 
+Additional PIN-707 build-output/import dispositions:
+
+| Stable ID | Goal and actual scope | Disposition and retained limits |
+| --- | --- | --- |
+| `nuget.skip-disposable-restore-graph` | Omit a disposable dgspec while retaining a real restored dependency closure and working application. | [PIN-1134 edition11.0](../../../content/recipes/nuget.skip-disposable-restore-graph/11.0/recipe.md); real local package, fresh-cache true/false/default restores, package hashes/equal assets, build/run, normal local repeat and missing-package failure. Actual SDK10 already honours it; no cache/no-op equivalence or speed claim. |
+| `sdk.publish-referenced-symbols` | Choose reference symbols independently of the application's own publish symbols. | [PIN-1135 edition11.0](../../../content/recipes/sdk.publish-referenced-symbols/11.0/recipe.md); actual plural true/false/default, ineffective singular-false, exact DLL/portable-PDB checks and every app executed. SDK10 already includes the reference PDB; no redundant copy route. Separate snupkg is not ordinary restored symbols. Folder publish only, no arbitrary PDB/single-file/debugger/GA claim. |
+| `msbuild.inspect-import-tree` | Inspect evaluated import paths, parents and SDK metadata. | [PIN-1136 edition11.0](../../../content/recipes/msbuild.inspect-import-tree/11.0/recipe.md); actual nested/conditional/SDK imports, unset/false, stable path/parent ordering and duplicate MSB4011/first-parent controls, plus target execution. SDK10 already supplies the opt-in. Distinct from PIN-767 globs; incidental file timestamps and other closures are not an ordering guarantee. |
+
+These paired Beacon consumers retain exact tooling/compiler/ref/runtime pins,
+fresh sample evidence and installed offline retrieval. All six projects stay
+author-maintained inside the isolated samples package boundary; no Renovate
+permission is added. The exact eight foundations and PIN-959/PIN-963/Human gates
+remain open; no recurring native/client/OS matrix or publication is introduced.
+
 ## MSBuild, NuGet and migration review
 
 | Proposed stable ID | Goal and authoring impact | Applicability / stability / verification constraint | Official evidence | Disposition |
