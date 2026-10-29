@@ -9,6 +9,7 @@ $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Evidence.ps1')
 $git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
+$pwsh = (Get-Command pwsh -CommandType Application | Select-Object -First 1).Source
 $paths = @{}
 foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $previous = @{}
@@ -16,6 +17,21 @@ foreach ($key in 'DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','PLANETARIUM_CASE') { $previo
 $scratch = Join-Path $root ('artifacts/planetarium-' + [guid]::NewGuid().ToString('N'))
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+  # Reconstruct the canonical command's real consumers outside the source tree.
+  # This catches command/display failures that independent document checks miss.
+  foreach ($release in '10','11') {
+    $source = Join-Path $root "samples/net$release.0/PlanetariumContracts"
+    $destination = Join-Path $scratch "canonical/net$release.0/PlanetariumContracts"
+    New-Item -ItemType Directory -Path $destination -Force | Out-Null
+    foreach ($name in 'Directory.Build.props','Directory.Build.targets','Directory.Packages.props','global.json','packages.lock.json','PlanetariumContracts.csproj','Program.cs') {
+      Copy-Item -LiteralPath (Join-Path $source $name) -Destination (Join-Path $destination $name)
+    }
+    if ($release -eq '11') { Copy-Item -LiteralPath (Join-Path $source 'ContractChecks.cs') -Destination $destination }
+    $canonical = (Get-Content -LiteralPath (Join-Path $source 'Generate.ps1.txt') -Raw).Replace("`r`n","`n")
+    $body = [regex]::Match($canonical, '(?ms)^// snippet:complete\n(.*?)^// endsnippet:complete\n?$')
+    if (-not $body.Success) { throw 'Missing canonical generation command.' }
+    [IO.File]::WriteAllText((Join-Path $destination 'Generate.ps1'), $body.Groups[1].Value)
+  }
   foreach ($release in '10','11') {
     $hostDotnet = if ($release -eq '10') { $Dotnet } else { $Net11Dotnet }
     $sample = "samples/net$release.0/PlanetariumContracts/PlanetariumContracts.csproj"
@@ -62,6 +78,15 @@ try {
         $run = (& $hostDotnet (Join-Path $directory 'bin/Release/net11.0/PlanetariumContracts.dll') | Out-String).Trim()
         $output.Add("PLANETARIUM_CASE=case; actual runtime provider enumeration and HTTP`n$run")
         Write-Host $run
+      }
+      $canonicalScript = Join-Path $scratch "canonical/net$release.0/PlanetariumContracts/Generate.ps1"
+      $canonicalCases = if ($release -eq '10') { @('normal','missing') } else { @('normal','missing','explicit') }
+      foreach ($case in $canonicalCases) {
+        $commandOutput = (& $pwsh -NoProfile -File $canonicalScript -Dotnet $hostDotnet -Case $case | Out-String).Trim()
+        $pass = @($commandOutput -split '\r?\n' | Where-Object { $_ -match "^PASS runtime $case`:" })
+        if ($pass.Count -ne 1) { throw "Canonical $release/$case command did not finish its real runtime check." }
+        $output.Add("$pwsh -NoProfile -File $canonicalScript -Dotnet $hostDotnet -Case $case; exit=0`n$($pass[0])")
+        Write-Host "PASS canonical .NET $release Generate.ps1 -Case $case with supplied absolute SDK host."
       }
       $env:PLANETARIUM_CASE = 'normal'
       & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $hostDotnet -RuntimeDotnet $hostDotnet

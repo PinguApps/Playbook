@@ -156,7 +156,7 @@
       "target": "net10.0",
       "sdk": "10.0.402",
       "language": "14.0",
-      "scope": "Actual GetDocument public/staff build outputs and missing-name output; locked net10.0 closure and explicit registrations.",
+      "scope": "Actual GetDocument public/staff build outputs and missing-name output; locked net10.0 closure and explicit registrations. Canonical Generate.ps1 with a supplied absolute SDK host succeeds for normal/missing on this target.",
       "record": "samples/net10.0/PlanetariumContracts/contracts.evidence.json"
     },
     {
@@ -173,7 +173,7 @@
       "target": "net11.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
-      "scope": "Actual GetDocument outputs for dynamic public/staff names, exact duplicates and explicit plus additional names; missing/empty and null-name controls; runtime ordinal name comparison; locked net11.0 closure.",
+      "scope": "Actual GetDocument outputs for dynamic public/staff names, exact duplicates and explicit plus additional names; missing/empty and null-name controls; runtime ordinal name comparison; locked net11.0 closure. Canonical Generate.ps1 with a supplied absolute SDK host succeeds for normal/missing on this target and explicit on .NET 11.",
       "record": "samples/net11.0/PlanetariumContracts/contracts.evidence.json"
     }
   ],

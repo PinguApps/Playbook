@@ -1,9 +1,11 @@
 // snippet:complete
 [CmdletBinding()]
-param([ValidateSet('normal','duplicate','missing','explicit','empty','null-name')][string]$Case = 'normal')
+param(
+    [Parameter(Mandatory)][ValidateScript({ [IO.Path]::IsPathFullyQualified($_) })][string]$Dotnet,
+    [ValidateSet('normal','duplicate','missing','explicit','empty','null-name')][string]$Case = 'normal'
+)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
-$dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
 $previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 $previousCase = $env:PLANETARIUM_CASE
 $outputDirectory = Join-Path ([IO.Path]::GetTempPath()) ('planetarium-contracts-' + [guid]::NewGuid().ToString('N'))
@@ -17,8 +19,8 @@ try {
         '-p:OpenApiGenerateDocumentsOptions=--openapi-version OpenApi3_0' `
         "-p:OpenApiDocumentsDirectory=$outputDirectory"
     & $dotnet ./bin/Release/net11.0/PlanetariumContracts.dll
-    Get-Content -LiteralPath (Join-Path $outputDirectory 'PlanetariumContracts_public.json')
-    Get-Content -LiteralPath (Join-Path $outputDirectory 'PlanetariumContracts_staff.json')
+    Get-ChildItem -LiteralPath $outputDirectory -Filter 'PlanetariumContracts_*.json' |
+        Sort-Object Name | ForEach-Object { Get-Content -LiteralPath $_.FullName }
 }
 finally {
     Pop-Location
