@@ -119,7 +119,7 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | Identity TimeProvider | Delivered PIN-810 ([proof](../../verification/authorization-and-clock.md)): real UserManager threshold/end/expiry with controlled TimeProvider. Token/cookie paths are not inferred from lockout proof. |
 | Aaguid on UserPasskeyInfo/IdentityPasskeyData; template authenticator names | PIN-811; persisted/display mapping and rename fallback. Automatic built-in names alone are excluded. |
 | Passkey denial and JSON StringSyntax annotations | PIN-812 owns real lockout/confirmation outcomes. StringSyntax is tooling guidance, not a new sign-in operation. Registration confirmation is distinct: **W07 / PIN-1177 delivered** `identity.confirm-before-registration-signin/11.0`, actual paired UI/store/HTTP registration controls. |
-| Identity UI Bootstrap4 MSBuild warning | **W08**; authored project property and customized UI/assets. Automatic Bootstrap vendor updates alone are excluded. |
+| Identity UI Bootstrap4 MSBuild warning | **W08 / PIN-1178 delivered** `identity.migrate-ui-framework-selection/11.0`: actual warning, explicit5/default selection, original markup/CSS, published HTTP and Chromium login/validation. Automatic vendor updates alone remain excluded. |
 | SignalR refresh server/client/features/metadata/UserIdentifier and TypeScript contract | PIN-813; shared goal across transports and Blazor. Public feature and hub members group under the same lifecycle. Actual npm availability/final-name gap remains open below. |
 | Non-streaming hub cancellation | PIN-814; protocol/runtime behavior can change without a new method signature. Matched clients/server and actual cancellation remain required. |
 | OpenAPI binary files, QUERY, multiple responses, SSE, 3.2 default, environment, Obsolete metadata, model migration, server URLs | PIN-821–829 retain individual scopes. UnauthorizedHttpResult's new IEndpointMetadataProvider groups with PIN-821/823 response metadata; remove redundant custom 401 metadata only after generated-document proof. |
@@ -446,6 +446,18 @@ paths; source says there is no compatibility switch for the former bypass.
 
 ### W08. Move customized Identity UI off Bootstrap 4 — M (3)
 
+Delivered by **PIN-1178**, retaining M3 for actual build/publish/browser proof.
+Original VolunteerAccess compares matching Identity UI/store/SQLite10.0.13 and
+11 RC2. Actual targets warn for Bootstrap4. Explicit Bootstrap5 and a separate
+complete copy with the property removed both publish and render; an empty global
+MSBuild property is not removal. Form/checkbox/button markup and authored CSS
+change alongside selection. Published HTTP verifies local CSS, validation,
+antiforgery, confirmation denial/allowed session and local return URLs. Chromium152
+renders login/validation for all three publishes at1280x800 with loaded local CSS,
+labels, alignment, readable errors and no clipping/overflow. Retained
+[screenshots](../../verification/identity-ui/) and sample browser observations
+support that bounded rendering claim, not a client-JS/all-accessibility matrix.
+
 Story: A site author wants its customized volunteer sign-in pages to keep rendering
 with a supported UI framework so that an upgrade does not leave stale build setup.
 Proposed `identity.migrate-ui-framework-selection`. Prerequisites: Identity.UI
@@ -458,6 +470,16 @@ M includes build and browser verification; no standalone Bootstrap catalogue.
 
 ### W09. Preserve encoded route segments in proxy-style requests — M (3)
 
+Delivered by **PIN-1179**, retaining M3 for actual paired raw-wire requests.
+Original BirdRoutes executes origin/absolute targets on real loopback Kestrel.
+Serviced10.0.13 still decodes an absolute `%2F`; RC2 preserves it on both forms.
+The measured older ASCII-only restoration remains separate from the whole-path
+decode failure control, which changes handlers on both versions. Ordinary slash,
+case, double encoding, malformed escapes, NUL/CRLF and invalid request-line
+controls retain their actual parser/middleware/handler outcomes. Accepted control
+values are diagnostic observations, not business validation or authorization.
+No intermediary, IIS, other OS or universal serviced-old claim is inferred.
+
 Story: A service author wants a bird-record identifier containing an encoded slash
 to keep its intended routing meaning so that a proxy request cannot select a
 different handler from the equivalent direct request.
@@ -469,6 +491,19 @@ decoding compensation. Record serviced-old behavior honestly and do not turn
 decoding into an authorization bypass. M covers wire-level request proof.
 
 ### W10. Replace the retired gRPC Swagger integration — L (5)
+
+Delivered by **PIN-1180**, retaining L5 for real tool/package compatibility.
+The actual historical net10.0 Swagger0.10.11/JsonTranscoding10.0.13/Swashbuckle6.6.2
+service remains working. No matching Swagger11RC2/drop-in replacement is claimed.
+Before implementing the replacement, pinned protoc26.1 from Grpc.Tools2.64.0
+and the independently checked Windows x64 protoc-gen-openapiv2v2.31.0 release
+generated nonempty operations, response schema and protobuf comments from the
+original TideSurvey proto using matching RC2 imports. The new ASP.NET service
+keeps JsonTranscoding11RC2 and serves that Swagger2.0 build artifact; no Go server
+or generic AddOpenApi coverage is inferred. Both actual services execute gRPC,
+JSON, unknown-station/wrong-method/path controls and compare the actual response
+against the resolved generated schema and comments. Only the bounded primitive
+unary GET mapping is qualified, not all annotations/options or generated clients.
 
 Story: An API author wants clients to keep discovering a tide service's JSON
 interface after an old documentation adapter is retired.

@@ -159,8 +159,8 @@
     {
       "id": "grpc-swagger",
       "pattern": " Microsoft\\.Extensions\\.DependencyInjection\\.GrpcSwagger",
-      "owner": "W10",
-      "disposition": "included"
+      "owner": "W10 / PIN-1180; grpc.replace-swagger-adapter/11.0",
+      "disposition": "delivered; actual old adapter and current supported protobuf-generated Swagger2.0 build artifact; real gRPC/JSON/schema/comments/failures. No drop-in replacement or GA claim."
     },
     {
       "id": "runtime-compilation",
@@ -195,7 +195,7 @@
     {
       "id": "grpc-transcoding-build",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.grpc\\.jsontranscoding/",
-      "owner": "W10; TFM relocation/build wiring recorded; unchanged JSON-transcoding API is not itself a new recipe"
+      "owner": "W10 / PIN-1180 delivered grpc.replace-swagger-adapter/11.0; actual matching imports/protoc/compiler/server, independent pinned OpenAPIv2 generator. Unchanged transcoding API is not itself a new recipe."
     },
     {
       "id": "api-generation",
@@ -205,7 +205,7 @@
     {
       "id": "identity-ui",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.identity\\.ui/",
-      "owner": "W08; Bootstrap4 warning; automatic vendor/static-asset updates excluded"
+      "owner": "W08 / PIN-1178 delivered identity.migrate-ui-framework-selection/11.0; actual Bootstrap4 warning and original explicit5/default published customization/browser; automatic vendor-only updates excluded."
     },
     {
       "id": "runtime-compilation",
@@ -245,6 +245,37 @@
         "release-notes/11.0/preview/rc1/aspnetcore.md"
       ],
       "disposition": "delivered; actual .NET10.0.13 packaged email/phone registration bypass versus gated original pages and .NET11 RC2 packaged UI; both password/external paths with real Razor/SQLite/antiforgery/provider challenge/callback/cookie/session controls. Local provider is not third-party interoperability; no messages or passkey claim. Eight foundations and PIN-959/PIN-963/PIN-964/actual-GA/Human gates remain open."
+    },
+    {
+      "disposition": "delivered; real paired UI/store/provider, actual targets warning, explicit5/default publish, original Razor/CSS and Chromium login/validation. Exact eight foundations, stable identities, PIN-959/PIN-963/PIN-964, actual-GA and unrelated Human gates remain open.",
+      "owner": "PIN-1178",
+      "id": "W08",
+      "recipe": "identity.migrate-ui-framework-selection/11.0",
+      "sourcePaths": [
+        "release-notes/11.0/preview/rc1/aspnetcore.md"
+      ],
+      "sourceManifest": "web.sources.json"
+    },
+    {
+      "disposition": "delivered; actual raw origin/absolute Kestrel bytes with RawTarget/Path/middleware/route outcomes, old bounded restoration, whole-path decode failure and malformed controls; no proxy/authorization guarantee. Exact eight foundations, stable identities, PIN-959/PIN-963/PIN-964, actual-GA and unrelated Human gates remain open.",
+      "owner": "PIN-1179",
+      "id": "W09",
+      "recipe": "routing.preserve-encoded-segment/11.0",
+      "sourcePaths": [
+        "release-notes/11.0/preview/preview4/aspnetcore.md"
+      ],
+      "sourceManifest": "web.sources.json"
+    },
+    {
+      "disposition": "delivered; supported independent protobuf generator qualified before new service, actual old Swagger0.10.11 and new JsonTranscoding RC2 with Grpc2.64.0; gRPC/JSON/document/schema/comment/failure checks. Swagger2.0 bounded mapping, no drop-in or all-pattern claim. Exact eight foundations, stable identities, PIN-959/PIN-963/PIN-964, actual-GA and unrelated Human gates remain open.",
+      "owner": "PIN-1180",
+      "id": "W10",
+      "recipe": "grpc.replace-swagger-adapter/11.0",
+      "sourcePaths": [
+        "aspnetcore/migration/100-to-110/includes/openapi.md",
+        "release-notes/11.0/preview/preview7/aspnetcore.md"
+      ],
+      "sourceManifest": "web.sources.json"
     }
   ]
 }
