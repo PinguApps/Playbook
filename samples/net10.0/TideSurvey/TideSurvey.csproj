@@ -19,7 +19,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="[0.10.11]" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="[6.6.2]" />
     <Protobuf Include="tides.proto" GrpcServices="Both" />
-    
+
   </ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

@@ -16,7 +16,7 @@
     <PackageReference Include="Grpc.Net.Client" Version="[2.64.0]" />
     <PackageReference Include="Grpc.Tools" Version="[2.64.0]" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="[11.0.0-rc.2.26504.105]" />
-    
+
     <Protobuf Include="tides.proto" GrpcServices="Both" />
   </ItemGroup>
   <Target Name="CopyGeneratedContract" AfterTargets="Build">

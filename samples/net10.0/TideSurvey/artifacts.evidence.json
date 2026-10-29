@@ -4,10 +4,10 @@
   "target": "net10.0",
   "sdk": "10.0.402",
   "language": "14.0",
-  "command": "eng/Test-WebMigrationBatch.ps1 -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' -OutputDirectory 'V:\\_worktrees\\Playbook\\agent-pin-1178-04-103-move-customized-identity-ui-off-bootstrap-4\\artifacts\\batch04\\verified' -RecordEvidence",
-  "scope": "Actual source-audit ZIP/reference reconciliation, selected compile/runtime/native assets and SDK/compiler/host identities; TideSurvey includes actual pinned protoc/generator qualification; VolunteerAccess includes actual published page/assets/antiforgery/confirmation/local-return checks and current warning/default selection. Browser proof is separate, never inferred here.",
-  "recordedAt": "2026-10-29T12:15:10.6460911+00:00",
-  "sourceCommit": "9608a9085db8f6ccb2097409c0e8dcd64caad252",
+  "command": "artifacts/batch04/Refresh-TideEvidence.ps1: Record-Evidence.ps1 -Sample samples/net10.0/TideSurvey/TideSurvey.csproj -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -NativeToolchains protoc/26.1,grpc_csharp_plugin/2.64.0; actual selected assets/package ZIP/reference/tool hashes reconciled below. Only project-line whitespace changed; the regular eng/Test-WebMigrationBatch.ps1 reproduces the same qualification.",
+  "scope": "Fresh targeted real compile/runtime/document/failure and actual selected artifact qualification after whitespace-only project normalization. No source, dependency, tool or runtime substitution.",
+  "recordedAt": "2026-10-29T12:26:54.1406516+00:00",
+  "sourceCommit": "9b60f6220332267f9b3df9ef9d897c94fa566ce9",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -25,7 +25,7 @@
     "samples/net10.0/TideSurvey/Program.cs": "1477eb8c709b3f41d32b9539f6f01daf3ce41ac9b2af110f547cad188a616c75",
     "samples/net10.0/TideSurvey/RuntimeIdentity.cs": "f5030bb147c6e1b9a2f47718402f4adb95f8db9f26015709e14e05467a4786a3",
     "samples/net10.0/TideSurvey/tides.proto": "8220eb9adb58ce107499b81a6f910bd7462d2e56ba364b3b3465e84a43382e3d",
-    "samples/net10.0/TideSurvey/TideSurvey.csproj": "f4c2130420f853328c3e199b2f92541a81da0ff0f60e570f005d74a2329d3de7",
+    "samples/net10.0/TideSurvey/TideSurvey.csproj": "324666244004ea54b43ce81939e949bc9440579957de5258c8e7b3118e03f997",
     "samples/net10.0/TideSurvey/verification.json": "a67afef709a4f93a62fee41229f2e4b0bb1deb1cc79c555fd218ccc4262fe04b"
   },
   "dependencies": [
