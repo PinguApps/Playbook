@@ -462,3 +462,34 @@ For a direct Inspector call, use the same absolute Node, Inspector entry point a
 Use the [contribution policy](contributing.md#choose-the-check-and-retain-its-result) for capture/refresh and retention. Inspection verifies delivery, not browser/provider/native execution or release readiness. Saved `freshness: current` means inputs matched at package build time; it does not inspect the consumer or current upstream APIs. Pending Human proof stays visible separately from compilation.
 
 `eng/Test-Content.ps1`, `eng/Test-Evidence.ps1` and their `-Pack` variants exercise content and freshness rejection. The existing installed-package scenarios cover filter combinations, paging, release selection, complete structured/text equality, recovery and errors. Run those when changing the corresponding contract; do not copy their test catalogue into a ticket walkthrough or repeat a platform matrix for a link edit.
+
+## Authored Razor task generation
+
+This tested block builds/packs the ordinary tool, installs that exact artifact
+through the existing isolated local feed/cache and calls actual stdio list/get
+from an unrelated temporary directory. Setup requires PowerShell 7, SDK
+10.0.402 and Node 22.19+; Inspector 2.11.0 is installed locally when absent.
+Setup may restore packages online. Retrieval uses unusable proxies, which proves
+proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1168-04-093-select-the-hosted-generator-in-an-authored-razor'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'razor.choose-task-generation-path' -TargetVersion '11.0' `
+  -Query 'build-task' -PackageVersion '0.0.0-exhibit-compiler' `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' -BuildAndPack `
+  -OutputDirectory ./artifacts/exhibit-compiler/inspection
+```
+
+Expect the ID, reusable title and goal, explicit 11.0 edition, complete original
+.NET 10/RC2 files, applicability and four current compilation/execution records.
+Full Markdown must equal canonical snippets and structured/text responses must
+match. `eng/Record-ExhibitCompiler.ps1` separately runs actual old/current task
+consumers and failure controls with the pinned SDKs. Generated C# renders the
+Lantern collection and encoded badge. Current omitted/false flags use the engine;
+true hosts the source generator. The private underscored forwarding property is
+not a stable application setting. Binlogs/full generated artifacts are retained
+under ignored `artifacts/exhibit-compiler`. No older-target hosted, browser,
+native, arbitrary IDE or actual-GA proof is claimed. The helper retains its
+unique temporary local install/feed for inspection and preserves PATH/settings.

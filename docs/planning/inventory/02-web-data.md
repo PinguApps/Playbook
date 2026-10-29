@@ -1,5 +1,13 @@
 # Web and data authoring inventory
 
+**B14 / PIN-1168** supplies `razor.choose-task-generation-path/11.0`: original
+ExhibitCompiler targets execute actual SDK10 engine/default and RC2 default,
+explicit engine/hosted task paths. Generated C# compiles and renders; dependency,
+manifest and invalid-input controls qualify discovery and diagnostics. Matching
+SDK task/rzc/compiler/MSBuild closures are pinned; the private forwarding property
+is not stable app configuration. No older-target hosted route or ninth foundation.
+PIN-959/PIN-964 and actual-GA gates remain open.
+
 Research date: 16 October 2026. Planning only; no samples, SDK installation, compilation, browser execution, database execution, or package verification. Proposed IDs and grouping are reviewable inventory entries, not published contracts. All goal labels below were written for Playbook; the guide's demonstrations and code were not copied.
 
 This audit covers every top-level change in the current cumulative ASP.NET Core 11 and EF Core 11 articles, their migration/breaking-change inventories, and the canonical RC1/RC2 component notes. It preserves the accepted 25 guide topics, seven additions and three expansions explicitly. It is not an exhaustive API-diff audit. GA reconciliation remains mandatory. A source-review inclusion does not satisfy the example compilation gate.
