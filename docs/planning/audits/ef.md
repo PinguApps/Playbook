@@ -105,6 +105,34 @@ example has been republished as an original Playbook sample.
 
 ## Accountable dispositions
 
+### SQLite time-component delivery — 29 October 2026
+
+PIN-1210 delivers E22 as `sqlite.query-time-components/11.0`. Original HeronSignals
+consumers use SDK10.0.402 / C#14 / EF10.0.13 / net10 and SDK11 RC2 / C#15 /
+EF11 RC2 / net11. Actual selected assets retain the audit's EF11 net11 versus
+direct Sqlite11 net10 distinction. The package-matched older translator lacks
+TimeOnly members; all three older predicates fail before database execution.
+Parameterized FromSqlInterpolated remains a working server-side alternative.
+The current member predicates execute CAST/strftime `%H`/`%M`/`%S` filters.
+
+Both real Windows x64 bundled engines (SQLite3.53.3/3.53.4) record native source
+IDs/DLL hashes, eleven exact stored TEXT/null boundary and fractional values,
+fresh-context tick round-trips and seven exact-result/parameter-safety checks.
+Unmodified native component extraction preserves the tested whole components
+through .9999999, including TimeOnly.MaxValue. This is not a fractional arithmetic,
+timezone/date/microsecond or arbitrary-storage promise. Millisecond translation
+remains unavailable on the current route. Normal e_sqlite3 bundle initialization
+executes; retired/custom/encrypted engine alternatives remain separate.
+
+Canonical full projects/prose, locked graphs and fresh sample records are retained.
+The ordinary installed stdio check verifies discovery, complete offline body,
+target/edition, applicability and evidence independently of native execution.
+The source manifests and raw audit baseline remain immutable: this is source
+section delivery, not a new public CLR API delta. E22's M(3) retains its bounded
+result/translation sizing; SQL Server PIN-860 does not supply SQLite evidence.
+The exact eight foundations, PIN-959 coverage, PIN-965 actual GA and Human gates
+remain unchanged and open where previously outstanding.
+
 ### Deliberate test-provider replacement delivery — 29 October 2026
 
 PIN-1190 delivers E2 as `ef.replace-context-provider/11.0`, with original
