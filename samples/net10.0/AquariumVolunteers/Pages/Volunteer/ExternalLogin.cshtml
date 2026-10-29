@@ -1,0 +1,12 @@
+@page
+<!-- snippet:complete -->
+@model AquariumVolunteers.VolunteerExternalLogin
+<!doctype html><html lang="en"><head><title>External aquarium registration</title></head><body>
+<h1>Complete aquarium registration</h1>
+<form method="post" asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Email"></label><input asp-for="Email" />
+    <button type="submit">Register volunteer</button>
+</form>
+</body></html>
+<!-- endsnippet:complete -->

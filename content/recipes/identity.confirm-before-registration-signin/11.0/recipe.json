@@ -1,0 +1,359 @@
+{
+  "id": "identity.confirm-before-registration-signin",
+  "edition": "11.0",
+  "title": "Keep registration aligned with confirmation policy",
+  "goal": "Require the configured email, phone or account confirmation before granting a new registrant a session, across password and external registration.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "identity",
+    "registration",
+    "confirmation",
+    "aquarium-volunteers"
+  ],
+  "apis": [
+    "SignInOptions.RequireConfirmedEmail",
+    "SignInOptions.RequireConfirmedPhoneNumber",
+    "SignInOptions.RequireConfirmedAccount",
+    "SignInManager.CanSignInAsync",
+    "SignInManager.SignInAsync",
+    "UserManager.CreateAsync",
+    "UserManager.AddLoginAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Use default Identity UI on .NET11, or apply the same explicit gate to existing custom registration pages. The original .NET10 comparison remains a valid older approach, not a ninth foundation or a declared older-target edition."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The default Identity UI now consults all configured confirmation requirements. Exact measured execution is RC2, not GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching Web SDK/Razor/framework assets. Exact reproduction pins are separate from this release-family requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Tested mode; no C#15-only syntax is needed. The actual older consumer uses C#14."
+          },
+          "frameworks": [
+            "ASP.NET Core Identity",
+            "Razor Pages",
+            "Entity Framework Core",
+            "Kestrel"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Identity.UI",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks RC2 and all transitives."
+            },
+            {
+              "name": "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks RC2 and all transitives."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Use a mutually compatible Identity UI/store/EF provider closure; the complete example locks RC2 and all transitives."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Actual Identity.UI and Identity.EntityFrameworkCore net11.0 assets match the PIN-709 audited ZIPs; the current UI is packaged, not inferred from a reference DLL. Exact .NET10 net10.0 package counterparts are also tested.",
+            "SQLitePCLRaw 2.1.13 / native SQLite3.53.3 on the older side; SQLitePCLRaw3.0.5 plus SQLite3.53.4 on the current side. Locked selected assets and package hashes are retained. No native compiler/workload is required."
+          ],
+          "providers": [
+            "Real EF Core SQLite Identity store in a disposable local file; default UserManager/SignInManager/IUserConfirmation and token providers. Controlled local RemoteAuthenticationHandler provider exercises challenge, protected state/correlation, callback and Identity.External cookie; it is not OAuth/OIDC or third-party interoperability proof."
+          ],
+          "platforms": [
+            "Qualified execution: Windows x64. ASP.NET Core server deployment and another SQLite RID need their own checks. No browser, device, NativeAOT or trimming claim."
+          ],
+          "renderingModes": [
+            "Actual server-rendered Razor Pages and HTTP antiforgery/form posts. No interactive Blazor mode, browser-layout or client-validation execution claim."
+          ],
+          "prerequisites": [
+            "Existing Identity UI and compatible store, password/external registration routes and legitimate confirmation services. Reproduce with every complete standalone file below, including the isolation files and lock. Restore packages before offline use. The executable starts ephemeral loopback hosts and exits after checks."
+          ],
+          "constraints": [
+            "Preserve all configured confirmation checks. RequireConfirmedAccount uses IUserConfirmation<TUser>; the default implementation uses confirmed email. A custom account-confirmation policy needs its own check.",
+            "On the actual .NET10.0.13 packaged UI, email-only and phone-only registration issue an application session although later sign-in is denied. The original /Volunteer pages call CanSignInAsync before SignInAsync on both paths and are a tested older alternative; do not disable policy or copy the measured bypass.",
+            "The .NET11 default UI uses CanSignInAsync after successful password creation or external creation/linking. Existing customized pages do not change automatically. Keep antiforgery, local return URLs and external state/correlation; never issue a replacement cookie after denial.",
+            "The fixture distinguishes temporary Identity.External from .AspNetCore.Identity.Application and reads the principal on a fresh request. Provider email claims do not prove email confirmation. Captured email links and local phone-token checks establish fixture confirmation without sending messages.",
+            "The no-requirements control deliberately uses a separate temporary host. It is not a recommendation to disable production requirements. There is no compatibility switch restoring a registration-only bypass.",
+            "Fixture-only HTTP correlation cookies, ephemeral keys, local provider, mutable test identity selection and EnsureCreated SQLite are not production security, transport or persistence configuration. Keep production HTTPS, provider validation, key storage, schema migrations, confirmation transport and authorization.",
+            "No passkey, lockout, account recovery, all-Identity matrix, external-provider interoperability or public deployment claim; PIN-812 remains separate."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "No experimental opt-in for this stable Identity API surface. Actual .NET11 evidence uses RC2; PIN-959, PIN-963, PIN-964, actual-GA reconciliation and unrelated Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md#sign-in-confirmation-requirements-apply-after-registration",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs",
+          "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-11.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official registration confirmation change",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/aspnetcore.md#sign-in-confirmation-requirements-apply-after-registration"
+    },
+    {
+      "title": "Serviced .NET 10 full Register.cshtml.cs",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs"
+    },
+    {
+      "title": "Serviced .NET 10 full ExternalLogin.cshtml.cs",
+      "url": "https://github.com/dotnet/aspnetcore/blob/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs"
+    },
+    {
+      "title": "Pinned .NET 11 full Register.cshtml.cs",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs"
+    },
+    {
+      "title": "Pinned .NET 11 full ExternalLogin.cshtml.cs",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs"
+    },
+    {
+      "title": "Account confirmation and transport prerequisites",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/AquariumVolunteers/AquariumVolunteers.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real matching-dependency build/run: 16 new registrations across packaged/original UI, password/external and three individual requirements plus allowed control. Fresh SQLite rows, redirects, application/external cookies, new-request principal, confirmed/denied later sign-in and request guards. Older packaged email/phone bypass is a measured negative comparison, never the recommended route."
+    },
+    {
+      "sample": "samples/net10.0/AquariumVolunteers/AquariumVolunteers.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "record": "samples/net10.0/AquariumVolunteers/artifacts.evidence.json",
+      "scope": "Actual package ZIP hashes and selected managed/native assets, Identity reference hashes versus PIN-709 and five immutable source hashes. Compiler/framework/native SQLite identities are in the compile/run record; no third-party or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real matching-dependency build/run: 16 new registrations across packaged/original UI, password/external and three individual requirements plus allowed control. Fresh SQLite rows, redirects, application/external cookies, new-request principal, confirmed/denied later sign-in and request guards. Older packaged email/phone bypass is a measured negative comparison, never the recommended route."
+    },
+    {
+      "sample": "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "record": "samples/net11.0/AquariumVolunteers/artifacts.evidence.json",
+      "scope": "Actual package ZIP hashes and selected managed/native assets, Identity reference hashes versus PIN-709 and five immutable source hashes. Compiler/framework/native SQLite identities are in the compile/run record; no third-party or GA proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Disposable actual managed server/SQLite/HTTP controls need no owner account, third-party provider, real messages or device. Existing Human and GA gates remain open."
+  },
+  "snippets": {
+    "n10-aquariumvolunteers-csproj": {
+      "path": "samples/net10.0/AquariumVolunteers/AquariumVolunteers.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-artifactidentity-cs": {
+      "path": "samples/net10.0/AquariumVolunteers/ArtifactIdentity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/AquariumVolunteers/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/AquariumVolunteers/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/AquariumVolunteers/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/AquariumVolunteers/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-localprovider-cs": {
+      "path": "samples/net10.0/AquariumVolunteers/LocalProvider.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-packages-lock-json": {
+      "path": "samples/net10.0/AquariumVolunteers/packages.lock.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-pages-viewimports-cshtml": {
+      "path": "samples/net10.0/AquariumVolunteers/Pages/_ViewImports.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-pages-shared-loginpartial-cshtml": {
+      "path": "samples/net10.0/AquariumVolunteers/Pages/Shared/_LoginPartial.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-pages-volunteer-externallogin-cshtml": {
+      "path": "samples/net10.0/AquariumVolunteers/Pages/Volunteer/ExternalLogin.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-pages-volunteer-externallogin-cshtml-cs": {
+      "path": "samples/net10.0/AquariumVolunteers/Pages/Volunteer/ExternalLogin.cshtml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-pages-volunteer-register-cshtml": {
+      "path": "samples/net10.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-pages-volunteer-register-cshtml-cs": {
+      "path": "samples/net10.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/AquariumVolunteers/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-registrationchecks-cs": {
+      "path": "samples/net10.0/AquariumVolunteers/RegistrationChecks.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-aquariumvolunteers-csproj": {
+      "path": "samples/net11.0/AquariumVolunteers/AquariumVolunteers.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-artifactidentity-cs": {
+      "path": "samples/net11.0/AquariumVolunteers/ArtifactIdentity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/AquariumVolunteers/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/AquariumVolunteers/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/AquariumVolunteers/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/AquariumVolunteers/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-localprovider-cs": {
+      "path": "samples/net11.0/AquariumVolunteers/LocalProvider.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-packages-lock-json": {
+      "path": "samples/net11.0/AquariumVolunteers/packages.lock.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-pages-viewimports-cshtml": {
+      "path": "samples/net11.0/AquariumVolunteers/Pages/_ViewImports.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-pages-shared-loginpartial-cshtml": {
+      "path": "samples/net11.0/AquariumVolunteers/Pages/Shared/_LoginPartial.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-pages-volunteer-externallogin-cshtml": {
+      "path": "samples/net11.0/AquariumVolunteers/Pages/Volunteer/ExternalLogin.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-pages-volunteer-externallogin-cshtml-cs": {
+      "path": "samples/net11.0/AquariumVolunteers/Pages/Volunteer/ExternalLogin.cshtml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-pages-volunteer-register-cshtml": {
+      "path": "samples/net11.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-pages-volunteer-register-cshtml-cs": {
+      "path": "samples/net11.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/AquariumVolunteers/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-registrationchecks-cs": {
+      "path": "samples/net11.0/AquariumVolunteers/RegistrationChecks.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

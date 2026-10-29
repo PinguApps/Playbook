@@ -1,0 +1,30 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-AquariumVolunteers.ps1",
+    "docs/planning/audits/web.sources.json",
+    "docs/planning/audits/web.assets.json"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/10.0.13",
+    "Microsoft.AspNetCore.Identity.UI/10.0.13",
+    "Microsoft.Data.Sqlite.Core/10.0.13",
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.13",
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.13",
+    "Microsoft.EntityFrameworkCore.Relational/10.0.13",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/10.0.13",
+    "Microsoft.EntityFrameworkCore.Sqlite/10.0.13",
+    "Microsoft.EntityFrameworkCore/10.0.13",
+    "Microsoft.Extensions.DependencyModel/10.0.13",
+    "Microsoft.Extensions.FileProviders.Embedded/10.0.13",
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.13",
+    "SQLitePCLRaw.core/2.1.13",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.13",
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.13"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}

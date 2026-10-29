@@ -2236,6 +2236,38 @@
       "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/OpenApi/src/Services/OpenApiDocumentProvider.cs",
       "sha256": "06746c147ef8ec4b381adf8dc823b402640ae64956fab53a2294904189ff1938",
       "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "0ef4bbfa3291b306a21e5001cb0491277bdd35bc",
+      "path": "src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs",
+      "sha256": "1207bc3f24b63ec85b6046254f8c9d06779c45a8032bfc806a0bb2deac7a2fb1",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "0ef4bbfa3291b306a21e5001cb0491277bdd35bc",
+      "path": "src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/0ef4bbfa3291b306a21e5001cb0491277bdd35bc/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs",
+      "sha256": "321749125ed44dbcb32f5eff2e9747d2dd1a11fb6f9d1a24e4965305ab955abc",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs",
+      "sha256": "97799097abd0d7d042960cb0558c0e84356454012bd9ab176da28e93829f1c8c",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/aspnetcore",
+      "commit": "4a70870818bf5662f21b0c28f9a8c267dccb77f0",
+      "path": "src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/aspnetcore/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs",
+      "sha256": "648862f5296f8d90349ea54d5c35fe112473b041450d83ce9769cc31f480a92f",
+      "headings": []
     }
   ]
 }

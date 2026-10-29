@@ -1,0 +1,10 @@
+<!-- snippet:complete -->
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <span>Aquarium volunteer: @User.Identity.Name</span>
+}
+else
+{
+    <a href="/Identity/Account/Login">Volunteer sign in</a>
+}
+<!-- endsnippet:complete -->

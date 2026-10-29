@@ -102,3 +102,10 @@
 # artifact identities, locks and served recipe. Build/pack checks input freshness.
 /samples/net10.0/AmberGallery/verification-evidence.json
 /samples/net11.0/AmberGallery/verification-evidence.json
+
+# Record-AquariumVolunteers/Record-Evidence generated command, asset and HTTP capture;
+# review the canonical UI/checks, locked closures and qualification helper. Pack checks freshness.
+/samples/net10.0/AquariumVolunteers/verification-evidence.json
+/samples/net10.0/AquariumVolunteers/artifacts.evidence.json
+/samples/net11.0/AquariumVolunteers/verification-evidence.json
+/samples/net11.0/AquariumVolunteers/artifacts.evidence.json

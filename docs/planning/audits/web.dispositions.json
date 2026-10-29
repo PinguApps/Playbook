@@ -232,5 +232,19 @@
       "pattern": "^typeScript/",
       "owner": "PIN-813 authentication-refresh TypeScript contract remains unresolved; PIN-814 cancellation is .NET-client-only, verified with matched RC2 assets and both mixed-version controls; see docs/verification/invocation-cancellation.md"
     }
+  ],
+  "sourceDispositions": [
+    {
+      "id": "W07",
+      "owner": "PIN-1177",
+      "recipe": "identity.confirm-before-registration-signin/11.0",
+      "sourceManifest": "web.sources.json",
+      "sourcePaths": [
+        "src/Identity/UI/src/Areas/Identity/Pages/V5/Account/Register.cshtml.cs",
+        "src/Identity/UI/src/Areas/Identity/Pages/V5/Account/ExternalLogin.cshtml.cs",
+        "release-notes/11.0/preview/rc1/aspnetcore.md"
+      ],
+      "disposition": "delivered; actual .NET10.0.13 packaged email/phone registration bypass versus gated original pages and .NET11 RC2 packaged UI; both password/external paths with real Razor/SQLite/antiforgery/provider challenge/callback/cookie/session controls. Local provider is not third-party interoperability; no messages or passkey claim. Eight foundations and PIN-959/PIN-963/PIN-964/actual-GA/Human gates remain open."
+    }
   ]
 }
