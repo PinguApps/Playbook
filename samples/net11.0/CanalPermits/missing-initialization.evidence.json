@@ -6,22 +6,22 @@
   "language": "15.0",
   "command": "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe V:\\_worktrees\\Playbook\\agent-pin-864-05-022-restore-native-sqlite-initialization-after-bundle\\samples\\net11.0\\CanalPermits\\bin\\Release\\net11.0\\CanalPermits.dll --omit-initialization",
   "scope": "Fresh-process negative control: omitted explicit initialization fails with the real SQLitePCLRaw SetProvider diagnostic; no mock.",
-  "recordedAt": "2026-10-29T03:58:39.7911589+00:00",
-  "sourceCommit": "7c3b5a7d6d77d6f7182e7ef446f069c74e458612",
+  "recordedAt": "2026-10-29T04:03:36.2401704+00:00",
+  "sourceCommit": "bc8fb4420b0dc738963d64d32d85045faec879e1",
   "sourceDirty": true,
   "inputs": {
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
     "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
     "eng/Record-SqliteInitialization.ps1": "cb2e8a8d2da1176eeca79924276cb35b2c7462e382b89f7d7df56e2c30a31bad",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/net11.0/CanalPermits/CanalPermits.csproj": "0691763ffbfc4ae7d9cab774898ee57c842aa4e0452da18215d909f744dd5d73",
+    "samples/net11.0/CanalPermits/CanalPermits.csproj": "765f56fca87ea88adaa419b0129c5f2ec8ff36ea6e4c40353db5f20040f48fea",
     "samples/net11.0/CanalPermits/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/CanalPermits/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
-    "samples/net11.0/CanalPermits/Directory.Packages.props": "92c32b0864cf1062f35f389944a9426cbcc9c6dd646784eef859a24a26c059fd",
+    "samples/net11.0/CanalPermits/Directory.Packages.props": "a25fd5137dfb2fb259c5931c0b6b12fb9ded585c26548e714d4f8119b240b89d",
     "samples/net11.0/CanalPermits/global.json": "a43df060b11b36c25c6e082f9d4f25875f05aaaff31160a17ec7bfdf03d0eb17",
-    "samples/net11.0/CanalPermits/packages.lock.json": "0f90fffea7ad2375a8372776c577855c9e57afd9f0a18fba7e15bdfaf1f6c2fe",
+    "samples/net11.0/CanalPermits/packages.lock.json": "e7ad3ea68d786ad32074b9a64dd9f52ce27f99a5d5c01e96c06cc6e8e04aea0b",
     "samples/net11.0/CanalPermits/Program.cs": "ccdcfa8a38fb316ae743cd19f2378af098ca750916c62ea2cb6b7df802ec0db9",
-    "samples/net11.0/CanalPermits/verification.json": "b76401e70936699a0cee4a1d5b5df7ce3def5216c2559ac3ca68082aa9b9ed5f"
+    "samples/net11.0/CanalPermits/verification.json": "545fbbf93eb4603194be5f11c313bc67c78bac789eb8b0177625aa75b4170038"
   },
   "dependencies": [
     "Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
