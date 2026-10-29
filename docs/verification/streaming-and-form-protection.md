@@ -1,5 +1,101 @@
 # Streaming and form protection evidence
 
+## Application-owned origin policy
+
+PIN-1172 authoring observations, **29 October 2026**. This is a separate
+SeedExchange experiment; the historical QuayPermits observations below remain
+unchanged. Canonical source lives in `samples/net10.0/SeedExchange` and
+`samples/net11.0/SeedExchange`. The recipe is
+`web.supply-origin-protection-policy/11.0`. Fresh sample records identify the
+actual inputs/commands and compile/HTTP results; they do not label HTTP clients
+as browsers. The original story is Fern Ledger's botanical exchange.
+
+Exact sets: SDK10.0.402/C#14/framework10.0.13 and
+SDK11.0.100-rc.2.26504.105/C#15/framework11.0.0-rc.2.26504.105. Roslyn versions
+are 5.9.0-1.26505.111 and 5.12.0-1.26504.105. Actual loaded framework build
+commits are `4099f83977f4d29604a9aeb971fb0a7bc1d5f699` and
+`820230c386db5b0106c5430b3e5aee92a7826bf5`. Source intent remains pinned separately
+to ASP.NET `4a70870818bf5662f21b0c28f9a8c267dccb77f0`. No NuGet libraries,
+optional workloads or separately acquired native assets resolve for these pure
+Minimal API projects; Internal.Assets in the Razor comparison is not the public
+ICsrfProtection contract. .NET10's real consumer observes the interface absent.
+
+The actual reference bytes were compared with the bounded web asset audit:
+
+| Target | Http.Abstractions reference SHA-256 | Default-builder reference SHA-256 |
+| --- | --- | --- |
+| net10.0 | `0a9cf8792bd7d8ab7e9b8d31e9f144ad20f8fb4d28a822d9dc12242a04c62930` | `a06ee8f3ceb3a96ea99e0bbc7b920d74fd664a50a7fa52b7cc3e52fc59c8e61c` |
+| net11.0 | `164a21d5a05f7ab9f1dad2ddb8451caac71a27556998e11a2f146cbfa2e9beb4` | `3e0894ac29b8d7ff5af11d882e442250eeb22ea8b92a072d9cc8675687f53bef` |
+
+`eng/Record-SeedExchange.ps1` requires explicit `-Net10Dotnet`/`-Net11Dotnet`
+absolute matching SDK paths, locked restore,
+`eng/Record-Evidence.ps1` and before/after input fingerprints. It executes real
+Kestrel HTTP requests in four modes: .NET10 retained tokens+origin, .NET11 custom,
+standard and retained tokens. Records include loaded runtime assembly paths,
+informational versions and SHA-256 values. Missing/opaque Origin, invalid operator
+configuration, token omission, JSON separation and exact provider/handler counts
+are actual HTTP results. The isolated listener stops after each run. Data
+Protection is ephemeral, never a user/production key ring. No persistent PATH or
+user/machine environment change is needed.
+
+The parent separately controlled an owned tab through the user's existing Chrome
+extension: **Chrome156.0.0.0, Windows x64**. The integrated browser connection was
+unavailable. Each host used its sample working directory, the matching absolute
+dotnet executable and `--urls 'http://localhost:6180;http://localhost:6181;http://localhost:6183'`.
+The .NET11 comparison switches were `--standard true` and `--tokens true`;
+.NET10 always retained tokens and the explicit origin check. The served
+`wwwroot/controls.html?mode=custom|standard|tokens|old` button ran ordinary iframe
+form submissions and browser fetch with `omit`/`include`. JavaScript never sets
+Origin or Sec-Fetch-Site. The target was localhost:6180; sources were that origin,
+trusted localhost:6181, untrusted localhost:6183 and hostile 127.0.0.1:6181.
+
+All **four sources × four modes × ten** base controls passed. Two additional
+own-origin token-negative controls passed in each retained-token mode. An earlier
+.NET10 own-origin run was repeated while adding those controls: **174 actual
+browser POSTs observed**, including that repeat; 164 distinct final control
+combinations. The browser reported same-origin / same-site / cross-site as expected.
+Server observations supplied status and handler counts even when CORS hid the
+response. The custom provider counter was exactly one for every custom browser
+form/fetch; a denial returned status 400, handler count 0; an acceptance returned
+status 200, handler count 1. No broad
+authentication/security claim is inferred from these disposable counters.
+
+Table entries are HTTP status / handler invocation count.
+
+| Browser form source | Custom RC2, all four paths | Standard RC2 `/seed`, credentialed, public, wildcard | .NET10 token+origin, all four paths | .NET11 token mode, all four paths |
+| --- | --- | --- | --- | --- |
+| localhost:6180 / same-origin | 200/1 | 200/1 each | 200/1 | 200/1 |
+| localhost:6181 / trusted same-site | 200/1 | 400/0, 200/1, 400/0, 400/0 | 200/1 | 200/1 |
+| localhost:6183 / untrusted same-site | 400/0 | 400/0 each | 400/0 | 200/1 with valid pair |
+| 127.0.0.1:6181 / cross-site | 400/0 | 400/0 each | 400/0 | 400/0 (cookie/token mismatch) |
+
+For trusted partner fetch, credentialed CORS exposed both omit/include responses;
+the demo Lax cookie was absent/present respectively. Noncredentialed and wildcard
+CORS exposed omit responses, but include threw a browser TypeError **after** the
+custom handler executed (status 200, handler count 1). Standard policy instead
+returned 400/0 on those
+noncredentialed/wildcard paths, regardless of actual credential mode. Hostile
+custom fetches returned 400/0 even when wildcard omit exposed the rejection.
+Same-site untrusted submissions carried the demo cookie but still failed; cross-site
+Lax-cookie requests had no cookie, so those alone prove no production credentialed
+cross-site behavior. The cookie is demonstration state, not authentication.
+
+Missing/invalid token values with the own-origin cookie returned 400/0 in both
+token modes. Fetch omit with a token also returned 400/0, proving the cookie pair
+remained required. The .NET11 token-mode acceptance from localhost:6183 shows the
+standard automatic verdict can be overwritten; it is not a composed custom+token
+claim. Headerless non-browser HTTP requests returned 200/1 under standard RC2,
+400/0 under custom RC2 and .NET10 explicit-origin policy. JSON executed 200/1 with
+zero custom provider calls; that endpoint has no automatic form protection.
+
+The harness removes temporary forms/iframes. The owned browser tab was closed and
+only owned loopback hosts were stopped. No account, certificate trust, external
+resource, persistent key store or production data was involved. HTTP loopback
+does not qualify production HTTPS/proxies, another browser/OS, arbitrary form
+consumers, authenticated-user behavior or GA. PIN-959/PIN-964 and existing Human
+gates remain open. The ordinary installed-tool inspection in the Inspector
+walkthrough verifies delivery independently of these browser observations.
+
 Historical October 2026 authoring observations. Follow the [evidence reuse policy](../contributing.md#choose-the-check-and-retain-its-result).
 [Original capture and detailed provenance](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-804-808.md).
 
