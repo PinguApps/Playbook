@@ -118,6 +118,39 @@ applicability; it does not rerun SQLite. The sample records establish real Windo
 x64 SQLite model/schema/round-trips using EF 10.0.13 and EF11 RC2. Other providers,
 native platforms, production data conversion and actual GA remain unverified.
 
+## EF query adapters and UInt128 parameters
+
+This checked example starts from an unrelated directory, selects this worktree,
+builds/packs the ordinary tool and uses the existing isolated feed/cache harness.
+It displays ID/title/goal, complete canonical Markdown, applicability and current
+sample evidence through real installed stdio list/get. Requires PowerShell 7,
+SDK 10.0.402 and Node 22.19+; setup can restore online. Retrieval uses unusable
+proxies, demonstrating proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5b34b81d'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.stream-query-without-reexecution','sqlite.bind-large-unsigned-value') `
+  -Query 'data-adapters' -PackageVersion '0.0.0-data-adapters' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/data-adapters/inspection11
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sqlite.bind-large-unsigned-value' -TargetVersion '10.0' `
+  -Query 'data-adapters' -PackageVersion '0.0.0-data-adapters' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/data-adapters/inspection10
+```
+
+Expect both stable IDs at edition 11.0 and the conditional direct-Sqlite11 route
+on target 10.0; no EF11-on-.NET10 route is advertised. Five saved real consumers
+cover EF command/disposal and UInt128 padded TEXT/order checks. EF1004 is separately
+reproduced by `eng/Test-EfQueryAdapter.ps1`. The EF body explains runtime11's
+adapter fast path and SQLite's synchronous native I/O. The UInt128 body retains
+explicit string reading/application parsing. Neither retrieval nor these Windows
+x64 RC2 consumers establishes other native platforms/providers or actual GA.
+
 ## Inspect a response directly
 
 ```powershell

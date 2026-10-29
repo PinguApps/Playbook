@@ -2,6 +2,7 @@
 param([string]$Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe')
 
 $ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $false # The first build must fail with EF1004.
 $root = Split-Path $PSScriptRoot -Parent
 $session = Join-Path ([IO.Path]::GetTempPath()) ('playbook-ef-adapter-' + [guid]::NewGuid().ToString('N'))
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
