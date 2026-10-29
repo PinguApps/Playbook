@@ -120,8 +120,12 @@ identity and explicitly excludes the session ID for servers; an isolated temp
 directory or terminal session alone is insufficient. This is a pinned implementation
 control, not a supported universal isolation API. It avoids other workers' private
 pipes. The fixture retains the process handle identified by its own task receipt,
-checks its executable/start time, verifies the lifecycle PID, then stops only that
-owned handle and confirms exit. It never invokes global build-server shutdown.
+binds its salt/start-time receipt to rule out PID reuse before assigning cleanup
+ownership, then checks executable/start time and lifecycle PID. Later validation
+failures still stop that owned handle and confirm exit; a forced real failure
+checks this path. No-server task PIDs must equal their launching CLI process.
+It never invokes global build-server shutdown, and deletes its disposable signing
+key during cleanup.
 
 The source also distinguishes short-lived experimental `-mt` servers through
 `ShortLived`. This recipe uses no `-mt`, makes no execution claim for that branch,

@@ -1,5 +1,4 @@
 // snippet:bootstrap
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Loader;
 using Depot.Events;
@@ -19,5 +18,9 @@ AssemblyLoadContext.Default.Resolving += (_, name) =>
 Run(sdkRoot);
 
 [MethodImpl(MethodImplOptions.NoInlining)]
-static void Run(string sdkRoot) => DepotProof.Run(sdkRoot);
+static void Run(string sdkRoot)
+{
+    DepotProof.Run(sdkRoot);
+    DepotProof.VerifyCleanup(sdkRoot);
+}
 // endsnippet:bootstrap

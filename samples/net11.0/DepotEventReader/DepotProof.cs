@@ -12,7 +12,21 @@ namespace Depot.Events;
 
 internal static class DepotProof
 {
-    public static void Run(string sdkRoot)
+    public static void VerifyCleanup(string sdkRoot)
+    {
+        try
+        {
+            Run(sdkRoot, rejectOwnedValidation: true);
+            throw new InvalidOperationException("Cleanup failure control did not execute");
+        }
+        catch (InvalidOperationException e) when (e.Message == "Depot forced owned validation failure")
+        {
+            // Run's finally must have confirmed process exit before this expected failure escapes.
+            Console.WriteLine("PASS: forced owned-server validation failure still confirmed handle exit.");
+        }
+    }
+
+    public static void Run(string sdkRoot, bool rejectOwnedValidation = false)
     {
         string root = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../../..", "artifacts", "depot-events", Guid.NewGuid().ToString("N")));
         Directory.CreateDirectory(root);
@@ -44,10 +58,9 @@ internal static class DepotProof
             Process server = owned.Single();
             int id = server.Id;
             Build("reused", true, true);
-            Require(int.Parse(File.ReadAllText(Path.Combine(root, "reused.pid"))) == id, "Old server not reused");
+            Require(ReadReceipt("reused").ProcessId == id, "Old server not reused");
             Build("no-reuse", true, false);
             Build("disabled", false, false);
-            Require(int.Parse(File.ReadAllText(Path.Combine(root, "no-reuse.pid"))) != id && int.Parse(File.ReadAllText(Path.Combine(root, "disabled.pid"))) != id, "Old no-server control used resident server");
             Require(typeof(BuildEventArgs).Assembly.GetType("Microsoft.Build.Framework.AssemblyConflictWarningEventArgs") is null, "Unexpected old typed API");
             Console.WriteLine("PASS: actual SDK10 CLI spawn/reuse and no-server PID controls; legacy MSB3277 + diagnostic messages replayed without text parsing.");
 #endif
@@ -67,38 +80,57 @@ internal static class DepotProof
             {
                 var env = new Dictionary<string, string> { ["MSBUILDUSESERVER"] = useServer ? "1" : "0", ["MSBUILDNODEHANDSHAKESALT"] = salt };
                 string binlog = Path.Combine(root, name + ".binlog");
-                string live;
+                (string Output, int ProcessId) live = default;
+                int launchingPid = 0;
                 try
                 {
-                    live = RunProcess(new[] { Path.Combine(sdkRoot, "MSBuild.dll"), Path.Combine(root, "Depot.proj"), "-nologo", "-v:diag", "-m:1", "-nr:" + reuse.ToString().ToLowerInvariant(), "-p:Receipt=" + Path.Combine(root, name + ".pid"), "-bl:" + binlog + ";ProjectImports=None", "-logger:Depot.Events.DepotEvents," + Assembly.GetExecutingAssembly().Location }, env);
+                    live = RunProcess(new[] { Path.Combine(sdkRoot, "MSBuild.dll"), Path.Combine(root, "Depot.proj"), "-nologo", "-v:diag", "-m:1", "-nr:" + reuse.ToString().ToLowerInvariant(), "-p:Receipt=" + Path.Combine(root, name + ".pid"), "-bl:" + binlog + ";ProjectImports=None", "-logger:Depot.Events.DepotEvents," + Assembly.GetExecutingAssembly().Location }, env, onStart: id => launchingPid = id);
                 }
                 finally
                 {
-                    if (name == "spawned" && File.Exists(Path.Combine(root, name + ".pid")))
+                    if (File.Exists(Path.Combine(root, name + ".pid")))
                     {
-                        // Register cleanup even if logging/the build fails after our first task.
-                        Process server = Process.GetProcessById(int.Parse(File.ReadAllText(Path.Combine(root, name + ".pid"))));
-                        Require(server.StartTime.ToUniversalTime() >= started.AddSeconds(-2), "Server predates fixture");
-                        Require(string.Equals(server.MainModule!.FileName, Environment.ProcessPath, StringComparison.OrdinalIgnoreCase), "Unexpected server executable");
-                        owned.Add(server);
+                        DepotHostReceipt receipt = ReadReceipt(name);
+                        Require(receipt.Salt == salt, "Receipt did not come from our salted build");
+                        if (receipt.ProcessId != launchingPid && !owned.Any(p => p.Id == receipt.ProcessId))
+                        {
+                            Process server = Process.GetProcessById(receipt.ProcessId);
+                            try
+                            {
+                                // Bind the handle and rule out PID reuse before assigning kill ownership.
+                                _ = server.SafeHandle;
+                                Require(server.StartTime.ToUniversalTime().Ticks == receipt.StartedTicks, "Receipt process was replaced; refusing unowned cleanup");
+                            }
+                            catch { server.Dispose(); throw; }
+                            owned.Add(server);
+                            // All subsequent validation failures are inside the owned cleanup boundary.
+                            Require(!rejectOwnedValidation, "Depot forced owned validation failure");
+                            Require(server.StartTime.ToUniversalTime() >= started.AddSeconds(-2), "Server predates fixture");
+                            Require(string.Equals(server.MainModule!.FileName, Environment.ProcessPath, StringComparison.OrdinalIgnoreCase), "Unexpected server executable");
+                        }
                     }
                 }
+                if (!useServer || !reuse)
+                    Require(ReadReceipt(name).ProcessId == live.ProcessId, "No-server control unexpectedly ran outside its launching process");
                 var events = new DepotEvents();
                 var replay = new BinaryLogReplayEventSource();
                 events.Initialize(replay);
                 replay.Replay(binlog);
                 events.Shutdown();
                 Require(events.LegacyConflict, "Real graph did not emit MSB3277");
-                Require(live.Contains($"DEPOT-OBSERVER {events.Summary}; MSB3277=True", StringComparison.Ordinal), "Live CLI logger and replay disagree");
+                Require(live.Output.Contains($"DEPOT-OBSERVER {events.Summary}; MSB3277=True", StringComparison.Ordinal), "Live CLI logger and replay disagree");
 #if NET11_0
                 Require(events.ExpectedConflict && events.ExpectedSearch && events.ExpectedDetails, "Typed events lost expected victor/victim/dependency/search relationships");
 #endif
                 Console.WriteLine($"REPLAY {name}: MSB3277={events.LegacyConflict}; {events.Summary}");
                 return events;
             }
+
+            DepotHostReceipt ReadReceipt(string name) => JsonSerializer.Deserialize<DepotHostReceipt>(File.ReadAllText(Path.Combine(root, name + ".pid")))!;
         }
         finally
         {
+            File.Delete(Path.Combine(root, "depot.snk"));
             foreach (Process process in owned)
             {
                 if (!process.HasExited) process.Kill();
@@ -195,7 +227,7 @@ internal static class DepotProof
     }
     // endsnippet:constructors
 
-    private static string RunProcess(IEnumerable<string> args, Dictionary<string, string> environment, bool expectFailure = false)
+    private static (string Output, int ProcessId) RunProcess(IEnumerable<string> args, Dictionary<string, string> environment, bool expectFailure = false, Action<int>? onStart = null)
     {
         var start = new ProcessStartInfo(Environment.ProcessPath!) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false };
         foreach (string arg in args) start.ArgumentList.Add(arg);
@@ -212,13 +244,14 @@ internal static class DepotProof
         start.Environment["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1";
         foreach (var pair in environment) start.Environment[pair.Key] = pair.Value;
         using var process = Process.Start(start)!;
+        onStart?.Invoke(process.Id);
         var output = process.StandardOutput.ReadToEndAsync();
         var error = process.StandardError.ReadToEndAsync();
         if (!process.WaitForExit(60000)) { process.Kill(true); throw new InvalidOperationException("Owned child timed out"); }
         Task.WaitAll(output, error);
         // Raw output can contain private paths; save locally, never publish it.
         if ((process.ExitCode != 0) != expectFailure) throw new InvalidOperationException(output.Result + error.Result);
-        return output.Result;
+        return (output.Result, process.Id);
 
         static string Redact(string value) => value.Replace(fixtureRoot, "<graph>", StringComparison.OrdinalIgnoreCase)
             .Replace(Path.GetDirectoryName(Environment.ProcessPath)!, "<dotnet-root>", StringComparison.OrdinalIgnoreCase).Replace('\\', '/');
@@ -233,6 +266,14 @@ internal static class DepotProof
 public sealed class DepotPid : Microsoft.Build.Utilities.Task
 {
     [Required] public string Receipt { get; set; } = "";
-    public override bool Execute() { File.WriteAllText(Receipt, Environment.ProcessId.ToString()); return true; }
+    public override bool Execute()
+    {
+        using var process = Process.GetCurrentProcess();
+        File.WriteAllText(Receipt, JsonSerializer.Serialize(new DepotHostReceipt(process.Id,
+            process.StartTime.ToUniversalTime().Ticks, Environment.GetEnvironmentVariable("MSBUILDNODEHANDSHAKESALT"))));
+        return true;
+    }
 }
+
+internal sealed record DepotHostReceipt(int ProcessId, long StartedTicks, string? Salt);
 // endsnippet:fixture
