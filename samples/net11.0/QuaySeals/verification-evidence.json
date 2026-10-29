@@ -1,0 +1,41 @@
+{
+  "kind": "compile-and-run",
+  "sample": "samples/net11.0/QuaySeals/QuaySeals.csproj",
+  "target": "net11.0",
+  "sdk": "11.0.100-rc.2.26504.105",
+  "language": "15.0",
+  "command": "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe build QuaySeals.csproj --configuration Release -p:RestoreLockedMode=true; C:/Users/pingu/.dotnet-playbook-11/dotnet.exe V:\\_worktrees\\Playbook\\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework\\samples\\net11.0\\QuaySeals\\bin\\Release\\net11.0\\QuaySeals.dll",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-29T03:20:43.5426443+00:00",
+  "sourceCommit": "97ee543361efc21db8e6b6b26ab3787e658da73c",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Record-SqliteRuntime.ps1": "2ccc4e71b5e2a5da4a3c11555fb905300651ea82e6d57fa67ae07659f3e68e56",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net11.0/QuaySeals/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/QuaySeals/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/QuaySeals/Directory.Packages.props": "4737a505290310e1d5fe9fb4354752654b604f416d2d5822e06424ebfb85f7bf",
+    "samples/net11.0/QuaySeals/global.json": "a43df060b11b36c25c6e082f9d4f25875f05aaaff31160a17ec7bfdf03d0eb17",
+    "samples/net11.0/QuaySeals/packages.lock.json": "9561696aab362c9c7f3fefd6a839413556baca890b71d7daf1b995d7b0509b23",
+    "samples/net11.0/QuaySeals/Program.cs": "11cdb9f4f8d4fca631fda2e2a3b66076f5e7f928a0ed2effbf48c339294e20c2",
+    "samples/net11.0/QuaySeals/QuaySeals.csproj": "3871ca12c80f47f63d90b78436cafbee8acff3b99d136d41f673c7525ca2a625",
+    "samples/net11.0/QuaySeals/verification.json": "4c74033280a1075b2aec06601d21734ffde8e74a30511727ae58b615e6b1f533"
+  },
+  "dependencies": [
+    "Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+    "Microsoft.Data.Sqlite/11.0.0-rc.2.26504.105",
+    "SQLite/3.53.4",
+    "SQLitePCLRaw.bundle_e_sqlite3/3.0.5",
+    "SQLitePCLRaw.config.e_sqlite3/3.0.5",
+    "SQLitePCLRaw.core/3.0.5",
+    "SQLitePCLRaw.provider.e_sqlite3/3.0.5"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework\\samples\\net11.0\\QuaySeals\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  Restored V:\\_worktrees\\Playbook\\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework\\samples\\net11.0\\QuaySeals\\QuaySeals.csproj (in 66 ms).\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework\\samples\\net11.0\\QuaySeals\\QuaySeals.csproj]\r\n  QuaySeals -> V:\\_worktrees\\Playbook\\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework\\samples\\net11.0\\QuaySeals\\bin\\Release\\net11.0\\QuaySeals.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:00.86\nPASS: parameterized seal, commit, rollback and file reopen; CLR 11.0.0; provider 11.0.0-rc.2.26504.105; SQLite 3.53.4"
+}
