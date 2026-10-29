@@ -1,0 +1,385 @@
+{
+  "id": "testing.declare-json-dependencies",
+  "edition": "11.0",
+  "title": "Own JSON dependencies in test projects and extensions",
+  "goal": "Declare the JSON dependencies used by tests, adapters and collectors; retain their runtime assets and verify VSTest discovery and execution when the platform stops providing Newtonsoft.Json.",
+  "areas": [
+    "testing",
+    "sdk",
+    "nuget"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "json-dependencies",
+    "vstest",
+    "test-extensions"
+  ],
+  "apis": [
+    "JsonConvert.DeserializeObject",
+    "JObject.Parse",
+    "ITestDiscoverer",
+    "ITestExecutor",
+    "DataCollector.Initialize"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [],
+        "selectionNotes": [
+          "The dependency boundary is Test.Sdk/TestHost 18.7.0 versus 18.11.0, not a package-major-to-target mapping.",
+          "Target 10 requires deliberately adopting Test.Sdk 18.11.0; actual net10 execution is verified and the exact eight foundations are unchanged."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual Windows x64 test-host runtime: 10.0.13 or 11.0.0-rc.2.26504.105."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact observed pins are 10.0.402 and 11.0.100-rc.2.26504.105; runtime/runner selection is separate."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language; the dependency remedy needs no newer language feature."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk library tests and separately built managed VSTest adapter/collector."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.NET.Test.Sdk",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Current consumer; matching TestHost 18.11.0 lacks the old transitive Newtonsoft dependency."
+            },
+            {
+              "name": "Newtonsoft.Json",
+              "version": "13.0.4",
+              "match": "exact",
+              "reason": "Reviewed direct dependency in current tests and both extensions, with runtime assets and lock hashes retained."
+            },
+            {
+              "name": "Microsoft.TestPlatform.ObjectModel",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Compile-only platform contract for the paired extension projects; platform supplies its runtime assembly."
+            },
+            {
+              "name": "Microsoft.TestPlatform.CLI",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Exact separately acquired managed runner; not an SDK-root release-build identity."
+            }
+          ],
+          "packageAssets": [
+            "TestHost 18.7.0/18.11.0 select lib/net8.0 on both test targets; old TestHost directly requests Newtonsoft 13.0.3, new does not.",
+            "Newtonsoft 13.0.3 and 13.0.4 select lib/net6.0 compile/runtime; extensions explicitly ship 13.0.4. Full project locks record the complete closure.",
+            "Both measured CLI runner ZIPs contain contentFiles/any/net10.0/vstest.console.dll; its Major roll-forward allows the independently executed .NET11 lane."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 compilation, managed discovery, test execution and collector loading verified; other OS/architectures and .NET Framework unverified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "SDK/runtime10 and SDK/runtime11 for paired reproduction; PowerShell7 and network for nuget.org acquisition.",
+            "Use VSTest explicitly in global.json. Microsoft.Testing.Platform RunnerTests are a separate route.",
+            "Fresh child CLI homes/caches with DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0; preserve PATH and persistent settings."
+          ],
+          "constraints": [
+            "Declare and deploy JSON for every owning project. SDK-root Newtonsoft is not a project dependency; PrivateAssets and ExcludeAssets have different purposes.",
+            "Missing direct dependency fails CS0246; runtime-excluded test fails FileNotFoundException. Broken adapter discovery may exit zero with no tests; collector diagnostics must be checked.",
+            "The tiny adapter only handles WeatherTests.dll and its one named method. This is bounded packaging proof, not a production test framework.",
+            "CodeCoverage is present transitively but native coverage is not activated; only the original managed collector executes.",
+            "A Newtonsoft reference cannot restore removed communication APIs; no trimming, Native AOT, provider/device or cloud claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            ".NET11 SDK/runtime proof is RC2, not actual GA reconciliation. No experimental API switch is required.",
+            "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
+          "https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test",
+          "https://github.com/microsoft/vstest/blob/main/docs/overview.md",
+          "https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.4",
+          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WeatherTests/WeatherTests.csproj",
+          "samples/net11.0/WeatherExtension/WeatherExtension.csproj",
+          "samples/net11.0/WeatherCollector/WeatherCollector.csproj"
+        ]
+      },
+      {
+        "target": "10.0",
+        "conditional": true,
+        "usage": "optional-alternative",
+        "sharedAreas": [],
+        "selectionNotes": [
+          "The dependency boundary is Test.Sdk/TestHost 18.7.0 versus 18.11.0, not a package-major-to-target mapping.",
+          "Target 10 requires deliberately adopting Test.Sdk 18.11.0; actual net10 execution is verified and the exact eight foundations are unchanged."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Actual Windows x64 test-host runtime: 10.0.13 or 11.0.0-rc.2.26504.105."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Exact observed pins are 10.0.402 and 11.0.100-rc.2.26504.105; runtime/runner selection is separate."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Declared sample language; the dependency remedy needs no newer language feature."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk library tests and separately built managed VSTest adapter/collector."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.NET.Test.Sdk",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Current consumer; matching TestHost 18.11.0 lacks the old transitive Newtonsoft dependency."
+            },
+            {
+              "name": "Newtonsoft.Json",
+              "version": "13.0.4",
+              "match": "exact",
+              "reason": "Reviewed direct dependency in current tests and both extensions, with runtime assets and lock hashes retained."
+            },
+            {
+              "name": "Microsoft.TestPlatform.ObjectModel",
+              "version": "18.7.0",
+              "match": "exact",
+              "reason": "Compile-only platform contract for the paired extension projects; platform supplies its runtime assembly."
+            },
+            {
+              "name": "Microsoft.TestPlatform.CLI",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Exact separately acquired managed runner; not an SDK-root release-build identity."
+            }
+          ],
+          "packageAssets": [
+            "TestHost 18.7.0/18.11.0 select lib/net8.0 on both test targets; old TestHost directly requests Newtonsoft 13.0.3, new does not.",
+            "Newtonsoft 13.0.3 and 13.0.4 select lib/net6.0 compile/runtime; extensions explicitly ship 13.0.4. Full project locks record the complete closure.",
+            "Both measured CLI runner ZIPs contain contentFiles/any/net10.0/vstest.console.dll; its Major roll-forward allows the independently executed .NET11 lane."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 compilation, managed discovery, test execution and collector loading verified; other OS/architectures and .NET Framework unverified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "SDK/runtime10 and SDK/runtime11 for paired reproduction; PowerShell7 and network for nuget.org acquisition.",
+            "Use VSTest explicitly in global.json. Microsoft.Testing.Platform RunnerTests are a separate route.",
+            "Fresh child CLI homes/caches with DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0; preserve PATH and persistent settings."
+          ],
+          "constraints": [
+            "Declare and deploy JSON for every owning project. SDK-root Newtonsoft is not a project dependency; PrivateAssets and ExcludeAssets have different purposes.",
+            "Missing direct dependency fails CS0246; runtime-excluded test fails FileNotFoundException. Broken adapter discovery may exit zero with no tests; collector diagnostics must be checked.",
+            "The tiny adapter only handles WeatherTests.dll and its one named method. This is bounded packaging proof, not a production test framework.",
+            "CodeCoverage is present transitively but native coverage is not activated; only the original managed collector executes.",
+            "A Newtonsoft reference cannot restore removed communication APIs; no trimming, Native AOT, provider/device or cloud claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            ".NET11 SDK/runtime proof is RC2, not actual GA reconciliation. No experimental API switch is required.",
+            "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
+          "https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test",
+          "https://github.com/microsoft/vstest/blob/main/docs/overview.md",
+          "https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.4",
+          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/WeatherTests/WeatherTests.csproj",
+          "samples/net10.0/WeatherExtension/WeatherExtension.csproj",
+          "samples/net10.0/WeatherCollector/WeatherCollector.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/vstest-removes-newtonsoft-json",
+      "title": "Official VSTest JSON dependency and public API removal"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test",
+      "title": "VSTest and Microsoft.Testing.Platform runner selection"
+    },
+    {
+      "url": "https://github.com/microsoft/vstest/blob/main/docs/overview.md",
+      "title": "Official VSTest architecture and extension overview"
+    },
+    {
+      "url": "https://github.com/JamesNK/Newtonsoft.Json/releases/tag/13.0.4",
+      "title": "Publisher Newtonsoft.Json 13.0.4 stable release"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies",
+      "title": "PackageReference lock files and locked restore"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/WeatherTestsLegacy/WeatherTestsLegacy.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
+    },
+    {
+      "sample": "samples/net10.0/WeatherTests/WeatherTests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
+    },
+    {
+      "sample": "samples/net11.0/WeatherTests/WeatherTests.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
+    },
+    {
+      "sample": "samples/net10.0/WeatherExtension/WeatherExtension.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
+    },
+    {
+      "sample": "samples/net11.0/WeatherExtension/WeatherExtension.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
+    },
+    {
+      "sample": "samples/net10.0/WeatherCollector/WeatherCollector.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
+    },
+    {
+      "sample": "samples/net11.0/WeatherCollector/WeatherCollector.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual pinned VSTest 18.7/18.11 consumers, one passed rainfall test per lane, adapter discovery and managed collector loading; audited source/packages, complete selected closure and missing-direct/test-runtime/extension-runtime controls."
+    }
+  ],
+  "snippets": {
+    "older-project": {
+      "path": "samples/net10.0/WeatherTestsLegacy/WeatherTestsLegacy.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "newer-project": {
+      "path": "samples/net11.0/WeatherTests/WeatherTests.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "current10-project": {
+      "path": "samples/net10.0/WeatherTests/WeatherTests.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "adapter-project": {
+      "path": "samples/net11.0/WeatherExtension/WeatherExtension.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "collector-project": {
+      "path": "samples/net11.0/WeatherCollector/WeatherCollector.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "older-packages": {
+      "path": "samples/net10.0/WeatherTestsLegacy/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "newer-packages": {
+      "path": "samples/net11.0/WeatherTests/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "extension-packages": {
+      "path": "samples/net11.0/WeatherExtension/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "checks": {
+      "path": "samples/WeatherJson/WeatherChecks.cs",
+      "region": "checks",
+      "language": "csharp"
+    },
+    "adapter": {
+      "path": "samples/WeatherJson/WeatherAdapter.cs",
+      "region": "adapter",
+      "language": "csharp"
+    },
+    "collector": {
+      "path": "samples/WeatherJson/WeatherCollector.cs",
+      "region": "collector",
+      "language": "csharp"
+    },
+    "exclude-runtime": {
+      "path": "samples/WeatherJson/ExcludeRuntime.xml",
+      "region": "exclude-runtime",
+      "language": "xml"
+    },
+    "collector-settings": {
+      "path": "samples/WeatherJson/Collector.xml",
+      "language": "xml",
+      "region": "collector-settings"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded original Windows x64 managed test/extension execution is automated; no native/device/provider/Human-only step or public publication."
+  }
+}

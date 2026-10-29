@@ -54,6 +54,28 @@ artifact/source qualification, eight-route failure checks, original embedded hos
 and generated consumers, prose, evidence and installed offline retrieval. Other
 proposals and PIN-959/PIN-963's qualifying coverage/actual-GA gates remain open.
 
+Delivery update for proposal G: [PIN-1072](https://linear.app/pinguapps/issue/PIN-1072)
+adds `testing.declare-json-dependencies`, edition 11.0. The four audited
+Test.Sdk/TestHost 18.7.0/18.11.0 ZIPs and pinned removal note are replayed;
+restored package bytes match those ZIPs. The original Gull Point rainfall test
+executes with the old transitive Newtonsoft 13.0.3 closure and current explicit
+13.0.4 closures on independent net10/net11 consumers. Real matching CLI package
+runners execute one passing test per lane, adapter discovery and separate managed
+collector initialization. The actual newer packages also run on target 10;
+conditional selection preserves the exact eight foundations.
+
+Fresh controls establish CS0246 after only the package upgrade, a compiled but
+runtime-excluded test's FileNotFoundException, failed adapter discovery and a
+collector initialization error without JSON runtime assets. Zero-test discovery
+can exit zero, so the harness asserts diagnostics/counts. Seven pinned project
+closures and current sample evidence retain commands, selected compile/runtime
+assets and hashes. The reviewed final direct JSON pin is 13.0.4; SDK-root copies,
+downloaded package runners and bundled release-build identities stay distinct.
+This bounded M (3) scope covers source/artifact qualification, original tests and
+extensions, focused failure checks, prose/evidence and installed offline retrieval.
+It does not restore removed communication APIs, validate native CodeCoverage or
+clear other proposals, PIN-959 qualifying coverage or PIN-963 actual-GA gates.
+
 Reviewed **21 October 2026**. This is a bounded source and distributable-metadata audit. Seven full compatibility notes and the affected-test claim have accountable dispositions. At that review, nine narrow delivery proposals awaited approval; subsequent deliveries are recorded above. Audit closure alone did not deliver a recipe, consumer implementation or release.
 
 ## Scope and provenance

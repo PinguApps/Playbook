@@ -1,0 +1,18 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <AssemblyName>WeatherStation.TestAdapter</AssemblyName>
+    <IsTestProject>false</IsTestProject>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" IncludeAssets="compile" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <Compile Include="../../WeatherJson/WeatherAdapter.cs" Link="WeatherAdapter.cs" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->
