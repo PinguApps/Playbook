@@ -1,0 +1,87 @@
+{
+  "packages": [
+    {
+      "id": "microsoft.testplatform.cli",
+      "version": "18.7.0",
+      "sha256": "2151e4d61220e6ce511229a85b9f15737c9cd3f92790a7298c42212399ddd72e",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.cli/18.7.0/microsoft.testplatform.cli.18.7.0.nupkg"
+    },
+    {
+      "id": "microsoft.testplatform.translationlayer",
+      "version": "18.7.0",
+      "sha256": "19f6919ad5199fb97d3dc10a295dadd84e8060ee18ae457edd198ecb73db16ae",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.translationlayer/18.7.0/microsoft.testplatform.translationlayer.18.7.0.nupkg"
+    },
+    {
+      "id": "microsoft.testplatform.build",
+      "version": "18.7.0",
+      "sha256": "874905a4c2d1d78e3d820bb61048c90853187fc0d1df764b40d71e5259d02327",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.build/18.7.0/microsoft.testplatform.build.18.7.0.nupkg"
+    },
+    {
+      "id": "microsoft.testplatform.cli",
+      "version": "18.11.0",
+      "sha256": "e3794fbcb75a9ea3b53cac14789c61483abe2ed44f60e657c759a0bf4833a7ba",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.cli/18.11.0/microsoft.testplatform.cli.18.11.0.nupkg"
+    },
+    {
+      "id": "microsoft.testplatform.translationlayer",
+      "version": "18.11.0",
+      "sha256": "044e4b689b69e9850057f5a4b6dced3c8cc834ede9a49a5a2c6fec068272238c",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.translationlayer/18.11.0/microsoft.testplatform.translationlayer.18.11.0.nupkg"
+    },
+    {
+      "id": "microsoft.testplatform.build",
+      "version": "18.11.0",
+      "sha256": "6692f218065739407e2b6f6d99976a34c0cd7c12ac85f26ccb49ec46e59e2f54",
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.testplatform.build/18.11.0/microsoft.testplatform.build.18.11.0.nupkg"
+    }
+  ],
+  "sdkResolver": {
+    "sdk": "10.0.402",
+    "product": "18.7.0-release-26505-111",
+    "sha256": "e52ae9db24b333b65ccb15173d2db1fabd944f7f861e1b9209e613710bf624b5"
+  },
+  "sources": [
+    {
+      "title": "Publisher TranslationLayer custom discovery/execution contract",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/README.md"
+    },
+    {
+      "title": "Current public console protocol wrapper",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/VsTestConsoleWrapper.cs"
+    },
+    {
+      "title": "Current resolver event construction and requestor contract",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/Interfaces/Runtime/IAssemblyResolver.cs"
+    },
+    {
+      "title": "Actual .NET resolver has no requesting assembly",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/netcore/Runtime/PlatformAssemblyResolver.cs"
+    },
+    {
+      "title": "Current task quoting and explicit semicolon limitation",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.Build/Tasks/TestTaskUtils.cs"
+    },
+    {
+      "title": "Public independently distributed console package",
+      "url": "https://www.nuget.org/packages/Microsoft.TestPlatform.CLI/18.11.0"
+    },
+    {
+      "title": "Public translation-layer package",
+      "url": "https://www.nuget.org/packages/Microsoft.TestPlatform.TranslationLayer/18.11.0"
+    },
+    {
+      "title": "Public test task package",
+      "url": "https://www.nuget.org/packages/Microsoft.TestPlatform.Build/18.11.0"
+    },
+    {
+      "title": "SDK source baseline audited for actual compiler/tooling contracts",
+      "url": "https://github.com/dotnet/dotnet/tree/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "title": "Locked NuGet restore",
+      "url": "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+    }
+  ]
+}

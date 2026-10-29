@@ -1,0 +1,12 @@
+<!-- snippet:resolver-project -->
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup>
+  <TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion>
+  <OutputType>Exe</OutputType><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+  <EnableDefaultCompileItems>false</EnableDefaultCompileItems><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  <DefineConstants>$(DefineConstants);LEGACY_PLATFORM</DefineConstants>
+</PropertyGroup><ItemGroup>
+  <Reference Include="Microsoft.TestPlatform.PlatformAbstractions"><HintPath>$(MSBuildBinPath)/Microsoft.TestPlatform.PlatformAbstractions.dll</HintPath></Reference>
+  <Compile Include="../../TernTesting/ResolverChecks.cs" Link="ResolverChecks.cs" />
+  <Compile Include="../../TernTesting/ResolverProgram.cs" Link="ResolverProgram.cs" />
+</ItemGroup></Project>
+<!-- endsnippet:resolver-project -->

@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.TestPlatform.Build": {
+        "type": "Direct",
+        "requested": "[18.11.0, 18.11.0]",
+        "resolved": "18.11.0",
+        "contentHash": "3E3fMoqWSKjDPdb2HOMck8suJDG46gizFnher4c5JjAsw4Rf4cUVGfFrI2WmJol1qsdWLb+zZovJY1LgAlUFTQ=="
+      },
+      "Microsoft.TestPlatform.CLI": {
+        "type": "Direct",
+        "requested": "[18.11.0, 18.11.0]",
+        "resolved": "18.11.0",
+        "contentHash": "mY2psZJ00ff6GhSuOW5PgDt0INmv5q/IMZqFuvSTQ1QH/exiBph28LVQ3binALS8XUomWm2JS8BzTIn7ZIkrKA=="
+      },
+      "Microsoft.TestPlatform.TestHost": {
+        "type": "Direct",
+        "requested": "[18.11.0, 18.11.0]",
+        "resolved": "18.11.0",
+        "contentHash": "AKjwKpyRBwoQFQmpcchtoYlfJEBlaY/40uxBRi+qXP4NR7xT8t+XTJtOyEyumfvfJcH5pASs75LwNdXYRr4XNA==",
+        "dependencies": {
+          "Microsoft.TestPlatform.ObjectModel": "18.11.0"
+        }
+      },
+      "Microsoft.TestPlatform.TranslationLayer": {
+        "type": "Direct",
+        "requested": "[18.11.0, 18.11.0]",
+        "resolved": "18.11.0",
+        "contentHash": "PQk9INK5qLjQWzTuJCIDAah8AorDJatkBsCH/fDRTsENRqsAXBwzzY//Sqz5DuH7fQOyWTG+FHVO7FzLxNwCVQ==",
+        "dependencies": {
+          "Microsoft.TestPlatform.ObjectModel": "18.11.0"
+        }
+      },
+      "Microsoft.TestPlatform.ObjectModel": {
+        "type": "Transitive",
+        "resolved": "18.11.0",
+        "contentHash": "BXBHYnwSOljKute8UYCMXOLAdB7awxEMppPSpqOF1ZxLD/W/OH+vTBgFaXA7q0aditJTVXSMVenel+wOkEIyNg=="
+      }
+    }
+  }
+}
