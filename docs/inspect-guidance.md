@@ -250,6 +250,39 @@ adapter fast path and SQLite's synchronous native I/O. The UInt128 body retains
 explicit string reading/application parsing. Neither retrieval nor these Windows
 x64 RC2 consumers establishes other native platforms/providers or actual GA.
 
+## SQLite target and retained dependency
+
+This checked block starts from an unrelated directory, selects the assigned
+worktree, builds/packs the ordinary tool and reuses the existing isolated
+local-feed/cache harness. Setup needs PowerShell7, SDK10.0.402 and Node22.19+;
+Inspector2.11.0 is installed locally if absent. Setup can restore online;
+retrieval uses unusable proxies (proxy independence, not network isolation).
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sqlite.retain-supported-runtime' -TargetVersion '11.0' `
+  -Query 'sqlite-runtime' -PackageVersion '0.0.0-sqlite-runtime' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/sqlite-runtime/inspection11
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sqlite.retain-supported-runtime' -TargetVersion '10.0' `
+  -Query 'sqlite-runtime' -PackageVersion '0.0.0-sqlite-runtime' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/sqlite-runtime/inspection10
+```
+
+Expect the ID/title/goal, retained edition11.0 on both explicit targets, full
+canonical projects and Markdown, exact applicability and five current evidence
+records. Target10 includes the conditional Sqlite11 route and retained Sqlite10
+comparison. Sqlite11 uses net10.0 assets; EF11 still requires net11.0. The net48
+alternative has real Windows Framework EXE execution, not a selectable catalogue
+target. No UWP/classic Xamarin native execution or actual-GA proof is claimed.
+`eng/Record-SqliteRuntime.ps1` separately recaptures the four real consumers with
+the declared SDK10/SDK11 and Windows Framework runtime. Retrieval does not rerun SQL.
+
 ## Inspect a response directly
 
 ```powershell

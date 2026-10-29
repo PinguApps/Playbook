@@ -1,0 +1,18 @@
+{
+  "dependencies": [
+    "Microsoft.Data.Sqlite.Core/10.0.13",
+    "Microsoft.Data.Sqlite/10.0.13",
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.13",
+    "SQLitePCLRaw.core/2.1.13",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.13",
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.13"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Record-SqliteRuntime.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
