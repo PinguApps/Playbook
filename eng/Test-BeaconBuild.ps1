@@ -20,6 +20,26 @@ function Write-Lf([string]$Path,[string]$Text) { [IO.File]::WriteAllText($Path,$
 function Assert-Text([string]$Text,[string]$Expected) {
   if (-not $Text.Contains($Expected,[StringComparison]::Ordinal)) { throw "Missing '$Expected': $Text" }
 }
+function Read-InformationalVersion([string]$Path) {
+  $stream = [IO.File]::OpenRead($Path)
+  $pe = [Reflection.PortableExecutable.PEReader]::new($stream)
+  try {
+    $metadata = [Reflection.Metadata.PEReaderExtensions]::GetMetadataReader($pe)
+    foreach ($handle in $metadata.GetAssemblyDefinition().GetCustomAttributes()) {
+      $attribute = $metadata.GetCustomAttribute($handle)
+      if ($attribute.Constructor.Kind -ne [Reflection.Metadata.HandleKind]::MemberReference) { continue }
+      $member = $metadata.GetMemberReference([Reflection.Metadata.MemberReferenceHandle]$attribute.Constructor)
+      if ($member.Parent.Kind -ne [Reflection.Metadata.HandleKind]::TypeReference) { continue }
+      $type = $metadata.GetTypeReference([Reflection.Metadata.TypeReferenceHandle]$member.Parent)
+      if ($metadata.GetString($type.Name) -cne 'AssemblyInformationalVersionAttribute') { continue }
+      $blob = $metadata.GetBlobReader($attribute.Value)
+      if ($blob.ReadUInt16() -ne 1) { throw 'Invalid assembly attribute prolog.' }
+      return $blob.ReadSerializedString()
+    }
+    throw 'Missing assembly informational version.'
+  }
+  finally { $pe.Dispose(); $stream.Dispose() }
+}
 function Invoke-Beacon([string]$Directory,[string[]]$Arguments,[int]$Exit = 0) {
   $start = [Diagnostics.ProcessStartInfo]::new($dotnet)
   foreach ($argument in $Arguments) { $start.ArgumentList.Add($argument) }
@@ -116,8 +136,16 @@ try {
     $zip = [IO.Compression.ZipFile]::OpenRead($package)
     try {
       if (@($zip.Entries | Where-Object FullName -CEQ "lib/net$major.0/Beacon.Rates.dll").Count -ne 1) { throw 'Original package lacks real compiled asset.' }
+      $reader = [IO.StreamReader]::new($zip.GetEntry('Beacon.Rates.nuspec').Open())
+      try { [xml]$nuspec = $reader.ReadToEnd() } finally { $reader.Dispose() }
+      foreach ($repository in $nuspec.SelectNodes('//*[local-name()="repository"]')) {
+        if ($repository.GetAttribute('commit')) { throw 'Local fixture package must not depend on the current Git HEAD.' }
+      }
       $log.Add("package=$package;sha256=$((Get-FileHash -LiteralPath $package).Hash.ToLowerInvariant());entries=$($zip.Entries.FullName -join ',')")
     } finally { $zip.Dispose() }
+    $information = Read-InformationalVersion (Join-Path $directory "Rates/bin/Release/net$major.0/Beacon.Rates.dll")
+    if ($information -cne '1.0.0') { throw "Unexpected Git-coupled package assembly version: $information" }
+    $log.Add("PASS package-provenance=$major;nuspec-no-commit;assembly-informational-version=$information")
     $config = Join-Path $scratch "local-$major.config"
     Write-Lf $config ('<configuration><packageSources><clear/><add key="local" value="' + [Security.SecurityElement]::Escape($feed) + '"/></packageSources></configuration>')
     # Create/update and compile the actual canonical consumers, then freeze the input set.

@@ -6,6 +6,7 @@
     <DebugType>portable</DebugType><IncludeSymbols>true</IncludeSymbols><SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
     <Deterministic>true</Deterministic><DeterministicTimestamp>2000-01-01T00:00:00Z</DeterministicTimestamp>
+    <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
   </PropertyGroup>
 </Project>
 <!-- endsnippet:project -->

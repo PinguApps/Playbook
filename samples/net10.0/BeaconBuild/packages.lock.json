@@ -6,7 +6,7 @@
         "type": "Direct",
         "requested": "[1.0.0, 1.0.0]",
         "resolved": "1.0.0",
-        "contentHash": "ROdwyZpxvwB6tFKRuc/cR1sU7zVYJ1DyZkhiR9gPzk4nO++pMsGYQPbT/MFRYi0/bRzxco30o+USeJbz8rNlRA=="
+        "contentHash": "u6Xr65uM6oIPIjvmZAB375Mdw/V1Vj46gneu0XmgwUREY9xlixulMqe1CO53uqzhHtkTiFqWqOEA7SFt+IFeIg=="
       },
       "beacon.rules": {
         "type": "Project"

@@ -96,8 +96,12 @@ helper sets those only in child processes and disables automatic PATH integratio
 The package contains a real compiled tariff DLL; its separate `.snupkg` contains
 symbols and is not part of ordinary dependency restoration. Package auditing is
 disabled here only for this original local fixture, not recommended as a production
-policy. A fixed pack timestamp and deterministic compilation make the local package
-re-creatable with unchanged inputs; they are not a general signed-package guarantee.
+policy. The fixture disables SDK source-control queries so a new Git commit does
+not change its nuspec or assembly informational version and invalidate the local
+package lock. Alongside a fixed timestamp and deterministic compilation, this
+keeps repeated fixture packs stable with unchanged inputs/toolchains. Real published
+packages may need their Git provenance; this fixture choice is not a general
+signed-package guarantee.
 
 ## Migration
 
