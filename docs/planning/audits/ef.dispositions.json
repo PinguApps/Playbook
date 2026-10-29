@@ -18,9 +18,9 @@
     {
       "id": "provider-replacement",
       "pattern": "::(RemoveDbContext|WithoutExtension|RemoveExtension)\\b",
-      "disposition": "proposed",
-      "owner": "E2",
-      "reason": "Deliberate registration/options replacement for an isolated test provider."
+      "disposition": "delivered",
+      "owner": "PIN-1190",
+      "reason": "ef.replace-context-provider/11.0: original ReedPermits EF10/11 isolated SQLite/InMemory consumers execute full/configuration-only registration replacement, retained lifetimes, options-copy/builder removal and retained/mixed configuration failures. Exact locked RC2 execution is not GA reconciliation or PIN-959 comprehensive closure; E2 retains its M(3) registration/failure-control boundary."
     },
     {
       "id": "pooled-factory",

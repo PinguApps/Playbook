@@ -47,7 +47,8 @@ internal static class Program
         ServiceDescriptor optionsRegistration = services.Single(d => d.ServiceType == typeof(DbContextOptions<PermitContext>));
 
         // snippet:remove-registration
-        services.RemoveDbContext<PermitContext>(removeConfigurationOnly: configurationOnly);
+        if (configurationOnly) { services.RemoveDbContext<PermitContext>(removeConfigurationOnly: true); }
+        else { services.RemoveDbContext<PermitContext>(); } // Exercise the default false.
         Require(!services.Any(d => d.ServiceType == typeof(IDbContextOptionsConfiguration<PermitContext>)), "callbacks removed");
         if (configurationOnly)
         {
