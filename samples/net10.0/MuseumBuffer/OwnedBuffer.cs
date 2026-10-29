@@ -10,6 +10,12 @@ public sealed class OwnedBuffer(byte[] storage) : IBufferWriter<byte>, IDisposab
 {
     private int written;
     private bool disposed;
+    public void ThrowIfOverlaps(ReadOnlySpan<byte> input)
+    {
+        ObjectDisposedException.ThrowIf(disposed, this);
+        if (input.Overlaps(storage))
+            throw new ArgumentException("Input must not overlap the museum token destination.", nameof(input));
+    }
     public ReadOnlySpan<byte> WrittenSpan
     {
         get { ObjectDisposedException.ThrowIf(disposed, this); return storage.AsSpan(0, written); }

@@ -10,9 +10,11 @@ public static class AdvancedEnvelope
     public static void Transform(ISpanAuthenticatedEncryptor encryptor,
         ReadOnlySpan<byte> input, ReadOnlySpan<byte> aad, OwnedBuffer destination, bool decrypt)
     {
-        destination.Clear(); // Neither input nor AAD may alias destination storage.
         try
         {
+            destination.ThrowIfOverlaps(input);
+            destination.ThrowIfOverlaps(aad);
+            destination.Clear();
             if (decrypt) encryptor.Decrypt(input, aad, ref destination);
             else encryptor.Encrypt(input, aad, ref destination);
         }

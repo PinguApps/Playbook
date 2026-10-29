@@ -9,11 +9,13 @@ public static class MuseumToken
     public static string Transform(IDataProtector protector, ReadOnlySpan<byte> input,
         OwnedBuffer destination, bool unprotect)
     {
-        destination.Clear(); // Input must not alias the destination storage.
-        byte[] source = input.ToArray();
+        byte[]? source = null;
         byte[]? result = null;
         try
         {
+            destination.ThrowIfOverlaps(input);
+            destination.Clear();
+            source = input.ToArray();
             result = unprotect ? protector.Unprotect(source) : protector.Protect(source);
             result.CopyTo(destination.GetSpan(result.Length));
             destination.Advance(result.Length);
@@ -22,7 +24,7 @@ public static class MuseumToken
         catch { destination.Clear(); throw; }
         finally
         {
-            CryptographicOperations.ZeroMemory(source);
+            if (source is not null) CryptographicOperations.ZeroMemory(source);
             if (result is not null) CryptographicOperations.ZeroMemory(result);
         }
     }

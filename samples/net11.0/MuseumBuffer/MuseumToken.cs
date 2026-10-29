@@ -9,9 +9,10 @@ public static class MuseumToken
     public static string Transform(IDataProtector protector, ReadOnlySpan<byte> input,
         OwnedBuffer destination, bool unprotect)
     {
-        destination.Clear(); // Input must not alias the destination storage.
         try
         {
+            destination.ThrowIfOverlaps(input);
+            destination.Clear();
             if (protector is ISpanDataProtector spanProtector)
             {
                 if (unprotect) spanProtector.Unprotect(input, ref destination);

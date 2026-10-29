@@ -65,8 +65,9 @@ existing recipe/edition identities remain unchanged.
    and provision capacity for your actual configuration. The test's payload+1024
    budget is a measured fixture allowance, not a general ciphertext-size formula.
    The writer refuses to grow and fails if the requested contiguous region does
-   not fit. Input and AAD must not overlap destination storage: each operation
-   clears the destination first. Use separate buffers, without concurrent access.
+   not fit. Input and AAD must not overlap destination storage: the adapter checks
+   both before clearing and rejects overlap. Rejection also clears the destination,
+   so an aliased source is discarded too. Use separate buffers, without concurrent access.
 4. Call `MuseumToken.Transform(..., unprotect: false)` for protection and `true`
    for recovery. Consume only the successful `WrittenSpan`; its lifetime ends
    on reuse/clear/disposal. Do not retain spans or use array aliases afterwards.
@@ -80,7 +81,7 @@ existing recipe/edition identities remain unchanged.
 6. Run the complete checks below on the actual framework. The capability-hiding
    wrapper is a fallback control around real crypto, not a cryptographic mock.
    Verify token/empty/1MiB round trips, wrong purpose/key ring, modified ciphertext,
-   capacity refusal and successful/failed-output cleanup. Failure must reject the
+   capacity/overlap refusal and successful/failed-output cleanup. Failure must reject the
    input and leave no readable destination bytes.
 7. Use `ISpanAuthenticatedEncryptor` directly only when already maintaining an
    envelope/key-management integration. Obtain the real encryptor from an `IKey`,
@@ -145,7 +146,9 @@ project directory using its matching SDK. In the repository use each sample's
 `global.json` pin and `eng/Record-Evidence.ps1`; it builds with locked restore,
 executes the actual DLL, and saves input hashes, resolved dependency set (empty),
 commands, SDK/runtime output and behavior results. Both compilation/execution
-records must be current before ordinary packing. Retrieval does not rerun crypto.
+records must be current before ordinary packing. Records bind exact input hashes;
+their source commit/dirty flag records capture provenance, rather than asserting
+that the capture happened at the eventual reviewed commit. Retrieval does not rerun crypto.
 
 Expected: .NET10 prints the array route and absent interfaces. .NET11 prints the
 real span protector, both span/array paths and real CNG encryptor; all round trips

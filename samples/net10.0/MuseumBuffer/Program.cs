@@ -52,9 +52,12 @@ try
         Reject(new ArrayOnlyProtector(protector), tampered, "fallback-tampered");
         CryptographicOperations.ZeroMemory(input);
     }
-    var tooSmallStorage = new byte[1];
-    using (var tooSmall = new OwnedBuffer(tooSmallStorage))
+    // On the pinned net11 implementation, 24 bytes admits the header before
+    // the encryptor requests more capacity. Failure must clear that written header.
+    foreach (var capacity in new[] { 1, 24 })
     {
+        var tooSmallStorage = new byte[capacity];
+        using var tooSmall = new OwnedBuffer(tooSmallStorage);
         try { MuseumToken.Transform(protector, "loan"u8, tooSmall, false); throw new Exception("Expected capacity failure."); }
         catch (Exception ex) when (ex is CryptographicException or InvalidOperationException) { }
         Check(tooSmallStorage.All(b => b == 0) && tooSmall.WrittenSpan.IsEmpty, "capacity failure cleared");
@@ -62,12 +65,28 @@ try
     var unadvanced = new byte[32];
     using (var owner = new OwnedBuffer(unadvanced)) owner.GetSpan().Fill(0x55);
     Check(unadvanced.All(b => b == 0), "dispose clears unadvanced bytes");
+    foreach (var route in new[] { protector, new ArrayOnlyProtector(protector) })
+    {
+        var storage = Enumerable.Repeat((byte)0x55, 256).ToArray();
+        using var destination = new OwnedBuffer(storage);
+        RejectOverlap(() => MuseumToken.Transform(route, storage.AsSpan(1, 3), destination, false),
+            destination, storage, "protect input overlaps destination");
+    }
 #if NET11_0_OR_GREATER
     var key = services.GetRequiredService<IKeyManager>().GetAllKeys().Single();
     var encryptor = key.CreateEncryptor();
     Check(encryptor is ISpanAuthenticatedEncryptor, "actual key creates span encryptor");
     Console.WriteLine($"Advanced encryptor={encryptor!.GetType().FullName}");
     var spanEncryptor = (ISpanAuthenticatedEncryptor)encryptor;
+    var overlapStorage = Enumerable.Repeat((byte)0x55, 256).ToArray();
+    using (var destination = new OwnedBuffer(overlapStorage))
+    {
+        RejectOverlap(() => AdvancedEnvelope.Transform(spanEncryptor, overlapStorage.AsSpan(1, 3),
+            "museum:harbour"u8, destination, false), destination, overlapStorage, "advanced input overlaps destination");
+        overlapStorage.AsSpan().Fill(0x55);
+        RejectOverlap(() => AdvancedEnvelope.Transform(spanEncryptor, "loan"u8,
+            overlapStorage.AsSpan(1, 3), destination, false), destination, overlapStorage, "advanced AAD overlaps destination");
+    }
     foreach (var input in new[] { "collection:lantern-27"u8.ToArray(), [], new byte[1024 * 1024] })
     {
         using var encrypted = new OwnedBuffer(new byte[input.Length + 1024]);
@@ -144,6 +163,13 @@ static void Check(bool condition, string claim)
 {
     if (!condition) throw new Exception(claim);
     Console.WriteLine("PASS: " + claim);
+}
+
+static void RejectOverlap(Action operation, OwnedBuffer destination, byte[] storage, string scenario)
+{
+    try { operation(); throw new Exception("Expected overlap rejection: " + scenario); }
+    catch (ArgumentException) { }
+    Check(destination.WrittenSpan.IsEmpty && storage.All(b => b == 0), scenario + "; full output cleared");
 }
 
 static void PrintArtifact(Assembly assembly)
