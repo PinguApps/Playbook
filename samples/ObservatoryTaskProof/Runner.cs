@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 // Real MSBuild subprocess proof; no synthetic binding or CreateWithProjectDirectoryAndEnvironment.
 string dotnet = Environment.ProcessPath!;
-#if TYPED_TASKS
+#if NET11_0
 const string sdk = "11.0.100-rc.2.26504.105";
 bool typed = true;
 #else
@@ -26,7 +26,7 @@ try
     RunPair("ordinary", false);
     RunPair("default", false, environmentDirectory: null);
     RunPair("threaded", true);
-#if TYPED_TASKS
+#if NET11_0
     RunPair("override", true, "selected-reports");
     RunDirect();
 #endif
@@ -131,7 +131,7 @@ void RunMissing()
     Console.WriteLine("PASS: typed/path binding does not establish file existence; real missing input rejected.");
 }
 
-#if TYPED_TASKS
+#if NET11_0
 void RunDirect()
 {
     string directory = Path.Combine(root, "canonical");
@@ -151,7 +151,7 @@ void RunDirect()
 
 void RunConstructor()
 {
-#if TYPED_TASKS
+#if NET11_0
     string legacy = Path.GetFullPath("../../../../../net10.0/ObservatoryTasks/bin/Release/net10.0/ObservatoryTasks.dll", AppContext.BaseDirectory);
     const string expected = "injected";
 #else

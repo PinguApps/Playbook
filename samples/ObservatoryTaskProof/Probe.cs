@@ -6,7 +6,7 @@ using Microsoft.Build.Framework;
 namespace Observatory;
 
 // Test instrumentation only. The canonical task has no rendezvous or process-state reads.
-#if TYPED_TASKS
+#if NET11_0
 [MSBuildMultiThreadableTask]
 #endif
 public sealed class CheckedExposures : SummarizeExposures
@@ -16,7 +16,7 @@ public sealed class CheckedExposures : SummarizeExposures
     private static readonly Barrier Gate = new(2);
 
     public CheckedExposures() { }
-#if TYPED_TASKS
+#if NET11_0
     public CheckedExposures(TaskEnvironment environment) : base(environment) { }
 #endif
 
@@ -38,7 +38,7 @@ public sealed class CheckedExposures : SummarizeExposures
             frameworkPath = typeof(ITask).Assembly.Location,
             frameworkSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(ITask).Assembly.Location))).ToLowerInvariant(),
             utilitiesPath = typeof(Microsoft.Build.Utilities.Task).Assembly.Location,
-#if TYPED_TASKS
+#if NET11_0
             constructor = ConstructorUsed, project = TaskEnvironment.ProjectDirectory.Value,
             reportDirectory = ReportDirectory.Value,
             inputs = Sources.Select(i => i.Value.FullName).ToArray(),
