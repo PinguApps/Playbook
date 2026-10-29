@@ -8,6 +8,15 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
+**B12 / PIN-1166** supplies `razor.migrate-generated-document-contracts/11.0`:
+actual matching SDK compiler/Roslyn sets, retained text/diagnostics/mappings,
+diagnostic-import and declaration/stub choices, and source-versus-binary
+constructor checks. The older SDK's reader is internal; only the verification
+harness observes it, while the canonical older module consumes host-supplied
+output. That limitation remains explicit. See the
+[bounded reconciliation](../audits/blazor.md#generated-document-tool-delivery-b12--pin-1166).
+These records do not waive comprehensive content or actual-GA gates.
+
 PIN-813 authors `signalr.refresh-live-credentials/11.0` and
 `blazor.react-to-refreshed-identity/11.0` with original CopperRidgeHub and
 ArchiveAccess .NET 10/RC2 comparisons. Real .NET and Node TypeScript WebSocket

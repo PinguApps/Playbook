@@ -1,0 +1,220 @@
+{
+  "id": "razor.migrate-generated-document-contracts",
+  "edition": "11.0",
+  "title": "Keep a custom Razor tool constructing and reading generated documents",
+  "goal": "Rebuild a version-coupled Razor compiler host while preserving generated text, diagnostics and source mappings; distinguish optional source defaults from binary constructor compatibility.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "razor",
+    "compiler",
+    "generated-documents"
+  ],
+  "apis": [
+    "RazorCSharpDocument",
+    "RazorCodeDocumentExtensions.GetCSharpDocument",
+    "CodeRenderingContext",
+    "reportDiagnostics",
+    "IsDeclarationDocument",
+    "IsStubDocument"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Advanced SDK compiler integration; exact matching compiler/Roslyn closure.",
+          "Older public output reader unavailable; verification-only reflection is explicitly separated from supported consumer code."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Execute the current SDK compiler host on its matching runtime family."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0.100-rc.2.26504.105",
+            "match": "exact",
+            "reason": "This advanced sample directly references this SDK compiler and matching Roslyn/utility closure; another toolset needs source and binary requalification."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical language mode; no C#15-only syntax is required."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11; Microsoft.NET.Sdk"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "SDK Microsoft.CodeAnalysis.Razor.Compiler and Microsoft.AspNetCore.Razor.Utilities.Shared from source-generators, plus Microsoft.CodeAnalysis and CSharp from the same SDK Roslyn/bincore. No Razor.Language 6.0 helper or independent NuGet compiler substitution."
+          ],
+          "providers": [],
+          "platforms": [
+            "Managed SDK compiler host; measured Windows x64. No native assets or workloads."
+          ],
+          "renderingModes": [
+            "Compiler generation only; no browser, MVC runtime view rendering or IDE-host claim."
+          ],
+          "workloads": [],
+          "optIns": [],
+          "prerequisites": [
+            "A version-coupled custom compiler integration; preserve the complete matching SDK dependency set. Older comparison consumes host-supplied generated documents because this exact older SDK has no public output reader."
+          ],
+          "constraints": [
+            "The older SDK internal reader is observed only in the verification harness; it is not a supported or taught consumer route.",
+            "Declaration/stub flags label a constructed document; setting them does not generate a declaration or stub.",
+            "Retain compiler-produced mapping coordinates as supplied; they are not assumed to map identical text spans.",
+            "Optional parameters preserve a recompiled source call, not the previous compiled constructor reference."
+          ],
+          "stabilityLimitations": [
+            "GA-targeted 11.0 guidance, actual RC2 compiler 11.1.0-preview.26504.105. Direct SDK-tooling integration is version coupled; no general supported ABI, IDE, older-target or GA guarantee."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/razor/tree/main/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler",
+          "https://github.com/dotnet/razor/blob/main/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/RazorCSharpDocument.cs",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments",
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/library-change-rules"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CatalogueCompiler/CatalogueCompiler.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official Razor compiler sources",
+      "url": "https://github.com/dotnet/razor/tree/main/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler"
+    },
+    {
+      "title": "Official generated-document implementation",
+      "url": "https://github.com/dotnet/razor/blob/main/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/RazorCSharpDocument.cs"
+    },
+    {
+      "title": "Official optional-argument source semantics",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments"
+    },
+    {
+      "title": "Official binary compatibility rules",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/library-change-rules"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/CatalogueCompiler/CatalogueCompiler.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual matching SDK dependency compilation; real valid/invalid Razor pipeline text/diagnostics/mapping preservation, current optional choices and previous compiled constructor binding. Older internal reader is verification-only, never a supported consumer interface."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/CatalogueCompiler/CatalogueCompiler.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual matching SDK dependency compilation; real valid/invalid Razor pipeline text/diagnostics/mapping preservation, current optional choices and previous compiled constructor binding. Older internal reader is verification-only, never a supported consumer interface.",
+      "record": "samples/net10.0/CatalogueCompiler/behavior.evidence.json"
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/CatalogueCompiler/CatalogueCompiler.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual matching SDK dependency compilation; real valid/invalid Razor pipeline text/diagnostics/mapping preservation, current optional choices and previous compiled constructor binding. Older internal reader is verification-only, never a supported consumer interface."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/CatalogueCompiler/CatalogueCompiler.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual matching SDK dependency compilation; real valid/invalid Razor pipeline text/diagnostics/mapping preservation, current optional choices and previous compiled constructor binding. Older internal reader is verification-only, never a supported consumer interface.",
+      "record": "samples/net11.0/CatalogueCompiler/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/CatalogueCompiler/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/CatalogueCompiler/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/CatalogueCompiler/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/CatalogueCompiler/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-cataloguecompiler-csproj": {
+      "path": "samples/net10.0/CatalogueCompiler/CatalogueCompiler.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-cataloguetool-cs": {
+      "path": "samples/net10.0/CatalogueCompiler/CatalogueTool.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/CatalogueCompiler/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/CatalogueCompiler/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/CatalogueCompiler/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/CatalogueCompiler/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-cataloguecompiler-csproj": {
+      "path": "samples/net11.0/CatalogueCompiler/CatalogueCompiler.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-cataloguetool-cs": {
+      "path": "samples/net11.0/CatalogueCompiler/CatalogueTool.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual managed compiler/constructor checks cover this bounded host. No IDE, generated application execution, rendering or actual-GA guarantee."
+  }
+}
