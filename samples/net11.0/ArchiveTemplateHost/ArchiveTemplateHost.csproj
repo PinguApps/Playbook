@@ -1,0 +1,21 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TemplateEngine.Edge" />
+    <PackageReference Include="Microsoft.TemplateEngine.Orchestrator.RunnableProjects" />
+    <Compile Include="../../ArchiveTemplate/ArchiveTemplate.cs" Link="ArchiveTemplate.cs" />
+    <Compile Include="../../ArchiveTemplate/Program.cs" Link="Program.cs" />
+    <EmbeddedResource Include="../../ArchiveTemplate/template.json" LogicalName="ArchiveSeed.template.json" />
+    <EmbeddedResource Include="../../ArchiveTemplate/project.txt" LogicalName="ArchiveSeed.project.txt" />
+    <EmbeddedResource Include="../../ArchiveTemplate/program.txt" LogicalName="ArchiveSeed.program.txt" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->

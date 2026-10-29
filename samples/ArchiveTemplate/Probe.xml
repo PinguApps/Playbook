@@ -1,0 +1,12 @@
+<!-- snippet:probe -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <DisableImplicitAssetTargetFallback>true</DisableImplicitAssetTargetFallback>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="PACKAGE_ID" Version="[PACKAGE_VERSION]" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:probe -->
