@@ -1,0 +1,12 @@
+{
+  "additionalInputs": [
+    "samples/DepotEventProof",
+    "eng/Record-DepotEvents.ps1"
+  ],
+  "buildArguments": [
+    "-p:UseSharedCompilation=false"
+  ],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": []
+}

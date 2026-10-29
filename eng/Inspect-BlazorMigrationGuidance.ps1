@@ -119,6 +119,8 @@ try {
             throw "Expected unavailable edition for $id at target $UnsupportedTargetVersion."
           }
           $unsupported | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath (Join-Path $OutputDirectory "$id.unsupported.json")
+          # The expected tool error was verified; do not leak its exit 5 to callers.
+          $global:LASTEXITCODE = 0
           Write-Host "PASS: $id has no applicable edition for target $UnsupportedTargetVersion."
         }
       }
