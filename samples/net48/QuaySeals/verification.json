@@ -1,0 +1,24 @@
+{
+  "dependencies": [
+    "Microsoft.Data.Sqlite.Core/10.0.13",
+    "Microsoft.Data.Sqlite/10.0.13",
+    "Microsoft.NETFramework.ReferenceAssemblies.net48/1.0.3",
+    "Microsoft.NETFramework.ReferenceAssemblies/1.0.3",
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.13",
+    "SQLitePCLRaw.core/2.1.13",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.13",
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.1.13",
+    "System.Buffers/4.4.0",
+    "System.Memory/4.5.3",
+    "System.Numerics.Vectors/4.4.0",
+    "System.Runtime.CompilerServices.Unsafe/4.5.2"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Record-SqliteRuntime.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
