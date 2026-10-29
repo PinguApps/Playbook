@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<!-- snippet:settings -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Locator" />
+    <Reference Include="Microsoft.Build" HintPath="$(MSBuildBinPath)/Microsoft.Build.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
+    <None Include="Museum.csproj" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Collection.props" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+<!-- endsnippet:settings -->
+  <ItemGroup>
+    <Compile Include="../../MuseumEvaluation/MuseumChecks.cs" Link="MuseumChecks.cs" />
+    <None Include="../../MuseumEvaluation/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
