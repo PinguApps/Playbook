@@ -50,11 +50,15 @@ wiring then raises the actual NuGet event, including the deliberate task failure
 **This does not prove an unmodified third-party host raises the event.** Register
 only when that host's actual seam is known. `RaiseBuildEnded` does not await or
 drain arbitrary application operations; those lifetimes belong to their owners.
-If `EndBuild` throws, completion is unconfirmed: the host retires and rejects
-another build before any task/cache read. It does not raise a global event merely
+If `EndBuild` throws, completion is unconfirmed: the application retires **all**
+its hosts/caches and rejects another build or cached read. It does not raise a global event merely
 to force a reset when work might still be active. A throwing reset handler also
-retires the host. Resolve the failed lifecycle and dispose owned work before
-creating a fresh host/cache; do not retry the retired instance.
+retires the entire application process: multicast invocation stops on a throw,
+so later subscribers may never reset. Restart the process after disposing owned
+work; creating another host/cache in the same process cannot clear retirement.
+This guard belongs to the original application's hosts in one default load
+context. It is not a NuGet-wide policy for arbitrary third-party hosts or other
+application load contexts.
 
 MSBuild may load the task assembly into a different `AssemblyLoadContext`.
 `HostServices.RegisterHostObject` passes the actual host cache's BCL delegate
@@ -149,9 +153,14 @@ does not recompute; a failing real task still reaches reset. A real open
 operation-owned file remains writable/readable across reset and throws after its
 own disposal. Current-only controls run a real build after unsubscribe and a
 throwing reset subscriber. Old absence/explicit-reset controls are independent.
-An actual logger-shutdown failure makes real `EndBuild` throw after the task
-writes its receipt. The host emits no reset and rejects reuse under configurationB,
-so stale state cannot be read by another build through that retired host.
+Owned instances of the same executable run irreversible fault controls and then
+exit. An actual logger-shutdown failure makes real `EndBuild` throw after the
+task writes its receipt; no reset is emitted. A current-only control subscribes
+a throwing handler **before** a later sibling cache, seeds that cache via a real
+build, then triggers the real owner end-build event. Its late sibling really
+misses reset. Both controls verify that sibling builds, direct cached reads and
+newly constructed hosts are refused before more work. The ordinary suite process
+stays healthy for its remaining checks; no public retirement-reset API exists.
 Raw paths/commands stay ignored; retained evidence redacts private paths and pins
 fresh input bytes. No automatic third-party/server reset, concurrency support,
 universal performance, OS matrix or GA claim is made.

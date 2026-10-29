@@ -22,6 +22,16 @@ internal static class WorkshopChecks
         try
         {
             CheckBuilds(folder);
+            // Process retirement is intentionally irreversible. Real destructive lifecycle
+            // controls run in owned instances of this same executable, then exit.
+            foreach (string mode in Environment.Version.Major == 11 ? new[] { "end", "reset" } : new[] { "end" })
+            {
+                using var faultDeadline = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+                string faultOutput = await CourierLauncher.Launch(Environment.ProcessPath!,
+                    [Assembly.GetExecutingAssembly().Location, "--host-fault-probe", mode], [], faultDeadline.Token);
+                Require(faultOutput.Contains("PASS process-wide retirement " + mode, StringComparison.Ordinal), "Fault child did not complete proof");
+                Console.WriteLine(faultOutput.Trim());
+            }
             string repository = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../../.."));
             await AnalyzerChecks.Run(repository, sdkRoot);
             using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(20));
@@ -107,35 +117,73 @@ internal static class WorkshopChecks
         Require(nextHost.Build(project, new() { ["Expected"] = "after-unsubscribe", ["Receipt"] = receipt, ["FailBuild"] = "false", ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location }).OverallResult == BuildResultCode.Success, "Successor build failed");
         Require(cache.Invalidations == resets && successor.Invalidations == 1, "Unsubscription or duplicate NuGet assembly");
         Require(AppDomain.CurrentDomain.GetAssemblies().Count(a => a.GetName().Name == "NuGet.Common") == 1, "Duplicate event assembly");
-        // Handler bugs surface: no blanket catch in the host/event contract.
-        Action broken = () => throw new InvalidOperationException("reset-bug-control");
-        StaticState.BuildEnded += broken;
-        try
-        {
-            try
-            {
-                nextHost.Build(project, new() { ["Expected"] = "after-unsubscribe", ["Receipt"] = receipt, ["FailBuild"] = "false", ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location });
-                throw new InvalidOperationException("Handler bug swallowed");
-            }
-            catch (InvalidOperationException e) when (e.Message == "reset-bug-control") { }
-        }
-        finally { StaticState.BuildEnded -= broken; }
 #else
         Require(typeof(NuGet.Common.ILogger).Assembly.GetType("NuGet.Common.StaticState") is null, "Unexpected older event API");
 #endif
-        using var failureCache = new HarbourCache(() => File.ReadAllText(config));
-        using var failureHost = new PackageHost(failureCache, new EndFailureLogger());
-        File.WriteAllText(config, "end-failure-A");
-        var inputs = new Dictionary<string, string?> { ["Expected"] = "end-failure-A", ["Receipt"] = receipt, ["FailBuild"] = "false", ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location };
-        try { failureHost.Build(project, inputs); throw new InvalidOperationException("EndBuild failure was not observed"); }
-        catch (Microsoft.Build.Framework.LoggerException e) when (e.Message.Contains("gannet-end-failure", StringComparison.Ordinal)) { }
-        Require(failureCache.Invalidations == 0 && File.ReadAllText(receipt) == $"{Environment.ProcessId}|end-failure-A|end-failure-A", "Failed EndBuild incorrectly raised reset or skipped actual task");
-        File.WriteAllText(config, "end-failure-B");
-        try { failureHost.Build(project, inputs); throw new InvalidOperationException("Failed end-build host was reused"); }
-        catch (InvalidOperationException e) when (e.Message.Contains("cannot be reused", StringComparison.Ordinal)) { }
-        Require(failureCache.Creations == 1, "Retired host reused stale cache under next configuration");
-        Console.WriteLine("PASS actual logger shutdown makes EndBuild fail; no global reset claimed, faulted host rejects reuse before another task/cache read.");
-        Console.WriteLine("PASS real in-process MSBuild tasks/config A+B, success/failure EndBuild then invalidation, lazy NEXT configuration, one shared host/cache/assembly; operation-owned open file usable across reset and actually disposed. Explicit old reset / current event unsubscription and surfaced-handler-bug controls.");
+        Console.WriteLine("PASS real in-process MSBuild tasks/config A+B, success/failure EndBuild then invalidation, lazy NEXT configuration, one shared host/cache/assembly; operation-owned open file usable across reset and actually disposed. Explicit old reset / current event unsubscription controls.");
+    }
+    public static void RunFaultProbe(string mode)
+    {
+        if (mode is not ("end" or "reset")) throw new ArgumentException("Unknown fault control.");
+        string folder = Path.Combine(Path.GetTempPath(), "gannet-workshop-" + Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(folder);
+        try
+        {
+            string project = Path.Combine(folder, "Gannet.proj"), config = Path.Combine(folder, "harbour.txt");
+            string ownerReceipt = Path.Combine(folder, "owner.txt"), siblingReceipt = Path.Combine(folder, "sibling.txt");
+            File.Copy(Path.Combine(AppContext.BaseDirectory, "Gannet.proj"), project);
+            using var ownerCache = new HarbourCache(() => File.ReadAllText(config));
+            using var owner = new PackageHost(ownerCache, mode == "end" ? new EndFailureLogger() : null);
+            Action broken = () => throw new InvalidOperationException("reset-bug-control");
+#if NET11_0
+            if (mode == "reset") StaticState.BuildEnded += broken;
+#else
+            Require(mode == "end", "Old SDK has no reset-event probe");
+#endif
+            try
+            {
+                // Subscribe AFTER the throwing handler so multicast short-circuiting really
+                // strands this later sibling's cached A value when reset fails.
+                using var siblingCache = new HarbourCache(() => File.ReadAllText(config));
+                using var sibling = new PackageHost(siblingCache);
+                Dictionary<string, string?> Inputs(string receipt, string value) => new()
+                {
+                    ["Expected"] = value, ["Receipt"] = receipt, ["FailBuild"] = "false",
+                    ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location
+                };
+                File.WriteAllText(config, "fault-A");
+                Require(sibling.Build(project, Inputs(siblingReceipt, "fault-A"), reset: false).OverallResult == BuildResultCode.Success, "Sibling seed task failed");
+                Require(File.ReadAllText(siblingReceipt) == $"{Environment.ProcessId}|fault-A|fault-A", "No real sibling seed receipt");
+                File.WriteAllText(config, "fault-B");
+                try { owner.Build(project, Inputs(ownerReceipt, "fault-B")); throw new InvalidOperationException("Lifecycle fault did not surface"); }
+                catch (Microsoft.Build.Framework.LoggerException e) when (mode == "end" && e.Message.Contains("gannet-end-failure", StringComparison.Ordinal)) { }
+                catch (InvalidOperationException e) when (mode == "reset" && e.Message == "reset-bug-control") { }
+                Require(File.ReadAllText(ownerReceipt) == $"{Environment.ProcessId}|fault-B|fault-B", "Fault skipped actual owner task");
+                Require(siblingCache.Invalidations == 0 && siblingCache.Creations == 1, "Late subscriber unexpectedly reset or recomputed");
+                Refuse(() => sibling.Build(project, Inputs(siblingReceipt, "fault-B")));
+                Refuse(() => { _ = siblingCache.Value; });
+                Refuse(() => owner.Build(project, Inputs(ownerReceipt, "fault-B")));
+                using var freshCache = new HarbourCache(() => File.ReadAllText(config));
+                using var freshHost = new PackageHost(freshCache);
+                Refuse(() => freshHost.Build(project, Inputs(ownerReceipt, "fault-B")));
+                Require(siblingCache.Creations == 1 && freshCache.Creations == 0 &&
+                    File.ReadAllText(siblingReceipt) == $"{Environment.ProcessId}|fault-A|fault-A", "Poisoned process executed another task/cache read");
+                if (mode == "end") Require(ownerCache.Invalidations == 0, "Failed EndBuild broadcast a reset");
+                Console.WriteLine($"PASS process-wide retirement {mode}: actual tasks samePID={Environment.ProcessId}; owner fault surfaces, late sibling stays unreset, sibling/direct-cache/new-host work refused; fresh process required.");
+            }
+            finally
+            {
+#if NET11_0
+                if (mode == "reset") StaticState.BuildEnded -= broken;
+#endif
+            }
+        }
+        finally { Directory.Delete(folder, true); }
+    }
+    private static void Refuse(Action action)
+    {
+        try { action(); throw new InvalidOperationException("Retired process accepted work"); }
+        catch (InvalidOperationException e) when (e.Message.Contains("process must restart", StringComparison.Ordinal)) { }
     }
     private sealed class EndFailureLogger : Microsoft.Build.Framework.ILogger
     {

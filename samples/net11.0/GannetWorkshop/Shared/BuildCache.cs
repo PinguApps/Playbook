@@ -24,7 +24,10 @@ public sealed class HarbourCache : IDisposable
     }
     // The caller must serialize ALL builds/cache access in this process, across hosts.
     // BuildEnded is process-global. This is not a concurrent cache.
-    public string Value => value.Value;
+    public string Value
+    {
+        get { PackageHost.ThrowIfProcessRetired(); return value.Value; }
+    }
     private Lazy<string> Fresh() => new(() => { Creations++; return read(); });
     public void Invalidate() { Invalidations++; value = Fresh(); }
     public void Dispose()
@@ -60,7 +63,13 @@ public sealed class PackageHost : IDisposable
     private readonly BuildManager manager = new();
     private readonly HarbourCache cache;
     private readonly Microsoft.Build.Framework.ILogger logger;
-    private bool reusable = true;
+    // All original hosts/caches live in this application's default load context.
+    // A failed global reset can strand ANY later subscriber; no in-process reset API.
+    private static bool processRetired;
+    internal static void ThrowIfProcessRetired()
+    {
+        if (processRetired) throw new InvalidOperationException("Gannet process must restart after an end-build/reset failure.");
+    }
     public PackageHost(HarbourCache cache, Microsoft.Build.Framework.ILogger? logger = null)
     {
         this.cache = cache;
@@ -68,7 +77,7 @@ public sealed class PackageHost : IDisposable
     }
     public BuildResult Build(string project, Dictionary<string, string?> inputs, bool reset = true)
     {
-        if (!reusable) throw new InvalidOperationException("Gannet host cannot be reused after an end-build/reset failure.");
+        ThrowIfProcessRetired();
         using var collection = new ProjectCollection(inputs);
         var services = new HostServices();
         services.RegisterHostObject(project, "Build", "ReadHarbour", new HarbourHostObject(cache));
@@ -82,20 +91,25 @@ public sealed class PackageHost : IDisposable
         {
             // This host owns the real lifecycle seam. Raise only after EndBuild returns,
             // including when the actual task fails. Unmodified third-party hosts are unqualified.
-            // A failed EndBuild does not establish that all build work has ended. Do not
-            // broadcast a global reset in that case: retire this host instead of reusing it.
-            // A reset-handler failure also retires the host rather than silently carrying on.
-            reusable = false;
-            manager.EndBuild();
-            if (reset)
+            try
             {
+                manager.EndBuild();
+                if (reset)
+                {
 #if NET11_0
-                StaticState.RaiseBuildEnded();
+                    StaticState.RaiseBuildEnded();
 #else
-                cache.Invalidate(); // Valid older explicit per-build lifetime route.
+                    cache.Invalidate(); // Valid older explicit per-build lifetime route.
 #endif
+                }
             }
-            reusable = true;
+            catch
+            {
+                // Failed EndBuild is not confirmed completion. A throwing event handler
+                // also prevents later subscribers resetting. Retire ALL owned hosts/caches.
+                processRetired = true;
+                throw;
+            }
         }
     }
     public void Dispose() => manager.Dispose();

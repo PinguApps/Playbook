@@ -14,10 +14,17 @@ AssemblyLoadContext.Default.Resolving += (_, name) =>
     string path = Path.Combine(sdkRoot, name.Name + ".dll");
     return File.Exists(path) ? AssemblyLoadContext.Default.LoadFromAssemblyPath(path) : null;
 };
-await Run(sdkRoot);
+await Run(sdkRoot, args);
 [MethodImpl(MethodImplOptions.NoInlining)]
-static async Task Run(string root)
+static async Task Run(string root, string[] arguments)
 {
+#if GANNET_PROOF
+    if (arguments is ["--host-fault-probe", var mode])
+    {
+        Gannet.WorkshopChecks.RunFaultProbe(mode);
+        return;
+    }
+#endif
     await Gannet.WorkshopDemo.Run();
 #if GANNET_PROOF
     await Gannet.WorkshopChecks.Run(root);
