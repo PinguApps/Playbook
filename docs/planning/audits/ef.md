@@ -524,6 +524,41 @@ route and pinned code-generation dependencies; compile old/new extension, scaffo
 an original schema, compile generated C# and query it. M includes real generated
 consumer validation; generation-stage choices remain PIN-887.
 
+## PIN-852 / PIN-862 delivery — 29 October 2026
+
+`ef.stream-query-without-reexecution/11.0` supplies original FenWatch EF10/EF11
+consumers, canonical offline files and explicit provider/lifetime constraints.
+Actual SQLite command interception checks deferred execution, two queries on two
+enumerations, reader disposal on early exit/consumer exception and pre-cancellation.
+`eng/Test-EfQueryAdapter.ps1` reproduces EF1004 without the control suppression,
+then compiles its `AsAsyncEnumerable` replacement. The new item is the analyzer;
+the replacement already works in EF10. **Source drift:** the pinned analyzer says
+the other adapter iterates synchronously, but the package-matched runtime11
+[`ToAsyncEnumerable` implementation](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/ToAsyncEnumerable.cs)
+returns an existing `IAsyncEnumerable<T>` directly. Execution confirms async EF
+commands for both current calls, versus sync commands for the old adapter on
+runtime10. The recipe preserves this difference. SQLite's underlying I/O is
+synchronous; interception is not nonblocking-I/O or throughput proof.
+
+`sqlite.bind-large-unsigned-value/11.0` supplies original MarshCounters projects:
+provider10 explicit invariant D39 formatting versus provider11 direct UInt128
+binding, plus an actually executed net10.0/provider11 conditional route. Real
+SQLite checks zero, decimal-width boundaries, values beyond Int64/UInt64 and
+UInt128.MaxValue; SQL `typeof`, `length`, exact stored text, ordering and range
+parameters establish full-width 39-digit TEXT. GetString/application parsing is
+explicit; no provider UInt128 reader support or EF property mapping is claimed.
+TEXT affinity/BINARY collation and consistent encoding remain prerequisites.
+
+Five `verification-evidence.json` records retain actual SDK/package graphs, input
+hashes, runtime/native versions and execution output. SDKs remain 10.0.402 and
+11.0.100-rc.2.26504.105; packages remain 10.0.13 and 11.0.0-rc.2.26504.105.
+Windows x64 native SQLite is 3.53.3/3.53.4 respectively. The existing packed
+local-feed/cache Inspector harness verifies full canonical body/applicability and
+11.0 edition at explicit targets 11.0 and, for direct SQLite only, 10.0. Setup may
+restore online; unusable proxies establish proxy independence, not network isolation.
+Both deliveries preserve eight foundations and leave Half/native-bundle migration,
+other platforms/providers, actual-GA and comprehensive publication gates open.
+
 ## Retained unknowns and publication boundary
 
 - **U1 — annotation and call-shape residuals.** The artifact keeps every exact
@@ -534,8 +569,9 @@ consumer validation; generation-stage choices remain PIN-887.
   before PIN-959 can claim comprehensive closure.
 - **U2 — direct SQLite differences.** The actual selected net8/net10 declarations
   are identical. Half/UInt128 support changes bind/map behavior without a new
-  direct public method. The source-backed E23/PIN-862 obligations remain;
-  identical API shape is not execution evidence or a no-content conclusion.
+  direct public method. Half (E23) remains separate; PIN-862 now delivers UInt128
+  binding, while reader UInt128 retrieval remains unsupported. Identical API
+  shape alone is not execution evidence or a no-content conclusion.
 - **U3 — residual extension contracts.** The finite raw lines/counts retain
   ModelValidator/dependency/member-classifier changes; remaining model/convention
   and JSON relational-element metadata; query SQL visitors/collation quoting,

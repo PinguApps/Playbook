@@ -1,0 +1,221 @@
+{
+  "id": "ef.stream-query-without-reexecution",
+  "edition": "11.0",
+  "title": "Use EF's asynchronous query adapter intentionally",
+  "goal": "Choose AsAsyncEnumerable for an EF database query, keep one enumeration per intended query, and release the reader on exit; use this when addressing EF1004 or streaming projected rows.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "data-adapters",
+    "sqlite",
+    "EF1004"
+  ],
+  "apis": [
+    "EntityFrameworkQueryableExtensions.AsAsyncEnumerable",
+    "AsyncEnumerable.ToAsyncEnumerable",
+    "EF1004",
+    "WithCancellation"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#other-improvements",
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md",
+          "https://learn.microsoft.com/en-us/ef/core/miscellaneous/async",
+          "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/async",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/ToAsyncEnumerable.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/ToAsyncEnumerableOnQueryableDiagnosticAnalyzer.cs"
+        ],
+        "selectionNotes": [
+          "EF query behavior; not shared LINQ package migration alone. AsAsyncEnumerable existed before EF11; the new authoring prompt is EF1004.",
+          "The historical provider10 comparison does not add a .NET 10 foundation."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C# 15-only feature is needed."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Current capability/analyzer verified with 11.0.0-rc.2.26504.105; each independent project has CPM pins and a resolved lock file."
+            }
+          ],
+          "packageAssets": [
+            "EF Core/Relational/SQLite.Core 11 lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; EF1004 comes from Microsoft.EntityFrameworkCore.Analyzers 11."
+          ],
+          "providers": [
+            "Microsoft.Data.Sqlite with actual in-memory SQLite; no external service/account.",
+            "Measured native SQLite 3.53.3 with provider10/SQLitePCLRaw 2.1.13; 3.53.4 with provider11/SQLitePCLRaw 3.0.5 plus SQLite package 3.53.4."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 using the packaged e_sqlite3 native library. Other native OS/architecture routes were not executed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "EF query behavior; not shared LINQ package migration alone. AsAsyncEnumerable existed before EF11; the new authoring prompt is EF1004.",
+            "Neither adapter caches results. Keep the context alive through enumeration; await each operation before reusing it.",
+            "SQLite async methods execute synchronously internally: interceptor IsAsync establishes the EF command API path, not nonblocking native I/O or throughput.",
+            "The pinned runtime11 ToAsyncEnumerable already returns an IAsyncEnumerable source directly. EF1004 still flags the spelling; do not claim this current EF query always executes synchronously."
+          ],
+          "prerequisites": [
+            "Copy every file of the selected project below to one standalone directory. Restore from nuget.org online before running; dependency setup is separate from offline Playbook retrieval.",
+            "The open connection owns a disposable in-memory database. Closing it removes sample data; no persistent database or resource is provisioned."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "GA-targeted stable contract, measured with .NET 11 RC2 packages/SDK. No experimental API opt-in required; actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/FenWatch/FenWatch.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#other-improvements",
+      "title": "Official EF11 release guidance"
+    },
+    {
+      "url": "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md",
+      "title": "Immutable reviewed documentation baseline"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/miscellaneous/async",
+      "title": "EF asynchronous query and context lifetime"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/async",
+      "title": "SQLite asynchronous I/O limitation"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/ToAsyncEnumerable.cs",
+      "title": "Package-matched runtime adapter implementation"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Analyzers/ToAsyncEnumerableOnQueryableDiagnosticAnalyzer.cs",
+      "title": "Package-matched EF1004 analyzer"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FenWatch/FenWatch.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Actual EF10 query: ToAsyncEnumerable synchronous commands versus existing AsAsyncEnumerable asynchronous commands; deferred/repeated execution, real reader disposal on break/consumer exception, pre-cancellation."
+    },
+    {
+      "sample": "samples/net11.0/FenWatch/FenWatch.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual EF11 query: AsAsyncEnumerable and the pinned runtime11 ToAsyncEnumerable fast path issue asynchronous commands; deferred/repeated execution, real reader disposal on break/consumer exception, pre-cancellation. EF1004 red/green reproduction is separate in eng/Test-EfQueryAdapter.ps1."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/FenWatch/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/FenWatch/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/FenWatch/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/FenWatch/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fenwatch-csproj": {
+      "path": "samples/net10.0/FenWatch/FenWatch.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/FenWatch/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/FenWatch/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/FenWatch/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/FenWatch/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/FenWatch/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fenwatch-csproj": {
+      "path": "samples/net11.0/FenWatch/FenWatch.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/FenWatch/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated real SQLite consumers cover these bounded managed/provider claims. No external account, native UI or targeted Human proof is required. Other native platforms, other providers and actual GA remain unverified."
+  }
+}
