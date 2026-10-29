@@ -1,0 +1,3 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Library</OutputType><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><EnableDefaultCompileItems>false</EnableDefaultCompileItems></PropertyGroup><ItemGroup><Compile Include="../../../SkylarkBuild/HotRules.cs" /></ItemGroup></Project>
+<!-- endsnippet:project -->

@@ -1,0 +1,12 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Test-SkylarkBuild.ps1",
+    "samples/SkylarkBuild/Servicing.cs",
+    "samples/SkylarkBuild/artifacts.json"
+  ],
+  "buildArguments": [],
+  "dependencies": []
+}

@@ -1,0 +1,12 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <OutputType>Exe</OutputType><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <CheckSdkVulnerabilities>true</CheckSdkVulnerabilities>
+  </PropertyGroup>
+  <ItemGroup><Compile Include="../../SkylarkBuild/Servicing.cs" Link="Program.cs" /></ItemGroup>
+  
+</Project>
+<!-- endsnippet:project -->

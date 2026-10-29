@@ -1,0 +1,19 @@
+{
+  "nativeToolchains": [
+    "MSVC-link/14.51.36260.0",
+    "Windows-SDK/10.0.26100.0"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Test-SkylarkBuild.ps1",
+    "samples/SkylarkBuild/Native.cs",
+    "samples/SkylarkBuild/artifacts.json"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105",
+    "Microsoft.NET.ILLink.Tasks/11.0.0-rc.2.26504.105",
+    "runtime.win-x64.Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105"
+  ]
+}

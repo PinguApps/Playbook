@@ -1,0 +1,84 @@
+{
+  "vmr10": "a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+  "vmr11": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+  "artifacts": [
+    {
+      "product": "5.9.0-1.26505.111+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+      "path": "sdk/10.0.402/Roslyn/bincore/csc.dll",
+      "sdk": "10.0.402",
+      "sha256": "6af1a88cd6c79d9483dfc278984f9ed508359ba8a04c01ccffab26996e9a6833"
+    },
+    {
+      "product": null,
+      "path": "sdk/10.0.402/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.CrossGen.targets",
+      "sdk": "10.0.402",
+      "sha256": "bf0b166cdc7c83860944285accd908dcce4849511898c9fd0b4a07a94c42b29a"
+    },
+    {
+      "product": null,
+      "path": "sdk/10.0.402/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.PackTool.targets",
+      "sdk": "10.0.402",
+      "sha256": "c81be2c43ff1dd54cb9fedea0d03a3292d221d09c876c50aed3be0c9568b510f"
+    },
+    {
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Runtime.dll",
+      "sdk": "10.0.402",
+      "sha256": "f14458d03c0e944ba39ce0718ef7e5eceda598b48902a38f6fa2966748ae36a8"
+    },
+    {
+      "product": "10,0,1326,50504 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "shared/Microsoft.NETCore.App/10.0.13/coreclr.dll",
+      "sdk": "10.0.402",
+      "sha256": "18eed8c40d05fc455be95d12cc77eacf379265063b15ca84bd7a11cf29078a22"
+    },
+    {
+      "product": "5.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "sdk/11.0.100-rc.2.26504.105/Roslyn/bincore/csc.dll",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sha256": "03a90c0454a9320dc853796f40fb113f5d6bbbb4b0b0eee6ae012551dd056255"
+    },
+    {
+      "product": null,
+      "path": "sdk/11.0.100-rc.2.26504.105/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.CrossGen.targets",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sha256": "30013015a2895b330a059108c1431d3f7e869d7b96ae9ebc3c60a003179ffd91"
+    },
+    {
+      "product": null,
+      "path": "sdk/11.0.100-rc.2.26504.105/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.PackTool.targets",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sha256": "2a4bc3665cc46195c60ff993fdf675fcc5b00022ec2f3558ef55101a30489c5b"
+    },
+    {
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Runtime.dll",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sha256": "b3c36c73aaa453d14cb7af2e8ae198a2a8715fc5eca59b3b8da300bff6c753d0"
+    },
+    {
+      "product": "11,0,26,50505 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/coreclr.dll",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sha256": "013a0ddcf0751ee6880cb175bd2f95ff3f9aa8b82a37ae4d17ed63a647f14e4c"
+    },
+    {
+      "product": null,
+      "path": "sdk/11.0.100-rc.2.26504.105/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.SdkVulnerabilityCheck.targets",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sha256": "c7806094567fca5a14084b7b9ea1d77c7d6ef4b8c5cece5a485c3f3af839ef3c"
+    },
+    {
+      "sdk": "10.0.402",
+      "sha256": "a673d48e1aa2ede63547cf63cc94d59b90b361512e13210943dc70171e1c1ed1",
+      "product": "10.0.402-servicing.26505.111+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+      "path": "sdk/10.0.402/Sdks/Microsoft.NET.Sdk/tools/net10.0/Microsoft.NET.Build.Tasks.dll"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sha256": "96412686f98cd6f6318c524d02cb618b50223ba900025f5ebff1367c30f724fa",
+      "product": "11.0.100-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "sdk/11.0.100-rc.2.26504.105/Sdks/Microsoft.NET.Sdk/tools/net11.0/Microsoft.NET.Build.Tasks.dll"
+    }
+  ]
+}
