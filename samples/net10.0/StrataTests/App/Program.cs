@@ -25,10 +25,12 @@ public sealed class CoreCatalog(string name = "production-core") : IAsyncDisposa
 {
     public string Name { get; } = name;
     public bool Disposed { get; private set; }
+    public TaskCompletionSource DisposalCompleted { get; } = new(TaskCreationOptions.RunContinuationsAsynchronously);
     public async ValueTask DisposeAsync()
     {
         await Task.Yield();
         Disposed = true;
+        DisposalCompleted.TrySetResult();
     }
 }
 // endsnippet:complete

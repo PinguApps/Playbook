@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StrataApi;
 
+[assembly: WebApplicationFactoryContentRoot("StrataApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", ".", "StrataApi.dll", "-100")]
+
 using var deadline = new CancellationTokenSource(TimeSpan.FromSeconds(30));
 var factory = new StrataFactory();
 CoreCatalog catalog;
@@ -20,9 +22,12 @@ await using (factory)
     Require(!catalog.Disposed, "Service disposed before request");
     Console.WriteLine("PASS early builder: fixture configuration seen during startup and request; observable test service resolved.");
 }
-Require(catalog.Disposed, "Factory.DisposeAsync did not await service disposal");
+// Entrypoint Run() and the factory can overlap teardown. Observe completion
+// explicitly instead of assuming a returned factory call completed every task.
+await catalog.DisposalCompleted.Task.WaitAsync(deadline.Token);
+Require(catalog.Disposed, "Asynchronous service disposal did not finish");
 
-await using (var production = new RootedFactory())
+await using (var production = new WebApplicationFactory<StrataApi.Program>())
 {
     using var client = production.CreateClient();
     var result = await client.GetFromJsonAsync<Reading>(new Uri("/strata", UriKind.Relative), deadline.Token);
@@ -30,7 +35,7 @@ await using (var production = new RootedFactory())
 }
 // ConfigureWebHost runs later. It can change request-time config, not a value
 // already captured by entrypoint code immediately after CreateBuilder.
-await using (var late = new RootedFactory().WithWebHostBuilder(builder =>
+await using (var late = new WebApplicationFactory<StrataApi.Program>().WithWebHostBuilder(builder =>
     builder.ConfigureAppConfiguration((_, configuration) => configuration.AddInMemoryCollection(
         new Dictionary<string, string?> { ["Strata:Source"] = "late" }))))
 {
@@ -50,12 +55,7 @@ Console.WriteLine($"PASS StrataTests {System.Runtime.InteropServices.RuntimeInfo
 static void Require(bool condition, string message) { if (!condition) throw new Exception(message); }
 sealed record Reading(string StartupSource, string CurrentSource, string Catalog);
 
-class RootedFactory : WebApplicationFactory<StrataApi.Program>
-{
-    protected override void ConfigureWebHost(IWebHostBuilder builder) => builder.UseContentRoot(AppContext.BaseDirectory);
-}
-
-sealed class StrataFactory : RootedFactory
+sealed class StrataFactory : WebApplicationFactory<StrataApi.Program>
 {
     public int Calls { get; private set; }
     protected override void ConfigureWebApplicationBuilder(IHostApplicationBuilder hostApplicationBuilder)
