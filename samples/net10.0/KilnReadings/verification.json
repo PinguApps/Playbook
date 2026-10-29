@@ -1,0 +1,32 @@
+{
+  "dependencies": [
+    "Microsoft.Data.Sqlite.Core/10.0.13",
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.13",
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.13",
+    "Microsoft.EntityFrameworkCore.Relational/10.0.13",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/10.0.13",
+    "Microsoft.EntityFrameworkCore.Sqlite/10.0.13",
+    "Microsoft.EntityFrameworkCore/10.0.13",
+    "Microsoft.Extensions.Caching.Abstractions/10.0.13",
+    "Microsoft.Extensions.Caching.Memory/10.0.13",
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.13",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.13",
+    "Microsoft.Extensions.DependencyInjection/10.0.13",
+    "Microsoft.Extensions.DependencyModel/10.0.13",
+    "Microsoft.Extensions.Logging.Abstractions/10.0.13",
+    "Microsoft.Extensions.Logging/10.0.13",
+    "Microsoft.Extensions.Options/10.0.13",
+    "Microsoft.Extensions.Primitives/10.0.13",
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.13",
+    "SQLitePCLRaw.core/2.1.13",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.13",
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.13"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

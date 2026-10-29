@@ -121,6 +121,36 @@ pins, both shipped Windows wrappers, exact quoted arguments and failure exits.
 These require the declared Windows x64 SDK/runtime installations; parameters
 accept alternate absolute installation paths. SDK 9 is a negative command case
 only. Unix wrapper execution and actual .NET 11 GA reconciliation remain unverified.
+## Nested EF scalars and primitive sequences
+
+This block builds/packs once, runs the existing installed MCP smoke scenario,
+then uses that same artifact through the existing local-feed/cache Inspector
+harness. It was checked starting from an unrelated directory. Requires PowerShell
+7, SDK 10.0.402 and Node 22.19+; the standalone consumer checks additionally need
+the declared .NET 10 and .NET 11 RC2 SDKs/packages. Setup may restore packages
+online. Retrieval uses unusable proxies, demonstrating proxy independence rather
+than network isolation. No external database or account is needed.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3101a2fc'
+& ./eng/Test-Smoke.ps1 -PackageVersion '0.0.0-ef-models'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.configure-nested-scalar','ef.configure-primitive-sequence') `
+  -Query 'ef-models' -PackageVersion '0.0.0-ef-models' `
+  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/ef-models/inspection
+```
+
+Despite the helper's historical name, its recipe/query parameters reuse the same
+packed stdio path for these EF recipes. Expect both IDs/titles/goals, explicit
+11.0 editions, full expanded original .NET 10/11 projects, applicability and two
+current compile-and-run records per recipe. EstuaryMarkers configures the nested
+`marker_code`; KilnReadings distinguishes primitive JSON sequences from a binary
+scalar. The inspection asserts full canonical body equality and matching
+applicability; it does not rerun SQLite. The sample records establish real Windows
+x64 SQLite model/schema/round-trips using EF 10.0.13 and EF11 RC2. Other providers,
+native platforms, production data conversion and actual GA remain unverified.
 
 ## Inspect a response directly
 
