@@ -68,3 +68,9 @@
 /samples/net11.0/WeatherExtension/verification-evidence.json
 /samples/net10.0/WeatherCollector/verification-evidence.json
 /samples/net11.0/WeatherCollector/verification-evidence.json
+
+# Test-VSTestMessages.ps1 generated command/SDK/wire capture; review its harness,
+# canonical sources, locks, verification inputs and recipe. Pack checks freshness.
+/samples/LaboratoryMessages/Legacy/verification-evidence.json
+/samples/net10.0/LaboratoryBridge/verification-evidence.json
+/samples/net11.0/LaboratoryBridge/verification-evidence.json

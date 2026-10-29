@@ -1,0 +1,19 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <IsTestProject>false</IsTestProject>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DefineConstants>LEGACY_PLATFORM</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.TestHost" />
+    <Compile Include="../LabRun.cs" Link="LabRun.cs" />
+    <Compile Include="../TypedBridge.cs" Link="TypedBridge.cs" />
+    <Compile Include="../SurfaceChecks.cs" Link="SurfaceChecks.cs" />
+    <Compile Include="../Program.cs" Link="Program.cs" />
+    <Compile Include="../LegacyReader.cs" Link="LegacyReader.cs" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->

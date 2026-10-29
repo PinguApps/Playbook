@@ -1,0 +1,18 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <IsTestProject>false</IsTestProject>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.TestHost" />
+    <Compile Include="../../LaboratoryMessages/LabRun.cs" Link="LabRun.cs" />
+    <Compile Include="../../LaboratoryMessages/TypedBridge.cs" Link="TypedBridge.cs" />
+    <Compile Include="../../LaboratoryMessages/Program.cs" Link="Program.cs" />
+    <Compile Include="../../LaboratoryMessages/SurfaceChecks.cs" Link="SurfaceChecks.cs" />
+
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->
