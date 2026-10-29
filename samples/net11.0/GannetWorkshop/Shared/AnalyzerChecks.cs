@@ -16,7 +16,7 @@ internal static class AnalyzerChecks
         Directory.CreateDirectory(feed);
         string analyzer = Path.Combine(fixture, "analyzer-source");
         Directory.CreateDirectory(analyzer);
-        foreach (string file in Directory.GetFiles(Path.Combine(repository, "samples", "PackageWorkshop", "Analyzers")))
+        foreach (string file in Directory.GetFiles(Path.Combine(repository, "samples", "net11.0", "GannetWorkshop", "Shared", "Analyzers")))
             File.Copy(file, Path.Combine(analyzer, Path.GetFileName(file)));
         foreach (string file in new[] { "Directory.Build.props", "Directory.Build.targets", "Directory.Packages.props" })
             File.Copy(Path.Combine(repository, "samples", file), Path.Combine(analyzer, file));
@@ -31,7 +31,7 @@ internal static class AnalyzerChecks
         {
             string folder = Path.Combine(fixture, name);
             Directory.CreateDirectory(folder);
-            string source = Path.Combine(repository, "samples", "PackageWorkshop", "Consumer");
+            string source = Path.Combine(repository, "samples", "net11.0", "GannetWorkshop", "Shared", "Consumer");
             foreach (string file in new[] { "Harbour.csproj", "Harbour.cs" }) File.Copy(Path.Combine(source, file), Path.Combine(folder, file));
             string sdk = Path.GetFileName(sdkRoot);
             await File.WriteAllTextAsync(Path.Combine(folder, "global.json"), JsonSerializer.Serialize(new { sdk = new { version = sdk, rollForward = "disable", allowPrerelease = true } }));
@@ -110,7 +110,7 @@ internal static class AnalyzerChecks
             await Case("transitive-all", ["-p:RestoreEnableAnalyzerAssets=true", "-p:HarbourPrivate=all"], transitive: true);
         }
         string warning = Path.Combine(fixture, "warning"); Directory.CreateDirectory(warning);
-        foreach (var file in Directory.GetFiles(Path.Combine(repository, "samples", "PackageWorkshop", "WarningProbe"))) File.Copy(file, Path.Combine(warning, Path.GetFileName(file)));
+        foreach (var file in Directory.GetFiles(Path.Combine(repository, "samples", "net11.0", "GannetWorkshop", "Shared", "WarningProbe"))) File.Copy(file, Path.Combine(warning, Path.GetFileName(file)));
         File.Copy(Path.Combine(fixture, "default", "global.json"), Path.Combine(warning, "global.json"));
         File.Copy(Path.Combine(fixture, "default", "NuGet.Config"), Path.Combine(warning, "NuGet.Config"));
         File.Copy(Path.Combine(fixture, "default", "Directory.Build.props"), Path.Combine(warning, "Directory.Build.props"));

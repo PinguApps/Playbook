@@ -1,6 +1,6 @@
 {
   "additionalInputs": [
-    "samples/PackageWorkshop",
+    "samples/net11.0/GannetWorkshop/Shared",
     "eng/Record-PackageWorkshop.ps1"
   ],
   "nativeToolchains": [],

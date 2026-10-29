@@ -10,13 +10,14 @@
     <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
     <Reference Include="Microsoft.Build.Utilities.Core" HintPath="$(MSBuildBinPath)/Microsoft.Build.Utilities.Core.dll" Private="false" />
     <Reference Include="NuGet.Common" HintPath="$(MSBuildBinPath)/NuGet.Common.dll" Private="false" />
-    <Compile Include="../../PackageWorkshop/Bootstrap.cs" Link="Bootstrap.cs" />
-    <Compile Include="../../PackageWorkshop/BuildCache.cs" Link="BuildCache.cs" />
-    <Compile Include="../../PackageWorkshop/CourierLauncher.cs" Link="CourierLauncher.cs" />
-    <Compile Include="../../PackageWorkshop/WorkshopDemo.cs" Link="WorkshopDemo.cs" />
-    <Compile Include="../../PackageWorkshop/WorkshopChecks.cs" Link="WorkshopChecks.cs" Condition="'$(GannetProof)' == 'true'" />
-    <Compile Include="../../PackageWorkshop/AnalyzerChecks.cs" Link="AnalyzerChecks.cs" Condition="'$(GannetProof)' == 'true'" />
-    <None Include="../../PackageWorkshop/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" Condition="'$(GannetProof)' == 'true'" />
+    <None Include="Shared/Gannet.proj" Link="Gannet.proj" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="Shared/Bootstrap.cs" Link="Bootstrap.cs" />
+    <Compile Include="Shared/BuildCache.cs" Link="BuildCache.cs" />
+    <Compile Include="Shared/CourierLauncher.cs" Link="CourierLauncher.cs" />
+    <Compile Include="Shared/WorkshopDemo.cs" Link="WorkshopDemo.cs" />
+    <Compile Include="Shared/WorkshopChecks.cs" Link="WorkshopChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <Compile Include="Shared/AnalyzerChecks.cs" Link="AnalyzerChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <None Include="Shared/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" Condition="'$(GannetProof)' == 'true'" />
   </ItemGroup>
 <!-- endsnippet:settings -->
 </Project>

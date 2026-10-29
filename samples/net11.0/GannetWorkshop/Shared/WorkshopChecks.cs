@@ -2,7 +2,6 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text.Json;
-using System.Security;
 using Microsoft.Build.Execution;
 #if NET11_0
 using NuGet.Common;
@@ -55,18 +54,13 @@ internal static class WorkshopChecks
     private static void CheckBuilds(string folder)
     {
         string project = Path.Combine(folder, "Gannet.proj"), receipt = Path.Combine(folder, "receipt.txt"), config = Path.Combine(folder, "harbour.txt");
-        File.WriteAllText(project, $"""
-            <Project>
-              <UsingTask TaskName="Gannet.ReadHarbour" AssemblyFile="{SecurityElement.Escape(Assembly.GetExecutingAssembly().Location)}" />
-              <Target Name="Build"><ReadHarbour Receipt="$(Receipt)" Expected="$(Expected)" FailBuild="$(FailBuild)" /></Target>
-            </Project>
-            """);
+        File.Copy(Path.Combine(AppContext.BaseDirectory, "Gannet.proj"), project);
         using var cache = new HarbourCache(() => File.ReadAllText(config));
         using var host = new PackageHost(cache);
         void Build(string value, bool reset, bool fail = false)
         {
             File.WriteAllText(config, value);
-            var result = host.Build(project, new() { ["Expected"] = value, ["Receipt"] = receipt, ["FailBuild"] = fail.ToString() }, reset);
+            var result = host.Build(project, new() { ["Expected"] = value, ["Receipt"] = receipt, ["FailBuild"] = fail.ToString(), ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location }, reset);
             Require(result.OverallResult == (fail ? BuildResultCode.Failure : BuildResultCode.Success), "Actual build result mismatch");
         }
         Build("moor-A", reset: false);
@@ -99,7 +93,7 @@ internal static class WorkshopChecks
         using var successor = new HarbourCache(() => File.ReadAllText(config));
         using var nextHost = new PackageHost(successor);
         File.WriteAllText(config, "after-unsubscribe");
-        Require(nextHost.Build(project, new() { ["Expected"] = "after-unsubscribe", ["Receipt"] = receipt, ["FailBuild"] = "false" }).OverallResult == BuildResultCode.Success, "Successor build failed");
+        Require(nextHost.Build(project, new() { ["Expected"] = "after-unsubscribe", ["Receipt"] = receipt, ["FailBuild"] = "false", ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location }).OverallResult == BuildResultCode.Success, "Successor build failed");
         Require(cache.Invalidations == resets && successor.Invalidations == 1, "Unsubscription or duplicate NuGet assembly");
         Require(AppDomain.CurrentDomain.GetAssemblies().Count(a => a.GetName().Name == "NuGet.Common") == 1, "Duplicate event assembly");
         // Handler bugs surface: no blanket catch in the host/event contract.

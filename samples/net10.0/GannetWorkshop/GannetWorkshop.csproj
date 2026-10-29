@@ -10,13 +10,14 @@
     <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
     <Reference Include="Microsoft.Build.Utilities.Core" HintPath="$(MSBuildBinPath)/Microsoft.Build.Utilities.Core.dll" Private="false" />
     <Reference Include="NuGet.Common" HintPath="$(MSBuildBinPath)/NuGet.Common.dll" Private="false" />
-    <Compile Include="../../PackageWorkshop/Bootstrap.cs" Link="Bootstrap.cs" />
-    <Compile Include="../../PackageWorkshop/BuildCache.cs" Link="BuildCache.cs" />
-    <Compile Include="../../PackageWorkshop/CourierLauncher.cs" Link="CourierLauncher.cs" />
-    <Compile Include="../../PackageWorkshop/WorkshopDemo.cs" Link="WorkshopDemo.cs" />
-    <Compile Include="../../PackageWorkshop/WorkshopChecks.cs" Link="WorkshopChecks.cs" Condition="'$(GannetProof)' == 'true'" />
-    <Compile Include="../../PackageWorkshop/AnalyzerChecks.cs" Link="AnalyzerChecks.cs" Condition="'$(GannetProof)' == 'true'" />
-    <None Include="../../PackageWorkshop/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" Condition="'$(GannetProof)' == 'true'" />
+    <None Include="../../net11.0/GannetWorkshop/Shared/Gannet.proj" Link="Gannet.proj" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/Bootstrap.cs" Link="Bootstrap.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/BuildCache.cs" Link="BuildCache.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/CourierLauncher.cs" Link="CourierLauncher.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/WorkshopDemo.cs" Link="WorkshopDemo.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/WorkshopChecks.cs" Link="WorkshopChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/AnalyzerChecks.cs" Link="AnalyzerChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <None Include="../../net11.0/GannetWorkshop/Shared/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" Condition="'$(GannetProof)' == 'true'" />
   </ItemGroup>
 <!-- endsnippet:settings -->
 </Project>

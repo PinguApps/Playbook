@@ -1,0 +1,8 @@
+<!-- snippet:build-project -->
+<Project>
+  <UsingTask TaskName="Gannet.ReadHarbour" AssemblyFile="$(HarbourAssembly)" />
+  <Target Name="Build">
+    <ReadHarbour Receipt="$(Receipt)" Expected="$(Expected)" FailBuild="$(FailBuild)" />
+  </Target>
+</Project>
+<!-- endsnippet:build-project -->

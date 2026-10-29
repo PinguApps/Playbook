@@ -1,6 +1,5 @@
 // snippet:demo
 using System.Reflection;
-using System.Security;
 using Microsoft.Build.Execution;
 
 namespace Gannet;
@@ -24,18 +23,13 @@ public static class WorkshopDemo
         try
         {
             string project = Path.Combine(folder, "Gannet.proj"), config = Path.Combine(folder, "harbour.txt"), receipt = Path.Combine(folder, "receipt.txt");
-            File.WriteAllText(project, $"""
-                <Project>
-                  <UsingTask TaskName="Gannet.ReadHarbour" AssemblyFile="{SecurityElement.Escape(Assembly.GetExecutingAssembly().Location)}" />
-                  <Target Name="Build"><ReadHarbour Receipt="$(Receipt)" Expected="$(Expected)" /></Target>
-                </Project>
-                """);
+            File.Copy(Path.Combine(AppContext.BaseDirectory, "Gannet.proj"), project);
             using var cache = new HarbourCache(() => File.ReadAllText(config));
             using var host = new PackageHost(cache);
             foreach (string harbour in new[] { "east-quay", "west-quay" })
             {
                 File.WriteAllText(config, harbour);
-                var result = host.Build(project, new() { ["Receipt"] = receipt, ["Expected"] = harbour });
+                var result = host.Build(project, new() { ["Receipt"] = receipt, ["Expected"] = harbour, ["FailBuild"] = "false", ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location });
                 if (result.OverallResult != BuildResultCode.Success ||
                     File.ReadAllText(receipt) != $"{Environment.ProcessId}|{harbour}|{harbour}")
                     throw new InvalidOperationException("The real reused-host build did not read its own configuration.");

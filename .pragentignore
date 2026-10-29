@@ -108,6 +108,12 @@
 /samples/net10.0/FoundryPublisher/verification-evidence.json
 /samples/net11.0/FoundryPublisher/verification-evidence.json
 
+# Record-PackageWorkshop/Record-Evidence generated command/SDK/behavior captures.
+# Review canonical consumers, artifact pins, real fixture controls and recorder.
+# Existing content build/pack verifies the saved evidence's exact input freshness.
+/samples/net10.0/GannetWorkshop/verification-evidence.json
+/samples/net11.0/GannetWorkshop/verification-evidence.json
+
 # Record-AquariumVolunteers/Record-Evidence generated command, asset and HTTP capture;
 # review the canonical UI/checks, locked closures and qualification helper. Pack checks freshness.
 /samples/net10.0/AquariumVolunteers/verification-evidence.json
