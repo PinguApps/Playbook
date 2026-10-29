@@ -1,0 +1,80 @@
+{
+  "id": "msbuild.bind-typed-task-inputs",
+  "edition": "11.0",
+  "title": "Bind typed file inputs in a custom MSBuild task",
+  "goal": "Resolve project-relative file inputs and retain item metadata when a custom build task must run safely under ordinary or experimental multithreaded MSBuild.",
+  "areas": ["msbuild", "sdk"],
+  "exampleLanguages": ["csharp"],
+  "tags": ["typed-task-inputs", "task-environment", "multithreading"],
+  "apis": ["ITaskItem<T>", "TaskItem<T>", "AbsolutePath", "TaskEnvironment", "IMultiThreadableTask", "MSBuildMultiThreadableTaskAttribute"],
+  "introducedIn": "11.0",
+  "supportedTargets": ["11.0"],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": ["aspnetcore", "blazor", "maui", "winforms", "wpf"],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "Select the actual task host independently of application target. No SDK-10 typed-task or .NET Framework host route is advertised.",
+          "Actual SDK 10 already has TaskEnvironment and -mt infrastructure. Generic task items and environment-constructor selection are the new boundary in this comparison.",
+          "Experimental -mt requires an explicit opt-in; the ordinary host remains a verified alternative. The attribute is a thread-safety promise, not enforcement."
+        ],
+        "requirements": {
+          "runtime": {"name": ".NET", "version": "11.0.0-rc.2.26504.105", "match": "exact", "reason": "Qualified task execution host and runtime closure for the RC2 task assembly; actual GA remains unqualified."},
+          "sdk": {"name": ".NET SDK", "version": "11.0.100-rc.2.26504.105", "match": "exact", "reason": "Direct SDK assembly references require the exact artifact-qualified MSBuild 18.12.0-1.26504.105 binding and construction implementation."},
+          "language": {"name": "C#", "version": "15.0", "match": "exact", "reason": "Pinned language mode of the compiled typed-task example; no newer language feature is a separate task-binding requirement."},
+          "frameworks": [],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": ["SDK Microsoft.Build.Framework.dll and Microsoft.Build.Utilities.Core.dll, Private=false; host-owned MSBuild 18.12.0-1.26504.105 closure. No NuGet package replacements were used."],
+          "providers": [],
+          "platforms": ["Windows x64 with the exact .NET-hosted SDK/runtime/reference assets; other hosts and OSes are not qualified by these runs."],
+          "renderingModes": [],
+          "prerequisites": [
+            "Use the exact SDK global.json pin with rollForward=disable and allowPrerelease=true; inspect effective shared build/package configuration.",
+            "Use trusted project inputs, absolute task assembly paths and separate report directories per project. No optional native tools or device are needed.",
+            "PowerShell 7 for repository capture/inspection; SDK 10.0.402 with .NET 10.0.13 is additionally required to reproduce the older comparison."
+          ],
+          "constraints": [
+            "No down-level generic-item route, independent NuGet replacement, Visual Studio/.NET Framework MSBuild.exe or NativeAOT compatibility is claimed.",
+            "The separate net10.0 compatibility probe uses only SDK-10 APIs. Keeping a parameterless constructor does not make the net11 typed task load on an older runtime/API closure.",
+            "Typed absolute paths do not prove existence, permission, containment or symlink safety. The sample checks missing files and assumes trusted inputs.",
+            "Proof explicitly sets MSBUILDUSESERVER=0 in disposable children; it verifies actual -mt thread nodes, not server reuse or performance.",
+            "Playbook embeds offline guidance; retrieving a recipe executes no consumer code and changes no project."
+          ],
+          "optIns": ["Use -mt (with -m:2 in the proof) for experimental multithreaded execution; annotate only fully audited thread-safe task classes."],
+          "stabilityLimitations": ["RC2 execution is not actual-GA proof; PIN-963 and PIN-959 remain open.", "The migration analyzer described in preview sources is planned, not shipped or required."]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/TaskEnvironment.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/TaskItem_T.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/documentation/specs/multithreading/multithreaded-msbuild.md"
+        ],
+        "evidenceSamples": ["samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj"]
+      }
+    ]
+  },
+  "sources": [
+    {"title": "Pinned Preview 7 typed parameters, TaskEnvironment constructors and planned analyzer", "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md"},
+    {"title": "Pinned RC2 TaskEnvironment and process-backed fallback", "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/TaskEnvironment.cs"},
+    {"title": "Pinned Framework generic task item implementation", "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/TaskItem_T.cs"},
+    {"title": "Pinned multithreaded routing, sentinel and server controls", "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/documentation/specs/multithreading/multithreaded-msbuild.md"}
+  ],
+  "evidence": [
+    {"kind": "compile-and-run", "sample": "samples/net10.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net10.0", "sdk": "10.0.402", "language": "14.0", "scope": "Actual SDK10 explicit-path task: ordinary and -mt sidecar project builds, inputs/content/output metadata, unchanged task process state, missing-file failure and parameterless construction of the compatibility binary. Exact MSBuild/compiler/ref/native-host hashes checked. No older generic-item support is claimed."},
+    {"kind": "compile-and-run", "sample": "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net11.0", "sdk": "11.0.100-rc.2.26504.105", "language": "15.0", "scope": "Actual SDK11 typed binding and output metadata, ordinary and actual -mt same-process/different-thread rendezvous, project paths, configured/absent defaults and explicit override, full task process state equality, canonical production XML execution and missing-file failure. The same SDK10 compatibility DLL selects its injected constructor here. Exact MSBuild/compiler/ref/native-host hashes checked. Windows x64 RC2; no server reuse, performance or actual-GA claim."}
+  ],
+  "snippets": {
+    "legacy": {"path": "samples/net10.0/ObservatoryTasks/SummarizeExposures.cs", "region": "legacy", "language": "csharp"},
+    "typed": {"path": "samples/net11.0/ObservatoryTasks/SummarizeExposures.cs", "region": "typed", "language": "csharp"},
+    "compatibility": {"path": "samples/net10.0/ObservatoryTasks/SummarizeExposures.cs", "region": "compatibility", "language": "csharp"},
+    "settings": {"path": "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj", "region": "settings", "language": "xml"},
+    "invocation": {"path": "samples/net11.0/ObservatoryTasks/Measure.proj", "region": "invocation", "language": "xml"}
+  },
+  "humanProof": {"status": "not-required", "scope": "Bounded managed task execution is demonstrated by real local host builds and installed offline retrieval. No native/device/Human operation is required; unrelated Human and comprehensive/actual-GA gates remain open."}
+}

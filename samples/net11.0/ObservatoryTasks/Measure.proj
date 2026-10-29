@@ -1,0 +1,19 @@
+<!-- snippet:invocation -->
+<Project>
+  <!-- Set ObservatoryTaskAssembly to the absolute path of the built task DLL. -->
+  <UsingTask TaskName="Observatory.SummarizeExposures" AssemblyFile="$(ObservatoryTaskAssembly)" />
+  <ItemGroup>
+    <Exposure Include="frames/meridian.txt">
+      <Filter>hydrogen alpha</Filter>
+    </Exposure>
+  </ItemGroup>
+  <Target Name="Measure">
+    <!-- Omit ReportDirectory to use the constructor's environment-dependent default. -->
+    <Observatory.SummarizeExposures Sources="@(Exposure)">
+      <Output TaskParameter="Reports" ItemName="Measured" />
+    </Observatory.SummarizeExposures>
+    <WriteLinesToFile File="$(MSBuildProjectDirectory)/bound.txt"
+                      Lines="@(Measured->'%(FullPath)|%(Filter)')" Overwrite="true" />
+  </Target>
+</Project>
+<!-- endsnippet:invocation -->

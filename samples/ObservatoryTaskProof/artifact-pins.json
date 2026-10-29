@@ -1,0 +1,96 @@
+{
+  "10.0.402": [
+    {
+      "path": "Microsoft.Build.dll",
+      "sha256": "9e7ca5c41f6d522878105de5d8cf7879df066cd6df3061da336aef1f4fe97d6a",
+      "productVersion": "18.9.15+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "path": "Microsoft.Build.Framework.dll",
+      "sha256": "3ea131745f9ee5c536facb40dfb3092955315e24bbb047b5042d026bbc6b6c8a",
+      "productVersion": "18.9.15+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "path": "Microsoft.Build.Utilities.Core.dll",
+      "sha256": "ffd13f4941d50953062eeb897c89f9d1f2f83e00944320da0289de60eb2c842d",
+      "productVersion": "18.9.15+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll",
+      "sha256": "09faf82339bc7937689aa8bf4f3c45a61cade2899f77b9a7ed227b1ad66db7cb",
+      "productVersion": "5.9.0-1.26505.111+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "path": "Roslyn/bincore/csc.dll",
+      "sha256": "6af1a88cd6c79d9483dfc278984f9ed508359ba8a04c01ccffab26996e9a6833",
+      "productVersion": "5.9.0-1.26505.111+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "path": "../../dotnet.exe",
+      "sha256": "abce6623a6729059cf39bb0f728c4a7804f625895099c88c17e6e704661e09eb",
+      "productVersion": "10.0.13 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../host/fxr/10.0.13/hostfxr.dll",
+      "sha256": "2e6bf792d54303a54467102fd873a7d7a993f828e8d19c040e13e428e5f2d9c8",
+      "productVersion": "10.0.13 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/coreclr.dll",
+      "sha256": "18eed8c40d05fc455be95d12cc77eacf379265063b15ca84bd7a11cf29078a22",
+      "productVersion": "10,0,1326,50504 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Runtime.dll",
+      "sha256": "f14458d03c0e944ba39ce0718ef7e5eceda598b48902a38f6fa2966748ae36a8",
+      "productVersion": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    }
+  ],
+  "11.0.100-rc.2.26504.105": [
+    {
+      "path": "Microsoft.Build.dll",
+      "sha256": "b962aaed079b50139650c5ad3970c2b0ce0a04ab30c7f9f0a7c84d2249b91fbf",
+      "productVersion": "18.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Microsoft.Build.Framework.dll",
+      "sha256": "50d7b1d2cffd4cb869413e046173f8486ffdd5ee97b7a5ae7053f744e10899f8",
+      "productVersion": "18.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Microsoft.Build.Utilities.Core.dll",
+      "sha256": "0acc6ed9927f839b933977b1d30c9951a68b9289be8dbc0959c598a9c7cd684b",
+      "productVersion": "18.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll",
+      "sha256": "cf91f2a77d8dd79143d6c70bd506bbfc62aff49f46a8754169bd94264650cef1",
+      "productVersion": "5.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Roslyn/bincore/csc.dll",
+      "sha256": "03a90c0454a9320dc853796f40fb113f5d6bbbb4b0b0eee6ae012551dd056255",
+      "productVersion": "5.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../dotnet.exe",
+      "sha256": "07678ce60dd20ed36f1d25b88f6f51d8bf5a880442680a664690154ebe976ad9",
+      "productVersion": "11.0.0-rc.2.26504.105 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../host/fxr/11.0.0-rc.2.26504.105/hostfxr.dll",
+      "sha256": "38257cfcc1b6944871be9732a03632e3be945f3b5363363cb77cf92f5a68ef07",
+      "productVersion": "11.0.0-rc.2.26504.105 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/coreclr.dll",
+      "sha256": "013a0ddcf0751ee6880cb175bd2f95ff3f9aa8b82a37ae4d17ed63a647f14e4c",
+      "productVersion": "11,0,26,50505 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Runtime.dll",
+      "sha256": "b3c36c73aaa453d14cb7af2e8ae198a2a8715fc5eca59b3b8da300bff6c753d0",
+      "productVersion": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    }
+  ]
+}
