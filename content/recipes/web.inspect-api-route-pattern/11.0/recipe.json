@@ -1,0 +1,216 @@
+{
+  "id": "web.inspect-api-route-pattern",
+  "edition": "11.0",
+  "title": "Read parsed route contracts in an API explorer extension",
+  "goal": "Inspect discovered route parameters, defaults and policy declarations when building API explorer tooling; preserve optional and catch-all semantics without reparsing displayed URLs.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "api-explorer",
+    "route-pattern",
+    "marine-routes"
+  ],
+  "apis": [
+    "ApiDescription.RoutePattern",
+    "RoutePattern",
+    "IApiDescriptionGroupCollectionProvider",
+    "RoutePatternFactory.Parse",
+    "AddEndpointsApiExplorer"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Abstractions/src/ApiExplorer/ApiDescription.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ApiExplorer/src/DefaultApiDescriptionProvider.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ApiExplorer/src/EndpointMetadataApiDescriptionProvider.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0"
+        ],
+        "target": "11.0",
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "match": "release-family",
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "reason": "ApiDescription.RoutePattern is present in the ASP.NET Core 11 contract; the measured baseline is RC2, not GA."
+          },
+          "sdk": {
+            "match": "release-family",
+            "name": ".NET SDK",
+            "version": "11.0",
+            "reason": "Build net11.0 against the matching reference pack. Exact tested pins are reproduction baselines, not minimum patches."
+          },
+          "language": {
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0",
+            "reason": "Tested mode; this extension uses no C#15-only syntax. The comparison is C#14."
+          },
+          "frameworks": [
+            "ASP.NET Core MVC ApiExplorer",
+            "ASP.NET Core Minimal APIs",
+            "Kestrel"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App framework reference; ApiDescription is in Mvc.Abstractions, discovery in Mvc.ApiExplorer and parsed types in Routing. No NuGet libraries or native assets restored."
+          ],
+          "workloads": [],
+          "providers": [
+            "Built-in MVC DefaultApiDescriptionProvider for visible attribute-routed controllers; built-in EndpointMetadataApiDescriptionProvider registered by AddEndpointsApiExplorer for described Minimal API handlers. Other providers may leave RoutePattern null."
+          ],
+          "platforms": [
+            "ASP.NET Core supported server platforms; execution evidence covers Windows x64 only"
+          ],
+          "renderingModes": [
+            "Server HTTP routing and API discovery; no browser or Blazor rendering requirement"
+          ],
+          "prerequisites": [
+            "Register AddControllers and AddEndpointsApiExplorer, map controllers and Minimal handlers, then obtain IApiDescriptionGroupCollectionProvider after endpoint initialization. Copy every standalone file below, including isolation files and SDK pins."
+          ],
+          "constraints": [
+            "Do not reconstruct the new nullable RoutePattern from RelativePath: displayed paths are provider-dependent and MVC loses constraints. Null means unavailable, not a literal route with no parameters.",
+            "ParameterPolicies reports declarations or object types; it does not evaluate policies, prove authorization, validate input or guarantee matches. Matching also depends on HTTP methods, binding, other endpoints and application middleware.",
+            "The .NET10 comparison reparses MVC attribute templates and bounded provider-dependent Minimal RelativePath; it is not a backport. Arbitrary custom or legacy descriptions can be incomplete or malformed. No older-target parsed-property route is supported.",
+            "No OpenAPI document generation/transformer, conventional-controller discovery guarantee, third-party provider, trimming, NativeAOT or deployment claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "No ExperimentalAttribute on the actual property. Stable API designation with exact RC2 proof; actual-GA reconciliation PIN-964, comprehensive coverage PIN-959 and existing Human gates remain open."
+          ]
+        },
+        "selectionNotes": [
+          "Consume the nullable parsed property on .NET11. The tested .NET10 template-parsing workaround is comparison-only; no ninth foundation or older-target property backport."
+        ],
+        "neutralLanguages": [],
+        "usage": "primary",
+        "sharedAreas": [],
+        "evidenceSamples": [
+          "samples/net11.0/MarineRoutes/MarineRoutes.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Nullable parsed ApiDescription contract (pinned official RC2 source)",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Abstractions/src/ApiExplorer/ApiDescription.cs"
+    },
+    {
+      "title": "Built-in MVC discovery and displayed-path normalization",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ApiExplorer/src/DefaultApiDescriptionProvider.cs"
+    },
+    {
+      "title": "Built-in Minimal API discovery retains the endpoint pattern",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.ApiExplorer/src/EndpointMetadataApiDescriptionProvider.cs"
+    },
+    {
+      "title": "ASP.NET Core routing constraints, defaults, optional and catch-all parameters",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual built-in MVC and Minimal discovery (eight routes), authored extension invocation, constraints/defaults/optional/catch-all and lossy displayed-path/null controls; 18 real loopback HTTP success/404 checks and route-value comparisons. Records identify compiler, audited reference hashes and loaded runtime artifacts. Windows x64, no package/native dependencies, no GA or universal-provider proof.",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/MarineRoutes/MarineRoutes.csproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual built-in MVC and Minimal discovery (eight routes), authored extension invocation, constraints/defaults/optional/catch-all and lossy displayed-path/null controls; 18 real loopback HTTP success/404 checks and route-value comparisons. Records identify compiler, audited reference hashes and loaded runtime artifacts. Windows x64, no package/native dependencies, no GA or universal-provider proof.",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/MarineRoutes/MarineRoutes.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/MarineRoutes/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-marineroutes-csproj": {
+      "path": "samples/net10.0/MarineRoutes/MarineRoutes.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MarineRoutes/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MarineRoutes/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MarineRoutes/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MarineRoutes/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-marineexplorer-cs": {
+      "path": "samples/net10.0/MarineRoutes/MarineExplorer.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MarineRoutes/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-marineroutes-csproj": {
+      "path": "samples/net11.0/MarineRoutes/MarineRoutes.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MarineRoutes/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MarineRoutes/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MarineRoutes/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MarineRoutes/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-marineexplorer-cs": {
+      "path": "samples/net11.0/MarineRoutes/MarineExplorer.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real managed local MVC and Minimal HTTP consumers need no owner account, device or Human action. Actual GA and unrelated Human gates remain separate."
+  }
+}

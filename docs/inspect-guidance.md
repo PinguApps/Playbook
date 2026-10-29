@@ -718,3 +718,31 @@ not a stable application setting. Binlogs/full generated artifacts are retained
 under ignored `artifacts/exhibit-compiler`. No older-target hosted, browser,
 native, arbitrary IDE or actual-GA proof is claimed. The helper retains its
 unique temporary local install/feed for inspection and preserves PATH/settings.
+
+## Parsed API explorer route contracts
+
+This tested block builds/packs the ordinary tool and installs that exact artifact
+through the existing isolated local-feed/cache harness. Real installed stdio
+list/get runs from an unrelated temporary directory and displays ID/title/goal,
+complete canonical Markdown, target/edition, applicability and both current
+compilation/execution records. Setup requires PowerShell7, SDK10.0.402 and
+Node22.19+ and can restore online. Retrieval uses unusable proxies: this proves
+proxy independence, not network isolation. No global tool or PATH change occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1173-04-098-read-parsed-route-contracts-in-an-api-explorer'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'web.inspect-api-route-pattern' -Query 'route-pattern' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1173' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1173/inspection
+```
+
+Expect "Read parsed route contracts in an API explorer extension", edition11.0,
+target11.0, complete .NET10/11 MarineRoutes files and fresh evidence. Each actual
+consumer discovers eight MVC/Minimal routes and checks constraints/defaults/
+optional/catch-all, nullable/legacy controls and 18 real HTTP outcomes. .NET10
+retains bounded source-template parsing; the new parsed property is unavailable
+there. Other providers can leave it null. No native/browser matrix, universal
+provider support or actual-GA claim; PIN-959/PIN-964 and Human gates stay open.

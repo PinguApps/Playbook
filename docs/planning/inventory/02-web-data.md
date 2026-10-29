@@ -1,5 +1,16 @@
 # Web and data authoring inventory
 
+**W03 / PIN-1173** supplies `web.inspect-api-route-pattern/11.0`: original
+marine archive extension over actual MVC and Minimal API discovery, parsed
+constraints/defaults/optional/catch-all and real matching/nonmatching requests.
+The .NET10 comparison parses MVC's source attribute template and bounded Minimal
+display text; normalized MVC display paths cannot recover discarded constraints.
+The new property is nullable and other providers need independent qualification.
+Matching audited reference bytes, loaded runtime/compiler identities and current
+sample evidence remain separate from installed offline retrieval. No package
+backport, native/OS matrix or ninth foundation; PIN-959/PIN-964 and Human gates
+remain open. See [W03](../audits/web.md#w03-read-parsed-route-contracts-in-an-api-explorer-extension--m-3).
+
 **W02 / PIN-1172** supplies `web.supply-origin-protection-policy/11.0`: original
 botanical exchange token+origin (.NET10) and custom ICsrfProtection (.NET11 RC2)
 consumers, actual DI/handler invocation and Chrome156 same-origin/site/cross-site,

@@ -93,8 +93,8 @@
     {
       "id": "route-pattern",
       "pattern": " Microsoft\\.AspNetCore\\.Mvc\\.ApiExplorer\\.ApiDescription::.*RoutePattern",
-      "owner": "W03",
-      "disposition": "included"
+      "owner": "W03 / PIN-1173; web.inspect-api-route-pattern/11.0",
+      "disposition": "delivered; actual MVC and Minimal discovery, nullable parsed extension, constraints/defaults/optional/catch-all and 18 real HTTP matching/nonmatching checks per target. .NET10 retains MVC source-template parsing and bounded Minimal display fallback; no parsed-property backport or universal-provider/GA claim. PIN-959/PIN-964 remain open."
     },
     {
       "id": "api-description-nullability",

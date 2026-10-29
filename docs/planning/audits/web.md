@@ -281,6 +281,27 @@ real browser controls and installed guidance.
 
 ### W03. Read parsed route contracts in an API explorer extension — M (3)
 
+Delivered by **PIN-1173** as `web.inspect-api-route-pattern/11.0`. Original
+MarineRoutes consumers use actual MVC and Minimal API discovery, invoke the
+extension on eight discovered routes and compare parsed constraints, defaults,
+optional/catch-all flags with 18 real HTTP matching/nonmatching requests per
+target. A handcrafted description is only a nullable/legacy control. The actual
+.NET10 artifact lacks the property; its valid comparison parses MVC's source
+attribute template and the demonstrated Minimal provider's display text. Parsing
+normalized MVC display text loses constraints. .NET11 consumes the nullable
+property directly and never silently reparses a null description's display path.
+
+SDK10.0.402/framework10.0.13 and SDK11.0.100-rc.2.26504.105/framework11 RC2
+compile and run independently. Saved records retain Roslyn and loaded runtime
+identities and assert Mvc.Abstractions/Mvc.ApiExplorer/Routing reference hashes
+against this audit. Both consumers resolve no NuGet libraries or native assets.
+Only the built-in attribute-routed MVC and described Minimal providers are
+qualified; other providers can leave RoutePattern null. Installed ordinary-tool
+inspection verifies complete canonical offline guidance and unsupported-target
+behavior. M3 retains real provider/routing integration and the older workaround.
+The exact eight .NET10 foundations, stable identities, PIN-959/PIN-964 and
+actual-GA/Human gates remain unchanged.
+
 Story: A tool author wants to understand a marine archive's routes without
 re-parsing displayed URLs so that optional values and constraints stay accurate.
 Proposed `web.inspect-api-route-pattern`. Prerequisites: MVC/Minimal API explorer
