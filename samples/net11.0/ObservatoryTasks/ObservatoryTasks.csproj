@@ -3,13 +3,16 @@
   <PropertyGroup>
     <TargetFramework>net11.0</TargetFramework>
     <LangVersion>15.0</LangVersion>
-    <DefineConstants>$(DefineConstants);TYPED_TASKS</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
     <Reference Include="Microsoft.Build.Utilities.Core" HintPath="$(MSBuildBinPath)/Microsoft.Build.Utilities.Core.dll" Private="false" />
   </ItemGroup>
 <!-- endsnippet:settings -->
+  <PropertyGroup>
+    <!-- Select the repository proof harness, outside the consumer settings. -->
+    <DefineConstants>$(DefineConstants);TYPED_TASKS</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="Measure.proj" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../../ObservatoryTaskProof/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />

@@ -37,7 +37,7 @@
           "prerequisites": [
             "Use the exact SDK global.json pin with rollForward=disable and allowPrerelease=true; inspect effective shared build/package configuration.",
             "Use trusted project inputs, absolute task assembly paths and separate report directories per project. No optional native tools or device are needed.",
-            "PowerShell 7 for repository capture/inspection; SDK 10.0.402 with .NET 10.0.13 is additionally required to reproduce the older comparison."
+            "PowerShell 7 for repository capture/inspection; SDK 10.0.402 with .NET 10.0.13 is additionally required to reproduce the older comparison. Build/run the net10.0 sample before the net11.0 proof, which loads the older compatibility DLL."
           ],
           "constraints": [
             "No down-level generic-item route, independent NuGet replacement, Visual Studio/.NET Framework MSBuild.exe or NativeAOT compatibility is claimed.",
@@ -67,7 +67,7 @@
   ],
   "evidence": [
     {"kind": "compile-and-run", "sample": "samples/net10.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net10.0", "sdk": "10.0.402", "language": "14.0", "scope": "Actual SDK10 explicit-path task: ordinary and -mt sidecar project builds, inputs/content/output metadata, unchanged task process state, missing-file failure and parameterless construction of the compatibility binary. Exact MSBuild/compiler/ref/native-host hashes checked. No older generic-item support is claimed."},
-    {"kind": "compile-and-run", "sample": "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net11.0", "sdk": "11.0.100-rc.2.26504.105", "language": "15.0", "scope": "Actual SDK11 typed binding and output metadata, ordinary and actual -mt same-process/different-thread rendezvous, project paths, configured/absent defaults and explicit override, full task process state equality, canonical production XML execution and missing-file failure. The same SDK10 compatibility DLL selects its injected constructor here. Exact MSBuild/compiler/ref/native-host hashes checked. Windows x64 RC2; no server reuse, performance or actual-GA claim."}
+    {"kind": "compile-and-run", "sample": "samples/net11.0/ObservatoryTasks/ObservatoryTasks.csproj", "target": "net11.0", "sdk": "11.0.100-rc.2.26504.105", "language": "15.0", "scope": "Actual SDK11 typed binding and output metadata, ordinary and actual -mt same-process/different-thread rendezvous, project paths, configured/absent defaults and explicit override, full process state equality across Execute(), canonical production XML execution and missing-file failure. The same SDK10 compatibility DLL selects its injected constructor here. Exact MSBuild/compiler/ref/native-host hashes checked. Windows x64 RC2; no server reuse, performance or actual-GA claim."}
   ],
   "snippets": {
     "legacy": {"path": "samples/net10.0/ObservatoryTasks/SummarizeExposures.cs", "region": "legacy", "language": "csharp"},

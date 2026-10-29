@@ -34,8 +34,8 @@ arbitrary MSBuild versions are outside the measured Windows x64 route.
 
 The sample artifact pins reconcile all three MSBuild DLLs against the source
 audit's exact hashes and VMR commits: older `a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e`,
-newer `820230c386db5b0106c5430b3e5aee92a7826bf5`. Fresh evidence also records and
-checks SHA-256/product versions for Roslyn/csc (5.9 versus 5.12), System.Runtime
+newer `820230c386db5b0106c5430b3e5aee92a7826bf5`. Fresh evidence also checks
+SHA-256 and records product versions for Roslyn/csc (5.9 versus 5.12), System.Runtime
 reference assembly, dotnet.exe, hostfxr and CoreCLR. Those identities are measured
 artifacts, separate from the prerequisites above. The resolved package closure is
 empty. Neither API metadata nor these hashes alone prove binding or concurrency.
@@ -134,7 +134,8 @@ host and target requirements.
    metadata returned through `<Output>`. Confirm different task threads overlap
    in the **same process**, rather than counting parallel child processes as
    multithread proof. Check complete process environment/CWD before and after
-   task execution. Under current strict mode, the process CWD may be a sentinel;
+   `Execute()`. Constructor defaults are also exercised, but this snapshot does
+   not monitor the construction/binding phase. Under current strict mode, the process CWD may be a sentinel;
    it is deliberately different from `TaskEnvironment.ProjectDirectory`.
 7. Exercise absent/configured environment defaults, the explicit output override,
    ordinary-host execution and missing files. Absolute/typed binding does not
@@ -157,11 +158,13 @@ The saved compile-and-run records use the existing sample-evidence workflow.
 The executable harness creates two actual project files in a disposable tree,
 drives real MSBuild processes, checks content and metadata round-trips, then
 deletes its files. Its separate checked subclass rendezvous proves two in-process
-tasks overlap and asserts full process-environment/CWD equality; the production
+tasks overlap and asserts full process-environment/CWD equality across `Execute()`; the production
 class and canonical XML are also executed directly. SDK 10's `-mt` control keeps
 the unannotated task in sidecars. Missing input is a real failing build on both
 hosts, not a synthetic binder call. The same net10 compatibility DLL hash is
-recorded by both constructor checks.
+recorded by both constructor checks. Build/run the net10.0 sample first: the
+net11.0 proof intentionally loads that existing compatibility DLL. The reproduction
+commands in the inspection walkthrough preserve this ordering.
 
 No native/device/Human action is required for this bounded managed task goal.
 PIN-959's comprehensive evidence gate, PIN-963/actual-GA reconciliation and all
