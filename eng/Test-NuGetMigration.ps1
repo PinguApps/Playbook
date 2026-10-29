@@ -267,4 +267,3 @@ finally {
   }
   Write-Host "NuGet migration scratch: $scratch"
 }
-
