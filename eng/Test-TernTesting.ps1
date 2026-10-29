@@ -57,7 +57,7 @@ function Write-Lf([string]$Path,[string]$Content) { [IO.File]::WriteAllText($Pat
 
 try {
   $cases = @(
-    @{Path='TernLegacy';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Dotnet=$Net10Dotnet},
+    @{Path='TernTesting';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.7.0';Dotnet=$Net10Dotnet},
     @{Path='net10.0/TernHost';Target='net10.0';Sdk='10.0.402';Language='14.0';Version='18.11.0';Dotnet=$Net10Dotnet},
     @{Path='net11.0/TernHost';Target='net11.0';Sdk='11.0.100-rc.2.26504.105';Language='15.0';Version='18.11.0';Dotnet=$Net11Dotnet}
   )
@@ -145,6 +145,14 @@ try {
 
     # Real custom MSBuild task invocation. Parse its real TRX; no runner-selection changes.
     $task = Join-Path $cache "microsoft.testplatform.build/$($case.Version)/lib/netstandard2.0/Microsoft.TestPlatform.Build.dll"
+    $acquisition = Join-Path $scratch ("acquire-" + $case.Path.Replace('/','-'))
+    $null = New-Item -ItemType Directory $acquisition
+    Copy-Item (Join-Path $root 'samples/TernTesting/Acquire.csproj.txt') "$acquisition/Acquire.csproj"
+    foreach ($boundary in 'Directory.Build.props','Directory.Build.targets','Directory.Packages.props') {
+      '<Project />' | Set-Content (Join-Path $acquisition $boundary)
+    }
+    Copy-Item (Join-Path $root 'samples/net10.0/TernHost/global.json') $acquisition
+    $null = Invoke-Consumer $Net10Dotnet $acquisition @('restore','Acquire.csproj',"-p:TernPlatformVersion=$($case.Version)")
     $results = Join-Path $scratch ("settings-" + $case.Path.Replace('/','-'))
     $arguments = @('msbuild',(Join-Path $root 'samples/TernTesting/RunTests.proj'),'-t:Check',"-p:TernTaskAssembly=$task","-p:TernTests=$testDll","-p:TernConsole=$console","-p:TernAdapterDirectory=$(Split-Path $testDll)","-p:TernResults=$results")
     $output = Invoke-Consumer $case.Dotnet $directory $arguments
@@ -183,6 +191,9 @@ try {
       if (-not $old -and $output -notmatch 'error CS(0246|1061|0200|0029)') { throw 'Unexpected old-contract compiler failure.' }
       $log.Add("PASS old-contract=$($control.Key);package=$($case.Version);exit=$expected")
     }
+    $contract = Get-Content (Join-Path $root 'samples/TernTesting/TaskContract.cs') -Raw
+    Write-Lf "$probe/Probe.cs" $contract
+    $null = Invoke-Consumer $case.Dotnet $probe @('build','Probe.csproj','-c','Release',$(if ($old) { '-p:DefineConstants=LEGACY_PLATFORM' } else { '-p:DefineConstants=TERN_CURRENT' }))
     # The old resolver setter exists in the audited SDK binary, not public package18.7.
     $probeProject = Get-Content "$probe/Probe.csproj" -Raw
     if ($old) {
@@ -208,14 +219,10 @@ try {
     if ($old) { Assert-Text $boundaryOutput 'Passed' }
     else {
       if ($boundaryOutput -notmatch '(invalid|Invalid|semicolon|Test Run Failed|runsettings)') { throw 'Expected visible semicolon boundary failure.' }
-      $xmlSettings = Join-Path $scratch 'literal-semicolon.runsettings'
-      Write-Lf $xmlSettings '<RunSettings><Tern><Harbour>North Quay</Harbour><Pattern>^Tern\.Bay/West=13$</Pattern><Literal>--listTests=not a switch</Literal><RejectSemicolon>east;west</RejectSemicolon></Tern></RunSettings>'
-      $xmlProject = Join-Path $scratch ("xml-" + $case.Path.Replace('/','-') + '.proj')
-      Write-Lf $xmlProject "<Project><Import Project=`"$taskProject`" /><PropertyGroup><TernCliSettings></TernCliSettings></PropertyGroup></Project>"
+      $xmlProject = Join-Path $root 'samples/TernTesting/XmlTests.proj'
       $xmlArguments = $arguments.Clone()
       $xmlArguments[1] = $xmlProject
       $xmlArguments[-1] = "-p:TernResults=$results-xml"
-      $xmlArguments += "-p:TernSettingsFile=$xmlSettings"
       $null = Invoke-Consumer $case.Dotnet $directory $xmlArguments
       [xml]$xmlTrx = Get-Content "$results-xml/settings.trx" -Raw
       if ($xmlTrx.TestRun.ResultSummary.Counters.passed -ne '1') { throw 'XML semicolon alternative did not pass.' }

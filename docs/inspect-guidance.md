@@ -6,6 +6,58 @@ Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup
 
 ## Read a recipe
 
+### VSTest host, resolver and custom task migrations
+
+This block was exercised from an unrelated directory. Prerequisites: PowerShell7,
+the two exact SDK/runtime installations below, Node22.19+ and public NuGet access
+for setup. The first command captures the real old/current platform consumers,
+compiler controls, test counts/cancellation/cleanup, extension loading and effective
+settings, including the scalar semicolon failure and XML alternative. It preserves
+process/user/machine PATH and uses isolated homes/caches.
+
+The Inspector then builds/packs the ordinary tool, installs that exact artifact
+through a fresh local-only feed/cache and calls real installed stdio list/get from
+an unrelated directory. Both targets are explicit. It displays ID/title/**goal**,
+complete canonical Markdown, edition11, applicability and current sample evidence;
+target10 is a separately executed conditional public-package route. Unusable
+proxies qualify proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d4b8d1f7'
+& ./eng/Test-TernTesting.ps1 `
+  -Net10Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' -Record
+$recipes = @(
+  'testing.migrate-vstest-session-host',
+  'testing.migrate-assembly-resolution-context',
+  'testing.pass-custom-task-runsettings'
+)
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId $recipes -Query 'tern-testing' -TargetVersion '11.0' `
+  -PackageVersion '0.0.0-pin1128-vstest' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/tern-testing/inspection11
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId $recipes -Query 'tern-testing' -TargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1128-vstest' `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/tern-testing/inspection10
+```
+
+Expect four distinct discoveries; each ordinary/post-cancel host run has two
+passes and one deliberate failure, cancellation has zero results, and observed
+owned testhosts exit. Actual plugin resolution returns west:13 with its real
+requestor, while the platform's .NET ALC path has a null requestor. Each custom
+task selects/passes exactly one settings test with spaces, backslashes, separators
+and switch-looking values unchanged. Old escaped literal semicolons survive;
+the current scalar rejects them and its XML-file alternative passes.
+
+The resolver's old setter belongs to the audited SDK10 binary, **not** public18.7;
+public18.9 already has the constructor. The current package consumer works on10/11.
+No pooled-lifetime equivalence, MTP drop-in, general plugin security, VSTestTask2
+runtime, Unix backslash behavior, arbitrary adapters/collectors or actual-GA claim
+is made. PIN-959/PIN-963/Human gates and all eight foundations remain open.
+
 The following example was checked from an unrelated directory. Change `-RecipeId` and `-TargetVersion` for the affected guidance; both list and get receive the same explicit target.
 
 ```powershell

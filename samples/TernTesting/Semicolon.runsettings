@@ -1,0 +1,8 @@
+<!-- snippet:xml-settings -->
+<RunSettings>
+  <Tern>
+    <Harbour>North Quay</Harbour><Pattern>^Tern\.Bay/West=13$</Pattern>
+    <Literal>--listTests=not a switch</Literal><RejectSemicolon>east;west</RejectSemicolon>
+  </Tern>
+</RunSettings>
+<!-- endsnippet:xml-settings -->

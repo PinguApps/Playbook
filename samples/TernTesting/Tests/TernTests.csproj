@@ -7,7 +7,7 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
   <ItemGroup><PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <Compile Include="../../TernTesting/TernTests.cs" Link="TernTests.cs" />
+    <Compile Include="../TernTests.cs" Link="TernTests.cs" />
   </ItemGroup>
 </Project>
 <!-- endsnippet:tests-project -->

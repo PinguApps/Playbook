@@ -11,7 +11,7 @@
     <PackageReference Include="Microsoft.TestPlatform.TestHost" />
     <PackageReference Include="Microsoft.TestPlatform.CLI" ExcludeAssets="all" GeneratePathProperty="true" />
     <PackageReference Include="Microsoft.TestPlatform.Build" ExcludeAssets="all" GeneratePathProperty="true" />
-    <Compile Include="../TernTesting/Host.cs" Link="Host.cs" />
+    <Compile Include="Host.cs" Link="Host.cs" />
   </ItemGroup>
 </Project>
 <!-- endsnippet:project -->

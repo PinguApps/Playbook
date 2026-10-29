@@ -6,7 +6,7 @@
   <DefineConstants>$(DefineConstants);LEGACY_PLATFORM</DefineConstants>
 </PropertyGroup><ItemGroup>
   <Reference Include="Microsoft.TestPlatform.PlatformAbstractions"><HintPath>$(MSBuildBinPath)/Microsoft.TestPlatform.PlatformAbstractions.dll</HintPath></Reference>
-  <Compile Include="../../TernTesting/ResolverChecks.cs" Link="ResolverChecks.cs" />
-  <Compile Include="../../TernTesting/ResolverProgram.cs" Link="ResolverProgram.cs" />
+  <Compile Include="../ResolverChecks.cs" Link="ResolverChecks.cs" />
+  <Compile Include="../ResolverProgram.cs" Link="ResolverProgram.cs" />
 </ItemGroup></Project>
 <!-- endsnippet:resolver-project -->

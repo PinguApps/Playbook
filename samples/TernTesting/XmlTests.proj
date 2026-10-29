@@ -1,0 +1,9 @@
+<!-- snippet:xml-task -->
+<Project>
+  <Import Project="RunTests.proj" />
+  <PropertyGroup>
+    <TernCliSettings></TernCliSettings>
+    <TernSettingsFile>$(MSBuildThisFileDirectory)Semicolon.runsettings</TernSettingsFile>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:xml-task -->

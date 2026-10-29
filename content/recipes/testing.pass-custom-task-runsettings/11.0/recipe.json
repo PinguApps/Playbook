@@ -1,0 +1,383 @@
+{
+  "id": "testing.pass-custom-task-runsettings",
+  "edition": "11.0",
+  "title": "Pass custom VSTest runsettings through the current task contract",
+  "goal": "Pass scalar CLI settings through a custom VSTest task invocation without changing spaces, backslashes or switch-looking values; use an XML settings file when a value contains a semicolon.",
+  "areas": [
+    "testing",
+    "sdk",
+    "nuget"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tern-testing",
+    "vstest-migration",
+    "settings"
+  ],
+  "apis": [
+    "VSTestTask.VSTestCLIRunSettings",
+    "VSTestTask.VSTestSetting"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [],
+        "selectionNotes": [
+          "Package acquisition is separate from SDK/runtime releases and artifact identity.",
+          "Current packages actually compile/run on .NET10; this conditional route adds no foundation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Observed Windows x64 runtime 10.0.13 or runtime 11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual sample SDK 10.0.402 and SDK 11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared C# 14/15 baseline; the typed contract does not require a new language feature."
+          },
+          "frameworks": [
+            "Framework-dependent Microsoft.NET.Sdk C# consumer; custom original VSTest adapter and matching public platform closure."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.NET.Test.Sdk",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Qualified public package; actual closure is locked independently from SDK version."
+            },
+            {
+              "name": "Microsoft.TestPlatform.CLI",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Qualified public package; actual closure is locked independently from SDK version."
+            },
+            {
+              "name": "Microsoft.TestPlatform.Build",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Qualified public package; actual closure is locked independently from SDK version."
+            }
+          ],
+          "packageAssets": [
+            "TranslationLayer/TestHost/ObjectModel18.7/18.11 compile/runtime assets are measured during restore; CLI18.7/18.11 supplies a complete net10.0 contentFiles console, Build is lib/netstandard2.0.",
+            "SDK10 PlatformAbstractions product18.7.0-release-26505-111 is different from public18.7.0: only the audited SDK copy has mutable RequestingAssembly. Public18.9 already has the constructor.",
+            "Public source commits: 6f58ced50b40e074a07ffc21fb2d2eef95d31b60 (18.7), 36206450d47fec22e281ba9846445edc796f5080 (18.11). SDK11's 18.11.0-release-26504-105 is separate, not byte-equal."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 real local execution; other OS/architectures, Framework/older targets unqualified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "PowerShell7; exact sample SDK10.0.402/runtime10.0.13 and SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105; public NuGet restore; no workload, native compiler, credentials, service or device.",
+            "Isolate samples from root central packages; retain generated locks and use locked restore. Use absolute dotnet executables and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 for isolated CLI homes."
+          ],
+          "constraints": [
+            "Original adapter executes arithmetic assertions, deliberate failure, settings and readiness-signaled cancellation through real VSTest; it is a teaching adapter, not a platform mock.",
+            "StartSession/EndSession own the documented console connection, distinct from removed StartTestSession/StopTestSession/ITestSession and pooled testhost lifetime.",
+            "Legacy resolver pins the audited SDK10 DLL; current resolver uses the actual public package. No nonexistent public18.7 RequestingAssembly route or independent stable SDK-embedding promise.",
+            "The real AppDomain bridge preserves its requesting plugin. Actual .NET PlatformAssemblyResolver uses ALC.Resolving and supplies null; Framework behavior is not inferred.",
+            "Current scalar CLI settings split on semicolons/newlines after MSBuild unescaping. For literal semicolons use VSTestSetting and an XML file, a different input contract.",
+            "No MTP drop-in, pooled lifetime/performance equivalence, arbitrary adapter/collector compatibility, JSON migration, general plugin security, Unix backslash, remote, trimming or NativeAOT claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public18.11 packages are stable; .NET11 SDK/runtime proof is RC2. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
+            "PIN-959 coverage/evidence, PIN-963 actual-GA reconciliation and Human gates remain open; preserve the exact eight .NET10 foundations."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/README.md",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/VsTestConsoleWrapper.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/Interfaces/Runtime/IAssemblyResolver.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/netcore/Runtime/PlatformAssemblyResolver.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.Build/Tasks/TestTaskUtils.cs",
+          "https://www.nuget.org/packages/Microsoft.TestPlatform.CLI/18.11.0",
+          "https://www.nuget.org/packages/Microsoft.TestPlatform.TranslationLayer/18.11.0",
+          "https://www.nuget.org/packages/Microsoft.TestPlatform.Build/18.11.0",
+          "https://github.com/dotnet/dotnet/tree/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TernHost/Tests/TernTests.csproj"
+        ]
+      },
+      {
+        "target": "10.0",
+        "conditional": true,
+        "usage": "optional-alternative",
+        "sharedAreas": [],
+        "selectionNotes": [
+          "Package acquisition is separate from SDK/runtime releases and artifact identity.",
+          "Current packages actually compile/run on .NET10; this conditional route adds no foundation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Observed Windows x64 runtime 10.0.13 or runtime 11.0.0-rc.2.26504.105, separately from SDK/compiler selection."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Actual sample SDK 10.0.402 and SDK 11.0.100-rc.2.26504.105; compiler versions recorded by executing their real csc.dll."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Declared C# 14/15 baseline; the typed contract does not require a new language feature."
+          },
+          "frameworks": [
+            "Framework-dependent Microsoft.NET.Sdk C# consumer; custom original VSTest adapter and matching public platform closure."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.NET.Test.Sdk",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Qualified public package; actual closure is locked independently from SDK version."
+            },
+            {
+              "name": "Microsoft.TestPlatform.CLI",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Qualified public package; actual closure is locked independently from SDK version."
+            },
+            {
+              "name": "Microsoft.TestPlatform.Build",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Qualified public package; actual closure is locked independently from SDK version."
+            }
+          ],
+          "packageAssets": [
+            "TranslationLayer/TestHost/ObjectModel18.7/18.11 compile/runtime assets are measured during restore; CLI18.7/18.11 supplies a complete net10.0 contentFiles console, Build is lib/netstandard2.0.",
+            "SDK10 PlatformAbstractions product18.7.0-release-26505-111 is different from public18.7.0: only the audited SDK copy has mutable RequestingAssembly. Public18.9 already has the constructor.",
+            "Public source commits: 6f58ced50b40e074a07ffc21fb2d2eef95d31b60 (18.7), 36206450d47fec22e281ba9846445edc796f5080 (18.11). SDK11's 18.11.0-release-26504-105 is separate, not byte-equal."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 real local execution; other OS/architectures, Framework/older targets unqualified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "PowerShell7; exact sample SDK10.0.402/runtime10.0.13 and SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105; public NuGet restore; no workload, native compiler, credentials, service or device.",
+            "Isolate samples from root central packages; retain generated locks and use locked restore. Use absolute dotnet executables and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 for isolated CLI homes."
+          ],
+          "constraints": [
+            "Original adapter executes arithmetic assertions, deliberate failure, settings and readiness-signaled cancellation through real VSTest; it is a teaching adapter, not a platform mock.",
+            "StartSession/EndSession own the documented console connection, distinct from removed StartTestSession/StopTestSession/ITestSession and pooled testhost lifetime.",
+            "Legacy resolver pins the audited SDK10 DLL; current resolver uses the actual public package. No nonexistent public18.7 RequestingAssembly route or independent stable SDK-embedding promise.",
+            "The real AppDomain bridge preserves its requesting plugin. Actual .NET PlatformAssemblyResolver uses ALC.Resolving and supplies null; Framework behavior is not inferred.",
+            "Current scalar CLI settings split on semicolons/newlines after MSBuild unescaping. For literal semicolons use VSTestSetting and an XML file, a different input contract.",
+            "No MTP drop-in, pooled lifetime/performance equivalence, arbitrary adapter/collector compatibility, JSON migration, general plugin security, Unix backslash, remote, trimming or NativeAOT claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public18.11 packages are stable; .NET11 SDK/runtime proof is RC2. No experimental opt-in is required for the current route; removed old pooling was unfinished/obsolete.",
+            "PIN-959 coverage/evidence, PIN-963 actual-GA reconciliation and Human gates remain open; preserve the exact eight .NET10 foundations."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/README.md",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/VsTestConsoleWrapper.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/Interfaces/Runtime/IAssemblyResolver.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/netcore/Runtime/PlatformAssemblyResolver.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.Build/Tasks/TestTaskUtils.cs",
+          "https://www.nuget.org/packages/Microsoft.TestPlatform.CLI/18.11.0",
+          "https://www.nuget.org/packages/Microsoft.TestPlatform.TranslationLayer/18.11.0",
+          "https://www.nuget.org/packages/Microsoft.TestPlatform.Build/18.11.0",
+          "https://github.com/dotnet/dotnet/tree/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e",
+          "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/TernHost/Tests/TernTests.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Publisher TranslationLayer custom discovery/execution contract",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/README.md"
+    },
+    {
+      "title": "Current public console protocol wrapper",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.VsTestConsole.TranslationLayer/VsTestConsoleWrapper.cs"
+    },
+    {
+      "title": "Current resolver event construction and requestor contract",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/Interfaces/Runtime/IAssemblyResolver.cs"
+    },
+    {
+      "title": "Actual .NET resolver has no requesting assembly",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.PlatformAbstractions/netcore/Runtime/PlatformAssemblyResolver.cs"
+    },
+    {
+      "title": "Current task quoting and explicit semicolon limitation",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.Build/Tasks/TestTaskUtils.cs"
+    },
+    {
+      "title": "Public independently distributed console package",
+      "url": "https://www.nuget.org/packages/Microsoft.TestPlatform.CLI/18.11.0"
+    },
+    {
+      "title": "Public translation-layer package",
+      "url": "https://www.nuget.org/packages/Microsoft.TestPlatform.TranslationLayer/18.11.0"
+    },
+    {
+      "title": "Public test task package",
+      "url": "https://www.nuget.org/packages/Microsoft.TestPlatform.Build/18.11.0"
+    },
+    {
+      "title": "SDK source baseline audited for actual compiler/tooling contracts",
+      "url": "https://github.com/dotnet/dotnet/tree/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "title": "Locked NuGet restore",
+      "url": "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/TernTesting/TernHost.csproj",
+      "sdk": "10.0.402",
+      "scope": "Actual legacy public platform host and complete canonical-source fixture; the same qualification invokes real resolver/plugin and custom-task checks.",
+      "target": "net10.0",
+      "language": "14.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/TernTesting/Tests/TernTests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real old/current platform consumers with locked artifacts; Test-TernTesting.ps1 verifies removed-contract compilation, discovery/results/cancel/cleanup, real plugin dependency resolution and effective settings/semicolon boundaries."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/TernHost/Tests/TernTests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real old/current platform consumers with locked artifacts; Test-TernTesting.ps1 verifies removed-contract compilation, discovery/results/cancel/cleanup, real plugin dependency resolution and effective settings/semicolon boundaries."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/TernHost/Tests/TernTests.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real old/current platform consumers with locked artifacts; Test-TernTesting.ps1 verifies removed-contract compilation, discovery/results/cancel/cleanup, real plugin dependency resolution and effective settings/semicolon boundaries."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/TernHost/TernHost.csproj",
+      "sdk": "10.0.402",
+      "scope": "Real current platform host and canonical package boundary, executed together with the declared resolver/task consumers by Test-TernTesting.ps1.",
+      "target": "net10.0",
+      "language": "14.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/TernHost/TernHost.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real current platform host and canonical package boundary, executed together with the declared resolver/task consumers by Test-TernTesting.ps1.",
+      "target": "net11.0",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "old-packages": {
+      "path": "samples/TernTesting/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "old-tests": {
+      "path": "samples/TernTesting/Tests/TernTests.csproj",
+      "region": "tests-project",
+      "language": "xml"
+    },
+    "current10-packages": {
+      "path": "samples/net10.0/TernHost/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "current10-tests": {
+      "path": "samples/net10.0/TernHost/Tests/TernTests.csproj",
+      "region": "tests-project",
+      "language": "xml"
+    },
+    "new-packages": {
+      "path": "samples/net11.0/TernHost/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "new-tests": {
+      "path": "samples/net11.0/TernHost/Tests/TernTests.csproj",
+      "region": "tests-project",
+      "language": "xml"
+    },
+    "adapter": {
+      "path": "samples/TernTesting/TernTests.cs",
+      "region": "adapter",
+      "language": "csharp"
+    },
+    "task": {
+      "path": "samples/TernTesting/RunTests.proj",
+      "region": "task",
+      "language": "xml"
+    },
+    "task-contract": {
+      "path": "samples/TernTesting/TaskContract.cs",
+      "region": "task-contract",
+      "language": "csharp"
+    },
+    "acquire": {
+      "path": "samples/TernTesting/Acquire.csproj.txt",
+      "region": "acquire",
+      "language": "xml"
+    },
+    "xml-settings": {
+      "path": "samples/TernTesting/Semicolon.runsettings",
+      "region": "xml-settings",
+      "language": "xml"
+    },
+    "xml-task": {
+      "path": "samples/TernTesting/XmlTests.proj",
+      "region": "xml-task",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded local compiler, VSTest process, task and extension checks automated on Windows x64; no device/provider/UI/Human-only claim. Actual GA remains separate."
+  }
+}
