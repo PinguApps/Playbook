@@ -91,6 +91,12 @@ var frameworkCopy = (MapNode)recursive.Invoke(node, null)!;
 CheckCopies(node, frameworkCopy);
 Require(frameworkCopy.Source == node.Source && frameworkCopy.IsImported && frameworkCopy.Diagnostics.Single() == diagnostic, "Framework common state lost");
 Require(Text(frameworkCopy) == "original", "Framework recursive children lost");
+frameworkCopy.Colours[0] = "green";
+frameworkCopy.Notes["survey"] = new MapNote("changed-survey");
+((HtmlIntermediateToken)frameworkCopy.Children[0].Children[0]).UpdateContent("changed");
+frameworkCopy.AddDiagnostic(diagnostic);
+Require(node.Colours[0] == "blue" && node.Notes["survey"].Survey == "fixed-survey" && token.Content == "original", "Framework copy leaked a working mutation");
+CheckOriginalDiagnostic(node);
 try { recursive.Invoke(new UnhandledExtension(), null); throw new InvalidOperationException("Missing hook silently accepted"); }
 catch (TargetInvocationException error) when (error.InnerException is NotSupportedException) { Console.WriteLine("PASS: framework rejects extension without CloneNode override."); }
 Console.WriteLine("PASS: protected CloneNode creates a shell; pinned internal framework Clone invokes it and recursively copies this tree. No public generic Clone route.");

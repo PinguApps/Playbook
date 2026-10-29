@@ -30,8 +30,8 @@
       "id": "compiler-cloning",
       "assetPattern": "^sdk/",
       "pattern": " Microsoft\\.AspNetCore\\.(Mvc\\.Razor\\.Extensions|Razor\\.Language\\.(Extensions|Intermediate))\\..*::CloneNode",
-      "owner": "B13",
-      "disposition": "included"
+      "owner": "B13; PIN-1167; razor.copy-intermediate-nodes/11.0",
+      "disposition": "delivered; original MapCompiler consumers use matching SDK compiler/utility/Roslyn sets, an older manual copy and current protected shell hook. Real pipeline and generated C# execution preserve original nodes; focused checks prove isolated writable containers/descendants, shared immutable values, unsupported-node and missing-hook failures. Internal recursive Clone and older output reader are verification-only observations, not public consumer routes. PIN-959/PIN-964 and actual-GA gates remain open."
     },
     {
       "id": "razor-tasks",

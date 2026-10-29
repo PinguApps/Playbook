@@ -250,6 +250,36 @@ adapter fast path and SQLite's synchronous native I/O. The UInt128 body retains
 explicit string reading/application parsing. Neither retrieval nor these Windows
 x64 RC2 consumers establishes other native platforms/providers or actual GA.
 
+## Copy custom Razor nodes
+
+This tested example selects the assigned worktree from an unrelated directory,
+builds/packs the ordinary tool and uses the existing isolated local-feed/cache
+harness. Requires PowerShell 7, SDK 10.0.402 and Node 22.19+. The paired pipeline
+checks additionally require SDK 11.0.100-rc.2.26504.105 at its declared path.
+Setup may restore online; installed retrieval uses unusable proxies, proving
+proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1167-04-092-copy-intermediate-razor-nodes-before-a-custom'
+& ./eng/Record-MapCompiler.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'razor.copy-intermediate-nodes' -Query 'node-copy' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-map-copy' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/map-compiler/inspection
+```
+
+Expect the discovery ID/title/goal, explicit 11.0 edition/target, complete
+canonical .NET 10/11 Markdown, applicability and four current compilation/execution
+records. The helper asserts complete snippet/body and structured/JSON-text equality.
+The focused recorder runs real Razor generation and compiles/executes both maps:
+`[coast:blue]<p>Estuary route</p>` and `[ridge:amber]<p>Ridge route</p>`, preserving
+the original. It checks copied writable state, shared immutable values, shallow-copy
+leakage and unsupported nodes; private current-clone/older-reader probes are
+verification-only. No public generic clone, arbitrary-tree, MVC/browser, older-target
+backport or actual-GA support is inferred. Sample pins remain author-maintained.
+
 ## Inspect a response directly
 
 ```powershell
