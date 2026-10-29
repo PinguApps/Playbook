@@ -1,0 +1,8 @@
+// snippet:consumer
+using Cwmglas.Station;
+using System.Globalization;
+
+if (ReadingScale.Calibrate(50) != 12.5m)
+    throw new InvalidOperationException("The station calibration changed.");
+Console.WriteLine($"reading={ReadingScale.Calibrate(50).ToString(CultureInfo.InvariantCulture)};package={ReadingScale.PackageVersion}");
+// endsnippet:consumer

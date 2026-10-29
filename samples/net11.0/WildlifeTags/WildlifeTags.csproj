@@ -1,0 +1,16 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>Berwyn.Wildlife.Tags</PackageId>
+    <Version>1.0.0</Version>
+    <SdkAnalysisLevel>11.0.100</SdkAnalysisLevel>
+    <Authors>Playbook</Authors>
+    <Description>Original local-only WildlifeTags migration sample.</Description>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:project -->
