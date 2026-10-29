@@ -70,11 +70,19 @@ internal static class RegistrationChecks
         var email = $"{(custom ? "original" : "packaged")}-{(external ? "external" : "password")}-{policy}@example.invalid";
         var form = await client.GetAsync(new Uri(prefix + "/Register?returnUrl=%2Fsession", UriKind.Relative));
         Require(form.StatusCode == HttpStatusCode.OK, "Registration form: " + await form.Content.ReadAsStringAsync());
-        var token = Token(await form.Content.ReadAsStringAsync());
+        var html = await form.Content.ReadAsStringAsync();
+        var token = Token(html);
         HttpResponseMessage outcome;
         if (external)
         {
-            using var challenge = await Post(client, prefix + "/ExternalLogin?returnUrl=%2Fsession", token, ("provider", "LocalAquarium"));
+            // Follow the actual rendered provider form, including its own action and antiforgery token.
+            var providerForm = Regex.Matches(html, "(?s)<form\\b[^>]*>.*?</form>").Single(match =>
+                match.Value.Contains("name=\"provider\"", StringComparison.Ordinal) &&
+                match.Value.Contains("value=\"LocalAquarium\"", StringComparison.Ordinal)).Value;
+            var action = WebUtility.HtmlDecode(Regex.Match(providerForm, "<form\\b[^>]*\\baction=\"([^\"]+)\"").Groups[1].Value);
+            Require(action.StartsWith(prefix + "/ExternalLogin?", StringComparison.Ordinal) &&
+                action.Contains("returnUrl=%2Fsession", StringComparison.OrdinalIgnoreCase), "Wrong rendered external challenge action");
+            using var challenge = await Post(client, action, Token(providerForm), ("provider", "LocalAquarium"));
             Require(challenge.StatusCode == HttpStatusCode.Redirect, "External challenge failed");
             using var authority = await client.GetAsync(challenge.Headers.Location);
             Require(authority.StatusCode == HttpStatusCode.Redirect, "Local authority failed");
@@ -206,7 +214,7 @@ internal static class RegistrationChecks
         using var scope = services.CreateScope();
         Require(!await scope.ServiceProvider.GetRequiredService<VolunteerDatabase>().Users.AnyAsync(user => user.Email == "missing@example.invalid" || user.Email == "redirect@example.invalid"), "Guard failure created user");
         Require(!(await client.GetFromJsonAsync<Session>("/session"))!.Authenticated, "Guard failure granted a session");
-        Console.WriteLine($"GUARDS ui={(custom ? "original" : "packaged")} antiforgery=password+external missingExternalState=denied tamperedProviderState=denied nonlocalReturn={(custom ? "denied-before-write" : "framework-LocalRedirect-source")} ");
+        Console.WriteLine($"GUARDS ui={(custom ? "original" : "packaged")} antiforgery=password+external missingExternalState=denied tamperedProviderState=denied nonlocalReturn={(custom ? "denied-before-write" : "not-exercised")} ");
     }
 }
 // endsnippet:complete

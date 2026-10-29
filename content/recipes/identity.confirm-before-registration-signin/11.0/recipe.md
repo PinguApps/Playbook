@@ -54,7 +54,8 @@ Each setting runs alone in its own temporary host. A separate no-requirements
 control checks permitted automatic sign-in. It is not advice to disable policy.
 All new users initially have unconfirmed email, no phone and an unconfirmed phone
 flag. External registration stores the provider login but does not treat a provider
-email claim as a confirmed email.
+email claim as a confirmed email. The editable address is unverified input even
+when a provider prefills it; retain the required local confirmation check.
 
 | Requirement | .NET10 packaged UI | .NET10 original pages | .NET11 packaged and original pages |
 | --- | --- | --- | --- |

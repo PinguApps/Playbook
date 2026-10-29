@@ -9,5 +9,8 @@
     <label asp-for="Password"></label><input asp-for="Password" type="password" />
     <button type="submit">Register volunteer</button>
 </form>
+<form method="post" asp-page="./ExternalLogin" asp-route-returnUrl="@(Request.Query["returnUrl"].ToString())">
+    <button type="submit" name="provider" value="LocalAquarium">Continue with the local aquarium test provider</button>
+</form>
 </body></html>
 <!-- endsnippet:complete -->

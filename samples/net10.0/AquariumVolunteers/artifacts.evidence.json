@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Record-AquariumVolunteers.ps1 -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'",
   "scope": "Actual locked package ZIPs, selected compile/runtime/native assets and reference identities reconciled with PIN-709; four complete immutable registration implementations and official change note checked. Compilation/run record separately contains real UI/SQLite/request/cookie controls. No third-party provider or GA claim.",
-  "recordedAt": "2026-10-29T10:52:30.7003183+00:00",
-  "sourceCommit": "6cabe742fa331ba7d022e7808ca3a3e221402d97",
+  "recordedAt": "2026-10-29T11:17:51.5090605+00:00",
+  "sourceCommit": "290ffbc07d92b6c61836921d6de9481bb29a1f08",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -29,10 +29,10 @@
     "samples/net10.0/AquariumVolunteers/Pages/Shared/_LoginPartial.cshtml": "faedbc30fa4aec26710ace646cd72c3a147f8f3e7393b64df46a1a51db10d115",
     "samples/net10.0/AquariumVolunteers/Pages/Volunteer/ExternalLogin.cshtml": "3a076ddb28b79ddeb309104438c91d793a77c2aef05983701fd790ddd1195d68",
     "samples/net10.0/AquariumVolunteers/Pages/Volunteer/ExternalLogin.cshtml.cs": "fa68854688363aafea7c168703501d2ada18a6cc8f26536d6f48f757ccd1c330",
-    "samples/net10.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml": "da15c52285e767d10be47a70baf86874fb55b1bc30069f3228f88d7c4e2d69ff",
+    "samples/net10.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml": "cb494078a651c0ff015d7f2efe6fe29d8a79aff876fa670631fb0c865012861d",
     "samples/net10.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml.cs": "990126f4f6ddb4b9465780d23403d939f5f137ed98cf0ec1c6372ee264f72f76",
     "samples/net10.0/AquariumVolunteers/Program.cs": "d2b619f4dc96044fb34354af2460e978ae49ac233fcf1f1b7a16572598f025b8",
-    "samples/net10.0/AquariumVolunteers/RegistrationChecks.cs": "12810075bf2429cfedd2ebd9048931113d3ebc655211a3115553e43e49148e4d",
+    "samples/net10.0/AquariumVolunteers/RegistrationChecks.cs": "b4b0eb5ce27b1f8c7b5abe592a763b917737a37d5947d5054a77fa132212bd53",
     "samples/net10.0/AquariumVolunteers/verification.json": "03c032fe25fffc2c3ead8a1cfdb5d5fc9b3b358315dd7a0fd306b4dec36702cd"
   },
   "dependencies": [
