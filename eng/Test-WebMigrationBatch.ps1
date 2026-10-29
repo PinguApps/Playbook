@@ -10,11 +10,42 @@ $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Evidence.ps1')
-$output = [IO.Path]::GetFullPath($OutputDirectory)
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputDirectory)
 New-Item -ItemType Directory -Force -Path $output | Out-Null
 $paths = @{}
 foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $integration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+# The source audit selected primary packages, not these complete application/tool
+# closures. Qualify only these additional exact identities, with their reason;
+# Record-Evidence still requires the independent per-sample lock/manifest graph.
+$additionalPackages = @{}
+foreach ($version in '10.0.13','11.0.0-rc.2.26504.105') {
+  foreach ($id in @('Microsoft.Data.Sqlite.Core','Microsoft.EntityFrameworkCore.Abstractions',
+      'Microsoft.EntityFrameworkCore.Analyzers','Microsoft.EntityFrameworkCore.Relational',
+      'Microsoft.EntityFrameworkCore.Sqlite.Core','Microsoft.EntityFrameworkCore.Sqlite',
+      'Microsoft.EntityFrameworkCore','Microsoft.Extensions.DependencyModel',
+      'Microsoft.Extensions.FileProviders.Embedded')) {
+    $additionalPackages["$id/$version"] = 'Matching locked Identity/EF SQLite supporting closure; actual provider, selected assets and published account checks qualify it separately from the primary web audit.'
+  }
+}
+foreach ($id in @('Grpc.AspNetCore.Server.ClientFactory','Grpc.AspNetCore.Server','Grpc.AspNetCore',
+    'Grpc.Core.Api','Grpc.Net.Client','Grpc.Net.ClientFactory','Grpc.Net.Common','Grpc.Tools')) {
+  $additionalPackages["$id/2.64.0"] = 'Pinned gRPC template/client/tool closure; real paired gRPC/JSON calls and Windows x64 protoc/plugin execution qualify these additional assets.'
+}
+foreach ($entry in @('Google.Api.CommonProtos/2.15.0','Google.Protobuf/3.27.0')) {
+  $additionalPackages[$entry] = 'Exact JsonTranscoding dependency minimum selected by the lock; actual annotated protobuf generation, runtime descriptors and JSON wire/schema checks qualify it.'
+}
+foreach ($entry in @('Microsoft.Extensions.ApiDescription.Server/6.0.5','Microsoft.OpenApi/1.6.14',
+    'Swashbuckle.AspNetCore.Swagger/6.6.2','Swashbuckle.AspNetCore.SwaggerGen/6.6.2',
+    'Swashbuckle.AspNetCore.SwaggerUI/6.6.2','Swashbuckle.AspNetCore/6.6.2')) {
+  $additionalPackages[$entry] = 'Historical Swagger0.10.11/Swashbuckle6.6.2 locked closure, distinct from newer OpenAPI audit selections; actual net10 service/document/comments/failures qualify this route only.'
+}
+foreach ($entry in @('SQLitePCLRaw.bundle_e_sqlite3/2.1.13','SQLitePCLRaw.core/2.1.13',
+    'SQLitePCLRaw.lib.e_sqlite3/2.1.13','SQLitePCLRaw.provider.e_sqlite3/2.1.13',
+    'SQLite/3.53.4','SQLitePCLRaw.bundle_e_sqlite3/3.0.5','SQLitePCLRaw.config.e_sqlite3/3.0.5',
+    'SQLitePCLRaw.core/3.0.5','SQLitePCLRaw.provider.e_sqlite3/3.0.5')) {
+  $additionalPackages[$entry] = 'Exact locked native SQLite provider closure; loaded native-library hashes/version and real published store/session checks qualify Windows x64 separately from managed primary-package audit metadata.'
+}
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   $generator = Join-Path $output 'protoc-gen-openapiv2-v2.31.0-windows-x86_64.exe'
@@ -90,9 +121,18 @@ try {
           $package = Join-Path $properties.NuGetPackageRoot ($library.ToLowerInvariant() + '/' + $library.Replace('/','.').ToLowerInvariant() + '.nupkg')
           $hash = (Get-FileHash $package).Hash.ToLowerInvariant()
           $audited = @($baseline.packages | Where-Object { "$($_.id)/$($_.version)" -ieq $library })
-          if ($audited.Count -gt 0 -and $hash -cne $audited[0].sha256) { throw "Audited ZIP mismatch: $library" }
+          if ($audited.Count -eq 1) {
+            if ($hash -cne $audited[0].sha256) { throw "Audited ZIP mismatch: $library" }
+            $qualification = 'Exact ZIP matches the primary source audit.'
+          } elseif ($audited.Count -gt 1) {
+            throw "Ambiguous source-audit identity: $library"
+          } elseif ($additionalPackages.ContainsKey($library)) {
+            $qualification = $additionalPackages[$library]
+          } else {
+            throw "Unqualified additional package: $library. Review its exact identity and consumer before extending the qualification list."
+          }
           [xml]$nuspec = Get-Content (Join-Path (Split-Path $package) ($library.Split('/')[0].ToLowerInvariant() + '.nuspec')) -Raw
-          $observations.Add("PACKAGE $library | SHA256=$hash | auditMatch=$($audited.Count -gt 0) | repository=$($nuspec.package.metadata.repository | ConvertTo-Json -Compress)")
+          $observations.Add("PACKAGE $library | SHA256=$hash | auditMatch=$($audited.Count -eq 1) | qualification=$qualification | repository=$($nuspec.package.metadata.repository | ConvertTo-Json -Compress)")
         }
         $framework = if ($release -eq '10') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
         $sdk = if ($release -eq '10') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }

@@ -9,8 +9,8 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
-$output = [IO.Path]::GetFullPath($OutputDirectory)
-$generatorPath = [IO.Path]::GetFullPath($Generator)
+$output = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputDirectory)
+$generatorPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Generator)
 $paths = @{}
 foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $previous = @{}
