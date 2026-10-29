@@ -280,6 +280,41 @@ leakage and unsupported nodes; private current-clone/older-reader probes are
 verification-only. No public generic clone, arbitrary-tree, MVC/browser, older-target
 backport or actual-GA support is inferred. Sample pins remain author-maintained.
 
+## Embedded template-engine hosts
+
+From an unrelated directory, this selects the exact PIN-1071 worktree, builds and
+packs the ordinary tool, installs that artifact in a fresh local-only feed/cache,
+then displays real stdio discovery ID/title/goal, full canonical Markdown,
+applicability, edition and fresh evidence for both advertised targets. Requires
+PowerShell 7, SDK 10.0.402 and Node; sample reproduction also needs SDK/runtime 11
+RC2 and the public package feeds. Retrieval uses unusable proxies, proving proxy
+independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1071-03-019-retarget-an-embedded-template-engine-host'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sdk.retarget-template-engine-hosts' -Query 'template-engine' `
+  -PackageVersion '0.0.0-template-host' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/template-host/inspection11
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sdk.retarget-template-engine-hosts' -Query 'template-engine' `
+  -TargetVersion '10.0' -PackageVersion '0.0.0-template-host' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/template-host/inspection10
+```
+
+Expect edition 11.0 on both targets, the conditional newer-package net10 route,
+and four current compilation/execution records. The body distinguishes NU1701
+implicit fallback from eight strict NU1202 failures, preserves the old netstandard
+host library, and demonstrates generated net10 applications from both modern host
+TFMs. `eng/Test-TemplateEngineHost.ps1` reproduces the real package/host/generated
+consumer checks with absolute SDK parameters. Framework, other OS execution and
+actual GA remain unverified; PIN-959/PIN-963 remain open. All new sample dependencies
+are author-maintained, outside automated root-package update permissions.
+
 ## SQLite target and retained dependency
 
 This checked block starts from an unrelated directory, selects the assigned

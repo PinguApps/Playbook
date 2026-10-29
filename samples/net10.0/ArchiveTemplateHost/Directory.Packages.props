@@ -1,0 +1,9 @@
+<!-- snippet:packages -->
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally></PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.TemplateEngine.Edge" Version="[11.0.100-rc.2.26504.105]" />
+    <PackageVersion Include="Microsoft.TemplateEngine.Orchestrator.RunnableProjects" Version="[11.0.100-rc.2.26504.105]" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:packages -->

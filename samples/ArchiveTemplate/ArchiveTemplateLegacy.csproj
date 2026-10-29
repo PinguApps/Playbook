@@ -1,0 +1,22 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TemplateEngine.Edge" />
+    <PackageReference Include="Microsoft.TemplateEngine.Orchestrator.RunnableProjects" />
+    <Compile Include="ArchiveTemplate.cs" Link="ArchiveTemplate.cs" />
+
+    <EmbeddedResource Include="template.json" LogicalName="ArchiveSeed.template.json" />
+    <EmbeddedResource Include="project.txt" LogicalName="ArchiveSeed.project.txt" />
+    <EmbeddedResource Include="program.txt" LogicalName="ArchiveSeed.program.txt" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->
