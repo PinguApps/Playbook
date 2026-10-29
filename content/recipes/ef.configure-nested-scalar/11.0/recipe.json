@@ -1,0 +1,201 @@
+{
+  "id": "ef.configure-nested-scalar",
+  "edition": "11.0",
+  "title": "Configure a scalar inside nested complex values",
+  "goal": "Set the column and facets of a scalar several complex values deep with a chained member lambda; use this when configuring non-collection complex properties in EF Core 11.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "model",
+    "sqlite",
+    "ef-models"
+  ],
+  "apis": [
+    "EntityTypeBuilder.Property",
+    "ComplexProperty",
+    "ComplexTypeAttribute",
+    "HasColumnName",
+    "HasMaxLength"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#configuring-complex-type-properties-via-lambda-chaining",
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md"
+        ],
+        "selectionNotes": [
+          "Complex properties; not arbitrary collections. Register the complex types, then configure a scalar path; no collection indexing, Select, method calls or navigation traversal is demonstrated.",
+          "The EF10 comparison is historical evidence, not an additional .NET 10 foundation or a claim EF11 runs on net10.0."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer; no ASP.NET Core framework requirement"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "reason": "Matched EF11 provider graph; actual 11.0.0-rc.2.26504.105 package and native dependencies are pinned in each lock file.",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite"
+            }
+          ],
+          "packageAssets": [
+            "EF Core and Relational lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; actual resolved graph and content hashes pinned in packages.lock.json",
+            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.402, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.2.26504.105, C# 15.0"
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite; actual in-memory SQLite database, not EF InMemory or mocked SQL",
+            "Measured Windows x64: previous native SQLite 3.53.3 via SQLitePCLRaw.bundle_e_sqlite3/core/lib.e_sqlite3/provider.e_sqlite3 2.1.13; current SQLite 3.53.4 via SQLitePCLRaw.bundle_e_sqlite3/config.e_sqlite3/core/provider.e_sqlite3 3.0.5 and the separate SQLite package 3.53.4."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 with packaged e_sqlite3 native library. Other OS/architecture/native routes require their own suitable SQLite assets; none executed here."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database model; no browser or rendering mode"
+          ],
+          "constraints": [
+            "Complex properties; not arbitrary collections. Register the complex types, then configure a scalar path; no collection indexing, Select, method calls or navigation traversal is demonstrated.",
+            "The provider behavior is bounded to these SQLite consumers; no SQL Server/Cosmos service, encryption or native-platform compatibility claim."
+          ],
+          "prerequisites": [
+            "Copy the complete project and configuration files below into a standalone directory. Restore the pinned package graph online before running; Playbook retrieval is offline, consumer dependency setup is separate.",
+            "The open SQLite connection owns the transient database lifetime. Closing it removes all sample data; no account, external database or persistent schema is provisioned."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/EstuaryMarkers/EstuaryMarkers.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#configuring-complex-type-properties-via-lambda-chaining",
+      "title": "Official EF11 authoring change"
+    },
+    {
+      "url": "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md",
+      "title": "Immutable reviewed EF11 documentation baseline"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/EstuaryMarkers/EstuaryMarkers.csproj",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Actual model facets and column name, SQLite TEXT schema creation, insert/read/update across fresh contexts. SQLite does not enforce HasMaxLength."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/EstuaryMarkers/EstuaryMarkers.csproj",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual model facets and column name, SQLite TEXT schema creation, insert/read/update across fresh contexts. SQLite does not enforce HasMaxLength."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/EstuaryMarkers/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/EstuaryMarkers/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/EstuaryMarkers/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/EstuaryMarkers/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-estuarymarkers-csproj": {
+      "path": "samples/net10.0/EstuaryMarkers/EstuaryMarkers.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/EstuaryMarkers/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/EstuaryMarkers/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/EstuaryMarkers/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/EstuaryMarkers/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/EstuaryMarkers/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-estuarymarkers-csproj": {
+      "path": "samples/net11.0/EstuaryMarkers/EstuaryMarkers.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/EstuaryMarkers/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated actual SQLite model/schema/round-trip checks cover these bounded claims. No external service or native UI proof required; other providers/platforms and GA remain unverified."
+  }
+}

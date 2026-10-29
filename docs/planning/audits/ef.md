@@ -105,6 +105,38 @@ example has been republished as an original Playbook sample.
 
 ## Accountable dispositions
 
+### Nested scalar and primitive sequence delivery — 29 October 2026
+
+PIN-845 delivers `ef.configure-nested-scalar/11.0`: original EstuaryMarkers
+consumers compare EF10 intermediate complex builders with EF11 chained scalar
+configuration. Both build the actual nested complex model, verify facets and the
+custom column, create SQLite schema and insert/read/update across contexts.
+The direct chain was rejected by EF10's model builder during authoring. Complex
+properties are explicitly registered; arbitrary collections are not supported by
+this recipe. SQLite's maximum-length metadata is not database enforcement.
+
+PIN-848 delivers `ef.configure-primitive-sequence/11.0`: original KilnReadings
+consumers verify EF10 `Property` promotion versus EF11 scalar classification,
+explicit `PrimitiveCollection` selection, JSON array/TEXT byte-sequence storage
+versus BLOB binary storage, and real collection/scalar round-trips. The older
+byte-sequence sample already uses the valid `PrimitiveCollection` API. Neither
+the method's existence nor all collection discovery is new in EF11. Existing
+BLOB-to-JSON data conversion is explicitly outside this disposable demonstration.
+
+Four canonical `samples/net{10,11}.0/{EstuaryMarkers,KilnReadings}` projects carry
+locked package graphs and current `verification-evidence.json` records. Actual
+Windows x64 execution used SDK 10.0.402 / EF 10.0.13 / SQLite 3.53.3 and SDK
+11.0.100-rc.2.26504.105 / EF 11.0.0-rc.2.26504.105 / SQLite 3.53.4. The previous
+graph resolves SQLitePCLRaw.bundle_e_sqlite3/core/lib.e_sqlite3/provider.e_sqlite3
+2.1.13. The current graph resolves bundle_e_sqlite3/config.e_sqlite3/core/
+provider.e_sqlite3 3.0.5 and the separate SQLite package 3.53.4. No external
+account or database is needed.
+Offline list/get delivery uses the existing packed-tool inspection harness.
+No extra foundation, other-provider/native-platform proof, custom-convention or
+nested-entry API proof, or actual GA claim is added. The original API audit and
+its unresolved extension groups remain unchanged; PIN-965/959 still own their
+separate GA/comprehensive gates.
+
 [The rules](ef.dispositions.json) assign every added/removed declaration, including
 annotations, defaults, constraints and protected hooks, to a named group. An
 unmatched declaration fails the script. Grouping is responsibility for a bounded
