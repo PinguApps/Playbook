@@ -18,6 +18,10 @@ publishes to a clean source-free directory and exercises the missing-view contro
 It refreshes the existing sample records. The second command builds/packs once,
 installs that exact ordinary artifact and prints what an agent receives.
 
+Use PowerShell 7 (`pwsh`): Windows PowerShell 5.1 changes native JSON-argument
+quoting. The fixture retains `artifacts/web-retirement-<guid>` as disposable
+published-consumer output for inspection.
+
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-61e6bfa1'
 & ./eng/Test-WebRetirement.ps1 -RecordEvidence
