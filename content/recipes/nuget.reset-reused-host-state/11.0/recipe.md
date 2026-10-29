@@ -41,12 +41,20 @@ build, or an entirely per-build cache lifetime.
 
 {{snippet:cache}}
 
-`PackageHost` serializes its builds and cache access. It calls real public
+The caller serializes **all** builds and cache access across the entire process,
+including separate host instances; the sample provides no concurrent scheduler.
+The event is process-global and invalidates every live subscriber. The cache
+must remain subscribed/alive while its host is used. `PackageHost` calls real public
 `BeginBuild`, `BuildRequest` and `EndBuild`; its explicitly authored lifecycle
 wiring then raises the actual NuGet event, including the deliberate task failure.
 **This does not prove an unmodified third-party host raises the event.** Register
 only when that host's actual seam is known. `RaiseBuildEnded` does not await or
 drain arbitrary application operations; those lifetimes belong to their owners.
+If `EndBuild` throws, completion is unconfirmed: the host retires and rejects
+another build before any task/cache read. It does not raise a global event merely
+to force a reset when work might still be active. A throwing reset handler also
+retires the host. Resolve the failed lifecycle and dispose owned work before
+creating a fresh host/cache; do not retry the retired instance.
 
 MSBuild may load the task assembly into a different `AssemblyLoadContext`.
 `HostServices.RegisterHostObject` passes the actual host cache's BCL delegate
@@ -141,6 +149,9 @@ does not recompute; a failing real task still reaches reset. A real open
 operation-owned file remains writable/readable across reset and throws after its
 own disposal. Current-only controls run a real build after unsubscribe and a
 throwing reset subscriber. Old absence/explicit-reset controls are independent.
+An actual logger-shutdown failure makes real `EndBuild` throw after the task
+writes its receipt. The host emits no reset and rejects reuse under configurationB,
+so stale state cannot be read by another build through that retired host.
 Raw paths/commands stay ignored; retained evidence redacts private paths and pins
 fresh input bytes. No automatic third-party/server reset, concurrency support,
 universal performance, OS matrix or GA claim is made.

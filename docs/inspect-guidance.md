@@ -1005,8 +1005,9 @@ The following block builds/packs one ordinary artifact and inspects that exact
 installed local-feed/cache artifact for all three recipes. Real stdio list/get
 from an unrelated directory prints each ID/title/goal, complete canonical
 Markdown, target11/edition11, applicability and fresh paired evidence; target10
-gets `no_applicable_edition`. The final consumer reconstructs the complete default
-net10/net11 workshop only from returned Markdown, then runs actual same-process
+gets `no_applicable_edition`. The final consumer reconstructs the default
+net10/net11 projects and sources from returned Markdown, supplies standard SDK,
+import and local-feed scaffolding, then runs actual same-process
 MSBuild/configuration and benign-child behaviour outside the checkout.
 
 Prerequisites: PowerShell7, Node22.19+, complete SDK10.0.402 and

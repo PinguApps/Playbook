@@ -50,17 +50,24 @@ or an obsolete-warning exception to production merely to retain the call.
 
 Supply a fully qualified executable path and structured arguments separately.
 Pass known sensitive values to the redactor using secure caller inputs; this
-example never prints arguments or the environment. Redaction is exact-value
+example never prints arguments or the environment. The execution path is private
+by default: its error uses `<configured courier>`. For an actionable path, supply
+the optional `diagnosticPath` as a caller-owned safe alias such as
+`<plugin-root>/courier.exe`; do not forward a raw path containing unlisted secrets.
+The alias identifies the private configuration location without disclosing its
+directory. Redaction is exact-value
 replacement, longest first, with CR/LF neutralized. A production policy must
 identify every sensitive value and allowed path detail; it cannot discover
 arbitrary unknown secrets. The fixture includes a synthetic marker in both
-the executable path and an argument, and asserts that neither leaks.
+the executable path, diagnostic alias and an argument, and asserts that none
+leaks. A second real failure with an empty secret list verifies that the default
+message still never echoes the private executable path or arguments.
 
 `Process.Start` is the authority: a prior `File.Exists` check would race and
 would not prove OS launch failure. The catch formats `Win32Exception.NativeErrorCode`
 and the OS message constructed from that numeric code, rather than copying the
 original exception's secret-bearing command/path text. It exposes the useful
-redacted executable path and OS failure without preserving an unsafe inner
+safe diagnostic path and OS failure without preserving an unsafe inner
 exception. It does not invent a NuGet replacement helper.
 
 On success, the method returns redacted stdout and preserves exit0. A nonzero
@@ -70,6 +77,10 @@ The caller supplies an appropriate deadline and output-volume policy: this
 bounded benign fixture uses a 20-second token and tiny output; unbounded or
 hostile child output needs streaming limits. Nothing here implements the full
 NuGet credential-plugin protocol or validates an exchange with a feed.
+The token bounds normal work, not OS termination: after a successful kill the
+owned child is awaited without cancellation so cleanup completes. A failed kill
+can surface its OS error instead of the work failure. This bounded benign proof
+does not establish reliable termination of arbitrary hostile/stuck processes.
 
 The compiled fixture's valid child is the same original executable's
 `--courier-child` mode, printing `Gannet courier ready` and exiting0. It launches

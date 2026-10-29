@@ -22,7 +22,8 @@ public sealed class HarbourCache : IDisposable
         StaticState.BuildEnded += Invalidate;
 #endif
     }
-    // The custom host serializes builds and cache access. This is not a concurrent cache.
+    // The caller must serialize ALL builds/cache access in this process, across hosts.
+    // BuildEnded is process-global. This is not a concurrent cache.
     public string Value => value.Value;
     private Lazy<string> Fresh() => new(() => { Creations++; return read(); });
     public void Invalidate() { Invalidations++; value = Fresh(); }
@@ -58,13 +59,20 @@ public sealed class PackageHost : IDisposable
     }
     private readonly BuildManager manager = new();
     private readonly HarbourCache cache;
-    public PackageHost(HarbourCache cache) => this.cache = cache;
+    private readonly Microsoft.Build.Framework.ILogger logger;
+    private bool reusable = true;
+    public PackageHost(HarbourCache cache, Microsoft.Build.Framework.ILogger? logger = null)
+    {
+        this.cache = cache;
+        this.logger = logger ?? new Microsoft.Build.Logging.ConsoleLogger();
+    }
     public BuildResult Build(string project, Dictionary<string, string?> inputs, bool reset = true)
     {
+        if (!reusable) throw new InvalidOperationException("Gannet host cannot be reused after an end-build/reset failure.");
         using var collection = new ProjectCollection(inputs);
         var services = new HostServices();
         services.RegisterHostObject(project, "Build", "ReadHarbour", new HarbourHostObject(cache));
-        var parameters = new BuildParameters(collection) { EnableNodeReuse = false, MaxNodeCount = 1, HostServices = services, Loggers = [new Microsoft.Build.Logging.ConsoleLogger()] };
+        var parameters = new BuildParameters(collection) { EnableNodeReuse = false, MaxNodeCount = 1, HostServices = services, Loggers = [logger] };
         manager.BeginBuild(parameters);
         try
         {
@@ -74,6 +82,10 @@ public sealed class PackageHost : IDisposable
         {
             // This host owns the real lifecycle seam. Raise only after EndBuild returns,
             // including when the actual task fails. Unmodified third-party hosts are unqualified.
+            // A failed EndBuild does not establish that all build work has ended. Do not
+            // broadcast a global reset in that case: retire this host instead of reusing it.
+            // A reset-handler failure also retires the host rather than silently carrying on.
+            reusable = false;
             manager.EndBuild();
             if (reset)
             {
@@ -83,6 +95,7 @@ public sealed class PackageHost : IDisposable
                 cache.Invalidate(); // Valid older explicit per-build lifetime route.
 #endif
             }
+            reusable = true;
         }
     }
     public void Dispose() => manager.Dispose();

@@ -60,7 +60,7 @@ internal static class AnalyzerChecks
             var build = await Command(dotnet, folder, ["build", "Harbour.csproj", "--no-restore", "-c", "Release", "-v:normal", ..common], cache);
             bool diagnostic = build.output.Contains("error GANNET001", StringComparison.Ordinal);
             Require(build.exit == (diagnostic ? 1 : 0), "Unexpected compiler failure: " + build.output);
-            if (name is "default" or "false" or "true" or "private-all" or "mixed-default" or "mixed-true")
+            if (name is "default" or "false" or "true" or "private-all" or "mixed-default" or "mixed-true" or "excluded" or "include-runtime" or "transitive-none")
                 Require(diagnostic, "Known positive analyzer did not execute: " + name);
             Require(!corrected || !diagnostic, "Corrected source still triggers");
             Require(!build.output.Contains("CS8032", StringComparison.Ordinal) && !build.output.Contains("CS9057", StringComparison.Ordinal), "Analyzer incompatible with actual compiler");

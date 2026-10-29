@@ -54,7 +54,7 @@ try {
     }
     finally { Pop-Location }
   }
-  Write-Host 'PASS actual installed-returned Markdown reconstructs complete default net10/net11 consumers; real same-process builds/configuration and benign child execution. Full analyzer/negative/lifecycle suite is separately captured by Record-PackageWorkshop.'
+  Write-Host 'PASS actual installed-returned Markdown supplies default net10/net11 projects/sources; helper supplies SDK/import/local-feed scaffolding. Real same-process builds/configuration and benign child execution pass. Full analyzer/negative/lifecycle suite is separately captured by Record-PackageWorkshop.'
 }
 finally {
   foreach ($key in $previous.Keys) { [Environment]::SetEnvironmentVariable($key,$previous[$key]) }

@@ -29,7 +29,7 @@ internal static class WorkshopChecks
             string missing = Path.Combine(folder, marker, "missing-courier.exe");
             try
             {
-                await CourierLauncher.Launch(missing, ["--api-key", marker], [marker], timeout.Token);
+                await CourierLauncher.Launch(missing, ["--api-key", marker], [marker], timeout.Token, $"<fixture>/{marker}/missing-courier.exe");
                 throw new InvalidOperationException("Missing executable unexpectedly launched");
             }
             catch (InvalidOperationException error) when (error.Message.Contains("OS error", StringComparison.Ordinal))
@@ -37,6 +37,17 @@ internal static class WorkshopChecks
                 Require(!error.Message.Contains(marker, StringComparison.Ordinal) && error.Message.Contains("[redacted]", StringComparison.Ordinal), "Secret leaked");
                 Require(error.Message.Contains("missing-courier.exe", StringComparison.Ordinal), "No actionable path");
                 Console.WriteLine("MISSING " + error.Message.Replace(folder, "<fixture>", StringComparison.OrdinalIgnoreCase));
+            }
+            // Even without a secret list, the default diagnostic never echoes the private
+            // executable directory or arguments. The OS still attempts that actual path.
+            try
+            {
+                await CourierLauncher.Launch(missing, [marker], [], timeout.Token);
+                throw new InvalidOperationException("Missing executable unexpectedly launched");
+            }
+            catch (InvalidOperationException error) when (error.Message.Contains("OS error", StringComparison.Ordinal))
+            {
+                Require(!error.Message.Contains(marker, StringComparison.Ordinal) && error.Message.Contains("<configured courier>", StringComparison.Ordinal), "Default diagnostic leaked an unlisted path/argument secret");
             }
             string output = await CourierLauncher.Launch(Environment.ProcessPath!, [Assembly.GetExecutingAssembly().Location, "--courier-child"], [marker], timeout.Token);
             Require(output.Trim() == "Gannet courier ready", "Valid launch changed output");
@@ -101,14 +112,41 @@ internal static class WorkshopChecks
         StaticState.BuildEnded += broken;
         try
         {
-            try { Build("reset-bug", reset: true); throw new InvalidOperationException("Handler bug swallowed"); }
+            try
+            {
+                nextHost.Build(project, new() { ["Expected"] = "after-unsubscribe", ["Receipt"] = receipt, ["FailBuild"] = "false", ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location });
+                throw new InvalidOperationException("Handler bug swallowed");
+            }
             catch (InvalidOperationException e) when (e.Message == "reset-bug-control") { }
         }
         finally { StaticState.BuildEnded -= broken; }
 #else
         Require(typeof(NuGet.Common.ILogger).Assembly.GetType("NuGet.Common.StaticState") is null, "Unexpected older event API");
 #endif
+        using var failureCache = new HarbourCache(() => File.ReadAllText(config));
+        using var failureHost = new PackageHost(failureCache, new EndFailureLogger());
+        File.WriteAllText(config, "end-failure-A");
+        var inputs = new Dictionary<string, string?> { ["Expected"] = "end-failure-A", ["Receipt"] = receipt, ["FailBuild"] = "false", ["HarbourAssembly"] = Assembly.GetExecutingAssembly().Location };
+        try { failureHost.Build(project, inputs); throw new InvalidOperationException("EndBuild failure was not observed"); }
+        catch (Microsoft.Build.Framework.LoggerException e) when (e.Message.Contains("gannet-end-failure", StringComparison.Ordinal)) { }
+        Require(failureCache.Invalidations == 0 && File.ReadAllText(receipt) == $"{Environment.ProcessId}|end-failure-A|end-failure-A", "Failed EndBuild incorrectly raised reset or skipped actual task");
+        File.WriteAllText(config, "end-failure-B");
+        try { failureHost.Build(project, inputs); throw new InvalidOperationException("Failed end-build host was reused"); }
+        catch (InvalidOperationException e) when (e.Message.Contains("cannot be reused", StringComparison.Ordinal)) { }
+        Require(failureCache.Creations == 1, "Retired host reused stale cache under next configuration");
+        Console.WriteLine("PASS actual logger shutdown makes EndBuild fail; no global reset claimed, faulted host rejects reuse before another task/cache read.");
         Console.WriteLine("PASS real in-process MSBuild tasks/config A+B, success/failure EndBuild then invalidation, lazy NEXT configuration, one shared host/cache/assembly; operation-owned open file usable across reset and actually disposed. Explicit old reset / current event unsubscription and surfaced-handler-bug controls.");
+    }
+    private sealed class EndFailureLogger : Microsoft.Build.Framework.ILogger
+    {
+        private bool failed;
+        public Microsoft.Build.Framework.LoggerVerbosity Verbosity { get; set; }
+        public string? Parameters { get; set; }
+        public void Initialize(Microsoft.Build.Framework.IEventSource eventSource) { }
+        public void Shutdown()
+        {
+            if (!failed) { failed = true; throw new Microsoft.Build.Framework.LoggerException("gannet-end-failure"); }
+        }
     }
     private sealed record Pin(string path, string sha256);
     private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();

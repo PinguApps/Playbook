@@ -7,7 +7,8 @@ namespace Gannet;
 public static class CourierLauncher
 {
     public static async Task<string> Launch(string executable, IReadOnlyList<string> arguments,
-        IReadOnlyList<string> secrets, CancellationToken cancellationToken)
+        IReadOnlyList<string> secrets, CancellationToken cancellationToken,
+        string diagnosticPath = "<configured courier>")
     {
         if (!Path.IsPathFullyQualified(executable)) throw new ArgumentException("Use an absolute executable path.");
         string Redact(string text)
@@ -34,7 +35,9 @@ public static class CourierLauncher
             {
                 // OS text from the numeric code contains neither arguments nor the original
                 // Process.Start message's potentially secret-bearing executable/working path.
-                throw new InvalidOperationException($"Cannot launch Gannet courier '{Redact(executable)}': " +
+                // The execution path is private by default. An optional diagnostic path is
+                // a caller-owned safe alias, such as <plugin-root>/courier.exe, not this input.
+                throw new InvalidOperationException($"Cannot launch Gannet courier '{Redact(diagnosticPath)}': " +
                     $"OS error {error.NativeErrorCode}: {Redact(new Win32Exception(error.NativeErrorCode).Message)}");
             }
             Task<string> stdout = child.StandardOutput.ReadToEndAsync(cancellationToken);
