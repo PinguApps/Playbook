@@ -155,7 +155,7 @@
       "target": "net10.0",
       "kind": "compile-and-run",
       "sdk": "10.0.402",
-      "scope": "Four isolated full/configuration-only SQLite/InMemory replacements, descriptor and resolved lifetime checks, original callback/flags/connection exclusion, CRUD across scopes, SQLite unique-index failure versus InMemory acceptance; retained/mixed configuration controls. Current-only immutable WithoutExtension and extension-author RemoveExtension/no-op use real InMemory writes/reads; older route uses fresh options."
+      "scope": "Four isolated full/configuration-only SQLite/InMemory replacements, descriptor and resolved lifetime checks, original callback/flags/connection exclusion, CRUD across scopes, SQLite unique-index failure versus InMemory acceptance; retained/mixed configuration controls. EF10 rebuilds fresh allowlisted options with actual InMemory writes/reads."
     },
     {
       "language": "15.0",

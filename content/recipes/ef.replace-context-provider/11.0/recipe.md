@@ -133,8 +133,12 @@ program is included so its assertions, lifetimes and failure controls remain off
    scope validation, inspect descriptor retention and resolved context/options
    identities, and require exactly one selected provider with only the intended
    connection. Reject retained original settings even if provider count is one.
-6. In each standalone project directory run `dotnet run --configuration Release`
-   with its pinned SDK. Expect four replacement PASS lines, CRUD in fresh scopes,
+6. In each standalone directory, use its pinned SDK to run
+   `dotnet build ReedPermits.csproj --configuration Release -p:RestoreLockedMode=true`,
+   then `dotnet ./bin/Release/net10.0/ReedPermits.dll` for EF10 or
+   `dotnet ./bin/Release/net11.0/ReedPermits.dll` for EF11. These are the recorded
+   locked-build and built-assembly execution steps. Expect four replacement PASS
+   lines, CRUD in fresh scopes,
    the mixed/retained configuration PASS line and the version-specific options PASS
    line. Investigate any assertion failure before using the setup in your tests.
 7. Dispose contexts/scopes and the provider before the externally owned connection.

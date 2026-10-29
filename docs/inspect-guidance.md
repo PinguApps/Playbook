@@ -40,7 +40,6 @@ proxy independence, not network isolation. No global tool or PATH change is need
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1190-05-049-replace-a-configured-database-provider-deliberately'
-$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId 'ef.replace-context-provider' -Query 'provider-replacement' `
   -TargetVersion '11.0' -PackageVersion '0.0.0-pin1190' -BuildAndPack `

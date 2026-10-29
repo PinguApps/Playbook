@@ -316,7 +316,8 @@ and persist the intended changes. M includes state/correctness and consumer proo
 ### E2. Replace a configured database provider deliberately — M (3)
 
 As a test author, I want a separate database configuration without retaining the
-production provider. Proposed `ef.replace-context-provider`; RemoveDbContext,
+production provider. Delivered by PIN-1190 as `ef.replace-context-provider/11.0`
+(see the delivery section above); RemoveDbContext,
 removeConfigurationOnly and WithoutExtension/RemoveExtension. Use isolated DI
 containers and SQLite/InMemory; inspect resolved options/services, run actual
 CRUD and reject mixed/retained configuration. No production connection. M covers
