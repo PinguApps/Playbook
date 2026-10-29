@@ -1,5 +1,17 @@
 # SDK/package hosts and affected-test availability: PIN-688
 
+Delivery update, 29 October 2026: proposal A is implemented by
+[PIN-1066](https://linear.app/pinguapps/issue/PIN-1066), stable
+`sdk.select-tool-execution-sdk`, edition 11.0. Actual local MuseumCatalogue
+packages, SDK 9/serviced 10.0.402/11 RC2 pins and both shipped Windows wrappers
+are executed with separate SDK-entry-point and tool-runtime observations. SDK
+10.0.402 runs the net10 package but rejects the net11-only asset even with runtime
+11 present; the recipe preserves that measured limit. The publisher's servicing
+boundary is retained, not relabelled .NET 11-only. Unix wrapper execution and all
+other proposals, comprehensive coverage and actual GA reconciliation remain
+outside this delivery. The source-only audit below is historical evidence, not
+the execution record.
+
 Reviewed **21 October 2026**. This is a bounded source and distributable-metadata audit. Seven full compatibility notes and the affected-test claim have accountable dispositions. Nine narrow delivery proposals await backlog approval. No recipe, consumer implementation or release is delivered by closing this audit.
 
 ## Scope and provenance

@@ -1,0 +1,28 @@
+// snippet:instructions-1
+{
+  "sdk": {
+    "version": "10.0.402",
+    "rollForward": "disable",
+    "allowPrerelease": false
+  }
+}
+// endsnippet:instructions-1
+
+// snippet:instructions-2
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="museum-local" value="C:\museum proof\feed-10" />
+  </packageSources>
+</configuration>
+// endsnippet:instructions-2
+
+// snippet:instructions-4
+{
+  "sdk": {
+    "version": "11.0.100-rc.2.26504.105",
+    "rollForward": "disable",
+    "allowPrerelease": true
+  }
+}
+// endsnippet:instructions-4

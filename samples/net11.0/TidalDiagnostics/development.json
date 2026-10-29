@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "configProperties": {
+      "TidalStation.DiagnosticMode": "development",
+      "TidalStation.Operator": "night-watch"
+    }
+  }
+}
