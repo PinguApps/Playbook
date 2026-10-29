@@ -10,6 +10,7 @@
 <p id="circuit">@circuit</p>
 <p id="records">@records</p>
 <p id="notifications">@Identity.Notifications</p>
+@* Local demonstrator only: self-service grant/revoke is not authorization. *@
 <button id="grant" @onclick='() => Identity.ChangeClearance("curator")'>Grant catalogue access</button>
 <button id="revoke" @onclick='() => Identity.ChangeClearance("public")'>Revoke catalogue access</button>
 
@@ -21,6 +22,7 @@
         Authentication.AuthenticationStateChanged += IdentityChanged;
         await ReloadAsync(await Authentication.GetAuthenticationStateAsync());
     }
+    // This provider returns completed successful tasks; production callbacks must observe failures.
     private void IdentityChanged(Task<AuthenticationState> pending) => _ = InvokeAsync(async () =>
     {
         await ReloadAsync(await pending);

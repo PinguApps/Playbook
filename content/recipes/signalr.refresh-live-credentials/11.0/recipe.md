@@ -10,7 +10,7 @@ The local `LocalTicket` scheme accepts deterministic test strings. It is deliber
 
 1. Use a .NET 11 server and compatible refresh-capable client. Enable `EnableAuthenticationRefresh` per hub and retain `CloseOnAuthenticationExpiration`. Refresh needs negotiation; do not use skip-negotiation as a shortcut.
 2. Supply current credentials through `AccessTokenProvider` (.NET) or `accessTokenFactory` (TypeScript). A refresh fetches application credentials again. The samples disable automatic scheduling to make accept/reject checks deterministic; automatic refresh requires a positive server-reported lifetime.
-3. Use `OnAuthenticationRefresh` to reject disallowed claims. The built-in same-user check also remains: refresh is not a way to change the connection's user. Reconnect when identity/routing needs to change. Production policy must validate tenant and other application boundaries too.
+3. Use `OnAuthenticationRefresh` to reject disallowed claims. This local policy allows only visitor/surveyor clearance and rejects missing, unknown or suspended clearance. The built-in same-user check also remains: refresh is not a way to change the connection's user. Reconnect when identity/routing needs to change. Production policy must validate tenant and other application boundaries too.
 4. Handle success and failure events. Rejection is HTTP 403; the example proves the connection retains its last accepted principal. A failed refresh does not itself disconnect. Do not retry a policy rejection blindly; obtain valid credentials or sign in again. Expiry still closes the connection when configured.
 5. Override `OnAuthenticationRefreshedAsync` for post-refresh work. Later hub calls see accepted claims. Work already in progress and application-owned caches/groups need their own policy; this sample makes no concurrent-invocation or group-recalculation promise.
 6. For negotiate redirection, keep the application-token factory. The original application's `/refresh` endpoint must implement the redirecting server's refresh contract, including any replacement transport token. The local gateway below forwards refresh to its final local hub and returns a replacement token. Removing it yields HTTP 404 at `/gateway/refresh`, even though initial negotiation connects successfully. This bounded local gateway check establishes no Azure SignalR Service capability.
@@ -28,6 +28,12 @@ Run each .NET project with `dotnet run -c Release` to execute its actual .NET cl
 Both local hosts register ephemeral Data Protection. The demonstration does not
 require persistent protection keys; production key storage and identity validation
 remain application-owned choices.
+
+The local gateway uses one trusted server binding to choose both targets, requires
+authentication on negotiate/refresh, and guards bearer parsing. Request Host
+cannot redirect credentials. Its token strings are still test data, not a cloud
+transport-token issuer. Query-string tickets are accepted only on the hub path;
+production systems must avoid logging token-bearing query strings.
 
 Measured SDKs are 10.0.402 and 11.0.100-rc.2.26504.105; frameworks and .NET SignalR packages are 10.0.13 and 11.0.0-rc.2.26504.105. Locked dependencies and source/tool hashes accompany the evidence. No down-level client/server refresh route, automatic expiry scheduling, Windows authentication, cloud provider, browser TypeScript transport, every SignalR transport, trimming/AOT or actual-GA support is proved. TypeScript ran on Node with WebSockets. Use TLS and trusted token validation in production.
 

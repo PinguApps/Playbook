@@ -66,7 +66,8 @@ public sealed class LocalTicket(IOptionsMonitor<AuthenticationSchemeOptions> opt
     {
         var token = Request.Headers.Authorization.ToString();
         if (token.StartsWith("Bearer ", StringComparison.Ordinal)) token = token[7..];
-        else token = Request.Query["access_token"].ToString();
+        else if (Request.Path.StartsWithSegments("/quarry", StringComparison.OrdinalIgnoreCase)) token = Request.Query["access_token"].ToString();
+        else return Task.FromResult(AuthenticateResult.NoResult());
         var parts = token.Split(':');
         if (parts.Length != 2) return Task.FromResult(AuthenticateResult.NoResult());
         var user = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimTypes.NameIdentifier, parts[0]), new Claim("clearance", parts[1]) }, Scheme.Name));

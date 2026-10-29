@@ -3,6 +3,7 @@ using ArchiveAccess;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 var builder = WebApplication.CreateBuilder(args);
+// Local demonstrator only: protection keys are not persisted.
 builder.Services.AddDataProtection().UseEphemeralDataProtectionProvider();
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddAuthorizationCore();

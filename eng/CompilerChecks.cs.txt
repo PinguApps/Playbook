@@ -26,9 +26,12 @@ foreach (var input in new[] { "<h2>Catalogue: @DateTime.Now.Year</h2>", "<h2>@("
     Require(copy.SourceMappingsSortedByGenerated.Length > 0, "Actual source mappings missing");
     foreach (var mapping in copy.SourceMappingsSortedByGenerated)
     {
+        Require(mapping.OriginalSpan.AbsoluteIndex >= 0 && mapping.OriginalSpan.Length >= 0 &&
+            mapping.OriginalSpan.AbsoluteIndex <= input.Length && mapping.OriginalSpan.Length <= input.Length - mapping.OriginalSpan.AbsoluteIndex, "Original mapping outside source");
+        Require(mapping.GeneratedSpan.AbsoluteIndex >= 0 && mapping.GeneratedSpan.Length >= 0 &&
+            mapping.GeneratedSpan.AbsoluteIndex <= copy.Text.Length && mapping.GeneratedSpan.Length <= copy.Text.Length - mapping.GeneratedSpan.AbsoluteIndex, "Generated mapping outside output");
         var original = input.Substring(mapping.OriginalSpan.AbsoluteIndex, mapping.OriginalSpan.Length);
         var emitted = copy.Text.ToString().Substring(mapping.GeneratedSpan.AbsoluteIndex, mapping.GeneratedSpan.Length);
-        Require(mapping.OriginalSpan.Length >= 0 && mapping.GeneratedSpan.Length >= 0, "Invalid mapping length");
         Console.WriteLine($"Actual mapping retained: {mapping.OriginalSpan} -> {mapping.GeneratedSpan}; original={original}; generated-span={emitted}");
     }
     Require((copy.Diagnostics.Length > 0) == (input == "<h2>@("), "Invalid-input diagnostic mismatch");
@@ -43,6 +46,11 @@ foreach (var input in new[] { "<h2>Catalogue: @DateTime.Now.Year</h2>", "<h2>@("
     {
         Require(CatalogueTool.DiagnosticCounts(source, generated.Diagnostics[0], true) == (1, 2), "Reporting context lost tree/explicit diagnostic");
         Require(CatalogueTool.DiagnosticCounts(source, generated.Diagnostics[0], false) == (0, 1), "Disabled tree import must still retain an explicit AddDiagnostic");
+        var node = new Microsoft.AspNetCore.Razor.Language.Intermediate.DocumentIntermediateNode();
+        node.AddDiagnostic(generated.Diagnostics[0]);
+        using var defaults = new CodeRenderingContext(new CompilerProof.DiagnosticWriter(), source, node, RazorCodeGenerationOptions.Default);
+        Require(defaults.GetDiagnostics().Length == 1, "Omitted reportDiagnostics must import the diagnostic");
+        Console.WriteLine("PASS: omitted reportDiagnostics imports the diagnostic by default.");
         Console.WriteLine("PASS: reportDiagnostics true imports tree diagnostics; false skips tree import; explicit AddDiagnostic is retained in both.");
     }
 #endif
@@ -62,3 +70,6 @@ foreach (var type in new[] { typeof(RazorCSharpDocument), typeof(CodeRenderingCo
     foreach (var constructor in type.GetConstructors()) Console.WriteLine("Actual contract: " + constructor);
 Console.WriteLine("Sample runtime: " + System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
 static void Require(bool value, string message) { if (!value) throw new InvalidOperationException(message); }
+#if !PREVIOUS
+namespace CompilerProof { internal sealed class DiagnosticWriter : IntermediateNodeWriter; }
+#endif
