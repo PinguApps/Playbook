@@ -1,0 +1,7 @@
+{
+  "additionalInputs": ["eng/Test-BeaconBuild.ps1", "samples/net11.0/BeaconBuild/artifact-pins.json"],
+  "buildArguments": ["-p:UseSharedCompilation=false"],
+  "dependencies": ["Beacon.Rates/1.0.0", "Beacon.Rules/1.0.0"],
+  "workloads": [],
+  "nativeToolchains": []
+}

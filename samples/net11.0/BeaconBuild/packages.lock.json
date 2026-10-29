@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Beacon.Rates": {
+        "type": "Direct",
+        "requested": "[1.0.0, 1.0.0]",
+        "resolved": "1.0.0",
+        "contentHash": "lFE4cUd9m8keBQzTfbdjvhobarGQqClJv665UjSkHqz3rHpGeU35/eqrDxTT9xje9SvMBCbMBCtpB1nrCb2OwQ=="
+      },
+      "beacon.rules": {
+        "type": "Project"
+      }
+    }
+  }
+}

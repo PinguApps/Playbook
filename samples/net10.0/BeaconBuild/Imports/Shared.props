@@ -1,0 +1,6 @@
+<!-- snippet:shared -->
+<Project>
+  <Import Project="Leaf.props" />
+  <PropertyGroup><BeaconQuay>North</BeaconQuay></PropertyGroup>
+</Project>
+<!-- endsnippet:shared -->

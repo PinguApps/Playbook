@@ -1,0 +1,11 @@
+<!-- snippet:imports -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework></PropertyGroup>
+  <Import Project="Shared.props" />
+  <Import Project="Night.props" Condition="'$(BeaconNight)' == 'true'" />
+  <Import Project="Leaf.props" Condition="'$(BeaconDuplicate)' == 'true'" />
+  <Target Name="ShowImports">
+    <Message Importance="high" Text="%(MSBuildImportedProject.Identity)|%(MSBuildImportedProject.ImportingProjectPath)|%(MSBuildImportedProject.Sdk)" />
+  </Target>
+</Project>
+<!-- endsnippet:imports -->

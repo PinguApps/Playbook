@@ -1,0 +1,11 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion>
+    <OutputType>Library</OutputType><PackageId>Beacon.Rates</PackageId><Version>1.0.0</Version>
+    <DebugType>portable</DebugType><IncludeSymbols>true</IncludeSymbols><SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <Deterministic>true</Deterministic><DeterministicTimestamp>2000-01-01T00:00:00Z</DeterministicTimestamp>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:project -->
