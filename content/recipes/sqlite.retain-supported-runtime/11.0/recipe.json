@@ -149,7 +149,7 @@
             }
           ],
           "packageAssets": [
-            "Microsoft.Data.Sqlite 11 RC2 has only a net10.0 dependency group; Core 11 RC2 has only lib/net10.0. net11.0 selects that compatible asset."
+            "Microsoft.Data.Sqlite 11 RC2 has only a net10.0 dependency group; Core 11 RC2 has only lib/net10.0. This net10.0 consumer selects lib/net10.0; net11.0 can consume the same asset."
           ],
           "providers": [
             "Microsoft.Data.Sqlite11; SQLitePCLRaw 3.0.5 plus SQLite 3.53.4; actual bundled e_sqlite3 SQLite 3.53.4."
@@ -174,7 +174,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using pinned .NET11 RC2 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+            "Stable migration contract, demonstrated using .NET SDK 10.0.402/runtime 10.0.13 with Microsoft.Data.Sqlite 11 RC2 provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
           ]
         },
         "sourceUrls": [
@@ -195,7 +195,7 @@
         "usage": "optional-alternative",
         "selectionNotes": [
           "Retain provider10 deliberately: this net10.0 comparison still works; the separate net48 baseline proves the earlier-dependency alternative on Windows.",
-          "RC2 package evidence, not actual GA verification. UWP/classic Xamarin native paths are excluded.",
+          "Retained-provider proof uses .NET SDK 10.0.402/runtime 10.0.13 with Microsoft.Data.Sqlite 10.0.13. The separate Sqlite11 comparison has RC2, not actual GA, proof. UWP/classic Xamarin native paths are excluded.",
           "This 11.0 migration edition does not add a .NET 10 foundation or a .NET Framework catalogue target."
         ],
         "requirements": {
@@ -254,7 +254,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Stable migration contract, demonstrated using pinned .NET11 RC2 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+            "Stable retained-provider route, demonstrated using .NET SDK 10.0.402/runtime 10.0.13 and Microsoft.Data.Sqlite 10.0.13. No experimental API or experimental opt-in is used. RC2/GA limitations apply to the separate Sqlite11/current-release comparison; its existing release-wide GA gate remains pending."
           ]
         },
         "sourceUrls": [
