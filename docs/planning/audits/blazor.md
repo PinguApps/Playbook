@@ -1,5 +1,30 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+## Intermediate-node copy delivery: B13 / PIN-1167
+
+`razor.copy-intermediate-nodes/11.0` supplies original MapCompiler libraries
+against SDK 10.0.402 and 11.0.100-rc.2.26504.105 with their matching Razor
+compiler/utility and Roslyn artifacts. The actual compiler/utility hashes match
+this audit. An older manual copy remains valid; the current protected
+`CloneNode` override supplies only a shell. Recursive `Clone` is internal,
+not a public generic copy operation. Neither pinned compiler has an
+`IntermediateNode.Annotations` property; the example explicitly owns its notes.
+
+`eng/Record-MapCompiler.ps1` captures real baseline/transformed pipeline output
+and compiles/executes that generated C#. Original coast/blue/Estuary content
+remains unchanged while the working tree becomes ridge/amber/Ridge. Focused
+checks distinguish new writable containers/nodes/tokens from shared immutable
+strings, note and diagnostic values; preserve common state/diagnostic accumulation;
+and reproduce shallow-copy leakage and unknown-node refusal. Private probes
+observe the current recursive caller/missing-hook failure and older output
+reader only in verification. They are not taught application routes.
+
+M (3) includes extension-node and real pipeline tests, paired original prose/samples,
+artifact qualification, fresh evidence and installed offline delivery. This is a
+closed acyclic HTML/token vocabulary, not arbitrary tree/alias/internal-state,
+IDE, MVC/browser or GA proof. Exact eight foundations and existing identities are
+preserved. PIN-959 qualifying coverage and PIN-964 actual-GA reconciliation stay open.
+
 ## Generated-document tool delivery: B12 / PIN-1166
 
 `razor.migrate-generated-document-contracts/11.0` uses original CatalogueCompiler

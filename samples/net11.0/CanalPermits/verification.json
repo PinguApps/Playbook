@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+    "SQLitePCLRaw.core/3.0.5",
+    "SQLitePCLRaw.provider.winsqlite3/3.0.5"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Record-SqliteInitialization.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

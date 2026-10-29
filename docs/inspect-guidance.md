@@ -250,6 +250,36 @@ adapter fast path and SQLite's synchronous native I/O. The UInt128 body retains
 explicit string reading/application parsing. Neither retrieval nor these Windows
 x64 RC2 consumers establishes other native platforms/providers or actual GA.
 
+## Copy custom Razor nodes
+
+This tested example selects the assigned worktree from an unrelated directory,
+builds/packs the ordinary tool and uses the existing isolated local-feed/cache
+harness. Requires PowerShell 7, SDK 10.0.402 and Node 22.19+. The paired pipeline
+checks additionally require SDK 11.0.100-rc.2.26504.105 at its declared path.
+Setup may restore online; installed retrieval uses unusable proxies, proving
+proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1167-04-092-copy-intermediate-razor-nodes-before-a-custom'
+& ./eng/Record-MapCompiler.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'razor.copy-intermediate-nodes' -Query 'node-copy' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-map-copy' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/map-compiler/inspection
+```
+
+Expect the discovery ID/title/goal, explicit 11.0 edition/target, complete
+canonical .NET 10/11 Markdown, applicability and four current compilation/execution
+records. The helper asserts complete snippet/body and structured/JSON-text equality.
+The focused recorder runs real Razor generation and compiles/executes both maps:
+`[coast:blue]<p>Estuary route</p>` and `[ridge:amber]<p>Ridge route</p>`, preserving
+the original. It checks copied writable state, shared immutable values, shallow-copy
+leakage and unsupported nodes; private current-clone/older-reader probes are
+verification-only. No public generic clone, arbitrary-tree, MVC/browser, older-target
+backport or actual-GA support is inferred. Sample pins remain author-maintained.
+
 ## Embedded template-engine hosts
 
 From an unrelated directory, this selects the exact PIN-1071 worktree, builds and
@@ -353,6 +383,33 @@ consumer checks with its explicit SDK10/SDK11 parameters. Native CodeCoverage,
 other operating systems and actual GA remain unverified; PIN-959/PIN-963 stay open.
 The seven sample projects and their exact locks remain author-maintained under
 the existing sample dependency policy; no new automatic update permission is added.
+
+## Retired SQLite native bundle initialization
+
+This block was executed from an unrelated directory. It builds/packs the ordinary
+tool and reuses the isolated local-feed/cache harness for real installed stdio
+list/get. Requires PowerShell7, SDK10.0.402 and Node22.19+; Inspector2.11.0 is
+installed locally if absent. Setup may restore online. Retrieval uses unusable
+proxies, proving proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-864-05-022-restore-native-sqlite-initialization-after-bundle'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sqlite.replace-retired-native-bundle' -TargetVersion '11.0' `
+  -Query 'sqlite-initialization' -PackageVersion '0.0.0-sqlite-initialization' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/sqlite-initialization/inspection
+```
+
+Expect ID/title/goal, edition11.0, full canonical .NET10/.NET11 files and prose,
+Windows system-engine applicability and three current sample evidence records.
+The older bundle comparison is not an additional .NET10 foundation or selectable
+current target route. `eng/Record-SqliteInitialization.ps1` separately recaptures
+actual Windows x64 native initialization, committed debit/reopen, password refusal
+and omitted-initialization failure using SDK10.0.402 and SDK11 RC2. That helper
+records the loaded DLL/version/hash; retrieval does not execute SQL. Encryption,
+other platforms and actual GA remain unverified. No paid provider is selected.
 
 ## Inspect a response directly
 

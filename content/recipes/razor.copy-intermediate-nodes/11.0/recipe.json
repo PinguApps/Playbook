@@ -1,0 +1,229 @@
+{
+  "id": "razor.copy-intermediate-nodes",
+  "edition": "11.0",
+  "title": "Copy intermediate Razor nodes before a custom transformation",
+  "goal": "Preserve an original custom Razor node while transforming a separate working tree; choose explicit copy boundaries and implement the protected CloneNode shell hook for a version-coupled compiler host.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "razor",
+    "compiler",
+    "node-copy"
+  ],
+  "apis": [
+    "IntermediateNode",
+    "CloneNode",
+    "ExtensionIntermediateNode",
+    "HtmlContentIntermediateNode",
+    "HtmlIntermediateToken",
+    "AddDiagnosticsFromNode"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Advanced compiler host with the exact matching SDK dependency set.",
+          "Protected shell hook only; explicit public copy supports a closed HTML/token vocabulary, shares immutable annotation values and rejects unknown kinds."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run the current compiler host on its matching runtime family."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0.100-rc.2.26504.105",
+            "match": "exact",
+            "reason": "The advanced host directly references this SDK compiler, utility and Roslyn closure. Requalify other toolsets deliberately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample language mode; the copy algorithm needs no C#15-only syntax."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11; Microsoft.NET.Sdk"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "SDK source-generators/Microsoft.CodeAnalysis.Razor.Compiler.dll and Microsoft.AspNetCore.Razor.Utilities.Shared.dll; matching SDK Roslyn/bincore/Microsoft.CodeAnalysis.dll and Microsoft.CodeAnalysis.CSharp.dll. No independent compiler NuGet package."
+          ],
+          "providers": [],
+          "platforms": [
+            "Managed compiler host; measured Windows x64. No native assets."
+          ],
+          "renderingModes": [
+            "Razor generation and execution in the supplied literal-only MapTemplate host; no MVC, browser or IDE integration claim."
+          ],
+          "workloads": [],
+          "optIns": [],
+          "prerequisites": [
+            "An advanced version-coupled custom Razor host; own the extension node and its acyclic HTML/token child vocabulary."
+          ],
+          "constraints": [
+            "CloneNode is a protected shell hook. The recursive Clone entry point is internal; no supported public generic clone is taught.",
+            "CopyForTransform explicitly copies only HTML content and HTML tokens; unknown kinds fail. No arbitrary subtree, internal flag, alias, lazy-state or ABI preservation promise.",
+            "Custom annotation containers are copied while immutable MapNote/string/diagnostic values are shared. No compiler Annotations property exists in these exact artifacts."
+          ],
+          "stabilityLimitations": [
+            "GA-targeted edition with RC2 execution only; SDK compiler integration is version coupled. Rebuild extensions together; no older-target backport or actual-GA guarantee."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/IntermediateNode.cs",
+          "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/IntermediateNode.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/HtmlContentIntermediateNode.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/HtmlIntermediateToken.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/ExtensionIntermediateNode.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/SourceGenerators/SourceGeneratorProjectEngine.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MapCompiler/MapCompiler.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned current IntermediateNode cloning contract",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/IntermediateNode.cs"
+    },
+    {
+      "title": "Pinned previous IntermediateNode without a clone hook",
+      "url": "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/IntermediateNode.cs"
+    },
+    {
+      "title": "Pinned current HTML node shell",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/HtmlContentIntermediateNode.cs"
+    },
+    {
+      "title": "Pinned current token shell",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/HtmlIntermediateToken.cs"
+    },
+    {
+      "title": "Pinned extension-node dispatch and writer contract",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/Language/Intermediate/ExtensionIntermediateNode.cs"
+    },
+    {
+      "title": "Pinned internal source-generator tree-copy caller",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Razor/src/Compiler/Microsoft.CodeAnalysis.Razor.Compiler/src/SourceGenerators/SourceGeneratorProjectEngine.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/MapCompiler/MapCompiler.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Matching SDK closure, actual Razor pipeline and generated C# execution before/after transformation; isolated writable nodes/containers, shared immutable values, original preservation, unsupported-node and shallow-copy failure controls. Private old reader/current recursive-clone probes are verification-only."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/MapCompiler/MapCompiler.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Matching SDK closure, actual Razor pipeline and generated C# execution before/after transformation; isolated writable nodes/containers, shared immutable values, original preservation, unsupported-node and shallow-copy failure controls. Private old reader/current recursive-clone probes are verification-only.",
+      "record": "samples/net10.0/MapCompiler/behavior.evidence.json"
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/MapCompiler/MapCompiler.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Matching SDK closure, actual Razor pipeline and generated C# execution before/after transformation; isolated writable nodes/containers, shared immutable values, original preservation, unsupported-node and shallow-copy failure controls. Private old reader/current recursive-clone probes are verification-only."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/MapCompiler/MapCompiler.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Matching SDK closure, actual Razor pipeline and generated C# execution before/after transformation; isolated writable nodes/containers, shared immutable values, original preservation, unsupported-node and shallow-copy failure controls. Private old reader/current recursive-clone probes are verification-only.",
+      "record": "samples/net11.0/MapCompiler/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/MapCompiler/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MapCompiler/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MapCompiler/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MapCompiler/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-mapcompiler-csproj": {
+      "path": "samples/net10.0/MapCompiler/MapCompiler.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-maptool-cs": {
+      "path": "samples/net10.0/MapCompiler/MapTool.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MapCompiler/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MapCompiler/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MapCompiler/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MapCompiler/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-mapcompiler-csproj": {
+      "path": "samples/net11.0/MapCompiler/MapCompiler.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-maptool-cs": {
+      "path": "samples/net11.0/MapCompiler/MapTool.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real managed pipeline and generated C# execution cover this closed literal-map host. No arbitrary extension/IDE, browser, MVC or actual-GA claim."
+  }
+}

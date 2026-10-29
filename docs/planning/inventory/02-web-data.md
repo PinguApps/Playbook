@@ -8,6 +8,15 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
+**B13 / PIN-1167** supplies `razor.copy-intermediate-nodes/11.0`: original
+MapCompiler manual/current-hook libraries, matching actual SDK artifacts, real
+pipeline and generated C# execution, original preservation and measured copy/shared
+boundaries. The new hook is protected; recursive cloning is internal. Only the
+verification harness probes that private caller and the older output reader.
+The public map copy accepts a closed HTML/token tree and shares immutable values.
+See the [bounded delivery](../audits/blazor.md#intermediate-node-copy-delivery-b13--pin-1167).
+PIN-959 comprehensive coverage and PIN-964 actual-GA gates remain open.
+
 **B12 / PIN-1166** supplies `razor.migrate-generated-document-contracts/11.0`:
 actual matching SDK compiler/Roslyn sets, retained text/diagnostics/mappings,
 diagnostic-import and declaration/stub choices, and source-versus-binary
@@ -319,7 +328,7 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 | `ef.configure-primitive-sequence` — Make scalar-versus-collection mapping unambiguous | Use PrimitiveCollection instead of Property where convention is overridden. | Primitive collection configuration, including ambiguous byte arrays. | [EB] `property-not-primitive-collection` | delivered: [11.0 recipe](../../../content/recipes/ef.configure-primitive-sequence/11.0/recipe.md), PIN-848; actual EF10/RC2 SQLite JSON-array/TEXT versus BLOB and collection mutation evidence |
 | `ef.recover-split-query-consistency` — Retry or isolate a split read when concurrent writes disrupt it | Handle new query-concurrency exception or use snapshot/serializable/single query. | Relational; transaction/provider guarantees differ; no blanket consistency claim. | [EB] `split-query-concurrency-exception` | included |
 | `sqlite.retain-supported-runtime` — Keep low-level SQLite access on a supported framework | Upgrade target or retain compatible earlier provider deliberately. | Microsoft.Data.Sqlite 11 targets net10 only; separate from EF Core 11 net11 requirement. Original QuaySeals net10/provider10, net11/provider11, net10/provider11 and actually executed net48/provider10 comparisons. | [EB] `sqlite-no-netfx` | delivered: [11.0 recipe](../../../content/recipes/sqlite.retain-supported-runtime/11.0/recipe.md), PIN-863; real Windows x64 persistence and managed-asset checks |
-| `sqlite.replace-retired-native-bundle` — Restore native SQLite initialization after bundle retirement | Select provider/initialization matching existing native/encryption needs. | SQLitePCLRaw external dependency; paid/encryption alternatives are not default product choices. | [EB] `sqlite-bundles-deprecated` | included — related dependency migration, not independent vendor feature coverage |
+| `sqlite.replace-retired-native-bundle` — Restore native SQLite initialization after bundle retirement | Replace retired Windows system bundle with explicit provider initialization while preserving the native engine. | SQLitePCLRaw external dependency; paid/encryption alternatives are not default product choices. Windows x64 plain-engine route only; encrypted/native-platform alternatives require separate proof. | [EB] `sqlite-bundles-deprecated` | delivered: [11.0 recipe](../../../content/recipes/sqlite.replace-retired-native-bundle/11.0/recipe.md), PIN-864; original .NET10 bundle/.NET11 provider consumers, actual system DLL/version/hash, persistence, password refusal and missing-init failure; RC2, not GA |
 | `sqlite.retain-supported-runtime` | Bundled native SQLite no longer includes UWP/classic Xamarin. | PIN-863 explains the separate managed/native decision and source/artifact drift; no UWP/classic Xamarin bundle combination or native execution is claimed. Platform migration still needs its own proof. | [EB] `sqlite-no-uwp-xamarin` | grouped |
 | — RC1/RC2 SQL shaping, ordering, migration finalization and platform initialization fixes | Existing supported code benefits without a different authoring approach. | Include in behavior verification of relevant recipes, not standalone feature goals. | [ER1], [ER2] | excluded |
 
