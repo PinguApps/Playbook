@@ -86,3 +86,9 @@
 /samples/net10.0/PlanetariumContracts/contracts.evidence.json
 /samples/net11.0/PlanetariumContracts/verification-evidence.json
 /samples/net11.0/PlanetariumContracts/contracts.evidence.json
+
+# Record-NorthQuayBuildHost.ps1 generated SDK/command/native capture; review the
+# harness, canonical hosts, artifact pins and locks. Pack checks input freshness.
+/samples/net10.0/NorthQuayBuildHost/verification-evidence.json
+/samples/net11.0/NorthQuayBuildHost/verification-evidence.json
+/samples/net11.0/NorthQuayBuildHost/native.evidence.json

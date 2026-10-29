@@ -1,0 +1,18 @@
+<!-- snippet:legacy-settings -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Locator" />
+    <Reference Include="Microsoft.Build" HintPath="$(MSBuildBinPath)/Microsoft.Build.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Utilities.Core" HintPath="$(MSBuildBinPath)/Microsoft.Build.Utilities.Core.dll" Private="false" />
+    <Compile Include="../../net11.0/NorthQuayBuildHost/PermitEngine.cs" Link="PermitEngine.cs" />
+    <None Include="../../net11.0/NorthQuayBuildHost/Quay.proj" Link="Quay.proj" CopyToOutputDirectory="Always" />
+    <None Include="../../net11.0/NorthQuayBuildHost/Sdk.props" Link="Sdks/Quay.Permits/Sdk/Sdk.props" CopyToOutputDirectory="Always" />
+    <None Include="../../net11.0/NorthQuayBuildHost/Sdk.targets" Link="Sdks/Quay.Permits/Sdk/Sdk.targets" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:legacy-settings -->

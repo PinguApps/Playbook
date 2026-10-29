@@ -1,0 +1,11 @@
+<!-- snippet:package-targets -->
+<Project>
+  <!-- Public package asset; current-TFM _._ otherwise hides these defaults. -->
+  <Import Project="$(PkgMicrosoft_Build_Framework)/buildTransitive/net10.0/Microsoft.Build.Framework.targets"
+          Condition="Exists('$(PkgMicrosoft_Build_Framework)/buildTransitive/net10.0/Microsoft.Build.Framework.targets')" />
+  <Target Name="RequirePackagedTrimDefaults" BeforeTargets="PrepareForBuild">
+    <Error Condition="!Exists('$(PkgMicrosoft_Build_Framework)/buildTransitive/net10.0/Microsoft.Build.Framework.targets')"
+           Text="Restore the pinned Framework package and its public buildTransitive defaults." />
+  </Target>
+</Project>
+<!-- endsnippet:package-targets -->

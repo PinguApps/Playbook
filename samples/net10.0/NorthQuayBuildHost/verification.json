@@ -1,0 +1,16 @@
+{
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.Build.Locator/1.11.2"
+  ],
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/PermitHost",
+    "eng/Record-NorthQuayBuildHost.ps1",
+    "samples/net11.0/NorthQuayBuildHost/PermitEngine.cs",
+    "samples/net11.0/NorthQuayBuildHost/Quay.proj",
+    "samples/net11.0/NorthQuayBuildHost/Sdk.props",
+    "samples/net11.0/NorthQuayBuildHost/Sdk.targets"
+  ]
+}
