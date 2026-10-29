@@ -126,14 +126,14 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | IAdditionalOpenApiDocumentNameResolver, AddOpenApiCore | **W04 / PIN-1174 delivered** `openapi.discover-dynamic-documents/11.0`; actual public/staff runtime and GetDocument build outputs, named options, exact duplicates, explicit/additional names and missing/empty/null controls. The .NET10 explicit-registration alternative remains valid; no backport or GA claim. AddOpenApiCore has no options-callback overload. |
 | ApiDescription.RoutePattern | **W03**; authored API-explorer tools can consume parsed route constraints. Remaining ApiDescription nullable-context/accessor changes are not separate operations. |
 | Kestrel handshake Exception and ClientHello listener; obsolete callback | PIN-830; registration order before UseHttps, failure snapshots and real handshake evidence. |
-| TLS channel binding and HTTP.sys Legacy/Medium/Strict | PIN-831; retain actual Windows/HTTPS prerequisites. **ASPDEPR010 ITlsTokenBindingFeature is a different protocol**, owned by **W15**, not a mechanical CBT substitution. |
+| TLS channel binding and HTTP.sys Legacy/Medium/Strict | PIN-831; retain actual Windows/HTTPS prerequisites. **W15 / PIN-1185 delivered** `authentication.remove-token-binding-assumption/11.0`: actual ASPDEPR010 and paired cookie authorization/HTTPS/missing-feature checks. RFC8471 is distinct from RFC5929; no replacement binding protection or mechanical CBT substitution is claimed. |
 | HTTP.sys TryGetRequestProperty | **W05**; native property IDs/struct parsing, buffer negotiation and unsupported API behavior differ from the existing typed TLS feature. |
 | Stricter H2/H3 headers and H1 framing | PIN-832. H1 still processes the request then closes; it is not universally an initial rejection. Servicing can bring the close behavior to the old baseline. Remove preview-only insecure-chunked switch; no replacement switch. |
 | Absolute-form encoded slash preservation | **W09**; middleware/route expectations and removable decoding compensation, not a new transport API. |
 | Native request traces/route tags/status descriptions | PIN-833. SuppressActivityOpenTelemetryData does not restore route substitution or StatusDescription. |
 | IOutputCachePolicyProvider | PIN-834; dynamic base/named policy selection, rather than fixed registration. |
 | Zstandard providers/decompression | PIN-835; explicit negotiation/decoding policy, not an automatic-default performance recipe. |
-| Removed concurrency middleware, MVC compatibility types, ImageTagHelper constructor/properties, ForProperty overload, runtime compilation registrations | PIN-836–840 respectively. PIN-837–839 deliver the three MVC/Razor migrations below. Preserve source/binary versus behavioral distinctions; ASPDEPR003 is not runtime removal. **W16** handles F# compiled-view migration, which needs more than removing a registration. |
+| Removed concurrency middleware, MVC compatibility types, ImageTagHelper constructor/properties, ForProperty overload, runtime compilation registrations | PIN-836–840 respectively. PIN-837–839 deliver the three MVC/Razor migrations below. Preserve source/binary versus behavioral distinctions; ASPDEPR003 is not runtime removal. **W16 / PIN-1186 delivered** `mvc.compile-fsharp-views/11.0`: separate F# compiled-view assembly/registration and actual source-free published render plus missing-view control. |
 | ISpanDataProtector/ISpanAuthenticatedEncryptor | **W01 / PIN-1171 delivered** `security.protect-into-buffer/11.0`: actual framework10 array and framework11 span/capability fallback, isolated real keys, empty/token/1MiB recovery, purpose/key/tampering and advanced AAD rejection; full failed-output cleanup. Reference hashes match this audit; no allocation-count, older-target span or actual-GA claim. |
 | StaticAssetDescriptor.Order | **W06 / PIN-1176 delivered** `web.order-static-asset-routes/11.0`; public descriptor serialization of an isolated SDK-generated manifest, real competing static endpoints, default/explicit/invalid/frozen checks and retained .NET10 conventions. Generated default changes do not each need a recipe. Actual GA remains open. |
 | QUIC transport four buffer/stream properties lose RequiresPreviewFeatures | **W12 / PIN-1182 delivered** `hosting.configure-http3-budgets/11.0`; actual paired HTTP/3 concurrency, unidirectional credit and slow upload/download backpressure. Existing properties are not new APIs; .NET10 retains its narrow CA2252 acknowledgement. |
@@ -601,6 +601,18 @@ M includes actual startup/lifecycle integration, not a mocked builder assertion.
 
 ### W15. Remove reliance on obsolete browser token binding — S (2)
 
+Delivered by **PIN-1185** as `authentication.remove-token-binding-assumption/11.0`.
+Original NightArchive consumers use actual SDK10.0.402/framework10.0.13/C#14
+and SDK11 RC2/framework11 RC2/C#15. Http.Features/MVC reference hashes match
+this audit; actual compiler/runtime/native-host identities are recorded separately.
+Real Kestrel HTTPS requests preserve protected-cookie authentication, curator
+authorization, invalid/absent401 and forbidden403 outcomes; HTTP400 and exactly
+one protected-handler invocation pass. Kestrel exposes no RFC8471 feature on
+the historical requests. Isolated recompilation produces ASPDEPR010; newer
+middleware removes only optional observation, never a required security policy.
+No browser implementation or replacement token-theft/relay protection is claimed.
+S2 retains the bounded removal plus real requests; protocol design stays excluded.
+
 Story: An authentication maintainer wants to remove a browser mechanism that was
 not adopted so that its sign-in logic does not depend on an unavailable feature.
 Proposed `authentication.remove-token-binding-assumption`. Prerequisites: real
@@ -614,6 +626,28 @@ its supported route explicitly before publishing. S covers bounded removal with
 request proof; new protocol design is excluded.
 
 ### W16. Publish F# MVC views without runtime compilation — M (3)
+
+Delivered by **PIN-1186** as `mvc.compile-fsharp-views/11.0`.
+Original StarSurvey consumers use F#10/FSharp.Core10.1.402 with the actual
+RuntimeCompilation10.0.13 compiler closure versus F#11/FSharp.Core11 RC2 with
+the Web/Razor SDK's separate C# views compiler. The actual SDK10/11 F# MVC
+template package/source hashes match this audit; templates were inspected,
+not reused as example implementations. Both real MVC pages render/encode
+their model. Current clean published output contains StarSurvey.Views.dll,
+no .cshtml and no runtime compiler; a real request renders using the views
+assembly in its owner's load context. A fresh disabled-compilation publish
+builds successfully and then observes the specific missing-view exception.
+M3 retains actual published consumption; PIN-840 is not a substitute.
+No older-target compiled-view, Hot Reload, NativeAOT or arbitrary loader claim.
+
+Both deliveries retain exact commands, selected package assets, input hashes
+and compilation/request/publish evidence through `eng/Test-WebRetirement.ps1`
+and the existing sample-evidence workflow. The parameterized installed-artifact
+Inspector verifies ID/title/goal, complete canonical Markdown, applicability,
+current evidence, explicit11.0 selection and unsupported10.0. No recurring
+OS/client/native matrix, public package publication or persistent settings change.
+The eight .NET10 foundations, existing identities, PIN-959/PIN-964 and unrelated
+Human gates remain unchanged; Windows x64 RC2 execution is not actual-GA proof.
 
 Story: An F# site author wants its observatory pages to render after publishing
 so that removing obsolete development setup does not leave missing views.

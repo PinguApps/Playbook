@@ -4,6 +4,45 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Token-binding removal and published F# MVC views
+
+These two 11.0 editions use the existing actual-package Inspector with an isolated
+local feed/cache and unrelated working directory. Requires PowerShell7,
+SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105/runtime11 RC2 and Node22.19+.
+Sample restore and Inspector setup may use the network; retrieved guidance is
+embedded. No trust-store change, production identity provider or native workload.
+
+The block was exercised starting outside the checkout. The first command runs
+paired real HTTPS/cookie checks, reproduces ASPDEPR010, compiles/renders F# views,
+publishes to a clean source-free directory and exercises the missing-view control.
+It refreshes the existing sample records. The second command builds/packs once,
+installs that exact ordinary artifact and prints what an agent receives.
+
+Use PowerShell 7 (`pwsh`): Windows PowerShell 5.1 changes native JSON-argument
+quoting. The fixture retains `artifacts/web-retirement-<guid>` as disposable
+published-consumer output for inspection.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-61e6bfa1'
+& ./eng/Test-WebRetirement.ps1 -RecordEvidence
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -PackageVersion '0.0.0-pin1185-1186' -Query 'web-retirement' `
+  -RecipeId @('authentication.remove-token-binding-assumption','mvc.compile-fsharp-views') `
+  -UnsupportedTargetVersion '10.0' -OutputDirectory ./artifacts/web-retirement/inspection
+```
+
+Expect both discovery IDs, titles and explanatory goals, complete expanded
+Markdown, explicit11.0 applicability and current evidence, with text/structured
+equality and unsupported10.0 rejection. The two comparisons add no .NET10
+foundation. The F# current consumer prints the actual .Views.dll path and matching
+owner load context; its negative publish builds but returns the specific missing
+view500. Token binding is RFC8471, not RFC5929 channel binding; removal preserves
+the fixture's real authorization/HTTPS policy and supplies no replacement binding
+security. Proxy-blocked retrieval is not network-isolation proof. RC2 Windows x64
+execution is not actual-GA, arbitrary loader/trimming, browser or Hot Reload proof.
+PIN-959/PIN-964 and unrelated Human gates stay open.
+
 ## HTTP/3 budgets, JSON Patch intent and early integration-test setup
 
 This block builds/packs the ordinary tool once and installs that exact artifact

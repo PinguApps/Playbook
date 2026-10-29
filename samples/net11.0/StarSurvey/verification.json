@@ -1,0 +1,15 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebRetirement.ps1",
+    "docs/planning/audits/web.assets.json"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "FSharp.Core/11.0.101-rc2.26504.105"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}
