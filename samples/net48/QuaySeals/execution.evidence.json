@@ -6,8 +6,8 @@
   "language": "7.3",
   "command": "V:\\_worktrees\\Playbook\\agent-pin-863-05-021-keep-low-level-sqlite-access-on-a-supported-framework\\samples\\net48\\QuaySeals\\bin\\Release\\net48\\QuaySeals.exe",
   "scope": "Direct Windows x64 Framework EXE execution: parameterized write, commit, rollback, file reopen and cleanup. Managed asset selection is checked separately; no UWP/Xamarin execution.",
-  "recordedAt": "2026-10-29T03:20:53.3495371+00:00",
-  "sourceCommit": "97ee543361efc21db8e6b6b26ab3787e658da73c",
+  "recordedAt": "2026-10-29T03:21:46.6954443+00:00",
+  "sourceCommit": "39bde3bc54e5190cadeead2fd24dd44b966e1a17",
   "sourceDirty": true,
   "inputs": {
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
@@ -18,7 +18,7 @@
     "samples/net48/QuaySeals/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net48/QuaySeals/Directory.Packages.props": "6366b1725e09ef1243f339dabe03eda6a203c07c3a5d821e06a509d7ab229d43",
     "samples/net48/QuaySeals/global.json": "b7978f1ba001a1d32ec1df340acb150ecd58f4a8242c6fb434d75391bfb3187d",
-    "samples/net48/QuaySeals/packages.lock.json": "c692251038255dfea4470338b92037f2e0586d70215948e98ccf889db72da1ab",
+    "samples/net48/QuaySeals/packages.lock.json": "7d22fbdecd56a7c9dc679ae1f0799f139b872efdb1bf03e405f3bf6768739b4f",
     "samples/net48/QuaySeals/Program.cs": "11cdb9f4f8d4fca631fda2e2a3b66076f5e7f928a0ed2effbf48c339294e20c2",
     "samples/net48/QuaySeals/QuaySeals.csproj": "4a7439e67e2f901a610ac4b197d0610557aefc89b65eb4d6679c0ea8f26e5121",
     "samples/net48/QuaySeals/verification.json": "cb1651cc799045e2511ede3aff35d13b7111d4558539ccaa95bb34cd5a797c8a"
