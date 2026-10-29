@@ -151,9 +151,9 @@ target count, whose exact value depends on the imported SDK.
 5. Compare property values, imported paths and item identities/metadata with an
    explicit Full instance and an omitted-option control. Assert the returned
    `EvaluationStage`. Do not read unavailable state just to count it.
-6. Exercise the same project with the matching executable's `msbuild Museum.csproj
+6. Invoke the matching absolute dotnet executable: `& '<absolute dotnet.exe>' msbuild Museum.csproj
    -getProperty:MuseumName,CollectionCode,InventoryStatus,MSBuildSDKsPath` and
-   `msbuild Museum.csproj -getItem:MuseumObject`, without `-target`. Compare the
+   `& '<absolute dotnet.exe>' msbuild Museum.csproj -getItem:MuseumObject`, without `-target`. Compare the
    relevant JSON fields with the object model. As a separate control, use
    `-target:CountInventory -getProperty:InventoryStatus`; only this reports `counted`.
 7. Keep claim-specific checks and refresh evidence after changing sources, SDK,
