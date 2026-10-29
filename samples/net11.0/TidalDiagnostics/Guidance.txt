@@ -1,0 +1,31 @@
+// snippet:instructions-1
+{
+  "runtimeOptions": {
+    "configProperties": {
+      "TidalStation.DiagnosticMode": "development",
+      "TidalStation.Operator": "night-watch"
+    }
+  }
+}
+// endsnippet:instructions-1
+
+// snippet:instructions-2
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72e14ee7'
+Set-Location -LiteralPath './samples/net10.0/TidalDiagnostics'
+# Select an existing matching installation; do not change PATH.
+$dotnet = 'C:\Program Files\dotnet\dotnet.exe'
+& $dotnet build ./TidalDiagnostics.csproj -c Release
+$output = './bin/Release/net10.0' # net11.0 with the matching .NET 11 installation
+Copy-Item -LiteralPath ./development.json `
+  -Destination "$output/TidalDiagnostics.runtimeconfig.dev.json"
+& $dotnet "$output/TidalDiagnostics.dll"
+// endsnippet:instructions-2
+
+// snippet:instructions-3
+<ItemGroup>
+  <None Update="development.json"
+        CopyToOutputDirectory="PreserveNewest"
+        CopyToPublishDirectory="Always"
+        TargetPath="TidalDiagnostics.runtimeconfig.dev.json" />
+</ItemGroup>
+// endsnippet:instructions-3

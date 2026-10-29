@@ -35,13 +35,7 @@
           "Serviced SDK 10.0.302/10.0.400 and .NET 11 Preview 6 introduce wrapper bypass; actual serviced 10.0.402 and RC2 wrappers were executed.",
           "SDK 9 is a negative command-availability case only; no extra historical foundation or target-10 catalogue edition."
         ],
-        "sharedAreas": [
-          "aspnetcore",
-          "blazor",
-          "maui",
-          "winforms",
-          "wpf"
-        ],
+        "sharedAreas": [],
         "requirements": {
           "runtime": {
             "name": ".NET",
@@ -172,6 +166,21 @@
       "language": "csharp",
       "path": "samples/net11.0/MuseumCatalogue/Program.cs",
       "region": "checker"
+    },
+    "instructions-1": {
+      "language": "json",
+      "path": "samples/net11.0/MuseumCatalogue/Guidance.txt",
+      "region": "instructions-1"
+    },
+    "instructions-2": {
+      "language": "xml",
+      "path": "samples/net11.0/MuseumCatalogue/Guidance.txt",
+      "region": "instructions-2"
+    },
+    "instructions-3": {
+      "language": "powershell",
+      "path": "samples/net11.0/MuseumCatalogue/Guidance.txt",
+      "region": "instructions-3"
     }
   },
   "humanProof": {

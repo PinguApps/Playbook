@@ -87,6 +87,42 @@ With both SDKs and the measured Chromium/Playwright installations available,
 these responses and reruns their real browser/renderer checks. The script's
 `-Playwright` and `-Chromium` parameters take the absolute installed paths.
 
+## Runtime overrides and SDK selection for tool execution
+
+From PowerShell 7 with SDK 10.0.402 and Node 22.19+, this builds/packs the
+ordinary tool, then reuses the isolated local-feed/cache harness to inspect that
+exact artifact over real stdio from an unrelated temporary directory. Inspector
+2.11.0 is installed locally if missing. Setup may restore packages online;
+retrieval uses unusable proxies (proxy independence, not network isolation).
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72e14ee7'
+& ./eng/Test-Smoke.ps1 -PackageVersion '0.0.0-host-selection'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('deployment.control-runtime-overrides','sdk.select-tool-execution-sdk') `
+  -Query 'host-selection' -PackageVersion '0.0.0-host-selection' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/host-selection/inspection
+```
+
+Expect one passed installed smoke, then both IDs/titles/goals, explicit edition
+11.0, complete expanded canonical Markdown, applicability and four current
+compilation/execution records per recipe. The second recipe correctly reports
+introduction 10.0: wrapper bypass was serviced into 10.0.302/10.0.400 and was
+executed here on 10.0.402 and RC2. This adds no target-10 foundation. The existing
+helper's name is historical; its recipe-ID/query parameters accept both recipes.
+
+Actual behavior is separate from retrieval. `eng/Test-RuntimeOverrides.ps1`
+executes the original .NET 10/11 samples with isolated matching hostfxr/runtime,
+duplicate and nonduplicate properties, source regeneration, Release dev-file
+generation/copy and a fresh production artifact allowlist.
+`eng/Test-ToolSdkSelection.ps1` executes both original local packages, three SDK
+pins, both shipped Windows wrappers, exact quoted arguments and failure exits.
+These require the declared Windows x64 SDK/runtime installations; parameters
+accept alternate absolute installation paths. SDK 9 is a negative command case
+only. Unix wrapper execution and actual .NET 11 GA reconciliation remain unverified.
+
 ## Inspect a response directly
 
 ```powershell

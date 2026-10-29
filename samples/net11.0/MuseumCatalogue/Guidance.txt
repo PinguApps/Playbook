@@ -1,0 +1,53 @@
+// snippet:instructions-1
+{
+  "sdk": {
+    "version": "10.0.402",
+    "rollForward": "disable",
+    "allowPrerelease": false
+  }
+}
+// endsnippet:instructions-1
+
+// snippet:instructions-2
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="museum-local" value="C:\museum proof\feed-10" />
+  </packageSources>
+</configuration>
+// endsnippet:instructions-2
+
+// snippet:instructions-3
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72e14ee7'
+$dotnet = 'C:\Program Files\dotnet\dotnet.exe'
+$museum = Join-Path $PWD ('artifacts/museum-' + [guid]::NewGuid().ToString('N'))
+$feed = Join-Path $museum 'local feed'
+New-Item -ItemType Directory -Path $feed -Force | Out-Null
+$previous = @{}
+foreach ($key in 'DOTNET_CLI_HOME','NUGET_PACKAGES','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH') {
+    $previous[$key] = [Environment]::GetEnvironmentVariable($key)
+}
+try {
+    $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+    $env:DOTNET_CLI_HOME = Join-Path $museum 'home'
+    $env:NUGET_PACKAGES = Join-Path $museum 'packages'
+    & $dotnet pack ./samples/net10.0/MuseumCatalogue/MuseumCatalogue.csproj -c Release -o $feed
+    Copy-Item -LiteralPath ./samples/net10.0/MuseumCatalogue/global.json -Destination $museum
+    '<configuration><packageSources><clear/><add key="local" value="{0}"/></packageSources></configuration>' -f [Security.SecurityElement]::Escape($feed) | Set-Content -LiteralPath (Join-Path $museum 'NuGet.Config')
+    "SHELL-004`nCOMPASS-019" | Set-Content -LiteralPath (Join-Path $museum 'east wing cards.txt')
+    Push-Location -LiteralPath $museum
+    try {
+        & $dotnet --version
+        & $dotnet dnx 'Gullhaven.Museum.Catalogue@1.0.0' `
+          --configfile './NuGet.Config' --no-http-cache -- `
+          './east wing cards.txt' --gallery 'east wing'
+        & 'C:\Program Files\dotnet\dnx.cmd' 'Gullhaven.Museum.Catalogue@1.0.0' `
+          --configfile './NuGet.Config' --no-http-cache -- `
+          './east wing cards.txt' --gallery 'east wing'
+    }
+    finally { Pop-Location }
+}
+finally {
+    foreach ($key in $previous.Keys) { [Environment]::SetEnvironmentVariable($key,$previous[$key]) }
+}
+// endsnippet:instructions-3

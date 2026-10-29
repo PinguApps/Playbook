@@ -1,5 +1,7 @@
 # Preserve production runtime settings while allowing development overrides
 
+## Goal
+
 Use this when a CoreCLR application needs a stable production runtime setting
 and an intentional, separately deployed development override. This concerns the
 native host's `runtimeOptions.configProperties`, not `appsettings.json`, launch
@@ -11,11 +13,13 @@ also adds an operator name so that ordinary merging is observable independently
 of duplicate precedence. No performance measurement or real runtime tuning switch
 stands in for the selected value.
 
-## Author the production value
+## Older approach
 
 The .NET 10 comparison uses SDK 10.0.402, C# 14, hostfxr and runtime 10.0.13:
 
 {{snippet:older-project}}
+
+## Newer approach
 
 The .NET 11 version uses SDK 11.0.100-rc.2.26504.105, C# 15 and matching RC2
 hostfxr/runtime. These exact pins reproduce the evidence; they are separate from
@@ -39,16 +43,7 @@ the source value to `survey`, corrupts the generated output, rebuilds, and obser
 Save this separately as `development.json`. It is an input to a deliberate copy,
 not a magic filename the host reads automatically:
 
-```json
-{
-  "runtimeOptions": {
-    "configProperties": {
-      "TidalStation.DiagnosticMode": "development",
-      "TidalStation.Operator": "night-watch"
-    }
-  }
-}
-```
+{{snippet:instructions-1}}
 
 After building, copy it beside the DLL with the exact name
 `TidalDiagnostics.runtimeconfig.dev.json`. Run the DLL with the intended
@@ -56,15 +51,7 @@ installation's absolute `dotnet` path. From a directory containing the matching
 project, `Program.cs`, `development.json` and a `global.json` pin for the stated
 SDK (`rollForward: "disable"`, `allowPrerelease: true` for RC2), use:
 
-```powershell
-# Select an existing matching installation; do not change PATH.
-$dotnet = 'C:\Program Files\dotnet\dotnet.exe'
-& $dotnet build ./TidalDiagnostics.csproj -c Release
-$output = './bin/Release/net10.0' # net11.0 with the matching .NET 11 installation
-Copy-Item -LiteralPath ./development.json `
-  -Destination "$output/TidalDiagnostics.runtimeconfig.dev.json"
-& $dotnet "$output/TidalDiagnostics.dll"
-```
+{{snippet:instructions-2}}
 
 For an old-host comparison, identify the selected hostfxr as well as the runtime;
 an installation containing a newer hostfxr is unsuitable. Observe:
@@ -97,14 +84,7 @@ The actual SDK 10.0.402 and RC2 paths were evaluated and executed:
 - Explicit copy metadata can include the sidecar in **both** build and publish
   output. The check runs this real project addition:
 
-```xml
-<ItemGroup>
-  <None Update="development.json"
-        CopyToOutputDirectory="PreserveNewest"
-        CopyToPublishDirectory="Always"
-        TargetPath="TidalDiagnostics.runtimeconfig.dev.json" />
-</ItemGroup>
-```
+{{snippet:instructions-3}}
 
 Publishing with that item demonstrates the duplicate behavior again. Therefore
 `GenerateRuntimeConfigDevFile=false` is not a universal copy/publish exclusion.
@@ -115,7 +95,7 @@ There is no development sidecar in that artifact set, so both hosts print
 `production` and `operator=none`. This three-file list is specific to this sample;
 derive and test a complete list for an application with dependencies or content.
 
-## Migrate and verify
+## Migration
 
 1. Inspect the actual executable, hostfxr/runtime, project inputs and output
    directories. Identify any duplicate `configProperties` keys and explicit
@@ -130,7 +110,7 @@ derive and test a complete list for an application with dependencies or content.
    into a fresh directory. Run that set with the production host; verify the
    development value cannot be supplied by a leftover sidecar.
 
-## Requirements and evidence limits
+## Constraints
 
 This target-11 edition retains an actual .NET 10 comparison; it adds no historical
 .NET 10 foundation. Both samples are workload-free CoreCLR console applications
@@ -139,6 +119,8 @@ The example's C# modes are sample pins, not language requirements for host mergi
 Execution evidence is Windows x64, SDK 10.0.402 / 11 RC2, hostfxr/CoreCLR
 10.0.13 / 11.0.0-rc.2.26504.105. Other platforms need their own artifact check.
 No API here is experimental; RC2 evidence is not GA verification.
+
+## Evidence
 
 `eng/Test-RuntimeOverrides.ps1` compiles detached consumers in an isolated cache,
 runs all cases above and records host identity and copy/generation observations.

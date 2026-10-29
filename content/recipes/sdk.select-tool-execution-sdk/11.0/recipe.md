@@ -1,5 +1,7 @@
 # Select the intended SDK when executing a tool
 
+## Goal
+
 Use explicit `dotnet dnx` when a repository's `global.json` must choose the SDK
 that executes a tool. Use the shipped `dnx`/`dnx.cmd` wrapper deliberately when
 you want its newest-installed-SDK behavior, including in a repository pinned to
@@ -10,13 +12,15 @@ The wrapper behavior was serviced into **SDK 10.0.302 and 10.0.400**, and entere
 used `dotnet dnx` and followed ordinary SDK resolution. Check the actual wrapper
 you invoke: a tool manager or stale copied script can retain that older behavior.
 
-## Build an original local tool
+## Older approach
 
 Gullhaven museum checks that accession-card identifiers are unique. It builds a
 local-only package; no public or third-party package is executed. The SDK 10
 comparison pins SDK 10.0.402, C# 14 and runtime 10.0.13:
 
 {{snippet:older-project}}
+
+## Newer approach
 
 The .NET 11 comparison pins SDK 11.0.100-rc.2.26504.105, C# 15 and matching RC2
 runtime:
@@ -44,40 +48,19 @@ CLI home. The check manages those child settings without changing its parent.
 
 In the museum working directory, use this repository pin:
 
-```json
-{
-  "sdk": {
-    "version": "10.0.402",
-    "rollForward": "disable",
-    "allowPrerelease": false
-  }
-}
-```
+{{snippet:instructions-1}}
 
 Save a two-line text file `east wing cards.txt` containing `SHELL-004` and
 `COMPASS-019`. Create `NuGet.Config` in that directory with just your absolute
 local feed path:
 
-```xml
-<configuration>
-  <packageSources>
-    <clear />
-    <add key="museum-local" value="C:\museum proof\feed-10" />
-  </packageSources>
-</configuration>
-```
+{{snippet:instructions-2}}
 
 Use absolute installation paths that exist on your machine. For example, with
 the package already packed into that feed and the SDK pin in the current
 directory:
 
-```powershell
-$dotnet = 'C:\Program Files\dotnet\dotnet.exe'
-& $dotnet --version
-& $dotnet dnx 'Gullhaven.Museum.Catalogue@1.0.0' `
-  --configfile './NuGet.Config' --no-http-cache -- `
-  './east wing cards.txt' --gallery 'east wing'
-```
+{{snippet:instructions-3}}
 
 `--version` reports the SDK selected by the muxer in that directory. The explicit
 command uses that SDK's `dnx`. The package `@1.0.0` pins a separate decision:
@@ -88,11 +71,7 @@ tool's arguments; the path and `east wing` must arrive as single arguments.
 For the independent wrapper route, invoke the shipped absolute `dnx.cmd` next
 to the intended `dotnet.exe`, passing the same package/options/arguments:
 
-```powershell
-& 'C:\Program Files\dotnet\dnx.cmd' 'Gullhaven.Museum.Catalogue@1.0.0' `
-  --configfile './NuGet.Config' --no-http-cache -- `
-  './east wing cards.txt' --gallery 'east wing'
-```
+The final command in the canonical block above invokes that shipped wrapper.
 
 The serviced wrapper enumerates SDKs available to its adjacent muxer and invokes
 the selected SDK's `dotnet.dll dnx` directly. `dotnet --version` under a pin does
@@ -123,7 +102,7 @@ assembly from host tracing and the actual tool runtime independently, rather
 than inferring them from target names. It verifies paths containing spaces,
 exact forwarded arguments, successful unique-card checks and duplicate exit 7.
 
-## Migrate and verify
+## Migration
 
 1. Inspect the actual absolute wrapper/muxer, installed SDK list and nearest
    `global.json` from the intended working directory. A repository pin controls
@@ -140,7 +119,7 @@ exact forwarded arguments, successful unique-card checks and duplicate exit 7.
    the publisher's introduction boundary is 10.0.302 / 10.0.400, while the actual
    tested serviced artifact here is 10.0.402, compared with RC2.
 
-## Requirements and limits
+## Constraints
 
 This target-11 edition describes an SDK selection capability also present in
 serviced .NET 10. It preserves .NET 10 as a measured comparison, not a ninth
@@ -155,6 +134,8 @@ executes Windows x64 `dnx.cmd`; the official Unix script supplies source context
 not Unix execution evidence. Nothing here installs an SDK, changes PATH or
 persistent environment settings, publishes a package, or runs external tools.
 Child homes disable automatic global-tools PATH integration.
+
+## Evidence
 
 `eng/Test-ToolSdkSelection.ps1` reproduces the actual local package/SDK cases and
 its `-Record` mode saves fresh execution records after compilation capture.
