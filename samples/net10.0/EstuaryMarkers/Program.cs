@@ -14,7 +14,7 @@ internal static class Program
         connection.Open();
         DbContextOptions<MarkerContext> options = new DbContextOptionsBuilder<MarkerContext>()
             .UseSqlite(connection).Options;
-        
+
         using (MarkerContext context = new(options))
         {
             IProperty code = context.Model.FindEntityType(typeof(Marker))!
@@ -30,7 +30,7 @@ internal static class Program
             context.Markers.Add(new Marker { Site = new() { Bearing = new() { Code = "EST-42" } } });
             context.SaveChanges();
         }
-        
+
         using (MarkerContext context = new(options))
         {
             Marker marker = context.Markers.Single();

@@ -14,7 +14,7 @@ internal static class Program
         connection.Open();
         DbContextOptions<ReadingContext> options = new DbContextOptionsBuilder<ReadingContext>()
             .UseSqlite(connection).Options;
-        
+
         using (ReadingContext context = new(options))
         {
             IEntityType entity = context.Model.FindEntityType(typeof(Firing))!;
@@ -81,6 +81,7 @@ internal sealed class PropertyControlContext(DbContextOptions<PropertyControlCon
         modelBuilder.Entity<Firing>().Property(firing => firing.Seal);
     }
 }
+
 internal sealed class Firing
 {
     public int Id { get; set; }

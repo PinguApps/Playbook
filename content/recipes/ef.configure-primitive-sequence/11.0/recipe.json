@@ -1,0 +1,200 @@
+{
+  "id": "ef.configure-primitive-sequence",
+  "edition": "11.0",
+  "title": "Choose scalar or primitive collection storage explicitly",
+  "goal": "Use PrimitiveCollection when overriding convention to store a primitive sequence, including an ambiguous byte array; use Property for a binary scalar when migrating EF Core 10 configuration to EF Core 11.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "model",
+    "sqlite",
+    "ef-models"
+  ],
+  "apis": [
+    "EntityTypeBuilder.PrimitiveCollection",
+    "EntityTypeBuilder.Property",
+    "IReadOnlyProperty.GetElementType",
+    "byte[]"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#property-no-longer-configures-primitive-collections",
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md"
+        ],
+        "selectionNotes": [
+          "Primitive collection configuration, including ambiguous byte arrays. PrimitiveCollection selects sequence semantics; Property selects scalar semantics in EF11. Provider storage and existing data migration must be checked separately.",
+          "The EF10 comparison is historical evidence, not an additional .NET 10 foundation or a claim EF11 runs on net10.0."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer; no ASP.NET Core framework requirement"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "reason": "Matched EF11 provider graph; actual 11.0.0-rc.2.26504.105 package and native dependencies are pinned in each lock file.",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite"
+            }
+          ],
+          "packageAssets": [
+            "EF Core and Relational lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; actual resolved graph and content hashes pinned in packages.lock.json",
+            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.402, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.2.26504.105, C# 15.0"
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite; actual in-memory SQLite database, not EF InMemory or mocked SQL",
+            "Measured Windows x64 native SQLite 3.53.3 (previous) / 3.53.4 (current); SQLitePCLRaw.bundle_e_sqlite3 3.0.5 resolves with its config/provider/core and SQLite packages"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 with packaged e_sqlite3 native library. Other OS/architecture/native routes require their own suitable SQLite assets; none executed here."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database model; no browser or rendering mode"
+          ],
+          "constraints": [
+            "Primitive collection configuration, including ambiguous byte arrays. PrimitiveCollection selects sequence semantics; Property selects scalar semantics in EF11. Provider storage and existing data migration must be checked separately.",
+            "The provider behavior is bounded to these SQLite consumers; no SQL Server/Cosmos service, encryption or native-platform compatibility claim."
+          ],
+          "prerequisites": [
+            "Copy the complete project and configuration files below into a standalone directory. Restore the pinned package graph online before running; Playbook retrieval is offline, consumer dependency setup is separate.",
+            "The open SQLite connection owns the transient database lifetime. Closing it removes all sample data; no account, external database or persistent schema is provisioned."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/KilnReadings/KilnReadings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#property-no-longer-configures-primitive-collections",
+      "title": "Official EF11 authoring change"
+    },
+    {
+      "url": "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+      "title": "Immutable reviewed EF11 documentation baseline"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/KilnReadings/KilnReadings.csproj",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Actual model collection/scalar classification, SQLite JSON array/TEXT versus BLOB storage, fresh-context insert/read/update, sequence order and duplicates, and EF10/11 Property classification control."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/KilnReadings/KilnReadings.csproj",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual model collection/scalar classification, SQLite JSON array/TEXT versus BLOB storage, fresh-context insert/read/update, sequence order and duplicates, and EF10/11 Property classification control."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/KilnReadings/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/KilnReadings/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/KilnReadings/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/KilnReadings/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-kilnreadings-csproj": {
+      "path": "samples/net10.0/KilnReadings/KilnReadings.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/KilnReadings/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/KilnReadings/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/KilnReadings/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/KilnReadings/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/KilnReadings/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-kilnreadings-csproj": {
+      "path": "samples/net11.0/KilnReadings/KilnReadings.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/KilnReadings/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated actual SQLite model/schema/round-trip checks cover these bounded claims. No external service or native UI proof required; other providers/platforms and GA remain unverified."
+  }
+}
