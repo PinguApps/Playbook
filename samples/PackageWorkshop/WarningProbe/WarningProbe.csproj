@@ -1,0 +1,13 @@
+<!-- snippet:warning-project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(HarbourTarget)</TargetFramework><OutputType>Library</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- This expected-warning fixture is separate from the zero-warning launcher. -->
+    <WarningsNotAsErrors>CS0618</WarningsNotAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NuGet.Credentials" HintPath="$(MSBuildBinPath)/NuGet.Credentials.dll" Private="false" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:warning-project -->

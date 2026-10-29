@@ -1,0 +1,22 @@
+<!-- snippet:analyzer-consumer -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework Condition="'$(Mixed)' != 'true'">$(HarbourTarget)</TargetFramework>
+    <TargetFrameworks Condition="'$(Mixed)' == 'true'">net10.0;net11.0</TargetFrameworks>
+    <OutputType>Library</OutputType><LangVersion>$(HarbourLanguage)</LangVersion>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <NuGetAudit>false</NuGetAudit>
+    <!-- Separate SDK installations: use the actual SDK10 reference packs for the
+         net10 inner build without installing or modifying either SDK. -->
+    <NetCoreTargetingPackRoot Condition="'$(TargetFramework)' == 'net10.0' And '$(HarbourNet10Packs)' != ''">$(HarbourNet10Packs)</NetCoreTargetingPackRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Gannet.HarbourRules" Version="[1.0.0]" IncludeAssets="$(HarbourInclude)" ExcludeAssets="$(HarbourExclude)" PrivateAssets="$(HarbourPrivate)" />
+  </ItemGroup>
+  <Target Name="GannetAnalyzerReceipt" BeforeTargets="CoreCompile" DependsOnTargets="ResolveReferences">
+    <WriteLinesToFile File="$(IntermediateOutputPath)selected-analyzers.txt" Lines="@(Analyzer)" Overwrite="true" />
+    <Message Importance="high" Text="GANNET target=$(TargetFramework) enabled=$(RestoreEnableAnalyzerAssets) compiler=$(CompilerApiVersion) analyzers=@(Analyzer)" />
+  </Target>
+</Project>
+<!-- endsnippet:analyzer-consumer -->

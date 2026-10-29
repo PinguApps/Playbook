@@ -1,0 +1,20 @@
+<!-- snippet:analyzer-project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion>
+    <OutputType>Library</OutputType><PackageId>Gannet.HarbourRules</PackageId><Version>1.0.0</Version>
+    <IncludeBuildOutput>false</IncludeBuildOutput><SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <Description>Original local-only Gannet analyzer fixture.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeAnalysis" HintPath="$(MSBuildBinPath)/Roslyn/bincore/Microsoft.CodeAnalysis.dll" Private="false" />
+    <Reference Include="Microsoft.CodeAnalysis.CSharp" HintPath="$(MSBuildBinPath)/Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll" Private="false" />
+    <!-- The same old-compatible DLL in each folder makes selection independently observable.
+         A future compiler-specific build would need that compiler's real API qualification. -->
+    <None Include="bin/Release/net10.0/HarbourRules.dll" Pack="true" PackagePath="analyzers/dotnet/roslyn5.9/cs" />
+    <None Include="bin/Release/net10.0/HarbourRules.dll" Pack="true" PackagePath="analyzers/dotnet/roslyn5.12/cs" />
+    <None Include="bin/Release/net10.0/HarbourRules.dll" Pack="true" PackagePath="analyzers/dotnet/roslyn99.0/cs" />
+    <None Include="bin/Release/net10.0/HarbourRules.dll" Pack="true" PackagePath="analyzers/dotnet/roslyn5.9/vb" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:analyzer-project -->
