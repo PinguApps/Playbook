@@ -1,0 +1,184 @@
+{
+  "id": "security.protect-into-buffer",
+  "edition": "11.0",
+  "title": "Protect data directly into an owned buffer",
+  "goal": "Protect and recover an application token in caller-owned storage; detect the span capability, retain a byte-array fallback, and discard all output after authentication failure.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "data-protection",
+    "owned-buffer",
+    "cryptography"
+  ],
+  "apis": [
+    "IDataProtector",
+    "ISpanDataProtector",
+    "ISpanAuthenticatedEncryptor",
+    "IBufferWriter<byte>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Current framework span route with real IDataProtector capability detection and array fallback.",
+          "The valid .NET10 array comparison is preserved in this edition; it is not an additional foundation or selectable span route."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses ASP.NET Core 11 framework span interfaces."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build a net11.0 consumer with its matching framework references; exact RC2 verification pins are separate."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "release-family",
+            "reason": "Canonical current consumer uses C#15; the writer call itself requires no C#15-only syntax."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NETCore.App 11"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "FrameworkReference Microsoft.AspNetCore.App: Microsoft.AspNetCore.DataProtection.Abstractions.dll and Microsoft.AspNetCore.DataProtection.dll. No additional NuGet package or older-target span backport is qualified."
+          ],
+          "providers": [
+            "Real framework DataProtection key ring; explicit AES-256-CBC/HMACSHA256; actual Windows CNG encryptor measured."
+          ],
+          "platforms": [
+            "Framework-supported managed host; execution qualified on Windows x64 only. CNG is the measured Windows implementation, not a portable implementation-name guarantee."
+          ],
+          "renderingModes": [
+            "Not applicable; synchronous service/console cryptography, no browser or UI."
+          ],
+          "workloads": [],
+          "optIns": [],
+          "prerequisites": [
+            "Reference the ASP.NET Core shared framework; keep exclusive access to caller-owned storage and supply enough capacity.",
+            "Use a disposable directory for these test keys, with a separate ring for wrong-key checks. Production key storage/protection policy is application-owned."
+          ],
+          "constraints": [
+            "Discover ISpanDataProtector on the actual IDataProtector; otherwise retain the array route. Interface presence does not guarantee a span-capable encryptor or an allocation count.",
+            "Input/AAD must not alias destination storage. No concurrent use; copy or consume only successful WrittenSpan before clearing/disposal.",
+            "On any failed operation clear the whole destination, including unadvanced bytes; do not consume partial plaintext.",
+            "Advanced ISpanAuthenticatedEncryptor is for an existing envelope contract with matching AAD and external key selection. It is not a DataProtection payload or a new algorithm design."
+          ],
+          "stabilityLimitations": [
+            "No experimental attribute or suppression is required in these artifacts. RC2 verification is not actual-GA qualification.",
+            "No trimming, NativeAOT, other OS/native backend execution, universal zero-allocation, protocol design or automatic token expiry claim."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/Abstractions/src/ISpanDataProtector.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/DataProtection/src/AuthenticatedEncryption/ISpanAuthenticatedEncryptor.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/DataProtection/src/KeyManagement/KeyRingBasedSpanDataProtector.cs",
+          "https://learn.microsoft.com/aspnet/core/security/data-protection/consumer-apis/purpose-strings",
+          "https://learn.microsoft.com/aspnet/core/security/data-protection/implementation/key-storage-providers"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MuseumBuffer/MuseumBuffer.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Span protector contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/Abstractions/src/ISpanDataProtector.cs"
+    },
+    {
+      "title": "Authenticated encryptor contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/DataProtection/src/AuthenticatedEncryption/ISpanAuthenticatedEncryptor.cs"
+    },
+    {
+      "title": "Current span protector and encryptor fallback",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DataProtection/DataProtection/src/KeyManagement/KeyRingBasedSpanDataProtector.cs"
+    },
+    {
+      "title": "Purpose isolation",
+      "url": "https://learn.microsoft.com/aspnet/core/security/data-protection/consumer-apis/purpose-strings"
+    },
+    {
+      "title": "Key storage and protection at rest",
+      "url": "https://learn.microsoft.com/aspnet/core/security/data-protection/implementation/key-storage-providers"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/MuseumBuffer/MuseumBuffer.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual isolated framework key rings: token/empty/1MiB round trips, array capability-hiding fallback, wrong purpose/key ring and tampering rejection, input overlap refusal, insufficient capacity and entire-buffer disposal/failed-output clearing. Runtime confirms both span interfaces are absent."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/MuseumBuffer/MuseumBuffer.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual isolated framework key rings: token/empty/1MiB round trips, array capability-hiding fallback, wrong purpose/key ring and tampering rejection, input/AAD overlap refusal, insufficient capacity and entire-buffer disposal/failed-output clearing. Actual framework key encryptor additionally verifies matching AAD and rejected mismatched AAD/tampering on all payload sizes."
+    }
+  ],
+  "snippets": {
+    "owner": {
+      "path": "samples/net10.0/MuseumBuffer/OwnedBuffer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "checks": {
+      "path": "samples/net10.0/MuseumBuffer/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-project": {
+      "path": "samples/net10.0/MuseumBuffer/MuseumBuffer.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-project": {
+      "path": "samples/net11.0/MuseumBuffer/MuseumBuffer.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-token": {
+      "path": "samples/net10.0/MuseumBuffer/MuseumToken.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-token": {
+      "path": "samples/net11.0/MuseumBuffer/MuseumToken.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "advanced": {
+      "path": "samples/net11.0/MuseumBuffer/AdvancedEnvelope.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real Windows x64 framework crypto executions cover this bounded service buffer goal. No device, browser, external provider or Human observation required; other platforms and actual GA remain unqualified."
+  }
+}

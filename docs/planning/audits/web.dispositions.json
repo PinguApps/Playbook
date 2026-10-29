@@ -3,8 +3,8 @@
     {
       "id": "data-protection-span",
       "pattern": " Microsoft\\.AspNetCore\\.DataProtection\\.(ISpanDataProtector|AuthenticatedEncryption\\.ISpanAuthenticatedEncryptor)",
-      "owner": "W01",
-      "disposition": "included"
+      "owner": "W01 / PIN-1171; security.protect-into-buffer/11.0",
+      "disposition": "delivered; real framework10 array and framework11 span/capability fallback, isolated key rings, empty/token/1MiB round trips, purpose/key/tampering and advanced AAD failures with full output cleanup. No older-target span, universal allocation or GA claim; PIN-959/PIN-964 remain open."
     },
     {
       "id": "csrf-policy",
