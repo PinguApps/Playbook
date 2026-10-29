@@ -135,8 +135,8 @@
     {
       "id": "dynamic-openapi",
       "pattern": " (Microsoft\\.AspNetCore\\.OpenApi\\.IAdditionalOpenApiDocumentNameResolver|Microsoft\\.Extensions\\.DependencyInjection\\.OpenApiServiceCollectionExtensions::AddOpenApiCore)",
-      "owner": "W04",
-      "disposition": "included"
+      "owner": "W04 / PIN-1174; openapi.discover-dynamic-documents/11.0",
+      "disposition": "delivered; original explicit .NET10 and dynamic .NET11 public/staff runtime and real GetDocument build outputs, named options, duplicate/explicit/additional/missing/empty/null controls. Actual locked closures retain the older ApiDescription.Server10.0.0 difference from the metadata audit. No older API backport, universal provider or GA claim; PIN-959/PIN-964 remain open."
     },
     {
       "id": "output-policy",

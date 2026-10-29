@@ -80,6 +80,13 @@
 /samples/net10.0/MuseumInventory/verification-evidence.json
 /samples/net11.0/MuseumInventory/verification-evidence.json
 
+# Record-Evidence/Test-Planetarium generated SDK/command/asset capture; review
+# canonical samples, locks, named options, checks and harness. Pack checks freshness.
+/samples/net10.0/PlanetariumContracts/verification-evidence.json
+/samples/net10.0/PlanetariumContracts/contracts.evidence.json
+/samples/net11.0/PlanetariumContracts/verification-evidence.json
+/samples/net11.0/PlanetariumContracts/contracts.evidence.json
+
 # Record-NorthQuayBuildHost.ps1 generated SDK/command/native capture; review the
 # harness, canonical hosts, artifact pins and locks. Pack checks input freshness.
 /samples/net10.0/NorthQuayBuildHost/verification-evidence.json

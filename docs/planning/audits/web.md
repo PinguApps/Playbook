@@ -123,7 +123,7 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | SignalR refresh server/client/features/metadata/UserIdentifier and TypeScript contract | PIN-813; shared goal across transports and Blazor. Public feature and hub members group under the same lifecycle. Actual npm availability/final-name gap remains open below. |
 | Non-streaming hub cancellation | PIN-814; protocol/runtime behavior can change without a new method signature. Matched clients/server and actual cancellation remain required. |
 | OpenAPI binary files, QUERY, multiple responses, SSE, 3.2 default, environment, Obsolete metadata, model migration, server URLs | PIN-821–829 retain individual scopes. UnauthorizedHttpResult's new IEndpointMetadataProvider groups with PIN-821/823 response metadata; remove redundant custom 401 metadata only after generated-document proof. |
-| IAdditionalOpenApiDocumentNameResolver, AddOpenApiCore | **W04**; dynamic document names/build enumeration differs from PIN-826's environment selection. AddOpenApiCore does not register an individual named document or an options-callback overload. |
+| IAdditionalOpenApiDocumentNameResolver, AddOpenApiCore | **W04 / PIN-1174 delivered** `openapi.discover-dynamic-documents/11.0`; actual public/staff runtime and GetDocument build outputs, named options, exact duplicates, explicit/additional names and missing/empty/null controls. The .NET10 explicit-registration alternative remains valid; no backport or GA claim. AddOpenApiCore has no options-callback overload. |
 | ApiDescription.RoutePattern | **W03**; authored API-explorer tools can consume parsed route constraints. Remaining ApiDescription nullable-context/accessor changes are not separate operations. |
 | Kestrel handshake Exception and ClientHello listener; obsolete callback | PIN-830; registration order before UseHttps, failure snapshots and real handshake evidence. |
 | TLS channel binding and HTTP.sys Legacy/Medium/Strict | PIN-831; retain actual Windows/HTTPS prerequisites. **ASPDEPR010 ITlsTokenBindingFeature is a different protocol**, owned by **W15**, not a mechanical CBT substitution. |
@@ -313,6 +313,23 @@ or use a handwritten ApiDescription as the only proof. M covers integration and
 the old parsing workaround.
 
 ### W04. Generate contracts for dynamically named API documents — M (3)
+
+Delivered by **PIN-1174** as `openapi.discover-dynamic-documents/11.0`.
+Original PlanetariumContracts managed server consumers compile/run with SDK10.0.402,
+framework10.0.13/C#14 and SDK11 RC2/framework11 RC2/C#15. Separate locked OpenApi
+10.0.13/ApiDescription.Server10.0.0/Microsoft.OpenApi2.12.2 and matched 11 RC2/
+Microsoft.OpenApi3.10.2 closures retain actual selected assets and ZIP hashes.
+The older tool package differs from this audit's metadata-only 10.0.13 selection;
+it is qualified by actual execution, not an assertion of identical bytes. Both
+consumers generate real public/staff documents with distinct paths and options.
+The newer real provider/tool also checks exact duplicates, mixed explicit/additional
+names, missing/empty names and null rejection. Ordinal provider distinctness differs
+from case-insensitive HTTP lookup; lowercase safe names avoid filename collisions.
+`eng/Test-Planetarium.ps1` captures fresh compilation and execution records; installed
+ordinary-tool stdio checks qualify complete offline delivery. M3 retains actual
+host/tool enumeration, paired samples, requirements and runtime/build proof. No
+client/browser/native matrix or universal provider contract is added. The exact
+eight foundations, PIN-959/PIN-963/PIN-964, actual-GA and unrelated Human gates stay open.
 
 Story: A service author wants separate public and staff descriptions for a
 planetarium service so that build output includes the documents actually offered.
