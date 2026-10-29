@@ -1,0 +1,15 @@
+<!-- snippet:task -->
+<Project>
+  <UsingTask TaskName="Microsoft.TestPlatform.Build.Tasks.VSTestTask" AssemblyFile="$(TernTaskAssembly)" />
+  <PropertyGroup>
+    <!-- MSBuild scalar; semicolons/newlines separate entries in the current task. -->
+    <TernCliSettings>Tern.Harbour=North Quay;Tern.Pattern=^Tern\.Bay/West=13$;Tern.Literal=--listTests=not a switch</TernCliSettings>
+  </PropertyGroup>
+  <Target Name="Check">
+    <VSTestTask TestFileFullPath="$(TernTests)" VSTestConsolePath="$(TernConsole)"
+                VSTestTestAdapterPath="$(TernAdapterDirectory)" VSTestTestCaseFilter="FullyQualifiedName~Settings"
+                VSTestLogger="trx%3BLogFileName=settings.trx" VSTestResultsDirectory="$(TernResults)"
+                VSTestSetting="$(TernSettingsFile)" VSTestCLIRunSettings="$(TernCliSettings)" VSTestVerbosity="normal" />
+  </Target>
+</Project>
+<!-- endsnippet:task -->

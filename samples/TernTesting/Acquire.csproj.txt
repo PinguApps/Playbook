@@ -1,0 +1,15 @@
+<!-- snippet:acquire -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework><OutputType>Library</OutputType>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <TernPlatformVersion Condition="'$(TernPlatformVersion)' == ''">18.11.0</TernPlatformVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.CLI" Version="[$(TernPlatformVersion)]" ExcludeAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="Microsoft.TestPlatform.Build" Version="[$(TernPlatformVersion)]" ExcludeAssets="all" GeneratePathProperty="true" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:acquire -->

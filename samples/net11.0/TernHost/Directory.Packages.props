@@ -1,0 +1,9 @@
+<!-- snippet:packages -->
+<Project><PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally></PropertyGroup><ItemGroup>
+  <PackageVersion Include="Microsoft.TestPlatform.TranslationLayer" Version="[18.11.0]" />
+  <PackageVersion Include="Microsoft.TestPlatform.TestHost" Version="[18.11.0]" />
+  <PackageVersion Include="Microsoft.TestPlatform.CLI" Version="[18.11.0]" />
+  <PackageVersion Include="Microsoft.TestPlatform.Build" Version="[18.11.0]" />
+  <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="[18.11.0]" />
+</ItemGroup></Project>
+<!-- endsnippet:packages -->

@@ -1,0 +1,24 @@
+{
+  "workloads": [],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.TestPlatform.ObjectModel/18.11.0",
+    "Microsoft.TestPlatform.TestHost/18.11.0"
+  ],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Test-TernTesting.ps1",
+    "samples/TernTesting/ResolverChecks.cs",
+    "samples/TernTesting/ResolverProgram.cs",
+    "samples/TernTesting/Plugin.cs",
+    "samples/TernTesting/Rules.cs",
+    "samples/TernTesting/artifacts.json",
+    "samples/TernTesting/Rules.csproj.txt",
+    "samples/TernTesting/Plugin.csproj.txt",
+    "samples/TernTesting/Acquire.csproj.txt",
+    "samples/TernTesting/Semicolon.runsettings",
+    "samples/TernTesting/XmlTests.proj",
+    "samples/TernTesting/TaskContract.cs"
+  ],
+  "nativeToolchains": []
+}
