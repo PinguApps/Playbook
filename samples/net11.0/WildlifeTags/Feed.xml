@@ -1,0 +1,9 @@
+<!-- snippet:config -->
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="local" value="C:\wildlife\feed" />
+  </packageSources>
+  <fallbackPackageFolders><clear /></fallbackPackageFolders>
+</configuration>
+<!-- endsnippet:config -->

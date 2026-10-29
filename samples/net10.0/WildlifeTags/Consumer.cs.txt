@@ -1,0 +1,7 @@
+// snippet:consumer
+using Berwyn.Wildlife;
+
+if (!TagRules.Admit("TERN-042", 110) || TagRules.Admit("OTTER-007", 110))
+    throw new InvalidOperationException("The intake contract changed.");
+Console.WriteLine("admitted=TERN-042;rejected=OTTER-007");
+// endsnippet:consumer

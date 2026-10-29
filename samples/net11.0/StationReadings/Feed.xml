@@ -1,0 +1,9 @@
+<!-- snippet:config -->
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="local" value="C:\station-proof\route-11\feed" />
+  </packageSources>
+  <fallbackPackageFolders><clear /></fallbackPackageFolders>
+</configuration>
+<!-- endsnippet:config -->
