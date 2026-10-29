@@ -28,6 +28,34 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Deliberate database-provider replacement
+
+This tested example selects the PIN-1190 worktree from an unrelated directory,
+builds/packs the ordinary tool and installs that exact package through an isolated
+local feed/cache. The helper calls actual installed stdio `list_recipes` and
+`get_recipe`, showing ID/title/goal, complete canonical Markdown, target/edition,
+applicability and fresh evidence. Setup requires PowerShell7, SDK10.0.402 and
+Node22.19+ and may restore packages online. Retrieval with unusable proxies proves
+proxy independence, not network isolation. No global tool or PATH change is needed.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1190-05-049-replace-a-configured-database-provider-deliberately'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'ef.replace-context-provider' -Query 'provider-replacement' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1190' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1190/inspection
+```
+
+Expect `ef.replace-context-provider`, title "Replace a configured database provider
+deliberately", its test-configuration goal, target11/edition11 and two current
+ReedPermits evidence records. Full Markdown includes both complete original
+projects. Provider proof covers actual SQLite/InMemory CRUD, retained/mixed
+configuration failures and resolved lifetimes; InMemory is not relational proof.
+The options helpers are separate infrastructure operations. Other providers,
+platforms, factories/pooling, trimming/AOT and actual GA remain unverified.
+
 ## Custom client rules and component cache contracts
 
 This block builds/packs the ordinary tool and uses the existing isolated local-feed/cache

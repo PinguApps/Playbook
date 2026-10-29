@@ -105,6 +105,37 @@ example has been republished as an original Playbook sample.
 
 ## Accountable dispositions
 
+### Deliberate test-provider replacement delivery — 29 October 2026
+
+PIN-1190 delivers E2 as `ef.replace-context-provider/11.0`, with original
+ReedPermits consumers on SDK10.0.402 / EF10.0.13 / net10.0 / C#14 and
+SDK11.0.100-rc.2.26504.105 / EF11.0.0-rc.2.26504.105 / net11.0 / C#15.
+The source/package audit's RemoveDbContext default-false/configuration-only and
+immutable WithoutExtension / explicit infrastructure RemoveExtension contracts
+are reconciled with actual execution. EF10 retains explicit callback/registration
+removal and fresh allowlisted options; no EF11-on-net10 or extra foundation route.
+
+Each release executes four isolated full/configuration-only SQLite/InMemory
+replacements, resolved registration lifetimes, service/options inspection and CRUD
+across scopes. Retained callbacks reproduce mixed-provider failure; same-provider
+retained sensitive logging is rejected. The original closed disposable stand-in
+never opens and no production settings are loaded. SQLite3.53.3/3.53.4 enforce
+the unique-index failure while InMemory accepts duplicates. Current options-copy
+and extension-author removal preserve unrelated core settings, use only public
+API reflection with the runtime extension type, and execute InMemory writes/reads.
+No unsupported provider Internal class is referenced or EF1001 suppressed.
+
+Both independently pinned sample graphs and compilation/freshness records are
+retained. The standard provider bundle graphs match PIN-863's measured e_sqlite3 assets;
+PIN-864's separate retired winsqlite3-bundle route is unchanged. No retired bundle,
+encryption/vendor or other-platform claim is added.
+Factories/pooling, custom service aliases, prebuilt providers, OnConfiguring
+provider replacement and trimming/AOT remain outside this simple AddDbContext
+route. The ordinary installed stdio check verifies full canonical offline
+discovery/body/applicability/evidence separately from provider execution. E2's
+M(3) covers these registration lifetimes and realistic failure controls. PIN-959
+comprehensive coverage, PIN-965 actual GA and existing Human gates remain open.
+
 ### Retired native bundle initialization delivery — 29 October 2026
 
 PIN-864 delivers `sqlite.replace-retired-native-bundle/11.0` with original
@@ -285,7 +316,8 @@ and persist the intended changes. M includes state/correctness and consumer proo
 ### E2. Replace a configured database provider deliberately — M (3)
 
 As a test author, I want a separate database configuration without retaining the
-production provider. Proposed `ef.replace-context-provider`; RemoveDbContext,
+production provider. Delivered by PIN-1190 as `ef.replace-context-provider/11.0`
+(see the delivery section above); RemoveDbContext,
 removeConfigurationOnly and WithoutExtension/RemoveExtension. Use isolated DI
 containers and SQLite/InMemory; inspect resolved options/services, run actual
 CRUD and reject mixed/retained configuration. No production connection. M covers

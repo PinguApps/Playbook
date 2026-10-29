@@ -1,0 +1,235 @@
+{
+  "id": "ef.replace-context-provider",
+  "edition": "11.0",
+  "title": "Replace a configured database provider deliberately",
+  "goal": "Replace accumulated DbContext configuration before using an isolated test database; choose full registration removal, retained lifetimes or an options copy without retaining the original provider.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "provider-replacement",
+    "dependency-injection",
+    "sqlite",
+    "inmemory",
+    "ef-testing"
+  ],
+  "apis": [
+    "RemoveDbContext",
+    "removeConfigurationOnly",
+    "DbContextOptions.WithoutExtension",
+    "IDbContextOptionsBuilderInfrastructure.RemoveExtension",
+    "ConfigureDbContext",
+    "RemoveAll"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/efcore.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Extensions/EntityFrameworkServiceCollectionExtensions.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/DbContextOptions.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/DbContextOptionsBuilder.cs",
+          "https://learn.microsoft.com/en-us/ef/core/testing/choosing-a-testing-strategy",
+          "https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/"
+        ],
+        "selectionNotes": [
+          "Only a fresh isolated service collection with the demonstrated simple AddDbContext<TContext> registration; no production settings, OnConfiguring provider, custom aliases, factories, pooling or prebuilt internal service provider.",
+          "Configuration-only removal keeps Transient contexts and Singleton options in this example; full removal deliberately re-registers Scoped contexts/options before building a new container.",
+          "WithoutExtension and RemoveExtension are separate options operations; they preserve unrelated configuration and do not remove DI callbacks. Infrastructure helper uses public generic methods with the runtime provider-extension type through reflection, without naming unsupported Internal provider types; no trimming or NativeAOT route.",
+          "SQLite and InMemory CRUD both execute; InMemory accepts duplicate indexed values and cannot prove relational behavior. The EF10 comparison is not a ninth .NET10 foundation."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer with Microsoft.Extensions.DependencyInjection; no ASP.NET Core requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "Matched EF11 provider graph; exact RC2 and native versions are locked in the sample."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.InMemory",
+              "match": "release-family",
+              "version": "11.0",
+              "reason": "Actual non-relational replacement provider; match the EF Core package release."
+            }
+          ],
+          "packageAssets": [
+            "EF Core, Relational and InMemory lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; actual resolved graph and content hashes pinned in packages.lock.json",
+            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.402, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.2.26504.105, C# 15.0"
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite and Microsoft.EntityFrameworkCore.InMemory; both execute isolated CRUD, only SQLite establishes the demonstrated relational unique-index failure",
+            "Measured Windows x64: previous native SQLite 3.53.3 via SQLitePCLRaw.bundle_e_sqlite3/core/lib.e_sqlite3/provider.e_sqlite3 2.1.13; current SQLite 3.53.4 via SQLitePCLRaw.bundle_e_sqlite3/config.e_sqlite3/core/provider.e_sqlite3 3.0.5 and the separate SQLite package 3.53.4."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 with packaged e_sqlite3 native library. Other OS/architecture/native routes require their own suitable SQLite assets; none executed here."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database model; no browser or rendering mode"
+          ],
+          "constraints": [
+            "Only a fresh isolated service collection with the demonstrated simple AddDbContext<TContext> registration; no production settings, OnConfiguring provider, custom aliases, factories, pooling or prebuilt internal service provider.",
+            "Configuration-only removal keeps Transient contexts and Singleton options in this example; full removal deliberately re-registers Scoped contexts/options before building a new container.",
+            "WithoutExtension and RemoveExtension are separate options operations; they preserve unrelated configuration and do not remove DI callbacks. Infrastructure helper uses public generic methods with the runtime provider-extension type through reflection, without naming unsupported Internal provider types; no trimming or NativeAOT route.",
+            "SQLite and InMemory CRUD both execute; InMemory accepts duplicate indexed values and cannot prove relational behavior. The EF10 comparison is not a ninth .NET10 foundation."
+          ],
+          "prerequisites": [
+            "Finish all test-registration mutations before building a new container or resolving options/context services. Discard any previously built provider; removal does not mutate existing instances.",
+            "Copy all canonical files into separate standalone version directories and restore the exact packages with the pinned SDK. Retrieval is offline; initial dependency setup requires the packages.",
+            "The fixture creates only disposable in-memory databases. Keep the externally owned SQLite test connection open across scopes and dispose it after the service provider; the closed original stand-in is never opened. No credentials, external service or production connection is used."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/ReedPermits/ReedPermits.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview3/efcore.md",
+      "title": "Official introduction of provider removal helpers"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Extensions/EntityFrameworkServiceCollectionExtensions.cs",
+      "title": "Package-matched RemoveDbContext contract and implementation"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/DbContextOptions.cs",
+      "title": "Package-matched immutable options removal"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/DbContextOptionsBuilder.cs",
+      "title": "Package-matched explicit infrastructure removal"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/testing/choosing-a-testing-strategy",
+      "title": "SQLite and InMemory test-double limitations"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/",
+      "title": "Context lifetime, options and OnConfiguring"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/ReedPermits/ReedPermits.csproj",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Four isolated full/configuration-only SQLite/InMemory replacements, descriptor and resolved lifetime checks, original callback/flags/connection exclusion, CRUD across scopes, SQLite unique-index failure versus InMemory acceptance; retained/mixed configuration controls. EF10 rebuilds fresh allowlisted options with actual InMemory writes/reads."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/ReedPermits/ReedPermits.csproj",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Four isolated full/configuration-only SQLite/InMemory replacements, descriptor and resolved lifetime checks, original callback/flags/connection exclusion, CRUD across scopes, SQLite unique-index failure versus InMemory acceptance; retained/mixed configuration controls. Current-only immutable WithoutExtension and extension-author RemoveExtension/no-op use real InMemory writes/reads; older route uses fresh options."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/ReedPermits/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ReedPermits/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ReedPermits/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ReedPermits/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-reedpermits-csproj": {
+      "path": "samples/net10.0/ReedPermits/ReedPermits.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ReedPermits/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ReedPermits/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ReedPermits/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ReedPermits/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ReedPermits/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-reedpermits-csproj": {
+      "path": "samples/net11.0/ReedPermits/ReedPermits.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ReedPermits/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated isolated SQLite/InMemory execution covers these bounded provider/lifetime/CRUD claims. Windows x64 packaged native SQLite only; other providers/platforms, trimming/AOT and GA remain unverified."
+  }
+}
