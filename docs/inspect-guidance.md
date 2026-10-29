@@ -532,6 +532,39 @@ sample records. Inspection does not rerun those databases. No EF11-on-net10,
 additional foundation, arbitrary precision/timezone, other-platform or actual-GA
 claim is added; PIN-959/PIN-965 and existing Human gates remain open.
 
+## Supply an application-specific cross-origin verdict
+
+This checked block starts from an unrelated directory, selects the exact assigned
+worktree, builds/packs the ordinary tool and installs that artifact in the existing
+isolated local feed/cache. Real stdio list/get displays discovery ID/title/goal,
+full canonical Markdown, explicit edition/target, applicability and fresh evidence.
+Setup requires PowerShell7, SDK10.0.402 and Node22.19+; Inspector2.11.0 installs
+locally when absent. Setup can restore online; retrieval uses unusable proxies
+(proxy independence, not network isolation). Browser/paired consumer reproduction
+additionally needs the declared SDK11 RC2 and Chrome; retrieval does not run them.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1172-04-097-supply-an-application-specific-cross-origin-verdict'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'web.supply-origin-protection-policy' -TargetVersion '11.0' `
+  -Query 'seed-exchange' -PackageVersion '0.0.0-seed-exchange' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/seed-exchange/inspection
+```
+
+Expect edition11.0, complete original .NET10 token+origin/.NET11 custom/default/token
+source, exact applicability and two current compile-and-run records. The helper
+asserts canonical body and structured/JSON-text equality. The custom rule trusts
+operator-owned exact origins independently of CORS reads; JSON and token-required
+clients remain separate. `eng/Record-SeedExchange.ps1` recaptures actual matching
+consumer/HTTP proof; the existing form evidence document retains actual Chrome156
+loopback controls. No net10 ICsrfProtection route is advertised: explicit target10
+discovery has no matching edition and get returns an actionable no-applicable-edition
+error. No production authentication, other browser/OS, proxy or actual-GA claim is
+made; PIN-959/PIN-964 and existing Human gates remain open. These isolated samples
+remain author-maintained; no additional automatic dependency permission is granted.
+
 ## Inspect a response directly
 
 ```powershell

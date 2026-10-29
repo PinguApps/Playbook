@@ -1,0 +1,274 @@
+{
+  "id": "web.supply-origin-protection-policy",
+  "edition": "11.0",
+  "title": "Supply an application-specific cross-origin verdict",
+  "goal": "Define an explicit set of trusted browser origins when application write policy must differ from automatic Fetch Metadata and credentialed CORS trust.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "seed-exchange",
+    "csrf",
+    "origin-policy"
+  ],
+  "apis": [
+    "ICsrfProtection",
+    "CsrfProtectionResult",
+    "IAntiforgeryMetadata",
+    "CORS",
+    "AddSingleton"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Custom DI service with operator-owned exact origins; rejects missing Origin. Real Minimal API form consumption, distinct from token-required and JSON paths."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "ICsrfProtection exists in the actual ASP.NET Core 11 RC2 shared framework; no net10 backport is advertised."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching Web SDK/reference packs; exact authoring pins qualify tested artifacts rather than minimum patch versions."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Tested C#15 mode; primary constructors and collection expressions do not require C#15 specifically."
+          },
+          "frameworks": [
+            "ASP.NET Core Minimal APIs",
+            "Kestrel"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NET.Sdk.Web implicit Microsoft.AspNetCore.App reference; these non-Razor consumers restore no NuGet libraries. Internal.Assets is not the ICsrfProtection contract or a required direct package here."
+          ],
+          "workloads": [],
+          "providers": [
+            "ExchangeProtection registered as singleton ICsrfProtection; exact ExchangeOrigins from operator-owned appsettings.json; built-in provider in --standard true comparison; built-in antiforgery with ephemeral Data Protection in separate --tokens true mode"
+          ],
+          "platforms": [
+            "ASP.NET Core server; measured Windows x64 Chrome156 with disposable HTTP loopback hosts; production requires HTTPS and independently secured trusted origins"
+          ],
+          "renderingModes": [
+            "Ordinary HTML forms and browser fetch to Minimal API form binding; no Blazor or MVC rendering claim"
+          ],
+          "prerequisites": [
+            "Copy the complete standalone SeedExchange files. Empty Directory files isolate inherited build/package configuration. Configure exact trusted serialized origins at deployment; validate ownership of every trusted site. UseAntiforgery is retained only in separate token-required mode."
+          ],
+          "constraints": [
+            "The custom rule accepts safe methods and exact configured Origin only. It does not infer trust from same-site, Sec-Fetch-Site, Host, wildcard CORS or read permission. Missing/null/multiple/unlisted origins are denied for protected writes; token-required clients need the separate token mode or their own endpoint design.",
+            "Automatic RC2 middleware obtains ICsrfProtection from DI, records a verdict and relies on form-binding consumers with RequiresValidation metadata to reject before the handler. JSON lacks that metadata and stays unchanged. Arbitrary endpoints/metadata alone are not proof of enforcement.",
+            "The standard provider accepts same-origin Fetch Metadata and headerless non-browser requests. Other browser origins need explicit credentialed CORS trust. This custom provider deliberately decouples write trust from CORS: a trusted form may execute even when the browser cannot read its response.",
+            "Retain token pairs for token-dependent browsers, compliance or additional-data requirements. The --tokens true comparison uses the standard provider and token middleware; RC2 token middleware can overwrite its automatic verdict. It is not a composed custom-origin-plus-token policy. The .NET10 comparison explicitly enforces both origin and tokens.",
+            "The sample has no authentication, authorization or persistence. Integrate the real application identity/permission checks independently. Browser-controlled headers are not credentials; non-browser clients can forge them. This is not an authorization mechanism, XSS defense or universal CSRF proof. Test proxy/HTTPS/origin configuration separately.",
+            "The /observations, /session and /controls.html diagnostics are disposable local proof only. Do not expose them publicly. No user key store, public publication, provider account, native package or optional workload is used."
+          ],
+          "optIns": [
+            "Explicit AddSingleton<ICsrfProtection, ExchangeProtection> replaces automatic policy globally for protected endpoints; keep the override small and deliberate."
+          ],
+          "stabilityLimitations": [
+            "No ExperimentalAttribute on these actual public contracts. Stable API designation with RC2-specific artifacts and observed behavior; actual GA, other browsers/OSs, proxy, MVC/Razor Pages/SSR and deployment behavior remain unqualified. PIN-959/PIN-964 remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Abstractions/src/Antiforgery/ICsrfProtection.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/CsrfProtectionMiddleware.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/DefaultCsrfProtection.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0#automatic-csrf-protection"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SeedExchange/SeedExchange.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Public custom protection contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Http/Http.Abstractions/src/Antiforgery/ICsrfProtection.cs"
+    },
+    {
+      "title": "Automatic middleware and token overwrite boundary",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/CsrfProtectionMiddleware.cs"
+    },
+    {
+      "title": "Standard policy comparison",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/Internal/DefaultCsrfProtection.cs"
+    },
+    {
+      "title": "ASP.NET Core 11 migration guidance",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/migration/100-to-110?view=aspnetcore-11.0#automatic-csrf-protection"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/SeedExchange/SeedExchange.csproj",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "scope": "Actual matching SDK compilation and Kestrel HTTP execution: handler and DI counters, missing/opaque Origin, token pairs, CORS policies and JSON separation. Browser-controlled Origin/Fetch Metadata proof is separately retained in docs/verification/streaming-and-form-protection.md. No older-target API backport, native/deployment or actual-GA claim.",
+      "target": "net10.0",
+      "sdk": "10.0.402"
+    },
+    {
+      "sample": "samples/net11.0/SeedExchange/SeedExchange.csproj",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "scope": "Actual matching SDK compilation and Kestrel HTTP execution: handler and DI counters, missing/opaque Origin, token pairs, CORS policies and JSON separation. Browser-controlled Origin/Fetch Metadata proof is separately retained in docs/verification/streaming-and-form-protection.md. No older-target API backport, native/deployment or actual-GA claim.",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/SeedExchange/global.json",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedExchange/Directory.Build.props",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedExchange/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedExchange/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n10-seedexchange-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedExchange/SeedExchange.csproj",
+      "region": "complete"
+    },
+    "n10-appsettings-json": {
+      "language": "json",
+      "path": "samples/net10.0/SeedExchange/appsettings.json",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/SeedExchange/Program.cs",
+      "region": "complete"
+    },
+    "n10-exchangeorigins-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/SeedExchange/ExchangeOrigins.cs",
+      "region": "complete"
+    },
+    "n10-observations-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/SeedExchange/Observations.cs",
+      "region": "complete"
+    },
+    "n10-seedoffer-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/SeedExchange/SeedOffer.cs",
+      "region": "complete"
+    },
+    "n10-requestchecks-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/SeedExchange/RequestChecks.cs",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/SeedExchange/global.json",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedExchange/Directory.Build.props",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedExchange/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedExchange/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n11-seedexchange-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedExchange/SeedExchange.csproj",
+      "region": "complete"
+    },
+    "n11-appsettings-json": {
+      "language": "json",
+      "path": "samples/net11.0/SeedExchange/appsettings.json",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/SeedExchange/Program.cs",
+      "region": "complete"
+    },
+    "n11-exchangeorigins-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/SeedExchange/ExchangeOrigins.cs",
+      "region": "complete"
+    },
+    "n11-observations-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/SeedExchange/Observations.cs",
+      "region": "complete"
+    },
+    "n11-seedoffer-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/SeedExchange/SeedOffer.cs",
+      "region": "complete"
+    },
+    "n11-requestchecks-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/SeedExchange/RequestChecks.cs",
+      "region": "complete"
+    },
+    "provider": {
+      "language": "csharp",
+      "path": "samples/net11.0/SeedExchange/ExchangeProtection.cs",
+      "region": "complete"
+    },
+    "browser-html": {
+      "region": "complete",
+      "path": "samples/net11.0/SeedExchange/wwwroot/controls.html",
+      "language": "html"
+    },
+    "browser-js": {
+      "region": "complete",
+      "path": "samples/net11.0/SeedExchange/wwwroot/controls.js",
+      "language": "js"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local browser/loopback checks require no Human-only account or resource. Actual browser proof is retained separately from compile/HTTP records. Existing Human/GA/comprehensive gates remain open."
+  }
+}

@@ -114,7 +114,7 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | Binding-failure filters | Delivered PIN-815 ([proof](../../verification/endpoint-policies.md)). Scalar failure filters also work on actual .NET 10 and in official v10.0.0 source; release-note placement does not establish novelty. Development requires ThrowOnBadRequest=false. Malformed JSON returns before filters on both tested runtimes. |
 | ShortCircuitAttribute/IShortCircuitMetadata | Delivered PIN-816 ([proof](../../verification/endpoint-policies.md)). Minimal API attribute/convention comparison with real before/after-routing traces, ordinary authorization/CORS and rejected conflicting metadata. The .NET 10 convention remains valid. |
 | Union binding | PIN-820 delivers `web.accept-union-payloads/11.0`: original .NET 10 converter and .NET 11 native union/classifier; real Minimal API, MVC and SignalR JSON WebSocket requests check both shapes and invalid inputs. No route/query/header/form or MessagePack/Newtonsoft claim. |
-| ICsrfProtection/CsrfProtectionResult and automatic middleware | PIN-808 owns form/startup/CORS/token exceptions; **W02** owns custom service authoring. Source requires a specific allowed origin **and SupportsCredentials** for CORS-derived CSRF trust; AllowAnyOrigin is not trust. JSON endpoints remain unchanged. |
+| ICsrfProtection/CsrfProtectionResult and automatic middleware | PIN-808 retains standard form/startup/CORS/token guidance; **W02 / PIN-1172 delivered** `web.supply-origin-protection-policy/11.0` supplies an operator-owned exact-origin DI service. Actual old token+origin/current custom/default/token consumers and Chrome same-origin/site/cross-site/CORS controls qualify the bounded policy. Standard CORS-derived trust requires a specific allowed origin **and SupportsCredentials**; custom write trust is explicit and independent. JSON remains outside form metadata. No net10 API backport or actual-GA claim. |
 | AuthorizationPolicy.CombineAsync metadata overload | Delivered PIN-809 ([proof](../../verification/authorization-and-clock.md)); common requirement/policy metadata, with legacy non-endpoint MVC excluded from the new behavior. |
 | Identity TimeProvider | Delivered PIN-810 ([proof](../../verification/authorization-and-clock.md)): real UserManager threshold/end/expiry with controlled TimeProvider. Token/cookie paths are not inferred from lockout proof. |
 | Aaguid on UserPasskeyInfo/IdentityPasskeyData; template authenticator names | PIN-811; persisted/display mapping and rename fallback. Automatic built-in names alone are excluded. |
@@ -251,6 +251,21 @@ count from interface shape. M covers one shared buffer-ownership goal; custom
 cryptographic algorithm design is excluded.
 
 ### W02. Supply an application-specific cross-origin verdict — L (5)
+
+Delivered by **PIN-1172** as `web.supply-origin-protection-policy/11.0`.
+Original SeedExchange consumers compile/run on the actual SDK10.0.402/framework
+10.0.13 and SDK11 RC2/framework11 RC2 sets. Http.Abstractions/default-builder
+reference hashes match this audit. The custom contract is in the shared framework;
+the non-Razor samples restore no NuGet libraries and need no direct Internal.Assets
+package. The older consumer retains token plus explicit origin enforcement and
+confirms ICsrfProtection is absent; no backport is inferred. Real DI/handler counts,
+missing/opaque Origin and JSON/token checks are captured by
+`eng/Record-SeedExchange.ps1`. Actual Chrome156 loopback form/fetch observations
+are retained in [the existing form evidence](../../verification/streaming-and-form-protection.md#application-owned-origin-policy).
+Installed local-feed stdio inspection qualifies complete offline delivery, not
+additional browser/deployment/GA execution. L5 remains justified by security policy,
+real browser controls and installed guidance. PIN-959/PIN-964 and existing Human
+gates stay open; the exact eight approved .NET10 foundations remain unchanged.
 
 Story: A portal author wants a carefully defined origin rule for a botanical
 exchange so that legitimate browser submissions work while hostile sites fail.

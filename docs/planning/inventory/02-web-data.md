@@ -1,5 +1,16 @@
 # Web and data authoring inventory
 
+**W02 / PIN-1172** supplies `web.supply-origin-protection-policy/11.0`: original
+botanical exchange token+origin (.NET10) and custom ICsrfProtection (.NET11 RC2)
+consumers, actual DI/handler invocation and Chrome156 same-origin/site/cross-site,
+credentialed/noncredentialed/wildcard CORS controls. Write trust comes from an
+operator-owned exact-origin list, independently of CORS read permission. Missing
+Origin, JSON and separate token-required modes remain explicit. Shared-framework
+contract availability is distinct from Razor Internal.Assets; these samples need
+no NuGet libraries. See [the bounded disposition](../audits/web.md#w02-supply-an-application-specific-cross-origin-verdict--l-5).
+PIN-959/PIN-964, actual GA and existing Human gates stay open; no ninth .NET10
+foundation, backport or change to the standard form-protection recipe is implied.
+
 **B14 / PIN-1168** supplies `razor.choose-task-generation-path/11.0`: original
 ExhibitCompiler targets execute actual SDK10 engine/default and RC2 default,
 explicit engine/hosted task paths. Generated C# compiles and renders; dependency,
