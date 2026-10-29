@@ -1,0 +1,4 @@
+# snippet:complete
+[*.cs]
+dotnet_diagnostic.CA2252.severity = warning
+# endsnippet:complete

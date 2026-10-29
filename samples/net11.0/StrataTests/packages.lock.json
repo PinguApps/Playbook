@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.AspNetCore.Mvc.Testing": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, 11.0.0-rc.2.26504.105]",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "IT+Ex+ge/J36kURCFAxKNgH70uJwOM1G60zdlxBxFIKs3pdNLJXdeAxo9afP7nsmZgk/EGI1UISOuXPQz1evNg==",
+        "dependencies": {
+          "Microsoft.AspNetCore.TestHost": "11.0.0-rc.2.26504.105",
+          "Microsoft.Extensions.DependencyModel": "11.0.0-rc.2.26504.105"
+        }
+      },
+      "Microsoft.AspNetCore.TestHost": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "4S04aEcKxRE8v8cgtLPh2FVuiuE/MNhNaxvbYBkXED+tIDoopEvZIUbU/jSAOSMAQsNRuBLCQeLw4ixFE9ocXg=="
+      },
+      "Microsoft.Extensions.DependencyModel": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "HN/LL/uNN7Lj74VwWRkaB26X694U+s7wwHBYvKycOUhTIMbPdCayB1bM2W6+FnYcLL1/oEDQNZLLco5bIo0FpA=="
+      },
+      "strataapi": {
+        "type": "Project"
+      }
+    }
+  }
+}

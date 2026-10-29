@@ -1,0 +1,18 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebResourceRecipes.ps1",
+    "docs/planning/audits/web.assets.json"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.Mvc.Testing/10.0.13",
+    "Microsoft.AspNetCore.TestHost/10.0.13",
+    "Microsoft.Extensions.DependencyModel/10.0.13",
+    "StrataApi/1.0.0"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}

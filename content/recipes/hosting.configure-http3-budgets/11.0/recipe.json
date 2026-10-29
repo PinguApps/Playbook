@@ -1,0 +1,213 @@
+{
+  "id": "hosting.configure-http3-budgets",
+  "edition": "11.0",
+  "title": "Configure HTTP/3 connection budgets without preview scaffolding",
+  "goal": "Set per-connection HTTP/3 stream and buffer budgets, preserve backpressure, and remove preview acknowledgements only on a framework that no longer requires them.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-resource-recipes",
+    "estuarybudgets"
+  ],
+  "apis": [
+    "QuicTransportOptions.MaxBidirectionalStreamCount",
+    "QuicTransportOptions.MaxUnidirectionalStreamCount",
+    "QuicTransportOptions.MaxReadBufferSize",
+    "QuicTransportOptions.MaxWriteBufferSize"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "All four properties already exist on .NET 10 with RequiresPreviewFeatures. Retain its narrowly scoped CA2252 acknowledgement; .NET 11 needs neither that acknowledgement nor EnablePreviewFeatures.",
+          "Stream limits apply per connection, not per user/process or to application request quotas. Leave at least the HTTP/3 control/QPACK stream credit required by the protocol.",
+          "Read/write thresholds provide transport backpressure, not exact process-memory, request-body-size or end-to-end byte limits. Native/protocol/client buffers also participate.",
+          "Windows x64 only is executed here. The fixture requires native MsQuic 2.5.11.159415436, uses a private self-signed certificate without installing trust, and fails rather than silently falling back to HTTP/2."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This migration targets ASP.NET Core 11; exact reproduction uses RC2 and does not establish GA verification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer with SDK11. Exact tested SDK is a reproduction pin, not a minimum servicing version."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested language mode; the examples require no C#15-only syntax. The older comparison uses C#14."
+          },
+          "frameworks": [
+            "ASP.NET Core"
+          ],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App framework reference from Web SDK; no restored NuGet libraries. Native MsQuic is supplied by the tested runtime installation; its version/hash are observed independently."
+          ],
+          "providers": [
+            "Actual Kestrel QUIC transport, System.Net.Quic and HTTP/3 client over loopback; supported OS TLS 1.3 and native MsQuic required."
+          ],
+          "platforms": [
+            "Windows x64 is the qualified execution lane; other OS/runtime/native combinations need their own focused checks."
+          ],
+          "renderingModes": [
+            "No browser, Razor or Blazor rendering. Actual local HTTP messages only."
+          ],
+          "prerequisites": [
+            "Copy both complete independent projects below, including the isolation/global files. Restore from each directory with its matching absolute SDK executable. Use the exact test pins for reproduction; prerequisites are distinct from measured evidence."
+          ],
+          "constraints": [
+            "All four properties already exist on .NET 10 with RequiresPreviewFeatures. Retain its narrowly scoped CA2252 acknowledgement; .NET 11 needs neither that acknowledgement nor EnablePreviewFeatures.",
+            "Stream limits apply per connection, not per user/process or to application request quotas. Leave at least the HTTP/3 control/QPACK stream credit required by the protocol.",
+            "Read/write thresholds provide transport backpressure, not exact process-memory, request-body-size or end-to-end byte limits. Native/protocol/client buffers also participate.",
+            "Windows x64 only is executed here. The fixture requires native MsQuic 2.5.11.159415436, uses a private self-signed certificate without installing trust, and fails rather than silently falling back to HTTP/2."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API designation on the newer side; evidence uses SDK11.0.100-rc.2.26504.105 and runtime11.0.0-rc.2.26504.105, not actual GA. PIN-959/PIN-964 and unrelated Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Transport.Quic/src/QuicTransportOptions.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Transport.Quic/src/Internal/QuicStreamContext.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Servers/Kestrel/Transport.Quic/src/QuicTransportOptions.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/http3?view=aspnetcore-11.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/EstuaryBudgets/EstuaryBudgets.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "QUIC transport option contract",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Transport.Quic/src/QuicTransportOptions.cs"
+    },
+    {
+      "title": "Transport flow-control implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Servers/Kestrel/Transport.Quic/src/Internal/QuicStreamContext.cs"
+    },
+    {
+      "title": "Previous preview annotations",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Servers/Kestrel/Transport.Quic/src/QuicTransportOptions.cs"
+    },
+    {
+      "title": "Kestrel HTTP/3 platform requirements",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/http3?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/EstuaryBudgets/EstuaryBudgets.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows x64 Kestrel HTTP/3: two concurrent requests and queued third on one connection, three inbound unidirectional protocol streams and cancelled fourth open, slow 16MiB upload/download pause and resume. Actual MsQuic module/version/hash, audited references, compiler and runtime hashes. No exact memory/quota/other-OS/GA claim."
+    },
+    {
+      "sample": "samples/net11.0/EstuaryBudgets/EstuaryBudgets.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows x64 Kestrel HTTP/3: two concurrent requests and queued third on one connection, three inbound unidirectional protocol streams and cancelled fourth open, slow 16MiB upload/download pause and resume. Actual MsQuic module/version/hash, audited references, compiler and runtime hashes. No exact memory/quota/other-OS/GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-editorconfig": {
+      "path": "samples/net10.0/EstuaryBudgets/.editorconfig",
+      "region": "complete",
+      "language": "ini"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/EstuaryBudgets/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/EstuaryBudgets/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/EstuaryBudgets/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/EstuaryBudgets/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-estuarybudgets-csproj": {
+      "path": "samples/net10.0/EstuaryBudgets/EstuaryBudgets.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/EstuaryBudgets/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-editorconfig": {
+      "path": "samples/net11.0/EstuaryBudgets/.editorconfig",
+      "region": "complete",
+      "language": "ini"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/EstuaryBudgets/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/EstuaryBudgets/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/EstuaryBudgets/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/EstuaryBudgets/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-estuarybudgets-csproj": {
+      "path": "samples/net11.0/EstuaryBudgets/EstuaryBudgets.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/EstuaryBudgets/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local automated consumers need no owner account, production service, trust installation or physical device. Existing actual-GA/publication and unrelated Human gates remain separate."
+  }
+}
