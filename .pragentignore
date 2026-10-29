@@ -85,3 +85,8 @@
 /samples/net10.0/NorthQuayBuildHost/verification-evidence.json
 /samples/net11.0/NorthQuayBuildHost/verification-evidence.json
 /samples/net11.0/NorthQuayBuildHost/native.evidence.json
+
+# Record-DepotEvents.ps1 generated SDK/command/replay capture; review the fixture,
+# canonical reader and artifact pins. Existing sample gates check input freshness.
+/samples/net10.0/DepotEventReader/verification-evidence.json
+/samples/net11.0/DepotEventReader/verification-evidence.json
