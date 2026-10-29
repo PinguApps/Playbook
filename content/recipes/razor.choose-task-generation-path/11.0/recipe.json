@@ -79,7 +79,7 @@
             "Use matching task/rzc/compiler/MSBuild/runtime artifacts. No mixed-SDK or older-target hosted route is claimed."
           ],
           "stabilityLimitations": [
-            "GA-targeted edition with RC2 execution only. Public task parameters exist but this custom tooling integration is version coupled; no stable SDK-layout/ABI promise or experimental suppression."
+            "RC2 execution only; not GA-qualified. Public task parameters exist but this custom tooling integration is version coupled; no stable SDK-layout/ABI promise or experimental suppression."
           ]
         },
         "sourceUrls": [
