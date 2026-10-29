@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<!-- snippet:settings -->
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <LangVersion>15.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NuGet.Protocol" HintPath="$(MSBuildBinPath)/NuGet.Protocol.dll" Private="false" />
+    <Reference Include="NuGet.Common" HintPath="$(MSBuildBinPath)/NuGet.Common.dll" Private="false" />
+    <Reference Include="NuGet.Configuration" HintPath="$(MSBuildBinPath)/NuGet.Configuration.dll" Private="false" />
+  </ItemGroup>
+<!-- endsnippet:settings -->
+  <ItemGroup>
+    <Compile Include="Shared/Bootstrap.cs" Link="Bootstrap.cs" />
+    <Compile Include="Shared/Publisher.cs" Link="Publisher.cs" />
+    <Compile Include="Shared/WireServer.cs" Link="WireServer.cs" />
+    <Compile Include="Shared/StagingChecks.cs" Link="StagingChecks.cs" />
+    <None Include="Shared/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

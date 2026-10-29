@@ -103,6 +103,11 @@
 /samples/net10.0/AmberGallery/verification-evidence.json
 /samples/net11.0/AmberGallery/verification-evidence.json
 
+# Record-FoundryStaging.ps1 generated SDK/pack/wire evidence; review the publisher,
+# actual HTTP fixture, exact artifact pins and capture wrapper. Pack checks freshness.
+/samples/net10.0/FoundryPublisher/verification-evidence.json
+/samples/net11.0/FoundryPublisher/verification-evidence.json
+
 # Record-AquariumVolunteers/Record-Evidence generated command, asset and HTTP capture;
 # review the canonical UI/checks, locked closures and qualification helper. Pack checks freshness.
 /samples/net10.0/AquariumVolunteers/verification-evidence.json
