@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.SignalR;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Options;
 using CopperRidgeHub;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDataProtection().UseEphemeralDataProtectionProvider();
 builder.Services.AddAuthentication("LocalTicket").AddScheme<AuthenticationSchemeOptions, LocalTicket>("LocalTicket", null);
 builder.Services.AddAuthorization();
 builder.Services.AddSignalR();

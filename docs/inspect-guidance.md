@@ -102,7 +102,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2784b7c8'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('signalr.refresh-live-credentials','blazor.react-to-refreshed-identity','razor.migrate-generated-document-contracts') `
   -Query '' -PackageVersion '0.0.0-live-tool-contracts' `
-  -Dotnet 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe' `
+  -Dotnet 'V:\_worktrees\Playbook\t3-2784b7c8\artifacts\identity-tooling\pinned-dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/identity-tooling/inspection
 ```
@@ -118,6 +118,9 @@ The compiler guidance distinguishes an unavailable older public reader,
 diagnostic-tree import, declaration/stub labels and constructor source/ABI
 compatibility. `eng/Record-CatalogueCompiler.ps1` executes its actual compiler
 checks with `-Dotnet` selecting the installed root containing both pinned SDKs.
+The task-local SDK root above preserves the recorded 10.0.402/RC2 baselines
+after the machine's installation advanced to 10.0.403/RC3. An equivalent installed
+root containing those exact SDKs and runtimes can be supplied instead.
 
 ## Inspect a response directly
 

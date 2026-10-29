@@ -25,6 +25,10 @@ Run each .NET project with `dotnet run -c Release` to execute its actual .NET cl
 
 ## Constraints
 
+Both local hosts register ephemeral Data Protection. The demonstration does not
+require persistent protection keys; production key storage and identity validation
+remain application-owned choices.
+
 Measured SDKs are 10.0.402 and 11.0.100-rc.2.26504.105; frameworks and .NET SignalR packages are 10.0.13 and 11.0.0-rc.2.26504.105. Locked dependencies and source/tool hashes accompany the evidence. No down-level client/server refresh route, automatic expiry scheduling, Windows authentication, cloud provider, browser TypeScript transport, every SignalR transport, trimming/AOT or actual-GA support is proved. TypeScript ran on Node with WebSockets. Use TLS and trusted token validation in production.
 
 Blazor UI refresh is a separate subscription concern: see `blazor.react-to-refreshed-identity`. Framework propagation is context, not proof that an arbitrary authentication provider refreshes itself.
