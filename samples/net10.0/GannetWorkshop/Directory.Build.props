@@ -1,0 +1,1 @@
+<Project><Import Project="../../net11.0/GannetWorkshop/Shared/Directory.Build.props" /></Project>

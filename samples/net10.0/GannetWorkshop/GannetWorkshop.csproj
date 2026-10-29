@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<!-- snippet:settings -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DefineConstants Condition="'$(GannetProof)' == 'true'">$(DefineConstants);GANNET_PROOF</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build" HintPath="$(MSBuildBinPath)/Microsoft.Build.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Utilities.Core" HintPath="$(MSBuildBinPath)/Microsoft.Build.Utilities.Core.dll" Private="false" />
+    <Reference Include="NuGet.Common" HintPath="$(MSBuildBinPath)/NuGet.Common.dll" Private="false" />
+    <None Include="../../net11.0/GannetWorkshop/Shared/Gannet.proj" Link="Gannet.proj" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/Bootstrap.cs" Link="Bootstrap.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/BuildCache.cs" Link="BuildCache.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/CourierLauncher.cs" Link="CourierLauncher.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/WorkshopDemo.cs" Link="WorkshopDemo.cs" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/WorkshopChecks.cs" Link="WorkshopChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <Compile Include="../../net11.0/GannetWorkshop/Shared/AnalyzerChecks.cs" Link="AnalyzerChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <None Include="../../net11.0/GannetWorkshop/Shared/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" Condition="'$(GannetProof)' == 'true'" />
+  </ItemGroup>
+<!-- endsnippet:settings -->
+</Project>

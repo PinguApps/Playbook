@@ -1,0 +1,184 @@
+{
+  "id": "nuget.reset-reused-host-state",
+  "edition": "11.0",
+  "title": "Invalidate custom NuGet caches between reused builds",
+  "goal": "Discard configuration-derived package-tool state after a real build ends so a reused host reads the next build configuration lazily without breaking active operations.",
+  "areas": [
+    "nuget",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "cache-lifecycle",
+    "nuget",
+    "reused-builds"
+  ],
+  "apis": [
+    "StaticState.BuildEnded",
+    "StaticState.RaiseBuildEnded",
+    "BuildManager.EndBuild",
+    "HostServices.RegisterHostObject"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "Exact SDK-bound Windows x64 comparison. Application target, SDK compiler, NuGet DLL TFM and package assets are separate facts.",
+          "Serialized original host explicitly wires actual EndBuild to actual NuGet event. Invalidate only; no third-party automatic reset or overlapping-build contract. Scoped operation resources remain owned by their users.",
+          "SDK10 valid older approach is retained in the comparison, not a separately advertised current feature backport."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0.0-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Exact current runtime; old comparison runtime/reference10.0.13 is independently qualified. Actual GA unqualified."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0.100-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Complete SDK11 RC2 NuGet8.0.0-rc.605 / MSBuild18.12 / Roslyn5.12 closure; old SDK10.0.402 carries NuGet7.9.0-rc.611 / MSBuild18.9.15 / Roslyn5.9."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Pinned C#15 mode; no preview language opt-in. Old actual consumer uses C#14."
+          },
+          "frameworks": [],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "No independently distributed NuGet8 package is claimed. Direct audited SDK NuGet DLLs target net8.0(old)/net10.0(current), separately from the net10/net11 consumer targets. Complete matching SDK closures and separately pinned products/hashes; no mixed ABI."
+          ],
+          "providers": [],
+          "platforms": [
+            "Windows x64 managed execution with exact SDK/runtime/reference/native-host assets. Other platforms, general redistribution and actual GA unqualified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Both complete SDK10.0.402 and SDK11.0.100-rc.2.26504.105 installations, matching runtime/ref10.0.13 and11RC2, PowerShell7. Matching absolute dotnet executables; SDK pins disable roll-forward, current explicitly permits prerelease.",
+            "No optional workload, provider/account, real feed credential, native compiler, device or rendering mode. The mixed net10 inner build uses the actual SDK10 packs directory without modifying either SDK.",
+            "Canonical version-specific projects remain inside the manual sample boundary. Local feeds/caches, generated locks and known positive/negative compiler fixtures are isolated; PATH and all persistent settings remain unchanged."
+          ],
+          "constraints": [
+            "Caller serializes all builds/cache access across this application process. All original hosts/caches share the default-load-context retirement guard; failed EndBuild or any reset handler retires ALL owned hosts/caches, including new instances, until process restart. Raise only after actual EndBuild returns; no unconditional reset on lifecycle failure. No guard/support guarantee for arbitrary third-party hosts or other application load contexts; resources remain operation-owned.",
+            "Exact artifact/input qualification is separate from release-family requirements. No universal performance, OS/native recurring matrix or GA guarantee."
+          ],
+          "optIns": [
+            "Current exact SDK explicitly permits prerelease; no experimental API suppression or preview language switch. GannetProof=true only enables separate repository proof fixtures."
+          ],
+          "stabilityLimitations": [
+            "Exact-artifact preview qualification, not a public hosted-service standard/support guarantee or actual GA.",
+            "Eight approved .NET10 foundations, PIN-959 qualifying coverage/evidence, PIN-963 actual-GA and unrelated Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Common/StaticState.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/BuildManager/BuildManager.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/HostServices.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/GannetWorkshop/GannetWorkshop.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Common/StaticState.cs",
+      "title": "Pinned public source for the actual qualified SDK contract"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/BuildManager/BuildManager.cs",
+      "title": "Pinned public source for the actual qualified SDK contract"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/HostServices.cs",
+      "title": "Pinned public source for the actual qualified SDK contract"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "scope": "Actual SDK10 matched artifacts; real same-host MSBuild/config/lazy/cache controls, scoped open file, original analyzer package/locked closures/metadata/compiler selection and real diagnostic controls, actual obsolete-warning comparison and missing/benign OS child launches. Current suite also checks mixed target compiler errors, transitive privacy, unsubscription and surfaced handler bugs. No provider exchange, automatic third-party reset, metadata enforcement or GA claim.",
+      "kind": "compile-and-run",
+      "target": "net10.0",
+      "sample": "samples/net10.0/GannetWorkshop/GannetWorkshop.csproj",
+      "sdk": "10.0.402"
+    },
+    {
+      "language": "15.0",
+      "scope": "Actual SDK11 matched artifacts; real same-host MSBuild/config/lazy/cache controls, scoped open file, original analyzer package/locked closures/metadata/compiler selection and real diagnostic controls, actual obsolete-warning comparison and missing/benign OS child launches. Current suite also checks mixed target compiler errors, transitive privacy, unsubscription and surfaced handler bugs. No provider exchange, automatic third-party reset, metadata enforcement or GA claim.",
+      "kind": "compile-and-run",
+      "target": "net11.0",
+      "sample": "samples/net11.0/GannetWorkshop/GannetWorkshop.csproj",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "snippets": {
+    "settings": {
+      "region": "settings",
+      "path": "samples/net11.0/GannetWorkshop/GannetWorkshop.csproj",
+      "language": "xml"
+    },
+    "bootstrap": {
+      "region": "bootstrap",
+      "path": "samples/net11.0/GannetWorkshop/Shared/Bootstrap.cs",
+      "language": "csharp"
+    },
+    "old-settings": {
+      "region": "settings",
+      "path": "samples/net10.0/GannetWorkshop/GannetWorkshop.csproj",
+      "language": "xml"
+    },
+    "cache": {
+      "language": "csharp",
+      "region": "cache",
+      "path": "samples/net11.0/GannetWorkshop/Shared/BuildCache.cs"
+    },
+    "boundary": {
+      "region": "boundary",
+      "path": "samples/net11.0/GannetWorkshop/Shared/Directory.Build.props",
+      "language": "xml"
+    },
+    "demo": {
+      "language": "csharp",
+      "region": "demo",
+      "path": "samples/net11.0/GannetWorkshop/Shared/WorkshopDemo.cs"
+    },
+    "launcher": {
+      "language": "csharp",
+      "region": "launcher",
+      "path": "samples/net11.0/GannetWorkshop/Shared/CourierLauncher.cs"
+    },
+    "build-project": {
+      "path": "samples/net11.0/GannetWorkshop/Shared/Gannet.proj",
+      "region": "build-project",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Authorized actual managed build/analyzer/benign OS launch checks fulfill this bounded goal. No provider protocol, real credential, device/native compiler or Human proof claimed. PIN-959, PIN-963/actual-GA and unrelated Human gates remain open."
+  }
+}

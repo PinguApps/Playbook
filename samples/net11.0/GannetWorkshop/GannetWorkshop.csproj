@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<!-- snippet:settings -->
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DefineConstants Condition="'$(GannetProof)' == 'true'">$(DefineConstants);GANNET_PROOF</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build" HintPath="$(MSBuildBinPath)/Microsoft.Build.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Framework" HintPath="$(MSBuildBinPath)/Microsoft.Build.Framework.dll" Private="false" />
+    <Reference Include="Microsoft.Build.Utilities.Core" HintPath="$(MSBuildBinPath)/Microsoft.Build.Utilities.Core.dll" Private="false" />
+    <Reference Include="NuGet.Common" HintPath="$(MSBuildBinPath)/NuGet.Common.dll" Private="false" />
+    <None Include="Shared/Gannet.proj" Link="Gannet.proj" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="Shared/Bootstrap.cs" Link="Bootstrap.cs" />
+    <Compile Include="Shared/BuildCache.cs" Link="BuildCache.cs" />
+    <Compile Include="Shared/CourierLauncher.cs" Link="CourierLauncher.cs" />
+    <Compile Include="Shared/WorkshopDemo.cs" Link="WorkshopDemo.cs" />
+    <Compile Include="Shared/WorkshopChecks.cs" Link="WorkshopChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <Compile Include="Shared/AnalyzerChecks.cs" Link="AnalyzerChecks.cs" Condition="'$(GannetProof)' == 'true'" />
+    <None Include="Shared/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" Condition="'$(GannetProof)' == 'true'" />
+  </ItemGroup>
+<!-- endsnippet:settings -->
+</Project>

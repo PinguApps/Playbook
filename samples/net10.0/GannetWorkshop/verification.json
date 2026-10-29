@@ -1,0 +1,13 @@
+{
+  "additionalInputs": [
+    "samples/net11.0/GannetWorkshop/Shared",
+    "eng/Record-PackageWorkshop.ps1"
+  ],
+  "nativeToolchains": [],
+  "dependencies": [],
+  "buildArguments": [
+    "-p:UseSharedCompilation=false",
+    "-p:GannetProof=true"
+  ],
+  "workloads": []
+}

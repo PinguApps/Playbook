@@ -1059,3 +1059,48 @@ This qualifies the pinned SDK-bundled public API and faithful local protocol onl
 No independently distributed NuGet.Protocol8 package, older-target staging route,
 hosted service interoperability, TLS/certificate flow, final publication, atomicity
 or GA is claimed. Exact eight foundations and PIN-959/PIN-963/Human gates stay open.
+
+## Reused NuGet hosts, analyzer inventory and launch diagnostics
+
+The following block builds/packs one ordinary artifact and inspects that exact
+installed local-feed/cache artifact for all three recipes. Real stdio list/get
+from an unrelated directory prints each ID/title/goal, complete canonical
+Markdown, target11/edition11, applicability and fresh paired evidence; target10
+gets `no_applicable_edition`. The final consumer reconstructs the default
+net10/net11 projects and sources from returned Markdown, supplies standard SDK,
+import and local-feed scaffolding, then runs actual same-process
+MSBuild/configuration and benign-child behaviour outside the checkout.
+
+Prerequisites: PowerShell7, Node22.19+, complete SDK10.0.402 and
+SDK11.0.100-rc.2.26504.105 installations, runtime/ref10.0.13 and11RC2. Setup may
+restore online; installed retrieval with unusable proxies proves proxy
+independence, not network isolation. No global install, provider or real secret.
+From an unrelated directory this literal worktree block was tested:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1125-03-030-invalidate-custom-nuget-caches-between-reused-builds'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('nuget.reset-reused-host-state','nuget.inspect-analyzer-assets','nuget.own-plugin-launch-diagnostics') `
+  -Query 'nuget' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1125-batch03' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/batch03/inspection
+& ./eng/Test-PackageWorkshopConsumer.ps1 `
+  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+```
+
+Expect all three discovery entries, full sources/requirements and current
+evidence, then the returned-consumer PASS. The complete negative/lifecycle/asset
+suite is separately reproducible with `eng/Record-PackageWorkshop.ps1` using the
+same two absolute SDK parameters. It measures real same-host stale/reset/lazy
+behaviour and owned open-file/unsubscription/failure controls; actual original
+analyzer pack/locked restore/old-current-mixed compiler paths and diagnostic
+failures; visible current CS0618 versus zero-warning fixed consumers, and real
+missing/valid benign OS child launches with redaction. Expected negative compiler
+errors and deliberate task failure are asserted passing controls, not suppressed
+production warnings. The pinned SDK does not consume AnalyzerAssets: `_._` is
+not enforcement. No third-party automatic reset, provider credential exchange,
+other-platform, performance or GA guarantee is made. Eight approved foundations,
+PIN-959 qualifying coverage/evidence, PIN-963 actual-GA and Human gates remain open.
