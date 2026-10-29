@@ -67,8 +67,10 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1120-03-025-register
   -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
 ```
 
-This invokes the existing sample evidence workflow, then real ILC/platform-linker
-publish and native PE execution. It uses absolute executables and child-only
+This first restores both locked package closures, then invokes the existing
+sample evidence workflow and real ILC/platform-linker publish/native execution.
+An empty `-Packages <absolute-cache-directory>` is supported; no incidental older
+native compiler cache is required. It uses absolute executables and child-only
 native include/library inputs; PATH and persistent environment must stay unchanged.
 The public Framework package supplies the eight trim feature settings, checked
 in the actual ILC response. IL2026 is retained, not suppressed. The eight approved

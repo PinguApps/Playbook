@@ -11,13 +11,14 @@ $PSNativeCommandUseErrorActionPreference = $true
 . (Join-Path $PSScriptRoot 'Evidence.ps1')
 $root = Split-Path $PSScriptRoot -Parent
 $output = Join-Path $root 'artifacts/quay-permits'
+$Packages = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Packages)
 New-Item -ItemType Directory -Force -Path $output | Out-Null
 $paths = @{}
 foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]::GetEnvironmentVariable('PATH', $scope) }
 $persistent = @{}
 foreach ($scope in 'User','Machine') { $persistent[$scope] = [Environment]::GetEnvironmentVariables($scope) | ConvertTo-Json -Compress }
 $previous = @{}
-foreach ($name in 'QUAY_MSBUILD_SDK','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH') { $previous[$name] = [Environment]::GetEnvironmentVariable($name) }
+foreach ($name in 'QUAY_MSBUILD_SDK','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','NUGET_PACKAGES') { $previous[$name] = [Environment]::GetEnvironmentVariable($name) }
 $nativeTools = @('MSVC/14.51.36231','WindowsSDK/10.0.26100.0','ILCompiler/11.0.0-rc.2.26504.105')
 $sdk10 = Join-Path (Split-Path $Net10Dotnet) 'sdk/10.0.402'
 $sdk11 = Join-Path (Split-Path $Net11Dotnet) 'sdk/11.0.100-rc.2.26504.105'
@@ -45,6 +46,15 @@ function Invoke-Child([string]$Executable, [string[]]$Arguments, [string]$Direct
 
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+  $env:NUGET_PACKAGES = $Packages
+  # Populate precisely the locked closures before qualifying their files. This
+  # also downloads the SDK-selected native runtime/compiler into a cold cache.
+  $restores = @{}
+  foreach ($major in 10,11) {
+    $dotnet = if ($major -eq 10) { $Net10Dotnet } else { $Net11Dotnet }
+    $directory = Join-Path $root "samples/net$major.0/NorthQuayBuildHost"
+    $restores[$major] = Invoke-Child $dotnet @('restore','NorthQuayBuildHost.csproj','--locked-mode') $directory
+  }
   $bases = @{ sdk10=$sdk10; sdk11=$sdk11; packages=$Packages; vc=$VcRoot; kit=$WindowsKit }
   $pins = Get-Content -LiteralPath (Join-Path $root 'samples/PermitHost/artifact-pins.json') -Raw | ConvertFrom-Json -AsHashtable
   $observations = foreach ($pin in $pins.artifacts) {
@@ -66,8 +76,8 @@ try {
     $record = Get-Content -LiteralPath $recordPath -Raw | ConvertFrom-Json -AsHashtable
     $binary = Join-Path $directory "bin/Release/net$major.0/$(if ($major -eq 11) {'win-x64/'})NorthQuayBuildHost.dll"
     $extra = Invoke-Child $dotnet @($binary,'--missing-task') $output @{ QUAY_MSBUILD_SDK=$sdk }
-    $record.output += "`n" + ($observations -join "`n") + "`n" + $extra
-    $record.command += "; $dotnet $binary --missing-task; artifact hash qualification via eng/Record-NorthQuayBuildHost.ps1"
+    $record.output += "`n" + $restores[$major] + "`n" + ($observations -join "`n") + "`n" + $extra
+    $record.command = "$dotnet restore NorthQuayBuildHost.csproj --locked-mode; " + $record.command + "; $dotnet $binary --missing-task; artifact hash qualification via eng/Record-NorthQuayBuildHost.ps1"
     [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }
   $directory = Join-Path $root 'samples/net11.0/NorthQuayBuildHost'
@@ -110,7 +120,7 @@ try {
   $record.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
   $record.command = "& eng/Record-NorthQuayBuildHost.ps1 -Net10Dotnet '$Net10Dotnet' -Net11Dotnet '$Net11Dotnet' -VcRoot '$VcRoot' -WindowsKit '$WindowsKit' -Packages '$Packages'"
   $record.scope = 'Actual platform ILC/link publish and native PE execution; success, evaluation-only and missing task/resolver controls. IL2026 remains visible; not analyzer-clean or general MSBuild AOT support.'
-  $record.output = ($observations -join "`n") + "`n" + $native
+  $record.output = $restores[10] + "`n" + $restores[11] + "`n" + ($observations -join "`n") + "`n" + $native
   [IO.File]::WriteAllText((Join-Path $directory 'native.evidence.json'), ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   Write-Host 'PASS: paired managed hosts, actual native publish/run, binding/output/logger, missing registrations and unchanged environment.'
 }

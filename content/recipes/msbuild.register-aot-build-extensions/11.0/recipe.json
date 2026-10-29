@@ -19,8 +19,6 @@
   "apis": [
     "SdkResolver.Register",
     "Task.RegisterTask",
-    "TaskItem.RegisterTaskParameterItemType",
-    "TaskItem.RegisterTaskParameterValueType",
     "ProjectCollection.RegisterLogger",
     "BuildParameters.Loggers",
     "BuildManager.Build"
@@ -175,7 +173,8 @@
           "https://www.nuget.org/packages/Microsoft.Build/18.11.0",
           "https://learn.microsoft.com/dotnet/core/deploying/native-aot/",
           "https://learn.microsoft.com/dotnet/core/deploying/native-aot/fixing-warnings",
-          "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md"
+          "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md",
+          "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Utilities/TaskItem.cs"
         ],
         "evidenceSamples": [
           "samples/net11.0/NorthQuayBuildHost/NorthQuayBuildHost.csproj"
@@ -227,6 +226,10 @@
     {
       "title": "Managed external-host Locator contract",
       "url": "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md"
+    },
+    {
+      "title": "Unexercised parameter-type registry contract, separate from class registration",
+      "url": "https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Utilities/TaskItem.cs"
     }
   ],
   "evidence": [

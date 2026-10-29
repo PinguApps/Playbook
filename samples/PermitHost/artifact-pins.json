@@ -1,5 +1,5 @@
 {
-  "scope": "Audited SDK10/11 artifacts reconciled by SHA; independently distributed package18.11.0 is NOT the bundled SDK18.12 build. Native toolchain measured separately; previous ILC availability is not native10 execution proof.",
+  "scope": "Audited SDK10/11 artifacts reconciled by SHA; independently distributed package18.11.0 is NOT the bundled SDK18.12 build. Native toolchain measured separately; no native10 route or incidental old compiler cache is required.",
   "artifacts": [
     {
       "root": "sdk10",
@@ -180,12 +180,6 @@
       "path": "microsoft.visualstudio.solutionpersistence/1.0.52/lib/net8.0/Microsoft.VisualStudio.SolutionPersistence.dll",
       "sha256": "a1150f4a162d9c9992b6e99b2949e2de092017182264218b7b5666ceebbc16d4",
       "productVersion": "1.0.52+19c3ca7dc9.RR"
-    },
-    {
-      "root": "packages",
-      "path": "runtime.win-x64.microsoft.dotnet.ilcompiler/10.0.13/tools/ilc.exe",
-      "sha256": "7e8a82930e0a88384f46989680e02321b3702e974d01b878abf3f68a0e799acf",
-      "productVersion": "10.0.13-servicing.26504.104+4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
     },
     {
       "root": "packages",

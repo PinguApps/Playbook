@@ -140,8 +140,10 @@ The generic factory overload also roots the known task and receives
 type's public properties. Prefer the generic API here.
 
 String parameters already have supported binding. A custom item/value parameter
-type may additionally need `TaskItem.RegisterTaskParameterItemType<T>()` or
-`RegisterTaskParameterValueType<T>()`; class registration is not parameter-type
+type has a separate registration contract: see the pinned public
+[TaskItem implementation](https://github.com/dotnet/msbuild/blob/1b17a019a34ed35480e479aaf42fa3a7835cf45f/src/Utilities/TaskItem.cs).
+Those item/value registration APIs are not exercised by this sample and are not
+part of its verified discovery surface. Class registration is not parameter-type
 registration. This example does not claim arbitrary generic `TaskItem<T>` binding
 under AOT: the reviewed implementation still has runtime-code-generation limits.
 
@@ -167,7 +169,16 @@ logger loading or a project-cache plugin follows different reflective paths.
 5. Publish with the actual win-x64 ILC and platform linker. Use absolute tool
    paths and explicit child-process `LIB`/`INCLUDE`; do not run `vcvars` into shared
    environment or change PATH. Run the resulting native `.exe`, not its managed
-   DLL or an apphost presented as native proof.
+   DLL or an apphost presented as native proof. Pass `IlcUseEnvironmentalTools=true`,
+   `CppCompiler=<MSVC-root>/bin/Hostx64/x64/cl.exe`,
+   `CppLinker=<MSVC-root>/bin/Hostx64/x64/link.exe`, and `TrimmerSingleWarn=false`
+   as `-p:Name=Value` arguments to `dotnet publish NorthQuayBuildHost.csproj -c Release --no-restore`.
+   `<MSVC-root>` is the installed 14.51.36231 directory. In that child only, set
+   `LIB` to its `lib/x64`, plus the Windows Kit's `Lib/10.0.26100.0/um/x64` and
+   `Lib/10.0.26100.0/ucrt/x64` directories, separated by semicolons. Set `INCLUDE`
+   to its `include`, plus the Kit's `Include/10.0.26100.0/ucrt`, `shared` and `um`
+   directories (each under that versioned Include directory). These select the
+   measured tools/libraries rather than whichever Visual Studio setup is ambient.
 6. Inspect all trimming/AOT diagnostics. `BuildManager.Build` still carries
    `RequiresUnreferencedCode` for logger/project-cache initialization and emits
    **IL2026** in both compilation and native analysis. `WarningsNotAsErrors`
@@ -183,7 +194,8 @@ logger loading or a project-cache plugin follows different reflective paths.
 ## Evidence
 
 `eng/Record-NorthQuayBuildHost.ps1` uses the existing sample evidence workflow to
-compile/run both actual dependency sets, then publishes and executes the native
+restore both locked closures into its selected `-Packages` cache before hashing
+package inputs, compile/run both actual dependency sets, then publish and execute the native
 binary. It checks native x64 PE identity and absence of a CLR directory, records
 its SHA-256 and actual compiler/linker/library hashes, retains diagnostics and
 exercises success/evaluation-only/missing-registration controls from an unrelated
