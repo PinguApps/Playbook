@@ -1,0 +1,20 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Library</OutputType><AssemblyName>Map10</AssemblyName>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RazorTooling>$(MSBuildSDKsPath)/Microsoft.NET.Sdk.Razor/source-generators</RazorTooling>
+    <RoslynTooling>$(MSBuildSDKsPath)/../Roslyn/bincore</RoslynTooling>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeAnalysis.Razor.Compiler" HintPath="$(RazorTooling)/Microsoft.CodeAnalysis.Razor.Compiler.dll" />
+    <Reference Include="Microsoft.AspNetCore.Razor.Utilities.Shared" HintPath="$(RazorTooling)/Microsoft.AspNetCore.Razor.Utilities.Shared.dll" />
+    <Reference Include="Microsoft.CodeAnalysis" HintPath="$(RoslynTooling)/Microsoft.CodeAnalysis.dll" />
+    <Reference Include="Microsoft.CodeAnalysis.CSharp" HintPath="$(RoslynTooling)/Microsoft.CodeAnalysis.CSharp.dll" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:complete -->
