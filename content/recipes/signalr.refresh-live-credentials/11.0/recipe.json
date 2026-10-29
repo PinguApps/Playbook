@@ -1,0 +1,256 @@
+{
+  "id": "signalr.refresh-live-credentials",
+  "edition": "11.0",
+  "title": "Refresh credentials without replacing a live hub connection",
+  "goal": "Update roles and claims on an existing SignalR connection, reject unacceptable identities and handle refresh results; includes .NET and a pinned source-built TypeScript client.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp",
+    "typescript"
+  ],
+  "tags": [
+    "live-identity",
+    "copperridgehub",
+    "authentication"
+  ],
+  "apis": [
+    "EnableAuthenticationRefresh",
+    "OnAuthenticationRefresh",
+    "RefreshAuthenticationAsync",
+    "AuthenticationRefreshed",
+    "AuthenticationRefreshFailed",
+    "Hub.OnAuthenticationRefreshedAsync",
+    "withAuthenticationRefresh"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Original old/new comparison; exact eight .NET 10 foundations unchanged.",
+          "Source-built TypeScript client prerequisite; no Azure Service support claim."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Primary route uses ASP.NET Core 11 contracts and analyzers."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 reference assets; exact RC pins identify test evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared canonical language mode; no C#15-only syntax is required."
+          },
+          "frameworks": [
+            "Microsoft.AspNetCore.App 11; Microsoft.NET.Sdk.Web"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.SignalR.Client",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Refresh-capable .NET client paired with the new server."
+            }
+          ],
+          "packageAssets": [
+            "Implicit SDK-aligned Internal.Assets; actual dependencies and exact pins are in evidence.",
+            "TypeScript requires the explicitly pinned first-party source build, not published Preview7 npm. Complete preparation below; MIT notice retained."
+          ],
+          "providers": [
+            "Local demonstration identity; production trusted authentication is application-owned."
+          ],
+          "platforms": [
+            "ASP.NET Core server; measured Windows x64, Node 24.21.0 and Chromium. No native workload."
+          ],
+          "renderingModes": [
+            "No Blazor rendering requirement; real Kestrel WebSockets with .NET and Node clients."
+          ],
+          "workloads": [],
+          "optIns": [],
+          "prerequisites": [
+            "Complete original projects below; local ephemeral listeners and matching SDKs.",
+            "Node/npm and PowerShell plus tar for source-client preparation; network only during setup. TypeScript runs on Node."
+          ],
+          "constraints": [
+            "Local deterministic identity is test data, not production authentication.",
+            "No older-target refresh backport, provider/cloud, AOT or actual-GA guarantee."
+          ],
+          "stabilityLimitations": [
+            "GA-targeted edition verified on .NET 11 RC2; final GA reconciliation remains open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/aspnet/core/signalr/authn-and-authz?view=aspnetcore-11.0#authentication-refresh",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Http.Connections.Client/src/HttpConnection.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/ts/signalr/src/HubConnection.ts",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/aspnetcore.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CopperRidgeHub/CopperRidgeHub.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official authentication refresh and identity constraints",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/signalr/authn-and-authz?view=aspnetcore-11.0#authentication-refresh"
+    },
+    {
+      "title": "Pinned .NET client refresh uses the original application URL",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/csharp/Http.Connections.Client/src/HttpConnection.cs"
+    },
+    {
+      "title": "Pinned TypeScript refresh implementation",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/SignalR/clients/ts/signalr/src/HubConnection.ts"
+    },
+    {
+      "title": "Redirect-capable client does not establish Azure SignalR support",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/aspnetcore.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/CopperRidgeHub/CopperRidgeHub.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual real hub .NET or TypeScript accept/reject/events and original reconnect comparison."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/CopperRidgeHub/CopperRidgeHub.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual real hub .NET or TypeScript accept/reject/events and original reconnect comparison.",
+      "record": "samples/net10.0/CopperRidgeHub/behavior.evidence.json"
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/CopperRidgeHub/CopperRidgeHub.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual real hub .NET or TypeScript accept/reject/events and original reconnect comparison."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/CopperRidgeHub/CopperRidgeHub.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual real hub .NET or TypeScript accept/reject/events and original reconnect comparison.",
+      "record": "samples/net11.0/CopperRidgeHub/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-copperridgehub-csproj": {
+      "path": "samples/net10.0/CopperRidgeHub/CopperRidgeHub.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/CopperRidgeHub/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/CopperRidgeHub/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/CopperRidgeHub/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/CopperRidgeHub/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/CopperRidgeHub/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-copperridgehub-csproj": {
+      "path": "samples/net11.0/CopperRidgeHub/CopperRidgeHub.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/CopperRidgeHub/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/CopperRidgeHub/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/CopperRidgeHub/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/CopperRidgeHub/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/CopperRidgeHub/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "ts-package-json": {
+      "path": "samples/net11.0/CopperRidgeHub/TypeScript/package.json.txt",
+      "region": "complete",
+      "language": "json"
+    },
+    "ts-package-lock-json": {
+      "path": "samples/net11.0/CopperRidgeHub/TypeScript/package-lock.json.txt",
+      "region": "complete",
+      "language": "json"
+    },
+    "ts-tsconfig-json": {
+      "path": "samples/net11.0/CopperRidgeHub/TypeScript/tsconfig.json.txt",
+      "region": "complete",
+      "language": "json"
+    },
+    "ts-build-client-ps1": {
+      "path": "samples/net11.0/CopperRidgeHub/TypeScript/Build-Client.ps1.txt",
+      "region": "complete",
+      "language": "powershell"
+    },
+    "ts-check-ts": {
+      "path": "samples/net11.0/CopperRidgeHub/TypeScript/check.ts.txt",
+      "region": "complete",
+      "language": "typescript"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated real local runtime checks cover these bounded claims; production providers, cloud and actual GA remain unverified."
+  }
+}

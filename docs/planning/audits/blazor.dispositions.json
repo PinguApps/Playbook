@@ -23,8 +23,8 @@
       "id": "compiler-documents",
       "assetPattern": "^sdk/",
       "pattern": " Microsoft\\.AspNetCore\\.Razor\\.Language\\.(CodeGeneration\\.CodeRenderingContext|RazorCSharpDocument|RazorCodeDocumentExtensions)",
-      "owner": "B12",
-      "disposition": "included"
+      "owner": "B12; PIN-1166; razor.migrate-generated-document-contracts/11.0",
+      "disposition": "delivered; matching old/current SDK compiler and Roslyn sets, real valid/invalid output with retained diagnostics/mappings/line pragmas, diagnostic import and document flags, rebuilt-source versus previous compiled-constructor checks. Older private reader is verification-only. PIN-959/PIN-964 and actual-GA gates remain open."
     },
     {
       "id": "compiler-cloning",

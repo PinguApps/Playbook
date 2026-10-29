@@ -8,6 +8,27 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
+**B12 / PIN-1166** supplies `razor.migrate-generated-document-contracts/11.0`:
+actual matching SDK compiler/Roslyn sets, retained text/diagnostics/mappings,
+diagnostic-import and declaration/stub choices, and source-versus-binary
+constructor checks. The older SDK's reader is internal; only the verification
+harness observes it, while the canonical older module consumes host-supplied
+output. That limitation remains explicit. See the
+[bounded reconciliation](../audits/blazor.md#generated-document-tool-delivery-b12--pin-1166).
+These records do not waive comprehensive content or actual-GA gates.
+
+PIN-813 authors `signalr.refresh-live-credentials/11.0` and
+`blazor.react-to-refreshed-identity/11.0` with original CopperRidgeHub and
+ArchiveAccess .NET 10/RC2 comparisons. Real .NET and Node TypeScript WebSocket
+checks cover accepted/rejected refresh, events and a local negotiate gateway;
+real Chromium circuits cover notification-driven grant/revoke without navigation.
+The published Preview7 npm client lacks the final API: the current TypeScript
+route explicitly builds pinned first-party source, retaining its MIT license.
+This is development source-build evidence, not a published RC2 npm or Azure
+SignalR Service support claim. The older reconnect/manual-view actions remain
+valid. Fresh sample records and the existing isolated installed-MCP harness
+qualify the bounded content; comprehensive coverage and actual-GA gates stay open.
+
 **B11 / PIN-1165** delivers `blazor.handle-js-invocation-failures/11.0`:
 original .NET 10/RC2 browser module consumers, actual analyzer controls, scoped
 JS recovery, visible application errors and disconnected renderer teardown.
@@ -169,7 +190,7 @@ G numbers refer to the numbered list in [brief.md](../brief.md). The proposed ID
 | `blazor.use-void-interop-intent` — Express a JavaScript call that has no result | Follow analyzer to use `InvokeVoidAsync` rather than discard a generic result. | Blazor JS interop; focused source authoring, not analyzer internals. | [W] | delivered — PIN-801/802/803 edition 11.0; original .NET 10/11 BreakwaterLab and real injection/interop/namespace behavior; [proof and limits](../../verification/component-interop.md). |
 | `blazor.observe-browser-components` — Collect component activity from the browser | Enable runtime metrics/tracing and configure collection/export. | WASM; public switches/package requirements; link shared telemetry guidance. | [W] | delivered — PIN-797 edition 11.0; valid .NET 10 public manual registration and .NET 11 automatic diagnostics, actual original LoomActivity browser metrics/correlated spans received by an official local collector; [proof and limits](../../verification/browser-telemetry.md). |
 | `web.publish-container` — Generate a deployable web container configuration | Use Blazor template's authored container setup. | Visual Studio template option; example delegates shared container authoring inventory. | [W] | grouped — shared SDK/container recipe; not a new UI-only recipe |
-| `blazor.react-to-refreshed-identity` — Refresh user-specific content when session claims change | Subscribe/reload using authentication-state notifications instead of forced reload. | Interactive Server; automatic propagation is only context. | [W], [WR1] | included |
+| `blazor.react-to-refreshed-identity` — Refresh user-specific content when session claims change | Subscribe/reload using authentication-state notifications instead of forced reload. | Interactive Server; automatic propagation is only context. | [W], [WR1] | included — delivered 11.0 edition; PIN-813, original .NET 10/RC2 Interactive Server notifications and content refresh; [delivery](../audits/web.md#boundary-and-reproducible-evidence) |
 | — WASM trimming/Hot Reload size reductions | No application authoring required by documented optimization. | Blazor WASM. | [W] | excluded |
 | — Blazor Hybrid cumulative placeholder | No distinct cumulative feature described. Render-mode compatibility fix noted in Preview6. | Hybrid render modes treated as no-op; retain source finding without invented goal. | [WI], [W6] | excluded — reviewed/no distinct recipe here |
 
@@ -177,8 +198,8 @@ G numbers refer to the numbered list in [brief.md](../brief.md). The proposed ID
 
 | Proposed goal ID / original goal label | Authoring impact and mapped documented change | Area / applicability / constraints | Official source | Disposition |
 | --- | --- | --- | --- | --- |
-| `signalr.refresh-live-credentials` — Renew identity without dropping a live connection | Opt hub into refresh, approve/reject identity, handle client refresh events. | .NET client and TypeScript variants; RC1 final names. | [W], [W6], [WR1] | included |
-| `signalr.refresh-live-credentials` — Keep refresh working through negotiate redirection | Use redirect-capable client configuration; retain redirect limitations. | .NET client; source says Azure SignalR Service had not enabled feature. Do not promise service support. | [W], [W7] | grouped |
+| `signalr.refresh-live-credentials` — Renew identity without dropping a live connection | Opt hub into refresh, approve/reject identity, handle client refresh events. | .NET client and TypeScript variants; RC1 final names. | [W], [W6], [WR1] | included — delivered 11.0 edition; PIN-813, actual .NET/source-built TypeScript refresh accept/reject/events; [delivery](../audits/web.md#boundary-and-reproducible-evidence) |
+| `signalr.refresh-live-credentials` — Keep refresh working through negotiate redirection | Use redirect-capable client configuration; retain redirect limitations. | .NET client; source says Azure SignalR Service had not enabled feature. Do not promise service support. | [W], [W7] | grouped — delivered in the 11.0 edition; PIN-813, real local negotiate-gateway checks, no Azure support claim; [delivery](../audits/web.md#boundary-and-reproducible-evidence) |
 | `signalr.cancel-active-operation` — Stop an ordinary hub operation when its caller abandons it | Pass cancellation through `InvokeAsync` into hub work. | Non-streaming invocation; matched new client/server capabilities. | [W], [W6] | included — delivered 11.0 edition; [PIN-814 evidence](../../verification/invocation-cancellation.md) |
 | `minimal-api.shape-binding-error` — Return a consistent failure before endpoint execution | Inspect failed binding in endpoint filters. | Set `ThrowOnBadRequest=false` in Development; handler need not run. | [W] | included — delivered 11.0 edition; [PIN-815–816 evidence](../../verification/endpoint-policies.md) |
 | `web.accept-union-payloads` — Describe a body that has several valid shapes | Use native unions and JSON classifiers instead of parallel DTO routing. | Minimal API/MVC bodies and SignalR JSON protocol; not route/query/header/form binding or MessagePack/Newtonsoft. | [W], [W6] | included — delivered 11.0 edition; PIN-820: original .NET 10 converter / .NET 11 native union; real Minimal API, MVC and SignalR JSON WebSocket round-trips and invalid-body checks; packed offline retrieval |

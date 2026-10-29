@@ -1,0 +1,9 @@
+// snippet:complete
+{
+  "compilerOptions": {
+    "target": "es2019", "module": "commonjs", "moduleResolution": "node",
+    "strict": true, "skipLibCheck": true, "types": ["node"]
+  },
+  "include": ["check.ts"]
+}
+// endsnippet:complete

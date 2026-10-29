@@ -21,14 +21,14 @@
     {
       "id": "live-auth",
       "pattern": " Microsoft\\.AspNetCore\\.(Connections\\.Features\\.(IAuthenticationRefreshFeature|IConnectionAuthenticationRefreshFeature|AuthenticationRefreshContext)|Http\\.Connections\\.(AuthenticationRefreshMetadata|NegotiationResponse::.*TokenLifetime|HttpConnectionDispatcherOptions::.*(AuthenticationRefresh|AuthenticationExpiration))|SignalR\\.(Client\\.(AuthenticationRefresh|HubConnection::.*(?:AuthenticationRefresh|RefreshAuthentication)|HubConnectionBuilderExtensions::WithAuthenticationRefresh)|Hub::OnAuthenticationRefreshedAsync|HubConnectionContext::.*UserIdentifier))",
-      "owner": "PIN-813",
-      "disposition": "grouped"
+      "owner": "PIN-813; signalr.refresh-live-credentials/11.0 and blazor.react-to-refreshed-identity/11.0",
+      "disposition": "grouped; delivered with actual direct/redirected .NET and pinned source-built TypeScript accept/reject/events, plus Interactive Server authentication notifications and user-content refresh. No Azure or published RC2 npm support claim. PIN-959/PIN-964 and GA gates remain open."
     },
     {
       "id": "http-client-refresh",
       "pattern": " Microsoft\\.AspNetCore\\.Http\\.Connections\\.Client\\.HttpConnection",
-      "owner": "PIN-813; implements refresh feature",
-      "disposition": "grouped"
+      "owner": "PIN-813; signalr.refresh-live-credentials/11.0; implements refresh feature",
+      "disposition": "grouped; delivered with real direct and local negotiate-gateway refresh checks, retained application-token provider and replacement transport token. Azure support is not inferred; GA/comprehensive gates remain open."
     },
     {
       "id": "tls-observability",
