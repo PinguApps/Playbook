@@ -1,0 +1,181 @@
+{
+  "id": "sdk.select-tool-execution-sdk",
+  "edition": "11.0",
+  "title": "Select the intended SDK when executing a tool",
+  "goal": "Choose repository-pinned SDK execution with dotnet dnx or deliberate newest-installed-SDK execution through a serviced wrapper, keeping the tool package and runtime requirements separate.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tool-sdk-selection",
+    "dnx",
+    "global-json",
+    "host-selection"
+  ],
+  "apis": [
+    "dotnet dnx",
+    "dnx.cmd",
+    "global.json"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Serviced SDK 10.0.302/10.0.400 and .NET 11 Preview 6 introduce wrapper bypass; actual serviced 10.0.402 and RC2 wrappers were executed.",
+          "SDK 9 is a negative command-availability case only; no extra historical foundation or target-10 catalogue edition."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Required by the net11 checker package; the SDK that executes dnx and a net10 tool runtime are separate decisions."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Target-11 example build; wrapper bypass is also serviced into SDK 10.0.302/10.0.400, with 10.0.402 execution evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C# 15 checker sample mode; SDK selection itself is language independent."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Original local Gullhaven.Museum.Catalogue/1.0.0 tool assets: tools/net10.0/any and tools/net11.0/any in separate packages/feeds."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Actual Windows x64 dnx.cmd execution; Unix wrapper algorithm source-reviewed only."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Compatible installed SDKs and the tool required runtime; PowerShell 7 for isolated local-feed checks.",
+            "Inspect the actual wrapper, working directory and global.json; use separate feeds/caches for the intentionally same-ID comparison packages."
+          ],
+          "constraints": [
+            "Explicit dotnet dnx obeys ordinary SDK resolution; a pre-dnx SDK pin fails before tool execution.",
+            "Serviced wrappers bypass global.json for SDK selection; package version, tool runtime and SDK selection must be verified independently.",
+            "No public package execution/publication, system installation or PATH/persistent environment mutation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Measured SDK 10.0.402 and 11 RC2; official sources establish the earlier servicing boundary. RC2 is not GA evidence."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/dnx-scripts-bypass-global-json",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-dnx",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/global-json",
+          "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx.cmd",
+          "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/sdk/src/Layout/redist/dnx.cmd"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/dnx-scripts-bypass-global-json",
+      "title": "SDK selection servicing boundary"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-dnx",
+      "title": "Pinned tool execution"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/global-json",
+      "title": "Repository SDK resolution"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx.cmd",
+      "title": "Current wrapper source"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/sdk/src/Layout/redist/dnx.cmd",
+      "title": "Serviced .NET 10 wrapper source"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MuseumCatalogue/MuseumCatalogue.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual independently compiled net10/net11 checker, no external dependencies; dnx behavior is in the separate execution record.",
+      "kind": "compile-and-run",
+      "target": "net10.0"
+    },
+    {
+      "sample": "samples/net10.0/MuseumCatalogue/MuseumCatalogue.csproj",
+      "record": "samples/net10.0/MuseumCatalogue/commands.evidence.json",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real local package execution with SDK 9 negative pin, serviced 10.0.402 and RC2 pins, both shipped wrappers, actual SDK traces/tool runtimes, quoted forwarding and exit 7; Windows x64.",
+      "kind": "execution",
+      "target": "net10.0"
+    },
+    {
+      "sample": "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual independently compiled net10/net11 checker, no external dependencies; dnx behavior is in the separate execution record.",
+      "kind": "compile-and-run",
+      "target": "net11.0"
+    },
+    {
+      "sample": "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
+      "record": "samples/net11.0/MuseumCatalogue/commands.evidence.json",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real local package execution with SDK 9 negative pin, serviced 10.0.402 and RC2 pins, both shipped wrappers, actual SDK traces/tool runtimes, quoted forwarding and exit 7; Windows x64.",
+      "kind": "execution",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "newer-project": {
+      "language": "xml",
+      "path": "samples/net11.0/MuseumCatalogue/MuseumCatalogue.csproj",
+      "region": "project"
+    },
+    "older-project": {
+      "language": "xml",
+      "path": "samples/net10.0/MuseumCatalogue/MuseumCatalogue.csproj",
+      "region": "project"
+    },
+    "checker": {
+      "language": "csharp",
+      "path": "samples/net11.0/MuseumCatalogue/Program.cs",
+      "region": "checker"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual local package, SDK selection, runtime, quoted arguments and failure checks cover the bounded Windows command-line goal; no native/device/Human-only requirement.",
+    "status": "not-required"
+  }
+}
