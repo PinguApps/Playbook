@@ -83,8 +83,9 @@ connections or starting database workers; the selected provider is process-wide.
 Do not race different initialization paths or let a library choose another engine.
 
 Use a separate directory for this current-release sample. Core11 RC2 selects
-`lib/net10.0` on net11.0. The system provider and raw core select `netstandard2.0`
-managed assets. The native library comes from Windows, not from a NuGet native asset.
+`lib/net10.0` on net11.0. The system provider selects `netstandard2.0` and raw core
+selects `net8.0` managed assets. The native library comes from Windows, not from a
+NuGet native asset.
 
 ### `global.json`
 

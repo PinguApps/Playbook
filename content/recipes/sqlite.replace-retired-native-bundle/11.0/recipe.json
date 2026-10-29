@@ -73,7 +73,7 @@
             }
           ],
           "packageAssets": [
-            "Current net11.0 selects Microsoft.Data.Sqlite.Core lib/net10.0/Microsoft.Data.Sqlite.dll, provider.winsqlite3 lib/netstandard2.0, and core lib/netstandard2.0. No native runtime asset is packaged: Windows supplies winsqlite3.dll.",
+            "Current net11.0 selects Microsoft.Data.Sqlite.Core lib/net10.0/Microsoft.Data.Sqlite.dll, provider.winsqlite3 lib/netstandard2.0, and raw core lib/net8.0. No native runtime asset is packaged: Windows supplies winsqlite3.dll.",
             "Previous net10.0 comparison selects Core10 lib/net8.0, bundle/provider.winsqlite3 2.1.11 and core2.1.13. The old bundle is a valid historical convenience, not a 3.x replacement."
           ],
           "providers": [
