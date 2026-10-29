@@ -1,0 +1,226 @@
+{
+  "id": "sqlite.query-time-components",
+  "edition": "11.0",
+  "title": "Filter SQLite rows by time components",
+  "goal": "Filter stored TimeOnly values by hour, minute or second inside SQLite; use translated EF11 predicates or retain parameterized server-side SQL on EF10.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sqlite",
+    "time-components",
+    "query-translation"
+  ],
+  "apis": [
+    "TimeOnly.Hour",
+    "TimeOnly.Minute",
+    "TimeOnly.Second",
+    "FromSqlInterpolated",
+    "strftime"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET11; direct Microsoft.Data.Sqlite11 net10 assets do not establish an EF11-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11 consumer. Exact RC2 SDK and reference/runtime artifacts are verification pins, not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Current sample language mode; no new C#15 syntax is required by component translation."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console application; no ASP.NET Core framework required"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Use the matching EF11 SQLite provider graph that translates TimeOnly Hour, Minute and Second; RC2 is the exact tested graph."
+            }
+          ],
+          "packageAssets": [
+            "Current EF/Core/Relational/Sqlite.Core lib/net11.0; Abstractions and Microsoft.Data.Sqlite.Core lib/net10.0. Previous EF10 uses lib/net10.0 and Data.Sqlite.Core lib/net8.0.",
+            "Locked actual graphs: EF10.0.13 versus EF11.0.0-rc.2.26504.105; sample packages are author-maintained and do not inherit root update permissions."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite with default TimeOnly TEXT storage; real in-memory SQLite, no EF InMemory or mocks",
+            "Measured Windows x64 e_sqlite3: SQLite3.53.3 via SQLitePCLRaw bundle/core/lib/provider2.1.13; SQLite3.53.4 via SQLitePCLRaw bundle/config/core/provider3.0.5 plus SQLite3.53.4. Normal provider bundle initializes native access."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 with the packaged e_sqlite3 native library. Other OS/architectures require matching native assets and separate validation; not executed here."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database queries; no browser rendering"
+          ],
+          "constraints": [
+            "Default EF TimeOnly nullable TEXT mapping only: no custom converter, REAL day representation or arbitrary legacy text format.",
+            "Whole Hour/Minute/Second components only; not timezone conversion, date bucketing, millisecond/microsecond extraction or a universal precision guarantee.",
+            "Apply filters before materialization. A server expression can still scan rows in SQLite; no index-use or performance promise.",
+            "The EF10 comparison retains parameterized server-side SQL, not a client-evaluation workaround or a ninth .NET10 foundation."
+          ],
+          "prerequisites": [
+            "Copy each release into its own standalone directory with all canonical files; acquire the SDK/runtime and locked packages before offline execution.",
+            "Use an isolated connection kept open until all contexts/readers are disposed. This sample uses only a disposable in-memory database, with no account, credentials or production data.",
+            "Choose the documented standard provider bundle. Replacing retired native bundles, encrypted/custom engines and native initialization alternatives are separate guidance."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "These APIs are not publisher-designated experimental; no diagnostic suppression or experimental opt-in. Evidence uses .NET11 RC2, not actual GA. PIN-965 retains GA reconciliation."
+          ]
+        },
+        "selectionNotes": [
+          "Default EF TimeOnly nullable TEXT mapping only: no custom converter, REAL day representation or arbitrary legacy text format.",
+          "Whole Hour/Minute/Second components only; not timezone conversion, date bucketing, millisecond/microsecond extraction or a universal precision guarantee.",
+          "Apply filters before materialization. A server expression can still scan rows in SQLite; no index-use or performance promise.",
+          "The EF10 comparison retains parameterized server-side SQL, not a client-evaluation workaround or a ninth .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Sqlite.Core/Query/Internal/Translators/SqliteTimeOnlyMemberTranslator.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Sqlite.Core/Query/Internal/SqliteMemberTranslatorProvider.cs",
+          "https://learn.microsoft.com/en-us/ef/core/querying/sql-queries",
+          "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/types",
+          "https://www.sqlite.org/lang_datefunc.html"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HeronSignals/HeronSignals.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/core/blob/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview6/efcore.md",
+      "title": "Official EF11 SQLite TimeOnly translation introduction"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Sqlite.Core/Query/Internal/Translators/SqliteTimeOnlyMemberTranslator.cs",
+      "title": "Package-matched EF11 component formats and integer conversion"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/efcore/src/EFCore.Sqlite.Core/Query/Internal/SqliteMemberTranslatorProvider.cs",
+      "title": "Package-matched EF10 translator registration without TimeOnly members"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/querying/sql-queries",
+      "title": "Supported parameterized and composable FromSqlInterpolated queries"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/types",
+      "title": "SQLite storage mappings and alternate representations"
+    },
+    {
+      "url": "https://www.sqlite.org/lang_datefunc.html",
+      "title": "SQLite date/time formats and strftime components"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/HeronSignals/HeronSignals.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual SQLite native version/source ID/DLL hash; eleven exact stored TEXT/null boundary and fractional inputs; tick round-trip; seven executed parameter-safe server filters with exact IDs and strftime SQL. EF10 rejects all three direct component predicates before any command; supported FromSqlInterpolated alternative executes."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/HeronSignals/HeronSignals.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual SQLite native version/source ID/DLL hash; eleven exact stored TEXT/null boundary and fractional inputs; tick round-trip; seven executed parameter-safe server filters with exact IDs and strftime SQL. EF11 translates all three component predicates and rejects unsupported Millisecond before any command."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/HeronSignals/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/HeronSignals/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/HeronSignals/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/HeronSignals/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-heronsignals-csproj": {
+      "path": "samples/net10.0/HeronSignals/HeronSignals.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/HeronSignals/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/HeronSignals/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/HeronSignals/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/HeronSignals/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/HeronSignals/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-heronsignals-csproj": {
+      "path": "samples/net11.0/HeronSignals/HeronSignals.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/HeronSignals/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated real SQLite execution covers the bounded stored-value, translation, result and failure controls. Other native platforms/providers, arbitrary storage formats and actual GA remain unverified."
+  }
+}

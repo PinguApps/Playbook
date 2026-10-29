@@ -113,6 +113,15 @@ no-change evidence.
 
 ### Supplemental EF/provider API reconciliation
 
+**E22 / PIN-1210** delivers `sqlite.query-time-components/11.0`: original
+HeronSignals EF10 parameterized SQL and EF11 TimeOnly member predicates execute
+against actual SQLite3.53.3/3.53.4 on Windows x64. Eleven stored boundary/precision
+inputs, fresh-context tick round-trips, exact results, executed strftime SQL and
+translation/parameter controls have current sample evidence. See the
+[bounded source disposition](../audits/ef.md#sqlite-time-component-delivery--29-october-2026).
+The raw source/asset audit, exact eight foundations, actual-GA and comprehensive
+coverage gates are preserved; this adds no broad time/date/precision guarantee.
+
 The [PIN-710 audit](../audits/ef.md) compares actual EF10/EF11 RC2 assemblies,
 first-party providers, public task/tooling assets and complete canonical sources.
 Its [reproducible deltas](../audits/ef.assets.json) and

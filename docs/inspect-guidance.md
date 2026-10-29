@@ -28,6 +28,41 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Typed VSTest message readers
+
+This tested block builds/packs the ordinary tool, installs the exact package in
+an isolated local feed/cache, then calls installed stdio list/get from an
+unrelated directory. It prints ID/title/goal, complete canonical Markdown,
+explicit target/edition, applicability and all three current evidence records.
+PowerShell7, SDK 10.0.402 and Node22.19+ are required; setup may use the network.
+Retrieval uses unusable proxies, proving proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1073-03-021-read-vstest-messages-through-the-supported-typed'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'testing.migrate-vstest-message-readers' -Query 'vstest-messages' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1073' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1073/inspection
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'testing.migrate-vstest-message-readers' -Query 'vstest-messages' `
+  -TargetVersion '10.0' -PackageVersion '0.0.0-pin1073' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1073/inspection10
+```
+
+Expect title "Read VSTest messages through the supported typed contract",
+edition 11.0 and a conditional target10 route. The laboratory examples retain
+actual 18.7/18.11 package and SDK/runtime distinctions, typed TestCase/traits/
+TestResult/ITestRunStatistics checks, protocol/header/failure semantics and the
+concrete-statistics limitation. Custom resolver/converter extensions have no
+replacement promised. `eng/Test-VSTestMessages.ps1 -Record` captures the separate
+real published-consumer, foreign-wire, removed-symbol and ABI proof with both
+healthy pinned SDK executables. Retrieval is not actual-GA or arbitrary test-host
+integration evidence; PIN-959/PIN-963 and independent Human gates remain open.
+
 ## Deliberate database-provider replacement
 
 This tested example selects the PIN-1190 worktree from an unrelated directory,
@@ -468,6 +503,34 @@ Target10 has no applicable span edition; the old array comparison remains in the
 11.0 body. No universal allocation count, other backend/platform or actual-GA
 claim is made. PIN-959/PIN-964 and existing Human gates remain open. Samples stay
 author-maintained under the existing dependency boundary.
+
+## SQLite time components
+
+This block was checked starting from an unrelated directory. It selects the exact
+assigned worktree, builds/packs the ordinary tool, then uses the existing isolated
+local-feed/cache harness for real installed stdio list/get. Requires PowerShell7,
+SDK10.0.402 and Node22.19+; Inspector2.11.0 installs locally if absent. Setup may
+restore online. Retrieval uses unusable proxies, proving proxy independence rather
+than network isolation. Separate sample execution also needs SDK/runtime11 RC2.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1210-05-069-filter-sqlite-rows-by-time-components'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sqlite.query-time-components' -TargetVersion '11.0' `
+  -Query 'time-components' -PackageVersion '0.0.0-sqlite-components' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/sqlite-components/inspection
+```
+
+Expect ID/title/goal, explicit target11/edition11, complete canonical EF10/EF11
+Markdown, applicability and two current compilation/execution records. The older
+parameterized SQL remains server-side; the current predicates execute `%H`/`%M`/`%S`
+through SQLite strftime. Native versions3.53.3/3.53.4, stored fractions/boundaries,
+exact results and translation failures are captured by the separate HeronSignals
+sample records. Inspection does not rerun those databases. No EF11-on-net10,
+additional foundation, arbitrary precision/timezone, other-platform or actual-GA
+claim is added; PIN-959/PIN-965 and existing Human gates remain open.
 
 ## Inspect a response directly
 
