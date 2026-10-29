@@ -49,7 +49,8 @@ internal sealed class AudienceNames(string scenario) : IAdditionalOpenApiDocumen
     {
         "missing" => ["public"],
         "empty" => [],
-        "duplicate" or "explicit" => ["public", "staff", "public", "staff"],
+        "duplicate" => ["public", "staff", "public", "staff"],
+        "explicit" => ["staff", "staff"], // public comes only from AddOpenApi.
         "case" => ["public", "staff", "PUBLIC"],
         "null-name" => [null!], // Deliberate invalid-input control, never production configuration.
         _ => ["public", "staff"]

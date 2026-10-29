@@ -28,6 +28,52 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Dynamic OpenAPI document names
+
+This builds/packs the ordinary tool and installs that exact artifact through an
+isolated local feed/cache. Real installed stdio list/get run from an unrelated
+directory with unusable proxies and display ID/title/goal, complete canonical
+Markdown, target11/edition11, applicability and fresh sample evidence. The extra
+get checks target10's explicit `no_applicable_edition` response. Setup requires
+PowerShell7, SDK10.0.402 and Node22.19+ and may restore online; retrieval proves
+proxy independence, not network isolation. No global installation is needed.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1174-04-099-generate-contracts-for-dynamically-named-api'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'openapi.discover-dynamic-documents' -Query 'dynamic-documents' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1174' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1174/inspection
+```
+
+Expect title "Generate contracts for dynamically named API documents" and goal
+"Discover all OpenAPI document names offered by an application when names come
+from configuration, and generate matching runtime and build-time contracts."
+The complete body contains both original PlanetariumContracts projects, named
+options, resolver, runtime checks, generation commands and numbered migration.
+Both public/staff documents have distinct paths/titles. Current controls establish
+exact duplicate elimination, explicit plus additional names and missing/empty/null
+behavior through the real built-in provider/GetDocument host. Older explicit
+registrations remain valid; no downlevel resolver, arbitrary-provider, client,
+browser or actual-GA claim is made. PIN-959/PIN-963/PIN-964 and Human gates stay open.
+
+To refresh the bounded proof with both actual SDK/runtime/package sets:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1174-04-099-generate-contracts-for-dynamically-named-api'
+& ./eng/Test-Planetarium.ps1 `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' -RecordEvidence
+```
+
+Expect real runtime and build-time PASS lines on both targets, plus expected
+empty/null-name generation rejection on .NET11. The helper restores its process
+settings and checks all PATH scopes. Generated JSON and routine logs stay under
+ignored artifacts; named ongoing sample records retain hashes and observations.
+
 ## Partial project evaluation
 
 This block builds/packs the ordinary tool, installs that exact artifact through

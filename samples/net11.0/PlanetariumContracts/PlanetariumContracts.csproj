@@ -16,8 +16,6 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.Extensions.ApiDescription.Server" PrivateAssets="all" />
-
   </ItemGroup>
 </Project>
 <!-- endsnippet:complete -->
-

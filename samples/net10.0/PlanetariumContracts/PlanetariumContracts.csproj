@@ -16,9 +16,7 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.Extensions.ApiDescription.Server" PrivateAssets="all" />
-
-  <Compile Include="../../net11.0/PlanetariumContracts/ContractChecks.cs" Link="ContractChecks.cs" /></ItemGroup>
+    <Compile Include="../../net11.0/PlanetariumContracts/ContractChecks.cs" Link="ContractChecks.cs" />
+  </ItemGroup>
 </Project>
 <!-- endsnippet:complete -->
-
-
