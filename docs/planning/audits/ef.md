@@ -559,6 +559,34 @@ restore online; unusable proxies establish proxy independence, not network isola
 Both deliveries preserve eight foundations and leave Half/native-bundle migration,
 other platforms/providers, actual-GA and comprehensive publication gates open.
 
+## Delivered target/dependency guidance (PIN-863)
+
+`sqlite.retain-supported-runtime/11.0` reconciles WEB-153 (`sqlite-no-netfx`)
+and grouped WEB-155 (`sqlite-no-uwp-xamarin`) with original QuaySeals consumers.
+The normal comparison is net10.0/Sqlite10.0.13 versus net11.0/Sqlite11 RC2.
+An actual net10.0/Sqlite11 consumer selects Core lib/net10.0 and runs on runtime10;
+EF Core11's distinct net11 requirement is not transferred to the direct provider.
+An actual net48/Sqlite10 consumer selects lib/netstandard2.0, compiles against
+Framework4.8 and executes its x64 EXE on installed Framework4.8.1 (release533509).
+Its compilation and execution are separate saved records. No Framework catalogue
+target or ninth .NET10 foundation is added.
+
+`eng/Record-SqliteRuntime.ps1` verifies parameterized persistence, commit,
+rollback and exact data after closing/reopening a real temporary database; all
+four Windows x64 consumers clean up their files. It checks each selected managed
+asset. Old native SQLite is3.53.3/SQLitePCLRaw2.1.13; current is3.53.4 with
+SQLitePCLRaw3.0.5 plus SQLite3.53.4. Pins/lock files remain author-maintained;
+SDK10.0.402 and SDK11.0.100-rc.2.26504.105 are measured, not actual-GA proof.
+The reviewed article's bundle2.1.12 wording does not replace these actual graphs.
+
+The existing packed local-feed/cache Inspector harness verifies real installed
+stdio list/get, full canonical Markdown, applicability and current evidence at
+explicit targets11.0 and10.0. Unusable proxies prove proxy independence, not
+network isolation. Framework console execution does not prove UWP/classic Xamarin
+native availability. Those paths are excluded honestly; platform/device migration,
+custom/encrypted bundles (PIN-864), Half and actual-GA/comprehensive release gates
+remain separate. The raw API audit and its unresolved residuals stay intact.
+
 ## Retained unknowns and publication boundary
 
 - **U1 — annotation and call-shape residuals.** The artifact keeps every exact
@@ -570,7 +598,9 @@ other platforms/providers, actual-GA and comprehensive publication gates open.
 - **U2 — direct SQLite differences.** The actual selected net8/net10 declarations
   are identical. Half/UInt128 support changes bind/map behavior without a new
   direct public method. Half (E23) remains separate; PIN-862 now delivers UInt128
-  binding, while reader UInt128 retrieval remains unsupported. Identical API
+  binding, while reader UInt128 retrieval remains unsupported. PIN-863 now proves
+  the direct-provider target/retained-dependency paths above; UWP/classic Xamarin
+  remain unverified. Identical API
   shape alone is not execution evidence or a no-content conclusion.
 - **U3 — residual extension contracts.** The finite raw lines/counts retain
   ModelValidator/dependency/member-classifier changes; remaining model/convention
