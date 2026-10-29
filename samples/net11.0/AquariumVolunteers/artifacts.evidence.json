@@ -6,11 +6,12 @@
   "language": "15.0",
   "command": "eng/Record-AquariumVolunteers.ps1 -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'",
   "scope": "Actual locked package ZIPs, selected compile/runtime/native assets and reference identities reconciled with PIN-709; four complete immutable registration implementations and official change note checked. Compilation/run record separately contains real UI/SQLite/request/cookie controls. No third-party provider or GA claim.",
-  "recordedAt": "2026-10-29T10:49:14.3603838+00:00",
-  "sourceCommit": "c11fdd63c8a3740e69d90332d19a0214e91de881",
+  "recordedAt": "2026-10-29T10:52:39.5096365+00:00",
+  "sourceCommit": "6cabe742fa331ba7d022e7808ca3a3e221402d97",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "docs/planning/audits/web.assets.json": "0a9bb6ca40415fcdfe45671a33f2abb7c6d292ca3425ee721ccc399564cd3969",
     "docs/planning/audits/web.sources.json": "a4a9022cbab4f4ac5916b2c369df1157ffcc85eb529050a17d728e9385446115",
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
     "eng/Record-AquariumVolunteers.ps1": "f51f7082dc823fa9a32d62bd4631dd5e59c03f1b4ab6c5cdb320d326e619aea7",
@@ -32,7 +33,7 @@
     "samples/net11.0/AquariumVolunteers/Pages/Volunteer/Register.cshtml.cs": "990126f4f6ddb4b9465780d23403d939f5f137ed98cf0ec1c6372ee264f72f76",
     "samples/net11.0/AquariumVolunteers/Program.cs": "d2b619f4dc96044fb34354af2460e978ae49ac233fcf1f1b7a16572598f025b8",
     "samples/net11.0/AquariumVolunteers/RegistrationChecks.cs": "12810075bf2429cfedd2ebd9048931113d3ebc655211a3115553e43e49148e4d",
-    "samples/net11.0/AquariumVolunteers/verification.json": "fd023aa5724393d45088c54fde9e4facee64b0bb9f338a1982e6c192ad96ec51"
+    "samples/net11.0/AquariumVolunteers/verification.json": "e5972e0d2cae851ae1a6194a3ae33a55576858fed60218665d3bba5f03fb5b51"
   },
   "dependencies": [
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/11.0.0-rc.2.26504.105",

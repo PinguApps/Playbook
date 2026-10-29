@@ -434,3 +434,18 @@ This is a bounded generated-manifest integration; ordinary apps should use publi
 conventions rather than hand-edit generated files. Windows x64 RC2 evidence is
 not a general schema/publish/GA guarantee. No ninth .NET10 foundation or downlevel
 descriptor backport; PIN-959/PIN-963/PIN-964 and unrelated Human gates remain open.
+
+### Registration confirmation: W07 / PIN-1177
+
+`identity.confirm-before-registration-signin/11.0` delivers original aquarium
+password/external registration guidance. Actual paired Identity UI/EF SQLite
+consumers qualify each individual confirmation requirement and allowed control,
+persisted users and login links, redirects, application versus external cookies
+and fresh session readback. .NET10.0.13 packaged email/phone registration bypass is
+reproduced honestly; original CanSignInAsync-gated pages remain the working older
+alternative. .NET11 packaged UI enforces all three checks. Local provider/state/
+antiforgery and real local confirmation-token controls prove bounded server policy,
+not third-party interoperability, messages, passkeys or production deployment.
+Full source/artifact pins and sample evidence retain RC2 limits. No ninth foundation
+or older-target edition is added; PIN-959/PIN-963/PIN-964, actual-GA and Human gates
+remain open.
