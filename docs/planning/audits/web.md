@@ -135,7 +135,7 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | Zstandard providers/decompression | PIN-835; explicit negotiation/decoding policy, not an automatic-default performance recipe. |
 | Removed concurrency middleware, MVC compatibility types, ImageTagHelper constructor/properties, ForProperty overload, runtime compilation registrations | PIN-836–840 respectively. PIN-837–839 deliver the three MVC/Razor migrations below. Preserve source/binary versus behavioral distinctions; ASPDEPR003 is not runtime removal. **W16** handles F# compiled-view migration, which needs more than removing a registration. |
 | ISpanDataProtector/ISpanAuthenticatedEncryptor | **W01 / PIN-1171 delivered** `security.protect-into-buffer/11.0`: actual framework10 array and framework11 span/capability fallback, isolated real keys, empty/token/1MiB recovery, purpose/key/tampering and advanced AAD rejection; full failed-output cleanup. Reference hashes match this audit; no allocation-count, older-target span or actual-GA claim. |
-| StaticAssetDescriptor.Order | **W06**; authored endpoint manifest/routing precedence. Generated default changes do not each need a recipe. |
+| StaticAssetDescriptor.Order | **W06 / PIN-1176 delivered** `web.order-static-asset-routes/11.0`; public descriptor serialization of an isolated SDK-generated manifest, real competing static endpoints, default/explicit/invalid/frozen checks and retained .NET10 conventions. Generated default changes do not each need a recipe. Actual GA remains open. |
 | QUIC transport four buffer/stream properties lose RequiresPreviewFeatures | **W12**; explicit budgets and removal of a now-unnecessary preview workaround. Existing properties are not newly invented APIs. |
 | JSON Patch ShouldSerializeFrom obsoletion; from/value JSON metadata | **W13**; default compiler warning and actual wire representation, distinct from the unchanged Newtonsoft implementation. |
 | WebApplicationFactory.ConfigureWebApplicationBuilder | **W14**; new protected host-configuration seam relative to .NET 10. Only earlier .NET 11 previews used the renamed ConfigureHostApplicationBuilder spelling. |
@@ -358,6 +358,33 @@ specific prerequisite if unavailable. L includes native integration uncertainty;
 no recurring platform matrix is proposed.
 
 ### W06. Give a generated static endpoint deliberate route precedence — M (3)
+
+Delivered by **PIN-1176** as `web.order-static-asset-routes/11.0`. Original
+AmberGallery projects build with the actual SDK10.0.402/framework10.0.13/C#14
+and SDK11.0.100-rc.2.26504.105/framework11 RC2/C#15 sets. The StaticAssets
+reference hashes match this audit; saved evidence separately records Roslyn,
+loaded frameworks, native host/CoreCLR/fxr and SDK static-web-assets tasks/targets.
+No NuGet libraries, package-native assets or workloads are required.
+
+The supported consumer boundary is public `MapStaticAssets` with a full manifest
+path, public descriptor serialization and public endpoint conventions. Both
+fixtures acquire the ordinary Web SDK's generated version1 Build manifest and
+project two actual uncompressed asset descriptors into an isolated copy. They
+preserve physical files and generated metadata and never edit SDK-owned output.
+The .NET11 copy sets string Order before mapping; the older public convention
+remains valid. This establishes the bounded consumer, not a general promise for
+arbitrarily authored manifests or a production build/publish integration.
+
+Real Kestrel GET/HEAD checks compare full physical response content. Current
+controls cover absent/null/empty -100, explicit wins/yields, invalid text/overflow
+silently falling back, numeric JSON parsing failure and equal-order ambiguity.
+Actual metadata rejects frozen Order writes; older metadata rejects Route writes
+and ignores unknown Order JSON. Input JSON/hashes and unchanged SDK output are
+checked. Installed ordinary-artifact inspection and reconstruction from its full
+Markdown cover both actual consumers without remote NuGet feeds. M3 retains
+boundary qualification, paired manifest/HTTP controls and offline reconstruction.
+The eight approved .NET10 foundations, stable identities, PIN-959/PIN-963/PIN-964
+and unrelated Human gates remain unchanged. Windows x64 RC2 is not actual-GA proof.
 
 Story: A site author wants a local exhibit asset to win or yield intentionally
 when routes overlap so that the served resource is predictable.

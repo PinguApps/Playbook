@@ -153,8 +153,8 @@
     {
       "id": "static-asset-order",
       "pattern": " Microsoft\\.AspNetCore\\.StaticAssets\\.StaticAssetDescriptor::.*Order",
-      "owner": "W06",
-      "disposition": "included"
+      "owner": "W06 / PIN-1176 delivered web.order-static-asset-routes/11.0; isolated SDK-generated manifest through public descriptor serialization/mapping, actual competing static GET/HEAD/default/explicit/invalid/frozen checks and valid older conventions; Windows x64 RC2, actual GA pending",
+      "disposition": "delivered; GA reconciliation pending"
     },
     {
       "id": "grpc-swagger",
