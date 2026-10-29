@@ -1,0 +1,20 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>11.0</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <UseRazorSourceGenerator>false</UseRazorSourceGenerator>
+    <RazorCompileOnBuild>true</RazorCompileOnBuild>
+    <RazorCompileOnPublish>true</RazorCompileOnPublish>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="11.0.101-rc2.26504.105" />
+    <Compile Include="NightController.fs" />
+    <Compile Include="SurveyViews.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:complete -->
