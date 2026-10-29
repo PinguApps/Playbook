@@ -23,6 +23,8 @@ internal static class DepotProof
         {
             CheckArtifacts(sdkRoot);
             MakeGraph(root, sdkRoot);
+            foreach (string file in Directory.EnumerateFiles(root, "*", SearchOption.AllDirectories).Where(f => f.EndsWith(".dll", StringComparison.Ordinal) || f.EndsWith(".cs", StringComparison.Ordinal) || f.EndsWith(".proj", StringComparison.Ordinal)))
+                Console.WriteLine($"INPUT {Path.GetRelativePath(root, file).Replace('\\', '/')} sha256={Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file))).ToLowerInvariant()}");
             var spawned = Build("spawned", true, true);
 #if NET11_0
             Require(spawned.Server is { Kind: MSBuildServerLifecycleKind.Spawned, ShortLived: false }, "Expected real spawned server");
@@ -65,14 +67,21 @@ internal static class DepotProof
             {
                 var env = new Dictionary<string, string> { ["MSBUILDUSESERVER"] = useServer ? "1" : "0", ["MSBUILDNODEHANDSHAKESALT"] = salt };
                 string binlog = Path.Combine(root, name + ".binlog");
-                RunProcess(new[] { Path.Combine(sdkRoot, "MSBuild.dll"), Path.Combine(root, "Depot.proj"), "-nologo", "-v:diag", "-m:1", "-nr:" + reuse.ToString().ToLowerInvariant(), "-p:Receipt=" + Path.Combine(root, name + ".pid"), "-bl:" + binlog + ";ProjectImports=None" }, env);
-                if (name == "spawned")
+                string live;
+                try
                 {
-                    // Register cleanup before replay/assertions can fail. This task executed only in our salted host.
-                    Process server = Process.GetProcessById(int.Parse(File.ReadAllText(Path.Combine(root, name + ".pid"))));
-                    owned.Add(server);
-                    Require(server.StartTime.ToUniversalTime() >= started.AddSeconds(-2), "Server predates fixture");
-                    Require(string.Equals(server.MainModule!.FileName, Environment.ProcessPath, StringComparison.OrdinalIgnoreCase), "Unexpected server executable");
+                    live = RunProcess(new[] { Path.Combine(sdkRoot, "MSBuild.dll"), Path.Combine(root, "Depot.proj"), "-nologo", "-v:diag", "-m:1", "-nr:" + reuse.ToString().ToLowerInvariant(), "-p:Receipt=" + Path.Combine(root, name + ".pid"), "-bl:" + binlog + ";ProjectImports=None", "-logger:Depot.Events.DepotEvents," + Assembly.GetExecutingAssembly().Location }, env);
+                }
+                finally
+                {
+                    if (name == "spawned" && File.Exists(Path.Combine(root, name + ".pid")))
+                    {
+                        // Register cleanup even if logging/the build fails after our first task.
+                        Process server = Process.GetProcessById(int.Parse(File.ReadAllText(Path.Combine(root, name + ".pid"))));
+                        Require(server.StartTime.ToUniversalTime() >= started.AddSeconds(-2), "Server predates fixture");
+                        Require(string.Equals(server.MainModule!.FileName, Environment.ProcessPath, StringComparison.OrdinalIgnoreCase), "Unexpected server executable");
+                        owned.Add(server);
+                    }
                 }
                 var events = new DepotEvents();
                 var replay = new BinaryLogReplayEventSource();
@@ -80,6 +89,7 @@ internal static class DepotProof
                 replay.Replay(binlog);
                 events.Shutdown();
                 Require(events.LegacyConflict, "Real graph did not emit MSB3277");
+                Require(live.Contains($"DEPOT-OBSERVER {events.Summary}; MSB3277=True", StringComparison.Ordinal), "Live CLI logger and replay disagree");
 #if NET11_0
                 Require(events.ExpectedConflict && events.ExpectedSearch && events.ExpectedDetails, "Typed events lost expected victor/victim/dependency/search relationships");
 #endif
@@ -185,7 +195,7 @@ internal static class DepotProof
     }
     // endsnippet:constructors
 
-    private static void RunProcess(IEnumerable<string> args, Dictionary<string, string> environment, bool expectFailure = false)
+    private static string RunProcess(IEnumerable<string> args, Dictionary<string, string> environment, bool expectFailure = false)
     {
         var start = new ProcessStartInfo(Environment.ProcessPath!) { RedirectStandardOutput = true, RedirectStandardError = true, UseShellExecute = false };
         foreach (string arg in args) start.ArgumentList.Add(arg);
@@ -208,6 +218,7 @@ internal static class DepotProof
         Task.WaitAll(output, error);
         // Raw output can contain private paths; save locally, never publish it.
         if ((process.ExitCode != 0) != expectFailure) throw new InvalidOperationException(output.Result + error.Result);
+        return output.Result;
 
         static string Redact(string value) => value.Replace(fixtureRoot, "<graph>", StringComparison.OrdinalIgnoreCase)
             .Replace(Path.GetDirectoryName(Environment.ProcessPath)!, "<dotnet-root>", StringComparison.OrdinalIgnoreCase).Replace('\\', '/');

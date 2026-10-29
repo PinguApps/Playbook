@@ -794,3 +794,28 @@ optional/catch-all, nullable/legacy controls and 18 real HTTP outcomes. .NET10
 retains bounded source-template parsing; the new parsed property is unavailable
 there. Other providers can leave it null. No native/browser matrix, universal
 provider support or actual-GA claim; PIN-959/PIN-964 and Human gates stay open.
+
+## Structured assembly-conflict and server events
+
+From an unrelated directory, run the existing installed-package Inspector with the
+exact SDK10 executable (the SDK11 fixture is a separate authoring prerequisite):
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1121-03-026-consume-structured-assembly-conflict-and-server'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'msbuild.inspect-structured-build-events' -Query 'structured assembly' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1121' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/pin1121/inspection
+```
+
+Expect ID `msbuild.inspect-structured-build-events`, title "Consume structured
+assembly-conflict and server events", its explanatory goal, edition11.0 and target11.0,
+complete canonical Markdown, applicability and current SDK10/11 sample evidence.
+The helper builds/packs the ordinary tool, installs that exact artifact through a
+local-only feed/fresh cache, then runs real stdio list/get from an unrelated temp
+directory with unusable proxies. This proves proxy-independent offline retrieval,
+not network isolation. No target10 typed route, unsupported server embedding,
+short-lived experimental server execution, universal reuse/performance or actual-GA
+claim is made. PIN-959/PIN-963/Human gates remain open.

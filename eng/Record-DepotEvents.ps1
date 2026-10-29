@@ -28,7 +28,11 @@ try {
     # Exact raw invocations and binlogs remain disposable in ignored artifacts/.
     foreach ($field in 'command','output','sdkInfo','workloadInfo') {
       foreach ($pair in @(@($root,'<repo>'), @((Split-Path $dotnet),'<dotnet-root>'), @($env:USERPROFILE,'<user-profile>'))) {
-        if ($pair[0]) { $record[$field] = $record[$field].Replace($pair[0],$pair[1], [StringComparison]::OrdinalIgnoreCase) }
+        if ($pair[0]) {
+          foreach ($spelling in @($pair[0],$pair[0].Replace('\','/'),$pair[0].Replace('/','\'))) {
+            $record[$field] = $record[$field].Replace($spelling,$pair[1], [StringComparison]::OrdinalIgnoreCase)
+          }
+        }
       }
     }
     $record.scope = 'Actual SDK-bound CLI graph, matched replay and constructor/failure checks. Private paths redacted; <graph> is a unique ignored artifacts/depot-events directory; <dotnet-root> is the supplied complete SDK installation. No package replacement or older typed route.'

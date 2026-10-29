@@ -1,0 +1,203 @@
+{
+  "id": "msbuild.inspect-structured-build-events",
+  "edition": "11.0",
+  "title": "Consume structured assembly-conflict and server events",
+  "goal": "Read assembly-reference conflicts and build-server lifecycle records when a build observer needs machine-readable dependency relationships and a reliable explanation of server selection.",
+  "areas": [
+    "msbuild",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "assembly-conflicts",
+    "binary-log",
+    "server-lifecycle",
+    "deferred-messages"
+  ],
+  "apis": [
+    "AssemblyConflictWarningEventArgs",
+    "AssemblyConflictDependencyDetailsMessageEventArgs",
+    "AssemblyConflictReferenceDetails",
+    "AssemblyConflictDependee",
+    "AssemblyResolutionSearchTraceEventArgs",
+    "MSBuildServerLifecycleEventArgs",
+    "BuildManager.DeferredBuildMessage",
+    "BinaryLogReplayEventSource"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "Select the build/logger/replay host separately from the application TFM. This is the actual SDK11 event boundary; no SDK10 typed route is advertised.",
+          "SDK10 retains a real verified CLI/binlog and stable warning-code alternative. Server reuse itself is not new.",
+          "Use supported CLI invocation, not the unsupported third-party MSBuildClient/OutOfProcServerNode embedding surface."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0.0-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Exact runtime used by the SDK-bound logger/replay consumer; actual GA remains unqualified."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0.100-rc.2.26504.105",
+            "match": "exact",
+            "reason": "The actual bundled MSBuild18.12 event producer/reader and compiler/dependency/resolver closure are hash qualified together."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Pinned example language mode; event consumption does not independently require a new language feature."
+          },
+          "frameworks": [],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "Actual SDK Microsoft.Build, Framework, Utilities and Tasks.Core 18.12.0-1.26504.105, Private=false; full MSBuild.deps.json/resolver closure checked. No independent NuGet replacement, no public18.11 byte equivalence claim."
+          ],
+          "providers": [],
+          "platforms": [
+            "Windows x64, exact .NET-hosted SDK/ref/runtime/native-host assets. Other OSes, Visual Studio/.NET Framework and NativeAOT are unqualified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete .NET11 RC2 SDK installation, rollForward=disable and allowPrerelease=true; original controlled strong-named assembly graph and trusted project inputs.",
+            "SDK10.0.402/runtime+ref10.0.13 and C#14 additionally reproduce the older fallback. Exact installed artifacts are recorded separately in the sample pin manifest.",
+            "PowerShell7 for sample evidence/installed inspection. No external provider, rendering mode, workload, optional native compiler or device is required."
+          ],
+          "constraints": [
+            "Conflict/search/details constructors are internal. Observe actual emitted events; hand-created events establish only constructor controls.",
+            "Diagnostic verbosity/matched binary reader are required for the complete low-importance records. Warning promotion can emit an ordinary error instead of a typed warning.",
+            "Use a unique child-only MSBUILDNODEHANDSHAKESALT in this pinned diagnostic fixture. Retain and validate owned server handles; stop only those handles. This implementation knob is not a promised general isolation API.",
+            "No universal reuse/performance guarantee, server private-API hosting recommendation, older-target API backport or independent package compatibility claim.",
+            "Keep raw binlogs/private paths local. Publish redacted graph-relative relationships. Retrieval executes no consumer code."
+          ],
+          "optIns": [
+            "MSBUILDUSESERVER=1 only in fixture children; MSBUILDUSESERVER=0 disables it. Requested server plus -nr:false produces NotUsed without -mt; no experimental -mt is used.",
+            "No ExperimentalAttribute diagnostic or preview-language suppression is required by these event APIs. RC2 SDK pin explicitly allows prerelease."
+          ],
+          "stabilityLimitations": [
+            "Preview-qualified exact SDK observation; new conflict records are gated by the18.12 feature wave. Do not disable the wave to claim typed emission.",
+            "The eight approved .NET10 foundations, PIN-959 qualifying evidence, PIN-963/actual-GA and unrelated Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/AssemblyReferenceConflictEventArgs.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/AssemblyResolutionSearchTraceEventArgs.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/MSBuildServerLifecycleEventArgs.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Tasks/AssemblyDependency/ResolveAssemblyReference.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/BuildManager/BuildManager.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/MSBuild/XMake.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/documentation/MSBuild-Server.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/BackEnd/Handshake.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/BackEnd/ServerNodeHandshake.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/DepotEventReader/DepotEventReader.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/AssemblyReferenceConflictEventArgs.cs",
+      "title": "Conflict fields, internal constructors and localized formatting"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/AssemblyResolutionSearchTraceEventArgs.cs",
+      "title": "Search attempt fields and binlog serialization"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/MSBuildServerLifecycleEventArgs.cs",
+      "title": "Structured lifecycle kind, PID, reason and short-lived marker"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Tasks/AssemblyDependency/ResolveAssemblyReference.cs",
+      "title": "Real conflict emission and warning-as-error behavior"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/BuildManager/BuildManager.cs",
+      "title": "Deferred constructor addition and retained text overloads"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/MSBuild/XMake.cs",
+      "title": "CLI lifecycle emission through deferred messages"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/documentation/MSBuild-Server.md",
+      "title": "CLI support and third-party server-host limitation"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/BackEnd/Handshake.cs",
+      "title": "Pinned diagnostic handshake isolation input"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Framework/BackEnd/ServerNodeHandshake.cs",
+      "title": "Server endpoint identity and excluded session ID"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "sample": "samples/net10.0/DepotEventReader/DepotEventReader.csproj",
+      "scope": "Actual strong-named graph, MSB3277 and diagnostic binlog replay; CLI spawn/reuse/no-server task PID controls, real warning-as-error failure, text constructor and absent typed APIs. Exact complete SDK closure checked; no typed older route.",
+      "language": "14.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "sample": "samples/net11.0/DepotEventReader/DepotEventReader.csproj",
+      "scope": "Actual strong-named graph emits typed warning, non-warning dependency details and failed searches; matched binlog replay preserves victor/victim/loss/dependee/source/search fields. Actual Spawned/Reused same owned PID, requested no-reuse NotUsed reason, disabled absence; warning promotion fails with MSB3277. Event/text constructor controls and owned-handle cleanup; exact complete SDK closure. Windows x64 RC2 only.",
+      "language": "15.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "reader": {
+      "language": "csharp",
+      "path": "samples/DepotEventProof/DepotEvents.cs",
+      "region": "reader"
+    },
+    "settings": {
+      "language": "xml",
+      "path": "samples/net11.0/DepotEventReader/DepotEventReader.csproj",
+      "region": "settings"
+    },
+    "legacy-settings": {
+      "language": "xml",
+      "path": "samples/net10.0/DepotEventReader/DepotEventReader.csproj",
+      "region": "settings"
+    },
+    "constructors": {
+      "language": "csharp",
+      "path": "samples/DepotEventProof/DepotProof.cs",
+      "region": "constructors"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local CLI/binlog/lifecycle and failure execution cover this managed observer goal. No Human/provider/device/native-compiler claim. PIN-959/PIN-963/actual-GA and unrelated Human gates remain open."
+  }
+}

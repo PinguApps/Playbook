@@ -1,9 +1,9 @@
+// snippet:reader
 using System.Text.Json;
 using Microsoft.Build.Framework;
 
 namespace Depot.Events;
 
-// snippet:reader
 public sealed class DepotEvents : ILogger
 {
     public LoggerVerbosity Verbosity { get; set; } = LoggerVerbosity.Diagnostic;
@@ -70,7 +70,7 @@ public sealed class DepotEvents : ILogger
                     search.RequestedAssemblyName, search.TargetProcessorArchitecture,
                     attempts = search.SearchAttempts.Select(a => new
                     {
-                        a.AssemblyName, file = SafePath(a.FileNameAttempted), parent = SafePath(a.ParentAssembly),
+                        a.AssemblyName, file = SafePath(a.FileNameAttempted), searchPath = SafePath(a.SearchPath), parent = SafePath(a.ParentAssembly),
                         a.ProcessorArchitecture, a.IsAssemblyFoldersExSearch, result = a.Result.ToString()
                     })
                 }));
@@ -110,6 +110,7 @@ public sealed class DepotEvents : ILogger
     {
         if (source != null) source.AnyEventRaised -= Observe;
         source = null;
+        Console.WriteLine($"DEPOT-OBSERVER {Summary}; MSB3277={LegacyConflict}; error={ErrorConflict}");
     }
 }
 // endsnippet:reader
