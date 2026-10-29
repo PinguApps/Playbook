@@ -7,6 +7,7 @@ param(
   [string]$OutputDirectory = (Join-Path $PSScriptRoot '../artifacts/blazor-migrations/inspection'),
   [string]$Query = 'migration',
   [ValidateSet('10.0','11.0')][string]$TargetVersion = '11.0',
+  [ValidateSet('10.0','11.0')][string]$UnsupportedTargetVersion,
   [switch]$BuildAndPack
 )
 $ErrorActionPreference = 'Stop'
@@ -103,6 +104,23 @@ try {
         $found[0] | Format-List id,title,goal
         $recipe.markdown
         $recipe | Select-Object id,edition,applicability,evidence,humanProof | ConvertTo-Json -Depth 100
+        if ($UnsupportedTargetVersion) {
+          # Inspector prints the actual result, then exits 5 for an expected MCP tool error.
+          $PSNativeCommandUseErrorActionPreference = $false
+          try {
+            $unsupportedText = & $Node $entry --format json --quiet --method tools/call --tool-name get_recipe `
+              --tool-arg "id=$id" --tool-arg ('targetVersion="' + $UnsupportedTargetVersion + '"') -- $tool mcp `
+              2> (Join-Path $OutputDirectory "$id.unsupported.stderr.json") | Out-String
+            $unsupportedExit = $LASTEXITCODE
+          }
+          finally { $PSNativeCommandUseErrorActionPreference = $true }
+          $unsupported = $unsupportedText | ConvertFrom-Json
+          if ($unsupportedExit -ne 5 -or -not $unsupported.result.isError -or ($unsupported.result.content.text -join '') -notmatch 'no_applicable_edition') {
+            throw "Expected unavailable edition for $id at target $UnsupportedTargetVersion."
+          }
+          $unsupported | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath (Join-Path $OutputDirectory "$id.unsupported.json")
+          Write-Host "PASS: $id has no applicable edition for target $UnsupportedTargetVersion."
+        }
       }
       (Get-FileHash -LiteralPath $package).Hash.ToLowerInvariant() | Set-Content -LiteralPath (Join-Path $OutputDirectory 'package.sha256')
       Write-Host 'PASS: exact local-feed artifact, unrelated-directory installed stdio discovery/detail, full canonical Markdown, applicability, fresh evidence and text/structured equality.'

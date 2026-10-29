@@ -1,0 +1,16 @@
+{
+  "nativeToolchains": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/net11.0/PlanetariumContracts/ContractChecks.cs",
+    "eng/Test-Planetarium.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "workloads": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.OpenApi/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.ApiDescription.Server/11.0.0-rc.2.26504.105",
+    "Microsoft.OpenApi/3.10.2"
+  ]
+}

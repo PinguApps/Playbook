@@ -1,0 +1,30 @@
+// snippet:complete
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory)][ValidateScript({ [IO.Path]::IsPathFullyQualified($_) })][string]$Dotnet,
+    [ValidateSet('normal','missing')][string]$Case = 'normal'
+)
+$ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $true
+$previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+$previousCase = $env:PLANETARIUM_CASE
+$outputDirectory = Join-Path ([IO.Path]::GetTempPath()) ('planetarium-contracts-' + [guid]::NewGuid().ToString('N'))
+Push-Location -LiteralPath $PSScriptRoot
+try {
+    $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+    $env:PLANETARIUM_CASE = $Case
+    & $dotnet restore ./PlanetariumContracts.csproj
+    & $dotnet build ./PlanetariumContracts.csproj -c Release -t:Rebuild `
+        -p:RestoreLockedMode=true -p:OpenApiGenerateDocuments=true `
+        '-p:OpenApiGenerateDocumentsOptions=--openapi-version OpenApi3_0' `
+        "-p:OpenApiDocumentsDirectory=$outputDirectory"
+    & $dotnet ./bin/Release/net10.0/PlanetariumContracts.dll
+    Get-ChildItem -LiteralPath $outputDirectory -Filter 'PlanetariumContracts_*.json' |
+        Sort-Object Name | ForEach-Object { Get-Content -LiteralPath $_.FullName }
+}
+finally {
+    Pop-Location
+    $env:PLANETARIUM_CASE = $previousCase
+    $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration
+}
+// endsnippet:complete

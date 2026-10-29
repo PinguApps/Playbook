@@ -407,3 +407,15 @@ key-ring round trips/failures. The advanced real encryptor verifies matching AAD
 and authentication rejection with full failed-output cleanup. Windows x64 RC2
 evidence does not establish zero allocations, other platforms or GA. No extra
 .NET10 foundation or older-target span route is added; PIN-959/PIN-964 stay open.
+
+### Dynamic OpenAPI names: W04 / PIN-1174
+
+`openapi.discover-dynamic-documents/11.0` delivers original PlanetariumContracts
+explicit .NET10 and resolver-driven .NET11 consumers. Real runtime and GetDocument
+build outputs check public/staff named options and distinct endpoints; current
+controls cover duplicates, explicit plus additional names, missing/empty/null and
+ordinal provider versus case-insensitive HTTP lookup. Exact older/current closures
+are independently qualified; ApiDescription.Server10.0.0 is not relabelled as the
+audit's 10.0.13 archive. PIN-826 keeps environment-selection ownership. No additional
+.NET10 foundation, downlevel resolver route, universal provider or actual-GA claim;
+PIN-959/PIN-963/PIN-964 and unrelated Human gates remain open.

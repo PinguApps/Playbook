@@ -1,0 +1,39 @@
+{
+  "kind": "compile-and-run",
+  "sample": "samples/net10.0/PlanetariumContracts/PlanetariumContracts.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:/Program Files/dotnet/dotnet.exe build PlanetariumContracts.csproj --configuration Release -p:RestoreLockedMode=true; C:/Program Files/dotnet/dotnet.exe V:\\_worktrees\\Playbook\\agent-pin-1174-04-099-generate-contracts-for-dynamically-named-api\\samples\\net10.0\\PlanetariumContracts\\bin\\Release\\net10.0\\PlanetariumContracts.dll",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-10-29T08:57:05.0605840+00:00",
+  "sourceCommit": "58883713a5d9b5439a1e8ab1a7c8443302ac2d86",
+  "sourceDirty": true,
+  "inputs": {
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "eng/Test-Planetarium.ps1": "21f0ad916b96486c9e93d8d7a9a3661cc801eacc1bc8e1edec67e35e59d71e75",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net10.0/PlanetariumContracts/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/PlanetariumContracts/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/PlanetariumContracts/Directory.Packages.props": "b294139797648f44b4e501553b306e5bfbaea3b7c075b737ea9d5aab38777a67",
+    "samples/net10.0/PlanetariumContracts/Generate.ps1.txt": "1bd94a74b29aa93b2f05cf87119e03400294ccfdaf4795bbd36ec9b54e354b1a",
+    "samples/net10.0/PlanetariumContracts/global.json": "eca47948312460b13800fbffb8a275eae886a7fa0099d2817371657f488fd10d",
+    "samples/net10.0/PlanetariumContracts/packages.lock.json": "e2ac5d9a502989eaf5a51985d58db68137d6bc850f0dd445522c4ae0bddd1c1c",
+    "samples/net10.0/PlanetariumContracts/PlanetariumContracts.csproj": "20916382de50d914bd6221065ef0ed2b925f7ef343709b6eecc5c8ed31359c31",
+    "samples/net10.0/PlanetariumContracts/Program.cs": "5d16c6aad45bc420a5b376d579a4715be68661c8375759ad8fd47fa0a4d72a83",
+    "samples/net10.0/PlanetariumContracts/verification.json": "859fdcea15b159ad0ebe4617a5d45f8979b049e717d58da2e2973aa7d25bd259",
+    "samples/net11.0/PlanetariumContracts/ContractChecks.cs": "ac36e3525bc954400b4a67b181c91c0b6cfc782ef1e6cffc033c6d3d40e4e38e"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.OpenApi/10.0.13",
+    "Microsoft.Extensions.ApiDescription.Server/10.0.0",
+    "Microsoft.OpenApi/2.12.2"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\agent-pin-1174-04-099-generate-contracts-for-dynamically-named-api\\samples\\net10.0\\PlanetariumContracts\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  PlanetariumContracts -> V:\\_worktrees\\Playbook\\agent-pin-1174-04-099-generate-contracts-for-dynamically-named-api\\samples\\net10.0\\PlanetariumContracts\\bin\\Release\\net10.0\\PlanetariumContracts.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.21\nPROVIDER=public,staff\r\nARTIFACT=Microsoft.AspNetCore.OpenApi, Version=10.0.13.0, Culture=neutral, PublicKeyToken=adb9793829ddae60; runtime=10.0.13\r\nPASS runtime normal: names, 3.0 options, titles, distinct paths, missing/unknown 404 and case-insensitive HTTP lookup; handlers remain callable."
+}
