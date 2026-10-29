@@ -59,15 +59,19 @@ function Read-Pe([string]$File) {
   $reader = [Reflection.PortableExecutable.PEReader]::new($stream)
   try {
     $cor = $reader.PEHeaders.CorHeader
-    $flags = 0; $sections = @()
+    $flags = 0; $sections = @(); $runtimeFunctionsBytes = 0
     if ($null -ne $cor -and $cor.ManagedNativeHeaderDirectory.Size -gt 0) {
       [byte[]]$bytes = $reader.GetSectionData($cor.ManagedNativeHeaderDirectory.RelativeVirtualAddress).GetContent()
       if ([BitConverter]::ToUInt32($bytes,0) -ne 0x00525452) { throw 'Unexpected R2R signature.' }
       $flags = [BitConverter]::ToUInt32($bytes,8)
       $count = [BitConverter]::ToUInt16($bytes,12)
-      for ($index = 0; $index -lt $count; $index++) { $sections += [BitConverter]::ToUInt32($bytes,16 + $index * 12) }
+      for ($index = 0; $index -lt $count; $index++) {
+        $section = [BitConverter]::ToUInt32($bytes,16 + $index * 12)
+        $sections += $section
+        if ($section -eq 102) { $runtimeFunctionsBytes = [BitConverter]::ToUInt32($bytes,24 + $index * 12) }
+      }
     }
-    $result = [ordered]@{ file=$File;sha256=(Get-FileHash $File).Hash.ToLowerInvariant();machine=$reader.PEHeaders.CoffHeader.Machine.ToString();managed=($null -ne $cor);nativeHeader=($null -ne $cor -and $cor.ManagedNativeHeaderDirectory.Size -gt 0);flags=$flags;sections=$sections }
+    $result = [ordered]@{ file=$File;sha256=(Get-FileHash $File).Hash.ToLowerInvariant();machine=$reader.PEHeaders.CoffHeader.Machine.ToString();managed=($null -ne $cor);nativeHeader=($null -ne $cor -and $cor.ManagedNativeHeaderDirectory.Size -gt 0);flags=$flags;sections=$sections;runtimeFunctionsBytes=$runtimeFunctionsBytes }
     $log.Add('PE ' + ($result | ConvertTo-Json -Compress))
     return $result
   }
@@ -156,10 +160,11 @@ try {
           $cold = Read-Pe (Join-Path $publish 'Skylark.ColdRules.dll')
           if (-not $main.nativeHeader) { throw 'Main assembly lacks real native R2R header.' }
           if ($mode -eq 'full') {
-            if (-not $hot.nativeHeader -or -not $cold.nativeHeader) { throw 'Full control lacks R2R outputs.' }
+            if (-not $hot.nativeHeader -or -not $cold.nativeHeader -or $hot.runtimeFunctionsBytes -eq 0) { throw 'Full control lacks native R2R method output.' }
           }
           elseif ($cold.nativeHeader -or ($major -eq '10' -and $hot.nativeHeader)) { throw 'Excluded assembly was precompiled.' }
           elseif ($major -eq '11' -and (-not $hot.nativeHeader -or ($hot.flags -band 4) -eq 0)) { throw 'Selected assembly lacks partial R2R flag.' }
+          if ($mode -eq 'selected' -and $major -eq '11' -and $hot.runtimeFunctionsBytes -ne 0) { throw 'Unprofiled partial control unexpectedly contains native method bodies.' }
           $output = Invoke-Skylark $currentDotnet $scratch @((Join-Path $publish 'SkylarkReadyToRun.dll'))
           Assert-Text $output 'PASS Skylark dispatch;direct=21;late=35;cold=SK-7'
           $environmentOverrides['DOTNET_ReadyToRun'] = '0'

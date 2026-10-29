@@ -4,10 +4,10 @@
     <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
     <OutputType>Exe</OutputType><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier><PublishReadyToRun>true</PublishReadyToRun><SelfContained>false</SelfContained><UseAppHost>false</UseAppHost>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier><PublishReadyToRun>true</PublishReadyToRun><PublishReadyToRunContainerFormat>pe</PublishReadyToRunContainerFormat><SelfContained>false</SelfContained><UseAppHost>false</UseAppHost>
   </PropertyGroup>
   <ItemGroup><Compile Include="../../net10.0/SkylarkReadyToRun/Program.cs" Link="Program.cs" /></ItemGroup>
   <ItemGroup><ProjectReference Include="Hot/Skylark.HotRules.csproj" /><ProjectReference Include="Cold/Skylark.ColdRules.csproj" /></ItemGroup>
-  <PropertyGroup><PublishReadyToRunContainerFormat>pe</PublishReadyToRunContainerFormat></PropertyGroup><ItemGroup Condition="'$(SkylarkMode)' != 'full'"><PublishReadyToRunPartialAssemblies Include="Skylark.HotRules.dll" /><PublishReadyToRunExclude Include="Skylark.ColdRules.dll" /></ItemGroup>
+  <ItemGroup Condition="'$(SkylarkMode)' != 'full'"><PublishReadyToRunPartialAssemblies Include="Skylark.HotRules.dll" /><PublishReadyToRunExclude Include="Skylark.ColdRules.dll" /></ItemGroup>
 </Project>
 <!-- endsnippet:project -->

@@ -247,6 +247,19 @@ The [PIN-707 SDK/build/package audit](../audits/sdk-build.md) supplements these 
 | `sdk.cli-output-and-fixes` | Reference-directory fallback, stderr launch notice, tool approval prompt/help fixes, NativeAOT reuse, corrected workload-version messages and reporter/native-DLL reliability. | Automatic fixes; file directives/layout/format/launch/runner/extraction and console-encoding policy retain PIN-759/760/762/763 and PIN-707 B25. | [S], [SR1], [PIN-690 recheck](../audits/automatic-exclusions.md) | excluded residual — no blanket custom-automation compatibility claim. |
 | `sdk.analyzer-guided-logging` | Avoid expensive disabled logging work when a meaningful diagnostic identifies it. | CA1873 noise/message updates are not a new API; existing logging recipe can absorb guidance. | [S] | grouped → [logging.generate-generic-messages](../../../content/recipes/logging.generate-generic-messages/11.0/recipe.md); actual CA1873 failing/fixed build and disabled-argument execution, [PIN-748–749](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-748-749.md) |
 
+Additional PIN-707 SDK delivery dispositions (the original inventory counts remain historical):
+
+| Stable ID | Goal and actual scope | Disposition and retained limits |
+| --- | --- | --- |
+| `sdk.check-sdk-servicing-status` | Check the selected SDK using cached vulnerability/EOL metadata, independently of package auditing. | [PIN-1131 edition11.0](../../../content/recipes/sdk.check-sdk-servicing-status/11.0/recipe.md); paired actual build/run and controlled missing/clear/vulnerable/EOL/stale/corrupt restore/build. Actual RC2 NETSDK1238/1239 supersede draft1236/1237. No live advisory, cache freshness, clean-security, down-level or GA claim. |
+| `sdk.choose-partial-readytorun-inputs` | Select partial preparation, preserve whole-assembly exclusions and JIT fallback. | [PIN-1132 edition11.0](../../../content/recipes/sdk.choose-partial-readytorun-inputs/11.0/recipe.md); actual full/selected publishing, PE/native/partial headers and normal/forced-JIT execution on Windows x64. Project property PublishReadyToRunContainerFormat differs from task parameter Crossgen2ContainerFormat. SDK10 whole-assembly exclusion remains valid; no performance, other envelope/platform or GA claim. |
+| `sdk.customize-native-tool-package-rids` | Choose native-tool package RIDs from measured tools instead of trusting host defaults. | [PIN-1133 edition11.0](../../../content/recipes/sdk.customize-native-tool-package-rids/11.0/recipe.md); real ILC/MSVC-link payloads, outer/inner package identities/RID graph, local install/run and unsupported/missing-toolchain failures. Only win-x64 is declared; candidate win-arm64 defaults are inspected separately, with no Arm build/run claim. SDK10 explicit per-RID plus outer packing remains valid. |
+
+All three retain fresh canonical sample evidence and installed offline retrieval.
+The exact eight foundations, PIN-959 comprehensive coverage, PIN-963 actual-GA
+reconciliation and unrelated Human gates remain open. No recurring native matrix
+or public publication is added.
+
 ## MSBuild, NuGet and migration review
 
 | Proposed stable ID | Goal and authoring impact | Applicability / stability / verification constraint | Official evidence | Disposition |

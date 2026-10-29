@@ -68,6 +68,48 @@ Actual Windows x64 RC2 proof does not establish other OS/native lanes, strict
 JSON Patch validation/security, physical TestServer network behavior or GA.
 PIN-959/PIN-964, the eight foundations and unrelated Human gates stay unchanged.
 
+## SDK servicing, partial ReadyToRun and native tool RIDs
+
+The following block was verified starting from an unrelated directory. Setup
+requires PowerShell7, Node22.19+, both exact SDK/runtime distributions below,
+public NuGet access, MSVC14.51.36231/link14.51.36260.0 and Windows SDK10.0.26100.0
+libraries. The focused check runs controlled advisory-cache cases (not a live
+security verdict), full/selected PE publishing with JIT fallback, and real native
+packing/install/run plus unsupported/missing-toolchain failures. It preserves
+process/user/machine PATH and uses disposable homes/caches.
+
+The Inspector builds/packs the ordinary tool once, installs that exact artifact
+through an isolated local-only feed/cache, then calls real installed stdio list/get
+from an unrelated directory. It displays ID/title/**goal**, full expanded Markdown,
+target11/edition11, applicability and current paired sample evidence. Target10 must
+return no_applicable_edition; these comparisons add no historical foundations.
+Unusable proxies prove proxy independence, not OS-level network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3263bd3f'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+& 'C:/Program Files/dotnet/dotnet.exe' build PinguApps.Playbook.slnx -c Release -p:Version=0.0.0-pin1131-batch
+& 'C:/Program Files/dotnet/dotnet.exe' pack ./src/PinguApps.Playbook -c Release --no-build -p:PackageVersion=0.0.0-pin1131-batch --output ./artifacts
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sdk.check-sdk-servicing-status', 'sdk.choose-partial-readytorun-inputs', 'sdk.customize-native-tool-package-rids') `
+  -Query 'skylark-build' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1131-batch' `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/skylark-build/inspection
+```
+
+Expect all six consumers to pass. Current controlled vulnerability/stale and EOL
+metadata warn NETSDK1238 and NETSDK1239; missing/corrupt data silently skips.
+ReadyToRun checks inspect actual headers, partial selection and exclusions, including
+zero unprofiled partial native methods versus a nonempty full control, then
+execute direct=21/late=35/cold=SK-7 normally and with forced JIT. Native commands
+create outer plus one win-x64 inner package, install locally and report crates=21,
+architecture=X64, dynamic=False from a real native payload; unsupported/missing
+toolchains fail. Candidate Arm64 defaults are evaluated separately, never advertised
+as a delivered payload. No live advisory freshness, performance, other-platform,
+GA, production resource or public-publication claim is made. PIN-959/PIN-963 and
+unrelated Human gates remain open.
+
 ## Read a recipe
 
 ### VSTest host, resolver and custom task migrations
