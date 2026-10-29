@@ -1,0 +1,219 @@
+{
+  "id": "msbuild.evaluate-project-stages",
+  "edition": "11.0",
+  "title": "Evaluate only the project information a tool needs",
+  "goal": "Choose property-only, item or full MSBuild evaluation when a project-inspection tool needs evaluated information without unnecessary later passes, and verify the available state against full evaluation.",
+  "areas": [
+    "msbuild",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "project-evaluation",
+    "partial-evaluation",
+    "sdk-resolution"
+  ],
+  "apis": [
+    "ProjectEvaluationStage",
+    "ProjectOptions.EvaluationStage",
+    "ProjectInstance.FromFile",
+    "ProjectInstance.EvaluationStage",
+    "Project.FromFile",
+    "MSBuildLocator.RegisterMSBuildPath"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "The host framework and SDK are independent of the project being inspected. This net11 host really evaluates an imported net10 project.",
+          "SDK10 retains a verified full-evaluation alternative but has no ProjectEvaluationStage API. No older-target partial route or new .NET10 foundation is advertised.",
+          "Partial state is guarded: RC2 Targets.Count throws rather than returning zero. Use Full for target discovery and execution."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0.0-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Exact qualified external MSBuild host runtime. Actual GA remains unqualified."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0.100-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Compile and execute against the complete matching installed SDK/MSBuild 18.12.0-1.26504.105 closure and SDK resolver."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Compiled host language baseline; no preview-language opt-in or particular newer syntax is necessary for partial evaluation."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "Microsoft.Build.Locator",
+              "match": "exact",
+              "version": "1.11.2",
+              "reason": "Actual independent net8.0 package asset, locked with no transitive packages; register before MSBuild types load."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Installed SDK Microsoft.Build.dll and Microsoft.Build.Framework.dll are compilation references with Private=false; all runtime MSBuild, NuGet helpers, resolvers, Sdks and targets come from that same complete installed SDK. No Microsoft.Build NuGet replacement.",
+            "Locator1.11.2 net8.0 asset is used in both host targets. Its net46 asset is not qualified here."
+          ],
+          "providers": [],
+          "platforms": [
+            "Windows x64; exact .NET-hosted SDK/runtime/reference closure. Other OSes and Visual Studio/.NET Framework hosts are outside this evidence."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Install the complete exact SDK/runtime from official .NET distributions; a lone DLL is insufficient. Use exact global.json with rollForward=disable and allowPrerelease=true.",
+            "Launch the host DLL through the matching absolute dotnet executable; the bootstrap derives the SDK path from that executable. Register Locator before loading MSBuild types, and use one SDK per disposable process.",
+            "Use trusted project/import inputs. PowerShell7 is needed for repository evidence/inspection; Node22.19+ and SDK10 are additionally needed for packed-tool inspection. Inspect inherited build/package configuration."
+          ],
+          "constraints": [
+            "Properties includes imports and property evaluation, so it is not an untrusted-project sandbox. Evaluation and target execution are separate.",
+            "At Properties, Items/GetItems throw; at every partial stage Targets.Count throws. Mutable Project rejects partial options; Full remains the default.",
+            "SDK10 uses full evaluation for the comparison. No older-host partial API, package substitution, workload, NativeAOT/trimming, apphost, server-reuse, performance or actual-GA claim.",
+            "The complete offline recipe is embedded; retrieving it executes no consumer code and changes no project."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact RC2 preview evidence is not actual GA. PIN-959/PIN-963 and unrelated Human gates remain open.",
+            "The API is not labelled experimental and needs no -mt switch. Preview7 target-count prose is superseded by actual RC2 getter guards."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectEvaluationStage.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectOptions.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/ProjectInstance.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/Project.cs",
+          "https://www.nuget.org/packages/Microsoft.Build.Locator/1.11.2",
+          "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md",
+          "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/src/MSBuildLocator/MSBuildLocator.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MuseumInventory/MuseumInventory.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned Preview7 partial evaluation and CLI queries",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/msbuild.md"
+    },
+    {
+      "title": "Actual RC2 evaluation-stage contract",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectEvaluationStage.cs"
+    },
+    {
+      "title": "Actual RC2 option validation and Full default",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/ProjectOptions.cs"
+    },
+    {
+      "title": "Actual RC2 ProjectInstance guards",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Instance/ProjectInstance.cs"
+    },
+    {
+      "title": "Actual RC2 mutable Project factory rejection",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/Definition/Project.cs"
+    },
+    {
+      "title": "Independently distributed Locator package",
+      "url": "https://www.nuget.org/packages/Microsoft.Build.Locator/1.11.2"
+    },
+    {
+      "title": "Pinned Locator external-host guidance",
+      "url": "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/README.md"
+    },
+    {
+      "title": "Pinned Locator registration and installed closure contract",
+      "url": "https://github.com/microsoft/MSBuildLocator/blob/89a9d0858a83930f5066e4fa0bf0d154e24095d7/src/MSBuildLocator/MSBuildLocator.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "scope": "Actual SDK10 full-evaluation host using Locator1.11.2 and complete installed closure: imported properties/items/metadata/targets/SDK resolution, real CLI property/item queries and explicit target-execution control. No older partial API. Exact compiler/reference/native-host/runtime/dependency hashes checked; loaded assemblies/imports recorded.",
+      "target": "net10.0",
+      "sample": "samples/net10.0/MuseumInventory/MuseumInventory.csproj",
+      "kind": "compile-and-run",
+      "language": "14.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual SDK11 RC2 host/Locator1.11.2: all partial stages, property-set/import equality, item values/metadata/counts versus Full, omitted/default Full, unavailable state failures, all three mutable factories rejecting every partial stage and undefined enum failure. Real CLI property/item outputs and explicit target control, actual SDK imports and complete loaded assembly closure. Exact artifact hashes checked. Windows x64 preview; no speed, down-level partial or actual-GA claim.",
+      "target": "net11.0",
+      "sample": "samples/net11.0/MuseumInventory/MuseumInventory.csproj",
+      "kind": "compile-and-run",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "settings": {
+      "region": "settings",
+      "path": "samples/net11.0/MuseumInventory/MuseumInventory.csproj",
+      "language": "xml"
+    },
+    "collection": {
+      "region": "collection",
+      "path": "samples/net11.0/MuseumInventory/Collection.props",
+      "language": "xml"
+    },
+    "packages": {
+      "region": "packages",
+      "path": "samples/net11.0/MuseumInventory/Directory.Packages.props",
+      "language": "xml"
+    },
+    "partial": {
+      "region": "partial",
+      "path": "samples/net11.0/MuseumInventory/InventoryReader.cs",
+      "language": "csharp"
+    },
+    "bootstrap": {
+      "region": "bootstrap",
+      "path": "samples/net11.0/MuseumInventory/Bootstrap.cs",
+      "language": "csharp"
+    },
+    "museum": {
+      "region": "museum",
+      "path": "samples/net11.0/MuseumInventory/Museum.csproj",
+      "language": "xml"
+    },
+    "legacy": {
+      "region": "legacy",
+      "path": "samples/net10.0/MuseumInventory/InventoryReader.cs",
+      "language": "csharp"
+    },
+    "sdk": {
+      "region": "sdk",
+      "path": "samples/net11.0/MuseumInventory/global.json",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "scope": "Managed external-host/API/CLI behavior is demonstrated by actual installed SDKs and runtime closure. No Human/device/native/hosted-service proof is needed; independent Human/PIN-959/PIN-963/actual-GA gates stay open.",
+    "status": "not-required"
+  }
+}

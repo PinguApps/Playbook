@@ -1,0 +1,15 @@
+<!-- snippet:collection -->
+<Project>
+  <PropertyGroup>
+    <MuseumName>Bracken Quay Museum</MuseumName>
+    <CollectionCode>BQ-ceramics</CollectionCode>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <MuseumObject><Gallery>Harbour</Gallery></MuseumObject>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <MuseumObject Include="bowl-17;tile-42" />
+  </ItemGroup>
+  <Target Name="ValidateCollection" />
+</Project>
+<!-- endsnippet:collection -->

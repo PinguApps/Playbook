@@ -28,6 +28,56 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4d84c6cb'
 
 That consumer uses the inspection response above, reconstructs both actual project pairs outside the checkout, compiles them with their declared SDKs, and checks real RC2 HTTP options. It requires both declared SDK installations. The report defaults to ignored `artifacts/tide-desk/consumer.json`; `-ResponsePath` and `-OutputPath` select alternatives. It does not repeat native browser reconnection.
 
+## Partial project evaluation
+
+This block builds/packs the ordinary tool, installs that exact artifact through
+an isolated local feed/cache, and calls real installed stdio list/get from an
+unrelated directory. It displays ID/title/goal, complete canonical Markdown,
+target11/edition11, applicability and both current museum host evidence records.
+PowerShell7, SDK10.0.402 and Node22.19+ are required for inspection. Setup may
+restore online; retrieval with unusable proxies proves proxy independence, not
+network isolation. No global tool or PATH change is needed.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1119-03-024-evaluate-only-the-project-information-a-tool-needs'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'msbuild.evaluate-project-stages' -Query 'partial-evaluation' `
+  -TargetVersion '11.0' -PackageVersion '0.0.0-pin1119' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1119/inspection
+```
+
+Expect title "Evaluate only the project information a tool needs", the reusable
+inspection goal, complete museum project/import/readers/bootstrap and numbered
+migration. SDK10 retains full evaluation; SDK11 proves all stages and guard
+failures, default/explicit Full, real CLI property/item values and separate target
+execution. In actual RC2 partial `Targets.Count` throws, superseding Preview7's
+zero-count example. The host uses Locator1.11.2 with complete installed SDK closure;
+no down-level partial, universal speed, other-platform or actual-GA claim is made.
+Target10 remains unsupported for this new partial-evaluation recipe.
+
+To refresh the bounded managed host proof with both complete SDK/runtime installs:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1119-03-024-evaluate-only-the-project-information-a-tool-needs'
+$previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+try {
+  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+  & ./eng/Record-Evidence.ps1 -Sample 'samples/net10.0/MuseumInventory/MuseumInventory.csproj' `
+    -Dotnet 'C:\Program Files\dotnet\dotnet.exe'
+  & ./eng/Record-Evidence.ps1 -Sample 'samples/net11.0/MuseumInventory/MuseumInventory.csproj' `
+    -Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+}
+finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
+```
+
+These sample records pin compiler/reference/native-host/runtime/MSBuild/SDK
+resolver artifacts and record all loaded assemblies and actual SDK/import hashes.
+The target-count guard and mutable factory failures are real execution evidence,
+not zero counts fabricated for unavailable state. The exact eight foundations,
+PIN-959/PIN-963/actual-GA and unrelated Human gates remain open.
+
 ## Typed custom build-task inputs
 
 This block builds/packs the ordinary artifact and uses the existing isolated
