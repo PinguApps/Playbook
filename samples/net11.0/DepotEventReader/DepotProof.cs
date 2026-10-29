@@ -14,25 +14,37 @@ internal static class DepotProof
 {
     public static void VerifyCleanup(string sdkRoot)
     {
-        try
+        foreach (bool lockKey in new[] { false, true })
         {
-            Run(sdkRoot, rejectOwnedValidation: true);
-            throw new InvalidOperationException("Cleanup failure control did not execute");
-        }
-        catch (InvalidOperationException e) when (e.Message == "Depot forced owned validation failure")
-        {
-            // Run's finally must have confirmed process exit before this expected failure escapes.
-            Console.WriteLine("PASS: forced owned-server validation failure still confirmed handle exit.");
+            try
+            {
+                Run(sdkRoot, rejectOwnedValidation: true, lockKey);
+                throw new InvalidOperationException("Cleanup failure control did not execute");
+            }
+            catch (InvalidOperationException e) when (!lockKey && e.Message == "Depot forced owned validation failure")
+            {
+                Console.WriteLine("PASS: forced owned-server validation failure still confirmed handle exit.");
+            }
+            catch (AggregateException e) when (lockKey && e.InnerExceptions.Count == 2
+                && e.InnerExceptions[0].Message == "Depot forced owned validation failure" && e.InnerExceptions[1] is IOException)
+            {
+                // Exactly the primary failure and real key-lock error: no process cleanup failed.
+                File.Delete(Path.Combine(fixtureRoot, "depot.snk"));
+                Console.WriteLine("PASS: real locked-key deletion failed only after owned server exit; original failure retained and unlocked key removed.");
+            }
         }
     }
 
-    public static void Run(string sdkRoot, bool rejectOwnedValidation = false)
+    public static void Run(string sdkRoot, bool rejectOwnedValidation = false, bool lockKey = false)
     {
+        DateTime started = DateTime.UtcNow;
         string root = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../../../..", "artifacts", "depot-events", Guid.NewGuid().ToString("N")));
         Directory.CreateDirectory(root);
         fixtureRoot = root;
         string salt = Guid.NewGuid().ToString("N");
         var owned = new List<Process>();
+        Exception? primaryFailure = null;
+        FileStream? heldKey = null;
         try
         {
             CheckArtifacts(sdkRoot);
@@ -104,6 +116,7 @@ internal static class DepotProof
                             catch { server.Dispose(); throw; }
                             owned.Add(server);
                             // All subsequent validation failures are inside the owned cleanup boundary.
+                            if (lockKey) heldKey = File.Open(Path.Combine(root, "depot.snk"), FileMode.Open, FileAccess.Read, FileShare.None);
                             Require(!rejectOwnedValidation, "Depot forced owned validation failure");
                             Require(server.StartTime.ToUniversalTime() >= started.AddSeconds(-2), "Server predates fixture");
                             Require(string.Equals(server.MainModule!.FileName, Environment.ProcessPath, StringComparison.OrdinalIgnoreCase), "Unexpected server executable");
@@ -128,20 +141,42 @@ internal static class DepotProof
 
             DepotHostReceipt ReadReceipt(string name) => JsonSerializer.Deserialize<DepotHostReceipt>(File.ReadAllText(Path.Combine(root, name + ".pid")))!;
         }
+        catch (Exception e) { primaryFailure = e; throw; }
         finally
         {
-            File.Delete(Path.Combine(root, "depot.snk"));
-            foreach (Process process in owned)
+            try { CleanupOwned(owned, Path.Combine(root, "depot.snk"), primaryFailure); }
+            finally { heldKey?.Dispose(); }
+        }
+    }
+
+    private static void CleanupOwned(List<Process> owned, string key, Exception? primaryFailure)
+    {
+        var failures = new List<Exception>();
+        foreach (Process process in owned)
+        {
+            try
             {
                 if (!process.HasExited) process.Kill();
                 Require(process.WaitForExit(10000), "Owned server cleanup timed out");
                 Console.WriteLine("CLEANUP: owned server handle exited; no global shutdown or unowned process touched.");
-                process.Dispose();
             }
+            catch (Exception e) { failures.Add(e); }
+            finally
+            {
+                try { process.Dispose(); }
+                catch (Exception e) { failures.Add(e); }
+            }
+        }
+        // Key cleanup cannot prevent any owned process's stop/wait/dispose attempt.
+        try { File.Delete(key); }
+        catch (Exception e) { failures.Add(e); }
+        if (failures.Count > 0)
+        {
+            if (primaryFailure != null) failures.Insert(0, primaryFailure);
+            throw new AggregateException("Owned depot cleanup failed", failures);
         }
     }
 
-    private static DateTime started = DateTime.UtcNow;
     private static string fixtureRoot = "";
 
     private static void CheckArtifacts(string sdkRoot)
