@@ -1,0 +1,239 @@
+{
+  "id": "testing.configure-web-application-builder",
+  "edition": "11.0",
+  "title": "Configure a web integration test through the application builder",
+  "goal": "Supply isolated test configuration and services early enough for real WebApplication startup, while preserving production settings and awaiting fixture disposal.",
+  "areas": [
+    "aspnetcore"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "web-resource-recipes",
+    "stratatests"
+  ],
+  "apis": [
+    "WebApplicationFactory<T>.ConfigureWebApplicationBuilder",
+    "IHostApplicationBuilder",
+    "WebApplicationFactory<T>.ConfigureWebHost",
+    "WebApplicationFactory<T>.DisposeAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "The early hook runs during WebApplication.CreateBuilder. It does not override later unconditional application configuration or registrations; the sample uses ??= and TryAddSingleton deliberately.",
+          ".NET 10 retains ConfigureWebHost/ConfigureAppConfiguration/ConfigureServices. That valid late path changes request-time values, not values already captured immediately after CreateBuilder.",
+          "Current hook rejects explicit IHostBuilder and IWebHostBuilder factory paths. The negative controls deliberately use the historical WebHostBuilder with a local ASPDEPR004 suppression.",
+          "ConfigureHostApplicationBuilder was an earlier .NET 11 preview spelling, not a .NET 10 API. No preview package or older-target hook backport is asserted.",
+          "Use separate app/test outputs and valid deps/content-root discovery. The test assembly attribute resolves before solution discovery. Await factory DisposeAsync AND an explicit owned-service completion signal when app/factory teardown overlap; preserve production files and persistent environment."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET / ASP.NET Core",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "This migration targets ASP.NET Core 11; exact reproduction uses RC2 and does not establish GA verification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer with SDK11. Exact tested SDK is a reproduction pin, not a minimum servicing version."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit tested language mode; the examples require no C#15-only syntax. The older comparison uses C#14."
+          },
+          "frameworks": [
+            "ASP.NET Core"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Mvc.Testing",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested RC2 artifact."
+            },
+            {
+              "name": "Microsoft.AspNetCore.TestHost",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Use the matching ASP.NET Core package family; the canonical reproduction pins the exact tested RC2 artifact."
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.AspNetCore.App framework reference from Web SDK; isolated per-sample build/package boundaries and exact package lock files.",
+            "Matching Mvc.Testing/TestHost and DependencyModel compile/runtime assets; no restored package-native assets."
+          ],
+          "providers": [
+            "Actual WebApplicationFactory, separate real executable StrataApi entry assembly and in-memory TestServer HTTP client; no mocked builder or external service."
+          ],
+          "platforms": [
+            "Windows x64 is the qualified execution lane; other OS/runtime/native combinations need their own focused checks."
+          ],
+          "renderingModes": [
+            "No browser, Razor or Blazor rendering. Actual local HTTP messages only."
+          ],
+          "prerequisites": [
+            "Copy both complete independent projects below, including the isolation/global files. Restore from each directory with its matching absolute SDK executable. Use the exact test pins for reproduction; prerequisites are distinct from measured evidence."
+          ],
+          "constraints": [
+            "The early hook runs during WebApplication.CreateBuilder. It does not override later unconditional application configuration or registrations; the sample uses ??= and TryAddSingleton deliberately.",
+            ".NET 10 retains ConfigureWebHost/ConfigureAppConfiguration/ConfigureServices. That valid late path changes request-time values, not values already captured immediately after CreateBuilder.",
+            "Current hook rejects explicit IHostBuilder and IWebHostBuilder factory paths. The negative controls deliberately use the historical WebHostBuilder with a local ASPDEPR004 suppression.",
+            "ConfigureHostApplicationBuilder was an earlier .NET 11 preview spelling, not a .NET 10 API. No preview package or older-target hook backport is asserted.",
+            "Use separate app/test outputs and valid deps/content-root discovery. The test assembly attribute resolves before solution discovery. Await factory DisposeAsync AND an explicit owned-service completion signal when app/factory teardown overlap; preserve production files and persistent environment."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API designation on the newer side; evidence uses SDK11.0.100-rc.2.26504.105 and runtime11.0.0-rc.2.26504.105, not actual GA. PIN-959/PIN-964 and unrelated Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Testing/src/WebApplicationFactory.cs",
+          "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Mvc/Mvc.Testing/src/WebApplicationFactory.cs",
+          "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/WebApplicationBuilder.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-11.0"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/StrataTests/StrataTests.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Factory hook, order and supported entry paths",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/Mvc/Mvc.Testing/src/WebApplicationFactory.cs"
+    },
+    {
+      "title": "Previous factory has no early hook",
+      "url": "https://github.com/dotnet/aspnetcore/blob/v10.0.13/src/Mvc/Mvc.Testing/src/WebApplicationFactory.cs"
+    },
+    {
+      "title": "Application builder construction",
+      "url": "https://github.com/dotnet/aspnetcore/blob/4a70870818bf5662f21b0c28f9a8c267dccb77f0/src/DefaultBuilder/src/WebApplicationBuilder.cs"
+    },
+    {
+      "title": "Integration testing with the real application",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/StrataTests/StrataTests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Separate actual entry assembly, TestServer HTTP checks for early/late configuration order, observable test singleton, unchanged production control and awaited async service disposal. .NET 11 rejects actual IHostBuilder/IWebHostBuilder paths. Actual Mvc.Testing/TestHost ZIPs and compile assets match source audit; matching DependencyModel closure qualified by runtime discovery. No network transport/GA claim."
+    },
+    {
+      "sample": "samples/net11.0/StrataTests/StrataTests.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Separate actual entry assembly, TestServer HTTP checks for early/late configuration order, observable test singleton, unchanged production control and awaited async service disposal. .NET 11 rejects actual IHostBuilder/IWebHostBuilder paths. Actual Mvc.Testing/TestHost ZIPs and compile assets match source audit; matching DependencyModel closure qualified by runtime discovery. No network transport/GA claim."
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/StrataTests/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/StrataTests/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/StrataTests/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/StrataTests/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-stratatests-csproj": {
+      "path": "samples/net10.0/StrataTests/StrataTests.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/StrataTests/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-app-strataapi-csproj": {
+      "path": "samples/net10.0/StrataTests/App/StrataApi.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-app-program-cs": {
+      "path": "samples/net10.0/StrataTests/App/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/StrataTests/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/StrataTests/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/StrataTests/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/StrataTests/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-stratatests-csproj": {
+      "path": "samples/net11.0/StrataTests/StrataTests.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/StrataTests/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-app-strataapi-csproj": {
+      "path": "samples/net11.0/StrataTests/App/StrataApi.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-app-program-cs": {
+      "path": "samples/net11.0/StrataTests/App/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Local automated consumers need no owner account, production service, trust installation or physical device. Existing actual-GA/publication and unrelated Human gates remain separate."
+  }
+}

@@ -4,6 +4,70 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## HTTP/3 budgets, JSON Patch intent and early integration-test setup
+
+This block builds/packs the ordinary tool once and installs that exact artifact
+through the existing isolated local feed/cache. Real installed stdio list/get run
+from an unrelated directory and display ID/title/goal, complete canonical Markdown,
+target11/edition11, full applicability and current paired sample evidence. Each
+target10 get must return `no_applicable_edition`; these comparisons do not add
+another .NET10 foundation. The last command reconstructs all six consumers solely
+from the returned Markdown in a temporary directory, without remote NuGet feeds.
+
+Setup needs PowerShell7, Node22.19+, both exact SDK/runtime sets below, Windows
+x64 with TLS1.3 and working MsQuic2.5.11.159415436. The first command restores
+the locked packages, compares audited ZIP/reference/compile assets and records
+compiler/runtime/native identities plus actual requests. No certificate trust,
+production resource or persistent environment change is made. Prepared packages
+are reused for the returned-body consumers. Retrieval uses unusable proxies;
+loopback is bypassed for actual requests. This proves proxy independence, not
+network isolation. No recurring native/client/OS matrix is added.
+
+The complete block was checked starting from an unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5b4d9f99'
+& ./eng/Test-WebResourceRecipes.ps1 `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' -RecordEvidence
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('hosting.configure-http3-budgets', 'json-patch.serialize-operation-intent', 'testing.configure-web-application-builder') `
+  -Query 'web-resource-recipes' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1182-batch' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/web-resources/inspection
+& ./eng/Test-WebResourceConsumers.ps1 `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+```
+
+Expect these discoveries and observations:
+
+- `hosting.configure-http3-budgets`: **Configure HTTP/3 connection budgets without
+  preview scaffolding**. Goal: set per-connection stream/buffer budgets and retain
+  backpressure. Both real HTTP/3 consumers queue a third request behind two active
+  requests on one connection, exhaust inbound unidirectional credit and pause/
+  resume 16MiB uploads/downloads. The old CA2252 control warns; newer builds need
+  no preview acknowledgement. No exact process-memory or application quota claim.
+- `json-patch.serialize-operation-intent`: **Preserve JSON Patch operation
+  serialization intent**. Goal: preserve required from/value intent and nulls,
+  checking actual updates before removing custom rules. Six-operation round trips,
+  wire members and HTTP failures pass. The current direct method call warns CS0618.
+  New from metadata omits null, but retains a spurious non-null from. Both readers
+  accept missing replace value as null; stricter validation remains app policy.
+- `testing.configure-web-application-builder`: **Configure a web integration test
+  through the application builder**. Goal: isolate early startup configuration/
+  services and await fixture disposal. Actual separate entry assemblies/TestServer
+  requests verify early/late order, production controls and async disposal; the
+  newer hook rejects explicit IHostBuilder/IWebHostBuilder paths. Content-root
+  attributes make the separate consumers independent of solution discovery; explicit
+  service completion handles overlapping teardown. .NET10 keeps
+  ConfigureWebHost; only older .NET11 preview fixtures used the renamed spelling.
+
+Actual Windows x64 RC2 proof does not establish other OS/native lanes, strict
+JSON Patch validation/security, physical TestServer network behavior or GA.
+PIN-959/PIN-964, the eight foundations and unrelated Human gates stay unchanged.
+
 ## Read a recipe
 
 The following example was checked from an unrelated directory. Change `-RecipeId` and `-TargetVersion` for the affected guidance; both list and get receive the same explicit target.

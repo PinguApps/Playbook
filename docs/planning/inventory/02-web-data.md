@@ -1,5 +1,18 @@
 # Web and data authoring inventory
 
+**W12–W14 / PIN-1182–1184** supply three original 11.0 editions:
+`hosting.configure-http3-budgets`, `json-patch.serialize-operation-intent`, and
+`testing.configure-web-application-builder`. Original paired .NET10/11 consumers
+qualify actual QUIC concurrency/stream credit/read-write backpressure, six-operation
+JSON Patch wire/application/failure behavior, and early/late real TestServer startup
+with production controls and awaited disposal. Source-audit references/packages,
+compiler/runtime/native identities and fresh sample records remain distinct from
+installed offline retrieval. The stronger old JSON Patch from policy remains
+necessary for non-null irrelevant sources; missing incoming value is not rejected
+automatically. Only WebApplicationBuilder supports the early factory hook. No new
+foundation, arbitrary OS/native matrix, security guarantee or actual-GA proof is
+added; PIN-959/PIN-964 and unrelated Human gates remain open.
+
 **W03 / PIN-1173** supplies `web.inspect-api-route-pattern/11.0`: original
 marine archive extension over actual MVC and Minimal API discovery, parsed
 constraints/defaults/optional/catch-all and real matching/nonmatching requests.

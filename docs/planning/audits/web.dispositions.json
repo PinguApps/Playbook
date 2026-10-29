@@ -63,8 +63,8 @@
     {
       "id": "http3-budgets",
       "pattern": " Microsoft\\.AspNetCore\\.Server\\.Kestrel\\.Transport\\.Quic\\.QuicTransportOptions::(MaxBidirectionalStreamCount|MaxUnidirectionalStreamCount|MaxReadBufferSize|MaxWriteBufferSize)",
-      "owner": "W12; RequiresPreviewFeatures removed",
-      "disposition": "included"
+      "owner": "W12 / PIN-1182; hosting.configure-http3-budgets/11.0",
+      "disposition": "delivered; original paired actual consumers, fresh evidence and installed offline retrieval; PIN-959/PIN-964 remain open."
     },
     {
       "id": "short-circuit",
@@ -171,14 +171,14 @@
     {
       "id": "json-patch",
       "pattern": " Microsoft\\.AspNetCore\\.JsonPatch\\.SystemTextJson\\.Operations\\.",
-      "owner": "W13; default obsolete diagnostic and wire metadata",
-      "disposition": "included"
+      "owner": "W13 / PIN-1183; json-patch.serialize-operation-intent/11.0",
+      "disposition": "delivered; original paired actual consumers, fresh evidence and installed offline retrieval; PIN-959/PIN-964 remain open."
     },
     {
       "id": "web-test-builder",
       "pattern": " Microsoft\\.AspNetCore\\.Mvc\\.Testing\\.WebApplicationFactory`1::ConfigureWebApplicationBuilder",
-      "owner": "W14; new protected hook; preview-only rename",
-      "disposition": "included"
+      "owner": "W14 / PIN-1184; testing.configure-web-application-builder/11.0",
+      "disposition": "delivered; actual early/late TestServer startup, production control, rejected legacy paths and awaited async disposal; PIN-959/PIN-964 remain open."
     }
   ],
   "toolingGroups": [
@@ -215,7 +215,7 @@
     {
       "id": "test-host",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.mvc\\.testing/",
-      "owner": "W14"
+      "owner": "W14 / PIN-1184; testing.configure-web-application-builder/11.0"
     },
     {
       "id": "web-sdk",

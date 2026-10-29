@@ -136,9 +136,9 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | Removed concurrency middleware, MVC compatibility types, ImageTagHelper constructor/properties, ForProperty overload, runtime compilation registrations | PIN-836–840 respectively. PIN-837–839 deliver the three MVC/Razor migrations below. Preserve source/binary versus behavioral distinctions; ASPDEPR003 is not runtime removal. **W16** handles F# compiled-view migration, which needs more than removing a registration. |
 | ISpanDataProtector/ISpanAuthenticatedEncryptor | **W01 / PIN-1171 delivered** `security.protect-into-buffer/11.0`: actual framework10 array and framework11 span/capability fallback, isolated real keys, empty/token/1MiB recovery, purpose/key/tampering and advanced AAD rejection; full failed-output cleanup. Reference hashes match this audit; no allocation-count, older-target span or actual-GA claim. |
 | StaticAssetDescriptor.Order | **W06 / PIN-1176 delivered** `web.order-static-asset-routes/11.0`; public descriptor serialization of an isolated SDK-generated manifest, real competing static endpoints, default/explicit/invalid/frozen checks and retained .NET10 conventions. Generated default changes do not each need a recipe. Actual GA remains open. |
-| QUIC transport four buffer/stream properties lose RequiresPreviewFeatures | **W12**; explicit budgets and removal of a now-unnecessary preview workaround. Existing properties are not newly invented APIs. |
-| JSON Patch ShouldSerializeFrom obsoletion; from/value JSON metadata | **W13**; default compiler warning and actual wire representation, distinct from the unchanged Newtonsoft implementation. |
-| WebApplicationFactory.ConfigureWebApplicationBuilder | **W14**; new protected host-configuration seam relative to .NET 10. Only earlier .NET 11 previews used the renamed ConfigureHostApplicationBuilder spelling. |
+| QUIC transport four buffer/stream properties lose RequiresPreviewFeatures | **W12 / PIN-1182 delivered** `hosting.configure-http3-budgets/11.0`; actual paired HTTP/3 concurrency, unidirectional credit and slow upload/download backpressure. Existing properties are not new APIs; .NET10 retains its narrow CA2252 acknowledgement. |
+| JSON Patch ShouldSerializeFrom obsoletion; from/value JSON metadata | **W13 / PIN-1183 delivered** `json-patch.serialize-operation-intent/11.0`; actual CS0618, six-operation wire/HTTP controls and old operation-aware modifier. New from metadata omits null, not every non-null irrelevant source. Newtonsoft remains separate. |
+| WebApplicationFactory.ConfigureWebApplicationBuilder | **W14 / PIN-1184 delivered** `testing.configure-web-application-builder/11.0`; separate real entry assembly, TestServer early/late config/service controls and async disposal. Legacy host paths reject the early hook. Only earlier .NET11 previews used ConfigureHostApplicationBuilder. |
 | gRPC server/client/factory 2.64.0 and JSON transcoding | Selected public APIs have **zero differences**. No standalone transport recipe inferred. **W10** preserves the separately removed Grpc.Swagger integration, so the original blanket no-gRPC-change row is qualified. |
 | DirectTls | **W11**, availability/contract unresolved; Linux/OpenSSL/experimental opt-in. Current source example cannot be copied against the available RC1 package. |
 | dev-certs/user-jwts, MCP template, web SDK/project inputs | PIN-817 delivers `web.test-file-app-authentication/11.0` with actual project/file JWT selectors and signed/absent/invalid-token HTTP checks. PIN-819 delivers `web.scaffold-mcp-host/11.0` with fresh-home bundled generation and real HTTP MCP initialize/list/call. Both SDK 10.0.402 and 11 RC2 bundle the MCP template; no exclusive .NET 11 introduction is inferred. PIN-818 retains certificate trust and PIN-707 retains other build inputs. |
@@ -534,6 +534,15 @@ temporary preview contract as GA.
 
 ### W12. Configure HTTP/3 connection budgets without preview scaffolding — M (3)
 
+Delivered by PIN-1182 with original EstuaryBudgets .NET10/11 consumers. Both actual
+Windows x64 runtime sets exercise two concurrent HTTP/3 requests, a queued third
+on the same connection, inbound unidirectional stream credit, and slow 16MiB
+upload/download pause/resume. Loaded MsQuic2.5.11.159415436 and its hash are
+recorded separately from audited framework references. Current builds need no
+preview opt-in; older assignments retain a local CA2252 acknowledgement. These
+are transport thresholds, not exact process-memory bounds or application quotas.
+No new OS/client/native matrix, ninth foundation or actual-GA claim is added.
+
 Story: A server author wants deliberate limits for an observation stream so that
 connection resources match the application's workload.
 Proposed `hosting.configure-http3-budgets`. Prerequisites: actual Kestrel QUIC
@@ -546,6 +555,15 @@ verify old valid behavior; removing a suppression alone is insufficient. M cover
 one portable native-capable authoring lane, not a full OS matrix.
 
 ### W13. Preserve JSON Patch operation serialization intent — M (3)
+
+Delivered by PIN-1183 with original GlasshousePatch .NET10/11 consumers. Exact
+SystemTextJson ZIPs/assets match this audit; actual default CS0618, metadata,
+wire bytes, all six operations and HTTP failure controls are retained. The older
+operation-aware modifier remains valid. New from metadata omits null; a spurious
+non-null from still serializes, so stronger custom policy must be retained.
+Both measured readers accept missing replace value as null; strict presence,
+authorization and path/complexity policy remain application responsibilities.
+No change to the separate Newtonsoft implementation is asserted.
 
 Story: A service author wants changed fields in a garden record to serialize
 correctly so that updates neither omit required values nor add invalid fields.
@@ -560,6 +578,15 @@ document patch authorization/allowed paths without inventing new framework
 security guarantees. M includes round-trip and invalid-operation proof.
 
 ### W14. Configure a web integration test through the application builder — M (3)
+
+Delivered by PIN-1184 with original StrataTests/StrataApi project pairs. Actual
+Mvc.Testing/TestHost archives and compile assets match this audit; the matching
+DependencyModel closure is additionally qualified by real entry/deps discovery
+and TestServer startup. HTTP requests distinguish early startup capture from late
+configuration, retain the production control and verify awaited async singleton
+disposal. Current explicit IHostBuilder/IWebHostBuilder paths reject the early
+hook. The .NET10 late setup remains valid; no preview-package execution/backport,
+physical network transport or actual-GA guarantee is inferred.
 
 Story: A service tester wants an isolated test configuration for a geology API
 so that a test can exercise its real startup without changing production settings.
