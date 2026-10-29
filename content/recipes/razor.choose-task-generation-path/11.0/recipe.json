@@ -124,7 +124,7 @@
   ],
   "evidence": [
     {
-      "kind": "compile",
+      "kind": "compile-and-run",
       "sample": "samples/net10.0/ExhibitCompiler/ExhibitCompiler.csproj",
       "target": "net10.0",
       "sdk": "10.0.402",
@@ -141,7 +141,7 @@
       "record": "samples/net10.0/ExhibitCompiler/behavior.evidence.json"
     },
     {
-      "kind": "compile",
+      "kind": "compile-and-run",
       "sample": "samples/net11.0/ExhibitCompiler/ExhibitCompiler.csproj",
       "target": "net11.0",
       "sdk": "11.0.100-rc.2.26504.105",
