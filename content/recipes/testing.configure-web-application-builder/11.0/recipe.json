@@ -139,7 +139,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "compile-and-run",
-      "scope": "Separate actual entry assembly, TestServer HTTP checks for early/late configuration order, observable test singleton, unchanged production control and awaited async service disposal. .NET 11 rejects actual IHostBuilder/IWebHostBuilder paths. Actual Mvc.Testing/TestHost ZIPs and compile assets match source audit; matching DependencyModel closure qualified by runtime discovery. No network transport/GA claim."
+      "scope": "Actual .NET10 Mvc.Testing/TestHost and separate executable entry assembly: late ConfigureWebHost configuration/service replacement, startup versus request-time values, unchanged production control and explicit awaited service-disposal completion. Solution-independent content-root attribute. Audited package ZIP/compile assets, separately recorded compiler/runtime identities and qualified matching DependencyModel closure. No early-hook/legacy-path rejection, physical-network or GA execution claimed on this target."
     },
     {
       "sample": "samples/net11.0/StrataTests/StrataTests.csproj",

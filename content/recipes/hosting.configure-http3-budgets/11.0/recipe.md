@@ -42,7 +42,10 @@ MaxReadBufferSize and MaxWriteBufferSize are 16KiB transport backpressure
 thresholds. They are not hard process-memory bounds, total connection budgets,
 request-body limits or guaranteed wire-window sizes. Native/protocol/client
 buffering also participates. The observed pause position can exceed 16KiB and
-vary between runs. Do not size a production memory budget by multiplying this
+vary between runs. The import handler intentionally copies its fixed test upload
+into memory to check completed byte counts. Application endpoints should enforce
+a deliberate body-size cap and stream to storage instead of copying that fixture
+sink. Do not size a production memory budget by multiplying this
 number alone, or set null/unbounded buffers merely to avoid a slow consumer.
 
 These settings are distinct from per-user quotas, authorization, endpoint rate
