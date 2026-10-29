@@ -1,0 +1,15 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-WebResourceRecipes.ps1",
+    "docs/planning/audits/web.assets.json"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.AspNetCore.JsonPatch.SystemTextJson/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "nativeToolchains": []
+}

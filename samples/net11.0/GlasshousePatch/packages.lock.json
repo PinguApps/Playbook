@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.AspNetCore.JsonPatch.SystemTextJson": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, 11.0.0-rc.2.26504.105]",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "mBH39wJwBPoBeh0+2bBF2YrgdsKAYyfRSMELcBZKn37H3N6WCAyhqO4SPUqe8OOr/WFaJCc6zMFylP6+aRcOPQ=="
+      }
+    }
+  }
+}
