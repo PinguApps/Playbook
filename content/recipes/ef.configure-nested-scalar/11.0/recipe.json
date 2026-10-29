@@ -75,7 +75,7 @@
           ],
           "providers": [
             "Microsoft.EntityFrameworkCore.Sqlite; actual in-memory SQLite database, not EF InMemory or mocked SQL",
-            "Measured Windows x64 native SQLite 3.53.3 (previous) / 3.53.4 (current); SQLitePCLRaw.bundle_e_sqlite3 3.0.5 resolves with its config/provider/core and SQLite packages"
+            "Measured Windows x64: previous native SQLite 3.53.3 via SQLitePCLRaw.bundle_e_sqlite3/core/lib.e_sqlite3/provider.e_sqlite3 2.1.13; current SQLite 3.53.4 via SQLitePCLRaw.bundle_e_sqlite3/config.e_sqlite3/core/provider.e_sqlite3 3.0.5 and the separate SQLite package 3.53.4."
           ],
           "workloads": [],
           "platforms": [

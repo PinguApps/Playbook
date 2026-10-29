@@ -29,8 +29,10 @@ The current example requires .NET/SDK 11, C# 15 mode and the pinned EF11 SQLite
 packages. The previous example requires .NET/SDK 10, C# 14 and EF10 10.0.13.
 No optional workload, rendering mode, account or experimental opt-in is required.
 The packaged SQLite native library must match the host OS/architecture. These
-consumers ran on Windows x64 using SQLite 3.53.3 (EF10) and 3.53.4 (EF11), with
-SQLitePCLRaw.bundle_e_sqlite3 3.0.5 and the complete resolved lock-file graph.
+consumers ran on Windows x64. EF10 used native SQLite 3.53.3 from the
+SQLitePCLRaw.bundle_e_sqlite3/core/lib.e_sqlite3/provider.e_sqlite3 2.1.13 graph.
+EF11 used SQLitePCLRaw.bundle_e_sqlite3/config.e_sqlite3/core/provider.e_sqlite3
+3.0.5 with the separate SQLite package 3.53.4. Each complete graph is locked.
 EF11 selects net11.0 EF/Relational assets and net10.0 Microsoft.Data.Sqlite.Core;
 the latter asset does not make EF11 itself compatible with .NET 10.
 

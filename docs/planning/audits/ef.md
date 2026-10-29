@@ -126,8 +126,11 @@ BLOB-to-JSON data conversion is explicitly outside this disposable demonstration
 Four canonical `samples/net{10,11}.0/{EstuaryMarkers,KilnReadings}` projects carry
 locked package graphs and current `verification-evidence.json` records. Actual
 Windows x64 execution used SDK 10.0.402 / EF 10.0.13 / SQLite 3.53.3 and SDK
-11.0.100-rc.2.26504.105 / EF 11.0.0-rc.2.26504.105 / SQLite 3.53.4. Both resolve
-SQLitePCLRaw.bundle_e_sqlite3 3.0.5; no external account or database is needed.
+11.0.100-rc.2.26504.105 / EF 11.0.0-rc.2.26504.105 / SQLite 3.53.4. The previous
+graph resolves SQLitePCLRaw.bundle_e_sqlite3/core/lib.e_sqlite3/provider.e_sqlite3
+2.1.13. The current graph resolves bundle_e_sqlite3/config.e_sqlite3/core/
+provider.e_sqlite3 3.0.5 and the separate SQLite package 3.53.4. No external
+account or database is needed.
 Offline list/get delivery uses the existing packed-tool inspection harness.
 No extra foundation, other-provider/native-platform proof, custom-convention or
 nested-entry API proof, or actual GA claim is added. The original API audit and
