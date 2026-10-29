@@ -1,0 +1,341 @@
+{
+  "id": "sdk.retarget-template-engine-hosts",
+  "edition": "11.0",
+  "title": "Retarget an embedded template-engine host",
+  "goal": "Move a template-engine host off the removed netstandard route, select a verified net10 or net11 dependency closure and preserve the framework of generated applications.",
+  "areas": [
+    "sdk",
+    "nuget"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "template-engine",
+    "host-migration"
+  ],
+  "apis": [
+    "DefaultTemplateEngineHost",
+    "EngineEnvironmentSettings",
+    "TemplatePackageManager",
+    "TemplateCreator.InstantiateAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Prefer ordinary net10 when appropriate; net10 and net11 hosts have independently restored, built and executed the actual RC2 dependency closure.",
+          "Target-10 selection requires deliberately adopting the newer template packages; the exact eight .NET 10 foundations are unchanged."
+        ],
+        "sharedAreas": [],
+        "requirements": {
+          "runtime": {
+            "match": "release-family",
+            "version": "11.0",
+            "name": ".NET",
+            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.13; runtime11 is RC2."
+          },
+          "sdk": {
+            "match": "release-family",
+            "version": "11.0",
+            "name": ".NET SDK",
+            "reason": "Build the host target; exact evidence uses SDK10 10.0.402 or SDK11 11.0.100-rc.2.26504.105."
+          },
+          "language": {
+            "match": "exact",
+            "version": "15.0",
+            "name": "C#",
+            "reason": "Declared sample mode; no C#15-only capability is required."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk managed host; historical library uses netstandard2.0."
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "version": "11.0.100-rc.2.26504.105",
+              "name": "Microsoft.TemplateEngine.Edge",
+              "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
+            },
+            {
+              "match": "exact",
+              "version": "11.0.100-rc.2.26504.105",
+              "name": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
+              "reason": "Actual generator component set used to instantiate the original embedded template."
+            }
+          ],
+          "packageAssets": [
+            "TemplateEngine 11.0.100-rc.2.26504.105 lib/net11.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
+            "Historical 10.0.402 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
+          ],
+          "workloads": [],
+          "providers": [
+            "Built-in folder template provider, virtualized settings and trusted embedded seed; no remote provider or account."
+          ],
+          "platforms": [
+            "Windows x64 execution; other operating systems/architectures and .NET Framework were not executed."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "SDK/runtime10 and SDK/runtime11 for paired reproduction; PowerShell7 and public network for package acquisition.",
+            "Current NuGet.* 8.0.0-rc.605 dependencies require the public dotnet-tools feed and explicit source mapping; the old set instead uses nuget.org.",
+            "Keep package versions/SDKs pinned, use locked restores, isolated homes/caches and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0."
+          ],
+          "constraints": [
+            "Host TFM and generated-application TFM are separate; all three real hosts create and execute a net10 application.",
+            "All eight removed netstandard routes are independently probed. Default implicit Framework fallback gives NU1701; strict current restore fails NU1202. Suppression is not compatibility.",
+            "RC2 ZIPs and selected assets establish net10 rather than the note's net9 recommendation. No net9 or Framework route is advertised.",
+            "No IDE/localization behavior, general untrusted templates, post-action execution, trimming or Native AOT claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Prerelease RC2 package/SDK proof, not GA reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
+            "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/template-engine-netstandard",
+          "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Microsoft.TemplateEngine.Edge.csproj",
+          "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Settings/TemplatePackageManager.cs",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates",
+          "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1202",
+          "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1701"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj"
+        ]
+      },
+      {
+        "target": "10.0",
+        "conditional": true,
+        "usage": "optional-alternative",
+        "selectionNotes": [
+          "Prefer ordinary net10 when appropriate; net10 and net11 hosts have independently restored, built and executed the actual RC2 dependency closure.",
+          "Target-10 selection requires deliberately adopting the newer template packages; the exact eight .NET 10 foundations are unchanged."
+        ],
+        "sharedAreas": [],
+        "requirements": {
+          "runtime": {
+            "match": "release-family",
+            "version": "10.0",
+            "name": ".NET",
+            "reason": "Actual host runtime, separate from the generated net10 application. Measured runtime10 is 10.0.13; runtime11 is RC2."
+          },
+          "sdk": {
+            "match": "release-family",
+            "version": "10.0",
+            "name": ".NET SDK",
+            "reason": "Build the host target; exact evidence uses SDK10 10.0.402 or SDK11 11.0.100-rc.2.26504.105."
+          },
+          "language": {
+            "match": "exact",
+            "version": "14.0",
+            "name": "C#",
+            "reason": "Declared sample mode; no C#15-only capability is required."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk managed host; historical library uses netstandard2.0."
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "version": "11.0.100-rc.2.26504.105",
+              "name": "Microsoft.TemplateEngine.Edge",
+              "reason": "Actual inspected, restored and executed RC2 artifact, not an SDK-root assembly."
+            },
+            {
+              "match": "exact",
+              "version": "11.0.100-rc.2.26504.105",
+              "name": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
+              "reason": "Actual generator component set used to instantiate the original embedded template."
+            }
+          ],
+          "packageAssets": [
+            "TemplateEngine 11.0.100-rc.2.26504.105 lib/net10.0 selected independently for this route; NuGet 8.0.0-rc.605 uses lib/net10.0.",
+            "Historical 10.0.402 netstandard library selects lib/netstandard2.0; its actual net10 runner selects lib/net10.0. Full locks and evidence record every transitive package and hash."
+          ],
+          "workloads": [],
+          "providers": [
+            "Built-in folder template provider, virtualized settings and trusted embedded seed; no remote provider or account."
+          ],
+          "platforms": [
+            "Windows x64 execution; other operating systems/architectures and .NET Framework were not executed."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "SDK/runtime10 and SDK/runtime11 for paired reproduction; PowerShell7 and public network for package acquisition.",
+            "Current NuGet.* 8.0.0-rc.605 dependencies require the public dotnet-tools feed and explicit source mapping; the old set instead uses nuget.org.",
+            "Keep package versions/SDKs pinned, use locked restores, isolated homes/caches and DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0."
+          ],
+          "constraints": [
+            "Host TFM and generated-application TFM are separate; all three real hosts create and execute a net10 application.",
+            "All eight removed netstandard routes are independently probed. Default implicit Framework fallback gives NU1701; strict current restore fails NU1202. Suppression is not compatibility.",
+            "RC2 ZIPs and selected assets establish net10 rather than the note's net9 recommendation. No net9 or Framework route is advertised.",
+            "No IDE/localization behavior, general untrusted templates, post-action execution, trimming or Native AOT claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Prerelease RC2 package/SDK proof, not GA reconciliation; no experimental API switch. NuGet client APIs do not promise general API stability.",
+            "PIN-959 qualifying coverage/evidence and PIN-963 actual-GA reconciliation remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/template-engine-netstandard",
+          "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Microsoft.TemplateEngine.Edge.csproj",
+          "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Settings/TemplatePackageManager.cs",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates",
+          "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1202",
+          "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1701"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/template-engine-netstandard",
+      "title": "Official template-engine .NET Standard removal"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Microsoft.TemplateEngine.Edge.csproj",
+      "title": "Pinned Edge project: actual host and NuGet dependency boundary"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/TemplateEngine/Microsoft.TemplateEngine.Edge/Settings/TemplatePackageManager.cs",
+      "title": "Official host package manager API"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/custom-templates",
+      "title": "Custom template authoring"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1202",
+      "title": "Incompatible target: NU1202"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu1701",
+      "title": "Framework asset fallback: NU1701"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/ArchiveTemplate/ArchiveTemplateLegacy.csproj",
+      "target": "netstandard2.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual historical netstandard host compilation plus sixteen audited ZIPs, eight old direct builds/eight strict RC2 NU1202 restores and default NU1701 fallback control."
+    },
+    {
+      "sample": "samples/net10.0/ArchiveTemplateRunner/ArchiveTemplateRunner.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual netstandard library consumed by a net10 runner, template instantiation, generated net10 application compiled/executed; runner assets independently select net10."
+    },
+    {
+      "sample": "samples/net10.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real ordinary net10 host restores/builds/runs RC2 packages with the actual closure; instantiated net10 application also builds/runs with SDK/runtime10."
+    },
+    {
+      "sample": "samples/net11.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Independent actual net11 host and RC2 closure instantiate the same net10 template; generated application builds/runs with SDK/runtime10."
+    }
+  ],
+  "snippets": {
+    "host": {
+      "path": "samples/ArchiveTemplate/ArchiveTemplate.cs",
+      "region": "host",
+      "language": "csharp"
+    },
+    "driver": {
+      "path": "samples/ArchiveTemplate/Program.cs",
+      "region": "driver",
+      "language": "csharp"
+    },
+    "generated-project": {
+      "path": "samples/ArchiveTemplate/project.txt",
+      "region": "generated-project",
+      "language": "xml"
+    },
+    "generated-program": {
+      "path": "samples/ArchiveTemplate/program.txt",
+      "region": "generated-program",
+      "language": "csharp"
+    },
+    "probe": {
+      "path": "samples/ArchiveTemplate/Probe.xml",
+      "region": "probe",
+      "language": "xml"
+    },
+    "older-project": {
+      "path": "samples/ArchiveTemplate/ArchiveTemplateLegacy.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "older-packages": {
+      "path": "samples/ArchiveTemplate/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "older-sources": {
+      "path": "samples/ArchiveTemplate/NuGet.Config",
+      "region": "sources",
+      "language": "xml"
+    },
+    "older-runner": {
+      "path": "samples/net10.0/ArchiveTemplateRunner/ArchiveTemplateRunner.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "current10-project": {
+      "path": "samples/net10.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "current11-project": {
+      "path": "samples/net11.0/ArchiveTemplateHost/ArchiveTemplateHost.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "current-packages": {
+      "path": "samples/net11.0/ArchiveTemplateHost/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "current-sources": {
+      "path": "samples/net11.0/ArchiveTemplateHost/NuGet.Config",
+      "region": "sources",
+      "language": "xml"
+    },
+    "template-config": {
+      "language": "json",
+      "path": "samples/ArchiveTemplate/template.json",
+      "region": "template-config"
+    }
+  },
+  "humanProof": {
+    "scope": "Bounded managed Windows x64 host/template consumers execute automatically; no provider/device/Human-only or public-publication requirement.",
+    "status": "not-required"
+  }
+}

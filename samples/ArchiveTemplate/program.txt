@@ -1,0 +1,3 @@
+// snippet:generated-program
+Console.WriteLine("archive=ArchiveSeed;collection=COLLECTION_TOKEN");
+// endsnippet:generated-program

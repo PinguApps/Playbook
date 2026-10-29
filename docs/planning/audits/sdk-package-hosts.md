@@ -37,6 +37,23 @@ The recipe retains this drift instead of claiming an unobserved default warning.
 Fresh sample evidence and exact installed-tool retrieval establish the bounded
 delivery; other proposals, actual GA reconciliation and PIN-959/PIN-963 remain open.
 
+Delivery update for proposal F: [PIN-1071](https://linear.app/pinguapps/issue/PIN-1071)
+adds `sdk.retarget-template-engine-hosts`, edition 11.0. Sixteen ZIP hashes and the
+bounded template note/Edge project are replayed. All eight old direct netstandard
+consumers build; all eight RC2 consumers fail strict restore with NU1202. Default
+SDK fallback instead selects Framework assets and warns NU1701, which does not
+establish compatibility. An original embedded Cwm Archive template runs through
+the old netstandard host library/net10 runner and independent RC2 net10/net11
+hosts. Their generated net10 applications build and execute with SDK/runtime 10.
+Selected assets resolve the note's net9 discrepancy in favour of net10; current
+NuGet 8.0.0-rc.605 dependencies require the public dotnet-tools feed. No Framework,
+IDE/localizer workflow, other OS or Native AOT route is advertised. All four
+sample projects have pinned dependency closures and fresh evidence; conditional
+target-10 retrieval preserves the exact eight foundations. The L (5) scope covers
+artifact/source qualification, eight-route failure checks, original embedded host
+and generated consumers, prose, evidence and installed offline retrieval. Other
+proposals and PIN-959/PIN-963's qualifying coverage/actual-GA gates remain open.
+
 Reviewed **21 October 2026**. This is a bounded source and distributable-metadata audit. Seven full compatibility notes and the affected-test claim have accountable dispositions. At that review, nine narrow delivery proposals awaited approval; subsequent deliveries are recorded above. Audit closure alone did not deliver a recipe, consumer implementation or release.
 
 ## Scope and provenance

@@ -1,0 +1,18 @@
+// snippet:template-config
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Playbook",
+  "identity": "CwmArchive.Collection.Index",
+  "name": "Cwm Archive collection index",
+  "shortName": "cwm-index",
+  "sourceName": "ArchiveSeed",
+  "symbols": {
+    "collection": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "UNSORTED",
+      "replaces": "COLLECTION_TOKEN"
+    }
+  }
+}
+// endsnippet:template-config

@@ -1,0 +1,36 @@
+{
+  "dependencies": [
+    "Microsoft.Extensions.DependencyInjection.Abstractions/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging.Abstractions/11.0.0-rc.2.26504.105",
+    "Microsoft.TemplateEngine.Abstractions/11.0.100-rc.2.26504.105",
+    "Microsoft.TemplateEngine.Core.Contracts/11.0.100-rc.2.26504.105",
+    "Microsoft.TemplateEngine.Core/11.0.100-rc.2.26504.105",
+    "Microsoft.TemplateEngine.Edge/11.0.100-rc.2.26504.105",
+    "Microsoft.TemplateEngine.Orchestrator.RunnableProjects/11.0.100-rc.2.26504.105",
+    "Microsoft.TemplateEngine.Utils/11.0.100-rc.2.26504.105",
+    "Newtonsoft.Json/13.0.4",
+    "NuGet.Common/8.0.0-rc.605",
+    "NuGet.Configuration/8.0.0-rc.605",
+    "NuGet.Credentials/8.0.0-rc.605",
+    "NuGet.Frameworks/8.0.0-rc.605",
+    "NuGet.Packaging/8.0.0-rc.605",
+    "NuGet.Protocol/8.0.0-rc.605",
+    "NuGet.Versioning/8.0.0-rc.605",
+    "System.Diagnostics.DiagnosticSource/11.0.0-rc.2.26504.105",
+    "System.Formats.Asn1/11.0.0-rc.2.26504.105",
+    "System.Security.Cryptography.Pkcs/11.0.0-rc.2.26504.105",
+    "System.Security.Cryptography.ProtectedData/11.0.0-rc.2.26504.105"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/ArchiveTemplate",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Test-TemplateEngineHost.ps1",
+    "docs/planning/audits/sdk-package-hosts.sources.json",
+    "docs/planning/audits/sdk-package-hosts.assets.json",
+    ".editorconfig"
+  ],
+  "workloads": [],
+  "buildArguments": []
+}
