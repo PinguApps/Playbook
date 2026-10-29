@@ -309,7 +309,7 @@
       "pattern": "^\\w+ Microsoft\\.Data\\.Sqlite\\.",
       "disposition": "unresolved",
       "owner": "U2",
-      "reason": "Exact direct-SQLite differences retained. PIN-862 delivers UInt128 D39 TEXT binding and real net10/net11 execution; reader UInt128 retrieval remains unsupported. Half, target migration and native-bundle decisions retain their separate owners in ef.md."
+      "reason": "Exact direct-SQLite differences retained. PIN-862 delivers UInt128 binding; reader UInt128 retrieval remains unsupported. PIN-863 delivers sqlite.retain-supported-runtime/11.0 with real net10/provider10, net11/provider11, net10/provider11 and net48/provider10 execution, preserving the net10 Sqlite11 versus net11 EF11 boundary. Half and custom/native-bundle migration retain separate owners; UWP/classic Xamarin native paths and actual GA remain unverified."
     },
     {
       "id": "metadata-traversal",

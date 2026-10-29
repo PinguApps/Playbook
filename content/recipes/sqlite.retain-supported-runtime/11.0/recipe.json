@@ -1,0 +1,469 @@
+{
+  "id": "sqlite.retain-supported-runtime",
+  "edition": "11.0",
+  "title": "Keep direct SQLite access compatible with the application target",
+  "goal": "Choose a compatible target and Microsoft.Data.Sqlite version before upgrading: use Sqlite 11 on .NET 10 or 11, or deliberately retain Sqlite 10 for a verified earlier-dependency path. RC2 proof; UWP/classic Xamarin native paths remain excluded.",
+  "areas": [
+    "sqlite"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sqlite-runtime",
+    "compatibility",
+    "sqlite",
+    "migration"
+  ],
+  "apis": [
+    "SqliteConnection",
+    "SqliteConnectionStringBuilder",
+    "SqliteCommand",
+    "SqliteTransaction"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "10.0",
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Direct Microsoft.Data.Sqlite 11 uses net10.0 assets. EF Core 11 separately requires net11.0.",
+          "RC2 package evidence, not actual GA verification. UWP/classic Xamarin native paths are excluded.",
+          "This 11.0 migration edition does not add a .NET 10 foundation or a .NET Framework catalogue target."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run the declared net11.0 console application."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact sample pins establish observed verification, not a universal installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; the SQL code uses no new language feature."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no EF Core or web framework dependency."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Data.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "The direct provider's new target boundary is verified at 11.0.0-rc.2.26504.105."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Data.Sqlite 11 RC2 has only a net10.0 dependency group; Core 11 RC2 has only lib/net10.0. net11.0 selects that compatible asset."
+          ],
+          "providers": [
+            "Microsoft.Data.Sqlite11; SQLitePCLRaw 3.0.5 plus SQLite 3.53.4; actual bundled e_sqlite3 SQLite 3.53.4."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 only. A compatible native SQLite library is required in addition to managed target compatibility.",
+            "UWP and classic Xamarin native builds are unavailable in the current bundled route. No UWP/Xamarin, MAUI or other OS/architecture execution is claimed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database operation; no browser or renderer."
+          ],
+          "constraints": [
+            "Microsoft.Data.Sqlite 11 targets net10.0 only; there is no netstandard2.0 or .NET Framework asset. A net11.0 app can consume net10.0; EF Core 11 is a separate net11.0 requirement.",
+            "The net48 retained dependency example builds with SDK10/C#7.3 and Microsoft.NETFramework.ReferenceAssemblies 1.0.3, then runs its actual x64 EXE on installed .NET Framework 4.8.1 (release 533509); it is a comparison, not a selectable catalogue target.",
+            "The retained net48 package graph does not prove UWP/classic Xamarin compatibility. Native-platform migration and encrypted/custom bundles require separate checks."
+          ],
+          "prerequisites": [
+            "Copy all six files for one chosen sample into a standalone directory; run restore/build from that directory so global.json applies. First restore uses nuget.org; offline guidance retrieval does not mean offline dependency setup.",
+            "A writable temporary directory is needed. The program creates a unique local database, disables pooling, disposes connections and deletes its database in finally; no account or external service is used.",
+            "Samples and lock files are author-maintained, isolated from root package/build inheritance and automatic Renovate updates."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable migration contract, demonstrated using pinned .NET11 RC2 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuaySeals/QuaySeals.csproj"
+        ]
+      },
+      {
+        "target": "10.0",
+        "conditional": true,
+        "usage": "optional-alternative",
+        "selectionNotes": [
+          "Direct Microsoft.Data.Sqlite 11 uses net10.0 assets. EF Core 11 separately requires net11.0.",
+          "RC2 package evidence, not actual GA verification. UWP/classic Xamarin native paths are excluded.",
+          "This 11.0 migration edition does not add a .NET 10 foundation or a .NET Framework catalogue target."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Run the declared net10.0 console application."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact sample pins establish observed verification, not a universal installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; the SQL code uses no new language feature."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no EF Core or web framework dependency."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Data.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "The direct provider's new target boundary is verified at 11.0.0-rc.2.26504.105."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Data.Sqlite 11 RC2 has only a net10.0 dependency group; Core 11 RC2 has only lib/net10.0. net11.0 selects that compatible asset."
+          ],
+          "providers": [
+            "Microsoft.Data.Sqlite11; SQLitePCLRaw 3.0.5 plus SQLite 3.53.4; actual bundled e_sqlite3 SQLite 3.53.4."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 only. A compatible native SQLite library is required in addition to managed target compatibility.",
+            "UWP and classic Xamarin native builds are unavailable in the current bundled route. No UWP/Xamarin, MAUI or other OS/architecture execution is claimed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database operation; no browser or renderer."
+          ],
+          "constraints": [
+            "Microsoft.Data.Sqlite 11 targets net10.0 only; there is no netstandard2.0 or .NET Framework asset. A net11.0 app can consume net10.0; EF Core 11 is a separate net11.0 requirement.",
+            "The net48 retained dependency example builds with SDK10/C#7.3 and Microsoft.NETFramework.ReferenceAssemblies 1.0.3, then runs its actual x64 EXE on installed .NET Framework 4.8.1 (release 533509); it is a comparison, not a selectable catalogue target.",
+            "The retained net48 package graph does not prove UWP/classic Xamarin compatibility. Native-platform migration and encrypted/custom bundles require separate checks."
+          ],
+          "prerequisites": [
+            "Copy all six files for one chosen sample into a standalone directory; run restore/build from that directory so global.json applies. First restore uses nuget.org; offline guidance retrieval does not mean offline dependency setup.",
+            "A writable temporary directory is needed. The program creates a unique local database, disables pooling, disposes connections and deletes its database in finally; no account or external service is used.",
+            "Samples and lock files are author-maintained, isolated from root package/build inheritance and automatic Renovate updates."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable migration contract, demonstrated using pinned .NET11 RC2 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/QuaySeals11/QuaySeals11.csproj"
+        ]
+      },
+      {
+        "target": "10.0",
+        "conditional": true,
+        "usage": "optional-alternative",
+        "selectionNotes": [
+          "Retain provider10 deliberately: this net10.0 comparison still works; the separate net48 baseline proves the earlier-dependency alternative on Windows.",
+          "RC2 package evidence, not actual GA verification. UWP/classic Xamarin native paths are excluded.",
+          "This 11.0 migration edition does not add a .NET 10 foundation or a .NET Framework catalogue target."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Run the declared net10.0 console application."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact sample pins establish observed verification, not a universal installation requirement."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; the SQL code uses no new language feature."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no EF Core or web framework dependency."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Data.Sqlite",
+              "version": "10.0",
+              "match": "release-family",
+              "reason": "Earlier dependency line; the sample deliberately pins 10.0.13, not a claim it is the latest servicing version."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Data.Sqlite.Core 10.0.13 selects lib/net8.0 on net10.0. The separate net48 comparison selects lib/netstandard2.0."
+          ],
+          "providers": [
+            "Microsoft.Data.Sqlite10; SQLitePCLRaw 2.1.13; actual bundled e_sqlite3 SQLite 3.53.3."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 only. A compatible native SQLite library is required in addition to managed target compatibility.",
+            "UWP and classic Xamarin native builds are unavailable in the current bundled route. No UWP/Xamarin, MAUI or other OS/architecture execution is claimed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database operation; no browser or renderer."
+          ],
+          "constraints": [
+            "Microsoft.Data.Sqlite 11 targets net10.0 only; there is no netstandard2.0 or .NET Framework asset. A net11.0 app can consume net10.0; EF Core 11 is a separate net11.0 requirement.",
+            "The net48 retained dependency example builds with SDK10/C#7.3 and Microsoft.NETFramework.ReferenceAssemblies 1.0.3, then runs its actual x64 EXE on installed .NET Framework 4.8.1 (release 533509); it is a comparison, not a selectable catalogue target.",
+            "The retained net48 package graph does not prove UWP/classic Xamarin compatibility. Native-platform migration and encrypted/custom bundles require separate checks."
+          ],
+          "prerequisites": [
+            "Copy all six files for one chosen sample into a standalone directory; run restore/build from that directory so global.json applies. First restore uses nuget.org; offline guidance retrieval does not mean offline dependency setup.",
+            "A writable temporary directory is needed. The program creates a unique local database, disables pooling, disposes connections and deletes its database in finally; no account or external service is used.",
+            "Samples and lock files are author-maintained, isolated from root package/build inheritance and automatic Renovate updates."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable migration contract, demonstrated using pinned .NET11 RC2 SDK/provider artifacts. No experimental API or experimental opt-in is used. Actual GA reconciliation remains pending in the existing release-wide gate."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+          "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions"
+        ],
+        "evidenceSamples": [
+          "samples/net10.0/QuaySeals/QuaySeals.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Reviewed .NET Framework and UWP/classic Xamarin breaking-change baseline",
+      "url": "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md"
+    },
+    {
+      "title": "Microsoft release notes: Sqlite net10.0 minimum",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/efcore.md"
+    },
+    {
+      "title": "Microsoft.Data.Sqlite.Core 11 RC2 package assets",
+      "url": "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105"
+    },
+    {
+      "title": "Microsoft.Data.Sqlite.Core 10.0.13 package assets",
+      "url": "https://www.nuget.org/packages/Microsoft.Data.Sqlite.Core/10.0.13"
+    },
+    {
+      "title": "EF Core 11 requires .NET 11",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+    },
+    {
+      "title": "Microsoft.Data.Sqlite native-library and bundle configuration",
+      "url": "https://learn.microsoft.com/en-us/dotnet/standard/data/sqlite/custom-versions"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuaySeals/QuaySeals.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows x64 file-backed SQLite: parameterized apostrophe-containing value, committed insert, rolled-back update, exact value after connection reopen and database cleanup; package asset inspected by Record-SqliteRuntime.ps1."
+    },
+    {
+      "sample": "samples/net11.0/QuaySeals/QuaySeals.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows x64 file-backed SQLite: parameterized apostrophe-containing value, committed insert, rolled-back update, exact value after connection reopen and database cleanup; package asset inspected by Record-SqliteRuntime.ps1."
+    },
+    {
+      "sample": "samples/net10.0/QuaySeals11/QuaySeals11.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows x64 file-backed SQLite: parameterized apostrophe-containing value, committed insert, rolled-back update, exact value after connection reopen and database cleanup; package asset inspected by Record-SqliteRuntime.ps1."
+    },
+    {
+      "sample": "samples/net48/QuaySeals/QuaySeals.csproj",
+      "target": "net48",
+      "sdk": "10.0.402",
+      "language": "7.3",
+      "kind": "compile",
+      "scope": "Compile actual net48/C#7.3 retained provider10 project with SDK10 and locked Framework reference assemblies. Direct EXE execution is a separate record."
+    },
+    {
+      "sample": "samples/net48/QuaySeals/QuaySeals.csproj",
+      "target": "net48",
+      "sdk": "10.0.402",
+      "language": "7.3",
+      "kind": "execution",
+      "record": "samples/net48/QuaySeals/execution.evidence.json",
+      "scope": "Actual Windows x64 Framework EXE on installed .NET Framework 4.8.1, release 533509: parameterized persistence, commit, rollback, connection reopen and cleanup; SQLite 3.53.3. This is execution, not cross-compilation or a mock."
+    }
+  ],
+  "snippets": {
+    "previous-global-json": {
+      "path": "samples/net10.0/QuaySeals/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "previous-directory-build-props": {
+      "path": "samples/net10.0/QuaySeals/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "previous-directory-build-targets": {
+      "path": "samples/net10.0/QuaySeals/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "previous-directory-packages-props": {
+      "path": "samples/net10.0/QuaySeals/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "previous-quayseals-csproj": {
+      "path": "samples/net10.0/QuaySeals/QuaySeals.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "previous-program-cs": {
+      "path": "samples/net10.0/QuaySeals/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "current-global-json": {
+      "path": "samples/net11.0/QuaySeals/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "current-directory-build-props": {
+      "path": "samples/net11.0/QuaySeals/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "current-directory-build-targets": {
+      "path": "samples/net11.0/QuaySeals/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "current-directory-packages-props": {
+      "path": "samples/net11.0/QuaySeals/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "current-quayseals-csproj": {
+      "path": "samples/net11.0/QuaySeals/QuaySeals.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "current-program-cs": {
+      "path": "samples/net11.0/QuaySeals/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "net10-current-global-json": {
+      "path": "samples/net10.0/QuaySeals11/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "net10-current-directory-build-props": {
+      "path": "samples/net10.0/QuaySeals11/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-current-directory-build-targets": {
+      "path": "samples/net10.0/QuaySeals11/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-current-directory-packages-props": {
+      "path": "samples/net10.0/QuaySeals11/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-current-quayseals11-csproj": {
+      "path": "samples/net10.0/QuaySeals11/QuaySeals11.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "net10-current-program-cs": {
+      "path": "samples/net10.0/QuaySeals11/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "retained-framework-global-json": {
+      "path": "samples/net48/QuaySeals/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "retained-framework-directory-build-props": {
+      "path": "samples/net48/QuaySeals/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "retained-framework-directory-build-targets": {
+      "path": "samples/net48/QuaySeals/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "retained-framework-directory-packages-props": {
+      "path": "samples/net48/QuaySeals/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "retained-framework-quayseals-csproj": {
+      "path": "samples/net48/QuaySeals/QuaySeals.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "retained-framework-program-cs": {
+      "path": "samples/net48/QuaySeals/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded console/provider claims have actual automated Windows x64 compilation and execution, including net48 compiled against 4.8 and executed on installed 4.8.1. No UI/device/Human proof is needed for these routes. UWP/classic Xamarin and other native platforms are excluded, not implied by compilation. Actual GA remains a separate release gate."
+  }
+}
