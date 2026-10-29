@@ -45,13 +45,17 @@ not a magic filename the host reads automatically:
 
 {{snippet:instructions-1}}
 
-After building, copy it beside the DLL with the exact name
-`TidalDiagnostics.runtimeconfig.dev.json`. Run the DLL with the intended
-installation's absolute `dotnet` path. From a directory containing the matching
-project, `Program.cs`, `development.json` and a `global.json` pin for the stated
-SDK (`rollForward: "disable"`, `allowPrerelease: true` for RC2), use:
-
-{{snippet:instructions-2}}
+Create a directory containing the matching project, `Program.cs`,
+`development.json` and a `global.json` pin for the stated SDK
+(`rollForward: "disable"`, `allowPrerelease: true` for RC2). From that directory,
+invoke the matching installation's absolute `dotnet` executable with arguments
+`build TidalDiagnostics.csproj -c Release`. Copy `development.json` to
+`bin/Release/net10.0/TidalDiagnostics.runtimeconfig.dev.json` for the older
+project, or `bin/Release/net11.0/TidalDiagnostics.runtimeconfig.dev.json` for the
+newer one. Invoke the same absolute executable with the corresponding
+`bin/Release/net10.0/TidalDiagnostics.dll` or
+`bin/Release/net11.0/TidalDiagnostics.dll` argument. These paths refer to the
+files you just authored; no Playbook source checkout is required.
 
 For an old-host comparison, identify the selected hostfxr as well as the runtime;
 an installation containing a newer hostfxr is unsuitable. Observe:
@@ -75,8 +79,7 @@ and the reported CoreLib path.
 The actual SDK 10.0.402 and RC2 paths were evaluated and executed:
 
 - For `Configuration=Release`, `GenerateRuntimeConfigDevFile` evaluates to
-  `false` in SDK 10 and is unset in RC2; neither emits a sidecar. RC2 Debug
-  evaluation enables dev-file generation for hot reload. Explicitly building
+  `false` in SDK 10 and is unset in RC2; neither emits a sidecar. Explicitly building
   Release with `-p:GenerateRuntimeConfigDevFile=true` generates a dev file with
   `additionalProbingPaths`; it does not invent these application overrides.
 - Ordinary builds and framework-dependent publishes of these projects produced

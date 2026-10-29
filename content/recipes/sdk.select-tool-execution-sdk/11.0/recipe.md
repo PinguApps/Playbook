@@ -46,9 +46,14 @@ CLI home. The check manages those child settings without changing its parent.
 
 ## Pin the SDK independently from the package
 
-In the museum working directory, use this repository pin:
+In the museum working directory, use this repository pin for the older route:
 
 {{snippet:instructions-1}}
+
+For the primary .NET 11 route, use this pin instead and build the newer project
+into a separate `feed-11` directory with its matching SDK installation:
+
+{{snippet:instructions-4}}
 
 Save a two-line text file `east wing cards.txt` containing `SHELL-004` and
 `COMPASS-019`. Create `NuGet.Config` in that directory with just your absolute
@@ -56,11 +61,20 @@ local feed path:
 
 {{snippet:instructions-2}}
 
-Use absolute installation paths that exist on your machine. For example, with
-the package already packed into that feed and the SDK pin in the current
-directory:
+Replace the feed value above with the absolute path where you packed this route's
+package. Keep that `NuGet.Config`, the route's SDK pin and the cards file in the
+museum working directory. For each comparison, set `DOTNET_CLI_HOME` to a new
+home directory and `NUGET_PACKAGES` to a separate empty cache in the command's
+process environment, with `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` before first use;
+restore any parent-process values afterwards. No PATH change is needed.
 
-{{snippet:instructions-3}}
+From that museum directory, invoke the intended installation's absolute `dotnet`
+executable with arguments `--version`, then with
+`dnx Gullhaven.Museum.Catalogue@1.0.0 --configfile NuGet.Config --no-http-cache -- "east wing cards.txt" --gallery "east wing"`.
+For the older route, use the SDK 10.0.402 installation and the `feed-10` package.
+For the primary route, use the SDK 11.0.100-rc.2.26504.105 installation, the newer
+project and its separate `feed-11` package/cache. Both packages retain version
+1.0.0. All paths refer to your authored files; no Playbook checkout is required.
 
 `--version` reports the SDK selected by the muxer in that directory. The explicit
 command uses that SDK's `dnx`. The package `@1.0.0` pins a separate decision:
@@ -68,10 +82,12 @@ which tool package to execute. `--configfile` with a cleared, local-only source
 list avoids external package acquisition. `--` separates SDK options from the
 tool's arguments; the path and `east wing` must arrive as single arguments.
 
-For the independent wrapper route, invoke the shipped absolute `dnx.cmd` next
-to the intended `dotnet.exe`, passing the same package/options/arguments:
-
-The final command in the canonical block above invokes that shipped wrapper.
+For the independent wrapper route on Windows, invoke the shipped absolute
+`dnx.cmd` beside the intended `dotnet.exe` with arguments
+`Gullhaven.Museum.Catalogue@1.0.0 --configfile NuGet.Config --no-http-cache -- "east wing cards.txt" --gallery "east wing"`.
+Use the same museum working directory, cleared local-feed configuration and
+route-specific home/cache. The wrapper is the executable, so omit the leading
+`dnx` subcommand from its arguments.
 
 The serviced wrapper enumerates SDKs available to its adjacent muxer and invokes
 the selected SDK's `dotnet.dll dnx` directly. `dotnet --version` under a pin does
@@ -150,3 +166,4 @@ No API is experimental; .NET 11 RC2 proof still requires actual GA reconciliatio
 - [global.json SDK resolution](https://learn.microsoft.com/en-us/dotnet/core/tools/global-json)
 - [Shipped wrapper source](https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx.cmd)
 - [Serviced .NET 10 wrapper source](https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/sdk/src/Layout/redist/dnx.cmd)
+- [Official Unix wrapper source](https://github.com/dotnet/sdk/blob/b370d9f8508baee1ab99f3f8aba8bf5e1dfacf41/src/Layout/redist/dnx)

@@ -158,11 +158,6 @@
       "path": "samples/net11.0/TidalDiagnostics/Guidance.txt",
       "region": "instructions-1"
     },
-    "instructions-2": {
-      "language": "powershell",
-      "path": "samples/net11.0/TidalDiagnostics/Guidance.txt",
-      "region": "instructions-2"
-    },
     "instructions-3": {
       "language": "xml",
       "path": "samples/net11.0/TidalDiagnostics/Guidance.txt",
