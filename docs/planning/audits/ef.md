@@ -105,6 +105,26 @@ example has been republished as an original Playbook sample.
 
 ## Accountable dispositions
 
+### Retired native bundle initialization delivery — 29 October 2026
+
+PIN-864 delivers `sqlite.replace-retired-native-bundle/11.0` with original
+CanalPermits .NET10/.NET11 consumers. The previous bundle_winsqlite3 2.1.11
+and current provider.winsqlite3 3.0.5 both execute the same Windows x64 system
+engine without selecting a paid vendor or claiming encryption compatibility.
+The actual native DLL path, version and SHA256, committed permit debit/reopen,
+password refusal and fresh-process missing-initialization failure are recorded
+with sample compilation/freshness evidence. The current route explicitly calls
+SetProvider before connections; Core11 RC2 selects net10.0 managed assets.
+
+This reconciles WEB-154 / the `sqlite-bundles-deprecated` source disposition,
+not a new first-party API delta or vendor feature inventory. Preview6's SQLite3MC
+default and the article's bundle2.1.12 wording do not override the RC2 graph
+already measured by PIN-863. SQLitePCLRaw remains external. Encryption, custom
+native builds, other OS/architectures, UWP/classic Xamarin and actual GA remain
+unverified and excluded from this route. Existing PIN-965/959 and Human gates
+are preserved. No .NET10 foundation, source-manifest hash or audit baseline is
+relabeled by this delivery.
+
 ### Nested scalar and primitive sequence delivery — 29 October 2026
 
 PIN-845 delivers `ef.configure-nested-scalar/11.0`: original EstuaryMarkers

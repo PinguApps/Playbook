@@ -283,6 +283,33 @@ target. No UWP/classic Xamarin native execution or actual-GA proof is claimed.
 `eng/Record-SqliteRuntime.ps1` separately recaptures the four real consumers with
 the declared SDK10/SDK11 and Windows Framework runtime. Retrieval does not rerun SQL.
 
+## Retired SQLite native bundle initialization
+
+This block was executed from an unrelated directory. It builds/packs the ordinary
+tool and reuses the isolated local-feed/cache harness for real installed stdio
+list/get. Requires PowerShell7, SDK10.0.402 and Node22.19+; Inspector2.11.0 is
+installed locally if absent. Setup may restore online. Retrieval uses unusable
+proxies, proving proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-864-05-022-restore-native-sqlite-initialization-after-bundle'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'sqlite.replace-retired-native-bundle' -TargetVersion '11.0' `
+  -Query 'sqlite-initialization' -PackageVersion '0.0.0-sqlite-initialization' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/sqlite-initialization/inspection
+```
+
+Expect ID/title/goal, edition11.0, full canonical .NET10/.NET11 files and prose,
+Windows system-engine applicability and three current sample evidence records.
+The older bundle comparison is not an additional .NET10 foundation or selectable
+current target route. `eng/Record-SqliteInitialization.ps1` separately recaptures
+actual Windows x64 native initialization, committed debit/reopen, password refusal
+and omitted-initialization failure using SDK10.0.402 and SDK11 RC2. That helper
+records the loaded DLL/version/hash; retrieval does not execute SQL. Encryption,
+other platforms and actual GA remain unverified. No paid provider is selected.
+
 ## Inspect a response directly
 
 ```powershell
