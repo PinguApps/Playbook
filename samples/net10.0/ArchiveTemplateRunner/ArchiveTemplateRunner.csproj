@@ -1,0 +1,15 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../ArchiveTemplate/ArchiveTemplateLegacy.csproj" />
+    <Compile Include="../../ArchiveTemplate/Program.cs" Link="Program.cs" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->
