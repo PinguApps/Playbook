@@ -1,0 +1,16 @@
+<!-- snippet:alloy-project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <FoundryTarget Condition="'$(FoundryTarget)' == ''">net10.0</FoundryTarget>
+    <TargetFramework>$(FoundryTarget)</TargetFramework>
+    <OutputType>Library</OutputType>
+    <PackageId>AsterFoundry.Alloy</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Aster Foundry</Authors>
+    <Description>Original fictional alloy batch label formatter.</Description>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:alloy-project -->

@@ -952,3 +952,49 @@ directory with unusable proxies. This proves proxy-independent offline retrieval
 not network isolation. No target10 typed route, unsupported server embedding,
 short-lived experimental server execution, universal reuse/performance or actual-GA
 claim is made. PIN-959/PIN-963/Human gates remain open.
+
+## NuGet staging uploads
+
+This builds/packs the ordinary tool, installs that exact package through an
+isolated local feed/cache and calls real stdio list/get from an unrelated
+directory. It prints ID/title/goal, the complete canonical Markdown, target11 /
+edition11, applicability and fresh paired evidence. The target10 request must
+return no_applicable_edition: the older valid ordinary-publication comparison
+stays in the target11 body and is not staging support.
+
+The block was executed from an unrelated directory. Refresh paired evidence with
+`eng/Record-FoundryStaging.ps1` on both complete pinned Windows x64 SDK/runtime/ref
+installations when sample inputs change. Inspection needs PowerShell7, SDK10.0.402
+and Node22.19+. Setup may download tool/test dependencies;
+retrieval uses unusable proxies, establishing proxy independence, not network
+isolation. The evidence fixture uses only disposable literal127.0.0.1 HTTP and a
+generated noncredential marker. No public package upload or real API key is needed.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1124-03-029-upload-packages-to-a-v3-staging-endpoint'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'nuget.stage-package-uploads' -Query 'staging' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1124' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin1124/inspection
+```
+
+Expect title "Upload packages to a V3 staging endpoint" and goal "Stage a package
+and its symbols through a service-advertised endpoint when a publisher needs an
+upload step before final publication, with explicit group, transport and failure
+handling." Saved paired proof records original SDK pack/PDB validation and real
+wire checks. Current staging verifies advertised endpoint/PUT/chunked multipart bytes,
+original filenames, route/query, group present/null/empty and key present/absent
+without printing its value, HTTP201/400, missing supported resource, default HTTP
+refusal, same-origin authorization with default/fixture flags, loopback-only insecure opt-in, received cancellation and request timeout. URI-only policy checks are separate from HTTPS transport proof; malformed header/chunk/length connections also close with complete owned cleanup.
+SDK10 verifies actual ordinary publication, fixed package.nupkg filename and its
+HTTP400 failure, with no staging API/group equivalent. The fixture stops its own
+listener/clients and removes temporary packages. Any nonzero exit, stale evidence,
+missing recipe, wrong applicability or unexpanded snippet is a failure.
+
+This qualifies the pinned SDK-bundled public API and faithful local protocol only.
+No independently distributed NuGet.Protocol8 package, older-target staging route,
+hosted service interoperability, TLS/certificate flow, final publication, atomicity
+or GA is claimed. Exact eight foundations and PIN-959/PIN-963/Human gates stay open.

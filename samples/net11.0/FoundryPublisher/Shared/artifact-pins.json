@@ -1,0 +1,246 @@
+{
+  "10.0.402": [
+    {
+      "path": "../../dotnet.exe",
+      "sha256": "abce6623a6729059cf39bb0f728c4a7804f625895099c88c17e6e704661e09eb",
+      "product": "10.0.13 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../host/fxr/10.0.13/hostfxr.dll",
+      "sha256": "2e6bf792d54303a54467102fd873a7d7a993f828e8d19c040e13e428e5f2d9c8",
+      "product": "10.0.13 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../packs/Microsoft.NETCore.App.Ref/10.0.13/ref/net10.0/System.Runtime.dll",
+      "sha256": "f14458d03c0e944ba39ce0718ef7e5eceda598b48902a38f6fa2966748ae36a8",
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/coreclr.dll",
+      "sha256": "18eed8c40d05fc455be95d12cc77eacf379265063b15ca84bd7a11cf29078a22",
+      "product": "10,0,1326,50504 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/hostpolicy.dll",
+      "sha256": "90f9826f48e6416902199dee0fa1954536fe4c5191f5fd44b1bc6de623eb99c8",
+      "product": "10.0.13 @Commit: 4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/System.Private.CoreLib.dll",
+      "sha256": "0a175cdd09067c52f8b2477cfcebf894b2f926d7302e55ae76fc921529662c7b",
+      "product": "10.0.13-servicing.26504.104+4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "path": "NuGet.CommandLine.XPlat.deps.json",
+      "sha256": "08f03df36798f0962c36d0a301e75ae5785af51121b2c1a526fab088161cb474",
+      "product": null
+    },
+    {
+      "path": "Roslyn/bincore/csc.dll",
+      "sha256": "6af1a88cd6c79d9483dfc278984f9ed508359ba8a04c01ccffab26996e9a6833",
+      "product": "5.9.0-1.26505.111+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll",
+      "sha256": "09faf82339bc7937689aa8bf4f3c45a61cade2899f77b9a7ed227b1ad66db7cb",
+      "product": "5.9.0-1.26505.111+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.dll",
+      "sha256": "30f00ed639bb5dc9b5ad59a054872ad00bcecda033ee9bca4d5da0d217900249",
+      "product": "5.9.0-1.26505.111+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "sha256": "edb9d5c446900e286c7a792e41d57a6b71e0aa2ce44a2e06f091c5f3e92a52c0",
+      "path": "NuGet.Protocol.dll",
+      "product": "7.9.0-rc.611+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e.a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "sha256": "a4cb614ae0fd2ff40e7a9bfa0d1c7d5f2eefce463a833bc485ff3efa7b532a46",
+      "path": "NuGet.Configuration.dll",
+      "product": "7.9.0-rc.611+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e.a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "sha256": "b72061e8577a984ed696add25a9b3c7082c0c4318dac087e41c1f24e72fd684d",
+      "path": "NuGet.Packaging.dll",
+      "product": "7.9.0-rc.611+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e.a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "sha256": "a1ed5c4aa4d812d4b006d1b0c342272d5448242f38130055fa451f92deb31fa6",
+      "path": "NuGet.Common.dll",
+      "product": "7.9.0-rc.611+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e.a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "sha256": "b95578d3bcb0c81b46107956ecc03cf791df96cb272353907740161b3ad1f1fc",
+      "path": "NuGet.Versioning.dll",
+      "product": "7.9.0-rc.611+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e.a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "sha256": "0b82d3d398e483c15cff345ae027a0e5775b130a56d3e858394ceb4560743828",
+      "path": "NuGet.Frameworks.dll",
+      "product": "7.9.0-rc.611+a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e.a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e"
+    },
+    {
+      "sha256": "b01b9725a7f341d6aceb0ad1af6c1b45b66a185ad5aeab7cc29990af70db07c8",
+      "path": "Newtonsoft.Json.dll",
+      "product": "13.0.3+0a2e291c0d9c0c7675d445703e51750363a549ef"
+    },
+    {
+      "sha256": "455ecb5666a57822e6bde0167dfde651a672ff7fedc98e1d721c110e9470992f",
+      "path": "System.Security.Cryptography.Pkcs.dll",
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "sha256": "3606be52e5706afe49b8ef8e430f94ef44f85b0217a2ead54763722ca31079de",
+      "path": "System.Security.Cryptography.ProtectedData.dll",
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699"
+    },
+    {
+      "sha256": "127361ac77186c2322e2fa5d75aac441c25eab9bd28ccb7799dfc0b06897db59",
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/System.Net.Http.dll"
+    },
+    {
+      "sha256": "1f097ff565059147be68fdac148db435eaf9c2dd0a6f8248369e818f2cada590",
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/System.Net.Sockets.dll"
+    },
+    {
+      "sha256": "464900194cc2d5c405dba28b1b0ab02174fe224c2ea86ddf6ed4e48cea814e72",
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/System.Net.Security.dll"
+    },
+    {
+      "sha256": "9f4fd55056a3ccd6aa5f204933f9b8e3da412b060238cbeb8bb2be2fe4046f2a",
+      "product": "10.0.13+4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/System.Text.Json.dll"
+    },
+    {
+      "sha256": "de8a09a693727e8b326103bca2f6b3dd70e13a0ca0ef954aa2d9e060ec4952e0",
+      "product": "10.0.13-servicing.26504.104+4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "../../shared/Microsoft.NETCore.App/10.0.13/System.Private.Uri.dll"
+    }
+  ],
+  "11.0.100-rc.2.26504.105": [
+    {
+      "path": "../../dotnet.exe",
+      "sha256": "07678ce60dd20ed36f1d25b88f6f51d8bf5a880442680a664690154ebe976ad9",
+      "product": "11.0.0-rc.2.26504.105 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../host/fxr/11.0.0-rc.2.26504.105/hostfxr.dll",
+      "sha256": "38257cfcc1b6944871be9732a03632e3be945f3b5363363cb77cf92f5a68ef07",
+      "product": "11.0.0-rc.2.26504.105 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../packs/Microsoft.NETCore.App.Ref/11.0.0-rc.2.26504.105/ref/net11.0/System.Runtime.dll",
+      "sha256": "b3c36c73aaa453d14cb7af2e8ae198a2a8715fc5eca59b3b8da300bff6c753d0",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/coreclr.dll",
+      "sha256": "013a0ddcf0751ee6880cb175bd2f95ff3f9aa8b82a37ae4d17ed63a647f14e4c",
+      "product": "11,0,26,50505 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/hostpolicy.dll",
+      "sha256": "f94b1c568987c5cdd3f9db1436c2f6f830e268dbdc0b6142e4f1ce9904f5de8a",
+      "product": "11.0.0-rc.2.26504.105 @Commit: 820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/System.Private.CoreLib.dll",
+      "sha256": "00e353fe62d4b32e66bdaed6008886b3c1f6009a91dd6b8a27d2ad925fdf3e49",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Newtonsoft.Json.dll",
+      "sha256": "05ccb15f6881b5bf7dedad729297622de14b43ac7e82ad4c30aa29cb998ec279",
+      "product": "13.0.4+4e13299d4b0ec96bd4df9954ef646bd2d1b5bf2a"
+    },
+    {
+      "path": "NuGet.CommandLine.XPlat.deps.json",
+      "sha256": "f2bb000778ad15bbdb8f20cfce850f603239b6860a974e6cd5e1b87a3487c0f5",
+      "product": null
+    },
+    {
+      "path": "NuGet.Common.dll",
+      "sha256": "f9b8ae9081011802d06093c16bb2b802056a6314778b499047e2d9110bc7f1be",
+      "product": "8.0.0-rc.605+820230c386db5b0106c5430b3e5aee92a7826bf5.820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "NuGet.Configuration.dll",
+      "sha256": "30200dd9945cd6f34d777d95e99f3d58bf533e4fc67bc3a399fe316937c87b19",
+      "product": "8.0.0-rc.605+820230c386db5b0106c5430b3e5aee92a7826bf5.820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "NuGet.Frameworks.dll",
+      "sha256": "da5e719e899e041b54dfceadd2d27237ab5690fc8f224f211b3cd886d73419bb",
+      "product": "8.0.0-rc.605+820230c386db5b0106c5430b3e5aee92a7826bf5.820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "NuGet.Packaging.dll",
+      "sha256": "8e825d701ee13b3c4f9ec3d653ba3143fc6426684beaa573f4e08ec42ce8fd8e",
+      "product": "8.0.0-rc.605+820230c386db5b0106c5430b3e5aee92a7826bf5.820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "NuGet.Protocol.dll",
+      "sha256": "8d85c73d7acc85bf09345ffa46ab5f9b558b1ef246097f312b5f688db95bea65",
+      "product": "8.0.0-rc.605+820230c386db5b0106c5430b3e5aee92a7826bf5.820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "NuGet.Versioning.dll",
+      "sha256": "ce84a0dbdc18e3dfe37202f4da3771f337437a62c74249e4815c0aba77813178",
+      "product": "8.0.0-rc.605+820230c386db5b0106c5430b3e5aee92a7826bf5.820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Roslyn/bincore/csc.dll",
+      "sha256": "03a90c0454a9320dc853796f40fb113f5d6bbbb4b0b0eee6ae012551dd056255",
+      "product": "5.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll",
+      "sha256": "cf91f2a77d8dd79143d6c70bd506bbfc62aff49f46a8754169bd94264650cef1",
+      "product": "5.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "Roslyn/bincore/Microsoft.CodeAnalysis.dll",
+      "sha256": "a85da3cb908792177deea2716e71603836461a1ec930fad674371f78f26a5024",
+      "product": "5.12.0-1.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "System.Security.Cryptography.Pkcs.dll",
+      "sha256": "dea957f124e231fe19a58dcb6cf2171eb88089815dd9647ee56b5094d4bbf60c",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "path": "System.Security.Cryptography.ProtectedData.dll",
+      "sha256": "db5ac43b1018ce6e99abf6cadd4a2bd287c6dee990859290c195750015e2ed92",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5"
+    },
+    {
+      "sha256": "a70d3a83fe8ca43a3b2a003b492ef2f7a8a394e1faa42d30a77db513764d1201",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/System.Net.Http.dll"
+    },
+    {
+      "sha256": "8d7bfeaada1127c519049186887f7e8b607c06dfeeee887302e15562a8530353",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/System.Net.Sockets.dll"
+    },
+    {
+      "sha256": "c4204f91eb6f5d70b9c4d6302db8f79f24aab4136045bb7b0bc11125396c1e32",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/System.Net.Security.dll"
+    },
+    {
+      "sha256": "79acc1d5a6752f733d628caf743ed41468867c7d3f1382e804811f021216d613",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/System.Text.Json.dll"
+    },
+    {
+      "sha256": "f2e4af97232904e784b91db337c55080ca6bb6c351167dbdd873709611770e0c",
+      "product": "11.0.0-rc.2.26504.105+820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "../../shared/Microsoft.NETCore.App/11.0.0-rc.2.26504.105/System.Private.Uri.dll"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": [],
+  "buildArguments": [
+    "-p:UseSharedCompilation=false"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/net11.0/FoundryPublisher/Shared",
+    "eng/Record-FoundryStaging.ps1"
+  ],
+  "workloads": []
+}
