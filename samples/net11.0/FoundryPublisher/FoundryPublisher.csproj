@@ -2,6 +2,7 @@
 <!-- snippet:settings -->
   <PropertyGroup>
     <TargetFramework>net11.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <LangVersion>15.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -11,10 +12,10 @@
   </ItemGroup>
 <!-- endsnippet:settings -->
   <ItemGroup>
-    <Compile Include="../../FoundryStaging/Bootstrap.cs" Link="Bootstrap.cs" />
-    <Compile Include="../../FoundryStaging/Publisher.cs" Link="Publisher.cs" />
-    <Compile Include="../../FoundryStaging/WireServer.cs" Link="WireServer.cs" />
-    <Compile Include="../../FoundryStaging/StagingChecks.cs" Link="StagingChecks.cs" />
-    <None Include="../../FoundryStaging/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="Shared/Bootstrap.cs" Link="Bootstrap.cs" />
+    <Compile Include="Shared/Publisher.cs" Link="Publisher.cs" />
+    <Compile Include="Shared/WireServer.cs" Link="WireServer.cs" />
+    <Compile Include="Shared/StagingChecks.cs" Link="StagingChecks.cs" />
+    <None Include="Shared/artifact-pins.json" Link="artifact-pins.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

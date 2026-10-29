@@ -23,7 +23,7 @@ internal static class StagingChecks
         try
         {
             // Pack real original library/PDB inputs under this consumer's actual SDK.
-            string project = Path.Combine(root, "samples", "FoundryStaging", "Alloy", "Alloy.csproj");
+            string project = Path.Combine(root, "samples", "net11.0", "FoundryPublisher", "Shared", "Alloy", "Alloy.csproj");
             var start = new ProcessStartInfo(Environment.ProcessPath!) { WorkingDirectory = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../..")), RedirectStandardOutput = true, RedirectStandardError = true };
             foreach (string arg in new[] { "pack", project, "-c", "Release", "-o", fixture, "-p:FoundryTarget=" + (Environment.Version.Major == 11 ? "net11.0" : "net10.0"), "-p:UseSharedCompilation=false", "-p:NuGetAudit=false" }) start.ArgumentList.Add(arg);
             start.Environment["DOTNET_ADD_GLOBAL_TOOLS_TO_PATH"] = "0";
@@ -32,7 +32,7 @@ internal static class StagingChecks
             Task<string> stdout = child.StandardOutput.ReadToEndAsync(), stderr = child.StandardError.ReadToEndAsync();
             await child.WaitForExitAsync();
             Require(child.ExitCode == 0, "Actual pack failed: " + await stdout + await stderr);
-            Console.WriteLine("COMMAND dotnet pack samples/FoundryStaging/Alloy/Alloy.csproj -c Release -o <fixture> -p:FoundryTarget=net" + Environment.Version.Major + ".0 -p:UseSharedCompilation=false -p:NuGetAudit=false");
+            Console.WriteLine("COMMAND dotnet pack samples/net11.0/FoundryPublisher/Shared/Alloy/Alloy.csproj -c Release -o <fixture> -p:FoundryTarget=net" + Environment.Version.Major + ".0 -p:UseSharedCompilation=false -p:NuGetAudit=false");
             string package = Directory.GetFiles(fixture, "*.nupkg").Single();
             string symbols = Directory.GetFiles(fixture, "*.snupkg").Single();
             using (var zip = await ZipFile.OpenReadAsync(package)) Require(zip.Entries.Any(e => e.FullName.EndsWith("Alloy.dll", StringComparison.Ordinal)), "No real library");
@@ -73,6 +73,8 @@ internal static class StagingChecks
             Require(missing is null, "Unsupported staging version accepted");
             await Reject<InvalidOperationException>(() => Publisher.Stage(Publisher.Open(server.Origin + "/missing-publisher.json", true), package, symbols, null, null, true, CancellationToken.None));
             Require(server.Uploads.Count == before, "Missing resource sent data");
+            await Reject<InvalidOperationException>(() => Publisher.Stage(Publisher.Open(server.Origin + "/alien.json", true), package, symbols, marker, null, true, CancellationToken.None));
+            Require(server.Uploads.Count == before, "Non-fixture discovered endpoint sent data");
             server.Status = 400;
             await Reject<HttpRequestException>(() => resource.PushPackageAsync(package, null, null, TimeSpan.FromSeconds(5), true, NullLogger.Instance, CancellationToken.None));
             server.Status = 201;
@@ -94,7 +96,7 @@ internal static class StagingChecks
                 await Reject<TimeoutException>(() => pending);
                 Require(!bound.IsCancellationRequested, "Outer bound masked request timeout");
             }
-            Console.WriteLine("PASS unsupported staging version/missing resource prevents upload; HTTP400 rejected; received symbols request cancelled; received package request timed out independently of outer cancellation.");
+            Console.WriteLine("PASS unsupported staging version/missing resource and non-fixture advertised endpoint prevent upload; HTTP400 rejected; received symbols request cancelled; received package request timed out independently of outer cancellation.");
 #else
             Require(typeof(SourceRepository).Assembly.GetType("NuGet.Protocol.PackageStagingResourceV3") is null, "Unexpected older staging API");
             await Publisher.Publish(repository, package, marker, CancellationToken.None, allowLoopbackHttp: true);
@@ -135,7 +137,9 @@ internal static class StagingChecks
         if (group is not null)
         {
             string groupPart = parts[2];
-            Require(groupPart.Contains("name=groupId", StringComparison.Ordinal) || groupPart.Contains("name=\"groupId\"", StringComparison.Ordinal), "Wrong group field");
+            string groupDisposition = groupPart.Split("\r\n", StringSplitOptions.RemoveEmptyEntries).Single(h => h.StartsWith("Content-Disposition:", StringComparison.OrdinalIgnoreCase));
+            var parsedGroup = ContentDispositionHeaderValue.Parse(groupDisposition[(groupDisposition.IndexOf(':', StringComparison.Ordinal) + 1)..].Trim());
+            Require(parsedGroup.DispositionType == "form-data" && parsedGroup.Name?.Trim('"') == "groupId", "Wrong group field");
             Require(groupPart[(groupPart.IndexOf("\r\n\r\n", StringComparison.Ordinal) + 4)..^2] == group, "Group value changed");
         }
         Console.WriteLine($"WIRE PUT {route} field={field} group={(group is null ? "absent" : group.Length == 0 ? "empty" : "present")} key={(key is null ? "absent" : "present-redacted")} bytes={actual.Length} sha256={Hash(file)}");

@@ -1,3 +1,4 @@
+<!-- snippet:alloy-project -->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <FoundryTarget Condition="'$(FoundryTarget)' == ''">net10.0</FoundryTarget>
@@ -12,3 +13,4 @@
     <DebugType>portable</DebugType>
   </PropertyGroup>
 </Project>
+<!-- endsnippet:alloy-project -->

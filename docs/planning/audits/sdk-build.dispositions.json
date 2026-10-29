@@ -10,7 +10,7 @@
     { "id": "archive-tasks", "owner": "PIN-767", "pattern": "Microsoft\\.Build\\.Tasks\\.(TarDirectory|Untar)" },
     { "id": "xml-migration", "owner": "PIN-768", "pattern": "Microsoft\\.Build\\.Tasks\\.(XmlPeek|XmlPoke|XslTransformation)" },
     { "id": "cooldown", "owner": "PIN-769", "pattern": "(MinPublishAge|NU1020)" },
-    { "id": "staging", "owner": "B07", "pattern": "(PackageStaging|SettingsUtility::GetApiKey)" },
+    { "id": "staging", "owner": "B07", "pattern": "(PackageStaging|SettingsUtility::GetApiKey)", "deliveryIssue": "PIN-1124", "recipe": "nuget.stage-package-uploads/11.0", "disposition": "Delivered exact SDK11 public resource/provider and real disposable loopback protocol checks; SDK10 ordinary publication alternative. No independent package8, older-target staging, hosted interoperability, TLS or GA proof. PIN-959/PIN-963/Human gates retained." },
     { "id": "nuget-reset", "owner": "B08", "pattern": "NuGet\\.Common\\.StaticState" },
     { "id": "analyzer-assets", "owner": "B09", "pattern": "(AnalyzerAssets|AnalyzerAssembl|CompilerApiVersionProperty)" },
     { "id": "nuget-obsolete-helper", "owner": "B10", "pattern": "NuGet\\.Credentials\\.PluginException::CreatePathNotFoundMessage" },

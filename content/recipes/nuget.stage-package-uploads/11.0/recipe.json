@@ -1,0 +1,189 @@
+{
+  "id": "nuget.stage-package-uploads",
+  "edition": "11.0",
+  "title": "Upload packages to a V3 staging endpoint",
+  "goal": "Stage a package and its symbols through a service-advertised endpoint when a publisher needs an upload step before final publication, with explicit group, transport and failure handling.",
+  "areas": [
+    "nuget",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "staging",
+    "package-upload",
+    "service-index",
+    "multipart"
+  ],
+  "apis": [
+    "PackageStagingResourceV3",
+    "PackageStagingResourceV3Provider",
+    "SourceRepository.GetResourceAsync",
+    "PushPackageAsync",
+    "PushSymbolsAsync",
+    "PackageUpdateResource"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "selectionNotes": [
+          "Choose the publisher host separately from the package target. Only the exact SDK11 net11 consumer is qualified for staging; no older-target staging route is advertised.",
+          "SDK10 retains a real ordinary PackagePublish/2.0.0 alternative, without group or staging equivalence.",
+          "The actual test provider was an original disposable loopback HTTP fixture. No hosted service support is established."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0.0-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Exact managed runtime used by the SDK-bound publisher. DLL TFM and hosted-provider support are separate facts; actual GA unqualified."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0.100-rc.2.26504.105",
+            "match": "exact",
+            "reason": "Complete SDK supplies audited NuGet8.0.0-rc.605 public API and compatible closure, compiler/ref/runtime/native-host pins."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Pinned sample mode; staging API requires no new language feature or preview-language opt-in."
+          },
+          "frameworks": [],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [
+            "No independently distributed NuGet.Protocol8 package is claimed; public index observed 2026-10-29 ended7.9.0. No package restore in these publishers.",
+            "Actual SDK NuGet DLLs target net8.0(old) / net10.0(current), independently of the net10/net11 consumers. NuGet.Protocol/Common/Configuration/Packaging/Frameworks/Versioning and Newtonsoft.Json/Pkcs/ProtectedData are qualified from complete matching SDK installations, not mixed binaries."
+          ],
+          "providers": [
+            "A real V3 service index advertising PackageStaging/1.0.0. Executed provider: original disposable literal127.0.0.1 HTTP/1.1 fixture implementing the pinned protocol; hosted authorization/support not established."
+          ],
+          "platforms": [
+            "Windows x64 managed execution on exact SDK/runtime/ref/native-host assets. Other OSes, NativeAOT and redistribution unqualified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete SDK11.0.100-rc.2.26504.105/runtime+ref11RC2; rollForward=disable, allowPrerelease=true. Launch via the matching absolute dotnet executable.",
+            "SDK10.0.402/runtime+ref10.0.13 and C#14 reproduce the valid ordinary publication comparison. Exact file/product/hash pins and actual loaded identities are retained separately.",
+            "Original SDK-packed library and portable-PDB snupkg; a compatible authorized provider or the disposable local protocol fixture. PowerShell7 for evidence; no account, real key, native compiler, workload, device or UI/rendering mode."
+          ],
+          "constraints": [
+            "Discover using real core providers and SourceRepository.GetResourceAsync; the staging constructor is internal. Missing/unsupported resource fails without ordinary-push fallback.",
+            "PUT chunked multipart original filename/bytes; package/symbols fields and routes, optional groupId, nonempty API-key header. SourceUri equals advertised endpoint; appended path retains query.",
+            "Default HTTP refused. Insecure opt-in is bounded to disposable literal127.0.0.1 source and discovered endpoint; no TLS override/store change. Generated fixture marker is never printed.",
+            "Success is upload acceptance only: no final publication, atomic grouping, idempotency, rollback or hosted interoperability promise. Status/cancellation/timeout can leave partial service state.",
+            "No independently distributed package8, down-level staging, private/reflection resource construction, mixed dependency ABI, HTTPS/certificate/redirect/authentication-flow or performance claim."
+          ],
+          "optIns": [
+            "PackageSource.AllowInsecureConnections and per-upload allowInsecureConnections=true only for the disposable loopback fixture. Both default false in publisher calls.",
+            "RC2 SDK explicitly allows prerelease. No experimental API suppression or preview-language switch is required."
+          ],
+          "stabilityLimitations": [
+            "Exact-artifact preview qualification, not a public hosted-service standard/support guarantee or actual GA.",
+            "Eight approved .NET10 foundations, PIN-959 qualifying coverage/evidence, PIN-963 actual-GA and unrelated Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageStagingResourceV3.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Providers/PackageStagingResourceV3Provider.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/ServiceTypes.cs",
+          "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageUpdateResource.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FoundryPublisher/FoundryPublisher.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageStagingResourceV3.cs",
+      "title": "Pinned public staging resource and multipart/transport contract"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Providers/PackageStagingResourceV3Provider.cs",
+      "title": "Real service-index/provider discovery and missing resource"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Protocol/ServiceTypes.cs",
+      "title": "Supported PackageStaging/1.0.0 service type"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/nuget-client/src/NuGet.Core/NuGet.Protocol/Resources/PackageUpdateResource.cs",
+      "title": "Older ordinary publication; not staging"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual audited SDK NuGet7.9 closure, real original SDK pack/PDB contents and PackagePublish/2.0.0 network discovery/PUT multipart bytes/key/HTTP400. Staging type absent; no equivalent grouping/staging claim.",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "sample": "samples/net10.0/FoundryPublisher/FoundryPublisher.csproj",
+      "kind": "compile-and-run"
+    },
+    {
+      "scope": "Actual audited SDK NuGet8 closure and original nupkg/snupkg; real service-index discovery and exact endpoint/PUT/chunked multipart bytes/routes/filenames/content types; group present/null/empty, key present/absent, 201, HTTP400, missing/unsupported resource, HTTP refusal, loopback opt-in guards, received cancellation/request-timeout. Local protocol conformance, no hosted interoperability/TLS/GA proof.",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "sample": "samples/net11.0/FoundryPublisher/FoundryPublisher.csproj",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "alloy-project": {
+      "path": "samples/net11.0/FoundryPublisher/Shared/Alloy/Alloy.csproj",
+      "language": "xml",
+      "region": "alloy-project"
+    },
+    "legacy-settings": {
+      "path": "samples/net10.0/FoundryPublisher/FoundryPublisher.csproj",
+      "language": "xml",
+      "region": "settings"
+    },
+    "bootstrap": {
+      "path": "samples/net11.0/FoundryPublisher/Shared/Bootstrap.cs",
+      "language": "csharp",
+      "region": "bootstrap"
+    },
+    "alloy-source": {
+      "path": "samples/net11.0/FoundryPublisher/Shared/Alloy/BatchLabel.cs",
+      "language": "csharp",
+      "region": "alloy-source"
+    },
+    "publisher": {
+      "path": "samples/net11.0/FoundryPublisher/Shared/Publisher.cs",
+      "language": "csharp",
+      "region": "publisher"
+    },
+    "settings": {
+      "path": "samples/net11.0/FoundryPublisher/FoundryPublisher.csproj",
+      "language": "xml",
+      "region": "settings"
+    }
+  },
+  "humanProof": {
+    "scope": "Authorized local disposable HTTP protocol fixture fulfills this managed transport goal. No Human, hosted provider, real-secret, certificate, native-compiler or device proof is claimed; PIN-959/PIN-963/GA and unrelated Human gates remain open.",
+    "status": "not-required"
+  }
+}

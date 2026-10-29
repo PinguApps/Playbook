@@ -25,7 +25,7 @@ try {
     New-Item -ItemType Directory -Path $local -Force | Out-Null
     Copy-Item -LiteralPath $recordPath -Destination (Join-Path $local 'raw.evidence.json')
     # Keep required behaviour/input records, with private machine paths redacted.
-    # Exact raw invocations and binlogs remain disposable in ignored artifacts/.
+    # Exact raw invocations and wire diagnostics remain disposable in ignored artifacts/.
     foreach ($field in 'command','output','sdkInfo','workloadInfo') {
       foreach ($pair in @(@($root,'<repo>'), @((Split-Path $dotnet),'<dotnet-root>'), @($env:USERPROFILE,'<user-profile>'))) {
         if ($pair[0]) {

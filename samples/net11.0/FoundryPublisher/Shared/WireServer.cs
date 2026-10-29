@@ -78,18 +78,24 @@ internal sealed class WireServer : IAsyncDisposable
                     string type = request[1].Contains("missing", StringComparison.Ordinal) ? "PackageStaging/9.0.0" : "PackageStaging/1.0.0";
                     var resources = new[]
                     {
-                        new Dictionary<string, string> { ["@id"] = Endpoint, ["@type"] = type },
+                        new Dictionary<string, string> { ["@id"] = request[1].Contains("alien", StringComparison.Ordinal) ? Endpoint.Replace("127.0.0.1", "localhost", StringComparison.Ordinal) : Endpoint, ["@type"] = type },
                         new Dictionary<string, string> { ["@id"] = Origin + "/published", ["@type"] = "PackagePublish/2.0.0" }
                     };
                     await Respond(stream, 200, JsonSerializer.SerializeToUtf8Bytes(new { version = "3.0.0", resources }));
                 }
-                else
+                else if (request[0] == "PUT" && request[1] is "/foundry/batches/package?lane=bronze" or "/foundry/batches/symbols?lane=bronze" or "/published/")
                 {
+                    if (!headers.TryGetValue("Content-Type", out var type) || !type.StartsWith("multipart/form-data;", StringComparison.Ordinal))
+                    {
+                        await Respond(stream, 400, []);
+                        return;
+                    }
                     Uploads.Enqueue(new(request[0], request[1], headers, body.ToArray()));
                     Arrived.TrySetResult();
                     if (Hold) await Task.Delay(Timeout.Infinite, stop.Token);
                     await Respond(stream, Status, []);
                 }
+                else await Respond(stream, 404, []);
             }
             catch (OperationCanceledException) when (stop.IsCancellationRequested) { }
             catch (IOException) { /* The client may disconnect after timeout/cancellation. */ }
