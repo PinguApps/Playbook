@@ -1,0 +1,8 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <OutputType>Library</OutputType><DebugType>portable</DebugType>
+  </PropertyGroup>
+</Project>
+<!-- endsnippet:project -->

@@ -1,0 +1,181 @@
+{
+  "id": "nuget.skip-disposable-restore-graph",
+  "edition": "11.0",
+  "title": "Avoid writing a disposable CI restore graph",
+  "goal": "Suppress the on-disk NuGet dependency graph for a clean disposable build while retaining resolved assets, locked dependencies and a working application.",
+  "areas": [
+    "nuget",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "beacon-build",
+    "skip-disposable-restore-graph"
+  ],
+  "apis": [
+    "RestoreDoNotWriteDependencyGraphSpec",
+    "project.assets.json"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Both actual SDK10.0.402/NuGet7.9 and SDK11 RC2/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
+          "Scope is disposable clean builds; normal incremental development keeps the default. No cache/no-op equivalence or speed saving is claimed."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared net11.0 application and SDK-host runtime. Exact RC2 artifacts are evidence, not GA qualification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Documented feature family and current route; actual SDK10 servicing overlap is recorded separately, not a general down-level route."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Language setting of the compiled companion application; the MSBuild configuration itself is language-neutral."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Original local Beacon.Rates/1.0.0 package, net10.0 or net11.0 asset matched to the comparison. No independently distributed NuGet/MSBuild package substitutes the complete SDK."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 is the executed platform; other platforms require separate qualification."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.402, runtime/ref10.0.13, C#14; SDK11.0.100-rc.2.26504.105, runtime/ref11RC2, C#15.",
+            "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
+          ],
+          "constraints": [
+            "Both actual SDK10.0.402/NuGet7.9 and SDK11 RC2/NuGet8 honour this switch. Do not infer newer-only availability from release notes.",
+            "Scope is disposable clean builds; normal incremental development keeps the default. No cache/no-op equivalence or speed saving is claimed.",
+            "Only target11 is advertised. The real .NET10 comparison adds no ninth foundation or general SDK11-on-net10 route.",
+            "No optional workload, provider, native compiler, rendering mode, production resource or public publication is required."
+          ],
+          "optIns": [
+            "RestoreDoNotWriteDependencyGraphSpec=true only for the chosen disposable restore."
+          ],
+          "stabilityLimitations": [
+            "These controls are not designated experimental in the cited documentation. Actual verification uses RC2; PIN-959/PIN-963 and existing Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/nuget.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Build.Tasks/NuGet.targets"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BeaconBuild/BeaconBuild.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official restore-graph opt-out and local-build boundary",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview4/nuget.md"
+    },
+    {
+      "title": "Actual NuGet graph-generation metadata",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/nuget-client/src/NuGet.Core/NuGet.Build.Tasks/NuGet.targets"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Original package pack and fresh local-only locked restores with true/false/default, exact package hash and equal selected compile/runtime assets; all build/run, default incremental repeat and missing-package failure. Windows x64 only."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Original package pack and fresh local-only locked restores with true/false/default, exact package hash and equal selected compile/runtime assets; all build/run, default incremental repeat and missing-package failure. Windows x64 only."
+    }
+  ],
+  "snippets": {
+    "app-10": {
+      "path": "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rules-project-10": {
+      "path": "samples/net10.0/BeaconBuild/Rules/Beacon.Rules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rates-project-10": {
+      "path": "samples/net10.0/BeaconBuild/Rates/Beacon.Rates.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "app-11": {
+      "path": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rules-project-11": {
+      "path": "samples/net11.0/BeaconBuild/Rules/Beacon.Rules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rates-project-11": {
+      "path": "samples/net11.0/BeaconBuild/Rates/Beacon.Rates.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "program": {
+      "path": "samples/net10.0/BeaconBuild/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    },
+    "rules": {
+      "path": "samples/net10.0/BeaconBuild/Rules/BerthCharge.cs",
+      "region": "rules",
+      "language": "csharp"
+    },
+    "rates": {
+      "path": "samples/net10.0/BeaconBuild/Rates/Tariff.cs",
+      "region": "rates",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded local Windows x64 compilation and behaviour are agent-executed. No Human, device, external provider or GA gate is satisfied."
+  }
+}

@@ -1,4 +1,8 @@
 # PR Agent review scope; Git tracking and verification gates are unchanged.
+# Test-BeaconBuild generated SDK/command/restore/publish/import captures. Review
+# canonical consumers, artifact pins, locks, recorder and recipes; pack checks freshness.
+/samples/net10.0/BeaconBuild/verification-evidence.json
+/samples/net11.0/BeaconBuild/verification-evidence.json
 # Test-SkylarkBuild generated SDK/command/PE/package captures. Review original
 # consumers, artifact pins, locks and recorder; ordinary build/pack checks freshness.
 /samples/net10.0/SkylarkServicing/verification-evidence.json

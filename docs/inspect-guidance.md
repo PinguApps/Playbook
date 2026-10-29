@@ -4,6 +4,47 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Disposable restore graphs, referenced symbols and evaluated imports
+
+This block was checked from an unrelated directory. It builds/packs the ordinary
+tool once, installs that exact artifact through the existing isolated local
+feed/cache and calls real installed stdio list/get. It prints each ID/title/goal,
+complete canonical Markdown, target11/edition11, applicability and current paired
+evidence. Every target10 get must return `no_applicable_edition`; the real older
+comparisons add no ninth foundation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-c5612d78'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('nuget.skip-disposable-restore-graph','sdk.publish-referenced-symbols','msbuild.inspect-import-tree') `
+  -Query 'beacon-build' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1134-1136' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/beacon/inspection
+```
+
+Expect the reusable titles **Avoid writing a disposable CI restore graph**,
+**Include referenced symbols in published output** and **Inspect the actual build
+import tree**, with explanatory goals and fresh actual evidence. Separately,
+`eng/Test-BeaconBuild.ps1 -Record` recreates the paired local-package/locked-restore,
+publish and evaluated-import controls with the exact SDK10/11 executable defaults
+declared in that helper. It builds/runs both actual consumers and every publish;
+checks true/false/default dgspec outputs, exact package hashes/equal selected assets,
+normal local repeat and missing-package failure; verifies plural versus ineffective
+singular symbol policy and own/reference/snupkg boundaries; and evaluates nested,
+conditional, SDK, unset/false, ordering and duplicate/parent import controls.
+
+Setup needs PowerShell7, SDK10.0.402/runtime/ref10.0.13, Node22.19+ and, to reproduce
+samples, complete SDK11.0.100-rc.2.26504.105/runtime/ref11RC2. Tool/Inspector setup
+may restore online; sample dependencies are original and local-only. Retrieval
+with unusable proxies proves proxy independence, not network isolation. Actual
+SDK10 already honours graph suppression/import items and includes the reference
+PDB. SDK11's plural symbol property defaults true; false excludes that PDB, while
+the app's own symbol setting remains separate. No redundant older copy workaround,
+cache/no-op equivalence, speed saving, single-file/debugger, arbitrary import order,
+other-platform or GA claim is made. PATH/persistent settings, the exact eight
+foundations and PIN-959/PIN-963/Human gates remain unchanged.
+
 ## Token-binding removal and published F# MVC views
 
 These two 11.0 editions use the existing actual-package Inspector with an isolated

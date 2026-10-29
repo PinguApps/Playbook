@@ -1,0 +1,186 @@
+{
+  "id": "sdk.publish-referenced-symbols",
+  "edition": "11.0",
+  "title": "Include referenced symbols in published output",
+  "goal": "Choose whether referenced debugging symbols accompany a framework-dependent publish and distinguish that policy from the application's own symbols.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "beacon-build",
+    "publish-referenced-symbols"
+  ],
+  "apis": [
+    "PublishReferencesSymbols",
+    "CopyOutputSymbolsToPublishDirectory",
+    "PublishReferenceSymbols"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Actual SDK11 uses PublishReferencesSymbols (plural) and defaults to true. The singular spelling is ineffective.",
+          "The actual SDK10 baseline already publishes the project-reference PDB; no redundant file-copy workaround is taught. Separate snupkg symbols are not ordinary restored package assets."
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared net11.0 application and SDK-host runtime. Exact RC2 artifacts are evidence, not GA qualification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Documented feature family and current route; actual SDK10 servicing overlap is recorded separately, not a general down-level route."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Language setting of the compiled companion application; the MSBuild configuration itself is language-neutral."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Original local Beacon.Rates/1.0.0 package, net10.0 or net11.0 asset matched to the comparison. No independently distributed NuGet/MSBuild package substitutes the complete SDK."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 is the executed platform; other platforms require separate qualification."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete SDK/runtime/ref installations. Tested SDK10.0.402, runtime/ref10.0.13, C#14; SDK11.0.100-rc.2.26504.105, runtime/ref11RC2, C#15.",
+            "PowerShell7 for the reproducible checks. Original local package setup uses no remote source; installed guidance is embedded offline."
+          ],
+          "constraints": [
+            "Actual SDK11 uses PublishReferencesSymbols (plural) and defaults to true. The singular spelling is ineffective.",
+            "The actual SDK10 baseline already publishes the project-reference PDB; no redundant file-copy workaround is taught. Separate snupkg symbols are not ordinary restored package assets.",
+            "Only target11 is advertised. The real .NET10 comparison adds no ninth foundation or general SDK11-on-net10 route.",
+            "No optional workload, provider, native compiler, rendering mode, production resource or public publication is required."
+          ],
+          "optIns": [
+            "PublishReferencesSymbols=true or false; CopyOutputSymbolsToPublishDirectory separately controls application symbols."
+          ],
+          "stabilityLimitations": [
+            "These controls are not designated experimental in the cited documentation. Actual verification uses RC2; PIN-959/PIN-963 and existing Human gates remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Publish.targets",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.BeforeCommon.targets",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/sdk.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BeaconBuild/BeaconBuild.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Actual plural reference-symbol publish filter",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Publish.targets"
+    },
+    {
+      "title": "Actual default for reference symbols",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.BeforeCommon.targets"
+    },
+    {
+      "title": "Historical singular spelling in Preview1; superseded by actual targets",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/sdk.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual true/false/default/incorrect-singular publishes, DLL and portable PDB byte checks, application-versus-reference symbol control, snupkg boundary and execution of every published app. Windows x64 framework-dependent folders only."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual true/false/default/incorrect-singular publishes, DLL and portable PDB byte checks, application-versus-reference symbol control, snupkg boundary and execution of every published app. Windows x64 framework-dependent folders only."
+    }
+  ],
+  "snippets": {
+    "app-10": {
+      "path": "samples/net10.0/BeaconBuild/BeaconBuild.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rules-project-10": {
+      "path": "samples/net10.0/BeaconBuild/Rules/Beacon.Rules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rates-project-10": {
+      "path": "samples/net10.0/BeaconBuild/Rates/Beacon.Rates.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "app-11": {
+      "path": "samples/net11.0/BeaconBuild/BeaconBuild.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rules-project-11": {
+      "path": "samples/net11.0/BeaconBuild/Rules/Beacon.Rules.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "rates-project-11": {
+      "path": "samples/net11.0/BeaconBuild/Rates/Beacon.Rates.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "program": {
+      "path": "samples/net10.0/BeaconBuild/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    },
+    "rules": {
+      "path": "samples/net10.0/BeaconBuild/Rules/BerthCharge.cs",
+      "region": "rules",
+      "language": "csharp"
+    },
+    "rates": {
+      "path": "samples/net10.0/BeaconBuild/Rates/Tariff.cs",
+      "region": "rates",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded local Windows x64 compilation and behaviour are agent-executed. No Human, device, external provider or GA gate is satisfied."
+  }
+}
