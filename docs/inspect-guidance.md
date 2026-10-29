@@ -97,16 +97,15 @@ retrieval uses unusable proxies (proxy independence, not network isolation).
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72e14ee7'
-& ./eng/Test-Smoke.ps1 -PackageVersion '0.0.0-host-selection'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('deployment.control-runtime-overrides','sdk.select-tool-execution-sdk') `
   -Query 'host-selection' -PackageVersion '0.0.0-host-selection' `
   -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -Node 'C:\Program Files\nodejs\node.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/host-selection/inspection
 ```
 
-Expect one passed installed smoke, then both IDs/titles/goals, explicit edition
+Expect both IDs/titles/goals, explicit edition
 11.0, complete expanded canonical Markdown, applicability and four current
 compilation/execution records per recipe. The second recipe correctly reports
 introduction 10.0: wrapper bypass was serviced into 10.0.302/10.0.400 and was
