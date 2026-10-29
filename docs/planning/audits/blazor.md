@@ -1,5 +1,27 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+## Authored task generation delivery: B14 / PIN-1168
+
+`razor.choose-task-generation-path/11.0` supplies original ExhibitCompiler
+consumers that invoke the real SDK10/RC2 SdkRazorTagHelper and SdkRazorGenerate
+tasks. Matching task/rzc/compiler/MSBuild closures generate C# that compiles
+and executes through HtmlRenderer. The older default engine remains valid.
+RC2 omitted flags and explicit false select the engine; explicit true hosts
+the source generator. Real dependency and empty-manifest controls distinguish
+manifest-driven engine discovery from reference-driven hosted generation.
+Invalid Razor, relative discovery paths, missing output metadata and the
+unavailable older flag fail through the actual tasks.
+
+The public task parameters provide the bounded usable invocation seam. The
+underscored forwarding property remains private SDK implementation detail,
+not stable application configuration. No older-target hosted route is taught.
+Fresh records retain exact inputs/tool identities and generated output; binlogs
+and full artifacts are disposable outputs of `eng/Record-ExhibitCompiler.ps1`.
+M (3) covers one advanced task consumer, paired original samples/prose, actual
+execution/failure checks and installed offline proof. No native/browser/IDE or
+actual-GA claim; exact eight foundations and existing identities remain.
+PIN-959 qualifying coverage and PIN-964 actual-GA reconciliation stay open.
+
 ## Intermediate-node copy delivery: B13 / PIN-1167
 
 `razor.copy-intermediate-nodes/11.0` supplies original MapCompiler libraries
@@ -288,7 +310,7 @@ source-only scripts, defaults, markup, manifests and removable workarounds.
 | InputFile protected virtual Dispose(bool) | New subclass cleanup hook; existing public IDisposable behavior remains. | **B15**. |
 | Razor compiler document constructors/output flags/GetCSharpDocument | Optional parameters preserve some source calls but change CLR constructor identity; custom compiled tool hosts must rebuild against matching tooling. | **B12**. |
 | Intermediate-node CloneNode overrides | Authored custom Razor transformations can copy nodes; not a guarantee of deep-copying every mutable descendant. | **B13**. |
-| SdkRazorGenerate Assemblies/UseSourceGenerator; SdkRazorTagHelper.UseSourceGenerator | Advanced build-task source-generator path; default remains false. `_RazorToolUseSourceGenerator` is an internal SDK switch, not a stable public application property. | **B14** for direct task authors; internal default alone excluded. |
+| SdkRazorGenerate Assemblies/UseSourceGenerator; SdkRazorTagHelper.UseSourceGenerator | Advanced build-task source-generator path; default remains false. `_RazorToolUseSourceGenerator` is an internal SDK switch, not a stable public application property. | Delivered PIN-1168, `razor.choose-task-generation-path/11.0`; actual old/current task execution, generated rendering and discovery/failure controls. Private forwarding default remains excluded as app configuration; GA gates open. |
 | Razor task TaskEnvironment/IMultiThreadableTask and scheduling attributes | Built-in task scheduling is automatic; custom task concurrency contracts already assigned. | Grouped with PIN-707; no Razor-specific duplicate. |
 | Razor language 11/default task TFM, net10-only embedded validation attributes | SDK/runtime selection and removal of embedded validation aliases/suppressions on net11. Keep net10 path separate. | PIN-772/PIN-748; SDK pin/dependency boundary PIN-707. |
 | Razor runtime compilation AddRazorRuntimeCompilation overloads | Actual RC2 overloads gain ASPDEPR003; runtime behavior is not removed. | Delivered: PIN-840, `razor.replace-runtime-compilation-registration/11.0`; .NET 10 RuntimeCompilation 10.0.13 versus package-free RC2 MVC/Razor Pages render/encoding checks. Hot Reload choice documented; live edit and F# publishing not claimed. GA reconciliation pending. |

@@ -37,8 +37,8 @@
       "id": "razor-tasks",
       "assetPattern": "^sdk/",
       "pattern": " Microsoft\\.AspNetCore\\.Razor\\.Tasks\\.(SdkRazorGenerate|SdkRazorTagHelper)",
-      "owner": "B14",
-      "disposition": "included; advanced tooling"
+      "owner": "B14; PIN-1168; razor.choose-task-generation-path/11.0",
+      "disposition": "delivered; actual SDK10 default engine and RC2 omitted/default, explicit engine and hosted task invocations with matching MSBuild/rzc/compiler closure. Generated C# is compiled and rendered; discovery dependency, manifest selection, invalid Razor and task-validation controls execute. Public parameters only; private forwarding property is not stable app configuration. No older-target hosted route. PIN-959/PIN-964 and actual-GA gates remain open."
     },
     {
       "id": "razor-task-scheduling",
