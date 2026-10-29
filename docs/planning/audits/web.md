@@ -118,7 +118,7 @@ explicitly. This preserves real changes hidden among runtime-async conversions.
 | AuthorizationPolicy.CombineAsync metadata overload | Delivered PIN-809 ([proof](../../verification/authorization-and-clock.md)); common requirement/policy metadata, with legacy non-endpoint MVC excluded from the new behavior. |
 | Identity TimeProvider | Delivered PIN-810 ([proof](../../verification/authorization-and-clock.md)): real UserManager threshold/end/expiry with controlled TimeProvider. Token/cookie paths are not inferred from lockout proof. |
 | Aaguid on UserPasskeyInfo/IdentityPasskeyData; template authenticator names | PIN-811; persisted/display mapping and rename fallback. Automatic built-in names alone are excluded. |
-| Passkey denial and JSON StringSyntax annotations | PIN-812 owns real lockout/confirmation outcomes. StringSyntax is tooling guidance, not a new sign-in operation. Registration confirmation is distinct: **W07**. |
+| Passkey denial and JSON StringSyntax annotations | PIN-812 owns real lockout/confirmation outcomes. StringSyntax is tooling guidance, not a new sign-in operation. Registration confirmation is distinct: **W07 / PIN-1177 delivered** `identity.confirm-before-registration-signin/11.0`, actual paired UI/store/HTTP registration controls. |
 | Identity UI Bootstrap4 MSBuild warning | **W08**; authored project property and customized UI/assets. Automatic Bootstrap vendor updates alone are excluded. |
 | SignalR refresh server/client/features/metadata/UserIdentifier and TypeScript contract | PIN-813; shared goal across transports and Blazor. Public feature and hub members group under the same lifecycle. Actual npm availability/final-name gap remains open below. |
 | Non-streaming hub cancellation | PIN-814; protocol/runtime behavior can change without a new method signature. Matched clients/server and actual cancellation remain required. |
@@ -399,6 +399,38 @@ establishing the supported authoring boundary; retain a factual gap if no such
 consumer can be established rather than inventing a recipe.
 
 ### W07. Keep registration aligned with confirmation policy — M (3)
+
+Delivered by **PIN-1177** as `identity.confirm-before-registration-signin/11.0`.
+Original AquariumVolunteers projects compile and execute actual Identity.UI,
+Identity.EntityFrameworkCore and EF SQLite10.0.13 versus matching 11 RC2 packages,
+with SDK10.0.402/C#14 and SDK11 RC2/C#15. UI/EF package ZIPs and Identity reference
+hashes match this audit; full locked selected assets, compiler/runtime/native-host
+and loaded SQLite identities are recorded through `eng/Record-AquariumVolunteers.ps1`.
+Old SQLitePCLRaw2.1.13 loads SQLite3.53.3; current SQLitePCLRaw3.0.5 plus SQLite3.53.4
+is a separately qualified compatible store closure, not a metadata-only assumption.
+
+Real Razor Pages HTTP forms/antiforgery, fresh SQLite queries, redirects,
+application versus temporary external cookies and a fresh authenticated request
+cover both password and external registration under each individual email/phone/
+account requirement and an isolated allowed control. The actual serviced .NET10
+default UI still bypasses email-only/phone-only confirmation during registration;
+later sign-in denies those users. Original custom pages gate both paths through
+CanSignInAsync and remain valid on both targets. .NET11 packaged UI already applies
+that gate. Four complete immutable UI implementations and the official registration
+change note qualify the source interpretation; the current UI is a package, not
+inferred from framework references. No compatibility switch restores the bypass.
+
+Controlled local provider challenge/callback and Identity external registration
+are real; third-party OAuth/OIDC interoperability is not claimed. Captured email
+links and actual phone-token checks establish confirmation without messages.
+Confirmed later password and external sign-ins succeed; phone-only policy remains
+denied after email confirmation alone. Missing antiforgery/external state, tampered
+provider state and original-page hostile returns grant no user/session. Default
+IUserConfirmation uses confirmed email; custom confirmation services remain separate.
+Full installed canonical guidance and applicability/evidence are checked offline
+from the ordinary local-feed artifact. M3 retains both registration paths and real
+UI/store/confirmation controls. PIN-812 remains separate; exactly eight foundations,
+stable identities, PIN-959/PIN-963/PIN-964, actual-GA and Human gates remain unchanged.
 
 Story: An account-interface author wants new aquarium volunteers to complete the
 required confirmation step before receiving a session so that registration does

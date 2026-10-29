@@ -1,0 +1,16 @@
+@page
+<!-- snippet:complete -->
+@model AquariumVolunteers.VolunteerRegister
+<!doctype html><html lang="en"><head><title>Aquarium volunteer registration</title></head><body>
+<h1>Join Seabrook Aquarium</h1>
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <label asp-for="Email"></label><input asp-for="Email" />
+    <label asp-for="Password"></label><input asp-for="Password" type="password" />
+    <button type="submit">Register volunteer</button>
+</form>
+<form method="post" asp-page="./ExternalLogin" asp-route-returnUrl="@(Request.Query["returnUrl"].ToString())">
+    <button type="submit" name="provider" value="LocalAquarium">Continue with the local aquarium test provider</button>
+</form>
+</body></html>
+<!-- endsnippet:complete -->

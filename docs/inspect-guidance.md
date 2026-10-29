@@ -885,6 +885,48 @@ retains bounded source-template parsing; the new parsed property is unavailable
 there. Other providers can leave it null. No native/browser matrix, universal
 provider support or actual-GA claim; PIN-959/PIN-964 and Human gates stay open.
 
+## Registration confirmation policy
+
+This builds/packs the ordinary tool and installs that exact artifact through the
+existing isolated local feed/cache. Real installed stdio list/get from an unrelated
+directory display ID/title/goal, complete canonical Markdown, target11/edition11,
+applicability and current paired compile/execution evidence. Target10 correctly has
+no applicable edition; its working original pages are an executed comparison in
+edition11, preserving exactly eight foundations. Retrieval uses unusable proxies:
+proxy independence, not network isolation.
+
+The block was executed from an unrelated directory. Setup needs PowerShell7,
+SDK10.0.402 and Node22.19+; the final reconstruction also needs SDK11 RC2 and the
+matching restored locked packages. Online package setup precedes offline retrieval.
+No global tool, production account, messages or third-party provider is required.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1177-04-102-keep-registration-aligned-with-confirmation-policy'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'identity.confirm-before-registration-signin' -Query 'confirmation' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1177' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/pin1177/inspection
+& ./eng/Test-AquariumVolunteersConsumer.ps1 `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Net11Dotnet 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+```
+
+Expect `identity.confirm-before-registration-signin`, title "Keep registration
+aligned with confirmation policy" and goal "Require the configured email, phone
+or account confirmation before granting a new registrant a session, across
+password and external registration." Both original full projects, lock files and
+numbered migration steps must be returned without unresolved snippet tokens.
+The final helper recreates only returned files in an unrelated temporary directory,
+builds both exact closures without remote feeds and runs 32 actual new-registration
+checks plus later confirmation/sign-in and antiforgery/provider/return controls.
+It observes the .NET10.0.13 packaged email/phone bypass honestly; the original
+CanSignInAsync-gated pages and .NET11 packaged UI defer sessions correctly.
+Controlled local external authentication is not third-party interoperability;
+RC2 and local SQLite/HTTP evidence are not production, browser or actual-GA proof.
+
 ## Structured assembly-conflict and server events
 
 From an unrelated directory, run the existing installed-package Inspector with the
