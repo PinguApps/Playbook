@@ -1,0 +1,15 @@
+<!-- snippet:museum -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <InventoryStatus>not-counted</InventoryStatus>
+  </PropertyGroup>
+  <Import Project="Collection.props" />
+  <Target Name="CountInventory">
+    <PropertyGroup>
+      <InventoryStatus>counted</InventoryStatus>
+    </PropertyGroup>
+  </Target>
+</Project>
+<!-- endsnippet:museum -->
