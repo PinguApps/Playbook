@@ -1,5 +1,9 @@
 # Inspect the guidance an agent receives
 
+`playbook mcp` speaks protocol over stdin/stdout. Use MCP Inspector as a client; it initializes and closes each connection automatically. `eng/Inspect-Guidance.ps1` builds the real server, installs pinned Inspector 2.11.0 under ignored `artifacts/` if needed, calls both tools, and prints **ID/title/goal, full expanded Markdown and applicability**. Responses default to `artifacts/inspection/<id>.json`.
+
+Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
+
 ## Date parser settings and numeric representation
 
 This block builds/packs the ordinary tool and installs that exact artifact from a
@@ -10,7 +14,7 @@ target11/edition11, applicability and current evidence. Target10 returns
 remain inside the target11 edition, preserving exactly eight foundations.
 
 Prerequisites: PowerShell7, Node22.19+, SDK10.0.402 and, for recapture, a complete
-SDK11.0.100-rc.2.26504.105 installation plus runtime/ref10.0.13 and11RC2. Setup can
+SDK11.0.100-rc.2.26504.105 installation plus runtime/ref10.0.13 and11RC2. The source hash replay requires internet access; setup can
 restore online. Retrieval with unusable proxies proves proxy independence, not
 network isolation. No global tool install, PATH change, credential or provider.
 The literal block was tested from an unrelated starting directory:
@@ -45,10 +49,6 @@ browser or actual-GA claim follows. PIN-959/PIN-962 and Human gates stay open.
 
 A nonzero exit, stale evidence, absent ID, unexpanded snippet or changed
 structured/text response is a failed check.
-
-`playbook mcp` speaks protocol over stdin/stdout. Use MCP Inspector as a client; it initializes and closes each connection automatically. `eng/Inspect-Guidance.ps1` builds the real server, installs pinned Inspector 2.11.0 under ignored `artifacts/` if needed, calls both tools, and prints **ID/title/goal, full expanded Markdown and applicability**. Responses default to `artifacts/inspection/<id>.json`.
-
-Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
 ## Selected base-image trust, Azure Linux migration and collector observation
 
