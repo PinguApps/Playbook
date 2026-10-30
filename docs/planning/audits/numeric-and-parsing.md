@@ -1,6 +1,6 @@
 # Numeric and parsing compatibility: PIN-683
 
-Reviewed **21 October 2026**. The original audit below is source-only. Its nine proposals were subsequently approved and tracked by PIN-986. The **30 October delivery reconciliations** below record actual A–D delivery, E–F full-release preparation and qualify the original source claims; other proposals retain their own owners. Existing recipe/edition identities remain intact.
+Reviewed **21 October 2026**. The original audit below is source-only. Its nine proposals were subsequently approved and tracked by PIN-986. The **30 October delivery reconciliations** below record actual A–E/H delivery, F–G full-release preparation and qualify the original source claims; other proposals retain their own owners. Existing recipe/edition identities remain intact.
 
 ## Scope, provenance and evidence boundary
 
@@ -18,7 +18,7 @@ Reference-source presence is API evidence only. PIN-703's actual asset manifest 
 
 ## Full mitigation dispositions
 
-### G/H artifact qualification and H implementation — 30 October 2026
+### G/H delivery and preparation reconciliation — 30 October 2026
 
 PIN-1052 adds `globalization.validate-japanese-calendar-range` edition11.0 with
 original paired HistoryImport consumers. SDK10.0.402/C#14/runtime-ref10.0.13 and
@@ -36,7 +36,7 @@ or experimental opt-in is required; these isolated samples remain author-maintai
 The ordinary locally packed/installed artifact passes real stdio list/get from
 an unrelated directory: ID/title/goal, full canonical Markdown, target11/edition11,
 applicability, paired current evidence, text/structured equality and expected
-target10 rejection. See the [copyable walkthrough](../../inspect-guidance.md#historical-dates-and-the-japanese-calendar-boundary).
+target10 rejection. See the [copyable walkthrough](../../inspect-guidance.md#historical-dates-and-tensor-ownership-preparation).
 
 PIN-1051 qualification independently runs all four CopyTo/TryCopyTo/FlattenTo/
 TryFlattenTo methods with original strided grid values13,29,47,61,83,97 and
@@ -49,11 +49,28 @@ asset SHA-256 values are respectively
 Writable covariance already throws on these artifacts; do not imply every
 constructor control changes. The documented storage changes belong to the same
 merged release/11.0 backport#135281 recorded above, which is source evidence,
-not successful published-package execution. PIN-1051's required current-behavior
-proof is unavailable on the published artifacts; the combined PR remains gated
-unless Pingu explicitly revises that execution boundary. No older-target/current-
-package route is advertised. PIN-959, PIN-962, Human gates and eight foundations
-remain unchanged.
+not successful published-package execution. Pingu subsequently approved full-release
+preparation with final-package proof deferred to PIN-962, as for PIN-1050.
+PIN-1051 prepares `numerics.copy-tensor-views-safely` edition11.0: original paired
+GridTransform policies, complete offline migration/conditions and the compiled
+expected-release storage suite. Previous actual execution verifies snapshot values,
+independent output, snapshots of both inputs and Try false controls. Current
+supplementary `--policy-only` execution verifies those same safe application
+choices; it does not exercise the new storage contract. The full expected-release
+suite includes copy/flatten wrappers, permitted/rejected overlap with unchanged
+backing storage, elementwise/resize/reversal/concatenation cases, repeated versus
+singleton/empty output, both Array constructors and covariance.
+
+`eng/Record-GridTransform.ps1 -VerifySources` captures ten immutable source hashes
+and exact compiler/reference/package identities, commands and input hashes. Current
+evidence remains compile with explicitly bounded policy execution; humanProof is
+pending. PIN-962's saved criterion owns final SDK/runtime/package selection,
+backport presence, every current storage check and evidence refresh using
+`-RunReleaseChecks`. Only successful actual execution clears pending proof.
+This scoped preparation exception permits the combined delivery PR, while
+release-ready packaging, PIN-959, PIN-962 and Human gates stay open. No
+older-target/current-package route, new Renovate permission, recurring platform
+matrix or ninth foundation is added.
 
 ### A and B delivery reconciliation — 30 October 2026
 
@@ -225,8 +242,8 @@ remain open; this is bounded RC2 recipe evidence, not comprehensive readiness.
 | [Small integer casts][small-integers], Preview 7 | Unchecked float/double and corresponding Half conversions to sbyte/byte/short/ushort/char saturate at destination bounds; in-range fractions truncate toward zero and NaN becomes zero. Relevant Single/Double.ConvertToInteger calls agree. CoreCLR (including interpreter) and Native AOT are included; **Mono is excluded**. Checked overflow, integer narrowing and the older wider/vector conversion change are unaffected. Prefer saturation, or deliberately choose ConvertToIntegerNative, `(ushort)(int)x`, or native-int-then-narrowing according to the intended policy. Native conversion is platform-dependent and cannot promise historical results; validate indices/lengths separately. | **Delivered → PIN-1048**, `numerics.select-small-integer-conversion` edition11.0. Both pinned reference sets already contain Single/Double.ConvertToIntegerNative and ConvertToInteger with IBinaryInteger constraints; Char implements that interface. Do not invent a new API introduction or a universal legacy cast. |
 | [Complex special values][complex], Preview 7 | Nongeneric Complex delegates to Complex<double>. Multiply/divide, Reciprocal, Abs, Pow, Sqrt, Exp, Log/Log10, trig/hyperbolic/inverse functions can preserve directed infinities and signed results rather than collapse to two NaNs. Update tests and classification logic that assumes nonfinite input always means NaN; no compatibility switch exists. Annex G leaves the sign of a zero quotient component unspecified, so do not assert a universal sign for that case. | **Grouped → PIN-736**, delivered `numerics.select-complex-precision` checks one zero divisor. **Remaining → E:** a separate special-value handling goal, not a second scalar-representation recipe. |
 | [Tensor shape alignment][tensor-shapes], .NET 11 package | Default rank-zero empties compute as `[0]` without changing stored Rank/Lengths/Strides; explicit empty dimensions remain. Ignore only redundant leading singleton dimensions, not arbitrary broadcasting in shape equality. Stack/concatenate axes follow the first effective shape. `[0]` may broadcast to `[2,0]`, but `[0]` with `[0,2]` is incompatible. Preserve requested metadata; validate exact ranks/lengths explicitly if required. Native-sized traversal and all five Any comparison families now cover the full logical range, including empties; empty views retain their storage origin. | **Included → F.** Broadcast/BroadcastTo/TryBroadcastTo, elementwise/copy/destination paths, concatenate/stack, reshape/split/squeeze/unsqueeze/permute/slice/resize/reverse/SequenceEqual and index extrema belong to the same shape/traversal contract. Package upgrades can affect earlier TFMs; no recipe currently establishes such a route. |
-| [Tensor storage layout][tensor-storage], .NET 11 package | Unsupported overlap throws `ArgumentException` before writing, including TryCopyTo/TryFlattenTo after capacity/shape checks succeed. Too-small destination (and incompatible shape for TryCopyTo) still returns false without copying. Dense/equal-count or identical-view copies, dense flatten/resize, identical nonrepeating elementwise views and dense/no-op in-place reversal are operation-specific permitted cases. Use separate output or snapshot **each** overlapping input; repeated zero-stride output needs independent storage. Array-backed constructors reject incompatible element types; writable covariance is rejected, compatible read-only covariance permitted. No arbitrary-overlap switch; TensorPrimitives retains its separate overlap contract. | **Included → G.** Includes IReadOnlyTensor copy/flatten and corresponding Tensor<T>/TensorSpan<T>/ReadOnlyTensorSpan<T> methods, destination elementwise/resize/reverse/concatenate and both System.Array constructors per span type. This is not a blanket ban on overlap or zero strides: singleton strides and empty destinations remain permitted. |
-| [Japanese calendar minimum][japanese-calendar], Preview 1 | JapaneseCalendar.MinSupportedDateTime moves from Gregorian 1868-09-08 to **1868-10-23**, confirmed by the pinned implementation constant. Replace old assumptions and reject/route earlier Gregorian dates explicitly; use the runtime minimum rather than hardcoding the old date. The note's phrase “between” must not exclude the newly valid minimum itself. No restore switch is documented. | **Included → H.** Validate the half-open removed interval `[1868-09-08,1868-10-23)`, the new boundary and historical-data policy. This is distinct from parsing format/style validation. |
+| [Tensor storage layout][tensor-storage], .NET 11 package | Unsupported overlap throws `ArgumentException` before writing, including TryCopyTo/TryFlattenTo after capacity/shape checks succeed. Too-small destination (and incompatible shape for TryCopyTo) still returns false without copying. Dense/equal-count or identical-view copies, dense flatten/resize, identical nonrepeating elementwise views and dense/no-op in-place reversal are operation-specific permitted cases. Use separate output or snapshot **each** overlapping input; repeated zero-stride output needs independent storage. Array-backed constructors reject incompatible element types; writable covariance is rejected, compatible read-only covariance permitted. No arbitrary-overlap switch; TensorPrimitives retains its separate overlap contract. | **Prepared → PIN-1051**, edition11.0; final storage-contract execution and proof refresh remain pending under PIN-962. Includes IReadOnlyTensor copy/flatten and corresponding Tensor<T>/TensorSpan<T>/ReadOnlyTensorSpan<T> methods, destination elementwise/resize/reverse/concatenate and both System.Array constructors per span type. This is not a blanket ban on overlap or zero strides: singleton strides and empty destinations remain permitted. |
+| [Japanese calendar minimum][japanese-calendar], Preview 1 | JapaneseCalendar.MinSupportedDateTime moves from Gregorian 1868-09-08 to **1868-10-23**, confirmed by the pinned implementation constant. Replace old assumptions and reject/route earlier Gregorian dates explicitly; use the runtime minimum rather than hardcoding the old date. The note's phrase “between” must not exclude the newly valid minimum itself. No restore switch is documented. | **Delivered → PIN-1052**, edition11.0; paired real calendar operations, explicit routing and preserved Gregorian values. Validate the half-open removed interval `[1868-09-08,1868-10-23)`, the new boundary and historical-data policy. This is distinct from parsing format/style validation. |
 | TensorPrimitives.Clamp, Preview 7 library note | Full note says scalar remainder agrees with vector processing using Min(Max(x,min),max). **Qualified by pinned implementation:** vectorizable types (including Half's path) use that expression; other types call T.Clamp and may still throw when min > max. Explicitly validate bounds when rejection is application policy; never rely on vector width, position or the headline as a universal nonthrowing contract. | **Included → I.** Separate bound-validation goal. This source conflict remains visible until actual consumers establish the advertised type/asset routes. |
 | TensorPrimitives.Round early returns, Preview 2 library note | Missing returns caused double processing, including in-place paths. **Excluded as an independent goal:** no distinct authored migration/workaround is established by that fix alone. RC2's digits overload now uses per-element T.Round fallback for correct rounding and uncapped nonnegative digits; no vectorized accuracy promise follows. | **Grouped → C** when teaching rounding across spans. Preserve overlap/capacity/mode contracts and actual result tests; do not silently assume the scalar interface rules prove every tensor call. |
 

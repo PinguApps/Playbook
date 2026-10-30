@@ -13,7 +13,8 @@
     "globalization",
     "history-import",
     "calendar",
-    "validation"
+    "validation",
+    "data-validation"
   ],
   "apis": [
     "JapaneseCalendar.MinSupportedDateTime",

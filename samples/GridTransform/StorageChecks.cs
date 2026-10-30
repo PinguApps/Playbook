@@ -10,6 +10,11 @@ foreach (var type in new[] { typeof(Tensor), typeof(Tensor<>), typeof(TensorSpan
     Console.WriteLine($"API {type.FullName}; experimental={string.Join(',', type.CustomAttributes.Where(a => a.AttributeType.Name == "ExperimentalAttribute"))}");
 Policy();
 Capacity();
+if (args.Contains("--policy-only", StringComparer.Ordinal))
+{
+    Console.WriteLine("PASS ownership policy and Try false controls only; release storage contract NOT exercised");
+    return;
+}
 #if NET11_0
 // Expected release contract: published RC2/RC3 fail these checks. Never call that successful proof.
 SupportedOverlap();
@@ -113,7 +118,7 @@ static void RejectedLayouts()
         var cells = Cells();
         Reject(() => CopyOverlap(cells, wrapper, method), cells, $"strided {wrapper}.{method}");
     }
-    foreach (var operation in new[] { "binary", "unary", "scalar", "broadcast", "resize", "resize-writable", "resize-tensor", "reverse", "reverse-dimension" })
+    foreach (var operation in new[] { "binary", "unary", "scalar", "broadcast", "resize", "resize-writable", "resize-tensor", "reverse", "reverse-dimension", "concatenate" })
     {
         var cells = Cells();
         Reject(() => InvalidOperation(cells, operation), cells, operation);
@@ -159,6 +164,10 @@ static void InvalidOperation(int[] cells, string operation)
         case "resize-tensor": Tensor.ResizeTo(Tensor.Create(cells, [2, 2], [3, 1]), new TensorSpan<int>(cells, [2, 2])); break;
         case "reverse": var view = new TensorSpan<int>(cells, [2, 2], [3, 1]); Tensor.Reverse((ReadOnlyTensorSpan<int>)view, view); break;
         case "reverse-dimension": var axisView = new TensorSpan<int>(cells, [2, 2], [3, 1]); Tensor.ReverseDimension((ReadOnlyTensorSpan<int>)axisView, axisView, 1); break;
+        case "concatenate":
+            int[] independent = [107, 109];
+            Tensor.Concatenate<int>([Tensor.Create(cells, [2], [2]), Tensor.Create(independent)], new TensorSpan<int>(cells.AsSpan(0, 4)));
+            break;
     }
 }
 static void Reject(Action operation, int[] storage, string name)

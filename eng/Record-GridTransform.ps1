@@ -72,7 +72,13 @@ try {
     $asset = Join-Path $root "samples/$variant/GridTransform/bin/Release/$variant/System.Numerics.Tensors.dll"
     $record.output += "`nPACKAGE ASSET lib/$variant/System.Numerics.Tensors.dll sha256=$((Get-FileHash -LiteralPath $asset -Algorithm SHA256).Hash.ToLowerInvariant())"
     if ($variant -eq 'net11.0' -and -not $RunReleaseChecks) {
-      $record.scope = 'Actual SDK11 RC2 compilation with locked Tensor11 RC2 net11 assets only. The package lacks the documented release/11.0 storage backport. Current rejection/allowed-overlap/constructor controls and final SDK/package execution are pending under PIN-1051; compilation does not satisfy its delivery gate.'
+      $assembly = Join-Path (Split-Path $project) "bin/Release/$variant/GridTransform.dll"
+      $policyOutput = (& $dotnet $assembly --policy-only | Out-String).Trim()
+      if (-not $policyOutput.Contains('PASS ownership policy and Try false controls only; release storage contract NOT exercised')) { throw 'Missing bounded current policy proof.' }
+      Write-Host $policyOutput
+      $record.command += "; $dotnet $assembly --policy-only"
+      $record.output += "`n$policyOutput"
+      $record.scope = 'Actual SDK11 RC2 compilation with locked Tensor11 RC2 net11 assets; supplementary execution covers only ownership policies and Try capacity/shape false controls. The package lacks release/11.0 storage backport behavior. Successful current rejection/permitted-overlap/constructor execution and final SDK/package proof remain pending under PIN-962, following Pingu-approved full-release preparation.'
     }
     [IO.File]::WriteAllText($recordPath, ($record | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
   }
