@@ -1,0 +1,136 @@
+{
+  "id": "numerics.select-small-integer-conversion",
+  "edition": "11.0",
+  "title": "Select a small integer conversion policy",
+  "goal": "Choose saturation, checked rejection or explicit intermediate and narrowing behaviour when converting floating-point values to small integer storage and validating buffer offsets.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "numeric-policy",
+    "small-integer"
+  ],
+  "apis": [
+    "Double.ConvertToInteger",
+    "Single.ConvertToInteger",
+    "Double.ConvertToIntegerNative",
+    "Single.ConvertToIntegerNative",
+    "Half"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Choose saturation, checked rejection or explicit intermediate and narrowing behaviour when converting floating-point values to small integer storage and validating buffer offsets.",
+          "Only Windows x64 CoreCLR JIT execution is established. RC2 evidence requires actual-GA reconciliation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use the .NET 11 CoreCLR numeric behaviour; Mono is not verified or advertised by this route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "CoreCLR-supported platforms; actual execution measured only on Windows x64 CoreCLR JIT"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with ImplicitUsings=enable and Nullable=enable. Put the supplied complete class in namespace Playbook.Samples.",
+            "Choose the numeric policy before changing persisted expectations or buffer access."
+          ],
+          "constraints": [
+            "Actual all-five-destination double/float matrix and representative Half values: fractions, both bounds and adjacent overflow, infinities/NaN, checked overflow, ConvertToInteger and native observations; explicit intermediate policies and real bounded buffer write/rejection. Exact compiler/reference/runtime hashes and measured Windows x64 CoreCLR JIT; legacy/native results are observations, not portable historical contracts. No interpreter/Native AOT/Mono or GA execution.",
+            "The net10 comparison is not a new foundation or target10 catalogue edition. No provider, rendering mode, native toolchain, workload, account or service is required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/jit/11/fp-to-small-integer.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/RecordOffsets/RecordOffsets.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned Microsoft compatibility mitigation and affected API boundary",
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/jit/11/fp-to-small-integer.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual all-five-destination double/float matrix and representative Half values: fractions, both bounds and adjacent overflow, infinities/NaN, checked overflow, ConvertToInteger and native observations; explicit intermediate policies and real bounded buffer write/rejection. Exact compiler/reference/runtime hashes and measured Windows x64 CoreCLR JIT; legacy/native results are observations, not portable historical contracts. No interpreter/Native AOT/Mono or GA execution.",
+      "sample": "samples/net10.0/RecordOffsets/RecordOffsets.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual all-five-destination double/float matrix and representative Half values: fractions, both bounds and adjacent overflow, infinities/NaN, checked overflow, ConvertToInteger and native observations; explicit intermediate policies and real bounded buffer write/rejection. Exact compiler/reference/runtime hashes and measured Windows x64 CoreCLR JIT; legacy/native results are observations, not portable historical contracts. No interpreter/Native AOT/Mono or GA execution.",
+      "sample": "samples/net11.0/RecordOffsets/RecordOffsets.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/RecordOffsets/OffsetPolicy.cs",
+      "region": "policy"
+    },
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/RecordOffsets/OffsetPolicy.cs",
+      "region": "policy"
+    }
+  },
+  "humanProof": {
+    "scope": "Managed numeric behaviour and local installed stdio retrieval require no Human device/provider action. Other execution engines/platforms and actual-GA remain explicit gaps, not verified routes.",
+    "status": "not-required"
+  }
+}
