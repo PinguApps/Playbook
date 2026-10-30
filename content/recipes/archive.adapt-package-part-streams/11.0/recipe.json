@@ -66,7 +66,7 @@
               "name": "System.IO.Packaging",
               "version": "11.0",
               "match": "release-family",
-              "reason": "The net11.0 package asset contains the changed read-only stream selection; package version alone does not establish behavior."
+              "reason": "The net11.0 package asset changes Read-access stream selection for unmodified compressed parts in ReadWrite packages; package version alone does not establish behavior."
             }
           ],
           "packageAssets": [
@@ -75,7 +75,7 @@
           "workloads": [],
           "providers": [],
           "platforms": [
-            "Desktop/server .NET with filesystem access. Actual proof: Windows 11 build 26200 x64; TAR file-identity proof uses NTFS. Browser/WASI excluded."
+            "Desktop/server .NET with filesystem access. Actual package proof: Windows 11 build 26200 x64. Browser/WASI excluded."
           ],
           "renderingModes": [],
           "prerequisites": [
@@ -172,6 +172,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Real local Windows desktop execution; no external provider, device, UI or production resource. Filesystem identities use actual NTFS handles. No link-incapable receiver execution is claimed."
+    "scope": "Real local Windows PackagePart execution with isolated temporary package files, capability/content checks, bounded buffering and cleanup. No external provider, device, UI or production resource is required."
   }
 }
