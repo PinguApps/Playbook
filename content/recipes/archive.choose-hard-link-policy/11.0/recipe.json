@@ -1,0 +1,163 @@
+{
+  "id": "archive.choose-hard-link-policy",
+  "edition": "11.0",
+  "title": "Choose TAR hard-link preservation or independent copies",
+  "goal": "Choose whether filesystem aliases stay linked or become independent files when writing and extracting TAR archives; set the two policies separately.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "archives-compression",
+    "archive",
+    "choose-hard-link-policy"
+  ],
+  "apis": [
+    "TarWriter",
+    "TarWriterOptions.HardLinkMode",
+    "TarExtractOptions.HardLinkMode",
+    "TarHardLinkMode",
+    "TarFile.ExtractToDirectoryAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Choose whether filesystem aliases stay linked or become independent files when writing and extracting TAR archives; set the two policies separately.",
+          "Older examples are comparisons, not additional catalogue targets."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses the net11.0 framework/package asset and .NET 11 behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 consumer with a matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects C# 15; the comparison project selects C# 14."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0/System.Formats.Tar.dll; Microsoft.NETCore.App runtime System.Formats.Tar.dll"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET with filesystem access. Actual proof: Windows 11 build 26200 x64; TAR file-identity proof uses NTFS. Browser/WASI excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "A net11.0 console project with implicit usings and System.Formats.Tar; no additional package. PreserveLink requires a filesystem and permissions supporting hard links. Windows proof uses NTFS; its native identity helper is test-only."
+          ],
+          "constraints": [
+            "Writer and extraction policy are independent. Defaults are PreserveLink, PAX writer format, and OverwriteFiles=false. CopyContents extraction creates independent files from existing hard-link entries; it cannot recover identity from regular duplicate entries.",
+            "Path-based writers identify the same physical file, not equal bytes. The first written path supplies data and later hard links refer to its archive name. Manual TarEntry authoring does not perform this filesystem detection.",
+            "Extract only approved archives into fresh isolated staging. Reject traversal/outside link targets; do not assume CopyContents disables symbolic links or authenticates input. Cancellation/failure may leave partial files; dispose handles and discard owned staging.",
+            "CopyContents is the choice for a receiver without hard-link support, but only Windows NTFS was executed here. No link-incapable receiver, separate package/older-target route, network filesystem or GA proof is claimed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact RC2 artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarWriterOptions.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarExtractOptions.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarEntry.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ObservatoryTar/ObservatoryTar.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official TAR hard-link migration",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/tarwriter-hardlink-entries.md"
+    },
+    {
+      "title": "RC2 TAR public API declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/ref/System.Formats.Tar.cs"
+    },
+    {
+      "title": "Writer format and hard-link defaults",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarWriterOptions.cs"
+    },
+    {
+      "title": "Extraction overwrite and link policy defaults",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarExtractOptions.cs"
+    },
+    {
+      "title": "Extraction target validation and copying",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Tar/src/System/Formats/Tar/TarEntry.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ObservatoryTar/ObservatoryTar.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows NTFS aliases and file IDs; default path writer regular-file copies, exact entry content/order, existing explicit-link extraction sync/async and cleanup."
+    },
+    {
+      "sample": "samples/net11.0/ObservatoryTar/ObservatoryTar.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows NTFS identity checks; default and both writer modes sync/async; both extraction modes path/stream sync/async, overwrite rejection, reversed link order, pre-cancellation, unsafe paths/targets, partial extraction and cleanup. No link-incapable receiver test."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net11.0/ObservatoryTar/ObservatoryTar.cs",
+      "region": "older"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/ObservatoryTar/ObservatoryTar.cs",
+      "region": "newer"
+    },
+    "extract": {
+      "language": "csharp",
+      "path": "samples/net11.0/ObservatoryTar/ObservatoryTar.cs",
+      "region": "extract"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local Windows desktop execution; no external provider, device, UI or production resource. Filesystem identities use actual NTFS handles. No link-incapable receiver execution is claimed."
+  }
+}

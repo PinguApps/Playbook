@@ -1,0 +1,13 @@
+{
+  "additionalInputs": [
+    "samples/net11.0/ObservatoryTar/ObservatoryTar.cs",
+    "samples/ObservatoryTarChecks.cs",
+    "samples/ObservatoryFileIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "nativeToolchains": [],
+  "dependencies": [],
+  "buildArguments": [],
+  "workloads": []
+}

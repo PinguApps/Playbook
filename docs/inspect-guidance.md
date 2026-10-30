@@ -1398,3 +1398,65 @@ owned private CP1252/65001 consoles. An explicit UTF-8 reader preserves text and
 real failed-build exits; the proposed and source-level opt-outs retain UTF-8 on
 these artifacts and are disclosed as unavailable. No legacy producer encoding
 route or newer-only reader API is claimed.
+
+## Package streams and TAR hard-link policy
+
+Requires PowerShell 7, SDK 10.0.402 with runtime 10.0.13, SDK/runtime
+11.0.100-rc.2.26504.105 / 11.0.0-rc.2.26504.105, Node 22.19+ and
+Windows NTFS for the real TAR identity proof. The exact packaging versions are
+locked in the samples; no Open XML SDK or separate TAR package is needed.
+
+This block was tested from an unrelated starting directory. Setup may restore
+online. It builds/packs the ordinary tool, installs that exact artifact through a
+local-only feed and fresh cache, and runs real stdio list/get from an unrelated
+temporary directory with unusable proxies. This proves proxy independence, not
+network isolation. No public package publication or global tool install occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d402c791'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('archive.adapt-package-part-streams','archive.choose-hard-link-policy') `
+  -Query 'archive' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1040-1041' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/archive-policy/inspection
+```
+
+Expect both discovery IDs, titles and explanatory goals, full expanded canonical
+Markdown, target11/edition11 applicability, and fresh compilation/execution
+records. Both target10 requests must return `no_applicable_edition`: the valid
+older code and RC2 package's measured net10 asset remain comparison evidence.
+The script asserts canonical snippet identity and structured/text equality.
+
+Refresh changed consumer evidence on the declared Windows environment:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d402c791'
+$previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+try {
+  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+  foreach ($sample in @(
+    'samples/net10.0/MuseumPackage/MuseumPackage.csproj',
+    'samples/net10.0/MuseumPackageRc2/MuseumPackageRc2.csproj',
+    'samples/net10.0/ObservatoryTar/ObservatoryTar.csproj',
+    'samples/net11.0/MuseumPackage/MuseumPackage.csproj',
+    'samples/net11.0/ObservatoryTar/ObservatoryTar.csproj'
+  )) {
+    $runtime = if ($sample.StartsWith('samples/net11.0/')) {
+      'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+    } else { 'C:\Program Files\dotnet\dotnet.exe' }
+    & ./eng/Record-Evidence.ps1 -Sample $sample -Dotnet $runtime
+  }
+}
+finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
+```
+
+Expect the four real package access cases for all three dependency combinations,
+sequential/bounded random access with size failures, and actual NTFS IDs plus
+TAR writer/extractor policies, sync/async path/stream extraction, overwrite and
+cancellation failures, path/link-target rejection, partial extraction and cleanup.
+The separate growth-control stream only instruments the buffering guard; package
+and TAR behavior use actual library/filesystem operations. No link-incapable
+receiver, other-platform or GA execution is claimed. Comprehensive and GA gates
+remain open; no recurring platform matrix is added.
