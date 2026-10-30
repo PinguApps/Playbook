@@ -1,0 +1,14 @@
+{
+  "additionalInputs": [
+    "samples/net11.0/MuseumPackage/MuseumPackage.cs",
+    "samples/MuseumPackageChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "System.IO.Packaging/10.0.13"
+  ]
+}

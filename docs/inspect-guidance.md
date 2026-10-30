@@ -50,6 +50,50 @@ browser or actual-GA claim follows. PIN-959/PIN-962 and Human gates stay open.
 A nonzero exit, stale evidence, absent ID, unexpanded snippet or changed
 structured/text response is a failed check.
 
+## Span storage and dynamic logical binding
+
+This block selects the actual task worktree and was checked starting from an
+unrelated directory. It builds/packs once, installs that exact ordinary artifact
+through the existing isolated local feed/cache, then uses real installed stdio
+list/get to display both IDs, titles, explanatory goals, complete canonical
+Markdown, explicit target11/edition11, applicability and fresh evidence.
+Each target10 request must return `no_applicable_edition`; direct retrieval of the
+excluded readonly-metadata goal must return `unknown_recipe`.
+
+Run this block in **PowerShell 7 (`pwsh`)**. Windows PowerShell 5.1 changes native
+argument/error handling and is outside this helper's prerequisites.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6b360ce7'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('csharp.preserve-span-storage','csharp.bind-dynamic-conditions') `
+  -RemovedRecipeId @('csharp.resolve-readonly-metadata') -Query '' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1032-1034' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/compiler-migrations/inspection
+```
+
+Expect **Preserve span storage across nested scopes** and **Preserve dynamic
+logical operator binding** with their discovery descriptions and actual paired
+evidence. Setup requires PowerShell7, SDK10.0.402/runtime10.0.13 and Node22.19+;
+package/Inspector setup may restore online. Retrieval with unusable proxies proves
+proxy independence, not OS-level network isolation. The exact eight foundations
+and comprehensive/actual-GA/Human gates remain unchanged.
+
+For sample reproduction, also provide SDK11.0.100-rc.2.26504.105/ref/runtime11 RC2
+and run `eng/Test-CompilerMigrations.ps1 -SetupBaseline -Record`; supply
+`-Net11Dotnet` with the absolute `dotnet` executable path when installed elsewhere. On Windows x64
+that helper can download/extract the official SHA512-checked portable SDK10.0.100
+historical reproducer under ignored `artifacts/`; no installer or PATH integration
+runs. The helper checks real Span/ReadOnlySpan old acceptance versus CS8352,
+both old dynamic binder exceptions versus CS7083, paired corrected storage/aliasing
+and all16 logical truth-table/invocation-count cases. Ordinary readonly
+method-group/lambda/local calls and emitted InAttribute modifiers succeed in both
+supported sets. PIN-1033 uses its explicit evidenced-exclusion allowance: no
+supported deficient reference closure/CS0518 repair is claimed or taught.
+See the [bounded source reconciliation](planning/audits/compiler-contracts.md#compiler-migration-delivery-reconciliation).
+
 ## Selected base-image trust, Azure Linux migration and collector observation
 
 This block was checked starting outside the checkout. It builds/packs the ordinary
@@ -1444,3 +1488,65 @@ owned private CP1252/65001 consoles. An explicit UTF-8 reader preserves text and
 real failed-build exits; the proposed and source-level opt-outs retain UTF-8 on
 these artifacts and are disclosed as unavailable. No legacy producer encoding
 route or newer-only reader API is claimed.
+
+## Package streams and TAR hard-link policy
+
+Requires PowerShell 7, SDK 10.0.402 with runtime 10.0.13, SDK/runtime
+11.0.100-rc.2.26504.105 / 11.0.0-rc.2.26504.105, Node 22.19+ and
+Windows NTFS for the real TAR identity proof. The exact packaging versions are
+locked in the samples; no Open XML SDK or separate TAR package is needed.
+
+This block was tested from an unrelated starting directory. Setup may restore
+online. It builds/packs the ordinary tool, installs that exact artifact through a
+local-only feed and fresh cache, and runs real stdio list/get from an unrelated
+temporary directory with unusable proxies. This proves proxy independence, not
+network isolation. No public package publication or global tool install occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d402c791'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('archive.adapt-package-part-streams','archive.choose-hard-link-policy') `
+  -Query 'archive' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1040-1041' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/archive-policy/inspection
+```
+
+Expect both discovery IDs, titles and explanatory goals, full expanded canonical
+Markdown, target11/edition11 applicability, and fresh compilation/execution
+records. Both target10 requests must return `no_applicable_edition`: the valid
+older code and RC2 package's measured net10 asset remain comparison evidence.
+The script asserts canonical snippet identity and structured/text equality.
+
+Refresh changed consumer evidence on the declared Windows environment:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d402c791'
+$previousIntegration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+try {
+  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+  foreach ($sample in @(
+    'samples/net10.0/MuseumPackage/MuseumPackage.csproj',
+    'samples/net10.0/MuseumPackageRc2/MuseumPackageRc2.csproj',
+    'samples/net10.0/ObservatoryTar/ObservatoryTar.csproj',
+    'samples/net11.0/MuseumPackage/MuseumPackage.csproj',
+    'samples/net11.0/ObservatoryTar/ObservatoryTar.csproj'
+  )) {
+    $runtime = if ($sample.StartsWith('samples/net11.0/')) {
+      'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+    } else { 'C:\Program Files\dotnet\dotnet.exe' }
+    & ./eng/Record-Evidence.ps1 -Sample $sample -Dotnet $runtime
+  }
+}
+finally { $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previousIntegration }
+```
+
+Expect the four real package access cases for all three dependency combinations,
+sequential/bounded random access with size failures, and actual NTFS IDs plus
+TAR writer/extractor policies, sync/async path/stream extraction, overwrite and
+cancellation failures, path/link-target rejection, partial extraction and cleanup.
+The separate growth-control stream only instruments the buffering guard; package
+and TAR behavior use actual library/filesystem operations. No link-incapable
+receiver, other-platform or GA execution is claimed. Comprehensive and GA gates
+remain open; no recurring platform matrix is added.

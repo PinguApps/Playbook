@@ -15,6 +15,24 @@ The [35-file source manifest](archive-path-handle-clock.sources.json) pins:
 
 Source presence establishes a declared contract or implementation path, not compilation or execution of a consumer. Hash replay establishes the reviewed bytes, not their semantic correctness or that every source branch ships in every package asset. RC evidence remains RC evidence; final artifacts and GA reconciliation remain publication obligations. No project, dependency, workload, CI, MCP tool or served recipe changes here.
 
+## Delivered follow-ons: PIN-1040 and PIN-1041
+
+The historical proposals below retain their reviewed source scope; PIN-986 approved
+A/B as PIN-1040/1041. Their target11 editions now provide complete offline guidance:
+`archive.adapt-package-part-streams` and `archive.choose-hard-link-policy`.
+Package proof executes package10/net10, RC2/net11 and RC2/net10, including actual
+selected assembly identities/hashes, four access cases, bounded buffering and
+failures. TAR proof executes both frameworks on Windows 11/NTFS with real aliases,
+actual file IDs, ordered entry/data inspection, both writer/extractor policies,
+sync/async path/stream extraction, overwrite rejection, cancellation, target
+validation, partial extraction and cleanup. Canonical sources, locks and saved
+`verification-evidence.json` records live in the MuseumPackage/MuseumPackageRc2
+and ObservatoryTar samples. Ordinary installed-tool inspection is documented in
+[the Inspector walkthrough](../../inspect-guidance.md#package-streams-and-tar-hard-link-policy).
+No separate older-target catalogue route, link-incapable receiver, other-platform
+or GA execution claim is made. PIN-1042 and the other retained owners remain open;
+PIN-959 qualifying coverage and PIN-962 actual-GA reconciliation are not cleared.
+
 ## Full mitigation dispositions
 
 **Included** retains an authoring obligation. **Grouped** assigns it to an existing goal and distinguishes delivered checks from outstanding work. No listed finding has an unknown owner.
