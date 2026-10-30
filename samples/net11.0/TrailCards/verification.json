@@ -1,0 +1,29 @@
+{
+  "dependencies": [
+    "Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Abstractions/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Analyzers/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Relational/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Sqlite/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Caching.Memory/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.DependencyInjection/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.DependencyModel/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging/11.0.0-rc.2.26504.105",
+    "SQLite/3.53.4",
+    "SQLitePCLRaw.bundle_e_sqlite3/3.0.5",
+    "SQLitePCLRaw.config.e_sqlite3/3.0.5",
+    "SQLitePCLRaw.core/3.0.5",
+    "SQLitePCLRaw.provider.e_sqlite3/3.0.5"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Test-TrailCards.ps1",
+    "samples/net10.0/TrailCards"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

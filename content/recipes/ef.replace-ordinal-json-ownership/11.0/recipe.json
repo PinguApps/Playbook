@@ -1,0 +1,213 @@
+{
+  "id": "ef.replace-ordinal-json-ownership",
+  "edition": "11.0",
+  "title": "Preserve an embedded sequence while replacing positional ownership",
+  "goal": "Replace synthetic ordinal identity with a complex JSON collection when upgrading owned embedded lists to EF11; preserve values and order while reviewing schema and data migration separately.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "json",
+    "owned-types",
+    "complex-types",
+    "migration",
+    "sqlite"
+  ],
+  "apis": [
+    "EntityTypeBuilder.ComplexCollection",
+    "EntityTypeBuilder.OwnsMany",
+    "ToJson",
+    "RelationalEventId.OwnedEntityMappedToJsonCollectionWarning"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#owned-json-collections-obsolete",
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Infrastructure/RelationalModelValidator.cs",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#complex-types"
+        ],
+        "selectionNotes": [
+          "Owned JSON collections without key; schema/data migration reviewed separately.",
+          "Complex JSON collections already exist in EF10; this edition addresses the EF11 deprecation and does not add a .NET10 foundation."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer; no ASP.NET Core framework requirement"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "reason": "Matched EF11 provider graph; actual 11.0.0-rc.2.26504.105 package and native dependencies are pinned in each lock file.",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite"
+            }
+          ],
+          "packageAssets": [
+            "EF Core and Relational lib/net11.0; Microsoft.Data.Sqlite.Core lib/net10.0; actual resolved graph and content hashes pinned in packages.lock.json",
+            "Previous consumer: EF/SQLite 10.0.13 on net10.0, SDK 10.0.402, C# 14.0; current consumer: EF/SQLite 11.0.0-rc.2.26504.105 on net11.0, SDK 11.0.100-rc.2.26504.105, C# 15.0"
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite; actual disposable file shared between the EF10 and EF11 consumers, not EF InMemory or mocked SQL",
+            "Measured Windows x64: previous native SQLite 3.53.3 via SQLitePCLRaw.bundle_e_sqlite3/core/lib.e_sqlite3/provider.e_sqlite3 2.1.13; current SQLite 3.53.4 via SQLitePCLRaw.bundle_e_sqlite3/config.e_sqlite3/core/provider.e_sqlite3 3.0.5 and the separate SQLite package 3.53.4."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 with packaged e_sqlite3 native library. Other OS/architecture/native routes require their own suitable SQLite assets; none executed here."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database model; no browser or rendering mode"
+          ],
+          "constraints": [
+            "Owned JSON collections without key; schema/data migration reviewed separately.",
+            "Demonstrated route is a complex JSON collection with value semantics; no supported keyed-owned provider route is established here.",
+            "Old SQLite column allows NULL; new required collection generates NOT NULL. The fixture reads and edits the old table without applying a production migration."
+          ],
+          "prerequisites": [
+            "Restore locked dependencies online before running consumers; installed Playbook guidance is complete offline.",
+            "Seed a new disposable local SQLite file with the EF10 consumer, then open that exact file with the EF11 consumer. Never use a production database."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/TrailCards/TrailCards.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "EF11 owned JSON collection diagnostic and mitigations",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#owned-json-collections-obsolete"
+    },
+    {
+      "title": "Immutable reviewed EF11 documentation",
+      "url": "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md"
+    },
+    {
+      "title": "Package-matched RC2 relational model validator",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore.Relational/Infrastructure/RelationalModelValidator.cs"
+    },
+    {
+      "title": "EF10 complex types and JSON availability",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew#complex-types"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/TrailCards/TrailCards.csproj",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Actual owned shadow-key model, SQLite array storage without JSON identity, ordered duplicate/empty values and original data creation for the EF11 migration check."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/TrailCards/TrailCards.csproj",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual EF10 SQLite file consumed by EF11 complex collection; old mapping diagnostic, complex metadata, no pre-edit rewrite, duplicate/order/empty preservation, remove/edit/append with fresh reload, existing schema retained and different generated NOT NULL DDL. Not a production migration."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/TrailCards/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/TrailCards/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/TrailCards/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/TrailCards/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-trailcards-csproj": {
+      "path": "samples/net10.0/TrailCards/TrailCards.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/TrailCards/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/TrailCards/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/TrailCards/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/TrailCards/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/TrailCards/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-trailcards-csproj": {
+      "path": "samples/net11.0/TrailCards/TrailCards.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/TrailCards/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated actual SQLite model and data checks cover this bounded complex-collection route. No Human proof is required; production schema/data review, other providers/platforms and GA remain separate."
+  }
+}
