@@ -1,5 +1,15 @@
 # Languages, shared libraries, runtime and SDK inventory
 
+Container delivery **PIN-1137/PIN-1138** adds original
+[strict image-trust](../../../content/recipes/containers.verify-base-image-signatures/11.0/recipe.md)
+and [authored Azure Linux base migration](../../../content/recipes/containers.migrate-azurelinux-base-images/11.0/recipe.md)
+guidance. Exact old/current index/platform digests, Notation/ORAS and Microsoft
+roots are pinned; paired workers execute native/globalization/failure checks on
+real Linux x64. Azure Linux4 Beta and actual-GA limits remain explicit. The source
+[B20–B22 register](../audits/sdk-build.md#b20-verify-the-signature-of-a-selected-net-base-image)
+also records PIN-1139's reversed setter premise; its corrected disposition and
+collector execution remain unresolved. No comprehensive/GA/Human gate closes.
+
 Documentation-backed planning inventory, reviewed **16 October 2026** against the .NET 11 RC2 evidence baseline. This is proposed recipe allocation inside accepted scope, not a catalogue implementation, an exhaustive public-API diff, or sample verification.
 
 ## Boundary and conventions

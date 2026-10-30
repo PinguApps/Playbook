@@ -1,0 +1,161 @@
+{
+  "id": "containers.migrate-azurelinux-base-images",
+  "edition": "11.0",
+  "title": "Migrate an authored Azure Linux base-image selection",
+  "goal": "Migrate an authored Linux runtime image while checking the selected OS, native dependencies and globalization on the actual application.",
+  "areas": [
+    "containers",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "quay-containers",
+    "base-image",
+    "azurelinux"
+  ],
+  "apis": [
+    "NativeLibrary.Load",
+    "CultureInfo",
+    "InvariantGlobalization"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Only target11 is advertised; the actual .NET10 comparison adds no ninth foundation. Existing recipe/edition identities and PIN-959/PIN-963/Human gates are preserved.",
+          "Azure Linux4 remains Beta under the reviewed official source. Exact RC2 execution is not actual-GA qualification.",
+          "Managed framework-dependent runtime variant only. NativeAOT, ARM64, other variants and performance are unqualified.",
+          "The missing-native control selects libquay_missing.so; it does not uninstall the base image library. Actual zlib export/call and non-invariant fr-FR formatting are checked."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Managed net11 worker must execute on the matching Linux runtime image."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Companion worker authoring only; exact SDK/compiler/reference identities are measured separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Current worker sample setting; no preview-language opt-in."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 PowerShell7 authoring/verification client; actual worker execution on Linux amd64 Docker."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete SDK10.0.402/ref10.0.13/C#14 and SDK11.0.100-rc.2.26504.105/ref11 RC2/C#15 for paired sample reproduction.",
+            "Public MCR access for image acquisition; a working Linux amd64 Docker engine. Installed guidance is embedded offline.",
+            "Selected Azure Linux3/4 runtime images must provide glibc, zlib libz.so.1 and ICU; InvariantGlobalization=false. No native compiler."
+          ],
+          "constraints": [
+            "Only target11 is advertised; the actual .NET10 comparison adds no ninth foundation. Existing recipe/edition identities and PIN-959/PIN-963/Human gates are preserved.",
+            "Azure Linux4 remains Beta under the reviewed official source. Exact RC2 execution is not actual-GA qualification.",
+            "Managed framework-dependent runtime variant only. NativeAOT, ARM64, other variants and performance are unqualified.",
+            "The missing-native control selects libquay_missing.so; it does not uninstall the base image library. Actual zlib export/call and non-invariant fr-FR formatting are checked."
+          ],
+          "optIns": [
+            "Explicit authored azurelinux4.0 base-image selection; Beta support decision required."
+          ],
+          "stabilityLimitations": [
+            "Azure Linux4 Beta status is retained. Actual RC2 and .NET10 servicing evidence does not qualify GA or arbitrary other tool/image versions."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet-docker/blob/6f6b955b9c5046cf1f31d8ff3237c53c6673c110/documentation/image-signatures.md",
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/containers.md",
+          "https://github.com/notaryproject/notation/blob/v1.3.2/cmd/notation/main.go"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuayWorker/QuayWorker.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official image signing and strict Microsoft trust instructions",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/6f6b955b9c5046cf1f31d8ff3237c53c6673c110/documentation/image-signatures.md"
+    },
+    {
+      "title": "Azure Linux4 Beta and variant migration",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview6/containers.md"
+    },
+    {
+      "title": "Notation1.3.2 isolated child configuration contract",
+      "url": "https://github.com/notaryproject/notation/blob/v1.3.2/cmd/notation/main.go"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/QuayWorker/QuayWorker.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual paired worker compilation and pinned Linux runtime execution; OS/native/globalization/missing-library failure. No AOT, other architecture, performance or GA claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/QuayWorker/QuayWorker.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual paired worker compilation and pinned Linux runtime execution; OS/native/globalization/missing-library failure. No AOT, other architecture, performance or GA claim."
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "path": "samples/net10.0/QuayWorker/QuayWorker.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "image-10": {
+      "path": "samples/net10.0/QuayWorker/Dockerfile",
+      "region": "image",
+      "language": "dockerfile"
+    },
+    "project-11": {
+      "path": "samples/net11.0/QuayWorker/QuayWorker.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "image-11": {
+      "path": "samples/net11.0/QuayWorker/Dockerfile",
+      "region": "image",
+      "language": "dockerfile"
+    },
+    "worker": {
+      "path": "samples/net11.0/QuayWorker/Program.cs",
+      "region": "worker",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executed bounded trust/worker checks; no Human, deployment, production support or GA gate is satisfied."
+  }
+}

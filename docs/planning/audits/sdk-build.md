@@ -254,13 +254,44 @@ closures; no general ordering/Framework-MSBuild/GA guarantee or gate closure.
 
 Proposed `containers.verify-base-image-signatures`. Pin exact old/current image digests, Notation **1.3.2**, any ORAS helper and the actual Microsoft signing/TSA certificate bytes/trust policy in an isolated store. Run real registry/referrer and signature checks against the digest selected for a fictional worker; reject missing/untrusted/tampered or wrong-scope controls. Inspecting a referrer is not signature/trust verification. Record whether the older image already carries signatures; this is not claimed as exclusive to .NET 11. No system trust-store edits.
 
+Implemented under **PIN-1137** as [edition11.0](../../../content/recipes/containers.verify-base-image-signatures/11.0/recipe.md).
+Real Notation1.3.2/ORAS1.3.6 checks qualify both runtime indexes and selected Linux
+x64 manifests, exact Microsoft signing/TSA roots, strict repository/signer policy,
+wrong-root/scope rejection and genuine/missing/tampered copies in a disposable
+loopback registry. The older .NET10 image is already signed. Original paired Quay
+workers compile and execute on the selected images; isolated child configuration
+changes no system trust store. M(3) retains image/trust/failure qualification.
+Fresh sample inputs/commands and installed offline retrieval remain required;
+Azure Linux4 Beta, PIN-959/PIN-963/actual-GA and unrelated Human gates stay open.
+
 ### B21. Migrate an authored Azure Linux base-image selection — L (5)
 
 Proposed `containers.migrate-azurelinux-base-images`. Pin actual available Azure Linux 3/4 image digests and the selected app/AOT variant. Build and execute an original worker on supported Linux, verify OS/native-library/globalization behavior and deliberate tag replacement, and test missing native dependency failure. Keep Beta status from the reviewed source unless actual later support evidence changes it. Smaller default layers or GCC replacing Clang alone do not justify a recipe; its authored native/base-image migration must be demonstrated.
 
+Implemented under **PIN-1138** as [edition11.0](../../../content/recipes/containers.migrate-azurelinux-base-images/11.0/recipe.md),
+selecting the ordinary managed runtime variant. Paired original workers compile
+with exact SDK/compiler/ref inputs, then execute on digest-pinned Azure Linux3/4
+Linux x64 images. They assert OS/runtime/architecture, actual zlib export/call,
+ICU-backed fr-FR formatting and an intentionally absent configured library's
+exit23. Loaded native/runtime files are hashed separately. This is not AOT,
+arbitrary variant/architecture, compression throughput or performance evidence.
+Azure Linux4 stays **Beta**; successful execution is not GA support qualification.
+L(5) retains native/base-image/consumer checks. Fresh evidence and installed offline
+retrieval remain required; the eight foundations and all existing gates stay open.
+
 ### B22. Consume VSTest collector events without mutating removed setters — M (3)
 
 Proposed `testing.migrate-collector-event-inputs`. An original collector/extension stops assigning the removed TestCaseEventArgs and TestCaseEndEventArgs properties and uses supported construction/observation contracts. Compile old/fixed code and load the real collector in a real test run, verifying case identity, child-case flag and outcome. Do not fabricate test outcomes or conflate these events with ordinary application DTOs. Require compatible matching collector/test-host packages.
+
+**Qualification correction, PIN-1139:** the retained actual asset report places the
+five public setters in **added**, with no matching removal. The pinned current
+[TestCaseEvents source](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/vstest/src/Microsoft.TestPlatform.ObjectModel/DataCollector/Events/TestCaseEvents.cs)
+and independently shipped VSTest18.11.0 source expose public setters. The draft's
+removed-setter premise is reversed. Fresh reflection of the actual audited SDK
+DLLs confirms private/internal setters on SDK10.0.402 (SHA256 `76ce3fa1…`) versus
+public setters on SDK11RC2 (`6416edb3…`); the full hashes remain in the asset report.
+No collector execution is inferred from metadata. No removed-setter migration is established;
+the corrected delivery/disposition decision and real collector proof remain open.
 
 ### B23. Resolve workloads using an explicit host environment — M (3)
 
