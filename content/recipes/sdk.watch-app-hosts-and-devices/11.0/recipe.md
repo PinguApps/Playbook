@@ -24,7 +24,7 @@ SDK 11 provides watch integration for Aspire hosts and device selection for supp
 
 Both project variants use central package versions Aspire.Hosting.AppHost 13.4.6 and MessagePack 2.5.303, with versionless PackageReference entries and per-package overrides disabled. The direct MessagePack servicing pin avoids the older vulnerable transitive 2.5.302 baseline. The Aspire.AppHost.Sdk is also 13.4.6. This baseline uses the SDK-provided orchestration/dashboard packages with AspireUseCliBundle=false; no Aspire CLI is required. These are consumer prerequisites, not dependencies of the Playbook host.
 
-For a supported mobile project, select its framework and device explicitly: `dotnet watch --project ./DepotMobile.csproj --framework net11.0-android --device <device-id>`. SDK 11 asks the project's ComputeAvailableDevices target for devices; one can be auto-selected, while several offer a picker. The selected device is forwarded through build/run, with re-restore when the required RuntimeIdentifier changes. This is source-reviewed guidance only: the current work has no compiled mobile sample or connected-device execution, and required proof is pending.
+For a supported mobile project, select its framework and device explicitly: `dotnet watch --project ./DepotMobile.csproj --framework net11.0-android --device <device-id>`. SDK 11 asks the project's ComputeAvailableDevices target for devices; one can be auto-selected, while several offer a picker. The selected device is forwarded through build/run, with re-restore when the required RuntimeIdentifier changes. This is source-reviewed guidance only: the current work has no compiled mobile sample or connected-device execution, and those checks are excluded under PIN-699.
 
 ## Migration
 
@@ -37,7 +37,7 @@ For a supported mobile project, select its framework and device explicitly: `dot
 
 ## Constraints
 
-Required mobile proof is pending and blocks publication as verified mobile guidance. PR review may proceed with this recorded gap. The available Android SDK has adb but no emulator directory or connected device. Installed preview workload manifests are not asserted to be the final RC2 composition. No Mac/Xcode route is available here. The primary metadata describes the managed Aspire host; the unverified mobile branch is not represented as a verified compatibility route.
+Mobile compilation and device selection are explicitly not tested under PIN-699. Guidance may ship with this disclosure; it is not verified mobile guidance. The available Android SDK has adb but no emulator directory or connected device. Installed preview workload manifests are not asserted to be the final RC2 composition. No Mac/Xcode route is available here. The primary metadata describes the managed Aspire host; the unverified mobile branch is not represented as a verified compatibility route.
 
 The host's Aspire package contributes its net10.0 assets on target 11; Aspire.Hosting.Orchestration.win-x64 and Aspire.Dashboard.Sdk.win-x64 13.4.6 supply the measured orchestration/dashboard assets. Windows is the measured authoring platform. Actual local dashboard startup may initialize Aspire settings/certificates; stop the watch process when finished. This example uses local-only HTTP endpoints during its bounded check and does not authorize exposing the dashboard externally.
 
@@ -45,4 +45,6 @@ The SDK feature is distinct from the experimental status of any application API.
 
 ## Evidence
 
-The original net10.0/net11.0 Aspire hosts compile against their exact locked SDK, package and orchestration baseline. The bounded host check records real watch startup separately from compilation, with no mock or hot-reload inference. Full installed retrieval preserves this pending Human proof and its selection warning. Mobile compilation, device selection and distributed hot reload remain incomplete evidence; a successful packed-tool check cannot discharge them.
+The original net10.0/net11.0 Aspire hosts compile against their exact locked SDK, package and orchestration baseline. The bounded host check records real watch startup separately from compilation, with no mock or hot-reload inference. Full installed retrieval preserves the not-tested disclosure and exact sample identities. Mobile compilation and device selection are excluded; distributed hot reload is not established. A successful packed-tool check proves none of those behaviours.
+
+PIN-699 testing boundary: Mobile compilation/device selection: no Android device/emulator or Mac. Excluded under PIN-699; host startup does not establish distributed hot reload. This explicit exclusion does not block publication and does not establish the untested behaviour.

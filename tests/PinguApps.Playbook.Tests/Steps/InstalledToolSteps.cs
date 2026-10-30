@@ -1794,11 +1794,12 @@ public sealed class InstalledToolSteps : IDisposable
                 Assert.Equal(id == "sdk.compose-file-apps" ? "11.0" : target, route.GetProperty("requirements").GetProperty("sdk").GetProperty("version").GetString());
                 Assert.Equal(id == "sdk.compose-file-apps" && target == "10.0", route.GetProperty("conditional").GetBoolean());
                 Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence => Assert.Equal("current", evidence.GetProperty("freshness").GetString()));
-                bool pending = id == "sdk.watch-app-hosts-and-devices";
-                Assert.Equal(pending ? "pending" : "not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
-                if (pending)
+                bool notTested = id == "sdk.watch-app-hosts-and-devices";
+                Assert.Equal(notTested ? "not-tested" : "not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+                if (notTested)
                 {
-                    Assert.Contains("blocks publication", summary.ToString(), StringComparison.Ordinal);
+                    Assert.Contains("Not tested:", summary.ToString(), StringComparison.Ordinal);
+                    Assert.NotEmpty(recipe.GetProperty("humanProof").GetProperty("untestedSamples").EnumerateArray());
                     Assert.Contains("no compiled mobile sample", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
                 }
             }
@@ -1959,7 +1960,8 @@ public sealed class InstalledToolSteps : IDisposable
             if (file == "Commands")
             {
                 Assert.Equal(3, recipe.GetProperty("evidence").GetArrayLength());
-                Assert.Equal("pending", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+                Assert.Equal("not-tested", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+                Assert.NotEmpty(recipe.GetProperty("humanProof").GetProperty("untestedSamples").EnumerateArray());
                 Assert.Contains("macOS", requirements.GetProperty("stabilityLimitations").ToString(), StringComparison.Ordinal);
                 Assert.Contains(recipe.GetProperty("evidence").EnumerateArray(), evidence => evidence.GetProperty("host").GetString()!.Contains("Ubuntu", StringComparison.Ordinal));
             }
@@ -3527,13 +3529,14 @@ public sealed class InstalledToolSteps : IDisposable
             }
 
             Assert.Equal(advancedInstructions ? "experimental" : "stable", summary.GetProperty("stability").GetString());
-            Assert.Equal(advancedInstructions ? "pending" : "not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
+            Assert.Equal(advancedInstructions ? "not-tested" : "not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
             if (advancedInstructions)
             {
                 Assert.NotEmpty(requirements.GetProperty("optIns").EnumerateArray());
                 Assert.Contains("SYSLIB5003", requirements.GetProperty("optIns").ToString(), StringComparison.Ordinal);
-                Assert.Contains("pending", summary.GetProperty("goal").GetString(), StringComparison.Ordinal);
-                Assert.Contains("Pending Human proof", expected, StringComparison.Ordinal);
+                Assert.Contains("Not tested:", summary.ToString(), StringComparison.Ordinal);
+                Assert.NotEmpty(recipe.GetProperty("humanProof").GetProperty("untestedSamples").EnumerateArray());
+                Assert.Contains("Not tested", expected, StringComparison.Ordinal);
             }
 
             Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());

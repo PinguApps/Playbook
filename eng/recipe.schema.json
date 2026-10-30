@@ -34,9 +34,13 @@
     "humanProof": {
       "type": "object", "additionalProperties": false, "required": ["status", "scope"],
       "properties": {
-        "status": { "enum": ["not-required", "pending", "verified"] },
-        "scope": { "$ref": "#/definitions/text" }
-      }
+        "status": { "enum": ["not-required", "pending", "verified", "not-tested"] },
+        "scope": { "$ref": "#/definitions/text" },
+        "untestedSamples": { "$ref": "#/definitions/nonemptyStrings" }
+      },
+      "if": { "properties": { "status": { "const": "not-tested" } } },
+      "then": { "required": ["untestedSamples"] },
+      "else": { "not": { "required": ["untestedSamples"] } }
     },
     "evidence": {
       "type": "array", "minItems": 1,

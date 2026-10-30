@@ -34,7 +34,8 @@
           "winforms"
         ],
         "selectionNotes": [
-          "Buffers complete output in memory; cancellation kills the direct child, not an arbitrary process tree. macOS execution is unverified."
+          "Buffers complete output in memory; cancellation kills the direct child, not an arbitrary process tree. macOS execution is unverified.",
+          "Not tested: macOS execution: no Mac environment. Excluded under PIN-699; recorded Windows/Linux results remain separate."
         ],
         "requirements": {
           "runtime": {
@@ -63,7 +64,7 @@
           "platforms": [
             "Windows",
             "Linux",
-            "macOS (native verification pending; parent-bound lifetime unavailable)"
+            "macOS (native execution not tested; parent-bound lifetime unavailable)"
           ],
           "renderingModes": [],
           "prerequisites": [
@@ -75,7 +76,8 @@
           "optIns": [],
           "stabilityLimitations": [
             "RC2 verification; GA reconciliation remains pending.",
-            "macOS native execution is unverified; Pingu explicitly accepted this evidence gap."
+            "macOS native execution is unverified; Pingu explicitly accepted this evidence gap.",
+            "Not tested: macOS execution: no Mac environment. Excluded under PIN-699; recorded Windows/Linux results remain separate."
           ]
         },
         "sourceUrls": [
@@ -148,7 +150,11 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "macOS native checks unavailable. Pingu authorized macOS support with this explicit untested limitation on 20 October 2026. Windows/Linux evidence is separate; release readiness is not claimed."
+    "status": "not-tested",
+    "scope": "macOS execution: no Mac environment. Excluded under PIN-699; recorded Windows/Linux results remain separate.",
+    "untestedSamples": [
+      "samples/net10.0/ProcessExecution/ProcessExecution.csproj",
+      "samples/net11.0/ProcessExecution/ProcessExecution.csproj"
+    ]
   }
 }
