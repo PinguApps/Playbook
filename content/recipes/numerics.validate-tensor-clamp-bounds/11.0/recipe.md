@@ -83,7 +83,7 @@ annotation and require no opt-in. Sample dependencies remain author-maintained.
 ## Evidence
 
 Both actual packages compile and execute scalar/per-element float and decimal
-controls at lengths1/3/33. Reversed/equal/ordered pairs, an invalid final pair,
+controls at lengths 1/3/33. Reversed/equal/ordered pairs, an invalid final pair,
 wrong lengths, short output and NaN bound checks assert untouched rejected output,
 correct clamped results and unused tail. Raw exception types and complete inputs/
 outputs are captured separately from the corrected policy assertions. Compiler,

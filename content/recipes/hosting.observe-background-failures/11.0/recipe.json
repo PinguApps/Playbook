@@ -79,7 +79,7 @@
           "workloads": [],
           "prerequisites": [
             "SDK console project targeting net11.0, C#15, ImplicitUsings=enable and Nullable=enable; put each complete snippet in a separate .cs file.",
-            "Use the application validation/exit policy described by the recipe."
+            "Keep StopHost for the demonstrated failure policy and return the boundary result from Main so failed work exits nonzero."
           ],
           "constraints": [
             "Paired real processes: 35 lifecycle children plus canonical demo per release. Run/RunAsync, explicit start/stop, timed stop and sync/async shutdown waits; signalled single/multiple/shutdown failures with original identities, logs and exit policy, normal cancellation, Ignore nonshutdown, startup failure, disposal and child reaping. Windows x64 CoreCLR JIT; no browser/custom-host/uncaught numeric-exit/older-target-newer-package/GA proof.",

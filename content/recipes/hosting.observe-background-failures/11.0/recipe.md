@@ -66,15 +66,15 @@ the resulting numeric exit representation. No universal numeric code is promised
 The paired real child processes use the same signalled failure after
 ApplicationStarted. Explicit lifecycle cases also await StartAsync successfully.
 Each raw route uses a diagnostic boundary that records the exception and maps a
-caught failure to17; it does not suppress it into exit0.
+caught failure to 17; it does not suppress it into exit 0.
 
 | StopHost case | .NET 10 raw run/stop/wait | .NET 11 RC2 raw run/stop/wait |
 | --- | --- | --- |
-| One importer fails | logged, no boundary exception, exit0 | original SensorImportException, exit17 |
-| Two importers fail | both logged, no boundary exception, exit0 | AggregateException containing both original objects, exit17 |
-| Importer plus shutdown failure | background logged; shutdown exception alone, exit17 | aggregate of both original objects, exit17 |
-| Ordinary stopping cancellation | no failure log/exception, exit0 | no failure log/exception, exit0 |
-| Ignore and a failed importer | logged; host still running until explicit stop, exit0 | logged; host still running until explicit stop, exit0 |
+| One importer fails | logged, no boundary exception, exit 0 | original SensorImportException, exit 17 |
+| Two importers fail | both logged, no boundary exception, exit 0 | AggregateException containing both original objects, exit 17 |
+| Importer plus shutdown failure | background logged; shutdown exception alone, exit 17 | aggregate of both original objects, exit 17 |
+| Ordinary stopping cancellation | no failure log/exception, exit 0 | no failure log/exception, exit 0 |
+| Ignore and a failed importer | logged; host still running until explicit stop, exit 0 | logged; host still running until explicit stop, exit 0 |
 
 The raw routes are `RunAsync`, synchronous `Run`, explicit `StartAsync` followed by
 `IHost.StopAsync(CancellationToken)`, timed `StopAsync(TimeSpan)`, and explicit start
@@ -126,7 +126,7 @@ OperationCanceledException as success regardless of its token or lifecycle.
 
 ## Evidence
 
-The sample executes35 actual child processes per release: seven boundaries times
+The sample executes 35 actual child processes per release: seven boundaries times
 five scenarios. Both real dependency sets compile/run. Checks capture exact thrown
 type/reference identity, aggregate membership, separate host failure logs, OS child
 exit, normal cancellation, Ignore remaining unstopped, service disposal and child

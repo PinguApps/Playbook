@@ -61,7 +61,7 @@
             }
           ],
           "packageAssets": [
-            "lib/net11.0/System.Numerics.Tensors.dll. Previous consumer uses package10.0.13/lib/net10.0. Exact full compile/runtime closure is saved in the sample evidence; Hosting's shared abstractions come from net11 references/runtime."
+            "lib/net11.0/System.Numerics.Tensors.dll. Previous consumer uses package 10.0.13/lib/net10.0. Exact compile/runtime assets and dependency closure are saved in the sample evidence."
           ],
           "providers": [],
           "platforms": [
@@ -71,10 +71,10 @@
           "workloads": [],
           "prerequisites": [
             "SDK console project targeting net11.0, C#15, ImplicitUsings=enable and Nullable=enable; put each complete snippet in a separate .cs file.",
-            "Use the application validation/exit policy described by the recipe."
+            "Validate every scalar or per-reading lower <= upper pair before writing output; retain valid equal bounds."
           ],
           "constraints": [
-            "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
+            "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths 1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
             "No provider, rendering mode, native toolchain, workload, account or service. The net10 comparison adds no catalogue edition or ninth foundation."
           ],
           "optIns": [],
@@ -117,7 +117,7 @@
   "evidence": [
     {
       "kind": "compile-and-run",
-      "scope": "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
+      "scope": "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths 1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
       "sample": "samples/net10.0/CalibrationImport/CalibrationImport.csproj",
       "sdk": "10.0.402",
       "language": "14.0",
@@ -125,7 +125,7 @@
     },
     {
       "kind": "compile-and-run",
-      "scope": "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
+      "scope": "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths 1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
       "sample": "samples/net11.0/CalibrationImport/CalibrationImport.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
