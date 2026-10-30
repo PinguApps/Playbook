@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><DefineConstants>$(DefineConstants);SDK11_COMPILER</DefineConstants></PropertyGroup><ItemGroup><Compile Include="../../InstrumentArchive/ArchiveChecks.cs" Link="Program.cs" /></ItemGroup></Project>

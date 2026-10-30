@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion></PropertyGroup><ItemGroup><Compile Include="../../net11.0/BookingImport/BookingChecks.cs" Link="Program.cs" /></ItemGroup></Project>

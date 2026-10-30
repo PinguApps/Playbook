@@ -1,6 +1,6 @@
 # Numeric and parsing compatibility: PIN-683
 
-Reviewed **21 October 2026**. This is a source-only audit, not recipe delivery, compilation or runtime proof. All eight named compatibility notes are dispositioned below. Nine narrow delivery proposals await backlog approval; none has been created or implemented by this audit. Existing recipes and their evidence remain intact.
+Reviewed **21 October 2026**. The original audit below is source-only. Its nine proposals were subsequently approved and tracked by PIN-986. The **30 October delivery reconciliation** below records actual A/B delivery and qualifies the original source claims; other proposals retain their own owners. Existing recipe/edition identities remain intact.
 
 ## Scope, provenance and evidence boundary
 
@@ -18,12 +18,56 @@ Reference-source presence is API evidence only. PIN-703's actual asset manifest 
 
 ## Full mitigation dispositions
 
+### A and B delivery reconciliation — 30 October 2026
+
+PIN-1045 delivers `globalization.validate-date-parsing-options`; PIN-1046 extends
+`numerics.preserve-conversion-intent` edition11.0. Original source manifest IDs
+date-parsing, conversions, previous/current-runtime-api and previous/current-numeric-api
+were fetched again and matched all six saved SHA-256 values. The declarations and
+package-matched implementation sources were reconciled with **actual** SDK10.0.402 /
+runtime/ref10.0.13 and SDK11.0.100-rc.2.26504.105 / runtime/ref11RC2. No added NuGet,
+native, provider, workload or experimental opt-in is required. The samples remain
+isolated author-maintained dependencies with no new Renovate permission.
+
+The [paired booking consumers](../../../samples/net11.0/BookingImport/BookingChecks.cs)
+qualify the note: invalid styles change false→ArgumentException; null formats arrays
+also change false→ArgumentException, but null/empty array entries change
+false→**FormatException**. Unsupported Q already throws FormatException on .NET10;
+malformed custom formats can still return false, null string input can short-circuit
+styles, and matching earlier alternatives can skip invalid later Q. Both raw APIs
+and the same explicit allow-list importer are executed through string/span,
+single/multiple-format, valid and malformed-row controls. Do not teach the draft's
+universal ArgumentException interpretation.
+
+The [instrument consumers](../../../samples/InstrumentArchive/ArchiveChecks.cs)
+execute original G7/G15 policy, signs, significant-digit ties, exponent/underflow,
+finite range and nonfinite rejection; Decimal/BigInteger destination-width and
+advertised constructor/Convert/IConvertible/generic routes. Representative Decimal
+double/float/Half and BigInteger double/float corrections are observed. Finite
+BigInteger-to-Half integer inputs need no invented changed result: exact-double
+intermediate values already round correctly in this bounded range. BFloat16 is
+executed only on net11, without an invented net10 equivalent. RC2 still converts
+Decimal-to-Half through double: the very-close 5.001953125000000000000000001 control
+rounds down on both artifacts. This unavailable general single-rounding subgoal
+remains explicit in served guidance and for PIN-962's actual-GA reconciliation.
+
+Two actual **net10/C#14** assemblies built with the different SDKs contain different
+decimal/double constants, read separately from runtime-input conversions; both run
+on actual .NET10.0.13. Exact compiler, selected reference-pack and runtime hashes,
+commands, inputs and outputs live in the five sample evidence records, refreshed by
+`eng/Record-BookingArchive.ps1`. The ordinary installed local-feed/cache artifact is
+inspected through real offline stdio list/get, complete canonical body, discovery
+ID/title/goal, target/edition, applicability and freshness using the existing
+[Inspector procedure](../../inspect-guidance.md#date-parser-settings-and-numeric-representation).
+These claims do not close PIN-959, PIN-962, other delivery owners or Human gates;
+RC2 is not actual-GA evidence and exactly eight .NET10 foundations remain.
+
 All eight notes describe behavioral changes. **Included** means authored mitigation or changed assumptions remain delivery work. **Grouped** means a named existing goal shares responsibility; it does not imply complete recipe coverage. The extra tensor rows retain findings explicitly assigned by PIN-703.
 
 | Finding / introduction | Exact scope and mitigation | Coverage and accountable delivery |
 | --- | --- | --- |
-| [DateOnly/TimeOnly parsing][date-parsing], Preview 2 | `TryParse` and `TryParseExact` must receive valid `DateTimeStyles` and format arguments. Invalid options can throw `ArgumentException`; malformed user data with valid options is a different failure. Validate configuration; handle `ArgumentException` at a boundary accepting externally supplied options. The note lists string, provider/style and exact single-/multiple-format forms; reference declarations also expose span forms. A no-option overload being listed does not mean every bad date throws. | **Included → A.** Numeric-prefix parsing in PIN-737 does not cover date/time option validation. |
-| [Decimal/BigInteger conversions][conversions], Preview 7 | Binary-to-Decimal no longer hides source precision behind 7/15 significant digits. Decimal-to-binary and BigInteger-to-double/float/Half/BFloat16 round the exact source once. Affects constructors, casts, Convert, Decimal.ToSingle/ToDouble, relevant CreateChecked/CreateSaturating/CreateTruncating and equivalent IConvertible/generic-math paths. Preserve decimal intent with decimal text/literals. For legacy binary-to-decimal results use invariant G7/G15 formatting plus decimal parsing with `NumberStyles.Float`, ties to even and symmetric signs; fixed decimal places are not significant digits. Preserve protocol bit patterns explicitly. No old-algorithm switch. New-SDK constant folding can change an older-target assembly on rebuild. | **Grouped → PIN-737**, delivered `numerics.preserve-conversion-intent` and `numerics.roundtrip-float-bits` cover decimal intent, one double/BigInteger case and raw bits. **Remaining → B:** general legacy significant-digit policy, other conversion directions/widths and real newer-SDK/older-target constant proof. Their current prose explicitly disclaims a complete conversion audit. |
+| [DateOnly/TimeOnly parsing][date-parsing], Preview 2 | `TryParse` and `TryParseExact` must receive valid `DateTimeStyles` and format arguments. Invalid options can throw `ArgumentException`; malformed user data with valid options is a different failure. Validate configuration; handle `ArgumentException` at a boundary accepting externally supplied options. The note lists string, provider/style and exact single-/multiple-format forms; reference declarations also expose span forms. A no-option overload being listed does not mean every bad date throws. | **Delivered → PIN-1045**, edition11.0; actual string/span/single/multiple checks and an explicit configuration boundary. The reconciliation above records FormatException and validation-order qualifications. Numeric-prefix parsing in PIN-737 remains separate. |
+| [Decimal/BigInteger conversions][conversions], Preview 7 | Binary-to-Decimal no longer hides source precision behind 7/15 significant digits. Decimal-to-binary and BigInteger-to-double/float/Half/BFloat16 round the exact source once. Affects constructors, casts, Convert, Decimal.ToSingle/ToDouble, relevant CreateChecked/CreateSaturating/CreateTruncating and equivalent IConvertible/generic-math paths. Preserve decimal intent with decimal text/literals. For legacy binary-to-decimal results use invariant G7/G15 formatting plus decimal parsing with `NumberStyles.Float`, ties to even and symmetric signs; fixed decimal places are not significant digits. Preserve protocol bit patterns explicitly. No old-algorithm switch. New-SDK constant folding can change an older-target assembly on rebuild. | **Grouped → PIN-737**, delivered `numerics.preserve-conversion-intent` and `numerics.roundtrip-float-bits` cover decimal intent, one double/BigInteger case and raw bits. **Extended → PIN-1046:** original legacy significant-digit policy, bounded conversion directions/widths and real SDK11/net10 constant proof. The reconciliation above retains the actual RC2 Half limitation; no universal conversion audit is claimed. |
 | [Math/MathF fractional-digit rounding][rounding], Preview 7 | `Math.Round(double,int[,mode])` and `MathF.Round(float,int[,mode])` now round the exact binary input; positive digit counts are uncapped (17+/9+ leave double/float unchanged). Negative digits remain invalid; this does not legalize invalid rounding modes. Delegating double/float/Half/NFloat interface entry points inherit the change. Decimal overloads and single-argument double/float overloads are unaffected. If exact former output is required, explicitly use scale/round/divide with its range/overflow limitations, or choose decimal quantities and an explicit policy. | **Included → C.** PIN-737's Decimal.Round ties-to-even tests do not establish this migration. PIN-736's IEEE decimal choices are supporting alternatives, not Math.Round proof. |
 | [Small integer casts][small-integers], Preview 7 | Unchecked float/double and corresponding Half conversions to sbyte/byte/short/ushort/char saturate at destination bounds; in-range fractions truncate toward zero and NaN becomes zero. Relevant Single/Double.ConvertToInteger calls agree. CoreCLR (including interpreter) and Native AOT are included; **Mono is excluded**. Checked overflow, integer narrowing and the older wider/vector conversion change are unaffected. Prefer saturation, or deliberately choose ConvertToIntegerNative, `(ushort)(int)x`, or native-int-then-narrowing according to the intended policy. Native conversion is platform-dependent and cannot promise historical results; validate indices/lengths separately. | **Included → D.** Both pinned reference sets already contain Single/Double.ConvertToIntegerNative and ConvertToInteger with IBinaryInteger constraints; Char implements that interface. Do not invent a new API introduction or a universal legacy cast. |
 | [Complex special values][complex], Preview 7 | Nongeneric Complex delegates to Complex<double>. Multiply/divide, Reciprocal, Abs, Pow, Sqrt, Exp, Log/Log10, trig/hyperbolic/inverse functions can preserve directed infinities and signed results rather than collapse to two NaNs. Update tests and classification logic that assumes nonfinite input always means NaN; no compatibility switch exists. Annex G leaves the sign of a zero quotient component unspecified, so do not assert a universal sign for that case. | **Grouped → PIN-736**, delivered `numerics.select-complex-precision` checks one zero divisor. **Remaining → E:** a separate special-value handling goal, not a second scalar-representation recipe. |

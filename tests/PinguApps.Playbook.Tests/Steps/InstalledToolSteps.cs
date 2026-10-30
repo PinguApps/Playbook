@@ -3549,14 +3549,14 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("numeric guidance retains complete canonical bodies applicability and editions")]
     public async Task CheckNumericGuidanceAsync()
     {
-        foreach ((string goal, string region) in new[]
+        foreach (string goal in new[]
         {
-            ("choose-ieee-decimal", "decimal"),
-            ("select-complex-precision", "complex"),
-            ("preserve-conversion-intent", "conversion"),
-            ("parse-delimited-values", "parsing"),
-            ("roundtrip-float-bits", "bits"),
-            ("generate-generic-random", "random"),
+            "choose-ieee-decimal",
+            "select-complex-precision",
+            "preserve-conversion-intent",
+            "parse-delimited-values",
+            "roundtrip-float-bits",
+            "generate-generic-random",
         })
         {
             string id = $"numerics.{goal}";
@@ -3571,13 +3571,18 @@ public sealed class InstalledToolSteps : IDisposable
             Assert.Equal("11.0", recipe.GetProperty("edition").GetString());
             Assert.Equal("11.0", recipe.GetProperty("introducedIn").GetString());
             AssertSelection(summary, recipe);
+            using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
             string expected = await ReadCanonicalAsync($"{id}.md").ConfigureAwait(false);
-            foreach ((string token, string release) in new[] { ("older", "net10.0"), ("newer", "net11.0") })
+            foreach (JsonProperty snippet in metadata.RootElement.GetProperty("snippets").EnumerateObject())
             {
-                string source = await ReadCanonicalAsync($"{release}.NumericGuidance.Numbers.cs").ConfigureAwait(false);
-                string snippet = source.Split($"// snippet:{region}\n", StringSplitOptions.None)[1]
-                    .Split($"// endsnippet:{region}", StringSplitOptions.None)[0].TrimEnd();
-                expected = expected.Replace($"{{{{snippet:{token}}}}}", $"```csharp\n{snippet}\n```", StringComparison.Ordinal);
+                string path = snippet.Value.GetProperty("path").GetString()!;
+                Assert.StartsWith("samples/", path, StringComparison.Ordinal);
+                string source = await ReadCanonicalAsync(path["samples/".Length..].Replace('/', '.')).ConfigureAwait(false);
+                string region = System.Text.RegularExpressions.Regex.Escape(snippet.Value.GetProperty("region").GetString()!);
+                System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(source, $@"(?ms)^// snippet:{region}\n(.*?)^// endsnippet:{region}$");
+                Assert.True(match.Success, path);
+                string language = snippet.Value.GetProperty("language").GetString()!;
+                expected = expected.Replace($"{{{{snippet:{snippet.Name}}}}}", $"```{language}\n{match.Groups[1].Value.TrimEnd()}\n```", StringComparison.Ordinal);
             }
 
             Assert.Equal(expected, recipe.GetProperty("markdown").GetString());
@@ -3594,7 +3599,7 @@ public sealed class InstalledToolSteps : IDisposable
             }
             Assert.NotEmpty(recipe.GetProperty("sources").EnumerateArray());
             Assert.Equal("not-required", recipe.GetProperty("humanProof").GetProperty("status").GetString());
-            Assert.Equal(2, recipe.GetProperty("evidence").GetArrayLength());
+            Assert.Equal(metadata.RootElement.GetProperty("evidence").GetArrayLength(), recipe.GetProperty("evidence").GetArrayLength());
             Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
             {
                 Assert.Equal("current", evidence.GetProperty("freshness").GetString());
