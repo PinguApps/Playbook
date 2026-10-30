@@ -1,0 +1,12 @@
+{
+  "additionalInputs": [
+    "samples/CompilerMigrations/DynamicConditions.cs",
+    "eng/Test-CompilerMigrations.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "buildArguments": []
+}

@@ -1,0 +1,13 @@
+{
+  "additionalInputs": [
+    "samples/CompilerMigrations/SpanStorage.cs",
+    "eng/Test-CompilerMigrations.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "samples/CompilerMigrations/SpanEscape.cs"
+  ],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "buildArguments": []
+}
