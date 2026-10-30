@@ -1,4 +1,14 @@
 # PR Agent review scope; Git tracking and verification gates are unchanged.
+# Estuary authoring scripts generate SDK/command/HTTP/PE/binlog capture records.
+# Review original consumers, artifact pins, locks, recorders and recipes; ordinary
+# build/pack verifies saved compilation and input freshness.
+/samples/net10.0/EstuaryEncoding/verification-evidence.json
+/samples/net11.0/EstuaryEncoding/verification-evidence.json
+/samples/net10.0/EstuaryNative/verification-evidence.json
+/samples/net11.0/EstuaryNative/verification-evidence.json
+/samples/net10.0/EstuaryRegistry/verification-evidence.json
+/samples/net11.0/EstuaryRegistry/verification-evidence.json
+/samples/EstuarySdk/RegistryFixture/verification-evidence.json
 # Test-BeaconBuild generated SDK/command/restore/publish/import captures. Review
 # canonical consumers, artifact pins, locks, recorder and recipes; pack checks freshness.
 /samples/net10.0/BeaconBuild/verification-evidence.json

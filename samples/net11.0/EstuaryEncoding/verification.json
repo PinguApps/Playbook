@@ -1,0 +1,15 @@
+{
+  "workloads": [],
+  "dependencies": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/EstuaryProof.ps1",
+    "eng/Test-EstuaryWindows.ps1",
+    "samples/EstuarySdk/artifacts.json",
+    "samples/net10.0/EstuaryEncoding/Program.cs",
+    "eng/Test-EstuaryEncodingLane.ps1",
+    "samples/EstuarySdk/ConsoleProbe"
+  ],
+  "nativeToolchains": [],
+  "buildArguments": []
+}

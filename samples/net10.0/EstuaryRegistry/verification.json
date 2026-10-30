@@ -1,0 +1,13 @@
+{
+  "nativeToolchains": [],
+  "dependencies": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/EstuaryProof.ps1",
+    "eng/Test-EstuaryRegistry.ps1",
+    "samples/EstuarySdk/RegistryFixture",
+    "samples/EstuarySdk/registry-artifacts.json"
+  ],
+  "workloads": []
+}
