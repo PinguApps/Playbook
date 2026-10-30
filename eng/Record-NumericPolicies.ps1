@@ -18,7 +18,13 @@ try {
   $env:MSBUILDUSESERVER = '0'
   if ($VerifySources) {
     $manifest = Get-Content -LiteralPath (Join-Path $root 'docs/planning/audits/numeric-and-parsing.sources.json') -Raw | ConvertFrom-Json
-    foreach ($source in ($manifest.sources | Where-Object id -In @('rounding','small-integers','previous-runtime-api','current-runtime-api','previous-numeric-api','current-numeric-api','round-implementation','round-tensor-implementation','libraries-preview2'))) {
+    $sourceIds = @('rounding','small-integers','previous-runtime-api','current-runtime-api','previous-numeric-api','current-numeric-api','round-implementation','round-tensor-implementation','libraries-preview2')
+    $selected = foreach ($sourceId in $sourceIds) {
+      $matches = @($manifest.sources | Where-Object id -CEQ $sourceId)
+      if ($matches.Count -ne 1) { throw "Expected exactly one source: $sourceId" }
+      $matches[0]
+    }
+    foreach ($source in $selected) {
       $bytes = (Invoke-WebRequest -Uri $source.url).RawContentStream.ToArray()
       $hash = [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($bytes)).ToLowerInvariant()
       if ($hash -cne $source.sha256) { throw "Source changed: $($source.id)" }
