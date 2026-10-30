@@ -1,0 +1,147 @@
+{
+  "id": "globalization.validate-date-parsing-options",
+  "edition": "11.0",
+  "title": "Separate invalid date parsing options from bad data",
+  "goal": "Validate configured date and time formats and styles before importing rows, so configuration failures stay separate from malformed customer data.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "globalization",
+    "date-parsing",
+    "configuration",
+    "migration"
+  ],
+  "apis": [
+    "DateOnly.TryParse",
+    "DateOnly.TryParseExact",
+    "TimeOnly.TryParse",
+    "TimeOnly.TryParseExact",
+    "DateTimeStyles.AllowWhiteSpaces"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Invalid styles throw ArgumentException in the measured .NET 11 entry points; valid options still distinguish bad rows with false.",
+          "Invalid exact formats are not universally ArgumentException: empty/null array entries produce FormatException; malformed custom formats and unchecked alternatives can still escape validation. Validate the application contract first."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The recipe addresses .NET 11 DateOnly/TimeOnly option-validation behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the validated reader uses no new C# 15 syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with ImplicitUsings and Nullable enabled. Use namespace Playbook.Samples and import System.Globalization. Configure only the demonstrated invariant booking formats and whitespace styles."
+          ],
+          "constraints": [
+            "Invalid styles throw ArgumentException in the measured .NET 11 entry points; valid options still distinguish bad rows with false.",
+            "Invalid exact formats are not universally ArgumentException: empty/null array entries produce FormatException; malformed custom formats and unchecked alternatives can still escape validation. Validate the application contract first.",
+            "Framework managed APIs; no NuGet dependency, provider, native workload or rendering restriction. The identical allow-list reader is compiled and executed on .NET 10 as the comparison, not a new catalogue foundation. No universal arbitrary-format validator is supplied."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/DateOnly.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/TimeOnly.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BookingImport/BookingImport.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft date parsing compatibility note (pinned; format exception wording is qualified by measured artifacts)",
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/dateonly-timeonly-tryparse-argumentexception.md"
+    },
+    {
+      "title": "RC2 DateOnly implementation and validation order",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/DateOnly.cs"
+    },
+    {
+      "title": "RC2 TimeOnly implementation and validation order",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/TimeOnly.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BookingImport/BookingImport.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real string/span TryParse and single/multiple exact-format calls: old/new invalid styles, null/empty format arrays, FormatException controls, matching-first and malformed-custom limits, valid input and malformed data. Validated importer checks actual values, alternatives, whitespace, missing/invalid rows, configuration rejection and array ownership. Exact runtime/compiler/ref identities recorded; Windows x64 invariant provider, not GA/native/browser proof."
+    },
+    {
+      "sample": "samples/net11.0/BookingImport/BookingImport.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real string/span TryParse and single/multiple exact-format calls: old/new invalid styles, null/empty format arrays, FormatException controls, matching-first and malformed-custom limits, valid input and malformed data. Validated importer checks actual values, alternatives, whitespace, missing/invalid rows, configuration rejection and array ownership. Exact runtime/compiler/ref identities recorded; Windows x64 invariant provider, not GA/native/browser proof."
+    }
+  ],
+  "snippets": {
+    "reader": {
+      "path": "samples/net10.0/BookingImport/BookingReader.cs",
+      "region": "reader",
+      "language": "csharp"
+    },
+    "usage": {
+      "language": "csharp",
+      "region": "usage",
+      "path": "samples/net11.0/BookingImport/BookingChecks.cs"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed parser/configuration execution and installed offline stdio retrieval require no Human device, browser or provider action."
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "numerics.preserve-conversion-intent",
   "edition": "11.0",
-  "title": "Preserve decimal intent across numeric conversions",
-  "goal": "Separate decimal source values from binary measurements when an upgrade changes conversion rounding, and choose an explicit rounding rule for displayed amounts.",
+  "title": "Preserve deliberate numeric conversion intent",
+  "goal": "Choose decimal source values, binary analysis values or an agreed legacy significant-digit representation when runtime or SDK upgrades change numeric conversion results.",
   "areas": [
     "libraries"
   ],
@@ -11,13 +11,20 @@
   ],
   "tags": [
     "numerics",
-    "preserve-conversion-intent"
+    "preserve-conversion-intent",
+    "significant-digits",
+    "legacy-representation",
+    "constant-folding"
   ],
   "apis": [
     "Decimal",
     "BigInteger",
     "MidpointRounding.ToEven",
-    "Decimal.Parse"
+    "Decimal.Parse",
+    "Decimal.CreateChecked",
+    "Half",
+    "BFloat16",
+    "Convert.ToDecimal"
   ],
   "introducedIn": "11.0",
   "supportedTargets": [
@@ -31,8 +38,9 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          ".NET 11 conversions round the exact source once; binary and decimal literals with similar text need not agree.",
-          "Compiler-folded conversions can change after an SDK rebuild even when the target framework is retained."
+          "Choose decimal source intent, runtime binary conversion or explicit invariant G7/G15 archive policy; they preserve different information.",
+          "Rebuilding net10 with SDK11 can change embedded constants while runtime-input casts still run on .NET10.",
+          "Representative corrected Decimal/BigInteger conversions are verified; the RC2 Decimal-to-Half path retains a measured near-midpoint limitation."
         ],
         "requirements": {
           "runtime": {
@@ -63,12 +71,14 @@
           "renderingModes": [],
           "workloads": [],
           "prerequisites": [
-            "SDK console project targeting net11.0 with ImplicitUsings=enable and Nullable=enable. Import System.Globalization and System.Numerics; place the supplied partial class in namespace Playbook.Samples."
+            "SDK console project targeting net11.0 with ImplicitUsings=enable and Nullable=enable. Import System.Globalization and System.Numerics; place the supplied partial class in namespace Playbook.Samples.",
+            "For the independent archive policy, include ArchiveNumbers from the supplied canonical code. The constant experiment needs both full SDKs and an actual .NET10 runtime; see exact sample pins in evidence."
           ],
           "constraints": [
-            ".NET 11 conversions round the exact source once; binary and decimal literals with similar text need not agree.",
-            "Compiler-folded conversions can change after an SDK rebuild even when the target framework is retained.",
-            "Framework-provided managed APIs; no additional NuGet package/assets, workload, provider or rendering mode. No older-target package route, AOT or native-device execution is established."
+            "Choose decimal source intent, runtime binary conversion or explicit invariant G7/G15 archive policy; they preserve different information.",
+            "Rebuilding net10 with SDK11 can change embedded constants while runtime-input casts still run on .NET10.",
+            "Representative corrected Decimal/BigInteger conversions are verified; the RC2 Decimal-to-Half path retains a measured near-midpoint limitation.",
+            "Managed framework APIs with no added package/assets, workload, provider or rendering mode. BFloat16 exists only on .NET11 here. The SDK11/net10 experiment establishes rebuild behavior on actual runtime10, not a .NET10 route to new runtime APIs. No AOT or device execution is established."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -77,10 +87,13 @@
         },
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
-          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions"
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions",
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Half.cs"
         ],
         "evidenceSamples": [
-          "samples/net11.0/NumericGuidance/NumericGuidance.csproj"
+          "samples/net11.0/NumericGuidance/NumericGuidance.csproj",
+          "samples/net11.0/InstrumentArchive/InstrumentArchive.csproj"
         ],
         "sharedAreas": [
           "aspnetcore",
@@ -100,6 +113,14 @@
     {
       "title": "Microsoft numeric contract or compatibility source",
       "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions"
+    },
+    {
+      "title": "Pinned Microsoft numeric conversion mitigation and compiler-host distinction",
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/decimal-biginteger-floating-point-conversions.md"
+    },
+    {
+      "title": "RC2 Half conversion implementation (retains a double intermediate for Decimal)",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Half.cs"
     }
   ],
   "evidence": [
@@ -118,6 +139,30 @@
       "language": "15.0",
       "kind": "compile-and-run",
       "scope": "Real target executions assert exact decimal values, both original BigInteger destination bit patterns, ties-to-even, and exceptions for NaN/infinity. This is not a full audit of every conversion direction, Math.Round migration or older-target/newer-SDK route. Actual managed execution; no mocks, cross-compilation or GA verification."
+    },
+    {
+      "sample": "samples/net10.0/InstrumentArchive/InstrumentArchive.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real invariant G7/G15 policy with signs, exact ties-to-even, exponents, underflow, large finite values, range and nonfinite rejection. Parsed runtime inputs check Decimal-to-double/float/Half and BigInteger-to-double/float/Half, constructor/Convert/IConvertible/generic routes, negative symmetry, Half finite/tie/overflow controls and the retained extreme-midpoint limitation. Constants are read from embedded metadata separately from runtime casts. BFloat16 is tested only on net11. Compiler/ref/runtime hashes and exact no-package closure recorded; bounded managed evidence, not a universal conversion audit or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/InstrumentArchive/InstrumentArchive.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real invariant G7/G15 policy with signs, exact ties-to-even, exponents, underflow, large finite values, range and nonfinite rejection. Parsed runtime inputs check Decimal-to-double/float/Half and BigInteger-to-double/float/Half, constructor/Convert/IConvertible/generic routes, negative symmetry, Half finite/tie/overflow controls and the retained extreme-midpoint limitation. Constants are read from embedded metadata separately from runtime casts. BFloat16 is tested only on net11. Compiler/ref/runtime hashes and exact no-package closure recorded; bounded managed evidence, not a universal conversion audit or GA proof."
+    },
+    {
+      "sample": "samples/net10.0-sdk11/InstrumentArchive/InstrumentArchive.csproj",
+      "target": "net10.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real invariant G7/G15 policy with signs, exact ties-to-even, exponents, underflow, large finite values, range and nonfinite rejection. Parsed runtime inputs check Decimal-to-double/float/Half and BigInteger-to-double/float/Half, constructor/Convert/IConvertible/generic routes, negative symmetry, Half finite/tie/overflow controls and the retained extreme-midpoint limitation. Constants are read from embedded metadata separately from runtime casts. BFloat16 is tested only on net11. Compiler/ref/runtime hashes and exact no-package closure recorded; bounded managed evidence, not a universal conversion audit or GA proof."
     }
   ],
   "snippets": {
@@ -129,6 +174,16 @@
     "newer": {
       "path": "samples/net11.0/NumericGuidance/Numbers.cs",
       "region": "conversion",
+      "language": "csharp"
+    },
+    "policy": {
+      "path": "samples/net11.0/InstrumentArchive/ArchiveNumbers.cs",
+      "region": "policy",
+      "language": "csharp"
+    },
+    "constants": {
+      "path": "samples/net11.0/InstrumentArchive/ArchiveNumbers.cs",
+      "region": "constants",
       "language": "csharp"
     }
   },

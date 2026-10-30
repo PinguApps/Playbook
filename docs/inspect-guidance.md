@@ -1,5 +1,51 @@
 # Inspect the guidance an agent receives
 
+## Date parser settings and numeric representation
+
+This block builds/packs the ordinary tool and installs that exact artifact from a
+local-only feed with a fresh cache. Real stdio list/get runs from an unrelated
+temporary directory and prints ID/title/goal, complete canonical Markdown,
+target11/edition11, applicability and current evidence. Target10 returns
+`no_applicable_edition`: the .NET10 comparisons and SDK11/net10 rebuild experiment
+remain inside the target11 edition, preserving exactly eight foundations.
+
+Prerequisites: PowerShell7, Node22.19+, SDK10.0.402 and, for recapture, a complete
+SDK11.0.100-rc.2.26504.105 installation plus runtime/ref10.0.13 and11RC2. Setup can
+restore online. Retrieval with unusable proxies proves proxy independence, not
+network isolation. No global tool install, PATH change, credential or provider.
+The literal block was tested from an unrelated starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6d85858c'
+& ./eng/Record-BookingArchive.ps1 -VerifySources `
+  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('globalization.validate-date-parsing-options','numerics.preserve-conversion-intent') `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1045-1046' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/booking-archive/inspection
+```
+
+Expect both explanatory discovery entries and the final exact-artifact PASS.
+The recorder verifies six pinned official source hashes, both booking executions,
+both numeric executions and the SDK11/net10 constant consumer on actual runtime10;
+it compares embedded constants separately from runtime-input casts. Compiler,
+selected targeting pack and actual runtime hashes accompany each saved record.
+Date styles throw ArgumentException on RC2, but the measured format cases require
+FormatException/false qualifications. The original allow-list reader rejects
+configuration before rows; malformed data remains false. G7/G15 policy checks
+cover signs, ties, exponents, small/large values, range/nonfinite rejection and
+representative conversion families. RC2's extremely close Decimal-to-Half midpoint
+limitation remains explicit; BigInteger-to-Half controls do not invent a changed
+finite result, and BFloat16 runs only on net11. No universal conversion, native,
+browser or actual-GA claim follows. PIN-959/PIN-962 and Human gates stay open.
+
+A nonzero exit, stale evidence, absent ID, unexpanded snippet or changed
+structured/text response is a failed check.
+
 `playbook mcp` speaks protocol over stdin/stdout. Use MCP Inspector as a client; it initializes and closes each connection automatically. `eng/Inspect-Guidance.ps1` builds the real server, installs pinned Inspector 2.11.0 under ignored `artifacts/` if needed, calls both tools, and prints **ID/title/goal, full expanded Markdown and applicability**. Responses default to `artifacts/inspection/<id>.json`.
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
