@@ -331,6 +331,20 @@ Original proposal and evidence remain in Git history. No recipe is required.
 
 Proposed `sdk.configure-redirected-output-encoding`. An original Windows script sets DOTNET_CLI_FORCE_UTF8_ENCODING in child processes only. Capture actual non-ASCII diagnostics through a pipe with default/false/true controls and the declared console/code-page conditions; decode bytes using the consumer's explicit policy. Verify exits and unchanged persistent console/environment settings. Never promise the SDK can discover a pipe reader's encoding.
 
+**Qualification correction approved by Pingu:** deliver the verified explicit
+UTF-8 reader and disclose the unavailable opt-out, preserving the original control
+checks. Implemented under **PIN-1142** as
+[edition11.0](../../../content/recipes/sdk.configure-redirected-output-encoding/11.0/recipe.md).
+Original paired Windows x64 SDK10.0.402/SDK11RC2 consumers produce actual non-ASCII
+diagnostic bytes under owned private CP1252/65001 consoles. Default/false/true and
+the source-level DOTNET_CLI_CONSOLE_USE_DEFAULT_ENCODING=1 control retain UTF-8.
+The explicit UTF-8 reader preserves the text and failed build exit; a CP1252
+reader corrupts the diagnostic. No working legacy producer encoding route is
+claimed. The older valid reader remains explicit, without inventing a newer-only
+API. Fresh before/after input evidence records exact artifacts, commands and code
+page conditions with unchanged persistent environment/PATH. M(3), the eight
+foundations, installed offline retrieval and PIN-959/PIN-963/Human gates remain.
+
 ### B26. Create an MCP server from the bundled template — M (3)
 
 Proposed `sdk.scaffold-mcp-server`. Generate an original fictional-domain local stdio server from the actual bundled template, inspect and pin all generated package/SDK dependencies, build it and exercise real initialize/tools/list/tool-call/shutdown. Compare the actual older template availability/install route honestly. Remote transport/AOT/self-contained claims each need their own actual supported build/runtime proof or explicit exclusion; template presence alone proves none. This does not change Playbook's own two-tool protocol.
@@ -339,9 +353,35 @@ Proposed `sdk.scaffold-mcp-server`. Generate an original fictional-domain local 
 
 Proposed `containers.migrate-registry-auth-challenges`. An authorized disposable registry/auth service uses a valid absolute HTTPS realm, with deliberate local insecure exceptions only where the actual SDK permits them. Publish a real original image and test disallowed scheme/private/loopback/mismatched-host cases without sending credentials outside the disposable service. Record actual HTTP exchanges with secrets redacted; a mocked realm validator is insufficient. Do not disable validation to manufacture compatibility.
 
+Implemented under **PIN-1143** as [edition11.0](../../../content/recipes/containers.migrate-registry-auth-challenges/11.0/recipe.md).
+Original Estuary workers build/run on the exact SDK10.0.402/SDK11RC2 Linux x64
+images and really publish through a disposable TLS/token gateway to Distribution3.1.2.
+HTTPS with a different ordinary token DNS name and the explicit same-host local
+HTTP exception both produce token exchanges and actual manifest writes. The exact
+pushed images are copied back and run without networking. SDK11 rejects relative,
+FTP, secure-registry HTTP, private/loopback/localhost and insecure mismatched-IP
+real challenges with zero token requests/writes. The check does not invoke an
+internal validator or promise DNS resolution/rebinding protection. Exact image
+digests and compiler/task hashes, fresh inputs and redacted exchanges are retained;
+only disposable child trust/credentials and an internal SDK network are used.
+Azure Linux4 remains Beta. M(3), installed offline retrieval, the eight foundations
+and PIN-959/PIN-963/actual-GA/Human gates remain explicit.
+
 ### B28. Preserve custom hooks in optimized native publishing — M (3)
 
 Proposed `sdk.migrate-optimized-publish-hooks`. An original NativeAOT application's build has an observable generated artifact/hook dependency. Compare actual old/default/new UseOptimizedPublish paths and migrate the hook to the supported publish target so its artifact is present and consumed. Require a real native compiler/publish/run, inspect the binlog and exercise NoBuild/repeat controls; an opt-out is a documented temporary alternative. Automatic AOT publish speed alone remains excluded.
+
+Implemented under **PIN-1144** as [edition11.0](../../../content/recipes/sdk.migrate-optimized-publish-hooks/11.0/recipe.md).
+The original Estuary native checker consumes an actually generated publish sidecar.
+Real paired Windows x64 ILC/MSVC-link publication, native PE/run and matched SDK
+binlog replay establish old/default/false/true behaviour. Current default/true
+skip the legacy after-Build hook and the native program fails with exit23; explicit
+false restores the old path. The migrated public publish hook succeeds on both
+SDKs, including changed sidecars under NoBuild, identical repeats and wrong-cargo
+exit24. Exact SDK/compiler/ref/runtime/target hashes, locked native dependencies,
+linker/library versions and fresh sample evidence are separate from prerequisites.
+No speed, general plugin/compilation-hook, other-platform or GA claim is made.
+M(3), installed offline retrieval, eight foundations and existing gates remain explicit.
 
 ### B29. Select the intended public API comparison surface — M (3)
 

@@ -1,0 +1,21 @@
+{
+  "workloads": [],
+  "dependencies": [
+    "Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105",
+    "Microsoft.NET.ILLink.Tasks/11.0.0-rc.2.26504.105",
+    "runtime.win-x64.Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105"
+  ],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/EstuaryProof.ps1",
+    "eng/Test-EstuaryWindows.ps1",
+    "samples/EstuarySdk/artifacts.json",
+    "samples/net10.0/EstuaryNative/Program.cs",
+    "samples/EstuarySdk/BinlogReader"
+  ],
+  "nativeToolchains": [
+    "MSVC-link/14.51.36260.0",
+    "Windows-SDK/10.0.26100.0"
+  ],
+  "buildArguments": []
+}

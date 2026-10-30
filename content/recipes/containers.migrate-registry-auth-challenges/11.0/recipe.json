@@ -1,0 +1,164 @@
+{
+  "id": "containers.migrate-registry-auth-challenges",
+  "edition": "11.0",
+  "title": "Configure registry authentication realms accepted by the SDK",
+  "goal": "Configure a bearer-token challenge for SDK container publishing when a registry realm fails validation, using an absolute HTTPS endpoint and only deliberate same-host local insecure exceptions.",
+  "areas": [
+    "containers"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "estuary-sdk",
+    "registry"
+  ],
+  "apis": [
+    "WWW-Authenticate",
+    "ContainerRegistry",
+    "DOTNET_CONTAINER_INSECURE_REGISTRIES"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Real isolated Linux x64 original worker build/run, Distribution3.1.2 TLS and local HTTP token exchanges, image push/run and SDK11 invalid-realm refusal before token requests; child-only trust and generated fixture credentials.",
+          "Exact RC2 evidence is distinct from supported prerequisites and actual-GA qualification. Older examples are comparisons inside this target11 edition."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared net11.0 application/runtime; the SDK host is selected independently."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK family supplying the authored build contract; exact RC2 build is recorded evidence, not GA qualification."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Supported language setting for these net11.0 examples; no preview-language switch."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Inbox SDK container publishing task; no independent container package dependency"
+          ],
+          "workloads": [],
+          "providers": [
+            "Authorized container registry and token service; actual disposable Distribution3.1.2 backend"
+          ],
+          "platforms": [
+            "Linux x64 SDK/base images; Docker authoring host and isolated disposable registry"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete SDK11, compatible runtime base and an authorized HTTPS registry/token service with a trusted certificate.",
+            "Measured digest-pinned SDK10.0.402/11RC2 images, runtime10.0.13/11RC2 and Distribution3.1.2. ORAS1.3.6 and Docker reproduce original published image execution.",
+            "Azure Linux4 selected current base remains Beta; fixture private trust and generated credentials are disposable only."
+          ],
+          "constraints": [
+            "Real isolated Linux x64 original worker build/run, Distribution3.1.2 TLS and local HTTP token exchanges, image push/run and SDK11 invalid-realm refusal before token requests; child-only trust and generated fixture credentials.",
+            "No arbitrary plugin/registry, other-platform, production or actual-GA guarantee. Exact eight foundations and PIN-959/PIN-963/Human gates remain open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Evidence is .NET 11 RC2. Reconcile actual GA artifacts separately under PIN-963; no API taught here is designated experimental."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/sdk.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Containers/Microsoft.NET.Build.Containers/AuthHandshakeMessageHandler.cs",
+          "https://learn.microsoft.com/en-us/dotnet/core/containers/overview"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/EstuaryRegistry/EstuaryRegistry.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official SDK contract or supported authoring guidance",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/sdk.md"
+    },
+    {
+      "title": "Official SDK contract or supported authoring guidance",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Containers/Microsoft.NET.Build.Containers/AuthHandshakeMessageHandler.cs"
+    },
+    {
+      "title": "Official SDK contract or supported authoring guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/containers/overview"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "sample": "samples/net10.0/EstuaryRegistry/EstuaryRegistry.csproj",
+      "scope": "Real isolated Linux x64 original worker build/run, Distribution3.1.2 TLS and local HTTP token exchanges, image push/run and SDK11 invalid-realm refusal before token requests; child-only trust and generated fixture credentials.",
+      "kind": "compile-and-run",
+      "language": "14.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "sample": "samples/net11.0/EstuaryRegistry/EstuaryRegistry.csproj",
+      "scope": "Real isolated Linux x64 original worker build/run, Distribution3.1.2 TLS and local HTTP token exchanges, image push/run and SDK11 invalid-realm refusal before token requests; child-only trust and generated fixture credentials.",
+      "kind": "compile-and-run",
+      "language": "15.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual Windows SDK10 helper build; real Linux10/11 helper execution with explicit Major/prerelease roll-forward, TLS token gateway, real Distribution publication and SDK11 rejection controls.",
+      "target": "net10.0",
+      "sample": "samples/EstuarySdk/RegistryFixture/RegistryFixture.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    }
+  ],
+  "snippets": {
+    "fixture": {
+      "path": "samples/EstuarySdk/RegistryFixture/Program.cs",
+      "language": "csharp",
+      "region": "fixture"
+    },
+    "fixture-project": {
+      "path": "samples/EstuarySdk/RegistryFixture/RegistryFixture.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "older": {
+      "path": "samples/net10.0/EstuaryRegistry/EstuaryRegistry.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "program": {
+      "path": "samples/net10.0/EstuaryRegistry/Program.cs",
+      "language": "csharp",
+      "region": "program"
+    },
+    "newer": {
+      "path": "samples/net11.0/EstuaryRegistry/EstuaryRegistry.csproj",
+      "language": "xml",
+      "region": "project"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded local native/service behaviour is executed by the agent; unrelated Human/publication/actual-GA gates remain open."
+  }
+}

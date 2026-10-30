@@ -1356,3 +1356,45 @@ returns `unknown_recipe` on a direct request. The retained recipe prints its ID,
 title, goal, full expanded Markdown and applicability, with current sample evidence
 and equal structured/text responses. A remaining ID, any other error or stale/
 changed retained content fails the check. No new compiler-consumer or GA claim follows.
+
+## Registry challenges and native publish hooks
+
+Requires PowerShell7, SDK10.0.402 and Node22.19+. This builds/packs the ordinary
+tool, installs that exact artifact through a local-only feed and fresh cache,
+then exercises real stdio list/get from an unrelated temporary directory with
+unusable proxies. Setup can restore online; retrieval proves proxy independence,
+not network isolation. The block was tested from an unrelated starting directory.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d3fc93fb'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1142-batch04'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sdk.configure-redirected-output-encoding','containers.migrate-registry-auth-challenges','sdk.migrate-optimized-publish-hooks') `
+  -Query 'estuary' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1142-batch04' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/estuary/inspection-final
+```
+
+Expect all three IDs, titles and explanatory goals; full canonical Markdown;
+target11/edition11 applicability; and current paired compilation/execution
+evidence. Target10 requests must return `no_applicable_edition`: the valid older
+examples remain comparisons inside each target11 edition. A missing recipe,
+unexpanded snippet, stale evidence or changed structured/text response fails.
+
+The registry proof uses original workers, real Distribution3.1.2 TLS/token
+exchanges and image push/run, seven SDK11 refusals before token requests/writes,
+private child trust and an internal SDK network. Native proof uses actual Windows
+x64 ILC/MSVC-link/PE execution and matched binlogs for old/current legacy versus
+migrated hooks, default/false/true, NoBuild refresh/repeat and missing/wrong
+sidecars. Refresh changed inputs with `eng/Test-EstuaryRegistry.ps1 -Record` or
+`eng/Test-EstuaryWindows.ps1 -Record` on their declared authoring environments.
+Inspection itself consumes saved evidence; it does not repeat those native/service
+checks. Beta/RC2 limits, eight foundations and comprehensive/GA/Human gates remain.
+Encoding proof captures actual paired SDK build diagnostics through pipes under
+owned private CP1252/65001 consoles. An explicit UTF-8 reader preserves text and
+real failed-build exits; the proposed and source-level opt-outs retain UTF-8 on
+these artifacts and are disclosed as unavailable. No legacy producer encoding
+route or newer-only reader API is claimed.

@@ -1,0 +1,28 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion>
+    <PublishAot>true</PublishAot><RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IlcUseEnvironmentalTools>true</IlcUseEnvironmentalTools>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <EstuaryHook Condition="'$(EstuaryHook)' == ''">legacy</EstuaryHook>
+    <EstuaryCargo Condition="'$(EstuaryCargo)' == ''">copper-lanterns</EstuaryCargo>
+  </PropertyGroup>
+  <ItemGroup><AdditionalNativeLibraryDirectories Include="$(EstuaryMsvcLibraries);$(EstuaryUmLibraries);$(EstuaryUcrtLibraries)" /></ItemGroup>
+  <Target Name="GenerateEstuaryLegacyManifest" AfterTargets="Build" Condition="'$(EstuaryHook)' == 'legacy'">
+    <WriteLinesToFile File="$(IntermediateOutputPath)berth.txt" Lines="$(EstuaryCargo)" Overwrite="true" />
+    <Message Text="ESTUARY_HOOK:legacy:$(EstuaryCargo)" Importance="high" />
+  </Target>
+  <Target Name="GenerateEstuaryPublishManifest" BeforeTargets="ComputeFilesToPublish" Condition="'$(EstuaryHook)' == 'publish'">
+    <WriteLinesToFile File="$(IntermediateOutputPath)berth.txt" Lines="$(EstuaryCargo)" Overwrite="true" />
+    <Message Text="ESTUARY_HOOK:publish:$(EstuaryCargo)" Importance="high" />
+  </Target>
+  <Target Name="IncludeEstuaryManifest" BeforeTargets="ComputeFilesToPublish" DependsOnTargets="GenerateEstuaryPublishManifest">
+    <ItemGroup>
+      <ResolvedFileToPublish Include="$(IntermediateOutputPath)berth.txt" Condition="Exists('$(IntermediateOutputPath)berth.txt')">
+        <RelativePath>berth.txt</RelativePath><CopyToPublishDirectory>Always</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+</Project>
+<!-- endsnippet:project -->

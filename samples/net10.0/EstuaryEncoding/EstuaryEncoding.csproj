@@ -1,0 +1,13 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>14.0</LangVersion>
+    <OutputType>Exe</OutputType><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <Target Name="ReportEstuaryBerth" BeforeTargets="CoreCompile">
+    <Warning Code="ESTUARY001" Text="Estuary café: berth fermé" />
+    <Error Code="ESTUARY002" Text="Estuary café: berth fermé" Condition="'$(EstuaryReject)' == 'true'" />
+  </Target>
+</Project>
+<!-- endsnippet:project -->

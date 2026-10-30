@@ -1,0 +1,22 @@
+{
+  "registry": "registry@sha256:ddf754342cfc8acc51a56d5d0ab6af06826461864460636d8bd5c546dab2a7b8",
+  "lanes": {
+    "10": {
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "sdkImage": "mcr.microsoft.com/dotnet/sdk@sha256:0d99ebf1ccad15037b5c98c9fe8979d6b8dbac23812feae2277a0b277b5c5ffa",
+      "base": "mcr.microsoft.com/dotnet/runtime@sha256:e454ed02b8c903dff0d7fd40a63451e55f16c186463d168a78e584738244f939"
+    },
+    "11": {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "sdkImage": "mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1",
+      "base": "mcr.microsoft.com/dotnet/runtime@sha256:3b52667dbaff185a1ddd4cefb16d9517e6945f6e61257faa2e57e6040877d95b"
+    }
+  },
+  "oras": {
+    "version": "1.3.6",
+    "url": "https://github.com/oras-project/oras/releases/download/v1.3.6/oras_1.3.6_windows_amd64.zip",
+    "sha256": "ec3d19f386d5d2f0892288772d7b242475a05332aafa64b6773378ca771d76d3"
+  }
+}

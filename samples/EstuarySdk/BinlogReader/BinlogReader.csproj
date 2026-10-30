@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <EstuaryTargetFramework Condition="'$(EstuaryTargetFramework)' == ''">net10.0</EstuaryTargetFramework>
+    <TargetFramework>$(EstuaryTargetFramework)</TargetFramework><LangVersion>14.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Build"><HintPath>$(MSBuildBinPath)/Microsoft.Build.dll</HintPath></Reference>
+    <Reference Include="Microsoft.Build.Framework"><HintPath>$(MSBuildBinPath)/Microsoft.Build.Framework.dll</HintPath></Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,149 @@
+{
+  "id": "sdk.configure-redirected-output-encoding",
+  "edition": "11.0",
+  "title": "Read redirected SDK output with an explicit encoding",
+  "goal": "Read non-ASCII SDK build diagnostics through a pipe using a declared UTF-8 decoder and the real exit code, when console code pages or proposed encoding opt-outs do not describe the observed bytes.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "estuary-sdk",
+    "encoding",
+    "redirected-output"
+  ],
+  "apis": [
+    "ProcessStartInfo.Environment",
+    "DOTNET_CLI_FORCE_UTF8_ENCODING",
+    "DOTNET_CLI_CONSOLE_USE_DEFAULT_ENCODING",
+    "Encoding.GetEncoding"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Use an explicit UTF-8 reader for the verified Windows SDK build pipe. Default/false/true and source-level opt-out controls still emit UTF-8. No working legacy producer opt-out is claimed.",
+          "The SDK10 comparison reuses the existing reader; no newer-only reader API or ninth historical foundation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Declared net11.0 application/runtime; the SDK host is selected independently."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK family supplying the authored build contract; exact RC2 build is recorded evidence, not GA qualification."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Supported language setting for these net11.0 examples; no preview-language switch."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64; redirected stdout/stderr, private CP1252/65001 consoles and en-US SDK UI language"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Complete measured SDK10.0.402/runtime10.0.13 and SDK11.0.100-rc.2.26504.105/runtime11RC2 installations; PowerShell7.",
+            "Restore each pinned original project before the reader calls build --no-restore. No package, provider, workload or native compiler dependency for this route."
+          ],
+          "constraints": [
+            "Real paired Windows x64 build/run, raw non-ASCII diagnostic bytes under private CP1252/65001 consoles; default/false/true and source opt-out controls, explicit UTF-8 decode, mismatched reader corruption and actual failed builds. No working legacy producer opt-out is qualified.",
+            "The SDK cannot discover a pipe reader encoding. Producer bytes and decoder policy must agree; code pages, glyph rendering and arbitrary tools are separate.",
+            "RC2 observations are not GA qualification. PIN-959/PIN-963/Human gates and exact eight foundations remain open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Evidence is .NET 11 RC2. Reconcile actual GA artifacts separately under PIN-963; no API taught here is designated experimental."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/sdk.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Cli/dotnet/Program.cs",
+          "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/EstuaryEncoding/EstuaryEncoding.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview1/sdk.md",
+      "title": "Audited draft; opt-out not established by the measured pipe"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/Cli/dotnet/Program.cs",
+      "title": "Pinned CLI source; source is not execution proof"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables",
+      "title": "SDK environment variable documentation"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "sample": "samples/net10.0/EstuaryEncoding/EstuaryEncoding.csproj",
+      "scope": "Real paired Windows x64 build/run, raw non-ASCII diagnostic bytes under private CP1252/65001 consoles; default/false/true and source opt-out controls, explicit UTF-8 decode, mismatched reader corruption and actual failed builds. No working legacy producer opt-out is qualified.",
+      "kind": "compile-and-run",
+      "language": "14.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "sample": "samples/net11.0/EstuaryEncoding/EstuaryEncoding.csproj",
+      "scope": "Real paired Windows x64 build/run, raw non-ASCII diagnostic bytes under private CP1252/65001 consoles; default/false/true and source opt-out controls, explicit UTF-8 decode, mismatched reader corruption and actual failed builds. No working legacy producer opt-out is qualified.",
+      "kind": "compile-and-run",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/EstuaryEncoding/EstuaryEncoding.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "program": {
+      "path": "samples/net10.0/EstuaryEncoding/Program.cs",
+      "language": "csharp",
+      "region": "program"
+    },
+    "newer": {
+      "path": "samples/net11.0/EstuaryEncoding/EstuaryEncoding.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "reader": {
+      "path": "samples/net11.0/EstuaryEncoding/Read-BuildOutput.ps1",
+      "language": "powershell",
+      "region": "reader"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded Windows x64 SDK pipe behaviour is executed by the agent. No legacy producer opt-out, other-platform, rendering or actual-GA qualification is claimed; unrelated Human gates remain open."
+  }
+}
