@@ -134,6 +134,8 @@ are retained with authorization values redacted. Positive image bytes are copied
 back through an OCI layout and executed by Docker without networking. The seven
 current negative controls must cause no token request and no manifest write.
 
+The authoring harness requires PowerShell 7.4 or later for its HTTP timeout options.
+
 No real credentials leave the disposable service. No SDK internals are called by
 reflection. No arbitrary registry, production auth protocol, redirect, DNS-rebinding,
 other-platform or GA guarantee follows. Fresh compilation/evidence and installed

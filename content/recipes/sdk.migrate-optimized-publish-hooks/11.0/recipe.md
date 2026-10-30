@@ -17,13 +17,16 @@ adding a ninth historical foundation or advertising a down-level SDK11 route.
 | Target / reference and runtime assets | net10.0 / 10.0.13 | net11.0 / 11.0.0-rc.2.26504.105 |
 | Compiler / language | 5.9.0-1.26505.111 / C#14 | 5.12.0-1.26504.105 / C#15 |
 | Native compiler packages | Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler 10.0.13 | Same package IDs, 11.0.0-rc.2.26504.105 |
-| Native linker / libraries | MSVC link14.51.36260.0; MSVC14.51.36231 library directory; Windows SDK10.0.26100.0 x64 UM/UCRT | Same measured host toolchain |
+| Native linker / libraries | MSVC link 14.51.36260.0; MSVC 14.51.36231 library directory; Windows SDK 10.0.26100.0 x64 UM/UCRT | Same measured host toolchain |
 
 Use a complete SDK and its matching Native AOT package closure, plus the supported
 Windows x64 native tools. Exact compiler/ref/runtime/Publish.targets hashes are
 recorded separately from these prerequisites. There is no external provider,
 optional workload, UI or rendering dependency. These are RC2 observations, not
 actual-GA, arbitrary SDK/plugin compatibility or performance qualification.
+
+The authoring harness accepts `-Net10Dotnet`, `-Net11Dotnet`, `-VisualCppRoot`
+and `-WindowsSdkLibRoot` to override the measured machine's default paths.
 
 ## Older approach
 
@@ -37,7 +40,7 @@ program below as `Program.cs` in that directory. Select SDK10.0.402 using
 
 The default legacy hook runs after `Build`. The later inclusion target adds an
 existing generated file to the publish list. Missing output deliberately remains
-observable: the native program returns23, rather than manufacturing a manifest.
+observable: the native program returns 23, rather than manufacturing a manifest.
 This is a sidecar used at execution time, not a generated assembly or embedded resource.
 
 ## Newer approach
@@ -72,7 +75,7 @@ private `_Publish*` targets or an SDK-internal extension list.
    `IlcUseEnvironmentalTools=true` avoids a toolchain setup script changing PATH.
 4. Execute the published native program with `copper-lanterns`. Expect
    `ESTUARY_NATIVE: copper-lanterns; AOT=True`; confirm the PE has no CLR header.
-   Wrong cargo returns24; a missing sidecar returns23.
+   Wrong cargo returns 24; a missing sidecar returns 23.
 5. Inspect a binlog using the matching SDK's reader. The SDK11 legacy default/true
    controls omit full Build and the legacy hook; `UseOptimizedPublish=false`
    restores them. The migrated publish hook runs on the measured SDK10 and11 paths.

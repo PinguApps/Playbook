@@ -1368,11 +1368,11 @@ not network isolation. The block was tested from an unrelated starting directory
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d3fc93fb'
 & ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
-  -PackageVersion '0.0.0-pin1142-batch03'
+  -PackageVersion '0.0.0-pin1142-batch04'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('sdk.configure-redirected-output-encoding','containers.migrate-registry-auth-challenges','sdk.migrate-optimized-publish-hooks') `
   -Query 'estuary' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
-  -PackageVersion '0.0.0-pin1142-batch03' `
+  -PackageVersion '0.0.0-pin1142-batch04' `
   -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/estuary/inspection-final

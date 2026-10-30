@@ -33,7 +33,7 @@
         "usage": "primary",
         "selectionNotes": [
           "Use an explicit UTF-8 reader for the verified Windows SDK build pipe. Default/false/true and source-level opt-out controls still emit UTF-8. No working legacy producer opt-out is claimed.",
-          "Original source correction approved by Pingu. SDK10 comparison reuses the existing reader; no newer-only reader API or ninth historical foundation."
+          "The SDK10 comparison reuses the existing reader; no newer-only reader API or ninth historical foundation."
         ],
         "requirements": {
           "runtime": {

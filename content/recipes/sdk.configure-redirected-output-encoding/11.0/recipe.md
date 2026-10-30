@@ -59,8 +59,8 @@ replacing bytes. Never treat a successful decode as a successful build.
 
 {{snippet:reader}}
 
-**Qualification correction, approved by Pingu:** the draft described
-`DOTNET_CLI_FORCE_UTF8_ENCODING=false` as a pipe opt-out. On these actual SDKs,
+**Measured opt-out limitation:** `DOTNET_CLI_FORCE_UTF8_ENCODING=false` did not
+select a legacy pipe encoding on these actual SDKs. The
 default, false and true all emitted UTF-8 for the tested diagnostics, even when
 the inherited private console was CP1252. The source-level
 `DOTNET_CLI_CONSOLE_USE_DEFAULT_ENCODING=1` control also retained UTF-8. Neither
@@ -69,7 +69,7 @@ parameters remain diagnostic probes, not supported legacy-encoding routes.
 
 The reliable measured route is an explicit UTF-8 reader. Its `ForceUtf8=true`
 child setting records the requested producer policy; the observed bytes, not the
-name of a flag, establish the encoding. Changing ReaderCodePage to1252 does not
+name of a flag, establish the encoding. Changing `ReaderCodePage` to `1252` does not
 request a producer encoding and demonstrably corrupts the UTF-8 diagnostic.
 
 ## Migration
@@ -78,7 +78,7 @@ request a producer encoding and demonstrably corrupts the UTF-8 diagnostic.
    reader policy instead of a locale-derived default. Use the absolute SDK
    executable and project directory with the supplied reader.
 2. Call the reader with `-ReaderCodePage 65001` and the default `-ForceUtf8 true`.
-   Require ExitCode0 and the exact non-ASCII warning in Stdout. Inspect Stderr
+   Require exit code 0 and the exact non-ASCII warning in Stdout. Inspect Stderr
    separately; SDK diagnostics are not guaranteed to use the same stream in every tool.
 3. Retain raw bytes when diagnosing an encoding failure. For this fixture,
    `café` contains UTF-8 bytes `63 61 66 c3 a9`, not the CP1252 sequence
