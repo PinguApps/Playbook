@@ -300,7 +300,7 @@ Feature: Installed offline guidance
   Scenario: Bit collections key comparisons and vector guidance retain exact bodies and honest native evidence
     Given the actual package is installed from an isolated local feed and cache
     When a client initializes the installed stdio server outside the checkout
-    Then bit collection and vector guidance retains canonical bodies applicability editions and pending proof
+    Then bit collection and vector guidance retains canonical bodies applicability editions and not-tested disclosure
     When the client closes its input
     Then the server exits cleanly with diagnostics on stderr
 

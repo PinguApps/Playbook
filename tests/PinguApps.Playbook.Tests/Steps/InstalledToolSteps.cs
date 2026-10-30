@@ -3473,7 +3473,7 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
-    [Then("bit collection and vector guidance retains canonical bodies applicability editions and pending proof")]
+    [Then("bit collection and vector guidance retains canonical bodies applicability editions and not-tested disclosure")]
     public async Task CheckBitCollectionAndVectorGuidanceAsync()
     {
         foreach ((string id, string family, string file, string region) in new[]

@@ -17,7 +17,7 @@ Each of T3 Code, Codex CLI, Claude Code and VS Code Copilot gets one brief real 
 
 Validate metadata, source links, snippet markers, IDs/editions, target prerequisites and sample references during authoring/build. Extract rendered snippets from the canonical sample files. Recipes must contain the essential instructions, configuration and code for their goal offline; external links are optional evidence or further reading, not required missing implementation steps.
 
-Examples must compile against their declared SDK/target/dependencies before meeting the release gate. Distinguish source review, compilation, cross-compilation and actual runtime execution. Use focused behavior checks where useful, including actual request/browser/database evidence where a claim depends on that behavior; do not infer execution from a successful build or mock.
+Examples must compile against their declared SDK/target/dependencies before meeting the release gate unless explicitly excluded under the native testing policy below. Distinguish source review, compilation, cross-compilation and actual runtime execution. Use focused behavior checks where useful, including actual request/browser/database evidence where a claim depends on that behavior; do not infer execution from a successful build or mock.
 
 Locally verified native samples need the actual SDK/workload/native toolchain. Unavailable platforms follow the explicit exclusions in the native testing policy below. A workload-free tool smoke cannot provide this evidence. Record concrete sample/source and dependency/toolchain baselines, the build performed, and its result.
 

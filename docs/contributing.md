@@ -37,6 +37,10 @@ source accuracy, complete offline content and package/client checks still apply.
 For an excluded check, use `humanProof.status: not-tested`, list its exact sample
 paths in `humanProof.untestedSamples`, and explain the unavailable platform or
 hardware and unverified behaviour in `humanProof.scope` and the Evidence section.
+`untestedSamples` identifies the canonical samples carrying the excluded behaviour;
+they may already have compilation or execution evidence for other conditions.
+Retain locally required compilation records when excluding another platform's
+execution; an exclusion is not a reason to replace those records with source review.
 Keep source-only records as `official-review`; record intended SDK/workload pins
 as intended rather than measured. The existing input hashes still require fresh
 source review after relevant changes. Never turn an old build, mock or source
@@ -172,7 +176,7 @@ Use the [seed metadata](../content/recipes/csharp.validate-property-assignment/1
 
 - **Identity/discovery:** `id`, `edition`, `title`, `goal`, `areas`, `exampleLanguages`, `tags`, `apis`, `introducedIn`, `supportedTargets` and `stability`. Preserve published stable IDs. `edition` identifies guidance; `introducedIn` identifies the feature; neither automatically establishes compatibility.
 - **Applicability:** each route declares `target`, `usage`, `conditional`, `requirements`, `selectionNotes`, `sourceUrls` and `evidenceSamples`. Separate primary and optional routes. List runtime, SDK, language, framework, packages/assets, provider, platform, rendering mode, workloads, opt-ins and stability limits explicitly, using empty arrays where none apply. The rules below cover shared areas and neutral languages.
-- **Provenance/proof:** `sources`, per-sample `evidence` entries with exact `kind`, `sample`, `target`, `sdk`, `language` and bounded `scope`, plus `humanProof.status` and `scope`. Optional `record` selects a separate saved record. Every declared sample needs fresh compilation; every target route needs exact-target evidence.
+- **Provenance/proof:** `sources`, per-sample `evidence` entries with exact `kind`, `sample`, `target`, `sdk`, `language` and bounded `scope`, plus `humanProof.status` and `scope`. Optional `record` selects a separate saved record. Every declared sample needs fresh compilation unless it has an explicit `untestedSamples` exclusion under the native testing policy; every target route needs exact-target evidence.
 - **Canonical content:** `snippets` maps each Markdown token to a repository-relative sample `path`, named `region` and language. Add `recipe.md`, independently pinned sample projects, `global.json`, `verification.json` and captured `verification-evidence.json`. Dependency samples also need a reviewed `packages.lock.json`.
 
 The following rules explain the supported metadata and current validation boundary. Structural validation helps catch omissions; it cannot establish originality, factual support or that arbitrary prose achieves the goal.
