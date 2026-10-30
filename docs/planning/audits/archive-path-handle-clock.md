@@ -30,8 +30,30 @@ validation, partial extraction and cleanup. Canonical sources, locks and saved
 and ObservatoryTar samples. Ordinary installed-tool inspection is documented in
 [the Inspector walkthrough](../../inspect-guidance.md#package-streams-and-tar-hard-link-policy).
 No separate older-target catalogue route, link-incapable receiver, other-platform
-or GA execution claim is made. PIN-1042 and the other retained owners remain open;
+or GA execution claim is made. Other retained owners remain open;
 PIN-959 qualifying coverage and PIN-962 actual-GA reconciliation are not cleared.
+
+## Delivered follow-ons: PIN-1042 and PIN-1043
+
+Approved proposals C/D now deliver `archive.handle-async-initialization` and
+`hosting.distinguish-invocation-paths`, edition11/target11. WeatherImport executes
+both actual framework sets: two malformed directories with valid end records,
+missing end records, real async-only stream reads, ownership/caller cleanup,
+pre-cancellation and successful directory discovery with damaged Stored payload.
+QuarryMaintenance records fourteen real Windows x64 launches across ordinary and
+framework-dependent single-file apphosts, absolute/relative/real NTFS symlink and
+dotnet DLL routes. Relative cases use cmd.exe /d /c; the observed spelling is not
+a universal launcher contract. Older single-file executable names can retain an
+alias basename even though ordinary older apphosts report the managed DLL.
+
+SDK/compiler/ref/runtime identities accompany input-hashed ordinary sample records;
+separate `deployment.evidence.json` records capture real apphost publications and
+locations. Reproduce with `eng/Record-WeatherMaintenance.ps1 -VerifySources` and
+inspect the ordinary installed artifact with the [Inspector walkthrough](../../inspect-guidance.md#zip-initialization-and-invocation-locations).
+Both routes use framework assets, no added packages or experimental opt-ins.
+No older-target catalogue, Unix, Native AOT, every-launcher or GA execution claim
+is added. Existing recipe/edition IDs and the eight foundations remain unchanged;
+PIN-959 and PIN-962 retain their independent comprehensive and actual-GA gates.
 
 ## Full mitigation dispositions
 

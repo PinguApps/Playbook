@@ -6,6 +6,16 @@
 /samples/net10.0/RecordOffsets/verification-evidence.json
 /samples/net11.0/RecordOffsets/verification-evidence.json
 
+# Record-WeatherMaintenance/Record-Evidence generated SDK, ZIP and apphost receipts.
+# Review canonical samples, real fixture assertions, pins and recorder; build/pack
+# checks exact input freshness. Deployment receipts retain real launch results.
+/samples/net10.0/WeatherImport/verification-evidence.json
+/samples/net11.0/WeatherImport/verification-evidence.json
+/samples/net10.0/QuarryMaintenance/verification-evidence.json
+/samples/net10.0/QuarryMaintenance/deployment.evidence.json
+/samples/net11.0/QuarryMaintenance/verification-evidence.json
+/samples/net11.0/QuarryMaintenance/deployment.evidence.json
+
 # Record-BookingArchive generated SDK/ref/runtime/command captures; review original
 # readers, checks, pins and recorder. Ordinary build/pack validates input freshness.
 /samples/net10.0/BookingImport/verification-evidence.json
