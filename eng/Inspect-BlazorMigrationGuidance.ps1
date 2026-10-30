@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 [CmdletBinding()]
 param(
   [string[]]$RecipeId = @('blazor.bound-upload-read','blazor.create-typed-event-callback'),

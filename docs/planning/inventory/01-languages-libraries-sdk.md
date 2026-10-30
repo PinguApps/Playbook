@@ -1,5 +1,17 @@
 # Languages, shared libraries, runtime and SDK inventory
 
+**PIN-1032–1034** reconcile compiler audit A–C through actual SDK10.0.100,
+10.0.402 and11 RC2 controls. Original
+[span-storage](../../../content/recipes/csharp.preserve-span-storage/11.0/recipe.md)
+and [dynamic-condition](../../../content/recipes/csharp.bind-dynamic-conditions/11.0/recipe.md)
+editions retain valid net10 alternatives and prove lifetime/aliasing and
+short-circuit results. Both compiler corrections already occur in10.0.402.
+The [bounded reconciliation](../audits/compiler-contracts.md#compiler-migration-delivery-reconciliation)
+records exact artifacts and PIN-1033's permitted supported-target exclusion:
+ordinary core references define InAttribute, paired readonly calls/metadata work,
+and no supported deficient closure/CS0518 repair was established. No placeholder
+recipe, ninth foundation or closure of PIN-959/PIN-961/Human gates is implied.
+
 **PIN-1143/PIN-1144** add original Estuary
 [registry-challenge](../../../content/recipes/containers.migrate-registry-auth-challenges/11.0/recipe.md)
 and [native publish-hook](../../../content/recipes/sdk.migrate-optimized-publish-hooks/11.0/recipe.md)
@@ -107,7 +119,7 @@ Other inventory owners cover ASP.NET/Blazor, EF and desktop/mobile specifics. Sh
 | `fsharp.collection-compiler-speedups` | Automatic collection/compiler savings; explicit callback annotations are a distinct authored capability. | Actual older/newer SDK/package metadata establishes OptimizeClosureIfNotInlinedAttribute; F# 11 declaration gate, InlineIfLambda and arity/shape limits apply. | [FR2], [PIN-690 audit](../audits/automatic-exclusions.md) | partially reversed — draft A awaits PIN-986 approval; default savings remain excluded. PIN-981 already delivers deliberate FCS sharing. No new recipe delivered by this audit. |
 | `fsharp.aot-and-fsi-lifetimes` | Preserve external array coordinates for Native AOT and await FSI resource cleanup. | All three public Based calls are annotated, including literal zero bases. FSI ships net10.0 Core with the already-existing asynchronous task Using overload; pending cleanup-error loss in RC2 is explicit. | [FR2], [PIN-681 audit](../audits/fsharp-contracts.md) | included — child goals `fsharp.migrate-based-arrays-for-aot` and `fsharp.dispose-async-resources-in-fsi`, original .NET 10/11 comparisons, actual Windows Native AOT publish/run, IL3050 call sites and real FSI asset/lifetime checks: [PIN-982–984](../../verification/fsharp-lifetimes.md). No arbitrary based-array AOT support, new historical foundation or GA proof. Automatic trimming remains excluded. |
 | `vb.release-review` | Identify VB-specific authoring changes rather than inventing a new language version. | [PIN-682 audit](../audits/compiler-contracts.md): bounded no-new-syntax finding at VB17.13; VB compiler API delivery proposed; native WinForms obligations retained in PIN-893/PIN-896. Source/API release-routing gaps remain explicit. | [VB], [O], [pinned sources](../audits/compiler-contracts.sources.json) | unresolved — delivery/approval and release evidence remain; syntax review complete within stated boundary |
-| `languages.compiler-migrations` | Resolve source-breaking compiler changes independently of new feature recipes. | [PIN-682 audit](../audits/compiler-contracts.md) accounts for all 12 pinned C# compatibility entries and Core/C#/VB compiler API declaration differences. Proposals A–E await approval; grouped goals and C#16/main-versus-RC2 conflicts remain visible. | [CR1], [FR2], [B], [pinned sources](../audits/compiler-contracts.sources.json) | unresolved — source audit recorded; qualifying delivery and release reconciliation remain |
+| `languages.compiler-migrations` | Resolve source-breaking compiler changes independently of new feature recipes. | [PIN-682 audit](../audits/compiler-contracts.md) accounts for all12 pinned C# compatibility entries and Core/C#/VB compiler API declaration differences. A/C delivered by PIN-1032/PIN-1034; B has PIN-1033's evidenced supported-target exclusion. A–E approval is recorded in PIN-986; D/E and grouped goals retain their owners. | [CR1], [FR2], [B], [pinned sources](../audits/compiler-contracts.sources.json) | partial — actual paired A/C recipes and bounded B exclusion recorded; remaining qualifying delivery, C#16/main-versus-RC2 and actual-GA reconciliation stay open |
 
 ## Shared libraries: processes, buffers and text
 

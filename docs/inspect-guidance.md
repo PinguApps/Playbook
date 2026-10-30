@@ -4,6 +4,50 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Span storage and dynamic logical binding
+
+This block selects the actual task worktree and was checked starting from an
+unrelated directory. It builds/packs once, installs that exact ordinary artifact
+through the existing isolated local feed/cache, then uses real installed stdio
+list/get to display both IDs, titles, explanatory goals, complete canonical
+Markdown, explicit target11/edition11, applicability and fresh evidence.
+Each target10 request must return `no_applicable_edition`; direct retrieval of the
+excluded readonly-metadata goal must return `unknown_recipe`.
+
+Run this block in **PowerShell 7 (`pwsh`)**. Windows PowerShell 5.1 changes native
+argument/error handling and is outside this helper's prerequisites.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6b360ce7'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('csharp.preserve-span-storage','csharp.bind-dynamic-conditions') `
+  -RemovedRecipeId @('csharp.resolve-readonly-metadata') -Query '' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1032-1034' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/compiler-migrations/inspection
+```
+
+Expect **Preserve span storage across nested scopes** and **Preserve dynamic
+logical operator binding** with their discovery descriptions and actual paired
+evidence. Setup requires PowerShell7, SDK10.0.402/runtime10.0.13 and Node22.19+;
+package/Inspector setup may restore online. Retrieval with unusable proxies proves
+proxy independence, not OS-level network isolation. The exact eight foundations
+and comprehensive/actual-GA/Human gates remain unchanged.
+
+For sample reproduction, also provide SDK11.0.100-rc.2.26504.105/ref/runtime11 RC2
+and run `eng/Test-CompilerMigrations.ps1 -SetupBaseline -Record`; supply
+`-Net11Dotnet` with the absolute `dotnet` executable path when installed elsewhere. On Windows x64
+that helper can download/extract the official SHA512-checked portable SDK10.0.100
+historical reproducer under ignored `artifacts/`; no installer or PATH integration
+runs. The helper checks real Span/ReadOnlySpan old acceptance versus CS8352,
+both old dynamic binder exceptions versus CS7083, paired corrected storage/aliasing
+and all16 logical truth-table/invocation-count cases. Ordinary readonly
+method-group/lambda/local calls and emitted InAttribute modifiers succeed in both
+supported sets. PIN-1033 uses its explicit evidenced-exclusion allowance: no
+supported deficient reference closure/CS0518 repair is claimed or taught.
+See the [bounded source reconciliation](planning/audits/compiler-contracts.md#compiler-migration-delivery-reconciliation).
+
 ## Selected base-image trust, Azure Linux migration and collector observation
 
 This block was checked starting outside the checkout. It builds/packs the ordinary
