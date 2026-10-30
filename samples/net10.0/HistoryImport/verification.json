@@ -1,0 +1,13 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/HistoryImport/CalendarChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-HistoryImport.ps1",
+    "docs/planning/audits/numeric-and-parsing.sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

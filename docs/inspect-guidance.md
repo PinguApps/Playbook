@@ -1743,6 +1743,56 @@ plus bounded writer checks. Native results are observations. Windows x64 CoreCLR
 is measured; no interpreter/Native AOT/Mono, newer tensor package on net10, other
 platform or actual-GA proof. PIN-959/PIN-962 and Human gates remain open.
 
+## Historical dates and tensor ownership preparation
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and
+SDK11.0.100-rc.2.26504.105/runtime11RC2, plus outbound HTTPS to
+raw.githubusercontent.com for the recorders' -VerifySources checks. The paired calendar consumers need
+no package or workload and require non-invariant globalization with usable ja-JP.
+Measured execution is Windows x64 CoreCLR JIT/ICU; NLS and other platforms are
+not verified. Tensor examples lock10.0.13/11RC2 with net10/net11 assets. The
+full-release storage contract requires a final package containing backport#135281;
+successful current execution remains pending under PIN-962. Refresh changed
+inputs with the two recorders below. No new platform/native matrix is required.
+
+The following literal worktree block is exercised from an unrelated starting
+directory. It builds/packs the ordinary tool, installs that exact artifact from
+an isolated local-only feed/cache and calls real stdio list/get from an unrelated
+temporary directory. Setup may restore online. Retrieval with unusable proxies
+proves proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-34e74034'
+& ./eng/Record-HistoryImport.ps1 -VerifySources
+& ./eng/Record-GridTransform.ps1 -VerifySources
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1051-1052'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('globalization.validate-japanese-calendar-range','numerics.copy-tensor-views-safely') `
+  -Query 'data-validation' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1051-1052' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/calendar-storage/inspection
+```
+
+Expect discovery ID/title/goal, complete canonical Markdown, target11/edition11,
+applicability, fresh paired evidence and equal structured/text responses. Target10
+must return `no_applicable_edition`: the older code remains a comparison within
+the target11 guide and preserves the eight foundations. The recorder executes all
+four historical boundaries with GetYear/GetEra, retains source Gregorian values,
+and checks that invariant-mode children fail visibly. Any nonzero script exit,
+stale evidence, missing recipe or unexpanded snippet is a failure. Tensor discovery
+and detail must disclose pending final-package execution. Its current record is
+compile with supplementary bounded ownership/Try false policy execution; the
+expected-release overlap/output/constructor suite is not claimed to pass RC2/RC3.
+After PIN-962 updates final pins, locks and metadata, run Record-GridTransform.ps1
+with -RunReleaseChecks -VerifySources and retain actual results before clearing
+pending proof. Inspection validates served content and freshness, not the missing
+package behavior. RC2 execution does not close actual-GA, release-ready,
+comprehensive coverage or existing Human gates.
+
 ## Complex signal classification and tensor shape preparation
 
 Requires PowerShell7, SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /

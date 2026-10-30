@@ -1,0 +1,175 @@
+{
+  "id": "numerics.copy-tensor-views-safely",
+  "edition": "11.0",
+  "title": "Copy tensor views with explicit storage ownership",
+  "goal": "Preserve logical grid values when tensor views share storage by choosing snapshots or independent output; final .NET 11 storage-contract execution remains pending.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "tensors",
+    "storage-ownership",
+    "data-validation"
+  ],
+  "apis": [
+    "IReadOnlyTensor.CopyTo",
+    "IReadOnlyTensor.TryCopyTo",
+    "IReadOnlyTensor.FlattenTo",
+    "IReadOnlyTensor.TryFlattenTo",
+    "TensorSpan",
+    "ReadOnlyTensorSpan",
+    "Tensor.Add",
+    "Tensor.Negate",
+    "Tensor.ResizeTo",
+    "Tensor.Reverse",
+    "Tensor.ReverseDimension",
+    "Tensor.Concatenate"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Preserve logical grid values when tensor views share storage by choosing snapshots or independent output; final .NET 11 storage-contract execution remains pending.",
+          "Prepared for full .NET 11 from merged release/11.0 backport #135281. Published RC2/RC3 lack the required behavior. Current evidence is compilation only; PIN-962 owns final execution."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical full-release target is .NET 11; this recipe does not establish a newer-package-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use final .NET 11 SDK for GA verification. The installed RC2 SDK is only the current compilation baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.Numerics.Tensors",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Requires a final .NET 11 package containing release/11.0 backport #135281. RC2/RC3 compilation assets do not implement this contract; final package verification is pending."
+            }
+          ],
+          "packageAssets": [
+            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0-rc.2.26504.105, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
+          ],
+          "providers": [],
+          "platforms": [
+            "Managed package/framework support; measured previous policy execution is Windows x64 CoreCLR JIT. Final and other-platform behavior remain unverified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project, ImplicitUsings and Nullable enabled, using System.Numerics.Tensors and namespace Playbook.Samples; select final System.Numerics.Tensors11 containing backport #135281.",
+            "Allocate independent output or explicitly snapshot each overlapping input before writing; repeated output locations require independently addressable storage."
+          ],
+          "constraints": [
+            "Supported overlap is operation-specific: dense/equal-count or identical copies; dense flatten/resize; identical nonrepeating elementwise views; dense or no-op in-place reversal. Try copying false handles capacity/shape, not layout exceptions.",
+            "Repeated zero-stride outputs are invalid for ResizeTo and destination concatenation; singleton and empty outputs remain permitted. Both Array constructor forms reject incompatible types, writable covariance is rejected, read-only compatible covariance is allowed.",
+            "The complete release storage suite compiles; successful current rejection/permitted-layout/constructor execution is pending. No provider, rendering mode, native toolchain, workload, account or experimental opt-in; no added target10 foundation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "PIN-962 must select final SDK/runtime/tensor artifacts, execute all storage checks and refresh proof; pending proof blocks release-ready packaging.",
+            "No experimental annotation or opt-in on actual compilation types. Full-release preparation does not advertise RC2/RC3 behavior."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/standard/tensor-shapes-and-storage.md",
+          "https://github.com/dotnet/runtime/commit/1ee19308f309a620c415eba0fdcda7ee3de6ae5e",
+          "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/Tensor.cs",
+          "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/README.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/GridTransform/GridTransform.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/tensor-storage-layout-validation.md",
+      "title": "Official tensor storage-layout compatibility note"
+    },
+    {
+      "title": "Merged .NET 11 release-branch backport",
+      "url": "https://github.com/dotnet/runtime/commit/1ee19308f309a620c415eba0fdcda7ee3de6ae5e"
+    },
+    {
+      "title": "Release-branch Tensor operations and shape contracts",
+      "url": "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/Tensor.cs"
+    },
+    {
+      "title": "Release-branch storage, shape and operation limitations",
+      "url": "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/standard/tensor-shapes-and-storage.md",
+      "title": "Official tensor shape/storage and NumPy limitations"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual SDK10.0.402/runtime10.0.13/locked tensor10.0.13 net10 execution: original grid snapshots, independent output, both-input snapshots, intended logical values and Try capacity/shape false without writes. No new storage contract claimed.",
+      "sample": "samples/net10.0/GridTransform/GridTransform.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile",
+      "scope": "Actual SDK11 RC2/locked tensor11RC2 net11 compilation of complete expected-release storage checks, plus bounded --policy-only execution of ownership and Try false controls. No successful current layout rejection, permitted-overlap or Array/covariance execution; final proof pending under PIN-962.",
+      "sample": "samples/net11.0/GridTransform/GridTransform.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/GridTransform/GridPolicy.cs",
+      "region": "policy"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/GridTransform/GridPolicy.cs",
+      "region": "policy"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized full-release preparation on 30 October 2026 with final-package execution deferred to PIN-962. Select actual final SDK/runtime/tensor assets, run every committed storage check, refresh evidence and clear pending proof only after successful execution. Current compilation and merged source are not that proof; release-ready packaging remains blocked."
+  }
+}

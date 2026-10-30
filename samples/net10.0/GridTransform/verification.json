@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "System.Numerics.Tensors/10.0.13"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/GridTransform/StorageChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "docs/planning/audits/numeric-and-parsing.sources.json",
+    "docs/planning/audits/tensor-release.sources.json",
+    "eng/Record-GridTransform.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

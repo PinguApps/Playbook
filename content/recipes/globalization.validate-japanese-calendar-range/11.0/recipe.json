@@ -1,0 +1,142 @@
+{
+  "id": "globalization.validate-japanese-calendar-range",
+  "edition": "11.0",
+  "title": "Validate dates against the Japanese calendar boundary",
+  "goal": "Validate historical dates against the active Japanese calendar range and retain unsupported Gregorian values when importing records after a runtime upgrade.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "globalization",
+    "history-import",
+    "calendar",
+    "validation",
+    "data-validation"
+  ],
+  "apis": [
+    "JapaneseCalendar.MinSupportedDateTime",
+    "JapaneseCalendar.GetYear",
+    "JapaneseCalendar.GetEra"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Validate historical dates against the active Japanese calendar range and retain unsupported Gregorian values when importing records after a runtime upgrade.",
+          "Query the runtime minimum. Measured RC2 behavior is distinct from actual-GA reconciliation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The minimum supported JapaneseCalendar date changes with the .NET 11 runtime."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build net11.0 references; pinned RC2 identifies measured evidence separately."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample mode; this policy uses established C# features."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Framework-supported platforms; actual execution measured only on Windows x64 CoreCLR JIT"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with ImplicitUsings and Nullable enabled; use System.Globalization and namespace Playbook.Samples.",
+            "A globalization mode that can instantiate ja-JP and JapaneseCalendar; invariant mode is unsupported.",
+            "Retain original Gregorian records and route unsupported Japanese-calendar projections explicitly."
+          ],
+          "constraints": [
+            "Boundary checks execute GetYear/GetEra and the importer at 1868-09-08, 1868-10-01, 1868-10-22 and 1868-10-23, with inclusive maximum and old unsupported-date controls.",
+            "Windows x64 CoreCLR JIT/ICU is measured, including forced invariant-mode refusal. NLS and other platforms are not tested.",
+            "No package, provider, rendering mode, native toolchain, workload or experimental opt-in. The previous comparison adds no target10 foundation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/globalization/11/japanese-calendar-min-date.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HistoryImport/HistoryImport.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned Microsoft JapaneseCalendar boundary mitigation",
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/globalization/11/japanese-calendar-min-date.md"
+    },
+    {
+      "title": "Package-matched JapaneseCalendar implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/JapaneseCalendar.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual paired calendar operations, queried minima, all four historical boundaries, explicit routing without clamping, stored-value preservation, measured ICU/globalization mode and invariant-mode refusal. Exact compiler/reference/runtime hashes; Windows x64 only, no NLS/other-platform/GA proof.",
+      "sample": "samples/net10.0/HistoryImport/HistoryImport.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual paired calendar operations, queried minima, all four historical boundaries, explicit routing without clamping, stored-value preservation, measured ICU/globalization mode and invariant-mode refusal. Exact compiler/reference/runtime hashes; Windows x64 only, no NLS/other-platform/GA proof.",
+      "sample": "samples/net11.0/HistoryImport/HistoryImport.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/HistoryImport/CalendarPolicy.cs",
+      "region": "policy"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/HistoryImport/CalendarPolicy.cs",
+      "region": "policy"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed historical importer and installed MCP retrieval require no Human access. Actual-GA reconciliation and other globalization/platform modes remain unverified."
+  }
+}
