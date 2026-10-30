@@ -1,0 +1,163 @@
+{
+  "id": "hosting.distinguish-invocation-paths",
+  "edition": "11.0",
+  "title": "Distinguish invocation names from application file locations",
+  "goal": "Choose invocation identity for command aliases and physical-location APIs for executable or managed-file diagnostics, including unavailable bundled locations.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "hosting",
+    "initialization-locations"
+  ],
+  "apis": [
+    "Environment.GetCommandLineArgs",
+    "Environment.ProcessPath",
+    "Assembly.GetEntryAssembly",
+    "Assembly.Location"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Choose invocation identity for command aliases and physical-location APIs for executable or managed-file diagnostics, including unavailable bundled locations.",
+          "Older examples are comparisons, not additional catalogue targets."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses the net11.0 framework/package asset and .NET 11 behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 consumer with a matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects C# 15; the comparison project selects C# 14."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0 and Microsoft.NETCore.App runtime; framework-supplied APIs, no added NuGet package"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET. Proof: Windows 11 x64/NTFS with real symlink permission; cmd.exe relative launch and framework-dependent single-file publication. No Unix/browser/WASI proof."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project with implicit usings and System.Reflection; apphost invocation identity requires launching the apphost. Alias reproduction requires real symbolic-link capability."
+          ],
+          "constraints": [
+            "Launcher spelling can be normalized; do not promise identical relative names for every launcher. Never execute a reconstructed argv[0] path.",
+            "ProcessPath can be null; entry Location can be null/empty and is empty for bundled assemblies. None defines an application data directory."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact RC2 artifacts executed; no GA verification. No experimental annotation or opt-in on the used APIs."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuarryMaintenance/QuarryMaintenance.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official runtime compatibility guidance",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/environment-getcommandlineargs-apphost-invocation-name.md"
+    },
+    {
+      "title": ".NET 10 reference declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "RC2 reference declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "scope": "Canonical invocation/location report and bounded help aliases; actual selected runtime and compiler/ref artifacts.",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/QuarryMaintenance/QuarryMaintenance.csproj"
+    },
+    {
+      "kind": "execution",
+      "record": "samples/net10.0/QuarryMaintenance/deployment.evidence.json",
+      "target": "net10.0",
+      "language": "14.0",
+      "scope": "Real Windows x64 ordinary absolute/relative/symlink apphosts and dotnet DLL; framework-dependent single-file absolute/relative/symlink apphosts. Exact launch spelling and unavailable bundled Location.",
+      "sample": "samples/net10.0/QuarryMaintenance/QuarryMaintenance.csproj",
+      "sdk": "10.0.402"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Canonical invocation/location report and bounded help aliases; actual selected runtime and compiler/ref artifacts.",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/QuarryMaintenance/QuarryMaintenance.csproj"
+    },
+    {
+      "kind": "execution",
+      "record": "samples/net11.0/QuarryMaintenance/deployment.evidence.json",
+      "target": "net11.0",
+      "language": "15.0",
+      "scope": "Real Windows x64 ordinary absolute/relative/symlink apphosts and dotnet DLL; framework-dependent single-file absolute/relative/symlink apphosts. Exact launch spelling and unavailable bundled Location.",
+      "sample": "samples/net11.0/QuarryMaintenance/QuarryMaintenance.csproj",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "snippets": {
+    "alias": {
+      "path": "samples/net11.0/QuarryMaintenance/QuarryMaintenance.cs",
+      "language": "csharp",
+      "region": "alias"
+    },
+    "locations": {
+      "path": "samples/net11.0/QuarryMaintenance/QuarryMaintenance.cs",
+      "language": "csharp",
+      "region": "locations"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual local Windows execution with real ZIP/apphost/symlink processing; no external service/device or Human judgement required. Other-platform and GA claims excluded.",
+    "status": "not-required"
+  }
+}

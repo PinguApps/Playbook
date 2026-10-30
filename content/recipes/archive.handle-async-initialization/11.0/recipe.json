@@ -1,0 +1,145 @@
+{
+  "id": "archive.handle-async-initialization",
+  "edition": "11.0",
+  "title": "Handle ZIP failures during asynchronous initialization",
+  "goal": "Handle malformed ZIP directories around both the awaited factory and entry traversal; distinguish directory discovery from complete payload validation.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "migration",
+    "archive",
+    "initialization-locations"
+  ],
+  "apis": [
+    "ZipArchive.CreateAsync",
+    "ZipArchive.Entries",
+    "ZipArchive.DisposeAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Handle malformed ZIP directories around both the awaited factory and entry traversal; distinguish directory discovery from complete payload validation.",
+          "Older examples are comparisons, not additional catalogue targets."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses the net11.0 framework/package asset and .NET 11 behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 consumer with a matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects C# 15; the comparison project selects C# 14."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0 and Microsoft.NETCore.App runtime; framework-supplied APIs, no added NuGet package"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET process and stream access. Measured Windows 11 x64; browser/WASI excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Console project with implicit usings and System.IO.Compression; caller-owned readable source stream and a cleanup scope established before the factory await."
+          ],
+          "constraints": [
+            "Read-mode directory discovery is separate from complete payload CRC validation and sender authentication. Non-seekable inputs may be buffered.",
+            "The caller owns the stream on factory failure/cancellation; this example uses leaveOpen=true and requires caller disposal.",
+            "Async-only proof uses a readable seekable stream; .NET 10 Entries can attempt synchronous reads."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact RC2 artifacts executed; no GA verification. No experimental annotation or opt-in on the used APIs."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchive.Async.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/WeatherImport/WeatherImport.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official runtime compatibility guidance",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/ziparchive-createasync-eager-load.md"
+    },
+    {
+      "title": ".NET 10 reference declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs"
+    },
+    {
+      "title": "RC2 reference declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs"
+    },
+    {
+      "title": "RC2 initialization and disposal implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/src/System/IO/Compression/ZipArchive.Async.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "scope": "Real ZIP directory failure timing, async-only read tracking, pre-cancellation, leaveOpen/disposal and damaged Stored-payload EOF behavior.",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/WeatherImport/WeatherImport.csproj"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real ZIP directory failure timing, async-only read tracking, pre-cancellation, leaveOpen/disposal and damaged Stored-payload EOF behavior.",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/WeatherImport/WeatherImport.csproj"
+    }
+  ],
+  "snippets": {
+    "directory": {
+      "path": "samples/net11.0/WeatherImport/WeatherImport.cs",
+      "language": "csharp",
+      "region": "directory"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual local Windows execution with real ZIP/apphost/symlink processing; no external service/device or Human judgement required. Other-platform and GA claims excluded.",
+    "status": "not-required"
+  }
+}

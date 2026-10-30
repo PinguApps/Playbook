@@ -89,6 +89,15 @@ try {
         finally { Pop-Location }
         $commands += "$($baseline.dotnet) $($arguments -join ' ') [cwd=$directory]"
         $outputs += $published
+        Push-Location $directory
+        try {
+          $hostPack = & $baseline.dotnet msbuild "$name.csproj" -t:ResolveFrameworkReferences -p:RuntimeIdentifier=win-x64 "-p:RuntimeFrameworkVersion=$($baseline.runtime)" -getItem:ResolvedAppHostPack | ConvertFrom-Json
+        }
+        finally { Pop-Location }
+        $apphost = @($hostPack.Items.ResolvedAppHostPack)
+        if ($apphost.Count -ne 1 -or (Split-Path $apphost[0].PackageDirectory -Leaf) -cne $baseline.runtime) { throw 'Unexpected selected native apphost pack.' }
+        $commands += "$($baseline.dotnet) msbuild $sample -t:ResolveFrameworkReferences -p:RuntimeIdentifier=win-x64 -p:RuntimeFrameworkVersion=$($baseline.runtime) -getItem:ResolvedAppHostPack"
+        $outputs += "NATIVE APPHOST $($apphost[0].Path); version=$([Diagnostics.FileVersionInfo]::GetVersionInfo($apphost[0].Path).ProductVersion); sha256=$((Get-FileHash -LiteralPath $apphost[0].Path).Hash.ToLowerInvariant())"
         $exe = Join-Path $outputDirectory 'QuarryMaintenance.exe'
         $alias = Join-Path $outputDirectory 'quarry-audit.exe'
         $null = [IO.File]::CreateSymbolicLink($alias, $exe)
