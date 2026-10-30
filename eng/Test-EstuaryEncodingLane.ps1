@@ -15,19 +15,20 @@ $members=[uint[]]::new(10)
 $count=[EstuaryConsole]::GetConsoleProcessList($members,10)
 if($count -ne 2 -or $members -notcontains [uint]$env:ESTUARY_PRIVATE_CONSOLE_OWNER -or $members -notcontains [uint]$PID){throw 'Refuse a console not exclusively owned by this fixture'}
 $results=@()
-foreach($force in 'default','false','true') {
+foreach($case in @(@{force='default';source=$false},@{force='false';source=$false},@{force='true';source=$false},@{force='default';source=$true})) {
+  $force=$case.force
   # Both PowerShell and prior SDK calls can select UTF-8. Reset this private console
   # before each control, rather than accidentally testing the previous call's page.
   if(-not [EstuaryConsole]::SetConsoleCP($ConsoleCodePage) -or -not [EstuaryConsole]::SetConsoleOutputCP($ConsoleCodePage)){throw 'Private code-page reset failed'}
   $before=[EstuaryConsole]::GetConsoleOutputCP()
   # Capture once with a lossless byte-to-character mapping; select the actual decoder below.
-  $r=& $Reader -Dotnet $Dotnet -ProjectDirectory $Directory -ForceUtf8 $force -ReaderCodePage 28591
+  $r=& $Reader -Dotnet $Dotnet -ProjectDirectory $Directory -ForceUtf8 $force -ReaderCodePage 28591 -ProbeSourceOptOut:$case.source
   if($r.ExitCode -ne 0){throw "Build failed: $($r.Stderr)"}
   $hex=[Convert]::ToHexString($r.StdoutBytes)
   $page=if($hex.Contains('636166C3A9')){65001}elseif($hex.Contains('636166E9')){1252}else{throw 'Non-ASCII diagnostic bytes missing'}
   $text=[Text.Encoding]::GetEncoding($page).GetString($r.StdoutBytes)
   if(-not $text.Contains('ESTUARY001: Estuary café: berth fermé')){throw 'Diagnostic decode mismatch'}
-  $results+=@{force=$force;codePage=$page;consoleBefore=$before;consoleAfter=[EstuaryConsole]::GetConsoleOutputCP();exit=$r.ExitCode;diagnostic='ESTUARY001: Estuary café: berth fermé';bytes=if($page -eq 65001){'636166c3a9'}else{'636166e9'}}
+  $results+=@{force=$force;sourceOptOut=$case.source;codePage=$page;consoleBefore=$before;consoleAfter=[EstuaryConsole]::GetConsoleOutputCP();exit=$r.ExitCode;diagnostic='ESTUARY001: Estuary café: berth fermé';bytes=if($page -eq 65001){'636166c3a9'}else{'636166e9'}}
 }
 $failure=& $Reader -Dotnet $Dotnet -ProjectDirectory $Directory -ForceUtf8 true -Reject
 if($failure.ExitCode -eq 0 -or -not $failure.Stdout.Contains('ESTUARY002: Estuary café: berth fermé')){throw 'Expected real failed build'}

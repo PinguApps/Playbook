@@ -1368,15 +1368,15 @@ not network isolation. The block was tested from an unrelated starting directory
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d3fc93fb'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-  -RecipeId @('containers.migrate-registry-auth-challenges','sdk.migrate-optimized-publish-hooks') `
+  -RecipeId @('sdk.configure-redirected-output-encoding','containers.migrate-registry-auth-challenges','sdk.migrate-optimized-publish-hooks') `
   -Query 'estuary' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
-  -PackageVersion '0.0.0-pin1142-batch02' -BuildAndPack `
+  -PackageVersion '0.0.0-pin1142-batch03' -BuildAndPack `
   -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory ./artifacts/estuary/inspection-final
 ```
 
-Expect both IDs, titles and explanatory goals; full canonical Markdown;
+Expect all three IDs, titles and explanatory goals; full canonical Markdown;
 target11/edition11 applicability; and current paired compilation/execution
 evidence. Target10 requests must return `no_applicable_edition`: the valid older
 examples remain comparisons inside each target11 edition. A missing recipe,
@@ -1391,4 +1391,8 @@ sidecars. Refresh changed inputs with `eng/Test-EstuaryRegistry.ps1 -Record` or
 `eng/Test-EstuaryWindows.ps1 -Record` on their declared authoring environments.
 Inspection itself consumes saved evidence; it does not repeat those native/service
 checks. Beta/RC2 limits, eight foundations and comprehensive/GA/Human gates remain.
-PIN-1142's encoding recipe is not delivered while its opt-out conflict is unresolved.
+Encoding proof captures actual paired SDK build diagnostics through pipes under
+owned private CP1252/65001 consoles. An explicit UTF-8 reader preserves text and
+real failed-build exits; the proposed and source-level opt-outs retain UTF-8 on
+these artifacts and are disclosed as unavailable. No legacy producer encoding
+route or newer-only reader API is claimed.

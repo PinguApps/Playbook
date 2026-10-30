@@ -5,6 +5,8 @@ using System.Runtime.InteropServices;
 
 // This helper is launched with no attached console. Allocate and hide only its own.
 Stream output = Console.OpenStandardOutput();
+Stream error = Console.OpenStandardError();
+using var diagnostics = new StreamWriter(error, new System.Text.UTF8Encoding(false), leaveOpen: true) { AutoFlush = true };
 if (Native.GetConsoleWindow() != IntPtr.Zero) throw new InvalidOperationException("Refuse a shared console");
 Native.FreeConsole(); // Detach this child from a windowless inherited console, if any.
 if (!Native.AllocConsole()) throw new InvalidOperationException("Cannot allocate a private console");
@@ -16,11 +18,13 @@ try
     var start = new ProcessStartInfo(args[1]) { UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true };
     start.Environment["ESTUARY_PRIVATE_CONSOLE_OWNER"] = Environment.ProcessId.ToString();
     foreach (string argument in args.Skip(2)) start.ArgumentList.Add(argument);
+    diagnostics.WriteLine($"Private console probe: pid={Environment.ProcessId}; codePage={args[0]}");
     using var child = Process.Start(start)!;
     Task stdout = child.StandardOutput.BaseStream.CopyToAsync(output);
-    Task stderr = child.StandardError.BaseStream.CopyToAsync(Console.OpenStandardError());
+    Task stderr = child.StandardError.BaseStream.CopyToAsync(error);
     if (!child.WaitForExit(240000)) { child.Kill(true); throw new TimeoutException(); }
     Task.WhenAll(stdout, stderr).GetAwaiter().GetResult();
+    diagnostics.WriteLine($"Private console child: pid={child.Id}; exit={child.ExitCode}");
     return child.ExitCode;
 }
 finally { Native.FreeConsole(); }

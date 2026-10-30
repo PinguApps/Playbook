@@ -10,8 +10,12 @@ and matched binlogs reproduce the skipped legacy hook and verify the migrated
 sidecar, NoBuild refresh/repeat and failure controls. The bounded
 [B27/B28 register](../audits/sdk-build.md#b27-configure-a-registry-authentication-challenge-that-the-sdk-accepts--m-3)
 retains exact artifacts, Beta/RC2 limits and the separate comprehensive/GA/Human
-gates. B25/PIN-1142's source-versus-artifact encoding-switch conflict remains under
-qualification; no delivered encoding recipe is claimed here.
+gates. **PIN-1142** adds the approved
+[explicit UTF-8 reader](../../../content/recipes/sdk.configure-redirected-output-encoding/11.0/recipe.md):
+paired actual pipe bytes, default/false/true and source-level controls, mismatched
+reader corruption and real failed build exits qualify the bounded Windows route.
+The proposed opt-out did not change the observed bytes and is explicitly
+unavailable on those artifacts. No newer-only reader API or ninth foundation is invented.
 
 Container delivery **PIN-1137/PIN-1138** adds original
 [strict image-trust](../../../content/recipes/containers.verify-base-image-signatures/11.0/recipe.md)

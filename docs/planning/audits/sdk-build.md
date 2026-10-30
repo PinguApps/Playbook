@@ -331,6 +331,20 @@ Original proposal and evidence remain in Git history. No recipe is required.
 
 Proposed `sdk.configure-redirected-output-encoding`. An original Windows script sets DOTNET_CLI_FORCE_UTF8_ENCODING in child processes only. Capture actual non-ASCII diagnostics through a pipe with default/false/true controls and the declared console/code-page conditions; decode bytes using the consumer's explicit policy. Verify exits and unchanged persistent console/environment settings. Never promise the SDK can discover a pipe reader's encoding.
 
+**Qualification correction approved by Pingu:** deliver the verified explicit
+UTF-8 reader and disclose the unavailable opt-out, preserving the original control
+checks. Implemented under **PIN-1142** as
+[edition11.0](../../../content/recipes/sdk.configure-redirected-output-encoding/11.0/recipe.md).
+Original paired Windows x64 SDK10.0.402/SDK11RC2 consumers produce actual non-ASCII
+diagnostic bytes under owned private CP1252/65001 consoles. Default/false/true and
+the source-level DOTNET_CLI_CONSOLE_USE_DEFAULT_ENCODING=1 control retain UTF-8.
+The explicit UTF-8 reader preserves the text and failed build exit; a CP1252
+reader corrupts the diagnostic. No working legacy producer encoding route is
+claimed. The older valid reader remains explicit, without inventing a newer-only
+API. Fresh before/after input evidence records exact artifacts, commands and code
+page conditions with unchanged persistent environment/PATH. M(3), the eight
+foundations, installed offline retrieval and PIN-959/PIN-963/Human gates remain.
+
 ### B26. Create an MCP server from the bundled template — M (3)
 
 Proposed `sdk.scaffold-mcp-server`. Generate an original fictional-domain local stdio server from the actual bundled template, inspect and pin all generated package/SDK dependencies, build it and exercise real initialize/tools/list/tool-call/shutdown. Compare the actual older template availability/install route honestly. Remote transport/AOT/self-contained claims each need their own actual supported build/runtime proof or explicit exclusion; template presence alone proves none. This does not change Playbook's own two-tool protocol.
