@@ -1,0 +1,14 @@
+{
+  "buildArguments": [
+    "-p:UseSharedCompilation=false"
+  ],
+  "workloads": [],
+  "dependencies": [],
+  "additionalInputs": [
+    "eng/Test-QuayWorker.ps1",
+    "eng/Test-QuaySignatures.ps1",
+    "eng/QuayProof.ps1",
+    "samples/QuayContainerProof"
+  ],
+  "nativeToolchains": []
+}
