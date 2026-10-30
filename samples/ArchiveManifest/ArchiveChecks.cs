@@ -41,6 +41,10 @@ internal static class ArchiveChecks
         using var second = Issue("Archive second", secondKey, true, first, server.Url("first"));
         using var third = Issue("Archive third", thirdKey, true, second, server.Url("second"));
         using var leaf = Issue("Archive manifest signer", signer, false, third, server.Url("third"), mode == "invalid");
+        foreach (var certificate in new[] { root, first, second, third, leaf })
+            Console.WriteLine($"INPUT certificate={certificate.Subject}; sha256={certificate.GetCertHashString(HashAlgorithmName.SHA256)}; validFrom={certificate.NotBefore.ToUniversalTime():O}; validTo={certificate.NotAfter.ToUniversalTime():O}");
+        string cryptoAssembly = typeof(X509Chain).Assembly.Location;
+        Console.WriteLine($"MANAGED {cryptoAssembly}; sha256={Convert.ToHexString(SHA256.HashData(await File.ReadAllBytesAsync(cryptoAssembly)))}");
         server.Certificates["/first"] = first.RawData;
         server.Certificates["/second"] = second.RawData;
         server.Certificates["/third"] = third.RawData;
@@ -49,6 +53,7 @@ internal static class ArchiveChecks
         {
             byte[] manifest = Encoding.UTF8.GetBytes("Archive shelf F7: folios=184; seal=amber");
             byte[] signature = signer.SignData(manifest, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            Console.WriteLine($"INPUT manifestSha256={Convert.ToHexString(SHA256.HashData(manifest))}; signatureSha256={Convert.ToHexString(SHA256.HashData(signature))}");
             bool supplied = mode != "aia";
             using var chain = ArchivePolicy.Create(mode == "untrusted" ? null : root, supplied ? new[] { first, second, third } : [], supplied);
             if (mode == "untrusted") chain.ChainPolicy.ExtraStore.Add(root); // Available, deliberately not trusted.

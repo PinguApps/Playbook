@@ -2,6 +2,8 @@
 param(
   [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
   [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [ValidateSet('PlanetariumSchedule','GardenObservations','ArchiveManifest')]
+  [string[]]$SampleNames = @('PlanetariumSchedule','GardenObservations','ArchiveManifest'),
   [switch]$VerifySources
 )
 $ErrorActionPreference = 'Stop'
@@ -38,7 +40,7 @@ try {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
     $sdk = if ($variant -eq 'net10.0') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
     $ref = if ($variant -eq 'net10.0') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
-    foreach ($name in 'PlanetariumSchedule','GardenObservations','ArchiveManifest') {
+    foreach ($name in $SampleNames) {
       $sample = "samples/$variant/$name/$name.csproj"
       $kind = if ($name -eq 'ArchiveManifest') { 'compile' } else { 'compile-and-run' }
       & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $dotnet -Kind $kind

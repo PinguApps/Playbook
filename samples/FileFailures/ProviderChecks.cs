@@ -82,7 +82,8 @@ internal static class ProviderChecks
             }
             foreach (bool ignore in new[] { true, false })
             {
-                using var files = new PhysicalFileProvider(directory);
+                using var physical = new PhysicalFileProvider(directory);
+                var files = new ObservedFiles(physical);
                 var errors = new ConcurrentQueue<Exception>();
                 string path = Path.Combine(directory, "reload.json");
                 await File.WriteAllTextAsync(path, "{\"Display\":\"Vega\"}");
@@ -90,22 +91,28 @@ internal static class ProviderChecks
                     OnLoadException = c => { c.Ignore = ignore; errors.Enqueue(c.Exception); } };
                 using var provider = new JsonConfigurationProvider(source);
                 provider.Load(); Check(Value(provider) == "Vega", "baseline before reload failure");
+                int registrations = files.Registrations;
                 var token = provider.GetReloadToken();
                 using var signal = new ManualResetEventSlim();
                 using var registration = token.RegisterChangeCallback(_ => signal.Set(), null);
                 await File.WriteAllTextAsync(path, "{\"Display\":\"Deneb\"}");
                 await Until(() => token.HasChanged && Value(provider) == "Deneb", "real successful reload");
+                await Until(() => files.Registrations > registrations, "success rearmed");
                 Check(signal.IsSet, "registered notification");
+                registrations = files.Registrations;
                 token = provider.GetReloadToken(); await File.WriteAllTextAsync(path, "{broken");
                 await Until(() => !errors.IsEmpty && Value(provider) is null, "real failed reload clears");
                 if (ignore) await Until(() => token.HasChanged, "ignored reload parse notifies");
                 else Check(!token.HasChanged, "unignored parse throws before notify");
+                await Until(() => files.Registrations > registrations, "failure rearmed");
                 Check(errors.All(e => e is InvalidDataException), "reload callback types");
                 Console.WriteLine($"reload malformed ignore={ignore}; callback=InvalidDataException; data=<empty>; token={token.HasChanged}");
                 // A missing file is optional on reload even for a required source.
                 token = provider.GetReloadToken();
+                registrations = files.Registrations;
                 File.Delete(path);
                 await Until(() => token.HasChanged, "deletion notification");
+                await Until(() => files.Registrations > registrations, "deletion rearmed");
                 token = provider.GetReloadToken(); await File.WriteAllTextAsync(path, "{\"Display\":\"Altair\"}");
                 await Until(() => token.HasChanged && Value(provider) == "Altair", "recreation recovery");
             }
@@ -136,6 +143,25 @@ internal static class ProviderChecks
         }
         finally { Directory.Delete(directory, true); Console.WriteLine($"CLEANUP tempRemoved={!Directory.Exists(directory)}"); }
     }
+    // Observe registration completion while retaining the actual physical provider and file info.
+    private sealed class ObservedFiles(IFileProvider inner) : IFileProvider
+    {
+        private int registrations;
+        internal int Registrations => Volatile.Read(ref registrations);
+        public IFileInfo GetFileInfo(string subpath) => inner.GetFileInfo(subpath);
+        public IDirectoryContents GetDirectoryContents(string subpath) => inner.GetDirectoryContents(subpath);
+        public IChangeToken Watch(string filter) => new ObservedToken(inner.Watch(filter), () => Interlocked.Increment(ref registrations));
+        private sealed class ObservedToken(IChangeToken inner, Action registered) : IChangeToken
+        {
+            public bool HasChanged => inner.HasChanged;
+            public bool ActiveChangeCallbacks => inner.ActiveChangeCallbacks;
+            public IDisposable RegisterChangeCallback(Action<object?> callback, object? state)
+            {
+                var registration = inner.RegisterChangeCallback(callback, state);
+                registered(); return registration;
+            }
+        }
+    }
     internal static async Task UnignoredChild(string directory)
     {
         string path = Path.Combine(directory, "unignored.json");
@@ -159,7 +185,8 @@ internal static class ProviderChecks
         {
             UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true
         };
-        start.ArgumentList.Add(typeof(ProviderChecks).Assembly.Location);
+        if (string.Equals(Path.GetFileNameWithoutExtension(Environment.ProcessPath), "dotnet", StringComparison.OrdinalIgnoreCase))
+            start.ArgumentList.Add(typeof(ProviderChecks).Assembly.Location);
         start.ArgumentList.Add("--unignored-reload"); start.ArgumentList.Add(directory);
         start.Environment["DOTNET_ADD_GLOBAL_TOOLS_TO_PATH"] = "0";
         using var child = System.Diagnostics.Process.Start(start)!;
