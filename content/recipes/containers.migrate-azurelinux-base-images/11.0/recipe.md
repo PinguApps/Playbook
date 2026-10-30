@@ -90,7 +90,7 @@ and configuration are provided above; no generated sample or remote guide is nee
    Image acquisition is online preparation; `--network none` constrains build
    steps. Run `docker run --rm --network none --read-only quay-worker:check`.
    Expect Azure Linux4.0, the exact .NET11 RC2 runtime, architecture X64,
-   fr-FR fee `1234,50`, a zlib version and a compression budget above4096.
+   fr-FR fee `1234,50`, a zlib version and a compression budget above 4096.
    The Dockerfile uses the image's non-root APP_UID. Compare the older image's
    equivalent output, which must report Azure Linux3.0 and .NET10.0.13.
 5. Run the missing-library control:

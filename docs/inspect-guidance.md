@@ -13,7 +13,7 @@ title, **goal**, complete canonical Markdown, target11/edition11, applicability 
 fresh evidence. Both target10 gets must return `no_applicable_edition`; the paired
 older workers add no ninth foundation.
 
-Setup requires PowerShell7, SDK10.0.402/runtime10.0.13, Node22.19+ and online package
+Setup requires PowerShell7, SDK10.0.402/runtime10.0.13, Node 22.19+ and online package
 setup. For sample reproduction, also supply SDK11.0.100-rc.2.26504.105 and a working
 Linux amd64 Docker engine. Notation1.3.2/ORAS1.3.6 archives, exact Microsoft root
 certificates and image digests are checked by the authoring helpers. Signature

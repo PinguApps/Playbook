@@ -46,7 +46,7 @@ try{
     foreach($relative in 'QuayCollector.csproj','Tests/QuayTests.csproj'){
       $project=Join-Path $directory $relative
       $restore=@('restore',$project,'-p:NuGetAudit=false')
-      if(-not $Record){$restore+='--locked-mode'}
+      if(-not $Record -or (Test-Path (Join-Path (Split-Path $project) 'packages.lock.json'))){$restore+='--locked-mode'}
       $null=Invoke-Quay $dotnet $restore $directory -Environment $environment
       $projectDirectory=Split-Path $project
       $lock=Join-Path $projectDirectory 'packages.lock.json'
@@ -64,7 +64,10 @@ try{
       $null=Invoke-Quay $dotnet @('build',$project,'-c','Release','--no-restore','-p:UseSharedCompilation=false') $directory -Environment $environment
     }
     $artifactPins=Get-Content (Join-Path $root 'samples/TernTesting/artifacts.json') -Raw|ConvertFrom-Json
-    foreach($pin in $artifactPins.packages|Where-Object {$_.version -eq $version -and $_.id -in @('microsoft.testplatform.cli','microsoft.testplatform.objectmodel','microsoft.testplatform.testhost','microsoft.net.test.sdk')}){
+    # The CLI ZIP has an independent reviewed SHA256 pin. Other dependencies use locked-restore SHA512 content hashes.
+    $cliPins=@($artifactPins.packages|Where-Object {$_.version -eq $version -and $_.id -eq 'microsoft.testplatform.cli'})
+    if($cliPins.Count -ne 1){throw 'Expected one independently audited CLI package pin per version'}
+    foreach($pin in $cliPins){
       $path=Join-Path $scratch "packages/$($pin.id)/$version/$($pin.id).$version.nupkg"
       if((Get-FileHash $path).Hash.ToLowerInvariant() -cne $pin.sha256){throw "Audited package ZIP drift: $($pin.id)"}
       $log.Add("PACKAGE $($pin.id)/$version;sha256=$($pin.sha256)")

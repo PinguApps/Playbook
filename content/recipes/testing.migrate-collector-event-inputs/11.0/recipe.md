@@ -119,8 +119,8 @@ and reports their actual pass/failure to VSTest; the collector never chooses the
    `-Console`, `-TestAssembly`, `-CollectorDirectory`, `-Settings` and
    `-ResultsDirectory` set to the absolute paths prepared above; add `-Collect`.
    It preserves argument boundaries and explicitly selects the child hosts
-   without changing PATH. Expect exit1 because the second test's
-   real assertion expects12 while20 minus7 is13. This intentional failure must
+   without changing PATH. Expect exit 1 because the second test's
+   real assertion expects 12 while 20 minus 7 is 13. This intentional failure must
    remain Failed; the first test must remain Passed.
 7. Match the four logged QUAY_EVENT start/end observations to TRX testId/testName.
    Require the same identity/name, IsChild=false for these top-level cases, and
@@ -146,7 +146,7 @@ The collector is an out-of-process managed extension, not an in-process collecto
 or a substitute for ordinary test-result reporting.
 
 The API direction control compiles assignment to all five properties only as an
-authoring probe. It fails on18.7 and succeeds on18.11; it is excluded from the
+authoring probe. It fails on 18.7 and succeeds on 18.11; it is excluded from the
 ordinary collector build and never runs against production events. It does not
 fabricate a removed-setter failure or count synthetic constructor fixtures as a
 real test run. No approval to rewrite results follows from a public setter.
@@ -154,7 +154,8 @@ real test run. No approval to rewrite results follows from a public setter.
 ## Evidence
 
 `eng/Test-QuayCollector.ps1 -Record` locks/restores/builds both actual dependency
-sets, verifies audited package ZIP and SDK/compiler/ref/runtime hashes, checks
+sets, verifies the independently audited CLI ZIP, locked-restore dependency SHA512
+content hashes and SDK/compiler/ref/runtime hashes, checks
 separate constructor/visibility fixtures and the compile-only assignment control,
 then starts the real matching CLI/test host and collector. The loaded ObjectModel
 path identifies the matching CLI package. Real arithmetic assertions produce one

@@ -36,7 +36,7 @@ function Save-QuayEvidence([string]$Sample,[string]$Sdk,[string]$Language,[strin
   $record=[ordered]@{
     kind='compile-and-run';sample=$Sample;target="net$($Sdk.Split('.')[0]).0";sdk=$Sdk;language=$Language
     command=$command;scope=$Scope;recordedAt=[DateTimeOffset]::UtcNow.ToString('O')
-    sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim();sourceDirty=$true
+    sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim();sourceDirty=[bool](& 'C:/Program Files/Git/cmd/git.exe' -C $root status --porcelain)
     inputs=(Get-EvidenceInputs $root $Sample);dependencies=@($Dependencies);workloads=@();nativeToolchains=@($Native)
     host=[Runtime.InteropServices.RuntimeInformation]::OSDescription+' / '+[Runtime.InteropServices.RuntimeInformation]::OSArchitecture
     sdkInfo=$Info;workloadInfo='No optional workload. See exact platform/tool identities in output.';output=$Output.Replace($root,'<repo>').Replace($scratch,'<session>')
