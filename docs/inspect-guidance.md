@@ -740,9 +740,9 @@ With both SDKs and the measured Chromium/Playwright installations available,
 these responses and reruns their real browser/renderer checks. The script's
 `-Playwright` and `-Chromium` parameters take the absolute installed paths.
 
-## Live identity and generated-document tools
+## Live identity tools
 
-For the live identity and compiler recipes, this block builds/packs the ordinary tool and
+For the live identity recipes, this block builds/packs the ordinary tool and
 uses the existing isolated local-feed/cache installation. It calls real stdio
 list/get from an unrelated directory and prints discovery ID/title/goal, complete
 canonical Markdown, applicability and fresh sample evidence. The walkthrough was
@@ -753,24 +753,20 @@ than network isolation.
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2784b7c8'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-  -RecipeId @('signalr.refresh-live-credentials','blazor.react-to-refreshed-identity','razor.migrate-generated-document-contracts') `
+  -RecipeId @('signalr.refresh-live-credentials','blazor.react-to-refreshed-identity') `
   -Query '' -PackageVersion '0.0.0-live-tool-contracts' `
   -Dotnet 'V:\_worktrees\Playbook\t3-2784b7c8\artifacts\identity-tooling\pinned-dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
   -OutputDirectory ./artifacts/identity-tooling/inspection
 ```
 
-Expect three explicit 11.0 editions, original .NET 10/RC2 consumers, the complete
+Expect two explicit 11.0 editions, original .NET 10/RC2 consumers, the complete
 TypeScript development source-build prerequisite, local identity/provider limits
 and current compilation/execution records. `eng/Test-LiveIdentityConsumer.ps1`
 reconstructs the .NET and TypeScript consumers solely from these installed
 responses and executes their real hub and Interactive Server checks; supply
 absolute `-Playwright`, `-Chromium`, `-Dotnet` and `-Node` paths. This is bounded
 local execution, not Azure SignalR Service, production authentication or GA proof.
-The compiler guidance distinguishes an unavailable older public reader,
-diagnostic-tree import, declaration/stub labels and constructor source/ABI
-compatibility. `eng/Record-CatalogueCompiler.ps1` executes its actual compiler
-checks with `-Dotnet` selecting the installed root containing both pinned SDKs.
 The task-local SDK root above preserves the recorded 10.0.402/RC2 baselines
 after the machine's installation advanced to 10.0.403/RC3. An equivalent installed
 root containing those exact SDKs and runtimes can be supplied instead.
@@ -902,36 +898,6 @@ reproduced by `eng/Test-EfQueryAdapter.ps1`. The EF body explains runtime11's
 adapter fast path and SQLite's synchronous native I/O. The UInt128 body retains
 explicit string reading/application parsing. Neither retrieval nor these Windows
 x64 RC2 consumers establishes other native platforms/providers or actual GA.
-
-## Copy custom Razor nodes
-
-This tested example selects the assigned worktree from an unrelated directory,
-builds/packs the ordinary tool and uses the existing isolated local-feed/cache
-harness. Requires PowerShell 7, SDK 10.0.402 and Node 22.19+. The paired pipeline
-checks additionally require SDK 11.0.100-rc.2.26504.105 at its declared path.
-Setup may restore online; installed retrieval uses unusable proxies, proving
-proxy independence rather than network isolation.
-
-```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1167-04-092-copy-intermediate-razor-nodes-before-a-custom'
-& ./eng/Record-MapCompiler.ps1
-& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-  -RecipeId 'razor.copy-intermediate-nodes' -Query 'node-copy' `
-  -TargetVersion '11.0' -PackageVersion '0.0.0-map-copy' -BuildAndPack `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Node 'C:/Program Files/nodejs/node.exe' `
-  -OutputDirectory ./artifacts/map-compiler/inspection
-```
-
-Expect the discovery ID/title/goal, explicit 11.0 edition/target, complete
-canonical .NET 10/11 Markdown, applicability and four current compilation/execution
-records. The helper asserts complete snippet/body and structured/JSON-text equality.
-The focused recorder runs real Razor generation and compiles/executes both maps:
-`[coast:blue]<p>Estuary route</p>` and `[ridge:amber]<p>Ridge route</p>`, preserving
-the original. It checks copied writable state, shared immutable values, shallow-copy
-leakage and unsupported nodes; private current-clone/older-reader probes are
-verification-only. No public generic clone, arbitrary-tree, MVC/browser, older-target
-backport or actual-GA support is inferred. Sample pins remain author-maintained.
 
 ## Embedded template-engine hosts
 
@@ -1180,37 +1146,6 @@ Use the [contribution policy](contributing.md#choose-the-check-and-retain-its-re
 
 `eng/Test-Content.ps1`, `eng/Test-Evidence.ps1` and their `-Pack` variants exercise content and freshness rejection. The existing installed-package scenarios cover filter combinations, paging, release selection, complete structured/text equality, recovery and errors. Run those when changing the corresponding contract; do not copy their test catalogue into a ticket walkthrough or repeat a platform matrix for a link edit.
 
-## Authored Razor task generation
-
-This tested block builds/packs the ordinary tool, installs that exact artifact
-through the existing isolated local feed/cache and calls actual stdio list/get
-from an unrelated temporary directory. Setup requires PowerShell 7, SDK
-10.0.402 and Node 22.19+; Inspector 2.11.0 is installed locally when absent.
-Setup may restore packages online. Retrieval uses unusable proxies, which proves
-proxy independence, not network isolation.
-
-```powershell
-Set-Location -LiteralPath 'V:\_worktrees\Playbook\agent-pin-1168-04-093-select-the-hosted-generator-in-an-authored-razor'
-& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-  -RecipeId 'razor.choose-task-generation-path' -TargetVersion '11.0' `
-  -Query 'build-task' -PackageVersion '0.0.0-exhibit-compiler' `
-  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
-  -Node 'C:/Program Files/nodejs/node.exe' -BuildAndPack `
-  -OutputDirectory ./artifacts/exhibit-compiler/inspection
-```
-
-Expect the ID, reusable title and goal, explicit 11.0 edition, complete original
-.NET 10/RC2 files, applicability and four current compilation/execution records.
-Full Markdown must equal canonical snippets and structured/text responses must
-match. `eng/Record-ExhibitCompiler.ps1` separately runs actual old/current task
-consumers and failure controls with the pinned SDKs. Generated C# renders the
-Lantern collection and encoded badge. Current omitted/false flags use the engine;
-true hosts the source generator. The private underscored forwarding property is
-not a stable application setting. Binlogs/full generated artifacts are retained
-under ignored `artifacts/exhibit-compiler`. No older-target hosted, browser,
-native, arbitrary IDE or actual-GA proof is claimed. The helper retains its
-unique temporary local install/feed for inspection and preserves PATH/settings.
-
 ## Parsed API explorer route contracts
 
 This tested block builds/packs the ordinary tool and installs that exact artifact
@@ -1397,3 +1332,27 @@ production warnings. The pinned SDK does not consume AnalyzerAssets: `_._` is
 not enforcement. No third-party automatic reset, provider credential exchange,
 other-platform, performance or GA guarantee is made. Eight approved foundations,
 PIN-959 qualifying coverage/evidence, PIN-963 actual-GA and Human gates remain open.
+
+## Verify withdrawn compiler guidance
+
+Requires PowerShell 7, SDK 10.0.402 and Node 22.19+. This builds/packs the ordinary
+tool and installs the exact artifact from an isolated local-only feed/cache.
+Setup can restore online. Installed stdio calls run from an unrelated temporary
+directory with unusable proxies (proxy independence, not network isolation).
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-5ba443cc'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'razor.replace-runtime-compilation-registration' `
+  -RemovedRecipeId @('razor.migrate-generated-document-contracts','razor.copy-intermediate-nodes','razor.choose-task-generation-path') `
+  -Query '' -TargetVersion '11.0' -PackageVersion '0.0.0-scope-removal' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' -BuildAndPack `
+  -OutputDirectory ./artifacts/scope-removal/inspection
+```
+
+Expect three `PASS` lines confirming each removed ID is absent from discovery and
+returns `unknown_recipe` on a direct request. The retained recipe prints its ID,
+title, goal, full expanded Markdown and applicability, with current sample evidence
+and equal structured/text responses. A remaining ID, any other error or stale/
+changed retained content fails the check. No new compiler-consumer or GA claim follows.

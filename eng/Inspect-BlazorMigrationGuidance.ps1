@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
   [string[]]$RecipeId = @('blazor.bound-upload-read','blazor.create-typed-event-callback'),
+  [string[]]$RemovedRecipeId = @(),
   [string]$PackageVersion = '0.0.0-blazor-migrations',
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
@@ -18,10 +19,12 @@ $session = Join-Path ([IO.Path]::GetTempPath()) ('playbook-blazor-migrations-' +
 $before = @{}
 foreach ($scope in 'Process','User','Machine') { $before[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $previous = @{}
-foreach ($key in 'DOTNET_CLI_HOME','NUGET_PACKAGES','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','HTTP_PROXY','HTTPS_PROXY','ALL_PROXY') { $previous[$key] = [Environment]::GetEnvironmentVariable($key) }
+foreach ($key in 'DOTNET_CLI_HOME','NUGET_PACKAGES','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','DOTNET_GENERATE_ASPNET_CERTIFICATE','HTTP_PROXY','HTTPS_PROXY','ALL_PROXY') { $previous[$key] = [Environment]::GetEnvironmentVariable($key) }
 New-Item -ItemType Directory -Path $session,$OutputDirectory -Force | Out-Null
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+  $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
+  if ($RemovedRecipeId.Count -gt 0 -and $Query) { throw 'Removed-recipe checks require an unfiltered catalogue: pass -Query "".' }
   Push-Location -LiteralPath $root
   try {
     if ($BuildAndPack) {
@@ -67,6 +70,25 @@ try {
         $entries += @($page.recipes)
         $offset = $page.nextOffset
       } while ($null -ne $offset)
+      foreach ($id in $RemovedRecipeId) {
+        if (@($entries | Where-Object id -CEQ $id).Count -ne 0) { throw "Removed recipe remains discoverable: $id" }
+        $PSNativeCommandUseErrorActionPreference = $false
+        try {
+          $removedText = & $Node $entry --format json --quiet --method tools/call --tool-name get_recipe `
+            --tool-arg "id=$id" --tool-arg ('targetVersion="' + $TargetVersion + '"') -- $tool mcp `
+            2> (Join-Path $OutputDirectory "$id.removed.stderr.json") | Out-String
+          $removedExit = $LASTEXITCODE
+        }
+        finally { $PSNativeCommandUseErrorActionPreference = $true }
+        $removed = $removedText | ConvertFrom-Json
+        $removedPayload = ($removed.result.content | Where-Object type -EQ 'text').text | ConvertFrom-Json
+        if ($removedExit -ne 5 -or -not $removed.result.isError -or $removedPayload.code -cne 'unknown_recipe') {
+          throw "Expected unknown_recipe for removed ID: $id"
+        }
+        $removed | ConvertTo-Json -Depth 100 | Set-Content -LiteralPath (Join-Path $OutputDirectory "$id.removed.json")
+        $global:LASTEXITCODE = 0
+        Write-Host "PASS: $id absent from discovery; direct get_recipe returns unknown_recipe."
+      }
       foreach ($id in $RecipeId) {
         $found = @($entries | Where-Object id -CEQ $id)
         if ($found.Count -ne 1) { throw "Missing or duplicate discovery: $id" }
