@@ -18,6 +18,43 @@ Reference-source presence is API evidence only. PIN-703's actual asset manifest 
 
 ## Full mitigation dispositions
 
+### G/H artifact qualification and H implementation — 30 October 2026
+
+PIN-1052 adds `globalization.validate-japanese-calendar-range` edition11.0 with
+original paired HistoryImport consumers. SDK10.0.402/C#14/runtime-ref10.0.13 and
+SDK11.0.100-rc.2.26504.105/C#15/runtime-ref11RC2 build and execute the importer.
+The former calendar accepts 1868-09-08, 1868-10-01, 1868-10-22 and 1868-10-23;
+the latter rejects the first three through real GetYear operations and accepts
+the new minimum. Both policies preserve stored Gregorian values and explicitly
+route unsupported projections without clamping. Windows x64 CoreCLR JIT/ICU,
+en-GB and usable ja-JP are measured; forced invariant-mode children fail honestly
+with CultureNotFoundException. NLS/other platforms and actual-GA are unverified.
+`eng/Record-HistoryImport.ps1 -VerifySources` checks four original manifest hashes
+and captures exact commands, inputs/results and compiler/reference/runtime hashes
+in the existing sample evidence workflow. No added package/native/provider/workload
+or experimental opt-in is required; these isolated samples remain author-maintained.
+The ordinary locally packed/installed artifact passes real stdio list/get from
+an unrelated directory: ID/title/goal, full canonical Markdown, target11/edition11,
+applicability, paired current evidence, text/structured equality and expected
+target10 rejection. See the [copyable walkthrough](../../inspect-guidance.md#historical-dates-and-the-japanese-calendar-boundary).
+
+PIN-1051 qualification independently runs all four CopyTo/TryCopyTo/FlattenTo/
+TryFlattenTo methods with original strided grid values13,29,47,61,83,97 and
+shape[2,2]/strides[3,1] over shared dense destination storage. Tensor10.0.13,
+11RC2 and the latest published11.0.0-rc.3.26522.148 all accept that unsupported
+overlap and write13,29,61,83 rather than reject before writes. The actual net11
+asset SHA-256 values are respectively
+`d913d8854af9059f35843db398289c01db2ccb19e12b35dbfb34aee45d3bc791` and
+`527c413032fe43f23ca53f577195d68333c1b051de27401cd9e81e37d9cea46d`.
+Writable covariance already throws on these artifacts; do not imply every
+constructor control changes. The documented storage changes belong to the same
+merged release/11.0 backport#135281 recorded above, which is source evidence,
+not successful published-package execution. PIN-1051's required current-behavior
+proof is unavailable on the published artifacts; the combined PR remains gated
+unless Pingu explicitly revises that execution boundary. No older-target/current-
+package route is advertised. PIN-959, PIN-962, Human gates and eight foundations
+remain unchanged.
+
 ### A and B delivery reconciliation — 30 October 2026
 
 PIN-1045 delivers `globalization.validate-date-parsing-options`; PIN-1046 extends

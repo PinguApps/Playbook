@@ -1743,6 +1743,41 @@ plus bounded writer checks. Native results are observations. Windows x64 CoreCLR
 is measured; no interpreter/Native AOT/Mono, newer tensor package on net10, other
 platform or actual-GA proof. PIN-959/PIN-962 and Human gates remain open.
 
+## Historical dates and the Japanese calendar boundary
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and
+SDK11.0.100-rc.2.26504.105/runtime11RC2. The paired calendar consumers need
+no package or workload and require non-invariant globalization with usable ja-JP.
+Measured execution is Windows x64 CoreCLR JIT/ICU; NLS and other platforms are
+not verified. Refresh changed inputs with `eng/Record-HistoryImport.ps1 -VerifySources`.
+
+The following literal worktree block is exercised from an unrelated starting
+directory. It builds/packs the ordinary tool, installs that exact artifact from
+an isolated local-only feed/cache and calls real stdio list/get from an unrelated
+temporary directory. Setup may restore online. Retrieval with unusable proxies
+proves proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-34e74034'
+& ./eng/Record-HistoryImport.ps1 -VerifySources
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'globalization.validate-japanese-calendar-range' -Query 'history-import' `
+  -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1051-1052' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/calendar-storage/inspection
+```
+
+Expect discovery ID/title/goal, complete canonical Markdown, target11/edition11,
+applicability, fresh paired evidence and equal structured/text responses. Target10
+must return `no_applicable_edition`: the older code remains a comparison within
+the target11 guide and preserves the eight foundations. The recorder executes all
+four historical boundaries with GetYear/GetEra, retains source Gregorian values,
+and checks that invariant-mode children fail visibly. Any nonzero script exit,
+stale evidence, missing recipe or unexpanded snippet is a failure. RC2 execution
+does not close actual-GA, comprehensive coverage or existing Human gates.
+
 ## Complex signal classification and tensor shape preparation
 
 Requires PowerShell7, SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
