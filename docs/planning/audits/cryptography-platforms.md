@@ -1,6 +1,6 @@
 # Cryptography platform migrations: PIN-686
 
-Reviewed **22 October 2026**. Source-only audit of all five entries in the .NET 11 cryptography compatibility section, the cryptographic entry in the general obsolete index, and adjacent TLS certificate-download policy. Six assigned migration goals and one adjacent goal need delivery approval. No recipe is delivered by this audit.
+Reviewed **22 October 2026**. Source-only audit of all five entries in the .NET 11 cryptography compatibility section, the cryptographic entry in the general obsolete index, and adjacent TLS certificate-download policy. Six assigned migration goals and one adjacent goal need delivery approval. The PIN-1060 delivery reconciliation below supplies D; the audit itself remains source evidence.
 
 ## Scope and evidence
 
@@ -24,10 +24,36 @@ The source-review decisions are resolved within this boundary; implementation an
 | [macOS DSA removal][dsa], Preview 1 | Finite-field DSA operations, including `DSA.Create`, `DSACryptoServiceProvider` construction and `DSACertificateExtensions.GetDSAPrivateKey`, `GetDSAPublicKey`, `CopyWithPrivateKey`, can throw `PlatformNotSupportedException`. ECDSA is distinct and unaffected. Reissue keys/certificates and agree signature formats with peers; existing DSA keys/signatures cannot be converted by changing the class name. | **Included → A.** `crypto-project-10/11` selects SecurityTransforms previously and `DSA.Create.NotSupported.cs` on current macOS. The former supported only imported 1024-bit/SHA-1 operations, not key generation. iOS/tvOS/MacCatalyst never supported DSA. Public declarations remain: this is platform implementation removal, not deletion of the DSA API across .NET. |
 | [Windows Composite ML-DSA native dispatch][composite], Preview 7 | Check `CompositeMLDsa.IsAlgorithmSupported` for the exact parameter set before `GenerateKey`/import/signing. The documented CNG subset is `MLDsa44WithECDsaP256`, `MLDsa65WithECDsaP256`, `MLDsa65WithECDsaP384`, `MLDsa87WithECDsaP384`. RSA combinations lose the prior managed path; EdDSA combinations were already unavailable on Windows. | **Included → B.** `composite-windows-10/11` changes managed composition to CNG; `composite-parameters` maps exactly these four sets. A declared member does not imply native support. The API remains experimental **SYSLIB5006** in both source references. Ordinary Windows versions are not promised to support the Insider composite provider. Composite certificate APIs remain unsupported on Windows; PIN-751's ML-KEM/HPKE/CMS goals are different. |
 | [Windows HKDF native dispatch][hkdf], Preview 1 | `HKDF.DeriveKey` input keying material and `HKDF.Expand` pseudorandom-key input encounter documented 2,048-byte CNG limits; oversized inputs can throw `CryptographicException`. These are input limits, not an output-length limit or a universal cap on salt/info. Validate the application's input contract and handle an incompatible request. | **Included → C.** `hkdf-windows` uses CNG when available, but `Extract` stays managed; unavailable CNG and MD5 take managed paths. The broad Windows headline needs these qualifications. No new public override switch was established. Do not truncate/hash inputs, change derivation or silently select a weaker hash as a compatibility fix; that can change keys or protocol security. |
-| [OpenSSL AIA chain-building limit][aia], Preview 7 | `X509Chain.Build(X509Certificate2)` has a two-download issuer-fetch budget. Supply missing intermediate certificates through `ChainPolicy.ExtraStore` or provision an intermediate store. Keep trust validation: an intermediate in ExtraStore is not automatically a trusted root. | **Included → D.** `aia-chain-11` decrements a two-attempt loop before downloading; failures/no progress can stop earlier. It is not a two-certificate maximum chain depth, nor a guarantee of two successful fetches. The prior loop lacked that budget. No public limit-raising switch was established in this reviewed path. Keep this separate from TLS defaults below and from revocation-network policy. |
+| [OpenSSL AIA chain-building limit][aia], Preview 7 | `X509Chain.Build(X509Certificate2)` has a two-download issuer-fetch budget. Supply missing intermediate certificates through `ChainPolicy.ExtraStore` or provision an intermediate store. Keep trust validation: an intermediate in ExtraStore is not automatically a trusted root. | **Delivered → PIN-1060 / D.** `aia-chain-11` decrements a two-attempt loop before downloading; failures/no progress can stop earlier. It is not a two-certificate maximum chain depth, nor a guarantee of two successful fetches. The prior loop lacked that budget. No public limit-raising switch was established in this reviewed path. Keep this separate from TLS defaults below and from revocation-network policy. |
 | [SYSLIB0065][raw], Preview 6 | Only the `AsnEncodedData.RawData` **setter** is newly obsolete. Construct the appropriate derived type for new values, or use its supported virtual `CopyFrom(AsnEncodedData)` for mutation. The getter remains usable. Blanket suppression does not repair stale decoded state. | **Included → E.** `crypto-ref-10/11` places the diagnostic on the setter. `asn-state` clones assigned bytes without derived invalidation; `basic-constraints` overrides CopyFrom and clears its decode cache. The diagnostic page supplies the semantic alternative omitted by the broad note's suppression advice. Review actual derived-type behavior, OID and Critical handling; no claim that every subclass implements identical copy semantics. |
 | [SYSLIB0064][rsa], .NET 11 | `RSACryptoServiceProvider.Encrypt(byte[], bool)` / `Decrypt(byte[], bool)` become obsolete. Preserving wire compatibility maps true to explicit `RSAEncryptionPadding.OaepSHA1`, false to `Pkcs1`. A stronger OAEP hash is a separate provider/protocol migration requiring both peers and existing key access to be considered. | **Included → F.** Found in `core-obsoletions`, not the cryptography table. `rsa-csp` on Windows accepts only Pkcs1/OaepSHA1 in these padding overloads; changing this provider's argument to OaepSHA256 throws. Do not present the diagnostic page's stronger-hash advice as an implementation supported by every RSA provider. Legacy CAPI key containers are not automatically preserved by `RSA.Create`. PIN-689 owns the index map, not this semantic replacement. |
 | Adjacent [TLS server AIA default][tls], Preview 3 | `SslStream.AuthenticateAsServer` / `AuthenticateAsServerAsync` disable missing-intermediate downloads for client-certificate validation when no custom chain policy is supplied. Provide the chain from the client (`ClientCertificateContext`), or use server `CertificateChainPolicy.ExtraStore` with explicit trust/download policy. | **Included, adjacent → G; cross-reference PIN-705.** `tls-validation-11` applies the default only in the server/no-custom-policy branch. Custom `X509ChainPolicy.DisableCertificateDownloads` is respected. `tls-switch` also contains `System.Net.Security.EnableServerAiaDownloads` / `DOTNET_SYSTEM_NET_SECURITY_ENABLESERVERAIADOWNLOADS`: a compatibility escape, not the preferred migration or a bypass for Linux's per-build budget. PIN-752's caller-owned TLS I/O is a separate goal. |
+
+## D delivery reconciliation — 30 October 2026
+
+PIN-1060 delivers `crypto.supply-chain-intermediates` edition11.0. ArchiveManifest
+uses independent Windows SDK10.0.402/C#14/ref10.0.13 and SDK11RC2/C#15/ref11RC2
+compilation, then actual Linux x64 runtime10.0.13/11RC2 execution in digest-pinned
+Azure Linux3/4-beta images. No package is needed. The loaded OpenSSL library's
+version/path/hash and runtime/OS are captured, separately from compiler hashes.
+
+Four fresh network-none containers per release each create random private CA
+material, a loopback issuer and private HOME/cache tmpfs. Old AIA fetches three
+intermediates and succeeds; current fetches two and fails PartialChain. Supplying
+all intermediates with downloads disabled succeeds with zero requests on both.
+A supplied but untrusted root fails UntrustedRoot; an expired signer fails
+NotTimeValid. Real manifest signatures and tamper rejection plus the canonical
+supplied verifier execute. No shared trust stores are edited; listeners stop and
+containers/private cache/keys are removed. No TLS/online-revocation/other-platform
+or actual-GA claim follows. CustomRootTrust/NoCheck belong only to the offline fixture.
+
+`eng/Record-FileChain.ps1 -VerifySources` retains fresh compilation and separate
+Linux execution through the existing sample-evidence workflow. Real ordinary
+packed/local-feed-installed offline stdio list/get verifies ID/title/goal, complete
+canonical Markdown, target11/edition11, applicability and evidence; see the
+[walkthrough](../../inspect-guidance.md#file-load-watch-root-and-certificate-issuer-boundaries).
+Other crypto delivery owners, exact eight foundations and PIN-959/PIN-962/Human
+gates remain open. No native CI matrix or public publication is added.
 
 ## Grouping, exclusions and remaining boundaries
 
