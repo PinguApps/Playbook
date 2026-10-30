@@ -279,9 +279,11 @@ Azure Linux4 stays **Beta**; successful execution is not GA support qualificatio
 L(5) retains native/base-image/consumer checks. Fresh evidence and installed offline
 retrieval remain required; the eight foundations and all existing gates stay open.
 
-### B22. Consume VSTest collector events without mutating removed setters — M (3)
+### B22. Observe VSTest collector events without rewriting outcomes — M (3)
 
-Proposed `testing.migrate-collector-event-inputs`. An original collector/extension stops assigning the removed TestCaseEventArgs and TestCaseEndEventArgs properties and uses supported construction/observation contracts. Compile old/fixed code and load the real collector in a real test run, verifying case identity, child-case flag and outcome. Do not fabricate test outcomes or conflate these events with ordinary application DTOs. Require compatible matching collector/test-host packages.
+Historical draft `testing.migrate-collector-event-inputs` described removed setters
+and proposed stopping assignments to TestCaseEventArgs/TestCaseEndEventArgs. That
+premise was reversed; preserve this history without teaching a nonexistent break.
 
 **Qualification correction, PIN-1139:** the retained actual asset report places the
 five public setters in **added**, with no matching removal. The pinned current
@@ -290,8 +292,18 @@ and independently shipped VSTest18.11.0 source expose public setters. The draft'
 removed-setter premise is reversed. Fresh reflection of the actual audited SDK
 DLLs confirms private/internal setters on SDK10.0.402 (SHA256 `76ce3fa1…`) versus
 public setters on SDK11RC2 (`6416edb3…`); the full hashes remain in the asset report.
-No collector execution is inferred from metadata. No removed-setter migration is established;
-the corrected delivery/disposition decision and real collector proof remain open.
+No collector execution is inferred from metadata. Pingu approved the corrected
+observation scope on **30 October 2026**. Delivered under **PIN-1139** as
+[edition11.0](../../../content/recipes/testing.migrate-collector-event-inputs/11.0/recipe.md),
+preserving its stable ID. Paired actual18.7/18.11 runner/test-host/collector closures
+execute original pass/fail berth assertions. Four real start/end observations match
+TRX IDs/names/IsChild=false/outcomes, and collection leaves results identical to
+the disabled control. Constructor fixtures and compile-only assignments separately
+establish supported construction and the added public setters; neither is reported
+as a production event stream. Original immutable snapshots retain no TestElement.
+M(3) retains matching closure/collector/contract qualification. Child=true/nested
+framework transport, other platforms and GA remain unqualified. Fresh evidence,
+installed offline retrieval, the eight foundations and existing gates are retained.
 
 ### B23. Resolve workloads using an explicit host environment — M (3)
 

@@ -4,7 +4,7 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
-## Selected base-image trust and Azure Linux migration
+## Selected base-image trust, Azure Linux migration and collector observation
 
 This block was checked starting outside the checkout. It builds/packs the ordinary
 tool and installs that exact artifact in
@@ -28,8 +28,8 @@ $previousCertificateSetup = $env:DOTNET_GENERATE_ASPNET_CERTIFICATE
 $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
 try {
     & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-        -RecipeId @('containers.verify-base-image-signatures','containers.migrate-azurelinux-base-images') `
-        -Query 'quay-containers' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+        -RecipeId @('containers.verify-base-image-signatures','containers.migrate-azurelinux-base-images','testing.migrate-collector-event-inputs') `
+        -Query 'quay' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
         -PackageVersion '0.0.0-pin1137-1139' -BuildAndPack `
         -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
         -OutputDirectory ./artifacts/quay-containers/inspection
@@ -37,8 +37,9 @@ try {
 finally { $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = $previousCertificateSetup }
 ```
 
-Expect **Verify the signature of a selected .NET base image** and **Migrate an
-authored Azure Linux base-image selection**, with their explanatory discovery goals.
+Expect **Verify the signature of a selected .NET base image**, **Migrate an
+authored Azure Linux base-image selection** and **Observe VSTest collector events
+without rewriting outcomes**, with their explanatory discovery goals.
 The first records real strict index/platform verification, existing .NET10 signing,
 wrong-root/scope and missing/tampered envelope rejection. The second records actual
 managed worker execution on digest-pinned Azure Linux3/4, OS/runtime/architecture,
@@ -46,8 +47,14 @@ zlib export/call, ICU fr-FR formatting and absent configured-library exit23.
 `eng/Test-QuayWorker.ps1 -Record` then `eng/Test-QuaySignatures.ps1 -Record`
 reproduce those checks and refresh the existing sample records. Azure Linux4 stays
 **Beta**. NativeAOT, other variants/architectures, performance, arbitrary ABI and GA
-support remain unqualified. PIN-1139's reversed collector-setter premise is recorded
-in the source audit; these two recipes do not claim its collector proof. PIN-959,
+support remain unqualified. `eng/Test-QuayCollector.ps1 -Record` additionally
+restores/builds paired locked18.7/18.11 package closures and loads the real
+collector in matching test runs. Four real start/end events match TRX identity,
+name, IsChild=false and outcome; collection preserves the disabled run's one
+passing and one deliberate failing assertion. Separate constructor fixtures and
+a compile-only assignment control confirm public setters were added, not removed.
+No child=true/nested-framework transport, MTP or arbitrary collector compatibility
+is claimed. PIN-959,
 PIN-963 and unrelated Human gates remain open. No recurring native matrix is added.
 
 ## Disposable restore graphs, referenced symbols and evaluated imports

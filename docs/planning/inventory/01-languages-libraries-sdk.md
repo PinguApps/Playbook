@@ -7,8 +7,12 @@ guidance. Exact old/current index/platform digests, Notation/ORAS and Microsoft
 roots are pinned; paired workers execute native/globalization/failure checks on
 real Linux x64. Azure Linux4 Beta and actual-GA limits remain explicit. The source
 [B20–B22 register](../audits/sdk-build.md#b20-verify-the-signature-of-a-selected-net-base-image)
-also records PIN-1139's reversed setter premise; its corrected disposition and
-collector execution remain unresolved. No comprehensive/GA/Human gate closes.
+also records PIN-1139's reversed setter premise and Pingu's approved correction.
+Its [collector-observation recipe](../../../content/recipes/testing.migrate-collector-event-inputs/11.0/recipe.md)
+now compares paired real events/TRX with collection on/off, preserving identity,
+top-level child flags and actual pass/fail outcomes. Setter assignments fail on
+the old contract and compile on the new one as a separate, never-run API control.
+No child=true transport or comprehensive/GA/Human gate closure is claimed.
 
 Documentation-backed planning inventory, reviewed **16 October 2026** against the .NET 11 RC2 evidence baseline. This is proposed recipe allocation inside accepted scope, not a catalogue implementation, an exhaustive public-API diff, or sample verification.
 

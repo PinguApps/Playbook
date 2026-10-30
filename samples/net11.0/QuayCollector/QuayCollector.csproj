@@ -1,0 +1,17 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <OutputType>Exe</OutputType><AssemblyName>Quay.Collector</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" />
+    <PackageReference Include="Microsoft.TestPlatform.CLI" ExcludeAssets="all" PrivateAssets="all" />
+    <Compile Include="Collector.cs" /><Compile Include="Program.cs" />
+    <Compile Include="SetterControl.cs" Condition="'$(QuaySetterControl)' == 'true'" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->

@@ -291,7 +291,7 @@ prerequisites, compilation/behaviour acceptance and sizing rationale.
 | `sdk-build:B19` | Inspect the actual build import tree | approved | [PIN-1136](https://linear.app/pinguapps/issue/PIN-1136) | S (2) | — |
 | `sdk-build:B20` | Verify the signature of a selected .NET base image | approved | [PIN-1137](https://linear.app/pinguapps/issue/PIN-1137) | M (3) | — |
 | `sdk-build:B21` | Migrate an authored Azure Linux base-image selection | approved | [PIN-1138](https://linear.app/pinguapps/issue/PIN-1138) | L (5) | — |
-| `sdk-build:B22` | Consume VSTest collector events without mutating removed setters | approved | [PIN-1139](https://linear.app/pinguapps/issue/PIN-1139) | M (3) | — |
+| `sdk-build:B22` | Observe VSTest collector events without rewriting outcomes | approved; Pingu corrected the reversed setter premise on 30 October 2026 | [PIN-1139](https://linear.app/pinguapps/issue/PIN-1139) | M (3) | — |
 | `sdk-build:B23` | Resolve workloads using an explicit host environment | approved | [PIN-1140](https://linear.app/pinguapps/issue/PIN-1140) | M (3) | — |
 | `sdk-build:B24` | Migrate custom dependency-file task inputs | approved | [PIN-1141](https://linear.app/pinguapps/issue/PIN-1141) | M (3) | — |
 | `sdk-build:B25` | Choose console encoding for redirected SDK output | approved | [PIN-1142](https://linear.app/pinguapps/issue/PIN-1142) | M (3) | — |
