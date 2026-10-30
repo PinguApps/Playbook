@@ -140,7 +140,7 @@ Dependency restore is online setup; installed Playbook guidance remains offline.
 4. Expect the original captions `Gate, Lookout, Gate` and times `4, 12, 4`.
    The fresh complex context keeps the duplicate entries distinct, reads an empty
    second list and verifies that a no-op save leaves JSON unchanged. It then
-   removes the first entry, changes the remaining gate's time to8 and appends
+   removes the first entry, changes the remaining gate's time to 8 and appends
    Bridge/6. A fresh context must read `Lookout, Gate, Bridge` and `12, 8, 6`.
 5. Back in the older directory execute
    `dotnet bin/Release/net10.0/TrailCards.dll verify-migrated`. This checks the
