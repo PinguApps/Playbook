@@ -18,6 +18,58 @@ Commit evidence only for a named ongoing check, supported claim, release decisio
 
 Historical capture links use immutable commits, not moving branches. They support the recorded observation, not a new run or GA proof. Evidence still required for a product/release claim must remain in durable versioned storage or an immutable retained artifact; an expiring CI upload alone is insufficient. Do not retain a report merely because another document links it. Keep essential served instructions complete offline.
 
+## Native testing policy
+
+Pingu approved this boundary through PIN-699 on 30 October 2026. Run authoring
+checks on the current Windows machine, including feasible Windows desktop/Native
+AOT checks and its existing Docker setup. Keep the existing hosted package CI,
+including the brief macOS installed-tool smoke. That smoke tests Playbook, not
+Apple application examples.
+
+Mac/Xcode, Android devices/emulators, Apple AI hardware and other unavailable
+native environments are outside required authoring verification. Keep their
+guidance, review official sources and exact artifacts where accessible, and state
+which samples or behaviours were not compiled or executed. These declared gaps
+do not block publication and create no obligation for Pingu to obtain hardware,
+install a new native environment or supply its proof. Available local checks,
+source accuracy, complete offline content and package/client checks still apply.
+
+For an excluded check, use `humanProof.status: not-tested`, list its exact sample
+paths in `humanProof.untestedSamples`, and explain the unavailable platform or
+hardware and unverified behaviour in `humanProof.scope` and the Evidence section.
+Keep source-only records as `official-review`; record intended SDK/workload pins
+as intended rather than measured. The existing input hashes still require fresh
+source review after relevant changes. Never turn an old build, mock or source
+review into execution evidence. This explicit exclusion can pass release-ready
+packaging; missing/stale evidence for other samples and `pending` Human work
+remain gates. Do not use an exclusion to avoid a feasible local check.
+
+### Ownership and handoff
+
+**Pingu** owns interactive approvals that are feasible in this environment,
+including permission prompts and passkey approval, and coordinates refreshes
+when relevant inputs or claimed conditions change. He may nominate another
+person. Browser passkey approval proves that browser flow, not an untested MAUI
+implementation. Signing/trust changes or external resources still need their
+specific authorization; the ownership agreement supplies neither credentials
+nor permission to change production settings.
+
+**The content author** prepares the exact recipe/edition/route, source commit
+and dirty state, sample/input hashes, commands, expected result, target/RID,
+dependencies, SDK/workload/native versions and the precise Human action. Run all
+agent-accessible checks first. Pingu returns the actual result, failures and
+necessary screenshots/logs through the content PR. The author reviews them,
+commits the existing sample evidence record and any essential durable manual
+artifact, and links them from the recipe evidence/PR. Routine logs remain in
+ignored `artifacts/` or existing CI artifacts; required proof must outlive an
+expiring upload. Keep secrets outside these records.
+
+The author identifies which evidence a change affects; Pingu coordinates any
+required Human rerun. Reuse unchanged records only while relevant inputs and
+claimed conditions remain valid. Excluded platform work remains explicitly
+untested rather than a pending promise to obtain a machine. No second evidence
+system or native CI matrix is needed.
+
 ## Delivery order
 
 1. Establish the reusable goal, official source support, older/newer comparison and actual application requirements.
@@ -106,14 +158,15 @@ Update the relevant [source-disposition register](planning/inventory/README.md):
 ### Assemble the authoring files
 
 A deliberately theoretical edition may carry only `official-review` records when
-`humanProof.status` is `pending`. Record the reviewed sources and actual input
+`humanProof.status` is `pending`, or for exact `untestedSamples` under the approved
+`not-tested` native/platform policy. Record the reviewed sources and actual input
 hashes; identify SDK/language values as intended sample pins, and state that no
 build, execution or artifact inspection occurred. Development builds retain
 `kind: official-review` and `role: source-review`, and automatically disclose the
 missing compilation/execution in discovery and detailed applicability. Mocks and
 execution-only records cannot use this authoring path. `-ReleaseReady` still
-rejects pending proof. This permits source review without inventing evidence;
-it does not make the recipe verified or ready for publication.
+rejects pending proof. Explicit unavailable-platform exclusions may pass it with
+their untested disclosures; neither path invents compilation or execution.
 
 Use the [seed metadata](../content/recipes/csharp.validate-property-assignment/10.0/recipe.json), [seed Markdown](../content/recipes/csharp.validate-property-assignment/10.0/recipe.md) and [schema](../eng/recipe.schema.json) as a structural reference. Author the new content independently; do not copy the seed's claims, baselines or successful evidence into another goal.
 
@@ -162,7 +215,7 @@ Include exactly one nonempty Goal, Older approach, Newer approach, Migration, Co
 
 Content validation also runs during `dotnet pack --no-build`. It compares the freshly generated content with the catalogue recorded during compilation and rejects changes since that build, even when the changed metadata is otherwise valid. Rebuild before packing modified content. Run `pwsh -NoProfile -File ./eng/Test-Content.ps1` for the small negative fixture, and after a Release build run `pwsh -NoProfile -File ./eng/Test-Content.ps1 -Pack` to check both incomplete and stale content through the real pack target. These use temporary copies and never edit authored recipes or publish packages.
 
-Build metadata checks do not perform compilation or execution. Each declared sample needs saved compilation evidence; follow the capture and refresh workflow below. Add portable checks to `eng/Verify.ps1` where useful. Native samples are compiled on suitable authoring machines, with their records committed; do not add a recurring native CI matrix. Include essential configuration and instructions offline. Keep comparisons fair and original. Extending content with a new stable ID/edition requires no host, transport or tool-registration changes.
+Build metadata checks do not perform compilation or execution. Each declared sample needs saved compilation evidence or an explicit sample-specific exclusion under the native testing policy; follow the capture and refresh workflow below. Add portable checks to `eng/Verify.ps1` where useful. Feasible native samples are compiled on this Windows machine, with their records committed; do not add a recurring native CI matrix. Include essential configuration and instructions offline. Keep comparisons fair and original. Extending content with a new stable ID/edition requires no host, transport or tool-registration changes.
 
 ## Capture and refresh sample evidence
 
@@ -213,11 +266,11 @@ Before handing work to another authoring machine or a Human, agree the exact rec
 
 For database claims, use an isolated real provider/service at the stated package, target asset, server version and configuration. Record the setup and cleanup, request/query inputs, actual execution and expected result. A translated SQL string or mocked repository does not establish provider execution, transactions or persistence. Match browser/request checks to rendering modes, authentication and other claimed conditions; a successful build or HTTP response alone does not prove an interactive browser claim.
 
-For native claims, use a suitable authoring OS and installed workloads/native SDKs; affected Apple builds require a Mac with matching Xcode. Measure and declare native versions, then pass matching values with `-NativeToolchains` when capturing compilation. Cross-compiling establishes build output only. UI, device/emulator, permissions and lifecycle claims need their focused real checks and reports; do not call a workload-free tool smoke native behavior evidence. If the helper cannot perform the required deployment/run, capture compilation separately and link the actual execution report rather than pretending DLL execution covers it.
+For native claims, use the current Windows authoring environment and available toolchains. Unavailable Apple/Android/native checks follow the explicit not-tested policy above; obtaining another environment is not required. Measure and declare native versions, then pass matching values with `-NativeToolchains` when capturing compilation. Cross-compiling establishes build output only. UI, device/emulator, permissions and lifecycle claims need their focused real checks and reports; do not call a workload-free tool smoke native behavior evidence. If the helper cannot perform the required deployment/run, capture compilation separately and link the actual execution report rather than pretending DLL execution covers it.
 
-Use `humanProof.status: pending` with an exact scope for targeted Human checks still owed; set `verified` only after recording traceable results, or `not-required` with a defensible reason. Pending proof may be served in incremental packages but fails `pwsh -NoProfile -File ./eng/Verify.ps1 -ReleaseReady` and `dotnet pack -p:PlaybookReleaseReady=true`. Missing compilation blocks ordinary build/pack too, except for the explicitly pending source-only authoring path above. That path does not satisfy compilation or release readiness. Report access or toolchain blockers explicitly; audits, mocks and unavailable-machine placeholders cannot satisfy verified delivery.
+Use `humanProof.status: pending` with an exact scope for targeted Human checks still owed; set `verified` only after recording traceable results, or `not-required` with a defensible reason. Pending proof may be served in incremental packages but fails `pwsh -NoProfile -File ./eng/Verify.ps1 -ReleaseReady` and `dotnet pack -p:PlaybookReleaseReady=true`. Missing compilation blocks ordinary build/pack too, except for pending source-only guidance or explicitly named not-tested samples. Pending source-only guidance does not satisfy release readiness; approved exclusions do not establish compilation. Report access or toolchain blockers explicitly; audits, mocks and unavailable-machine placeholders cannot satisfy verified delivery.
 
-Commit native authoring evidence for routine validation to consume without installing native workloads. Keep broad native builds, UI/device/emulator suites and recurring native matrices out of CI, including separate manual-dispatch matrices. Routine Windows/macOS checks remain tiny installed-tool smokes; the Linux/core lane remains portable. Reuse unchanged native proof and refresh it on the appropriate authoring machine when relevant inputs change.
+Commit native authoring evidence for routine validation to consume without installing native workloads. Keep broad native builds, UI/device/emulator suites and recurring native matrices out of CI, including separate manual-dispatch matrices. Routine Windows/macOS checks remain tiny installed-tool smokes; the Linux/core lane remains portable. Reuse unchanged native proof and refresh affected locally required checks when relevant inputs change; refresh source review for excluded samples.
 
 ## Review the delivered artifact
 

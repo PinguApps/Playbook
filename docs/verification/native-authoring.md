@@ -1,8 +1,12 @@
 # Native authoring access assessment
 
 Historical access assessment from 21 October 2026, not recipe execution proof.
-Recheck the required capability before using a route; owner handoffs remain with
-Pingu and PIN-699. [Measured preflight](native-authoring.json).
+Recheck the required capability before using a route. Pingu revised ownership
+through PIN-699 on 30 October 2026: the [native testing policy](../contributing.md#native-testing-policy)
+limits authoring checks to this Windows machine and existing Docker. The missing
+hardware/toolchain handoffs below are historical, not outstanding obligations;
+record unavailable checks as sample-specific `not-tested` exclusions. Pingu owns
+feasible interactive approvals and refresh coordination. [Measured preflight](native-authoring.json).
 
 ## Measured access, 21 October 2026
 
@@ -91,7 +95,7 @@ capture their own claim-specific execution evidence.
   publish local images/manifests for the selected architectures and check stable
   inputs/digests. No registry publication or new host is authorized here.
 
-These missing capabilities remain delivery prerequisites for the affected
-content. Closing this access-assessment ticket does not waive them, establish
-those recipe claims or make the catalogue release-ready. No related ticket's
-status, blocking relation or requirements were changed.
+The missing capabilities above no longer require obtaining other environments.
+Their guidance remains explicitly untested in those conditions. Available local
+checks, evidence freshness and the remaining release gates still apply. This
+historical assessment establishes none of those recipe executions.
