@@ -80,7 +80,7 @@ The raw routes are `RunAsync`, synchronous `Run`, explicit `StartAsync` followed
 `IHost.StopAsync(CancellationToken)`, timed `StopAsync(TimeSpan)`, and explicit start
 followed by `WaitForShutdownAsync` or synchronous `WaitForShutdown`. The default
 host implementation and its stop path matter; these are not new API signatures.
-The demonstrated .NET10 journal boundary instead returns17 for its StopHost worker
+The demonstrated .NET10 journal boundary instead returns 17 for its StopHost worker
 failures and preserves their identities, including the shutdown combination.
 
 The two-worker check releases both after the startup signal and verifies both
