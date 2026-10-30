@@ -1,6 +1,6 @@
+// snippet:library
 module SeedLaboratory
 
-// snippet:library
 let inline foldSeeds ([<InlineIfLambda>] folder: int -> int -> int) initial (readings: int[]) =
     let mutable total = initial
     for reading in readings do

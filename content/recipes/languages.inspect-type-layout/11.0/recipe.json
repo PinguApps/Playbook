@@ -1,0 +1,173 @@
+{
+  "id": "languages.inspect-type-layout",
+  "edition": "11.0",
+  "title": "Inspect declared type layout through compiler symbols",
+  "goal": "Read declared layout kind, packing and size from a compiler symbol when inspecting packet declarations without private symbol casts or runtime-layout assumptions.",
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "compiler-inspection",
+    "compiler-host",
+    "original-samples"
+  ],
+  "apis": [
+    "INamedTypeSymbol.TypeLayout",
+    "TypeLayout.Kind",
+    "TypeLayout.PackingSize",
+    "TypeLayout.Size"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Read declared layout kind, packing and size from a compiler symbol when inspecting packet declarations without private symbol casts or runtime-layout assumptions.",
+          "Pinned prerelease artifacts; no experimental API suppression or preview language switch is needed."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run the declared net11.0 consumer. Measured RC2 artifacts are separate from final GA support."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 edition; exact tested SDK is recorded with each sample."
+          },
+          "language": {
+            "name": "C#",
+            "reason": "Declared C# host language, not the API introduction gate. The VB-native caller uses VB16.9 with the same Roslyn packages.",
+            "version": "15.0",
+            "match": "exact"
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "Microsoft.CodeAnalysis.CSharp",
+              "reason": "Actual RC2 package from the Microsoft dotnet-tools feed; 5.9.0 lacks this API.",
+              "version": "5.12.0-1.26504.105",
+              "match": "exact"
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "Microsoft.CodeAnalysis.Common and language lib/net10.0 assets selected by the net11.0 hosts."
+          ],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by the declared .NET runtime; actual evidence Windows x64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Create the files and project names shown below; restore the exact pinned packages before offline use.",
+            "Run Release builds so optimized compiler output matches the evidence."
+          ],
+          "constraints": [
+            "Only target11 is served. Older working examples are comparisons and preserve the exact eight approved .NET10 foundations.",
+            "Framework labels do not prove older-target or older-compiler compatibility; no such route is advertised here.",
+            "No provider, rendering mode, optional workload or native toolchain is required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 package/compiler verification is not actual GA verification. PIN-959 and PIN-961 remain open. No blanket performance or interop guarantee."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/Core/Portable/Symbols/TypeLayout.cs",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.structlayoutattribute"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/PacketLayout/PacketLayout.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "TypeLayout.cs",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/roslyn/src/Compilers/Core/Portable/Symbols/TypeLayout.cs"
+    },
+    {
+      "title": "system.runtime.interopservices.structlayoutattribute",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.structlayoutattribute"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "sample": "samples/net10.0/PacketLayout/PacketLayout.csproj",
+      "scope": "Read declared layout kind, packing and size from a compiler symbol when inspecting packet declarations without private symbol casts or runtime-layout assumptions.",
+      "target": "net10.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "sample": "samples/net11.0/PacketLayout/PacketLayout.csproj",
+      "scope": "Read declared layout kind, packing and size from a compiler symbol when inspecting packet declarations without private symbol casts or runtime-layout assumptions.",
+      "target": "net11.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable compiler-host console behavior and emitted IL are automated on actual pinned artifacts. No UI, device, provider or native claim."
+  },
+  "snippets": {
+    "feeds-10-packetlayout": {
+      "language": "xml",
+      "path": "samples/net10.0/PacketLayout/NuGet.Config",
+      "region": "feeds"
+    },
+    "feeds-11-packetlayout": {
+      "language": "xml",
+      "path": "samples/net11.0/PacketLayout/NuGet.Config",
+      "region": "feeds"
+    },
+    "packages-10-packetlayout": {
+      "language": "xml",
+      "path": "samples/net10.0/PacketLayout/Directory.Packages.props",
+      "region": "packages"
+    },
+    "project-11-packetlayout": {
+      "language": "xml",
+      "path": "samples/net11.0/PacketLayout/PacketLayout.csproj",
+      "region": "project"
+    },
+    "packages-11-packetlayout": {
+      "language": "xml",
+      "path": "samples/net11.0/PacketLayout/Directory.Packages.props",
+      "region": "packages"
+    },
+    "project-10-packetlayout": {
+      "language": "xml",
+      "path": "samples/net10.0/PacketLayout/PacketLayout.csproj",
+      "region": "project"
+    },
+    "source-11-packetlayout": {
+      "language": "csharp",
+      "path": "samples/net11.0/PacketLayout/Packets.cs",
+      "region": "program"
+    },
+    "source-10-packetlayout": {
+      "language": "csharp",
+      "path": "samples/net10.0/PacketLayout/Packets.cs",
+      "region": "program"
+    }
+  }
+}

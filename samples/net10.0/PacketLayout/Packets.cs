@@ -1,8 +1,8 @@
+// snippet:program
 using System.Runtime.InteropServices;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-// snippet:program
 static class PacketInspection
 {
     static void Main()

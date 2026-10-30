@@ -1,0 +1,222 @@
+{
+  "id": "fsharp.adapt-opaque-callbacks",
+  "edition": "11.0",
+  "title": "Adapt an opaque curried callback once",
+  "goal": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
+  "areas": [
+    "fsharp"
+  ],
+  "exampleLanguages": [
+    "fsharp"
+  ],
+  "tags": [
+    "compiler-inspection",
+    "compiler-host",
+    "original-samples"
+  ],
+  "apis": [
+    "OptimizeClosureIfNotInlinedAttribute",
+    "InlineIfLambdaAttribute",
+    "OptimizedClosures.FSharpFunc"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
+          "Pinned prerelease artifacts; no experimental API suppression or preview language switch is needed."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run the declared net11.0 consumer. Measured RC2 artifacts are separate from final GA support."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 edition; exact tested SDK is recorded with each sample."
+          },
+          "language": {
+            "name": "F#",
+            "reason": "The attribute declaration requires F#11, not preview. The separate older-mode import check uses the newer compiler.",
+            "version": "11.0",
+            "match": "exact"
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "FSharp.Core",
+              "reason": "Measured package containing the parameter attribute; keep pinned until deliberate GA reconciliation.",
+              "version": "11.0.101-rc2.26504.105",
+              "match": "exact"
+            }
+          ],
+          "workloads": [],
+          "packageAssets": [
+            "FSharp.Core lib/net10.0 selected by the net11.0 consumers; netstandard assets are not compatibility proof."
+          ],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by the declared .NET runtime; actual evidence Windows x64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Create the files and project names shown below; restore the exact pinned packages before offline use.",
+            "Run Release builds so optimized compiler output matches the evidence."
+          ],
+          "constraints": [
+            "Only target11 is served. Older working examples are comparisons and preserve the exact eight approved .NET10 foundations.",
+            "Framework labels do not prove older-target or older-compiler compatibility; no such route is advertised here.",
+            "No provider, rendering mode, optional workload or native toolchain is required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 package/compiler verification is not actual GA verification. PIN-959 and PIN-961 remain open. No blanket performance or interop guarantee."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/prim-types.fsi"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SeedFold/SeedFold.fsproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "LanguageFeatures.fs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/Compiler/Facilities/LanguageFeatures.fs"
+    },
+    {
+      "title": "OptimizeClosureIfNotInlined.fs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/tests/FSharp.Compiler.ComponentTests/EmittedIL/OptimizeClosureIfNotInlined.fs"
+    },
+    {
+      "title": "prim-types.fsi",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/fsharp/src/FSharp.Core/prim-types.fsi"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "sample": "samples/net10.0/SeedFold/SeedFold.fsproj",
+      "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
+      "target": "net10.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sdk": "10.0.402",
+      "language": "10.0",
+      "sample": "samples/net10.0/SeedFoldLibrary/SeedFoldLibrary.fsproj",
+      "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
+      "target": "net10.0",
+      "kind": "compile"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "sample": "samples/net11.0/SeedFold/SeedFold.fsproj",
+      "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
+      "target": "net11.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "sample": "samples/net11.0/SeedFoldLibrary/SeedFoldLibrary.fsproj",
+      "scope": "Adapt a supplied curried callback once before an inline batch loop when it is not a known lambda, preserving results, effects and exception propagation.",
+      "target": "net11.0",
+      "kind": "compile"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "11.0",
+      "sample": "samples/net11.0/SeedFold/SeedFold.fsproj",
+      "scope": "Actual optimized IL: one Adapt before the opaque loop, no InvokeFast there, repeated InvokeFast in the control, no Adapt for literal; FS3350/FS3916 and newer compiler F#8-mode imported metadata execution.",
+      "target": "net11.0",
+      "record": "samples/net11.0/SeedFold/contracts.evidence.json",
+      "kind": "execution"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable compiler-host console behavior and emitted IL are automated on actual pinned artifacts. No UI, device, provider or native claim."
+  },
+  "snippets": {
+    "project-11-seedfold": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedFold/SeedFold.fsproj",
+      "region": "project"
+    },
+    "source-11-seedfoldlibrary": {
+      "language": "fsharp",
+      "path": "samples/net11.0/SeedFoldLibrary/SeedFold.fs",
+      "region": "library"
+    },
+    "packages-10-seedfoldlibrary": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedFoldLibrary/Directory.Packages.props",
+      "region": "packages"
+    },
+    "project-11-seedfoldlibrary": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedFoldLibrary/SeedFoldLibrary.fsproj",
+      "region": "project"
+    },
+    "packages-11-seedfold": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedFold/Directory.Packages.props",
+      "region": "packages"
+    },
+    "project-10-seedfoldlibrary": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedFoldLibrary/SeedFoldLibrary.fsproj",
+      "region": "project"
+    },
+    "source-10-seedfoldlibrary": {
+      "language": "fsharp",
+      "path": "samples/net10.0/SeedFoldLibrary/SeedFold.fs",
+      "region": "library"
+    },
+    "source-11-seedfold": {
+      "language": "fsharp",
+      "path": "samples/net11.0/SeedFold/SeedFold.fs",
+      "region": "consumer"
+    },
+    "packages-10-seedfold": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedFold/Directory.Packages.props",
+      "region": "packages"
+    },
+    "packages-11-seedfoldlibrary": {
+      "language": "xml",
+      "path": "samples/net11.0/SeedFoldLibrary/Directory.Packages.props",
+      "region": "packages"
+    },
+    "source-10-seedfold": {
+      "language": "fsharp",
+      "path": "samples/net10.0/SeedFold/SeedFold.fs",
+      "region": "consumer"
+    },
+    "project-10-seedfold": {
+      "language": "xml",
+      "path": "samples/net10.0/SeedFold/SeedFold.fsproj",
+      "region": "project"
+    }
+  }
+}

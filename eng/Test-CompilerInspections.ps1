@@ -113,12 +113,12 @@ try {
 
   if ($Record) {
     $sample = 'samples/net11.0/SeedFold/SeedFold.fsproj'
-    $record = Get-Content 'samples/net11.0/SeedFold/verification-evidence.json' -Raw | ConvertFrom-Json -AsHashtable
-    $record.kind = 'execution'
-    $record.command = $commands -join "`n"
-    $record.output = $observations -join "`n"
-    $record.scope = 'Actual F#11 optimized separate-consumer IL; F#10 declaration and seven invalid shapes; newer compiler F#8-mode imported library execution. No older-compiler compatibility or performance percentage claim.'
-    [IO.File]::WriteAllText((Join-Path $root 'samples/net11.0/SeedFold/contracts.evidence.json'), (ConvertTo-Json $record -Depth 50).Replace("`r`n","`n")+"`n")
+    $capturedRecord = Get-Content 'samples/net11.0/SeedFold/verification-evidence.json' -Raw | ConvertFrom-Json -AsHashtable
+    $capturedRecord.kind = 'execution'
+    $capturedRecord.command = $commands -join "`n"
+    $capturedRecord.output = $observations -join "`n"
+    $capturedRecord.scope = 'Actual F#11 optimized separate-consumer IL; F#10 declaration and seven invalid shapes; newer compiler F#8-mode imported library execution. No older-compiler compatibility or performance percentage claim.'
+    [IO.File]::WriteAllText((Join-Path $root 'samples/net11.0/SeedFold/contracts.evidence.json'), (ConvertTo-Json $capturedRecord -Depth 50).Replace("`r`n","`n")+"`n")
   }
   Write-Host 'PASS: paired compiler consumers, hoisted adaptation, diagnostics and imported F#8-mode execution.'
 } finally {

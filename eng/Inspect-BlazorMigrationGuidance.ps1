@@ -10,6 +10,7 @@ param(
   [string]$Query = 'migration',
   [ValidateSet('10.0','11.0')][string]$TargetVersion = '11.0',
   [ValidateSet('10.0','11.0')][string]$UnsupportedTargetVersion,
+  [switch]$CheckDemonstratedLanguages,
   [switch]$BuildAndPack
 )
 $ErrorActionPreference = 'Stop'
@@ -104,6 +105,14 @@ try {
           if (-not $route.PSObject.Properties['neutralLanguages']) { $route | Add-Member -NotePropertyName neutralLanguages -NotePropertyValue @() }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
+        if ($CheckDemonstratedLanguages) {
+          foreach ($language in 'csharp','vb','fsharp') {
+            $filtered = (Invoke-RecipeTool 'list_recipes' @("query=$id", "language=$language", 'limit=50')).result.structuredContent
+            $present = @($filtered.recipes | Where-Object id -CEQ $id).Count -eq 1
+            if ($present -ne ($language -cin @($metadata.exampleLanguages))) { throw "Demonstrated language filter drift: $id / $language" }
+          }
+          Write-Host "PASS: $id demonstrated C#/VB/F# discovery filters."
+        }
         $response = Invoke-RecipeTool 'get_recipe' @("id=$id")
         if ($page.resolvedTarget -cne $TargetVersion -or $response.result.structuredContent.resolvedTarget -cne $TargetVersion) { throw "Wrong resolved target: $id" }
         $recipe = $response.result.structuredContent.recipe
@@ -121,7 +130,7 @@ try {
           $value = $snippet.Value
           $source = (Get-Content -LiteralPath (Join-Path $root $value.path) -Raw).Replace("`r`n","`n")
           $region = [regex]::Escape($value.region)
-          $match = [regex]::Match($source,"(?ms)^[ \t]*(?://|#|/\*|@\*|<!--) snippet:${region}(?: -->| \*/| \*@)?\n(.*?)^[ \t]*(?://|#|/\*|@\*|<!--) endsnippet:${region}(?: -->| \*/| \*@)?$")
+          $match = [regex]::Match($source,"(?ms)^[ \t]*(?://|'|#|/\*|@\*|<!--) snippet:${region}(?: -->| \*/| \*@)?\n(.*?)^[ \t]*(?://|'|#|/\*|@\*|<!--) endsnippet:${region}(?: -->| \*/| \*@)?$")
           if (-not $match.Success) { throw "Missing canonical region: $($value.path)" }
           $code = $match.Groups[1].Value.TrimEnd()
           $expectedBody = $expectedBody.Replace('{{snippet:' + $snippet.Name + '}}', ('```' + $value.language + "`n" + $code + "`n" + '```'))

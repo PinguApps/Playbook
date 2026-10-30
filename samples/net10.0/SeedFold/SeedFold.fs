@@ -1,9 +1,9 @@
+// snippet:consumer
 module SeedConsumer
 
 open SeedLaboratory
 open System.Runtime.CompilerServices
 
-// snippet:consumer
 let mutable factoryCalls = 0
 
 [<MethodImpl(MethodImplOptions.NoInlining)>]

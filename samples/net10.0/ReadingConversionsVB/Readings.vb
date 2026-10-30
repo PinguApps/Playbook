@@ -1,3 +1,4 @@
+' snippet:program
 Imports System
 Imports System.IO
 Imports System.Linq
@@ -5,7 +6,6 @@ Imports Microsoft.CodeAnalysis
 Imports Microsoft.CodeAnalysis.Operations
 Imports Microsoft.CodeAnalysis.VisualBasic
 
-' snippet:program
 Module ReadingInspection
     Private Sub Require(condition As Boolean)
         If Not condition Then Throw New InvalidOperationException("VB conversion mismatch")

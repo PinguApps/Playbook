@@ -1,6 +1,9 @@
 <!-- snippet:project -->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <TargetFramework>net11.0</TargetFramework>
     <LangVersion>11.0</LangVersion>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
