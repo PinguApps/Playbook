@@ -47,6 +47,42 @@ distinct from old-compiler or older-target compatibility. RC2 is not GA proof;
 coverage, GA and Human gates stay open. A stale/missing record, changed body,
 unexpanded snippet, wrong target or nonzero exit fails the check.
 
+## ZIP initialization and invocation locations
+
+This block was verified from an unrelated directory. It builds/packs the ordinary
+tool and installs that exact artifact through a fresh local-only feed/cache.
+Real stdio list/get displays both discovery IDs, titles and explanatory goals,
+complete canonical Markdown, target11/edition11, applicability and fresh evidence.
+Target10 returns `no_applicable_edition`; the comparisons add no ninth foundation.
+
+Use PowerShell7, Node22.19+, SDK10.0.402 and runtime10.0.13 for tool inspection.
+Sample recapture also needs complete SDK11.0.100-rc.2.26504.105/ref/runtime11RC2,
+Windows x64/NTFS and actual symlink permission. Source replay/setup can use the
+network; retrieval with unusable proxies establishes proxy independence, not
+OS-level network isolation. No account, global tool installation or PATH change.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-40fcde33'
+& ./eng/Record-WeatherMaintenance.ps1 -VerifySources
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('archive.handle-async-initialization','hosting.distinguish-invocation-paths') `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1042-1043' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory ./artifacts/weather-maintenance/inspection
+```
+
+Expect paired ZIP PASS results, fourteen actual ordinary/single-file child launches,
+and the final exact-artifact installed inspection PASS. Both malformed central
+directories fail at Entries on .NET10 and at the factory on RC2; missing end records
+fail at both factories. RC2 Entries performs zero reads after async initialization.
+Successful directory discovery is separate from damaged-payload EOF/CRC rejection.
+Successful leaveOpen and caller cleanup after failed initialization are checked.
+Launch records show exact invocation/ProcessPath/entry Location; real single-file
+Location is empty. Older single-file resolved executable names may retain an alias
+basename. No Unix/every-launcher/AOT/GA claim follows; PIN-959/PIN-962 stay open.
+A stale record, missing body/snippet/applicability or nonzero command is a failure.
+
 ## Date parser settings and numeric representation
 
 This block builds/packs the ordinary tool and installs that exact artifact from a

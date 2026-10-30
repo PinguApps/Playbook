@@ -1,0 +1,13 @@
+{
+  "workloads": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/net11.0/QuarryMaintenance/QuarryMaintenance.cs",
+    "samples/QuarryMaintenanceChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-WeatherMaintenance.ps1"
+  ],
+  "nativeToolchains": [],
+  "dependencies": []
+}
