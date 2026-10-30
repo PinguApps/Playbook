@@ -1,0 +1,186 @@
+{
+  "id": "numerics.align-tensor-shapes",
+  "edition": "11.0",
+  "title": "Align tensor shapes without losing metadata",
+  "goal": "Align differently ranked measurement batches while preserving requested dimensions; final .NET 11 package behavior and native-width execution remain pending.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "numeric-shapes",
+    "tensors",
+    "shape-alignment"
+  ],
+  "apis": [
+    "Tensor.Broadcast",
+    "Tensor.BroadcastTo",
+    "Tensor.TryBroadcastTo",
+    "Tensor.Add",
+    "Tensor.SequenceEqual",
+    "Tensor.Concatenate",
+    "Tensor.ConcatenateOnDimension",
+    "Tensor.Stack",
+    "Tensor.StackAlongDimension",
+    "Tensor.Reshape",
+    "Tensor.Split",
+    "Tensor.SqueezeDimension",
+    "Tensor.Unsqueeze",
+    "Tensor.PermuteDimensions",
+    "Tensor.SetSlice",
+    "Tensor.ResizeTo",
+    "Tensor.Reverse",
+    "Tensor.ReverseDimension",
+    "Tensor.EqualsAny",
+    "Tensor.GreaterThanAny",
+    "Tensor.GreaterThanOrEqualAny",
+    "Tensor.LessThanAny",
+    "Tensor.LessThanOrEqualAny",
+    "Tensor.IndexOfMax",
+    "Tensor.IndexOfMaxMagnitude",
+    "Tensor.IndexOfMin",
+    "Tensor.IndexOfMinMagnitude"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Align differently ranked measurement batches while preserving requested dimensions; final .NET 11 package behavior and native-width execution remain pending.",
+          "Prepared for the full .NET 11 release from the merged release/11.0 backport. Published RC2/RC3 packages lack the required behavior. Current sample evidence is compilation only; final execution is tracked by PIN-962."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Canonical full-release target is .NET 11; this recipe does not establish a newer-package-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use final .NET 11 SDK for GA verification. The installed RC2 SDK is only the current compilation baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.Numerics.Tensors",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Requires a final .NET 11 package containing release/11.0 backport #135281. RC2/RC3 compilation assets do not implement this contract; final package verification is pending."
+            }
+          ],
+          "packageAssets": [
+            "Canonical route: lib/net11.0/System.Numerics.Tensors.dll. Current compilation uses package11.0.0-rc.2.26504.105, previous execution uses10.0.13/lib/net10.0; neither proves final behavior."
+          ],
+          "providers": [],
+          "platforms": [
+            "Managed tensor operations follow framework/package support; actual previous policy execution is Windows x64. Opt-in native proof is implemented for Windows x64 and remains unexecuted."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project, ImplicitUsings=enable, Nullable=enable, namespace Playbook.Samples and using System.Numerics.Tensors; add the final System.Numerics.Tensors11 package containing the backport.",
+            "The fictional instrument uses dense three-channel readings. Choose exact stored dimensions or library shape equivalence before combining data.",
+            "For optional large native authoring proof: Windows x64, AllowUnsafeBlocks=true and at least 8 GiB measured free physical/commit memory. No new recurring CI/OS matrix."
+          ],
+          "constraints": [
+            "Default rank-zero empties compute as [0] while retaining stored metadata. Only leading singleton padding is ignored; zero/internal dimensions remain significant. Equality is not general broadcasting. Axes follow the first effective input; caller destinations keep their requested shape.",
+            "The scoped shape/view/Any/native-width suite is implemented and compiled, with expected behavior reviewed against the merged release/11.0 source. No successful current or final package execution is claimed.",
+            "No provider, rendering mode, workload, account or experimental API opt-in is required. NativeMemory/kernel32 resource checks are test-only system facilities, not application prerequisites. The comparison adds no target10 foundation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Pending final SDK/runtime/package behavior, all five scalar/pairwise Any families, views/extrema and native traversal beyond int.MaxValue. PIN-962 owns refresh; pending proof blocks release-ready packaging.",
+            "No experimental annotation was required by the selected types/signatures on actual compilation assets. Full-release guidance is not an advertisement for RC2/RC3 behavior."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md",
+          "https://github.com/dotnet/runtime/commit/1ee19308f309a620c415eba0fdcda7ee3de6ae5e",
+          "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/Tensor.cs",
+          "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/README.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official shape-alignment compatibility note",
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/tensor-shape-alignment.md"
+    },
+    {
+      "title": "Merged .NET 11 release-branch backport",
+      "url": "https://github.com/dotnet/runtime/commit/1ee19308f309a620c415eba0fdcda7ee3de6ae5e"
+    },
+    {
+      "title": "Release-branch Tensor operations and shape contracts",
+      "url": "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/Tensor.cs"
+    },
+    {
+      "title": "Release-branch storage, shape and operation limitations",
+      "url": "https://github.com/dotnet/runtime/blob/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/README.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual SDK10.0.402/runtime10.0.13 and locked tensor10.0.13 net10 execution of the original dense three-channel normalization policy; destination values and requested metadata retained. This does not establish the new shape contract.",
+      "sample": "samples/net10.0/InstrumentBatch/InstrumentBatch.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile",
+      "scope": "Actual SDK11 RC2 and locked tensor11 RC2 net11 compilation of the full-release policy and shape/view/Any/native-width checks. The package lacks the release/11.0 shape backport; no successful new behavior or large/native/final-artifact execution is claimed. Final proof remains pending under PIN-962.",
+      "sample": "samples/net11.0/InstrumentBatch/InstrumentBatch.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/InstrumentBatch/BatchPolicy.cs",
+      "region": "policy"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/InstrumentBatch/BatchPolicy.cs",
+      "region": "policy"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized full .NET11 release preparation on30October2026 with final-package execution deferred. PIN-962 must select GA SDK/runtime/tensor assets, run all shape/view/scalar-pairwise Any checks and memory-preflighted native traversal beyond int.MaxValue, refresh actual sample evidence and clear pending proof only on success. Current code compilation and source review are not this proof; release-ready packaging stays blocked."
+  }
+}

@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><AllowUnsafeBlocks>true</AllowUnsafeBlocks></PropertyGroup>
+  <ItemGroup><PackageReference Include="System.Numerics.Tensors" /><Compile Include="../../InstrumentBatch/ShapeChecks.cs" Link="Program.cs" /><Compile Include="../../InstrumentBatch/NativeChecks.cs" Link="NativeChecks.cs" /></ItemGroup>
+</Project>

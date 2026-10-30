@@ -1708,11 +1708,13 @@ plus bounded writer checks. Native results are observations. Windows x64 CoreCLR
 is measured; no interpreter/Native AOT/Mono, newer tensor package on net10, other
 platform or actual-GA proof. PIN-959/PIN-962 and Human gates remain open.
 
-## Complex signal classification
+## Complex signal classification and tensor shape preparation
 
 Requires PowerShell7, SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
 runtime11.0.0-rc.2.26504.105 and Node22.19+. The signal samples use framework
-Complex and require no package, provider, native toolchain, workload or opt-in.
+Complex. InstrumentBatch locks tensor10.0.13/11RC2 for previous execution/current
+compilation; the intended tensor route requires the final11 package with backport
+#135281. No provider, workload or experimental opt-in is required.
 
 This block was tested from an unrelated starting directory. It builds/packs the ordinary
 tool, installs that exact artifact through an isolated local-only feed and fresh
@@ -1723,7 +1725,7 @@ independence, not network isolation.
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ade7763e'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
-  -RecipeId @('numerics.handle-complex-special-values') `
+  -RecipeId @('numerics.handle-complex-special-values','numerics.align-tensor-shapes') `
   -Query 'numeric-shapes' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
   -PackageVersion '0.0.0-pin1049-1050' -BuildAndPack `
   -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
@@ -1731,7 +1733,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ade7763e'
   -OutputDirectory ./artifacts/numeric-shapes/inspection
 ```
 
-Expect discovery ID/title/goal, complete expanded canonical Markdown,
+Expect both discovery IDs/titles/goals, complete expanded canonical Markdown,
 target11/edition11 applicability, fresh paired compilation/execution evidence,
 matching structured/text results and `no_applicable_edition` for target10.
 Refresh changed signal inputs using `eng/Record-ComplexSignals.ps1`; add
@@ -1740,7 +1742,26 @@ compiler/reference/runtime identities, inputs, component bits and classification
 are saved in sample evidence. RC2 is not GA proof; only Windows x64 CoreCLR JIT
 execution is measured.
 
-The combined PIN-1049/PIN-1050 delivery is incomplete. The tensor recipe is absent:
-actual published RC2/RC3 packages fail required alignment and empty-input behavior,
-and native-width traversal proof remains unexecuted. This inspection establishes
-the complex recipe only. Comprehensive, GA and existing Human gates remain open.
+Expect the tensor discovery goal and detail to disclose final-package execution
+pending. Its previous record is compile-and-run; the current record is compile,
+and humanProof.status is pending. Freshness means recorded inputs match, not that
+new shape behavior ran. Published RC2/RC3 packages lack the behavior; inspection
+checks served guidance and metadata only. The native-width suite remains unexecuted.
+PIN-962 owns final SDK/runtime/package, all small and native checks and evidence
+refresh. Under Pingu's preparation decision, this PR may deliver the guide while
+release-ready packaging, comprehensive, GA and existing Human gates stay open.
+
+Refresh affected tensor preparation evidence with:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ade7763e'
+& ./eng/Record-InstrumentBatch.ps1 -VerifySources
+```
+
+Expect previous-policy execution, current compilation and four pinned source hash
+checks. This command intentionally does not execute the current expected-release
+checks. After PIN-962 updates pins, locks, dependency declarations and metadata for
+the actual final artifacts, use -RunReleaseChecks with the final SDK paths. That
+explicit option also runs the large native proof, requiring Windows x64 and about
+8GiB measured free physical/commit memory. A refused/failed native run leaves the
+proof pending; do not clear it based on the smaller checks.

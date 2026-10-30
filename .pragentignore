@@ -1,4 +1,12 @@
 # PR Agent review scope; Git tracking and verification gates are unchanged.
+# Record-ComplexSignals/Record-InstrumentBatch generated SDK/ref/package receipts.
+# Review policies, behavior suites, pins, locks, manifests and capture scripts;
+# ordinary build/pack checks input freshness. Tensor GA execution stays pending.
+/samples/net10.0/SignalPipeline/verification-evidence.json
+/samples/net11.0/SignalPipeline/verification-evidence.json
+/samples/net10.0/InstrumentBatch/verification-evidence.json
+/samples/net11.0/InstrumentBatch/verification-evidence.json
+
 # Test-TrailCards/Record-Evidence generated SDK/dependency/command captures.
 # Review canonical consumers, pins, locks and orchestration; pack checks freshness.
 /samples/net10.0/TrailCards/verification-evidence.json
