@@ -1,0 +1,13 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/InstrumentArchive/ArchiveNumbers.cs",
+    "samples/InstrumentArchive/ArchiveChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-BookingArchive.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

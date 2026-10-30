@@ -1,0 +1,13 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/BookingImport/BookingReader.cs",
+    "samples/BookingImport/BookingChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-BookingArchive.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
