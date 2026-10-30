@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    "System.Numerics.Tensors/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/MeasurementExport/ExportChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-NumericPolicies.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

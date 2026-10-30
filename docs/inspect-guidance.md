@@ -1586,3 +1586,42 @@ The separate growth-control stream only instruments the buffering guard; package
 and TAR behavior use actual library/filesystem operations. No link-incapable
 receiver, other-platform or GA execution is claimed. Comprehensive and GA gates
 remain open; no recurring platform matrix is added.
+
+## Fractional rounding and small integer policies
+
+Requires PowerShell7, SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
+runtime11.0.0-rc.2.26504.105 and Node22.19+. The tensor samples lock matching
+System.Numerics.Tensors10.0.13/11RC2 with actual net10/net11 assets. Scalar rounding
+and small conversions need no package. No provider, workload, service or global
+installation is needed.
+
+This block was tested from an unrelated starting directory. It builds/packs the
+ordinary tool, installs that exact artifact through an isolated local-only feed
+and fresh cache, then runs real stdio list/get from an unrelated temporary directory.
+Setup may restore online; unusable proxies during retrieval prove proxy independence,
+not network isolation. The output displays ID/title/goal, complete canonical Markdown,
+target11/edition11 applicability and fresh compilation/execution records.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-9d85709e'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.choose-fractional-rounding','numerics.select-small-integer-conversion') `
+  -Query 'numeric-policy' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1047-1048' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/numeric-policy/inspection
+```
+
+Expect both discovery IDs with their reusable titles/goals, full expanded snippets,
+current paired evidence, matching structured/text results and no_applicable_edition
+for target10. The .NET10 code is a working comparison, preserving eight foundations.
+Refresh changed sample inputs using `eng/Record-NumericPolicies.ps1` with the two
+absolute SDK executables (`-Net10Dotnet` / `-Net11Dotnet`); `-VerifySources` also
+replays nine immutable audit-source hashes. Exact commands, inputs, dependency closure,
+compiler/reference/runtime/package hashes and OS/architecture are saved in sample
+records. Output includes original midpoint/large/digit/mode controls, real tensor
+independent/in-place/capacity/overlap checks and all-five-destination small conversion
+plus bounded writer checks. Native results are observations. Windows x64 CoreCLR JIT
+is measured; no interpreter/Native AOT/Mono, newer tensor package on net10, other
+platform or actual-GA proof. PIN-959/PIN-962 and Human gates remain open.
