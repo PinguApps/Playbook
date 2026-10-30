@@ -1,0 +1,12 @@
+<!-- snippet:settings -->
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="QuayObservations"
+        uri="datacollector://quay/observations/v1"
+        assemblyQualifiedName="Quay.Collection.QuayCollector, Quay.Collector"
+        codebase="COLLECTOR_DLL" enabled="true" />
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
+<!-- endsnippet:settings -->

@@ -1,10 +1,12 @@
 [CmdletBinding()]
-param([string]$PackageVersion = '0.0.0-smoke')
+param(
+  [string]$PackageVersion = '0.0.0-smoke',
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
+)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
-$dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
 $artifacts = Join-Path $root 'artifacts'
 $results = Join-Path $artifacts 'TestResults'
 $previous = @{}

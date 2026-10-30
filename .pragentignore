@@ -184,3 +184,22 @@
 /samples/net11.0/NightArchive/verification-evidence.json
 /samples/net10.0/StarSurvey/verification-evidence.json
 /samples/net11.0/StarSurvey/verification-evidence.json
+
+# Quay generated command/native/trust captures; review canonical samples, exact
+# pins and Test-QuayWorker/Test-QuaySignatures. Build/pack verifies input freshness.
+/samples/net10.0/QuayWorker/verification-evidence.json
+/samples/net11.0/QuayWorker/verification-evidence.json
+/samples/net10.0/QuayWorker/signatures.evidence.json
+/samples/net11.0/QuayWorker/signatures.evidence.json
+
+# Public Microsoft DER roots: URLs/SHA256 in artifacts.json and canonical setup;
+# real Notation verification checks these exact downloaded certificate bytes.
+/samples/QuayContainerProof/supply-chain.crt
+/samples/QuayContainerProof/timestamp.crt
+
+# Quay collector generated SDK/package/command/TRX observations. Review the
+# collector/adapter, locks, manifests and Test-QuayCollector; pack checks freshness.
+/samples/net10.0/QuayCollector/verification-evidence.json
+/samples/net10.0/QuayCollector/Tests/verification-evidence.json
+/samples/net11.0/QuayCollector/verification-evidence.json
+/samples/net11.0/QuayCollector/Tests/verification-evidence.json

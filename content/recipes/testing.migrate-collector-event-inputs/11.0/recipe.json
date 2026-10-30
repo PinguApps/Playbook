@@ -1,0 +1,224 @@
+{
+  "id": "testing.migrate-collector-event-inputs",
+  "edition": "11.0",
+  "title": "Observe VSTest collector events without rewriting outcomes",
+  "goal": "Observe real test-case events in a collector while preserving runner-owned identity, child-case flags and outcomes as event contracts become writable.",
+  "areas": [
+    "testing",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quay-collector",
+    "vstest",
+    "collector-events"
+  ],
+  "apis": [
+    "TestCaseEventArgs",
+    "TestCaseEndEventArgs",
+    "DataCollectionEvents.TestCaseStart",
+    "DataCollectionEvents.TestCaseEnd"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "The original draft reversed the change: all five setters become public. Preserve observation without rewriting runner identity, child flag, TestElement or outcome; no removed-setter migration is taught.",
+          "Actual real top-level start/end observations match TRX with collection enabled/disabled. Child=true/nested-framework transport and arbitrary ordering are not qualified.",
+          "Public constructors are separate unit fixtures. The assignment control is compile-only and never called on real runner events.",
+          "Only target11 is advertised; the actual net10 comparison adds no foundation or unverified newer-package down-level route. PIN-959/PIN-963 and Human gates remain open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual current net11 consumer; runtime/ref11RC2 measured separately."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact current SDK11RC2/compiler/reference inputs are pinned, distinct from stable VSTest package versions."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current sample setting; no preview-language switch."
+          },
+          "frameworks": [
+            "Framework-dependent managed out-of-process VSTest data collector plus original real test adapter."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.TestPlatform.ObjectModel",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Exact matching qualified public package; resolved transitive closure is locked."
+            },
+            {
+              "name": "Microsoft.TestPlatform.CLI",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Exact matching qualified public package; resolved transitive closure is locked."
+            },
+            {
+              "name": "Microsoft.NET.Test.Sdk",
+              "version": "18.11.0",
+              "match": "exact",
+              "reason": "Exact matching qualified public package; resolved transitive closure is locked."
+            }
+          ],
+          "packageAssets": [
+            "Both ObjectModel18.7/18.11 consumers select lib/net8.0 compile/runtime assets; both full public CLI closures supply contentFiles/any/net10.0/vstest.console.dll.",
+            "TestHost matches Test.Sdk18.7/18.11. Public and SDK-bundled copies are separately hashed, never asserted byte-equal."
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 actual local execution with complete SDK10/11 hosts; other OSes/architectures unqualified."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "PowerShell7; SDK10.0.402/runtime-ref10.0.13/C#14 and SDK11.0.100-rc.2.26504.105/runtime-ref11RC2/C#15 for paired qualification.",
+            "Public NuGet access to prepare actual locked dependencies; no credentials, service, native compiler or workload. Use isolated homes/caches and disable automatic PATH integration."
+          ],
+          "constraints": [
+            "The original draft reversed the change: all five setters become public. Preserve observation without rewriting runner identity, child flag, TestElement or outcome; no removed-setter migration is taught.",
+            "Actual real top-level start/end observations match TRX with collection enabled/disabled. Child=true/nested-framework transport and arbitrary ordering are not qualified.",
+            "Public constructors are separate unit fixtures. The assignment control is compile-only and never called on real runner events.",
+            "Only target11 is advertised; the actual net10 comparison adds no foundation or unverified newer-package down-level route. PIN-959/PIN-963 and Human gates remain open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public VSTest18.11 packages are stable; .NET11 proof is RC2. No MTP, Framework, trimming, NativeAOT or arbitrary collector/test-framework compatibility claim."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/microsoft/vstest/blob/6f58ced50b40e074a07ffc21fb2d2eef95d31b60/src/Microsoft.TestPlatform.ObjectModel/DataCollector/Events/TestCaseEvents.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.ObjectModel/DataCollector/Events/TestCaseEvents.cs",
+          "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/docs/extensions/datacollector.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuayCollector/QuayCollector.csproj",
+          "samples/net11.0/QuayCollector/Tests/QuayTests.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Actual old event visibility and collector unit constructors",
+      "url": "https://github.com/microsoft/vstest/blob/6f58ced50b40e074a07ffc21fb2d2eef95d31b60/src/Microsoft.TestPlatform.ObjectModel/DataCollector/Events/TestCaseEvents.cs"
+    },
+    {
+      "title": "Actual current public setters and event construction",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/src/Microsoft.TestPlatform.ObjectModel/DataCollector/Events/TestCaseEvents.cs"
+    },
+    {
+      "title": "VSTest data collector extension contract",
+      "url": "https://github.com/microsoft/vstest/blob/36206450d47fec22e281ba9846445edc796f5080/docs/extensions/datacollector.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/QuayCollector/QuayCollector.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real matching collector/runner/test-host; start/end identity/name/child=false/outcome match actual TRX and disabled control with one pass/one failed assertion. Separate constructor/visibility and compile-only added-setter checks. No synthetic production result or child=true transport claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/QuayCollector/Tests/QuayTests.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real matching collector/runner/test-host; start/end identity/name/child=false/outcome match actual TRX and disabled control with one pass/one failed assertion. Separate constructor/visibility and compile-only added-setter checks. No synthetic production result or child=true transport claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/QuayCollector/QuayCollector.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real matching collector/runner/test-host; start/end identity/name/child=false/outcome match actual TRX and disabled control with one pass/one failed assertion. Separate constructor/visibility and compile-only added-setter checks. No synthetic production result or child=true transport claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/QuayCollector/Tests/QuayTests.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real matching collector/runner/test-host; start/end identity/name/child=false/outcome match actual TRX and disabled control with one pass/one failed assertion. Separate constructor/visibility and compile-only added-setter checks. No synthetic production result or child=true transport claim."
+    }
+  ],
+  "snippets": {
+    "project-10": {
+      "path": "samples/net10.0/QuayCollector/QuayCollector.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "packages-10": {
+      "path": "samples/net10.0/QuayCollector/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "project-11": {
+      "path": "samples/net11.0/QuayCollector/QuayCollector.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "packages-11": {
+      "path": "samples/net11.0/QuayCollector/Directory.Packages.props",
+      "region": "packages",
+      "language": "xml"
+    },
+    "collector": {
+      "path": "samples/net11.0/QuayCollector/Collector.cs",
+      "region": "collector",
+      "language": "csharp"
+    },
+    "construction": {
+      "path": "samples/net11.0/QuayCollector/Program.cs",
+      "region": "construction",
+      "language": "csharp"
+    },
+    "settings": {
+      "path": "samples/net11.0/QuayCollector/Collector.runsettings",
+      "region": "settings",
+      "language": "xml"
+    },
+    "tests-project": {
+      "path": "samples/net11.0/QuayCollector/Tests/QuayTests.csproj",
+      "region": "tests-project",
+      "language": "xml"
+    },
+    "adapter": {
+      "path": "samples/net11.0/QuayCollector/Tests/BerthTests.cs",
+      "region": "adapter",
+      "language": "csharp"
+    },
+    "run": {
+      "path": "samples/net11.0/QuayCollector/Run-Collector.ps1",
+      "language": "powershell",
+      "region": "run"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executed Windows x64 paired collector/test execution. Human, actual-GA and unrelated platform gates remain open."
+  }
+}

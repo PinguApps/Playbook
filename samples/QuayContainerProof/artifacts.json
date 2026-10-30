@@ -1,0 +1,13 @@
+{
+  "notation": {"version":"1.3.2","url":"https://github.com/notaryproject/notation/releases/download/v1.3.2/notation_1.3.2_windows_amd64.zip","sha256":"014f25a530eee17520c8e1eb7380e4bd02ff6fc04479a07a890954e3b7ddfdc7"},
+  "oras": {"version":"1.3.6","url":"https://github.com/oras-project/oras/releases/download/v1.3.6/oras_1.3.6_windows_amd64.zip","sha256":"ec3d19f386d5d2f0892288772d7b242475a05332aafa64b6773378ca771d76d3"},
+  "certificates": [
+    {"file":"supply-chain.crt","type":"ca","sha256":"23ffe2b8bdb9a1711515d4cffda04bc7f793d513c76c243f1020507d8669b7db","url":"https://www.microsoft.com/pkiops/certs/Microsoft%20Supply%20Chain%20RSA%20Root%20CA%202022.crt"},
+    {"file":"timestamp.crt","type":"tsa","sha256":"df545bf919a2439c36983b54cdfc903dfa4f37d3996d8d84b4c31eec6f3c163e","url":"https://www.microsoft.com/pki/certs/MicRooCerAut_2010-06-23.crt"}
+  ],
+  "images": {
+    "10": {"tag":"10.0.13-azurelinux3.0","index":"sha256:5e6d01ac0f7860e7cf22ac0b0b5aebb3d72854b2e3dbcb7729a76aab9c1ce32c","amd64":"sha256:e454ed02b8c903dff0d7fd40a63451e55f16c186463d168a78e584738244f939"},
+    "11": {"tag":"11.0.0-rc.2-azurelinux4.0","index":"sha256:fef3cd3bd18e61d14dd7e66289e1a537d6a48fdc2d266e009744e299571c6afe","amd64":"sha256:3b52667dbaff185a1ddd4cefb16d9517e6945f6e61257faa2e57e6040877d95b"}
+  },
+  "registry":"registry@sha256:ddf754342cfc8acc51a56d5d0ab6af06826461864460636d8bd5c546dab2a7b8"
+}

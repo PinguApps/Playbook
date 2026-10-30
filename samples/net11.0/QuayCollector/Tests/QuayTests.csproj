@@ -1,0 +1,11 @@
+<!-- snippet:tests-project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <OutputType>Library</OutputType><AssemblyName>Quay.TestAdapter</AssemblyName>
+    <IsTestProject>true</IsTestProject><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup><PackageReference Include="Microsoft.NET.Test.Sdk" /></ItemGroup>
+</Project>
+<!-- endsnippet:tests-project -->

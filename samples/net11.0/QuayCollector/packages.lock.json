@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.TestPlatform.CLI": {
+        "type": "Direct",
+        "requested": "[18.11.0, 18.11.0]",
+        "resolved": "18.11.0",
+        "contentHash": "mY2psZJ00ff6GhSuOW5PgDt0INmv5q/IMZqFuvSTQ1QH/exiBph28LVQ3binALS8XUomWm2JS8BzTIn7ZIkrKA=="
+      },
+      "Microsoft.TestPlatform.ObjectModel": {
+        "type": "Direct",
+        "requested": "[18.11.0, 18.11.0]",
+        "resolved": "18.11.0",
+        "contentHash": "BXBHYnwSOljKute8UYCMXOLAdB7awxEMppPSpqOF1ZxLD/W/OH+vTBgFaXA7q0aditJTVXSMVenel+wOkEIyNg=="
+      }
+    }
+  }
+}
