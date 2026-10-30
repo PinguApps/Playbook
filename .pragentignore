@@ -287,3 +287,15 @@
 /samples/net11.0/CalibrationImport/verification-evidence.json
 /samples/net10.0/AquariumImport/verification-evidence.json
 /samples/net11.0/AquariumImport/verification-evidence.json
+
+# Record-FileChain / Record-Evidence generated compiler, dependency, native and
+# command observations. Review canonical samples, pins/locks, manifests and recorder;
+# ordinary build/pack checks input freshness and installed inspection checks content.
+/samples/net10.0/PlanetariumSchedule/verification-evidence.json
+/samples/net11.0/PlanetariumSchedule/verification-evidence.json
+/samples/net10.0/GardenObservations/verification-evidence.json
+/samples/net11.0/GardenObservations/verification-evidence.json
+/samples/net10.0/ArchiveManifest/verification-evidence.json
+/samples/net11.0/ArchiveManifest/verification-evidence.json
+/samples/net10.0/ArchiveManifest/linux.evidence.json
+/samples/net11.0/ArchiveManifest/linux.evidence.json

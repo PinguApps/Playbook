@@ -1,0 +1,22 @@
+{
+  "dependencies": [
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.13",
+    "Microsoft.Extensions.Configuration.FileExtensions/10.0.13",
+    "Microsoft.Extensions.Configuration.Json/10.0.13",
+    "Microsoft.Extensions.Configuration/10.0.13",
+    "Microsoft.Extensions.FileProviders.Abstractions/10.0.13",
+    "Microsoft.Extensions.FileProviders.Physical/10.0.13",
+    "Microsoft.Extensions.FileSystemGlobbing/10.0.13",
+    "Microsoft.Extensions.Primitives/10.0.13"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/FileFailures/FileChecks.cs",
+    "samples/FileFailures/ProviderChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-FileChain.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
