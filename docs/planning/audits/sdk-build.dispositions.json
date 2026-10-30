@@ -5,7 +5,7 @@
     { "id": "partial-evaluation", "owner": "B02", "pattern": "(ProjectEvaluationStage|::(?:get_|set_)?EvaluationStage)" },
     { "id": "aot-host", "owner": "B03", "pattern": "(RequiresUnreferencedCodeAttribute|RequiresDynamicCodeAttribute|DynamicallyAccessedMembersAttribute|BuiltInTasks|::RegisterTask|SdkResolver::Register|ProjectCollection::\\.ctor)" },
     { "id": "structured-build-events", "owner": "B04", "pattern": "(AssemblyConflict|AssemblyResolutionSearch|MSBuildServerLifecycle|DeferredBuildMessage)" },
-    { "id": "server-host", "owner": "B05", "pattern": "Microsoft\\.Build\\.(Experimental|Server)\\.(MSBuildClient|OutOfProcServerNode)" },
+    { "id": "server-host", "owner": "B05", "pattern": "Microsoft\\.Build\\.(Experimental|Server)\\.(MSBuildClient|OutOfProcServerNode)", "disposition": "excluded; PIN-1122 cancelled by Pingu on 30 October 2026: no established intended external-use scenario. Source difference remains accounted for; no delivery obligation or waiver of publication/GA gates." },
     { "id": "file-access", "owner": "B06", "pattern": "Microsoft\\.Build\\.Experimental\\.FileAccess" },
     { "id": "archive-tasks", "owner": "PIN-767", "pattern": "Microsoft\\.Build\\.Tasks\\.(TarDirectory|Untar)" },
     { "id": "xml-migration", "owner": "PIN-768", "pattern": "Microsoft\\.Build\\.Tasks\\.(XmlPeek|XmlPoke|XslTransformation)" },
@@ -23,7 +23,7 @@
     { "id": "partial-r2r", "owner": "B15", "pattern": "(ReadyToRun|Crossgen2|CrossGen)" },
     { "id": "runtimeconfig", "owner": "PIN-687", "pattern": "GenerateRuntimeConfig|GenerateProbingPathsToRuntimeConfig|GenerateHotReloadRuntimeOptionsToRuntimeConfig" },
     { "id": "package-pruning", "owner": "PIN-706 E3", "pattern": "(GetPackagesToPrune|LoadPrunePackageDataFromNearestFramework|PrunePackageReference)" },
-    { "id": "api-symbol-filtering", "owner": "B29", "pattern": "Microsoft\\.DotNet\\.ApiSymbolExtensions\\.Filtering" },
+    { "id": "api-symbol-filtering", "owner": "B29", "pattern": "Microsoft\\.DotNet\\.ApiSymbolExtensions\\.Filtering", "disposition": "excluded; PIN-1145 cancelled by Pingu on 30 October 2026: no established intended external-use scenario. Source difference remains accounted for; no delivery obligation or waiver of publication/GA gates." },
     { "id": "web-assets", "owner": "PIN-764", "pattern": ".", "assetPattern": "(StaticWebAssets|BlazorWebAssembly)" },
     { "id": "web-workload", "owner": "PIN-708/PIN-693", "pattern": ".", "assetPattern": "(Razor|WebAssembly|WindowsDesktop)" },
     { "id": "container-publishing", "owner": "PIN-765", "pattern": ".", "assetPattern": "(Containers/|Microsoft.NET.Build.Containers)" },
@@ -32,7 +32,7 @@
     { "id": "nuget-restore", "owner": "B17", "pattern": ".", "assetPattern": "^NuGet[.](Build.Tasks|Commands|ProjectModel|Packaging|CommandLine.XPlat)[.]dll$|^NuGet.targets$" },
     { "id": "template-host", "owner": "PIN-688 F / U1", "pattern": ".", "assetPattern": "^Microsoft.TemplateEngine" },
     { "id": "test-platform-plumbing", "owner": "U2", "pattern": ".", "assetPattern": "^Microsoft[.](TestPlatform|VisualStudio[.]TestPlatform)" },
-    { "id": "sdk-task-plumbing", "owner": "U3", "pattern": ".", "assetPattern": "^Sdks/.+[.]dll$" },
+    { "id": "sdk-task-plumbing", "owner": "U3", "disposition": "SDK implementation plumbing; B23/PIN-1140 and B24/PIN-1141 cancelled by Pingu on 30 October 2026 for lack of an established intended external-use scenario. No replacement delivery obligation; other U3 ownership and publication/GA gates unchanged.", "pattern": ".", "assetPattern": "^Sdks/.+[.]dll$" },
     { "id": "build-annotations", "owner": "PIN-707", "disposition": "implementation metadata or inbox task migration; no additional caller action", "pattern": ".", "assetPattern": "^Microsoft.Build.*[.]dll$" },
     { "id": "sdk-authored-xml", "owner": "B16-B21 / existing delivery map / U4", "pattern": ".", "assetPattern": "[.](props|targets)$" }
   ]

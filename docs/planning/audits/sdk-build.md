@@ -2,6 +2,17 @@
 
 Reviewed **22 October 2026**. This is a bounded artifact/API/configuration and official-source audit. It supplements [PIN-688's host/migration audit](sdk-package-hosts.md). It delivers no recipe, validates no proposed consumer, and clears no comprehensive-content or GA publication gate. The 29 delivery drafts below require review before ticket creation or implementation.
 
+## Scope cancellations, 30 October 2026
+
+Pingu cancelled B05 / PIN-1122, B23 / PIN-1140, B24 / PIN-1141 and B29 / PIN-1145.
+These source changes remain audited, but do not require recipe delivery. Playbook
+requires a Microsoft-documented intended developer scenario, beyond public API
+visibility or an invented working consumer. Individual ticket comments retain
+source evidence: the server client explicitly excludes third-party support;
+the workload delegate serves the SDK task; the dependency change does not establish
+direct task use; and the filter helpers are non-shipping. Documented GenAPI controls
+are a separate feature. No replacement tasks or waived publication/GA gates follow.
+
 ## Boundary and provenance
 
 [PIN-707](https://linear.app/pinguapps/issue/PIN-707), planning key **API_BUILD**; `SPEC.md` at `0a8989814ea11346354464b845c79c15bb71c5e9`, stories 47, 104–106 and 158–160; approved proposal `b3778cc`. Current coverage/implementation/verification plans, glossary, ADRs 0001–0004 and contribution/dependency policies constrain the audit. Root PLAN.md, CONTEXT.md and CONTEXT-MAP.md are absent. The planning README's statement that implementation has not begun is historical: actual recipes, evidence and installed-tool checks now exist.
@@ -52,8 +63,8 @@ MetadataLoadContext reads inspected assemblies without executing their code. Ret
 | Removed VSTest test sessions; assembly resolver construction; runsettings task type; collector event setters | **B11–B13/B22**. These actual public API differences are additional to PIN-688's JSON removal. No MTP migration is presumed as the universal replacement. |
 | SDK vulnerability/EOL metadata checks, custom native-tool RIDs, no-dgspec restore, referenced symbols, import-tree items | **B14/B16–B19**. Actual build controls change authored projects/scripts. Caches/diagnostics and old-target routes require real evidence. |
 | Container signatures and Azure Linux 4 base tags | **B20/B21**. Smaller image layers/compiler packages and bundled PowerShell 7.7 alone are automatic/toolchain updates; independently versioned PowerShell language guidance is out of scope. Azure Linux 4 is labelled Beta in the reviewed notes, not GA support. |
-| Injected workload resolver environment, task-level deps inputs, console encoding, bundled MCP scaffolding, custom optimized-publish hooks | **B23–B26/B28**. These are distinct authored integrations or removable workarounds. The automatic implicit System.Net.Http.Json using is excluded as a new recipe: explicit existing imports remain valid. |
-| API symbol filter inclusion/exclusion and composite mode | **B29**. Actual ApiSymbolExtensions constructor/factory changes require custom tooling to choose the intended symbol set; API compatibility/validation assemblies themselves have no declaration delta in this comparison. |
+| Injected workload resolver environment, task-level deps inputs, console encoding, bundled MCP scaffolding, custom optimized-publish hooks | B23/B24 cancelled at the 30 October scope review; B25/B26/B28 retain their separate delivery ownership. The automatic implicit System.Net.Http.Json using is excluded as a new recipe: explicit existing imports remain valid. |
+| API symbol filter inclusion/exclusion and composite mode | B29 / PIN-1145 cancelled at the 30 October scope review: the proposed helpers are non-shipping. API compatibility/validation assemblies themselves have no declaration delta in this comparison. |
 | Native deployment runtimeconfig precedence / generated dev-file controls | **PIN-687** retains the assigned runtime configuration finding; **U3** retains direct SDK task API migration questions. Its other NativeAOT-prefix/caller behavior is not re-audited here. |
 | NuGet package-type filtering and opt-in System.Text.Json protocol path | Reviewed in complete P6 notes/source. **Already present in the actual .NET 10.0.402 baseline** (including singular SearchFilter.PackageType); not a new old/new API delta here. Raw-search and plugin compatibility remain visible under U5; do not teach plural PackageTypes from superseded previews. |
 
@@ -71,7 +82,7 @@ Other canonical bug-fix/performance bullets were reviewed: resource-name record 
 
 - **U1 — template CLI helpers:** DotnetHelpAction disappears; HostSpecificTemplateData and Edge metadata change. CLI implementation exposure is not proof of a supported embedding contract. PIN-688 F owns supported template-host migration; PIN-707 retains the narrower external-help-consumer question for PIN-963 reconciliation. No replacement API or supported net9 route is invented.
 - **U2 — VSTest internals exposed publicly:** inferred-platform helpers, TestSDKAutoGeneratedCode visibility annotations, parameter-name/nullable changes and proxy internals remain recorded. B11–B13/B22 own demonstrated authored contract breaks. Intended support and practical external use of the remaining implementation helpers are unverified; no automatic-equivalence claim is made.
-- **U3 — direct SDK task/workload callers:** inbox task thread-safety/metadata changes are automatic for ordinary projects. Direct `GenerateDepsFile.UserRuntimeAssemblies` callers change from strings to ITaskItems (B24); workload resolver injection is B23. Public PackIdJsonConverter/reader implementation changes do not prove a supported external workload-host contract. Optional workload/framework availability stays with its native family owners.
+- **U3 — direct SDK task/workload callers:** inbox task thread-safety/metadata changes are automatic for ordinary projects. The `GenerateDepsFile.UserRuntimeAssemblies` type difference and workload resolver delegate remain source observations; B24/PIN-1141 and B23/PIN-1140 are cancelled and require no guidance. Public PackIdJsonConverter/reader implementation changes do not prove a supported external workload-host contract. Optional workload/framework availability stays with its native family owners.
 - **U4 — build XML:** new compiler/SDK version tables, host-directory changes, source-link task initialization and automatic routing have no demonstrated new authored goal. Explicit controls are assigned above. Full-file hashes retain ordering/body differences that the declaration-set comparison cannot explain; this is not an exhaustive MSBuild behavior equivalence proof.
 - **U5 — already-serviced NuGet contracts:** package-type filters, raw-search deserialization and plugin payload obsoletions exist before the selected old/new boundary. Precise first-servicing introduction and older package target routes remain unverified. Do not publish a misleading Newtonsoft/JToken or universal AOT compatibility claim from these DLLs.
 
@@ -116,7 +127,8 @@ Delivered under **PIN-1121** as [edition 11.0](../../../content/recipes/msbuild.
 
 ### B05. Migrate a custom MSBuild server client — M (3)
 
-Proposed `msbuild.migrate-server-client`. Compare the old Experimental namespace with current Server types/constructor/results and short-lived node semantics. A disposable child host executes success, build failure and cancellation, then shuts down only its own server; prove exits and no orphan process. Disclose EditorBrowsable/internal-support limitations and require an official supported use decision before publishing an embedding recommendation. Ordinary dotnet build users need no API migration.
+Cancelled on 30 October 2026 as PIN-1122; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ### B06. Read experimental build file-access records correctly — M (3)
 
@@ -307,11 +319,13 @@ installed offline retrieval, the eight foundations and existing gates are retain
 
 ### B23. Resolve workloads using an explicit host environment — M (3)
 
-Proposed `sdk.resolve-workloads-with-host-environment`. An original workload metadata tool uses WorkloadResolver.Create's new environment delegate with real disposable manifest files. Compare ambient versus injected values, null/default callback, missing manifest and conflicting root inputs without installing workloads or changing machine environment. Record the reader's supported external-use contract before publication; optional native compilation is required only if advertised beyond manifest resolution.
+Cancelled on 30 October 2026 as PIN-1140; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ### B24. Migrate custom dependency-file task inputs — M (3)
 
-Proposed `sdk.migrate-custom-dependency-file-inputs`. An original custom build invoking GenerateDepsFile supplies ITaskItem[] instead of the removed string[] UserRuntimeAssemblies contract. Generate actual old/new deps.json from real assemblies, verify library/runtime paths and execute the resulting application. Establish the supported direct-task extension contract and exact target framework before authoring; do not replace this with a manually written dependency file. Runtimeconfig migration remains with PIN-687.
+Cancelled on 30 October 2026 as PIN-1141; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ### B25. Choose console encoding for redirected SDK output — M (3)
 
@@ -331,7 +345,8 @@ Proposed `sdk.migrate-optimized-publish-hooks`. An original NativeAOT applicatio
 
 ### B29. Select the intended public API comparison surface — M (3)
 
-Proposed `packaging.select-api-comparison-symbols`. An original library validation tool migrates CompositeSymbolFilter's constructor/mode and DocIdSymbolFilter/SymbolFilterFactory inclusion contracts. Pin actual ApiSymbolExtensions, Roslyn and compatibility-library assets. Build old/fixed consumers, compare real original assemblies containing deliberately included/excluded APIs, verify And/Or and empty-list controls and a known breaking change. Record the selected symbols and actual validation result; a hand-authored list alone is insufficient. Do not silently convert an exclusion list to an inclusion list or assume named/params calls remain source-compatible.
+Cancelled on 30 October 2026 as PIN-1145; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ## Reproduce and inspect
 
