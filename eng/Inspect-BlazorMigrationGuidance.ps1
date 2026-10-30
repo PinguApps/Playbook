@@ -107,7 +107,7 @@ try {
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
         if ($CheckDemonstratedLanguages) {
           foreach ($language in 'csharp','vb','fsharp') {
-            $filtered = (Invoke-RecipeTool 'list_recipes' @("query=$id", "language=$language", 'limit=50')).result.structuredContent
+            $filtered = (Invoke-RecipeTool 'list_recipes' @("query=$($metadata.title)", ('languages=["' + $language + '"]'), 'limit=50')).result.structuredContent
             $present = @($filtered.recipes | Where-Object id -CEQ $id).Count -eq 1
             if ($present -ne ($language -cin @($metadata.exampleLanguages))) { throw "Demonstrated language filter drift: $id / $language" }
           }
