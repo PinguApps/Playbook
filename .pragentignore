@@ -253,3 +253,18 @@
 /samples/net10.0/QuayCollector/Tests/verification-evidence.json
 /samples/net11.0/QuayCollector/verification-evidence.json
 /samples/net11.0/QuayCollector/Tests/verification-evidence.json
+
+# Test-CompilerInspections/Record-Evidence generated compiler, command and IL captures.
+# Review original callers/library, ReadIl decoder, pinned closures and recorder;
+# existing content build/pack verifies the saved input hashes and dependencies.
+/samples/net10.0/ReadingConversions/verification-evidence.json
+/samples/net11.0/ReadingConversions/verification-evidence.json
+/samples/net10.0/ReadingConversionsVB/verification-evidence.json
+/samples/net11.0/ReadingConversionsVB/verification-evidence.json
+/samples/net10.0/PacketLayout/verification-evidence.json
+/samples/net11.0/PacketLayout/verification-evidence.json
+/samples/net10.0/SeedFold/verification-evidence.json
+/samples/net11.0/SeedFold/verification-evidence.json
+/samples/net10.0/SeedFoldLibrary/verification-evidence.json
+/samples/net11.0/SeedFoldLibrary/verification-evidence.json
+/samples/net11.0/SeedFold/contracts.evidence.json

@@ -1,0 +1,16 @@
+{
+  "workloads": [],
+  "dependencies": [
+    "FSharp.Core/11.0.101-rc2.26504.105",
+    "SeedFoldLibrary/1.0.0"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-CompilerInspections.ps1",
+    "samples/CompilerInspections",
+    "samples/net11.0/SeedFoldLibrary"
+  ],
+  "buildArguments": []
+}

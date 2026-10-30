@@ -4,6 +4,46 @@ Reviewed **20 October 2026**. This is an official-source audit and delivery prop
 
 ## Compiler migration delivery reconciliation
 
+### Public compiler-host inspection delivery — 30 October 2026
+
+PIN-1035 and PIN-1036 deliver edition11.0
+[`languages.inspect-coalescing-conversions`](../../../content/recipes/languages.inspect-coalescing-conversions/11.0/recipe.md)
+and [`languages.inspect-type-layout`](../../../content/recipes/languages.inspect-type-layout/11.0/recipe.md).
+The D/E drafts below are historical approved scope. Actual
+Microsoft.CodeAnalysis.CSharp/VisualBasic/Common **5.9.0** and
+**5.12.0-1.26504.105** packages restore, compile and execute with SDK10.0.402 /
+SDK11.0.100-rc.2.26504.105 respectively. The current closure resolves
+Analyzers5.12.0-1.26465.4. NuGet.org's observed latest was5.9.0; the exact5.12
+pin is distributed on Microsoft's public `dotnet-tools` feed. Samples retain
+narrow source mapping and locks; their dependencies remain author-maintained.
+
+The package nuspec identifies **dotnet/dotnet** VMR
+`820230c386db5b0106c5430b3e5aee92a7826bf5`, not a Roslyn-repository commit.
+Matching public VMR TypeLayout/extension sources resolve. This supplies D/E's
+package provenance without relabelling the separate Roslyn-main5.13 audit or
+changing the historical release/build-metadata discrepancy below. Actual net11
+consumers select `lib/net10.0` Roslyn assets. No older-target route or exact
+first-nightly introduction is inferred; only target11 is served and no ninth
+foundation is added.
+
+`eng/Test-CompilerInspections.ps1 -Record` captures the original optional-reading
+and packet consumers through the existing sample-evidence workflow. Actual C#
+and VB-native callers classify nullable numeric, reference and identity cases;
+new C# implicit and VB widening flags are checked. Both extensions reject null
+and wrong-language operations. The actual older packages reject direct extension
+calls with CS0117 and the layout property with CS1061. A bounded older
+public-attribute reader remains valid for the explicit packet declarations.
+Both closures verify Sequential/2/24, Explicit/1/32 and Auto/0/0: declared
+source/metadata values, never computed runtime/interop layout.
+
+The exact ordinary packed artifact is installed through the existing isolated
+local feed/cache and inspected with real unrelated-directory stdio list/get.
+Discovery ID/title/goal, complete canonical Markdown, target11/edition11,
+applicability, current proof and target10 rejection are checked. D demonstrates
+C# and native VB; E uses canonical C# for the shared property. No optional
+native/provider/browser matrix, experimental opt-in or publication is added.
+RC2 proof does not close PIN-959, PIN-961, unresolved API rows or Human gates.
+
 Measured **30 October 2026**.
 
 PIN-1032 and PIN-1034 deliver original edition11.0 guidance for
@@ -69,7 +109,7 @@ The declared consumer route remains net11/SDK11/C#15, stable syntax with no prev
 opt-in, verified on Windows x64 RC2. Supported requirements and measured pins are
 separate in each recipe. The missing compiler source SHA and release/build metadata
 conflict below remain explicit provenance limits; current-main5.13 is not relabeled
-as RC2. PIN-959, PIN-961, other outstanding D/E delivery and Human gates stay open.
+as RC2. PIN-959, PIN-961, other outstanding delivery and Human gates stay open.
 No comprehensive, actual-GA, native/platform-matrix or public publication claim.
 
 ## Scope, provenance and evidence

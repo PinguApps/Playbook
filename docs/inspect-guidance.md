@@ -4,6 +4,49 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Compiler conversions, declared layout and F# callback adaptation
+
+This builds/packs the ordinary tool once, installs that exact artifact through
+the existing isolated local feed/cache and calls real stdio list/get from an
+unrelated temporary directory. It displays every ID/title/goal, complete canonical
+Markdown, target11/edition11, applicability and fresh paired evidence. Target10
+returns `no_applicable_edition`; the original older consumers remain comparisons,
+preserving exactly eight foundations. The VB-native source also verifies VB
+comment-marker expansion and canonical identity.
+
+Prerequisites: PowerShell7, Node22.19+, SDK10.0.402. Recapturing consumer proof
+also needs complete SDK11.0.100-rc.2.26504.105 and runtime/reference10.0.13/11RC2.
+Roslyn5.12.0-1.26504.105 restores from Microsoft's public dotnet-tools feed;
+FSharp.Core pins are10.1.402/11.0.101-rc2.26504.105. Setup may restore online;
+retrieval with unusable proxies proves proxy independence, not network isolation.
+No global install, persistent environment change, provider or native workload.
+This literal block was tested from an unrelated starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8780a32c'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('languages.inspect-coalescing-conversions','languages.inspect-type-layout','fsharp.adapt-opaque-callbacks') `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1035-1037' -BuildAndPack -CheckDemonstratedLanguages `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/compiler-inspection/installed
+```
+
+Expect "Inspect null-coalescing conversions in C# and VB", "Inspect declared
+type layout through compiler symbols", "Adapt an opaque curried callback once"
+and their explanatory goals, with complete expanded files and current evidence.
+`eng/Test-CompilerInspections.ps1 -Record` refreshes changed consumer proof;
+without `-Record` it runs the paired actual consumers, IL and diagnostic checks
+without replacing saved records. C#/VB check numeric/reference/identity flags
+and null/wrong-language failures; layout checks Sequential/2/24, Explicit/1/32,
+Auto/0/0 as declarations, not runtime object layout. F# separate consumers check
+results, ordered effects, exception propagation and a hoisted Adapt versus the
+InvokeFast control; actual FS3350/FS3916 and newer-compiler F#8-mode imports are
+distinct from old-compiler or older-target compatibility. RC2 is not GA proof;
+coverage, GA and Human gates stay open. A stale/missing record, changed body,
+unexpanded snippet, wrong target or nonzero exit fails the check.
+
 ## ZIP initialization and invocation locations
 
 This block was verified from an unrelated directory. It builds/packs the ordinary

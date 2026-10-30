@@ -1,15 +1,50 @@
 # Automatic/no-change exclusions: PIN-690
 
 Reviewed **25 October 2026** against the **.NET 11 RC2 preparation baseline**.
-All thirteen assigned rows have a disposition. Three compound exclusions need
-partial reversal: F# callback authoring, IEEE-decimal result comparisons and Linux
-Negotiate channel-binding policy. Delivery drafts **A–C** below await Pingu's
-backlog approval through **PIN-986**.
-Neither is created or implemented. Automatic residuals remain excluded; earlier
-qualifying migration/API owners retain their work. This audit supplies no recipe,
-consumer execution, GA evidence or publication permission.
+All thirteen assigned rows have a disposition. The original audit proposed three
+partial reversals: F# callback authoring, IEEE-decimal result comparisons and Linux
+Negotiate channel-binding policy. PIN-986 subsequently approved delivery drafts
+**A–C**; the callback delivery is reconciled below, while B/C retain their separate
+owners. Automatic residuals remain excluded. The original source audit itself
+supplied no consumer execution, GA evidence or publication permission.
 
 ## Boundary and evidence
+
+### Callback delivery reconciliation — 30 October 2026
+
+PIN-1037 delivers approved draft A as
+[`fsharp.adapt-opaque-callbacks`](../../../content/recipes/fsharp.adapt-opaque-callbacks/11.0/recipe.md),
+edition/introduction11.0, target11 only. The draft below is historical scope.
+B/C, automatic residuals, comprehensive coverage, actual-GA reconciliation and
+Human gates keep their existing owners and states.
+
+Actual older SDK10.0.402/F#10/Core10.1.402 and newer SDK11.0.100-rc.2.26504.105/
+F#11/Core11.0.101-rc2.26504.105 library **and separate consumer** assemblies
+restore/build/run the original seed-laboratory fold. Literal capturing lambda,
+opaque factory and unannotated control return28 for2,5,9 with bias4; effects stay
+ordered and the original exception stops processing at5. An observable factory
+creation count prevents merely flattening its body into each loop call. Empty
+input returns0.
+
+The optimized current consumer has `Adapt` at IL10 before opaque loop start22,
+and `Invoke` at31. The control has `InvokeFast` at22 inside loop start15;
+the literal has no adaptation. Decoded backward branches establish this specific
+transform, not a throughput/allocation percentage. Actual newer-compiler F#10-mode
+declaration produces FS3350; seven invalid shapes produce FS3916. The attributed
+F#11 library is separately consumed and executed with the **newer compiler in
+F#8 mode**. No old-compiler/runtime compatibility is claimed; the actual older
+library/consumer pair remains the demonstrated fallback.
+
+`eng/Test-CompilerInspections.ps1 -Record` saves compilation/execution and focused
+IL/diagnostic records through the existing sample-evidence workflow, with exact
+inputs, commands, dependencies and compiler/ref/runtime/Core hashes. Current Core
+selects `lib/net10.0`, older Core `lib/netstandard2.1`; the seven-asset metadata
+report below remains distinct from execution. No older-target route is inferred
+and no ninth foundation is added. Real stdio inspection of the exact installed
+ordinary artifact through an isolated local feed/cache checks ID/title/goal,
+complete canonical body, target11/edition11 applicability and fresh proof from
+an unrelated directory. Target10 is rejected. Unusable proxies establish proxy
+independence, not network isolation. No native/client matrix or publication.
 
 [PIN-690](https://linear.app/pinguapps/issue/PIN-690), planning key **SH_Q10**;
 `SPEC.md` at `0a8989814ea11346354464b845c79c15bb71c5e9`, stories **47, 158, 159**;
