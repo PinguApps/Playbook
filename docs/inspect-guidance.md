@@ -1746,7 +1746,8 @@ platform or actual-GA proof. PIN-959/PIN-962 and Human gates remain open.
 ## Historical dates and tensor ownership preparation
 
 Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and
-SDK11.0.100-rc.2.26504.105/runtime11RC2. The paired calendar consumers need
+SDK11.0.100-rc.2.26504.105/runtime11RC2, plus outbound HTTPS to
+raw.githubusercontent.com for the recorders' -VerifySources checks. The paired calendar consumers need
 no package or workload and require non-invariant globalization with usable ja-JP.
 Measured execution is Windows x64 CoreCLR JIT/ICU; NLS and other platforms are
 not verified. Tensor examples lock10.0.13/11RC2 with net10/net11 assets. The
