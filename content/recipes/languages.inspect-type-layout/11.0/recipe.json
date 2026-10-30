@@ -50,7 +50,7 @@
           },
           "language": {
             "name": "C#",
-            "reason": "Declared C# host language, not the API introduction gate. The VB-native caller uses VB16.9 with the same Roslyn packages.",
+            "reason": "Declared C# host language, not the API introduction gate. C# is canonical for this shared symbol API; no separate VB route is demonstrated.",
             "version": "15.0",
             "match": "exact"
           },
