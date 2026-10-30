@@ -1,4 +1,9 @@
 # PR Agent review scope; Git tracking and verification gates are unchanged.
+# Test-TrailCards/Record-Evidence generated SDK/dependency/command captures.
+# Review canonical consumers, pins, locks and orchestration; pack checks freshness.
+/samples/net10.0/TrailCards/verification-evidence.json
+/samples/net11.0/TrailCards/verification-evidence.json
+
 # Record-NumericPolicies generated command/SDK/runtime/package captures. Review
 # policies, checks, pins, locks and recorder; ordinary build/pack verifies freshness.
 /samples/net10.0/MeasurementExport/verification-evidence.json
