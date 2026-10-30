@@ -1,0 +1,12 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/SignalPipeline/SignalChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-ComplexSignals.ps1"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

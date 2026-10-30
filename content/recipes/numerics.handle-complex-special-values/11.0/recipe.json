@@ -1,0 +1,151 @@
+{
+  "id": "numerics.handle-complex-special-values",
+  "edition": "11.0",
+  "title": "Handle complex nonfinite results deliberately",
+  "goal": "Distinguish undefined results from directed infinities and preserve signed-zero expectations when upgrading a double-based complex signal pipeline.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "numeric-shapes",
+    "complex",
+    "nonfinite"
+  ],
+  "apis": [
+    "Complex.Multiply",
+    "Complex.Divide",
+    "Complex.Reciprocal",
+    "Complex.Abs",
+    "Complex.Pow",
+    "Complex.Sqrt",
+    "Complex.Exp",
+    "Complex.Log",
+    "Complex.Log10",
+    "Complex.Sin",
+    "Complex.Cos",
+    "Complex.Tan",
+    "Complex.Sinh",
+    "Complex.Cosh",
+    "Complex.Tanh",
+    "Complex.Asin",
+    "Complex.Acos",
+    "Complex.Atan"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Distinguish undefined results from directed infinities and preserve signed-zero expectations when upgrading a double-based complex signal pipeline.",
+          "Nongeneric Complex remains valid. RC2 execution is distinct from actual-GA reconciliation."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The nongeneric Complex implementation changes special-value handling on .NET 11."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the current sample against .NET 11 references; exact RC2 is a reproducibility baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Framework-supported platforms; actual execution measured only on Windows x64 CoreCLR JIT"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0, ImplicitUsings=enable and Nullable=enable; use System.Numerics and namespace Playbook.Samples.",
+            "Route finite, infinite and undefined results separately before consuming a signal measurement."
+          ],
+          "constraints": [
+            "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
+            "Infinity takes precedence over companion NaN in the classification policy; a companion NaN still has no usable direction. A zero quotient component has no universal sign promise. Reciprocal(Zero) is observed as Zero on both artifacts.",
+            "No generic-storage migration, package, provider, rendering mode, native toolchain, workload or experimental opt-in is required. The net10 comparison adds no foundation edition."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SignalPipeline/SignalPipeline.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned Microsoft complex special-value migration and affected function family",
+      "url": "https://github.com/dotnet/docs/blob/a109e77898150ddb66e3000ce315d23fcc2700e9/docs/core/compatibility/core-libraries/11/complex-annex-g-special-values.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
+      "sample": "samples/net10.0/SignalPipeline/SignalPipeline.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Actual paired nongeneric Complex arithmetic, named multiply/divide, zero divisors, reciprocal/magnitude/power, elementary/trigonometric/hyperbolic/inverse cases, component bits and signed-zero controls; finite controls and application classification. Exact SDK/reference/runtime identities and inputs/results recorded. Windows x64 CoreCLR JIT; no other engine/platform or GA proof.",
+      "sample": "samples/net11.0/SignalPipeline/SignalPipeline.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/SignalPipeline/SignalPolicy.cs",
+      "region": "policy"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/SignalPipeline/SignalPolicy.cs",
+      "region": "policy"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed signal calculations and installed stdio retrieval require no Human access. Other execution engines/platforms and actual-GA are not verified."
+  }
+}

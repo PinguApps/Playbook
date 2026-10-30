@@ -1668,3 +1668,40 @@ independent/in-place/capacity/overlap checks and all-five-destination small conv
 plus bounded writer checks. Native results are observations. Windows x64 CoreCLR JIT
 is measured; no interpreter/Native AOT/Mono, newer tensor package on net10, other
 platform or actual-GA proof. PIN-959/PIN-962 and Human gates remain open.
+
+## Complex signal classification
+
+Requires PowerShell7, SDK10.0.402/runtime10.0.13, SDK11.0.100-rc.2.26504.105 /
+runtime11.0.0-rc.2.26504.105 and Node22.19+. The signal samples use framework
+Complex and require no package, provider, native toolchain, workload or opt-in.
+
+This block was tested from an unrelated starting directory. It builds/packs the ordinary
+tool, installs that exact artifact through an isolated local-only feed and fresh
+cache, then calls real stdio list/get from an unrelated temporary directory.
+Setup may restore online; unusable proxies during retrieval establish proxy
+independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ade7763e'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.handle-complex-special-values') `
+  -Query 'numeric-shapes' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1049-1050' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/numeric-shapes/inspection
+```
+
+Expect discovery ID/title/goal, complete expanded canonical Markdown,
+target11/edition11 applicability, fresh paired compilation/execution evidence,
+matching structured/text results and `no_applicable_edition` for target10.
+Refresh changed signal inputs using `eng/Record-ComplexSignals.ps1`; add
+`-VerifySources` to check the three immutable audit-source hashes. Exact commands,
+compiler/reference/runtime identities, inputs, component bits and classifications
+are saved in sample evidence. RC2 is not GA proof; only Windows x64 CoreCLR JIT
+execution is measured.
+
+The combined PIN-1049/PIN-1050 delivery is incomplete. The tensor recipe is absent:
+actual published RC2/RC3 packages fail required alignment and empty-input behavior,
+and native-width traversal proof remains unexecuted. This inspection establishes
+the complex recipe only. Comprehensive, GA and existing Human gates remain open.

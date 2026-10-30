@@ -62,6 +62,54 @@ ID/title/goal, target/edition, applicability and freshness using the existing
 These claims do not close PIN-959, PIN-962, other delivery owners or Human gates;
 RC2 is not actual-GA evidence and exactly eight .NET10 foundations remain.
 
+### E implementation and F availability qualification — 30 October 2026
+
+PIN-1049 implements `numerics.handle-complex-special-values` edition11.0 with
+original paired SignalPipeline consumers. SDK10.0.402 / C#14 / runtime/ref10.0.13
+and SDK11.0.100-rc.2.26504.105 / C#15 / runtime/ref11RC2 execute nongeneric Complex
+throughout. `eng/Record-ComplexSignals.ps1` refreshes the existing sample records
+with exact commands, compiler/reference/runtime hashes, parsed inputs, component
+bits and results. Three immutable manifest sources (`complex` and both runtime
+API declarations) were downloaded again and matched their saved hashes. No NuGet,
+native, provider, workload or experimental opt-in is needed; these isolated samples
+remain author-maintained dependencies with no new Renovate permission.
+
+The carrier `(+infinity,-infinity)` times `(2,0)` and `(6,-8)/zero` change from two
+NaNs to directed infinities. Finite controls, both Pow overloads, elementary,
+trigonometric, hyperbolic and inverse cases and signed-zero branch controls run
+on both actual runtimes. Infinity takes precedence over a companion NaN in the
+application classifier, without inventing the companion's value. Reciprocal of
+zero returns zero on **both** artifacts; Abs of `(infinity,NaN)` is already infinite
+on both. The recipe does not infer these results from division or promise the
+unspecified sign of a zero quotient component. Windows x64 CoreCLR JIT is measured;
+other engines/platforms and GA remain unverified.
+
+PIN-1050 is **availability-blocked** on the reviewed published packages. Actual
+System.Numerics.Tensors11RC2 (`lib/net11.0`, SHA-256
+`d913d8854af9059f35843db398289c01db2ccb19e12b35dbfb34aee45d3bc791`)
+and published 11.0.0-rc.3.26522.148 (`lib/net11.0`, SHA-256
+`527c413032fe43f23ca53f577195d68333c1b051de27401cd9e81e37d9cea46d`)
+both return false for SequenceEqual of `[3]` and `[1,1,3]`. The RC3 consumer also
+observes a NullReferenceException for default-empty addition to `[2,0]`, rejection
+of mixed-rank concatenate and an IndexOutOfRangeException for an empty Any call.
+The published package repository commits are respectively
+`820230c386db5b0106c5430b3e5aee92a7826bf5` and
+`5254d8bcf59917edc1e1abc33bdf2442b77b1c70`. The compatibility note's
+[merged implementation](https://github.com/dotnet/runtime/pull/135060) is separate
+source evidence, not proof that either package contains the new behavior.
+
+The ordinary locally packed/installed artifact passed real stdio list/get from an
+unrelated directory: ID/title/goal, complete canonical complex Markdown,
+target11/edition11 applicability, current paired evidence, structured/text equality
+and expected target10 rejection. See the [copyable Inspector block](../../inspect-guidance.md#complex-signal-classification).
+
+The required large-logical-range traversal remains **unexecuted**: a successful
+small-array check cannot replace it, and the required package behavior is absent
+before that check. No tensor recipe, older-target route or success evidence is
+advertised. The requested combined delivery remains unpublished until PIN-1050's
+artifact and execution prerequisites are resolved. PIN-959, PIN-962, the remaining
+delivery owners and Human gates stay open; eight .NET10 foundations remain.
+
 All eight notes describe behavioral changes. **Included** means authored mitigation or changed assumptions remain delivery work. **Grouped** means a named existing goal shares responsibility; it does not imply complete recipe coverage. The extra tensor rows retain findings explicitly assigned by PIN-703.
 
 ### C and D delivery reconciliation — 30 October 2026
