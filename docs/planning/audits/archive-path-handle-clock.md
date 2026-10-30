@@ -30,7 +30,7 @@ validation, partial extraction and cleanup. Canonical sources, locks and saved
 and ObservatoryTar samples. Ordinary installed-tool inspection is documented in
 [the Inspector walkthrough](../../inspect-guidance.md#package-streams-and-tar-hard-link-policy).
 No separate older-target catalogue route, link-incapable receiver, other-platform
-or GA execution claim is made. PIN-1042 and the other retained owners remain open;
+or GA execution claim is made. Other retained owners remain open;
 PIN-959 qualifying coverage and PIN-962 actual-GA reconciliation are not cleared.
 
 ## Delivered follow-ons: PIN-1042 and PIN-1043

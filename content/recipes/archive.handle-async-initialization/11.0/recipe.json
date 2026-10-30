@@ -139,7 +139,7 @@
     }
   },
   "humanProof": {
-    "scope": "Actual local Windows execution with real ZIP/apphost/symlink processing; no external service/device or Human judgement required. Other-platform and GA claims excluded.",
+    "scope": "Actual local Windows execution with real ZIP processing; no external service/device or Human judgement required. Other-platform and GA claims excluded.",
     "status": "not-required"
   }
 }
