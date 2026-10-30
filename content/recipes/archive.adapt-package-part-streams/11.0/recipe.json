@@ -1,0 +1,177 @@
+{
+  "id": "archive.adapt-package-part-streams",
+  "edition": "11.0",
+  "title": "Supply seekable package data only when required",
+  "goal": "Keep sequential package readers streaming; supply an explicit bounded, rewound buffer when a parser needs random access to a package part.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "archives-compression",
+    "archive",
+    "adapt-package-part-streams"
+  ],
+  "apis": [
+    "Package.Open",
+    "PackagePart.GetStream",
+    "Stream.CanSeek",
+    "Stream.Seek"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "wpf",
+          "winforms"
+        ],
+        "selectionNotes": [
+          "Keep sequential package readers streaming; supply an explicit bounded, rewound buffer when a parser needs random access to a package part.",
+          "Older examples are comparisons, not additional catalogue targets."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The primary route uses the net11.0 framework/package asset and .NET 11 behavior."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 consumer with a matching SDK."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "The canonical .NET 11 project selects C# 15; the comparison project selects C# 14."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.IO.Packaging",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "The net11.0 package asset contains the changed read-only stream selection; package version alone does not establish behavior."
+            }
+          ],
+          "packageAssets": [
+            "System.IO.Packaging lib/net11.0/System.IO.Packaging.dll; comparison assets: lib/net10.0/System.IO.Packaging.dll"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Desktop/server .NET with filesystem access. Actual proof: Windows 11 build 26200 x64; TAR file-identity proof uses NTFS. Browser/WASI excluded."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "A net11.0 console project; implicit usings and System.IO.Packaging. Add System.IO.Packaging 11 and review its selected asset. Exact tested package: 11.0.0-rc.2.26504.105. No Open XML SDK."
+          ],
+          "constraints": [
+            "Use a freshly opened Read stream. Sequential readers need no copy. Do not depend on Position or Seek unless CanSeek is true. Length remains available for the tested PackagePart streams.",
+            "Bound the uncompressed part bytes before buffering and guard growth during the copy. The byte budget is not an exact total process-memory cap: MemoryStream capacity, a 4096-byte copy block and parser allocations add overhead. Use a bounded temporary-file design for larger documents.",
+            "ReadWrite compressed/unmodified parts become forward-only on the net11 asset; stored/already-modified parts remain seekable. Read-only packages already return forward-only compressed streams. Opening read-only does not restore seeking.",
+            "The RC2 package on a real net10 consumer selects its net10 asset and retains older ReadWrite behavior. No conditional target10 catalogue route is advertised."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact RC2 artifacts were executed; this does not establish GA or other-platform verification. No ExperimentalAttribute or experimental opt-in on the APIs used."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipStreamManager.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipPackagePart.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System.IO.Packaging.csproj"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MuseumPackage/MuseumPackage.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official PackagePart capability migration",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/packagepart-getstream-non-seekable.md"
+    },
+    {
+      "title": "Target-conditional package stream implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipStreamManager.cs"
+    },
+    {
+      "title": "Package part access and compression",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System/IO/Packaging/ZipPackagePart.cs"
+    },
+    {
+      "title": "Target-specific packaging project composition",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Packaging/src/System.IO.Packaging.csproj"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MuseumPackage/MuseumPackage.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual package10/net10 access matrix, direct-parser baseline, sequential parsing, bounded buffering, size/growth failures and cleanup."
+    },
+    {
+      "sample": "samples/net11.0/MuseumPackage/MuseumPackage.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Actual RC2/net11 access matrix, direct-parser failure and bounded-parser success, capabilities/Length/content, pre-read size rejection, growth control and cleanup."
+    },
+    {
+      "sample": "samples/net10.0/MuseumPackageRc2/MuseumPackageRc2.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Actual RC2 package on runtime10, selected net10 assembly TFM/version/SHA256 and complete access matrix; not inferred from package TFMs or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net11.0/MuseumPackage/MuseumPackage.cs",
+      "region": "older"
+    },
+    "sequential": {
+      "language": "csharp",
+      "path": "samples/net11.0/MuseumPackage/MuseumPackage.cs",
+      "region": "sequential"
+    },
+    "adapt": {
+      "language": "csharp",
+      "path": "samples/net11.0/MuseumPackage/MuseumPackage.cs",
+      "region": "adapt"
+    },
+    "bounded": {
+      "language": "csharp",
+      "path": "samples/net11.0/MuseumPackage/MuseumPackage.cs",
+      "region": "bounded"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real local Windows desktop execution; no external provider, device, UI or production resource. Filesystem identities use actual NTFS handles. No link-incapable receiver execution is claimed."
+  }
+}
