@@ -4,15 +4,15 @@ namespace Playbook.Samples;
 
 public static class MuseumPackage
 {
-    #region older
+    // snippet:older
     public static byte ReadIndexAssumingSeek(PackagePart part)
     {
         using Stream source = part.GetStream(FileMode.Open, FileAccess.Read);
         return ReadLastThenFirst(source);
     }
-    #endregion
+    // endsnippet:older
 
-    #region adapt
+    // snippet:adapt
     public static byte ReadIndex(PackagePart part, int maximumBytes)
     {
         using Stream source = part.GetStream(FileMode.Open, FileAccess.Read);
@@ -20,9 +20,9 @@ public static class MuseumPackage
         using MemoryStream buffer = BufferForIndex(source, maximumBytes);
         return ReadLastThenFirst(buffer);
     }
-    #endregion
+    // endsnippet:adapt
 
-    #region sequential
+    // snippet:sequential
     public static int CountRecords(PackagePart part)
     {
         using Stream source = part.GetStream(FileMode.Open, FileAccess.Read);
@@ -31,9 +31,9 @@ public static class MuseumPackage
         while (reader.ReadLine() is not null) count++;
         return count;
     }
-    #endregion
+    // endsnippet:sequential
 
-    #region bounded
+    // snippet:bounded
     // The caller owns source; this method owns the returned, rewound buffer.
     public static MemoryStream BufferForIndex(Stream source, int maximumBytes)
     {
@@ -72,5 +72,5 @@ public static class MuseumPackage
             throw new InvalidDataException("Unexpected museum index framing.");
         return (byte)last;
     }
-    #endregion
+    // endsnippet:bounded
 }
