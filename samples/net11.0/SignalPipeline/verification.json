@@ -4,7 +4,8 @@
     "samples/SignalPipeline/SignalChecks.cs",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",
-    "eng/Record-ComplexSignals.ps1"
+    "eng/Record-ComplexSignals.ps1",
+    "docs/planning/audits/numeric-and-parsing.sources.json"
   ],
   "dependencies": [],
   "buildArguments": [],

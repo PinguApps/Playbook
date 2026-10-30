@@ -37,7 +37,21 @@ try {
     try { $resolved = & $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack | ConvertFrom-Json }
     finally { Pop-Location }
     $pack = @($resolved.Items.ResolvedTargetingPack | Where-Object Identity -CEQ 'Microsoft.NETCore.App')
-    if ($pack.Count -ne 1 -or $pack[0].TargetFramework -cne $variant) { throw "Wrong reference pack for $sample" }
+    $expectedRef = if ($variant -eq 'net10.0') { '10.0.13' } else { '11.0.0-rc.2.26504.105' }
+    $validRef = $pack.Count -eq 1 -and $pack[0].TargetFramework -ceq $variant
+    if ($validRef) {
+      $validRef = if ($variant -eq 'net11.0' -and $RunReleaseChecks) {
+        $pack[0].NuGetPackageVersion -cmatch '^11\.0\.\d+$'
+      } else { $pack[0].NuGetPackageVersion -ceq $expectedRef }
+    }
+    $validRuntime = $kind -ceq 'compile' -or $(if ($variant -eq 'net10.0') {
+      $record.output.Contains('runtime=.NET 10.0.13;')
+    } else { $record.output -cmatch '(?m)^runtime=\.NET 11\.0\.\d+;' })
+    if (-not $validRef -or -not $validRuntime) {
+      # Record-Evidence wrote this attempt; do not retain a rejected qualification.
+      Remove-Item -LiteralPath $recordPath
+      throw "Wrong reference pack/runtime for $sample; rejected receipt removed."
+    }
     $pin = Get-Content -LiteralPath (Join-Path (Split-Path $project) 'global.json') -Raw | ConvertFrom-Json
     foreach ($artifact in @(
       (Join-Path (Split-Path $dotnet) "sdk/$($pin.sdk.version)/Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll"),
