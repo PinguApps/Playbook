@@ -1,0 +1,37 @@
+{
+  "dependencies": [
+    "Microsoft.Extensions.Configuration.Binder/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration.CommandLine/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration.FileExtensions/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration.Json/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration.UserSecrets/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.DependencyInjection/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Diagnostics/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.FileProviders.Physical/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.FileSystemGlobbing/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Hosting/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging.Configuration/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging.Console/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging.Debug/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging.EventLog/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging.EventSource/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Options.ConfigurationExtensions/11.0.0-rc.2.26504.105",
+    "System.Diagnostics.EventLog/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/AquariumImport/AquariumChecks.cs",
+    "samples/AquariumImport/AquariumWorker.cs",
+    "samples/AquariumImport/AquariumSetup.cs",
+    "samples/AquariumImport/HostBoundary.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-CalibrationHost.ps1",
+    "samples/AquariumImport/AquariumDemo.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

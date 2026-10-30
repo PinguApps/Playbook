@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "System.Numerics.Tensors/10.0.13"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/CalibrationImport/CalibrationPolicy.cs",
+    "samples/CalibrationImport/CalibrationChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-CalibrationHost.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
