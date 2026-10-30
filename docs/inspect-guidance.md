@@ -4,6 +4,41 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Explicit untested native-platform checks
+
+The [native testing policy](contributing.md#native-testing-policy) keeps existing
+Windows/Linux proof while disclosing unavailable Mac, device and CPU checks as
+`humanProof.status: not-tested`, with exact `untestedSamples` and scope. These
+declared exclusions do not block publication. Other genuinely pending Human
+actions and missing/stale locally required compilation remain gated.
+
+This block builds/packs the ordinary tool, installs that exact package using the
+existing isolated local feed/cache, and calls real stdio list/get from an unrelated
+directory. It prints each ID/title/goal, complete canonical Markdown, applicability
+and evidence. It needs PowerShell 7, SDK 10.0.402 and Node 22.19+; setup may restore
+packages and Inspector 2.11.0 online. It changes no global tool, PATH or native
+environment. The block was exercised from an unrelated starting directory.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3a9b9778'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('console.color-piped-output','process.capture-output',
+    'process.control-lifetime','process.control-native-handles',
+    'process.inspect-termination','process.prepare-before-start',
+    'sdk.watch-app-hosts-and-devices','simd.select-supported-instructions') `
+  -Query '' -TargetVersion '11.0' -PackageVersion '0.0.0-pin699' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/native-testing/inspection'
+```
+
+Expect all eight entries, `Not tested:` selection warnings, sample-specific
+`not-tested` detail and a final exact-artifact `PASS`. Actual compilation/execution
+records retain their kinds and input freshness. An absent warning, lost sample
+identity, stale record, changed canonical body or nonzero command is a failure.
+This does not execute the excluded platforms, establish source-only compilation,
+or assert full-catalogue release readiness.
+
 ## Replace positional identity in embedded JSON sequences
 
 This block builds/packs the ordinary tool, then installs that exact artifact

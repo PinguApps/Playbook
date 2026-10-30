@@ -6,6 +6,8 @@ Name the behaviour/claim at risk and choose the narrowest meaningful existing ch
 
 Do not create per-ticket verification documents or commit raw run output by default. Report commands, results and limitations in the PR and final handoff; put disposable output in ignored `artifacts/` or existing CI artifacts. Commit evidence only for a named ongoing check, supported claim or release decision, including exceptional manual/evaluation proof. Preserve sample compilation/freshness records and pending Human gates. For capture, retention and refresh decisions, follow [the contribution guide](docs/contributing.md#choose-the-check-and-retain-its-result).
 
+For native/platform guidance, apply the [native testing policy](docs/contributing.md#native-testing-policy): use feasible checks on this Windows machine and existing Docker, retain package CI, and disclose unavailable platform checks as sample-specific `not-tested` exclusions rather than requiring new hardware or claiming verification. Pingu owns feasible Human approvals and refresh coordination.
+
 ## MCP changes
 
 For every addition or change to MCP tools or served recipes, include a tested, copyable PowerShell example in the final handoff that shows what an agent receives. Follow [the MCP Inspector walkthrough](docs/inspect-guidance.md), adapting the target, recipe ID and arguments to the change.

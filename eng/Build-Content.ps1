@@ -31,6 +31,21 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   if ($ReleaseReady -and $recipe.humanProof.status -ceq 'pending') {
     throw "Pending Human proof blocks release readiness: $($recipe.id)/$($recipe.edition): $($recipe.humanProof.scope)"
   }
+  $untestedSamples = @()
+  if ($recipe.humanProof.status -ceq 'not-tested') {
+    $untestedSamples = @($recipe.humanProof.untestedSamples)
+    foreach ($sample in $untestedSamples) {
+      if ($sample -cnotin $recipe.evidence.sample) { throw "Undeclared untested sample: $sample" }
+    }
+    foreach ($route in $recipe.applicability.routes) {
+      if (@($route.evidenceSamples | Where-Object { $_ -cin $untestedSamples }).Count -gt 0) {
+        $warning = "Not tested: $($recipe.humanProof.scope)"
+        if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }
+        if (-not $route.requirements.ContainsKey('stabilityLimitations')) { $route.requirements.stabilityLimitations = @() }
+        if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
+      }
+    }
+  }
   if (-not $recipe.ContainsKey('languageNeutral')) { $recipe.languageNeutral = $false }
   if ($recipe.languageNeutral) {
     if ($recipe.exampleLanguages.Count -ne 0 -or
@@ -122,14 +137,16 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
   foreach ($sample in ($recipe.evidence.sample | Select-Object -Unique)) {
     if (-not ($verified | Where-Object { $_.sample -ceq $sample -and $_.kind -in @('compile', 'cross-compile', 'compile-and-run') })) {
       $sampleRecords = @($verified | Where-Object { $_.sample -ceq $sample })
-      # Explicitly theoretical editions are reviewable in development builds only.
-      # They do not acquire compilation proof; ReleaseReady still rejects pending proof.
-      if ($recipe.humanProof.status -cne 'pending' -or
+      # Pending theoretical guidance stays gated; an explicit unavailable-platform
+      # exclusion covers only its named samples and never becomes compilation proof.
+      $excluded = $sample -cin $untestedSamples
+      if (($recipe.humanProof.status -cne 'pending' -and -not $excluded) -or
           @($sampleRecords | Where-Object { $_.kind -cne 'official-review' }).Count -gt 0) {
         throw "Missing compilation evidence: $sample. Source review, mocks and execution alone cannot satisfy compilation."
       }
-      $warning = 'Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.'
-      foreach ($route in $recipe.applicability.routes) {
+      $warning = if ($excluded) { 'Source review only: excluded sample has not been compiled or executed.' }
+        else { 'Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.' }
+      foreach ($route in ($recipe.applicability.routes | Where-Object { $sample -cin $_.evidenceSamples })) {
         if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }
         if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
       }

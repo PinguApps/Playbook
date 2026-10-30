@@ -1,7 +1,7 @@
 {
   "id": "sdk.watch-app-hosts-and-devices",
   "edition": "11.0",
-  "title": "Choose the application host and device for a local watch loop (mobile proof pending)",
+  "title": "Choose the application host and device for a local watch loop (mobile execution not tested)",
   "goal": "Select an explicit local app host and configuration; check independent SDK, Aspire and mobile-device prerequisites before adopting watch routes.",
   "areas": [
     "sdk"
@@ -58,12 +58,13 @@
             }
           ],
           "stabilityLimitations": [
-            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending."
+            "The .NET 11 authoring baseline is RC2; GA reconciliation is pending.",
+            "Not tested: Mobile compilation/device selection: no Android device/emulator or Mac. Excluded under PIN-699; host startup does not establish distributed hot reload."
           ],
           "constraints": [
             "Playbook serves guidance offline; it does not install consumer dependencies, inspect a project or execute these commands.",
             "No provider or rendering mode is required by the managed console route. No native/device or AOT behavior follows from compilation.",
-            "Incomplete required proof: no compiled mobile sample or connected device; distributed hot reload is not established. This blocks publication."
+            "No compiled mobile sample or connected device; mobile compilation and device selection are not tested under PIN-699. Distributed hot reload is not established by the host-startup check."
           ],
           "runtime": {
             "version": "11.0",
@@ -106,7 +107,8 @@
         "conditional": false,
         "selectionNotes": [
           "Inspect the selected SDK independently of the application target; retrieve detail before applying commands.",
-          "Incomplete required proof: no compiled mobile sample or connected device; distributed hot reload is not established. This blocks publication."
+          "No compiled mobile sample or connected device; device selection is not tested. Distributed hot reload is not established by the host-startup check.",
+          "Not tested: Mobile compilation/device selection: no Android device/emulator or Mac. Excluded under PIN-699; host startup does not establish distributed hot reload."
         ],
         "target": "11.0",
         "usage": "primary"
@@ -236,7 +238,13 @@
     }
   },
   "humanProof": {
-    "status": "pending",
-    "scope": "PIN-761: mobile compilation and device-selection execution are missing. No connected Android device/emulator or Mac route is available; PR review proceeds with this recorded gap, while release readiness remains blocked. Distributed hot reload is not established by the bounded host-startup check."
+    "status": "not-tested",
+    "scope": "Mobile compilation/device selection: no Android device/emulator or Mac. Excluded under PIN-699; host startup does not establish distributed hot reload.",
+    "untestedSamples": [
+      "samples/net10.0/WatchAppHost/WatchAppHost.csproj",
+      "samples/net11.0/WatchAppHost/WatchAppHost.csproj",
+      "samples/net10.0/SdkWorkflows/SdkWorkflows.csproj",
+      "samples/net11.0/SdkWorkflows/SdkWorkflows.csproj"
+    ]
   }
 }

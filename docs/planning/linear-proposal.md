@@ -4,6 +4,8 @@ Proposal awaiting approval; no Linear mutations performed.
 
 Editorial note (17 October 2026): display wording was clarified after publication. The original approved proposal remains at commit b3778cc. These repository edits do not update published Linear issues or change their verified metadata and dependencies.
 
+Native-testing update (30 October 2026, PIN-699): Pingu superseded this historical proposal's unavailable-platform prerequisites with the [current testing and ownership policy](../contributing.md#native-testing-policy). Live tickets were reconciled separately; original proposal records remain provenance, not current testing obligations.
+
 Destination: **PinguApps → PinguApps (PIN) → Playbook**, explicitly confirmed. Primary source: [SPEC.md](../../SPEC.md), source commit `0a8989814ea11346354464b845c79c15bb71c5e9`. Supporting inventories clarify the agreed scope; they do not add standalone products or features.
 
 ## Review scope

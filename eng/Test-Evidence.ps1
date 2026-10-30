@@ -1,10 +1,14 @@
 [CmdletBinding()]
-param([switch]$Pack)
+param(
+  [switch]$Pack,
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source
+)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
 $root = Split-Path $PSScriptRoot -Parent
 $git = (Get-Command git -CommandType Application | Select-Object -First 1).Source
+$pwsh = (Get-Command pwsh -CommandType Application | Select-Object -First 1).Source
 $inputs = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 foreach ($record in (Get-ChildItem (Join-Path $root 'samples') -Recurse -Filter verification-evidence.json)) {
   $saved = Get-Content -LiteralPath $record.FullName -Raw | ConvertFrom-Json -AsHashtable
@@ -82,11 +86,11 @@ try {
   }
   $output = Join-Path $fixture 'catalogue.json'
   $buildArgs = @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'Build-Content.ps1'), '-RepositoryRoot', $fixture, '-OutputPath', $output)
-  & pwsh @buildArgs
+  & $pwsh @buildArgs
   if ($LASTEXITCODE -ne 0) { throw 'Unchanged evidence must remain valid.' }
   $first = Get-Content $output -Raw
   'An unrelated documentation edit must not invalidate sample proof.' | Set-Content (Join-Path $fixture 'README.md')
-  & pwsh @buildArgs
+  & $pwsh @buildArgs
   if ($LASTEXITCODE -ne 0 -or (Get-Content $output -Raw) -cne $first) { throw 'Evidence reuse must be deterministic.' }
   Write-Host 'PASS: unchanged evidence is reusable without invoking sample SDKs.'
 
@@ -94,7 +98,7 @@ try {
   if (-not (Test-Path -LiteralPath $template)) { throw 'Evidence fixtures must retain hidden template inputs.' }
   $templateText = Get-Content -LiteralPath $template -Raw
   Add-Content -LiteralPath $template ' '
-  $result = & pwsh @buildArgs 2>&1 | Out-String
+  $result = & $pwsh @buildArgs 2>&1 | Out-String
   [IO.File]::WriteAllText($template, $templateText)
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Stale compilation evidence*') { throw "Changed hidden template input was accepted: $result" }
   Write-Host 'PASS: hidden template inputs are copied and invalidate stale evidence.'
@@ -103,7 +107,7 @@ try {
   $original = Get-Content $source -Raw
   Add-Content $source '// A changed verification input needs fresh compilation.'
   if ($Pack) {
-    $result = & dotnet pack (Join-Path $root 'src/PinguApps.Playbook') -c Release --no-build `
+    $result = & $Dotnet pack (Join-Path $root 'src/PinguApps.Playbook') -c Release --no-build `
       "-p:EvidenceRepositoryRoot=$fixture" "-p:RecipeRoot=$fixture/content/recipes" `
       -p:PackageVersion=0.0.0-evidence-fixture --output (Join-Path $fixture 'packages') 2>&1 | Out-String
     if ($LASTEXITCODE -eq 0 -or $result -notlike '*Stale compilation evidence*') { throw "Pack accepted stale compilation: $result" }
@@ -114,7 +118,7 @@ try {
     $recipe = Get-Content $recipePath -Raw | ConvertFrom-Json -AsHashtable
     $recipe.humanProof = @{ status = 'pending'; scope = 'Contract fixture: release proof has not been supplied.' }
     $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
-    $result = & dotnet pack (Join-Path $root 'src/PinguApps.Playbook') -c Release --no-build `
+    $result = & $Dotnet pack (Join-Path $root 'src/PinguApps.Playbook') -c Release --no-build `
       "-p:EvidenceRepositoryRoot=$fixture" "-p:RecipeRoot=$fixture/content/recipes" `
       -p:PlaybookReleaseReady=true -p:PackageVersion=0.0.0-evidence-fixture --output (Join-Path $fixture 'packages') 2>&1 | Out-String
     if ($LASTEXITCODE -eq 0 -or $result -notlike '*Pending Human proof blocks release readiness*') { throw "Release pack accepted pending Human proof: $result" }
@@ -122,7 +126,7 @@ try {
     Write-Host 'PASS: real release pack rejects pending Human proof; no package produced.'
     return
   }
-  $result = & pwsh @buildArgs 2>&1 | Out-String
+  $result = & $pwsh @buildArgs 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Stale compilation evidence*') { throw "Changed source was accepted: $result" }
   [IO.File]::WriteAllText($source, $original)
   Write-Host 'PASS: changed shared source requires refreshed compilation.'
@@ -138,7 +142,7 @@ try {
     $fullPath = Join-Path $fixture $case.Path
     $before = Get-Content $fullPath -Raw
     [IO.File]::WriteAllText($fullPath, $before.Replace($case.From, $case.To))
-    $result = & pwsh @buildArgs 2>&1 | Out-String
+    $result = & $pwsh @buildArgs 2>&1 | Out-String
     [IO.File]::WriteAllText($fullPath, $before)
     if ($LASTEXITCODE -eq 0 -or $result -notlike "*$($case.Error)*") { throw "Changed input was accepted ($($case.Path)): $result" }
   }
@@ -146,12 +150,12 @@ try {
   $recordPath = Join-Path $fixture 'samples/net10.0/PropertyAssignment/verification-evidence.json'
   $recordText = Get-Content $recordPath -Raw
   Remove-Item -LiteralPath $recordPath
-  $result = & pwsh @buildArgs 2>&1 | Out-String
+  $result = & $pwsh @buildArgs 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Missing compilation evidence*') { throw "Missing compilation was accepted: $result" }
   $record = $recordText | ConvertFrom-Json -AsHashtable
   $record.kind = 'mock'
   $record | ConvertTo-Json -Depth 30 | Set-Content $recordPath
-  $result = & pwsh @buildArgs 2>&1 | Out-String
+  $result = & $pwsh @buildArgs 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Missing compilation evidence*') { throw "Mock was accepted as compilation: $result" }
   [IO.File]::WriteAllText($recordPath, $recordText)
   Write-Host 'PASS: missing records and mocks cannot satisfy compilation.'
@@ -169,18 +173,18 @@ try {
   $reference.record = 'content/review.evidence.json'
   $recipe.evidence += $reference
   $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
-  & pwsh @buildArgs
+  & $pwsh @buildArgs
   if ($LASTEXITCODE -ne 0) { throw 'Official review must be distinct from accompanying compilation.' }
   $served = Get-Content $output -Raw | ConvertFrom-Json
   $propertyRecipe = @($served | Where-Object id -eq 'csharp.validate-property-assignment')
   if ($propertyRecipe.Count -ne 1 -or $propertyRecipe[0].evidence[-1].kind -cne 'official-review') { throw 'Official review classification was lost.' }
   $recipe.evidence = @($recipe.evidence | Where-Object { $_.sample -cne $reference.sample }) + @($reference)
   $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
-  $result = & pwsh @buildArgs 2>&1 | Out-String
+  $result = & $pwsh @buildArgs 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Missing compilation evidence*') { throw "Source review was accepted as compilation: $result" }
   $recipe.humanProof = @{ status = 'pending'; scope = 'Theoretical edition; compilation and behavior have deliberately not been checked.' }
   $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
-  & pwsh @buildArgs
+  & $pwsh @buildArgs
   if ($LASTEXITCODE -ne 0) { throw 'An explicitly pending source-only edition may be served for review.' }
   $served = Get-Content $output -Raw | ConvertFrom-Json
   $theoretical = @($served | Where-Object id -eq 'csharp.validate-property-assignment')[0]
@@ -189,22 +193,50 @@ try {
       -not ($theoretical.applicability.routes[0].requirements.stabilityLimitations -like '*not been compiled*')) {
     throw 'Theoretical guidance lost its discovery/detail warning or evidence classification.'
   }
-  $result = & pwsh @buildArgs -ReleaseReady 2>&1 | Out-String
+  $result = & $pwsh @buildArgs -ReleaseReady 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Pending Human proof blocks release readiness*') { throw "Release accepted theoretical guidance: $result" }
+  $recipe.humanProof = @{
+    status = 'not-tested'
+    scope = 'Contract fixture: unavailable Apple authoring environment; source review only, not compiled or executed.'
+    untestedSamples = @($reference.sample)
+  }
+  $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
+  # Isolate this exclusion from other recipes' genuinely pending proof.
+  $exclusionArgs = $buildArgs + @('-RecipeRoot', (Split-Path $recipePath))
+  & $pwsh @exclusionArgs -ReleaseReady
+  if ($LASTEXITCODE -ne 0) { throw 'Explicitly excluded native proof must not block release-ready content.' }
+  $served = Get-Content $output -Raw | ConvertFrom-Json
+  $excluded = @($served | Where-Object id -eq 'csharp.validate-property-assignment')[0]
+  if ($excluded.humanProof.status -cne 'not-tested' -or
+      $excluded.evidence[-1].kind -cne 'official-review' -or
+      -not ($excluded.applicability.routes[0].selectionNotes -like '*Not tested:*') -or
+      -not ($excluded.applicability.routes[0].requirements.stabilityLimitations -like '*not been compiled*')) {
+    throw 'Excluded proof lost its sample identity, classification or discovery/detail disclosure.'
+  }
+  $recipe.humanProof.untestedSamples = @('samples/not-declared.csproj')
+  $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
+  $result = & $pwsh @exclusionArgs -ReleaseReady 2>&1 | Out-String
+  if ($LASTEXITCODE -eq 0 -or $result -notlike '*Undeclared untested sample*') { throw "Unknown sample exclusion was accepted: $result" }
+  $recipe.humanProof.untestedSamples = @($recipe.evidence[0].sample)
+  $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
+  $result = & $pwsh @exclusionArgs -ReleaseReady 2>&1 | Out-String
+  if ($LASTEXITCODE -eq 0 -or $result -notlike '*Missing compilation evidence*') { throw "An exclusion waived another sample's compilation: $result" }
+  $recipe.humanProof.untestedSamples = @($reference.sample)
+  $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
   $review.kind = 'mock'
   $review | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $fixture 'content/review.evidence.json')
   $recipe.evidence[-1].kind = 'mock'
   $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
-  $result = & pwsh @buildArgs 2>&1 | Out-String
+  $result = & $pwsh @buildArgs 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Missing compilation evidence*') { throw "Pending status accepted a mock as compilation: $result" }
-  Write-Host 'PASS: theoretical source-only guidance is disclosed; release builds and mocks remain gated.'
+  Write-Host 'PASS: sample-specific exclusions permit source review; pending proof, other samples and mocks remain gated.'
   $recipe = Get-Content (Join-Path $root 'content/recipes/csharp.validate-property-assignment/10.0/recipe.json') -Raw | ConvertFrom-Json -AsHashtable
   Write-Host 'PASS: official review is preserved separately and cannot replace compilation.'
   $recipe.humanProof = @{ status = 'pending'; scope = 'Targeted authoring-machine proof remains pending.' }
   $recipe | ConvertTo-Json -Depth 30 | Set-Content $recipePath
-  & pwsh @buildArgs
+  & $pwsh @buildArgs
   if ($LASTEXITCODE -ne 0) { throw 'Pending Human proof may be served in incremental builds.' }
-  $result = & pwsh @buildArgs -ReleaseReady 2>&1 | Out-String
+  $result = & $pwsh @buildArgs -ReleaseReady 2>&1 | Out-String
   if ($LASTEXITCODE -eq 0 -or $result -notlike '*Pending Human proof blocks release readiness*') { throw "Release accepted pending Human proof: $result" }
   Write-Host 'PASS: pending Human proof is visible in incremental builds and blocks release readiness.'
 }

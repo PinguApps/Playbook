@@ -2,7 +2,7 @@
   "id": "simd.select-supported-instructions",
   "edition": "11.0",
   "title": "Select supported vector instructions with a correct scalar fallback",
-  "goal": "Select exact supported instruction families and signed SVE loop predicates while preserving a scalar numeric fallback; experimental SVE and advanced-hardware proof remains pending.",
+  "goal": "Select exact supported instruction families and signed SVE loop predicates while preserving a scalar numeric fallback; experimental SVE and advanced-hardware execution is not tested.",
   "areas": [
     "libraries"
   ],
@@ -37,7 +37,8 @@
         "selectionNotes": [
           "Experimental Arm SVE requires scoped SYSLIB5003 opt-in and AllowUnsafeBlocks=true for masked memory operations.",
           "Exact IsSupported flags guard all ISA-specific calls; architecture or vector width alone is insufficient.",
-          "SVE/SVE2 and AVX-VNNI-512 execution remain pending because suitable CPUs are unavailable. PR delivery is authorized with this limitation; compilation and x64 fallback do not establish native behavior."
+          "SVE/SVE2 and AVX-VNNI-512 execution are not tested because suitable CPUs are unavailable. No other hardware is required; compilation and x64 fallback do not establish native behavior.",
+          "Not tested: SVE/SVE2 and AVX-VNNI-512 execution: unavailable CPUs. Excluded under PIN-699; x64 AVX2/scalar checks do not cover these paths."
         ],
         "requirements": {
           "runtime": {
@@ -74,7 +75,7 @@
           "constraints": [
             "Experimental Arm SVE requires scoped SYSLIB5003 opt-in and AllowUnsafeBlocks=true for masked memory operations.",
             "Exact IsSupported flags guard all ISA-specific calls; architecture or vector width alone is insufficient.",
-            "SVE/SVE2 and AVX-VNNI-512 execution remain pending because suitable CPUs are unavailable. PR delivery is authorized with this limitation; compilation and x64 fallback do not establish native behavior.",
+            "SVE/SVE2 and AVX-VNNI-512 execution are not tested because suitable CPUs are unavailable. No other hardware is required; compilation and x64 fallback do not establish native behavior.",
             "No extra NuGet package/assets, provider, workload or rendering mode. No older-target package route or general performance guarantee is established."
           ],
           "optIns": [
@@ -82,7 +83,8 @@
           ],
           "stabilityLimitations": [
             "Arm SVE/SVE2/SveSha3/SveSm4 contracts are publisher-designated experimental and may change. RC2 is not GA evidence.",
-            "SVE/SVE2 and AVX-VNNI-512 native execution proof remains pending as an accepted PR-delivery limitation. Release-readiness checks still reject pending proof."
+            "SVE/SVE2 and AVX-VNNI-512 native execution are explicitly excluded under PIN-699. This limitation remains untested and does not block publication.",
+            "Not tested: SVE/SVE2 and AVX-VNNI-512 execution: unavailable CPUs. Excluded under PIN-699; x64 AVX2/scalar checks do not cover these paths."
           ]
         },
         "sourceUrls": [
@@ -158,7 +160,11 @@
     }
   },
   "humanProof": {
-    "scope": "Pingu has only the current x64 AVX2 host and explicitly accepts PR delivery without SVE/SVE2 or AVX-VNNI-512 execution. Native proof remains pending. If suitable hardware becomes available, run the exact canonical sample with --require-sve or --require-vnni512 and record SDK/runtime/ISA flags and scalar agreement before marking it verified.",
-    "status": "pending"
+    "status": "not-tested",
+    "scope": "SVE/SVE2 and AVX-VNNI-512 execution: unavailable CPUs. Excluded under PIN-699; x64 AVX2/scalar checks do not cover these paths.",
+    "untestedSamples": [
+      "samples/net10.0/SupportedInstructions/SupportedInstructions.csproj",
+      "samples/net11.0/SupportedInstructions/SupportedInstructions.csproj"
+    ]
   }
 }
