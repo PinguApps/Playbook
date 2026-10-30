@@ -4,6 +4,6 @@
     <LangVersion>15.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="../../CompilerMigrations/SpanStorage.cs" Link="Program.cs" />
+    <Compile Remove="SpanEscape.cs" />
   </ItemGroup>
 </Project>

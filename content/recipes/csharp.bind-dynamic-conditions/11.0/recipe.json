@@ -1,0 +1,148 @@
+{
+  "id": "csharp.bind-dynamic-conditions",
+  "edition": "11.0",
+  "title": "Preserve dynamic logical operator binding",
+  "goal": "Choose a concrete operator-owning type or intentional dynamic dispatch when an interface left operand makes a logical condition fail after a compiler upgrade.",
+  "areas": [
+    "csharp"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "compiler-migrations",
+    "dynamic",
+    "binding",
+    "short-circuit",
+    "operators"
+  ],
+  "apis": [
+    "dynamic",
+    "operator true",
+    "operator false",
+    "operator &",
+    "operator |"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Migration guidance for compiler corrections, with original valid .NET10 alternatives retained. SDK10.0.100 and10.0.402 behave differently; do not label every .NET10 compiler as accepting the broken form."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Run this net11.0 edition; the fixes also execute on .NET10 in the comparison."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared net11.0 project. The compiler correction is already present in measured SDK10.0.402."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared net11.0 comparison language; no preview feature switch is required. The corrected source also compiles with C#14/net10.0."
+          },
+          "frameworks": [],
+          "packages": [],
+          "workloads": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Any platform supported by .NET 11; actual checks recorded on Windows x64"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Create a console project with TargetFramework net11.0, LangVersion 15.0 and the imports/namespace shown in the recipe."
+          ],
+          "constraints": [
+            "Only target11 is served by this edition. The real net10 comparison does not add a ninth foundation or advertise a C#15/older-target route.",
+            "introducedIn10.0 records the correction's measured presence by SDK10.0.402, not an exact first-build claim or the syntax's original introduction.",
+            "Both concrete and dynamic routes execute all 16 route/operator/left/right combinations, assert exact right-hand invocation counts and results, and reject incompatible implementations at the documented boundary."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual evidence uses SDK11.0.100-rc.2.26504.105; actual GA reconciliation remains open."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/roslyn/blob/bd31e3f513f12c738f58ebca2400e588233f1d19/docs/compilers/CSharp/Compiler%20Breaking%20Changes%20-%20DotNet%2011.md",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/DynamicConditions/DynamicConditions.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned Roslyn post-.NET10.0.100 compiler compatibility notes",
+      "url": "https://github.com/dotnet/roslyn/blob/bd31e3f513f12c738f58ebca2400e588233f1d19/docs/compilers/CSharp/Compiler%20Breaking%20Changes%20-%20DotNet%2011.md"
+    },
+    {
+      "title": "C# conditional logical operator evaluation",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators"
+    },
+    {
+      "title": "Microsoft C# language versioning",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/DynamicConditions/DynamicConditions.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Both concrete and dynamic routes execute all 16 route/operator/left/right combinations, assert exact right-hand invocation counts and results, and reject incompatible implementations at the documented boundary."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/DynamicConditions/DynamicConditions.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Both concrete and dynamic routes execute all 16 route/operator/left/right combinations, assert exact right-hand invocation counts and results, and reject incompatible implementations at the documented boundary."
+    },
+    {
+      "kind": "execution",
+      "record": "samples/net11.0/DynamicConditions/migration-checks.evidence.json",
+      "sample": "samples/net11.0/DynamicConditions/DynamicConditions.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real SDK10.0.100/compiler5.0/ref10.0.0 baseline versus SDK10.0.402/compiler5.9/ref10.0.13 and SDK11RC2/compiler5.12/ref11RC2: Span/ReadOnlySpan acceptance then CS8352; interface &&/|| runtime binder failures then separate CS7083 errors. Exact compiler/reference/CoreCLR hashes, commands and real corrected executions retained; no synthetic references or GA claim."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable compiler/runtime behavior exercised on actual Windows x64 artifacts. No UI, native provider, device or deployment claim."
+  },
+  "snippets": {
+    "interface-left": {
+      "path": "samples/net11.0/DynamicConditions/DynamicConditions.cs",
+      "region": "interface-left",
+      "language": "csharp"
+    },
+    "policy": {
+      "path": "samples/net11.0/DynamicConditions/DynamicConditions.cs",
+      "region": "policy",
+      "language": "csharp"
+    }
+  }
+}

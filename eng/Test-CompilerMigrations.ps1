@@ -64,7 +64,7 @@ try {
     $compilerArgs = @($compiler, '-nologo', '-nostdlib+', "-langversion:$($set.Language)")
     $refs = @(Get-ChildItem -LiteralPath $references -Filter '*.dll' | Sort-Object Name | ForEach-Object { '-r:' + $_.FullName })
     if (-not $refs.Count) { throw 'Missing declared reference pack.' }
-    $span = Join-Path $root 'samples/CompilerMigrations/SpanEscape.cs'
+    $span = Join-Path $root 'samples/net11.0/SpanStorage/SpanEscape.cs'
     $expectedExit = if ($set.Name -eq 'baseline') { 0 } else { 1 }
     $diagnostic = if ($expectedExit) { 'error CS8352' } else { $null }
     $null = Invoke-Checked $set.Dotnet ($compilerArgs + $refs + @('-target:library', "-out:$output/span-$($set.Name).dll", $span)) $expectedExit $diagnostic
@@ -72,7 +72,7 @@ try {
     $readonlySpan = Join-Path $output 'ReadOnlySpanEscape.cs'
     (Get-Content -LiteralPath $span -Raw).Replace('Span<int>', 'ReadOnlySpan<int>') | Set-Content -LiteralPath $readonlySpan
     $null = Invoke-Checked $set.Dotnet ($compilerArgs + $refs + @('-target:library', "-out:$output/readonly-span-$($set.Name).dll", $readonlySpan)) $expectedExit $diagnostic
-    $dynamic = Join-Path $root 'samples/CompilerMigrations/DynamicConditions.cs'
+    $dynamic = Join-Path $root 'samples/net11.0/DynamicConditions/DynamicConditions.cs'
     $binary = Join-Path $output "dynamic-$($set.Name).dll"
     $diagnostic = if ($expectedExit) { 'error CS7083' } else { $null }
     $result = Invoke-Checked $set.Dotnet ($compilerArgs + $refs + @('-target:exe', '-define:INTERFACE_LEFT', "-out:$binary", $dynamic)) $expectedExit $diagnostic

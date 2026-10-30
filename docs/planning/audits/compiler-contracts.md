@@ -2,6 +2,76 @@
 
 Reviewed **20 October 2026**. This is an official-source audit and delivery proposal, not a delivered recipe or proof of catalogue completeness. The two inventory identities remain `vb.release-review` and `languages.compiler-migrations`. No language version is inferred from the .NET release number.
 
+## Compiler migration delivery reconciliation
+
+Measured **30 October 2026**.
+
+PIN-1032 and PIN-1034 deliver original edition11.0 guidance for
+[`csharp.preserve-span-storage`](../../../content/recipes/csharp.preserve-span-storage/11.0/recipe.md)
+and [`csharp.bind-dynamic-conditions`](../../../content/recipes/csharp.bind-dynamic-conditions/11.0/recipe.md).
+`eng/Test-CompilerMigrations.ps1 -Record` captures their actual compilation and
+execution through the existing sample-evidence workflow. The earlier proposal
+text below is historical; approval was recorded in PIN-986 and its
+[decision register](../audit-proposal-review.md#compiler-contracts).
+
+| Actual set | Compiler | Reference/runtime | Observed result |
+| --- | --- | --- | --- |
+| SDK10.0.100, C#14 | 5.0.0-2.25523.111 (b0f34d51) | Microsoft.NETCore.App.Ref10.0.0 / CoreCLR10.0.0 | Inner Span/ReadOnlySpan escape compiles; not executed or recommended. Interface-left &&/\|\| compiles, then both throw RuntimeBinderException on the actual older runtime. |
+| SDK10.0.402, C#14 | 5.9.0-1.26505.111 (a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e) | Ref10.0.13 / runtime10.0.13 | Both span forms report CS8352; && and \|\| separately report CS7083. Corrected samples build/run. |
+| SDK11.0.100-rc.2.26504.105, C#15 | 5.12.0-1.26504.105 (820230c386db5b0106c5430b3e5aee92a7826bf5) | Ref/runtime11.0.0-rc.2.26504.105 | Same rejection diagnostics; corrected samples build/run. |
+
+**Drift resolved for these two claims:** the pinned main document is a
+post10.0.100-through11.0.100 change list. It does not mean every .NET10 compiler
+accepts these forms. The actual10.0.402 compiler already rejects them. Metadata
+`introducedIn:10.0` records the measured release-family presence, without dating
+the exact first compiler build or claiming the syntax itself is new. Only target11
+is served; actual corrected net10 comparisons add no ninth foundation. The SDK100
+archive is a historical reproducer, downloaded portably with the official SHA512
+pin in the helper, not a supported consumer prerequisite. The exact compiler,
+reference and CoreCLR hashes and executed commands are in saved
+`samples/net*/{SpanStorage,DynamicConditions}/migration-checks.evidence.json`.
+No added NuGet dependencies, native assets, providers or optional workloads apply.
+
+**A:** distinct arrays and distinct enclosing span declarations retain independent
+manifest batches; mutation checks preserve the other batch. A deliberate shared
+buffer proves both views alias the final contents. Both actual corrected
+dependency sets execute successfully. The old escape fixture is compile-only.
+
+**B / PIN-1033: evidenced exclusion for supported targets.** The actual10.0.0,
+10.0.13 and11 RC2 `System.Runtime.dll` reference assemblies each define
+`System.Runtime.InteropServices.InAttribute`. It is in the core reference
+assembly, not an optional interop package that an ordinary net10/net11 project
+can add back independently. Removing that assembly also removes core type
+definitions. No supported deficient reference closure for Playbook's modern
+targets was established. The ticket explicitly permits this outcome; no shim,
+fabricated corlib, unsupported framework expansion or placeholder recipe is added
+under the reserved goal `csharp.resolve-readonly-metadata`.
+
+The paired original `ReadonlyMetadata` controls compile/run with the full real
+references. Method-group and lambda synthesized delegates, plus a ref-readonly
+local function, all return actual references: a retained value observes42→73.
+Reflection over their emitted methods requires a byref return with
+`modreq(System.Runtime.InteropServices.InAttribute)` for both delegate Invoke
+methods and the local function. The helper also inspects the actual reference
+type definition. Compilation/execution records remain beside those samples.
+**No deficient-reference CS0518 reproduction or repair is claimed.** The source
+entry remains relevant to custom/legacy reference universes outside this
+established route; finding a supported deficient closure would reopen delivery.
+Normal successful calls or metadata alone are not presented as proof of that
+unavailable subgoal.
+
+**C:** both corrected concrete and dynamic routes execute all16 truth-table
+combinations, checking results and exact zero/one right-factory invocations.
+An unknown implementation is rejected by the concrete guard and fails runtime
+binding in the dynamic route. No arbitrary implementation contract is promised.
+
+The declared consumer route remains net11/SDK11/C#15, stable syntax with no preview
+opt-in, verified on Windows x64 RC2. Supported requirements and measured pins are
+separate in each recipe. The missing compiler source SHA and release/build metadata
+conflict below remain explicit provenance limits; current-main5.13 is not relabeled
+as RC2. PIN-959, PIN-961, other outstanding D/E delivery and Human gates stay open.
+No comprehensive, actual-GA, native/platform-matrix or public publication claim.
+
 ## Scope, provenance and evidence
 
 The scope is [PIN-682](https://linear.app/pinguapps/issue/PIN-682), SPEC.md at `0a8989814ea11346354464b845c79c15bb71c5e9` (stories 47, 93, 95, 158, 159), and approved proposal `b3778cc`, key `SH_Q02`. Consulted the language and desktop inventories, agreed coverage/implementation/verification plans, glossary, contribution guidance and ADRs 0001–0004. Root PLAN.md, CONTEXT.md and CONTEXT-MAP.md are absent. Historical planning statements that the tool does not exist are superseded by the implemented repository; they do not change this source-only issue's boundary.

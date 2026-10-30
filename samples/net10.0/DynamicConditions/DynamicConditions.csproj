@@ -4,6 +4,6 @@
     <LangVersion>14.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="../../CompilerMigrations/DynamicConditions.cs" Link="Program.cs" />
+    <Compile Include="../../net11.0/DynamicConditions/DynamicConditions.cs" Link="Program.cs" />
   </ItemGroup>
 </Project>

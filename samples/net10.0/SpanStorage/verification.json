@@ -1,10 +1,11 @@
 {
   "additionalInputs": [
-    "samples/CompilerMigrations/SpanStorage.cs",
+    "samples/CompilerMigrations",
+    "samples/net11.0/SpanStorage",
+    "samples/net11.0/DynamicConditions",
     "eng/Test-CompilerMigrations.ps1",
     "eng/Record-Evidence.ps1",
-    "eng/Evidence.ps1",
-    "samples/CompilerMigrations/SpanEscape.cs"
+    "eng/Evidence.ps1"
   ],
   "dependencies": [],
   "workloads": [],
