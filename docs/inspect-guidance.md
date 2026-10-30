@@ -39,6 +39,45 @@ identity, stale record, changed canonical body or nonzero command is a failure.
 This does not execute the excluded platforms, establish source-only compilation,
 or assert full-catalogue release readiness.
 
+## Replace positional identity in embedded JSON sequences
+
+This block builds/packs the ordinary tool, then installs that exact artifact
+through the existing isolated local feed/cache. Real stdio list/get runs from an
+unrelated temporary directory and prints ID/title/goal, complete canonical
+Markdown, applicability, target11/edition11 and fresh paired evidence. Target10
+returns `no_applicable_edition`; the older comparison adds no ninth foundation.
+
+Requires PowerShell7, Node22.19+, SDK10.0.402 and runtime10.0.13 for inspection.
+Consumer recapture also requires SDK11.0.100-rc.2.26504.105/runtime11RC2 and
+Windows x64 native SQLite assets. Restoring dependencies and Inspector can use
+the network. Retrieval with unusable proxies proves proxy independence, not
+OS-level network isolation. No account, external resource, global tool install
+or persistent environment change is required. Tested from an unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-bf76c8b2'
+& ./eng/Test-TrailCards.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId 'ef.replace-ordinal-json-ownership' `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin847' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin847/inspection
+```
+
+Expect EF10/11 builds and provider PASS results, then discovery title
+"Preserve an embedded sequence while replacing positional ownership", its
+explanatory goal and the final exact-artifact inspection PASS. The actual EF10
+SQLite file is read/edited by EF11 and read back by EF10. Original order,
+duplicates and an empty array survive; removal/edit/append reload successfully.
+The old mapping triggers the RC2 relational diagnostic. The old table remains
+nullable while the new model generates NOT NULL: production schema/data
+migration still needs separate review. Use `Test-TrailCards.ps1 -Record` only
+to recapture changed sample proof. No other-provider, production migration or GA
+proof follows. Missing/stale evidence, body/applicability drift or nonzero exit
+is failure; disposable database cleanup is automatic.
+
 ## Compiler conversions, declared layout and F# callback adaptation
 
 This builds/packs the ordinary tool once, installs that exact artifact through
