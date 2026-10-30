@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.CodeAnalysis.CSharp": {
+        "type": "Direct",
+        "requested": "[5.12.0-1.26504.105, 5.12.0-1.26504.105]",
+        "resolved": "5.12.0-1.26504.105",
+        "contentHash": "6JydxWd6Rdgq0Yiyv/wJCzBhIuex/535ZnQmA7dOuXtYtSuW8ORYi1CP+fpoHAt8afuSa89u5XfEvvC7kWhMUg==",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "5.12.0-1.26465.4",
+          "Microsoft.CodeAnalysis.Common": "[5.12.0-1.26504.105]"
+        }
+      },
+      "Microsoft.CodeAnalysis.Analyzers": {
+        "type": "Transitive",
+        "resolved": "5.12.0-1.26465.4",
+        "contentHash": "rnxXLw/9kD5+v1zpUCI/Wch4/CZ0sldZwuvM2oaZgPEsF6yOdCwsytyCZho3OspInUE5AGZ+WsdLiM1ZlkCHFg=="
+      },
+      "Microsoft.CodeAnalysis.Common": {
+        "type": "Transitive",
+        "resolved": "5.12.0-1.26504.105",
+        "contentHash": "ly95zNpMm/9ERt8iRWoCsSmKh6YFBUMZj1wkrMT3ZZNmGgbWeFQv/mxJPHZeND/ICDlQfe95osCZNWgvuNI8Hw==",
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "5.12.0-1.26465.4"
+        }
+      }
+    }
+  }
+}

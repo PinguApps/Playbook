@@ -1,0 +1,17 @@
+{
+  "workloads": [],
+  "dependencies": [
+    "Microsoft.CodeAnalysis.Analyzers/5.9.0-1.26328.17",
+    "Microsoft.CodeAnalysis.Common/5.9.0",
+    "Microsoft.CodeAnalysis.CSharp/5.9.0",
+    "Microsoft.CodeAnalysis.VisualBasic/5.9.0"
+  ],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-CompilerInspections.ps1",
+    "samples/CompilerInspections"
+  ],
+  "buildArguments": []
+}
