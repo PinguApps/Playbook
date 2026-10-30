@@ -36,7 +36,8 @@ proxy independence, not OS-level network isolation. The exact eight foundations
 and comprehensive/actual-GA/Human gates remain unchanged.
 
 For sample reproduction, also provide SDK11.0.100-rc.2.26504.105/ref/runtime11 RC2
-and run `eng/Test-CompilerMigrations.ps1 -SetupBaseline -Record`. On Windows x64
+and run `eng/Test-CompilerMigrations.ps1 -SetupBaseline -Record`; supply
+`-Net11Dotnet` with the absolute `dotnet` executable path when installed elsewhere. On Windows x64
 that helper can download/extract the official SHA512-checked portable SDK10.0.100
 historical reproducer under ignored `artifacts/`; no installer or PATH integration
 runs. The helper checks real Span/ReadOnlySpan old acceptance versus CS8352,
