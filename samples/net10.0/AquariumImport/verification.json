@@ -32,12 +32,12 @@
   "workloads": [],
   "additionalInputs": [
     "samples/AquariumImport/AquariumChecks.cs",
-    "samples/AquariumImport/AquariumWorker.cs",
-    "samples/AquariumImport/AquariumSetup.cs",
+    "samples/net11.0/AquariumImport/AquariumWorker.cs",
+    "samples/net11.0/AquariumImport/AquariumSetup.cs",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",
     "eng/Record-CalibrationHost.ps1",
-    "samples/AquariumImport/AquariumDemo.cs"
+    "samples/net11.0/AquariumImport/AquariumDemo.cs"
   ],
   "buildArguments": [],
   "nativeToolchains": []

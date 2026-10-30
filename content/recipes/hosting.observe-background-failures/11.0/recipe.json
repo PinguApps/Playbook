@@ -1,0 +1,179 @@
+{
+  "id": "hosting.observe-background-failures",
+  "edition": "11.0",
+  "title": "Preserve background-service failures at the host boundary",
+  "goal": "Preserve background importer failures at the process boundary when the default Generic Host stops, while distinguishing cancellation, Ignore, logs and the chosen exit code.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "calibration-host",
+    "hosting",
+    "background-service",
+    "failures"
+  ],
+  "apis": [
+    "BackgroundService",
+    "HostOptions.BackgroundServiceExceptionBehavior",
+    "IHost.StartAsync",
+    "IHost.StopAsync",
+    "RunAsync",
+    "Run",
+    "WaitForShutdownAsync",
+    "WaitForShutdown"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Preserve background importer failures at the process boundary when the default Generic Host stops, while distinguishing cancellation, Ignore, logs and the chosen exit code.",
+          "Actual Windows x64 CoreCLR JIT RC2 execution; actual-GA reconciliation remains open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": ".NET 11 managed runtime for the primary net11 package consumer; RC2 is the measured baseline."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "Microsoft.Extensions.Hosting",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Pinned actual package consumer; no newer-package-on-net10 route is claimed."
+            }
+          ],
+          "packageAssets": [
+            "lib/net11.0/Microsoft.Extensions.Hosting.dll. Previous consumer uses package10.0.13/lib/net10.0. Exact full compile/runtime closure is saved in the sample evidence; Hosting's shared abstractions come from net11 references/runtime."
+          ],
+          "providers": [],
+          "platforms": [
+            "CoreCLR-supported platforms; actual execution measured only on Windows x64 CoreCLR JIT"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0, C#15, ImplicitUsings=enable and Nullable=enable; put each complete snippet in a separate .cs file.",
+            "Use the application validation/exit policy described by the recipe."
+          ],
+          "constraints": [
+            "Paired real processes: 35 lifecycle children plus canonical demo per release. Run/RunAsync, explicit start/stop, timed stop and sync/async shutdown waits; signalled single/multiple/shutdown failures with original identities, logs and exit policy, normal cancellation, Ignore nonshutdown, startup failure, disposal and child reaping. Windows x64 CoreCLR JIT; no browser/custom-host/uncaught numeric-exit/older-target-newer-package/GA proof.",
+            "No provider, rendering mode, native toolchain, workload, account or service. The net10 comparison adds no catalogue edition or ninth foundation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostExtensions.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/AquariumImport/AquariumImport.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned full compatibility note",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/ihost-runasync-stopasync-throw-backgroundservice-failure.md"
+    },
+    {
+      "title": "Package-matched current Host implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs"
+    },
+    {
+      "title": "Previous Host implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Hosting/src/Internal/Host.cs"
+    },
+    {
+      "title": "Run/wait/stop wrappers and disposal",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/HostingAbstractionsHostExtensions.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Paired real processes: 35 lifecycle children plus canonical demo per release. Run/RunAsync, explicit start/stop, timed stop and sync/async shutdown waits; signalled single/multiple/shutdown failures with original identities, logs and exit policy, normal cancellation, Ignore nonshutdown, startup failure, disposal and child reaping. Windows x64 CoreCLR JIT; no browser/custom-host/uncaught numeric-exit/older-target-newer-package/GA proof.",
+      "sample": "samples/net10.0/AquariumImport/AquariumImport.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Paired real processes: 35 lifecycle children plus canonical demo per release. Run/RunAsync, explicit start/stop, timed stop and sync/async shutdown waits; signalled single/multiple/shutdown failures with original identities, logs and exit policy, normal cancellation, Ignore nonshutdown, startup failure, disposal and child reaping. Windows x64 CoreCLR JIT; no browser/custom-host/uncaught numeric-exit/older-target-newer-package/GA proof.",
+      "sample": "samples/net11.0/AquariumImport/AquariumImport.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/AquariumImport/HostBoundary.cs",
+      "region": "boundary"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/AquariumImport/HostBoundary.cs",
+      "region": "boundary"
+    },
+    "worker": {
+      "language": "csharp",
+      "path": "samples/net11.0/AquariumImport/AquariumWorker.cs",
+      "region": "worker"
+    },
+    "setup": {
+      "language": "csharp",
+      "path": "samples/net11.0/AquariumImport/AquariumSetup.cs",
+      "region": "setup"
+    },
+    "program": {
+      "language": "csharp",
+      "path": "samples/net11.0/AquariumImport/AquariumDemo.cs",
+      "region": "program"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable managed local checks require no Human approval/device/provider. Only Windows x64 CoreCLR JIT is measured; other-platform/engine and actual-GA results remain unverified. Existing Human/comprehensive/GA gates remain open."
+  }
+}

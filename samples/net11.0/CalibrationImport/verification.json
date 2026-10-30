@@ -4,7 +4,7 @@
   ],
   "workloads": [],
   "additionalInputs": [
-    "samples/CalibrationImport/CalibrationPolicy.cs",
+    "samples/net11.0/CalibrationImport/CalibrationPolicy.cs",
     "samples/CalibrationImport/CalibrationChecks.cs",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",

@@ -18,6 +18,36 @@ Reference-source presence is API evidence only. PIN-703's actual asset manifest 
 
 ## Full mitigation dispositions
 
+### I delivery reconciliation — 30 October 2026
+
+PIN-1053 delivers `numerics.validate-tensor-clamp-bounds` edition11.0 with original
+paired CalibrationImport consumers. SDK10.0.402/C#14/runtime-ref10.0.13 and
+SDK11.0.100-rc.2.26504.105/C#15/runtime-ref11RC2 compile/run locked tensor10.0.13 /
+11RC2 packages with actual net10/net11 assets. Four original manifest hashes
+(`libraries-preview7`, `clamp-implementation`, previous/current-tensor-api) are
+replayed by `eng/Record-CalibrationHost.ps1 -VerifySources`. Exact commands, inputs,
+outputs, closures and compiler/reference/runtime/package hashes use existing
+sample evidence. Selected type/method Experimental attributes are checked at runtime;
+no opt-in, provider, workload or native library is needed. Samples stay isolated
+and author-maintained; no Renovate permission is added.
+
+Real scalar/per-element float and decimal calls cover reversed/equal/ordered bounds
+at lengths1/3/33, with a late invalid pair and varying valid pairs. Tensor10 scalar
+float throws for reversed bounds, whereas its length33 per-element call accepts
+them. Tensor11RC2 float accepts them at every tested length; decimal still throws
+on both packages. Late decimal errors can follow writes. The separate application
+validation checks every pair first and preserves all output on invalid bounds,
+length/capacity errors and NaN bounds; successful values and unused tail are asserted.
+This measured qualification replaces any universal nonthrowing reading of Preview7.
+
+The ordinary packed/local-feed-installed artifact is checked through real stdio
+list/get from an unrelated directory: discovery ID/title/goal, complete canonical
+Markdown, target11/edition11 applicability, fresh paired evidence and target10
+rejection. See the [copyable walkthrough](../../inspect-guidance.md#calibration-bounds-and-host-failure-boundaries).
+Only Windows x64 CoreCLR JIT is measured. No newer-package-on-net10, other engine/
+platform or actual-GA claim follows; PIN-959/PIN-962 and existing Human gates remain
+open, including the pending F/G final-package proofs. Eight foundations are preserved.
+
 ### G/H delivery and preparation reconciliation — 30 October 2026
 
 PIN-1052 adds `globalization.validate-japanese-calendar-range` edition11.0 with
@@ -244,7 +274,7 @@ remain open; this is bounded RC2 recipe evidence, not comprehensive readiness.
 | [Tensor shape alignment][tensor-shapes], .NET 11 package | Default rank-zero empties compute as `[0]` without changing stored Rank/Lengths/Strides; explicit empty dimensions remain. Ignore only redundant leading singleton dimensions, not arbitrary broadcasting in shape equality. Stack/concatenate axes follow the first effective shape. `[0]` may broadcast to `[2,0]`, but `[0]` with `[0,2]` is incompatible. Preserve requested metadata; validate exact ranks/lengths explicitly if required. Native-sized traversal and all five Any comparison families now cover the full logical range, including empties; empty views retain their storage origin. | **Included → F.** Broadcast/BroadcastTo/TryBroadcastTo, elementwise/copy/destination paths, concatenate/stack, reshape/split/squeeze/unsqueeze/permute/slice/resize/reverse/SequenceEqual and index extrema belong to the same shape/traversal contract. Package upgrades can affect earlier TFMs; no recipe currently establishes such a route. |
 | [Tensor storage layout][tensor-storage], .NET 11 package | Unsupported overlap throws `ArgumentException` before writing, including TryCopyTo/TryFlattenTo after capacity/shape checks succeed. Too-small destination (and incompatible shape for TryCopyTo) still returns false without copying. Dense/equal-count or identical-view copies, dense flatten/resize, identical nonrepeating elementwise views and dense/no-op in-place reversal are operation-specific permitted cases. Use separate output or snapshot **each** overlapping input; repeated zero-stride output needs independent storage. Array-backed constructors reject incompatible element types; writable covariance is rejected, compatible read-only covariance permitted. No arbitrary-overlap switch; TensorPrimitives retains its separate overlap contract. | **Prepared → PIN-1051**, edition11.0; final storage-contract execution and proof refresh remain pending under PIN-962. Includes IReadOnlyTensor copy/flatten and corresponding Tensor<T>/TensorSpan<T>/ReadOnlyTensorSpan<T> methods, destination elementwise/resize/reverse/concatenate and both System.Array constructors per span type. This is not a blanket ban on overlap or zero strides: singleton strides and empty destinations remain permitted. |
 | [Japanese calendar minimum][japanese-calendar], Preview 1 | JapaneseCalendar.MinSupportedDateTime moves from Gregorian 1868-09-08 to **1868-10-23**, confirmed by the pinned implementation constant. Replace old assumptions and reject/route earlier Gregorian dates explicitly; use the runtime minimum rather than hardcoding the old date. The note's phrase “between” must not exclude the newly valid minimum itself. No restore switch is documented. | **Delivered → PIN-1052**, edition11.0; paired real calendar operations, explicit routing and preserved Gregorian values. Validate the half-open removed interval `[1868-09-08,1868-10-23)`, the new boundary and historical-data policy. This is distinct from parsing format/style validation. |
-| TensorPrimitives.Clamp, Preview 7 library note | Full note says scalar remainder agrees with vector processing using Min(Max(x,min),max). **Qualified by pinned implementation:** vectorizable types (including Half's path) use that expression; other types call T.Clamp and may still throw when min > max. Explicitly validate bounds when rejection is application policy; never rely on vector width, position or the headline as a universal nonthrowing contract. | **Included → I.** Separate bound-validation goal. This source conflict remains visible until actual consumers establish the advertised type/asset routes. |
+| TensorPrimitives.Clamp, Preview 7 library note | Full note says scalar remainder agrees with vector processing using Min(Max(x,min),max). **Qualified by pinned implementation and actual float/decimal consumers:** vectorizable types use that expression; decimal still calls T.Clamp and throws for reversed bounds. Explicitly validate bounds when rejection is application policy; never rely on vector width, position or the headline as a universal nonthrowing contract. | **Delivered → PIN-1053**, `numerics.validate-tensor-clamp-bounds` edition11.0. Paired actual scalar/per-element short/remainder batches, late-invalid unchanged-output and successful-value checks establish the bounded float/decimal routes; no additional type/target route is claimed. |
 | TensorPrimitives.Round early returns, Preview 2 library note | Missing returns caused double processing, including in-place paths. **Excluded as an independent goal:** no distinct authored migration/workaround is established by that fix alone. RC2's digits overload now uses per-element T.Round fallback for correct rounding and uncapped nonnegative digits; no vectorized accuracy promise follows. | **Grouped → C** when teaching rounding across spans. Preserve overlap/capacity/mode contracts and actual result tests; do not silently assume the scalar interface rules prove every tensor call. |
 
 No named finding is silently dropped or left with an unknown owner. The retained uncertainty is **delivery evidence**, especially type/platform/package routes and the Clamp headline qualification; source-audit completion cannot clear that obligation.

@@ -1850,3 +1850,55 @@ the actual final artifacts, use -RunReleaseChecks with the final SDK paths. That
 explicit option also runs the large native proof, requiring Windows x64 and about
 8GiB measured free physical/commit memory. A refused/failed native run leaves the
 proof pending; do not clear it based on the smaller checks.
+# Calibration bounds and host failure boundaries
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and
+SDK11.0.100-rc.2.26504.105/runtime11RC2. CalibrationImport locks tensors10.0.13 /
+11RC2; AquariumImport locks full Hosting10.0.13/11RC2 with its actual transitive
+closure. No provider, native library/workload, account or service is needed.
+
+The following block is tested from an unrelated starting directory. It builds/
+packs the ordinary tool, installs that exact artifact from an isolated local-only
+feed/cache, then calls real stdio list/get from an unrelated temporary directory.
+Setup may restore online. Unusable proxies during retrieval prove proxy independence,
+not network isolation. No public publication or global installation occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-76b55631'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1053-1054'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.validate-tensor-clamp-bounds','hosting.observe-background-failures') `
+  -Query 'calibration-host' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1053-1054' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/calibration-host/inspection
+```
+
+Expect one passing installed smoke, then both discovery IDs/titles/explanatory
+goals, complete expanded canonical Markdown, target11/edition11 applicability,
+fresh paired compilation/execution records, equal structured/text responses and
+`no_applicable_edition` for both target10 requests. Missing/stale evidence or an
+unexpanded/different snippet fails. The older code remains a comparison, preserving
+exactly eight foundations. Inspection consumes saved evidence; it does not repeat
+consumer behavior. To refresh changed consumer inputs and the eight immutable
+source hashes on the declared environment:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-76b55631'
+& ./eng/Record-CalibrationHost.ps1 -VerifySources
+```
+
+Expect float/decimal raw-versus-validated scalar/pairwise cases at lengths1/3/33,
+reversed/equal/ordered and late-invalid bounds, capacity/length/NaN and unchanged
+failed output/correct values; then35 lifecycle children plus the canonical demo
+per runtime. Host checks separately assert signalled startup, single/multiple/
+shutdown exception identities, logs, chosen exit17 versus0, normal cancellation,
+Ignore still running, disposal and child reaping. The explicit older failure
+journal and current boundary both preserve failure exit17. PATH and persistent
+environment values are checked unchanged. Expected diagnostic failure logs from
+the demonstration are passing controls. The recorder ends successfully; a nonzero
+script exit is a failure. Windows x64 CoreCLR JIT is measured; browser/custom-host,
+other-platform/engine, newer-package-on-net10 and actual-GA claims are unverified.
+PIN-959/PIN-962 and existing Human gates remain open; no recurring matrix is added.

@@ -1,0 +1,151 @@
+{
+  "id": "numerics.validate-tensor-clamp-bounds",
+  "edition": "11.0",
+  "title": "Validate tensor clamp bounds consistently",
+  "goal": "Reject invalid scalar or per-reading calibration bounds before writing output when tensor clamp behavior differs by numeric type or processing path.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "calibration-host",
+    "numerics",
+    "validation"
+  ],
+  "apis": [
+    "TensorPrimitives.Clamp"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Reject invalid scalar or per-reading calibration bounds before writing output when tensor clamp behavior differs by numeric type or processing path.",
+          "Actual Windows x64 CoreCLR JIT RC2 execution; actual-GA reconciliation remains open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": ".NET 11 managed runtime for the primary net11 package consumer; RC2 is the measured baseline."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.Numerics.Tensors",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Pinned actual package consumer; no newer-package-on-net10 route is claimed."
+            }
+          ],
+          "packageAssets": [
+            "lib/net11.0/System.Numerics.Tensors.dll. Previous consumer uses package10.0.13/lib/net10.0. Exact full compile/runtime closure is saved in the sample evidence; Hosting's shared abstractions come from net11 references/runtime."
+          ],
+          "providers": [],
+          "platforms": [
+            "CoreCLR-supported platforms; actual execution measured only on Windows x64 CoreCLR JIT"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0, C#15, ImplicitUsings=enable and Nullable=enable; put each complete snippet in a separate .cs file.",
+            "Use the application validation/exit policy described by the recipe."
+          ],
+          "constraints": [
+            "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
+            "No provider, rendering mode, native toolchain, workload, account or service. The net10 comparison adds no catalogue edition or ninth foundation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified using .NET 11 RC2; GA reconciliation remains pending. These selected contracts have no publisher experimental annotation or required opt-in."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/libraries.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Clamp.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CalibrationImport/CalibrationImport.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "maui",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned Preview 7 library note",
+      "url": "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview7/libraries.md"
+    },
+    {
+      "title": "Package-matched Clamp implementation and type qualification",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.Clamp.cs"
+    },
+    {
+      "title": "Pinned tensor declarations",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Tensors/ref/System.Numerics.Tensors.netcore.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
+      "sample": "samples/net10.0/CalibrationImport/CalibrationImport.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Paired real float/decimal scalar and per-element clamp executions, reversed/equal/ordered bounds at lengths1/3/33, invalid final pair, lengths/capacity/NaN, untouched rejected output and correct successful values/tail. Exact compiler/reference/runtime/package assets; Windows x64 CoreCLR JIT only, no older-target/newer-package or actual-GA proof.",
+      "sample": "samples/net11.0/CalibrationImport/CalibrationImport.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net11.0/CalibrationImport/CalibrationPolicy.cs",
+      "region": "policy"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/CalibrationImport/CalibrationPolicy.cs",
+      "region": "policy"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Portable managed local checks require no Human approval/device/provider. Only Windows x64 CoreCLR JIT is measured; other-platform/engine and actual-GA results remain unverified. Existing Human/comprehensive/GA gates remain open."
+  }
+}
