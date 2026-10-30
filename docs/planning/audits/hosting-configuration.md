@@ -1,6 +1,6 @@
 # Hosting and configuration failure migrations: PIN-685
 
-Reviewed **21 October 2026**. This source-only audit dispositions the six assigned compatibility notes and two adjacent Extensions entries. Three additional delivery proposals await backlog approval. Closing this audit delivers no recipe and does not clear the comprehensive publication gate.
+Reviewed **21 October 2026**. This original source-only audit dispositions the six assigned compatibility notes and two adjacent Extensions entries. PIN-986 subsequently approved three delivery owners. The 30 October reconciliation below records A's actual delivery; B/C retain PIN-1055/PIN-1056. Audit closure alone does not clear the comprehensive publication gate.
 
 ## Scope and evidence
 
@@ -18,11 +18,45 @@ The compatibility index explicitly remains incomplete. This is a bounded mitigat
 
 ## Full mitigation dispositions
 
+### A delivery reconciliation — 30 October 2026
+
+PIN-1054 delivers `hosting.observe-background-failures` edition11.0 with original
+paired AquariumImport consumers. Actual SDK10.0.402/C#14/runtime-ref10.0.13 and
+SDK11.0.100-rc.2.26504.105/C#15/runtime-ref11RC2 compile/run locked
+Microsoft.Extensions.Hosting10.0.13/11RC2. Full Hosting selects actual net10/net11
+package assets; framework-provided net11 abstractions remain distinct from full
+Hosting. Exact resolved closures, commands and compiler/reference/runtime/selected
+package hashes are saved by `eng/Record-CalibrationHost.ps1`. `-VerifySources`
+replays host-failure, host-10/11 and host-extensions-11 immutable manifest hashes.
+Runtime metadata checks find no Experimental annotation on the selected host APIs.
+
+Each release executes35 lifecycle children plus the canonical bounded demonstration.
+Startup is signalled before failure. RunAsync/Run, explicit StartAsync/StopAsync,
+timed StopAsync and WaitForShutdownAsync/WaitForShutdown are exercised for single,
+multiple and shutdown failures, cancellation and Ignore. Raw .NET10 host completion
+does not propagate the background objects; RC2 preserves one original object or
+aggregates all originals, including a shutdown failure. The explicit older worker
+journal and current host boundary both preserve failure exit17. Logs, caught type/
+reference identities and actual child exit are separately asserted. Normal stopping
+cancellation is clean; Ignore remains running until an explicit stop. Both actual
+StartAsync implementations throw the startup-failure control. Run/RunAsync failure
+paths dispose services; manual lifecycle callers dispose them; all children are reaped.
+
+The ordinary packed/local-feed-installed artifact is inspected through real stdio
+list/get from an unrelated directory, full canonical body and applicability,
+ID/title/goal, target11/edition11, fresh evidence and target10 rejection. See the
+[copyable walkthrough](../../inspect-guidance.md#calibration-bounds-and-host-failure-boundaries).
+This is Windows x64 CoreCLR JIT evidence, not browser/custom-host/other-platform,
+uncaught numeric-exit-code or GA proof. No native/provider/workload/resource or
+recurring matrix is added; sample dependencies remain isolated/author-maintained.
+The exact eight foundations, PIN-959/PIN-962 and existing Human gates remain open.
+No adjacent owner is marked satisfied by this delivery.
+
 **Included** retains additional authoring work proposed below. **Grouped** retains an existing delivery owner, rather than treating a ticket title or source audit as delivered content. No assigned finding is excluded or left without an owner.
 
 | Finding / introduction | Exact scope and authored action | Disposition / owner |
 | --- | --- | --- |
-| [BackgroundService failure propagation][host-note], Preview 3 | With the default `BackgroundServiceExceptionBehavior.StopHost`, a failing `ExecuteAsync` stops the default Generic Host and its shutdown/run task now faults. One collected exception is rethrown; multiple background/shutdown failures can aggregate. `Run`, `RunAsync`, `WaitForShutdown`, `WaitForShutdownAsync`, timed `StopAsync` and default `IHost.StopAsync` are affected through their stop path. Preserve failure visibility at the process boundary; an explicit catch can choose an exit policy. Do not recommend swallowing failures or selecting Ignore merely to restore success. Normal stopping cancellation is filtered; a custom IHost need not share this implementation. | **Included → A.** `host-11` collects StopHost failures and adds them to shutdown errors; `host-10` only logs/stops for this case. `host-extensions-11` forwards shutdown and disposes after RunAsync. This is changed behavior, not a new RunAsync signature. |
+| [BackgroundService failure propagation][host-note], Preview 3 | With the default `BackgroundServiceExceptionBehavior.StopHost`, a failing `ExecuteAsync` stops the default Generic Host and its shutdown/run task now faults. One collected exception is rethrown; multiple background/shutdown failures can aggregate. `Run`, `RunAsync`, `WaitForShutdown`, `WaitForShutdownAsync`, timed `StopAsync` and default `IHost.StopAsync` are affected through their stop path. Preserve failure visibility at the process boundary; an explicit catch can choose an exit policy. Normal stopping cancellation is filtered; a custom IHost need not share this implementation. | **Delivered → PIN-1054**, `hosting.observe-background-failures` edition11.0. Actual paired child processes establish identity/aggregation, logs versus exit, cancellation, Ignore, disposal and older/current explicit failure exits. This is changed behavior, not a new signature, browser guarantee or universal numeric process code. |
 | [Ignored file-load failure notification][reload-note], Preview 7 | The note says ignored failures no longer notify. The implementation requires a narrower distinction: ignored initial parse/load failure and ignored file-open IO failure return without OnReload; a failed **reload parse** clears Data, marks it updated and still notifies. Missing optional/reload files also clear Data and notify. Observe failures in OnLoadException, separately from data-change tokens; do not infer successful loading, retained old values or a last-known-good policy from a token. | **Included → B.** `file-provider-10/11` establish the changed control flow. Existing PIN-745 covers asynchronous consumers and binding exclusions; it does not cover provider load-failure/data-state policy. The matrix below preserves the note/implementation discrepancy for real consumer verification. |
 | [OnLoadException receives IO failures][io-note], Preview 7 | File-open failures now enter the callback, including arbitrary exceptions from a custom IFileInfo.CreateReadStream. Handle Exception without unconditional InvalidDataException/FileNotFoundException casts; select Ignore deliberately. FileNotFoundException/DirectoryNotFoundException opening races use the missing-file path. GetFileInfo and stream-disposal failures are outside this catch; do not promise the callback catches every custom-provider operation. | **Included → B**, one provider-failure goal with the preceding note. `file-provider-11` preserves Data on generic open failure, wraps parse failure in InvalidDataException, and separately handles missing files. The automatic reload delegate catches escaped Load failures; report them in the callback rather than depending on UnobservedTaskException. Explicit Load may still throw when not ignored. |
 | [ChangeToken async callback rebinding][callback-note], Preview 7 | Recompilation can bind an async lambda to `OnChange(Func<IChangeToken?>, Func<Task>)` or its `Func<TState,Task>` form instead of Action/async void. Rearm waits for completion and intermediate notifications coalesce; this is not an event queue. An explicit Action retains the old binding when intentionally required. No switch changes compile-time binding. | **Grouped → PIN-745 (E04)**, still Todo. `primitives-ref-10/11` and `change-token-10/11` confirm both overload sets. Synchronous delegate throws propagate to the triggering code; later task failures are left unobserved by the registration's discarded task, with rearm in finally. Awaiting completion internally does **not** give the subscriber a task to await or automatically log/handle its failure. Handle errors inside the callback. Dispose unregisters; it does not await or cancel an already running callback. |

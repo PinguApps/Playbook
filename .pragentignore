@@ -281,3 +281,9 @@
 /samples/net10.0/SeedFoldLibrary/verification-evidence.json
 /samples/net11.0/SeedFoldLibrary/verification-evidence.json
 /samples/net11.0/SeedFold/contracts.evidence.json
+# Record-CalibrationHost/Record-Evidence generated compiler, command and behavior captures.
+# Review canonical policies/workers/checks, locked inputs and recorder; pack checks freshness.
+/samples/net10.0/CalibrationImport/verification-evidence.json
+/samples/net11.0/CalibrationImport/verification-evidence.json
+/samples/net10.0/AquariumImport/verification-evidence.json
+/samples/net11.0/AquariumImport/verification-evidence.json

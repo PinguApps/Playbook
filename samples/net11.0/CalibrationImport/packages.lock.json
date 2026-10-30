@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "System.Numerics.Tensors": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "vQLg6YPbbbM1pozKQkqFWV7hUeEyUOHrIMEaU4EZLXt6xQSG5zZAtrHK9nYHBh6JVYDCqYRl8R5pfMu/WiYROw=="
+      }
+    }
+  }
+}
