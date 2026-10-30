@@ -1,5 +1,18 @@
 # Languages, shared libraries, runtime and SDK inventory
 
+**PIN-1143/PIN-1144** add original Estuary
+[registry-challenge](../../../content/recipes/containers.migrate-registry-auth-challenges/11.0/recipe.md)
+and [native publish-hook](../../../content/recipes/sdk.migrate-optimized-publish-hooks/11.0/recipe.md)
+guidance. Real paired SDK image publication/token exchanges and offline image
+execution qualify the registry route; seven current invalid challenges cause no
+token request or manifest write. Real paired Windows x64 native publishing/run
+and matched binlogs reproduce the skipped legacy hook and verify the migrated
+sidecar, NoBuild refresh/repeat and failure controls. The bounded
+[B27/B28 register](../audits/sdk-build.md#b27-configure-a-registry-authentication-challenge-that-the-sdk-accepts--m-3)
+retains exact artifacts, Beta/RC2 limits and the separate comprehensive/GA/Human
+gates. B25/PIN-1142's source-versus-artifact encoding-switch conflict remains under
+qualification; no delivered encoding recipe is claimed here.
+
 Container delivery **PIN-1137/PIN-1138** adds original
 [strict image-trust](../../../content/recipes/containers.verify-base-image-signatures/11.0/recipe.md)
 and [authored Azure Linux base migration](../../../content/recipes/containers.migrate-azurelinux-base-images/11.0/recipe.md)
