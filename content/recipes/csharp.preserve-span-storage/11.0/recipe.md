@@ -14,7 +14,7 @@ Include `using System;` and `namespace Playbook.Samples;`. Both SDK10.0.402/comp
 
 `error CS8352: Cannot use variable 'parcelNumbers' in this context because it may expose referenced variables outside of their declaration scope`
 
-Replacing `Span<int>` with `ReadOnlySpan<int>` produces the same rejection. The collection expression's safe context is its declaration block. `scoped` restricts escape; it does not promote the inner collection expression's storage into an outer scope. This is a compiler correction, not a new requirement of runtime11 or a C#15-only syntax feature. The pinned Roslyn document covers changes after SDK10.0.100 through11.0.100; the measured10.0.402 compiler already contains this one. Metadata `introducedIn:10.0` records that measured release-family presence, not the first exact compiler build or the age of span syntax.
+Replacing `Span<int>` with `ReadOnlySpan<int>` produces the same rejection. The collection expression's safe context is its declaration block. `scoped` restricts escape; it does not promote the inner collection expression's storage into an outer scope. This is a compiler correction, not a new requirement of runtime11 or a C#15-only syntax feature. The pinned Roslyn document covers changes after SDK10.0.100 through 11.0.100; the measured10.0.402 compiler already contains this one. Metadata `introducedIn:10.0` records that measured release-family presence, not the first exact compiler build or the age of span syntax.
 
 ## Newer approach
 
@@ -22,7 +22,7 @@ Create a console project. For the older comparison set `TargetFramework` to `net
 
 {{snippet:storage}}
 
-Each array allocation owns its values independently. The span conversion borrows that array; the inner variable going out of scope does not invalidate the managed array. The two enclosing span declarations also work because their declaration scope covers every use. They require distinct storage for distinct batches. The final control deliberately reuses one buffer: both views read582,77 after the last write. Moving one declaration outward fixes a lifetime error but does not create historical snapshots.
+Each array allocation owns its values independently. The span conversion borrows that array; the inner variable going out of scope does not invalidate the managed array. The two enclosing span declarations also work because their declaration scope covers every use. They require distinct storage for distinct batches. The final control deliberately reuses one buffer: both views read `582,77` after the last write, printed as `shared views=582,77`. Moving one declaration outward fixes a lifetime error but does not create historical snapshots.
 
 These alternatives remain valid on .NET10. The broken fixture is compiled only to observe compiler acceptance/rejection; it is not executed or recommended as a working older implementation.
 

@@ -14,6 +14,9 @@ Markdown, explicit target11/edition11, applicability and fresh evidence.
 Each target10 request must return `no_applicable_edition`; direct retrieval of the
 excluded readonly-metadata goal must return `unknown_recipe`.
 
+Run this block in **PowerShell 7 (`pwsh`)**. Windows PowerShell 5.1 changes native
+argument/error handling and is outside this helper's prerequisites.
+
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6b360ce7'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
