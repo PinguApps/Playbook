@@ -1,0 +1,26 @@
+{
+  "sourceCommit": "1ee19308f309a620c415eba0fdcda7ee3de6ae5e",
+  "sources": [
+    {
+      "sha256": "3909a502ac647593e0d39b8183b5d8f669cf79cd67b68a937d1239965a55aa79",
+      "id": "tensor-operations",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/Tensor.cs"
+    },
+    {
+      "sha256": "eee61600ab8f7fcd9f02150c735842a3b3efdae446bea63ed97dbd437503c450",
+      "id": "tensor-shape",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorShape.cs"
+    },
+    {
+      "sha256": "d2ab45a9f1a7efe319b18a388f51143e12abf6d4038f4f6161a4ee2a68b63260",
+      "id": "tensor-readonly-view",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/ReadOnlyTensorSpan_1.cs"
+    },
+    {
+      "sha256": "05043ff72eb5aac721c2952a6be529c5a093cfe0802ca4daf8b8d1697ff4ccb9",
+      "id": "tensor-guide",
+      "url": "https://raw.githubusercontent.com/dotnet/runtime/1ee19308f309a620c415eba0fdcda7ee3de6ae5e/src/libraries/System.Numerics.Tensors/README.md"
+    }
+  ],
+  "scope": "Official merged release/11.0 implementation for prepared tensor guidance; source review is not distributable-package execution."
+}

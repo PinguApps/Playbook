@@ -1,0 +1,15 @@
+{
+  "dependencies": [
+    "System.Numerics.Tensors/10.0.13"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/InstrumentBatch/ShapeChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-InstrumentBatch.ps1",
+    "docs/planning/audits/tensor-release.sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

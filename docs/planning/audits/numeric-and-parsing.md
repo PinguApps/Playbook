@@ -1,6 +1,6 @@
 # Numeric and parsing compatibility: PIN-683
 
-Reviewed **21 October 2026**. The original audit below is source-only. Its nine proposals were subsequently approved and tracked by PIN-986. The **30 October delivery reconciliations** below record actual A–D delivery and qualify the original source claims; other proposals retain their own owners. Existing recipe/edition identities remain intact.
+Reviewed **21 October 2026**. The original audit below is source-only. Its nine proposals were subsequently approved and tracked by PIN-986. The **30 October delivery reconciliations** below record actual A–D delivery, E–F full-release preparation and qualify the original source claims; other proposals retain their own owners. Existing recipe/edition identities remain intact.
 
 ## Scope, provenance and evidence boundary
 
@@ -61,6 +61,81 @@ ID/title/goal, target/edition, applicability and freshness using the existing
 [Inspector procedure](../../inspect-guidance.md#date-parser-settings-and-numeric-representation).
 These claims do not close PIN-959, PIN-962, other delivery owners or Human gates;
 RC2 is not actual-GA evidence and exactly eight .NET10 foundations remain.
+
+### E and F full-release preparation — 30 October 2026
+
+PIN-1049 implements `numerics.handle-complex-special-values` edition11.0 with
+original paired SignalPipeline consumers. SDK10.0.402 / C#14 / runtime/ref10.0.13
+and SDK11.0.100-rc.2.26504.105 / C#15 / runtime/ref11RC2 execute nongeneric Complex
+throughout. `eng/Record-ComplexSignals.ps1` refreshes the existing sample records
+with exact commands, compiler/reference/runtime hashes, parsed inputs, component
+bits and results. Three immutable manifest sources (`complex` and both runtime
+API declarations) were downloaded again and matched their saved hashes. No NuGet,
+native, provider, workload or experimental opt-in is needed; these isolated samples
+remain author-maintained dependencies with no new Renovate permission.
+
+The carrier `(+infinity,-infinity)` times `(2,0)` and `(6,-8)/zero` change from two
+NaNs to directed infinities. Finite controls, both Pow overloads, elementary,
+trigonometric, hyperbolic and inverse cases and signed-zero branch controls run
+on both actual runtimes. Infinity takes precedence over a companion NaN in the
+application classifier, without inventing the companion's value. Reciprocal of
+zero returns zero on **both** artifacts; Abs of `(infinity,NaN)` is already infinite
+on both. The recipe does not infer these results from division or promise the
+unspecified sign of a zero quotient component. Windows x64 CoreCLR JIT is measured;
+other engines/platforms and GA remain unverified.
+
+Initial PIN-1050 qualification found the required behavior absent from published packages. Actual
+System.Numerics.Tensors11RC2 (`lib/net11.0`, SHA-256
+`d913d8854af9059f35843db398289c01db2ccb19e12b35dbfb34aee45d3bc791`)
+and published 11.0.0-rc.3.26522.148 (`lib/net11.0`, SHA-256
+`527c413032fe43f23ca53f577195d68333c1b051de27401cd9e81e37d9cea46d`)
+both return false for SequenceEqual of `[3]` and `[1,1,3]`. The RC3 consumer also
+observes a NullReferenceException for default-empty addition to `[2,0]`, rejection
+of mixed-rank concatenate and an IndexOutOfRangeException for an empty Any call.
+The published package repository commits are respectively
+`820230c386db5b0106c5430b3e5aee92a7826bf5` and
+`5254d8bcf59917edc1e1abc33bdf2442b77b1c70`. The compatibility note's
+[merged implementation](https://github.com/dotnet/runtime/pull/135060) is separate
+source evidence, not proof that either package contains the new behavior.
+
+The ordinary locally packed/installed artifact passed real stdio list/get from an
+unrelated directory: ID/title/goal, complete canonical complex Markdown,
+target11/edition11 applicability, current paired evidence, structured/text equality
+and expected target10 rejection. See the [copyable Inspector block](../../inspect-guidance.md#complex-signal-classification-and-tensor-shape-preparation).
+
+Further provenance review found the dedicated release/11.0 backport
+[#135281](https://github.com/dotnet/runtime/pull/135281), merged6October2026 as
+`1ee19308f309a620c415eba0fdcda7ee3de6ae5e`, still contained in the release branch.
+It explicitly includes the shape, default-empty, Any and native-width changes.
+The [four pinned release sources](tensor-release.sources.json) record operation,
+shape, view and guide identities separately from the original24-source audit.
+This establishes intended .NET11 inclusion; final distributable execution is separate.
+
+Pingu subsequently authorized full-release recipe implementation with final-package
+verification deferred to **PIN-962**. PIN-1050 now prepares
+`numerics.align-tensor-shapes` edition11.0 with original InstrumentBatch policies.
+The real .NET10/tensor10.0.13 consumer executes explicit three-channel indexing and
+retains destination metadata. Both actual consumers compile, with SDK11RC2 and
+locked tensor11RC2/net11 used only for current signature/build proof. Compiler,
+reference and package identities, commands and input hashes are captured through
+`eng/Record-InstrumentBatch.ps1`. No newer-package-on-net10 route is advertised.
+
+The committed future suite covers default/ranked empties, leading/internal/zero
+axes, equality versus broadcasting, first-input combine axes, destinations,
+views/index extrema and all five scalar/pairwise Any predicates. The opt-in native
+suite preflights measured Windows x64 physical/commit memory and uses three byte
+buffers of2,147,483,656 elements each (about6GiB plus2GiB headroom), with late
+matches, copy/equality/reverse/view/index checks and finally-based cleanup.
+That suite's successful new-behavior and native execution remain **unverified**.
+
+PIN-962's saved acceptance criterion now explicitly owns the final SDK/runtime/
+package selection, backport presence, small/native executions and evidence refresh.
+The recipe's pending proof, discovery warning and constraints preserve these gaps;
+release-ready packaging remains blocked. This preparation decision permits the
+combined implementation PR without relabelling RC compilation as successful final
+execution. PIN-959, PIN-962, the other delivery owners and Human gates stay open;
+eight .NET10 foundations remain. These sample dependencies stay author-maintained;
+no Renovate permissions or recurring native/client/OS matrix are added.
 
 All eight notes describe behavioral changes. **Included** means authored mitigation or changed assumptions remain delivery work. **Grouped** means a named existing goal shares responsibility; it does not imply complete recipe coverage. The extra tensor rows retain findings explicitly assigned by PIN-703.
 
