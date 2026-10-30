@@ -44,6 +44,10 @@ static void Policy()
 #if NET11_0
     try { BatchPolicy.RequireExact(output.Lengths, [3]); throw new InvalidOperationException("lost exact-shape policy"); }
     catch (ArgumentException) { Console.WriteLine("PASS exact stored-shape policy rejects equivalent padding"); }
+#else
+    ReadOnlyTensorSpan<int> invalid = new(new[] { 2, 5, 8 }, [3, 1]);
+    try { BatchPolicy.AddAligned(left, invalid, output); throw new InvalidOperationException("accepted internal padding"); }
+    catch (ArgumentException) { Check(storage.SequenceEqual(new[] { 6, 12, 17 }), "invalid instrument shape rejected before writes"); }
 #endif
 }
 
