@@ -2,6 +2,17 @@
 
 Reviewed **22 October 2026**. This is a bounded artifact/API/configuration and official-source audit. It supplements [PIN-688's host/migration audit](sdk-package-hosts.md). It delivers no recipe, validates no proposed consumer, and clears no comprehensive-content or GA publication gate. The 29 delivery drafts below require review before ticket creation or implementation.
 
+## Scope cancellations, 30 October 2026
+
+Pingu cancelled B05 / PIN-1122, B23 / PIN-1140, B24 / PIN-1141 and B29 / PIN-1145.
+These source changes remain audited, but do not require recipe delivery. Playbook
+requires a Microsoft-documented intended developer scenario, beyond public API
+visibility or an invented working consumer. Individual ticket comments retain
+source evidence: the server client explicitly excludes third-party support;
+the workload delegate serves the SDK task; the dependency change does not establish
+direct task use; and the filter helpers are non-shipping. Documented GenAPI controls
+are a separate feature. No replacement tasks or waived publication/GA gates follow.
+
 ## Boundary and provenance
 
 [PIN-707](https://linear.app/pinguapps/issue/PIN-707), planning key **API_BUILD**; `SPEC.md` at `0a8989814ea11346354464b845c79c15bb71c5e9`, stories 47, 104–106 and 158–160; approved proposal `b3778cc`. Current coverage/implementation/verification plans, glossary, ADRs 0001–0004 and contribution/dependency policies constrain the audit. Root PLAN.md, CONTEXT.md and CONTEXT-MAP.md are absent. The planning README's statement that implementation has not begun is historical: actual recipes, evidence and installed-tool checks now exist.
@@ -116,7 +127,8 @@ Delivered under **PIN-1121** as [edition 11.0](../../../content/recipes/msbuild.
 
 ### B05. Migrate a custom MSBuild server client — M (3)
 
-Proposed `msbuild.migrate-server-client`. Compare the old Experimental namespace with current Server types/constructor/results and short-lived node semantics. A disposable child host executes success, build failure and cancellation, then shuts down only its own server; prove exits and no orphan process. Disclose EditorBrowsable/internal-support limitations and require an official supported use decision before publishing an embedding recommendation. Ordinary dotnet build users need no API migration.
+Cancelled on 30 October 2026 as PIN-1122; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ### B06. Read experimental build file-access records correctly — M (3)
 
@@ -307,11 +319,13 @@ installed offline retrieval, the eight foundations and existing gates are retain
 
 ### B23. Resolve workloads using an explicit host environment — M (3)
 
-Proposed `sdk.resolve-workloads-with-host-environment`. An original workload metadata tool uses WorkloadResolver.Create's new environment delegate with real disposable manifest files. Compare ambient versus injected values, null/default callback, missing manifest and conflicting root inputs without installing workloads or changing machine environment. Record the reader's supported external-use contract before publication; optional native compilation is required only if advertised beyond manifest resolution.
+Cancelled on 30 October 2026 as PIN-1140; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ### B24. Migrate custom dependency-file task inputs — M (3)
 
-Proposed `sdk.migrate-custom-dependency-file-inputs`. An original custom build invoking GenerateDepsFile supplies ITaskItem[] instead of the removed string[] UserRuntimeAssemblies contract. Generate actual old/new deps.json from real assemblies, verify library/runtime paths and execute the resulting application. Establish the supported direct-task extension contract and exact target framework before authoring; do not replace this with a manually written dependency file. Runtimeconfig migration remains with PIN-687.
+Cancelled on 30 October 2026 as PIN-1141; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ### B25. Choose console encoding for redirected SDK output — M (3)
 
@@ -331,7 +345,8 @@ Proposed `sdk.migrate-optimized-publish-hooks`. An original NativeAOT applicatio
 
 ### B29. Select the intended public API comparison surface — M (3)
 
-Proposed `packaging.select-api-comparison-symbols`. An original library validation tool migrates CompositeSymbolFilter's constructor/mode and DocIdSymbolFilter/SymbolFilterFactory inclusion contracts. Pin actual ApiSymbolExtensions, Roslyn and compatibility-library assets. Build old/fixed consumers, compare real original assemblies containing deliberately included/excluded APIs, verify And/Or and empty-list controls and a known breaking change. Record the selected symbols and actual validation result; a hand-authored list alone is insufficient. Do not silently convert an exclusion list to an inclusion list or assume named/params calls remain source-compatible.
+Cancelled on 30 October 2026 as PIN-1145; see the scope cancellations above.
+Original proposal and evidence remain in Git history. No recipe is required.
 
 ## Reproduce and inspect
 

@@ -35,14 +35,6 @@ no NuGet libraries. See [the bounded disposition](../audits/web.md#w02-supply-an
 PIN-959/PIN-964, actual GA and existing Human gates stay open; no ninth .NET10
 foundation, backport or change to the standard form-protection recipe is implied.
 
-**B14 / PIN-1168** supplies `razor.choose-task-generation-path/11.0`: original
-ExhibitCompiler targets execute actual SDK10 engine/default and RC2 default,
-explicit engine/hosted task paths. Generated C# compiles and renders; dependency,
-manifest and invalid-input controls qualify discovery and diagnostics. Matching
-SDK task/rzc/compiler/MSBuild closures are pinned; the private forwarding property
-is not stable app configuration. No older-target hosted route or ninth foundation.
-PIN-959/PIN-964 and actual-GA gates remain open.
-
 Research date: 16 October 2026. Planning only; no samples, SDK installation, compilation, browser execution, database execution, or package verification. Proposed IDs and grouping are reviewable inventory entries, not published contracts. All goal labels below were written for Playbook; the guide's demonstrations and code were not copied.
 
 This audit covers every top-level change in the current cumulative ASP.NET Core 11 and EF Core 11 articles, their migration/breaking-change inventories, and the canonical RC1/RC2 component notes. It preserves the accepted 25 guide topics, seven additions and three expansions explicitly. It is not an exhaustive API-diff audit. GA reconciliation remains mandatory. A source-review inclusion does not satisfy the example compilation gate.
@@ -51,23 +43,13 @@ Original inventory size: 156 disposition rows — 127 included goal proposals, 1
 
 ### Supplemental Blazor/Razor API reconciliation
 
-**B13 / PIN-1167** supplies `razor.copy-intermediate-nodes/11.0`: original
-MapCompiler manual/current-hook libraries, matching actual SDK artifacts, real
-pipeline and generated C# execution, original preservation and measured copy/shared
-boundaries. The new hook is protected; recursive cloning is internal. Only the
-verification harness probes that private caller and the older output reader.
-The public map copy accepts a closed HTML/token tree and shares immutable values.
-See the [bounded delivery](../audits/blazor.md#intermediate-node-copy-delivery-b13--pin-1167).
-PIN-959 comprehensive coverage and PIN-964 actual-GA gates remain open.
-
-**B12 / PIN-1166** supplies `razor.migrate-generated-document-contracts/11.0`:
-actual matching SDK compiler/Roslyn sets, retained text/diagnostics/mappings,
-diagnostic-import and declaration/stub choices, and source-versus-binary
-constructor checks. The older SDK's reader is internal; only the verification
-harness observes it, while the canonical older module consumes host-supplied
-output. That limitation remains explicit. See the
-[bounded reconciliation](../audits/blazor.md#generated-document-tool-delivery-b12--pin-1166).
-These records do not waive comprehensive content or actual-GA gates.
+**B12–B14 / PIN-1166–1168 were withdrawn on 30 October 2026.** Their three
+Razor compiler/task recipes and dedicated samples/checks were removed by Pingu's
+scope decision. Source/API changes and successful custom consumers alone do not
+establish an intended external scenario for Playbook. See the
+[withdrawal record](../audits/blazor.md#withdrawn-compiler-guidance-b12b14--pin-11661168).
+No replacement delivery obligation is created; comprehensive and actual-GA gates
+remain open.
 
 PIN-813 authors `signalr.refresh-live-credentials/11.0` and
 `blazor.react-to-refreshed-identity/11.0` with original CopperRidgeHub and

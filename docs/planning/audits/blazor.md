@@ -1,73 +1,22 @@
 # Blazor and Razor authoring coverage: PIN-708
 
-## Authored task generation delivery: B14 / PIN-1168
+## Withdrawn compiler guidance: B12–B14 / PIN-1166–1168
 
-`razor.choose-task-generation-path/11.0` supplies original ExhibitCompiler
-consumers that invoke the real SDK10/RC2 SdkRazorTagHelper and SdkRazorGenerate
-tasks. Matching task/rzc/compiler/MSBuild closures generate C# that compiles
-and executes through HtmlRenderer. The older default engine remains valid.
-RC2 omitted flags and explicit false select the engine; explicit true hosts
-the source generator. Real dependency and empty-manifest controls distinguish
-manifest-driven engine discovery from reference-driven hosted generation.
-Invalid Razor, relative discovery paths, missing output metadata and the
-unavailable older flag fail through the actual tasks.
+On 30 October 2026, Pingu withdrew these three delivered recipes after the
+project-wide scope review. Playbook teaches version changes Microsoft presents
+for developers to use, configure or migrate. Public members, source diffs and
+successful custom samples alone do not establish that intended external scenario.
 
-The public task parameters provide the bounded usable invocation seam. The
-underscored forwarding property remains private SDK implementation detail,
-not stable application configuration. No older-target hosted route is taught.
-Fresh records retain exact inputs/tool identities and generated output; binlogs
-and full artifacts are disposable outputs of `eng/Record-ExhibitCompiler.ps1`.
-M (3) covers one advanced task consumer, paired original samples/prose, actual
-execution/failure checks and installed offline proof. No native/browser/IDE or
-actual-GA claim; exact eight foundations and existing identities remain.
-PIN-959 qualifying coverage and PIN-964 actual-GA reconciliation stay open.
+- B12 / PIN-1166: `razor.migrate-generated-document-contracts/11.0`.
+- B13 / PIN-1167: `razor.copy-intermediate-nodes/11.0`.
+- B14 / PIN-1168: `razor.choose-task-generation-path/11.0`.
 
-## Intermediate-node copy delivery: B13 / PIN-1167
-
-`razor.copy-intermediate-nodes/11.0` supplies original MapCompiler libraries
-against SDK 10.0.402 and 11.0.100-rc.2.26504.105 with their matching Razor
-compiler/utility and Roslyn artifacts. The actual compiler/utility hashes match
-this audit. An older manual copy remains valid; the current protected
-`CloneNode` override supplies only a shell. Recursive `Clone` is internal,
-not a public generic copy operation. Neither pinned compiler has an
-`IntermediateNode.Annotations` property; the example explicitly owns its notes.
-
-`eng/Record-MapCompiler.ps1` captures real baseline/transformed pipeline output
-and compiles/executes that generated C#. Original coast/blue/Estuary content
-remains unchanged while the working tree becomes ridge/amber/Ridge. Focused
-checks distinguish new writable containers/nodes/tokens from shared immutable
-strings, note and diagnostic values; preserve common state/diagnostic accumulation;
-and reproduce shallow-copy leakage and unknown-node refusal. Private probes
-observe the current recursive caller/missing-hook failure and older output
-reader only in verification. They are not taught application routes.
-
-M (3) includes extension-node and real pipeline tests, paired original prose/samples,
-artifact qualification, fresh evidence and installed offline delivery. This is a
-closed acyclic HTML/token vocabulary, not arbitrary tree/alias/internal-state,
-IDE, MVC/browser or GA proof. Exact eight foundations and existing identities are
-preserved. PIN-959 qualifying coverage and PIN-964 actual-GA reconciliation stay open.
-
-## Generated-document tool delivery: B12 / PIN-1166
-
-`razor.migrate-generated-document-contracts/11.0` uses original CatalogueCompiler
-modules against each exact SDK's compiler, Razor utility and Roslyn dependency
-set. Actual valid/invalid pipeline checks retain text, diagnostics, both mapping
-orders and line pragmas. The optional `reportDiagnostics` flag controls importing
-tree diagnostics, not later explicit `AddDiagnostic` calls. Declaration/stub flags
-label output; they do not regenerate it. An actual previously compiled constructor
-caller fails with MissingMethodException against current tooling; rebuilt source
-uses the new optional defaults successfully.
-
-**Older availability:** SDK 10.0.402 has no public generated-output reader. Its
-canonical public constructor module consumes an existing host's output; only the
-verification harness uses a pinned private-reader observation. No supported older
-reader or reflection-based consumer route is taught. Current SDK RC2 has a public
-reader. Actual mapping spans can begin at an emitted Write wrapper, and invalid
-input can retain a zero-length mapping; the module preserves these coordinates
-without claiming identical source/generated substrings. Fresh sample records and
-`eng/Record-CatalogueCompiler.ps1` retain the precise artifacts and observations.
-No arbitrary IDE host, generated application execution or actual-GA claim follows.
-PIN-959 and PIN-964 remain open.
+Their recipes, dedicated paired samples and recorders have been removed. The
+previous implementation and its bounded test results remain in Git history;
+this is a scope withdrawal, not a finding that those tests failed or a blanket
+claim about Razor support. These source differences remain accounted for as
+excluded guidance. They are not outstanding delivery obligations. Historical
+Done tickets remain historical; PIN-959/PIN-964 and actual-GA gates stay open.
 
 ## B11 and B15 delivery, 28 October 2026
 
@@ -308,9 +257,9 @@ source-only scripts, defaults, markup, manifests and removable workarounds.
 | RenderTreeBuilder.SetAttributeValue | Experimental **ASP0032**, indexed pending attribute-frame replacement; not an ordinary application rendering recommendation. | **B04 / PIN-1158 delivered**: `blazor.update-staged-render-attribute/11.0`; real renderer/HTML and failure checks, advanced pending-tree authoring only. |
 | CircuitOptions.JsonTypeInfoResolvers | Experimental **ASPNETCORE9004**, EditorBrowsable Never. RemoteJSRuntime and protected-browser-storage source insert resolvers in registration order before reflection fallback. | **B05 / PIN-1159 delivered**: `blazor.configure-circuit-json-metadata/11.0`; real interop/DI storage and scope/fallback checks; no full circuit-protocol or NativeAOT claim. |
 | InputFile protected virtual Dispose(bool) | New subclass cleanup hook; existing public IDisposable behavior remains. | **B15**. |
-| Razor compiler document constructors/output flags/GetCSharpDocument | Optional parameters preserve some source calls but change CLR constructor identity; custom compiled tool hosts must rebuild against matching tooling. | **B12**. |
-| Intermediate-node CloneNode overrides | Authored custom Razor transformations can copy nodes; not a guarantee of deep-copying every mutable descendant. | **B13**. |
-| SdkRazorGenerate Assemblies/UseSourceGenerator; SdkRazorTagHelper.UseSourceGenerator | Advanced build-task source-generator path; default remains false. `_RazorToolUseSourceGenerator` is an internal SDK switch, not a stable public application property. | Delivered PIN-1168, `razor.choose-task-generation-path/11.0`; actual old/current task execution, generated rendering and discovery/failure controls. Private forwarding default remains excluded as app configuration; GA gates open. |
+| Razor compiler document constructors/output flags/GetCSharpDocument | Optional parameters preserve some source calls but change CLR constructor identity; custom compiled tool hosts must rebuild against matching tooling. | Withdrawn B12–B14, 30 October 2026; see scope decision above. No recipe delivery obligation. |
+| Intermediate-node CloneNode overrides | Authored custom Razor transformations can copy nodes; not a guarantee of deep-copying every mutable descendant. | Withdrawn B12–B14, 30 October 2026; see scope decision above. No recipe delivery obligation. |
+| SdkRazorGenerate Assemblies/UseSourceGenerator; SdkRazorTagHelper.UseSourceGenerator | Advanced build-task source-generator path; default remains false. `_RazorToolUseSourceGenerator` is an internal SDK switch, not a stable public application property. | Withdrawn B12–B14, 30 October 2026; see scope decision above. No recipe delivery obligation. |
 | Razor task TaskEnvironment/IMultiThreadableTask and scheduling attributes | Built-in task scheduling is automatic; custom task concurrency contracts already assigned. | Grouped with PIN-707; no Razor-specific duplicate. |
 | Razor language 11/default task TFM, net10-only embedded validation attributes | SDK/runtime selection and removal of embedded validation aliases/suppressions on net11. Keep net10 path separate. | PIN-772/PIN-748; SDK pin/dependency boundary PIN-707. |
 | Razor runtime compilation AddRazorRuntimeCompilation overloads | Actual RC2 overloads gain ASPDEPR003; runtime behavior is not removed. | Delivered: PIN-840, `razor.replace-runtime-compilation-registration/11.0`; .NET 10 RuntimeCompilation 10.0.13 versus package-free RC2 MVC/Razor Pages render/encoding checks. Hot Reload choice documented; live edit and F# publishing not claimed. GA reconciliation pending. |
@@ -518,36 +467,12 @@ disconnect/disposal race. Assert the chosen recovery and that unrelated failures
 remain visible. Analyzer silence alone proves neither safe lifecycle timing nor
 correct exception recovery. M includes the real race/renderer behavior.
 
-### B12. Keep a custom Razor tool constructing and reading generated documents — M (3)
+### B12–B14. Historical compiler proposals — withdrawn
 
-Proposed `razor.migrate-generated-document-contracts`. An original fictional catalogue
-tool processes Razor source through the actual SDK compiler. Pin each SDK's compiler
-and Roslyn dependency set. Compare the old constructor calls with the new optional
-diagnostic/declaration/stub choices; rebuild and execute the tool, asserting generated
-text, diagnostics and source mappings for a valid and invalid input. Test a previous
-compiled constructor consumer against the new tooling to distinguish source-compatible
-optional arguments from ABI compatibility. M covers one custom tool, not all IDE hosts.
-
-### B13. Copy intermediate Razor nodes before a custom transformation — M (3)
-
-Proposed `razor.copy-intermediate-nodes`. A fictional map renderer transforms an
-original custom intermediate node. Use matching compiler artifacts and an original
-old manual-copy alternative; implement/use the new CloneNode hook where appropriate.
-Run the real Razor pipeline and prove which fields/annotations/children remain
-shared versus copied, original-node preservation and generated output. Do not
-advertise deep-cloning without proof. M includes extension-node and pipeline tests.
-
-### B14. Select the hosted generator in an authored Razor build task — M (3)
-
-Proposed `razor.choose-task-generation-path`. A fictional exhibit compiler invokes
-the actual SdkRazorGenerate/SdkRazorTagHelper tasks with explicit Assemblies and
-UseSourceGenerator. Compare the real older/default path with an explicit new task
-invocation, build/run generated output and check invalid input diagnostics and
-discovery dependencies. Pin actual tasks, rzc/compiler and MSBuild from each SDK;
-record binlogs and generated artifacts. Demonstrate defaults; disclose that the
-underscored SDK forwarding property is internal and not a stable app setting.
-M covers one bounded advanced task consumer and remains blocked if no usable public
-invocation route can be demonstrated.
+B12 (generated-document contracts), B13 (intermediate-node copying) and B14
+(authored Razor task generation) were implemented as PIN-1166–1168 and withdrawn
+on 30 October 2026. See the scope decision above. Their original proposals and
+consumer proof remain in Git history; no replacement recipe is required.
 
 ### B15. Clean up resources owned by an InputFile subclass — S (2)
 

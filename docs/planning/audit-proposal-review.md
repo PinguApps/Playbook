@@ -4,6 +4,31 @@ Review date: **26 October 2026**. Checkpoint: [PIN-986](https://linear.app/pingu
 Source baseline: Playbook main `a7fd46cd658708c25a7e0d032735760c3fe6d63f`.
 Destination: **PinguApps / Playbook**, team `62f80270-b641-4fa3-b60c-46be4c4df2c8`, project `b22380c7-6fde-49f4-8826-e5631dc5df7a`.
 
+## Superseding scope decision, 30 October 2026
+
+Pingu clarified that Playbook covers version changes Microsoft presents for
+developers to use, configure or migrate. An API diff or a working invented
+consumer alone is insufficient. This supersedes the seven original approvals
+below; the 26 October totals describe the historical checkpoint.
+
+- PIN-1122: cancelled; the MSBuild server client documentation explicitly says
+  third-party consumers are not expected or supported.
+- PIN-1140: cancelled; the workload environment delegate was introduced for the
+  SDK's own multithreaded task, without an established external-reader scenario.
+- PIN-1141: cancelled; the documented dependency path configuration does not
+  establish guidance for calling GenerateDepsFile directly.
+- PIN-1145: cancelled; the proposed helpers are non-shipping; the documented
+  GenAPI command-line/MSBuild controls are a separate developer-facing feature.
+- PIN-1166, PIN-1167 and PIN-1168: delivered guidance withdrawn; the generated
+  document, node-copy and direct Razor-task scenarios lacked an established
+  Microsoft-documented intended external use. Recipes and dedicated assets removed.
+
+Cancellation comments on each unfinished ticket retain its specific evidence.
+Completed tickets preserve implementation history. Source differences remain
+accounted for as excluded guidance, without replacement delivery obligations or
+waiving any comprehensive-content, Human or actual-GA gate. See the
+[Blazor withdrawal record](audits/blazor.md#withdrawn-compiler-guidance-b12b14--pin-11661168).
+
 ## Decision and scope
 
 Pingu explicitly authorized autonomous review decisions and creation of the resulting
@@ -274,7 +299,7 @@ prerequisites, compilation/behaviour acceptance and sizing rationale.
 | `sdk-build:B02` | Evaluate only the project information a tool needs | approved | [PIN-1119](https://linear.app/pinguapps/issue/PIN-1119) | M (3) | — |
 | `sdk-build:B03` | Register a closed set of build extensions in an AOT host | approved | [PIN-1120](https://linear.app/pinguapps/issue/PIN-1120) | L (5) | — |
 | `sdk-build:B04` | Consume structured assembly-conflict and server events | approved | [PIN-1121](https://linear.app/pinguapps/issue/PIN-1121) | M (3) | — |
-| `sdk-build:B05` | Migrate a custom MSBuild server client | approved | [PIN-1122](https://linear.app/pinguapps/issue/PIN-1122) | M (3) | — |
+| `sdk-build:B05` | Migrate a custom MSBuild server client | cancelled — 30 October scope review | [PIN-1122](https://linear.app/pinguapps/issue/PIN-1122) | M (3) | — |
 | `sdk-build:B06` | Read experimental build file-access records correctly | approved | [PIN-1123](https://linear.app/pinguapps/issue/PIN-1123) | M (3) | — |
 | `sdk-build:B07` | Upload packages to a V3 staging endpoint | approved | [PIN-1124](https://linear.app/pinguapps/issue/PIN-1124) | L (5) | — |
 | `sdk-build:B08` | Invalidate custom NuGet caches between reused builds | approved | [PIN-1125](https://linear.app/pinguapps/issue/PIN-1125) | M (3) | — |
@@ -292,13 +317,13 @@ prerequisites, compilation/behaviour acceptance and sizing rationale.
 | `sdk-build:B20` | Verify the signature of a selected .NET base image | approved | [PIN-1137](https://linear.app/pinguapps/issue/PIN-1137) | M (3) | — |
 | `sdk-build:B21` | Migrate an authored Azure Linux base-image selection | approved | [PIN-1138](https://linear.app/pinguapps/issue/PIN-1138) | L (5) | — |
 | `sdk-build:B22` | Observe VSTest collector events without rewriting outcomes | approved; Pingu corrected the reversed setter premise on 30 October 2026 | [PIN-1139](https://linear.app/pinguapps/issue/PIN-1139) | M (3) | — |
-| `sdk-build:B23` | Resolve workloads using an explicit host environment | approved | [PIN-1140](https://linear.app/pinguapps/issue/PIN-1140) | M (3) | — |
-| `sdk-build:B24` | Migrate custom dependency-file task inputs | approved | [PIN-1141](https://linear.app/pinguapps/issue/PIN-1141) | M (3) | — |
+| `sdk-build:B23` | Resolve workloads using an explicit host environment | cancelled — 30 October scope review | [PIN-1140](https://linear.app/pinguapps/issue/PIN-1140) | M (3) | — |
+| `sdk-build:B24` | Migrate custom dependency-file task inputs | cancelled — 30 October scope review | [PIN-1141](https://linear.app/pinguapps/issue/PIN-1141) | M (3) | — |
 | `sdk-build:B25` | Choose console encoding for redirected SDK output | approved | [PIN-1142](https://linear.app/pinguapps/issue/PIN-1142) | M (3) | — |
 | `sdk-build:B26` | Create an MCP server from the bundled template | grouped | [PIN-819](https://linear.app/pinguapps/issue/PIN-819) | M (3) | — |
 | `sdk-build:B27` | Configure a registry authentication challenge that the SDK accepts | approved | [PIN-1143](https://linear.app/pinguapps/issue/PIN-1143) | M (3) | — |
 | `sdk-build:B28` | Preserve custom hooks in optimized native publishing | approved | [PIN-1144](https://linear.app/pinguapps/issue/PIN-1144) | M (3) | — |
-| `sdk-build:B29` | Select the intended public API comparison surface | approved | [PIN-1145](https://linear.app/pinguapps/issue/PIN-1145) | M (3) | — |
+| `sdk-build:B29` | Select the intended public API comparison surface | cancelled — 30 October scope review | [PIN-1145](https://linear.app/pinguapps/issue/PIN-1145) | M (3) | — |
 
 ### blazor-removed-apis
 
@@ -333,9 +358,9 @@ prerequisites, compilation/behaviour acceptance and sizing rationale.
 | `blazor:B09` | Bind each repeated action to its own item | approved | [PIN-1163](https://linear.app/pinguapps/issue/PIN-1163) | S (2) | — |
 | `blazor:B10` | Expose an intended JavaScript callback with the right visibility | approved | [PIN-1164](https://linear.app/pinguapps/issue/PIN-1164) | S (2) | — |
 | `blazor:B11` | Handle JavaScript invocation failures without hiding application errors | approved | [PIN-1165](https://linear.app/pinguapps/issue/PIN-1165) | M (3) | — |
-| `blazor:B12` | Keep a custom Razor tool constructing and reading generated documents | approved | [PIN-1166](https://linear.app/pinguapps/issue/PIN-1166) | M (3) | — |
-| `blazor:B13` | Copy intermediate Razor nodes before a custom transformation | approved | [PIN-1167](https://linear.app/pinguapps/issue/PIN-1167) | M (3) | — |
-| `blazor:B14` | Select the hosted generator in an authored Razor build task | approved | [PIN-1168](https://linear.app/pinguapps/issue/PIN-1168) | M (3) | — |
+| `blazor:B12` | Keep a custom Razor tool constructing and reading generated documents | withdrawn — 30 October scope review | [PIN-1166](https://linear.app/pinguapps/issue/PIN-1166) | M (3) | — |
+| `blazor:B13` | Copy intermediate Razor nodes before a custom transformation | withdrawn — 30 October scope review | [PIN-1167](https://linear.app/pinguapps/issue/PIN-1167) | M (3) | — |
+| `blazor:B14` | Select the hosted generator in an authored Razor build task | withdrawn — 30 October scope review | [PIN-1168](https://linear.app/pinguapps/issue/PIN-1168) | M (3) | — |
 | `blazor:B15` | Clean up resources owned by an InputFile subclass | approved | [PIN-1169](https://linear.app/pinguapps/issue/PIN-1169) | S (2) | — |
 | `blazor:B16` | Restore a completed agent conversation after restarting its view | approved; availability gated | [PIN-1170](https://linear.app/pinguapps/issue/PIN-1170) | M (3) | — |
 
