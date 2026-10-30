@@ -20,8 +20,12 @@ $before = @{}
 foreach ($scope in 'Process','User','Machine') { $before[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $previous = @{}
 foreach ($key in 'DOTNET_CLI_HOME','NUGET_PACKAGES','DOTNET_ADD_GLOBAL_TOOLS_TO_PATH','DOTNET_GENERATE_ASPNET_CERTIFICATE','HTTP_PROXY','HTTPS_PROXY','ALL_PROXY') { $previous[$key] = [Environment]::GetEnvironmentVariable($key) }
+$consoleEncoding = [Console]::OutputEncoding
+$previousOutputEncoding = $OutputEncoding
 New-Item -ItemType Directory -Path $session,$OutputDirectory -Force | Out-Null
 try {
+  [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false)
+  $OutputEncoding = [Text.UTF8Encoding]::new($false)
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   $env:DOTNET_GENERATE_ASPNET_CERTIFICATE = 'false'
   if ($RemovedRecipeId.Count -gt 0 -and $Query) { throw 'Removed-recipe checks require an unfiltered catalogue: pass -Query "".' }
@@ -154,6 +158,8 @@ try {
   finally { Pop-Location }
 }
 finally {
+  [Console]::OutputEncoding = $consoleEncoding
+  $OutputEncoding = $previousOutputEncoding
   foreach ($key in $previous.Keys) {
     if ($null -eq $previous[$key]) { Remove-Item -LiteralPath "Env:$key" -ErrorAction SilentlyContinue }
     else { [Environment]::SetEnvironmentVariable($key,$previous[$key]) }
