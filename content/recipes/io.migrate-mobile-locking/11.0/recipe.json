@@ -1,0 +1,146 @@
+{
+  "id": "io.migrate-mobile-locking",
+  "edition": "11.0",
+  "title": "Coordinate mobile file access without relying on advisory locks",
+  "goal": "Replace FileShare-based coordination on iOS and tvOS when default advisory locking is disabled, keeping in-process ownership separate from extension or cross-process coordination.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "native-boundaries",
+    "mobilejournal"
+  ],
+  "apis": [
+    "FileStream",
+    "FileShare",
+    "SemaphoreSlim",
+    "System.IO.DisableFileLocking"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Replace FileShare-based coordination on iOS and tvOS when default advisory locking is disabled, keeping in-process ownership separate from extension or cross-process coordination.",
+          "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current net11.0 guidance; measured RC2 where executed, not actual-GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; no experimental C# syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "iOS/tvOS CoreCLR default change; Mac Catalyst excluded; Windows portable helper execution only"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Previous comparison SDK10.0.402/C#14/runtime-reference10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/runtime-reference11RC2. Evidence values describe actual observations except explicitly intended source-only pins."
+          ],
+          "constraints": [
+            "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699.",
+            "Comparison samples do not add a .NET10 catalogue route or a ninth foundation. Keep PIN-959 comprehensive coverage, PIN-962 actual-GA reconciliation and existing Human gates open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence is not actual-GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MobileJournal/MobileJournal.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "runtime note — immutable official source",
+      "url": "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md"
+    },
+    {
+      "title": "filehandle unix — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs"
+    },
+    {
+      "title": "filehandle10 — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/MobileJournal/MobileJournal.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/MobileJournal/MobileJournal.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/MobileJournal/Journal.cs",
+      "region": "journal",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/MobileJournal/Journal.cs",
+      "region": "journal",
+      "language": "csharp"
+    },
+    "locking-config": {
+      "path": "samples/net11.0/MobileJournal/Locking.runtimeconfig.json.txt",
+      "region": "locking-config",
+      "language": "json"
+    }
+  },
+  "humanProof": {
+    "status": "not-tested",
+    "scope": "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699.",
+    "untestedSamples": [
+      "samples/net10.0/MobileJournal/MobileJournal.csproj",
+      "samples/net11.0/MobileJournal/MobileJournal.csproj"
+    ]
+  }
+}

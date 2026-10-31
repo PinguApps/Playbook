@@ -1,0 +1,139 @@
+{
+  "id": "crypto.bound-hkdf-inputs",
+  "edition": "11.0",
+  "title": "Enforce an explicit HKDF input contract on Windows",
+  "goal": "Reject oversized key-derivation input before deriving a key when a protocol must work with Windows CNG, preserving accepted keying material, salt and context bytes.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "native-boundaries",
+    "telemetrykeys"
+  ],
+  "apis": [
+    "HKDF.DeriveKey",
+    "HKDF.Expand",
+    "HKDF.Extract",
+    "HashAlgorithmName.SHA256"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Reject oversized key-derivation input before deriving a key when a protocol must work with Windows CNG, preserving accepted keying material, salt and context bytes.",
+          "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current net11.0 guidance; measured RC2 where executed, not actual-GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; no experimental C# syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [
+            "Windows CNG HKDF available; SHA-256; other hashes/providers not verified"
+          ],
+          "platforms": [
+            "Windows x64 CNG HKDF; measured OS build26200, SHA-256 only"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Previous comparison SDK10.0.402/C#14/runtime-reference10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/runtime-reference11RC2. Evidence values describe actual observations except explicitly intended source-only pins."
+          ],
+          "constraints": [
+            "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim.",
+            "Comparison samples do not add a .NET10 catalogue route or a ninth foundation. Keep PIN-959 comprehensive coverage, PIN-962 actual-GA reconciliation and existing Human gates open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence is not actual-GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/hkdf-windows-cng.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Managed.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TelemetryKeys/TelemetryKeys.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "hkdf cng — immutable official source",
+      "url": "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/hkdf-windows-cng.md"
+    },
+    {
+      "title": "hkdf windows — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs"
+    },
+    {
+      "title": "hkdf managed — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Managed.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/TelemetryKeys/TelemetryKeys.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/TelemetryKeys/TelemetryKeys.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/TelemetryKeys/TelemetryKeys.cs",
+      "region": "keys",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/TelemetryKeys/TelemetryKeys.cs",
+      "region": "keys",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Executed Windows x64 build26200, bcrypt10.0.26100.1, SHA-256 only: raw and canonical IKM/PRK 2048/2049, independent HMAC outputs, RFC5869 vector and preserved inputs; no all-hash/all-Windows or final-GA claim. Feasible checks are automated. Pingu owns feasible interactive approvals and refresh coordination; no new Human gate."
+  }
+}

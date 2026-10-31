@@ -1,0 +1,182 @@
+{
+  "id": "runtime.link-native-wasm-code",
+  "edition": "11.0",
+  "title": "Link native code into experimental CoreCLR WebAssembly apps",
+  "goal": "Include a native C function through NativeFileReference when an experimental CoreCLR WebAssembly application requires native code, after qualifying matching runtime and Emscripten assets.",
+  "areas": [
+    "runtime"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "native-boundaries",
+    "shorecalibration"
+  ],
+  "apis": [
+    "NativeFileReference",
+    "WasmBuildNative",
+    "UseMonoRuntime",
+    "DllImport"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Include a native C function through NativeFileReference when an experimental CoreCLR WebAssembly application requires native code, after qualifying matching runtime and Emscripten assets.",
+          "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current net11.0 guidance; measured RC2 where executed, not actual-GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; no experimental C# syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Matched CoreCLR browser-wasm runtime and WebAssembly SDK packs; no resolved compatible native closure measured"
+          ],
+          "providers": [],
+          "platforms": [
+            "Experimental CoreCLR browser-wasm with SIMD and wasm exception handling; no local native/browser execution"
+          ],
+          "renderingModes": [],
+          "workloads": [
+            {
+              "name": "Matched CoreCLR browser-wasm native workload and packs",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Intended RC2 CoreCLR toolchain composition is source-reviewed only; no compatible installed closure measured. Existing Mono wasm-tools label is insufficient."
+            }
+          ],
+          "prerequisites": [
+            "Intended SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105, C#15 and Emscripten6.0.2; matching assets unavailable, not measured.",
+            "Qualify the actual CoreCLR relink targets/imports, native archive ABI and JS host before building; no automatic installation or PATH integration."
+          ],
+          "constraints": [
+            "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient.",
+            "Comparison samples do not add a .NET10 catalogue route or a ninth foundation. Keep PIN-959 comprehensive coverage, PIN-962 actual-GA reconciliation and existing Human gates open."
+          ],
+          "optIns": [
+            "UseMonoRuntime=false; WasmBuildNative=true; experimental CoreCLR browser route"
+          ],
+          "stabilityLimitations": [
+            "Experimental CoreCLR WebAssembly/native relink route; source-reviewed only. Intended RC2 pins do not establish compilation, invocation or actual-GA support."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/mono/browser/build/BrowserWasmApp.CoreCLR.targets",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/eng/Versions.props",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/WasmSdk/Sdk/Sdk.props",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/WasmSdk/Sdk/Sdk.targets"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ShoreCalibration/ShoreCalibration.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "runtime note — immutable official source",
+      "url": "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md"
+    },
+    {
+      "title": "coreclr relink — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/mono/browser/build/BrowserWasmApp.CoreCLR.targets"
+    },
+    {
+      "title": "emscripten version — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/eng/Versions.props"
+    },
+    {
+      "title": "wasm sdk props — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/WasmSdk/Sdk/Sdk.props"
+    },
+    {
+      "title": "wasm sdk targets — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/WasmSdk/Sdk/Sdk.targets"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ShoreCalibration/ShoreCalibration.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows managed arithmetic comparison only; no native/WASM claim."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/ShoreCalibration/ShoreCalibration.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ShoreCalibration/Calibration.cs",
+      "region": "calibration",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/ShoreCalibration/Calibration.cs",
+      "region": "calibration",
+      "language": "csharp"
+    },
+    "project": {
+      "path": "samples/net11.0/ShoreCalibration/ShoreCalibration.csproj",
+      "region": "project",
+      "language": "xml"
+    },
+    "native": {
+      "path": "samples/net11.0/ShoreCalibration/shore_calibration.c",
+      "region": "native",
+      "language": "c"
+    },
+    "startup": {
+      "path": "samples/net11.0/ShoreCalibration/main.js",
+      "region": "startup",
+      "language": "javascript"
+    },
+    "program": {
+      "path": "samples/net11.0/ShoreCalibration/Program.cs",
+      "region": "program",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-tested",
+    "scope": "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient.",
+    "untestedSamples": [
+      "samples/net11.0/ShoreCalibration/ShoreCalibration.csproj"
+    ]
+  }
+}

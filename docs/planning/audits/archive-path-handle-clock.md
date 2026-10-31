@@ -55,6 +55,39 @@ No older-target catalogue, Unix, Native AOT, every-launcher or GA execution clai
 is added. Existing recipe/edition IDs and the eight foundations remain unchanged;
 PIN-959 and PIN-962 retain their independent comprehensive and actual-GA gates.
 
+## PIN-741 delivery reconciliation — 31 October 2026
+
+`io.use-pipe-handles` edition11/target11 now carries original bounded pipe reports
+and explicit connected-handle ownership. Actual SDK10.0.402/C#14/runtime-ref10.0.13
+and SDK11RC2/C#15/runtime-ref11RC2 consumers compile/run on Windows x64. The same
+managed artifacts execute in digest-pinned, network-none Linux containers. Current
+pipe type/flags, four blocking/nonblocking end combinations, FileStream ownership,
+EOF, regular-file async reads and platform-specific SendPacketsElement constructor
+guards pass. Unix shared socket modes tighten755→600 and remain600; restricted
+bind starts600. The observed older755 modes depend on umask0022, not a universal
+older permission contract. No cross-user or packet-transmission claim is added.
+
+The unchanged old connected-handle constructor fails with SYSLIB0063 against
+current references; supported current code builds without suppression. The
+historical .NET10 implementation *does* use isConnected to set its state. The
+ineffective-argument wording applies to the current obsolete delegating overload;
+the original audit's shorthand must not imply that false was equivalent on both
+releases. The valid old canonical call supplies true for a connected handle.
+
+`io.migrate-mobile-locking` retains old/new Unix implementation review and complete
+offline ownership/switch guidance. Its portable MobileJournal consumers execute
+on Windows, including singleton concurrency and cancellation. Actual iOS/tvOS
+native compilation, sharing enforcement, suspension and compatibility-setting
+behavior are explicitly sample-specific not-tested under PIN-699; no Apple proof
+is inferred from host execution. Mac Catalyst is excluded from the changed default.
+
+Exact inputs, compiler/reference/native hashes and source classifications use
+the existing sample evidence via `eng/Record-NativeBoundaries.ps1 -VerifySources`
+and [bounded immutable sources](native-boundaries.sources.json). Ordinary packed,
+isolated-feed-installed list/get inspection is in the
+[walkthrough](../../inspect-guidance.md#pipe-handles-mobile-locking-native-webassembly-and-hkdf-inputs).
+Other audit owners, eight foundations and PIN-959/PIN-962/other Human gates remain.
+
 ## Full mitigation dispositions
 
 **Included** retains an authoring obligation. **Grouped** assigns it to an existing goal and distinguishes delivered checks from outstanding work. No listed finding has an unknown owner.
@@ -66,8 +99,8 @@ PIN-959 and PIN-962 retain their independent comprehensive and actual-GA gates.
 | [TAR hard links][tar-hardlinks], Preview 3 | File-path WriteEntry/WriteEntryAsync can emit a HardLink after the first file sharing its identity instead of copying bytes. Use `TarWriterOptions.HardLinkMode = TarHardLinkMode.CopyContents` when independent entries are required. Extraction's separate `TarExtractOptions.HardLinkMode` chooses links or copies; unsupported link creation can fail. | **Included → B.** PIN-732's format/sparse recipe expressly excludes this policy. RC2 exposes `TarWriter(Stream,TarWriterOptions,bool)` and TarFile extraction options overloads for paths/streams, sync/async. Defaults are PreserveLink, PAX writer format, and OverwriteFiles=false. Do not invent an options overload on TarEntry.ExtractToFile; manual TarEntry writes are not the same as filesystem identity detection. |
 | [ZIP asynchronous initialization][zip-eager], Preview 1 | `ZipArchive.CreateAsync` reads the central directory before returning in Read mode; malformed-directory errors can move from Entries access into the awaited factory. Keep initialization in the InvalidDataException boundary. Successful directory loading does not read/CRC-validate every payload. | **Included → C.** PIN-731 covers entry access/protection; PIN-732 covers full payload reads, neither proves this timing. `zip-initialization` awaits EnsureCentralDirectoryReadAsync in Read and nonempty Update modes; Create has no existing directory. Both reference baselines expose the same five-argument factory. Existing .NET 10 initialization failures must not be described as impossible. |
 | [Apphost invocation name][apphost-name], Preview 7 | GetCommandLineArgs()[0] preserves invocation spelling, including relative/symlink names, when started through apphost. `dotnet application.dll` is unchanged. Choose ProcessPath for the executable and entry-assembly Location for the managed file, accounting for null/empty locations and single-file deployment. Keep argv[0] only for the invocation identity. | **Included → D.** PIN-742's assembly-location work is related but does not own apphost launch identity. No new ProcessPath API is implied. Treat executable, assembly and invocation as distinct values; none alone defines an application data directory or trusted path. |
-| [Unix IsAsync][unix-isasync], Preview 3 | SafeFileHandle.IsAsync/FileStream.IsAsync reflect nonblocking descriptors; regular files can report false despite FileOptions.Asynchronous. Do not reject async-method use solely on that flag. FileStream-backed SendPacketsElement no longer requires an async stream on non-Windows; Windows retains that constructor guard. | **Grouped → PIN-741**, `io.use-pipe-handles`, still undelivered. Review regular files, both pipe ends, wrapping and ownership; `filehandle-unix` probes/caches O_NONBLOCK and sets regular files false, and `sendpackets` gates its rejection on Windows. This is not proof that the flag tracks later external fcntl changes or that Unix regular-file operations become kernel-asynchronous. |
-| [Unix CurrentUserOnly permissions][unix-pipe-mode], Preview 4 | NamedPipeServerStream tightens its socket node to 0600. A CurrentUserOnly instance also tightens an existing shared path; a later unrestricted instance does not loosen it until that shared lifetime ends. Omitting the flag alone cannot guarantee cross-user access: directory permissions, umask and peer checks still matter. | **Grouped → PIN-741**, still undelivered. `pipe-unix` confirms bind-time permissions and one-way shared-server ratcheting. Keep same-user communication as the default; a claimed cross-user route needs isolated real-user evidence and its intended access policy. Do not silently remove a security restriction as a generic fix. |
+| [Unix IsAsync][unix-isasync], Preview 3 | SafeFileHandle.IsAsync/FileStream.IsAsync reflect nonblocking descriptors; regular files can report false despite FileOptions.Asynchronous. Do not reject async-method use solely on that flag. FileStream-backed SendPacketsElement no longer requires an async stream on non-Windows; Windows retains that constructor guard. | **Grouped → PIN-741**, delivered `io.use-pipe-handles`; see paired Windows/Linux observations above. Both pipe ends, wrapping and ownership are exercised. No later external fcntl tracking or kernel-asynchronous regular-file claim. |
+| [Unix CurrentUserOnly permissions][unix-pipe-mode], Preview 4 | NamedPipeServerStream tightens its socket node to 0600. A CurrentUserOnly instance also tightens an existing shared path; a later unrestricted instance does not loosen it until that shared lifetime ends. Omitting the flag alone cannot guarantee cross-user access: directory permissions, umask and peer checks still matter. | **Grouped → PIN-741**, delivered same-user bind/tightening/later-instance execution above. No cross-user route is advertised; removing a restriction is not the migration. |
 | [Windows TickCount][windows-clock], Preview 1 | TickCount/TickCount64 exclude sleep/hibernation time on Windows, aligning with OS timeout waits. Windows TickCount64 uses QueryUnbiasedInterruptTime; other platforms retain their behavior. If a business deadline must include sleep, use an explicit UTC deadline and account for clock adjustments. TickCount's wrap remains relevant; higher timer resolution is not guaranteed. | **Included → E.** No existing clock goal was found. The change can be invisible to ordinary callers, but a persisted real-time expiry assumption needs authored migration. Do not substitute Stopwatch/TimeProvider timestamp claims for measured suspend behavior, or promise UtcNow is monotonic. |
 | [Custom Type nullable inspection][custom-type], Preview 4 | Nullable.GetUnderlyingType delegates to virtual Type.GetNullableUnderlyingType; the Type base throws NotSupportedException. Custom Type implementations need a meaningful override: null only if never nullable, an appropriate underlying type in their reflection universe, or delegation to an inner type. Shipped overriding Type implementations are not blanket-broken. No reversion switch is documented. | **Grouped → PIN-742**, `reflection.inspect-loaded-metadata`, still undelivered. Both `nullable-implementation` and `type-implementation` confirm delegation/default throw; only the newer reference baseline has the virtual. Tests must include a direct custom Type that inherits the base method; TypeDelegator already overrides it. Never compare another reflection universe's Nullable definition only with runtime typeof(Nullable<>). |
 | [ZIP CRC32][zip-crc], Preview 3 | Complete entry reads can throw InvalidDataException when recorded and computed CRC differ; merely opening a ZIP or reading a prefix does not prove integrity. | **Grouped → PIN-732**, delivered `archive.handle-corruption`, including changed Stored bytes with valid structure/recorded CRC. Retains EOF and authenticity limits. Adjacent cross-check, not a new goal. |

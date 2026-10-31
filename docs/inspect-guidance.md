@@ -4,6 +4,46 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Pipe handles, mobile locking, native WebAssembly and HKDF inputs
+
+This block builds/packs the ordinary tool, installs that exact package through
+the existing isolated local feed/cache, and calls real stdio list/get from an
+unrelated temporary directory. It prints ID/title/goal, full canonical Markdown,
+explicit target11/edition11, applicability and fresh evidence. Tested from an
+unrelated starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-07530b3c'
+& ./eng/Test-Smoke.ps1 -PackageVersion '0.0.0-pin741-758-1059' `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('io.use-pipe-handles','io.migrate-mobile-locking',
+    'runtime.link-native-wasm-code','crypto.bound-hkdf-inputs') `
+  -Query 'native-boundaries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin741-758-1059' `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory './artifacts/native-boundaries/inspection'
+```
+
+Requires PowerShell7, Node22.19+ and SDK10.0.402. Setup can restore the tool and
+Inspector2.11.0 online; installed calls use unusable proxies, establishing proxy
+independence rather than OS network isolation. Expect four entries and final
+exact-artifact PASS; target10 returns no_applicable_edition. Missing canonical
+content, stale evidence or a changed target/applicability fails. Apple mobile
+behavior and the experimental CoreCLR WebAssembly native sample are explicitly
+sample-specific not-tested; source review and intended Emscripten6.0.2 are not
+compiled/linked/invoked proof. No new native environment, CI matrix or ninth
+foundation is added; comprehensive and GA gates remain open.
+
+To refresh the affected sample evidence, run `& ./eng/Record-NativeBoundaries.ps1
+-VerifySources` after selecting this same worktree. That separate command needs
+the installed paired SDK10.0.402/runtime10.0.13 and SDK11RC2/runtime11RC2, plus
+the existing Docker runtime images. It runs actual Windows HKDF boundaries,
+Windows/Linux pipe contracts and portable journal checks, records exact native
+assets/input hashes, and retains unavailable-native source-review classifications.
+It changes no global tools, PATH or persistent environment variables.
+
 ## Integer division, magnitude and format checksums
 
 This block builds/packs the ordinary tool once, installs that exact artifact
