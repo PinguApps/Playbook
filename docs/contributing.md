@@ -25,6 +25,14 @@ SQL Server recipe authors can use the approved local
 per-run databases, encrypted local credentials, real feature/provider checks and
 cleanup ownership; each recipe still owns its specific execution evidence.
 
+## Cosmos recipe checks
+
+Cosmos recipe authors can use the approved free local
+[legacy Docker emulator route](cosmos-verification.md). It supplies disposable
+databases, certificate-pinned gateway access, real EF/provider checks and cleanup
+ownership. Its limits and the future vNext migration gate remain explicit; each
+recipe still needs its own focused execution evidence.
+
 ## Native testing policy
 
 Pingu approved this boundary through PIN-699 on 30 October 2026. Run authoring
