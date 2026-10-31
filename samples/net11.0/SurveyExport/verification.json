@@ -1,0 +1,13 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/SurveyExport/AliasChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-CertificateLinks.ps1",
+    "docs/planning/audits/certificate-links.sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
