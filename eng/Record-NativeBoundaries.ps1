@@ -9,6 +9,14 @@ $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
 . (Join-Path $PSScriptRoot 'Evidence.ps1')
+function Assert-LfInputs([string]$Sample) {
+  # These samples have text-only inputs. Git stores/checks them out as LF.
+  foreach ($relative in (Get-EvidenceInputs $root $Sample).Keys) {
+    if ([IO.File]::ReadAllText((Join-Path $root $relative)).Contains("`r")) {
+      throw "Use LF input bytes before capturing evidence: $relative. Git normalizes CRLF and would invalidate the saved hash on another checkout."
+    }
+  }
+}
 $paths = @{}
 foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $persistent = @{}
@@ -35,6 +43,7 @@ try {
     if ($variant -eq 'net10.0') { $names += 'ShoreCalibration' }
     foreach ($name in $names) {
       $sample = "samples/$variant/$name/$name.csproj"
+      Assert-LfInputs $sample
       & (Join-Path $PSScriptRoot 'Record-Evidence.ps1') -Sample $sample -Dotnet $dotnet
       $directory = Join-Path $root "samples/$variant/$name"
       $recordPath = Join-Path $directory 'verification-evidence.json'
@@ -110,6 +119,7 @@ try {
     }
   }
   $sample = 'samples/net11.0/ShoreCalibration/ShoreCalibration.csproj'
+  Assert-LfInputs $sample
   $directory = Join-Path $root 'samples/net11.0/ShoreCalibration'
   Push-Location $directory
   try { $evaluation = (& $Net11Dotnet msbuild ShoreCalibration.csproj -getProperty:TargetFramework,UseMonoRuntime,RuntimeIdentifier,_WebAssemblyTargetsFile,WasmBuildNative | Out-String).Trim() }
