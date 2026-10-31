@@ -48,8 +48,8 @@ All changes require authored code unless otherwise stated. No uncovered markup, 
 | Rune string/search/split/trim/replace, StringBuilder/TextWriter/TextInfo overloads; RunePosition and enumerators; Rune parsing interfaces | **Grouped:** scalar-safe text and position/replacement reporting. Offsets remain code units/bytes, not grapheme indexes. | [PIN-724](https://linear.app/pinguapps/issue/PIN-724). Exact RC2 RunePosition members replace assumptions from the early preview demonstration. |
 | Char/Rune comparison, ordinal upper/lower casing on Char/String/Rune/spans, whitespace search helpers, UTF validation/invalid-subsequence search, RegexOptions.AnyNewLine | **Grouped:** text comparison, normalization, delimiter/error boundaries and newline policy. Ordinal casing is not culture-aware display casing. | PIN-724; check culture-sensitive input, supplementary scalars, malformed UTF, whitespace and anchors/dot semantics. No independent recipe is proposed for each overload. |
 | Base64 character/UTF-8 buffer convenience and Try APIs | **Grouped:** remove Convert/adaptation plumbing while retaining consumed/written/final-block semantics. | [PIN-725](https://linear.app/pinguapps/issue/PIN-725); CBOR remains its separate serialization-owned subgoal. |
-| TextWriter string/token and token-only newline overloads | **Included, uncovered D7:** cancellable output differs from Unicode transformation. Preview 1's claim of token overloads for *all* forms is broader than the actual new RC2 signatures; teach only verified signatures. | D7. Existing memory/token routes remain fair older alternatives. |
-| IdnMapping.TryGetAscii/TryGetUnicode span destinations | **Included, uncovered D8:** IDN conversion into caller-owned buffers replaces intermediate strings. | D8; culture, IDNA/platform and malformed-input behavior require real evidence. |
+| TextWriter string/token and token-only newline overloads | **Delivered D7 / PIN-1081:** original real StreamWriter success/cancellation and partial-prefix checks; conveniences retain subclass limits. | `io.cancel-text-output` edition11.0; fair older memory/token calls remain valid; no rollback promise. |
+| IdnMapping.TryGetAscii/TryGetUnicode span destinations | **Delivered D8 / PIN-1082:** original paired buffer consumers execute under actual Windows system ICU. | `text.convert-domain-labels` edition11.0; capacity/invalid/overlap and STD3/AllowUnassigned policy are explicit; no cross-platform IDNA guarantee. |
 | Decimal32/64/128, IDecimalFloatingPointIeee754, Complex<T> and supporting conversions/operators | **Grouped:** deliberate precision/range/special-value representation and generic math. New IEEE decimal types are not System.Decimal. | [PIN-736](https://linear.app/pinguapps/issue/PIN-736); corrected conversion/special-value migrations retain PIN-683/PIN-737. |
 | TryParsePartial, NumberStyles.HexFloat, BigInteger/binary numeric conversions, BFloat16 bit/binary primitives | **Grouped:** consumed lengths and exact representation intent. IEEE hex formatting is not proof that NaN payloads survive every textual round trip. | [PIN-737](https://linear.app/pinguapps/issue/PIN-737); numeric/parsing behavior findings remain [PIN-683](https://linear.app/pinguapps/issue/PIN-683). |
 | BFloat16 full numeric type | **Included, uncovered D10:** choosing reduced precision is a different goal from bit encoding. BitConverter/BinaryPrimitives support remains PIN-737; don't duplicate it. | D10; actual loss/range/NaN checks required. |
@@ -63,7 +63,7 @@ All changes require authored code unless otherwise stated. No uncovered markup, 
 | Argb<T>/Rgba<T>, packed-endian conversion helpers | **Delivered D5 / PIN-1079:** original paired channel-order and packed-endian consumers. | `numerics.preserve-color-channels` edition11.0; byte/float, span lengths and equality/hash checks; no native UI claim. |
 | MemoryExtensions.Min/Max (ReadOnlySpan<T>, IComparer<T>) | **Delivered D6 / PIN-1080:** aggregate existing spans with default or explicit ordering. | `collections.find-span-extrema` edition11.0; value/reference/nullable, ignored nulls and distinct empty contracts; no performance claim. |
 | File.CreateHardLink/FileInfo.CreateAsHardLink | **Delivered D1 → PIN-1075:** replace native creation code while preserving alias semantics. | `io.create-hard-links` edition11.0; actual old native/current managed Windows NTFS lifecycle and failure evidence. Other OS/filesystem/cross-volume outcomes remain unverified. TAR archive policy stays separate. |
-| DirectoryNotFoundException DirectoryPath, constructors, formatting/serialization overrides | **Included, uncovered D9:** consume a structured failing path instead of parsing a localized message. Group supporting constructors/ToString/legacy serialization metadata; don't teach obsolete formatter use. | D9. |
+| DirectoryNotFoundException DirectoryPath, constructors, formatting/serialization overrides | **Delivered D9 / PIN-1083:** real read/enumerate/delete failures populate the property on Windows; explicit constructors and unknown fallback are separate checks. | `io.report-directory-failures` edition11.0; file target versus ancestor, normalization/disclosure limits, no formatter use. |
 | SafeFileHandle.Type/CreateAnonymousPipe/FileHandleType; NamedPipeClientStream replacement constructor and SYSLIB0063 | **Grouped:** handle type/ownership and remove the ineffective isConnected argument. | [PIN-741](https://linear.app/pinguapps/issue/PIN-741); [PIN-684](https://linear.app/pinguapps/issue/PIN-684) retains Unix async-state/permission migrations. |
 | TAR format overloads, TarWriterOptions, TarExtractOptions, TarHardLinkMode | **Format selection delivered:** [PIN-731–733](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-731-733.md) verifies all four formats and original sparse 1.0 logical content; preserving links versus copying contents with PIN-684's already assigned hard-link migration. | [PIN-732](https://linear.app/pinguapps/issue/PIN-732), PIN-684; include extraction on filesystems without link support when claimed. No duplicate hard-link-policy proposal here. |
 | ZIP entry access/compression/encryption/version metadata, bulk creation/extraction options and async helpers | **Delivered for entry access/protection and asynchronous directory lifecycle:** [PIN-731–733](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-731-733.md); [PIN-731](https://linear.app/pinguapps/issue/PIN-731); corruption with PIN-732. VersionMadeBy/CompressionMethod are supporting inspection, not independent recipes. | PIN-731/732; passwords/modes/algorithms, overwrite and cancelled extraction now have actual Windows evidence in the linked report. Existing migration source analysis remains PIN-684. |
@@ -308,3 +308,43 @@ edition11, applicability and current paired evidence. Older consumers remain
 comparisons within target11 guides, preserving the exact eight foundations and
 existing identities. RC2 is not final GA; PIN-959, PIN-962 and Human gates remain
 open. No recurring native/client matrix or public publication is added.
+## D7–D9 delivery reconciliation — 31 October 2026
+
+PIN-1081–1083 deliver `io.cancel-text-output`, `text.convert-domain-labels` and
+`io.report-directory-failures`, edition11.0. Original MooringReport, OrchardRoutes
+and SeedImports consumers execute with SDK10.0.402/C#14/ref-runtime10.0.13 and
+SDK11RC2/C#15/ref-runtime11RC2 on Windows x64. Selected Runtime/Runtime.Extensions/
+Globalization reference hashes match the original audit; compiler/CoreLib are
+measured too. No NuGet dependency or experimental opt-in. The mechanical
+source/disposition/asset manifests remain the historical audit; these delivered
+rows and the inventory reconcile the D7–D9 proposals without rewriting that proof.
+
+Concrete StreamWriter success, pre-cancelled text/line/blank-line and controlled
+in-flight underlying writes execute. The fixture retains128 accepted ASCII bytes
+from8192 characters at cancellation, without rollback; later flush/disposal and
+arbitrary subclasses have their own limits. New conveniences delegate to memory
+operations; the token-only newline uses WriteAsync, not WriteLineAsync dispatch.
+
+Actual non-invariant Windows system ICU72.1.0.4 is selected in both projects;
+loaded native hash and sort-data identity are retained. Meaningful Unicode/ASCII
+round trips, exact/short/empty buffers, malformed/disallowed labels, strict/relaxed
+STD3 and both AllowUnassigned choices execute. U+0378 is rejected with either
+choice on this ICU. Current overlap rejection executes; false is capacity failure,
+not general invalid-input reporting. NLS/invariant/other-data policy is unverified;
+conversion supplies neither domain authorization nor spoofing protection.
+
+Real missing-parent read, directory enumeration and deletion populate the current
+DirectoryPath under two UI cultures. The read's value includes its attempted
+filename; it is not necessarily the first missing ancestor. Explicit constructors
+retain relative/null/empty values and inner exceptions; default/legacy constructors
+need an honest fallback. Normalization, path disclosure and formatter exclusions
+remain explicit. Only newly created temporary trees are removed after parent checks.
+
+`eng/Test-TextBoundaries.ps1 -Record -VerifySources` captures compilation/execution
+through the existing workflow and rechecks [pinned official sources](text-boundaries.sources.json).
+The [installed walkthrough](../../inspect-guidance.md#text-cancellation-idn-buffers-and-directory-diagnostics)
+checks the exact ordinary local-feed artifact from an unrelated directory, real
+stdio discovery/detail, full canonical Markdown, ID/title/goal, target11/edition11,
+applicability, current evidence and text/structured equality offline. The exact
+eight foundations, existing identities, other owners and PIN-959/PIN-962/Human
+gates stay intact. RC2 is not actual GA. No recurring matrix or publication.

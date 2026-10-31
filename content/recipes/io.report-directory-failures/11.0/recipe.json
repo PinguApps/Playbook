@@ -1,0 +1,146 @@
+{
+  "id": "io.report-directory-failures",
+  "edition": "11.0",
+  "title": "Report the failing directory without parsing messages",
+  "goal": "Read a structured path from a missing-directory failure or retain the attempted input, with an explicit unknown fallback and no parsing of localized messages.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "text-boundaries",
+    "seedimports"
+  ],
+  "apis": [
+    "DirectoryNotFoundException.DirectoryPath",
+    "DirectoryNotFoundException",
+    "File.ReadAllText",
+    "Directory.GetFiles",
+    "Directory.Delete"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical C#15 current sample mode; comparison uses C#14. No preview language switch is needed.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 filesystem execution only; property can contain the attempted file rather than the first missing ancestor. Other operations/platforms and exception taxonomy are unverified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console/library project with Nullable and ImplicitUsings enabled; include each complete canonical helper as a separate .cs file.",
+            "Isolated temporary filesystem tree for checks; remove only the created tree after verifying its resolved parent."
+          ],
+          "constraints": [
+            "Windows x64 filesystem execution only; property can contain the attempted file rather than the first missing ancestor. Other operations/platforms and exception taxonomy are unverified.",
+            "Null property needs retained input/unknown fallback. Explicit constructor paths are unvalidated and unnormalized; redact private paths including ToString. No formatter serialization, access-control or filesystem-identity claim.",
+            "Previous proof SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are distinct from supported release-family prerequisites.",
+            "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "Windows x64 filesystem execution only; property can contain the attempted file rather than the first missing ancestor. Other operations/platforms and exception taxonomy are unverified.",
+          "Null property needs retained input/unknown fallback. Explicit constructor paths are unvalidated and unnormalized; redact private paths including ToString. No formatter serialization, access-control or filesystem-identity claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SeedImports/SeedImports.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/DirectoryNotFoundException.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Common/src/System/IO/Win32Marshal.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/DirectoryNotFoundException.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/IO/Win32Marshal.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "DirectoryNotFoundException.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/DirectoryNotFoundException.cs"
+    },
+    {
+      "title": "Win32Marshal.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Common/src/System/IO/Win32Marshal.cs"
+    },
+    {
+      "title": "DirectoryNotFoundException.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/DirectoryNotFoundException.cs"
+    },
+    {
+      "title": "Win32Marshal.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/IO/Win32Marshal.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual missing-parent read, enumerate and delete under two UI cultures, successful import, normalized retained input, unknown fallback and inner retention; current explicit/null/empty/relative constructor values.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/SeedImports/SeedImports.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Actual missing-parent read, enumerate and delete under two UI cultures, successful import, normalized retained input, unknown fallback and inner retention; current explicit/null/empty/relative constructor values.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/SeedImports/SeedImports.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "diagnostic",
+      "path": "samples/net10.0/SeedImports/ImportDiagnostic.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "diagnostic",
+      "path": "samples/net11.0/SeedImports/ImportDiagnostic.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused automated Windows x64 console checks need no account, external service, UI/device or Human interaction. Real system ICU is recorded for IDN. Other-platform, performance and GA execution are not claimed; existing Human gates stay open."
+  }
+}
