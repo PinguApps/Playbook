@@ -16,7 +16,7 @@ stores the input floats and calculates their mean:
 {{snippet:older}}
 
 Float uses 32 bits, with 24 significant binary digits (including the implicit
-leading digit for normal values). Half uses 16 bits with 11 significant digits
+leading digit for normal values). Half uses 16 bits with 11 significant binary digits
 and a 5-bit exponent. For the measured inputs, converting 1e30 to Half gives
 infinity and 1e-30 becomes zero. Do not substitute Half solely because it also
 occupies 16 bits. There is no custom bit-encoding workaround in this comparison.

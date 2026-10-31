@@ -58,8 +58,9 @@ finite limits, deliberately rejecting -1 instead of inheriting runtime defaults.
    These samples use Strict, one root and ConvertIndefiniteLengthEncodings=false.
    Definite and indefinite arrays/maps are accepted under that policy. InitialCapacity=32
    is buffer starting capacity, not a payload maximum or depth limit.
-4. Set both MaxDepth values to eight. An options value of -1 selects the runtime
-   default: the current reader resolves it to 64 and writer to 1000. Zero permits
+4. Set both MaxDepth values to eight. Raw options accept -1 to select the runtime
+   default; the application helpers require a nonnegative limit. The current raw
+   reader resolves -1 to 64 and writer to 1000. Zero permits
    a root scalar but no container; it does not mean unlimited. Values below -1
    throw ArgumentOutOfRangeException at property assignment. No unlimited-depth
    AppContext switch is recommended by this recipe.
