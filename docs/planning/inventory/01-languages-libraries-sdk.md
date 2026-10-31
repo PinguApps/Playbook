@@ -197,15 +197,15 @@ These are proposed delivery boundaries, not created tickets or implemented recip
 | Proposed stable ID | Authoring impact | Disposition |
 | --- | --- | --- |
 | `collections.find-span-extrema` | Use Min/Max directly on existing spans with explicit comparer/empty contracts. | delivered D6 / PIN-1080, S (2); original paired span/null/empty checks and installed retrieval |
-| `io.cancel-text-output` | Pass cancellation to the actual new TextWriter string/newline APIs; retain valid older memory/token routes. | included candidate; D7, S (2) |
+| `io.cancel-text-output` | Pass cancellation to the actual new TextWriter string/newline APIs; retain valid older memory/token routes. | delivered D7 / PIN-1081, S (2), edition11.0; actual StreamWriter cancellation/partial-prefix checks and installed retrieval; no rollback/universal subclass promise |
 | `io.compute-format-checksums` | Choose Adler32 or the intended CRC polynomial/reflection/initial/final parameters. | delivered D4 / PIN-1078, edition11.0; paired locked package10/net10 and RC2/net11 execution, independent vectors, wire order, streaming/reset/short destinations. Optional RC2/net10 and final GA remain unverified. |
 | `io.create-hard-links` | Create filesystem aliases without copying data or maintaining a native wrapper. | delivered by PIN-1075, edition11.0; actual old native/current File and FileInfo Windows NTFS lifecycle, bidirectional writes, deletion in either order and failure/cleanup evidence. Other OS/filesystem/cross-volume outcomes unverified; TAR policy remains separate; PIN-959/PIN-962 stay open |
-| `io.report-directory-failures` | Consume DirectoryPath without parsing localized messages. | included candidate; D9, S (2) |
+| `io.report-directory-failures` | Consume DirectoryPath without parsing localized messages. | delivered D9 / PIN-1083, S (2), edition11.0; actual Windows read/enumerate/delete, constructor/fallback checks and installed retrieval; no ancestor/normalization/disclosure guarantee |
 | `numerics.choose-bfloat16` | Choose binary precision/range deliberately; bit encoding remains PIN-737. | included candidate; D10, M (3) |
 | `numerics.choose-integer-division` | Select quotient/remainder rounding rules for signed coordinates. | delivered D2 / PIN-1076, edition11.0; five signed modes, generic reachability, identity, zero/overflow and invalid-mode shortcut executed on actual old/current consumers. |
 | `numerics.measure-integer-magnitude` | Compute integer decimal magnitude without floating conversion. | delivered D3 / PIN-1077, edition11.0; actual old/current integer consumers, powers of ten ±1, Int128/UInt128 maxima, zero and rejected negatives. |
 | `numerics.preserve-color-channels` | Preserve RGBA/ARGB component order and packed endianness. | delivered D5 / PIN-1079, M (3); original paired byte/float/endian checks and installed retrieval; no native UI claim |
-| `text.convert-domain-labels` | Convert IDN labels into caller-owned spans. | included candidate; D8, S (2) |
+| `text.convert-domain-labels` | Convert IDN labels into caller-owned spans. | delivered D8 / PIN-1082, S (2), edition11.0; real Windows ICU round trips/capacity/invalid/option checks and installed retrieval; NLS/invariant/other-platform policy unverified |
 
 The [obsolete review](../audits/data-io.md#obsolete-index-ownership) assigns newly obsolete pipe constructor diagnostic **SYSLIB0063** to PIN-741, despite its omission from the pinned .NET 11 obsolete-summary article. Historical diagnostics are retained separately; PIN-689 still owns the overall index map. Numeric and archive compatibility analysis remains with PIN-683/PIN-684 rather than being duplicated by this artifact audit.
 

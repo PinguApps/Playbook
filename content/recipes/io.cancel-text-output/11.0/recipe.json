@@ -1,0 +1,143 @@
+{
+  "id": "io.cancel-text-output",
+  "edition": "11.0",
+  "title": "Cancel asynchronous text output explicitly",
+  "goal": "Pass operation cancellation to text and newline writes, retaining the valid older memory route and accounting for partial output from the concrete writer.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "text-boundaries",
+    "mooringreport"
+  ],
+  "apis": [
+    "TextWriter.WriteAsync",
+    "TextWriter.WriteLineAsync",
+    "StreamWriter"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical C#15 current sample mode; comparison uses C#14. No preview language switch is needed.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64 execution only; no universal cancellation, atomic publication, delivery/durability, other-platform or performance claim."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console/library project with Nullable and ImplicitUsings enabled; include each complete canonical helper as a separate .cs file."
+          ],
+          "constraints": [
+            "Use a cancellation-aware concrete writer; arbitrary TextWriter subclasses can ignore tokens. Serial await before flush/disposal; cancellation does not roll back bytes and later cleanup can flush buffers.",
+            "Windows x64 execution only; no universal cancellation, atomic publication, delivery/durability, other-platform or performance claim.",
+            "Previous proof SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are distinct from supported release-family prerequisites.",
+            "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "Use a cancellation-aware concrete writer; arbitrary TextWriter subclasses can ignore tokens. Serial await before flush/disposal; cancellation does not roll back bytes and later cleanup can flush buffers.",
+          "Windows x64 execution only; no universal cancellation, atomic publication, delivery/durability, other-platform or performance claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MooringReport/MooringReport.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/TextWriter.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/StreamWriter.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/TextWriter.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/StreamWriter.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "TextWriter.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/TextWriter.cs"
+    },
+    {
+      "title": "StreamWriter.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/StreamWriter.cs"
+    },
+    {
+      "title": "TextWriter.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/TextWriter.cs"
+    },
+    {
+      "title": "StreamWriter.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/StreamWriter.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Real StreamWriter success/newlines, pre-cancelled text/line/blank line, in-flight forwarded token, retained partial bytes and TextWriter.Null limitation.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/MooringReport/MooringReport.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Real StreamWriter success/newlines, pre-cancelled text/line/blank line, in-flight forwarded token, retained partial bytes and TextWriter.Null limitation.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/MooringReport/MooringReport.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "output",
+      "path": "samples/net10.0/MooringReport/ReportOutput.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "output",
+      "path": "samples/net11.0/MooringReport/ReportOutput.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused automated Windows x64 console checks need no account, external service, UI/device or Human interaction. Real system ICU is recorded for IDN. Other-platform, performance and GA execution are not claimed; existing Human gates stay open."
+  }
+}

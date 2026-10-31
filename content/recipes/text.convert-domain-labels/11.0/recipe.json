@@ -1,0 +1,155 @@
+{
+  "id": "text.convert-domain-labels",
+  "edition": "11.0",
+  "title": "Convert international domain labels into caller buffers",
+  "goal": "Convert Unicode and ASCII domain labels into caller-owned spans when capacity, invalid-input handling and the deployment globalization policy are explicit.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "text-boundaries",
+    "orchardroutes"
+  ],
+  "apis": [
+    "IdnMapping.TryGetAscii",
+    "IdnMapping.TryGetUnicode",
+    "IdnMapping.UseStd3AsciiRules",
+    "IdnMapping.AllowUnassigned"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical C#15 current sample mode; comparison uses C#14. No preview language switch is needed.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Windows x64, non-invariant system ICU (measured72.1.0.4); configure System.Globalization.Invariant=false and System.Globalization.UseNls=false. NLS/invariant/other-platform or other-data execution is unverified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console/library project with Nullable and ImplicitUsings enabled; include each complete canonical helper as a separate .cs file.",
+            "Use RuntimeHostConfigurationOption items for System.Globalization.Invariant=false and System.Globalization.UseNls=false; record actual system ICU/data. No DNS/network service."
+          ],
+          "constraints": [
+            "Windows x64, non-invariant system ICU (measured72.1.0.4); configure System.Globalization.Invariant=false and System.Globalization.UseNls=false. NLS/invariant/other-platform or other-data execution is unverified.",
+            "Non-overlapping spans; false/zero for insufficient capacity, ArgumentException for invalid input. Ignore destination on failure. IDNA conversion is not domain authorization or spoofing prevention; AllowUnassigned=true does not guarantee acceptance.",
+            "Previous proof SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are distinct from supported release-family prerequisites.",
+            "No NuGet packages/assets, providers, workloads, rendering modes or experimental opt-ins; no additional .NET10 foundation or optional older-target API route."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "Windows x64, non-invariant system ICU (measured72.1.0.4); configure System.Globalization.Invariant=false and System.Globalization.UseNls=false. NLS/invariant/other-platform or other-data execution is unverified.",
+          "Non-overlapping spans; false/zero for insufficient capacity, ArgumentException for invalid input. Ignore destination on failure. IDNA conversion is not domain authorization or spoofing prevention; AllowUnassigned=true does not guarantee acceptance."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/OrchardRoutes/OrchardRoutes.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Icu.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Nls.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Icu.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Nls.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "IdnMapping.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.cs"
+    },
+    {
+      "title": "IdnMapping.Icu.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Icu.cs"
+    },
+    {
+      "title": "IdnMapping.Nls.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Nls.cs"
+    },
+    {
+      "title": "IdnMapping.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.cs"
+    },
+    {
+      "title": "IdnMapping.Icu.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Icu.cs"
+    },
+    {
+      "title": "IdnMapping.Nls.cs - pinned official implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Nls.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Real Windows system ICU Unicode/ASCII round trips, exact/short/empty destinations, malformed/disallowed labels, strict/relaxed STD3 and both AllowUnassigned choices; current span overlap rejection.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/OrchardRoutes/OrchardRoutes.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Real Windows system ICU Unicode/ASCII round trips, exact/short/empty destinations, malformed/disallowed labels, strict/relaxed STD3 and both AllowUnassigned choices; current span overlap rejection.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/OrchardRoutes/OrchardRoutes.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "labels",
+      "path": "samples/net10.0/OrchardRoutes/DomainLabels.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "labels",
+      "path": "samples/net11.0/OrchardRoutes/DomainLabels.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused automated Windows x64 console checks need no account, external service, UI/device or Human interaction. Real system ICU is recorded for IDN. Other-platform, performance and GA execution are not claimed; existing Human gates stay open."
+  }
+}

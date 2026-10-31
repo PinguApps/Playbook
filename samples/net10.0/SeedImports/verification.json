@@ -1,0 +1,14 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/SeedImports/DirectoryChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-TextBoundaries.ps1",
+    "docs/planning/audits/data-io.assets.json",
+    "docs/planning/audits/text-boundaries.sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": []
+}

@@ -4,6 +4,45 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Text cancellation, IDN buffers and directory diagnostics
+
+This builds/packs the ordinary tool, installs that exact artifact through the
+existing isolated local feed/cache, and calls real stdio list/get from an unrelated
+temporary directory. It prints ID/title/goal, complete canonical Markdown,
+target11/edition11, applicability and fresh paired evidence. Tested from an
+unrelated starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-01d67885'
+& ./eng/Test-TextBoundaries.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('io.cancel-text-output','text.convert-domain-labels','io.report-directory-failures') `
+  -Query 'text-boundaries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1081-1083' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/text-boundaries/inspection'
+```
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/ref-runtime10.0.13 and complete
+SDK11.0.100-rc.2.26504.105/ref-runtime11RC2. Samples execute on Windows x64;
+IDN explicitly uses non-invariant system ICU (measured 72.1.0.4), with the loaded
+DLL hash/data identity captured. No account, DNS/service, global tools or native
+workload. Setup can restore tool/Inspector2.11.0 online; retrieval with unusable
+proxies establishes proxy independence, not OS network isolation.
+
+Expect six successful sample builds/runs: real StreamWriter cancellation retains
+a 128-byte prefix in the controlled 8192-character case; IDN round trips and
+exact/short/invalid/policy checks pass; actual Windows missing-directory operations
+populate the current property. Constructor/fallback checks do not replace those
+operations. Target10 returns no_applicable_edition and the final exact-artifact
+inspection reports PASS. `-Record -VerifySources` on Test-TextBoundaries refreshes
+affected proof and rechecks pinned official sources; ordinary runs preserve it.
+Stale evidence, canonical-content drift or a nonzero exit is failure. Other-platform,
+NLS/invariant IDNA, arbitrary-writer cancellation, atomic rollback, performance and
+final-GA claims remain unverified; exactly eight foundations and PIN-959/PIN-962
+and existing Human gates remain intact. No native/client matrix is added.
+
 ## Pipe handles, mobile locking, native WebAssembly and HKDF inputs
 
 This block builds/packs the ordinary tool, installs that exact package through

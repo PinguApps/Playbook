@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion></PropertyGroup>
+  <ItemGroup><Compile Include="../../MooringReport/OutputChecks.cs" /></ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion></PropertyGroup>
+  <ItemGroup><Compile Include="../../OrchardRoutes/LabelChecks.cs" /></ItemGroup>
+  <ItemGroup><RuntimeHostConfigurationOption Include="System.Globalization.Invariant" Value="false" /><RuntimeHostConfigurationOption Include="System.Globalization.UseNls" Value="false" /></ItemGroup>
+</Project>
