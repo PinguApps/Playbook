@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [Parameter(Mandatory)][ValidateSet('Start', 'Stop', 'New', 'Remove', 'Run', 'Test')][string]$Action,
-  [ValidatePattern('\Aplaybook_[a-z][a-z0-9_]{0,47}\z')][string]$Database,
+  [ValidatePattern('(?-i)\Aplaybook_[a-z][a-z0-9_]{0,47}\z')][string]$Database,
   [string]$Executable,
   [string[]]$CommandArguments = @(),
   [string]$WorkingDirectory,
@@ -100,8 +100,8 @@ try {
     $info = Get-OwnedContainer
     if (-not $info.State.Running) { $null = Invoke-Docker @('start', $container) }
     for ($attempt = 0; $attempt -lt 90; $attempt++) {
+      $info = Get-OwnedContainer
       try {
-        $info = Get-OwnedContainer
         $connection = Connect-Emulator $info
         $null = $connection.Client.Request('GET', '/dbs', 'dbs', '')
         break
@@ -120,7 +120,9 @@ try {
       if ($info.State.Running) {
         $connection = Connect-Emulator $info
         $databases = $connection.Client.Request('GET', '/dbs', 'dbs', '') | ConvertFrom-Json
-        if (@($databases.Databases).Count -ne 0) { throw 'Databases remain. Remove your owned databases before Stop; restart persistence is not reliable in this image.' }
+        if (@($databases.Databases).Count -ne 0) {
+          throw "Databases remain: $($databases.Databases.id -join ', '). Remove your owned databases before Stop; restart persistence is not reliable in this image."
+        }
         $null = Invoke-Docker @('stop', '--time', '30', $container)
       }
       Write-Host 'Stopped empty Cosmos emulator; container is retained. Restart persistence is not guaranteed.'
@@ -158,7 +160,14 @@ try {
             Write-Host 'PASS: real NoSQL create/read; duplicate creation refuses existing database and preserves its marker.'
             $wrongCertificate = [PlaybookCosmos.EmulatorTransport]::new($connection.Endpoint, ('00' * 32))
             $rejected = $false
-            try { $null = $wrongCertificate.Request('GET', '/dbs', 'dbs', '') } catch { $rejected = $true } finally { $wrongCertificate.Dispose() }
+            try { $null = $wrongCertificate.Request('GET', '/dbs', 'dbs', '') }
+            catch {
+              $failure = $_.Exception
+              while ($failure -and $failure -isnot [Security.Authentication.AuthenticationException]) { $failure = $failure.InnerException }
+              if (-not $failure) { throw }
+              $rejected = $true
+            }
+            finally { $wrongCertificate.Dispose() }
             if (-not $rejected) { throw 'A mismatched TLS certificate was accepted.' }
             $null = $connection.Client.Request('PUT', "/dbs/$name/colls/playbook_route/docs/route", 'docs', "dbs/$name/colls/playbook_route/docs/route", '{"id":"route","route":"not-owned"}')
             $rejected = $false

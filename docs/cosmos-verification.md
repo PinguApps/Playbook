@@ -27,13 +27,14 @@ prints the actual endpoint. The container is limited to 4 GiB, has no mounts or
 privileged mode, and has no automatic restart policy. Subsequent starts reuse it.
 No second terminal is needed. The provider check requires NuGet access and the
 existing SDK installations below. It creates temporary consumers outside the
-repository, then removes them and their disposable databases even after failure.
+repository, then removes them and their disposable databases on success or a caught
+exception. An abruptly killed process can leave its temporary directory or database;
+use the printed database name for recovery rather than deleting other runs' data.
 It leaves the emulator running; stop it when finished.
 
 Expect NoSQL lifecycle and both EF provider `PASS` messages, token handoff, batch
 rollback and bulk-write checks, plus explicit indexing capability results. A
-required consumer failure throws. A `LIMIT` is an unsupported/unverified feature,
-not successful execution of that feature. Setup and consumer processes have a
+required consumer or pinned indexing-policy baseline failure throws. Setup and consumer processes have a
 ten-minute operation timeout; investigate a timeout rather than assuming a pass.
 
 Override `-Docker` on either script or `-Net10Dotnet`/`-Net11Dotnet` on the provider
@@ -134,6 +135,11 @@ the running session; do not depend on that flag for retention. `Stop` refuses wh
 active data. Clean up your own marked database first. If another author still has
 data, leave the emulator running. Manual Docker shutdown, Docker Desktop restarts
 or host crashes remain outside that protection.
+
+An interrupted `New` or failed compensating cleanup can strand a database before
+its marker is written. `Remove` deliberately refuses an unmarked database; ask
+Pingu to inspect/recover that exact database rather than bypassing ownership checks.
+The Stop refusal lists remaining database names to help identify interrupted runs.
 
 `Stop` retains the empty container and its writable layer, not a promise of data
 durability. **Pingu owns eventual container/image removal** and recovery decisions.

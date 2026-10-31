@@ -81,12 +81,8 @@ void CheckPolicy(string id, string policy, string expected)
         var actual = transport.Request("GET", $"/dbs/{name}/colls/{id}", "colls", $"dbs/{name}/colls/{id}");
         var index = JObject.Parse(actual)["indexingPolicy"]?[expected] as JArray;
         if (index == null || index.Count == 0)
-            Console.WriteLine($"LIMIT: {id} policy was accepted but {expected} was not returned; not verified.");
+            throw new InvalidOperationException($"{id} policy was accepted but {expected} was not returned; baseline regression.");
         else Console.WriteLine($"PASS: {id} policy applied and read back; index query execution/performance remains recipe-specific.");
-    }
-    catch (InvalidOperationException exception) when (exception.Message.StartsWith("Cosmos HTTP 400:", StringComparison.Ordinal))
-    {
-        Console.WriteLine($"LIMIT: {id} policy rejected by this legacy emulator (HTTP 400); not supported by this route.");
     }
     finally { if (created) transport.Request("DELETE", $"/dbs/{name}/colls/{id}", "colls", $"dbs/{name}/colls/{id}"); }
 }
