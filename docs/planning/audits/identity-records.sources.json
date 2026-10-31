@@ -1,0 +1,50 @@
+{
+  "note": "Selected immutable official sources; framework reference hashes reconcile to runtime-security.assets.json. Actual paired consumers separately verify behavior. Audit wording AddRegisteredId(Oid) is corrected to the shipped string signature.",
+  "sources": [
+    {
+      "id": "4099f83-System.Security.Cryptography",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "adb14229c9a2cdd8e24cfddb5c6c40e8a1fd39b9514cf143e487f107c02ac5df"
+    },
+    {
+      "id": "4099f83-SubjectAlternativeNameBuilder",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/SubjectAlternativeNameBuilder.cs",
+      "sha256": "7b0f7b4d48001f85d6e431331de5d9275fe7c7c08529d1742861c1f6c6a99132"
+    },
+    {
+      "id": "4099f83-System.Net.NameResolution",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NameResolution/ref/System.Net.NameResolution.cs",
+      "sha256": "b65e1c308b71344350281558983218db1902b2720a51c1c50017e9149224fbff"
+    },
+    {
+      "id": "820230c-System.Security.Cryptography",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "1c65691229ae9e41e823bb65951ddc888fdf7abe16b7a0f4387297190288cb66"
+    },
+    {
+      "id": "820230c-SubjectAlternativeNameBuilder",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/SubjectAlternativeNameBuilder.cs",
+      "sha256": "cc94a47c9862064a6a4d93d1da97ebee20fc8f8a842bd9bae6308e4fb42d5e27"
+    },
+    {
+      "id": "820230c-System.Net.NameResolution",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NameResolution/ref/System.Net.NameResolution.cs",
+      "sha256": "a7971c47a150298504a918542b54e6dfd48043920d3bd1c95ef407804709f87c"
+    },
+    {
+      "id": "current-DnsResult.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NameResolution/src/System/Net/DnsResult.cs",
+      "sha256": "beb6780303c8aba1fea1fead70bc920b5b68e2454c81c0ed7875c6f17a78ac6d"
+    },
+    {
+      "id": "current-DnsResolverPal.Managed.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolverPal.Managed.cs",
+      "sha256": "990fefbdfb6787b042394503c3485e3a70b95a8c489bed16d1574d0ce446cc30"
+    },
+    {
+      "id": "current-DnsResolverPal.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NameResolution/src/System/Net/DnsResolverPal.Windows.cs",
+      "sha256": "88a4a116df88ed7a873ec0f68e8df6303d8ce27cb702ff7bd22df43e52a2d62c"
+    }
+  ]
+}

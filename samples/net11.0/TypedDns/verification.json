@@ -1,0 +1,15 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/TypedDns",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-IdentityRecords.ps1",
+    ".editorconfig",
+    "docs/planning/audits/identity-records.sources.json",
+    "docs/planning/audits/runtime-security.assets.json"
+  ]
+}

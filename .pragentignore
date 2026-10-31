@@ -375,3 +375,13 @@
 /samples/net11.0/TideOffsets/verification-evidence.json
 /samples/net10.0/HarbourPackets/verification-evidence.json
 /samples/net11.0/HarbourPackets/verification-evidence.json
+
+# Test-IdentityRecords/Record-Evidence generated commands, SDK/ref/native receipts.
+# Review canonical helpers, wire fixture, checks, manifests, source pins and recorder;
+# ordinary build/pack verifies freshness and installed inspection verifies content.
+/samples/net10.0/RegisteredIdentifiers/verification-evidence.json
+/samples/net11.0/RegisteredIdentifiers/verification-evidence.json
+/samples/net10.0/TypedDns/verification-evidence.json
+/samples/net11.0/TypedDns/verification-evidence.json
+/samples/net10.0/TypedDns/linux.evidence.json
+/samples/net11.0/TypedDns/linux.evidence.json
