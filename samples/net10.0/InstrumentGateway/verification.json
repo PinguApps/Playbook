@@ -1,0 +1,15 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-SignaturePadding.ps1",
+    "docs/planning/audits/signature-padding.sources.json",
+    "samples/InstrumentGateway/GatewayChecks.cs",
+    "samples/net10.0/InstrumentGateway",
+    "samples/net11.0/InstrumentGateway"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

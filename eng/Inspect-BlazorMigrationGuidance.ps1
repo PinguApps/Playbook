@@ -103,6 +103,17 @@ try {
         foreach ($route in $metadata.applicability.routes) {
           if (-not $route.PSObject.Properties['sharedAreas']) { $route | Add-Member -NotePropertyName sharedAreas -NotePropertyValue @() }
           if (-not $route.PSObject.Properties['neutralLanguages']) { $route | Add-Member -NotePropertyName neutralLanguages -NotePropertyValue @() }
+          # Generation adds the approved sample-specific native exclusion to both
+          # fields. Compare that complete served contract, including the warning.
+          if ($metadata.humanProof.status -ceq 'not-tested' -and
+              @($route.evidenceSamples | Where-Object { $_ -cin $metadata.humanProof.untestedSamples }).Count -gt 0) {
+            $warning = "Not tested: $($metadata.humanProof.scope)"
+            if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }
+            if (-not $route.requirements.PSObject.Properties['stabilityLimitations']) {
+              $route.requirements | Add-Member -NotePropertyName stabilityLimitations -NotePropertyValue @()
+            }
+            if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
+          }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
         if ($CheckDemonstratedLanguages) {

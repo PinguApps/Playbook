@@ -335,3 +335,11 @@
 /samples/net11.0/TelemetryKeys/verification-evidence.json
 /samples/net11.0/ShoreCalibration/verification-evidence.json
 /samples/net11.0/BuoyPipes/linux.evidence.json
+
+# Record-SignaturePadding generated SDK/ref/native/command receipts. Review the
+# original contracts, synthetic public fixture, real checks, pins and recorder;
+# ordinary build/pack verifies saved input freshness and installed content.
+/samples/net10.0/CoastalReports/verification-evidence.json
+/samples/net11.0/CoastalReports/verification-evidence.json
+/samples/net10.0/InstrumentGateway/verification-evidence.json
+/samples/net11.0/InstrumentGateway/verification-evidence.json

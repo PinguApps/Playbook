@@ -1,0 +1,8 @@
+{
+  "purpose": "Synthetic public-only DSA1024/SHA1/P1363 archive fixture; never a production credential",
+  "generatedWith": ".NET 10.0.14",
+  "generatedOn": "Microsoft Windows 10.0.26200",
+  "payload": "c3VydmV5PUdhbm5ldCBTaG9hbDtkZXB0aC1tbT0xNDMyMDtkYXR1bT1jaGFydDtyZXZpc2lvbj0wCg==",
+  "publicKeySpki": "MIIBtzCCASsGByqGSM44BAEwggEeAoGBAPeOcY1GY3kAUdsjbjAkrb0irMD1GsUGOMuTdeDe+7S8zXgkNsD9EtBIcloU737HcC101Pyn6i84Tf58r2CXMI1C0UkBylBIc4HbXOR23tAqRlbK5oya3RLsFTWrk0dZYG5eDzmhMEYYlW3eEDQscwj/umOb06Dy/JfddfN5+1T9AhUA8Fcy7g+Tp7FpPfWt4euY3EprrKkCgYBRCEaligYa+ZtqzKrjycmY+KX0qMvmcl2s/rbX2Sgy0F0BGyPiugVNiDC71uMZ1e15+d29obHmxI9w4S50m3XdZ0pqXJqIKWpH4EnBEqNJV4c+4kIP13y1Fr+pCXKPfTmftTEGLzW+I+wY853udO+mLr6p6Ry1fBJg2C0ELioaYQOBhQACgYEAuv6CEu8t30mo/JxnsadeXh4AbJ5uOkHbU9WBy2L97BdrtG2BViDV2nYqGhAth0m/sOUXzD5irMD0Ne55S9v6SoENiZeHvjuInfFZhyZ6dtOP+k6pc63ZG9B5E5Ryw+UUoY3J2bWoG+rrPnc+qKzNuHgsVLzZgHfXn+cZPvCTWxY=",
+  "signature": "Zy/ggktN2YchwVcamE7G1vPSffMtt1o8aqWuUuSTwAzt2tVCFOZjMQ=="
+}
