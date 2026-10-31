@@ -1,0 +1,166 @@
+{
+  "id": "numerics.preserve-color-channels",
+  "edition": "11.0",
+  "title": "Preserve colour channel order across binary boundaries",
+  "goal": "Keep RGBA and ARGB components and packed byte order explicit when exchanging colour values with a binary format.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "channel-extrema",
+    "signallegend"
+  ],
+  "apis": [
+    "Rgba<T>",
+    "Argb<T>",
+    "Rgba.CreateBigEndian",
+    "Rgba.CreateLittleEndian",
+    "Argb.CreateBigEndian",
+    "Argb.CreateLittleEndian",
+    "Rgba<byte>.ToUInt32BigEndian",
+    "Rgba<byte>.ToUInt32LittleEndian",
+    "Argb<byte>.ToUInt32BigEndian",
+    "Argb<byte>.ToUInt32LittleEndian",
+    "Rgba<T>.ToArgb",
+    "Argb<T>.ToRgba"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical C#15 current sample mode; comparison uses C#14. No preview language switch is needed.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Managed desktop/server .NET; measured Windows x64 only. Other-platform execution, browser/WASI and performance are not claimed."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; place each complete canonical snippet in its own .cs file. Imports are included or supplied by implicit usings."
+          ],
+          "constraints": [
+            "These structural values do not convert colour spaces, normalize, clamp, blend or validate component ranges; uint helpers apply to byte components only.",
+            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family prerequisites.",
+            "No NuGet packages, package assets, native/UI dependencies, providers, workloads, rendering modes or experimental opt-ins. No additional older-target API route or .NET10 foundation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "These structural values do not convert colour spaces, normalize, clamp, blend or validate component ranges; uint helpers apply to byte components only.",
+          "Managed console/library route; Windows x64 execution only. RC2 proof is not actual-GA verification."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SignalLegend/SignalLegend.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.T.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.T.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "820230c-Rgba - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.cs"
+    },
+    {
+      "title": "820230c-Argb - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.cs"
+    },
+    {
+      "title": "820230c-Rgba.T - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.T.cs"
+    },
+    {
+      "title": "820230c-Argb.T - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.T.cs"
+    },
+    {
+      "title": "4099f83-System.Numerics.Vectors - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs"
+    },
+    {
+      "title": "820230c-System.Numerics.Vectors - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Distinct byte/float components, RGBA/ARGB reorder, four packed-endian round trips, short/exact/long construction and copy, component equality and equal hashes.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/SignalLegend/SignalLegend.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Distinct byte/float components, RGBA/ARGB reorder, four packed-endian round trips, short/exact/long construction and copy, component equality and equal hashes.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/SignalLegend/SignalLegend.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older-types": {
+      "region": "channels",
+      "path": "samples/net10.0/SignalLegend/LegendChannels.cs",
+      "language": "csharp"
+    },
+    "older": {
+      "region": "legend",
+      "path": "samples/net10.0/SignalLegend/SignalLegend.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "legend",
+      "path": "samples/net11.0/SignalLegend/SignalLegend.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed channel/aggregation checks run automatically on Windows x64 with no external service, UI, native workload or Human interaction. Other-platform, performance and GA proof are not claimed; existing Human gates stay open."
+  }
+}

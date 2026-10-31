@@ -1,0 +1,82 @@
+{
+  "scope": "PIN-1079/1080: original audit-matching reference sources and qualified RC2 implementations. Hashes establish source identity, not execution.",
+  "sources": [
+    {
+      "id": "4099f83-System.Runtime",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb"
+    },
+    {
+      "id": "820230c-System.Runtime",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e"
+    },
+    {
+      "id": "820230c-Rgba",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.cs",
+      "sha256": "b68d4aa11d40926434c395ec40d250e3f608c38c60503fc4350f1eef24ecb60e"
+    },
+    {
+      "id": "820230c-Argb",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.cs",
+      "sha256": "f2d91a85ea65b613ab75cdcf90a4ab16e803b4ba39eea40c6728f69687511f13"
+    },
+    {
+      "id": "820230c-Rgba.T",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.T.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Rgba.T.cs",
+      "sha256": "ea52329aca13905ffc93e8c50794698ced3a43a1369f2c2b479726061f3b0a4c"
+    },
+    {
+      "id": "820230c-Argb.T",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.T.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Colors/Argb.T.cs",
+      "sha256": "b8bb932a6d4036de423ccdadc4ce22e4ae1c06e8d758974fc958555a06d0f090"
+    },
+    {
+      "id": "820230c-MemoryExtensions.MinMax",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.MinMax.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.MinMax.cs",
+      "sha256": "97c01f839a45f0f46277a29e1e1eaf53d4f5b83ecc1e92fc343373038b5b49ab"
+    },
+    {
+      "id": "4099f83-System.Memory",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "sha256": "96b7ed69bd03a2cb7de936490a4a91111975371d06ad6a62a76c1e961424cdfc"
+    },
+    {
+      "id": "4099f83-System.Numerics.Vectors",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "sha256": "7d97e8b534d8326443983dbf410c7c13e6adf678730a18bd006be2ecbaed7d8b"
+    },
+    {
+      "id": "820230c-System.Memory",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+      "sha256": "5e0264c13f2d275a4b735369672dcd8d5105fd6642c1320c8b064bd80db8bff9"
+    },
+    {
+      "id": "820230c-System.Numerics.Vectors",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Numerics.Vectors/ref/System.Numerics.Vectors.cs",
+      "sha256": "5fc3a3fc2c3dd3b8060df6688248b98efd11a97e41a1bd91548aa33d734a71ba"
+    }
+  ]
+}

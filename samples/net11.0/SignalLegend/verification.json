@@ -1,0 +1,14 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/SignalLegend/ChannelChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ChannelExtrema.ps1",
+    "docs/planning/audits/data-io.assets.json",
+    "docs/planning/audits/channel-extrema.sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": []
+}

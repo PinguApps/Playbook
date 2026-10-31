@@ -1,0 +1,136 @@
+{
+  "id": "collections.find-span-extrema",
+  "edition": "11.0",
+  "title": "Find extrema directly in an existing span",
+  "goal": "Find minimum and maximum values in an existing span without array or enumerable adapters, keeping comparer, null and empty-input rules explicit.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "channel-extrema",
+    "observatorybatch"
+  ],
+  "apis": [
+    "MemoryExtensions.Min<T>",
+    "MemoryExtensions.Max<T>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical C#15 current sample mode; comparison uses C#14. No preview language switch is needed.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Managed desktop/server .NET; measured Windows x64 only. Other-platform execution, browser/WASI and performance are not claimed."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; place each complete canonical snippet in its own .cs file. Imports are included or supplied by implicit usings."
+          ],
+          "constraints": [
+            "Null elements are ignored; empty non-nullable value spans throw InvalidOperationException, while empty reference/nullable spans return null. No floating NaN or performance claim.",
+            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family prerequisites.",
+            "No NuGet packages, package assets, native/UI dependencies, providers, workloads, rendering modes or experimental opt-ins. No additional older-target API route or .NET10 foundation."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "Null elements are ignored; empty non-nullable value spans throw InvalidOperationException, while empty reference/nullable spans return null. No floating NaN or performance claim.",
+          "Managed console/library route; Windows x64 execution only. RC2 proof is not actual-GA verification."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ObservatoryBatch/ObservatoryBatch.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.MinMax.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "820230c-MemoryExtensions.MinMax - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/MemoryExtensions.MinMax.cs"
+    },
+    {
+      "title": "4099f83-System.Memory - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs"
+    },
+    {
+      "title": "820230c-System.Memory - pinned official declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Memory/ref/System.Memory.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Value/reference/nullable inputs, default and explicit comparers, ignored/all-null values, empty non-nullable exceptions and nullable/reference null results, generic application-owned static helpers.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ObservatoryBatch/ObservatoryBatch.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Value/reference/nullable inputs, default and explicit comparers, ignored/all-null values, empty non-nullable exceptions and nullable/reference null results, generic static and extension overloads.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ObservatoryBatch/ObservatoryBatch.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "extrema",
+      "path": "samples/net10.0/ObservatoryBatch/InstrumentExtrema.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "extrema",
+      "path": "samples/net11.0/ObservatoryBatch/InstrumentExtrema.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed channel/aggregation checks run automatically on Windows x64 with no external service, UI, native workload or Human interaction. Other-platform, performance and GA proof are not claimed; existing Human gates stay open."
+  }
+}
