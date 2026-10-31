@@ -1,0 +1,156 @@
+{
+  "id": "configuration.observe-file-load-failures",
+  "edition": "11.0",
+  "title": "Observe configuration load failures separately from changes",
+  "goal": "Observe file-configuration load failures separately from data-change notifications, and choose an explicit Ignore policy without assuming last-known-good values.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "file-chain",
+    "planetariumschedule"
+  ],
+  "apis": [
+    "FileConfigurationProvider.Load",
+    "FileConfigurationSource.OnLoadException",
+    "JsonConfigurationProvider",
+    "IChangeToken"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Observe file-configuration load failures separately from data-change notifications, and choose an explicit Ignore policy without assuming last-known-good values.",
+          "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic.",
+          "Verified on .NET 11 RC2; actual-GA reconciliation remains open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": ".NET 11 runtime for the current net11 consumer; RC2 is the measured artifact, not final GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "Microsoft.Extensions.Configuration.Json",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Actual pinned package consumer; no newer-package-on-net10 route is advertised."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Extensions.Configuration.Json uses actual lib/net11.0 asset; previous 10.0.13 uses lib/net10.0. Full selected dependency closure and hashes are saved. Shared net11 abstractions are separate from this package."
+          ],
+          "providers": [
+            "PhysicalFileProvider and actual JSON file configuration provider"
+          ],
+          "platforms": [
+            "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0 with C#15 sample mode, Nullable and ImplicitUsings enabled. Place complete snippets in separate .cs files.",
+            "Use local temporary directories and dispose registrations/providers/watchers after the bounded operation."
+          ],
+          "constraints": [
+            "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic.",
+            "Previous comparison uses SDK10.0.402 / C#14 / runtime10.0.13; current uses SDK11.0.100-rc.2.26504.105 / C#15 / runtime11RC2. These are verification pins, not a universal support floor.",
+            "No device, rendering mode, workload, public service or persistent environment changes. Preserve eight foundations and existing GA/Human/comprehensive gates."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence is not actual-GA proof. No selected API experimental opt-in is required."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/fileconfigurationprovider-reload-token-load-failure.md",
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/fileconfigurationsource-onloadexception-io-errors.md",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/PlanetariumSchedule/PlanetariumSchedule.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "ignored-load official pinned source",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/fileconfigurationprovider-reload-token-load-failure.md"
+    },
+    {
+      "title": "io-callback official pinned source",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/fileconfigurationsource-onloadexception-io-errors.md"
+    },
+    {
+      "title": "file-provider-10 official pinned source",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs"
+    },
+    {
+      "title": "file-provider-11 official pinned source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.FileExtensions/src/FileConfigurationProvider.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic.",
+      "sample": "samples/net10.0/PlanetariumSchedule/PlanetariumSchedule.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic.",
+      "sample": "samples/net11.0/PlanetariumSchedule/PlanetariumSchedule.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/PlanetariumSchedule/SchedulePolicy.cs",
+      "region": "policy"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/PlanetariumSchedule/SchedulePolicy.cs",
+      "region": "policy"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Windows NTFS x64 real IO and notifications; custom-provider stream/GetFileInfo faults are separately synthetic. Feasible checks are automated on Windows/existing Docker. Pingu owns any future feasible interactive approvals and refresh coordination; no new Human gate or native CI matrix."
+  }
+}

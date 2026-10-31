@@ -1902,3 +1902,70 @@ the demonstration are passing controls. The recorder ends successfully; a nonzer
 script exit is a failure. Windows x64 CoreCLR JIT is measured; browser/custom-host,
 other-platform/engine, newer-package-on-net10 and actual-GA claims are unverified.
 PIN-959/PIN-962 and existing Human gates remain open; no recurring matrix is added.
+
+## File load, watch root and certificate issuer boundaries
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. File-provider samples lock
+Configuration.Json/FileProviders.Physical10.0.13/11RC2 with actual net10/net11
+assets. Certificate consumers use framework X509 APIs and existing Linux Docker.
+No workload, account, global install or production service is needed.
+
+The following literal worktree block is tested from an unrelated starting directory.
+It builds/packs the ordinary tool, installs the exact artifact through an isolated
+local-only feed/cache, then calls real stdio list/get from an unrelated temporary
+directory. Setup can restore online; retrieval with unusable proxies proves proxy
+independence, not network isolation. The Linux behavior fixture separately uses
+network-none containers with loopback available.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-15728aaa'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1055-1056-1060'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('configuration.observe-file-load-failures','io.compose-file-watcher-roots','crypto.supply-chain-intermediates') `
+  -Query 'file-chain' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1055-1056-1060' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/file-chain/inspection
+```
+
+Expect one passing installed smoke, then all three discovery IDs, reusable titles
+and explanatory goals, complete expanded canonical Markdown, target11/edition11,
+applicability, fresh paired evidence and identical structured/text responses.
+Target10 must return `no_applicable_edition`; the valid older approaches remain
+comparisons within target11 and preserve exactly eight foundations. A nonzero exit,
+missing recipe/snippet, changed body or stale evidence fails the check.
+
+Refresh changed sample inputs and eleven immutable source hashes on the declared
+Windows NTFS/Docker environment:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-15728aaa'
+& ./eng/Record-FileChain.ps1 -VerifySources
+```
+
+Expect actual JSON initial/explicit/reload/missing/deletion/recreation and Windows
+exclusive-lock failure/recovery, callback type/Ignore/data/token results, separately
+labelled synthetic stream/GetFileInfo failures and bounded unignored-reload children.
+Expect both watcher constructors, null/NUL/unrelated/prefix siblings and current
+real equal/ancestor/descendant/empty/relative/deferred tokens, recursion, arming,
+canonical factories and cleanup. Older ancestor/relative construction acceptance
+is not advertised as reliable monitoring; the older factory uses equal normalized
+paths. There is no polling/browser/symlink-security or universal event-count claim.
+
+ArchiveManifest compilation records are distinct from `linux.evidence.json`.
+Each runtime executes four fresh, removed network-none/read-only containers with
+private HOME/cache tmpfs and random CA material. Expect old three-fetch success,
+current two-fetch PartialChain, supplied-chain success with zero downloads,
+UntrustedRoot/NotTimeValid rejection and real manifest signature/tamper controls.
+Loaded OpenSSL3.3.7/3.5.4 library versions/hashes, exact image digests and cleanup
+are saved. CustomRootTrust/NoCheck are private offline-fixture policy, not production
+trust or online-revocation/TLS proof. No shared roots/caches are edited. Process,
+user and machine PATH and persistent user/machine environment are checked unchanged.
+
+Windows x64 NTFS and Linux x64 OpenSSL are measured. Other-platform/filesystem,
+newer-package-on-net10, TLS, online revocation and actual-GA behavior remain
+unverified. Inspection consumes saved proof rather than rerunning these behaviors.
+PIN-959/PIN-962 and existing Human gates stay open; no native CI matrix is added.

@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.Extensions.Configuration.Json": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "0YGJvNOT8/vYMx8qruZkwm0zokt0zhGvwhcZZgHL8u4Pp66RHFEnfnzc35v8f8uzRym8XeKBHKw5YIbz9M7uXg==",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "11.0.0-rc.2.26504.105",
+          "Microsoft.Extensions.Configuration.FileExtensions": "11.0.0-rc.2.26504.105"
+        }
+      },
+      "Microsoft.Extensions.Configuration": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "jA9ENNmv5gfDFG0DnimIgGdD6RUDRIR+ozqn5S0dzCLlZdU0NFHJIRBA0pl2tP8P8wItosXen4ZvCkv9KweTUA=="
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "WF1MPJX7xaFUbvVK85zNkRiz5Y2Y/Qa64xS8K5+MV8mD/8bBks+o3E50tSEIyPnfJgVrU9WZ/cpBhUNGrJK1dQ==",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "11.0.0-rc.2.26504.105",
+          "Microsoft.Extensions.FileProviders.Physical": "11.0.0-rc.2.26504.105"
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Physical": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "ezQnABPtsF2Nx8Li6ynXvXsIruf5FDRGcUR3WjSw7qis/OlnDTJrMV4vve1VgPdOOO9x39GZhiTQr+e2JZJtbw==",
+        "dependencies": {
+          "Microsoft.Extensions.FileSystemGlobbing": "11.0.0-rc.2.26504.105"
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "9JqwV6cCVYk5yqPE3E1t6nt4DdJ45F5Ovy7ZQa54qNStRuujNVMvZh5n5+eJynJpIP212kYQIxxwhrDOEcJMqQ=="
+      }
+    }
+  }
+}

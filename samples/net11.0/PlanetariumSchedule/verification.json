@@ -1,0 +1,19 @@
+{
+  "dependencies": [
+    "Microsoft.Extensions.Configuration.FileExtensions/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration.Json/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.FileProviders.Physical/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.FileSystemGlobbing/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/FileFailures/FileChecks.cs",
+    "samples/FileFailures/ProviderChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-FileChain.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/ArchiveManifest/ArchiveChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-FileChain.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

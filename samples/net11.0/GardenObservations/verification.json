@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    "Microsoft.Extensions.FileProviders.Physical/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.FileSystemGlobbing/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/FileFailures/FileChecks.cs",
+    "samples/FileFailures/WatcherChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-FileChain.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
