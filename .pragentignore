@@ -367,3 +367,11 @@
 /samples/net11.0/SensorArchive/verification-evidence.json
 /samples/net10.0/CalibrationGroups/verification-evidence.json
 /samples/net11.0/CalibrationGroups/verification-evidence.json
+
+# Test-ClassifierAuthentication/Record-Evidence generated SDK/reference/native receipts.
+# Review canonical consumers, checks, manifests, source pins and recorder; build/pack
+# checks saved input freshness and exact installed inspection verifies served content.
+/samples/net10.0/TideOffsets/verification-evidence.json
+/samples/net11.0/TideOffsets/verification-evidence.json
+/samples/net10.0/HarbourPackets/verification-evidence.json
+/samples/net11.0/HarbourPackets/verification-evidence.json

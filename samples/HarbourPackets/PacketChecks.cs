@@ -30,6 +30,7 @@ public static class PacketChecks
             hash.AppendData(Data.AsSpan(0, 12));
             Check(PacketAuthenticator.Current(hash, HMACSHA256.HashData(Key, Data[..12])), "HMAC prefix preserves state");
             hash.AppendData(Data.AsSpan(12));
+            ExpectLengthFailure(() => PacketAuthenticator.Finish(hash, tag[..31]));
             Check(!PacketAuthenticator.Current(hash, bad), "HMAC mismatch preserves state");
             Check(PacketAuthenticator.Current(hash, tag), "HMAC complete preserves state");
             Check(PacketAuthenticator.Finish(hash, tag), "HMAC finish succeeds");
@@ -76,6 +77,7 @@ public static class PacketChecks
             hash.AppendData(Data.AsSpan(0, 12));
             Check(PacketAuthenticator.CurrentKmac(hash, Kmac128.HashData(Key, Data[..12], 32, Custom)), "KMAC prefix preserves");
             hash.AppendData(Data.AsSpan(12));
+            ExpectLengthFailure(() => PacketAuthenticator.FinishKmac(hash, kmac[..31]));
             Check(!PacketAuthenticator.CurrentKmac(hash, wrong), "KMAC mismatch preserves");
             Check(PacketAuthenticator.FinishKmac(hash, kmac), "KMAC finish");
             Check(PacketAuthenticator.CurrentKmac(hash, Kmac128.HashData(Key, Array.Empty<byte>(), 32, Custom)), "KMAC success resets");
@@ -84,6 +86,12 @@ public static class PacketChecks
             Check(PacketAuthenticator.CurrentKmac(hash, Kmac128.HashData(Key, Array.Empty<byte>(), 32, Custom)), "KMAC mismatch resets");
         }
         Console.WriteLine("PASS: complete HMAC/KMAC verification contract; no timing measurement.");
+    }
+
+    private static void ExpectLengthFailure(Action action)
+    {
+        try { action(); throw new InvalidOperationException("Expected protocol length failure."); }
+        catch (ArgumentException) { Console.WriteLine("PASS invalid incremental protocol length rejects before reset"); }
     }
 
     private static void Check(bool result, string name)

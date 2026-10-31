@@ -1,0 +1,15 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/TideOffsets/OffsetChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ClassifierAuthentication.ps1",
+    "docs/planning/audits/serialization.assets.json",
+    "docs/planning/audits/classifier-authentication.sources.json",
+    "samples/net10.0/TideOffsets/OffsetRule.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": []
+}

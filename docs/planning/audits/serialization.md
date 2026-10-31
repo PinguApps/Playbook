@@ -36,7 +36,7 @@ The compatibility index explicitly says it is incomplete. The source manifest is
 
 ## Mechanical comparison and authoring dispositions
 
-**Delivery update — PIN-726–730:** [eleven original JSON recipes and actual managed execution/installed-tool evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-726-730.md) now cover the assigned streaming/writer, generic/typed metadata, encapsulated-model, naming/value/schema and strict-import goals. This supersedes the outstanding delivery wording for those rows below only within the report's measured scope. Stream/options JSONL and both writer Reset destinations are executed; other JSONL overload families remain source-reviewed. Generic resolution checks direct binding and one invalid shape; custom metadata factories, every generic shape, trimming/Native AOT and GA remain outside this proof. The two independent S1/S2 proposals and comprehensive publication gates remain outstanding.
+**Delivery update — PIN-726–730:** [eleven original JSON recipes and actual managed execution/installed-tool evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-726-730.md) now cover the assigned streaming/writer, generic/typed metadata, encapsulated-model, naming/value/schema and strict-import goals. This supersedes the outstanding delivery wording for those rows below only within the report's measured scope. Stream/options JSONL and both writer Reset destinations are executed; other JSONL overload families remain source-reviewed. Generic resolution checks direct binding and one invalid shape; custom metadata factories, every generic shape, trimming/Native AOT and GA remain outside this proof. Later PIN-1085/PIN-1086 delivery updates below supersede outstanding S1/S2 wording; comprehensive publication and actual-GA gates remain open.
 
 Counts below are declaration-line changes, **not** distinct API or recipe counts. Properties/accessors, constructors, enum fields, nullable attributes and type forwarders can each contribute lines. Flags, optional defaults, generic constraints, custom modifiers and attribute values are retained. Assembly hashes also expose differences outside this declaration representation. This is not a binary-compatibility certification or an implementation diff.
 
@@ -160,6 +160,30 @@ Proposed goal: `cbor.bound-nesting`. As a developer exchanging nested measuremen
 - **Sizing:** paired package consumers, boundary behavior, complete original recipe and installed retrieval; M is defensible without expanding into an incremental parser or generic security guide.
 
 ### S2 — Choose JSON variants from payload values — M (3)
+
+**Delivered by PIN-1086:** `json.classify-payload-values` edition11.0 adds
+original Mallow Quay positive/negative-offset records with identical field names.
+Paired SDK10.0.402/ref-runtime10.0.13 and SDK11.0.100-rc.2.26504.105/ref-runtime11RC2
+consumers execute the valid older converter and current typed classifier factory.
+Framework System.Text.Json and actual SDK/reference-pack generators are used;
+there is no extra package or advertised net10-plus-new-package route.
+
+`eng/Test-ClassifierAuthentication.ps1 -Record -VerifySources` retains exact
+commands, dependencies, input hashes, audit-matching references and compiler,
+runtime implementation and generator identities. Complete selected payloads,
+both property orders, malformed/no-match inputs and ordinary reference-null
+handling pass without reflection fallback. Current checks execute attribute/global
+precedence, no-match JsonException, unregistered NotSupportedException, one factory
+configuration versus per-message invocation and complete payload deserialization
+after consuming the defensive reader copy. Generated metadata includes every
+candidate. Union custom-factory null semantics remain unresolved; no claim about
+existing union examples, trimming/AOT or final GA is changed.
+
+The [installed walkthrough](../../inspect-guidance.md#value-based-json-classification-and-message-authenticators)
+checks exact-artifact offline stdio discovery/full canonical content, target/edition,
+applicability and fresh evidence. This supersedes outstanding-S2 wording only.
+Eight foundations, stable identities, PIN-959/PIN-962 and existing Human gates
+remain; no publication readiness or new matrix is implied.
 
 Proposed goal: `json.classify-payload-values`. As a developer receiving records with the same field names, I want to select their meaning from their values so both record shapes deserialize predictably.
 

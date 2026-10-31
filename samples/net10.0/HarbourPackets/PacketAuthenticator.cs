@@ -16,18 +16,35 @@ public static class PacketAuthenticator
         return CryptographicOperations.FixedTimeEquals(computed, tag);
     }
 
-    public static bool Current(IncrementalHash hash, byte[] tag) =>
-        CryptographicOperations.FixedTimeEquals(hash.GetCurrentHash(), tag);
-    public static bool Finish(IncrementalHash hash, byte[] tag) =>
-        CryptographicOperations.FixedTimeEquals(hash.GetHashAndReset(), tag);
+    public static bool Current(IncrementalHash hash, byte[] tag)
+    {
+        ProtocolTag(tag);
+        return CryptographicOperations.FixedTimeEquals(hash.GetCurrentHash(), tag);
+    }
+    public static bool Finish(IncrementalHash hash, byte[] tag)
+    {
+        ProtocolTag(tag);
+        return CryptographicOperations.FixedTimeEquals(hash.GetHashAndReset(), tag);
+    }
 
     public static bool VerifyKmac(byte[] key, byte[] data, byte[] tag, byte[] customization) =>
         tag.Length == TagLength && Kmac128.IsSupported &&
         CryptographicOperations.FixedTimeEquals(Kmac128.HashData(key, data, TagLength, customization), tag);
 
-    public static bool CurrentKmac(Kmac128 hash, byte[] tag) =>
-        CryptographicOperations.FixedTimeEquals(hash.GetCurrentHash(TagLength), tag);
-    public static bool FinishKmac(Kmac128 hash, byte[] tag) =>
-        CryptographicOperations.FixedTimeEquals(hash.GetHashAndReset(TagLength), tag);
+    public static bool CurrentKmac(Kmac128 hash, byte[] tag)
+    {
+        ProtocolTag(tag);
+        return CryptographicOperations.FixedTimeEquals(hash.GetCurrentHash(TagLength), tag);
+    }
+    public static bool FinishKmac(Kmac128 hash, byte[] tag)
+    {
+        ProtocolTag(tag);
+        return CryptographicOperations.FixedTimeEquals(hash.GetHashAndReset(TagLength), tag);
+    }
+    private static byte[] ProtocolTag(byte[] tag)
+    {
+        if (tag.Length != TagLength) throw new ArgumentException("Expected a32-byte protocol tag.", nameof(tag));
+        return tag;
+    }
 }
 // endsnippet:implementation

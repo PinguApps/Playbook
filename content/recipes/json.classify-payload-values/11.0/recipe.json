@@ -1,0 +1,158 @@
+{
+  "id": "json.classify-payload-values",
+  "edition": "11.0",
+  "title": "Choose JSON variants from payload values",
+  "goal": "Select registered record types by values inside messages with identical field names, preserving the complete payload and reader state.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "classifier-authentication",
+    "tideoffsets"
+  ],
+  "apis": [
+    "JsonTypeClassifierFactory<T>",
+    "JsonPolymorphicAttribute.TypeClassifier",
+    "JsonSerializerOptions.TypeClassifiers"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; RC2 evidence is distinct from GA verification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against net11.0 references; exact SDK patch is a reproduction pin."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; comparison uses C#14. No preview-language opt-in."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0/System.Text.Json.dll"
+          ],
+          "providers": [],
+          "platforms": [
+            "Windows x64 measured; other-platform execution, browser/WASI and trimming/Native AOT are not verified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; complete canonical source includes imports and namespace.",
+            "No additional NuGet package. Exact proof: SDK11.0.100-rc.2.26504.105/runtime-ref11.0.0-rc.2.26504.105; previous SDK10.0.402/runtime-ref10.0.13."
+          ],
+          "constraints": [
+            "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
+            "No rendering mode, workload or experimental diagnostic opt-in; actual RC2 proof does not establish final-GA execution.",
+            "Ordinary reference-type polymorphism only. Union custom-classifier null semantics remain unresolved; no AOT or union claim.",
+            "Register all concrete candidates and generate their metadata; reflection fallback is disabled in both consumers."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Selected APIs have no experimental diagnostic; final-GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
+          "No rendering mode, workload or experimental diagnostic opt-in; actual RC2 proof does not establish final-GA execution.",
+          "Ordinary reference-type polymorphism only. Union custom-classifier null semantics remain unresolved; no AOT or union claim.",
+          "Register all concrete candidates and generate their metadata; reflection fallback is disabled in both consumers."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TideOffsets/TideOffsets.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifier.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierFactory.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierContext.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "4099f83-System.Text.Json.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs"
+    },
+    {
+      "title": "820230c-System.Text.Json.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/ref/System.Text.Json.cs"
+    },
+    {
+      "title": "820230c-JsonTypeClassifier.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifier.cs"
+    },
+    {
+      "title": "820230c-JsonTypeClassifierFactory.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierFactory.cs"
+    },
+    {
+      "title": "820230c-JsonTypeClassifierContext.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Text.Json/src/System/Text/Json/Serialization/JsonTypeClassifierContext.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual paired value-based type/payload, order, malformed/no-match and reference-null execution; current registration/global errors and generated candidates.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/TideOffsets/TideOffsets.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Actual paired value-based type/payload, order, malformed/no-match and reference-null execution; current registration/global errors and generated candidates.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/TideOffsets/TideOffsets.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/TideOffsets/OffsetCodec.cs",
+      "region": "implementation",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/TideOffsets/OffsetCodec.cs",
+      "region": "implementation",
+      "language": "csharp"
+    },
+    "rule": {
+      "path": "samples/net10.0/TideOffsets/OffsetRule.cs",
+      "region": "rule",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real managed console and supported local Windows CNG checks need no account, external service, workload or Human action. Other-platform, AOT and GA claims remain unverified."
+  }
+}

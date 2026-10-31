@@ -195,6 +195,26 @@ lines, including repeated target-asset comparisons.
 
 ## Delivery drafts for review
 
+**Delivery update — PIN-1087 / R1:**
+`crypto.verify-message-authenticators` edition11.0 adds original Mallow Quay packet
+verification. Paired SDK10.0.402/ref-runtime10.0.13 and SDK11RC2/ref-runtime11RC2
+framework consumers execute HashData/FixedTimeEquals versus Verify, real stream
+cancellation after12 bytes, valid/bad/truncated/empty tags, wrong key/data and
+incremental preserve/reset on success and same-length mismatch. Positive Windows
+CNG KMAC support executes known-answer/customization and incremental checks;
+native DLL versions/hashes are recorded. Raw HMAC invalid lengths throw, while
+KMAC accepts a valid31-byte output; application policy enforces32 bytes on both
+editions. No timing measurement or universal provider-support claim is made.
+
+`eng/Test-ClassifierAuthentication.ps1 -Record -VerifySources` retains exact
+commands, inputs, compiler/runtime/native identities and audit-matching framework
+reference hashes; no extra NuGet package or net10-plus-new-package route is used.
+The [installed walkthrough](../../inspect-guidance.md#value-based-json-classification-and-message-authenticators)
+checks the ordinary exact artifact through isolated offline stdio list/get,
+complete canonical Markdown, explicit target/edition, applicability and evidence.
+This supersedes outstanding-R1 wording only. Other drafts, eight foundations,
+PIN-959/PIN-962, existing Human and actual-GA gates remain open.
+
 **Approval-only proposals, not new Linear tickets.** Use the existing
 02 - Language and library guidance milestone; allocate unused `02-DDD` titles only
 after approval and a fresh numbering check. Native estimates follow observed
