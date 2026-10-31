@@ -18,6 +18,13 @@ Commit evidence only for a named ongoing check, supported claim, release decisio
 
 Historical capture links use immutable commits, not moving branches. They support the recorded observation, not a new run or GA proof. Evidence still required for a product/release claim must remain in durable versioned storage or an immutable retained artifact; an expiring CI upload alone is insufficient. Do not retain a report merely because another document links it. Keep essential served instructions complete offline.
 
+## SQL Server recipe checks
+
+SQL Server recipe authors can use the approved local
+[isolated SQL Server verification route](sql-server-verification.md). It supplies
+per-run databases, encrypted local credentials, real feature/provider checks and
+cleanup ownership; each recipe still owns its specific execution evidence.
+
 ## Native testing policy
 
 Pingu approved this boundary through PIN-699 on 30 October 2026. Run authoring
