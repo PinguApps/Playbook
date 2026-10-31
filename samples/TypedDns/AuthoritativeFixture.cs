@@ -56,7 +56,7 @@ internal sealed class AuthoritativeFixture : IAsyncDisposable
                 using var soa = new MemoryStream();
                 WriteName(soa, "ns.reedbank.test"); WriteName(soa, "hostmaster.reedbank.test");
                 foreach (uint value in new uint[] { 41, 3600, 600, 86400, 45 }) Write32(soa, value);
-                WriteRecord(response, 6, 120, soa.ToArray());
+                WriteRecord(response, 6, 120, soa.ToArray(), "reedbank.test");
             }
             else if (!negative)
             {
@@ -85,9 +85,11 @@ internal sealed class AuthoritativeFixture : IAsyncDisposable
         }
     }
 
-    private static void WriteRecord(Stream stream, ushort type, uint ttl, byte[] data)
+    private static void WriteRecord(Stream stream, ushort type, uint ttl, byte[] data, string? owner = null)
     {
-        Write16(stream, 0xc00c); Write16(stream, type); Write16(stream, 1);
+        if (owner is null) Write16(stream, 0xc00c);
+        else WriteName(stream, owner);
+        Write16(stream, type); Write16(stream, 1);
         Write32(stream, ttl); Write16(stream, checked((ushort)data.Length)); stream.Write(data);
     }
     private static void WriteName(Stream stream, string name)
