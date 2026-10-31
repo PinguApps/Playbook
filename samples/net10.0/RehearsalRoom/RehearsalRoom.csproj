@@ -1,1 +1,1 @@
-<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion></PropertyGroup><ItemGroup><Compile Include="../../RehearsalRoom/TlsChecks.cs" /><Compile Include="../../RehearsalRoom/RoomContexts.cs" /></ItemGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion></PropertyGroup><ItemGroup><Compile Include="../../RehearsalRoom/TlsChecks.cs" /></ItemGroup></Project>

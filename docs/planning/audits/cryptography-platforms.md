@@ -1,6 +1,6 @@
 # Cryptography platform migrations: PIN-686
 
-Reviewed **22 October 2026**. Source-only audit of all five entries in the .NET 11 cryptography compatibility section, the cryptographic entry in the general obsolete index, and adjacent TLS certificate-download policy. Six assigned migration goals and one adjacent goal need delivery approval. The PIN-1060 delivery reconciliation below supplies D; the audit itself remains source evidence.
+Reviewed **22 October 2026**. Source-only audit of all five entries in the .NET 11 cryptography compatibility section, the cryptographic entry in the general obsolete index, and adjacent TLS certificate-download policy. Six assigned migration goals and one adjacent goal were submitted for delivery approval. The reconciliations below supply D (PIN-1060), E (PIN-1061) and G (PIN-1063); the original audit remains source evidence.
 
 ## Scope and evidence
 
@@ -25,9 +25,9 @@ The source-review decisions are resolved within this boundary; implementation an
 | [Windows Composite ML-DSA native dispatch][composite], Preview 7 | Check `CompositeMLDsa.IsAlgorithmSupported` for the exact parameter set before `GenerateKey`/import/signing. The documented CNG subset is `MLDsa44WithECDsaP256`, `MLDsa65WithECDsaP256`, `MLDsa65WithECDsaP384`, `MLDsa87WithECDsaP384`. RSA combinations lose the prior managed path; EdDSA combinations were already unavailable on Windows. | **Included → B.** `composite-windows-10/11` changes managed composition to CNG; `composite-parameters` maps exactly these four sets. A declared member does not imply native support. The API remains experimental **SYSLIB5006** in both source references. Ordinary Windows versions are not promised to support the Insider composite provider. Composite certificate APIs remain unsupported on Windows; PIN-751's ML-KEM/HPKE/CMS goals are different. |
 | [Windows HKDF native dispatch][hkdf], Preview 1 | `HKDF.DeriveKey` input keying material and `HKDF.Expand` pseudorandom-key input encounter documented 2,048-byte CNG limits; oversized inputs can throw `CryptographicException`. These are input limits, not an output-length limit or a universal cap on salt/info. Validate the application's input contract and handle an incompatible request. | **Included → C.** `hkdf-windows` uses CNG when available, but `Extract` stays managed; unavailable CNG and MD5 take managed paths. The broad Windows headline needs these qualifications. No new public override switch was established. Do not truncate/hash inputs, change derivation or silently select a weaker hash as a compatibility fix; that can change keys or protocol security. |
 | [OpenSSL AIA chain-building limit][aia], Preview 7 | `X509Chain.Build(X509Certificate2)` has a two-download issuer-fetch budget. Supply missing intermediate certificates through `ChainPolicy.ExtraStore` or provision an intermediate store. Keep trust validation: an intermediate in ExtraStore is not automatically a trusted root. | **Delivered → PIN-1060 / D.** `aia-chain-11` decrements a two-attempt loop before downloading; failures/no progress can stop earlier. It is not a two-certificate maximum chain depth, nor a guarantee of two successful fetches. The prior loop lacked that budget. No public limit-raising switch was established in this reviewed path. Keep this separate from TLS defaults below and from revocation-network policy. |
-| [SYSLIB0065][raw], Preview 6 | Only the `AsnEncodedData.RawData` **setter** is newly obsolete. Construct the appropriate derived type for new values, or use its supported virtual `CopyFrom(AsnEncodedData)` for mutation. The getter remains usable. Blanket suppression does not repair stale decoded state. | **Included → E.** `crypto-ref-10/11` places the diagnostic on the setter. `asn-state` clones assigned bytes without derived invalidation; `basic-constraints` overrides CopyFrom and clears its decode cache. The diagnostic page supplies the semantic alternative omitted by the broad note's suppression advice. Review actual derived-type behavior, OID and Critical handling; no claim that every subclass implements identical copy semantics. |
+| [SYSLIB0065][raw], Preview 6 | Only the `AsnEncodedData.RawData` **setter** is newly obsolete. Construct the appropriate derived type for new values, or use its supported virtual `CopyFrom(AsnEncodedData)` for mutation. The getter remains usable. Blanket suppression does not repair stale decoded state. | **Delivered → PIN-1061 / E.** `crypto-ref-10/11` places the diagnostic on the setter. `asn-state` clones assigned bytes without derived invalidation; `basic-constraints` overrides CopyFrom and clears its decode cache. The diagnostic page supplies the semantic alternative omitted by the broad note's suppression advice. Review actual derived-type behavior, OID and Critical handling; no claim that every subclass implements identical copy semantics. |
 | [SYSLIB0064][rsa], .NET 11 | `RSACryptoServiceProvider.Encrypt(byte[], bool)` / `Decrypt(byte[], bool)` become obsolete. Preserving wire compatibility maps true to explicit `RSAEncryptionPadding.OaepSHA1`, false to `Pkcs1`. A stronger OAEP hash is a separate provider/protocol migration requiring both peers and existing key access to be considered. | **Included → F.** Found in `core-obsoletions`, not the cryptography table. `rsa-csp` on Windows accepts only Pkcs1/OaepSHA1 in these padding overloads; changing this provider's argument to OaepSHA256 throws. Do not present the diagnostic page's stronger-hash advice as an implementation supported by every RSA provider. Legacy CAPI key containers are not automatically preserved by `RSA.Create`. PIN-689 owns the index map, not this semantic replacement. |
-| Adjacent [TLS server AIA default][tls], Preview 3 | `SslStream.AuthenticateAsServer` / `AuthenticateAsServerAsync` disable missing-intermediate downloads for client-certificate validation when no custom chain policy is supplied. Provide the chain from the client (`ClientCertificateContext`), or use server `CertificateChainPolicy.ExtraStore` with explicit trust/download policy. | **Included, adjacent → G; cross-reference PIN-705.** `tls-validation-11` applies the default only in the server/no-custom-policy branch. Custom `X509ChainPolicy.DisableCertificateDownloads` is respected. `tls-switch` also contains `System.Net.Security.EnableServerAiaDownloads` / `DOTNET_SYSTEM_NET_SECURITY_ENABLESERVERAIADOWNLOADS`: a compatibility escape, not the preferred migration or a bypass for Linux's per-build budget. PIN-752's caller-owned TLS I/O is a separate goal. |
+| Adjacent [TLS server AIA default][tls], Preview 3 | `SslStream.AuthenticateAsServer` / `AuthenticateAsServerAsync` disable missing-intermediate downloads for client-certificate validation when no custom chain policy is supplied. Provide the chain from the client (`ClientCertificateContext`), or use server `CertificateChainPolicy.ExtraStore` with explicit trust/download policy. | **Delivered → PIN-1063 / G; cross-reference PIN-705.** `tls-validation-11` applies the default only in the server/no-custom-policy branch. Custom `X509ChainPolicy.DisableCertificateDownloads` is respected. `tls-switch` also contains `System.Net.Security.EnableServerAiaDownloads` / `DOTNET_SYSTEM_NET_SECURITY_ENABLESERVERAIADOWNLOADS`: a compatibility escape, not the preferred migration or a bypass for Linux's per-build budget. PIN-752's caller-owned TLS I/O is a separate goal. |
 
 ## D delivery reconciliation — 30 October 2026
 
@@ -54,6 +54,41 @@ canonical Markdown, target11/edition11, applicability and evidence; see the
 [walkthrough](../../inspect-guidance.md#file-load-watch-root-and-certificate-issuer-boundaries).
 Other crypto delivery owners, exact eight foundations and PIN-959/PIN-962/Human
 gates remain open. No native CI matrix or public publication is added.
+
+## E/G delivery reconciliation — 31 October 2026
+
+PIN-1061 delivers `crypto.replace-encoded-extension-data` edition11.0. Original
+LaboratoryInspector consumers compile/run SDK10.0.402/C#14/ref-runtime10.0.13 and
+SDK11RC2/C#15/ref-runtime11RC2 on Windows x64. The older setter reproduces stale
+Basic Constraints fields despite changed raw bytes. Typed construction and CopyFrom
+verify all decoded fields, bytes/OID, Critical true/false, malformed lazy-decode
+rejection and getter-only code. An isolated current-target build of the unchanged
+old setter fails specifically with SYSLIB0065, without suppression; supported
+current code builds with warnings as errors. X509Extension input/Critical handling
+is qualified separately rather than generalized to every derived type.
+
+PIN-1063 delivers `tls.supply-client-certificate-chain` edition11.0. Separate paired
+Windows compilation precedes actual Linux/OpenSSL execution in eight fresh,
+network-none/read-only runtime containers, each with random private CA/server/client
+certificates and private HOME/cache tmpfs. The no-custom-policy old flow fetches one
+issuer and exchanges booking/ACK data; current fails PartialChain with zero fetches.
+Server ExtraStore/downloads-disabled succeeds with mutual TLS/data on both; expired
+clients and an unrelated trusted root are rejected with zero fetches. Trust is
+private and strict, the client sends only its leaf, and NoCheck is deliberately an
+offline-fixture policy rather than online-revocation evidence. TLS1.3 was negotiated.
+Loaded OpenSSL3.3.7/3.5.4, libssl/libcrypto hashes, exact images, certificate inputs,
+commands and listener/container/cache cleanup are saved through sample evidence.
+No shared trust stores, switches, production keys or caller-owned TLS I/O are used.
+
+`eng/Record-CertificateLinks.ps1 -VerifySources` captures affected consumer evidence
+and checks the selected original/supplemental immutable sources in
+[certificate-links.sources.json](certificate-links.sources.json). The ordinary
+packed, isolated local-feed-installed artifact is inspected with real offline
+stdio list/get, canonical Markdown, target11/edition11, applicability and freshness;
+see [the walkthrough](../../inspect-guidance.md#certificate-extension-state-client-tls-chains-and-file-aliases).
+Other crypto owners, PIN-705's broader audit, eight foundations, PIN-959/PIN-962 and
+existing Human gates remain open. Windows TLS, other native platforms, online
+revocation and actual-GA behavior are not established. No native CI matrix is added.
 
 ## Grouping, exclusions and remaining boundaries
 

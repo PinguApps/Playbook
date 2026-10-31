@@ -1,0 +1,151 @@
+{
+  "id": "io.create-hard-links",
+  "edition": "11.0",
+  "title": "Create file aliases with hard links",
+  "goal": "Create another name for existing file data on a supported local filesystem when edits should be shared and deleting one name must leave the other usable.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "certificate-links",
+    "surveyexport"
+  ],
+  "apis": [
+    "File.CreateHardLink",
+    "FileInfo.CreateAsHardLink",
+    "CreateHardLinkW"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Create another name for existing file data on a supported local filesystem when edits should be shared and deleting one name must leave the other usable.",
+          "Measured Windows x64 local NTFS only. Same-volume regular files; no Unix, network-share, unsupported-filesystem or cross-volume outcome is claimed.",
+          "Verified on .NET 11 RC2; actual-GA reconciliation remains open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": ".NET 11 runtime for the current net11 consumer; RC2 is the measured artifact, not final GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [
+            "Windows kernel32 CreateHardLinkW on local NTFS"
+          ],
+          "platforms": [
+            "Measured Windows x64 local NTFS only. Same-volume regular files; no Unix, network-share, unsupported-filesystem or cross-volume outcome is claimed."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0, C#15 sample mode, Nullable and ImplicitUsings enabled; put complete canonical helpers in separate .cs files.",
+            "Temporary local Windows NTFS directory; existing regular file and unused alias path on the same volume. No elevated symbolic-link privilege is used."
+          ],
+          "constraints": [
+            "Measured Windows x64 local NTFS only. Same-volume regular files; no Unix, network-share, unsupported-filesystem or cross-volume outcome is claimed.",
+            "Previous comparison: SDK10.0.402/C#14/runtime10.0.13. Current: SDK11.0.100-rc.2.26504.105/C#15/runtime11RC2. These are measured verification pins, separate from supported release-family prerequisites.",
+            "Framework APIs only: no NuGet dependency, workload, rendering mode, experimental opt-in, public service or production resource. Preserve eight foundations, other recipe identities and existing comprehensive/GA/Human gates."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence is not actual-GA proof. No selected API experimental opt-in is required."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/File.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/FileInfo.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/FileSystem.Windows.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SurveyExport/SurveyExport.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "runtime-ref-1 \u2014 official versioned source",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "runtime-ref-2 \u2014 official versioned source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "hardlink-file \u2014 official versioned source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/File.cs"
+    },
+    {
+      "title": "hardlink-fileinfo \u2014 official versioned source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/FileInfo.cs"
+    },
+    {
+      "title": "hardlink-windows \u2014 official versioned source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/FileSystem.Windows.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Measured Windows x64 local NTFS only. Same-volume regular files; no Unix, network-share, unsupported-filesystem or cross-volume outcome is claimed.",
+      "sample": "samples/net10.0/SurveyExport/SurveyExport.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Measured Windows x64 local NTFS only. Same-volume regular files; no Unix, network-share, unsupported-filesystem or cross-volume outcome is claimed.",
+      "sample": "samples/net11.0/SurveyExport/SurveyExport.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/SurveyExport/SurveyAlias.cs",
+      "region": "alias"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/SurveyExport/SurveyAlias.cs",
+      "region": "alias"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Measured Windows x64 local NTFS only. Same-volume regular files; no Unix, network-share, unsupported-filesystem or cross-volume outcome is claimed. Feasible checks are automated on this Windows machine and existing Docker; Pingu owns future feasible interactive approvals and refresh coordination. No new Human gate or native CI matrix."
+  }
+}

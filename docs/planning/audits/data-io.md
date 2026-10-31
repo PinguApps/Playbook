@@ -61,7 +61,7 @@ All changes require authored code unless otherwise stated. No uncovered markup, 
 | Compiler-emitted vector extension marker types and public EditorBrowsable(Never) expression Closure storage/constructor | **Excluded as standalone goals:** compiler/code-generation support; no separate practical authoring change established. Keep raw declarations, including these generated public shapes, visible. | PIN-703 disposition. A future documented authored compiler-host scenario would require a bounded proposal; no general tooling compatibility claim. |
 | Tensor twelve add/remove pairs | **Excluded as new algorithms:** identical callable shapes with added NullableContext(0), not twelve new tensor operations. Complete generic/parameter annotations remain in the manifest. | Tensor shape/layout/Clamp/Round correctness findings remain PIN-683; this metadata result does not establish behavioral equivalence. |
 | Argb<T>/Rgba<T>, packed-endian conversion helpers | **Included, uncovered D5:** explicit channel order and component representation. | D5; no dependency on MAUI Color inheritance or a native painting API. |
-| File.CreateHardLink/FileInfo.CreateAsHardLink | **Included, uncovered D1:** replace native creation code while preserving alias semantics. | D1. TAR hard-link archive policy is a different goal with existing owner PIN-684. |
+| File.CreateHardLink/FileInfo.CreateAsHardLink | **Delivered D1 → PIN-1075:** replace native creation code while preserving alias semantics. | `io.create-hard-links` edition11.0; actual old native/current managed Windows NTFS lifecycle and failure evidence. Other OS/filesystem/cross-volume outcomes remain unverified. TAR archive policy stays separate. |
 | DirectoryNotFoundException DirectoryPath, constructors, formatting/serialization overrides | **Included, uncovered D9:** consume a structured failing path instead of parsing a localized message. Group supporting constructors/ToString/legacy serialization metadata; don't teach obsolete formatter use. | D9. |
 | SafeFileHandle.Type/CreateAnonymousPipe/FileHandleType; NamedPipeClientStream replacement constructor and SYSLIB0063 | **Grouped:** handle type/ownership and remove the ineffective isConnected argument. | [PIN-741](https://linear.app/pinguapps/issue/PIN-741); [PIN-684](https://linear.app/pinguapps/issue/PIN-684) retains Unix async-state/permission migrations. |
 | TAR format overloads, TarWriterOptions, TarExtractOptions, TarHardLinkMode | **Format selection delivered:** [PIN-731–733](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-731-733.md) verifies all four formats and original sparse 1.0 logical content; preserving links versus copying contents with PIN-684's already assigned hard-link migration. | [PIN-732](https://linear.app/pinguapps/issue/PIN-732), PIN-684; include extraction on filesystems without link support when claimed. No duplicate hard-link-policy proposal here. |
@@ -117,6 +117,31 @@ Each proposal must:
 5. Update this register and the inventory, preserve unknowns and keep PIN-959 publication and PIN-962 GA reconciliation gates intact. Missing API, compilation, platform prerequisites or necessary runtime evidence blocks that proposal's delivery/publication. No package publication is authorized by a proposal.
 
 All proposals depend on that existing harness, not on another unimplemented research/recipe ticket unless explicitly stated below. Their execution checks are **future acceptance**, not tests performed in this audit.
+
+## D1 delivery reconciliation — 31 October 2026
+
+PIN-1075 delivers `io.create-hard-links` edition11.0 through original SurveyExport
+consumers. SDK10.0.402/C#14/ref-runtime10.0.13 executes the Unicode System32 native
+wrapper; SDK11RC2/C#15/ref-runtime11RC2 executes both File.CreateHardLink and
+FileInfo.CreateAsHardLink, verifying receiver=new-name/argument=existing-file.
+All run on Windows x64 local C: NTFS, with no package/workload/experimental opt-in.
+Bidirectional writes reach the shared bytes; deleting either name first preserves
+the remaining file. Occupied destinations, absent targets and directory targets
+are rejected without clobbering report data or creating the missing alias. The
+native errors and current exception/HResult values are observed, not a universal
+error taxonomy. Only each newly created temporary tree is removed after parent
+verification. Other filesystems, Unix/network shares and cross-volume failure
+outcomes are not claimed. Hard links are not snapshots or TAR archive policy.
+
+`eng/Record-CertificateLinks.ps1 -VerifySources` retains commands, runtime/OS/NTFS,
+compiler/reference/CoreLib/kernel32 identities/hashes and fresh sample inputs.
+[Selected original and qualified implementation sources](certificate-links.sources.json)
+reconcile actual API direction and availability. The ordinary isolated local-feed
+installed package returns complete canonical Markdown, ID/title/goal, explicit
+target11/edition11 applicability and fresh evidence offline; see
+[the walkthrough](../../inspect-guidance.md#certificate-extension-state-client-tls-chains-and-file-aliases).
+The exact eight foundations, other delivery owners, PIN-959/PIN-962 and existing
+Human gates remain open. RC2 does not establish GA; no native CI matrix is added.
 
 ### D1 — Create file aliases with hard links — M (3)
 
