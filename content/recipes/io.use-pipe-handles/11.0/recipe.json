@@ -1,0 +1,210 @@
+{
+  "id": "io.use-pipe-handles",
+  "edition": "11.0",
+  "title": "Use pipe handles with explicit ownership and platform-aware I/O",
+  "goal": "Use low-level pipe handles without seeking assumptions, and inspect Unix async state and same-user named-pipe permissions before migrating handle-based I/O.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "native-boundaries",
+    "buoypipes"
+  ],
+  "apis": [
+    "SafeFileHandle.CreateAnonymousPipe",
+    "SafeFileHandle.Type",
+    "FileHandleType.Pipe",
+    "RandomAccess.Read",
+    "RandomAccess.Write",
+    "NamedPipeClientStream",
+    "PipeOptions.CurrentUserOnly",
+    "FileStream.IsAsync",
+    "SendPacketsElement"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Use low-level pipe handles without seeking assumptions, and inspect Unix async state and same-user named-pipe permissions before migrating handle-based I/O.",
+          "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current net11.0 guidance; measured RC2 where executed, not actual-GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the matching .NET11 reference/toolchain assets; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; no experimental C# syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Measured Windows x64 and Linux x64; Unix socket permission behavior separate from Windows handle rules"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Previous comparison SDK10.0.402/C#14/runtime-reference10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/runtime-reference11RC2. Evidence values describe actual observations except explicitly intended source-only pins."
+          ],
+          "constraints": [
+            "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",
+            "Comparison samples do not add a .NET10 catalogue route or a ninth foundation. Keep PIN-959 comprehensive coverage, PIN-962 actual-GA reconciliation and existing Human gates open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence is not actual-GA verification."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/RandomAccess.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs",
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeServerStream.Unix.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/SendPacketsElement.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BuoyPipes/BuoyPipes.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "runtime ref10 — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "runtime ref11 — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "randomaccess11 — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/RandomAccess.cs"
+    },
+    {
+      "title": "pipes ref11 — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs"
+    },
+    {
+      "title": "pipe client10 — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs"
+    },
+    {
+      "title": "pipe client11 — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs"
+    },
+    {
+      "title": "unix isasync — immutable official source",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md"
+    },
+    {
+      "title": "filehandle unix — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs"
+    },
+    {
+      "title": "unix pipe mode — immutable official source",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md"
+    },
+    {
+      "title": "pipe unix — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeServerStream.Unix.cs"
+    },
+    {
+      "title": "sendpackets — immutable official source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/SendPacketsElement.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/BuoyPipes/BuoyPipes.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/BuoyPipes/BuoyPipes.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/BuoyPipes/BuoyPipes.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",
+      "record": "samples/net10.0/BuoyPipes/linux.evidence.json"
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/BuoyPipes/BuoyPipes.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof.",
+      "record": "samples/net11.0/BuoyPipes/linux.evidence.json"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/BuoyPipes/PipeTransfer.cs",
+      "region": "transfer",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/BuoyPipes/PipeTransfer.cs",
+      "region": "transfer",
+      "language": "csharp"
+    },
+    "older-handle": {
+      "path": "samples/net10.0/BuoyPipes/PipeTransfer.cs",
+      "region": "borrowed",
+      "language": "csharp"
+    },
+    "newer-handle": {
+      "path": "samples/net11.0/BuoyPipes/PipeTransfer.cs",
+      "region": "borrowed",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 and digest-pinned Linux x64 old/new execution; current handle types, four pipe-end flag combinations, ownership, EOF, regular-file async reads, SendPacketsElement constructor guards and Unix 0600 shared-path ratchet. Same-user only; RC2 is not GA proof. Feasible checks are automated. Pingu owns feasible interactive approvals and refresh coordination; no new Human gate."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "additionalInputs": [
+    "samples/BuoyPipes/PipeChecks.cs",
+    "eng/Record-NativeBoundaries.ps1",
+    "docs/planning/audits/native-boundaries.sources.json",
+    "samples/net10.0/BuoyPipes/PipeTransfer.cs"
+  ],
+  "workloads": []
+}

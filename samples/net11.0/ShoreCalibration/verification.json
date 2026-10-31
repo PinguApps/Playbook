@@ -1,0 +1,10 @@
+{
+  "buildArguments": [],
+  "additionalInputs": [
+    "eng/Record-NativeBoundaries.ps1",
+    "docs/planning/audits/native-boundaries.sources.json"
+  ],
+  "dependencies": [],
+  "nativeToolchains": [],
+  "workloads": []
+}
