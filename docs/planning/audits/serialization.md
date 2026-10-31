@@ -67,7 +67,7 @@ Every changed declaration belongs to one of these groups. `grouped` is an accoun
 | Four numeric converter properties and CreateIReadOnlySetInfo | **Grouped.** Numeric/collection contracts can replace custom conversion and concrete-set scaffolding. **The eight net11-only lines are the four numeric converter properties plus getters.** They are absent from RC2 net10. | PIN-729, `json.use-numeric-collection-contracts`; no blanket older-target numeric route. |
 | JsonObjectInfoValues type nullable-context annotations; existing package getters on JsonPolymorphismOptions, JsonPropertyInfo and JsonTypeInfo; Utf8JsonWriter async state-machine attribute renumbering; ParamCollection/ScopedRef type forwarders | **Excluded as independent recipes.** Existing member signatures remain; these are annotation/implementation/forwarding bookkeeping, not eighteen removed callable APIs or an established different application workflow. Preserve exact lines for compatibility review. | No additional ticket. Do not discard actual new DTO members grouped above. |
 | CborReader options/final-block constructors, Reset with final block, SlideData, NeedsMoreData, TrySkipValue and TrySkipToParent | **Grouped.** Replace whole-input buffering and handle incomplete reads without losing retained bytes/state. TrySkip is part of incremental processing, not a separate recipe. | [PIN-725](https://linear.app/pinguapps/issue/PIN-725), `cbor.read-chunks`; actual chunk splits, Lax-only incremental mode, incomplete skip/retry and final-block failure. |
-| CborReaderOptions / CborWriterOptions, MaxDepth on options/readers/writers and options constructors | **Included, uncovered migration → proposal S1.** Reader/writer depth limits require deliberate payload acceptance and rejection. Other option properties retain existing conformance, multi-root, indefinite-encoding and initial-capacity choices; group them with the options migration rather than inventing an allocation recipe. | S1; keep the incremental algorithm in PIN-725. |
+| CborReaderOptions / CborWriterOptions, MaxDepth on options/readers/writers and options constructors | **Delivered S1 / PIN-1085.** Paired finite calibration documents enforce depth8 and preserve conformance/root/indefinite choices. | `cbor.bound-nesting` edition11.0; defaults/zero/sentinel and actual older-reader backport reconciled below. Incremental processing stays PIN-725. |
 | XML serializers, DataContractJsonSerializer, DataContractSerializer, serialization attributes/formatter types, XsdDataContractExporter/Importer and related Schema APIs | **Excluded as new goals within this boundary.** No declaration/forwarder delta and no qualifying new feature or migration in the pinned family sources. Implementation-only fixes do not imply a changed authored approach. | No standalone no-change recipe. Source/API evidence is narrower than a behavioral-equivalence claim. |
 
 ### Source-only findings without a new signature
@@ -120,6 +120,37 @@ Shared acceptance for **each** proposal:
 4. Update this register and the existing inventory without marking comprehensive coverage/publication ready. Link PIN-962's future GA reconciliation and PIN-959's publication gate. These are delivery/evidence dependencies, not authorization to release.
 
 ### S1 — Bound nesting when reading and writing CBOR — M (3)
+
+**Delivered by PIN-1085**, `cbor.bound-nesting` edition11.0. Original paired
+CalibrationGroups consumers implement a finite schema: one Int32 leaf inside
+single-child arrays/maps keyed calibration. Strict, one root, preserved indefinite
+encodings and initial capacity32 are explicit. Depth8 succeeds;9 rejects with
+CborContentException for reads and InvalidOperationException for writes. Accepted
+bytes/values at depths0/1/7/8 match across releases for arrays/maps and both
+definite/indefinite forms. Truncation, extra members and trailing roots reject.
+
+**Artifact drift resolved:** the historical breaking note's unlimited-reader
+baseline does not apply to pinned10.0.13. Package-matched source and real execution
+already enforce reader64/reject65; its writer completes1001. Current options add
+per-instance limits, default/-1 resolve to reader64 and writer1000, zero permits
+scalars only, and below-1 fails at assignment. Complete boundary controls execute
+separately from rejections. No unlimited switch is recommended; the old guard is valid.
+
+`eng/Test-PrecisionDepth.ps1 -Record -VerifySources` retains commands, dependencies,
+input hashes, compiler/CoreLib/runtime and separate read/write results. Exact
+package archives, selected/executed lib/net10.0/lib/net11.0 assemblies and framework
+references match the audits. [Selected immutable sources](precision-depth.sources.json)
+retain the old/new implementation boundary and historical note. Exact reproduction
+uses SDK10.0.402/package-runtime10.0.13 and SDK11.0.100-rc.2.26504.105/package-runtime11RC2.
+No native/provider/Human/workload prerequisite exists. Only Windows x64 is measured;
+other-platform, newer-package-on-net10, arbitrary schemas, indefinite strings,
+encoded-value APIs, trimming/AOT and GA remain unverified.
+
+The [installed walkthrough](../../inspect-guidance.md#reduced-precision-values-and-finite-cbor-nesting)
+checks exact package offline list/get, discovery description, full canonical body,
+target/edition, applicability and fresh evidence. This supersedes outstanding-S1
+wording only. PIN-725's incremental scope, S2, eight foundations, PIN-959/PIN-962
+and existing Human gates remain unchanged; no publication readiness or matrix added.
 
 Proposed goal: `cbor.bound-nesting`. As a developer exchanging nested measurements, I want explicit depth limits so valid batches remain accepted and excessive nesting fails predictably.
 

@@ -2260,3 +2260,55 @@ foundation. The Inspector prints exactly what an agent receives and saves JSON p
 the package hash. Retrieval with unusable proxies establishes proxy independence,
 not network isolation. Setup may restore online; no new native/client/OS matrix.
 PIN-959 comprehensive coverage, PIN-962 GA and existing Human gates remain open.
+
+## Reduced-precision values and finite CBOR nesting
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. SensorArchive uses framework
+APIs only. CalibrationGroups pins System.Formats.Cbor10.0.13/11RC2 with actual
+lib/net10.0/lib/net11.0 assets. No account, provider, workload or native setup.
+
+Refresh affected samples through the existing evidence workflow:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-65a77b17'
+& ./eng/Test-PrecisionDepth.ps1 -Record -VerifySources
+```
+
+Expect four real passing consumers and ten matching immutable sources. Numeric
+checks measure reading/mean error budgets, exact/rounded values, range versus
+Half, signed zero/infinity/NaN, underflow/overflow and actual generic math. CBOR
+checks compare accepted values/bytes, depth8/9, arrays/maps and definite/indefinite
+containers, truncation/extra/trailing data, current zero/-1/below-1 and reader64/65
+versus writer1000/1001. The actual old10.0.13 reader already enforces64; its writer
+completes1001. Commands, locks, compiler/CoreLib and audit-matching references,
+package archives and executed assemblies are recorded. PATH/persistent settings
+are checked unchanged. A nonzero exit is failure.
+
+This literal block was exercised from an unrelated starting directory. It builds
+and packs the ordinary tool, installs that exact artifact through an isolated
+local-only feed/cache, then calls real installed stdio list/get from an unrelated
+temporary directory. Setup may restore online. Unusable proxies during retrieval
+prove proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-65a77b17'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1084-1085'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.choose-bfloat16','cbor.bound-nesting') `
+  -Query 'precision-depth' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1084-1085' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/precision-depth/inspection
+```
+
+Expect one passing installed smoke and both discovery IDs, reusable titles and
+explanatory goals, complete expanded canonical Markdown, target11/edition11,
+applicability and fresh paired evidence. Structured/text responses agree; target10
+returns no_applicable_edition. Missing/stale evidence, changed snippets/body or
+a nonzero exit fails. Inspection consumes saved consumer proof. Eight foundations
+remain unchanged. Windows x64 RC2 is measured, not other-platform or final-GA
+behavior; no BFloat16 serialization/performance or unlimited-depth claim follows.
+PIN-959/PIN-962 and existing Human gates remain open; no recurring matrix is added.
