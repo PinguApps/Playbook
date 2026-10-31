@@ -60,9 +60,11 @@ which bytes the format requires you to cover.
 | CRC64-NVME | `AD93D23594C93659` | all ones / all ones | Yes | `AE8B14860A799888` | `88 98 79 0A 86 14 8B AE` |
 | Custom CRC32/MPEG-2 | `04C11DB7` | `FFFFFFFF` / zero | No | `0376E6E7` | `03 76 E6 E7` |
 
-The Create polynomial is in normal representation, not the reversed polynomial.
-The reflection option applies to both input and output; this recipe does not
-claim arbitrary independent refin/refout support. In these assets, reflected CRC
+For the custom Crc32ParameterSet.Create route shown here, the polynomial is in
+normal representation, not the reversed polynomial. Its reflection option applies
+to both input and output; this recipe does not claim arbitrary independent
+refin/refout support. The 64-bit sample uses the named Nvme set; custom Crc64
+creation is unexecuted. In these assets, reflected CRC
 Hash bytes are little-endian, forward CRC bytes big-endian, and Adler big-endian.
 HashToUInt32/64 returns the numeric value, not a byte-order declaration. If a real
 format uses another wire order, write that numeric value explicitly with

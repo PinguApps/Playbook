@@ -10,8 +10,8 @@ contract supplied by Log10.
 
 ## Older approach
 
-An original .NET 10 helper counts how many divisions by ten leave a value of at
-least ten. Add `using System.Numerics;`:
+An original .NET 10 helper counts divisions while the value is still at least
+ten. Add `using System.Numerics;`:
 
 {{snippet:older}}
 

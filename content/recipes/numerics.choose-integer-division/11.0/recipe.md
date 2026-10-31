@@ -72,7 +72,7 @@ opt-in. Actual verification uses SDK 11.0.100-rc.2.26504.105 and reference/runti
 reference/runtime 10.0.13. These are reproduction pins, separate from the
 release-family prerequisites. No .NET 10 catalogue route or ninth foundation.
 
-Zero divisors throw DivideByZeroException for the executed built-in types.
+The executed int zero-divisor case throws DivideByZeroException.
 DivRem of signed minimum divided by -1 throws OverflowException for int, long
 and Int128: its positive quotient cannot fit. The helper does not convert that
 failure into a wrapped tile. Generic custom implementations can override the
