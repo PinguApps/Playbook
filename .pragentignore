@@ -311,3 +311,13 @@
 /samples/net11.0/SurveyExport/verification-evidence.json
 /samples/net11.0/RehearsalRoom/verification-evidence.json
 /samples/net11.0/RehearsalRoom/linux.evidence.json
+
+# Test-IntegerFormats/Record-Evidence generated SDK/ref/package/command receipts.
+# Review canonical arithmetic/checksums, locks, manifests and recorder; ordinary
+# build/pack checks exact input freshness and installed inspection checks content.
+/samples/net10.0/CoordinateTiles/verification-evidence.json
+/samples/net11.0/CoordinateTiles/verification-evidence.json
+/samples/net10.0/BatchEncoder/verification-evidence.json
+/samples/net11.0/BatchEncoder/verification-evidence.json
+/samples/net10.0/TelemetryFrames/verification-evidence.json
+/samples/net11.0/TelemetryFrames/verification-evidence.json

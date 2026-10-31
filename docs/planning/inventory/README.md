@@ -89,6 +89,13 @@ The [archive/path/handle/clock compatibility audit](../audits/archive-path-handl
 
 The [data/text/numerics/I/O API audit](../audits/data-io.md) records actual .NET 10 / pinned .NET 11 RC2 reference, package and regex-tooling differences against complete canonical notes and compatibility sources. Every changed declaration has an audit owner. Ten additional delivery proposals await review; existing numeric/archive migration and recipe owners retain their obligations. The audit does not deliver content or clear publication gates.
 
+PIN-1076–1078 now deliver that audit's D2–D4 integer division, integer magnitude
+and format-checksum goals through original paired consumers and installed offline
+retrieval. The [delivery reconciliation](../audits/data-io.md#d2d4-delivery-reconciliation--31-october-2026)
+retains exact RC2 evidence, the raw invalid-mode division shortcut and explicit
+checksum bytes. Historical proposal counts above remain historical; unrelated
+owners, the eight .NET10 foundations and comprehensive/GA gates are preserved.
+
 The [serialization API audit](../audits/serialization.md) records the bounded .NET 10 / .NET 11 RC2 asset and canonical-source comparison, including package target differences, generator diagnostics and historical obsoletions. It assigns existing goals and proposes two missing delivery slices; their content/evidence and final GA reconciliation remain outstanding.
 
 The web register resolves stale cumulative guidance against canonical RC2 notes for QuickGrid experimental diagnostics, validation-message formatting, browser-option names/lookup, and BasePath namespace. [PIN-692's DBSC audit](../audits/dbsc-availability.md) closes the historical unresolved candidate as **unavailable on pinned RC2**: actual package/API artifacts corroborate the removal. Its RC1 history remains visible and PIN-964 / GA_WEB must separately recheck final artifacts. Include genuinely experimental APIs, but do not teach unavailable RC-only contracts as GA features.

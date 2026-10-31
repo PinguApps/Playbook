@@ -4,6 +4,43 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Integer division, magnitude and format checksums
+
+This block builds/packs the ordinary tool once, installs that exact artifact
+through the existing isolated local feed/cache and runs actual stdio list/get
+from an unrelated temporary directory. It prints all three IDs/titles/goals,
+complete canonical Markdown, explicit target11/edition11, applicability and fresh
+paired evidence. Target10 returns `no_applicable_edition`; the older comparisons
+add no ninth foundation. Tested from an unrelated starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ffe3f7cb'
+& ./eng/Test-IntegerFormats.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.choose-integer-division','numerics.measure-integer-magnitude','io.compute-format-checksums') `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1076-1078' -BuildAndPack `
+  -Dotnet 'C:/Program Files/dotnet/dotnet.exe' `
+  -Node 'C:/Program Files/nodejs/node.exe' `
+  -OutputDirectory './artifacts/integer-formats/inspection'
+```
+
+Requires PowerShell7, Node22.19+, SDK10.0.402 and complete
+SDK11.0.100-rc.2.26504.105 with matching runtime/reference10.0.13/11RC2 for the
+paired checks. Locked Hashing packages are10.0.13/11RC2, lib/net10/lib/net11.
+Setup can restore packages/Inspector online; installed retrieval with unusable
+proxies establishes proxy independence, not OS network isolation. No service,
+account, native workload, global tool install or persistent environment change.
+
+Expect five signed division modes and invalid/zero/overflow checks, exact integer
+magnitude boundaries through10^38 and both 128-bit maxima, four independent
+checksum vectors with wire bytes, segmented/reset/short-buffer checks and final
+exact-artifact PASS. `-Record -VerifySources` on Test-IntegerFormats refreshes
+affected evidence and rechecks pinned official sources; ordinary runs preserve
+saved records. Missing/stale evidence, wrong assets, changed canonical content,
+wrong target or a nonzero exit fails. RC2, other-platform execution and optional
+RC2-package-on-net10 are not GA/compatibility claims; PIN-959/PIN-962 remain open.
+
 ## Explicit untested native-platform checks
 
 The [native testing policy](contributing.md#native-testing-policy) keeps existing

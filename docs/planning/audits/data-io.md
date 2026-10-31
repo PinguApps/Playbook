@@ -53,8 +53,8 @@ All changes require authored code unless otherwise stated. No uncovered markup, 
 | Decimal32/64/128, IDecimalFloatingPointIeee754, Complex<T> and supporting conversions/operators | **Grouped:** deliberate precision/range/special-value representation and generic math. New IEEE decimal types are not System.Decimal. | [PIN-736](https://linear.app/pinguapps/issue/PIN-736); corrected conversion/special-value migrations retain PIN-683/PIN-737. |
 | TryParsePartial, NumberStyles.HexFloat, BigInteger/binary numeric conversions, BFloat16 bit/binary primitives | **Grouped:** consumed lengths and exact representation intent. IEEE hex formatting is not proof that NaN payloads survive every textual round trip. | [PIN-737](https://linear.app/pinguapps/issue/PIN-737); numeric/parsing behavior findings remain [PIN-683](https://linear.app/pinguapps/issue/PIN-683). |
 | BFloat16 full numeric type | **Included, uncovered D10:** choosing reduced precision is a different goal from bit encoding. BitConverter/BinaryPrimitives support remains PIN-737; don't duplicate it. | D10; actual loss/range/NaN checks required. |
-| DivisionRounding and IBinaryInteger Divide/DivRem/Remainder | **Included, uncovered D2:** select an integer quotient/remainder convention rather than adjusting `/` and `%` manually. | D2. Not covered merely by a floating conversion/Math.Round migration. |
-| Primitive/IBinaryInteger Log10 | **Included, uncovered D3:** integer magnitude/digit budgets without floating conversion or a decimal string. | D3; zero/negative/large-integer contracts remain to execute. |
+| DivisionRounding and IBinaryInteger Divide/DivRem/Remainder | **Delivered D2 / PIN-1076:** original generic signed coordinate consumers select five conventions; identity, failures and actual static-interface reachability executed. | `numerics.choose-integer-division` edition11.0; raw invalid-mode exact-division shortcut is qualified, application validation is explicit. |
+| Primitive/IBinaryInteger Log10 | **Delivered D3 / PIN-1077:** original exact integer exponent/digit-budget comparison; zero, negative and 128-bit boundaries executed. | `numerics.measure-integer-magnitude` edition11.0; width is an application rule, no floating conversion. |
 | Random.NextInteger/NextBinaryFloat | **Grouped:** generic constrained random generation. | [PIN-738](https://linear.app/pinguapps/issue/PIN-738); bounds and noncryptographic limits. |
 | Vector/Vector64–512 sequences, Zip/Unzip/Concat/Reverse, SVE/SVE2/SVE crypto and x86 additions including AvxVnni.V512, Avx512Bmm, Avx10v2; other ISA overloads | **Authored:** portable lane layout and AVX2/scalar agreement are executed; signed SVE and AvxVnni.V512 paths compile but required native execution is pending. [PIN-739/740 evidence](../../verification/simd-platforms.md). Other ISA overloads remain source context, without an execution claim. | [PIN-739](https://linear.app/pinguapps/issue/PIN-739); actual instruction support/fallback and hardware prerequisites, not a no-change finding about newly exposed ISA APIs. |
 | RequiresUnsafe annotations on pointer constructors/encoding/MemoryHandle/SequenceMarshal/vector loads and stores | **Grouped:** changed safe/unsafe caller obligations. Many raw add/remove pairs differ only by this annotation; they are not thousands of new algorithms or removed methods. | [PIN-715](https://linear.app/pinguapps/issue/PIN-715); preserve its measured preview-feature limits and compile affected callers when delivering those cases. |
@@ -67,7 +67,7 @@ All changes require authored code unless otherwise stated. No uncovered markup, 
 | TAR format overloads, TarWriterOptions, TarExtractOptions, TarHardLinkMode | **Format selection delivered:** [PIN-731–733](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-731-733.md) verifies all four formats and original sparse 1.0 logical content; preserving links versus copying contents with PIN-684's already assigned hard-link migration. | [PIN-732](https://linear.app/pinguapps/issue/PIN-732), PIN-684; include extraction on filesystems without link support when claimed. No duplicate hard-link-policy proposal here. |
 | ZIP entry access/compression/encryption/version metadata, bulk creation/extraction options and async helpers | **Delivered for entry access/protection and asynchronous directory lifecycle:** [PIN-731–733](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-731-733.md); [PIN-731](https://linear.app/pinguapps/issue/PIN-731); corruption with PIN-732. VersionMadeBy/CompressionMethod are supporting inspection, not independent recipes. | PIN-731/732; passwords/modes/algorithms, overwrite and cancelled extraction now have actual Windows evidence in the linked report. Existing migration source analysis remains PIN-684. |
 | Streamless Deflate/ZLib/GZip encoder/decoder types and reset; Zstandard stream/buffer/dictionary/options APIs; Brotli options | **Delivered for Deflate/ZLib/GZip buffer/reset, empty framing and built-in Zstandard stream/buffer lifecycle:** [PIN-731–733](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-731-733.md). Dictionary/prefix and Brotli-specific option authoring are not claimed by these samples; their grouped follow-through remains visible. `WindowLog2`/`MaxWindowLog2` supersede earlier preview spelling; separate Zstandard package removed in Preview 3. | [PIN-733](https://linear.app/pinguapps/issue/PIN-733); don't invent an old target route from a package name. |
-| Adler32, Crc32/64 parameter sets, constructors and Hash/HashToUInt methods | **Included, uncovered D4:** interoperable noncryptographic checksums with deliberate polynomial/reflection parameters. | D4. ZIP's built-in corruption checks remain PIN-732, not manual CRC recipe delivery. |
+| Adler32, Crc32/64 parameter sets, constructors and Hash/HashToUInt methods | **Delivered D4 / PIN-1078:** independent Adler/CRC32C/NVME/custom MPEG2 values and wire bytes; paired locked old/current consumers, streaming/reset and short destinations executed. | `io.compute-format-checksums` edition11.0. ZIP validation stays PIN-732; RC2/net10 is not advertised. |
 | Remaining selected collection/facade, encoding, filesystem/watcher, pipelines, parallel-LINQ, globalization and packaging surfaces | **No additional API goal:** complete zero-delta surfaces are retained. Packaging's compressed-part behavior changes despite zero signature changes; see existing source owner below. | No standalone recipe for a zero delta or automatic implementation improvement. |
 
 ### Complete source-only disposition and drift
@@ -150,6 +150,44 @@ Proposed goal `io.create-hard-links`. A fictional survey export needs two names 
 **Additional prerequisites:** temporary directories on a local filesystem supporting hard links; execute on each OS/filesystem declared in applicability. A Windows NTFS route is feasible without an Apple workload; a Unix claim requires a real Unix run. Do not assume links work across volumes, directories or arbitrary network shares.
 
 **Real acceptance:** changing one alias changes the other; deleting one name preserves the remaining data; destination-exists, absent-target and unsupported/cross-volume behavior are documented only after actual evidence. Cleanup removes only the created temporary tree. Compare native and managed consumers' observable results and verify FileInfo receiver/target direction. M reflects a small filesystem lifecycle and paired implementations, not a broad backup system.
+
+## D2–D4 delivery reconciliation — 31 October 2026
+
+PIN-1076–1078 deliver `numerics.choose-integer-division`,
+`numerics.measure-integer-magnitude` and `io.compute-format-checksums`, each
+edition11.0. Original CoordinateTiles, BatchEncoder and TelemetryFrames consumers
+compile and execute on SDK10.0.402/C#14/ref-runtime10.0.13 and
+SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2, Windows x64.
+The checksum consumers lock System.IO.Hashing10.0.13/lib-net10 and
+11RC2/lib-net11. Selected Runtime/Runtime.Numerics/package SHA256 values match
+the original asset audit; compiler/CoreLib versions/hashes are measured too.
+No package compatibility is inferred from metadata alone.
+
+Five signed division modes execute through constrained generic calls for int,
+long, Int128 and BigInteger, with widened identities, sign/exact cases,
+zero/overflow/invalid failures and quotient/remainder agreement. RC2's raw
+invalid-enum zero-remainder shortcut is observed and qualified; the application
+validates first. Unsigned proof is only uint truncation. Integer Log10 executes
+generically and concretely, with zero/negative rules, all power-of-ten boundaries
+through10^38 and both 128-bit maxima. Width remains an application rule.
+
+Adler32, CRC32C, CRC64-NVME and explicit custom CRC32/MPEG2 match independently
+established vectors and wire bytes. Empty/fictional/20KB messages, segmented
+Append, reset isolation and short buffers execute in both consumers; current
+static Hash/TryHash failures execute too. CRC/Adler are not authentication.
+Default old package CRC variants remain legitimate but do not substitute for
+these format choices. The optional RC2/net10 package route remains unexecuted
+and unadvertised; ZIP/TAR guidance retains its separate owner.
+
+`eng/Test-IntegerFormats.ps1 -Record -VerifySources` uses the existing evidence
+workflow and [selected pinned official sources](integer-formats.sources.json).
+The [installed walkthrough](../../inspect-guidance.md#integer-division-magnitude-and-format-checksums)
+builds/packs once, installs that exact local-feed artifact and checks full
+canonical offline list/get, ID/title/goal, explicit target/edition, applicability
+and fresh paired records from an unrelated directory. No native/provider/device
+or interactive prerequisite is needed. Other-platform/performance/final-GA
+execution is not claimed. Eight foundations, existing identities, PIN-959,
+PIN-962 and existing Human gates remain intact; no recurring matrix is added.
 
 ### D2 — Choose integer division and remainder rules — M (3)
 

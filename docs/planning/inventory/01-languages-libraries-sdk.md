@@ -198,12 +198,12 @@ These are proposed delivery boundaries, not created tickets or implemented recip
 | --- | --- | --- |
 | `collections.find-span-extrema` | Use Min/Max directly on existing spans with explicit comparer/empty contracts. | included candidate; D6, S (2) |
 | `io.cancel-text-output` | Pass cancellation to the actual new TextWriter string/newline APIs; retain valid older memory/token routes. | included candidate; D7, S (2) |
-| `io.compute-format-checksums` | Choose Adler32 or the intended CRC polynomial/reflection/initial/final parameters. | included candidate; D4, M (3) |
+| `io.compute-format-checksums` | Choose Adler32 or the intended CRC polynomial/reflection/initial/final parameters. | delivered D4 / PIN-1078, edition11.0; paired locked package10/net10 and RC2/net11 execution, independent vectors, wire order, streaming/reset/short destinations. Optional RC2/net10 and final GA remain unverified. |
 | `io.create-hard-links` | Create filesystem aliases without copying data or maintaining a native wrapper. | delivered by PIN-1075, edition11.0; actual old native/current File and FileInfo Windows NTFS lifecycle, bidirectional writes, deletion in either order and failure/cleanup evidence. Other OS/filesystem/cross-volume outcomes unverified; TAR policy remains separate; PIN-959/PIN-962 stay open |
 | `io.report-directory-failures` | Consume DirectoryPath without parsing localized messages. | included candidate; D9, S (2) |
 | `numerics.choose-bfloat16` | Choose binary precision/range deliberately; bit encoding remains PIN-737. | included candidate; D10, M (3) |
-| `numerics.choose-integer-division` | Select quotient/remainder rounding rules for signed coordinates. | included candidate; D2, M (3) |
-| `numerics.measure-integer-magnitude` | Compute integer decimal magnitude without floating conversion. | included candidate; D3, S (2) |
+| `numerics.choose-integer-division` | Select quotient/remainder rounding rules for signed coordinates. | delivered D2 / PIN-1076, edition11.0; five signed modes, generic reachability, identity, zero/overflow and invalid-mode shortcut executed on actual old/current consumers. |
+| `numerics.measure-integer-magnitude` | Compute integer decimal magnitude without floating conversion. | delivered D3 / PIN-1077, edition11.0; actual old/current integer consumers, powers of ten ±1, Int128/UInt128 maxima, zero and rejected negatives. |
 | `numerics.preserve-color-channels` | Preserve RGBA/ARGB component order and packed endianness. | included candidate; D5, M (3); no native UI claim |
 | `text.convert-domain-labels` | Convert IDN labels into caller-owned spans. | included candidate; D8, S (2) |
 
