@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "scope": "PIN-1057/PIN-1062 bounded original audit sources; Windows artifacts measured separately; macOS execution not-tested under PIN-699",
+  "sources": [
+    {
+      "id": "dsa-macos",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/cryptography/11/dsa-removed-macos.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/dsa-removed-macos.md",
+      "sha256": "82ca205951966e2b16394f4cf08808056be0bd7c40902dd794445c2430801d4d",
+      "headings": [
+        "# DSA removed from macOS",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "syslib0064",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0064.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0064.md",
+      "sha256": "3765e4377d65086062513d13d004c0c1e24574d8a51846b266c07f7532cc847d",
+      "headings": [
+        "# SYSLIB0064: RSACryptoServiceProvider.Encrypt and Decrypt with fOAEP are obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "id": "crypto-ref-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "adb14229c9a2cdd8e24cfddb5c6c40e8a1fd39b9514cf143e487f107c02ac5df",
+      "headings": []
+    },
+    {
+      "id": "crypto-project-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "sha256": "c19093d9923e5d153a62550fe9b4f0319899b6d77ab40b1eeb47f59c0fc0144c",
+      "headings": []
+    },
+    {
+      "id": "crypto-ref-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "1c65691229ae9e41e823bb65951ddc888fdf7abe16b7a0f4387297190288cb66",
+      "headings": []
+    },
+    {
+      "id": "crypto-project-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+      "sha256": "48bf130cce3ea65815e2a239dc29a8b1d75fc842a0d899b4d680522d7e3d8ee1",
+      "headings": []
+    },
+    {
+      "id": "dsa-unsupported",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs",
+      "sha256": "19c237425505cb218c0a95ee5716ad24ca4414c25de2e483e19bdce920c93008",
+      "headings": []
+    },
+    {
+      "id": "rsa-csp",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs",
+      "sha256": "943bc442cd30fa6050fe9d9bb0d38be83d25f64cd28ccc712c8f44d62a1b1ea8",
+      "headings": []
+    },
+    {
+      "id": "dsa-transforms",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.SecurityTransforms.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.SecurityTransforms.cs",
+      "sha256": "bb1280982d9b0965f4a3e8e1f75ef5a98b19a1e11db260b2a4231a40958277fd",
+      "headings": []
+    }
+  ]
+}

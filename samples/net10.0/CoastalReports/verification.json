@@ -1,0 +1,17 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Record-SignaturePadding.ps1",
+    "docs/planning/audits/signature-padding.sources.json",
+    "samples/CoastalReports/ReportChecks.cs",
+    "samples/CoastalReports/New-Fixture.ps1",
+    "samples/CoastalReports/legacy-fixture.json",
+    "samples/net11.0/CoastalReports/CurrentReport.cs",
+    "samples/net11.0/CoastalReports/ReportContract.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
