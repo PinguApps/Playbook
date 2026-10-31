@@ -32,7 +32,9 @@
         "usage": "primary",
         "selectionNotes": [
           "Include a native C function through NativeFileReference when an experimental CoreCLR WebAssembly application requires native code, after qualifying matching runtime and Emscripten assets.",
-          "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient."
+          "Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient.",
+          "Not tested: Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient.",
+          "Source review only: excluded sample has not been compiled or executed."
         ],
         "requirements": {
           "runtime": {
@@ -83,7 +85,9 @@
             "UseMonoRuntime=false; WasmBuildNative=true; experimental CoreCLR browser route"
           ],
           "stabilityLimitations": [
-            "Experimental CoreCLR WebAssembly/native relink route; source-reviewed only. Intended RC2 pins do not establish compilation, invocation or actual-GA support."
+            "Experimental CoreCLR WebAssembly/native relink route; source-reviewed only. Intended RC2 pins do not establish compilation, invocation or actual-GA support.",
+            "Not tested: Experimental CoreCLR browser-wasm route: exact .NET11RC2 official SDK/relink sources reviewed, Emscripten6.0.2 intended. Current native compilation/relink/browser invocation not-tested: matching packs/toolchain unavailable; existing Mono labels/assets are insufficient.",
+            "Source review only: excluded sample has not been compiled or executed."
           ]
         },
         "sourceUrls": [

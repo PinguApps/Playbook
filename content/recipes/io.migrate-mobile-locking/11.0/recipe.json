@@ -32,7 +32,8 @@
         "usage": "primary",
         "selectionNotes": [
           "Replace FileShare-based coordination on iOS and tvOS when default advisory locking is disabled, keeping in-process ownership separate from extension or cross-process coordination.",
-          "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
+          "Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699.",
+          "Not tested: Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
         ],
         "requirements": {
           "runtime": {
@@ -71,7 +72,8 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "RC2 evidence is not actual-GA verification."
+            "RC2 evidence is not actual-GA verification.",
+            "Not tested: Portable .NET10/11 helpers compile/run on Windows x64; current single-instance concurrent writes and cancellation verified. iOS/tvOS native compilation, FileShare enforcement, background suspension and compatibility-switch execution are not-tested under PIN-699."
           ]
         },
         "sourceUrls": [
