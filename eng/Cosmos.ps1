@@ -41,7 +41,10 @@ function Invoke-Process([string]$File, [string[]]$Arguments, [hashtable]$Variabl
     if ($process.ExitCode -ne 0) { throw "Child process failed ($($process.ExitCode)): $text" }
     return $text.Trim()
   }
-  finally { $process.Dispose() }
+  finally {
+    if (-not $process.HasExited) { $process.Kill($true); $process.WaitForExit() }
+    $process.Dispose()
+  }
 }
 function Invoke-Docker([string[]]$Arguments) { Invoke-Process $Docker $Arguments }
 function Get-OwnedContainer {
@@ -114,8 +117,13 @@ try {
   else {
     $info = Get-OwnedContainer
     if ($Action -eq 'Stop') {
-      if ($info.State.Running) { $null = Invoke-Docker @('stop', '--time', '30', $container) }
-      Write-Host 'Stopped Cosmos; container and its persisted data are retained.'
+      if ($info.State.Running) {
+        $connection = Connect-Emulator $info
+        $databases = $connection.Client.Request('GET', '/dbs', 'dbs', '') | ConvertFrom-Json
+        if (@($databases.Databases).Count -ne 0) { throw 'Databases remain. Remove your owned databases before Stop; restart persistence is not reliable in this image.' }
+        $null = Invoke-Docker @('stop', '--time', '30', $container)
+      }
+      Write-Host 'Stopped empty Cosmos emulator; container is retained. Restart persistence is not guaranteed.'
     }
     else {
       if (-not $info.State.Running) { throw 'Start the Cosmos route first.' }
