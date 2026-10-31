@@ -1,0 +1,17 @@
+{
+  "buildArguments": [],
+  "workloads": [],
+  "dependencies": [
+    "System.IO.Hashing/11.0.0-rc.2.26504.105"
+  ],
+  "additionalInputs": [
+    "samples/TelemetryFrames/ChecksumChecks.cs",
+    "samples/TelemetryFrames/FrameChecksum.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-IntegerFormats.ps1",
+    "docs/planning/audits/data-io.assets.json",
+    "docs/planning/audits/integer-formats.sources.json"
+  ],
+  "nativeToolchains": []
+}

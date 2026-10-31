@@ -1,0 +1,85 @@
+{
+  "scope": "PIN-1076–1078: selected exact original API declarations and qualified RC2 implementations; source hashes do not prove execution.",
+  "sources": [
+    {
+      "id": "4099f83-System.Runtime",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb"
+    },
+    {
+      "id": "4099f83-System.IO.Hashing",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "sha256": "e2cf8f497e044cc54786d21b4eb5eb1573b0b90e49f2ea4a0109dbbd8ae2c51d"
+    },
+    {
+      "id": "820230c-System.Runtime",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e"
+    },
+    {
+      "id": "820230c-System.IO.Hashing",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+      "sha256": "36646e92cbc42b6e6749ad2d96b2172af9ab9b2bd35047b2e213c2b22884d1e1"
+    },
+    {
+      "id": "820230c-IBinaryInteger",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/IBinaryInteger.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/IBinaryInteger.cs",
+      "sha256": "07a1ef2f30b57223da115a556c749145495be4e8542144a66292bad47038830f"
+    },
+    {
+      "id": "820230c-Int128",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Int128.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Int128.cs",
+      "sha256": "59d54ce19e7062d8d0a9b509693129a2a893a25b21583b15df30b58c32e506e8"
+    },
+    {
+      "id": "820230c-UInt128",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/UInt128.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/UInt128.cs",
+      "sha256": "2248b41257b0d36a7c27e0ac5c92836710ecb2c2263ce825f497a7269b665365"
+    },
+    {
+      "id": "820230c-Adler32",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Adler32.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Adler32.cs",
+      "sha256": "c97b1fd395825450dc8b78610cf3e0f5e8eadcb5c55ec79bb748fbf740fbd89e"
+    },
+    {
+      "id": "820230c-Crc32ParameterSet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc32ParameterSet.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc32ParameterSet.cs",
+      "sha256": "98b794f413895d546a6e7ae28369fc8472a857a0e3882c54ca2af7c0a2783247"
+    },
+    {
+      "id": "820230c-Crc64ParameterSet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc64ParameterSet.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc64ParameterSet.cs",
+      "sha256": "e304f3da70a88077b32c2c03c71a07764df8ae6cc8a4b663c5547e1287f2b59d"
+    }
+  ],
+  "vectorSources": [
+    {
+      "url": "https://reveng.sourceforge.io/crc-catalogue/17plus.htm",
+      "scope": "CRC-32/ISCSI, CRC-64/NVME and CRC-32/MPEG-2 published check values for ASCII 123456789."
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc1950.txt",
+      "scope": "Adler formula independently evaluated for ASCII 123456789: s1=478, s2=2334, value=0x091E01DE."
+    }
+  ]
+}

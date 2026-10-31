@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "System.IO.Hashing": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, 11.0.0-rc.2.26504.105]",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "Q73ma37D8sFHOfHwFylgGYhl6eBb9hiYywHCE+9VZEZtFeKZsDVZhFc3k1CsPc+KxbMvAPy83zOuItj9X/1VUA=="
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/CoordinateTiles/DivisionChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-IntegerFormats.ps1",
+    "docs/planning/audits/data-io.assets.json",
+    "docs/planning/audits/integer-formats.sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": []
+}
