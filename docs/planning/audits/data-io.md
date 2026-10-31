@@ -52,7 +52,7 @@ All changes require authored code unless otherwise stated. No uncovered markup, 
 | IdnMapping.TryGetAscii/TryGetUnicode span destinations | **Delivered D8 / PIN-1082:** original paired buffer consumers execute under actual Windows system ICU. | `text.convert-domain-labels` edition11.0; capacity/invalid/overlap and STD3/AllowUnassigned policy are explicit; no cross-platform IDNA guarantee. |
 | Decimal32/64/128, IDecimalFloatingPointIeee754, Complex<T> and supporting conversions/operators | **Grouped:** deliberate precision/range/special-value representation and generic math. New IEEE decimal types are not System.Decimal. | [PIN-736](https://linear.app/pinguapps/issue/PIN-736); corrected conversion/special-value migrations retain PIN-683/PIN-737. |
 | TryParsePartial, NumberStyles.HexFloat, BigInteger/binary numeric conversions, BFloat16 bit/binary primitives | **Grouped:** consumed lengths and exact representation intent. IEEE hex formatting is not proof that NaN payloads survive every textual round trip. | [PIN-737](https://linear.app/pinguapps/issue/PIN-737); numeric/parsing behavior findings remain [PIN-683](https://linear.app/pinguapps/issue/PIN-683). |
-| BFloat16 full numeric type | **Included, uncovered D10:** choosing reduced precision is a different goal from bit encoding. BitConverter/BinaryPrimitives support remains PIN-737; don't duplicate it. | D10; actual loss/range/NaN checks required. |
+| BFloat16 full numeric type | **Delivered D10 / PIN-1084:** choose reduced-precision storage with an explicit range and calculation error budget. Bit encoding remains PIN-737. | `numerics.choose-bfloat16` edition11.0; actual paired precision, magnitude, special-value and generic arithmetic checks. |
 | DivisionRounding and IBinaryInteger Divide/DivRem/Remainder | **Delivered D2 / PIN-1076:** original generic signed coordinate consumers select five conventions; identity, failures and actual static-interface reachability executed. | `numerics.choose-integer-division` edition11.0; raw invalid-mode exact-division shortcut is qualified, application validation is explicit. |
 | Primitive/IBinaryInteger Log10 | **Delivered D3 / PIN-1077:** original exact integer exponent/digit-budget comparison; zero, negative and 128-bit boundaries executed. | `numerics.measure-integer-magnitude` edition11.0; width is an application rule, no floating conversion. |
 | Random.NextInteger/NextBinaryFloat | **Grouped:** generic constrained random generation. | [PIN-738](https://linear.app/pinguapps/issue/PIN-738); bounds and noncryptographic limits. |
@@ -241,6 +241,25 @@ Proposed goal `io.report-directory-failures`. A fictional import utility reports
 **Prerequisites:** shared baseline and an isolated temporary filesystem tree. **Real acceptance:** actual missing-directory operations establish which failures populate the property, explicit constructor and inner-exception paths retain intended values, and missing/unknown path cases have an honest fallback. Record path normalization/disclosure limits and avoid formatter-based serialization. A manually constructed exception alone does not prove the filesystem populates the property. S covers diagnostic output, not a filesystem error taxonomy.
 
 ### D10 — Choose reduced-precision binary values deliberately — M (3)
+
+**Delivered by PIN-1084**, `numerics.choose-bfloat16` edition11.0. Original
+SensorArchive consumers retain float on .NET10 and store BFloat16/widen before
+accumulation on .NET11. The sample passes per-reading error0.032 and mean
+error0.02 (actual mean error about0.00375). Checks execute exact/nearest-even
+values, magnitude versus Half, signed zero/infinity/NaN, minimum normal/subnormal,
+underflow/overflow and IFloatingPointIeee754 generic arithmetic. No universal
+accuracy/performance or serialization claim; PIN-737/PIN-729 retain their scope.
+
+`eng/Test-PrecisionDepth.ps1 -Record -VerifySources` records commands, dependencies
+(none), SDK/compiler/CoreLib, exact input hashes and audit-matching references.
+[Selected immutable official sources](precision-depth.sources.json) qualify
+conversion direction and precision. Exact SDK10.0.402/runtime10.0.13 versus
+SDK11.0.100-rc.2.26504.105/runtime11RC2 pins identify reproduction. No native,
+provider, package, workload or experimental opt-in is needed. Execution is Windows
+x64 only. The [installed walkthrough](../../inspect-guidance.md#reduced-precision-values-and-finite-cbor-nesting)
+checks exact packed-artifact offline list/get, ID/title/goal, canonical Markdown,
+target/edition, applicability and fresh evidence. Eight foundations, other owners,
+PIN-959/PIN-962 and Human gates remain unchanged; RC2 is not actual-GA proof.
 
 Proposed goal `numerics.choose-bfloat16`. A fictional sensor batch tolerates bounded precision loss while retaining a wide exponent range. Compare an original .NET 10 representation with System.Numerics.BFloat16 arithmetic/conversion and generic numeric use. Distinguish range from significand precision and Half from BFloat16; don't duplicate PIN-737's bit-encoding recipe.
 

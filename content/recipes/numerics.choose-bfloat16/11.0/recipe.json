@@ -1,0 +1,134 @@
+{
+  "id": "numerics.choose-bfloat16",
+  "edition": "11.0",
+  "title": "Choose reduced-precision binary values deliberately",
+  "goal": "Choose reduced-precision sensor storage when a wide exponent range matters, with explicit reading and calculation error budgets.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "precision-depth",
+    "sensorarchive"
+  ],
+  "apis": [
+    "BFloat16",
+    "IFloatingPointIeee754<T>",
+    "BFloat16 conversion",
+    "BFloat16 arithmetic"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical C#15 current sample mode; comparison uses C#14. No preview language switch is needed.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Managed desktop/server .NET; actual Windows x64 execution. Other-platform, browser/WASI and trimming/AOT behavior are not verified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; put complete canonical helpers in separate .cs files with their imports."
+          ],
+          "constraints": [
+            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family requirements.",
+            "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
+            "BFloat16 has float-like exponent range but only 8 significant binary digits for normals. Choose data-specific error budgets and widen before accumulation when appropriate.",
+            "Windows x64 RC2 execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "BFloat16 has float-like exponent range but only 8 significant binary digits for normals. Choose data-specific error budgets and widen before accumulation when appropriate.",
+          "Windows x64 RC2 execution; no JSON/bit-serialization, ML/GPU, universal accuracy or performance claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SensorArchive/SensorArchive.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/BFloat16.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "current-BFloat16 - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/BFloat16.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Exact and nearest-even conversions; large/small magnitudes, signed zero/infinity/NaN, underflow/overflow, generic arithmetic and per-reading/mean error budgets.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/SensorArchive/SensorArchive.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Exact and nearest-even conversions; large/small magnitudes, signed zero/infinity/NaN, underflow/overflow, generic arithmetic and per-reading/mean error budgets.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/SensorArchive/SensorArchive.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/SensorArchive/SensorBatch.cs",
+      "region": "batch",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/SensorArchive/SensorBatch.cs",
+      "region": "batch",
+      "language": "csharp"
+    },
+    "generic": {
+      "path": "samples/net11.0/SensorArchive/SensorMath.cs",
+      "region": "generic",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed numeric/CBOR checks execute on Windows x64 without an external service, UI, native workload or Human interaction. No other-platform, performance or actual-GA proof is claimed; existing Human gates stay open."
+  }
+}

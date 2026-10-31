@@ -359,3 +359,11 @@
 /samples/net11.0/OrchardRoutes/verification-evidence.json
 /samples/net10.0/SeedImports/verification-evidence.json
 /samples/net11.0/SeedImports/verification-evidence.json
+
+# Test-PrecisionDepth/Record-Evidence generated SDK/ref/package/command receipts.
+# Review canonical helpers/checks, locks, manifests, source pins and recorder;
+# ordinary build/pack verifies freshness and installed inspection checks content.
+/samples/net10.0/SensorArchive/verification-evidence.json
+/samples/net11.0/SensorArchive/verification-evidence.json
+/samples/net10.0/CalibrationGroups/verification-evidence.json
+/samples/net11.0/CalibrationGroups/verification-evidence.json

@@ -1,0 +1,186 @@
+{
+  "id": "cbor.bound-nesting",
+  "edition": "11.0",
+  "title": "Bound nesting when reading and writing CBOR",
+  "goal": "Reject calibration documents beyond an explicit container depth while preserving complete accepted values and distinct reader/writer failures.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "precision-depth",
+    "calibrationgroups"
+  ],
+  "apis": [
+    "CborReaderOptions.MaxDepth",
+    "CborWriterOptions.MaxDepth",
+    "CborReader.CurrentDepth",
+    "CborWriter.CurrentDepth"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical C#15 current sample mode; comparison uses C#14. No preview language switch is needed.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.Formats.Cbor",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Per-instance depth options are in package11. Exact RC2 test pin and dependency lock identify reproduction."
+            }
+          ],
+          "packageAssets": [
+            "System.Formats.Cbor lib/net11.0/System.Formats.Cbor.dll"
+          ],
+          "providers": [],
+          "platforms": [
+            "Managed desktop/server .NET; actual Windows x64 execution. Other-platform, browser/WASI and trimming/AOT behavior are not verified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; put complete canonical helpers in separate .cs files with their imports.",
+            "Reference System.Formats.Cbor11. The verified exact pin is11.0.0-rc.2.26504.105; restore the reviewed package lock when reproducing."
+          ],
+          "constraints": [
+            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from release-family requirements.",
+            "No provider, native assets, workloads, rendering modes or experimental diagnostic opt-ins. Older comparisons remain valid and add no foundation; no additional older-target API route is advertised.",
+            "Complete finite-buffer schema; one Int32 leaf in single-child arrays/maps. Strict conformance, one root, indefinite containers preserved. Depth does not bound payload bytes or string lengths.",
+            "Explicit finite budget8. Zero forbids containers, -1 selects current runtime defaults64/1000; read and write failures differ. The older10.0.13 reader already has the64 backport.",
+            "Windows x64 RC2 execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "Complete finite-buffer schema; one Int32 leaf in single-child arrays/maps. Strict conformance, one root, indefinite containers preserved. Depth does not bound payload bytes or string lengths.",
+          "Explicit finite budget8. Zero forbids containers, -1 selects current runtime defaults64/1000; read and write failures differ. The older10.0.13 reader already has the64 backport.",
+          "Windows x64 RC2 execution; no incremental, arbitrary-schema, newer-package-on-net10, trimming/AOT or final-GA claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CalibrationGroups/CalibrationGroups.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriterOptions.cs",
+          "https://github.com/dotnet/docs/blob/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/cbor-max-depth.md"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "4099f83-System.Formats.Cbor - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs"
+    },
+    {
+      "title": "4099f83-CborReader - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs"
+    },
+    {
+      "title": "4099f83-CborWriter - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs"
+    },
+    {
+      "title": "820230c-System.Formats.Cbor - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs"
+    },
+    {
+      "title": "820230c-CborReader - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs"
+    },
+    {
+      "title": "820230c-CborWriter - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs"
+    },
+    {
+      "title": "current-CborReaderOptions - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs"
+    },
+    {
+      "title": "current-CborWriterOptions - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriterOptions.cs"
+    },
+    {
+      "title": "breaking-depth - pinned official implementation or breaking note",
+      "url": "https://github.com/dotnet/docs/blob/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/cbor-max-depth.md"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Arrays/maps, definite/indefinite encoding, accepted depths0/1/7/8 and rejection9, separate failures, default64/1000, zero, sentinel-1 and below-1; actual old reader backport and complete writer1001.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/CalibrationGroups/CalibrationGroups.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Arrays/maps, definite/indefinite encoding, accepted depths0/1/7/8 and rejection9, separate failures, default64/1000, zero, sentinel-1 and below-1; actual old reader backport and complete writer1001.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/CalibrationGroups/CalibrationGroups.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CalibrationGroups/CalibrationCodec.cs",
+      "region": "codec",
+      "language": "csharp"
+    },
+    "traversal": {
+      "path": "samples/net10.0/CalibrationGroups/GroupTraversal.cs",
+      "region": "traversal",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CalibrationGroups/CalibrationCodec.cs",
+      "region": "codec",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Managed numeric/CBOR checks execute on Windows x64 without an external service, UI, native workload or Human interaction. No other-platform, performance or actual-GA proof is claimed; existing Human gates stay open."
+  }
+}

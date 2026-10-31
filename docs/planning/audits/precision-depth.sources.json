@@ -1,0 +1,55 @@
+{
+  "note": "Selected immutable official sources qualify actual precision/options contracts and the older reader security-backport drift; actual consumers establish behavior separately.",
+  "sources": [
+    {
+      "id": "current-BFloat16",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/BFloat16.cs",
+      "sha256": "97b67cf11bba2ec80ecc57ffc5eb37bee3a6a5021d01d224f7936fd83f4d86a0"
+    },
+    {
+      "id": "4099f83-System.Formats.Cbor",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "sha256": "65a36a54c37baa991baffb74c61e219ae16bc435c4e9ff88d7d29836f2b99c42"
+    },
+    {
+      "id": "4099f83-CborReader",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs",
+      "sha256": "eb92ca4c5e88d7285ffcafce196a7bbf997669f621c0e0a0e4aad3d69bb4bdc6"
+    },
+    {
+      "id": "4099f83-CborWriter",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs",
+      "sha256": "0c0d9dd6700e689529a5c70f0ee7e2f1e5475977103221e48e7f8afaa0ee4be2"
+    },
+    {
+      "id": "820230c-System.Formats.Cbor",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/ref/System.Formats.Cbor.cs",
+      "sha256": "c53869234ad1ca3f8f6d0914cc32886b0bed6f9c30641ea3d69793de13d24843"
+    },
+    {
+      "id": "820230c-CborReader",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReader.cs",
+      "sha256": "1afb95886c0a8c2ed8ac659621175888aa7172156abe09bdc3ba7a2477956ec4"
+    },
+    {
+      "id": "820230c-CborWriter",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriter.cs",
+      "sha256": "195d7b4e5fd407dbb6b7711dff1d082290b0f122d7437ba0232ed8742c2d0d7b"
+    },
+    {
+      "id": "current-CborReaderOptions",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Reader/CborReaderOptions.cs",
+      "sha256": "ed1b41a7584818f448239880d9878cd8b97ae90581c02909e4bda78438fb394b"
+    },
+    {
+      "id": "current-CborWriterOptions",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Formats.Cbor/src/System/Formats/Cbor/Writer/CborWriterOptions.cs",
+      "sha256": "a061cbb574865eeeae66e374ec5539f4e720b5c7585452c8ca2d3e55aeb4fd48"
+    },
+    {
+      "id": "breaking-depth",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/dfe6ae54d3cf986ba03d95075e61ae006fefb9f9/docs/core/compatibility/core-libraries/11/cbor-max-depth.md",
+      "sha256": "b844d82e0351ebd4a835d0d63cfc6b4dab55ec2e15751bdd468ddf961721f5e2"
+    }
+  ]
+}
