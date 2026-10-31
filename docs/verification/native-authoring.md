@@ -1,12 +1,140 @@
 # Native authoring access assessment
 
-Historical access assessment from 21 October 2026, not recipe execution proof.
-Recheck the required capability before using a route. Pingu revised ownership
+Access assessments, not recipe execution proof. The Windows desktop/MAUI route
+was measured on 31 October 2026 below; the other capabilities retain their
+21 October assessment. Recheck the required capability before using a route. Pingu revised ownership
 through PIN-699 on 30 October 2026: the [native testing policy](../contributing.md#native-testing-policy)
 limits authoring checks to this Windows machine and existing Docker. The missing
 hardware/toolchain handoffs below are historical, not outstanding obligations;
 record unavailable checks as sample-specific `not-tested` exclusions. Pingu owns
-feasible interactive approvals and refresh coordination. [Measured preflight](native-authoring.json).
+feasible interactive approvals and refresh coordination. [Measured preflights](native-authoring.json).
+
+## Windows desktop and MAUI authoring, 31 October 2026
+
+[Inspect-WindowsAuthoring.ps1](../../eng/Inspect-WindowsAuthoring.ps1) creates
+six independent original probes in a unique short `%TEMP%/pbw-*` directory.
+It pins SDK/target/language, isolates MSBuild and central-package inheritance,
+restores NuGet dependencies and builds each project. `-Launch` additionally
+starts only successful builds, waits at most 30 seconds per process and stops
+only that probe if it hangs. Each window closes itself after its lifecycle
+receipt. It installs no SDK/workload, registers no application package and
+changes no certificate trust, Developer Mode or system settings. Internet access
+to the configured NuGet sources is needed for uncached packages.
+
+The existing x64 machine reports Windows build **26200**. The measured routes:
+
+- **WPF and WinForms, .NET 10:** `C:/Program Files/dotnet/dotnet.exe`, SDK
+  **10.0.402**, C# **14.0**, target `net10.0-windows`, runtime **10.0.13**.
+  Both Release builds succeeded with zero warnings/errors; WPF reached
+  `ContentRendered` and WinForms reached `Shown`, then exited successfully.
+- **WPF and WinForms, .NET 11:** `C:/Users/pingu/.dotnet-playbook-11/dotnet.exe`,
+  SDK **11.0.100-rc.2.26504.105**, C# **15.0**, target `net11.0-windows`, runtime
+  **11.0.0-rc.2.26504.105**. Both Release builds and the same controlled lifecycle
+  checks succeeded with zero warnings/errors. These are RC results, not GA proof.
+- **MAUI Windows, .NET 10:** the same .NET 10 SDK/runtime, target
+  `net10.0-windows10.0.19041.0`, RID `win-x64`, workload
+  `maui-windows` **10.0.110/10.0.100**, actual SDK pack **10.0.110**, and
+  `Microsoft.Maui.Controls` **10.0.110**. Its original C# page and Windows XAML
+  application built with zero warnings/errors, reached `Label.Loaded` and closed
+  successfully. `WindowsPackageType=None`, `WindowsAppSDKSelfContained=true`
+  and `SelfContained=false` copy the Windows App SDK dependencies locally while
+  using the selected .NET runtime. Resolved Windows App SDK **1.8.260529003**,
+  WinUI **1.8.260528001** and Windows SDK BuildTools **10.0.26100.8249** are recorded
+  with the complete package closure in `native-authoring.json`.
+- **MAUI Windows, .NET 11 — not-tested:** the separate .NET 11 root advertises
+  `maui-windows` **11.0.0-preview.6.26360.8/11.0.100-preview.6**, but contains no
+  `Microsoft.Maui.Sdk` pack. The exact `net11.0-windows10.0.19041.0` / `win-x64`
+  probe with intended Controls **11.0.0-preview.6.26360.8** failed before
+  compilation with `NETSDK1147` (diagnostic names `maui-tizen`). The workload
+  listing does not prove a usable Windows toolchain. Its compilation and launch
+  are excluded under PIN-699; no workload restore/install is required or performed.
+
+The [saved compact assessment](native-authoring.json) under `windowsAuthoring`
+retains the script hash, shared/project input hashes, exact sample paths,
+measured SDK/workload inventories, resolved dependencies, commands, lifecycle
+observations and failed-route scope. Temporary source, locks and full logs are
+disposable; the committed script reproduces their authored inputs. The compact
+assessment combines helper output with separately observed MAUI SDK pack listings,
+Windows SDK directories and the read-only Developer Mode value. `sourceCommit`
+identifies the checkout at capture; `sourceDirty: true` records that the capture
+script changes were still uncommitted, with their exact bytes identified by
+`scriptSha256`. This is
+capability proof only, not saved compilation evidence for any served recipe.
+Future canonical samples still use `verification.json`, `Record-Evidence.ps1`
+and focused behaviour reports as described in the [contribution guide](../contributing.md#capture-and-refresh-sample-evidence).
+
+### Recheck and launch safely
+
+Use `pwsh` (PowerShell 7.4+ is required for child-process environment overrides;
+the actual tested version is **7.6.9**). Windows PowerShell 5.1 is rejected before
+creating scratch files. This command was checked from an unrelated starting
+directory. The literal path selects this task's verified worktree; for another
+checkout, substitute its own absolute path. Omit `-Launch` for build-only
+assessment. The generated windows contain only the fictional Willow Quay label;
+they access no accounts, devices or provider services.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e9779e7'
+$report = & ./eng/Inspect-WindowsAuthoring.ps1 -Launch
+$report.routes | Select-Object framework, target, sdk, build, launch, observation
+$report.work # Unique scratch directory containing report.json, projects and logs.
+```
+
+Expect five `build=passed, launch=passed` routes with the runtime versions above,
+and one .NET 11 MAUI `build=failed, launch=not-tested` route with `NETSDK1147`.
+The helper is an assessment: it continues after a route failure and returns its
+report, so an exit code of zero alone does not establish availability. Inspect
+every route and its `limitation`; another failure is not the expected result.
+`report.json` also captures the complete measured workload listing and input hashes.
+Keep a short scratch root: an earlier deep worktree/cache path produced XAML
+`WMC1006` metadata-resolution failures despite the DLLs existing. The shorter
+default path built and launched the same MAUI inputs successfully.
+
+Launches explicitly set child `DOTNET_ROOT` and `DOTNET_ROOT_X64` to the selected
+SDK installation. Without this, the first .NET 11 apphost selected the machine's
+newer RC3 runtime, which did not establish RC2 execution. Bare `dotnet` currently
+resolves to the separate dotnetup installation; its advertised SDK 10.0.402
+failed to load (`hostpolicy.dll` / missing `dotnet.runtimeconfig.json`). Use the
+absolute executable paths above. Do not repair or replace shared installations
+as part of an authoring check.
+
+The helper disables .NET global-tool PATH integration before creating its isolated
+CLI home, restores its process environment and compares process/user/machine PATH
+before and after. The measured run left all three unchanged. Scratch files remain
+for inspection; no probe remains running. After collecting needed evidence,
+remove only the exact `pbw-*` directory printed by that run, after checking its
+resolved path is inside the chosen temporary root. Never delete a computed parent.
+
+### Permissions, excluded behaviour and Human handoff
+
+The interactive desktop allowed all five lifecycle checks without elevation or
+owner intervention. The read-only Developer Mode registry observation was **1**;
+that is not permission to change it or evidence of packaged deployment. These
+probes do not establish visual correctness, accessibility, Designer integration,
+clipboard handling, fullscreen, activation, maps, WebView caching, passkeys or
+permission prompts. They do not test MSIX installation/signing, camera/location
+access, device/emulator flows, Android/Apple builds or GA .NET 11.
+
+No UI/settings permission was denied during these checks. Elevation, trust/signing
+changes and protected consent dialogs were not exercised or granted. For a feasible
+recipe check needing them, the author first builds the actual canonical sample,
+then gives **Pingu** its exact route, source/input identity, SDK/workload/dependency
+versions, target/RID, command, required action and expected observation through the
+content PR. Pingu supplies the interactive approval and returned result; the author
+records it in the existing evidence format. Keep feasible outstanding approvals
+`pending`. For the unavailable .NET 11 MAUI route or another unavailable native
+environment, retain source review and exact sample/input identity, mark only that
+sample/behaviour `not-tested`, and list it in `humanProof.untestedSamples`; do not
+replace available local compilation or provider/security checks with that exclusion.
+Recheck after relevant sample, toolchain, dependency or permission conditions change.
+No new native CI is introduced; existing hosted package checks remain.
+
+Source review: Microsoft's [Desktop SDK properties](https://learn.microsoft.com/en-us/dotnet/core/project-sdk/msbuild-props-desktop)
+support the WPF/WinForms project switches. The [MAUI unpackaged CLI guidance](https://learn.microsoft.com/en-us/dotnet/maui/windows/deployment/publish-unpackaged-cli?view=net-maui-10.0)
+and [Windows setup guidance](https://learn.microsoft.com/en-us/dotnet/maui/windows/setup?view=net-maui-10.0)
+explain unpackaged settings and the separate Developer Mode requirement for packaged
+deployment. Those sources explain configuration; only the observations above
+establish what ran here. No publish/deployment route was tested by these builds.
 
 ## Measured access, 21 October 2026
 

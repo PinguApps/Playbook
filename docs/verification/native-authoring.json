@@ -315,5 +315,368 @@
     "builder": "Name:          desktop-linux\nDriver:        docker\nName:             desktop-linux\nEndpoint:         desktop-linux\nStatus:           running\nBuildKit version: v0.31.1\nPlatforms:        linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/arm64, linux/riscv64, linux/ppc64le, linux/s390x, linux/arm/v7, linux/arm/v6",
     "image": "mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1",
     "linuxInventory": "x86_64\r\nPRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\r\nNAME=\"Ubuntu\"\r\nVERSION_ID=\"26.04\"\r\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\r\nVERSION_CODENAME=resolute\r\nID=ubuntu\r\nID_LIKE=debian\r\nHOME_URL=\"https://www.ubuntu.com/\"\r\nSUPPORT_URL=\"https://help.ubuntu.com/\"\r\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\r\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\r\nUBUNTU_CODENAME=resolute\r\nLOGO=ubuntu-logo\r\n11.0.100-rc.2.26504.105 [/usr/share/dotnet/sdk]\r\nOpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)\r\n\tlibssl.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libssl.so.3\r\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr arat umip rdpid"
+  },
+  "windowsAuthoring": {
+    "recordedAt": "2026-10-31T11:33:38.7498900+00:00",
+    "kind": "authoring-preflight",
+    "host": "Microsoft Windows 10.0.26200",
+    "architecture": "X64",
+    "scriptSha256": "b6d6ff38ddb21c64d14f94891498b7c01bd768c8c0ad394454fb2c4a9e4b034f",
+    "sharedInputs": [
+      {
+        "path": "Directory.Build.props",
+        "sha256": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea"
+      },
+      {
+        "path": "Directory.Packages.props",
+        "sha256": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea"
+      },
+      {
+        "path": "Directory.Build.targets",
+        "sha256": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea"
+      }
+    ],
+    "pathUnchanged": true,
+    "script": "eng/Inspect-WindowsAuthoring.ps1",
+    "sourceCommit": "bb3c4bb439f20c0912fa5739017629539227d31c",
+    "sourceDirty": true,
+    "scope": "Local authoring capability only: five independent build/UI lifecycle probes. Not compilation or behaviour evidence for served recipes; .NET 11 is RC2, not GA.",
+    "inventories": [
+      {
+        "dotnet": "C:/Program Files/dotnet/dotnet.exe",
+        "sdk": "10.0.402",
+        "workloads": "Welcome to .NET 10.0!\r\n---------------------\r\nSDK Version: 10.0.402\r\n\r\n----------------\r\nWrite your first app: https://aka.ms/dotnet-hello-world\r\nFind out what's new: https://aka.ms/dotnet-whats-new\r\nExplore documentation: https://aka.ms/dotnet-docs\r\nReport issues and find source on GitHub: https://github.com/dotnet/core\r\nUse 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli\r\n--------------------------------------------------------------------------------------\r\n\r\nWorkload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+        "mauiSdkPacks": [
+          "9.0.120",
+          "10.0.110"
+        ]
+      },
+      {
+        "dotnet": "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe",
+        "sdk": "11.0.100-rc.2.26504.105",
+        "workloads": "Welcome to .NET 11.0!\r\n---------------------\r\nSDK Version: 11.0.100-rc.2.26504.105\r\n\r\n----------------\r\nWrite your first app: https://aka.ms/dotnet-hello-world\r\nFind out what's new: https://aka.ms/dotnet-whats-new\r\nExplore documentation: https://aka.ms/dotnet-docs\r\nReport issues and find source on GitHub: https://github.com/dotnet/core\r\nUse 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli\r\n--------------------------------------------------------------------------------------\r\n\r\nWorkload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+        "mauiSdkPacks": []
+      }
+    ],
+    "windowsSdkLibraryDirectories": [
+      "10.0.19041.0",
+      "10.0.26100.0"
+    ],
+    "developerModeRegistryValue": 1,
+    "routes": [
+      {
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Wpf",
+        "framework": "Wpf",
+        "target": "net10.0-windows",
+        "intendedSdk": "10.0.402",
+        "dotnet": "C:/Program Files/dotnet/dotnet.exe",
+        "build": "passed",
+        "launch": "passed",
+        "sdk": "10.0.402",
+        "command": [
+          "C:/Program Files/dotnet/dotnet.exe",
+          "build",
+          "Probe.csproj",
+          "-c",
+          "Release"
+        ],
+        "dependencies": [],
+        "observation": "ContentRendered / .NET 10.0.13",
+        "inputs": [
+          {
+            "path": "net10.0/Wpf/global.json",
+            "sha256": "05e275ab63f3920f0c363e8705fdd874b6a828e5be54c87fb76188493367fb0c"
+          },
+          {
+            "path": "net10.0/Wpf/packages.lock.json",
+            "sha256": "531d4cf71e5420c1c03da4c06778ba2a212c7058a3882e7a3a873ae2f811511e"
+          },
+          {
+            "path": "net10.0/Wpf/Probe.csproj",
+            "sha256": "59e57fb9f0a7e6c6fc2e919685f13a6a9af96d3797cb8eb5f819d20bb7ff35e3"
+          },
+          {
+            "path": "net10.0/Wpf/Program.cs",
+            "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
+          }
+        ],
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Wpf\\bin\\Release\\net10.0-windows\\Probe.exe",
+        "launchArguments": [
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Wpf\\bin\\Release\\net10.0-windows\\launch-result.txt"
+        ],
+        "launchEnvironment": {
+          "DOTNET_ROOT": "C:\\Program Files\\dotnet",
+          "DOTNET_ROOT_X64": "C:\\Program Files\\dotnet",
+          "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH": "0"
+        }
+      },
+      {
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\WinForms",
+        "framework": "WinForms",
+        "target": "net10.0-windows",
+        "intendedSdk": "10.0.402",
+        "dotnet": "C:/Program Files/dotnet/dotnet.exe",
+        "build": "passed",
+        "launch": "passed",
+        "sdk": "10.0.402",
+        "command": [
+          "C:/Program Files/dotnet/dotnet.exe",
+          "build",
+          "Probe.csproj",
+          "-c",
+          "Release"
+        ],
+        "dependencies": [],
+        "observation": "Shown / .NET 10.0.13",
+        "inputs": [
+          {
+            "path": "net10.0/WinForms/global.json",
+            "sha256": "05e275ab63f3920f0c363e8705fdd874b6a828e5be54c87fb76188493367fb0c"
+          },
+          {
+            "path": "net10.0/WinForms/packages.lock.json",
+            "sha256": "531d4cf71e5420c1c03da4c06778ba2a212c7058a3882e7a3a873ae2f811511e"
+          },
+          {
+            "path": "net10.0/WinForms/Probe.csproj",
+            "sha256": "f3034b637344829ea7ae2249e98493ed937fe10a4c4fabee7770eddbeafdb6b4"
+          },
+          {
+            "path": "net10.0/WinForms/Program.cs",
+            "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
+          }
+        ],
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\WinForms\\bin\\Release\\net10.0-windows\\Probe.exe",
+        "launchArguments": [
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\WinForms\\bin\\Release\\net10.0-windows\\launch-result.txt"
+        ],
+        "launchEnvironment": {
+          "DOTNET_ROOT": "C:\\Program Files\\dotnet",
+          "DOTNET_ROOT_X64": "C:\\Program Files\\dotnet",
+          "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH": "0"
+        }
+      },
+      {
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Maui",
+        "framework": "Maui",
+        "target": "net10.0-windows10.0.19041.0",
+        "intendedSdk": "10.0.402",
+        "dotnet": "C:/Program Files/dotnet/dotnet.exe",
+        "build": "passed",
+        "launch": "passed",
+        "sdk": "10.0.402",
+        "command": [
+          "C:/Program Files/dotnet/dotnet.exe",
+          "build",
+          "Probe.csproj",
+          "-c",
+          "Release"
+        ],
+        "dependencies": [
+          "Microsoft.Extensions.Configuration.Abstractions/10.0.0",
+          "Microsoft.Extensions.Configuration/10.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0",
+          "Microsoft.Extensions.DependencyInjection/10.0.0",
+          "Microsoft.Extensions.Diagnostics.Abstractions/10.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions/10.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions/10.0.0",
+          "Microsoft.Extensions.Logging.Abstractions/10.0.0",
+          "Microsoft.Extensions.Logging/10.0.0",
+          "Microsoft.Extensions.Options/10.0.0",
+          "Microsoft.Extensions.Primitives/10.0.0",
+          "Microsoft.Graphics.Win2D/1.4.0",
+          "Microsoft.IO.RecyclableMemoryStream/3.0.1",
+          "Microsoft.Maui.Controls.Build.Tasks/10.0.110",
+          "Microsoft.Maui.Controls.Core/10.0.110",
+          "Microsoft.Maui.Controls.Xaml/10.0.110",
+          "Microsoft.Maui.Controls/10.0.110",
+          "Microsoft.Maui.Core/10.0.110",
+          "Microsoft.Maui.Essentials/10.0.110",
+          "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/10.0.110",
+          "Microsoft.Maui.Graphics/10.0.110",
+          "Microsoft.Maui.Resizetizer/10.0.110",
+          "Microsoft.Web.WebView2/1.0.3179.45",
+          "Microsoft.Windows.SDK.BuildTools.MSIX/1.7.20250829.1",
+          "Microsoft.Windows.SDK.BuildTools/10.0.26100.8249",
+          "Microsoft.WindowsAppSDK.AI/1.8.76",
+          "Microsoft.WindowsAppSDK.Base/1.8.251216001",
+          "Microsoft.WindowsAppSDK.DWrite/1.8.25122902",
+          "Microsoft.WindowsAppSDK.Foundation/1.8.260527000",
+          "Microsoft.WindowsAppSDK.InteractiveExperiences/1.8.260525001",
+          "Microsoft.WindowsAppSDK.ML/1.8.2197",
+          "Microsoft.WindowsAppSDK.Runtime/1.8.260529003",
+          "Microsoft.WindowsAppSDK.Widgets/1.8.251231004",
+          "Microsoft.WindowsAppSDK.WinUI/1.8.260528001",
+          "Microsoft.WindowsAppSDK/1.8.260529003",
+          "System.Numerics.Tensors/9.0.0"
+        ],
+        "observation": "Label.Loaded / .NET 10.0.13",
+        "inputs": [
+          {
+            "path": "net10.0/Maui/global.json",
+            "sha256": "05e275ab63f3920f0c363e8705fdd874b6a828e5be54c87fb76188493367fb0c"
+          },
+          {
+            "path": "net10.0/Maui/MauiProgram.cs",
+            "sha256": "7d17a986af98d0af2596eb35db05f209bb32042d430561844782f080c2b0ff55"
+          },
+          {
+            "path": "net10.0/Maui/packages.lock.json",
+            "sha256": "c56b3606fdf3c58e08891f82f4f9d5301027b61e49ae40cae7eb1f4037221e19"
+          },
+          {
+            "path": "net10.0/Maui/Probe.csproj",
+            "sha256": "77a727271abc2f2be2f1974aec0617bc959f55e7fabf26e23690d17071fd95fd"
+          },
+          {
+            "path": "net10.0/Maui/Platforms/Windows/App.xaml",
+            "sha256": "650dd3b004356ad1c7dc246e7d75e0248897fd44a4e78d076f75b3224b2a07d5"
+          },
+          {
+            "path": "net10.0/Maui/Platforms/Windows/App.xaml.cs",
+            "sha256": "3ef2af33077917f763e650a21162459418c0a7fd1e0ff0c276a032ad24a1fd0c"
+          }
+        ],
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Maui\\bin\\Release\\net10.0-windows10.0.19041.0\\win-x64\\Probe.exe",
+        "launchArguments": [],
+        "launchEnvironment": {
+          "DOTNET_ROOT": "C:\\Program Files\\dotnet",
+          "DOTNET_ROOT_X64": "C:\\Program Files\\dotnet",
+          "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH": "0"
+        }
+      },
+      {
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Wpf",
+        "framework": "Wpf",
+        "target": "net11.0-windows",
+        "intendedSdk": "11.0.100-rc.2.26504.105",
+        "dotnet": "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe",
+        "build": "passed",
+        "launch": "passed",
+        "sdk": "11.0.100-rc.2.26504.105",
+        "command": [
+          "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe",
+          "build",
+          "Probe.csproj",
+          "-c",
+          "Release"
+        ],
+        "dependencies": [],
+        "observation": "ContentRendered / .NET 11.0.0-rc.2.26504.105",
+        "inputs": [
+          {
+            "path": "net11.0/Wpf/global.json",
+            "sha256": "d9fd82b26a07e3966f2c69312ae0467dc039acbdb6426d99fc9ae5c82db81214"
+          },
+          {
+            "path": "net11.0/Wpf/packages.lock.json",
+            "sha256": "0c322711a674c3c48913f23b5286fcb32e315d82b5fb12677266f7e66a75abed"
+          },
+          {
+            "path": "net11.0/Wpf/Probe.csproj",
+            "sha256": "eb9512f2d82535a3f790c57aed9900a1061a1030f7b37588bddd3b53afdbad00"
+          },
+          {
+            "path": "net11.0/Wpf/Program.cs",
+            "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
+          }
+        ],
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Wpf\\bin\\Release\\net11.0-windows\\Probe.exe",
+        "launchArguments": [
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Wpf\\bin\\Release\\net11.0-windows\\launch-result.txt"
+        ],
+        "launchEnvironment": {
+          "DOTNET_ROOT": "C:\\Users\\pingu\\.dotnet-playbook-11",
+          "DOTNET_ROOT_X64": "C:\\Users\\pingu\\.dotnet-playbook-11",
+          "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH": "0"
+        }
+      },
+      {
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\WinForms",
+        "framework": "WinForms",
+        "target": "net11.0-windows",
+        "intendedSdk": "11.0.100-rc.2.26504.105",
+        "dotnet": "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe",
+        "build": "passed",
+        "launch": "passed",
+        "sdk": "11.0.100-rc.2.26504.105",
+        "command": [
+          "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe",
+          "build",
+          "Probe.csproj",
+          "-c",
+          "Release"
+        ],
+        "dependencies": [],
+        "observation": "Shown / .NET 11.0.0-rc.2.26504.105",
+        "inputs": [
+          {
+            "path": "net11.0/WinForms/global.json",
+            "sha256": "d9fd82b26a07e3966f2c69312ae0467dc039acbdb6426d99fc9ae5c82db81214"
+          },
+          {
+            "path": "net11.0/WinForms/packages.lock.json",
+            "sha256": "0c322711a674c3c48913f23b5286fcb32e315d82b5fb12677266f7e66a75abed"
+          },
+          {
+            "path": "net11.0/WinForms/Probe.csproj",
+            "sha256": "c397e02d21ab5bda4b14eb67bb6e10fc7e502dbb8edf980b0ec8969aff12f467"
+          },
+          {
+            "path": "net11.0/WinForms/Program.cs",
+            "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
+          }
+        ],
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\WinForms\\bin\\Release\\net11.0-windows\\Probe.exe",
+        "launchArguments": [
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\WinForms\\bin\\Release\\net11.0-windows\\launch-result.txt"
+        ],
+        "launchEnvironment": {
+          "DOTNET_ROOT": "C:\\Users\\pingu\\.dotnet-playbook-11",
+          "DOTNET_ROOT_X64": "C:\\Users\\pingu\\.dotnet-playbook-11",
+          "DOTNET_ADD_GLOBAL_TOOLS_TO_PATH": "0"
+        }
+      },
+      {
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Maui",
+        "framework": "Maui",
+        "target": "net11.0-windows10.0.19041.0",
+        "intendedSdk": "11.0.100-rc.2.26504.105",
+        "dotnet": "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe",
+        "build": "failed",
+        "launch": "not-tested",
+        "sdk": "11.0.100-rc.2.26504.105",
+        "command": [
+          "C:/Users/pingu/.dotnet-playbook-11/dotnet.exe",
+          "build",
+          "Probe.csproj",
+          "-c",
+          "Release"
+        ],
+        "inputs": [
+          {
+            "path": "net11.0/Maui/global.json",
+            "sha256": "d9fd82b26a07e3966f2c69312ae0467dc039acbdb6426d99fc9ae5c82db81214"
+          },
+          {
+            "path": "net11.0/Maui/MauiProgram.cs",
+            "sha256": "7d17a986af98d0af2596eb35db05f209bb32042d430561844782f080c2b0ff55"
+          },
+          {
+            "path": "net11.0/Maui/Probe.csproj",
+            "sha256": "df6f26eca7d47c0058943180956edc7c6a59b4dd4a5e3e39d1a14b2ccdcb593c"
+          },
+          {
+            "path": "net11.0/Maui/Platforms/Windows/App.xaml",
+            "sha256": "650dd3b004356ad1c7dc246e7d75e0248897fd44a4e78d076f75b3224b2a07d5"
+          },
+          {
+            "path": "net11.0/Maui/Platforms/Windows/App.xaml.cs",
+            "sha256": "3ef2af33077917f763e650a21162459418c0a7fd1e0ff0c276a032ad24a1fd0c"
+          }
+        ],
+        "scope": "not-tested: this exact .NET 11 MAUI Windows probe did not compile or execute. Workload inventory advertises preview.6, but no MAUI SDK pack exists in the selected root. Build failed with NETSDK1147 naming maui-tizen. No installation performed or required under PIN-699."
+      }
+    ]
   }
 }
