@@ -1,6 +1,7 @@
 int[] readings = [42, -7, 18, 105, 3];
 Equal(-7, InstrumentExtrema.Min<int>(readings)); Equal(105, InstrumentExtrema.Max<int>(readings));
 Equal(-7, InstrumentExtrema.Min<int>(readings, null)); Equal(105, InstrumentExtrema.Max<int>(readings, null));
+if (!readings.AsSpan().SequenceEqual(new int[] { 42, -7, 18, 105, 3 })) throw new Exception("Input buffer changed");
 var descending = Comparer<int>.Create((a, b) => b.CompareTo(a));
 Equal(105, InstrumentExtrema.Min<int>(readings, descending)); Equal(-7, InstrumentExtrema.Max<int>(readings, descending));
 Throws<InvalidOperationException>(() => InstrumentExtrema.Min<int>([]));

@@ -114,3 +114,9 @@ Native workload evidence includes source/version conflicts and real Mac/Xcode re
 Remaining delivery work includes full linked migration/compiler-note review, earlier milestone reconciliation where noted, public API diffs, exact SDK/package/workload/native pins, older-target route verification, original previous/current examples, compilation, focused behavior checks, packed-tool/client checks, and GA reconciliation. No unresolved qualifying change may silently disappear or be labelled verified. The compatibility index itself is still evolving; each file states the actual source boundary and gaps.
 
 This is planning evidence only. No sample projects, SDK installs, native/UI/device tests, database execution, tool implementation, package publication, or remote changes were performed for this inventory.
+
+PIN-1079/1080 deliver the data/I/O audit's D5–D6 colour representation and span
+extrema goals with original paired consumers, fresh sample evidence and installed
+offline retrieval. [Delivery reconciliation](../audits/data-io.md#d5d6-delivery-reconciliation--31-october-2026)
+retains the exact RC2 boundary, null/empty/span/endian contracts and exclusions.
+The eight .NET10 foundations, other owners and comprehensive/GA gates remain open.

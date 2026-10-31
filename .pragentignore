@@ -343,3 +343,10 @@
 /samples/net11.0/CoastalReports/verification-evidence.json
 /samples/net10.0/InstrumentGateway/verification-evidence.json
 /samples/net11.0/InstrumentGateway/verification-evidence.json
+
+# Test-ChannelExtrema/Record-Evidence generated SDK/ref/command receipts. Review
+# canonical consumers, contract checks, source pins and recorder; build/pack checks freshness.
+/samples/net10.0/SignalLegend/verification-evidence.json
+/samples/net11.0/SignalLegend/verification-evidence.json
+/samples/net10.0/ObservatoryBatch/verification-evidence.json
+/samples/net11.0/ObservatoryBatch/verification-evidence.json

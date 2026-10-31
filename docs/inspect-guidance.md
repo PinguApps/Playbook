@@ -2177,3 +2177,47 @@ its absence checked; no named/production container is used. No stronger-provider
 redesign or authentication guarantee follows. Process/user/machine PATH and
 persistent user/machine environment are checked unchanged. RC2 evidence is not GA;
 PIN-959/PIN-962 and existing Human gates stay open, with no recurring native matrix.
+
+## Colour channels and span extrema
+
+The original SignalLegend and ObservatoryBatch consumers require only the two
+pinned shared SDKs. No package, native workload, provider or device is needed.
+Refresh affected sample records and verify the eleven selected immutable sources:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a43ec602'
+& ./eng/Test-ChannelExtrema.ps1 -Record -VerifySources
+```
+
+Expect four passing real consumers: distinct RGBA/ARGB known words and endian
+round trips, byte/float preservation, span length/copy and equality/hash checks;
+value/reference/nullable extrema, explicit/default comparers, ignored/all-null
+entries and distinct empty contracts. Reference SHA256 values match the source
+audit; output records compiler/CoreLib identities. No colour processing, NaN,
+performance, other-platform or final-GA claim follows.
+
+This block is exercised from an unrelated starting directory. It builds/packs the
+ordinary tool once and inspects that exact package through an isolated local-only
+feed/cache and real installed stdio calls from a temporary unrelated directory.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a43ec602'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1079-1080'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.preserve-color-channels','collections.find-span-extrema') `
+  -Query 'channel-extrema' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1079-1080' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/channel-extrema/inspection
+```
+
+Expect a passing installed smoke and both discovery IDs, reusable titles and goals,
+full expanded canonical Markdown, target11/edition11, applicability and fresh paired
+records. Structured/text fallback must agree. Target10 returns no_applicable_edition;
+these .NET10 consumers compare older approaches within target11 guidance and add no
+foundation. The Inspector prints exactly what an agent receives and saves JSON plus
+the package hash. Retrieval with unusable proxies establishes proxy independence,
+not network isolation. Setup may restore online; no new native/client/OS matrix.
+PIN-959 comprehensive coverage, PIN-962 GA and existing Human gates remain open.

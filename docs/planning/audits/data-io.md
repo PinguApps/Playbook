@@ -60,7 +60,7 @@ All changes require authored code unless otherwise stated. No uncovered markup, 
 | RequiresUnsafe annotations on pointer constructors/encoding/MemoryHandle/SequenceMarshal/vector loads and stores | **Grouped:** changed safe/unsafe caller obligations. Many raw add/remove pairs differ only by this annotation; they are not thousands of new algorithms or removed methods. | [PIN-715](https://linear.app/pinguapps/issue/PIN-715); preserve its measured preview-feature limits and compile affected callers when delivering those cases. |
 | Compiler-emitted vector extension marker types and public EditorBrowsable(Never) expression Closure storage/constructor | **Excluded as standalone goals:** compiler/code-generation support; no separate practical authoring change established. Keep raw declarations, including these generated public shapes, visible. | PIN-703 disposition. A future documented authored compiler-host scenario would require a bounded proposal; no general tooling compatibility claim. |
 | Tensor twelve add/remove pairs | **Excluded as new algorithms:** identical callable shapes with added NullableContext(0), not twelve new tensor operations. Complete generic/parameter annotations remain in the manifest. | Tensor shape/layout/Clamp/Round correctness findings remain PIN-683; this metadata result does not establish behavioral equivalence. |
-| Argb<T>/Rgba<T>, packed-endian conversion helpers | **Included, uncovered D5:** explicit channel order and component representation. | D5; no dependency on MAUI Color inheritance or a native painting API. |
+| Argb<T>/Rgba<T>, packed-endian conversion helpers | **Delivered D5 / PIN-1079:** original paired channel-order and packed-endian consumers. | `numerics.preserve-color-channels` edition11.0; byte/float, span lengths and equality/hash checks; no native UI claim. |
 | File.CreateHardLink/FileInfo.CreateAsHardLink | **Delivered D1 → PIN-1075:** replace native creation code while preserving alias semantics. | `io.create-hard-links` edition11.0; actual old native/current managed Windows NTFS lifecycle and failure evidence. Other OS/filesystem/cross-volume outcomes remain unverified. TAR archive policy stays separate. |
 | DirectoryNotFoundException DirectoryPath, constructors, formatting/serialization overrides | **Included, uncovered D9:** consume a structured failing path instead of parsing a localized message. Group supporting constructors/ToString/legacy serialization metadata; don't teach obsolete formatter use. | D9. |
 | SafeFileHandle.Type/CreateAnonymousPipe/FileHandleType; NamedPipeClientStream replacement constructor and SYSLIB0063 | **Grouped:** handle type/ownership and remove the ineffective isConnected argument. | [PIN-741](https://linear.app/pinguapps/issue/PIN-741); [PIN-684](https://linear.app/pinguapps/issue/PIN-684) retains Unix async-state/permission migrations. |
@@ -275,3 +275,35 @@ No new recipe, old/new recipe consumer, filesystem/process/platform behavior, IS
 ## Delivered process, buffer and text goals (PIN-721–PIN-725)
 
 The [original editions and measured verification](../../verification/process-platforms.md) cover the existing process/output/lifetime/colour, native handles/preparation/termination, memory adapters/builder transfer, Unicode/comparison/validation/newline and Base64 goals. Stable inventory IDs and edition 11.0 are preserved. CBOR chunk processing is reconciled with the serialization register. Windows and Linux process execution resolve the parent-bound and Unix colour source discrepancies; Windows redirected Console emits no ANSI in either tested policy. macOS native behaviour remains explicitly unverified with Pingu's authorization; the six process/colour recipes retain pending Human proof. This does not establish product release readiness, Android support, native callback execution or GA proof. Audit declaration counts/hashes remain historical evidence; no source-only API delta is relabelled execution proof.
+
+## D5–D6 delivery reconciliation — 31 October 2026
+
+PIN-1079/1080 deliver `numerics.preserve-color-channels` and
+`collections.find-span-extrema`, edition11.0. Original SignalLegend and
+ObservatoryBatch consumers compile/execute on SDK10.0.402/C#14/ref-runtime10.0.13
+and SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2, Windows x64. Selected
+System.Runtime, System.Memory and System.Numerics.Vectors reference SHA256 values
+match the original audit; compiler/CoreLib identities are measured separately.
+No packages, native assets, workloads, providers, UI/device or opt-ins are required.
+
+Distinct bytes prove RGBA/ARGB ordering, four known packed words and big-/little-
+endian inverse creation. Byte/float checks cover lengths0..5, short-copy rejection
+before writes, untouched tails, reorder, component/object equality and equal hashes.
+Values outside0..1 survive as supplied: no normalization, blending, colour-space
+conversion or component-range validation is promised. Packed uint helpers are byte-only.
+
+Span Min/Max checks cover default/null and explicit reverse/ordinal/load comparers,
+value/reference/nullable inputs, ignored/all-null entries, null-rejecting comparers,
+empty non-nullable exceptions and empty nullable/reference null results. Actual
+static generic and extension overloads compile and execute. The legitimate older
+loop already works over spans; no measured speedup or floating NaN claim is made.
+
+`eng/Test-ChannelExtrema.ps1 -Record -VerifySources` uses the existing sample-evidence
+workflow and [selected exact official sources](channel-extrema.sources.json).
+The [installed walkthrough](../../inspect-guidance.md#colour-channels-and-span-extrema)
+checks the ordinary local-feed package's real offline stdio list/get from an
+unrelated directory, complete canonical Markdown, ID/title/goal, explicit target11/
+edition11, applicability and current paired evidence. Older consumers remain
+comparisons within target11 guides, preserving the exact eight foundations and
+existing identities. RC2 is not final GA; PIN-959, PIN-962 and Human gates remain
+open. No recurring native/client matrix or public publication is added.
