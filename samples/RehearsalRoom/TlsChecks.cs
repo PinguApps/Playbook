@@ -141,7 +141,12 @@ internal static class TlsChecks
     }
     private static X509Certificate2 Issue(string name, RSA key, bool ca, X509Certificate2 issuer, Uri? url, bool expired = false)
     {
-        using var certificate = Request(name, key, ca, url).Create(issuer, DateTimeOffset.UtcNow.AddDays(-10), expired ? DateTimeOffset.UtcNow.AddDays(-1) : DateTimeOffset.UtcNow.AddDays(10), RandomNumberGenerator.GetBytes(16));
+        // Stay inside the issuer's encoded (whole-second) validity window.
+        // Independent clock reads can otherwise put a leaf beyond its issuer.
+        var notBefore = new DateTimeOffset(issuer.NotBefore.ToUniversalTime()).AddDays(1);
+        var notAfter = expired ? DateTimeOffset.UtcNow.AddDays(-1)
+            : new DateTimeOffset(issuer.NotAfter.ToUniversalTime()).AddDays(-1);
+        using var certificate = Request(name, key, ca, url).Create(issuer, notBefore, notAfter, RandomNumberGenerator.GetBytes(16));
         return certificate.CopyWithPrivateKey(key);
     }
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate IntPtr OpenSslVersion(int type);
