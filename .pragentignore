@@ -350,3 +350,12 @@
 /samples/net11.0/SignalLegend/verification-evidence.json
 /samples/net10.0/ObservatoryBatch/verification-evidence.json
 /samples/net11.0/ObservatoryBatch/verification-evidence.json
+
+# Test-TextBoundaries/Record-Evidence generated SDK/ref/native/command receipts.
+# Review canonical helpers/checks, source pins and recorder; build/pack verifies freshness.
+/samples/net10.0/MooringReport/verification-evidence.json
+/samples/net11.0/MooringReport/verification-evidence.json
+/samples/net10.0/OrchardRoutes/verification-evidence.json
+/samples/net11.0/OrchardRoutes/verification-evidence.json
+/samples/net10.0/SeedImports/verification-evidence.json
+/samples/net11.0/SeedImports/verification-evidence.json

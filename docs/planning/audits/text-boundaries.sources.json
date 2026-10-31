@@ -1,0 +1,75 @@
+{
+  "note": "Pinned official implementation sources qualify availability and implementation limits; original samples establish actual execution separately.",
+  "sources": [
+    {
+      "id": "4099f83-TextWriter",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/TextWriter.cs",
+      "sha256": "f889a621f85fedbb54d19d84372e822c303cf64ad5dcb1877c12d5a3906f48ef"
+    },
+    {
+      "id": "4099f83-StreamWriter",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/StreamWriter.cs",
+      "sha256": "4338c424ac6ce0234022dee5e14edb7acfddf54d104a446e8977b876cc1f618c"
+    },
+    {
+      "id": "4099f83-IdnMapping",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.cs",
+      "sha256": "c55b4c7791cbaab052f6c482849c661c532c60e09df5f3fd8143e2f0cab52f43"
+    },
+    {
+      "id": "4099f83-IdnMapping.Icu",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Icu.cs",
+      "sha256": "561058906fb5e58dfed8b5c9b5f29d0954a651c3f4c5a839b7c7f9c888bf9792"
+    },
+    {
+      "id": "4099f83-IdnMapping.Nls",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Nls.cs",
+      "sha256": "b9994680749c1b42927b323db74114742b2c31e73259160fd2927f91ce107582"
+    },
+    {
+      "id": "4099f83-DirectoryNotFoundException",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/DirectoryNotFoundException.cs",
+      "sha256": "736143264f6053e75bf1214b0f88315e3006d113e3c528fc3dee8e929bfb381f"
+    },
+    {
+      "id": "4099f83-Win32Marshal",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Common/src/System/IO/Win32Marshal.cs",
+      "sha256": "724b3c02e33b90a85e7c24da7a463f4d91d029966521de08b756e1b2ca297d8d"
+    },
+    {
+      "id": "820230c-TextWriter",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/TextWriter.cs",
+      "sha256": "07b451fcdd841946735ed4d84abdeebfafea6daa8b1a15a9c4237bf12f1346b3"
+    },
+    {
+      "id": "820230c-StreamWriter",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/StreamWriter.cs",
+      "sha256": "896b62b2c96fe39c64ede6e9e0ba9e675b194aae678ca3e8c76b5e9de6f1e2e4"
+    },
+    {
+      "id": "820230c-IdnMapping",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.cs",
+      "sha256": "8b2be773f588216ba778d0f982d295a89a50a493e1b91a5cbf5b5f3d243b72ab"
+    },
+    {
+      "id": "820230c-IdnMapping.Icu",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Icu.cs",
+      "sha256": "b8346efe288f49c7c79cc92f0c28b371a29d744e0b7acfadb95949c21056d547"
+    },
+    {
+      "id": "820230c-IdnMapping.Nls",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Globalization/IdnMapping.Nls.cs",
+      "sha256": "a9245aaa6f281916f2b34fa71b222726e1ecc44347ada6962a3f8d5fce583a11"
+    },
+    {
+      "id": "820230c-DirectoryNotFoundException",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/DirectoryNotFoundException.cs",
+      "sha256": "d1570ef23a5c5b30830a7ab0ce85ea62f8ecaa4436695893b9494930ff4f928a"
+    },
+    {
+      "id": "820230c-Win32Marshal",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/IO/Win32Marshal.cs",
+      "sha256": "d637860e5a95e77528c6f4d399a72e4630c852ebd9dfd392741da87b17e5ea58"
+    }
+  ]
+}
