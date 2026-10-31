@@ -138,6 +138,7 @@ internal static class ProviderChecks
                 Report("SYNTHETIC CreateReadStream", ignore, thrown, errors, provider, token);
                 files.FailInfo = true; errors.Clear(); thrown = Catch(provider.Load);
                 Check(ReferenceEquals(thrown, fault) && errors.Count == 0, "GetFileInfo outside callback");
+                Console.WriteLine($"SYNTHETIC GetFileInfo; Ignore={ignore}; thrown={thrown?.GetType().Name}; callback=none; token={token.HasChanged}");
             }
             Console.WriteLine("PASS provider matrix; registrations/providers disposed; no global task event used");
         }
