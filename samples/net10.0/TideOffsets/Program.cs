@@ -1,0 +1,3 @@
+using TideOffsets;
+
+OffsetChecks.Run();

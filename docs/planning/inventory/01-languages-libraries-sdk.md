@@ -1,5 +1,17 @@
 # Languages, shared libraries, runtime and SDK inventory
 
+**PIN-1086/PIN-1087** deliver original
+[value-based JSON classification](../../../content/recipes/json.classify-payload-values/11.0/recipe.md)
+and [message authenticator verification](../../../content/recipes/crypto.verify-message-authenticators/11.0/recipe.md).
+Actual paired framework consumers exercise complete concrete payloads, registration
+precedence/errors, generated metadata and ordinary reference-null behavior, plus
+HMAC/KMAC known answers, cancellation, customization and incremental state.
+The [serialization S2](../audits/serialization.md#s2--choose-json-variants-from-payload-values--m-3)
+and [runtime R1](../audits/runtime-security.md#delivery-drafts-for-review) dispositions
+retain exact RC2/Windows CNG evidence and installed offline retrieval. Union
+custom-factory null semantics, other-platform/provider execution and final GA
+remain unverified; eight foundations and comprehensive/GA/Human gates stay intact.
+
 **PIN-1032–1034** reconcile compiler audit A–C through actual SDK10.0.100,
 10.0.402 and11 RC2 controls. Original
 [span-storage](../../../content/recipes/csharp.preserve-span-storage/11.0/recipe.md)

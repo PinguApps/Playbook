@@ -1,0 +1,177 @@
+{
+  "id": "crypto.verify-message-authenticators",
+  "edition": "11.0",
+  "title": "Verify message authenticators",
+  "goal": "Check a packet or stream against its expected message authenticator, enforce the protocol tag length, and choose whether incremental verification preserves or resets state.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "classifier-authentication",
+    "harbourpackets"
+  ],
+  "apis": [
+    "HMACSHA256.Verify",
+    "HMACSHA256.VerifyAsync",
+    "IncrementalHash.VerifyCurrentHash",
+    "IncrementalHash.VerifyHashAndReset",
+    "Kmac128.Verify"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; RC2 evidence is distinct from GA verification."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against net11.0 references; exact SDK patch is a reproduction pin."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; comparison uses C#14. No preview-language opt-in."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App.Ref ref/net11.0/System.Security.Cryptography.dll"
+          ],
+          "providers": [
+            "HMAC-SHA256 and a Kmac128.IsSupported provider; positive Windows CNG execution measured."
+          ],
+          "platforms": [
+            "Windows x64 measured; other-platform execution, browser/WASI and trimming/Native AOT are not verified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; complete canonical source includes imports and namespace.",
+            "No additional NuGet package. Exact proof: SDK11.0.100-rc.2.26504.105/runtime-ref11.0.0-rc.2.26504.105; previous SDK10.0.402/runtime-ref10.0.13."
+          ],
+          "constraints": [
+            "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
+            "No rendering mode, workload or experimental diagnostic opt-in; actual RC2 proof does not establish final-GA execution.",
+            "Protocol requires exactly32-byte tags. HMAC raw invalid lengths throw; KMAC raw nonempty length selects its output size, so validate protocol length first.",
+            "Synthetic public fixture keys only. KMAC support is provider-dependent; measured native Windows versions/hashes are retained. No timing benchmark, replay protection or authorization claim."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Selected APIs have no experimental diagnostic; final-GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "No older-target/newer-package route is advertised. Existing .NET10 comparison remains valid and adds no historical foundation.",
+          "No rendering mode, workload or experimental diagnostic opt-in; actual RC2 proof does not establish final-GA execution.",
+          "Protocol requires exactly32-byte tags. HMAC raw invalid lengths throw; KMAC raw nonempty length selects its output size, so validate protocol length first.",
+          "Synthetic public fixture keys only. KMAC support is provider-dependent; measured native Windows versions/hashes are retained. No timing benchmark, replay protection or authorization claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HarbourPackets/HarbourPackets.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HMACSHA256.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/Kmac128.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/IncrementalHash.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HMACSHA256.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/Kmac128.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/IncrementalHash.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HMACStatic.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "4099f83-System.Security.Cryptography.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "4099f83-HMACSHA256.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HMACSHA256.cs"
+    },
+    {
+      "title": "4099f83-Kmac128.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/Kmac128.cs"
+    },
+    {
+      "title": "4099f83-IncrementalHash.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/IncrementalHash.cs"
+    },
+    {
+      "title": "820230c-System.Security.Cryptography.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "820230c-HMACSHA256.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HMACSHA256.cs"
+    },
+    {
+      "title": "820230c-Kmac128.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/Kmac128.cs"
+    },
+    {
+      "title": "820230c-IncrementalHash.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/IncrementalHash.cs"
+    },
+    {
+      "title": "820230c-HMACStatic.cs — pinned official contract/implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HMACStatic.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual paired HMAC/KMAC known answers, wrong key/data/customization, protocol lengths, stream cancellation after prefix, and incremental preserve/reset on success and mismatch. Windows CNG native identity recorded.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/HarbourPackets/HarbourPackets.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Actual paired HMAC/KMAC known answers, wrong key/data/customization, protocol lengths, stream cancellation after prefix, and incremental preserve/reset on success and mismatch. Windows CNG native identity recorded.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/HarbourPackets/HarbourPackets.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/HarbourPackets/PacketAuthenticator.cs",
+      "region": "implementation",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/HarbourPackets/PacketAuthenticator.cs",
+      "region": "implementation",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real managed console and supported local Windows CNG checks need no account, external service, workload or Human action. Other-platform, AOT and GA claims remain unverified."
+  }
+}

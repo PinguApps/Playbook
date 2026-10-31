@@ -4,6 +4,46 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Value-based JSON classification and message authenticators
+
+This builds/packs the ordinary tool, installs that exact artifact using the
+existing isolated local-only feed/cache and calls real stdio list/get from an
+unrelated temporary directory. It displays ID/title/goal, complete expanded
+canonical Markdown, target11/edition11, applicability and fresh paired evidence.
+Tested from an unrelated starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-aa90caa3'
+& ./eng/Test-ClassifierAuthentication.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('json.classify-payload-values','crypto.verify-message-authenticators') `
+  -Query 'classifier-authentication' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1086-1087' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/classifier-auth/inspection'
+```
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/ref-runtime10.0.13 and complete
+SDK11.0.100-rc.2.26504.105/ref-runtime11RC2. No extra sample packages or workloads.
+Positive KMAC checks require a supported provider (measured Windows x64 CNG);
+the sample records native DLL versions/hashes. No account or external service is
+used. Setup can restore tool/Inspector2.11.0 online; unusable proxies during
+installed retrieval prove proxy independence, not OS network isolation.
+
+Expect four successful builds/runs, complete selected JSON payloads in either
+property order, ten rejected JSON cases, reference null, registration precedence,
+global no-match/unregistered failure contracts and generated metadata without
+reflection fallback. Authenticators verify independent known answers, failures,
+actual cancellation after12 bytes, incremental preserve/reset and KMAC
+customization/support. Raw HMAC invalid lengths throw; raw KMAC has variable
+output length, while the protocol enforces32 bytes. Final exact-artifact inspection
+reports PASS; target10 returns no_applicable_edition. `-Record -VerifySources`
+refreshes affected proof and verifies immutable source hashes. Stale inputs,
+canonical-content/target/applicability drift or nonzero exit fail. Union custom
+null, AOT, timing, other-platform/provider and final-GA claims remain unverified;
+eight foundations and PIN-959/PIN-962/Human gates stay open. No new matrix.
+
 ## Text cancellation, IDN buffers and directory diagnostics
 
 This builds/packs the ordinary tool, installs that exact artifact through the
