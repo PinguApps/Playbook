@@ -1969,3 +1969,72 @@ Windows x64 NTFS and Linux x64 OpenSSL are measured. Other-platform/filesystem,
 newer-package-on-net10, TLS, online revocation and actual-GA behavior remain
 unverified. Inspection consumes saved proof rather than rerunning these behaviors.
 PIN-959/PIN-962 and existing Human gates stay open; no native CI matrix is added.
+
+## Certificate extension state, client TLS chains and file aliases
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. All six consumers use framework
+APIs with no NuGet packages/workloads. Authoring uses Windows x64 local NTFS and
+the existing digest-pinned Linux x64 OpenSSL runtime containers.
+
+This block was tested from an unrelated starting directory. It builds/packs the
+ordinary tool, installs that exact artifact using an isolated local-only feed/cache,
+then calls real stdio list/get from an unrelated temporary directory. Setup may
+restore online; retrieval with unusable proxies proves proxy independence rather
+than network isolation. The separate TLS fixtures use network-none containers.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1fc43630'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1061-1063-1075'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('crypto.replace-encoded-extension-data','tls.supply-client-certificate-chain','io.create-hard-links') `
+  -Query 'certificate-links' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1061-1063-1075' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/certificate-links/inspection
+```
+
+Expect one passing installed smoke and all three discovery IDs, reusable titles
+and explanatory goals, complete expanded canonical Markdown, target11/edition11
+applicability, fresh paired evidence, structured/text equality and
+`no_applicable_edition` for target10. The old consumers are comparisons within the
+target11 guide; exactly eight foundations remain. A nonzero exit, changed/missing
+snippet, mismatched body or stale evidence fails. Inspection consumes saved evidence;
+it does not rerun native consumer behavior.
+
+Refresh affected samples and fourteen immutable selected/supplemental source hashes:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1fc43630'
+& ./eng/Record-CertificateLinks.ps1 -VerifySources
+```
+
+Expect the original .NET10 RawData stale-cache failure and both supported update
+choices on both releases, all decoded fields/raw bytes/OID/Critical true/false,
+malformed lazy decode, getter-only use and the isolated current-target old-setter
+SYSLIB0065 diagnostic without suppression. Current supported code builds with
+warnings as errors. This covers one Basic Constraints extension type.
+
+Expect Windows local NTFS native/File/FileInfo aliases to share writes in both
+directions and retain data when either name is deleted first. Destination-exists,
+absent-target and directory-target attempts reject without clobbering data or
+creating the missing alias. Native error/current exception values are observations,
+not an all-platform taxonomy. Cleanup verifies and removes only the created tree.
+No Unix/network-share/unsupported-filesystem/cross-volume result is claimed.
+
+Expect four fresh private containers per TLS runtime. The old no-custom-policy
+flow fetches one missing client issuer and exchanges booking/ACK data; the current
+flow fails PartialChain without fetching. Explicit server ExtraStore/downloads-off
+succeeds on both, while unrelated-root and expired-client controls reject without
+fetching. Clients send only their leaf; callbacks require strict validation. TLS1.3,
+OpenSSL3.3.7/3.5.4, loaded native/managed hashes, certificate inputs, exact images,
+commands and cleanup are recorded separately from Windows compilation. Private
+HOME/cache/tmpfs and listeners/keys disappear; no shared trust store is modified.
+NoCheck is for this offline fixture, not proof of online revocation. Compatibility
+switches, client-supplied full chains, Windows TLS and final-GA behavior are untested.
+
+Process/user/machine PATH and persistent user/machine environment remain unchanged.
+No production resources, public publication or recurring native matrix is added.
+PIN-959/PIN-962, other delivery owners and existing Human gates remain open.

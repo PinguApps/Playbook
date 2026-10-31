@@ -299,3 +299,15 @@
 /samples/net11.0/ArchiveManifest/verification-evidence.json
 /samples/net10.0/ArchiveManifest/linux.evidence.json
 /samples/net11.0/ArchiveManifest/linux.evidence.json
+
+# Record-CertificateLinks generated SDK/ref/native/command receipts. Review
+# canonical helpers, behavior suites, pins, manifests and recorder; build/pack
+# checks input freshness and installed inspection checks served content.
+/samples/net10.0/LaboratoryInspector/verification-evidence.json
+/samples/net10.0/SurveyExport/verification-evidence.json
+/samples/net10.0/RehearsalRoom/verification-evidence.json
+/samples/net10.0/RehearsalRoom/linux.evidence.json
+/samples/net11.0/LaboratoryInspector/verification-evidence.json
+/samples/net11.0/SurveyExport/verification-evidence.json
+/samples/net11.0/RehearsalRoom/verification-evidence.json
+/samples/net11.0/RehearsalRoom/linux.evidence.json

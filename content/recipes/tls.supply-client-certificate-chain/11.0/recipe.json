@@ -1,0 +1,166 @@
+{
+  "id": "tls.supply-client-certificate-chain",
+  "edition": "11.0",
+  "title": "Validate TLS client certificates with an explicitly supplied chain",
+  "goal": "Supply missing client-certificate intermediates explicitly during mutual TLS when the server must validate the client without downloading issuers.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "certificate-links",
+    "rehearsalroom"
+  ],
+  "apis": [
+    "SslStream.AuthenticateAsServerAsync",
+    "SslServerAuthenticationOptions.CertificateChainPolicy",
+    "X509ChainPolicy.ExtraStore",
+    "DisableCertificateDownloads",
+    "SslStreamCertificateContext"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Supply missing client-certificate intermediates explicitly during mutual TLS when the server must validate the client without downloading issuers.",
+          "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
+          "Verified on .NET 11 RC2; actual-GA reconciliation remains open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": ".NET 11 runtime for the current net11 consumer; RC2 is the measured artifact, not final GA proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current sample mode; the policy code requires no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [
+            "Linux OpenSSL; actual versions and loaded native library hashes saved"
+          ],
+          "platforms": [
+            "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project targeting net11.0, C#15 sample mode, Nullable and ImplicitUsings enabled; put complete canonical helpers in separate .cs files.",
+            "Disposable private CA/server/client certificates with private keys and server DNS SAN room.test; approved client root and intermediate supplied independently of untrusted requests. Private loopback TCP streams only; see the complete executable fixture and recorder."
+          ],
+          "constraints": [
+            "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
+            "Previous comparison: SDK10.0.402/C#14/runtime10.0.13. Current: SDK11.0.100-rc.2.26504.105/C#15/runtime11RC2. These are measured verification pins, separate from supported release-family prerequisites.",
+            "Framework APIs only: no NuGet dependency, workload, rendering mode, experimental opt-in, public service or production resource. Preserve eight foundations, other recipe identities and existing comprehensive/GA/Human gates."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 evidence is not actual-GA proof. No selected API experimental opt-in is required."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/networking/11/sslstream-aia-downloads-disabled.md",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/RehearsalRoom/RehearsalRoom.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "tls-aia \u2014 official versioned source",
+      "url": "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/networking/11/sslstream-aia-downloads-disabled.md"
+    },
+    {
+      "title": "tls-validation-10 \u2014 official versioned source",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs"
+    },
+    {
+      "title": "tls-validation-11 \u2014 official versioned source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
+      "sample": "samples/net10.0/RehearsalRoom/RehearsalRoom.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0"
+    },
+    {
+      "kind": "execution",
+      "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
+      "sample": "samples/net10.0/RehearsalRoom/RehearsalRoom.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "target": "net10.0",
+      "record": "samples/net10.0/RehearsalRoom/linux.evidence.json"
+    },
+    {
+      "kind": "compile",
+      "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
+      "sample": "samples/net11.0/RehearsalRoom/RehearsalRoom.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0"
+    },
+    {
+      "kind": "execution",
+      "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim.",
+      "sample": "samples/net11.0/RehearsalRoom/RehearsalRoom.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "target": "net11.0",
+      "record": "samples/net11.0/RehearsalRoom/linux.evidence.json"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "language": "csharp",
+      "path": "samples/net10.0/RehearsalRoom/RoomTls.cs",
+      "region": "options"
+    },
+    "newer": {
+      "language": "csharp",
+      "path": "samples/net11.0/RehearsalRoom/RoomTls.cs",
+      "region": "options"
+    },
+    "contexts": {
+      "language": "csharp",
+      "path": "samples/net11.0/RehearsalRoom/RoomContexts.cs",
+      "region": "contexts"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Linux x64 OpenSSL execution in pinned Azure Linux containers, with separate Windows compilation. Private loopback mutual TLS; no Windows TLS, online revocation or final-GA claim. Feasible checks are automated on this Windows machine and existing Docker; Pingu owns future feasible interactive approvals and refresh coordination. No new Human gate or native CI matrix."
+  }
+}

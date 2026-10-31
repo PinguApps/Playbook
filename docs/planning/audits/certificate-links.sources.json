@@ -1,0 +1,121 @@
+{
+  "scope": "PIN-1061 / PIN-1063 / PIN-1075: selected original audits plus qualified current implementation; source hashes are not behavior proof",
+  "sources": [
+    {
+      "id": "syslib0065",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/fundamentals/syslib-diagnostics/syslib0065.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0065.md",
+      "sha256": "9a671a6c1c267cdb5168a88ff1ff30ab19d80c62ca700381f47db393adb5aca4",
+      "headings": [
+        "# SYSLIB0065: AsnEncodedData.RawData setter is obsolete",
+        "## Reason for obsoletion",
+        "## Workaround",
+        "## Suppress a warning"
+      ]
+    },
+    {
+      "id": "tls-aia",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/networking/11/sslstream-aia-downloads-disabled.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/networking/11/sslstream-aia-downloads-disabled.md",
+      "sha256": "652d8b0af217e5bb8795edfdc7fd1c1f9154bed7e96821fa04cecf527a6b10cd",
+      "headings": [
+        "# SslStream server-side AIA certificate downloads disabled by default",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "crypto-ref-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "adb14229c9a2cdd8e24cfddb5c6c40e8a1fd39b9514cf143e487f107c02ac5df",
+      "headings": []
+    },
+    {
+      "id": "tls-validation-10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "sha256": "913de4861c6a09d3d3fb56d2d6b94ea50d8eb1379ab114a74eea71a0ef76f4c6",
+      "headings": []
+    },
+    {
+      "id": "crypto-ref-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "1c65691229ae9e41e823bb65951ddc888fdf7abe16b7a0f4387297190288cb66",
+      "headings": []
+    },
+    {
+      "id": "tls-validation-11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Security/src/System/Net/Security/SslStream.Protocol.cs",
+      "sha256": "fba03dbec202d2971d78d6ed8e1e8a4c935b7cd341fc613403b25a12b4524041",
+      "headings": []
+    },
+    {
+      "id": "asn-state",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AsnEncodedData.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AsnEncodedData.cs",
+      "sha256": "698344e0328ff71cccd67fb440a0ff3a245d87f2fc13756488ae5501793f7e58",
+      "headings": []
+    },
+    {
+      "id": "basic-constraints",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509BasicConstraintsExtension.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509BasicConstraintsExtension.cs",
+      "sha256": "06309fb5058b99b20736d019429719adee6b4d1184712cddf2a48a28a25302d7",
+      "headings": []
+    },
+    {
+      "id": "runtime-ref-1",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb"
+    },
+    {
+      "id": "runtime-ref-2",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e"
+    },
+    {
+      "id": "extension-copy",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/X509Certificates/X509Extension.cs",
+      "sha256": "6e6ac431f95e42f4abe3fd5648ddb75d9f83a8e113f646ecaf06440d10a0776d"
+    },
+    {
+      "id": "hardlink-file",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/File.cs",
+      "sha256": "c0470415e698e58b416ac767d6ec6b2ce7e577ae03a6630d7e112b1e4311717c"
+    },
+    {
+      "id": "hardlink-fileinfo",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/FileInfo.cs",
+      "sha256": "16a9c31c72b4380d54dcc4979367dfb0b660e0159fff56ce26c49de5c625cafb"
+    },
+    {
+      "id": "hardlink-windows",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/FileSystem.Windows.cs",
+      "sha256": "1a17a0faab7a10d93b2c71ca4586574e7c4e612ebf01d05bb3d142c48e981d72"
+    }
+  ]
+}
