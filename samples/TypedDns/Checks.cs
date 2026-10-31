@@ -55,7 +55,8 @@ internal static class Program
             if (OperatingSystem.IsWindows()) seconds = 0; // DnsQueryEx drops this authority SOA.
 #endif
             Require(answer.NegativeTtl == TimeSpan.FromSeconds(seconds), "Negative TTL did not match observed platform contract.");
-            Console.WriteLine($"NEGATIVE {prefix} {answer.Status} ttl={answer.NegativeTtl.TotalSeconds} wire-soa-ttl=120 minimum=45");
+            string soa = prefix == "nosoa" ? "wire-soa-ttl=none minimum=none" : "wire-soa-ttl=120 minimum=45";
+            Console.WriteLine($"NEGATIVE {prefix} {answer.Status} ttl={answer.NegativeTtl.TotalSeconds} {soa}");
         }
         using (var other = new ZoneInspector(second.Endpoint))
         {

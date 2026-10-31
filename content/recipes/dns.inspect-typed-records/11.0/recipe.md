@@ -86,7 +86,7 @@ root dots from names; TXT strings are preserved individually.
 Windows uses native DnsQueryEx in DNSAPI. Explicit servers must all have one
 address family and use port 0/default or 53; another nonzero port throws
 PlatformNotSupportedException and mixed families throw ArgumentException.
-The local fixture requires free loopback UDP 53 on 127.0.0.1 and 127.0.0.2. It fails
+On Windows, the local fixture requires free loopback UDP 53 on 127.0.0.1 and 127.0.0.2. It fails
 if occupied; do not stop an unrelated DNS service or change resolver settings.
 
 The current Linux route builds/parses DNS messages in managed code and uses
