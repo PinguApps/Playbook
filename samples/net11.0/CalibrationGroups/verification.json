@@ -1,0 +1,18 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/CalibrationGroups/DepthChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-PrecisionDepth.ps1",
+    "docs/planning/audits/data-io.assets.json",
+    "docs/planning/audits/serialization.assets.json",
+    "docs/planning/audits/precision-depth.sources.json",
+    "samples/net10.0/CalibrationGroups/GroupTraversal.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "System.Formats.Cbor/11.0.0-rc.2.26504.105"
+  ]
+}
