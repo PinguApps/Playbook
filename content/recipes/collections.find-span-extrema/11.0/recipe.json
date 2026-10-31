@@ -101,7 +101,7 @@
   ],
   "evidence": [
     {
-      "scope": "Value/reference/nullable inputs, default and explicit comparers, ignored/all-null values, empty non-nullable exceptions and nullable/reference null results, generic static and extension overloads.",
+      "scope": "Value/reference/nullable inputs, default and explicit comparers, ignored/all-null values, empty non-nullable exceptions and nullable/reference null results, generic application-owned static helpers.",
       "sdk": "10.0.402",
       "target": "net10.0",
       "kind": "compile-and-run",

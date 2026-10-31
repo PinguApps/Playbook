@@ -19,7 +19,13 @@
     "Rgba.CreateBigEndian",
     "Rgba.CreateLittleEndian",
     "Argb.CreateBigEndian",
-    "Argb.CreateLittleEndian"
+    "Argb.CreateLittleEndian",
+    "Rgba<byte>.ToUInt32BigEndian",
+    "Rgba<byte>.ToUInt32LittleEndian",
+    "Argb<byte>.ToUInt32BigEndian",
+    "Argb<byte>.ToUInt32LittleEndian",
+    "Rgba<T>.ToArgb",
+    "Argb<T>.ToRgba"
   ],
   "introducedIn": "11.0",
   "supportedTargets": [
