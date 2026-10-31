@@ -1,0 +1,149 @@
+{
+  "id": "numerics.measure-integer-magnitude",
+  "edition": "11.0",
+  "title": "Compute integer decimal magnitude without rounding",
+  "goal": "Find the exact base-ten exponent of an integer when decimal digit budgets must preserve large values and define zero and negative-input rules.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "integer-formats",
+    "batchencoder"
+  ],
+  "apis": [
+    "IBinaryInteger<T>.Log10",
+    "Int32.Log10",
+    "Int128.Log10",
+    "UInt128.Log10"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical current sample mode; comparison uses C#14.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Managed desktop/server .NET; measured Windows x64 only. Other-platform execution, browser/WASI and performance are not claimed."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; place each complete canonical helper in its own .cs file and add the imports stated in the offline instructions."
+          ],
+          "constraints": [
+            "Nonnegative integer batch policy: zero has width one, negatives throw. Integer Log10 returns an exponent; width is an application rule.",
+            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from supported prerequisites.",
+            "Preserve the exact eight .NET10 foundations and existing recipe identities; comprehensive/actual-GA and existing Human gates remain open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "Find the exact base-ten exponent of an integer when decimal digit budgets must preserve large values and define zero and negative-input rules.",
+          "Nonnegative integer batch policy: zero has width one, negatives throw. Integer Log10 returns an exponent; width is an application rule.",
+          "RC2 evidence is not actual-GA verification."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BatchEncoder/BatchEncoder.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/IBinaryInteger.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Int128.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/UInt128.cs"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "4099f83-System.Runtime - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "820230c-System.Runtime - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "820230c-IBinaryInteger - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/IBinaryInteger.cs"
+    },
+    {
+      "title": "820230c-Int128 - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Int128.cs"
+    },
+    {
+      "title": "820230c-UInt128 - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/UInt128.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Exact power-of-ten boundaries through 10^38, Int128/UInt128 maxima, zero/one/negative/minimum, generic and current concrete reachability.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/BatchEncoder/BatchEncoder.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Exact power-of-ten boundaries through 10^38, Int128/UInt128 maxima, zero/one/negative/minimum, generic and current concrete reachability.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/BatchEncoder/BatchEncoder.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "magnitude",
+      "path": "samples/net10.0/BatchEncoder/BatchMagnitude.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "magnitude",
+      "path": "samples/net11.0/BatchEncoder/BatchMagnitude.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed arithmetic/checksum checks are automated on Windows x64; no interactive approval, native workload or external resource. No other-platform/GA claim or new recurring matrix. Existing Human gates remain open."
+  }
+}

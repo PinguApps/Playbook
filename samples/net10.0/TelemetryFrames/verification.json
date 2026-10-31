@@ -6,7 +6,7 @@
   ],
   "additionalInputs": [
     "samples/TelemetryFrames/ChecksumChecks.cs",
-    "samples/TelemetryFrames/FrameChecksum.cs",
+    "samples/net10.0/TelemetryFrames/FrameChecksum.cs",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",
     "eng/Test-IntegerFormats.ps1",

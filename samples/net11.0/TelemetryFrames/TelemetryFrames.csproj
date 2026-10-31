@@ -1,4 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
-  <ItemGroup><PackageReference Include="System.IO.Hashing" /><Compile Include="../../TelemetryFrames/FrameChecksum.cs" /><Compile Include="../../TelemetryFrames/ChecksumChecks.cs" /></ItemGroup>
+  <ItemGroup><PackageReference Include="System.IO.Hashing" /><Compile Include="../../net10.0/TelemetryFrames/FrameChecksum.cs" /><Compile Include="../../TelemetryFrames/ChecksumChecks.cs" /></ItemGroup>
 </Project>

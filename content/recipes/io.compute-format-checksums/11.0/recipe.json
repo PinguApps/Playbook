@@ -1,0 +1,183 @@
+{
+  "id": "io.compute-format-checksums",
+  "edition": "11.0",
+  "title": "Compute the checksum a binary format requires",
+  "goal": "Match a binary format checksum using its Adler or CRC variant, reflection, initial/final parameters and byte order when detecting accidental corruption.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "integer-formats",
+    "telemetryframes"
+  ],
+  "apis": [
+    "Adler32",
+    "Crc32ParameterSet.Create",
+    "Crc32ParameterSet.Crc32C",
+    "Crc64ParameterSet.Nvme",
+    "Crc32.HashToUInt32",
+    "Crc64.HashToUInt64",
+    "NonCryptographicHashAlgorithm.Append",
+    "NonCryptographicHashAlgorithm.Reset"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Primary net11.0 consumer; actual RC2 proof is distinct from GA verification.",
+            "version": "11.0"
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "match": "release-family",
+            "reason": "Build against the net11.0 references; exact SDK pins identify reproduction, not a universal exact-SDK requirement.",
+            "version": "11.0"
+          },
+          "language": {
+            "name": "C#",
+            "match": "exact",
+            "reason": "Canonical current sample mode; comparison uses C#14.",
+            "version": "15.0"
+          },
+          "frameworks": [],
+          "packages": [
+            {
+              "name": "System.IO.Hashing",
+              "match": "exact",
+              "reason": "Verified prerelease dependency; pin and lock the actual selected compile/runtime asset.",
+              "version": "11.0.0-rc.2.26504.105"
+            }
+          ],
+          "packageAssets": [
+            "System.IO.Hashing 11.0.0-rc.2.26504.105 lib/net11.0/System.IO.Hashing.dll; comparison 10.0.13 lib/net10.0/System.IO.Hashing.dll"
+          ],
+          "providers": [],
+          "platforms": [
+            "Managed desktop/server .NET; measured Windows x64 only. Other-platform execution, browser/WASI and performance are not claimed."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "SDK console project with Nullable and ImplicitUsings enabled; place each complete canonical helper in its own .cs file and add the imports stated in the offline instructions.",
+            "Reviewed packages.lock.json and locked restore; no optional older-target RC2 package route is claimed."
+          ],
+          "constraints": [
+            "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional RC2-on-net10 route is not advertised.",
+            "Previous SDK10.0.402/C#14/ref-runtime10.0.13; current SDK11.0.100-rc.2.26504.105/C#15/ref-runtime11RC2. Exact proof pins are separate from supported prerequisites.",
+            "Preserve the exact eight .NET10 foundations and existing recipe identities; comprehensive/actual-GA and existing Human gates remain open."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Verified with actual RC2 artifacts; final-GA reconciliation remains open. No experimental diagnostic opt-in on the selected APIs."
+          ]
+        },
+        "sharedAreas": [],
+        "usage": "primary",
+        "selectionNotes": [
+          "Match a binary format checksum using its Adler or CRC variant, reflection, initial/final parameters and byte order when detecting accidental corruption.",
+          "CRC/Adler detect accidental corruption, not authentication. Exact package assets and equal input/output reflection only; optional RC2-on-net10 route is not advertised.",
+          "RC2 evidence is not actual-GA verification."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TelemetryFrames/TelemetryFrames.csproj"
+        ],
+        "target": "11.0",
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Adler32.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc32ParameterSet.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc64ParameterSet.cs",
+          "https://reveng.sourceforge.io/crc-catalogue/17plus.htm",
+          "https://www.rfc-editor.org/rfc/rfc1950.txt"
+        ],
+        "conditional": false
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "4099f83-System.IO.Hashing - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs"
+    },
+    {
+      "title": "820230c-System.IO.Hashing - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/ref/System.IO.Hashing.cs"
+    },
+    {
+      "title": "820230c-Adler32 - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Adler32.cs"
+    },
+    {
+      "title": "820230c-Crc32ParameterSet - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc32ParameterSet.cs"
+    },
+    {
+      "title": "820230c-Crc64ParameterSet - official versioned declaration or implementation",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Hashing/src/System/IO/Hashing/Crc64ParameterSet.cs"
+    },
+    {
+      "title": "CRC RevEng independently catalogued check values",
+      "url": "https://reveng.sourceforge.io/crc-catalogue/17plus.htm"
+    },
+    {
+      "title": "RFC1950 Adler32 definition",
+      "url": "https://www.rfc-editor.org/rfc/rfc1950.txt"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Independent Adler32/CRC32C/CRC64-NVME/custom MPEG2 vectors and wire order; empty/fictional/20KB inputs, one-shot/segmented Append, reset isolation and short destination checks; actual locked package assets.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/TelemetryFrames/TelemetryFrames.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Independent Adler32/CRC32C/CRC64-NVME/custom MPEG2 vectors and wire order; empty/fictional/20KB inputs, one-shot/segmented Append, reset isolation and short destination checks; actual locked package assets.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/TelemetryFrames/TelemetryFrames.csproj",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "checksum",
+      "path": "samples/net10.0/TelemetryFrames/FrameChecksums.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "checksum",
+      "path": "samples/net11.0/TelemetryFrames/FrameChecksums.cs",
+      "language": "csharp"
+    },
+    "format": {
+      "region": "format",
+      "path": "samples/net10.0/TelemetryFrames/FrameChecksum.cs",
+      "language": "csharp"
+    },
+    "algorithms": {
+      "region": "algorithms",
+      "path": "samples/net10.0/TelemetryFrames/FrameAlgorithms.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Focused managed arithmetic/checksum checks are automated on Windows x64; no interactive approval, native workload or external resource. No other-platform/GA claim or new recurring matrix. Existing Human gates remain open."
+  }
+}
