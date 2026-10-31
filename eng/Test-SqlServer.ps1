@@ -57,6 +57,34 @@ END CATCH;
 SELECT 'PASS: duplicate creation preserves data and peer database access is denied' AS result;
 "@ | Set-Content -LiteralPath (Join-Path $directory 'isolation.sql')
       & $route -Action Query -Database $name -Docker $Docker -SqlFile (Join-Path $directory 'isolation.sql')
+      if ($baseline.Target -eq 'net10.0') {
+        $rejected = $false
+        try { & $route -Action New -Database ($name + "`n") -Docker $Docker }
+        catch { if ($_.FullyQualifiedErrorId -notlike 'ParameterArgumentValidationError*') { throw }; $rejected = $true }
+        if (-not $rejected) { throw 'Trailing newline name was not rejected by parameter validation.' }
+        @'
+param([int]$Code)
+$connection = [Environment]::GetEnvironmentVariable('PLAYBOOK_SQL_CONNECTION_STRING')
+$builder = [System.Data.Common.DbConnectionStringBuilder]::new()
+$builder.set_ConnectionString($connection)
+[Console]::Out.WriteLine($connection)
+[Console]::Error.WriteLine($builder.get_Item('Password'))
+exit $Code
+'@ | Set-Content -LiteralPath (Join-Path $directory 'diagnostics.ps1')
+        foreach ($code in 0, 23) {
+          $failed = $false
+          try {
+            $diagnostics = & $route -Action Run -Database $name -Docker $Docker -Executable (Get-Process -Id $PID).Path `
+              -CommandArguments @('-NoProfile', '-File', (Join-Path $directory 'diagnostics.ps1'), '-Code', "$code")
+          }
+          catch { $failed = $true; $diagnostics = $_.Exception.Message }
+          if ($failed -ne ($code -ne 0) -or $diagnostics -match 'Pb![A-F0-9]{48}|Server=127\.0\.0\.1' -or
+              ([regex]::Matches($diagnostics, '\[redacted\]').Count -ne 2)) {
+            throw "Child diagnostic check failed: expected exit $code; threw=$failed; redaction markers=$([regex]::Matches($diagnostics, '\[redacted\]').Count); length=$($diagnostics.Length)."
+          }
+        }
+        Write-Host 'PASS: newline names rejected; successful/failed child diagnostics redact connection string and password.'
+      }
     }
     finally { & $route -Action Remove -Database $name -Docker $Docker }
   }

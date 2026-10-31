@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
   [Parameter(Mandatory)][ValidateSet('Start', 'Stop', 'New', 'Remove', 'Query', 'Run', 'Test')][string]$Action,
-  [ValidatePattern('^playbook_[a-z][a-z0-9_]{0,47}$')][string]$Database,
+  [ValidatePattern('\Aplaybook_[a-z][a-z0-9_]{0,47}\z')][string]$Database,
   [string]$SqlFile,
   [string]$Executable,
   [string[]]$CommandArguments = @(),
@@ -31,7 +31,7 @@ $image = 'playbook-sql-verification:17.0.5035.5'
 $store = Join-Path ([Environment]::GetFolderPath('LocalApplicationData')) 'PinguApps/Playbook/SqlServer'
 $adminFile = Join-Path $store 'admin.clixml'
 
-function Invoke-Process([string]$File, [string[]]$Arguments, [string]$InputText = '', [hashtable]$Variables = @{}, [string]$Directory = '') {
+function Invoke-Process([string]$File, [string[]]$Arguments, [string]$InputText = '', [hashtable]$Variables = @{}, [string]$Directory = '', [string[]]$SensitiveValues = @()) {
   $start = [Diagnostics.ProcessStartInfo]::new($File)
   $start.UseShellExecute = $false
   $start.RedirectStandardInput = $true
@@ -50,6 +50,9 @@ function Invoke-Process([string]$File, [string[]]$Arguments, [string]$InputText 
     $process.StandardInput.Close()
     $process.WaitForExit()
     $text = $output.GetAwaiter().GetResult() + $errors.GetAwaiter().GetResult()
+    foreach ($secret in (@($Variables.Values) + $SensitiveValues)) {
+      if ($secret) { $text = $text.Replace($secret, '[redacted]') }
+    }
     if ($process.ExitCode -ne 0) { throw "Child process failed ($($process.ExitCode)): $text" }
     return $text.Trim()
   }
@@ -183,7 +186,7 @@ try {
           $credential = Assert-OwnedDatabase $Database
           $port = $info.NetworkSettings.Ports.'1433/tcp'[0].HostPort
           $connection = "Server=127.0.0.1,$port;Database=$Database;User ID=$($credential.UserName);Password=$($credential.GetNetworkCredential().Password);Encrypt=True;TrustServerCertificate=True;Persist Security Info=False"
-          Invoke-Process $Executable $CommandArguments '' @{ PLAYBOOK_SQL_CONNECTION_STRING = $connection } $WorkingDirectory
+          Invoke-Process $Executable $CommandArguments '' @{ PLAYBOOK_SQL_CONNECTION_STRING = $connection } $WorkingDirectory @($credential.GetNetworkCredential().Password)
         }
         'Test' {
           $testName = 'playbook_probe_' + [guid]::NewGuid().ToString('N')

@@ -64,6 +64,9 @@ through `Environment.GetEnvironmentVariable` and pass it to the SQL provider.
 The checked [provider probe](../eng/sql-server/ProviderProbe.cs) demonstrates this;
 `Test-SqlServer.ps1` is its executable caller. Do not print the variable, enable
 connection-string logging, or copy it into source, tickets or receipts.
+The route redacts its exact plaintext connection string and password from returned
+child stdout/stderr on success and failure. This is defensive diagnostic handling;
+consumers still run as trusted code under the current Windows account.
 
 `Query` uses the image's SQLCMD with quoted identifiers, failure exit codes and
 120-second query timeout. SQLCMD shell commands and variable substitution are
