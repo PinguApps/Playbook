@@ -53,15 +53,23 @@ The [saved compact assessment](native-authoring.json) under `windowsAuthoring`
 retains the script hash, shared/project input hashes, exact sample paths,
 measured SDK/workload inventories, resolved dependencies, commands, lifecycle
 observations and failed-route scope. Temporary source, locks and full logs are
-disposable; the committed script reproduces their authored inputs. This is
+disposable; the committed script reproduces their authored inputs. The compact
+assessment combines helper output with separately observed MAUI SDK pack listings,
+Windows SDK directories and the read-only Developer Mode value. `sourceCommit`
+identifies the checkout at capture; `sourceDirty: true` records that the capture
+script changes were still uncommitted, with their exact bytes identified by
+`scriptSha256`. This is
 capability proof only, not saved compilation evidence for any served recipe.
 Future canonical samples still use `verification.json`, `Record-Evidence.ps1`
 and focused behaviour reports as described in the [contribution guide](../contributing.md#capture-and-refresh-sample-evidence).
 
 ### Recheck and launch safely
 
-Use PowerShell 7.4+ (for child-process environment overrides). This command was
-checked from an unrelated starting directory. Omit `-Launch` for build-only
+Use `pwsh` (PowerShell 7.4+ is required for child-process environment overrides;
+the actual tested version is **7.6.9**). Windows PowerShell 5.1 is rejected before
+creating scratch files. This command was checked from an unrelated starting
+directory. The literal path selects this task's verified worktree; for another
+checkout, substitute its own absolute path. Omit `-Launch` for build-only
 assessment. The generated windows contain only the fictional Willow Quay label;
 they access no accounts, devices or provider services.
 
@@ -93,7 +101,7 @@ as part of an authoring check.
 The helper disables .NET global-tool PATH integration before creating its isolated
 CLI home, restores its process environment and compares process/user/machine PATH
 before and after. The measured run left all three unchanged. Scratch files remain
-for inspection; no service remains running. After collecting needed evidence,
+for inspection; no probe remains running. After collecting needed evidence,
 remove only the exact `pbw-*` directory printed by that run, after checking its
 resolved path is inside the chosen temporary root. Never delete a computed parent.
 

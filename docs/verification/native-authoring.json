@@ -317,11 +317,11 @@
     "linuxInventory": "x86_64\r\nPRETTY_NAME=\"Ubuntu 26.04.1 LTS\"\r\nNAME=\"Ubuntu\"\r\nVERSION_ID=\"26.04\"\r\nVERSION=\"26.04.1 LTS (Resolute Raccoon)\"\r\nVERSION_CODENAME=resolute\r\nID=ubuntu\r\nID_LIKE=debian\r\nHOME_URL=\"https://www.ubuntu.com/\"\r\nSUPPORT_URL=\"https://help.ubuntu.com/\"\r\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\r\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\r\nUBUNTU_CODENAME=resolute\r\nLOGO=ubuntu-logo\r\n11.0.100-rc.2.26504.105 [/usr/share/dotnet/sdk]\r\nOpenSSL 3.5.5 27 Jan 2026 (Library: OpenSSL 3.5.5 27 Jan 2026)\r\n\tlibssl.so.3 (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libssl.so.3\r\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core ssbd ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr arat umip rdpid"
   },
   "windowsAuthoring": {
-    "recordedAt": "2026-10-31T11:23:54.0449846+00:00",
+    "recordedAt": "2026-10-31T11:33:38.7498900+00:00",
     "kind": "authoring-preflight",
     "host": "Microsoft Windows 10.0.26200",
     "architecture": "X64",
-    "scriptSha256": "2948d2066eedfd7af3fc64fafeebc0b0073f94d0330d37caa643a90be704f07a",
+    "scriptSha256": "b6d6ff38ddb21c64d14f94891498b7c01bd768c8c0ad394454fb2c4a9e4b034f",
     "sharedInputs": [
       {
         "path": "Directory.Build.props",
@@ -338,7 +338,7 @@
     ],
     "pathUnchanged": true,
     "script": "eng/Inspect-WindowsAuthoring.ps1",
-    "sourceCommit": "fbb5a0570a6cbf73b6e6e83defff350f1776e7ba",
+    "sourceCommit": "bb3c4bb439f20c0912fa5739017629539227d31c",
     "sourceDirty": true,
     "scope": "Local authoring capability only: five independent build/UI lifecycle probes. Not compilation or behaviour evidence for served recipes; .NET 11 is RC2, not GA.",
     "inventories": [
@@ -365,7 +365,7 @@
     "developerModeRegistryValue": 1,
     "routes": [
       {
-        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\Wpf",
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Wpf",
         "framework": "Wpf",
         "target": "net10.0-windows",
         "intendedSdk": "10.0.402",
@@ -400,9 +400,9 @@
             "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
           }
         ],
-        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\Wpf\\bin\\Release\\net10.0-windows\\Probe.exe",
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Wpf\\bin\\Release\\net10.0-windows\\Probe.exe",
         "launchArguments": [
-          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\Wpf\\bin\\Release\\net10.0-windows\\launch-result.txt"
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Wpf\\bin\\Release\\net10.0-windows\\launch-result.txt"
         ],
         "launchEnvironment": {
           "DOTNET_ROOT": "C:\\Program Files\\dotnet",
@@ -411,7 +411,7 @@
         }
       },
       {
-        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\WinForms",
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\WinForms",
         "framework": "WinForms",
         "target": "net10.0-windows",
         "intendedSdk": "10.0.402",
@@ -446,9 +446,9 @@
             "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
           }
         ],
-        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\WinForms\\bin\\Release\\net10.0-windows\\Probe.exe",
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\WinForms\\bin\\Release\\net10.0-windows\\Probe.exe",
         "launchArguments": [
-          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\WinForms\\bin\\Release\\net10.0-windows\\launch-result.txt"
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\WinForms\\bin\\Release\\net10.0-windows\\launch-result.txt"
         ],
         "launchEnvironment": {
           "DOTNET_ROOT": "C:\\Program Files\\dotnet",
@@ -457,7 +457,7 @@
         }
       },
       {
-        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\Maui",
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Maui",
         "framework": "Maui",
         "target": "net10.0-windows10.0.19041.0",
         "intendedSdk": "10.0.402",
@@ -537,7 +537,7 @@
             "sha256": "3ef2af33077917f763e650a21162459418c0a7fd1e0ff0c276a032ad24a1fd0c"
           }
         ],
-        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net10.0\\Maui\\bin\\Release\\net10.0-windows10.0.19041.0\\win-x64\\Probe.exe",
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net10.0\\Maui\\bin\\Release\\net10.0-windows10.0.19041.0\\win-x64\\Probe.exe",
         "launchArguments": [],
         "launchEnvironment": {
           "DOTNET_ROOT": "C:\\Program Files\\dotnet",
@@ -546,7 +546,7 @@
         }
       },
       {
-        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net11.0\\Wpf",
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Wpf",
         "framework": "Wpf",
         "target": "net11.0-windows",
         "intendedSdk": "11.0.100-rc.2.26504.105",
@@ -581,9 +581,9 @@
             "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
           }
         ],
-        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net11.0\\Wpf\\bin\\Release\\net11.0-windows\\Probe.exe",
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Wpf\\bin\\Release\\net11.0-windows\\Probe.exe",
         "launchArguments": [
-          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net11.0\\Wpf\\bin\\Release\\net11.0-windows\\launch-result.txt"
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Wpf\\bin\\Release\\net11.0-windows\\launch-result.txt"
         ],
         "launchEnvironment": {
           "DOTNET_ROOT": "C:\\Users\\pingu\\.dotnet-playbook-11",
@@ -592,7 +592,7 @@
         }
       },
       {
-        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net11.0\\WinForms",
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\WinForms",
         "framework": "WinForms",
         "target": "net11.0-windows",
         "intendedSdk": "11.0.100-rc.2.26504.105",
@@ -627,9 +627,9 @@
             "sha256": "c5a3326f0f41ec07b9fc4979a3307b9fa2da367ad8f1d61bede1a29ff2530230"
           }
         ],
-        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net11.0\\WinForms\\bin\\Release\\net11.0-windows\\Probe.exe",
+        "launchExecutable": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\WinForms\\bin\\Release\\net11.0-windows\\Probe.exe",
         "launchArguments": [
-          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net11.0\\WinForms\\bin\\Release\\net11.0-windows\\launch-result.txt"
+          "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\WinForms\\bin\\Release\\net11.0-windows\\launch-result.txt"
         ],
         "launchEnvironment": {
           "DOTNET_ROOT": "C:\\Users\\pingu\\.dotnet-playbook-11",
@@ -638,7 +638,7 @@
         }
       },
       {
-        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-ef7dbac0\\net11.0\\Maui",
+        "sample": "C:\\Users\\pingu\\AppData\\Local\\Temp\\pbw-9b6dca74\\net11.0\\Maui",
         "framework": "Maui",
         "target": "net11.0-windows10.0.19041.0",
         "intendedSdk": "11.0.100-rc.2.26504.105",
