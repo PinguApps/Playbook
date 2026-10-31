@@ -32,6 +32,12 @@ decisions; resetting after a failed comparison still discards the accumulated
 message. Do not reuse a failed stream's partial state as an authenticated packet.
 The sample uses IncrementalHash.CreateHMAC(SHA256,key), not an unkeyed hash.
 
+The application entry points deliberately distinguish malformed lengths:
+Verify/VerifyAsync return false, while Current/Finish and their KMAC equivalents
+throw ArgumentException before accessing or resetting state. VerifyKmac also
+returns false when the provider is unsupported; check IsSupported separately
+when the caller must distinguish availability from an invalid tag.
+
 ## Migration
 
 1. Keep the exact authenticated bytes, algorithm, shared-key handling and tag
