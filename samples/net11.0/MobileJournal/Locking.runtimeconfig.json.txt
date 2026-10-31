@@ -1,0 +1,9 @@
+// snippet:locking-config
+{
+  "runtimeOptions": {
+    "configProperties": {
+      "System.IO.DisableFileLocking": false
+    }
+  }
+}
+// endsnippet:locking-config

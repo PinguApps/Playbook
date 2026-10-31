@@ -1,0 +1,11 @@
+{
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/MobileJournal/JournalChecks.cs",
+    "eng/Record-NativeBoundaries.ps1",
+    "docs/planning/audits/native-boundaries.sources.json"
+  ]
+}

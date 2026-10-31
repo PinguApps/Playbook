@@ -1,0 +1,209 @@
+{
+  "reviewed": "2026-10-31",
+  "scope": "PIN-741/PIN-758/PIN-1059 bounded delivery: exact official source contracts; compilation/execution evidence remains separate",
+  "sources": [
+    {
+      "id": "hkdf-cng",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/cryptography/11/hkdf-windows-cng.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/hkdf-windows-cng.md",
+      "sha256": "e4755dc1293c656c7750bbf6fe15b9fbfaf7131a0fa0effe4d7cd756cacc9ce8",
+      "headings": [
+        "# HKDF on Windows uses CNG implementation",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "hkdf-windows",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Windows.cs",
+      "sha256": "fa297e99dbbfb88875827e6240d29fb5b3549187a5ccfbf0dc93007dc53cb72d",
+      "headings": []
+    },
+    {
+      "id": "hkdf-managed",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Managed.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/HKDF.Managed.cs",
+      "sha256": "7b73bc341674fdd7012b28b1647ce4c7144598f93d27aed9a02d50b42a81cb24",
+      "headings": []
+    },
+    {
+      "id": "unix-pipe-mode",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/namedpipeserverstream-unix-permissions.md",
+      "sha256": "35f58ca22cecfb7e6e70e2d9c59a239ce4d2f0f85eaf06244fef76126d0dc2d7",
+      "headings": [
+        "# NamedPipeServerStream with PipeOptions.CurrentUserOnly tightens Unix socket file permissions",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "unix-isasync",
+      "repository": "dotnet/docs",
+      "commit": "f0021fde66c59559fa1ba3c9a044148738f12faf",
+      "path": "docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/core-libraries/11/safefilehandle-isasync-unix.md",
+      "sha256": "60da5762bf300135f9636c8c4c2c32bd36df3bbc267a17e6b8c4554714d3c75c",
+      "headings": [
+        "# SafeFileHandle.IsAsync and FileStream.IsAsync accurately reflect non-blocking state on Unix",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "id": "filehandle-unix",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+      "sha256": "dc9ffc74a69fe3171ff5a703f20f3db8ef5ccd85805c310cdf38aacb5a7eaa4d",
+      "headings": []
+    },
+    {
+      "id": "pipe-unix",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeServerStream.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeServerStream.Unix.cs",
+      "sha256": "d110b69a4f93c9bd6b219f2aac7c955f04ad0a1a703bf1bc5bc12614e974bdc3",
+      "headings": []
+    },
+    {
+      "id": "sendpackets",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/SendPacketsElement.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/SendPacketsElement.cs",
+      "sha256": "29ff13509c4f5608b3180bc6c08795418cbca2b5589f323c6c7fd4aef94ccece",
+      "headings": []
+    },
+    {
+      "id": "runtime-note",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/whats-new/dotnet-11/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md",
+      "sha256": "9e5d82ba828a78a7e7b50d713628983f1b0015edbc428ae932f6beca80e6d725"
+    },
+    {
+      "id": "libraries-note",
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/whats-new/dotnet-11/libraries.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/libraries.md",
+      "sha256": "66789f6faf28cdff61927df7bd9bf6c36c9fd2f438c20d059b3ddba7c07152f0"
+    },
+    {
+      "id": "runtime-ref10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb"
+    },
+    {
+      "id": "runtime-ref11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e"
+    },
+    {
+      "id": "pipes-ref11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/ref/System.IO.Pipes.cs",
+      "sha256": "bb3af29277f41b9cd0aa5fa3c24918b439dc5578f3602f9c20cba3837f6cad6a"
+    },
+    {
+      "id": "pipe-client10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs",
+      "sha256": "fc49545822e5bf45ae409a010f90d488571d7db4a1e9dc78791a980995f18966"
+    },
+    {
+      "id": "pipe-client11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Pipes/src/System/IO/Pipes/NamedPipeClientStream.cs",
+      "sha256": "d0794c95b8ecd42340c00ef034597b0a2093481618cb482b1b65021df343a150"
+    },
+    {
+      "id": "filehandle10",
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/Microsoft/Win32/SafeHandles/SafeFileHandle.Unix.cs",
+      "sha256": "d5ba88ebe2bb5ca92db126c99f92cd49a036f1dc1b84c3528f0c6c9d44b1cc3e"
+    },
+    {
+      "id": "randomaccess11",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/RandomAccess.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/IO/RandomAccess.cs",
+      "sha256": "4113553236298d04055ce39a787de29f7c0b12c6bf76860ea60c0df3f42cbf52"
+    },
+    {
+      "id": "coreclr-relink",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/mono/browser/build/BrowserWasmApp.CoreCLR.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/mono/browser/build/BrowserWasmApp.CoreCLR.targets",
+      "sha256": "cff80f2aff79178fe5f4f934f8e059ecd03979ef88dc354f725fbcf7602c0609"
+    },
+    {
+      "id": "emscripten-version",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/eng/Versions.props",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/eng/Versions.props",
+      "sha256": "88ed88bf566a8fee411e19202ecf3d9db36ac6505a59a36cd04da380ab97c3ad"
+    },
+    {
+      "id": "wasm-sdk-props",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/sdk/src/WasmSdk/Sdk/Sdk.props",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/WasmSdk/Sdk/Sdk.props",
+      "sha256": "6dd261bea147ea26508d7b116755d9b98937118954a4c00a4f6214d7ccb6ce78"
+    },
+    {
+      "id": "wasm-sdk-targets",
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/sdk/src/WasmSdk/Sdk/Sdk.targets",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/sdk/src/WasmSdk/Sdk/Sdk.targets",
+      "sha256": "c9d0167a5fe98aa4bf9cd1edd9d0c3a5fbc2aae263264b1b592f6b9958d07a0e"
+    }
+  ]
+}

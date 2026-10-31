@@ -1,0 +1,11 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "samples/TelemetryKeys/KeyChecks.cs",
+    "eng/Record-NativeBoundaries.ps1",
+    "docs/planning/audits/native-boundaries.sources.json"
+  ],
+  "nativeToolchains": [],
+  "buildArguments": [],
+  "dependencies": []
+}

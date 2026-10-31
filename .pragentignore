@@ -321,3 +321,17 @@
 /samples/net11.0/BatchEncoder/verification-evidence.json
 /samples/net10.0/TelemetryFrames/verification-evidence.json
 /samples/net11.0/TelemetryFrames/verification-evidence.json
+
+# Record-NativeBoundaries/Record-Evidence generated SDK, native and command receipts.
+# Review canonical consumers/checks, source manifest, exact pins and recorder;
+# ordinary build/pack checks input freshness and installed inspection checks content.
+/samples/net10.0/BuoyPipes/verification-evidence.json
+/samples/net10.0/MobileJournal/verification-evidence.json
+/samples/net10.0/TelemetryKeys/verification-evidence.json
+/samples/net10.0/ShoreCalibration/verification-evidence.json
+/samples/net10.0/BuoyPipes/linux.evidence.json
+/samples/net11.0/BuoyPipes/verification-evidence.json
+/samples/net11.0/MobileJournal/verification-evidence.json
+/samples/net11.0/TelemetryKeys/verification-evidence.json
+/samples/net11.0/ShoreCalibration/verification-evidence.json
+/samples/net11.0/BuoyPipes/linux.evidence.json

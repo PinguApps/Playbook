@@ -1,0 +1,19 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <LangVersion>15.0</LangVersion>
+    <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+    <UseMonoRuntime>false</UseMonoRuntime>
+    <WasmBuildNative>true</WasmBuildNative>
+    <WasmMainJSPath>main.js</WasmMainJSPath>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <WasmEnableSIMD>true</WasmEnableSIMD>
+    <WasmEnableExceptionHandling>true</WasmEnableExceptionHandling>
+  </PropertyGroup>
+  <ItemGroup>
+    <NativeFileReference Include="shore_calibration.c" />
+    <Content Include="main.js" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
+<!-- endsnippet:project -->
