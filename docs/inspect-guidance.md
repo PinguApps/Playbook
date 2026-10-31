@@ -26,13 +26,13 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-01d67885'
 
 Requires PowerShell7, Node22.19+, SDK10.0.402/ref-runtime10.0.13 and complete
 SDK11.0.100-rc.2.26504.105/ref-runtime11RC2. Samples execute on Windows x64;
-IDN explicitly uses non-invariant system ICU (measured72.1.0.4), with the loaded
+IDN explicitly uses non-invariant system ICU (measured 72.1.0.4), with the loaded
 DLL hash/data identity captured. No account, DNS/service, global tools or native
 workload. Setup can restore tool/Inspector2.11.0 online; retrieval with unusable
 proxies establishes proxy independence, not OS network isolation.
 
 Expect six successful sample builds/runs: real StreamWriter cancellation retains
-a128-byte prefix in the controlled8192-character case; IDN round trips and
+a 128-byte prefix in the controlled 8192-character case; IDN round trips and
 exact/short/invalid/policy checks pass; actual Windows missing-directory operations
 populate the current property. Constructor/fallback checks do not replace those
 operations. Target10 returns no_applicable_edition and the final exact-artifact
