@@ -1,6 +1,6 @@
 # Cryptography platform migrations: PIN-686
 
-Reviewed **22 October 2026**. Source-only audit of all five entries in the .NET 11 cryptography compatibility section, the cryptographic entry in the general obsolete index, and adjacent TLS certificate-download policy. Six assigned migration goals and one adjacent goal were submitted for delivery approval. The reconciliations below supply D (PIN-1060), E (PIN-1061) and G (PIN-1063); the original audit remains source evidence.
+Reviewed **22 October 2026**. Source-only audit of all five entries in the .NET 11 cryptography compatibility section, the cryptographic entry in the general obsolete index, and adjacent TLS certificate-download policy. Six assigned migration goals and one adjacent goal were submitted for delivery approval. The reconciliations below supply A/C/D/E/F/G; the original audit remains source evidence.
 
 ## Scope and evidence
 
@@ -21,12 +21,12 @@ The source-review decisions are resolved within this boundary; implementation an
 
 | Finding / introduction | Authored migration and exact limits | Disposition and source qualification |
 | --- | --- | --- |
-| [macOS DSA removal][dsa], Preview 1 | Finite-field DSA operations, including `DSA.Create`, `DSACryptoServiceProvider` construction and `DSACertificateExtensions.GetDSAPrivateKey`, `GetDSAPublicKey`, `CopyWithPrivateKey`, can throw `PlatformNotSupportedException`. ECDSA is distinct and unaffected. Reissue keys/certificates and agree signature formats with peers; existing DSA keys/signatures cannot be converted by changing the class name. | **Included → A.** `crypto-project-10/11` selects SecurityTransforms previously and `DSA.Create.NotSupported.cs` on current macOS. The former supported only imported 1024-bit/SHA-1 operations, not key generation. iOS/tvOS/MacCatalyst never supported DSA. Public declarations remain: this is platform implementation removal, not deletion of the DSA API across .NET. |
+| [macOS DSA removal][dsa], Preview 1 | Finite-field DSA operations, including `DSA.Create`, `DSACryptoServiceProvider` construction and `DSACertificateExtensions.GetDSAPrivateKey`, `GetDSAPublicKey`, `CopyWithPrivateKey`, can throw `PlatformNotSupportedException`. ECDSA is distinct and unaffected. Reissue keys/certificates and agree signature formats with peers; existing DSA keys/signatures cannot be converted by changing the class name. | **Delivered → PIN-1057 / A, with PIN-699 macOS not-tested exclusions.** `crypto-project-10/11` selects SecurityTransforms previously and `DSA.Create.NotSupported.cs` on current macOS. The former supported only imported 1024-bit/SHA-1 operations, not key generation. iOS/tvOS/MacCatalyst never supported DSA. Public declarations remain: this is platform implementation removal, not deletion of the DSA API across .NET. |
 | [Windows Composite ML-DSA native dispatch][composite], Preview 7 | Check `CompositeMLDsa.IsAlgorithmSupported` for the exact parameter set before `GenerateKey`/import/signing. The documented CNG subset is `MLDsa44WithECDsaP256`, `MLDsa65WithECDsaP256`, `MLDsa65WithECDsaP384`, `MLDsa87WithECDsaP384`. RSA combinations lose the prior managed path; EdDSA combinations were already unavailable on Windows. | **Included → B.** `composite-windows-10/11` changes managed composition to CNG; `composite-parameters` maps exactly these four sets. A declared member does not imply native support. The API remains experimental **SYSLIB5006** in both source references. Ordinary Windows versions are not promised to support the Insider composite provider. Composite certificate APIs remain unsupported on Windows; PIN-751's ML-KEM/HPKE/CMS goals are different. |
 | [Windows HKDF native dispatch][hkdf], Preview 1 | `HKDF.DeriveKey` input keying material and `HKDF.Expand` pseudorandom-key input encounter documented 2,048-byte CNG limits; oversized inputs can throw `CryptographicException`. These are input limits, not an output-length limit or a universal cap on salt/info. Validate the application's input contract and handle an incompatible request. | **Delivered → PIN-1059 / C.** `hkdf-windows` uses CNG when available, but `Extract` stays managed; unavailable CNG and MD5 take managed paths. The broad Windows headline needs these qualifications. No new public override switch was established. Do not truncate/hash inputs, change derivation or silently select a weaker hash as a compatibility fix; that can change keys or protocol security. |
 | [OpenSSL AIA chain-building limit][aia], Preview 7 | `X509Chain.Build(X509Certificate2)` has a two-download issuer-fetch budget. Supply missing intermediate certificates through `ChainPolicy.ExtraStore` or provision an intermediate store. Keep trust validation: an intermediate in ExtraStore is not automatically a trusted root. | **Delivered → PIN-1060 / D.** `aia-chain-11` decrements a two-attempt loop before downloading; failures/no progress can stop earlier. It is not a two-certificate maximum chain depth, nor a guarantee of two successful fetches. The prior loop lacked that budget. No public limit-raising switch was established in this reviewed path. Keep this separate from TLS defaults below and from revocation-network policy. |
 | [SYSLIB0065][raw], Preview 6 | Only the `AsnEncodedData.RawData` **setter** is newly obsolete. Construct the appropriate derived type for new values, or use its supported virtual `CopyFrom(AsnEncodedData)` for mutation. The getter remains usable. Blanket suppression does not repair stale decoded state. | **Delivered → PIN-1061 / E.** `crypto-ref-10/11` places the diagnostic on the setter. `asn-state` clones assigned bytes without derived invalidation; `basic-constraints` overrides CopyFrom and clears its decode cache. The diagnostic page supplies the semantic alternative omitted by the broad note's suppression advice. Review actual derived-type behavior, OID and Critical handling; no claim that every subclass implements identical copy semantics. |
-| [SYSLIB0064][rsa], .NET 11 | `RSACryptoServiceProvider.Encrypt(byte[], bool)` / `Decrypt(byte[], bool)` become obsolete. Preserving wire compatibility maps true to explicit `RSAEncryptionPadding.OaepSHA1`, false to `Pkcs1`. A stronger OAEP hash is a separate provider/protocol migration requiring both peers and existing key access to be considered. | **Included → F.** Found in `core-obsoletions`, not the cryptography table. `rsa-csp` on Windows accepts only Pkcs1/OaepSHA1 in these padding overloads; changing this provider's argument to OaepSHA256 throws. Do not present the diagnostic page's stronger-hash advice as an implementation supported by every RSA provider. Legacy CAPI key containers are not automatically preserved by `RSA.Create`. PIN-689 owns the index map, not this semantic replacement. |
+| [SYSLIB0064][rsa], .NET 11 | `RSACryptoServiceProvider.Encrypt(byte[], bool)` / `Decrypt(byte[], bool)` become obsolete. Preserving wire compatibility maps true to explicit `RSAEncryptionPadding.OaepSHA1`, false to `Pkcs1`. A stronger OAEP hash is a separate provider/protocol migration requiring both peers and existing key access to be considered. | **Delivered → PIN-1062 / F.** Found in `core-obsoletions`, not the cryptography table. `rsa-csp` on Windows accepts only Pkcs1/OaepSHA1 in these padding overloads; changing this provider's argument to OaepSHA256 throws. Do not present the diagnostic page's stronger-hash advice as an implementation supported by every RSA provider. Legacy CAPI key containers are not automatically preserved by `RSA.Create`. PIN-689 owns the index map, not this semantic replacement. |
 | Adjacent [TLS server AIA default][tls], Preview 3 | `SslStream.AuthenticateAsServer` / `AuthenticateAsServerAsync` disable missing-intermediate downloads for client-certificate validation when no custom chain policy is supplied. Provide the chain from the client (`ClientCertificateContext`), or use server `CertificateChainPolicy.ExtraStore` with explicit trust/download policy. | **Delivered → PIN-1063 / G; cross-reference PIN-705.** `tls-validation-11` applies the default only in the server/no-custom-policy branch. Custom `X509ChainPolicy.DisableCertificateDownloads` is respected. `tls-switch` also contains `System.Net.Security.EnableServerAiaDownloads` / `DOTNET_SYSTEM_NET_SECURITY_ENABLESERVERAIADOWNLOADS`: a compatibility escape, not the preferred migration or a bypass for Linux's per-build budget. PIN-752's caller-owned TLS I/O is a separate goal. |
 
 ## D delivery reconciliation — 30 October 2026
@@ -114,12 +114,54 @@ uses the actual ordinary packed/isolated-feed-installed tool over offline stdio
 list/get. PIN-959 comprehensive coverage, PIN-962 actual-GA reconciliation and all
 other crypto owners remain open; no resource/public package publication is added.
 
+## A/F delivery reconciliation — 31 October 2026
+
+PIN-1057 delivers `crypto.migrate-dsa-signatures`, edition11/target11. Original
+CoastalReports consumers compile/run SDK10.0.402/C#14/ref-runtime10.0.13 and
+SDK11RC2/C#15/ref-runtime11RC2 on Windows x64. The retained synthetic public-only
+DSA1024/SHA1/SPKI/P1363 fixture was generated on supporting Windows, with generation
+source and exact input hashes retained. No macOS DSA key generation is taught.
+Independent disposable ECDSA P256 certificates sign SHA256/DER reports; certificate
+private/public access, an exported/imported SPKI peer, payload/encoding/key/algorithm
+rejection and an explicit unauthenticated UnsupportedLegacy outcome execute on both
+releases. Old signatures are never reinterpreted using ECDSA keys.
+
+Under PIN-699, unavailable macOS10 imported DSA verification/tamper checks and
+macOS11 DSA factory/provider/certificate failures plus both releases' ECDSA
+certificate/signature/encoding/routing checks are **not-tested**, named against
+the exact canonical samples in discovery/detail. Windows proof is retained, not
+relabeled as Apple proof. Old/current platform dispatch and full removal note are
+source-reviewed; no Apple native binary inspection or execution is claimed.
+
+PIN-1062 delivers `crypto.make-rsa-padding-explicit`, edition11/target11. Both
+Windows consumers use real CAPI provider24, Microsoft Enhanced RSA and AES
+Cryptographic Provider, with a private temporary ephemeral RSA2048 key. Three
+processes cross-decrypt old Boolean and current explicit ciphertext in both
+directions for false/Pkcs1 and true/OaepSHA1. Each also checks explicit/canonical
+equivalence, wrong padding, zeroed real ciphertext and same-provider OAEP-SHA256
+encrypt/decrypt failure. The unchanged old source fails specifically SYSLIB0064
+against current references without suppression; the supported code is warning-free.
+Private blobs/ciphertexts are removed; no named/production container is accessed.
+A stronger-provider/protocol redesign is deliberately outside this compatibility
+slice; no implication of authenticated encryption or new-protocol recommendation.
+
+`eng/Record-SignaturePadding.ps1 -VerifySources` captures the four real consumers,
+input/command identities, empty package/workload closures and compiler/reference/
+managed/native Windows asset hashes, and replays nine immutable original sources
+in [signature-padding.sources.json](signature-padding.sources.json). Requirements
+remain separate from measured pins. The [walkthrough](../../inspect-guidance.md#legacy-signatures-and-rsa-padding)
+checks the exact ordinary packed/local-feed-installed artifact over offline stdio
+list/get, complete canonical Markdown, reusable ID/title/goal, target/edition,
+applicability, exclusions and freshness. Existing native/package CI is unchanged.
+The exact eight foundations, other crypto owners, PIN-705, PIN-959/PIN-962 and
+existing Human gates remain open; RC proof is not final-GA or comprehensive coverage.
+
 ## Grouping, exclusions and remaining boundaries
 
 - **Grouped ownership, not delivered coverage:** PIN-705 owns broader runtime/security reference-asset and source reconciliation; it should consume this mitigation analysis rather than repeat it. PIN-689 retains exhaustive obsolete-index ownership, with SYSLIB0064/0065 semantic work allocated here. PIN-959 retains the comprehensive gate, including delivery of every qualifying audit follow-on.
 - **Preserved independent delivery:** PIN-750 owns X25519, fixed-time byte comparison and key wrapping; PIN-751 owns composite ML-KEM/HPKE/CMS encryption. None is a DSA/signature migration, HKDF-limit migration or RSA padding migration. Similar security terminology does not justify marking those tickets satisfied or expanding them silently.
 - **Excluded as standalone goals:** native dispatch speed alone, unaffected ECDSA, unchanged RawData reads, and blanket warning suppression. Platform failure handling, certificate supply and explicit padding do alter authored code and remain included. Existing `networking.automatic-benefits` exclusions do not erase these concrete migrations.
-- **Unresolved execution facts:** no exact Windows Insider composite-signature build/provider availability was measured, no Mac DSA removal was executed, no OpenSSL chain cache/download behavior was exercised, and no final GA artifacts were checked. These are explicit delivery prerequisites, not evidence that the source findings are excluded. A source hash or support-negative result cannot establish a positive native cryptographic round trip.
+- **Remaining execution limits:** no exact Windows Insider composite-signature build/provider availability or final GA artifacts were measured here. Mac DSA removal remains explicitly not-tested under PIN-699 rather than an environment prerequisite. The D/E/G/C/A/F reconciliations above supersede the original audit's source-only execution status only for their named checks. A source hash or support-negative result cannot establish a positive native cryptographic round trip.
 
 ## Delivery proposals for backlog approval
 

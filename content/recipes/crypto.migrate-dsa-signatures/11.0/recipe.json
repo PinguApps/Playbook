@@ -1,0 +1,177 @@
+{
+  "id": "crypto.migrate-dsa-signatures",
+  "edition": "11.0",
+  "title": "Replace legacy DSA signatures with an explicit ECDSA contract",
+  "goal": "Migrate new signatures from unsupported macOS DSA to an agreed ECDSA key and encoding while identifying legacy signed data without reinterpreting it.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "signature-padding",
+    "coastalreports",
+    "cryptography",
+    "migration"
+  ],
+  "apis": [
+    "DSA.Create",
+    "DSACertificateExtensions",
+    "ECDsa.SignData",
+    "ECDsa.VerifyData",
+    "DSASignatureFormat",
+    "GetECDsaPrivateKey",
+    "GetECDsaPublicKey"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Migrate new signatures from unsupported macOS DSA to an agreed ECDSA key and encoding while identifying legacy signed data without reinterpreting it.",
+          "macOS route source-reviewed; macOS10 DSA and macOS11 removal/ECDSA operations not-tested under PIN-699. Windows x64 compilation/execution is measured separately.",
+          "Preserve existing key/peer format boundaries; actual-GA and comprehensive gates remain open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current net11 consumer; actual RC2 is measured separately from final GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build current .NET11 references; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample mode; selected APIs require no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [
+            "macOS ECDSA provider and accessible P-256 certificate/key; Windows CNG used for local proof"
+          ],
+          "platforms": [
+            "macOS route source-reviewed; macOS10 DSA and macOS11 removal/ECDSA operations not-tested under PIN-699. Windows x64 compilation/execution is measured separately."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Workload-free net11.0 console project, C#15 sample mode, Nullable and ImplicitUsings enabled; canonical helpers in separate files.",
+            "Independent P-256 signing certificate/private key and an already trusted peer certificate/key-ID mapping; peers agree SHA256/DER and exact payload bytes.",
+            "Legacy comparison fixture: public-only imported DSA1024/SHA1/SPKI/P1363 generated on supporting Windows; no macOS DSA key generation."
+          ],
+          "constraints": [
+            "No DSA-to-ECDSA key/signature conversion. UnsupportedLegacy never means authenticated; no fallback or relabelling of archived data.",
+            "Certificate trust/revocation/provisioning and production keys are outside this contract. DSA certificate failures on macOS are source-reviewed, not executed.",
+            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.402/runtime10.0.13 and current SDK11RC2/runtime11RC2 are verification pins, not supported consumer minimums."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable APIs; actual .NET11 GA reconciliation remains open. RC2 evidence is not final-GA proof."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/dsa-removed-macos.md",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.SecurityTransforms.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CoastalReports/CoastalReports.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "macOS DSA removal and supported historical limits",
+      "url": "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/dsa-removed-macos.md"
+    },
+    {
+      "title": "Previous cryptography reference",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Current cryptography reference",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Previous macOS platform dispatch",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj"
+    },
+    {
+      "title": "Current macOS platform dispatch",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System.Security.Cryptography.csproj"
+    },
+    {
+      "title": "Current unsupported DSA factory",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.NotSupported.cs"
+    },
+    {
+      "title": "Previous SecurityTransforms factory",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/DSA.Create.SecurityTransforms.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Windows paired compile/run: imported DSA fixture and real ECDSA P256/SHA256/DER signing, certificate and SPKI verification, tampering/encoding/unrelated-key/algorithm rejection and explicit unsupported legacy routing. macOS execution, DSA certificate boundaries and native assets not-tested under PIN-699.",
+      "sample": "samples/net10.0/CoastalReports/CoastalReports.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Windows paired compile/run: imported DSA fixture and real ECDSA P256/SHA256/DER signing, certificate and SPKI verification, tampering/encoding/unrelated-key/algorithm rejection and explicit unsupported legacy routing. macOS execution, DSA certificate boundaries and native assets not-tested under PIN-699.",
+      "sample": "samples/net11.0/CoastalReports/CoastalReports.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CoastalReports/LegacyReport.cs",
+      "region": "legacy",
+      "language": "csharp"
+    },
+    "contract": {
+      "path": "samples/net11.0/CoastalReports/ReportContract.cs",
+      "region": "contract",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CoastalReports/CurrentReport.cs",
+      "region": "current",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/CoastalReports/CoastalReports.csproj",
+      "samples/net11.0/CoastalReports/CoastalReports.csproj"
+    ],
+    "scope": "Unavailable macOS native checks: .NET10 imported DSA1024/SHA1/P1363 verification/tamper rejection; .NET11 DSA.Create/DSACryptoServiceProvider/DSA certificate access platform failures; both releases' ECDSA certificate/key access, new signing/verification, encoding/tamper rejection and unsupported legacy handling. Windows compilation/execution retained. No Apple native artifact inspection. PIN-699 permits exact sample-specific exclusions without another environment prerequisite; Pingu owns feasible interactive approvals/refresh coordination."
+  }
+}

@@ -2115,3 +2115,65 @@ switches, client-supplied full chains, Windows TLS and final-GA behavior are unt
 Process/user/machine PATH and persistent user/machine environment remain unchanged.
 No production resources, public publication or recurring native matrix is added.
 PIN-959/PIN-962, other delivery owners and existing Human gates remain open.
+
+## Legacy signatures and RSA padding
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. All four consumers use
+framework cryptography APIs without packages/workloads. Windows x64 CAPI provider24
+and disposable RSA2048 keys provide the real interoperability path. The public-only
+DSA fixture was generated on supporting Windows; no Mac key generation is needed.
+
+This literal worktree block is tested from an unrelated starting directory. It
+builds/packs the ordinary tool, installs that exact artifact through an isolated
+local-only feed and new cache, then calls real stdio list/get from an unrelated
+temporary directory. Setup may restore online; unusable proxies during retrieval
+prove proxy independence, not network isolation. No public/global installation,
+production container access, native installation or persistent setting change occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-dfde5574'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1057-1062'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('crypto.migrate-dsa-signatures','crypto.make-rsa-padding-explicit') `
+  -Query 'signature-padding' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1057-1062' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/signature-padding/inspection
+```
+
+Expect one passing installed smoke, then both discovery IDs, reusable titles and
+explanatory goals, complete expanded canonical Markdown, target11/edition11,
+applicability, fresh paired evidence and equal structured/text responses. Target10
+returns no_applicable_edition; old code remains a working comparison and the eight
+foundations remain unchanged. Missing/stale evidence, snippet/body mismatch or any
+nonzero exit is a failure. Inspection consumes saved evidence; it does not repeat
+provider behavior or establish the excluded macOS outcomes.
+
+Refresh affected exact inputs, compilation/execution and nine immutable sources:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-dfde5574'
+& ./eng/Record-SignaturePadding.ps1 -VerifySources
+```
+
+Expect paired Windows DSA fixture/ECDSA P256/SHA256/DER checks: imported public
+legacy signature, independent certificates and SPKI peer, tamper/encoding/key/
+algorithm rejection and explicit unauthenticated UnsupportedLegacy handling.
+Mac .NET10 DSA verification, .NET11 DSA factory/provider/certificate failures and
+both releases' ECDSA certificate/signature/routing checks remain sample-specific
+not-tested under PIN-699; no Apple native asset inspection is claimed.
+
+Expect three real CAPI processes: old-send, new-exchange and old-receive. Both
+false/Pkcs1 and true/OaepSHA1 cross-decrypt in both directions; explicit/canonical
+roundtrips succeed, wrong padding/zeroed ciphertext and OAEP-SHA256 reject. An
+isolated unchanged old-source/current-target build fails specifically SYSLIB0064,
+without suppression. Supported consumers build with zero warnings/errors.
+Ciphertext hashes differ across fresh randomized encryptions; recovered plaintext
+matches. The private disposable key/ciphertext/diagnostic directory is removed and
+its absence checked; no named/production container is used. No stronger-provider
+redesign or authentication guarantee follows. Process/user/machine PATH and
+persistent user/machine environment are checked unchanged. RC2 evidence is not GA;
+PIN-959/PIN-962 and existing Human gates stay open, with no recurring native matrix.

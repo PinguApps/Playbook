@@ -1,0 +1,151 @@
+{
+  "id": "crypto.make-rsa-padding-explicit",
+  "edition": "11.0",
+  "title": "Preserve legacy RSA interoperability with explicit padding",
+  "goal": "Replace obsolete Boolean RSACryptoServiceProvider calls with explicit legacy padding when preserving a peer ciphertext contract and existing Windows CAPI key access.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "signature-padding",
+    "instrumentgateway",
+    "cryptography",
+    "migration"
+  ],
+  "apis": [
+    "RSACryptoServiceProvider.Encrypt",
+    "RSACryptoServiceProvider.Decrypt",
+    "RSAEncryptionPadding.OaepSHA1",
+    "RSAEncryptionPadding.Pkcs1",
+    "SYSLIB0064"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "selectionNotes": [
+          "Replace obsolete Boolean RSACryptoServiceProvider calls with explicit legacy padding when preserving a peer ciphertext contract and existing Windows CAPI key access.",
+          "Windows x64 CoreCLR; real CAPI operations required. Other providers/platforms and production containers not verified.",
+          "Preserve existing key/peer format boundaries; actual-GA and comprehensive gates remain open."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current net11 consumer; actual RC2 is measured separately from final GA."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build current .NET11 references; exact RC2 is the reproduction baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample mode; selected APIs require no experimental syntax."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [
+            "Windows CAPI RSACryptoServiceProvider; measured Microsoft Enhanced RSA and AES Cryptographic Provider type24, ephemeral RSA2048"
+          ],
+          "platforms": [
+            "Windows x64 CoreCLR; real CAPI operations required. Other providers/platforms and production containers not verified."
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Workload-free net11.0 console project, C#15 sample mode, Nullable and ImplicitUsings enabled.",
+            "An existing agreed Boolean fOAEP contract and access to the same CAPI key; disposable ephemeral RSA2048 test key for verification."
+          ],
+          "constraints": [
+            "true maps to OaepSHA1; false maps to Pkcs1. Compatibility only, neither is a new-protocol recommendation.",
+            "Same CAPI provider rejects OAEP-SHA256. Stronger-provider/algorithm/key migration requires separate peer agreement and positive proof, outside this slice.",
+            "No fallback after decrypt failure; production key containers/HSMs and authenticated-encryption redesign are outside this guide.",
+            "Framework APIs only; no NuGet packages, workloads, rendering mode or experimental opt-ins. Previous SDK10.0.402/runtime10.0.13 and current SDK11RC2/runtime11RC2 are verification pins, not supported consumer minimums."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable APIs; actual .NET11 GA reconciliation remains open. RC2 evidence is not final-GA proof."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0064.md",
+          "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/InstrumentGateway/InstrumentGateway.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Boolean padding diagnostic and compatibility mappings",
+      "url": "https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0064.md"
+    },
+    {
+      "title": "Previous cryptography reference",
+      "url": "https://github.com/dotnet/dotnet/blob/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Current cryptography reference",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Windows CAPI padding implementation and limits",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/RSACryptoServiceProvider.Windows.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "scope": "Windows paired compile/run with real ephemeral CAPI RSA2048: both legacy mappings cross-decrypt between runtimes in both directions; explicit overload equivalence, wrong padding/zeroed ciphertext and OAEP-SHA256 failure. Current old-source SYSLIB0064 probe and warning-free supported consumer; no other-platform/GA claim.",
+      "sample": "samples/net10.0/InstrumentGateway/InstrumentGateway.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "scope": "Windows paired compile/run with real ephemeral CAPI RSA2048: both legacy mappings cross-decrypt between runtimes in both directions; explicit overload equivalence, wrong padding/zeroed ciphertext and OAEP-SHA256 failure. Current old-source SYSLIB0064 probe and warning-free supported consumer; no other-platform/GA claim.",
+      "sample": "samples/net11.0/InstrumentGateway/InstrumentGateway.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/InstrumentGateway/GatewayCipher.cs",
+      "region": "cipher",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/InstrumentGateway/GatewayCipher.cs",
+      "region": "cipher",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Feasible real Windows CAPI tests are automated with disposable ephemeral keys; no production resources or interactive permissions needed. Pingu owns future feasible approvals/refresh coordination. No native CI matrix or new Human gate."
+  }
+}
