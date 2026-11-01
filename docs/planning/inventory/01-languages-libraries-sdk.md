@@ -379,7 +379,18 @@ WASM hosts, provider-backed keys, AEAD key-size inspection, Windows-auth HTTP
 workaround removal, SOCKS proxy DNS, MIME mappings, asynchronous mobile HTTP,
 zstd responses, aligned type-lifetime memory, Unix mutex scope, 32-bit GC budgets
 and XML signature-reference budgets. Each has its own native estimate,
-prerequisites and real evidence acceptance in the audit; none is a delivered recipe.
+prerequisites and real evidence acceptance in the audit; delivery updates below
+and in the audit distinguish completed slices from outstanding drafts.
+
+| Goal | Authoring impact and actual artifacts | Disposition and evidence |
+| --- | --- | --- |
+| `certificates.encode-registered-identifiers` | .NET11 AddRegisteredId(string), correcting the audit draft's Oid spelling; .NET10 manual implicit [8] DER remains valid. Framework-only, ephemeral P-256 certificate round trip. | [PIN-1088 edition11.0](../../../content/recipes/certificates.encode-registered-identifiers/11.0/recipe.md): actual certificate SAN OID/tags/multiple values/DNS, byte equality and invalid OIDs; paired Windows compilation/execution and installed offline retrieval. No trust/identity/other-provider/GA claim. |
+| `dns.inspect-typed-records` | Framework .NET11 typed A/AAAA/MX/TXT/CNAME/PTR/NS versus actual DnsClient1.8.0/net8.0 on .NET10; SRV/shared envelope stays PIN-754. | [PIN-1089 edition11.0](../../../content/recipes/dns.inspect-typed-records/11.0/recipe.md): actual Windows/Linux authoritative loopback fields/TTLs, statuses/SOA negative TTL, server override and pre/in-flight cancellation. Exact images, commands and separate Linux records. No public zone/connection/system-resolver/GA claim. |
+
+Refresh these paired consumers with `eng/Test-IdentityRecords.ps1 -Record -VerifySources`;
+[selected sources](../audits/identity-records.sources.json) and original audit
+reference hashes remain separate from real behavior evidence. PIN-959/PIN-962,
+all other delivery obligations and existing Human gates stay open.
 
 PIN-686's migration proposals, PIN-687/PIN-689 and existing PIN-750–758 owners
 retain their full obligations. Delivered PIN-742/744/749/750/751 subcases are

@@ -34,8 +34,8 @@
     {
       "id": "registered-id",
       "pattern": "^\\w+ System\\.Security\\.Cryptography\\.X509Certificates\\.SubjectAlternativeNameBuilder",
-      "disposition": "proposed",
-      "owner": "R2"
+      "disposition": "delivered",
+      "owner": "PIN-1088; certificates.encode-registered-identifiers"
     },
     {
       "id": "provider-keys",
@@ -53,7 +53,7 @@
       "id": "dns",
       "pattern": "^\\w+ System\\.Net\\.(Dns|AddressRecord|CNameRecord|MxRecord|NsRecord|PtrRecord|SrvRecord|TxtRecord)",
       "disposition": "grouped",
-      "owner": "PIN-754 for SRV; R3 for other records"
+      "owner": "PIN-754 for SRV/envelope; PIN-1089 for non-SRV records, TTL and negative TTL"
     },
     {
       "id": "endpoint-text",

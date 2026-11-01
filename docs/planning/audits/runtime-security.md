@@ -123,10 +123,10 @@ lines, including repeated target-asset comparisons.
 | X25519 classes/platform adapters; fixed-time repeated-byte predicate; AES-KW | **Delivered PIN-750:** [actual evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-750-751.md). Supporting imports/exports, wrong-peer/key/tamper checks and KW versus KWP remain with the established three goals. No blanket platform or timing benchmark claim. |
 | CompositeMLKem/Cng/algorithm sets, HPKE suite/sender/recipient, CNG algorithm identifiers; Pkcs CMS overloads | **Grouped PIN-751:** delivered bounded composite, classical HPKE and pure ML-KEM CMS operations in the same evidence report. RC2 PQ-HPKE and composite CMS limitations remain explicit. Additional overload presence is not additional native success evidence. |
 | MLDsa/MLKem PKCS#8/SPKI methods and certificate accessors lose experimental annotations; Bcl.Cryptography net11 forwarders | **Grouped:** publisher stability/asset correction alongside PIN-751, not newly invented algorithms. The same methods are present with SYSLIB5006 in the previous declarations. Composite contracts retain their own experimental status. Bcl net10 certificate-accessor annotations do not establish net11-only CMS availability on net10. |
-| SAN AddRegisteredId(Oid) | **Included R2:** encode a registered identifier rather than manually building the ASN.1 extension. Not a DNS identity or certificate trust mechanism. |
+| SAN AddRegisteredId(string) | **Delivered PIN-1088 / R2:** actual RC2 accepts dotted strings, correcting the audit draft's Oid spelling. Certificate export/read-back and manual older encoding agree; not a DNS identity or certificate trust mechanism. |
 | CngProperty ReadOnlySpan constructor and readonly/nullable annotations; SafeEvpPKeyHandle.OpenKeyFromProvider(IEnumerable<string>, keyUri, propertyQuery) | **Included R15:** deliberate provider/key configuration. CNG span input is supporting no-intermediate-array property setup, not a new algorithm. OpenSSL provider list/URI and ownership require actual provider evidence, separate from generic X25519. |
 | AesGcm/AesCcm KeySizeInBytes | **Included R16:** inspect an existing AEAD instance's key size without retaining duplicate state. Not tag/nonce/ciphertext size, nor a reason to choose a weaker key. |
-| Typed DNS envelopes, resolver/server options and Address/SRV/MX/TXT/CNAME/PTR/NS records | **PIN-754** retains the SRV service-discovery recipe. **R3** covers non-SRV record inspection, response codes, per-record TTL and negative TTL. Shared resolver/envelope plumbing is explained once. Preview 7's Windows-only claim is superseded by RC1 Linux support; no universal OS claim. |
+| Typed DNS envelopes, resolver/server options and Address/SRV/MX/TXT/CNAME/PTR/NS records | **PIN-754** retains SRV selection and shared resolver/envelope explanation. **Delivered PIN-1089 / R3** covers non-SRV records, response codes, TTL and best-effort negative TTL with real Windows/Linux execution. Preview 7's Windows-only claim is superseded by RC1 Linux support; no universal OS claim. |
 | Socket.ConnectAsync(..., ConnectAlgorithm), Default/Parallel | **Included R4:** explicit dual-stack connection racing replaces custom address scheduling; real controlled IPv4/IPv6 and cancellation evidence required. |
 | IPEndPoint UTF-8 Parse/TryParse, char/byte TryFormat, parsing/formatting interfaces and nullable adjustments | **Included R5:** parse/format caller-owned endpoint text without intermediate strings. Existing constructor/address APIs are annotation changes, not removed functionality. |
 | NetworkChange.IsSupported; NetworkInterface/IPGlobalProperties/event platform annotations | **Included R6:** guard network-change monitoring and provide an explicit fallback. Other annotation corrections are supporting platform constraints, not distinct networking features. |
@@ -194,6 +194,26 @@ lines, including repeated target-asset comparisons.
   audit verification failures or permission to relabel RC proof.
 
 ## Delivery drafts for review
+
+**Delivery update — PIN-1088/PIN-1089 / R2–R3:**
+`certificates.encode-registered-identifiers` and `dns.inspect-typed-records`
+edition11.0 add original Reedbank examples. Actual paired SDK10.0.402/ref-runtime
+10.0.13 and SDK11RC2/ref-runtime11RC2 consumers reconcile selected references to
+the original asset audit. The supplemental [immutable sources](identity-records.sources.json)
+qualify the string signature, ASN.1 encoding and Windows/managed DNS boundaries.
+The older manual SAN encoder and actual DnsClient1.8.0/net8.0 asset remain valid
+comparisons, without a newer-package-on-net10 claim or ninth foundation.
+
+`eng/Test-IdentityRecords.ps1 -Record -VerifySources` captures certificate bytes,
+tags/OIDs/DNS and malformed inputs, plus authoritative A/AAAA/MX/TXT/CNAME/PTR/NS
+fields/TTLs, NODATA/NXDOMAIN/SOA absence, two-server override and pre/in-flight
+cancellation. Windows DNSAPI can normalize RRset TTLs and drops the fixture's
+negative SOA; Linux network-none execution measures min(120,45)=45 and custom
+ports. Separate Linux records identify exact runtime images and cleanup.
+The [installed walkthrough](../../inspect-guidance.md#registered-certificate-identifiers-and-typed-dns-records)
+checks exact packaged offline list/get, canonical Markdown and applicability.
+This supersedes outstanding R2/R3 wording only. Other drafts, eight foundations,
+PIN-959/PIN-962 and existing Human/actual-GA gates remain open.
 
 **Delivery update — PIN-1087 / R1:**
 `crypto.verify-message-authenticators` edition11.0 adds original Mallow Quay packet

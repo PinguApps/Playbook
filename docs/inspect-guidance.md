@@ -4,6 +4,69 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Registered certificate identifiers and typed DNS records
+
+Requires PowerShell 7, Node 22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. The older DNS consumer pins
+DnsClient1.8.0 and executes its net8.0 asset; other consumers use framework APIs.
+Certificate proof needs the available Windows ECDSA P-256 provider. DNS proof
+needs free loopback UDP53 on127.0.0.1/127.0.0.2 and the existing Linux Docker
+runtime images. No account, workload, public zone or system DNS edit is required.
+
+Refresh affected sample/source evidence separately:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-30a070b6'
+& ./eng/Test-IdentityRecords.ps1 -Record -VerifySources
+```
+
+Expect four passing actual consumers and nine immutable source hashes. Certificate
+checks export/reload SAN bytes, primitive tags, multiple/large OIDs, unrelated DNS,
+manual/new equality, malformed/null inputs, failed append and explicit criticality.
+DNS checks execute seven record kinds, fields/TTLs, NODATA/NXDOMAIN, SOA120/minimum45
+and absent SOA, two-server override and pre/in-flight cancellation. Windows RC2
+returns negative TTL0 and rejects custom ports/mixed families; separate network-none
+Linux runs return45 and use custom ports. Read-only mounts/private tmpfs disappear
+with the containers. PATH and persistent settings are checked unchanged.
+
+This block is exercised from an unrelated starting directory. It builds/packs
+the ordinary tool, installs that exact artifact through an isolated local-only
+feed/cache, then calls real installed stdio list/get from a temporary unrelated
+directory. Setup may restore online; unusable proxies during retrieval prove
+proxy independence, not OS network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-30a070b6'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1088-1089'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('certificates.encode-registered-identifiers','dns.inspect-typed-records') `
+  -Query 'identity-records' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1088-1089' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/identity-records/inspection'
+& ./eng/Test-IdentityRecordSnippets.ps1
+```
+
+Expect one passing installed smoke, both discovery IDs/titles/explanatory goals,
+full canonical Markdown, target11/edition11, applicability and fresh paired
+compilation plus separate Linux execution evidence. Structured/text results agree;
+target10 returns no_applicable_edition. Missing/stale evidence, a changed snippet/body
+or a nonzero exit fails. Inspection consumes saved proof; it does not rerun DNS or
+certificate checks. No trust, network identity validation, public resolver,
+other-platform/native matrix or GA verification is claimed. The string signature
+corrects the audit draft's Oid spelling. SRV selection stays in the existing recipe;
+eight foundations, PIN-959/PIN-962 and existing Human gates remain unchanged/open.
+
+The final snippet check copies only the installed Markdown code blocks into four
+fresh pinned console consumers, one source file per block, and runs certificate
+export/read-back or a real local DNS query. It supplies no missing imports to the
+copied snippets; all required imports and namespaces are inside their canonical
+regions. The temporary projects/sockets are removed. Source evidence separately
+prints the loaded consumer CoreLib path/version/hash and rejects runtime baseline
+drift before saving; verification pins are not additional application requirements.
+
 ## Value-based JSON classification and message authenticators
 
 This builds/packs the ordinary tool, installs that exact artifact using the
