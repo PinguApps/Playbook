@@ -132,7 +132,7 @@
       "language": "14.0",
       "kind": "compile-and-run",
       "sdk": "10.0.402",
-      "scope": "Actual locked SQL provider execution: chained Take nested TOP/LEAST defaults, explicit150 fallback on database150/170, compatibility unchanged, whole-record sync/async extrema, declared tied IDs and empty entity queries. EF10 direct MinBy rejects translation; EF11 scalar MinBy/MaxBy over MIN/MAX-filtered candidates executes; anonymous composite-key rejection is checked. eng/Test-SqlQueryGuidance.ps1 -Record owns isolated setup/cleanup."
+      "scope": "Actual locked EF10/SQL Server execution at database compatibility150 and170: explicit provider150 and EF10 default both use TOP-based translation without LEAST and return load IDs11/12. Ordered FirstOrDefault/Async materializes whole records with deterministic tied IDs11/22 and null empty entities; four real commands include two async. Direct scalar MinBy translation rejection is the EF10 red control. Provider configuration/querying leaves database compatibility unchanged; eng/Test-SqlQueryGuidance.ps1 -Record owns isolated setup/cleanup."
     },
     {
       "sample": "samples/net11.0/MoorlandDispatch/MoorlandDispatch.csproj",
@@ -140,7 +140,7 @@
       "language": "15.0",
       "kind": "compile-and-run",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Actual locked SQL provider execution: chained Take nested TOP/LEAST defaults, explicit150 fallback on database150/170, compatibility unchanged, whole-record sync/async extrema, declared tied IDs and empty entity queries. EF10 direct MinBy rejects translation; EF11 scalar MinBy/MaxBy over MIN/MAX-filtered candidates executes; anonymous composite-key rejection is checked. eng/Test-SqlQueryGuidance.ps1 -Record owns isolated setup/cleanup."
+      "scope": "Actual locked EF11 RC2/SQL Server execution at database compatibility150 and170: explicit provider150 uses TOP-based translation without LEAST; default160 uses LEAST, both returning load IDs11/12 without changing database compatibility. Scalar MinBy/MaxBy and async forms over MIN/MAX-filtered candidates materialize whole records with deterministic tied IDs11/22 and null empty entities; four real commands include two async. Anonymous composite MinBy key translation rejection is the RC2 red control. eng/Test-SqlQueryGuidance.ps1 -Record owns isolated setup/cleanup."
     }
   ],
   "snippets": {

@@ -366,7 +366,7 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 | `cosmos.retain-document-key-identity` — Keep existing documents reachable after key escaping changes | Plan key/data migration or bounded compatibility switch. | Composite/discriminator IDs; old switch retains collision defect. | [EB] illegal-id-character section | included |
 | `cosmos.handle-missing-projection` — Decide what an absent document path contributes to a result | Use IsDefined or CoalesceUndefined. | Cosmos undefined now throws consistently. | [EB] `cosmos-undefined-projection` | included |
 | `cosmos.read-raw-document` — Access raw JSON without removed shadow state | Replace `__jObject` access with direct CosmosClient. | System.Text.Json internal rewrite; explicit raw-data ownership. | [EB] `cosmos-jObject-removed` | included |
-| `sql.set-supported-compatibility` — Keep generated SQL compatible with the actual database | Set provider compatibility explicitly below the new 160 default. | SQL Server 2019 or older/lower configured compatibility. | [EB] `sqlserver-compatibility-level-160` | delivered — PIN-843, `sql.set-supported-compatibility/11.0`; paired real providers execute explicit150 versus default nested TOP/LEAST on database150/170 without upgrading it; actual older engines untested |
+| `sql.set-supported-compatibility` — Keep generated SQL compatible with the actual database | Set provider compatibility explicitly below the new 160 default. | SQL Server 2019 or older/lower configured compatibility. | [EB] `sqlserver-compatibility-level-160` | delivered — PIN-843, `sql.set-supported-compatibility/11.0`; paired real providers execute explicit150 versus default TOP-based/LEAST on database150/170 without upgrading it; actual older engines untested |
 | `ef.handle-empty-migration-assembly` — Distinguish intentional schema ownership from missing migrations | Remove unwanted migrate call or intentionally configure diagnostic behavior. | Migrate/MigrateAsync now throw when no migrations found. | [EB] `migrations-not-found` | included |
 | `ef.configure-generated-model-stage` — Generate models and precompiled queries at the intended stage | Replace EFOptimizeContext with stage-specific properties. | Build/publish/AOT; do not assume all query shapes support precompilation. | [EB] `ef-optimize-context-removed` | included |
 | `ef.reference-design-services` — Restore design-time services previously supplied transitively | Add direct Design reference where actually required. | Tools/Tasks no longer depend on Design. | [EB] `ef-tools-no-design-dep` | included |
@@ -466,7 +466,7 @@ remain open.
 Original MoorlandDispatch .NET10/EF10 and .NET11/EF11 RC2 consumers back
 `sql.set-supported-compatibility/11.0` and `ef.select-record-at-extreme/11.0`.
 The authorized PIN-676 local SQL2025 route supplies disposable databases at150
-and170. Actual chained Take commands prove explicit provider150 uses nested TOP
+and170. Actual chained Take commands prove explicit provider150 uses TOP-based
 and preserves database compatibility, while EF11 default160 uses LEAST. This
 is lower-configured-level evidence, not execution on SQL2019 or older engines.
 Actual sync/async row selection checks whole records, tied IDs and empty entities.
