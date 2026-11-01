@@ -1,0 +1,149 @@
+{
+  "id": "mime.map-file-and-content-types",
+  "edition": "11.0",
+  "title": "Map file extensions and content types",
+  "goal": "Look up a known media type from a filename or extension and one extension from a media type; use for labels, with explicit unknown handling and separate content validation.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "attachment-facts",
+    "mime",
+    "files"
+  ],
+  "apis": [
+    "MediaTypeMap.GetMediaType",
+    "MediaTypeMap.GetExtension",
+    "Path.GetExtension"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no NuGet package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings console net11.0 project; canonical types called from the same assembly.",
+            "Use host Path.GetExtension semantics; parse URLs separately and preserve any fixed application mapping policy."
+          ],
+          "platforms": [
+            "Framework lookup; Windows x64 path/string/span cases executed, other platform path rules unverified."
+          ],
+          "providers": [
+            "No external provider."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Mapping does not validate file bytes or make untrusted uploads safe; keep format/authorization/serving policy separate.",
+            "Unknowns return null; string null throws. Reverse lookup selects one suffix and does not recover an original name. Table choices may evolve."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Mail/ref/System.Net.Mail.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Mail/ref/System.Net.Mail.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Mail/src/System/Net/Mime/MediaTypeMap.cs"
+        ],
+        "selectionNotes": [
+          "Mapping does not validate file bytes or make untrusted uploads safe; keep format/authorization/serving policy separate.",
+          "Unknowns return null; string null throws. Reverse lookup selects one suffix and does not recover an original name. Table choices may evolve."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/AttachmentLabels/AttachmentLabels.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83/System.Net.Mail/ref/System.Net.Mail.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Mail/ref/System.Net.Mail.cs"
+    },
+    {
+      "title": "Official pinned 820230c/System.Net.Mail/ref/System.Net.Mail.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Mail/ref/System.Net.Mail.cs"
+    },
+    {
+      "title": "Official pinned 820230c/System.Net.Mail/src/System/Net/Mime/MediaTypeMap.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Mail/src/System/Net/Mime/MediaTypeMap.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/AttachmentLabels/AttachmentLabels.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real paired Windows x64 string/span curated/framework mappings, case/unknown/null/path/query/whitespace/parameter cases and reverse ambiguity. No file-content validation, upload safety, other-platform or GA proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/AttachmentLabels/AttachmentLabels.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real paired Windows x64 string/span curated/framework mappings, case/unknown/null/path/query/whitespace/parameter cases and reverse ambiguity. No file-content validation, upload safety, other-platform or GA proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real paired Windows x64 string/span curated/framework mappings, case/unknown/null/path/query/whitespace/parameter cases and reverse ambiguity. No file-content validation, upload safety, other-platform or GA proof. No interactive approval, production resource or new toolchain required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/AttachmentLabels/AttachmentLabels.cs",
+      "region": "attachment-labels",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/AttachmentLabels/AttachmentLabels.cs",
+      "region": "attachment-labels",
+      "language": "csharp"
+    }
+  }
+}

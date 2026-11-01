@@ -125,7 +125,7 @@ lines, including repeated target-asset comparisons.
 | MLDsa/MLKem PKCS#8/SPKI methods and certificate accessors lose experimental annotations; Bcl.Cryptography net11 forwarders | **Grouped:** publisher stability/asset correction alongside PIN-751, not newly invented algorithms. The same methods are present with SYSLIB5006 in the previous declarations. Composite contracts retain their own experimental status. Bcl net10 certificate-accessor annotations do not establish net11-only CMS availability on net10. |
 | SAN AddRegisteredId(string) | **Delivered PIN-1088 / R2:** actual RC2 accepts dotted strings, correcting the audit draft's Oid spelling. Certificate export/read-back and manual older encoding agree; not a DNS identity or certificate trust mechanism. |
 | CngProperty ReadOnlySpan constructor and readonly/nullable annotations; SafeEvpPKeyHandle.OpenKeyFromProvider(IEnumerable<string>, keyUri, propertyQuery) | **Included R15:** deliberate provider/key configuration. CNG span input is supporting no-intermediate-array property setup, not a new algorithm. OpenSSL provider list/URI and ownership require actual provider evidence, separate from generic X25519. |
-| AesGcm/AesCcm KeySizeInBytes | **Included R16:** inspect an existing AEAD instance's key size without retaining duplicate state. Not tag/nonce/ciphertext size, nor a reason to choose a weaker key. |
+| AesGcm/AesCcm KeySizeInBytes | **Delivered PIN-1102 / R16:** paired real Windows CNG key-size, roundtrip/tamper/invalid-length/disposal checks; old constructor bookkeeping remains valid. Not tag/nonce/ciphertext size, key quality or a liveness check. |
 | Typed DNS envelopes, resolver/server options and Address/SRV/MX/TXT/CNAME/PTR/NS records | **PIN-754** retains SRV selection and shared resolver/envelope explanation. **Delivered PIN-1089 / R3** covers non-SRV records, response codes, TTL and best-effort negative TTL with real Windows/Linux execution. Preview 7's Windows-only claim is superseded by RC1 Linux support; no universal OS claim. |
 | Socket.ConnectAsync(..., ConnectAlgorithm), Default/Parallel | **Delivered PIN-1090 / R4:** static event-args overload, original explicit older scheduler and real Windows dual-family success/refusal, selected-peer payload, completion and cancellation/draining. No fixed latency claim. |
 | IPEndPoint UTF-8 Parse/TryParse, char/byte TryFormat, parsing/formatting interfaces and nullable adjustments | **Delivered PIN-1091 / R5:** real paired caller-buffer consumers, malformed/range/short-destination and boundary checks; char/generic interfaces executed. Existing constructor/address APIs are annotation changes, not removed functionality. |
@@ -135,7 +135,7 @@ lines, including repeated target-asset comparisons.
 | HTTP compressed-content wrappers, connection IDs/eviction contexts, ShouldEvictConnection and initial HTTP/2 stream bound | **Grouped PIN-753:** all compression options, correlation and pool-lifetime support belong to its existing HTTP connection goals. Preserve experimental eviction diagnostic/opt-in and peer SETTINGS constraints. |
 | DecompressionMethods.Zstandard | **Included R21:** response decompression is distinct from PIN-753's outgoing request compression. |
 | Synchronous HttpClient/handler/invoker Send adds Android/iOS/tvOS unsupported annotations | **Included R20:** source/analyzer migration to asynchronous I/O on affected platforms; no claim that synchronous mobile I/O previously worked. |
-| Video MIME constants | **Delivered PIN-744** in [the original URI/media capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-742-744.md). **R19** separately covers MediaTypeMap's extension/type lookups; constants alone do not deliver that mapping goal. |
+| Video MIME constants | **Delivered PIN-744** in [the original URI/media capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-742-744.md). **Delivered PIN-1105 / R19** separately covers actual MediaTypeMap string/span/path/reverse lookups; constants alone do not deliver mapping, and mapping does not validate file bytes or upload safety. |
 | Generic Interlocked.And/Or; CompareExchange/Exchange annotations | **Delivered PIN-1094 / R8:** paired real CAS/enum contention, prior-value chains, retained unrelated bits, integer/enum backing sizes and unsupported-struct rejection. One atomic location per call, not multi-field transactions. Annotation-only overload pairs are not new operations. |
 | RuntimeFeature.IsMultithreadingSupported | **Included R7:** choose a supported threading path with a useful single-thread fallback; compile-time platform guards are not evidence of actual parallelism. |
 | ExtendedLayoutAttribute/Kind.CStruct/CUnion, LayoutKind.Extended, TypeAttributes.ExtendedLayout | **Included R9:** runtime-computed C aggregate layout, with actual native ABI checks. A declaration is not proof of every compiler/architecture combination. |
@@ -298,6 +298,34 @@ is in the [walkthrough](../../inspect-guidance.md#atomic-flags-and-typed-functio
 Actual Windows x64 CoreCLR execution is measured, not other-platform/ABI, performance,
 multi-field atomicity, arbitrary-generator, marshalling or final-GA proof.
 Eight foundations, PIN-959/PIN-962 and existing Human gates remain unchanged.
+
+### AEAD key size and MIME mappings — PIN-1102 / PIN-1105
+
+R16 is delivered by [crypto.inspect-aead-key-size](../../../content/recipes/crypto.inspect-aead-key-size/11.0/recipe.md).
+Original Mossbank parcel owners retain constructor length on .NET10; .NET11
+reads AesGcm/AesCcm.KeySizeInBytes from the existing instance. Both execute every
+16/24/32-byte key size, real GCM/CCM encryption/decryption with associated data,
+tampered tags, invalid lengths, readable metadata after disposal and rejected
+disposed operations. Nonce/tag sizes are separate; no secret export or key-quality
+claim. Actual Windows CNG native DLL versions/hashes are retained.
+
+R19 is delivered by [mime.map-file-and-content-types](../../../content/recipes/mime.map-file-and-content-types/11.0/recipe.md).
+An original bounded curated .NET10 map and .NET11 MediaTypeMap consumers execute
+the same string/span, casing, unknown/null/default, host-path, final-extension,
+URL-query, whitespace/parameter and reverse-ambiguity cases. .jpeg and .jpg
+share a type; the observed reverse preference is .jpg, not original-name recovery.
+Mapping is descriptive metadata, not content validation or safe upload policy.
+
+All four consumers use the exact audit SDK10.0.402/reference-runtime10.0.13 or
+SDK11 RC2/reference-runtime11RC2 with no package dependencies or workloads.
+[Selected paired contracts and implementations](attachment-facts.sources.json)
+qualify the actual API and Windows lifetime/lookup behavior. Refresh with
+eng/Test-AttachmentFacts.ps1 -Record -VerifySources; saved records capture commands,
+input hashes, audit-matching references, compiler/CoreLib and CNG identities.
+The [installed walkthrough](../../inspect-guidance.md#aead-key-size-and-file-content-type-mappings)
+checks exact ordinary offline stdio discovery/body/applicability/evidence.
+No other-provider/platform, performance, fixed mapping-table or final-GA proof.
+Other R drafts, exact eight foundations, PIN-959/PIN-962 and Human gates remain open.
 
 **Historical approval-only proposals, now reconciled by PIN-986 and delivery notes.** Use the existing
 02 - Language and library guidance milestone; allocate unused `02-DDD` titles only
