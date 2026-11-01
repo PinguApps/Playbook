@@ -136,10 +136,10 @@ lines, including repeated target-asset comparisons.
 | DecompressionMethods.Zstandard | **Included R21:** response decompression is distinct from PIN-753's outgoing request compression. |
 | Synchronous HttpClient/handler/invoker Send adds Android/iOS/tvOS unsupported annotations | **Included R20:** source/analyzer migration to asynchronous I/O on affected platforms; no claim that synchronous mobile I/O previously worked. |
 | Video MIME constants | **Delivered PIN-744** in [the original URI/media capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-742-744.md). **R19** separately covers MediaTypeMap's extension/type lookups; constants alone do not deliver that mapping goal. |
-| Generic Interlocked.And/Or; CompareExchange/Exchange annotations | **Included R8:** atomic enum/integer flags without hand-written casts/CAS loops. Annotation-only overload pairs are not new atomic operations. |
+| Generic Interlocked.And/Or; CompareExchange/Exchange annotations | **Delivered PIN-1094 / R8:** paired real CAS/enum contention, prior-value chains, retained unrelated bits, integer/enum backing sizes and unsupported-struct rejection. One atomic location per call, not multi-field transactions. Annotation-only overload pairs are not new operations. |
 | RuntimeFeature.IsMultithreadingSupported | **Included R7:** choose a supported threading path with a useful single-thread fallback; compile-time platform guards are not evidence of actual parallelism. |
 | ExtendedLayoutAttribute/Kind.CStruct/CUnion, LayoutKind.Extended, TypeAttributes.ExtendedLayout | **Included R9:** runtime-computed C aggregate layout, with actual native ABI checks. A declaration is not proof of every compiler/architecture combination. |
-| ILGenerator.EmitCalli(Type) | **Included R10:** emit a call with the real function-pointer signature, including calling convention. Dynamic-code availability is a prerequisite, not a Native AOT promise. |
+| ILGenerator.EmitCalli(Type) | **Delivered PIN-1096 / R10:** actual paired DynamicMethod managed/native calls with typed signatures versus explicit old setup; real Windows x64 MulDiv inputs, returns and failure sentinels. Dynamic code required; unified x64 ABI does not establish x86 convention differences or Native AOT execution. |
 | JSMarshalerArgument float[], Span<float>, ArraySegment<float> ToJS/ToManaged | **Included R11:** remove manual float conversion/copy adapters; real browser/lifetime/segment evidence required. Supporting generated APIs are not ordinary hand-written marshaller instructions. |
 | UnmanagedCallersOnly.AssociatedSourceType; EntryPoint/type nullable metadata | **Included R12:** condition a native export on retention of its associated type. EntryPoint already existed; named exports themselves are not new. Actual trimming/export-table evidence is required. |
 | LibraryImport SYSLIB1064 and broad RequiresUnsafe/MemorySafetyRules annotations on Marshal, COM, Java/Objective-C/Swift, GC handles, MemoryMarshal, Unsafe, SafeBuffer, crypto/native handles and reflection pointers | **Grouped PIN-715:** caller/declaration safety obligations; its existing measured compiler tests do not certify every API here. Keep safe/unsafe/preview/build flags precise. MarshalUsing property AttributeUsage additionally supports **R13**. |
@@ -270,6 +270,34 @@ No system DNS/routes, production services, persistent environment or recurring
 matrix changes. These are Windows x64 results, not WAN/DNS outage, performance,
 other-platform or GA proof. Other R drafts, eight foundations, pending Human proof,
 PIN-959 and PIN-962 retain their own obligations.
+
+### Atomic flags and typed indirect calls — PIN-1094 / PIN-1096
+
+R8 is delivered by [threading.update-enum-flags-atomically](../../../content/recipes/threading.update-enum-flags-atomically/11.0/recipe.md),
+with original Slate Fen station consumers: .NET10 int-backed CAS and .NET11 enum
+And/Or. Dedicated worker threads verify 128 synchronized prior-value chains and
+40,000 mixed updates preserve an unrelated bit. Current checks exercise all eight
+C# enum backing types, ten integer/native-integer types, high/sign bits and rejection
+of a custom struct, float/double/decimal/Guid. Atomicity remains per call/location.
+
+R10 is delivered by [reflection.emit-function-pointer-calls](../../../content/recipes/reflection.emit-function-pointer-calls/11.0/recipe.md).
+Original quarry adapters execute managed calls and the real Windows MulDiv export
+through old explicit and new typed signatures. Tests compare direct typed native
+calls, signed rounding, zero-divisor/overflow sentinels and null/non-pointer signature
+rejection. The unsupported-dynamic-code guard is tested with an injected false
+value; no actual AOT/unsupported-runtime execution is claimed. Windows x64's unified
+ABI does not distinguish x86 Stdcall/Cdecl stack cleanup. No helper compiler needed.
+
+All four consumers use SDK10.0.402/runtime10.0.13 or SDK11 RC2/runtime11RC2, with no
+NuGet dependencies/workloads. [Selected paired contracts](runtime-calls.sources.json)
+and the public XML caller contracts qualify the intended API use; audit-matching
+references, compiler/CoreLib and loaded native hashes are recorded separately from
+supported application prerequisites. Refresh via eng/Test-RuntimeCalls.ps1 -Record
+-VerifySources; installed offline discovery/body/applicability/evidence inspection
+is in the [walkthrough](../../inspect-guidance.md#atomic-flags-and-typed-function-pointer-calls).
+Actual Windows x64 CoreCLR execution is measured, not other-platform/ABI, performance,
+multi-field atomicity, arbitrary-generator, marshalling or final-GA proof.
+Eight foundations, PIN-959/PIN-962 and existing Human gates remain unchanged.
 
 **Historical approval-only proposals, now reconciled by PIN-986 and delivery notes.** Use the existing
 02 - Language and library guidance milestone; allocate unused `02-DDD` titles only

@@ -130,8 +130,8 @@
     {
       "id": "interlocked",
       "pattern": "^\\w+ System\\.Threading\\.Interlocked",
-      "disposition": "proposed",
-      "owner": "R8"
+      "disposition": "delivered",
+      "owner": "PIN-1094; threading.update-enum-flags-atomically; Exchange/CompareExchange annotation-only changes add no operation"
     },
     {
       "id": "extended-layout",
@@ -142,8 +142,8 @@
     {
       "id": "emit-calli",
       "pattern": "^\\w+ System\\.Reflection\\.Emit\\.ILGenerator",
-      "disposition": "proposed",
-      "owner": "R10"
+      "disposition": "delivered",
+      "owner": "PIN-1096; reflection.emit-function-pointer-calls; CoreCLR DynamicMethod/Windows x64 only"
     },
     {
       "id": "js-floats",

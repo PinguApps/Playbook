@@ -1,0 +1,176 @@
+{
+  "id": "reflection.emit-function-pointer-calls",
+  "edition": "11.0",
+  "title": "Emit calls from typed function-pointer signatures",
+  "goal": "Generate an indirect call from an actual managed or unmanaged function-pointer Type; use for trusted runtime adapters when dynamic code is supported and the target ABI and lifetime are known.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "runtime-calls",
+    "reflection",
+    "interop"
+  ],
+  "apis": [
+    "ILGenerator.EmitCalli",
+    "DynamicMethod",
+    "RuntimeFeature.IsDynamicCodeSupported",
+    "NativeLibrary.GetExport"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no NuGet package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Console net11.0 project with nullable/implicit usings and AllowUnsafeBlocks=true.",
+            "RuntimeFeature.IsDynamicCodeSupported must be true before DynamicMethod creation.",
+            "Known valid managed/native function-pointer signatures and addresses; keep native library alive through invocation."
+          ],
+          "platforms": [
+            "Windows x64 CoreCLR with system kernel32 MulDiv export; no x86/Arm/Mono/browser/WASI execution proof."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Requires runtime code generation and trusted IL inputs; no Native AOT execution route.",
+            "Exact function-pointer ABI, stack order and live address/library ownership remain caller obligations.",
+            "Windows MulDiv consumer only. x64 unified ABI does not distinguish x86 calling conventions; no implicit marshalling or last-error preservation."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+          "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-muldiv",
+          "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code#function-pointers",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.runtimefeature.isdynamiccodesupported"
+        ],
+        "selectionNotes": [
+          "Requires runtime code generation and trusted IL inputs; no Native AOT execution route.",
+          "Exact function-pointer ABI, stack order and live address/library ownership remain caller obligations.",
+          "Windows MulDiv consumer only. x64 unified ABI does not distinguish x86 calling conventions; no implicit marshalling or last-error preservation."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/QuarryCalls/QuarryCalls.csproj"
+        ],
+        "sharedAreas": [
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs"
+    },
+    {
+      "title": "Official pinned 4099f83/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs"
+    },
+    {
+      "title": "Microsoft MulDiv contract and platform requirements",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-muldiv"
+    },
+    {
+      "title": "Microsoft C# function pointer syntax and calling conventions",
+      "url": "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/unsafe-code#function-pointers"
+    },
+    {
+      "title": "Microsoft RuntimeFeature.IsDynamicCodeSupported contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.runtimefeature.isdynamiccodesupported"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/QuarryCalls/QuarryCalls.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 explicit managed Standard/native StdCall EmitCalli signatures, signed arguments, canonical adapter and real MulDiv calls/failure results. Injected false guard only; no AOT execution."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/QuarryCalls/QuarryCalls.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 CoreCLR DynamicMethod managed and native MulDiv calls, arguments/results, direct typed-pointer comparison, safe failure sentinels and signature rejection. Injected false guard only; no AOT/x86/other-platform/GA execution claim."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 CoreCLR DynamicMethod managed and native MulDiv calls, arguments/results, direct typed-pointer comparison, safe failure sentinels and signature rejection. Injected false guard only; no AOT/x86/other-platform/GA execution claim. No interactive approval, production resource or new native toolchain is required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/QuarryCalls/CallEmitter.cs",
+      "region": "call-emitter",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/QuarryCalls/CallEmitter.cs",
+      "region": "call-emitter",
+      "language": "csharp"
+    },
+    "consumer": {
+      "path": "samples/net11.0/QuarryCalls/QuarryAdapter.cs",
+      "region": "call-consumer",
+      "language": "csharp"
+    }
+  }
+}
