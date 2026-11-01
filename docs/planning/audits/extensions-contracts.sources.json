@@ -1,0 +1,44 @@
+{
+  "sources": [
+    {
+      "id": "dotnet-4099f839-src_runtime_src_libraries_Microsoft.Extensions.Configuration.EnvironmentVariables_src_EnvironmentVariablesConfigurationProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationProvider.cs",
+      "sha256": "54ee31f67cb61d46efe564cf767056c8edf1ecf62422c40e884070dd6edc82ae"
+    },
+    {
+      "id": "dotnet-4099f839-src_runtime_src_libraries_Microsoft.Extensions.Configuration.EnvironmentVariables_src_EnvironmentVariablesConfigurationSource.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationSource.cs",
+      "sha256": "2b8ec13e3373382712192d84e633d337619d2cfb3041f02bb133809cbe56b73f"
+    },
+    {
+      "id": "dotnet-820230c3-src_runtime_src_libraries_Microsoft.Extensions.Configuration.EnvironmentVariables_src_EnvironmentVariablesConfigurationProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationProvider.cs",
+      "sha256": "b272a6d6ce3cfbc49f51b184cc2cf1f36cd101cf6a6f47b25f1b42e9602254fb"
+    },
+    {
+      "id": "dotnet-820230c3-src_runtime_src_libraries_Microsoft.Extensions.Configuration.EnvironmentVariables_src_EnvironmentVariablesConfigurationSource.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/src/EnvironmentVariablesConfigurationSource.cs",
+      "sha256": "b77359d4108ba72b21383f047746150234cc2e3ee5193766f27d0e9c756b96e5"
+    },
+    {
+      "id": "dotnet-820230c3-src_runtime_src_libraries_Microsoft.Extensions.DependencyInjection.Abstractions_src_EmptyServiceProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/EmptyServiceProvider.cs",
+      "sha256": "90b7564726d208babfebd4afe495ddec7008974608b7c5d0ab52710d912cecad"
+    },
+    {
+      "id": "4099f839-Microsoft.Extensions.DependencyInjection/src/ServiceLookup/CallSiteFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/CallSiteFactory.cs",
+      "sha256": "0d301eabb9e75a57528b36f37d84bd7f72cc6f7bcf5009a36ce1c7e1a2a71604"
+    },
+    {
+      "id": "820230c3-Microsoft.Extensions.Configuration.EnvironmentVariables/ref/Microsoft.Extensions.Configuration.EnvironmentVariables.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.Configuration.EnvironmentVariables/ref/Microsoft.Extensions.Configuration.EnvironmentVariables.cs",
+      "sha256": "5a7df3d8de87427819f98ed812e683d67f74d6fbdb0af422e69c01f411535675"
+    },
+    {
+      "id": "820230c3-Microsoft.Extensions.DependencyInjection.Abstractions/ref/Microsoft.Extensions.DependencyInjection.Abstractions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/ref/Microsoft.Extensions.DependencyInjection.Abstractions.cs",
+      "sha256": "7303b74f81c9b923d32208f2fa27dd8e002e2a68ce0d31a1c046f6573675c2ac"
+    }
+  ]
+}

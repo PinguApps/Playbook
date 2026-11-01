@@ -1,0 +1,149 @@
+{
+  "id": "di.supply-empty-services",
+  "edition": "11.0",
+  "title": "Supply a provider without application services",
+  "goal": "Supply a shared IServiceProvider without application registrations; use for optional-service boundaries that still expect built-ins, scopes and empty enumerables.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "extensions-contracts",
+    "dependency-injection"
+  ],
+  "apis": [
+    "EmptyServiceProvider.Instance",
+    "IKeyedServiceProvider",
+    "IServiceProviderIsService",
+    "IServiceProviderIsKeyedService",
+    "IServiceScopeFactory"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 framework contracts on the demonstrated framework route.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no NuGet package route is claimed."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings console project; canonical types are called in the same assembly."
+          ],
+          "platforms": [
+            "Windows x64 managed execution measured; no other-platform or Native AOT execution."
+          ],
+          "providers": [
+            "EmptyServiceProvider; no application registrations."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "No application registrations; built-ins/scopes and empty closed enumerables remain available.",
+            "Native AOT value-type enumeration is unsupported here; managed JIT execution does not prove AOT compatibility."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/EmptyServiceProvider.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/CallSiteFactory.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/ref/Microsoft.Extensions.DependencyInjection.Abstractions.cs"
+        ],
+        "selectionNotes": [
+          "No application registrations; built-ins/scopes and empty closed enumerables remain available.",
+          "Native AOT value-type enumeration is unsupported here; managed JIT execution does not prove AOT compatibility."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MuseumServices/MuseumServices.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned dotnet-820230c3-src_runtime_src_libraries_Microsoft.Extensions.DependencyInjection.Abstractions_src_EmptyServiceProvider.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/src/EmptyServiceProvider.cs"
+    },
+    {
+      "title": "Official pinned 4099f839-Microsoft.Extensions.DependencyInjection/src/ServiceLookup/CallSiteFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/CallSiteFactory.cs"
+    },
+    {
+      "title": "Official pinned 820230c3-Microsoft.Extensions.DependencyInjection.Abstractions/ref/Microsoft.Extensions.DependencyInjection.Abstractions.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Microsoft.Extensions.DependencyInjection.Abstractions/ref/Microsoft.Extensions.DependencyInjection.Abstractions.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/MuseumServices/MuseumServices.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 managed JIT DI interface calls: absent/required/keyed services, built-ins/self queries, scopes/disposal, reference/value closed enumerables, open generics and AnyKey restrictions. No Native AOT, other-platform or GA execution."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/MuseumServices/MuseumServices.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 managed JIT DI interface calls: absent/required/keyed services, built-ins/self queries, scopes/disposal, reference/value closed enumerables, open generics and AnyKey restrictions. No Native AOT, other-platform or GA execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 managed JIT DI interface calls: absent/required/keyed services, built-ins/self queries, scopes/disposal, reference/value closed enumerables, open generics and AnyKey restrictions. No Native AOT, other-platform or GA execution. No interactive action or production resource required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/MuseumServices/MuseumRules.cs",
+      "region": "museum-rules",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/MuseumServices/MuseumRules.cs",
+      "region": "museum-rules",
+      "language": "csharp"
+    }
+  }
+}

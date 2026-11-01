@@ -1,6 +1,6 @@
 # Extensions API coverage: PIN-706
 
-Reviewed **21 October 2026**. This is a bounded artifact/source audit. Six additional delivery proposals await review; none is created or implemented. Closing the audit delivers no recipe and does not permit publication.
+Reviewed **21 October 2026**. This is a bounded artifact/source audit. The six proposals below preserve the original audit decisions. E1/E2 are now delivered by PIN-1112/PIN-1113; the original source/asset manifests remain authoritative. The [delivery source register](extensions-contracts.sources.json) pins the eight publisher sources rechecked by their consumer harness. Other proposals retain their tracked delivery obligations. Closing the audit delivers no recipe and does not permit publication.
 
 ## Scope and provenance
 
@@ -80,7 +80,7 @@ The asset manifest also retains obsoletions omitted from those non-default index
 
 ## Delivery proposals for review
 
-**Approval only: none created or implemented.** IDs below are proposed stable recipe identities, not published catalogue entries or allocated ticket numbers. Use the native **S (2) / M (3)** scale evidenced by this project's saved issues. Scope includes authoring, tests and verification, not only prose.
+**Original proposal record; E1/E2 delivered.** PIN-1112/PIN-1113 add the stable IDs below as 11.0 editions with original .NET10 comparisons. `eng/Test-ExtensionContracts.ps1` captures actual managed Windows x64 loading/DI checks, audit-matching references and compiler/runtime identities. [Installed inspection](../../inspect-guidance.md#environment-keys-and-empty-services) verifies canonical offline content. Named-key built-in availability queries differ between the old container and new empty provider; the recipe/tests preserve that measured distinction. AOT value-type enumeration remains unsupported; no native or GA proof is claimed. PIN-959/PIN-962 and existing Human gates remain open. The remaining entries retain their original bounded scope. Use the native **S (2) / M (3)** scale evidenced by this project's saved issues. Scope includes authoring, tests and verification, not only prose.
 
 Common prerequisites/acceptance for **each** proposal: exact .NET 10 SDK 10.0.402 / runtime 10.0.13 and .NET 11 SDK 11.0.100-rc.2.26504.105 / runtime 11.0.0-rc.2.26504.105; relevant actual packages at the versions above and locked dependency closure; PowerShell 7 and existing artifact/evidence/installed-tool harness. Keep comparison projects isolated under samples with separate shared-build/package boundaries; follow dependency policy. Author wholly original fictional-domain older/newer samples and complete offline prose/metadata, stable ID/edition, canonical snippets, explicit actual target/package/platform/language/stability requirements. Compile both real consumers; capture current evidence and execute the checks below. Build/pack/install the ordinary tool through an isolated local feed/cache; retrieve discovery ID/title/goal and full Markdown/applicability/evidence offline through real stdio from an unrelated directory. Update the register. A missing artifact, required behavior or Human proof blocks that delivery PR; RC evidence leaves GA/publication gates open. No recurring native/client matrix or publication is authorized.
 

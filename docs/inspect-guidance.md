@@ -2671,3 +2671,52 @@ Missing/stale proof or changed canonical content fails. No exact native memory
 reclamation timing, other-runtime/provider/platform, authorization, Native AOT
 collectible-type or final-GA proof is established. Eight foundations, PIN-959/
 PIN-962 and other Human gates remain open; no recurring matrix or publication.
+
+## Environment keys and empty services
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. ObservatoryVariables uses
+Microsoft.AspNetCore.App on both targets; MuseumServices uses it only on .NET10,
+with the .NET11 abstraction in the base framework. No NuGet dependencies,
+workloads, external provider, account or native toolchain is needed.
+
+Refresh changed evidence and verify eight immutable official sources:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fe1ad962'
+& ./eng/Test-ExtensionContracts.ps1 -Record -VerifySources
+```
+
+Expect four passing real consumers: environment loading in isolated child modes,
+exact leaf keys/values, prefix/case, underscore runs1–8, collisions and provider
+precedence; DI missing/required/keyed services, built-ins/self queries, scopes and
+sync/async disposal, closed reference/value enumerables, open generics and AnyKey.
+Records retain exact inputs/commands, dependencies, compiler/runtime/loaded
+Extensions identities and references matching the Extensions audit. Process/user/
+machine PATH and persistent user/machine environments must stay unchanged.
+
+This literal block is exercised from an unrelated directory. Build/pack may
+restore online; the exact ordinary package is installed from an isolated local-only
+feed/cache. Real installed stdio calls run from a temporary unrelated directory
+with unusable proxies, establishing proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fe1ad962'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1112-1113'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('configuration.transform-environment-keys','di.supply-empty-services') `
+  -Query 'extensions-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1112-1113' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/extensions-contracts/inspection
+```
+
+Expect one passing installed smoke, then both discovery IDs/titles/goals, full
+canonical Markdown, target11/edition11 applicability and fresh paired evidence.
+Structured/text responses agree; target10 returns no_applicable_edition. Missing/
+stale proof, changed snippet/body, unintended mapping or nonzero exit fails.
+Special connection-string handling, Native AOT value-type enumeration, other-platform
+and final-GA execution are not claimed. The eight foundations, PIN-959/PIN-962
+and existing Human gates remain open; no recurring native/client/OS matrix added.

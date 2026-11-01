@@ -1,0 +1,16 @@
+{
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/ExtensionContracts/ServiceChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ExtensionContracts.ps1",
+    ".editorconfig",
+    "docs/planning/audits/extensions-contracts.sources.json",
+    "docs/planning/audits/extensions.assets.json"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
