@@ -13,7 +13,7 @@
     "docs/planning/audits/proxy-responses.sources.json",
     "docs/planning/audits/runtime-security.assets.json",
     "docs/planning/audits/data-io.assets.json",
-    "samples/ProxyResponses/ReportReader.cs"
+    "samples/net11.0/CairnReports/ReportReader.cs"
   ],
   "workloads": [],
   "buildArguments": [],

@@ -2568,3 +2568,56 @@ snippets/body or nonzero exit fails. No other-provider/platform, file-content
 validation, upload safety, universal mapping stability or final-GA proof is
 established. The exact eight foundations, PIN-959/PIN-962 and other Human gates
 remain unchanged; no recurring native/client/OS matrix is added.
+
+## SOCKS hostnames and Zstandard responses
+
+Requires PowerShell7, Node.js, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. CairnRelay needs loopback
+TCP and a nonresolving relay.cairn.invalid name. CairnReports uses the runtime
+native codec on .NET11 and the explicitly pinned managed ZstdSharp.Port0.8.6
+lib/net9.0 asset on .NET10. No account, production service, system DNS/route,
+workload or external native zstd installation is needed. Restore may use network.
+Refresh changed consumer evidence with:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4093839d'
+& ./eng/Test-ProxyResponses.ps1 -Record -VerifySources
+```
+
+Expect four passing real consumers and ten matching immutable publisher sources.
+SOCKS checks receive ATYP3/hostname/port and connect to a real target, authenticate,
+reject method/auth/CONNECT failures and cancel negotiation. The old socks5 route
+works; its unsupported socks5h alias is rejected. HTTP checks negotiate actual
+zstd/gzip/deflate/br, verify bodies/headers, preserve the inner layer in both
+stacked orders, leave unknown outer encoding untouched, reject malformed zstd,
+cancel a stalled body and enforce the canonical reader's 64KiB decoded limit.
+The recorder verifies exact framework audit hashes, compiler/CoreLib/runtime,
+resolved package archive/selected/executed decoder and loaded native codec.
+PATH and persistent settings must remain unchanged. Any nonzero exit is failure.
+
+This literal block is verified from an unrelated starting directory. It builds/
+packs the ordinary tool and installs that exact artifact through a fresh local-only
+feed/cache, then calls real installed stdio list/get from an unrelated temporary
+directory. Build/restore may use network. Unusable retrieval proxies demonstrate
+proxy-independent offline content, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4093839d'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1104-1107'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('http.resolve-dns-through-socks-proxy','http.decode-zstandard-responses') `
+  -Query 'proxy-responses' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1104-1107' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/proxy-responses/inspection
+```
+
+Expect one passing installed smoke and both discovery IDs, reusable titles and
+explanatory goals, complete expanded canonical Markdown, target11/edition11,
+applicability and fresh paired evidence. JSON text and structured output agree;
+target10 returns no_applicable_edition. Missing/stale proof, changed snippet/body
+or nonzero exit fails. No other-platform/native-handler, production proxy,
+global DNS privacy or final-GA behavior is established. Eight foundations,
+PIN-959/PIN-962 and existing Human gates remain intact; no recurring matrix added.

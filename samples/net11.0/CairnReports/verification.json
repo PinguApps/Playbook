@@ -10,8 +10,7 @@
     ".editorconfig",
     "docs/planning/audits/proxy-responses.sources.json",
     "docs/planning/audits/runtime-security.assets.json",
-    "docs/planning/audits/data-io.assets.json",
-    "samples/ProxyResponses/ReportReader.cs"
+    "docs/planning/audits/data-io.assets.json"
   ],
   "workloads": [],
   "buildArguments": [],

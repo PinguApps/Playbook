@@ -1,0 +1,182 @@
+{
+  "id": "http.decode-zstandard-responses",
+  "edition": "11.0",
+  "title": "Decode Zstandard HTTP responses",
+  "goal": "Negotiate and decode Zstandard HTTP responses with cancellation and a decoded size budget; use when a server emits zstd, checking remaining stacked or unsupported encodings.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "proxy-responses",
+    "http",
+    "zstandard"
+  ],
+  "apis": [
+    "SocketsHttpHandler.AutomaticDecompression",
+    "DecompressionMethods.Zstandard",
+    "ZstandardStream",
+    "ZstdSharp.DecompressionStream"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build net11.0 against .NET 11 references; exact SDK11 RC2 is a separate tested baseline.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "The newer proxy spelling/automatic decoder requires the .NET 11 SocketsHttpHandler implementation.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0",
+            "reason": "Canonical net11.0 project explicitly selects C#15.0; the proxy/decompression API does not itself require new language syntax. This is the configured example route, not a minimum-language claim."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework System.Net.Http/System.Net.Primitives/System.IO.Compression; no NuGet backport route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings net11.0 application; copy canonical types into the same assembly.",
+            "Server supplying supported HTTP content codings; caller-owned total cancellation and decoded-output budget."
+          ],
+          "platforms": [
+            "SocketsHttpHandler on CoreCLR; Windows x64 executed, browser/mobile native handlers and other operating systems unverified."
+          ],
+          "providers": [
+            "No external provider; runtime-supplied native compression codec."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Only outermost supported coding is decoded; reject remaining unsupported/stacked encodings or decode them deliberately.",
+            "No .NET 10 framework backport; older manual ZstdSharp.Port 0.8.6 resolves lib/net9.0 and runs on real .NET 10.",
+            "64 KiB decoded budget does not bound all codec memory/CPU; caller owns deadlines and response disposal."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/DecompressionHandler.cs",
+          "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/README.md",
+          "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/src/ZstdSharp/ZstdSharp.csproj",
+          "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/src/ZstdSharp/DecompressionStream.cs"
+        ],
+        "selectionNotes": [
+          "Only outermost supported coding is decoded; reject remaining unsupported/stacked encodings or decode them deliberately.",
+          "No .NET 10 framework backport; older manual ZstdSharp.Port 0.8.6 resolves lib/net9.0 and runs on real .NET 10.",
+          "64 KiB decoded budget does not bound all codec memory/CPU; caller owns deadlines and response disposal."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CairnReports/CairnReports.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned publisher source 4099f83/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs"
+    },
+    {
+      "title": "Pinned publisher source 4099f83/System.IO.Compression/ref/System.IO.Compression.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs"
+    },
+    {
+      "title": "Pinned publisher source 820230c/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs"
+    },
+    {
+      "title": "Pinned publisher source 820230c/System.IO.Compression/ref/System.IO.Compression.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs"
+    },
+    {
+      "title": "Pinned publisher source 820230c/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/DecompressionHandler.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/DecompressionHandler.cs"
+    },
+    {
+      "title": "Pinned publisher source ZstdSharp-0.8.6/README.md",
+      "url": "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/README.md"
+    },
+    {
+      "title": "Pinned publisher source ZstdSharp-0.8.6/src/ZstdSharp/ZstdSharp.csproj",
+      "url": "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/src/ZstdSharp/ZstdSharp.csproj"
+    },
+    {
+      "title": "Pinned publisher source ZstdSharp-0.8.6/src/ZstdSharp/DecompressionStream.cs",
+      "url": "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/src/ZstdSharp/DecompressionStream.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/CairnReports/CairnReports.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real Windows x64 HTTP/1.1 negotiation, zstd/gzip/deflate/br/identity body and headers, both stacked orders, unsupported/malformed encoding and stalled-body cancellation; manual .NET 10 decoder, bounded reader. No other native-handler/platform, hostile-codec resource guarantee or GA proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/CairnReports/CairnReports.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real Windows x64 HTTP/1.1 negotiation, zstd/gzip/deflate/br/identity body and headers, both stacked orders, unsupported/malformed encoding and stalled-body cancellation; manual .NET 10 decoder, bounded reader. No other native-handler/platform, hostile-codec resource guarantee or GA proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real Windows x64 HTTP/1.1 negotiation, zstd/gzip/deflate/br/identity body and headers, both stacked orders, unsupported/malformed encoding and stalled-body cancellation; manual .NET 10 decoder, bounded reader. No other native-handler/platform, hostile-codec resource guarantee or GA proof. No interactive Human approval, production resource or new toolchain needed."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CairnReports/CairnReports.cs",
+      "region": "cairn-reports",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CairnReports/CairnReports.cs",
+      "region": "cairn-reports",
+      "language": "csharp"
+    },
+    "reader": {
+      "path": "samples/net11.0/CairnReports/ReportReader.cs",
+      "region": "read-report",
+      "language": "csharp"
+    }
+  }
+}
