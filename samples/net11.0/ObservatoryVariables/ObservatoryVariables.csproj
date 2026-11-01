@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <Compile Include="../../ExtensionContracts/VariableChecks.cs" Link="Checks.cs" />
+    <Compile Include="../../NetworkBuffers/RuntimeIdentity.cs" Link="RuntimeIdentity.cs" />
+  </ItemGroup>
+</Project>

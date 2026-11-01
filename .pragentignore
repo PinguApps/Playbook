@@ -424,3 +424,10 @@
 /samples/net11.0/TypeLedger/verification-evidence.json
 /samples/net10.0/PermitManifest/verification-evidence.json
 /samples/net11.0/PermitManifest/verification-evidence.json
+
+# Test-ExtensionContracts/Record-Evidence generated SDK/reference/command receipts.
+# Review consumers, interface/loading checks, pins and recorder; build/pack checks freshness.
+/samples/net10.0/ObservatoryVariables/verification-evidence.json
+/samples/net11.0/ObservatoryVariables/verification-evidence.json
+/samples/net10.0/MuseumServices/verification-evidence.json
+/samples/net11.0/MuseumServices/verification-evidence.json
