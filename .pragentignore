@@ -385,3 +385,11 @@
 /samples/net11.0/TypedDns/verification-evidence.json
 /samples/net10.0/TypedDns/linux.evidence.json
 /samples/net11.0/TypedDns/linux.evidence.json
+
+# Test-NetworkBuffers/Record-Evidence generated SDK/ref/native/command receipts.
+# Review canonical helpers, focused checks, pins, manifests and recorder;
+# ordinary build/pack checks saved input freshness and installed content.
+/samples/net10.0/RelayDial/verification-evidence.json
+/samples/net11.0/RelayDial/verification-evidence.json
+/samples/net10.0/EndpointLedger/verification-evidence.json
+/samples/net11.0/EndpointLedger/verification-evidence.json

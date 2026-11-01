@@ -1,0 +1,16 @@
+{
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "samples/NetworkBuffers/RelayChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-NetworkBuffers.ps1",
+    ".editorconfig",
+    "docs/planning/audits/network-buffers.sources.json",
+    "docs/planning/audits/runtime-security.assets.json"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

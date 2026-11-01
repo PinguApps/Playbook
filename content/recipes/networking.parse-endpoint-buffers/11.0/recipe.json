@@ -1,0 +1,158 @@
+{
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 IPv4/IPv6 endpoint spans, port limits/defaults, malformed/UTF8 failures, exact/large/short output and guards; current byte Parse/char format/generic interfaces. No allocation/performance/GA claim. No interactive approval or external service is needed."
+  },
+  "id": "networking.parse-endpoint-buffers",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pin records tested artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "language": {
+            "match": "exact",
+            "reason": "Declared canonical language mode; no preview syntax switch needed.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "packages": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no primary-route NuGet package."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Console net11.0 project with nullable and implicit usings; no package/workload.",
+            "Complete numeric endpoint UTF-8 field and caller-owned destination span."
+          ],
+          "platforms": [
+            "Shared framework text APIs; Windows x64 executed, other platforms unverified."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "optIns": [],
+          "renderingModes": [],
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "constraints": [
+            "Numeric IP endpoints, not DNS hostnames/URIs or streaming field framing; absent port means zero and bracket IPv6 with a port.",
+            "Short TryFormat returns false/zero written; destination interior may change. Only successful written prefix is payload.",
+            "Avoids intermediate text strings, not endpoint allocations. No speed/allocation benchmark claim."
+          ]
+        },
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/src/System/Net/IPEndPoint.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/src/System/Net/IPEndPoint.cs"
+        ],
+        "selectionNotes": [
+          "Numeric IP endpoints, not DNS hostnames/URIs or streaming field framing; absent port means zero and bracket IPv6 with a port.",
+          "Short TryFormat returns false/zero written; destination interior may change. Only successful written prefix is payload.",
+          "Avoids intermediate text strings, not endpoint allocations. No speed/allocation benchmark claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/EndpointLedger/EndpointLedger.csproj"
+        ],
+        "conditional": false,
+        "usage": "primary",
+        "target": "11.0"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83 System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs"
+    },
+    {
+      "title": "Official pinned 4099f83 System.Net.Primitives/src/System/Net/IPEndPoint.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/src/System/Net/IPEndPoint.cs"
+    },
+    {
+      "title": "Official pinned 820230c System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs"
+    },
+    {
+      "title": "Official pinned 820230c System.Net.Primitives/src/System/Net/IPEndPoint.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/src/System/Net/IPEndPoint.cs"
+    }
+  ],
+  "snippets": {
+    "newer": {
+      "region": "endpoint-text",
+      "path": "samples/net11.0/EndpointLedger/EndpointText.cs",
+      "language": "csharp"
+    },
+    "older": {
+      "region": "endpoint-text",
+      "path": "samples/net10.0/EndpointLedger/EndpointText.cs",
+      "language": "csharp"
+    }
+  },
+  "introducedIn": "11.0",
+  "goal": "Read and write numeric endpoints directly in caller-owned UTF-8 fields, checking parsing failures and destination lengths; use when the surrounding pipeline already owns byte buffers.",
+  "tags": [
+    "network-buffers",
+    "networking",
+    "utf8"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "supportedTargets": [
+    "11.0"
+  ],
+  "apis": [
+    "IPEndPoint.Parse",
+    "IPEndPoint.TryParse",
+    "IPEndPoint.TryFormat",
+    "IUtf8SpanParsable",
+    "IUtf8SpanFormattable"
+  ],
+  "stability": "stable",
+  "edition": "11.0",
+  "title": "Parse and format endpoints in UTF-8 buffers",
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/EndpointLedger/EndpointLedger.csproj",
+      "scope": "Actual Windows x64 .NET10 strict UTF8/string adapter: IPv4/IPv6, port limits/defaults, malformed/UTF8 rejection, exact/large/short output and guards. No new byte/char/interface API or performance/GA claim.",
+      "target": "net10.0",
+      "language": "14.0"
+    },
+    {
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/EndpointLedger/EndpointLedger.csproj",
+      "scope": "Actual Windows x64 IPv4/IPv6 endpoint spans, port limits/defaults, malformed/UTF8 failures, exact/large/short output and guards; current byte Parse/char format/generic interfaces. No allocation/performance/GA claim.",
+      "target": "net11.0",
+      "language": "15.0"
+    }
+  ],
+  "areas": [
+    "libraries"
+  ]
+}

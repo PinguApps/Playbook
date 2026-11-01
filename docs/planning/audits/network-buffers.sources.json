@@ -1,0 +1,60 @@
+{
+  "scope": "PIN-1090 R4 and PIN-1091 R5 bounded paired API and implementation qualification; source review is separate from consumer execution",
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Sockets/ref/System.Net.Sockets.cs",
+      "title": "Official pinned 4099f83 System.Net.Sockets/ref/System.Net.Sockets.cs",
+      "id": "4099f83-System.Net.Sockets.cs",
+      "sha256": "4562f916ffc55cc3e20987738446b12870c54c325efd2864a9834bf8f4b209e9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "title": "Official pinned 4099f83 System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "id": "4099f83-System.Net.Primitives.cs",
+      "sha256": "75bd6c9e9d5e01ab20580c682dbf0dd575208e9ff94828a7fa6b7cb2def920b0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/src/System/Net/IPEndPoint.cs",
+      "title": "Official pinned 4099f83 System.Net.Primitives/src/System/Net/IPEndPoint.cs",
+      "id": "4099f83-IPEndPoint.cs",
+      "sha256": "9368f8f71026a5299038b6f3fbc45e7d0bde9278c7df8e9282ec5add941d7321"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/Socket.cs",
+      "title": "Official pinned 4099f83 System.Net.Sockets/src/System/Net/Sockets/Socket.cs",
+      "id": "4099f83-Socket.cs",
+      "sha256": "15a624e8cbfe1ac754702c3d0ac3bcf8070545472b25b33d0388dbb71abbef7a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/ref/System.Net.Sockets.cs",
+      "title": "Official pinned 820230c System.Net.Sockets/ref/System.Net.Sockets.cs",
+      "id": "820230c-System.Net.Sockets.cs",
+      "sha256": "7922299ccdea91d96ada3e083f0efb3be01cf7b119cf602e5d57536b796ab851"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "title": "Official pinned 820230c System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "id": "820230c-System.Net.Primitives.cs",
+      "sha256": "5899fe351c8389bf1cf2c005e60e4ed0f1198644e18eab34c6313f38aa8a1900"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/src/System/Net/IPEndPoint.cs",
+      "title": "Official pinned 820230c System.Net.Primitives/src/System/Net/IPEndPoint.cs",
+      "id": "820230c-IPEndPoint.cs",
+      "sha256": "28dcb8569c33dd44116c7e0b252658fdc193e94fc43fb91dd71dc649e10079a8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/Socket.cs",
+      "title": "Official pinned 820230c System.Net.Sockets/src/System/Net/Sockets/Socket.cs",
+      "id": "820230c-Socket.cs",
+      "sha256": "8cb6b8ff7f8784434b38d3242d121deac0ee965c1dfb102e97b65a5e07187c18"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Sockets/src/System/Net/Sockets/SocketAsyncEventArgs.cs",
+      "title": "Official RC2 DNS resolution, sequential/parallel attempts and completion ownership",
+      "id": "820230c-SocketAsyncEventArgs.cs",
+      "sha256": "e6a25c4de016ace4cb8f6ac6469afa9769ba70468680796197daeac57605db10"
+    }
+  ]
+}
