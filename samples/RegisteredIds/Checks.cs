@@ -1,6 +1,9 @@
 using System.Formats.Asn1;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
 
 namespace Playbook.Samples;
 
@@ -13,6 +16,7 @@ internal static class Program
 
     public static void Main()
     {
+        AssertRuntimeBaseline();
         // Documentation arc: these identifiers are fictional, not assigned production identities.
         string[] identifiers = ["1.3.6.1.4.1.32473.41", "1.3.6.1.4.1.32473.42", "2.999.123456789012345678901234567890"];
         const string dns = "permit.reedbank.test";
@@ -66,5 +70,23 @@ internal static class Program
 #else
         return ManualSan.Create(dns, identifiers);
 #endif
+    }
+
+    private static void AssertRuntimeBaseline()
+    {
+        string coreLib = typeof(object).Assembly.Location;
+        Console.WriteLine("RUNTIME " + JsonSerializer.Serialize(new
+        {
+            framework = RuntimeInformation.FrameworkDescription,
+            coreLibPath = coreLib,
+            coreLibVersion = FileVersionInfo.GetVersionInfo(coreLib).ProductVersion,
+            coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(coreLib))).ToLowerInvariant(),
+        }));
+#if NET11_0_OR_GREATER
+        const string expected = ".NET 11.0.0-rc.2.26504.105";
+#else
+        const string expected = ".NET 10.0.13";
+#endif
+        Require(RuntimeInformation.FrameworkDescription == expected, "Runtime baseline drift: " + RuntimeInformation.FrameworkDescription + "; expected " + expected);
     }
 }

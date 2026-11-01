@@ -1,5 +1,9 @@
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text.Json;
 
 namespace Playbook.Samples;
 
@@ -12,6 +16,7 @@ internal static class Program
 
     public static async Task Main()
     {
+        AssertRuntimeBaseline();
         using var deadline = new CancellationTokenSource(TimeSpan.FromSeconds(30));
         await using var first = new AuthoritativeFixture(IPAddress.Loopback, "west", deadline.Token);
         await using var second = new AuthoritativeFixture(IPAddress.Parse("127.0.0.2"), "east", deadline.Token);
@@ -88,5 +93,23 @@ internal static class Program
         }
 #endif
         Console.WriteLine($"PASS {Environment.Version} {System.Runtime.InteropServices.RuntimeInformation.OSDescription}; authoritative UDP endpoints={first.Endpoint},{second.Endpoint}; A/AAAA/MX/TXT/CNAME/PTR/NS values and TTLs; NODATA/NXDOMAIN/SOA absent; two-server override; pre/in-flight cancellation; no public DNS or machine configuration edits.");
+    }
+
+    private static void AssertRuntimeBaseline()
+    {
+        string coreLib = typeof(object).Assembly.Location;
+        Console.WriteLine("RUNTIME " + JsonSerializer.Serialize(new
+        {
+            framework = RuntimeInformation.FrameworkDescription,
+            coreLibPath = coreLib,
+            coreLibVersion = FileVersionInfo.GetVersionInfo(coreLib).ProductVersion,
+            coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(coreLib))).ToLowerInvariant(),
+        }));
+#if NET11_0_OR_GREATER
+        const string expected = ".NET 11.0.0-rc.2.26504.105";
+#else
+        const string expected = ".NET 10.0.13";
+#endif
+        Require(RuntimeInformation.FrameworkDescription == expected, "Runtime baseline drift: " + RuntimeInformation.FrameworkDescription + "; expected " + expected);
     }
 }

@@ -2,6 +2,8 @@
 param(
   [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
   [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe',
+  [ValidateSet('RegisteredIdentifiers','TypedDns')]
+  [string[]]$SampleNames = @('RegisteredIdentifiers','TypedDns'),
   [switch]$Record,
   [switch]$VerifySources
 )
@@ -34,7 +36,7 @@ try {
     $dotnet = if ($variant -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
     $baseline = @($audit.baselines | Where-Object target -CEQ $variant)[0]
     $sdk = if ($variant -eq 'net10.0') { '10.0.402' } else { '11.0.100-rc.2.26504.105' }
-    foreach ($name in 'RegisteredIdentifiers','TypedDns') {
+    foreach ($name in $SampleNames) {
       $sample = "samples/$variant/$name/$name.csproj"
       $project = Join-Path $root $sample
       Push-Location (Split-Path $project)
@@ -50,6 +52,11 @@ try {
           Write-Host $output
         }
         if ($output -notmatch 'PASS ') { throw "Missing consumer result: $sample" }
+        $runtimeLines = @($output -split '\r?\n' | Where-Object { $_.StartsWith('RUNTIME ', [StringComparison]::Ordinal) })
+        if ($runtimeLines.Count -ne 1) { throw "Missing unique consumer runtime identity: $sample" }
+        $runtime = $runtimeLines[0].Substring(8) | ConvertFrom-Json
+        if ($runtime.framework -cne ".NET $($baseline.referencePack)") { throw "Runtime baseline drift: $sample executed $($runtime.framework)" }
+        if ((Get-FileHash -LiteralPath $runtime.coreLibPath).Hash.ToLowerInvariant() -cne $runtime.coreLibSha256) { throw 'Loaded CoreLib hash changed after execution.' }
         if ($name -eq 'RegisteredIdentifiers') { $der[$variant] = [regex]::Match($output,'DER=([A-F0-9]+)').Groups[1].Value }
         $pack = (& $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack | ConvertFrom-Json).Items.ResolvedTargetingPack |
           Where-Object Identity -CEQ 'Microsoft.NETCore.App'
@@ -64,7 +71,7 @@ try {
         }
         if ($name -eq 'RegisteredIdentifiers') { $artifacts += Join-Path $pack.Path "ref/$variant/System.Formats.Asn1.dll" }
         $artifacts += Join-Path (Split-Path $dotnet) "sdk/$sdk/Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll"
-        $artifacts += Join-Path (Split-Path $dotnet) "shared/Microsoft.NETCore.App/$($baseline.referencePack)/System.Private.CoreLib.dll"
+        $artifacts += $runtime.coreLibPath
         if ($name -eq 'TypedDns' -and $IsWindows) { $artifacts += Join-Path ([Environment]::SystemDirectory) 'dnsapi.dll' }
         if ($name -eq 'TypedDns' -and $variant -eq 'net10.0') {
           $assets = Get-Content obj/project.assets.json -Raw | ConvertFrom-Json -AsHashtable
@@ -79,7 +86,7 @@ try {
         $lines | ForEach-Object { Write-Host $_ }
         if ($Record) {
           $evidence.output += "`n" + ($lines -join "`n")
-          $evidence.command += "; $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack; compare selected reference SHA256 with runtime-security.assets.json; SHA256 compiler/CoreLib, DNSAPI or resolved/executed DnsClient net8.0 asset/archive as applicable"
+          $evidence.command += "; $dotnet msbuild $project -t:ResolveFrameworkReferences -p:Configuration=Release -getItem:ResolvedTargetingPack; compare selected reference SHA256 with runtime-security.assets.json; verify consumer-emitted framework and loaded CoreLib path/version/SHA256, reject runtime baseline drift; SHA256 compiler, DNSAPI or resolved/executed DnsClient net8.0 asset/archive as applicable"
           $evidence.scope = 'Real Windows x64 certificate SAN DER/invalid OID or authoritative loopback typed DNS records, TTL/status, two-server override and pre/in-flight cancellation. Exact paired audit references/compiler/runtime/package/native identities. Separate Linux record measures managed DNS negative TTL/custom port. No trust/connection, public zone, DNSSEC or GA proof.'
           [IO.File]::WriteAllText((Join-Path (Split-Path $project) 'verification-evidence.json'), ($evidence | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
         }
@@ -115,7 +122,7 @@ try {
       finally { Pop-Location }
     }
   }
-  if (-not $der['net10.0'] -or $der['net10.0'] -cne $der['net11.0']) { throw 'Paired SAN DER differs.' }
+  if ('RegisteredIdentifiers' -cin $SampleNames -and (-not $der['net10.0'] -or $der['net10.0'] -cne $der['net11.0'])) { throw 'Paired SAN DER differs.' }
   Write-Host 'PASS: paired identical certificate SAN DER and real Windows/Linux typed DNS behavior; PATH/persistent settings checked.'
 }
 finally {
