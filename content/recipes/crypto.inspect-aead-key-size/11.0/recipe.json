@@ -1,0 +1,170 @@
+{
+  "id": "crypto.inspect-aead-key-size",
+  "edition": "11.0",
+  "title": "Inspect an encryption instance's key size",
+  "goal": "Report the configured AES-GCM or AES-CCM key length in bytes; use when inspecting an existing instance without retaining duplicate size metadata.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "attachment-facts",
+    "cryptography",
+    "aead"
+  ],
+  "apis": [
+    "AesGcm.KeySizeInBytes",
+    "AesCcm.KeySizeInBytes",
+    "AesGcm.IsSupported",
+    "AesCcm.IsSupported"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no NuGet package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings console net11.0 project; canonical types called from the same assembly.",
+            "Actual AES-GCM and AES-CCM support for the modes used; unsupported platforms require an explicit alternative."
+          ],
+          "platforms": [
+            "Windows x64 CNG executed; other providers/platforms unverified."
+          ],
+          "providers": [
+            "Windows CNG positive execution; actual platform AES support required."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Key size is constructor metadata, not tag/nonce/ciphertext size, key quality or proof of a usable undisposed cipher.",
+            "Keep key/nonce uniqueness, authentication policy and cipher ownership. No FIPS/HSM/provider or performance guarantee."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/AesGcm.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/AesGcm.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AesGcm.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AesCcm.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AesCcm.Windows.cs"
+        ],
+        "selectionNotes": [
+          "Key size is constructor metadata, not tag/nonce/ciphertext size, key quality or proof of a usable undisposed cipher.",
+          "Keep key/nonce uniqueness, authentication policy and cipher ownership. No FIPS/HSM/provider or performance guarantee."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ParcelKeys/ParcelKeys.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Official pinned 820230c/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Official pinned 820230c/Common/src/System/Security/Cryptography/AesGcm.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/AesGcm.cs"
+    },
+    {
+      "title": "Official pinned 820230c/Common/src/System/Security/Cryptography/AesGcm.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/AesGcm.Windows.cs"
+    },
+    {
+      "title": "Official pinned 820230c/System.Security.Cryptography/src/System/Security/Cryptography/AesGcm.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AesGcm.cs"
+    },
+    {
+      "title": "Official pinned 820230c/System.Security.Cryptography/src/System/Security/Cryptography/AesCcm.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AesCcm.cs"
+    },
+    {
+      "title": "Official pinned 820230c/System.Security.Cryptography/src/System/Security/Cryptography/AesCcm.Windows.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/AesCcm.Windows.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ParcelKeys/ParcelKeys.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real Windows x64 CNG AES-GCM/CCM 16/24/32-byte keys, roundtrip/tamper/invalid-length/disposal checks; loaded native identities. No other-provider/platform or GA proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ParcelKeys/ParcelKeys.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real Windows x64 CNG AES-GCM/CCM 16/24/32-byte keys, roundtrip/tamper/invalid-length/disposal checks; loaded native identities. No other-provider/platform or GA proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real Windows x64 CNG AES-GCM/CCM 16/24/32-byte keys, roundtrip/tamper/invalid-length/disposal checks; loaded native identities. No other-provider/platform or GA proof. No interactive approval, production resource or new toolchain required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/ParcelKeys/ParcelKeyInfo.cs",
+      "region": "parcel-keys",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/ParcelKeys/ParcelKeyInfo.cs",
+      "region": "parcel-keys",
+      "language": "csharp"
+    }
+  }
+}

@@ -2520,3 +2520,51 @@ multi-field atomicity, performance, x86/other ABI, Native AOT, arbitrary ILGener
 marshalling or final-GA execution is established. The unsupported-dynamic-code
 branch is injected, not an execution on an unavailable runtime. PIN-959/PIN-962
 and existing Human gates remain open; no recurring native/client/OS matrix is added.
+
+## AEAD key size and file content type mappings
+
+Requires PowerShell7, Node.js and the existing SDK10.0.402/runtime10.0.13 and
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installations. ParcelKeys requires actual
+AES-GCM and AES-CCM support; both execute on Windows x64 CNG. AttachmentLabels
+uses only framework tables. No new package dependency, workload, native compiler,
+production key or external service is required. Refresh affected evidence with:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f8944b87'
+& ./eng/Test-AttachmentFacts.ps1 -Record -VerifySources
+```
+
+Expect four passing actual consumers, ten immutable source hashes and matching
+audit references/runtime/compiler identities. Key checks cover 16/24/32-byte keys,
+real GCM/CCM round trips/tampering, invalid lengths and metadata versus disposed
+operations, with loaded Windows CNG identities. Mapping checks cover string/span,
+casing/unknown/null/default, path/final-extension/query/whitespace/parameters and
+reverse ambiguity. Saved records use the existing input-freshness workflow.
+
+This literal block is tested from an unrelated starting directory. Build/pack
+may restore online. It installs that exact ordinary artifact through a fresh
+local-only feed/cache, then calls installed stdio list/get from an unrelated
+temporary directory with unusable proxies. This establishes proxy-independent
+offline retrieval, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f8944b87'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1102-1105'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('crypto.inspect-aead-key-size','mime.map-file-and-content-types') `
+  -Query 'attachment-facts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1102-1105' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/attachment-facts/inspection
+```
+
+Expect one passing installed smoke and both discovery IDs, reusable titles and
+explanatory goals, complete expanded canonical Markdown, target11/edition11,
+applicability and current paired evidence. Structured/text responses must agree;
+target10 returns no_applicable_edition. Missing/stale evidence, changed canonical
+snippets/body or nonzero exit fails. No other-provider/platform, file-content
+validation, upload safety, universal mapping stability or final-GA proof is
+established. The exact eight foundations, PIN-959/PIN-962 and other Human gates
+remain unchanged; no recurring native/client/OS matrix is added.

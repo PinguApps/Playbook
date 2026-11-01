@@ -401,3 +401,11 @@
 /samples/net11.0/StationFlags/verification-evidence.json
 /samples/net10.0/QuarryCalls/verification-evidence.json
 /samples/net11.0/QuarryCalls/verification-evidence.json
+
+# Test-AttachmentFacts/Record-Evidence generated SDK/ref/native/command receipts.
+# Review canonical consumers, checks, pins, manifests and recorder; ordinary
+# build/pack validates freshness and installed inspection checks served content.
+/samples/net10.0/ParcelKeys/verification-evidence.json
+/samples/net11.0/ParcelKeys/verification-evidence.json
+/samples/net10.0/AttachmentLabels/verification-evidence.json
+/samples/net11.0/AttachmentLabels/verification-evidence.json

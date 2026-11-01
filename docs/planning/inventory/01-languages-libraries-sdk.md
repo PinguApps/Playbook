@@ -384,6 +384,8 @@ and in the audit distinguish completed slices from outstanding drafts.
 
 | Goal | Authoring impact and actual artifacts | Disposition and evidence |
 | --- | --- | --- |
+| `crypto.inspect-aead-key-size` | .NET11 AesGcm/AesCcm KeySizeInBytes versus valid .NET10 constructor-length owners; framework-only, actual supported Windows CNG modes. | [PIN-1102 edition11.0](../../../content/recipes/crypto.inspect-aead-key-size/11.0/recipe.md): real paired 16/24/32-byte keys, roundtrip/tamper, invalid lengths and metadata/disposed-operation distinction. Fresh compiler/reference/runtime/native evidence and installed offline retrieval; no key-quality, other-provider/platform or GA claim. |
+| `mime.map-file-and-content-types` | .NET11 MediaTypeMap string/span extension/type lookups versus an original bounded .NET10 curated map; framework-only. | [PIN-1105 edition11.0](../../../content/recipes/mime.map-file-and-content-types/11.0/recipe.md): real paired casing/unknown/null/path/query/parameter cases and reverse ambiguity. Fresh evidence and installed offline retrieval; not file-content validation, upload safety, frozen mappings, other-platform path rules or GA proof. |
 | `certificates.encode-registered-identifiers` | .NET11 AddRegisteredId(string), correcting the audit draft's Oid spelling; .NET10 manual implicit [8] DER remains valid. Framework-only, ephemeral P-256 certificate round trip. | [PIN-1088 edition11.0](../../../content/recipes/certificates.encode-registered-identifiers/11.0/recipe.md): actual certificate SAN OID/tags/multiple values/DNS, byte equality and invalid OIDs; paired Windows compilation/execution and installed offline retrieval. No trust/identity/other-provider/GA claim. |
 | `dns.inspect-typed-records` | Framework .NET11 typed A/AAAA/MX/TXT/CNAME/PTR/NS versus actual DnsClient1.8.0/net8.0 on .NET10; SRV/shared envelope stays PIN-754. | [PIN-1089 edition11.0](../../../content/recipes/dns.inspect-typed-records/11.0/recipe.md): actual Windows/Linux authoritative loopback fields/TTLs, statuses/SOA negative TTL, server override and pre/in-flight cancellation. Exact images, commands and separate Linux records. No public zone/connection/system-resolver/GA claim. |
 | `sockets.race-dual-stack-connections` | .NET11 static event-args ConnectAlgorithm overload versus original .NET10 explicit address scheduling; framework-only, checked localhost answers and isolated IPv4/IPv6 listeners/refusals. | [PIN-1090 edition11.0](../../../content/recipes/sockets.race-dual-stack-connections/11.0/recipe.md): actual Windows Default/Parallel success/fallback/failure, selected-peer payload, event contract and cancellation/draining/cleanup. No fixed latency, WAN, DNS-outage or GA claim. |
@@ -408,6 +410,12 @@ retain their full obligations. Delivered PIN-742/744/749/750/751 subcases are
 distinguished from unverified overload/platform coverage. Unknown supported
 runtime-tooling routes remain explicit; audit closure clears no publication gate.
 Stable published recipe identities and the exact eight foundations are unchanged.
+
+Refresh ParcelKeys/AttachmentLabels with `eng/Test-AttachmentFacts.ps1 -Record -VerifySources`
+and [paired contracts/current implementations](../audits/attachment-facts.sources.json).
+The [installed walkthrough](../../inspect-guidance.md#aead-key-size-and-file-content-type-mappings)
+checks the exact ordinary artifact. Windows x64 RC2 evidence does not close
+PIN-959/PIN-962 or other pending Human/GA obligations.
 
 ## Exact eight approved .NET10 foundations: cross-reference only
 
