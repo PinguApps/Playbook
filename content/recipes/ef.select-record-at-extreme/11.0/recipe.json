@@ -30,7 +30,7 @@
       {
         "sourceUrls": [
           "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md#maxby-and-minby",
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew.md#maxby-and-minby",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#maxby-and-minby",
           "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/",
           "https://learn.microsoft.com/en-us/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database?view=sql-server-ver17",
           "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Query/Internal/QueryableMethodNormalizingExpressionVisitor.cs"
@@ -115,7 +115,7 @@
       "title": "Immutable official EF11 documentation"
     },
     {
-      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew.md#maxby-and-minby",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#maxby-and-minby",
       "title": "Official provider, database or translation reference"
     },
     {

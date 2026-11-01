@@ -29,7 +29,7 @@
       {
         "sourceUrls": [
           "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md#sql-server-compatibility-level-now-defaults-to-160",
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes.md#sql-server-compatibility-level-now-defaults-to-160",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#sql-server-compatibility-level-now-defaults-to-160",
           "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/",
           "https://learn.microsoft.com/en-us/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database?view=sql-server-ver17"
         ],
@@ -113,7 +113,7 @@
       "title": "Immutable official EF11 documentation"
     },
     {
-      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes.md#sql-server-compatibility-level-now-defaults-to-160",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes#sql-server-compatibility-level-now-defaults-to-160",
       "title": "Official provider, database or translation reference"
     },
     {

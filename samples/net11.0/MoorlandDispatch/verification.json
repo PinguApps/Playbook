@@ -29,8 +29,12 @@
   ],
   "workloads": [],
   "additionalInputs": [
+    ".editorconfig",
     "eng/Evidence.ps1",
-    "eng/Record-Evidence.ps1"
+    "eng/Record-Evidence.ps1",
+    "eng/SqlServer.ps1",
+    "eng/Test-SqlQueryGuidance.ps1",
+    "eng/sql-server/Dockerfile"
   ],
   "buildArguments": [],
   "nativeToolchains": []
