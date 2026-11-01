@@ -1,4 +1,4 @@
-#region reef-resolver
+// snippet:reef-resolver
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using Microsoft.Extensions.Validation;
@@ -96,4 +96,4 @@ internal static class ReefImport
     public static ValidateContext Context(IServiceProvider services, ValidationOptions options) => new()
     { ServiceProvider = services, ValidationOptions = options, CurrentValidationPath = "report" };
 }
-#endregion reef-resolver
+// endsnippet:reef-resolver

@@ -1,0 +1,22 @@
+{
+  "additionalInputs": [
+    "samples/ExtensionMetadata/ValidationChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ExtensionMetadata.ps1",
+    ".editorconfig",
+    "docs/planning/audits/extension-metadata.sources.json",
+    "docs/planning/audits/extensions.assets.json",
+    "samples/net11.0/ReefMaintenance/MaintenanceLedger.cs",
+    "samples/ExtensionMetadata/Diagnostics.cs"
+  ],
+  "buildArguments": [],
+  "workloads": [],
+  "dependencies": [
+    "Microsoft.Extensions.DependencyInjection/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Localization.Abstractions/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Validation/11.0.0-rc.2.26504.105"
+  ],
+  "nativeToolchains": []
+}

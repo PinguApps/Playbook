@@ -1,0 +1,284 @@
+{
+  "id": "validation.migrate-custom-metadata",
+  "edition": "11.0",
+  "title": "Migrate an authored validation resolver to new metadata contracts",
+  "goal": "Migrate a custom non-web validation resolver from abstract metadata bases to typed interfaces; preserve services, nested errors, cancellation and generated metadata.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "extension-metadata",
+    "validation"
+  ],
+  "apis": [
+    "IValidatableInfoResolver",
+    "IValidatableTypeInfo",
+    "IValidatablePropertyInfo",
+    "IValidatableParameterInfo",
+    "ValidateContext.ServiceProvider",
+    "ValidationError",
+    "ValidateContext.AddValidationError",
+    "ValidationOptions.LocalizerProvider"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 framework contracts on the demonstrated framework route.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [
+            {
+              "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
+              "name": "Microsoft.Extensions.Validation",
+              "match": "exact",
+              "version": "11.0.0-rc.2.26504.105"
+            },
+            {
+              "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
+              "name": "Microsoft.Extensions.DependencyInjection",
+              "match": "exact",
+              "version": "11.0.0-rc.2.26504.105"
+            },
+            {
+              "reason": "Pinned demonstrated package composition; no unverified version or backport route.",
+              "name": "Microsoft.Extensions.Localization.Abstractions",
+              "match": "exact",
+              "version": "11.0.0-rc.2.26504.105"
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Extensions.Validation 11.0.0-rc.2.26504.105 lib/net11.0 and its shipped generator; no net10 asset.",
+            "DependencyInjection 11 RC2 lib/net11.0; Localization.Abstractions 11 RC2 lib/net11.0; other moved abstractions from the base framework."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings console project; call internal helpers in the same assembly."
+          ],
+          "platforms": [
+            "Windows x64 managed execution measured; no other-platform or Native AOT execution."
+          ],
+          "providers": [
+            "Built-in DI with MaintenanceLedger; generated validation uses optional IStringLocalizerFactory."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "For generated validation: InterceptorsNamespaces includes Microsoft.Extensions.Validation.Generated and Microsoft.AspNetCore.Http.Validation.Generated."
+          ],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Bounded non-web TankReport/PumpReport resolver, not a general DataAnnotations engine or endpoint adapter.",
+            "No .NET 10 asset in the current Validation package. Older experimental ASP0029 contracts are comparison-only."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Shipped.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Unshipped.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidationsDiagnosticAnalyzer.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableInfoResolver.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableParameterInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatablePropertyInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableTypeInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidateContext.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationError.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationOptions.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationServiceCollectionExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/IValidatableInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/IValidatableInfoResolver.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatableParameterInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatablePropertyInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatableTypeInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidateContext.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidationOptions.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidationServiceCollectionExtensions.cs"
+        ],
+        "selectionNotes": [
+          "Bounded non-web TankReport/PumpReport resolver, not a general DataAnnotations engine or endpoint adapter.",
+          "No .NET 10 asset in the current Validation package. Older experimental ASP0029 contracts are comparison-only."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ReefMaintenance/ReefMaintenance.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "title": "Pinned official ValidationsGenerator.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Shipped.md",
+      "title": "Pinned official AnalyzerReleases.Shipped.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Unshipped.md",
+      "title": "Pinned official AnalyzerReleases.Unshipped.md"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidationsDiagnosticAnalyzer.cs",
+      "title": "Pinned official ValidationsDiagnosticAnalyzer.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "title": "Pinned official ValidationsGenerator.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs",
+      "title": "Pinned official ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableInfoResolver.cs",
+      "title": "Current validation IValidatableInfoResolver"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableParameterInfo.cs",
+      "title": "Current validation IValidatableParameterInfo"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatablePropertyInfo.cs",
+      "title": "Current validation IValidatablePropertyInfo"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableTypeInfo.cs",
+      "title": "Current validation IValidatableTypeInfo"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidateContext.cs",
+      "title": "Current validation ValidateContext"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationError.cs",
+      "title": "Current validation ValidationError"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationOptions.cs",
+      "title": "Current validation ValidationOptions"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationServiceCollectionExtensions.cs",
+      "title": "Current validation ValidationServiceCollectionExtensions"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/IValidatableInfo.cs",
+      "title": "Previous validation IValidatableInfo"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/IValidatableInfoResolver.cs",
+      "title": "Previous validation IValidatableInfoResolver"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatableParameterInfo.cs",
+      "title": "Previous validation ValidatableParameterInfo"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatablePropertyInfo.cs",
+      "title": "Previous validation ValidatablePropertyInfo"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatableTypeInfo.cs",
+      "title": "Previous validation ValidatableTypeInfo"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidateContext.cs",
+      "title": "Previous validation ValidateContext"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidationOptions.cs",
+      "title": "Previous validation ValidationOptions"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidationServiceCollectionExtensions.cs",
+      "title": "Previous validation ValidationServiceCollectionExtensions"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 non-web custom metadata, valid/invalid/nested type and parameter execution, required service, awaited completion/failure/cancellation. Current sync/property/structured errors, generated metadata, LocalizerProvider and isolated ASP0033/ASP0035/ASP0038 failing/fixed builds; old bases fail on current package and current package rejects net10. No endpoint/AOT/GA proof.",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ReefMaintenance/ReefMaintenance.csproj",
+      "target": "net10.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 non-web custom metadata, valid/invalid/nested type and parameter execution, required service, awaited completion/failure/cancellation. Current sync/property/structured errors, generated metadata, LocalizerProvider and isolated ASP0033/ASP0035/ASP0038 failing/fixed builds; old bases fail on current package and current package rejects net10. No endpoint/AOT/GA proof.",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ReefMaintenance/ReefMaintenance.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 non-web custom metadata, valid/invalid/nested type and parameter execution, required service, awaited completion/failure/cancellation. Current sync/property/structured errors, generated metadata, LocalizerProvider and isolated ASP0033/ASP0035/ASP0038 failing/fixed builds; old bases fail on current package and current package rejects net10. No endpoint/AOT/GA proof. No interactive action required."
+  },
+  "snippets": {
+    "older": {
+      "region": "reef-resolver",
+      "language": "csharp",
+      "path": "samples/net10.0/ReefMaintenance/ReefResolver.cs"
+    },
+    "newer": {
+      "region": "reef-resolver",
+      "language": "csharp",
+      "path": "samples/net11.0/ReefMaintenance/ReefResolver.cs"
+    },
+    "ledger": {
+      "region": "maintenance-ledger",
+      "language": "csharp",
+      "path": "samples/net11.0/ReefMaintenance/MaintenanceLedger.cs"
+    },
+    "host": {
+      "region": "reef-host",
+      "language": "csharp",
+      "path": "samples/net11.0/ReefMaintenance/ReefExample.cs"
+    },
+    "interceptors": {
+      "region": "interceptors",
+      "language": "xml",
+      "path": "samples/net11.0/ReefMaintenance/ReefMaintenance.csproj"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-#region reef-resolver
+// snippet:reef-resolver
 #pragma warning disable ASP0029 // Deliberate use of .NET 10 experimental metadata extension contracts.
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
@@ -69,4 +69,4 @@ internal static class ReefImport
     }
 }
 #pragma warning restore ASP0029
-#endregion reef-resolver
+// endsnippet:reef-resolver

@@ -64,6 +64,9 @@ internal static class Program
             var error = generatedContext.ValidationErrors!["report.Code"].Single();
             Require(error.Name == "Code" && error.Container == label && error.ErrorMessage == "Code required.", "Generated errors wrong");
         }
+#if !MISSING_REGISTRATION
+        Require((await ReefExample.CheckAsync(new TankReport(), default)).ValidationErrors is null or { Count: 0 }, "Canonical host failed");
+#endif
         await CheckLocalizationAsync(options);
 #else
         var valid = await ReefImport.CheckAsync(new(), services, default);

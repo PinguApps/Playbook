@@ -1,4 +1,4 @@
-#region archive-propagation
+// snippet:archive-propagation
 using System.Diagnostics;
 
 namespace Playbook.Samples;
@@ -15,4 +15,4 @@ internal static class ArchivePropagation
     public static string Format(ActivityContext context) =>
         $"00-{context.TraceId}-{context.SpanId}-{(byte)context.TraceFlags:x2}";
 }
-#endregion archive-propagation
+// endsnippet:archive-propagation

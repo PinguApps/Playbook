@@ -8,7 +8,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" /><PackageReference Include="Microsoft.Extensions.Options" />
     <PackageReference Include="Microsoft.Extensions.Validation" />
     <Compile Include="../../ExtensionMetadata/ValidationChecks.cs" Link="Checks.cs" />
-    <Compile Include="../../ExtensionMetadata/MaintenanceLedger.cs" Link="MaintenanceLedger.cs" />
+    <Compile Include="../../net11.0/ReefMaintenance/MaintenanceLedger.cs" Link="MaintenanceLedger.cs" />
     <Compile Include="../../NetworkBuffers/RuntimeIdentity.cs" Link="RuntimeIdentity.cs" />
   </ItemGroup>
 </Project>

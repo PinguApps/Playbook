@@ -1,3 +1,4 @@
+// snippet:maintenance-ledger
 // A bounded service with real asynchronous completion/cancellation, not a validation mock.
 namespace Playbook.Samples;
 
@@ -16,3 +17,4 @@ internal sealed class MaintenanceLedger
         await Decision.Task.WaitAsync(token);
     }
 }
+// endsnippet:maintenance-ledger
