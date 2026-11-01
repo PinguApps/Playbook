@@ -2,7 +2,7 @@ using Playbook.Samples;
 
 try
 {
-    
+
     {
         RuntimeIdentity.Assert();
         System.Reflection.Assembly assembly = typeof(Microsoft.Extensions.DependencyInjection.IServiceProviderIsService).Assembly;
