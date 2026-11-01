@@ -4,6 +4,8 @@ Reviewed **21 October 2026**. This is a bounded artifact/source audit. The six p
 
 ## Scope and provenance
 
+The declaration ownership manifest and its hash-coupled asset baseline preserve the original audit classification. Current delivery status is recorded in the E1–E6 sections below and the language/library inventory; delivering a proposal does not rewrite that historical baseline.
+
 [PIN-706](https://linear.app/pinguapps/issue/PIN-706), `SPEC.md` at `0a8989814ea11346354464b845c79c15bb71c5e9`, stories 47, 102, 158–160; approved proposal `b3778cc`, key `API_EXTENSIONS`. Read the full target, comments/attachments, historical spec/proposal, current planning README, implementation/coverage/verification plans, glossary, ADRs 0001–0004, contribution/dependency policies and existing inventories/audits. Root PLAN.md, CONTEXT.md and CONTEXT-MAP.md are absent. No explicit provenance pointer is unavailable. The planning statement that implementation has not started is stale; current samples, content and installed-tool infrastructure exist.
 
 Linear boundary: PinguApps team `62f80270-b641-4fa3-b60c-46be4c4df2c8`, Playbook project `b22380c7-6fde-49f4-8826-e5631dc5df7a`. The archived-inclusive, paginated overlap search returned **317** issues, each checked against both IDs. No native blocker exists. Full descriptions/comments for PIN-685, PIN-745–749 and PIN-689, and the full PIN-709/PIN-715 requirements, establish the boundaries below. No related issue is changed or declared satisfied.
