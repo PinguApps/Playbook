@@ -14,8 +14,7 @@
   "apis": [
     "PackageReference",
     "Microsoft.NETCore.App",
-    "NU1510",
-    "RestoreEnablePackagePruning"
+    "NU1510"
   ],
   "introducedIn": "11.0",
   "supportedTargets": [

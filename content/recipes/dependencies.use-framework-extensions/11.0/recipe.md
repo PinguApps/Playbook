@@ -125,8 +125,8 @@ multitarget library/consumer, retained implementation and newer override. It
 inspects real selected assets and package archive hashes, compiler/CoreLib and
 audit-matching framework references, executes framework-dependent published
 applications and verifies their dependencies, layout and loaded assemblies.
-The old selected net10 package assemblies identify audit commit4099f839; new
-framework assemblies identify820230c3. RC3 is confined to the override control.
+The old selected net10 package assemblies identify audit commit 4099f839; new
+framework assemblies identify commit 820230c3. RC3 is confined to the override control.
 
 The ordinary tool is packed, installed from an isolated local-only feed/cache
 and inspected over real stdio from an unrelated directory. Discovery, full
