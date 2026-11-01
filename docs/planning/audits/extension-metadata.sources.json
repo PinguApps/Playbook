@@ -1,0 +1,241 @@
+{
+  "sources": [
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "id": "dotnet-4099f839-src_runtime_src_libraries_System.Diagnostics.DiagnosticSource_src_System_Diagnostics_Activity.cs",
+      "sha256": "e539dde5f99d392949b95d460a6f67d4c15f0702bd7bcfed64631381650940eb",
+      "headings": [
+        "#pragma warning disable CA1825 // Array.Empty<T>() doesn't exist in all configurations",
+        "#pragma warning restore CA1825",
+        "#if NET",
+        "#else",
+        "#endif",
+        "#if NET",
+        "#else",
+        "#endif",
+        "#if W3C_DEFAULT_ID_FORMAT",
+        "#else",
+        "#endif // W3C_DEFAULT_ID_FORMAT",
+        "#pragma warning disable CA1822",
+        "#if DEBUG",
+        "#endif",
+        "#pragma warning restore CA1822",
+        "#if NET9_0_OR_GREATER",
+        "#else",
+        "#endif",
+        "#if NET9_0_OR_GREATER",
+        "#else",
+        "#endif",
+        "#if NET9_0_OR_GREATER",
+        "#else",
+        "#endif",
+        "#if NET9_0_OR_GREATER",
+        "#else",
+        "#endif",
+        "#if NET9_0_OR_GREATER",
+        "#else",
+        "#endif"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "id": "dotnet-4099f839-src_runtime_src_libraries_System.Diagnostics.DiagnosticSource_src_System_Diagnostics_ActivityContext.cs",
+      "sha256": "d11dd8045d7fe132dfcdb82473fd2cd4306a648a501ede5097c1f741263ef4f2",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "id": "dotnet-4099f839-src_runtime_src_libraries_System.Diagnostics.DiagnosticSource_src_System_Diagnostics_ActivitySource.cs",
+      "sha256": "7f0e6f2a38ed657689f8daddde903825340044d4361bc8863adb5580aaa23823",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "id": "dotnet-4099f839-src_aspnetcore_src_Validation_gen_ValidationsGenerator.cs",
+      "sha256": "60768a76ab7e9f3765f6d4ac698413c0ed796899ddf97c142d7c1f7f3a231923",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "id": "dotnet-820230c3-src_runtime_src_libraries_System.Diagnostics.DiagnosticSource_src_System_Diagnostics_Activity.cs",
+      "sha256": "70cb13d2d6ba837c884f00556a6f67c90141f5ef660d24f4605c5c84a0fc4f8f",
+      "headings": [
+        "#pragma warning disable CA1825 // avoid the extra generic instantiation for Array.Empty<T>()",
+        "#pragma warning restore CA1825",
+        "#if NET",
+        "#else",
+        "#endif",
+        "#if NET",
+        "#else",
+        "#endif",
+        "#if W3C_DEFAULT_ID_FORMAT",
+        "#else",
+        "#endif // W3C_DEFAULT_ID_FORMAT",
+        "#pragma warning disable CA1822",
+        "#if DEBUG",
+        "#endif",
+        "#pragma warning restore CA1822"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "id": "dotnet-820230c3-src_runtime_src_libraries_System.Diagnostics.DiagnosticSource_src_System_Diagnostics_ActivityContext.cs",
+      "sha256": "29b311c5683095062118d65d3df074f9faa33f2f79acace03a1e70b5f8b3b273",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "id": "dotnet-820230c3-src_runtime_src_libraries_System.Diagnostics.DiagnosticSource_src_System_Diagnostics_ActivitySource.cs",
+      "sha256": "80cd4481925995a7966e6669449d211ee21e1aaba7be76440dff9dbe090cd86a",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/aspnetcore/src/Validation/gen/AnalyzerReleases.Shipped.md",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Shipped.md",
+      "id": "dotnet-820230c3-src_aspnetcore_src_Validation_gen_AnalyzerReleases.Shipped.md",
+      "sha256": "2f05f7af0cf68524f74754a236e7cd4b5123ae10c00f5c9dff0a560252fb884b",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/aspnetcore/src/Validation/gen/AnalyzerReleases.Unshipped.md",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/AnalyzerReleases.Unshipped.md",
+      "id": "dotnet-820230c3-src_aspnetcore_src_Validation_gen_AnalyzerReleases.Unshipped.md",
+      "sha256": "a93b947ef1a08178947b5993ff3907a0683b99ab6b5bbfbe87927403711c378b",
+      "headings": [
+        "### New Rules"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/aspnetcore/src/Validation/gen/Analyzers/ValidationsDiagnosticAnalyzer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidationsDiagnosticAnalyzer.cs",
+      "id": "dotnet-820230c3-src_aspnetcore_src_Validation_gen_Analyzers_ValidationsDiagnosticAnalyzer.cs",
+      "sha256": "eed48fc0d66881869fbb2f882605a76304a9088bf8d57e0661f686a4da5ff388",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/ValidationsGenerator.cs",
+      "id": "dotnet-820230c3-src_aspnetcore_src_Validation_gen_ValidationsGenerator.cs",
+      "sha256": "f4367786734ab69fe2d5c61bf7d2bb9d975916842018441e247acd3247b41b2e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/aspnetcore/src/Validation/gen/Analyzers/ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/gen/Analyzers/ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs",
+      "id": "dotnet-820230c3-src_aspnetcore_src_Validation_gen_Analyzers_ValidatableTypeInGeneratedCodeDiagnosticAnalyzer.cs",
+      "sha256": "d9a2ab8124664c276e7ea1f47b9b91c9a6a9a03c54263555e6d20fc623068e62",
+      "headings": []
+    },
+    {
+      "id": "new-IValidatableInfoResolver",
+      "sha256": "b123303ece8e56d6892deb7c0cf784c5572a8ae4063bc67d2978d94523ee8c46",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableInfoResolver.cs"
+    },
+    {
+      "id": "new-IValidatableParameterInfo",
+      "sha256": "898f09b2eb9d7665e5521625752a542a7d20ccf95f096135b01766b2ed33a16e",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableParameterInfo.cs"
+    },
+    {
+      "id": "new-IValidatablePropertyInfo",
+      "sha256": "98ff623438c2ad3b17f401fc78e3e48b71c15192e3048ede2cd3921f659b1d03",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatablePropertyInfo.cs"
+    },
+    {
+      "id": "new-IValidatableTypeInfo",
+      "sha256": "b966568a26db6248c9793839fca8edd1199f1e10120ae64e6d45ca7db269a77e",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/IValidatableTypeInfo.cs"
+    },
+    {
+      "id": "new-ValidateContext",
+      "sha256": "3a23c9b9cdca34e77988e33f8ccd6906eb8a6cf056db6ebb2e7174f3fec726fd",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidateContext.cs"
+    },
+    {
+      "id": "new-ValidationError",
+      "sha256": "0f49bc45413b1fc5f0c2f478e79f6606a640b86cf77e2d41310962e9be80d691",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationError.cs"
+    },
+    {
+      "id": "new-ValidationOptions",
+      "sha256": "e28e51deea7b3f246ff048708673f2e40f12f11c294952c4926712bafdd62644",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationOptions.cs"
+    },
+    {
+      "id": "new-ValidationServiceCollectionExtensions",
+      "sha256": "66867e1f3379afcf07efd5f899f71838d0dc7b58743202107dc3a83736bcb8fa",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/aspnetcore/src/Validation/src/ValidationServiceCollectionExtensions.cs"
+    },
+    {
+      "id": "old-IValidatableInfo",
+      "sha256": "95f731dcb98c89a3f3176d366ad20ad545b264045f9eb3cd680f20b2971569a4",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/IValidatableInfo.cs"
+    },
+    {
+      "id": "old-IValidatableInfoResolver",
+      "sha256": "a38ba43967d4f55f7933bea79b2fc610b2f051f2cd7ed7ef6899854ef40462ff",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/IValidatableInfoResolver.cs"
+    },
+    {
+      "id": "old-ValidatableParameterInfo",
+      "sha256": "cbf043acd5cd8ad8888ab1e02438a90e5ba4f2d35ed5415b46995b3d4ac1fdc7",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatableParameterInfo.cs"
+    },
+    {
+      "id": "old-ValidatablePropertyInfo",
+      "sha256": "b20378ea3c57f8b35f1a315a121c11f8838e4b58cf16d04b2cce8f19c6c001d5",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatablePropertyInfo.cs"
+    },
+    {
+      "id": "old-ValidatableTypeInfo",
+      "sha256": "31a66ef6a53d5811b63828d39302bd177b7c2623645826970f20a13a8ede0538",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidatableTypeInfo.cs"
+    },
+    {
+      "id": "old-ValidateContext",
+      "sha256": "ca0600a662e3d8d1bdfa7dd335be64ca95b38f66ab367e5e85e4995ab9167311",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidateContext.cs"
+    },
+    {
+      "id": "old-ValidationOptions",
+      "sha256": "dd256fbba8ddd48ed8bf1d02cddb0dfa3033bfe3b43c41e99436f64ef31f6e06",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidationOptions.cs"
+    },
+    {
+      "id": "old-ValidationServiceCollectionExtensions",
+      "sha256": "57e2ee494487da8116422610992057fd90b0c9f9d1952760dd040076b2a6d4a6",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/aspnetcore/src/Validation/src/ValidationServiceCollectionExtensions.cs"
+    }
+  ]
+}

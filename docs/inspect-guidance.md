@@ -4,6 +4,52 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Custom validation metadata and trace randomness
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. ReefMaintenance pins actual
+Validation/DI packages; ArchiveStages uses framework APIs. No web host, workload,
+device, collector, account or persistent environment change is required.
+
+Refresh the four original consumers and verify immutable official source hashes:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-0fc07321'
+& ./eng/Test-ExtensionMetadata.ps1 -Record -VerifySources
+```
+
+Expect valid/invalid/nested metadata checks, exact current structured errors,
+services/completion/failure/cancellation, generated/localized metadata and expected
+old-base/net10/ASP0033/ASP0035/ASP0038 compile failures with successful canonical
+controls. Trace checks cover all four flag combinations, parse/format, both
+recording decisions, inherited context/string/direct parents, default/custom roots
+and cleanup. Package/generator/reference/compiler/runtime identities match saved
+artifacts; PATH and persistent settings must remain unchanged.
+
+This block is tested from an unrelated starting directory. It builds/packs the
+ordinary tool, installs that exact artifact through an isolated local-only
+feed/cache, and calls real installed stdio list/get from an unrelated temporary
+directory. It prints discovery ID/title/goal, complete canonical Markdown,
+target11/edition11, applicability and fresh paired evidence:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-0fc07321'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('validation.migrate-custom-metadata','tracing.preserve-randomness-metadata') `
+  -Query 'extension-metadata' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1115-1117' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/extension-metadata/inspection'
+```
+
+Expect two complete entries and final exact-artifact PASS. Target10 returns
+no_applicable_edition. Missing/stale evidence, canonical snippet/body drift or
+applicability changes fail. Unusable proxies during retrieval prove proxy
+independence, not OS-level network isolation. No endpoint/collector, random-quality,
+AOT/other-platform or final-GA proof is claimed. Exact eight foundations,
+existing Human gates and PIN-959/PIN-962 remain unchanged/open.
+
 ## Dual-stack connections and endpoint buffers
 
 Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate

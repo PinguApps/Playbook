@@ -1,0 +1,16 @@
+{
+  "additionalInputs": [
+    "samples/ExtensionMetadata/TraceChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ExtensionMetadata.ps1",
+    ".editorconfig",
+    "docs/planning/audits/extension-metadata.sources.json",
+    "docs/planning/audits/extensions.assets.json"
+  ],
+  "buildArguments": [],
+  "workloads": [],
+  "dependencies": [],
+  "nativeToolchains": []
+}

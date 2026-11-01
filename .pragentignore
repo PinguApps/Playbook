@@ -439,3 +439,11 @@
 /samples/net11.0/CelestialSchedule/verification-evidence.json
 /samples/net10.0/BorealSignals/verification-evidence.json
 /samples/net11.0/BorealSignals/verification-evidence.json
+
+# Test-ExtensionMetadata/Record-Evidence generated build/runtime/asset receipts.
+# Review canonical consumers, isolated compiler probes, locks and recorder instead;
+# build/pack freshness and installed inspection validate these serialized observations.
+/samples/net10.0/ArchiveStages/verification-evidence.json
+/samples/net11.0/ArchiveStages/verification-evidence.json
+/samples/net10.0/ReefMaintenance/verification-evidence.json
+/samples/net11.0/ReefMaintenance/verification-evidence.json

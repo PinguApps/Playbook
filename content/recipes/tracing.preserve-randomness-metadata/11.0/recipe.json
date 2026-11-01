@@ -1,0 +1,165 @@
+{
+  "id": "tracing.preserve-randomness-metadata",
+  "edition": "11.0",
+  "title": "Preserve trace randomness independently of recording",
+  "goal": "Preserve trace randomness metadata while forwarding activity context or changing recording decisions; distinguish inherited flags, default roots and custom generators.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "extension-metadata",
+    "tracing"
+  ],
+  "apis": [
+    "ActivityTraceFlags.RandomTraceId",
+    "Activity.HasRandomizedTraceId",
+    "ActivityContext",
+    "ActivitySource",
+    "ActivityListener",
+    "Activity.TraceIdGenerator"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 framework contracts on the demonstrated framework route.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "System.Diagnostics.DiagnosticSource from the .NET 11 framework; no package route claimed."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings console project; call internal helpers in the same assembly."
+          ],
+          "platforms": [
+            "Windows x64 managed execution measured; no other-platform or Native AOT execution."
+          ],
+          "providers": [
+            "In-process ActivityListener; no collector or exporter."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "RandomTraceId describes generation metadata independently of Recorded; do not infer random quality from a small sample.",
+            "Custom deterministic generators must not be marked random. Global generator changes require exclusive ownership and restoration."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs"
+        ],
+        "selectionNotes": [
+          "RandomTraceId describes generation metadata independently of Recorded; do not infer random quality from a small sample.",
+          "Custom deterministic generators must not be marked random. Global generator changes require exclusive ownership and restoration."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ArchiveStages/ArchiveStages.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "title": "Pinned official Activity.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "title": "Pinned official ActivityContext.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "title": "Pinned official ActivitySource.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/Activity.cs",
+      "title": "Pinned official Activity.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivityContext.cs",
+      "title": "Pinned official ActivityContext.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Diagnostics.DiagnosticSource/src/System/Diagnostics/ActivitySource.cs",
+      "title": "Pinned official ActivitySource.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 four-bit combinations, ActivityContext parse/format, Activity/ActivitySource/listener context/string parents, sampling changes to Recorded, default/custom roots and static/listener cleanup. No network collector, statistical randomness quality, other-platform or GA proof.",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ArchiveStages/ArchiveStages.csproj",
+      "target": "net10.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 four-bit combinations, ActivityContext parse/format, Activity/ActivitySource/listener context/string parents, sampling changes to Recorded, default/custom roots and static/listener cleanup. No network collector, statistical randomness quality, other-platform or GA proof.",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ArchiveStages/ArchiveStages.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 four-bit combinations, ActivityContext parse/format, Activity/ActivitySource/listener context/string parents, sampling changes to Recorded, default/custom roots and static/listener cleanup. No network collector, statistical randomness quality, other-platform or GA proof. No interactive action required."
+  },
+  "snippets": {
+    "newer": {
+      "region": "archive-propagation",
+      "language": "csharp",
+      "path": "samples/net11.0/ArchiveStages/ArchivePropagation.cs"
+    },
+    "older": {
+      "region": "archive-propagation",
+      "language": "csharp",
+      "path": "samples/net10.0/ArchiveStages/ArchivePropagation.cs"
+    }
+  }
+}
