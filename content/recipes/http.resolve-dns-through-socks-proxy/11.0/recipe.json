@@ -48,7 +48,7 @@
             "match": "exact",
             "name": "C#",
             "version": "15.0",
-            "reason": "Canonical net11.0 project explicitly selects C#15.0; the proxy/decompression API does not itself require new language syntax. This is the configured example route, not a minimum-language claim."
+            "reason": "Canonical net11.0 project explicitly selects C#15.0; the proxy API does not itself require new language syntax. This is the configured example route, not a minimum-language claim."
           },
           "frameworks": [
             "Microsoft.NETCore.App 11 shared framework"

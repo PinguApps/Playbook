@@ -155,7 +155,7 @@
       "target": "net11.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
-      "scope": "Real Windows x64 HTTP/1.1 negotiation, zstd/gzip/deflate/br/identity body and headers, both stacked orders, unsupported/malformed encoding and stalled-body cancellation; manual .NET 10 decoder, bounded reader. No other native-handler/platform, hostile-codec resource guarantee or GA proof."
+      "scope": "Real Windows x64 HTTP/1.1 negotiation, zstd/gzip/deflate/br/identity body and headers, both stacked orders, unsupported/malformed encoding and stalled-body cancellation; framework automatic decoder, bounded reader. No other native-handler/platform, hostile-codec resource guarantee or GA proof."
     }
   ],
   "humanProof": {
