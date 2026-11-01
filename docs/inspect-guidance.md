@@ -2720,3 +2720,55 @@ stale proof, changed snippet/body, unintended mapping or nonzero exit fails.
 Special connection-string handling, Native AOT value-type enumeration, other-platform
 and final-GA execution are not claimed. The eight foundations, PIN-959/PIN-962
 and existing Human gates remain open; no recurring native/client/OS matrix added.
+
+## Framework Extensions references and event provider identity
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. CelestialSchedule pins nine
+Extensions10.0.13 packages on net10; net11 uses only the base framework. Supporting
+controls pin Physical11RC2 and Logging.Abstractions11RC3 without upgrading the
+baseline. BorealSignals uses framework EventSource only. No workload, account,
+external service, native collector or production resource is needed.
+
+Refresh affected sample evidence and recheck the three immutable publisher sources:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-bec213fd'
+& ./eng/Test-ExtensionIdentity.ps1 -Record -VerifySources
+```
+
+Expect four passing actual primary consumers, missing-reference compile failures,
+exact/minimum NU1510 controls, both multitarget library executions, retained Physical
+implementation, RC3 override loading and two real framework-dependent published
+consumers. Listener checks verify both new constructors, payload/identity/traits/
+settings, disable/dispose, duplicate lifetime, ConstructionException versus thrown
+settings errors and write-error policy. Records retain exact commands/inputs,
+resolved dependencies, archive hashes, selected/executed assets and compiler/
+CoreLib/reference identities. PATH/persistent settings must stay unchanged.
+
+This block is tested from an unrelated directory. It builds/packs the ordinary
+tool, installs that exact artifact from an isolated local-only feed/cache and
+calls installed stdio list/get from an unrelated temporary directory. Restore may
+use network. Unusable retrieval proxies establish proxy independence, not network
+isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-bec213fd'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1114-1116'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('dependencies.use-framework-extensions','diagnostics.choose-event-provider-identity') `
+  -Query 'extension-identity' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1114-1116' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/extension-identity/inspection
+```
+
+Expect one passing installed smoke and both discovery IDs, reusable titles/goals,
+complete canonical Markdown, target11/edition11 applicability and fresh paired
+evidence. Structured/text responses agree; target10 returns no_applicable_edition.
+Missing/stale proof or changed canonical content fails. No ETW/EventPipe, native/
+AOT, self-contained/single-file, other-platform or final-GA execution is claimed.
+The eight foundations, PIN-959/PIN-962 and existing Human gates remain open; no
+recurring native/client/OS matrix is added.
