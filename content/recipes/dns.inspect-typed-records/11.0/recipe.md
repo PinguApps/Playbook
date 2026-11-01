@@ -21,6 +21,10 @@ field list: an address; MX exchange then decimal preference; each TXT string;
 or the single alias/reverse/server name. Records stays separate from Status and
 NegativeTtl. ReverseName means the PTR query kind, not a memory pointer.
 
+Copy each snippet into its own source file. The regions include the required
+framework/package imports and Playbook.Samples namespace. Add `using Playbook.Samples;`
+to the calling file; implicit console imports alone do not supply DNS namespaces.
+
 {{snippet:model}}
 
 ## Older approach
@@ -127,5 +131,8 @@ host resolver/trust configuration or persistent setting is changed.
 Refresh with eng/Test-IdentityRecords.ps1 -Record -VerifySources. Saved records
 retain exact commands/inputs, resolved package/archive/executed assembly, compiler,
 CoreLib, audit-matching name-resolution references and Windows DNSAPI identity.
+The consumer emits its loaded CoreLib path/version/hash and rejects a runtime
+outside the declared verification baseline before evidence can be saved. This
+fixture pin is separate from the recipe's release-family requirements.
 RC2 is not GA proof. PIN-959, PIN-962 and existing Human gates remain open, with
 exactly eight foundations and no new recurring OS/client/native matrix.

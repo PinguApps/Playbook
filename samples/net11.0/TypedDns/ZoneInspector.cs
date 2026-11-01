@@ -1,9 +1,9 @@
+// snippet:typed-inspector
 using System.Net;
 using System.Net.Sockets;
 
 namespace Playbook.Samples;
 
-// snippet:typed-inspector
 public sealed class ZoneInspector : IDisposable
 {
     private readonly DnsResolver _resolver;

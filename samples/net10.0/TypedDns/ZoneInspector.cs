@@ -1,10 +1,10 @@
+// snippet:package-inspector
 using System.Net;
 using DnsClient;
 using DnsClient.Protocol;
 
 namespace Playbook.Samples;
 
-// snippet:package-inspector
 public sealed class ZoneInspector : IDisposable
 {
     private readonly LookupClient _resolver;
