@@ -73,8 +73,12 @@ internal static class Program
         try { Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, invalid, (ConnectAlgorithm)42); throw new InvalidOperationException("Invalid algorithm accepted."); }
         catch (ArgumentException) { Console.WriteLine("INVALID algorithm rejected"); }
 #else
+        using var refused = new Socket(AddressFamily.InterNetworkV6, SocketType.Stream, ProtocolType.Tcp);
+        refused.DualMode = true;
+        refused.Bind(new IPEndPoint(IPAddress.IPv6Any, 0));
+        int refusedPort = ((IPEndPoint)refused.LocalEndPoint!).Port;
         using var during = new CancellationTokenSource();
-        Task<Socket> waiting = RelayConnector.RaceAsync([IPAddress.IPv6Loopback, IPAddress.Loopback], 1, TimeSpan.FromSeconds(30), during.Token);
+        Task<Socket> waiting = RelayConnector.RaceAsync([IPAddress.IPv6Loopback, IPAddress.Loopback], refusedPort, TimeSpan.FromSeconds(30), during.Token);
         await during.CancelAsync();
         try { using Socket ignored = await waiting; throw new InvalidOperationException("In-flight cancellation ignored."); }
         catch (OperationCanceledException) { Console.WriteLine("CANCEL scheduled attempts drained/disposed"); }
