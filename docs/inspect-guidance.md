@@ -46,6 +46,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-30a070b6'
   -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
   -Node 'C:\Program Files\nodejs\node.exe' `
   -OutputDirectory './artifacts/identity-records/inspection'
+& ./eng/Test-IdentityRecordSnippets.ps1
 ```
 
 Expect one passing installed smoke, both discovery IDs/titles/explanatory goals,
@@ -57,6 +58,14 @@ certificate checks. No trust, network identity validation, public resolver,
 other-platform/native matrix or GA verification is claimed. The string signature
 corrects the audit draft's Oid spelling. SRV selection stays in the existing recipe;
 eight foundations, PIN-959/PIN-962 and existing Human gates remain unchanged/open.
+
+The final snippet check copies only the installed Markdown code blocks into four
+fresh pinned console consumers, one source file per block, and runs certificate
+export/read-back or a real local DNS query. It supplies no missing imports to the
+copied snippets; all required imports and namespaces are inside their canonical
+regions. The temporary projects/sockets are removed. Source evidence separately
+prints the loaded consumer CoreLib path/version/hash and rejects runtime baseline
+drift before saving; verification pins are not additional application requirements.
 
 ## Value-based JSON classification and message authenticators
 

@@ -82,7 +82,7 @@ Console.WriteLine("PASS copied DNS snippets " + System.Runtime.InteropServices.R
       finally { Pop-Location }
     }
   }
-  Write-Host 'PASS: actual installed certificate/DNS snippets compile and execute as separate copied files on both targets.'
+  Write-Host "PASS: installed snippets for $($RecipeId -join ', ') compile and execute as separate copied files on both targets."
 }
 finally {
   if (Test-Path -LiteralPath $session) {

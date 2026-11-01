@@ -123,7 +123,7 @@ try {
     }
   }
   if ('RegisteredIdentifiers' -cin $SampleNames -and (-not $der['net10.0'] -or $der['net10.0'] -cne $der['net11.0'])) { throw 'Paired SAN DER differs.' }
-  Write-Host 'PASS: paired identical certificate SAN DER and real Windows/Linux typed DNS behavior; PATH/persistent settings checked.'
+  Write-Host "PASS: selected paired consumers ($($SampleNames -join ', ')), audit artifacts and measured runtime identities; PATH/persistent settings checked."
 }
 finally {
   foreach ($key in $previous.Keys) { [Environment]::SetEnvironmentVariable($key,$previous[$key]) }
