@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <!-- snippet:schedule-project -->
-  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
-  <!-- endsnippet:schedule-project -->
+  <PropertyGroup>
+    <LangVersion>15.0</LangVersion>
+    <!-- snippet:schedule-project -->
+    <TargetFramework>net11.0</TargetFramework>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- endsnippet:schedule-project -->
+  </PropertyGroup>
   <ItemGroup Condition="'$(RetainReferences)' == 'true'"><PackageReference Include="Microsoft.Extensions.Caching.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />

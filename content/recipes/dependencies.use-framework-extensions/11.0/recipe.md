@@ -10,12 +10,16 @@ These project edits apply to C#, F# and VB; the executable checks use C#.
 ## Older approach
 
 A plain .NET10 console application needs these nine packages when it has no
-ASP.NET shared-framework reference. Keep that working route for net10.0:
+ASP.NET shared-framework reference. Set these properties inside the project's
+PropertyGroup, under `<Project Sdk="Microsoft.NET.Sdk">`:
 
 {{snippet:older}}
 
-This fragment belongs inside `<Project Sdk="Microsoft.NET.Sdk">`. Its separate
-Directory.Packages.props enables central versions and pins **each** listed package
+Add these package references as a sibling of PropertyGroup inside that Project:
+
+{{snippet:packages}}
+
+The separate Directory.Packages.props enables central versions and pins **each** listed package
 to `[10.0.13]`. With central management disabled, put `Version="[10.0.13]"` on
 each reference instead. Nullable/implicit-usings settings are enabled in the sample.
 The real consumer resolves IDistributedCache, IConfiguration, IServiceCollection,
@@ -26,7 +30,8 @@ contracts, not a configured cache, host, logger or dependency container.
 ## Newer approach
 
 For a plain net11.0 project using only those contracts, keep the target properties
-and remove those PackageReference entries. No ASP.NET framework reference is needed:
+and remove those PackageReference entries. These properties remain inside the
+project's PropertyGroup; no ASP.NET framework reference is needed:
 
 {{snippet:newer}}
 

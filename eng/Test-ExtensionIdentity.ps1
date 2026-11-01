@@ -55,10 +55,10 @@ try {
   $checks += $missingImplementation.output
   $retained = Invoke-Variant 'samples/net11.0/CelestialSchedule/CelestialSchedule.csproj' 'retained-net11' @('-p:RetainReferences=true','-p:TreatWarningsAsErrors=false')
   $retainedAssets = Get-Content (Join-Path $retained.directory 'obj/project.assets.json') -Raw | ConvertFrom-Json -AsHashtable
-  if (@($retainedAssets.logs | Where-Object code -CEQ 'NU1510').Count -ne 0 -or $retainedAssets.libraries.Count -ne 9) { throw 'Exact-range direct references must remain without NU1510 on this SDK' }
+  if (@($retainedAssets['logs'] | Where-Object code -CEQ 'NU1510').Count -ne 0 -or $retainedAssets.libraries.Count -ne 9) { throw 'Exact-range direct references must remain without NU1510 on this SDK' }
   $minimum = Invoke-Variant 'samples/net11.0/CelestialSchedule/CelestialSchedule.csproj' 'minimum-net11' @('-p:RetainReferences=true','-p:ReferenceVersion=10.0.13','-p:TreatWarningsAsErrors=false')
   $minimumAssets = Get-Content (Join-Path $minimum.directory 'obj/project.assets.json') -Raw | ConvertFrom-Json -AsHashtable
-  if (@($minimumAssets.logs | Where-Object code -CEQ 'NU1510').Count -ne 9 -or $minimumAssets.libraries.Count -ne 9) { throw 'Expected nine NU1510 direct-reference warnings with retained packages' }
+  if (@($minimumAssets['logs'] | Where-Object code -CEQ 'NU1510').Count -ne 9 -or $minimumAssets.libraries.Count -ne 9) { throw 'Expected nine NU1510 direct-reference warnings with retained packages' }
   foreach ($assets in @($minimumAssets)) {
     foreach ($library in $assets.targets['net11.0'].Keys) {
       $selected = $assets.targets['net11.0'][$library]

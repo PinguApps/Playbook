@@ -136,6 +136,11 @@
       "path": "samples/net11.0/CelestialSchedule/CelestialSchedule.csproj",
       "region": "schedule-project",
       "language": "xml"
+    },
+    "packages": {
+      "region": "package-references",
+      "language": "xml",
+      "path": "samples/net10.0/CelestialSchedule/CelestialSchedule.csproj"
     }
   },
   "languageNeutral": true

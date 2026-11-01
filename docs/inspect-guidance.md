@@ -2730,11 +2730,12 @@ controls pin Physical11RC2 and Logging.Abstractions11RC3 without upgrading the
 baseline. BorealSignals uses framework EventSource only. No workload, account,
 external service, native collector or production resource is needed.
 
-Refresh affected sample evidence and recheck the three immutable publisher sources:
+Recheck the affected consumers and three immutable publisher sources. Add `-Record`
+when changed inputs require fresh saved sample evidence:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-bec213fd'
-& ./eng/Test-ExtensionIdentity.ps1 -Record -VerifySources
+& ./eng/Test-ExtensionIdentity.ps1 -VerifySources
 ```
 
 Expect four passing actual primary consumers, missing-reference compile failures,

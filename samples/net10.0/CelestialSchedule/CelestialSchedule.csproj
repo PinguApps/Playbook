@@ -1,6 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <!-- snippet:schedule-project -->
-  <PropertyGroup><TargetFramework>net10.0</TargetFramework><LangVersion>14.0</LangVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>14.0</LangVersion>
+    <!-- snippet:schedule-project -->
+    <TargetFramework>net10.0</TargetFramework>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- endsnippet:schedule-project -->
+  </PropertyGroup>
+  <!-- snippet:package-references -->
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
@@ -12,7 +18,7 @@
     <PackageReference Include="Microsoft.Extensions.Options" />
     <PackageReference Include="Microsoft.Extensions.Primitives" />
   </ItemGroup>
-  <!-- endsnippet:schedule-project -->
+  <!-- endsnippet:package-references -->
   <ItemGroup Condition="'$(OmitReferences)' == 'true'"><PackageReference Remove="@(PackageReference)" />
   </ItemGroup>
   <ItemGroup>
