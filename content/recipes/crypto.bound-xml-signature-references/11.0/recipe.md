@@ -77,9 +77,8 @@ The measured default is100: valid1/8/9/100 signatures parse and verify, while101
 is rejected. With the current setting8, valid1/8 still verify and9/100/101 fail
 both SignedInfo.LoadXml and SignedXml.LoadXml. The old parser keeps its fixed100
 despite setting8, while its application helper rejects9. No raised/unlimited
-budget is recommended. In this current implementation zero/negative values are
-not an infinity switch: the count comparison rejects nonempty signatures. An
-unconvertible value falls back to100, as tested in a fresh process; do not rely on
+budget is recommended. Use a positive integer; no unlimited-budget mode is taught
+here. An unconvertible value falls back to100, as tested in a fresh process; do not rely on
 invalid configuration to enforce a stricter budget.
 
 Other serviced depth/DTD/transform protections already exist in the old baseline;
