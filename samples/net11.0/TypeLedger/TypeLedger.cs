@@ -1,9 +1,9 @@
+// snippet:type-ledger
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
 namespace Playbook.Samples;
 
-#region type-ledger
 internal static class TypeLedger
 {
     // Merewick's allocation belongs to the runtime type, not to this method.
@@ -24,4 +24,4 @@ internal static class TypeLedger
         // Do not call NativeMemory.AlignedFree/Free on runtime-owned memory.
     }
 }
-#endregion
+// endsnippet:type-ledger

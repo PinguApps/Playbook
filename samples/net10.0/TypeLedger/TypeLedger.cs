@@ -1,9 +1,9 @@
+// snippet:type-ledger
 using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace Playbook.Samples;
 
-#region type-ledger
 internal static class TypeLedger
 {
     // Merewick's operation owns this allocation and always frees it before returning.
@@ -26,4 +26,4 @@ internal static class TypeLedger
         GC.KeepAlive(owner);
     }
 }
-#endregion
+// endsnippet:type-ledger

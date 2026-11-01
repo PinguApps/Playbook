@@ -1,10 +1,10 @@
+// snippet:permit-manifest
 using System.Security.Cryptography;
 using System.Security.Cryptography.Xml;
 using System.Xml;
 
 namespace Playbook.Samples;
 
-#region permit-manifest
 internal static class PermitManifest
 {
     // Call once at process startup, before any cryptographic XML operation initializes its cached settings.
@@ -24,4 +24,4 @@ internal static class PermitManifest
         return verifier.CheckSignature(trustedKey);
     }
 }
-#endregion
+// endsnippet:permit-manifest

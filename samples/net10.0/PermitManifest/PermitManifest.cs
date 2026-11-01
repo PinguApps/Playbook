@@ -1,10 +1,10 @@
+// snippet:permit-manifest
 using System.Security.Cryptography;
 using System.Security.Cryptography.Xml;
 using System.Xml;
 
 namespace Playbook.Samples;
 
-#region permit-manifest
 internal static class PermitManifest
 {
     public static bool Verify(XmlDocument document, RSA trustedKey, int budget = 8)
@@ -23,4 +23,4 @@ internal static class PermitManifest
         return verifier.CheckSignature(trustedKey);
     }
 }
-#endregion
+// endsnippet:permit-manifest
