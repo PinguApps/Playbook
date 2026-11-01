@@ -1,9 +1,9 @@
+// snippet:manual-san
 using System.Formats.Asn1;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Playbook.Samples;
 
-// snippet:manual-san
 public static class ManualSan
 {
     public static X509Extension Create(string dnsName, IEnumerable<string> identifiers)

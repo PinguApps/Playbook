@@ -1,10 +1,10 @@
+// snippet:certificate-roundtrip
 using System.Formats.Asn1;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Playbook.Samples;
 
-// snippet:certificate-roundtrip
 public static class CertificateRoundTrip
 {
     // Reads this example's one-DNS-then-registeredIDs layout, not every possible SAN.

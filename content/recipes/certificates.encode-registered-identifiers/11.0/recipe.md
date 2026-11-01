@@ -8,6 +8,9 @@ contains a DNS label and several fictional classification identifiers. These are
 separate name forms; an OID does not become a DNS name, an application permission
 or a trusted identity merely by appearing in a certificate.
 
+Copy each snippet into its own source file. It includes its required imports and
+the Playbook.Samples namespace; add `using Playbook.Samples;` in the calling file.
+
 ## Older approach
 
 .NET 10 has no SubjectAlternativeNameBuilder.AddRegisteredId. Its framework
@@ -91,6 +94,9 @@ failed-append preservation and explicit criticality are separately checked.
 
 The saved sample records include commands, exact inputs, compiler/CoreLib,
 audit-matching cryptography references and supplemental ASN.1 reference hashes.
+The checks report the CoreLib path, version and hash from inside the executing
+consumer and reject a runtime different from the declared verification baseline.
+That pin governs this evidence fixture, not the recipe's release-family requirements.
 Refresh with eng/Test-IdentityRecords.ps1 -Record -VerifySources. These checks
 establish encoding, not trust. No recurring native matrix or production resource
 is added. Exactly eight .NET 10 foundations remain unchanged.

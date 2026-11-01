@@ -1,8 +1,8 @@
+// snippet:builder-san
 using System.Security.Cryptography.X509Certificates;
 
 namespace Playbook.Samples;
 
-// snippet:builder-san
 public static class PermitSan
 {
     public static X509Extension Create(string dnsName, IEnumerable<string> identifiers)
