@@ -1,6 +1,14 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @SqlQueryGuidance
+  Scenario: SQL compatibility and record extrema retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then SQL query guidance retains canonical bodies full applicability and target editions
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @GardenLibrary
   Scenario: Custom client rules and reusable cache contracts retain complete offline guidance
     Given the actual package is installed from an isolated local feed and cache

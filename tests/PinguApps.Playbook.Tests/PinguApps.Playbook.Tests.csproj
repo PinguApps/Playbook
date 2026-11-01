@@ -1,4 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/MoorlandDispatch/*.*;../../content/recipes/ef.select-record-at-extreme/11.0/recipe.*;../../content/recipes/sql.set-supported-compatibility/11.0/recipe.*" WithCulture="false" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
   <PropertyGroup>
     <IsTestProject>true</IsTestProject>
     <OutputType>Exe</OutputType>

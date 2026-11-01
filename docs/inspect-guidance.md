@@ -4,6 +4,38 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## SQL compatibility and whole-record extrema
+
+PIN-843/PIN-851 use the existing authorized local SQL route. Refresh the paired
+real consumers with `eng/Test-SqlQueryGuidance.ps1 -Record`. It creates/removes
+unique restricted databases and stops the server. Both declared SDKs and pinned
+packages must be installed/restorable; no external account is used. SQL2025 at150
+and170 is not actual SQL2019/older-engine proof. RC2 rejects composite MinBy keys;
+the working query uses a MIN/MAX candidate subquery and scalar unique-Id selection.
+
+The following block was exercised from an unrelated starting directory. It builds
+and packs the ordinary tool, installs that exact artifact through an isolated
+local-only feed/cache, and calls real stdio list/get from a temporary unrelated
+directory. Setup may restore online; unusable retrieval proxies establish proxy
+independence, not operating-system network isolation. The existing packed Reqnroll
+SqlQueryGuidance scenario additionally runs with Docker `--network none`.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-db5a9297'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.select-record-at-extreme','sql.set-supported-compatibility') `
+  -Query 'sql-query-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin843-851' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/sql-query-guidance/inspection'
+```
+
+Expect two ID/title/goal discovery entries, full canonical Markdown, complete
+applicability and current paired evidence at edition/target11; target10 must
+return no_applicable_edition. Missing/stale proof, snippets or applicability drift
+fail. No extra .NET10 foundation or actual-GA/comprehensive readiness is claimed.
+
 ## Custom validation metadata and trace randomness
 
 Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
