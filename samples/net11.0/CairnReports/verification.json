@@ -1,0 +1,18 @@
+{
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/ProxyResponses/Wire.cs",
+    "samples/ProxyResponses/ResponseChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ProxyResponses.ps1",
+    ".editorconfig",
+    "docs/planning/audits/proxy-responses.sources.json",
+    "docs/planning/audits/runtime-security.assets.json",
+    "docs/planning/audits/data-io.assets.json"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

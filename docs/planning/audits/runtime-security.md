@@ -133,7 +133,7 @@ lines, including repeated target-asset comparisons.
 | Experimental TlsContext/TlsSession/TlsBufferSession/TlsSocketSession/status | **Grouped PIN-752:** SYSLIB5007, ownership, state/certificate transitions and actual I/O remain its required evidence. This audit does not claim a handshake. |
 | QUIC Priority/DefaultPriority | **Grouped PIN-755:** actual native transport/support checks; a relative scheduler hint is not guaranteed bandwidth/order. |
 | HTTP compressed-content wrappers, connection IDs/eviction contexts, ShouldEvictConnection and initial HTTP/2 stream bound | **Grouped PIN-753:** all compression options, correlation and pool-lifetime support belong to its existing HTTP connection goals. Preserve experimental eviction diagnostic/opt-in and peer SETTINGS constraints. |
-| DecompressionMethods.Zstandard | **Included R21:** response decompression is distinct from PIN-753's outgoing request compression. |
+| DecompressionMethods.Zstandard | **Delivered PIN-1107 / R21:** http.decode-zstandard-responses; actual old managed decoder/new automatic response checks. Distinct from PIN-753's outgoing request compression. |
 | Synchronous HttpClient/handler/invoker Send adds Android/iOS/tvOS unsupported annotations | **Included R20:** source/analyzer migration to asynchronous I/O on affected platforms; no claim that synchronous mobile I/O previously worked. |
 | Video MIME constants | **Delivered PIN-744** in [the original URI/media capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-742-744.md). **Delivered PIN-1105 / R19** separately covers actual MediaTypeMap string/span/path/reverse lookups; constants alone do not deliver mapping, and mapping does not validate file bytes or upload safety. |
 | Generic Interlocked.And/Or; CompareExchange/Exchange annotations | **Delivered PIN-1094 / R8:** paired real CAS/enum contention, prior-value chains, retained unrelated bits, integer/enum backing sizes and unsupported-struct rejection. One atomic location per call, not multi-field transactions. Annotation-only overload pairs are not new operations. |
@@ -167,7 +167,7 @@ lines, including repeated target-asset comparisons.
 | CoreCLR WASM native relinking/NativeFileReference/Emscripten | **Grouped PIN-758:** actual workload/native function/browser proof. WebCIL default, JS minification and repaired satellites alone are automatic; custom loader contract changes remain R14. |
 | HTTP observable instruments | **Delivered PIN-749**, [real listener/loopback evidence](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-748-749.md); not a new transport goal. |
 | iOS/tvOS file-locking default, pipe permissions, clock/apphost identity and custom-Type nullable behavior | **Already assigned PIN-684**, PIN-741 and delivered PIN-742 as applicable. No duplicate native/UI matrix. |
-| SOCKS5h scheme | **Included R18:** proxy-side DNS selection is authored URI configuration. Paired SocksHelper sources establish the new accepted scheme; no local-DNS privacy or production proxy claim is inferred. |
+| SOCKS5h scheme | **Delivered PIN-1104 / R18:** http.resolve-dns-through-socks-proxy. Real hostname CONNECT through socks5 (10) and socks5h (11); old socks5 already forwards names. No global DNS privacy or production proxy claim. |
 | HTTP/2 Windows-authentication downgrade | **Included R17:** remove a manual request-version workaround only after actual policy/auth/protocol checks. Automatic benefit without removing that workaround is excluded. |
 | TLS Linux certificate alerts, malformed-handshake bounds checks, Apple AEAD acceleration, MsQuic update, proxy/socket/WebSocket/SMTP fixes | **Excluded as standalone goals:** automatic correctness/performance; no specific authored workaround removal established. Server TLS certificate-supply policy remains PIN-686; Unix channel binding web integration remains PIN-709. |
 | XML signature/encryption hardening in Preview 4 | Depth/DTD/transform mitigations already exist in the serviced 10.0.13 source, so these are not all new .NET 11 features. **Included R25:** SignedInfo's former fixed 100-reference limit becomes configurable through `System.Security.Cryptography.MaxReferencesPerSignedInfo`, still defaulting to 100. The MaxDecryptedDataElements key was already spelled that way in the old constant; only its comment was corrected. No invented key migration or advice to disable security limits. |
@@ -326,6 +326,36 @@ The [installed walkthrough](../../inspect-guidance.md#aead-key-size-and-file-con
 checks exact ordinary offline stdio discovery/body/applicability/evidence.
 No other-provider/platform, performance, fixed mapping-table or final-GA proof.
 Other R drafts, exact eight foundations, PIN-959/PIN-962 and Human gates remain open.
+
+### SOCKS hostname forwarding and Zstandard responses — PIN-1104 / PIN-1107
+
+R18 is delivered by [http.resolve-dns-through-socks-proxy](../../../content/recipes/http.resolve-dns-through-socks-proxy/11.0/recipe.md).
+The actual .NET 10 socks5 spelling already forwards hostnames; .NET 11 adds the
+socks5h alias. Both original CairnRelay consumers execute a real controlled
+SOCKS5 server, hostname/port CONNECT, actual target socket/HTTP response, optional
+authentication, rejected credentials/method/CONNECT and cancelled negotiation.
+Local DNS fails for relay.cairn.invalid; this is not global DNS-leak evidence.
+
+R21 is delivered by [http.decode-zstandard-responses](../../../content/recipes/http.decode-zstandard-responses/11.0/recipe.md).
+Original CairnReports compares a manually maintained ZstdSharp.Port0.8.6 adapter
+(actual lib/net9.0 on .NET10) with .NET11 DecompressionMethods.Zstandard.
+Actual HTTP fixtures assert negotiation, compressed zstd/gzip/deflate/br and
+identity bodies/headers, both stacked orders, unknown outer coding, malformed
+zstd, stalled-body cancellation and bounded decoded reads. Only one outer layer
+is decoded; unsupported/remaining codings must be handled explicitly.
+
+Four actual consumers use SDK10.0.402/runtime10.0.13 or SDK11 RC2/runtime11RC2.
+[Selected immutable publisher sources and package archive pin](proxy-responses.sources.json)
+qualify support separately from exact verification artifacts. Framework references
+match this audit and data-io.assets.json; compiler/CoreLib, selected/executed
+managed decoder and loaded runtime/native compression identities are recorded.
+Refresh via eng/Test-ProxyResponses.ps1 -Record -VerifySources. The
+[installed walkthrough](../../inspect-guidance.md#socks-hostnames-and-zstandard-responses)
+checks the ordinary artifact's offline stdio discovery/body/applicability/evidence.
+No new system DNS/routes, proxy/service, native toolchain, production resource,
+recurring matrix or publication. No other-platform/native-handler, performance,
+production proxy, global DNS privacy or final-GA proof. Eight foundations,
+PIN-959/PIN-962 and existing Human gates retain their own obligations.
 
 **Historical approval-only proposals, now reconciled by PIN-986 and delivery notes.** Use the existing
 02 - Language and library guidance milestone; allocate unused `02-DDD` titles only

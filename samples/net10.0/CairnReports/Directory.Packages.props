@@ -1,0 +1,4 @@
+<Project>
+  <PropertyGroup><ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally></PropertyGroup>
+  <ItemGroup><PackageVersion Include="ZstdSharp.Port" Version="[0.8.6]" /></ItemGroup>
+</Project>

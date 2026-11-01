@@ -1,0 +1,145 @@
+{
+  "id": "http.resolve-dns-through-socks-proxy",
+  "edition": "11.0",
+  "title": "Resolve target names through a SOCKS proxy",
+  "goal": "Send a target hostname to a SOCKS5 proxy for resolution and connection; use when the proxy knows the target, preserving the working .NET 10 socks5 spelling and checking failures.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "proxy-responses",
+    "http",
+    "socks"
+  ],
+  "apis": [
+    "SocketsHttpHandler.Proxy",
+    "WebProxy",
+    "socks5h",
+    "socks5"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build net11.0 against .NET 11 references; exact SDK11 RC2 is a separate tested baseline.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "The newer proxy spelling/automatic decoder requires the .NET 11 SocketsHttpHandler implementation.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "name": "C#",
+            "version": "15.0",
+            "reason": "Canonical net11.0 project explicitly selects C#15.0; the proxy API does not itself require new language syntax. This is the configured example route, not a minimum-language claim."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework System.Net.Http/System.Net.Primitives; no NuGet backport route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings net11.0 application; copy canonical types into the same assembly.",
+            "Reachable trusted SOCKS5 proxy and target hostname retained in request URI; loopback controlled mapping used for proof."
+          ],
+          "platforms": [
+            "SocketsHttpHandler on CoreCLR; Windows x64 executed, browser/mobile native handlers and other operating systems unverified."
+          ],
+          "providers": [
+            "Controlled SOCKS5 server; no cloud/account/service SDK."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Keep socks5 on .NET 10: its hostname forwarding already works; socks5h is a newer alias.",
+            "Hostname forwarding is not global DNS-leak prevention; proxy credentials/transport, origin TLS and bypass/redirect policy remain separate."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs"
+        ],
+        "selectionNotes": [
+          "Keep socks5 on .NET 10: its hostname forwarding already works; socks5h is a newer alias.",
+          "Hostname forwarding is not global DNS-leak prevention; proxy credentials/transport, origin TLS and bypass/redirect policy remain separate."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CairnRelay/CairnRelay.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned publisher source 4099f83/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs"
+    },
+    {
+      "title": "Pinned publisher source 820230c/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/CairnRelay/CairnRelay.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real Windows x64 SOCKS5 hostname CONNECT, actual loopback target response, authentication success/failure, no acceptable method, refused CONNECT and cancelled negotiation; local negative DNS and old alias rejection. No global DNS privacy, production proxy, other-platform or GA proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/CairnRelay/CairnRelay.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real Windows x64 SOCKS5 hostname CONNECT, actual loopback target response, authentication success/failure, no acceptable method, refused CONNECT and cancelled negotiation; local negative DNS and old alias rejection. No global DNS privacy, production proxy, other-platform or GA proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real Windows x64 SOCKS5 hostname CONNECT, actual loopback target response, authentication success/failure, no acceptable method, refused CONNECT and cancelled negotiation; local negative DNS and old alias rejection. No global DNS privacy, production proxy, other-platform or GA proof. No interactive Human approval, production resource or new toolchain needed."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CairnRelay/CairnRelay.cs",
+      "region": "cairn-relay",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/CairnRelay/CairnRelay.cs",
+      "region": "cairn-relay",
+      "language": "csharp"
+    }
+  }
+}

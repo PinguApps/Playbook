@@ -409,3 +409,11 @@
 /samples/net11.0/ParcelKeys/verification-evidence.json
 /samples/net10.0/AttachmentLabels/verification-evidence.json
 /samples/net11.0/AttachmentLabels/verification-evidence.json
+
+# Test-ProxyResponses/Record-Evidence generated SDK/ref/package/native receipts.
+# Review original wire fixtures, consumers, manifests, source pins and recorder;
+# build/pack checks freshness and installed inspection checks served content.
+/samples/net10.0/CairnRelay/verification-evidence.json
+/samples/net10.0/CairnReports/verification-evidence.json
+/samples/net11.0/CairnRelay/verification-evidence.json
+/samples/net11.0/CairnReports/verification-evidence.json

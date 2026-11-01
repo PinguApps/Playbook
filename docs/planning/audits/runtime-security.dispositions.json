@@ -106,8 +106,8 @@
     {
       "id": "response-decompression",
       "pattern": "^\\w+ System\\.Net\\.DecompressionMethods",
-      "disposition": "proposed",
-      "owner": "R21"
+      "disposition": "delivered",
+      "owner": "PIN-1107; http.decode-zstandard-responses"
     },
     {
       "id": "async",
