@@ -388,6 +388,8 @@ and in the audit distinguish completed slices from outstanding drafts.
 | `dns.inspect-typed-records` | Framework .NET11 typed A/AAAA/MX/TXT/CNAME/PTR/NS versus actual DnsClient1.8.0/net8.0 on .NET10; SRV/shared envelope stays PIN-754. | [PIN-1089 edition11.0](../../../content/recipes/dns.inspect-typed-records/11.0/recipe.md): actual Windows/Linux authoritative loopback fields/TTLs, statuses/SOA negative TTL, server override and pre/in-flight cancellation. Exact images, commands and separate Linux records. No public zone/connection/system-resolver/GA claim. |
 | `sockets.race-dual-stack-connections` | .NET11 static event-args ConnectAlgorithm overload versus original .NET10 explicit address scheduling; framework-only, checked localhost answers and isolated IPv4/IPv6 listeners/refusals. | [PIN-1090 edition11.0](../../../content/recipes/sockets.race-dual-stack-connections/11.0/recipe.md): actual Windows Default/Parallel success/fallback/failure, selected-peer payload, event contract and cancellation/draining/cleanup. No fixed latency, WAN, DNS-outage or GA claim. |
 | `networking.parse-endpoint-buffers` | .NET11 IPEndPoint UTF8 Parse/TryParse and byte/char TryFormat/interfaces versus valid .NET10 string adapter; no package/native dependency. | [PIN-1091 edition11.0](../../../content/recipes/networking.parse-endpoint-buffers/11.0/recipe.md): paired real parsing/port/malformed/short-buffer/boundary checks; current char and generic interfaces. Avoids intermediate text strings, not endpoint objects; no performance/GA claim. |
+| `threading.update-enum-flags-atomically` | .NET11 generic enum/integer And/Or versus valid .NET10 int-backed CAS; framework-only, no unsafe caller code. | [PIN-1094 edition11.0](../../../content/recipes/threading.update-enum-flags-atomically/11.0/recipe.md): paired Windows contention, prior-value chains and unrelated-bit preservation; current backing sizes/high bits and unsupported structs. Per-location atomicity only; no multi-field/performance/GA claim. |
+| `reflection.emit-function-pointer-calls` | .NET11 DynamicMethod EmitCalli(Type) versus .NET10 explicit managed Standard/native StdCall signatures; dynamic code and unsafe C# required. | [PIN-1096 edition11.0](../../../content/recipes/reflection.emit-function-pointer-calls/11.0/recipe.md): paired real managed/Windows MulDiv calls, signed rounding/failure sentinels, direct typed-pointer comparison and signature rejection. Windows x64 unified ABI only; no x86, AOT, marshalling or GA claim. |
 
 Refresh RegisteredIdentifiers/TypedDns with `eng/Test-IdentityRecords.ps1 -Record -VerifySources`
 and its [selected sources](../audits/identity-records.sources.json). Refresh
@@ -395,6 +397,11 @@ RelayDial/EndpointLedger with `eng/Test-NetworkBuffers.ps1 -Record -VerifySource
 and [networking sources](../audits/network-buffers.sources.json). Original audit
 reference hashes remain separate from real behavior evidence. PIN-959/PIN-962,
 all other delivery obligations and existing Human gates stay open.
+
+Refresh StationFlags/QuarryCalls with `eng/Test-RuntimeCalls.ps1 -Record -VerifySources`
+and [paired runtime-call sources](../audits/runtime-calls.sources.json). Fresh sample
+records retain audit-matching references, compiler/runtime and loaded native identities;
+the ordinary installed tool serves both complete guides offline.
 
 PIN-686's migration proposals, PIN-687/PIN-689 and existing PIN-750–758 owners
 retain their full obligations. Delivered PIN-742/744/749/750/751 subcases are

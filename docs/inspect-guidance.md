@@ -2466,3 +2466,57 @@ a nonzero exit fails. Inspection consumes saved consumer proof. Eight foundation
 remain unchanged. Windows x64 RC2 is measured, not other-platform or final-GA
 behavior; no BFloat16 serialization/performance or unlimited-depth claim follows.
 PIN-959/PIN-962 and existing Human gates remain open; no recurring matrix is added.
+
+## Atomic flags and typed function-pointer calls
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. Both StationFlags and
+QuarryCalls use framework APIs only, with no packages/workloads. QuarryCalls
+requires Windows x64 CoreCLR dynamic code and the system MulDiv export; unsafe
+C# is enabled. No native compiler, account or external service is needed.
+
+Refresh affected samples through the existing evidence workflow:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2f8c93ea'
+& ./eng/Test-RuntimeCalls.ps1 -Record -VerifySources
+```
+
+Expect four passing consumers and eight matching immutable sources. Flags checks
+cover 128 synchronized prior-value chains and 40,000 mixed updates, unrelated-bit
+preservation, current integer/enum backing sizes, sign/high bits and unsupported
+struct/floating-point rejection. Call checks execute real managed and native MulDiv
+calls, signed rounding, zero-divisor/overflow sentinels, direct pointer comparison,
+injected false dynamic-code guard and current invalid-signature rejection. Saved
+records retain exact commands/inputs, compiler/CoreLib/native identities and
+audit-matching references. PATH/persistent settings must remain unchanged.
+
+This literal block is tested from an unrelated starting directory. It builds and
+packs the ordinary tool, installs that exact artifact through an isolated local-only
+feed/cache, then calls installed stdio list/get from an unrelated temporary directory.
+Setup may restore online; unusable proxies during retrieval prove proxy independence,
+not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-2f8c93ea'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1094-1096'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('threading.update-enum-flags-atomically','reflection.emit-function-pointer-calls') `
+  -Query 'runtime-calls' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1094-1096' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/runtime-calls/inspection
+```
+
+Expect one passing installed smoke and both discovery IDs, reusable titles and
+explanatory goals, complete expanded canonical Markdown, target11/edition11,
+applicability and fresh paired evidence. Structured/text responses must agree;
+target10 returns no_applicable_edition. Missing/stale evidence, changed snippets/body
+or a nonzero exit fails. Inspection consumes saved behaviour proof, without rerunning
+consumers. Eight foundations remain unchanged. Windows x64 RC2 is measured; no
+multi-field atomicity, performance, x86/other ABI, Native AOT, arbitrary ILGenerator,
+marshalling or final-GA execution is established. The unsupported-dynamic-code
+branch is injected, not an execution on an unavailable runtime. PIN-959/PIN-962
+and existing Human gates remain open; no recurring native/client/OS matrix is added.

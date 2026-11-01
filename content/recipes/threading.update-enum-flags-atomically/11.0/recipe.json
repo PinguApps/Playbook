@@ -1,0 +1,154 @@
+{
+  "id": "threading.update-enum-flags-atomically",
+  "edition": "11.0",
+  "title": "Update shared enum flags atomically",
+  "goal": "Set or clear independent flags in one shared integer or enum without losing concurrent updates; use when each operation needs the prior value but no multi-field transaction.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "runtime-calls",
+    "threading",
+    "atomic"
+  ],
+  "apis": [
+    "Interlocked.And<T>",
+    "Interlocked.Or<T>",
+    "Interlocked.CompareExchange"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework reference/runtime assemblies; no NuGet package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Console net11.0 project with nullable/implicit usings; no unsafe caller code.",
+            "Multithreaded runtime and supported integer or enum storage."
+          ],
+          "platforms": [
+            "Ordinary multithreaded shared-framework runtime; Windows x64 CoreCLR executed, other platforms unverified."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Only supported integer primitives or integer-backed enums; struct constraint does not permit arbitrary same-sized structs or floating-point values.",
+            "Atomicity is one location per call. Returned prior value is a snapshot; no multi-field transaction or progress/performance promise."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs"
+        ],
+        "selectionNotes": [
+          "Only supported integer primitives or integer-backed enums; struct constraint does not permit arbitrary same-sized structs or floating-point values.",
+          "Atomicity is one location per call. Returned prior value is a snapshot; no multi-field transaction or progress/performance promise."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/StationFlags/StationFlags.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83/src/libraries/System.Threading/ref/System.Threading.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs"
+    },
+    {
+      "title": "Official pinned 4099f83/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/libraries/System.Threading/ref/System.Threading.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/StationFlags/StationFlags.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 int-backed CAS loop contention/prior values/unrelated-bit preservation. No old generic And/Or route or multi-field transaction."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/StationFlags/StationFlags.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 paired enum/CAS contention, prior-value chains and unrelated-bit preservation; current supported integer/enum sizes, high bits and unsupported-type rejection. No multi-field transaction, performance or GA claim."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 paired enum/CAS contention, prior-value chains and unrelated-bit preservation; current supported integer/enum sizes, high bits and unsupported-type rejection. No multi-field transaction, performance or GA claim. No interactive approval, production resource or new native toolchain is required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/StationFlags/StationFlagStore.cs",
+      "region": "station-flags",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/StationFlags/StationFlagStore.cs",
+      "region": "station-flags",
+      "language": "csharp"
+    }
+  }
+}

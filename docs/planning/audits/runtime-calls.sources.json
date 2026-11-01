@@ -1,0 +1,45 @@
+{
+  "scope": "Paired audit-matching reference/implementation contracts for generic integer/enum And/Or and DynamicMethod typed calli. Public XML contracts establish intended caller use; source is not execution proof.",
+  "sources": [
+    {
+      "id": "4099f83/src/libraries/System.Threading/ref/System.Threading.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "sha256": "5231081421d4021cbb87946d853a066574762fc6f08298f75f46ed6de1d15628"
+    },
+    {
+      "id": "4099f83/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "sha256": "f6ab015b5e2376db36233182222e2fcecd41a203a683099a3385400ee7b9e784"
+    },
+    {
+      "id": "4099f83/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs",
+      "sha256": "68128508265e49cf67377728b43b903ae238b86ad3ef4b4bb5fa080cb62eebb7"
+    },
+    {
+      "id": "4099f83/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+      "sha256": "e060f352b5dae52974f31e971a48d8a2d081ab26b89edb0eac63396a7ab262dc"
+    },
+    {
+      "id": "820230c/src/libraries/System.Threading/ref/System.Threading.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "sha256": "f16e2f27dcf324bdd9fdd569f350afa483ba8261d4e4542dccd6d3435d0f6544"
+    },
+    {
+      "id": "820230c/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Reflection.Emit.ILGeneration/ref/System.Reflection.Emit.ILGeneration.cs",
+      "sha256": "ad6b6e67c51e2fb62b5741144716be268c8b8c8ac2a28b3a6426716d8d99cffd"
+    },
+    {
+      "id": "820230c/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Threading/Interlocked.cs",
+      "sha256": "03415cfd07e749a0245e9c3fbfee1d63a075da89809efaaa59562b24ed70b88c"
+    },
+    {
+      "id": "820230c/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Reflection/Emit/DynamicILGenerator.cs",
+      "sha256": "1e72838de3fc6eb9a00c0f045df75e0962843f8f9f38304a4fabc17f35d5e717"
+    }
+  ]
+}

@@ -393,3 +393,11 @@
 /samples/net11.0/RelayDial/verification-evidence.json
 /samples/net10.0/EndpointLedger/verification-evidence.json
 /samples/net11.0/EndpointLedger/verification-evidence.json
+
+# Test-RuntimeCalls/Record-Evidence generated SDK/ref/native/command receipts.
+# Review canonical helpers, contention/signature checks, pins and recorder;
+# ordinary build/pack validates input freshness and installed content.
+/samples/net10.0/StationFlags/verification-evidence.json
+/samples/net11.0/StationFlags/verification-evidence.json
+/samples/net10.0/QuarryCalls/verification-evidence.json
+/samples/net11.0/QuarryCalls/verification-evidence.json
