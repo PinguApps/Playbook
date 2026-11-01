@@ -1,0 +1,65 @@
+{
+  "note": "Pinned official framework and ZstdSharp publisher sources; source support is separate from real consumer execution.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "id": "4099f83/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "sha256": "63506aad4546f2f457916c63dd66f39bf0ae8bc6e8e7cb9539cfd053c3de1bd5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "id": "4099f83/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "sha256": "75bd6c9e9d5e01ab20580c682dbf0dd575208e9ff94828a7fa6b7cb2def920b0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "id": "4099f83/System.IO.Compression/ref/System.IO.Compression.cs",
+      "sha256": "fec77ff21f9d7d372fd6e8ed1467edc2afbb8cce9860c1ca09d494e529f2b666"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "id": "820230c/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/SocksHelper.cs",
+      "sha256": "d0068bfb39a3b972cc2037d5bbb10c8d994a1712a3a1663800d514154dc7eef2"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "id": "820230c/System.Net.Primitives/ref/System.Net.Primitives.cs",
+      "sha256": "5899fe351c8389bf1cf2c005e60e4ed0f1198644e18eab34c6313f38aa8a1900"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.IO.Compression/ref/System.IO.Compression.cs",
+      "id": "820230c/System.IO.Compression/ref/System.IO.Compression.cs",
+      "sha256": "46bb4bb4f25eeba46ead365dd6e0d20bb26d6dde2af1ad8172076d3ab9925a29"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/DecompressionHandler.cs",
+      "id": "820230c/System.Net.Http/src/System/Net/Http/SocketsHttpHandler/DecompressionHandler.cs",
+      "sha256": "52c30567adb9e6043a483ccec59379e8806cc6e736b873727015ee1db04850b4"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/README.md",
+      "id": "ZstdSharp-0.8.6/README.md",
+      "sha256": "29ad42ead4e03095011a7fd14d1f18ae8c02b465b11a65320103c41945738ae9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/src/ZstdSharp/ZstdSharp.csproj",
+      "id": "ZstdSharp-0.8.6/src/ZstdSharp/ZstdSharp.csproj",
+      "sha256": "4b298f72ad7b40794e6966bb1d9c11aa206ef71136cb264313d425f483a17d2f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/oleg-st/ZstdSharp/f475a7d4746d305094fbb09563cb0fcb167bec18/src/ZstdSharp/DecompressionStream.cs",
+      "id": "ZstdSharp-0.8.6/src/ZstdSharp/DecompressionStream.cs",
+      "sha256": "0768309f90d71ca52b759501a95f7f3f244acba41e4856eb0fd40663e5cbc9d3"
+    }
+  ],
+  "packages": [
+    {
+      "sha256": "adcdd858ff347f292aba30ec0fbd925ce035b410e8cb62abbd5113382f1e4f1f",
+      "name": "ZstdSharp.Port",
+      "url": "https://api.nuget.org/v3-flatcontainer/zstdsharp.port/0.8.6/zstdsharp.port.0.8.6.nupkg",
+      "version": "0.8.6",
+      "note": "Actual net10.0 selected asset; managed codec, no external native zstd library.",
+      "asset": "lib/net9.0/ZstdSharp.dll"
+    }
+  ]
+}

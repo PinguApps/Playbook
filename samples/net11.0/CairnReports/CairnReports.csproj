@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../ProxyResponses/ReportReader.cs" Link="ReportReader.cs" />
+    <Compile Include="../../ProxyResponses/Wire.cs" Link="Wire.cs" />
+    <Compile Include="../../ProxyResponses/ResponseChecks.cs" Link="ResponseChecks.cs" />
+    <Compile Include="../../NetworkBuffers/RuntimeIdentity.cs" Link="RuntimeIdentity.cs" />
+  </ItemGroup>
+</Project>
