@@ -1,6 +1,6 @@
 # Extensions API coverage: PIN-706
 
-Reviewed **21 October 2026**. This is a bounded artifact/source audit. The six proposals below preserve the original audit decisions. E1/E2 are now delivered by PIN-1112/PIN-1113; the original source/asset manifests remain authoritative. Other proposals retain their tracked delivery obligations. Closing the audit delivers no recipe and does not permit publication.
+Reviewed **21 October 2026**. This is a bounded artifact/source audit. The six proposals below preserve the original audit decisions. E1/E2 are now delivered by PIN-1112/PIN-1113; the original source/asset manifests remain authoritative. The [delivery source register](extensions-contracts.sources.json) pins the eight publisher sources rechecked by their consumer harness. Other proposals retain their tracked delivery obligations. Closing the audit delivers no recipe and does not permit publication.
 
 ## Scope and provenance
 
