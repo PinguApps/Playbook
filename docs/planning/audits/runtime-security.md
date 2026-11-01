@@ -127,8 +127,8 @@ lines, including repeated target-asset comparisons.
 | CngProperty ReadOnlySpan constructor and readonly/nullable annotations; SafeEvpPKeyHandle.OpenKeyFromProvider(IEnumerable<string>, keyUri, propertyQuery) | **Included R15:** deliberate provider/key configuration. CNG span input is supporting no-intermediate-array property setup, not a new algorithm. OpenSSL provider list/URI and ownership require actual provider evidence, separate from generic X25519. |
 | AesGcm/AesCcm KeySizeInBytes | **Included R16:** inspect an existing AEAD instance's key size without retaining duplicate state. Not tag/nonce/ciphertext size, nor a reason to choose a weaker key. |
 | Typed DNS envelopes, resolver/server options and Address/SRV/MX/TXT/CNAME/PTR/NS records | **PIN-754** retains SRV selection and shared resolver/envelope explanation. **Delivered PIN-1089 / R3** covers non-SRV records, response codes, TTL and best-effort negative TTL with real Windows/Linux execution. Preview 7's Windows-only claim is superseded by RC1 Linux support; no universal OS claim. |
-| Socket.ConnectAsync(..., ConnectAlgorithm), Default/Parallel | **Included R4:** explicit dual-stack connection racing replaces custom address scheduling; real controlled IPv4/IPv6 and cancellation evidence required. |
-| IPEndPoint UTF-8 Parse/TryParse, char/byte TryFormat, parsing/formatting interfaces and nullable adjustments | **Included R5:** parse/format caller-owned endpoint text without intermediate strings. Existing constructor/address APIs are annotation changes, not removed functionality. |
+| Socket.ConnectAsync(..., ConnectAlgorithm), Default/Parallel | **Delivered PIN-1090 / R4:** static event-args overload, original explicit older scheduler and real Windows dual-family success/refusal, selected-peer payload, completion and cancellation/draining. No fixed latency claim. |
+| IPEndPoint UTF-8 Parse/TryParse, char/byte TryFormat, parsing/formatting interfaces and nullable adjustments | **Delivered PIN-1091 / R5:** real paired caller-buffer consumers, malformed/range/short-destination and boundary checks; char/generic interfaces executed. Existing constructor/address APIs are annotation changes, not removed functionality. |
 | NetworkChange.IsSupported; NetworkInterface/IPGlobalProperties/event platform annotations | **Included R6:** guard network-change monitoring and provide an explicit fallback. Other annotation corrections are supporting platform constraints, not distinct networking features. |
 | Experimental TlsContext/TlsSession/TlsBufferSession/TlsSocketSession/status | **Grouped PIN-752:** SYSLIB5007, ownership, state/certificate transitions and actual I/O remain its required evidence. This audit does not claim a handshake. |
 | QUIC Priority/DefaultPriority | **Grouped PIN-755:** actual native transport/support checks; a relative scheduler hint is not guaranteed bandwidth/order. |
@@ -235,7 +235,43 @@ complete canonical Markdown, explicit target/edition, applicability and evidence
 This supersedes outstanding-R1 wording only. Other drafts, eight foundations,
 PIN-959/PIN-962, existing Human and actual-GA gates remain open.
 
-**Approval-only proposals, not new Linear tickets.** Use the existing
+## R4–R5 delivery reconciliation — 1 November 2026
+
+PIN-1090 and PIN-1091 deliver
+[`sockets.race-dual-stack-connections`](../../../content/recipes/sockets.race-dual-stack-connections/11.0/recipe.md)
+and [`networking.parse-endpoint-buffers`](../../../content/recipes/networking.parse-endpoint-buffers/11.0/recipe.md).
+The audit's abbreviated ConnectAsync spelling means the static
+SocketType/ProtocolType/SocketAsyncEventArgs/ConnectAlgorithm overload, not a new
+task-based instance overload. RC2 Parallel resolves the families separately and
+races their attempts; no fixed address preference, delay or WAN latency is taught.
+
+Original RelayDial and EndpointLedger consumers compile and execute with the
+audit's exact SDK10.0.402/reference-runtime10.0.13 and
+SDK11.0.100-rc.2.26504.105/reference-runtime11RC2. No package dependencies or new
+native toolchains are added. The [bounded source manifest](network-buffers.sources.json)
+qualifies paired contracts and current completion/endpoint implementation. The
+saved sample records retain real commands/input hashes, loaded runtime/compiler,
+audit-matching references and measured Windows socket/DNS native identities.
+
+RelayDial checks local DNS answers for both loopback families, actual separate
+listeners and non-listening refusal paths, both algorithms, selected peer/payload,
+total failure, event return/completion counts, pre-cancellation and cancellation
+during pending TCP connects. The latter saturates an owned listener accept queue;
+all operations are drained and owned sockets disposed. The older scheduler also
+checks delayed/failed-first fallback and cancellation. EndpointLedger checks IPv4/
+bracketed IPv6, ports0/65535/default0, malformed/range/UTF8 failures, exact/large/
+short output and buffer boundaries; RC2 byte Parse, char format and generic UTF8
+interfaces execute too. Failed TryFormat may modify its destination interior.
+
+Refresh with `eng/Test-NetworkBuffers.ps1 -Record -VerifySources`; the
+[installed walkthrough](../../inspect-guidance.md#dual-stack-connections-and-endpoint-buffers)
+checks the ordinary exact artifact's offline discovery/body/applicability/evidence.
+No system DNS/routes, production services, persistent environment or recurring
+matrix changes. These are Windows x64 results, not WAN/DNS outage, performance,
+other-platform or GA proof. Other R drafts, eight foundations, pending Human proof,
+PIN-959 and PIN-962 retain their own obligations.
+
+**Historical approval-only proposals, now reconciled by PIN-986 and delivery notes.** Use the existing
 02 - Language and library guidance milestone; allocate unused `02-DDD` titles only
 after approval and a fresh numbering check. Native estimates follow observed
 S=2, M=3, L=5. Each row is one complete recipe PR. Estimates include source

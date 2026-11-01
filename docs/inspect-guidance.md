@@ -4,6 +4,56 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Dual-stack connections and endpoint buffers
+
+Requires PowerShell7, Node22.19+, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. The samples have no package
+dependencies or workloads. RelayDial requires OS IPv4/IPv6, localhost resolving
+only to both loopback families and available ephemeral TCP ports; it owns all
+listeners/attempts. EndpointLedger performs no network I/O. No system DNS/routes,
+global tools, PATH or persistent environment changes are required.
+
+Refresh the four sample records and verify nine immutable official sources:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ec011ee0'
+& ./eng/Test-NetworkBuffers.ps1 -Record -VerifySources
+```
+
+Expect Default/Parallel and the older scheduler to pass both/either/neither-family
+listener cases, selected-peer payload, event completion and cancellation/draining.
+A saturated owned accept queue holds current TCP connections pending for real
+cancellation. All sockets are disposed. Endpoint checks cover numeric IPv4/IPv6,
+ports/defaults, malformed/UTF8 failures, exact/large/short output and unchanged
+buffer boundaries. Current char/generic interfaces execute too. PATH/persistent
+environment snapshots must agree; saved records include actual loaded runtime and
+audit-matching references/compiler/native identities. No fixed latency, failed-write
+interior rollback, other-platform, allocation benchmark or GA claim is made.
+
+This block is tested from an unrelated starting directory. It builds/packs the
+ordinary tool, installs that exact artifact using the existing isolated local-only
+feed/cache, then calls actual installed stdio list/get from an unrelated temporary
+directory. It prints both discovery IDs/titles/goals, full canonical Markdown,
+explicit target11/edition11, applicability and fresh paired evidence. Setup can
+restore online; unusable proxies during retrieval prove proxy independence, not
+OS-level network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ec011ee0'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sockets.race-dual-stack-connections','networking.parse-endpoint-buffers') `
+  -Query 'network-buffers' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1090-1091' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/network-buffers/inspection'
+```
+
+Expect two complete entries and final exact-artifact PASS. Target10 returns
+no_applicable_edition. Missing/stale evidence, snippet/body drift or applicability
+changes fail. Existing eight foundations, Human gates, PIN-959 and PIN-962 remain
+unchanged/open. RC2 preparation is not final-GA verification.
+
 ## Registered certificate identifiers and typed DNS records
 
 Requires PowerShell 7, Node 22.19+, SDK10.0.402/runtime10.0.13 and the separate

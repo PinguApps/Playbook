@@ -1,4 +1,4 @@
-#region endpoint-text
+// snippet:endpoint-text
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
@@ -13,4 +13,4 @@ public static class EndpointText
     public static bool TryWrite(IPEndPoint endpoint, Span<byte> field, out int written) =>
         endpoint.TryFormat(field, out written);
 }
-#endregion
+// endsnippet:endpoint-text

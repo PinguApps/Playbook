@@ -1,4 +1,4 @@
-#region relay-connector
+// snippet:relay-connector
 using System.Net;
 using System.Net.Sockets;
 
@@ -66,4 +66,4 @@ public static class RelayConnector
         }
     }
 }
-#endregion
+// endsnippet:relay-connector

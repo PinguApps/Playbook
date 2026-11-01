@@ -1,4 +1,4 @@
-#region relay-connector
+// snippet:relay-connector
 using System.Net;
 using System.Net.Sockets;
 
@@ -32,4 +32,4 @@ public static class RelayConnector
         return operation.ConnectSocket ?? throw new InvalidOperationException("No connected socket returned.");
     }
 }
-#endregion
+// endsnippet:relay-connector

@@ -1,4 +1,4 @@
-#region endpoint-text
+// snippet:endpoint-text
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Text;
@@ -26,4 +26,4 @@ public static class EndpointText
         return true;
     }
 }
-#endregion
+// endsnippet:endpoint-text
