@@ -389,8 +389,10 @@ and in the audit distinguish completed slices from outstanding drafts.
 | `sockets.race-dual-stack-connections` | .NET11 static event-args ConnectAlgorithm overload versus original .NET10 explicit address scheduling; framework-only, checked localhost answers and isolated IPv4/IPv6 listeners/refusals. | [PIN-1090 edition11.0](../../../content/recipes/sockets.race-dual-stack-connections/11.0/recipe.md): actual Windows Default/Parallel success/fallback/failure, selected-peer payload, event contract and cancellation/draining/cleanup. No fixed latency, WAN, DNS-outage or GA claim. |
 | `networking.parse-endpoint-buffers` | .NET11 IPEndPoint UTF8 Parse/TryParse and byte/char TryFormat/interfaces versus valid .NET10 string adapter; no package/native dependency. | [PIN-1091 edition11.0](../../../content/recipes/networking.parse-endpoint-buffers/11.0/recipe.md): paired real parsing/port/malformed/short-buffer/boundary checks; current char and generic interfaces. Avoids intermediate text strings, not endpoint objects; no performance/GA claim. |
 
-Refresh these paired consumers with `eng/Test-IdentityRecords.ps1 -Record -VerifySources`;
-[selected sources](../audits/identity-records.sources.json) and original audit
+Refresh RegisteredIdentifiers/TypedDns with `eng/Test-IdentityRecords.ps1 -Record -VerifySources`
+and its [selected sources](../audits/identity-records.sources.json). Refresh
+RelayDial/EndpointLedger with `eng/Test-NetworkBuffers.ps1 -Record -VerifySources`
+and [networking sources](../audits/network-buffers.sources.json). Original audit
 reference hashes remain separate from real behavior evidence. PIN-959/PIN-962,
 all other delivery obligations and existing Human gates stay open.
 

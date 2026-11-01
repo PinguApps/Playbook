@@ -20,8 +20,9 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ec011ee0'
 & ./eng/Test-NetworkBuffers.ps1 -Record -VerifySources
 ```
 
-Expect Default/Parallel and the older scheduler to pass both/either/neither-family
-listener cases, selected-peer payload, event completion and cancellation/draining.
+Expect Default/Parallel to pass both/either/neither-family listener cases,
+selected-peer payload, event completion and cancellation/draining. The older
+scheduler checks its own success/fallback, payload and drained-cancellation paths.
 A saturated owned accept queue holds current TCP connections pending for real
 cancellation. All sockets are disposed. Endpoint checks cover numeric IPv4/IPv6,
 ports/defaults, malformed/UTF8 failures, exact/large/short output and unchanged

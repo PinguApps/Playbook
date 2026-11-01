@@ -58,8 +58,8 @@
     {
       "id": "endpoint-text",
       "pattern": "^\\w+ System\\.Net\\.IPEndPoint",
-      "disposition": "proposed",
-      "owner": "R5"
+      "disposition": "delivered",
+      "owner": "PIN-1091; networking.parse-endpoint-buffers"
     },
     {
       "id": "network-support",
@@ -70,8 +70,8 @@
     {
       "id": "parallel-connect",
       "pattern": "^\\w+ System\\.Net\\.Sockets\\.(ConnectAlgorithm|Socket::ConnectAsync)",
-      "disposition": "proposed",
-      "owner": "R4"
+      "disposition": "delivered",
+      "owner": "PIN-1090; sockets.race-dual-stack-connections"
     },
     {
       "id": "tls-sessions",
