@@ -1,0 +1,146 @@
+{
+  "id": "dependencies.use-framework-extensions",
+  "edition": "11.0",
+  "title": "Reference Extensions correctly after shared-framework inclusion",
+  "goal": "Remove framework-redundant Extensions package references when targeting .NET 11; retain older-target and implementation dependencies and verify actual restore and deployment assets.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [],
+  "tags": [
+    "extension-identity",
+    "dependencies"
+  ],
+  "apis": [
+    "PackageReference",
+    "Microsoft.NETCore.App",
+    "NU1510"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 framework contracts on the demonstrated framework route.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Project edits are language-neutral; the executable verification consumer uses C#15.",
+            "name": "C# verification consumer",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "No packages in the .NET11 primary consumer. The comparison pins nine Extensions10.0.13 lib/net10.0 assets; supporting FileProviders.Physical11RC2 and deliberate Logging.Abstractions11RC3 are separate controls."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Restore/build/run the actual target with its pinned SDK; examples use nullable and implicit usings."
+          ],
+          "platforms": [
+            "Windows x64 managed execution measured; no other-platform, Native AOT or native collector proof."
+          ],
+          "providers": [
+            "Microsoft.NETCore.App shared framework; no external service."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Only the nine moved libraries are covered; framework-dependent publish observations do not describe self-contained or single-file layouts.",
+            "Keep a deliberate newer override only with consumer evidence; no blanket PackageReference removal."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/extensions-in-shared-framework.md"
+        ],
+        "selectionNotes": [
+          "Only the nine moved libraries are covered; framework-dependent publish observations do not describe self-contained or single-file layouts.",
+          "Keep a deliberate newer override only with consumer evidence; no blanket PackageReference removal."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/CelestialSchedule/CelestialSchedule.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ],
+        "neutralLanguages": [
+          "csharp",
+          "fsharp",
+          "vb"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned shared-framework compatibility note",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/compatibility/extensions/11/extensions-in-shared-framework.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/CelestialSchedule/CelestialSchedule.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 .NET10/.NET11 RC2 managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, deliberate RC3 override, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/CelestialSchedule/CelestialSchedule.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 .NET10/.NET11 RC2 managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, deliberate RC3 override, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 .NET10/.NET11 RC2 managed consumers, exact reference/compiler/runtime/package identities. Restore-selected assets, missing-reference failure, exact/minimum direct references and NU1510, multitarget library consumer, retained implementation package, deliberate RC3 override, framework-dependent publish/deps/runtime resolution. No self-contained/single-file/native/AOT/other-platform/GA deployment proof. No interactive action required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/CelestialSchedule/CelestialSchedule.csproj",
+      "region": "schedule-project",
+      "language": "xml"
+    },
+    "newer": {
+      "path": "samples/net11.0/CelestialSchedule/CelestialSchedule.csproj",
+      "region": "schedule-project",
+      "language": "xml"
+    },
+    "packages": {
+      "region": "package-references",
+      "language": "xml",
+      "path": "samples/net10.0/CelestialSchedule/CelestialSchedule.csproj"
+    }
+  },
+  "languageNeutral": true
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.Extensions.Logging.Abstractions": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.3.26522.148, 11.0.0-rc.3.26522.148]",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "Z8pWnNEphlq7BOjyX7w4gVygIa36lEy3aW03Y2SgiORVW9hnLaJ7sxxl5R3ZZBVr+2Wjnw/9KJpIQgQ994ILFA=="
+      }
+    }
+  }
+}

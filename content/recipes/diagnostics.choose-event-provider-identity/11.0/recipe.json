@@ -1,0 +1,144 @@
+{
+  "id": "diagnostics.choose-event-provider-identity",
+  "edition": "11.0",
+  "title": "Give a dynamic event provider an explicit identity",
+  "goal": "Choose an explicit name and GUID for dynamically emitted events; use managed listener checks to distinguish provider initialization failures, write errors and lifetime ownership.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "extension-identity",
+    "diagnostics"
+  ],
+  "apis": [
+    "EventSource.EventSource(string, Guid)",
+    "EventSource.EventSource(string, Guid, EventSourceSettings, string[])",
+    "EventSource.ConstructionException",
+    "EventSourceSettings.ThrowOnEventWriteErrors",
+    "EventListener"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 framework contracts on the demonstrated framework route.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework EventSource implementation; no package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Restore/build/run the actual target with its pinned SDK; examples use nullable and implicit usings."
+          ],
+          "platforms": [
+            "Windows x64 managed execution measured; no other-platform, Native AOT or native collector proof."
+          ],
+          "providers": [
+            "Managed EventListener; ETW/EventPipe collection is outside scope."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Use nonempty provider GUIDs and valid trait pairs; inspect ConstructionException before emitting.",
+            "Do not overlap active providers sharing an identity; dispose providers/listeners. No native collector/deployment claim."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Tracing/EventSource.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Tracing/EventSource.cs"
+        ],
+        "selectionNotes": [
+          "Use nonempty provider GUIDs and valid trait pairs; inspect ConstructionException before emitting.",
+          "Do not overlap active providers sharing an identity; dispose providers/listeners. No native collector/deployment claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BorealSignals/BorealSignals.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned .NET 10 EventSource implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Tracing/EventSource.cs"
+    },
+    {
+      "title": "Pinned .NET 11 RC2 EventSource implementation",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Tracing/EventSource.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/BorealSignals/BorealSignals.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 .NET10/.NET11 RC2 managed consumers, exact reference/compiler/runtime/package identities. Both explicit constructors versus name-derived identity; real EventListener payload, Name/Guid, settings/traits, disable/dispose, duplicate active identity and observed construction/write errors. No ETW/EventPipe collection, other-platform or final-GA execution."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/BorealSignals/BorealSignals.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 .NET10/.NET11 RC2 managed consumers, exact reference/compiler/runtime/package identities. Both explicit constructors versus name-derived identity; real EventListener payload, Name/Guid, settings/traits, disable/dispose, duplicate active identity and observed construction/write errors. No ETW/EventPipe collection, other-platform or final-GA execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 .NET10/.NET11 RC2 managed consumers, exact reference/compiler/runtime/package identities. Both explicit constructors versus name-derived identity; real EventListener payload, Name/Guid, settings/traits, disable/dispose, duplicate active identity and observed construction/write errors. No ETW/EventPipe collection, other-platform or final-GA execution. No interactive action required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/BorealSignals/GardenRun.cs",
+      "region": "garden-provider",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/BorealSignals/GardenRun.cs",
+      "region": "garden-provider",
+      "language": "csharp"
+    }
+  }
+}
