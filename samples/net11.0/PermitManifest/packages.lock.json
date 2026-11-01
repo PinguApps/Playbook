@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "System.Security.Cryptography.Xml": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "lcYQkhdyA5AbOwD4T9MbExzhS6O977lr+X7qXWg2FAQKJp/J/NER3NZ4nseNrBuEEyfxwjmuJbXy4rUeV6Q2+A==",
+        "dependencies": {
+          "System.Security.Cryptography.Pkcs": "11.0.0-rc.2.26504.105"
+        }
+      },
+      "System.Security.Cryptography.Pkcs": {
+        "type": "Transitive",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "cYggI0Mk5zfpEQWd6l0IdN1/uZnWX/b64xCZlrEYthz39zgXFAy1VpKtMFdYFzE1/PKugJFtUc/uXe+fLT4HeQ=="
+      }
+    }
+  }
+}
