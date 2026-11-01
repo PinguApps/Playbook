@@ -1,0 +1,16 @@
+{
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/RuntimeCalls/CallChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-RuntimeCalls.ps1",
+    ".editorconfig",
+    "docs/planning/audits/runtime-calls.sources.json",
+    "docs/planning/audits/runtime-security.assets.json"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
