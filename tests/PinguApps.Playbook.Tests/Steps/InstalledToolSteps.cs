@@ -73,6 +73,14 @@ public sealed class InstalledToolSteps : IDisposable
         await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
     }
 
+    [Then("SQL query guidance retains canonical bodies full applicability and target editions")]
+    public async Task CheckSqlQueryGuidanceAsync()
+    {
+        string[] ids = ["ef.select-record-at-extreme", "sql.set-supported-compatibility"];
+        await CheckWebRecipesAsync(ids, "sql-query-guidance", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
     [Then("Fen contract guidance retains canonical bodies full applicability and target editions")]
     public async Task CheckFenContractsAsync()
     {

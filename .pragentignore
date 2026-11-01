@@ -447,3 +447,9 @@
 /samples/net11.0/ArchiveStages/verification-evidence.json
 /samples/net10.0/ReefMaintenance/verification-evidence.json
 /samples/net11.0/ReefMaintenance/verification-evidence.json
+
+# Record-Evidence generated SQL provider commands, SDK inventory and input hashes.
+# Review canonical consumers, locks, manifests and the isolated runner; build/pack
+# checks freshness and installed stdio scenarios compare complete served guidance.
+/samples/net10.0/MoorlandDispatch/verification-evidence.json
+/samples/net11.0/MoorlandDispatch/verification-evidence.json

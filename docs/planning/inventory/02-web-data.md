@@ -327,7 +327,7 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 | — To-one join pruning and no-op CAST removal | SQL generation optimization with unchanged LINQ. | Relational query performance. | [E] `linq-to-one-join-pruning`, `linq-strip-noop-casts` | excluded |
 | `ef.compose-group-winner` — Query related data from each group's selected item | Compose navigation/joins over top-per-group result instead of client workaround. | Relational translation; supported shapes require provider evidence. | [E] `linq-groupby-enhancements` | included |
 | `ef.reconcile-unmatched-records` — Preserve both sides of a database reconciliation | Use translated `FullJoin`. | EF Core 11 relational provider supporting full outer join; not blanket SQLite promise. | [E] `linq-fulljoin` | included |
-| `ef.select-record-at-extreme` — Fetch the record associated with a minimum or maximum key | Use translated MinBy/MaxBy and async equivalents. | Query/provider ordering and tie semantics must be explicit. | [E] `linq-maxby-minby` | included |
+| `ef.select-record-at-extreme` — Fetch the record associated with a minimum or maximum key | Use translated MinBy/MaxBy and async equivalents. | Query/provider ordering and tie semantics must be explicit. | [E] `linq-maxby-minby` | delivered — PIN-851, `ef.select-record-at-extreme/11.0`; original paired consumers execute real sync/async scalar-key queries with aggregate-filtered deterministic ties; RC2 composite-key rejection retained |
 | `sql.test-json-path` — Filter documents by the presence of a nested property | Use `JsonPathExists` rather than hand-written SQL. | SQL Server 2022+ JSON path existence. | [E] | included |
 | `sql.search-vector-index` — Rank approximate neighbors through an indexed query | Create vector index and compose `VectorSearch`/approximation. | **Experimental SQL Server feature/API**; SQL Server 2025; exact versus approximate semantics. | [E] `sqlserver-vector-search` | included |
 | `sql.read-vector-explicitly` — Read back embeddings when entity materialization skips them | Project vector columns explicitly. | SqlVector properties no longer loaded by default; follow final opt-in availability. | [E], [EB] `sqlvector-not-auto-loaded` | included |
@@ -366,7 +366,7 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 | `cosmos.retain-document-key-identity` — Keep existing documents reachable after key escaping changes | Plan key/data migration or bounded compatibility switch. | Composite/discriminator IDs; old switch retains collision defect. | [EB] illegal-id-character section | included |
 | `cosmos.handle-missing-projection` — Decide what an absent document path contributes to a result | Use IsDefined or CoalesceUndefined. | Cosmos undefined now throws consistently. | [EB] `cosmos-undefined-projection` | included |
 | `cosmos.read-raw-document` — Access raw JSON without removed shadow state | Replace `__jObject` access with direct CosmosClient. | System.Text.Json internal rewrite; explicit raw-data ownership. | [EB] `cosmos-jObject-removed` | included |
-| `sql.set-supported-compatibility` — Keep generated SQL compatible with the actual database | Set provider compatibility explicitly below the new 160 default. | SQL Server 2019 or older/lower configured compatibility. | [EB] `sqlserver-compatibility-level-160` | included |
+| `sql.set-supported-compatibility` — Keep generated SQL compatible with the actual database | Set provider compatibility explicitly below the new 160 default. | SQL Server 2019 or older/lower configured compatibility. | [EB] `sqlserver-compatibility-level-160` | delivered — PIN-843, `sql.set-supported-compatibility/11.0`; paired real providers execute explicit150 versus default TOP-based/LEAST on database150/170 without upgrading it; actual older engines untested |
 | `ef.handle-empty-migration-assembly` — Distinguish intentional schema ownership from missing migrations | Remove unwanted migrate call or intentionally configure diagnostic behavior. | Migrate/MigrateAsync now throw when no migrations found. | [EB] `migrations-not-found` | included |
 | `ef.configure-generated-model-stage` — Generate models and precompiled queries at the intended stage | Replace EFOptimizeContext with stage-specific properties. | Build/publish/AOT; do not assume all query shapes support precompilation. | [EB] `ef-optimize-context-removed` | included |
 | `ef.reference-design-services` — Restore design-time services previously supplied transitively | Add direct Design reference where actually required. | Tools/Tasks no longer depend on Design. | [EB] `ef-tools-no-design-dep` | included |
@@ -460,3 +460,20 @@ not third-party interoperability, messages, passkeys or production deployment.
 Full source/artifact pins and sample evidence retain RC2 limits. No ninth foundation
 or older-target edition is added; PIN-959/PIN-963/PIN-964, actual-GA and Human gates
 remain open.
+
+### SQL query compatibility and whole-record extrema — PIN-843 / PIN-851
+
+Original MoorlandDispatch .NET10/EF10 and .NET11/EF11 RC2 consumers back
+`sql.set-supported-compatibility/11.0` and `ef.select-record-at-extreme/11.0`.
+The authorized PIN-676 local SQL2025 route supplies disposable databases at150
+and170. Actual chained Take commands prove explicit provider150 uses TOP-based
+and preserves database compatibility, while EF11 default160 uses LEAST. This
+is lower-configured-level evidence, not execution on SQL2019 or older engines.
+Actual sync/async row selection checks whole records, tied IDs and empty entities.
+RC2 rejects anonymous composite MinBy keys despite an implementation comment;
+the delivered form filters candidates with a scalar MIN/MAX subquery, then uses
+scalar MinBy/MaxBy on the unique Id. Ordered FirstOrDefault remains a valid and
+often simpler alternative. The packed stdio scenario checks full canonical bodies,
+applicability, evidence and target11 edition offline. No extra .NET10 foundation,
+older-target EF11 route, provider-wide guarantee, publication or GA claim is added.
+PIN-959/PIN-965 and unrelated Human gates remain open.

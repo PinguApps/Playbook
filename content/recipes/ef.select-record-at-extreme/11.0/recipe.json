@@ -1,0 +1,218 @@
+{
+  "id": "ef.select-record-at-extreme",
+  "edition": "11.0",
+  "title": "Fetch the whole record at a minimum or maximum key",
+  "goal": "Select a complete database record with MinBy/MaxBy or their async forms, and declare a deterministic key for tied values before replacing ordered queries.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "sql-query-guidance",
+    "sql-server",
+    "extrema"
+  ],
+  "apis": [
+    "Queryable.MinBy",
+    "Queryable.MaxBy",
+    "EntityFrameworkQueryableExtensions.MinByAsync",
+    "EntityFrameworkQueryableExtensions.MaxByAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md#maxby-and-minby",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#maxby-and-minby",
+          "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/",
+          "https://learn.microsoft.com/en-us/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database?view=sql-server-ver17",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Query/Internal/QueryableMethodNormalizingExpressionVisitor.cs"
+        ],
+        "selectionNotes": [
+          "SQL Server provider translation: filter crate counts to the scalar MIN/MAX in a subquery, then MinBy/MaxBy the unique Id to resolve ties in one command. Lowest Id wins the minimum; highest Id wins the maximum.",
+          "The pinned EF11 RC2 provider rejects anonymous composite MinBy keys. Keep ordered FirstOrDefault for a simpler general tie policy; do not rely on preceding ordering or Enumerable comparer semantics."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C# 15-only feature is needed."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+            }
+          ],
+          "packageAssets": [
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.SqlServer; real SQL Server2025 17.0.5035.5 Developer on Linux, disposable databases at compatibility150 and170. Provider setting150 is independent of database compatibility."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Consumer executed on Windows x64 against the authorized local Docker Linux SQL container. Other client OS/architectures and actual SQL2019/older engines were not executed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "SQL Server provider translation: filter crate counts to the scalar MIN/MAX in a subquery, then MinBy/MaxBy the unique Id to resolve ties in one command. Lowest Id wins the minimum; highest Id wins the maximum.",
+            "The pinned EF11 RC2 provider rejects anonymous composite MinBy keys. Keep ordered FirstOrDefault for a simpler general tie policy; do not rely on preceding ordering or Enumerable comparer semantics.",
+            "Historical .NET10 comparison is not another foundation or a supported target10 edition. EF11 requires .NET11; no EF11-on-net10 route.",
+            "No cloud/Entra authentication, migrations, throughput or GA verification is claimed."
+          ],
+          "prerequisites": [
+            "Copy every file of one complete project into its own directory. Install its pinned SDK/runtime and restore locked packages online; serving this recipe remains offline.",
+            "The sample creates dbo.DispatchLoads and changes compatibility only in an empty, exclusively owned disposable playbook_ database. Never point it at production or an existing shared database. Supply PLAYBOOK_SQL_CONNECTION_STRING privately in the child process; do not log it.",
+            "The repository authoring helper reuses the authorized PIN-676 SQL container, creates/removes a unique restricted database per release, and stops the server afterwards. External users must arrange their own isolated test database."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/MoorlandDispatch/MoorlandDispatch.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md#maxby-and-minby",
+      "title": "Immutable official EF11 documentation"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#maxby-and-minby",
+      "title": "Official provider, database or translation reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/",
+      "title": "Official provider, database or translation reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database?view=sql-server-ver17",
+      "title": "Official provider, database or translation reference"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Query/Internal/QueryableMethodNormalizingExpressionVisitor.cs",
+      "title": "Official provider, database or translation reference"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MoorlandDispatch/MoorlandDispatch.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Actual locked EF10/SQL Server execution at database compatibility150 and170: explicit provider150 and EF10 default both use TOP-based translation without LEAST and return load IDs11/12. Ordered FirstOrDefault/Async materializes whole records with deterministic tied IDs11/22 and null empty entities; four real commands include two async. Direct scalar MinBy translation rejection is the EF10 red control. Provider configuration/querying leaves database compatibility unchanged; eng/Test-SqlQueryGuidance.ps1 -Record owns isolated setup/cleanup."
+    },
+    {
+      "sample": "samples/net11.0/MoorlandDispatch/MoorlandDispatch.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual locked EF11 RC2/SQL Server execution at database compatibility150 and170: explicit provider150 uses TOP-based translation without LEAST; default160 uses LEAST, both returning load IDs11/12 without changing database compatibility. Scalar MinBy/MaxBy and async forms over MIN/MAX-filtered candidates materialize whole records with deterministic tied IDs11/22 and null empty entities; four real commands include two async. Anonymous composite MinBy key translation rejection is the RC2 red control. eng/Test-SqlQueryGuidance.ps1 -Record owns isolated setup/cleanup."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/MoorlandDispatch/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MoorlandDispatch/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MoorlandDispatch/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MoorlandDispatch/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-moorlanddispatch-csproj": {
+      "path": "samples/net10.0/MoorlandDispatch/MoorlandDispatch.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MoorlandDispatch/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MoorlandDispatch/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MoorlandDispatch/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MoorlandDispatch/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MoorlandDispatch/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-moorlanddispatch-csproj": {
+      "path": "samples/net11.0/MoorlandDispatch/MoorlandDispatch.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MoorlandDispatch/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated real database checks cover this bounded SQL2025 lower/newer compatibility route; no separate Human proof is required. Actual2019/older engine, other providers/platforms, cloud identity and GA remain unverified."
+  }
+}
