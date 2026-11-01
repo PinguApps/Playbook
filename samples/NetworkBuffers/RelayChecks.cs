@@ -68,6 +68,7 @@ internal static class Program
         }
         catch (OperationCanceledException) { Console.WriteLine("CANCEL pre-dispatch; no socket ownership transferred"); }
 #if NET11_0_OR_GREATER
+        await CheckLateCompletionTimeoutAsync();
         await CheckPendingCancellationAsync();
         using var invalid = new SocketAsyncEventArgs { RemoteEndPoint = new DnsEndPoint("localhost", 1) };
         try { Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, invalid, (ConnectAlgorithm)42); throw new InvalidOperationException("Invalid algorithm accepted."); }
@@ -115,7 +116,7 @@ internal static class Program
         operation.Completed += (_, _) => { Interlocked.Increment(ref events); completion.TrySetResult(); };
         bool pending = Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, operation, algorithm);
         if (!pending) completion.TrySetResult();
-        await completion.Task.WaitAsync(TimeSpan.FromSeconds(10));
+        await WaitForConnectEventAsync(operation, completion.Task, TimeSpan.FromSeconds(10));
         using Socket? socket = operation.ConnectSocket;
         Require(events == (pending ? 1 : 0), "Completed event/return contract disagrees.");
         Require((scenario == "neither") == (operation.SocketError != SocketError.Success), "Raw operation result disagrees.");
@@ -125,6 +126,58 @@ internal static class Program
             await VerifyPeerAsync(socket, v4, v6, scenario, timeout.Token);
         }
         Console.WriteLine($"EVENT {algorithm} pending={pending} completedEvents={events} error={operation.SocketError}; returned socket disposed");
+    }
+
+    private static async Task WaitForConnectEventAsync(SocketAsyncEventArgs operation, Task completion, TimeSpan timeout)
+    {
+        try { await completion.WaitAsync(timeout); }
+        catch
+        {
+            // WaitAsync only abandons the wait. Keep the args alive until the connect completes.
+            try
+            {
+                Socket.CancelConnectAsync(operation);
+                await completion;
+            }
+            finally { operation.ConnectSocket?.Dispose(); }
+            throw;
+        }
+    }
+
+    private static async Task CheckLateCompletionTimeoutAsync()
+    {
+        using var listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        listener.Bind(new IPEndPoint(IPAddress.Loopback, 0));
+        listener.Listen(1);
+        int port = ((IPEndPoint)listener.LocalEndPoint!).Port;
+        using var operation = new SocketAsyncEventArgs { RemoteEndPoint = new DnsEndPoint("localhost", port) };
+        var nativeCompletion = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var completion = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        operation.Completed += (_, _) => nativeCompletion.TrySetResult();
+        bool pending = Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, operation, ConnectAlgorithm.Default);
+        if (!pending) nativeCompletion.TrySetResult();
+        try
+        {
+            await nativeCompletion.Task.WaitAsync(TimeSpan.FromSeconds(10));
+            Require(operation.SocketError == SocketError.Success && operation.ConnectSocket is not null, "Late-completion fixture failed to connect.");
+            var handle = operation.ConnectSocket!.SafeHandle;
+            // Gate delivery of a real successful connect to exercise the timeout/completion race.
+            Task wait = WaitForConnectEventAsync(operation, completion.Task, TimeSpan.Zero);
+            bool draining = !wait.IsCompleted;
+            completion.TrySetResult();
+            try { await wait; throw new InvalidOperationException("Timeout ignored."); }
+            catch (TimeoutException) { }
+            Require(handle.IsClosed, "Timed-out connect leaked a late successful socket.");
+            Require(draining, "Timed-out wait did not drain completion.");
+            Console.WriteLine("TIMEOUT late successful TCP connect: gated completion drained; returned socket handle closed");
+        }
+        finally
+        {
+            completion.TrySetResult();
+            Socket.CancelConnectAsync(operation);
+            await nativeCompletion.Task;
+            operation.ConnectSocket?.Dispose();
+        }
     }
 
     private static async Task CheckPendingCancellationAsync()
@@ -153,6 +206,26 @@ internal static class Program
                 await cancellation.CancelAsync();
                 try { using Socket ignored = await operation.WaitAsync(TimeSpan.FromSeconds(10)); throw new InvalidOperationException("Cancellation ignored."); }
                 catch (OperationCanceledException) { Console.WriteLine($"CANCEL {algorithm} in-flight TCP; completion drained, socket disposed"); }
+                using var raw = new SocketAsyncEventArgs { RemoteEndPoint = new DnsEndPoint("localhost", port) };
+                var completion = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+                raw.Completed += (_, _) => completion.TrySetResult();
+                bool pending = Socket.ConnectAsync(SocketType.Stream, ProtocolType.Tcp, raw, algorithm);
+                if (!pending) completion.TrySetResult();
+                try
+                {
+                    Require(!completion.Task.IsCompleted, "Timeout fixture did not hold connect pending.");
+                    try { await WaitForConnectEventAsync(raw, completion.Task, TimeSpan.Zero); throw new InvalidOperationException("Timeout ignored."); }
+                    catch (TimeoutException) { }
+                    Require(completion.Task.IsCompleted, "Timed-out connect completion was not drained.");
+                    Require(raw.ConnectSocket is null || raw.ConnectSocket.SafeHandle.IsClosed, "Timed-out connect socket is still open.");
+                    Console.WriteLine($"TIMEOUT {algorithm} pending TCP: canceled/drained; no unowned socket");
+                }
+                finally
+                {
+                    Socket.CancelConnectAsync(raw);
+                    await completion.Task;
+                    raw.ConnectSocket?.Dispose();
+                }
             }
         }
         finally
