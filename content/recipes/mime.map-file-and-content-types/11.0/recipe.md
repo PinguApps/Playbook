@@ -41,7 +41,8 @@ throughput claim is made.
    C#15.0; no package, optional workload, provider, rendering mode, unsafe code or
    experimental opt-in is required. There is no claimed .NET 10 package backport.
    Keep a curated map on older targets. This adds no .NET 10 foundation.
-2. Pass a path or extension, with or without its leading dot, to GetMediaType.
+2. Pass a path or extension, with or without its leading dot, to
+   AttachmentLabels.MediaType (which calls MediaTypeMap.GetMediaType on .NET 11).
    Comparison is case-insensitive. The framework follows the host's
    Path.GetExtension rules; it does not open the file. A dotted directory is not
    the file's extension. Windows backslashes were tested on Windows only.
@@ -65,7 +66,9 @@ throughput claim is made.
 ## Constraints and alternatives
 
 Only the final extension is used: bundle.tar.gz maps by .gz, not a compound
-archive detector. Do not pass a whole URL: parcel.pdf?revision=3 is not a PDF path
+archive detector. A bare name equal to a suffix, such as pdf, is treated as an
+extension and labelled; keep filename and extension-only inputs distinct in your
+application. Do not pass a whole URL: parcel.pdf?revision=3 is not a PDF path
 lookup. Parse the URI and select the intended path in a separate, explicit step.
 Extension input is not whitespace-normalized: " pdf " is unknown in the tested
 contract. File existence, contents, path traversal, filename legality, malware,
