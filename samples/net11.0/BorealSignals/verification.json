@@ -1,0 +1,16 @@
+{
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/ExtensionIdentity/SignalChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ExtensionIdentity.ps1",
+    ".editorconfig",
+    "docs/planning/audits/extension-identity.sources.json",
+    "docs/planning/audits/extensions.assets.json"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

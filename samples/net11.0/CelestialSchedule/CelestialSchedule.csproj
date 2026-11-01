@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- snippet:schedule-project -->
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile></PropertyGroup>
+  <!-- endsnippet:schedule-project -->
+  <ItemGroup Condition="'$(RetainReferences)' == 'true'"><PackageReference Include="Microsoft.Extensions.Caching.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="../../ExtensionIdentity/PlanetariumChecks.cs" Link="Checks.cs" />
+    <Compile Include="../../NetworkBuffers/RuntimeIdentity.cs" Link="RuntimeIdentity.cs" />
+  </ItemGroup>
+</Project>
