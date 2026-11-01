@@ -17,7 +17,6 @@
   "apis": [
     "SocketsHttpHandler.AutomaticDecompression",
     "DecompressionMethods.Zstandard",
-    "ZstandardStream",
     "ZstdSharp.DecompressionStream"
   ],
   "introducedIn": "11.0",

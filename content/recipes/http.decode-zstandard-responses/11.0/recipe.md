@@ -54,7 +54,8 @@ policy separately when adapting the handler.
 2. Set AutomaticDecompression to Zstandard plus the other formats you intend to
    accept. The handler adds the corresponding Accept-Encoding values. Do not
    advertise a format you cannot decode, or manually duplicate a decoding layer.
-   Existing identical zstd negotiation is not duplicated in the tested case.
+   If a request already advertises zstd, the tested handler adds the other
+   enabled codings without adding a second zstd entry.
 3. Remove the manual adapter and its ZstdSharp dependency only after exercising
    the new runtime on the real service contract. Keep the package route on .NET 10
    if required; do not install an unsupported .NET 11 framework package on it.

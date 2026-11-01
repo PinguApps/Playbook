@@ -43,11 +43,12 @@ internal static class CairnReports
                         _ => new BrotliStream(raw, CompressionMode.Decompress)
                     };
                     var decoded = new OwnedContent(decoder, original);
+                    // Transfer ownership before copying headers so the catch path disposes both.
+                    response.Content = decoded;
                     foreach (var header in original.Headers)
                         if (!header.Key.Equals("Content-Length", StringComparison.OrdinalIgnoreCase) && !header.Key.Equals("Content-Encoding", StringComparison.OrdinalIgnoreCase))
                             decoded.Headers.TryAddWithoutValidation(header.Key, header.Value);
                     foreach (string encoding in encodings[..^1]) decoded.Headers.ContentEncoding.Add(encoding);
-                    response.Content = decoded;
                 }
                 catch { response.Dispose(); throw; }
             }
