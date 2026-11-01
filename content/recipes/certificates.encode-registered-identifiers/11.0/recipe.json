@@ -163,6 +163,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Real available Windows local certificate and Windows/Linux isolated resolver checks cover stated claims. No external resource, interactive approval, other-platform or GA proof is claimed."
+    "scope": "Real Windows local certificate export/reload, SAN encoding and invalid-input checks cover the stated claims. No trust or network identity validation, external resource, interactive approval, other-platform or GA proof is claimed."
   }
 }

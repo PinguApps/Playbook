@@ -138,7 +138,7 @@
   "evidence": [
     {
       "sdk": "10.0.402",
-      "scope": "Real Windows authoritative UDP records/TTLs, NODATA/NXDOMAIN/SOA absence, server override and pre/in-flight cancellation. Current Windows negative TTL is zero; separate Linux evidence measures positive TTL.",
+      "scope": "Real Windows authoritative UDP records/TTLs, NODATA/NXDOMAIN/SOA absence, server override and pre/in-flight cancellation. Managed DnsClient retains the SOA and measures negative TTL 45 on Windows; separate Linux evidence also measures 45. Absent SOA gives zero.",
       "sample": "samples/net10.0/TypedDns/TypedDns.csproj",
       "target": "net10.0",
       "kind": "compile-and-run",
@@ -155,7 +155,7 @@
     },
     {
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Real Windows authoritative UDP records/TTLs, NODATA/NXDOMAIN/SOA absence, server override and pre/in-flight cancellation. Current Windows negative TTL is zero; separate Linux evidence measures positive TTL.",
+      "scope": "Real Windows authoritative UDP records/TTLs, NODATA/NXDOMAIN/SOA absence, server override and pre/in-flight cancellation. Windows RC2 DnsQueryEx drops the SOA and returns negative TTL zero; separate Linux evidence measures 45 when the SOA is present and zero when absent.",
       "sample": "samples/net11.0/TypedDns/TypedDns.csproj",
       "target": "net11.0",
       "kind": "compile-and-run",
@@ -190,6 +190,6 @@
   },
   "humanProof": {
     "status": "not-required",
-    "scope": "Real available Windows local certificate and Windows/Linux isolated resolver checks cover stated claims. No external resource, interactive approval, other-platform or GA proof is claimed."
+    "scope": "Real Windows/Linux isolated resolver checks cover the stated record, TTL, status, server-override and cancellation claims. No external resource, interactive approval, other-platform or GA proof is claimed."
   }
 }
