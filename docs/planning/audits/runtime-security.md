@@ -144,7 +144,7 @@ lines, including repeated target-asset comparisons.
 | UnmanagedCallersOnly.AssociatedSourceType; EntryPoint/type nullable metadata | **Included R12:** condition a native export on retention of its associated type. EntryPoint already existed; named exports themselves are not new. Actual trimming/export-table evidence is required. |
 | LibraryImport SYSLIB1064 and broad RequiresUnsafe/MemorySafetyRules annotations on Marshal, COM, Java/Objective-C/Swift, GC handles, MemoryMarshal, Unsafe, SafeBuffer, crypto/native handles and reflection pointers | **Grouped PIN-715:** caller/declaration safety obligations; its existing measured compiler tests do not certify every API here. Keep safe/unsafe/preview/build flags precise. MarshalUsing property AttributeUsage additionally supports **R13**. |
 | COM generator property/accessor support and new diagnostics under existing IDs | **Included R13:** author complete generated COM properties with correct accessor marshalling; not merely warning suppression. |
-| RuntimeHelpers.AllocateTypeAssociatedMemory(type,size,alignment), Box | **R22** owns deliberate aligned lifetime-bound allocation. Box's RequiresUnsafe annotation stays PIN-715. |
+| RuntimeHelpers.AllocateTypeAssociatedMemory(type,size,alignment), Box | **Delivered PIN-1108 / R22:** measured aligned storage, explicit old allocator/free ownership and collectible type lifetime safety. No pointer access after owner release or exact native reclamation timing claim. Box's RequiresUnsafe annotation stays PIN-715. |
 | ConstructorInfo.GetGenericArguments/nullable adjustments, TypeDelegator and Emit-builder nullable overrides; AssemblyLoadContext location override | **Delivered PIN-742:** [metadata/deployment evidence](../../verification/assembly-deployments.md). Constructor generic arguments are distinct from constructor value parameters. |
 | AsyncHelpers/await intrinsic shapes | **Grouped PIN-757**, original F# builder PIN-980. Compiler-targeted helpers must not be called as general application helpers. |
 | IUnion/UnionAttribute/IsClosedTypeAttribute | **Grouped PIN-711**, serialization/closed-hierarchy behavior PIN-704. Compiler infrastructure does not create an extra runtime recipe. |
@@ -170,7 +170,7 @@ lines, including repeated target-asset comparisons.
 | SOCKS5h scheme | **Delivered PIN-1104 / R18:** http.resolve-dns-through-socks-proxy. Real hostname CONNECT through socks5 (10) and socks5h (11); old socks5 already forwards names. No global DNS privacy or production proxy claim. |
 | HTTP/2 Windows-authentication downgrade | **Included R17:** remove a manual request-version workaround only after actual policy/auth/protocol checks. Automatic benefit without removing that workaround is excluded. |
 | TLS Linux certificate alerts, malformed-handshake bounds checks, Apple AEAD acceleration, MsQuic update, proxy/socket/WebSocket/SMTP fixes | **Excluded as standalone goals:** automatic correctness/performance; no specific authored workaround removal established. Server TLS certificate-supply policy remains PIN-686; Unix channel binding web integration remains PIN-709. |
-| XML signature/encryption hardening in Preview 4 | Depth/DTD/transform mitigations already exist in the serviced 10.0.13 source, so these are not all new .NET 11 features. **Included R25:** SignedInfo's former fixed 100-reference limit becomes configurable through `System.Security.Cryptography.MaxReferencesPerSignedInfo`, still defaulting to 100. The MaxDecryptedDataElements key was already spelled that way in the old constant; only its comment was corrected. No invented key migration or advice to disable security limits. |
+| XML signature/encryption hardening in Preview 4 | Depth/DTD/transform mitigations already exist in the serviced 10.0.13 source, so these are not all new .NET 11 features. **Delivered PIN-1111 / R25:** SignedInfo's fixed 100-reference limit becomes configurable through `System.Security.Cryptography.MaxReferencesPerSignedInfo`, defaulting to 100. Real default100/101 and strict8/9 parsing/signature checks retain the old application-validation route. The MaxDecryptedDataElements key already had that spelling; no invented migration or disabled security limits. |
 | 32-bit GC heap hard limit support | **Included R24:** deliberately bounded heap configuration or removal of custom 32-bit enforcement; actual 32-bit runtime evidence required. Ordinary unchanged GC/DATAS/cgroup fixes are excluded. |
 | Remaining JIT/VM/GC/NativeAOT dispatch, >1024 CPU startup, Half/SIMD acceleration, marshalling fixes | **Excluded as standalone goals:** upgrading alone obtains the benefit. Explicit authored intrinsics remain PIN-739 and numeric conversion migrations PIN-683. Source-build-only interpreter bring-up options are not advertised as consumer SDK properties. |
 
@@ -356,6 +356,33 @@ No new system DNS/routes, proxy/service, native toolchain, production resource,
 recurring matrix or publication. No other-platform/native-handler, performance,
 production proxy, global DNS privacy or final-GA proof. Eight foundations,
 PIN-959/PIN-962 and existing Human gates retain their own obligations.
+
+## Aligned type lifetime and XML reference budgets: PIN-1108 / PIN-1111
+
+R22 is delivered by [interop.allocate-aligned-type-lifetime-memory](../../../content/recipes/interop.allocate-aligned-type-lifetime-memory/11.0/recipe.md).
+Original Merewick consumers compare explicit NativeMemory.AlignedAlloc/AlignedFree
+ownership with the .NET 11 aligned RuntimeHelpers overload. Both measure alignment
+and initialized storage across GC; the collectible owner is released without any
+subsequent pointer use. Exact native reclamation timing is not instrumented.
+
+R25 is delivered by [crypto.bound-xml-signature-references](../../../content/recipes/crypto.bound-xml-signature-references/11.0/recipe.md).
+Actual Xml10.0.13/Xml11RC2 consumers generate original local signed permit fixtures
+and exercise default100/101 versus strict8/9 SignedInfo/SignedXml parsing and real
+RSA signature checks. The old fixed parser limit and stricter application policy
+remain valid. Separate processes verify cached/late and invalid configuration;
+malformed content, tampering and a wrong trusted key reject.
+
+[Immutable sources](lifetime-signatures.sources.json) qualify support separately
+from exact compiler/reference/CoreLib/CoreCLR/package and Windows crypto binary
+identities. SDK10.0.402/runtime10.0.13 and SDK11RC2/runtime11RC2 execute on Windows
+x64. Xml selects actual lib/net10.0/lib/net11.0 assets with matching Pkcs locks;
+no older-target/new-package compatibility is asserted. Refresh affected evidence
+with eng/Test-LifetimeSignatures.ps1 -Record -VerifySources. The
+[installed walkthrough](../../inspect-guidance.md#aligned-memory-and-xml-reference-budgets)
+checks discovery, canonical Markdown, target11/edition11, applicability and evidence
+through installed offline stdio. Eight foundations, PIN-959/PIN-962 and existing
+Human gates stay open. No other-runtime/provider/platform, Native AOT collectible
+type, authorization, final-GA, recurring matrix or publication claim.
 
 **Historical approval-only proposals, now reconciled by PIN-986 and delivery notes.** Use the existing
 02 - Language and library guidance milestone; allocate unused `02-DDD` titles only

@@ -185,7 +185,7 @@
       "id": "memory-safety",
       "pattern": "^\\w+ System\\.(GC|Reflection\\.Pointer|Runtime\\.(CompilerServices\\.(MemorySafetyRulesAttribute|Unsafe|RuntimeHelpers)|InteropServices\\.)|Security\\.(SecureString|Principal\\.SecurityIdentifier|Cryptography\\.(DSAOpenSsl|ECDiffieHellmanOpenSsl|ECDsaOpenSsl|RSAOpenSsl|X509Certificates\\.(X509Certificate|X509Chain|X509Store))))",
       "disposition": "grouped",
-      "owner": "PIN-715; R22 for aligned allocation"
+      "owner": "PIN-715; delivered PIN-1108 / R22 for aligned allocation"
     }
   ]
 }

@@ -2621,3 +2621,53 @@ target10 returns no_applicable_edition. Missing/stale proof, changed snippet/bod
 or nonzero exit fails. No other-platform/native-handler, production proxy,
 global DNS privacy or final-GA behavior is established. Eight foundations,
 PIN-959/PIN-962 and existing Human gates remain intact; no recurring matrix added.
+
+## Aligned memory and XML reference budgets
+
+Requires PowerShell7, Node.js, SDK10.0.402/runtime10.0.13 and the separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2 installation. TypeLedger requires Windows
+x64 CoreCLR dynamic code for RunAndCollect and unsafe pointer/span access.
+PermitManifest pins Xml10.0.13/Xml11RC2 with matching transitive Pkcs and Windows
+CNG RSA. No account, workload, native compiler, production key or service is used.
+Refresh affected consumer evidence and verify the immutable publisher sources:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e88a45eb'
+& ./eng/Test-LifetimeSignatures.ps1 -Record -VerifySources
+```
+
+Expect four passing consumers. Memory checks measure alignment1/8/16/64/256 and
+initialized257-byte buffers across GC; observe collectible owner release without
+post-release access; reject invalid size/alignment and raw current type inputs.
+XML checks run default/strict/late/invalid processes with original local signed
+fixtures at1/8/9/100/101 references, actual SignedInfo/SignedXml parsing and RSA
+verification, malformed/tamper/wrong-key rejection and old application validation.
+Recorded references/XML archives/selected/executed assets match the audit; compiler,
+CoreLib/CoreCLR and Windows crypto binary identities are retained. Any nonzero
+exit fails. Process/user/machine PATH and persistent settings must stay unchanged.
+
+This literal block is tested from an unrelated starting directory. Build/pack may
+restore online. The exact ordinary package is installed through a fresh local-only
+feed/cache, then real installed stdio list/get runs from an unrelated temporary
+directory. Unusable retrieval proxies prove proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e88a45eb'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -PackageVersion '0.0.0-pin1108-1111'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('interop.allocate-aligned-type-lifetime-memory','crypto.bound-xml-signature-references') `
+  -Query 'lifetime-signatures' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1108-1111' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/lifetime-signatures/inspection
+```
+
+Expect one passing installed smoke and both discovery IDs, reusable titles and
+goals, full canonical Markdown, target11/edition11 applicability and fresh paired
+evidence. Structured/text responses agree; target10 returns no_applicable_edition.
+Missing/stale proof or changed canonical content fails. No exact native memory
+reclamation timing, other-runtime/provider/platform, authorization, Native AOT
+collectible-type or final-GA proof is established. Eight foundations, PIN-959/
+PIN-962 and other Human gates remain open; no recurring matrix or publication.

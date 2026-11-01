@@ -1,0 +1,19 @@
+{
+  "dependencies": [
+    "System.Security.Cryptography.Pkcs/11.0.0-rc.2.26504.105",
+    "System.Security.Cryptography.Xml/11.0.0-rc.2.26504.105"
+  ],
+  "additionalInputs": [
+    "samples/PermitManifest/SignatureChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-LifetimeSignatures.ps1",
+    ".editorconfig",
+    "docs/planning/audits/lifetime-signatures.sources.json",
+    "docs/planning/audits/runtime-security.assets.json"
+  ],
+  "workloads": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}

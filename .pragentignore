@@ -417,3 +417,10 @@
 /samples/net10.0/CairnReports/verification-evidence.json
 /samples/net11.0/CairnRelay/verification-evidence.json
 /samples/net11.0/CairnReports/verification-evidence.json
+
+# Test-LifetimeSignatures/Record-Evidence generated SDK/runtime/package captures.
+# Review consumers, pins, locks, source manifest and recorder; build/pack checks freshness.
+/samples/net10.0/TypeLedger/verification-evidence.json
+/samples/net11.0/TypeLedger/verification-evidence.json
+/samples/net10.0/PermitManifest/verification-evidence.json
+/samples/net11.0/PermitManifest/verification-evidence.json

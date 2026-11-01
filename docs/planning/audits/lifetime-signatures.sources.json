@@ -1,0 +1,54 @@
+{
+  "sources": [
+    {
+      "id": "820230c/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a4faef46b520215ee7d63344c670031143e48de807fd8d52fa1a8fc1c3c4602e"
+    },
+    {
+      "id": "4099f83/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "sha256": "a44ed500995da3010c205ed80cd8baaf1cbdc828a6a69a0c11343db3d6c75cbb"
+    },
+    {
+      "id": "4099f83/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "sha256": "a5b3f091c261e77e72d73ee1c3abdacd0054591ae79aa1559ab23a6ff2058eda"
+    },
+    {
+      "id": "820230c/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "sha256": "f6a325d855d4613a7024107c64e630f143a7e56fd025a8036de125bc9955b60d"
+    },
+    {
+      "id": "4099f83/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "sha256": "da29212d55679ebb8320fa950d7e18579a33c5c2db00736e29dded8521fa5b9e"
+    },
+    {
+      "id": "820230c/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "sha256": "7c93e32fcdec44437fb94b00c049256da001688c8502966f18d8c3e7ce359e65"
+    },
+    {
+      "id": "4099f83/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "sha256": "2d7890b1713391803bfffbed358437dc877c471c9dabbe8abfad79c4841fdeab"
+    },
+    {
+      "id": "820230c/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "sha256": "563dd7c1b3feef9187f004bec756a51846f8172aa940b3f126927bcd4cf9c9e7"
+    },
+    {
+      "id": "820230c/src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeHelpers.CoreCLR.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeHelpers.CoreCLR.cs",
+      "sha256": "44cc0052db1dbfd59d4b0407bf480e91321ded8952bfb103b381d9d9e0c97883"
+    },
+    {
+      "id": "820230c/src/coreclr/vm/runtimehandles.cpp",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/vm/runtimehandles.cpp",
+      "sha256": "4d231e5683437956d541c8caf55d12a25a614d6b417a6fca456033ac9c74857e"
+    }
+  ]
+}

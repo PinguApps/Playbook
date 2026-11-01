@@ -1,0 +1,171 @@
+{
+  "id": "crypto.bound-xml-signature-references",
+  "edition": "11.0",
+  "title": "Bound XML signature references",
+  "goal": "Reject XML signatures exceeding a deliberate reference budget; configure the parser before first use and retain separate input limits, trusted-key and authorization checks.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lifetime-signatures",
+    "security",
+    "xml",
+    "signature",
+    "budget"
+  ],
+  "apis": [
+    "SignedInfo.LoadXml",
+    "SignedXml.LoadXml",
+    "SignedXml.CheckSignature",
+    "AppContext.SetData"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins are verification baselines."
+          },
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Demonstrated .NET 11 runtime route."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11"
+          ],
+          "packages": [
+            {
+              "name": "System.Security.Cryptography.Xml",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Current reference-budget configuration; exact RC2 package and matching transitive Pkcs are locked in the sample."
+            }
+          ],
+          "packageAssets": [
+            "System.Security.Cryptography.Xml lib/net11.0; matching transitive System.Security.Cryptography.Pkcs. No net10/new-package execution claim."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings console project; internal canonical helper called from its assembly.",
+            "Initialize the positive reference budget before any cryptographic XML settings are cached.",
+            "Input XmlDocument already parsed with bounded/prohibited-DTD/null-resolver settings; enforce expected IDs/references separately."
+          ],
+          "platforms": [
+            "Windows x64 CoreCLR measured; other runtimes/platforms unverified."
+          ],
+          "providers": [
+            "Windows CNG RSA2048/SHA256; other providers unverified."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Not marked experimental in the audited contract. Actual RC2 evidence, not final-GA verification; PIN-959/PIN-962 remain open."
+          ],
+          "constraints": [
+            "Configure System.Security.Cryptography.MaxReferencesPerSignedInfo once before cryptographic XML initializes cached settings; process-wide, not per request.",
+            "Use a positive budget; preserve DTD/resolver/transform protections, input-size limits, expected-reference validation and trusted-key policy. A valid signature is not authorization.",
+            "Paired net10/Xml10 and net11/Xml11 consumers; no verified net10/new-package backport. Windows x64 CNG RSA executed."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs"
+        ],
+        "selectionNotes": [
+          "Configure System.Security.Cryptography.MaxReferencesPerSignedInfo once before cryptographic XML initializes cached settings; process-wide, not per request.",
+          "Use a positive budget; preserve DTD/resolver/transform protections, input-size limits, expected-reference validation and trusted-key policy. A valid signature is not authorization.",
+          "Paired net10/Xml10 and net11/Xml11 consumers; no verified net10/new-package backport. Windows x64 CNG RSA executed."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/PermitManifest/PermitManifest.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/LocalAppContextSwitches.cs"
+    },
+    {
+      "title": "Official pinned 4099f83/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/SignedInfo.cs"
+    },
+    {
+      "title": "Official pinned 4099f83/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography.Xml/src/System/Security/Cryptography/Xml/Utils.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/PermitManifest/PermitManifest.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 CNG RSA2048/SHA256 fixtures, default100/101 and strict8/9 SignedInfo/SignedXml parsing and signature checks, old fixed100/application policy, malformed/tamper/wrong-key rejection, late cached and invalid configuration in separate processes. No authorization, other-provider/platform or GA proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/PermitManifest/PermitManifest.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 CNG RSA2048/SHA256 fixtures, default100/101 and strict8/9 SignedInfo/SignedXml parsing and signature checks, old fixed100/application policy, malformed/tamper/wrong-key rejection, late cached and invalid configuration in separate processes. No authorization, other-provider/platform or GA proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 CNG RSA2048/SHA256 fixtures, default100/101 and strict8/9 SignedInfo/SignedXml parsing and signature checks, old fixed100/application policy, malformed/tamper/wrong-key rejection, late cached and invalid configuration in separate processes. No authorization, other-provider/platform or GA proof. No interactive approval, production key/service or additional toolchain required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/PermitManifest/PermitManifest.cs",
+      "region": "permit-manifest",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/PermitManifest/PermitManifest.cs",
+      "region": "permit-manifest",
+      "language": "csharp"
+    }
+  }
+}

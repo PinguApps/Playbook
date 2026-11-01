@@ -1,0 +1,155 @@
+{
+  "id": "interop.allocate-aligned-type-lifetime-memory",
+  "edition": "11.0",
+  "title": "Allocate aligned native memory with type lifetime",
+  "goal": "Allocate aligned unmanaged state owned by a runtime type; use when loader lifetime is appropriate and keep the collectible owner alive through every native access.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lifetime-signatures",
+    "interop",
+    "alignment",
+    "memory",
+    "lifetime"
+  ],
+  "apis": [
+    "RuntimeHelpers.AllocateTypeAssociatedMemory",
+    "NativeMemory.AlignedAlloc",
+    "NativeMemory.AlignedFree",
+    "GC.KeepAlive"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins are verification baselines."
+          },
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Demonstrated .NET 11 runtime route."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch."
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "System.Runtime reference and CoreLib/CoreCLR runtime; no package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings console project; internal canonical helper called from its assembly.",
+            "Real runtime Type; dynamic code for the collectible RunAndCollect fixture."
+          ],
+          "platforms": [
+            "Windows x64 CoreCLR measured; other runtimes/platforms unverified."
+          ],
+          "providers": [
+            "Runtime loader allocator; no external provider."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "AllowUnsafeBlocks=true for pointer/span access."
+          ],
+          "stabilityLimitations": [
+            "Not marked experimental in the audited contract. Actual RC2 evidence, not final-GA verification; PIN-959/PIN-962 remain open."
+          ],
+          "constraints": [
+            "Use a real runtime Type; keep it strongly reachable until all pointer/span/native users finish. Never manually free runtime-owned memory.",
+            "Repeated allocations persist until type unload; choose explicit allocation/free for deterministic early release.",
+            "Collectible fixture needs CoreCLR dynamic code. Windows x64 executed; no Native AOT/Mono/browser or memory-reclamation timing claim."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeHelpers.CoreCLR.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/vm/runtimehandles.cpp"
+        ],
+        "selectionNotes": [
+          "Use a real runtime Type; keep it strongly reachable until all pointer/span/native users finish. Never manually free runtime-owned memory.",
+          "Repeated allocations persist until type unload; choose explicit allocation/free for deterministic early release.",
+          "Collectible fixture needs CoreCLR dynamic code. Windows x64 executed; no Native AOT/Mono/browser or memory-reclamation timing claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TypeLedger/TypeLedger.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 820230c/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "Official pinned 4099f83/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime/ref/System.Runtime.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeHelpers.CoreCLR.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeHelpers.CoreCLR.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/coreclr/vm/runtimehandles.cpp",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/vm/runtimehandles.cpp"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/TypeLedger/TypeLedger.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows x64 alignment1/8/16/64/256, 257 initialized bytes across GC, collectible owner release, invalid size/alignment and raw current type/zero-size contracts. No post-release access, exact native reclamation timing, other-runtime or GA proof."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/TypeLedger/TypeLedger.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual Windows x64 alignment1/8/16/64/256, 257 initialized bytes across GC, collectible owner release, invalid size/alignment and raw current type/zero-size contracts. No post-release access, exact native reclamation timing, other-runtime or GA proof."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual Windows x64 alignment1/8/16/64/256, 257 initialized bytes across GC, collectible owner release, invalid size/alignment and raw current type/zero-size contracts. No post-release access, exact native reclamation timing, other-runtime or GA proof. No interactive approval, production key/service or additional toolchain required."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/TypeLedger/TypeLedger.cs",
+      "region": "type-ledger",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/TypeLedger/TypeLedger.cs",
+      "region": "type-ledger",
+      "language": "csharp"
+    }
+  }
+}
