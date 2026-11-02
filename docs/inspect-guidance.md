@@ -3060,7 +3060,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-089cc025'
 
 Expect JSON index/query, exact distance, default entity projection and explicit
 persisted-vector PASS checks. EF11 vector DDL/query generation also passes;
-EF11 index application and exact/approximate VectorSearch execution are explicitly
+EF11 vector-index application and exact/approximate VectorSearch execution are explicitly
 NOT TESTED: local SQL2025 CU10 rejects WITH APPROXIMATE. Pingu authorized this
 execution exclusion on 2 November 2026. No GA or measured recall claim is made.
 

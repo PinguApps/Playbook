@@ -9,6 +9,7 @@ foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]:
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 $route = Join-Path $PSScriptRoot 'SqlServer.ps1'
 $shell = (Get-Process -Id $PID).Path
+$testFailure = $null
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     & $route -Action Start
@@ -31,11 +32,19 @@ try {
         finally { & $route -Action Remove -Database $database }
     }
 }
+catch { $testFailure = $_; throw }
 finally {
-    & $route -Action Stop
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previous
-    foreach ($scope in $paths.Keys) {
-        if ($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "Unexpected $scope PATH change; shared settings preserved." }
+    try {
+        foreach ($scope in $paths.Keys) {
+            if ($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "Unexpected $scope PATH change; shared settings preserved." }
+    }
+    }
+    finally {
+        try { & $route -Action Stop }
+        catch {
+            if ($testFailure) { Write-Warning "SQL cleanup failed: $($_.Exception.Message). Original test error preserved." }
+            else { throw }
+        }
     }
 }
-

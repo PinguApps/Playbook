@@ -110,4 +110,3 @@ sealed class Card { public int Id { get; set; } public Location Location { get; 
 sealed class Location { public string Ridge { get; set; } = ""; public int Tray { get; set; } }
 sealed class Echo { public int Id { get; set; } public SqlVector<float> Embedding { get; set; } }
 // endsnippet:complete
-

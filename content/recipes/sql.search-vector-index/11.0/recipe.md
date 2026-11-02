@@ -74,9 +74,9 @@ The locked consumers compile on their declared SDKs and execute supported JSON/i
 
 ## Migration
 
-1. Restore the pinned complete project with its declared SDK and locked packages.
-2. Inspect its generated SQL and compare the actual database capabilities before changing an application.
-3. Replace implicit vector reads with explicit projection where needed. Review schema/data impact before applying production migrations; this sample uses fresh disposable databases.
+1. Confirm the exact engine and vector-index implementation support the generated EF11 query syntax; SQL2025 alone is insufficient.
+2. Choose the metric, review index creation/backfill and write restrictions, and seed the isolated sample before creating its index. Keep exact VectorDistance as a baseline.
+3. On a compatible engine, exercise exact and approximate queries with realistic data and measure recall and regressions before adopting approximate search; the optional --execute-search branch remains untested here.
 
 ## Constraints
 
