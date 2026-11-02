@@ -81,6 +81,10 @@ $access # Expect build=passed, https=pending-owner-setup, trust=not-tested.
 $access.work # Save this exact scratch path for setup, execution and cleanup.
 ```
 
+`-Port` selects the port during Prepare only; Run uses the saved prefix. If you
+prepare another port, change the owner-selected `$port` literal in both owner
+blocks below to that same value. Use the prepared directory for `-WorkDirectory`.
+
 The prepared, successfully built probe for the current handoff is at
 `C:\Users\pingu\AppData\Local\Temp\pb-web-pin680-check`. The following owner
 setup and cleanup commands were executed by Pingu for the observation above.
