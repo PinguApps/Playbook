@@ -477,3 +477,7 @@
 /samples/net11.0/MarshHeap/verification-evidence.json
 /samples/net11.0/TernExports/verification-evidence.json
 /samples/net11.0/QuayMutex/verification-evidence.json
+# Test-MarshSurvey/Record-Evidence generated SDK/dependency/command receipts.
+# Review canonical samples, locks, manifests and runner; build/pack checks freshness.
+/samples/net10.0/MarshSurvey/verification-evidence.json
+/samples/net11.0/MarshSurvey/verification-evidence.json
