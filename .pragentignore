@@ -459,3 +459,12 @@
 # freshness and the installed scenario compares full served content.
 /samples/net10.0/FenStore/verification-evidence.json
 /samples/net11.0/FenStore/verification-evidence.json
+# Record-Evidence/Test-InteropSoundings generated command/inventory/hash receipts.
+# Review original consumers, C helper, locks, manifests and recorder; installed
+# content checks prove freshness and canonical retrieval of these observations.
+/samples/net10.0/NativeSoundings/verification-evidence.json
+/samples/net11.0/NativeSoundings/verification-evidence.json
+/samples/net10.0/FloatSoundings/verification-evidence.json
+/samples/net11.0/FloatSoundings/verification-evidence.json
+/samples/net10.0/FloatSoundings/browser.evidence.json
+/samples/net11.0/FloatSoundings/browser.evidence.json

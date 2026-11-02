@@ -136,8 +136,8 @@
     {
       "id": "extended-layout",
       "pattern": "^\\w+ System\\.(Runtime\\.InteropServices\\.(ExtendedLayout|LayoutKind)|Reflection\\.TypeAttributes)",
-      "disposition": "proposed",
-      "owner": "R9"
+      "disposition": "delivered",
+      "owner": "PIN-1095; interop.match-native-c-layout; measured MSVC Windows x64 only"
     },
     {
       "id": "emit-calli",
@@ -148,8 +148,8 @@
     {
       "id": "js-floats",
       "pattern": "^\\w+ System\\.Runtime\\.InteropServices\\.JavaScript\\.",
-      "disposition": "proposed",
-      "owner": "R11"
+      "disposition": "delivered",
+      "owner": "PIN-1097; interop.exchange-float-buffers-with-javascript; measured Mono browser-wasm only"
     },
     {
       "id": "trimmed-exports",

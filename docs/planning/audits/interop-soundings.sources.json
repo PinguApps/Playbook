@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "id": "4099f83/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "sha256": "6930e4a95347a5e141f4ebb812d8c2fc6b0a2ec215c99efc2be3c8e99a26e022"
+    },
+    {
+      "id": "4099f83/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "sha256": "e4e3cb2b2e7fe487762e7e6bafdbe2899866e9db21af8def24621c3609373669"
+    },
+    {
+      "id": "4099f83/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+      "sha256": "566880da7a0d829787c389e88dc698400e8b9a1cd85df87ad10e14a29c9f3fda"
+    },
+    {
+      "id": "820230c/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "sha256": "69429069addcb55e698a697bde517d8aa76d7109df079b68a408f8e76efdb76e"
+    },
+    {
+      "id": "820230c/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "sha256": "623e88c0ce8b1661877ca99b6be0287c7b676d09fb00aafc79b6b1f467401697"
+    },
+    {
+      "id": "820230c/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+      "sha256": "e58655d50262e03da68b59259757de186a2acb65ca4e4df4ad74b2971ed183e2"
+    },
+    {
+      "id": "ExtendedLayoutAttribute",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/ExtendedLayoutAttribute.cs",
+      "sha256": "9d1f8ec24cd0c1fdde9a35313b796d9dc06c44fa9513350738d6316de5e9a323"
+    }
+  ],
+  "scope": "Paired native layout and generated JS float interop contracts; source qualification is separate from actual ABI/browser execution."
+}
