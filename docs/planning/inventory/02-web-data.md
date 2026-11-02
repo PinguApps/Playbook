@@ -1,5 +1,12 @@
 # Web and data authoring inventory
 
+**WEB-109/WEB-114 (PIN-853/PIN-854)** have original FenDocuments EF10/11
+consumers and the editions `sql.test-json-path/11.0` and
+`sql.query-json-membership/11.0`. The latter explicitly discloses experimental
+EF9106, native json/SQL2025 compatibility170 and nullable OPENJSON fallback.
+The common sample uses SQL2025; SQL2022 path support is source-backed only.
+Exact RC2 evidence is separate from actual GA and comprehensive coverage.
+
 **W12–W14 / PIN-1182–1184** supply three original 11.0 editions:
 `hosting.configure-http3-budgets`, `json-patch.serialize-operation-intent`, and
 `testing.configure-web-application-builder`. Original paired .NET10/11 consumers
@@ -328,12 +335,12 @@ Each row corresponds to a WB inventory item; repeated sources group into the exi
 | `ef.compose-group-winner` — Query related data from each group's selected item | Compose navigation/joins over top-per-group result instead of client workaround. | Relational translation; supported shapes require provider evidence. | [E] `linq-groupby-enhancements` | delivered — PIN-849, `ef.compose-group-winner/11.0`; paired original MarshSurvey consumers execute winner/navigation with deterministic ties on SQL Server; RC2 evidence |
 | `ef.reconcile-unmatched-records` — Preserve both sides of a database reconciliation | Use translated `FullJoin`. | EF Core 11 relational provider supporting full outer join; not blanket SQLite promise. | [E] `linq-fulljoin` | delivered — PIN-850, `ef.reconcile-unmatched-records/11.0`; paired original MarshSurvey consumers execute matched/left-only/right-only records on SQL Server, without a SQLite promise; RC2 evidence |
 | `ef.select-record-at-extreme` — Fetch the record associated with a minimum or maximum key | Use translated MinBy/MaxBy and async equivalents. | Query/provider ordering and tie semantics must be explicit. | [E] `linq-maxby-minby` | delivered — PIN-851, `ef.select-record-at-extreme/11.0`; original paired consumers execute real sync/async scalar-key queries with aggregate-filtered deterministic ties; RC2 composite-key rejection retained |
-| `sql.test-json-path` — Filter documents by the presence of a nested property | Use `JsonPathExists` rather than hand-written SQL. | SQL Server 2022+ JSON path existence. | [E] | included |
+| `sql.test-json-path` — Filter documents by the presence of a nested property | Use `JsonPathExists` rather than hand-written SQL. | SQL Server 2022+ JSON path existence. | [E] | delivered — PIN-853, `sql.test-json-path/11.0`; paired FenDocuments consumers, real SQL2025/170 presence; SQL2022 source-backed only |
 | `sql.search-vector-index` — Rank approximate neighbors through an indexed query | Create vector index and compose `VectorSearch`/approximation. | **Experimental SQL Server feature/API**; SQL Server 2025; exact versus approximate semantics. | [E] `sqlserver-vector-search` | included |
 | `sql.read-vector-explicitly` — Read back embeddings when entity materialization skips them | Project vector columns explicitly. | SqlVector properties no longer loaded by default; follow final opt-in availability. | [E], [EB] `sqlvector-not-auto-loaded` | included |
 | `sql.manage-ranked-text-search` — Manage searchable text and retrieve ranked matches | Model full-text catalog/index and query table-valued search functions. | SQL Server full-text installation; migrations and rank result types. | [E] `sqlserver-full-text`, `sqlserver-full-text-tvf` | included |
 | `sql.combine-semantic-and-text-search` — Merge lexical and vector relevance in one query | Compose supported hybrid ranking rather than disconnected client ranking. | SQL Server feature requirements; experimental vector side remains explicit. | [E] hybrid-search subsection | included |
-| `sql.query-json-membership` — Search JSON content using native database operations | Set appropriate compatibility and use JsonContains/path options. | SQL Server 2025/170; nullable cases can retain older translation. | [E] Contains/JsonContains subsections | included |
+| `sql.query-json-membership` — Search JSON content using native database operations | Set appropriate compatibility and use JsonContains/path options. | SQL Server 2025/170; nullable cases can retain older translation. | [E] Contains/JsonContains subsections | delivered — PIN-854, `sql.query-json-membership/11.0`; experimental EF9106, native json/170, nullable OPENJSON fallback |
 | `sql.index-json-path` — Maintain a database index over selected document paths | Model/scaffold JSON indexes. | SQL Server JSON-index feature support; validate database release/status. | [E] JSON indexes | included |
 | `sql.expose-temporal-boundaries` — Read row validity through ordinary entity properties | Map period columns to CLR properties instead of shadow lookups. | SQL Server temporal; database-generated and not user-updatable. | [E] `sqlserver-temporal-clr-properties` | included |
 | `sql.query-offset-and-date-parts` — Perform time conversion and bucketing on the server | Use newly translated offset members/constructors and DateTrunc. | SQL Server function/version constraints; server-local differs from client-local time. | [E] `sqlserver-datetimeoffset-translations` | included |

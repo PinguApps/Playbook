@@ -137,9 +137,9 @@
     {
       "id": "json-path-function",
       "pattern": "RelationalDbFunctionsExtensions::JsonPathExists",
-      "disposition": "grouped",
+      "disposition": "delivered",
       "owner": "PIN-853",
-      "reason": "Existing path-existence recipe and provider/SQL prerequisites."
+      "reason": "sql.test-json-path/11.0: original FenDocuments EF10 custom mapping and EF11 JsonPathExists compare absent/null/empty paths on the authorized SQL2025 route; SQL2022 support is source-backed, not older-engine execution. RC2 is not GA."
     },
     {
       "id": "unconstrained-query",
@@ -194,9 +194,9 @@
     {
       "id": "sql-json-contains",
       "pattern": "JsonContains",
-      "disposition": "grouped",
+      "disposition": "delivered",
       "owner": "PIN-854",
-      "reason": "Native SQL JSON containment and nullable fallback retain existing delivery."
+      "reason": "sql.query-json-membership/11.0: original locked EF10/11 samples exercise SQL2025/170 path/search-mode, primitive membership and nullable OPENJSON fallback. Actual RC2 JsonContains is experimental EF9106 and has nonnullable CLR int despite SQL NULL; explicit pragma and separate SQL NULL check. GA remains open."
     },
     {
       "id": "sql-date",
