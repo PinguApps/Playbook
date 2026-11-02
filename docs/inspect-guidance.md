@@ -4,6 +4,49 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Native C layouts and browser float buffers
+
+Requires PowerShell7, the existing SDK10.0.402/runtime10.0.13 and separate
+SDK11.0.100-rc.2.26504.105/runtime11RC2, MSVC19.51.36260.0/link14.51.36260.0,
+Node24.21.0, Playwright and Chromium. The runner parameters select absolute
+tool paths without changing PATH. Matching Mono browser runtime/SDK assets are
+restored; interpreted publish needs no installed wasm-tools workload, AOT or
+native relink. The C helper needs no Windows SDK headers or CRT libraries.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3bef17ae'
+& ./eng/Test-InteropSoundings.ps1 -Record -VerifySources
+```
+
+Expect both native consumers to pass sizeof/alignment/offset comparisons,
+struct/union round trips and rejected packed layout; both real published browser
+consumers pass arrays, generated exports, span/segment offsets, NaN/infinities,
+span expiry and retained-segment disposal. Saved compilation and browser execution
+receipts identify exact dependencies, compiler/reference/generator/native/wasm
+artifacts and input hashes. Other ABIs/browsers, CoreCLR-browser, AOT and GA remain
+unverified; the .NET10 foundations and PIN-959/PIN-962 gates are unchanged.
+
+This block is exercised from an unrelated starting directory. It builds/packs the
+ordinary tool, installs that exact artifact through a local-only isolated feed/cache
+and calls real installed stdio list/get from a temporary unrelated directory.
+Retrieval uses unusable proxies; that proves proxy independence, not OS network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-3bef17ae'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('interop.match-native-c-layout','interop.exchange-float-buffers-with-javascript') `
+  -Query 'interop-soundings' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1095-1097' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/interop-soundings/inspection'
+```
+
+Expect ID/title/goal for both recipes, complete canonical Markdown, target11/edition11,
+full applicability and fresh compilation/execution evidence. Target10 returns
+no_applicable_edition; the older snippets are comparisons inside edition11, not new
+.NET10 foundations. Missing/stale evidence or canonical/applicability drift fails.
+
 ## SQL compatibility and whole-record extrema
 
 PIN-843/PIN-851 use the existing authorized local SQL route. Refresh the paired

@@ -1,0 +1,21 @@
+{
+  "additionalInputs": [
+    "eng/Test-InteropSoundings.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "docs/planning/audits/interop-soundings.sources.json",
+    "docs/planning/audits/runtime-security.assets.json",
+    "samples/NativeSoundings/Checks.cs",
+    "samples/net11.0/NativeSoundings/soundings.c",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "samples/net11.0/NativeSoundings/SoundingExchange.cs"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [
+    "MSVC/19.51.36260.0",
+    "MSVC-link/14.51.36260.0"
+  ],
+  "dependencies": [],
+  "workloads": []
+}
