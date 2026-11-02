@@ -65,6 +65,10 @@ remain gates. Do not use an exclusion to avoid a feasible local check.
 
 ### Ownership and handoff
 
+For HTTP.sys HTTPS, WSL certificate trust and Visual Studio Package Manager
+Console access, use the [controlled Windows web access route](windows-web-verification.md).
+It separates agent-executable preparation from owner setup and pending Human proof.
+
 **Pingu** owns interactive approvals that are feasible in this environment,
 including permission prompts and passkey approval, and coordinates refreshes
 when relevant inputs or claimed conditions change. He may nominate another
