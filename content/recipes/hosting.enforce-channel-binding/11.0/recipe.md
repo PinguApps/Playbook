@@ -69,4 +69,4 @@ No external NuGet packages, database, account, optional workload or rendering mo
 
 ## Evidence
 
-See the official references in this recipe's source metadata. Microsoft Learn's HTTP_REQUEST_PROPERTY reference defines the property/structure; the HttpAuthenticationHardeningLevel reference defines the security modes. Saved sample evidence records exact compilation/execution commands and input hashes; they establish only the claims described above.
+The official HTTP.sys breaking-change and HttpAuthenticationHardeningLevel references in the source metadata define token exposure and security modes. Saved sample evidence records exact compilation/execution commands and input hashes; they establish only the claims described above.

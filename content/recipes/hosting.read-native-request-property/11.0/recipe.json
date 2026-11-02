@@ -83,7 +83,8 @@
           "HTTPS required. See full body for host differences, native layout and evidence limits."
         ],
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/windows/win32/api/http/ne-http-http_request_property"
+          "https://learn.microsoft.com/en-us/windows/win32/api/http/ne-http-http_request_property",
+          "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.httpsys.ihttpsysrequestpropertyfeature.trygetrequestproperty?view=aspnetcore-11.0"
         ]
       }
     ]
@@ -92,6 +93,10 @@
     {
       "title": "Official Query an HTTP.sys request property safely reference",
       "url": "https://learn.microsoft.com/en-us/windows/win32/api/http/ne-http-http_request_property"
+    },
+    {
+      "title": "Managed request-property buffer and exception contract",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.server.httpsys.ihttpsysrequestpropertyfeature.trygetrequestproperty?view=aspnetcore-11.0"
     }
   ],
   "evidence": [

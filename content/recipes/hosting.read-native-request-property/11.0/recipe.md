@@ -60,7 +60,7 @@ The fixture's host is real Windows HTTP.sys with HTTPS, not a feature stub. It a
 2. Obtain a dedicated owner-authorized loopback certificate binding and URL reservation. Preserve all existing resources. The access runbook is repository authoring context; production guidance requires the application's own approved binding and authentication configuration.
 3. Set PLAYBOOK_HTTPS_PREFIX to the reserved HTTPS prefix and PLAYBOOK_CERTIFICATE to its exact SHA1 thumbprint for this fixture. Restore each project, build Release and execute its DLL with the matching absolute dotnet executable. The callback pins this one certificate and is not general trust or hostname validation.
 4. Expect the old HTTPS comparison to pass. Expect the new fixture to check Legacy/Medium/Strict exposure, empty/small/exact SNI buffers, no-SNI flags and invalid-property error87. These checks are Windows/x64 execution, not cross-compilation or authentication-enforcement proof.
-5. For a real service, preserve authentication and authorization, select the hardening policy compatible with its clients/proxy topology, handle unavailable features/errors and avoid logging token bytes. Refresh focused security checks when those inputs change.
+5. For a real diagnostic endpoint, preserve authentication and authorization, validate the documented property layout and successful byte count before parsing, handle unavailable features and native errors, and use the request feature only during the live request. Refresh the focused checks when those inputs change.
 6. Stop the fixture and have the owner remove only this test's exact reservation, binding and certificate, using its saved ownership manifest. Shutdown does not remove persistent resources.
 
 ## Constraints
@@ -69,4 +69,4 @@ No external NuGet packages, database, account, optional workload or rendering mo
 
 ## Evidence
 
-See the official references in this recipe's source metadata. Microsoft Learn's HTTP_REQUEST_PROPERTY reference defines the property/structure; the HttpAuthenticationHardeningLevel reference defines the security modes. Saved sample evidence records exact compilation/execution commands and input hashes; they establish only the claims described above.
+The official HTTP_REQUEST_PROPERTY reference defines SNI and its native structure; the managed TryGetRequestProperty reference in the source metadata defines buffer handling and exceptions. Saved sample evidence records exact compilation/execution commands and input hashes; they establish only the claims described above.

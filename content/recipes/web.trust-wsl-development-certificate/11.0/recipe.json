@@ -28,7 +28,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "reason": "Canonical Kestrel service compiled for .NET 11 RC2; actual WSL trust and cross-environment HTTPS execution remain pending, not GA verification.",
             "name": ".NET"
           },
           "sdk": {
@@ -61,10 +61,10 @@
             "Server HTTP endpoints; no Blazor rendering mode."
           ],
           "prerequisites": [
-            "Compile with the declared exact SDKs before running. Owner setup and cleanup are separate actions. No shared trust is modified by the HTTP.sys fixture."
+            "Compile with the declared exact SDKs before running. Owner-controlled WSL/Windows trust and connectivity checks remain pending; this compile-only Kestrel fixture performs no certificate trust operation."
           ],
           "constraints": [
-            "HTTPS required. See full body for host differences, native layout and evidence limits."
+            "HTTPS required. See the full body for WSL interoperability, development-certificate prerequisites and compilation-only evidence limits."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -80,7 +80,7 @@
           "samples/net11.0/EstuaryHttps/EstuaryHttps.csproj"
         ],
         "selectionNotes": [
-          "HTTPS required. See full body for host differences, native layout and evidence limits."
+          "HTTPS required. See the full body for WSL interoperability, development-certificate prerequisites and compilation-only evidence limits."
         ],
         "sourceUrls": [
           "https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-dev-certs",
