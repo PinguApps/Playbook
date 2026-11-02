@@ -62,11 +62,11 @@ The locked consumers compile on their declared SDKs and execute supported JSON/i
 
 ## Official references
 
-- [Reference 1](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
-- [Reference 2](https://learn.microsoft.com/en-us/ef/core/modeling/indexes)
-- [Reference 3](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17)
-- [Reference 4](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search)
-- [Reference 5](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql?view=sql-server-ver17)
+- [EF Core 11 authoring changes](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
+- [EF Core scalar and JSON path indexes](https://learn.microsoft.com/en-us/ef/core/modeling/indexes)
+- [SQL Server CREATE JSON INDEX prerequisites](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17)
+- [EF Core SQL Server vector search and loading](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search)
+- [SQL Server VECTOR_SEARCH syntax and availability](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql?view=sql-server-ver17)
 
 ## Migration
 

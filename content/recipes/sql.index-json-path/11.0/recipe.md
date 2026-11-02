@@ -62,18 +62,21 @@ The locked consumers compile on their declared SDKs and execute supported JSON/i
 
 ## Official references
 
-- [Reference 1](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
-- [Reference 2](https://learn.microsoft.com/en-us/ef/core/modeling/indexes)
-- [Reference 3](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17)
-- [Reference 4](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search)
-- [Reference 5](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql?view=sql-server-ver17)
+- [EF Core 11 authoring changes](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
+- [EF Core scalar and JSON path indexes](https://learn.microsoft.com/en-us/ef/core/modeling/indexes)
+- [SQL Server CREATE JSON INDEX prerequisites](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17)
+- [EF Core SQL Server vector search and loading](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search)
+- [SQL Server VECTOR_SEARCH syntax and availability](https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql?view=sql-server-ver17)
 
 ## Migration
 
-1. Restore the pinned complete project with its declared SDK and locked packages.
-2. Inspect its generated SQL and compare the actual database capabilities before changing an application.
-3. Replace implicit vector reads with explicit projection where needed. Review schema/data impact before applying production migrations; this sample uses fresh disposable databases.
+1. Confirm native json and CREATE JSON INDEX support on the exact database engine; compatibility level alone is insufficient.
+2. Validate existing text documents before converting them to native json and ensure the table has a clustered primary key.
+3. Map the complex document and declare HasIndex over the selected scalar path, then inspect generated DDL before applying a reviewed migration.
+4. Check matching records and the physical index on an isolated database. Keep the bounded computed-column index where native JSON indexing is unavailable.
 
 ## Constraints
 
-The supplied SQL2025 CU10 rejects EF11 WITH APPROXIMATE. That execution is explicitly not-tested under the owner-authorized exception. No GA, optimizer-plan or measured recall/performance guarantee is made.
+Native JSON indexing depends on actual server feature support and a clustered primary key. The previous computed-column extraction is bounded to nvarchar(80); assess truncation and collation against real data. No optimizer-plan, speed, reverse-engineering CLI execution or actual GA claim is made.
+
+The complete shared sample also demonstrates experimental vector search and suppresses EF9105 for that separate portion. JSON indexing itself does not require that EF diagnostic suppression. The shared vector-search execution exclusion does not replace the successful local JSON-index execution checks.

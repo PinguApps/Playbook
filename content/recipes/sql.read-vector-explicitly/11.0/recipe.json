@@ -92,7 +92,9 @@
             "Use the pinned complete project in an empty exclusively owned playbook_ database; restore dependencies online before execution.",
             "Use eng/Test-DuneArchive.ps1 for the authorized local Docker route; no external connection is assumed."
           ],
-          "optIns": [],
+          "optIns": [
+            "The complete shared sample suppresses EF9105 for its separate experimental vector index/search demonstration. JSON indexing and explicit scalar projection do not require that suppression themselves."
+          ],
           "stabilityLimitations": [
             "RC2 compilation and bounded execution are not GA proof.",
             "SQL Server vector index/search is preview; newer EF11 search execution not-tested."
@@ -109,23 +111,23 @@
   },
   "sources": [
     {
-      "title": "Official reference 1",
+      "title": "EF Core 11 authoring changes",
       "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
     },
     {
-      "title": "Official reference 2",
+      "title": "EF Core scalar and JSON path indexes",
       "url": "https://learn.microsoft.com/en-us/ef/core/modeling/indexes"
     },
     {
-      "title": "Official reference 3",
+      "title": "SQL Server CREATE JSON INDEX prerequisites",
       "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17"
     },
     {
-      "title": "Official reference 4",
+      "title": "EF Core SQL Server vector search and loading",
       "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search"
     },
     {
-      "title": "Official reference 5",
+      "title": "SQL Server VECTOR_SEARCH syntax and availability",
       "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql?view=sql-server-ver17"
     }
   ],

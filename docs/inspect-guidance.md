@@ -3046,6 +3046,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-453d1143'
 Expect ID/title/goal, complete canonical Markdown, applicability and fresh paired
 compilation/execution evidence for both target11/edition11 recipes. Target10 must
 return no_applicable_edition. No additional .NET10 foundation is introduced.
+
 ## Document indexes and vector reads
 
 The paired consumers need the existing .NET10 SDK10.0.402 and .NET11 RC2 SDK,
