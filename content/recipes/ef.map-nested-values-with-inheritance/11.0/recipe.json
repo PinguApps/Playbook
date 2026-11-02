@@ -114,27 +114,27 @@
   },
   "sources": [
     {
-      "title": "Official EF/SQL authoring reference",
+      "title": "EF11 authoring changes",
       "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
     },
     {
-      "title": "Official EF/SQL authoring reference",
+      "title": "EF complex values",
       "url": "https://learn.microsoft.com/en-us/ef/core/modeling/complex-types"
     },
     {
-      "title": "Official EF/SQL authoring reference",
+      "title": "EF primary and alternate keys",
       "url": "https://learn.microsoft.com/en-us/ef/core/modeling/keys"
     },
     {
-      "title": "Official EF/SQL authoring reference",
+      "title": "EF scalar and JSON path indexes",
       "url": "https://learn.microsoft.com/en-us/ef/core/modeling/indexes"
     },
     {
-      "title": "Official EF/SQL authoring reference",
+      "title": "SQL Server JSON index prerequisites",
       "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17"
     },
     {
-      "title": "Official EF/SQL authoring reference",
+      "title": "Immutable reviewed EF11 documentation",
       "url": "https://github.com/dotnet/EntityFramework.Docs/blob/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/whatsnew.md"
     }
   ],

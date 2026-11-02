@@ -1,5 +1,10 @@
+#Requires -Version 7.0
 [CmdletBinding()]
-param([switch]$Record)
+param(
+    [switch]$Record,
+    [string]$Net10Dotnet = 'C:\Program Files\dotnet\dotnet.exe',
+    [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
@@ -8,11 +13,13 @@ foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]:
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 $route = Join-Path $PSScriptRoot 'SqlServer.ps1'
 $shell = (Get-Process -Id $PID).Path
+$started = $false
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     & $route -Action Start
+    $started = $true
     foreach ($release in '10','11') {
-        $dotnet = if ($release -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+        $dotnet = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
         $sample = "samples/net$release.0/FenStore/FenStore.csproj"
         $directory = Join-Path $root (Split-Path $sample)
         $database = 'playbook_fen_' + [guid]::NewGuid().ToString('N')
@@ -31,7 +38,7 @@ try {
     }
 }
 finally {
-    & $route -Action Stop
+    if ($started) { & $route -Action Stop }
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previous
     foreach ($scope in $paths.Keys) {
         if ($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "Unexpected $scope PATH change; shared settings preserved." }

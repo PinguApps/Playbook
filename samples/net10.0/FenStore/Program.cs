@@ -99,10 +99,10 @@ internal sealed class FenContext(DbContextOptions<FenContext> options) : DbConte
 {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        ConfigurePlank(modelBuilder, "Plank", false, false);
-        ConfigureReed(modelBuilder, "Reed", false, true);
-        ConfigureMoss(modelBuilder, "Moss", true, false);
-        ConfigureSedge(modelBuilder, "Sedge", true, true);
+        ConfigurePlank(modelBuilder, "Plank", false);
+        ConfigureReed(modelBuilder, "Reed", false);
+        ConfigureMoss(modelBuilder, "Moss", true);
+        ConfigureSedge(modelBuilder, "Sedge", true);
         var label = modelBuilder.Entity<Label>();
         label.Property(x => x.CodeValue).HasMaxLength(24);
         label.ComplexProperty(x => x.Zone, b => b.ToJson());
@@ -112,7 +112,7 @@ internal sealed class FenContext(DbContextOptions<FenContext> options) : DbConte
         label.Property<string>("ZoneBay").HasComputedColumnSql("CAST(JSON_VALUE([Zone], '$.Bay') AS nvarchar(24))", stored: true);
         label.HasIndex("ZoneBay");
     }
-    static void ConfigurePlank(ModelBuilder model, string prefix, bool tpc, bool json)
+    static void ConfigurePlank(ModelBuilder model, string prefix, bool tpc)
     {
         var item = model.Entity<PlankItem>();
         if (tpc) item.UseTpcMappingStrategy(); else { item.UseTptMappingStrategy(); item.ToTable(prefix + "Items"); }
@@ -127,7 +127,7 @@ internal sealed class FenContext(DbContextOptions<FenContext> options) : DbConte
         model.Entity<PlankLoan>().ToTable(prefix + "Loans");
         model.Entity<PlankDeposit>().ToTable(prefix + "Deposits");
     }
-    static void ConfigureReed(ModelBuilder model, string prefix, bool tpc, bool json)
+    static void ConfigureReed(ModelBuilder model, string prefix, bool tpc)
     {
         var item = model.Entity<ReedItem>();
         if (tpc) item.UseTpcMappingStrategy(); else { item.UseTptMappingStrategy(); item.ToTable(prefix + "Items"); }
@@ -142,7 +142,7 @@ internal sealed class FenContext(DbContextOptions<FenContext> options) : DbConte
         model.Entity<ReedLoan>().ToTable(prefix + "Loans");
         model.Entity<ReedDeposit>().ToTable(prefix + "Deposits");
     }
-    static void ConfigureMoss(ModelBuilder model, string prefix, bool tpc, bool json)
+    static void ConfigureMoss(ModelBuilder model, string prefix, bool tpc)
     {
         var item = model.Entity<MossItem>();
         if (tpc) item.UseTpcMappingStrategy(); else { item.UseTptMappingStrategy(); item.ToTable(prefix + "Items"); }
@@ -157,7 +157,7 @@ internal sealed class FenContext(DbContextOptions<FenContext> options) : DbConte
         model.Entity<MossLoan>().ToTable(prefix + "Loans");
         model.Entity<MossDeposit>().ToTable(prefix + "Deposits");
     }
-    static void ConfigureSedge(ModelBuilder model, string prefix, bool tpc, bool json)
+    static void ConfigureSedge(ModelBuilder model, string prefix, bool tpc)
     {
         var item = model.Entity<SedgeItem>();
         if (tpc) item.UseTpcMappingStrategy(); else { item.UseTptMappingStrategy(); item.ToTable(prefix + "Items"); }
@@ -201,6 +201,5 @@ internal abstract class SedgeItem
 internal sealed class SedgeLoan : SedgeItem { public int Days { get; set; } public Location Location { get; set; } = new(); }
 internal sealed class SedgeDeposit : SedgeItem { public int Quantity { get; set; } }
 internal sealed class Location { public string Bay { get; set; } = ""; public int Shelf { get; set; } }
-internal sealed class Code { public string Value { get; set; } = ""; }
 internal sealed class Label { public string CodeValue { get; set; } = ""; public Location Zone { get; set; } = new(); public string SlotBay { get; set; } = ""; }
 // endsnippet:complete
