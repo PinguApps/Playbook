@@ -203,14 +203,14 @@
       "pattern": "DateTrunc|DateTimeOffset",
       "disposition": "grouped",
       "owner": "PIN-860",
-      "reason": "Server date/time and bucketing owner."
+      "reason": "PIN-860: sql.query-offset-and-date-parts/11.0; original paired BeaconHistory consumers cover parameterized EF10 SQL and EF11 translated members/constructors/hour grouping on isolated SQL2025. RC2 is not GA or older-engine proof."
     },
     {
       "id": "sql-temporal",
       "pattern": "Temporal|PeriodStart|PeriodEnd|IsHidden",
       "disposition": "grouped",
       "owner": "PIN-859",
-      "reason": "CLR period properties and explicit hidden-column configuration form one goal."
+      "reason": "PIN-859: sql.expose-temporal-boundaries/11.0; original paired BeaconHistory consumers cover EF10 shadow and EF11 CLR period reads, adjacent history and rejected direct updates on isolated SQL2025. IsHidden changes are not asserted by this recipe; broader reconciliation remains PIN-965."
     },
     {
       "id": "cosmos-session",

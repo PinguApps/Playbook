@@ -1,0 +1,203 @@
+{
+  "id": "sql.query-offset-and-date-parts",
+  "edition": "11.0",
+  "title": "Perform time conversion and bucketing on the server",
+  "goal": "Convert stored offsets and group readings into hours within SQL Server queries using EF11 translated members, constructors and DateTrunc.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "beacon-history",
+    "sql-server",
+    "time"
+  ],
+  "apis": [
+    "DateTrunc",
+    "DateTimeOffset.ToOffset",
+    "DateTimeOffset.LocalDateTime"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/functions",
+          "https://github.com/dotnet/efcore/blob/v11.0.0-rc.2.26504.105/src/EFCore.SqlServer/Query/Internal/SqlServerSqlTranslatingExpressionVisitor.cs"
+        ],
+        "selectionNotes": [
+          "DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this RC2 provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C# 15-only feature is needed."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+            }
+          ],
+          "packageAssets": [
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.SqlServer; executed SQL Server2025 17.0.5035.5 Developer Linux, compatibility170. No actual older-engine execution."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 client against authorized local Docker Linux SQL Server. Other client platforms not executed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "DATETRUNC requires SQL Server2022 or later. This sample executes on SQL Server2025 at compatibility170 only. LocalDateTime uses the SQL Server time zone, not the application machine time zone. The translated one-argument DateTimeOffset constructor attaches UTC (+00:00) in this RC2 provider, unlike the local CLR constructor on an Unspecified DateTime. An offset is not a named time zone or a daylight-saving rule.",
+            "Only target11 edition is served. EF10 comparison is not an additional .NET10 foundation; EF11 has no net10 route."
+          ],
+          "prerequisites": [
+            "Install the exact SDK/runtime from global.json and restore the complete standalone project packages. Supply PLAYBOOK_SQL_CONNECTION_STRING privately for an empty isolated database; never use production.",
+            "eng/Test-BeaconHistory.ps1 -Record uses the authorized PIN-676 local container, creates/removes unique databases and stops the server."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "No experimental API opt-in; actual .NET11/EF11 proof uses RC2, not GA."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/BeaconHistory/BeaconHistory.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF provider guidance"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/functions",
+      "title": "Official EF provider guidance"
+    },
+    {
+      "url": "https://github.com/dotnet/efcore/blob/v11.0.0-rc.2.26504.105/src/EFCore.SqlServer/Query/Internal/SqlServerSqlTranslatingExpressionVisitor.cs",
+      "title": "Exact RC2 constructor and offset translation semantics"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BeaconHistory/BeaconHistory.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. RC2 is not GA; no older-engine proof."
+    },
+    {
+      "sample": "samples/net11.0/BeaconHistory/BeaconHistory.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real isolated SQL2025 execution: temporal generation, adjacent history periods and rejected direct period update; EF10 shadow reads and parameterized SQL conversion/bucketing; EF11 CLR reads and translated offset members, constructors and hour grouping. RC2 is not GA; no older-engine proof."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/BeaconHistory/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/BeaconHistory/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/BeaconHistory/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/BeaconHistory/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-beaconhistory-csproj": {
+      "path": "samples/net10.0/BeaconHistory/BeaconHistory.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/BeaconHistory/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/BeaconHistory/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/BeaconHistory/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/BeaconHistory/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/BeaconHistory/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-beaconhistory-csproj": {
+      "path": "samples/net11.0/BeaconHistory/BeaconHistory.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/BeaconHistory/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Bounded SQL2025 checks are automated. No GA, older-engine, cloud or other-platform behavior claim."
+  }
+}
