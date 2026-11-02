@@ -1,0 +1,13 @@
+<!-- snippet:project -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion>
+    <OutputType>Library</OutputType><PublishAot>true</PublishAot>
+    <NativeLib>Shared</NativeLib><RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IlcUseEnvironmentalTools>true</IlcUseEnvironmentalTools>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DefineConstants>$(DefineConstants);$(TernVariant)</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup><AdditionalNativeLibraryDirectories Include="$(TernMsvc)" /><AdditionalNativeLibraryDirectories Include="$(TernUm)" /><AdditionalNativeLibraryDirectories Include="$(TernUcrt)" /></ItemGroup>
+</Project>
+<!-- endsnippet:project -->

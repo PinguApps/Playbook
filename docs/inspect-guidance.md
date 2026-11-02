@@ -4,6 +4,47 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Native export retention, Unix mutex scope and x86 heap limits
+
+Requires the existing SDK10.0.402/runtime10.0.13 and separate SDK11 RC2,
+PowerShell7, MSVC/linker and Windows SDK libraries, Windows x86 .NET10 runtime,
+Docker Linux and Node22.19+. The Windows runner downloads the exact portable
+RC2 x86 runtime under ignored artifacts when needed; the Unix runner downloads
+RC2/10.0.12 Linux runtimes and uses the existing SDK10.0.402 image. No host
+installation, PATH integration, production resource or recurring matrix is added.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8da66723'
+& ./eng/Test-NativeBoundaries.ps1 -Record
+```
+
+Expect retained/trimmed AOT export tables and independent C calls, real same-session
+Unix UID/scope/storage controls (including historical10.0.12), and actual x86
+heap-limit/OOM controls. The older runtime ignores HeapHardLimit; the current
+runtime enforces32MiB. RSS is separately measured. Source discrepancies and
+unverified other platforms/GA remain explicit in the complete offline recipes.
+
+The following block is verified from an unrelated starting directory. It builds
+and packs the ordinary tool, installs that exact artifact through an isolated
+local feed/cache, then prints discovery ID/title/goal, complete canonical Markdown,
+target11/edition11, applicability and fresh evidence via real installed stdio.
+Unusable retrieval proxies demonstrate proxy independence, not OS network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-8da66723'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('interop.retain-native-exports-with-types','threading.choose-unix-mutex-scope','runtime.bound-a-32-bit-gc-heap') `
+  -Query 'native-boundaries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1098-1109-1110' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/native-boundaries/inspection'
+```
+
+Expect three complete entries and the exact-artifact PASS. Target10 returns
+no_applicable_edition; older samples are comparisons, not additional foundations.
+PIN-959/PIN-962 and existing Human/actual-GA gates remain open.
+
 ## Native C layouts and browser float buffers
 
 Requires PowerShell7, the existing SDK10.0.402/runtime10.0.13 and separate

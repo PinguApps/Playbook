@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "scope": "Native export retention, Unix named mutex scope and x86 GC heap budget; PIN-1098/PIN-1109/PIN-1110",
+  "sources": [
+    {
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/compatibility/core-libraries/11/named-mutexes-unix-default-scope.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/core-libraries/11/named-mutexes-unix-default-scope.md",
+      "sha256": "9d40ab13c49b602366d27b8df5dbdcfd1411768e421e1bd2bd809080878ac28f",
+      "headings": [
+        "# Named mutexes default to user scope on Unix",
+        "## Version introduced",
+        "## Previous behavior",
+        "## New behavior",
+        "## Type of breaking change",
+        "## Reason for change",
+        "## Recommended action",
+        "## Affected APIs"
+      ]
+    },
+    {
+      "repository": "dotnet/docs",
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "path": "docs/core/whats-new/dotnet-11/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md",
+      "sha256": "9e5d82ba828a78a7e7b50d713628983f1b0015edbc428ae932f6beca80e6d725",
+      "headings": [
+        "# What's new in the .NET 11 runtime",
+        "## Updated minimum hardware requirements",
+        "### Arm64 requirements",
+        "### x86/x64 requirements",
+        "### Impact",
+        "### Reason for change",
+        "## Runtime Async",
+        "### Cleaner live stack traces",
+        "### NativeAOT and ReadyToRun support",
+        "### Debugging improvements",
+        "### Runtime Async performance improvements",
+        "#### Async continuations without ExecutionContext",
+        "## JIT improvements",
+        "### Constant-folding SequenceEqual",
+        "### Devirtualization improvements",
+        "### Eliminating bounds checks after an empty-span guard",
+        "### Redundant branch and test elimination",
+        "## Hardware intrinsics and code generation",
+        "## ReadyToRun improvements",
+        "## VM improvements",
+        "## WebAssembly improvements",
+        "## Platform support for more than 1024 CPUs",
+        "## In-process crash report logging",
+        "## NativeAOT: faster interface dispatch",
+        "## SIMD lane construction and composition",
+        "## File locking on iOS and tvOS",
+        "## Reliability fixes",
+        "## Runtime diagnostics",
+        "## See also"
+      ]
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "sha256": "69429069addcb55e698a697bde517d8aa76d7109df079b68a408f8e76efdb76e",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "sha256": "f16e2f27dcf324bdd9fdd569f350afa483ba8261d4e4542dccd6d3435d0f6544",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "sha256": "6930e4a95347a5e141f4ebb812d8c2fc6b0a2ec215c99efc2be3c8e99a26e022",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "path": "src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
+      "sha256": "5231081421d4021cbb87946d853a066574762fc6f08298f75f46ed6de1d15628",
+      "headings": []
+    },
+    {
+      "repository": "dotnet/dotnet",
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "path": "src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs",
+      "sha256": "c651945e550a41c8f73cc79329a331f76fc7704c5186de8fd49ad7b4daa60512",
+      "headings": []
+    },
+    {
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "repository": "dotnet/docs",
+      "sha256": "ae7c23eff29a354d45e18d806b65a03baf67cd8d2d747994003dca8970e6d399",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/runtime-config/garbage-collector.md",
+      "headings": [],
+      "path": "docs/core/runtime-config/garbage-collector.md"
+    },
+    {
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "repository": "dotnet/dotnet",
+      "sha256": "5b1394edf34d08b18550b582940ab0a28079c44d4e8ae3a7cb7ace30636f37b6",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/gc/gc.cpp",
+      "headings": [],
+      "path": "src/runtime/src/coreclr/gc/gc.cpp"
+    },
+    {
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "repository": "dotnet/dotnet",
+      "sha256": "a3bbc82e61f6d013a804c70c92f53894eeadb57dd2f5dc04134312a16c6f1e91",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/gc/init.cpp",
+      "headings": [],
+      "path": "src/runtime/src/coreclr/gc/init.cpp"
+    }
+  ],
+  "runtimeArchives": [
+    {
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.2.26504.105/dotnet-runtime-11.0.0-rc.2.26504.105-win-x86.zip",
+      "name": "win-x86-net11-rc2",
+      "sha256": "af8f4eac0ac98fe6b6e85a7baf276cd9654e5ea3d8014e7483e7bf95dca2b321"
+    }
+  ]
+}

@@ -469,6 +469,14 @@
 /samples/net10.0/FloatSoundings/browser.evidence.json
 /samples/net11.0/FloatSoundings/browser.evidence.json
 
+# Test-NativeBoundaries/Test-QuayMutex generated command/hash receipts.
+# Review canonical samples, exact locks, manifests and runners; build/pack checks freshness.
+/samples/net10.0/MarshHeap/verification-evidence.json
+/samples/net10.0/TernExports/verification-evidence.json
+/samples/net10.0/QuayMutex/verification-evidence.json
+/samples/net11.0/MarshHeap/verification-evidence.json
+/samples/net11.0/TernExports/verification-evidence.json
+/samples/net11.0/QuayMutex/verification-evidence.json
 # Test-MarshSurvey/Record-Evidence generated SDK/dependency/command receipts.
 # Review canonical samples, locks, manifests and runner; build/pack checks freshness.
 /samples/net10.0/MarshSurvey/verification-evidence.json

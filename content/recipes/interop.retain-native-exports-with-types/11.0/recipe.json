@@ -1,0 +1,151 @@
+{
+  "id": "interop.retain-native-exports-with-types",
+  "edition": "11.0",
+  "title": "Retain native exports with their source types",
+  "goal": "Retain a native export only while its associated source type survives Native AOT trimming; use this when optional managed features expose native entry points.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "native-boundaries",
+    "ternexports"
+  ],
+  "apis": [
+    "UnmanagedCallersOnlyAttribute.AssociatedSourceType",
+    "UnmanagedCallersOnlyAttribute.EntryPoint",
+    "NativeLib"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "The .NET 11 runtime is compiled into the native library; no installed shared framework is needed by its native caller.",
+            "name": ".NET Native AOT runtime",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            ".NET 11 Native AOT reference/runtime assets compiled into the shared library"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "PublishAot implicitly restores Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler at publish time; no explicit PackageReference is required. Comparison lock files pin actual 10.0.13 and 11 RC2 assets."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Native AOT shared-library project, matching Windows x64 MSVC linker and Windows SDK libraries; independent native loader. No installed .NET runtime is needed to load the published DLL."
+          ],
+          "platforms": [
+            "Windows x64 Native AOT; matching MSVC/linker and Windows SDK libraries; other native ABIs unverified."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Real retained/trimmed AOT shared-library exports and independent C invocation; old unconditional-export and unnamed-export controls.",
+            "Measured RC2 artifacts are not actual-GA evidence; PIN-959/PIN-962 remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs"
+        ],
+        "selectionNotes": [
+          "Windows x64 Native AOT; matching MSVC/linker and Windows SDK libraries; other native ABIs unverified.",
+          "Real retained/trimmed AOT shared-library exports and independent C invocation; old unconditional-export and unnamed-export controls."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TernExports/TernExports.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
+    },
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
+    },
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Real retained/trimmed AOT shared-library exports and independent C invocation; old unconditional-export and unnamed-export controls.",
+      "sample": "samples/net10.0/TernExports/TernExports.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402"
+    },
+    {
+      "scope": "Real retained/trimmed AOT shared-library exports and independent C invocation; old unconditional-export and unnamed-export controls.",
+      "sample": "samples/net11.0/TernExports/TernExports.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "humanProof": {
+    "scope": "All bounded checks execute on Windows x64 Native AOT with an independent C loader. Other ABIs/platforms and actual GA remain unverified.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "native": {
+      "path": "samples/net11.0/TernExports/loader.c",
+      "language": "c",
+      "region": "loader"
+    },
+    "newer": {
+      "path": "samples/net11.0/TernExports/Exports.cs",
+      "language": "csharp",
+      "region": "export"
+    },
+    "project": {
+      "path": "samples/net11.0/TernExports/TernExports.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "older": {
+      "path": "samples/net10.0/TernExports/Exports.cs",
+      "language": "csharp",
+      "region": "export"
+    }
+  }
+}

@@ -141,7 +141,7 @@ lines, including repeated target-asset comparisons.
 | ExtendedLayoutAttribute/Kind.CStruct/CUnion, LayoutKind.Extended, TypeAttributes.ExtendedLayout | **Delivered PIN-1095 / R9:** paired explicit/runtime C struct and union layouts, measured MSVC Windows x64 size/alignment/offsets, real pointer round trips and packed-layout rejection. No universal ABI claim. |
 | ILGenerator.EmitCalli(Type) | **Delivered PIN-1096 / R10:** actual paired DynamicMethod managed/native calls with typed signatures versus explicit old setup; real Windows x64 MulDiv inputs, returns and failure sentinels. Dynamic code required; unified x64 ABI does not establish x86 convention differences or Native AOT execution. |
 | JSMarshalerArgument float[], Span<float>, ArraySegment<float> ToJS/ToManaged | **Delivered PIN-1097 / R11:** direct float buffers versus original double conversion/copy-back in real published Mono browser consumers; offsets, generated imports/exports, specials and lifetime/disposal checks. No CoreCLR-browser/AOT claim. |
-| UnmanagedCallersOnly.AssociatedSourceType; EntryPoint/type nullable metadata | **Included R12:** condition a native export on retention of its associated type. EntryPoint already existed; named exports themselves are not new. Actual trimming/export-table evidence is required. |
+| UnmanagedCallersOnly.AssociatedSourceType; EntryPoint/type nullable metadata | **Delivered PIN-1098 / R12:** condition a native export on retention of its associated type. EntryPoint already existed; named exports themselves are not new. Actual trimming/export-table evidence is required. |
 | LibraryImport SYSLIB1064 and broad RequiresUnsafe/MemorySafetyRules annotations on Marshal, COM, Java/Objective-C/Swift, GC handles, MemoryMarshal, Unsafe, SafeBuffer, crypto/native handles and reflection pointers | **Grouped PIN-715:** caller/declaration safety obligations; its existing measured compiler tests do not certify every API here. Keep safe/unsafe/preview/build flags precise. MarshalUsing property AttributeUsage additionally supports **R13**. |
 | COM generator property/accessor support and new diagnostics under existing IDs | **Included R13:** author complete generated COM properties with correct accessor marshalling; not merely warning suppression. |
 | RuntimeHelpers.AllocateTypeAssociatedMemory(type,size,alignment), Box | **Delivered PIN-1108 / R22:** measured aligned storage, explicit old allocator/free ownership and collectible type lifetime safety. No pointer access after owner release or exact native reclamation timing claim. Box's RequiresUnsafe annotation stays PIN-715. |
@@ -160,7 +160,7 @@ lines, including repeated target-asset comparisons.
 | All five cryptography compatibility notes, general-index SYSLIB0064 and adjacent server TLS AIA default | **Already assigned PIN-686.** Consume its [full mitigation analysis and seven drafts A–G](cryptography-platforms.md); do not redo or declare those recipes delivered. DSA macOS removal, native composite/HKDF limits, OpenSSL AIA budget and AsnEncodedData setter semantics remain distinct. |
 | SYSLIB0064 / SYSLIB0065 in actual deltas and full obsolete sources | **PIN-686 semantic owner**, PIN-689 index map. Only the RawData setter is newly obsolete; explicit RSA padding must retain provider/protocol support. No blanket suppression or unsupported OAEP-SHA256 replacement. |
 | Global obsolete index through SYSLIB0066 | **PIN-689 retains exhaustive cross-family ownership.** SYSLIB0066 belongs PIN-685/PIN-706, SYSLIB0063 PIN-684/PIN-741, SYSLIB0061 PIN-703, SYSLIB0062 PIN-704. Older SSL/crypto/COM/CAS/remoting/formatter obsoletions present on both selected baselines are retained in complete manifests; no full historical backfill or new .NET 11 recipe is inferred. SYSLIB5006/5007/5008/5009 are experimental diagnostics, not obsolete replacements. |
-| Unix named mutex scope/storage, introduced in both 10.0.13 and RC2 | **Included R23:** explicit scope and writable user-owned runtime directory for UID-only containers. No action for unaffected same-user callers. Never describe this as an 11-only change or use HOME as the user-database fallback. |
+| Unix named mutex scope/storage, introduced in both 10.0.13 and RC2 | **Delivered PIN-1109 / R23:** explicit scope and writable user-owned runtime directory for UID-only containers. No action for unaffected same-user callers. Never describe this as an 11-only change or use HOME as the user-database fallback. |
 | runtimeconfig.dev precedence and Unix NativeAOT lib prefix | **Already assigned PIN-687**, not a duplicate deployment audit. NativeAOT/stack-disabled caller inspection is delivered in PIN-742; broader deployment migration remains open. |
 | Minimum hardware, in-process Unix crash-report variables and NativeAOT createdump tool path | **Grouped PIN-756:** authoring configuration/scripts and real output, not invisible performance. Keep CPU requirements distinct from optional R2R targets, and crash-only versus minidump paths distinct. |
 | Runtime async compiler opt-in, removed DOTNET_RuntimeAsync/UNSUPPORTED_RuntimeAsync switches, live stack versus exception traces | **Grouped PIN-757/PIN-980.** Later no-preview-API gate supersedes early notes; do not turn Preview 4's UseRuntimeAsync wording into verified current project configuration without the compiler check. Automatic continuation/context/tail-call optimizations alone are excluded. |
@@ -171,7 +171,7 @@ lines, including repeated target-asset comparisons.
 | HTTP/2 Windows-authentication downgrade | **Included R17:** remove a manual request-version workaround only after actual policy/auth/protocol checks. Automatic benefit without removing that workaround is excluded. |
 | TLS Linux certificate alerts, malformed-handshake bounds checks, Apple AEAD acceleration, MsQuic update, proxy/socket/WebSocket/SMTP fixes | **Excluded as standalone goals:** automatic correctness/performance; no specific authored workaround removal established. Server TLS certificate-supply policy remains PIN-686; Unix channel binding web integration remains PIN-709. |
 | XML signature/encryption hardening in Preview 4 | Depth/DTD/transform mitigations already exist in the serviced 10.0.13 source, so these are not all new .NET 11 features. **Delivered PIN-1111 / R25:** SignedInfo's fixed 100-reference limit becomes configurable through `System.Security.Cryptography.MaxReferencesPerSignedInfo`, defaulting to 100. Real default100/101 and strict8/9 parsing/signature checks retain the old application-validation route. The MaxDecryptedDataElements key already had that spelling; no invented migration or disabled security limits. |
-| 32-bit GC heap hard limit support | **Included R24:** deliberately bounded heap configuration or removal of custom 32-bit enforcement; actual 32-bit runtime evidence required. Ordinary unchanged GC/DATAS/cgroup fixes are excluded. |
+| 32-bit GC heap hard limit support | **Delivered PIN-1110 / R24:** deliberately bounded heap configuration or removal of custom 32-bit enforcement; actual 32-bit runtime evidence required. Ordinary unchanged GC/DATAS/cgroup fixes are excluded. |
 | Remaining JIT/VM/GC/NativeAOT dispatch, >1024 CPU startup, Half/SIMD acceleration, marshalling fixes | **Excluded as standalone goals:** upgrading alone obtains the benefit. Explicit authored intrinsics remain PIN-739 and numeric conversion migrations PIN-683. Source-build-only interpreter bring-up options are not advertised as consumer SDK properties. |
 
 ### Retained unknowns
@@ -496,3 +496,22 @@ R14. An unowned declaration or changed source/artifact fails the command.
 This research changes no served recipe/tool, so no changed MCP
 response or Inspector example is asserted. Real installed MCP checks are mandatory
 acceptance for every eventual delivery draft above.
+
+## Native boundaries — PIN-1098 / PIN-1109 / PIN-1110
+
+R12/R23/R24 are delivered as interop.retain-native-exports-with-types,
+threading.choose-unix-mutex-scope and runtime.bound-a-32-bit-gc-heap, edition11.0.
+Original Tern Survey, Quay Lantern and Marsh Observatory samples compile against
+the actual paired baseline artifacts. eng/Test-NativeBoundaries.ps1 and
+eng/Test-QuayMutex.ps1 capture real Windows x64 AOT/native C invocation, Linux
+same-session process/UID/storage behaviour and Windows x86 allocation limits.
+The original source manifest is retained in samples/NativeBoundaries/sources.json.
+Actual contracts correct the draft's nonexistent NamedWaitHandleOptions.None;
+explicit CurrentUserOnly/CurrentSessionOnly properties compile on both baselines.
+The RC2 unknown-UID control reports a wrapped storage failure under an inaccessible
+HOME, contrary to the documented user-database-only fallback; owned XDG_RUNTIME_DIR
+is the verified remedy and HOME is not prescribed as a supported contract.
+Both 10.0.13 and RC2 have the changed mutex default; actual10.0.12 is a historical
+control. Real x86 .NET10 ignores the heap limit; RC2 enforces it, with RSS separate.
+The exact eight .NET10 foundations, PIN-959/PIN-962 and Human/actual-GA gates
+remain unchanged. No publication, recurring native matrix or persistent setup is added.

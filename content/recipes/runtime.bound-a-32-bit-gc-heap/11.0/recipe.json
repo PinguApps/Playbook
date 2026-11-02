@@ -1,0 +1,151 @@
+{
+  "id": "runtime.bound-a-32-bit-gc-heap",
+  "edition": "11.0",
+  "title": "Bound a 32-bit managed heap",
+  "goal": "Bound an x86 worker managed heap with a startup runtime limit, verify allocation failure and distinguish that budget from total process memory; retain explicit application admission budgets on older runtimes.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "native-boundaries",
+    "marshheap"
+  ],
+  "apis": [
+    "GC.GetGCMemoryInfo",
+    "OutOfMemoryException",
+    "Process.WorkingSet64"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework reference/runtime assets only; no added managed NuGet dependency."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Use the complete offline recipe and pinned sample projects; run the matching real native/platform checks before relying on the claim."
+          ],
+          "platforms": [
+            "Measured Windows x86 CoreCLR hosted on Windows x64; actual x86 runtime required; other 32-bit OS/runtime routes unverified."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Real x86 configured 32MiB managed heap, bounded allocation/OOM and separate RSS; older ignored-setting control and application admission budget.",
+            "Measured RC2 artifacts are not actual-GA evidence; PIN-959/PIN-962 remain open."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/runtime-config/garbage-collector.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/gc/gc.cpp",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/gc/init.cpp"
+        ],
+        "selectionNotes": [
+          "Measured Windows x86 CoreCLR hosted on Windows x64; actual x86 runtime required; other 32-bit OS/runtime routes unverified.",
+          "Real x86 configured 32MiB managed heap, bounded allocation/OOM and separate RSS; older ignored-setting control and application admission budget."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MarshHeap/MarshHeap.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned docs/core/runtime-config/garbage-collector.md",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/runtime-config/garbage-collector.md"
+    },
+    {
+      "title": "Official pinned src/runtime/src/coreclr/gc/gc.cpp",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/gc/gc.cpp"
+    },
+    {
+      "title": "Official pinned src/runtime/src/coreclr/gc/init.cpp",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/gc/init.cpp"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Real x86 configured 32MiB managed heap, bounded allocation/OOM and separate RSS; older ignored-setting control and application admission budget.",
+      "sample": "samples/net10.0/MarshHeap/MarshHeap.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402"
+    },
+    {
+      "scope": "Real x86 configured 32MiB managed heap, bounded allocation/OOM and separate RSS; older ignored-setting control and application admission budget.",
+      "sample": "samples/net11.0/MarshHeap/MarshHeap.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "humanProof": {
+    "scope": "All bounded checks execute on Windows x86 CoreCLR hosted on Windows x64. Other 32-bit OS/runtime routes and actual GA remain unverified.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "newer": {
+      "path": "samples/net11.0/MarshHeap/Program.cs",
+      "language": "csharp",
+      "region": "budget"
+    },
+    "project": {
+      "path": "samples/net11.0/MarshHeap/MarshHeap.csproj",
+      "language": "xml",
+      "region": "project"
+    },
+    "older": {
+      "path": "samples/net10.0/MarshHeap/Program.cs",
+      "language": "csharp",
+      "region": "budget"
+    },
+    "older-project": {
+      "path": "samples/net10.0/MarshHeap/MarshHeap.csproj",
+      "region": "project",
+      "language": "xml"
+    }
+  }
+}

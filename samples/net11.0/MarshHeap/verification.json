@@ -1,0 +1,13 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    "eng/Evidence.ps1",
+    "eng/EstuaryProof.ps1",
+    "eng/Test-NativeBoundaries.ps1",
+    "samples/NativeBoundaries/sources.json",
+    "docs/planning/audits/runtime-security.assets.json"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
