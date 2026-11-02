@@ -731,3 +731,25 @@ under ignored `artifacts/`.
 
 [target]: https://linear.app/pinguapps/issue/PIN-710
 [review]: https://linear.app/pinguapps/issue/PIN-986
+
+## Nested relational value delivery — PIN-844 / PIN-846
+
+`ef.map-nested-values-with-inheritance/11.0` and `ef.key-nested-value/11.0`
+retain the WEB-100/104 and WEB-103 goals and edition identity. Original FenStore
+consumers pin EF10/11 and execute against the supplied isolated SQL Server 2025
+route. The previous route uses value conversion with snapshots for inherited
+location values, flat identity/lookup columns and a computed JSON lookup index.
+The current route executes TPT base scalar/JSON, TPC base scalar and TPC
+concrete-subtype JSON, plus a nested scalar key/index and a native JSON path
+index. The installed package test checks full offline bodies and applicability.
+
+Source disposition is **delivered for those bounded routes**, not universal TPC
+JSON compatibility. Actual RC2 materialization of inherited-base TPC JSON fails
+with a missing container-column exception. Moving that value to a concrete
+subtype passed. Nested-key FindAsync also fails translation; explicit LINQ
+identity lookup and tracked identity resolution passed. Those failures remain
+visible in discovery/detail and are not converted into positive proof. No newer
+build fix, GA reconciliation, other provider or query-plan claim is made.
+Existing E17 metadata-extension ownership and PIN-965/PIN-959 release gates are
+unchanged. Both recipe metadata files cite official complex-type/key/index and
+SQL Server JSON-index references plus the immutable reviewed EF11 documentation.

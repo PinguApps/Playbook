@@ -453,3 +453,9 @@
 # checks freshness and installed stdio scenarios compare complete served guidance.
 /samples/net10.0/MoorlandDispatch/verification-evidence.json
 /samples/net11.0/MoorlandDispatch/verification-evidence.json
+
+# Record-Evidence generated FenStore SDK/provider command receipts and input hashes.
+# Review canonical consumers, locks, manifests and SQL runner; build/pack validates
+# freshness and the installed scenario compares full served content.
+/samples/net10.0/FenStore/verification-evidence.json
+/samples/net11.0/FenStore/verification-evidence.json

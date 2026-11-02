@@ -11,6 +11,22 @@ namespace PinguApps.Playbook.Tests.Steps;
 [Binding]
 public sealed class InstalledToolSteps : IDisposable
 {
+    [Then("nested persistence retains canonical bodies applicability and RC2 restrictions")]
+    public async Task CheckNestedPersistenceAsync()
+    {
+        string[] ids = ["ef.key-nested-value", "ef.map-nested-values-with-inheritance"];
+        await CheckWebRecipesAsync(ids, "fen-persistence", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+        foreach (string id in ids)
+        {
+            JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
+            Assert.Contains("FindAsync", recipe.GetProperty("markdown").GetString(), StringComparison.Ordinal);
+            Assert.Contains("TPC", recipe.GetProperty("applicability").ToString(), StringComparison.Ordinal);
+            Assert.All(recipe.GetProperty("evidence").EnumerateArray(), evidence =>
+                Assert.Contains("PASS:", evidence.GetProperty("output").GetString(), StringComparison.Ordinal));
+        }
+    }
+
     [Then("removed Blazor migrations retain complete canonical guidance and execution evidence")]
     public async Task CheckRemovedBlazorMigrationsAsync()
     {
