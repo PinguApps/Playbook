@@ -4,6 +4,37 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Temporal bounds and server time reports
+
+Run the paired original consumers against the authorized isolated SQL2025 container.
+Requires existing SDK10.0.402 and SDK11 RC2, Docker Desktop and restored locked packages.
+Each run creates/removes its own restricted database and stops the container.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7774070c'
+& ./eng/Test-BeaconHistory.ps1 -Record
+```
+
+Expect generation/history/update-rejection checks and actual server time query checks
+for both releases. RC2 is not GA; older engines and named-zone DST rules are unverified.
+The following builds/packs the ordinary tool and retrieves both recipes through the
+existing isolated-feed/cache installed stdio harness from an unrelated directory.
+It prints ID/title/goal, full canonical Markdown, applicability and edition11.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7774070c'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sql.expose-temporal-boundaries','sql.query-offset-and-date-parts') `
+  -Query 'beacon-history' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin859-860' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/beacon-history/inspection'
+```
+
+Expect two complete entries and exact-artifact PASS; target10 has no applicable edition.
+The historical projects add no .NET10 foundations. PIN-959/PIN-965 remain separate gates.
+
 ## SQL JSON presence and membership
 
 The original paired consumers need the existing SDK10.0.402 and SDK11 RC2,

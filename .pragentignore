@@ -493,3 +493,7 @@
 # Record-Evidence generated QuarrySearch receipts; canonical samples, locks and runner remain reviewed.
 /samples/net10.0/QuarrySearch/verification-evidence.json
 /samples/net11.0/QuarrySearch/verification-evidence.json
+
+# Generated BeaconHistory command/hash receipts; review canonical consumers, locks and runner.
+/samples/net10.0/BeaconHistory/verification-evidence.json
+/samples/net11.0/BeaconHistory/verification-evidence.json
