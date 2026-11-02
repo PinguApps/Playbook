@@ -7,9 +7,9 @@
     "docs/planning/audits/interop-soundings.sources.json",
     "docs/planning/audits/runtime-security.assets.json",
     "samples/NativeSoundings/Checks.cs",
-    "samples/NativeSoundings/soundings.c",
+    "samples/net11.0/NativeSoundings/soundings.c",
     "samples/NetworkBuffers/RuntimeIdentity.cs",
-    "samples/NativeSoundings/SoundingExchange.cs"
+    "samples/net11.0/NativeSoundings/SoundingExchange.cs"
   ],
   "buildArguments": [],
   "nativeToolchains": [

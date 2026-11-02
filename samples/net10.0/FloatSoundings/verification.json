@@ -6,8 +6,8 @@
     ".editorconfig",
     "docs/planning/audits/interop-soundings.sources.json",
     "docs/planning/audits/runtime-security.assets.json",
-    "samples/FloatSoundings/BridgeChecks.cs",
-    "samples/FloatSoundings/main.js",
+    "samples/net11.0/FloatSoundings/BridgeChecks.cs",
+    "samples/net11.0/FloatSoundings/wwwroot/main.js",
     "eng/Test-FloatSoundings.mjs"
   ],
   "buildArguments": [],

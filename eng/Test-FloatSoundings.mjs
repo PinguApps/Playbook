@@ -20,9 +20,7 @@ try {
                 const path = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
                 const file = resolve(directory, '.' + (path === '/' ? '/index.html' : path));
                 if (!file.startsWith(directory + sep)) { response.writeHead(403).end(); return; }
-                const fallback = path === '/' ? resolve(sample, 'wwwroot/index.html') : path === '/main.js' ? resolve(root, 'samples/FloatSoundings/main.js') : null;
-                let data;
-                try { data = await readFile(file); } catch (error) { if (!fallback) throw error; data = await readFile(fallback); }
+                const data = await readFile(file);
                 response.setHeader('Content-Type', ({ '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.wasm': 'application/wasm' })[extname(file)] || 'application/octet-stream');
                 response.end(data);
             } catch { response.writeHead(404).end(); }
@@ -34,7 +32,7 @@ try {
         page.on('pageerror', error => messages.push(error.stack));
         try {
             await page.goto(`http://127.0.0.1:${server.address().port}`);
-            await page.waitForFunction(() => globalThis.proof, { timeout: 60000 });
+            await page.waitForFunction(() => globalThis.proof, undefined, { timeout: 60000 });
             const proof = await page.evaluate(() => globalThis.proof);
             assert.ok(!proof.error, JSON.stringify({ proof, messages: messages.slice(0, 5) }));
             assert.ok(proof.result.startsWith('PASS FloatSoundings: .NET ' + (target === 'net10.0' ? '10.0.13' : '11.0.0-rc.2.26504.105')));

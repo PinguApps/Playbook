@@ -1,3 +1,4 @@
+// snippet:bridge-checks
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.JavaScript;
 
@@ -37,3 +38,4 @@ public static partial class BridgeChecks
         if (!condition) throw new InvalidOperationException(message);
     }
 }
+// endsnippet:bridge-checks

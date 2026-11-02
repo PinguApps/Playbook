@@ -1,0 +1,210 @@
+{
+  "id": "interop.exchange-float-buffers-with-javascript",
+  "edition": "11.0",
+  "title": "Exchange floating-point buffers with JavaScript",
+  "goal": "Exchange floating-point arrays and bounded memory views with JavaScript; use direct float marshaling on .NET 11 when browser buffers need correct offsets, copy semantics and explicit lifetimes.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "interop-soundings",
+    "interop",
+    "javascript"
+  ],
+  "apis": [
+    "JSImportAttribute",
+    "JSExportAttribute",
+    "JSMarshalerArgument",
+    "Span<float>",
+    "ArraySegment<float>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Requires matching .NET11 Mono browser runtime assets; desktop shared-framework execution is not this route.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App Mono browser-wasm 11"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Use a matching browser host package set; exact 11.0.0-rc.2.26504.105 dependencies are the tested artifacts.",
+              "name": "Microsoft.AspNetCore.Components.WebAssembly"
+            }
+          ],
+          "packageAssets": [
+            "Matching Microsoft.NET.Sdk.WebAssembly.Pack and Microsoft.NETCore.App.Runtime.Mono.browser-wasm assets; generator comes from Microsoft.NETCore.App.Ref analyzers."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Browser-targeted project, generated imports/exports and JavaScript host; enable unsafe blocks for generated stubs.",
+            "Restore matching WebAssembly SDK/runtime package assets. This interpreted Mono route builds/publishes without wasm-tools; AOT or native relinking requires additional matching workloads.",
+            "Serve published wwwroot over HTTP(S) in a real browser; this is not a desktop .NET execution route."
+          ],
+          "platforms": [
+            "Measured Mono browser-wasm in Windows Chromium; no CoreCLR-browser, AOT, other browser or OS execution claim."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "renderingModes": [
+            "Standalone Mono WebAssembly JavaScript host; no server circuit or Blazor component rendering required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Numeric arrays are copied; spans and ArraySegments use bounded MemoryViews.",
+            "Span views expire at the end of the synchronous interop call. Retained segment views pin memory; dispose in finally and do not access after disposal.",
+            "JavaScript Number/Float32 narrowing is not a precision improvement; the older double adapter has explicit copy-back costs. No throughput/allocation benchmark claim."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+          "https://learn.microsoft.com/en-us/aspnet/core/client-side/dotnet-interop"
+        ],
+        "selectionNotes": [
+          "Numeric arrays are copied; spans and ArraySegments use bounded MemoryViews.",
+          "Span views expire at the end of the synchronous interop call. Retained segment views pin memory; dispose in finally and do not access after disposal.",
+          "JavaScript Number/Float32 narrowing is not a precision improvement; the older double adapter has explicit copy-back costs. No throughput/allocation benchmark claim."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/FloatSoundings/FloatSoundings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs"
+    },
+    {
+      "title": "Official pinned 4099f83/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/ref/System.Runtime.InteropServices.JavaScript.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices.JavaScript/gen/JSImportGenerator/JSGeneratorFactory.cs"
+    },
+    {
+      "title": "Microsoft interop contract and ownership guidance",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/client-side/dotnet-interop"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual browser application compilation, resolved dependencies, matching audit references and inspected generated import/export conversion directions.",
+      "sdk": "10.0.402",
+      "kind": "compile",
+      "target": "net10.0",
+      "sample": "samples/net10.0/FloatSoundings/FloatSoundings.csproj",
+      "language": "14.0"
+    },
+    {
+      "target": "net10.0",
+      "sample": "samples/net10.0/FloatSoundings/FloatSoundings.csproj",
+      "record": "samples/net10.0/FloatSoundings/browser.evidence.json",
+      "sdk": "10.0.402",
+      "scope": "Real published Mono browser execution: array copies and special values, span and segment offsets, reentrant generated exports, span expiry, retained segment mutation/disposal and rejected disposed access.",
+      "language": "14.0",
+      "kind": "execution"
+    },
+    {
+      "scope": "Actual browser application compilation, resolved dependencies, matching audit references and inspected generated import/export conversion directions.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile",
+      "target": "net11.0",
+      "sample": "samples/net11.0/FloatSoundings/FloatSoundings.csproj",
+      "language": "15.0"
+    },
+    {
+      "target": "net11.0",
+      "sample": "samples/net11.0/FloatSoundings/FloatSoundings.csproj",
+      "record": "samples/net11.0/FloatSoundings/browser.evidence.json",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real published Mono browser execution: array copies and special values, span and segment offsets, reentrant generated exports, span expiry, retained segment mutation/disposal and rejected disposed access.",
+      "language": "15.0",
+      "kind": "execution"
+    }
+  ],
+  "humanProof": {
+    "scope": "All bounded checks execute using existing local compiler/browser artifacts. No device, human approval or production resource is required. Other platforms and actual GA remain unverified.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "newer": {
+      "path": "samples/net11.0/FloatSoundings/BufferBridge.cs",
+      "language": "csharp",
+      "region": "float-bridge"
+    },
+    "older": {
+      "path": "samples/net10.0/FloatSoundings/BufferBridge.cs",
+      "language": "csharp",
+      "region": "float-bridge"
+    },
+    "browser": {
+      "path": "samples/net11.0/FloatSoundings/wwwroot/main.js",
+      "language": "javascript",
+      "region": "browser-host"
+    },
+    "checks": {
+      "region": "bridge-checks",
+      "language": "csharp",
+      "path": "samples/net11.0/FloatSoundings/BridgeChecks.cs"
+    },
+    "project": {
+      "region": "browser-project",
+      "path": "samples/net11.0/FloatSoundings/FloatSoundings.csproj",
+      "language": "xml"
+    },
+    "packages": {
+      "region": "browser-packages",
+      "path": "samples/net11.0/FloatSoundings/Directory.Packages.props",
+      "language": "xml"
+    },
+    "html": {
+      "region": "browser-html",
+      "path": "samples/net11.0/FloatSoundings/wwwroot/index.html",
+      "language": "html"
+    }
+  }
+}

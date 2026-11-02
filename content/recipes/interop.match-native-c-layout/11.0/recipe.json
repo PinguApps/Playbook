@@ -1,0 +1,163 @@
+{
+  "id": "interop.match-native-c-layout",
+  "edition": "11.0",
+  "title": "Match native C structure and union layouts",
+  "goal": "Match a C struct or union when exchanging native aggregates; use runtime C layout on .NET 11 and verify size, alignment and offsets against the actual target ABI before calling native code.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "interop-soundings",
+    "interop",
+    "native-layout"
+  ],
+  "apis": [
+    "ExtendedLayoutAttribute",
+    "ExtendedLayoutKind.CStruct",
+    "ExtendedLayoutKind.CUnion",
+    "LayoutKind.Extended",
+    "TypeAttributes.ExtendedLayout",
+    "NativeLibrary"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework references/runtime; no new managed NuGet dependency."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Console project with unsafe blocks, matching C compiler/helper and known pointer width/ABI.",
+            "Native helper source and explicit absolute MSVC compiler/linker commands are included; no CRT or Windows SDK headers are required."
+          ],
+          "platforms": [
+            "Measured Windows x64 CoreCLR, MSVC 19.51.36260.0/linker14.51.36260.0; no universal ABI, Unix, Arm, Mono or AOT claim."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "C layout is ABI-specific; validate against the actual native compiler, packing options and architecture.",
+            "Explicit older offsets remain valid for their stated ABI. Incorrect layouts are rejected without native invocation.",
+            "Union fields overlap; read only the member whose interpretation the native protocol defines. No ownership or marshalling is inferred."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/ExtendedLayoutAttribute.cs",
+          "https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.extendedlayoutattribute?view=net-11.0"
+        ],
+        "selectionNotes": [
+          "C layout is ABI-specific; validate against the actual native compiler, packing options and architecture.",
+          "Explicit older offsets remain valid for their stated ABI. Incorrect layouts are rejected without native invocation.",
+          "Union fields overlap; read only the member whose interpretation the native protocol defines. No ownership or marshalling is inferred."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/NativeSoundings/NativeSoundings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned 4099f83/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
+    },
+    {
+      "title": "Official pinned 820230c/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
+    },
+    {
+      "title": "Official pinned ExtendedLayoutAttribute",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/ExtendedLayoutAttribute.cs"
+    },
+    {
+      "title": "Microsoft interop contract and ownership guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.extendedlayoutattribute?view=net-11.0"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual Windows x64 native size/alignment/offset checks, canonical struct and both union-member round trips, packed-layout rejection; exact MSVC/helper/runtime identities.",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "target": "net10.0",
+      "sample": "samples/net10.0/NativeSoundings/NativeSoundings.csproj",
+      "language": "14.0"
+    },
+    {
+      "scope": "Actual Windows x64 native size/alignment/offset checks, canonical struct and both union-member round trips, packed-layout rejection; exact MSVC/helper/runtime identities.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "target": "net11.0",
+      "sample": "samples/net11.0/NativeSoundings/NativeSoundings.csproj",
+      "language": "15.0"
+    }
+  ],
+  "humanProof": {
+    "scope": "All bounded checks execute using existing local compiler/browser artifacts. No device, human approval or production resource is required. Other platforms and actual GA remain unverified.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "consumer": {
+      "path": "samples/net11.0/NativeSoundings/SoundingExchange.cs",
+      "language": "csharp",
+      "region": "native-consumer"
+    },
+    "newer": {
+      "path": "samples/net11.0/NativeSoundings/Layouts.cs",
+      "language": "csharp",
+      "region": "native-layout"
+    },
+    "older": {
+      "path": "samples/net10.0/NativeSoundings/Layouts.cs",
+      "language": "csharp",
+      "region": "native-layout"
+    },
+    "native": {
+      "path": "samples/net11.0/NativeSoundings/soundings.c",
+      "language": "c",
+      "region": "native-helper"
+    }
+  }
+}

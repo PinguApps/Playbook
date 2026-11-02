@@ -138,9 +138,9 @@ lines, including repeated target-asset comparisons.
 | Video MIME constants | **Delivered PIN-744** in [the original URI/media capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-742-744.md). **Delivered PIN-1105 / R19** separately covers actual MediaTypeMap string/span/path/reverse lookups; constants alone do not deliver mapping, and mapping does not validate file bytes or upload safety. |
 | Generic Interlocked.And/Or; CompareExchange/Exchange annotations | **Delivered PIN-1094 / R8:** paired real CAS/enum contention, prior-value chains, retained unrelated bits, integer/enum backing sizes and unsupported-struct rejection. One atomic location per call, not multi-field transactions. Annotation-only overload pairs are not new operations. |
 | RuntimeFeature.IsMultithreadingSupported | **Included R7:** choose a supported threading path with a useful single-thread fallback; compile-time platform guards are not evidence of actual parallelism. |
-| ExtendedLayoutAttribute/Kind.CStruct/CUnion, LayoutKind.Extended, TypeAttributes.ExtendedLayout | **Included R9:** runtime-computed C aggregate layout, with actual native ABI checks. A declaration is not proof of every compiler/architecture combination. |
+| ExtendedLayoutAttribute/Kind.CStruct/CUnion, LayoutKind.Extended, TypeAttributes.ExtendedLayout | **Delivered PIN-1095 / R9:** paired explicit/runtime C struct and union layouts, measured MSVC Windows x64 size/alignment/offsets, real pointer round trips and packed-layout rejection. No universal ABI claim. |
 | ILGenerator.EmitCalli(Type) | **Delivered PIN-1096 / R10:** actual paired DynamicMethod managed/native calls with typed signatures versus explicit old setup; real Windows x64 MulDiv inputs, returns and failure sentinels. Dynamic code required; unified x64 ABI does not establish x86 convention differences or Native AOT execution. |
-| JSMarshalerArgument float[], Span<float>, ArraySegment<float> ToJS/ToManaged | **Included R11:** remove manual float conversion/copy adapters; real browser/lifetime/segment evidence required. Supporting generated APIs are not ordinary hand-written marshaller instructions. |
+| JSMarshalerArgument float[], Span<float>, ArraySegment<float> ToJS/ToManaged | **Delivered PIN-1097 / R11:** direct float buffers versus original double conversion/copy-back in real published Mono browser consumers; offsets, generated imports/exports, specials and lifetime/disposal checks. No CoreCLR-browser/AOT claim. |
 | UnmanagedCallersOnly.AssociatedSourceType; EntryPoint/type nullable metadata | **Included R12:** condition a native export on retention of its associated type. EntryPoint already existed; named exports themselves are not new. Actual trimming/export-table evidence is required. |
 | LibraryImport SYSLIB1064 and broad RequiresUnsafe/MemorySafetyRules annotations on Marshal, COM, Java/Objective-C/Swift, GC handles, MemoryMarshal, Unsafe, SafeBuffer, crypto/native handles and reflection pointers | **Grouped PIN-715:** caller/declaration safety obligations; its existing measured compiler tests do not certify every API here. Keep safe/unsafe/preview/build flags precise. MarshalUsing property AttributeUsage additionally supports **R13**. |
 | COM generator property/accessor support and new diagnostics under existing IDs | **Included R13:** author complete generated COM properties with correct accessor marshalling; not merely warning suppression. |
@@ -438,6 +438,39 @@ R1–R25 do not consume PIN-686's seven existing proposals. Unknowns U1/U2 need
 bounded factual qualification before an additional delivery ticket is justified;
 they remain explicit coverage/publication gaps. No related ticket is marked
 satisfied merely because a broad owner or a similar API name exists.
+
+## Native C layouts and browser float buffers — PIN-1095 / PIN-1097
+
+Delivered R9 as `interop.match-native-c-layout` and R11 as
+`interop.exchange-float-buffers-with-javascript`, both edition11.0. The original
+runtime/reference baselines remain SDK10.0.402/runtime10.0.13 and
+SDK11.0.100-rc.2.26504.105/runtime11.0.0-rc.2.26504.105. Paired contracts and the
+actual JS generator are pinned in interop-soundings.sources.json; framework
+reference hashes are reconciled with this audit's asset manifest.
+
+Original Moss Shoal aggregates execute against a real header/CRT-free MSVC Windows
+x64 C helper (compiler19.51.36260.0, linker14.51.36260.0). Both explicit older and
+runtime extended layouts agree on packet size24/alignment8/offsets0,8,16 and union
+size8/alignment8/offsets0,0. Actual pointer calls mutate struct fields and both
+union interpretations. A packed13-byte negative control is rejected before native
+invocation. This establishes neither other ABIs nor by-value aggregate calls.
+
+Original Reed Bank browser consumers compile/publish using the matching real
+Mono WebAssembly assets. Both run in Chromium: old double widening/copy-back versus
+direct float arrays/spans/segments, normal/empty/NaN/infinities, generated imports
+and reentrant exports, segment offsets and sentinels, span expiry, retained segment
+mutation then disposal/rejected access. Observed views are Float64Array versus
+Float32Array. This route does not require wasm-tools for interpreted publish;
+native relinking/AOT and CoreCLR-browser remain separate unverified routes.
+
+`eng/Test-InteropSoundings.ps1 -Record -VerifySources` captures sample compilation,
+real execution, exact inputs/dependencies/toolchain identities and generated/deployed
+artifacts using the existing sample-evidence format. The installed walkthrough in
+docs/inspect-guidance.md checks the exact ordinary packed artifact offline through
+real stdio list/get, including discovery, full canonical Markdown, applicability
+and freshness. No recurring native/browser matrix or additional .NET10 foundation
+is introduced. This supersedes pending R9/R11 delivery wording only; PIN-959,
+PIN-962 and existing Human/actual-GA gates remain open.
 
 ## Reproduce and inspect
 

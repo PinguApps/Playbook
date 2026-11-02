@@ -36,7 +36,7 @@ try {
   $compilerVersion = (Get-Item $Compiler).VersionInfo.FileVersion
   $linkerVersion = (Get-Item $Linker).VersionInfo.FileVersion
   $toolchains = @("MSVC/$compilerVersion", "MSVC-link/$linkerVersion")
-  & $Compiler /nologo /c /GS- /TC "/Fo$native/soundings.obj" samples/NativeSoundings/soundings.c
+  & $Compiler /nologo /c /GS- /TC "/Fo$native/soundings.obj" samples/net11.0/NativeSoundings/soundings.c
   & $Linker /NOLOGO /DLL /NOENTRY /NODEFAULTLIB /MACHINE:X64 "/OUT:$native/soundings.dll" "$native/soundings.obj"
   $audit = Get-Content docs/planning/audits/runtime-security.assets.json -Raw | ConvertFrom-Json
   foreach ($target in 'net10.0','net11.0') {
@@ -83,6 +83,11 @@ try {
           $receipt = Get-Content verification-evidence.json -Raw | ConvertFrom-Json -AsHashtable
           $receipt.output += "`n" + ($identities -join "`n")
           $receipt.command += '; ResolveFrameworkReferences; compare runtime-security.assets.json; SHA256 compiler/reference/native/generated/browser artifacts'
+          if ($name -eq 'NativeSoundings') {
+            $receipt.command = "$Compiler /nologo /c /GS- /TC /Fo$native/soundings.obj $root/samples/net11.0/NativeSoundings/soundings.c; $Linker /NOLOGO /DLL /NOENTRY /NODEFAULTLIB /MACHINE:X64 /OUT:$native/soundings.dll $native/soundings.obj; Copy-Item $native/soundings.dll $directory/bin/Release/$target/soundings.dll; " + $receipt.command
+          } else {
+            $receipt.command += "; $dotnet publish $directory/$name.csproj -c Release --no-restore -p:PublishTrimmed=false"
+          }
           $receipt.scope = if ($name -eq 'NativeSoundings') { "Actual Windows x64 MSVC $compilerVersion/link $linkerVersion C aggregate metrics, pointer round trips and rejected packed negative control; no other ABI/GA proof." } else { 'Actual Mono browser build and generated import/export inspection; publish and real Chromium execution are recorded separately in browser.evidence.json. No AOT/native relink/CoreCLR-browser claim.' }
           [IO.File]::WriteAllText((Join-Path $directory 'verification-evidence.json'), ($receipt | ConvertTo-Json -Depth 40).Replace("`r`n","`n") + "`n")
         }
@@ -97,7 +102,8 @@ try {
       $receipt = Get-Content "$directory/verification-evidence.json" -Raw | ConvertFrom-Json -AsHashtable
       $receipt.kind = 'execution'
       $receipt.recordedAt = [DateTimeOffset]::UtcNow.ToString('O')
-      $receipt.command = "publish -c Release --no-restore -p:PublishTrimmed=false; $Node eng/Test-FloatSoundings.mjs $Playwright $Chromium $browserOutput"
+      $dotnet = if ($target -eq 'net10.0') { $Net10Dotnet } else { $Net11Dotnet }
+      $receipt.command = "$dotnet publish $directory/FloatSoundings.csproj -c Release --no-restore -p:PublishTrimmed=false; $Node $root/eng/Test-FloatSoundings.mjs $Playwright $Chromium $browserOutput"
       $receipt.scope = 'Real published Mono browser consumers, Float64 older adapter versus Float32 current route; generated imports/exports, copy semantics, specials, segment offsets and surrounding sentinels, span expiry, retained segment mutation then disposal/rejected access. No performance, AOT, CoreCLR-browser, other-browser or GA claim.'
       $receipt.output += "`n" + [IO.File]::ReadAllText($browserOutput)
       $receipt.output += "`nCHROMIUM sha256=$((Get-FileHash $Chromium).Hash.ToLowerInvariant())`nPLAYWRIGHT " + [IO.File]::ReadAllText((Join-Path $Playwright 'package.json'))
