@@ -261,7 +261,7 @@ prerequisites, compilation/behaviour acceptance and sizing rationale.
 | `runtime-security:R9` | Match native C structure and union layouts | approved | [PIN-1095](https://linear.app/pinguapps/issue/PIN-1095) | L (5) | — |
 | `runtime-security:R10` | Emit typed function-pointer calls | approved | [PIN-1096](https://linear.app/pinguapps/issue/PIN-1096) | M (3) | — |
 | `runtime-security:R11` | Exchange floating-point buffers with JavaScript | approved | [PIN-1097](https://linear.app/pinguapps/issue/PIN-1097) | L (5) | — |
-| `runtime-security:R12` | Retain native exports with their source types | approved | [PIN-1098](https://linear.app/pinguapps/issue/PIN-1098) | L (5) | — |
+| `runtime-security:R12` | Retain native exports with their source types | delivered | [PIN-1098](https://linear.app/pinguapps/issue/PIN-1098) | L (5) | — |
 | `runtime-security:R13` | Generate COM property contracts | approved | [PIN-1099](https://linear.app/pinguapps/issue/PIN-1099) | L (5) | [PIN-696](https://linear.app/pinguapps/issue/PIN-696) |
 | `runtime-security:R14` | Migrate custom browser runtime hosts | approved | [PIN-1100](https://linear.app/pinguapps/issue/PIN-1100) | L (5) | — |
 | `runtime-security:R15` | Select cryptographic providers for key operations | approved | [PIN-1101](https://linear.app/pinguapps/issue/PIN-1101) | L (5) | — |
@@ -272,8 +272,8 @@ prerequisites, compilation/behaviour acceptance and sizing rationale.
 | `runtime-security:R20` | Replace synchronous mobile HTTP sends | approved | [PIN-1106](https://linear.app/pinguapps/issue/PIN-1106) | L (5) | [PIN-697](https://linear.app/pinguapps/issue/PIN-697) |
 | `runtime-security:R21` | Decode Zstandard HTTP responses | approved | [PIN-1107](https://linear.app/pinguapps/issue/PIN-1107) | M (3) | — |
 | `runtime-security:R22` | Allocate aligned native memory with type lifetime | approved | [PIN-1108](https://linear.app/pinguapps/issue/PIN-1108) | M (3) | — |
-| `runtime-security:R23` | Choose Unix named-mutex scope | approved | [PIN-1109](https://linear.app/pinguapps/issue/PIN-1109) | L (5) | — |
-| `runtime-security:R24` | Bound a 32-bit managed heap | approved | [PIN-1110](https://linear.app/pinguapps/issue/PIN-1110) | M (3) | — |
+| `runtime-security:R23` | Choose Unix named-mutex scope | delivered | [PIN-1109](https://linear.app/pinguapps/issue/PIN-1109) | L (5) | — |
+| `runtime-security:R24` | Bound a 32-bit managed heap | delivered | [PIN-1110](https://linear.app/pinguapps/issue/PIN-1110) | M (3) | — |
 | `runtime-security:R25` | Bound XML signature references | approved | [PIN-1111](https://linear.app/pinguapps/issue/PIN-1111) | M (3) | — |
 
 ### extensions
