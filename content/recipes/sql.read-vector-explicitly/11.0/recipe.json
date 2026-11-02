@@ -1,0 +1,226 @@
+{
+  "id": "sql.read-vector-explicitly",
+  "edition": "11.0",
+  "title": "Read stored vectors explicitly",
+  "goal": "Project a persisted SqlVector explicitly when EF11 entity materialization omits vector columns.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "dune-archive",
+    "sql-server",
+    "vector"
+  ],
+  "apis": [
+    "SqlVector",
+    "Select",
+    "AsNoTracking"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/modeling/indexes",
+          "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17",
+          "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search",
+          "https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql?view=sql-server-ver17"
+        ],
+        "selectionNotes": [
+          "Project a persisted SqlVector explicitly when EF11 entity materialization omits vector columns.",
+          "Windows x64 local Docker execution is bounded; EF11 vector-search execution remains not-tested under Pingu\u2019s explicit authorization on 2 November 2026."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C# 15-only feature is needed."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Pinned standalone sample: EF11 RC2, SqlClient7.1.0, Pkcs10.0.13; EF11 requires net11.0."
+            }
+          ],
+          "packageAssets": [
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+          ],
+          "providers": [
+            "EF SQL Server; SQL2025 native json/vector. JSON index requires clustered primary key. EF11 VectorSearch requires newer syntax unavailable on supplied CU10."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 consumer and Linux Docker SQL2025 CU10; other client platforms/engines not executed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Project a persisted SqlVector explicitly when EF11 entity materialization omits vector columns.",
+            "Windows x64 local Docker execution is bounded; EF11 vector-search execution remains not-tested under Pingu\u2019s explicit authorization on 2 November 2026.",
+            "Approximate search can omit true nearest rows; no measured recall/performance guarantee."
+          ],
+          "prerequisites": [
+            "Use the pinned complete project in an empty exclusively owned playbook_ database; restore dependencies online before execution.",
+            "Use eng/Test-DuneArchive.ps1 for the authorized local Docker route; no external connection is assumed."
+          ],
+          "optIns": [
+            "The complete shared sample suppresses EF9105 for its separate experimental vector index/search demonstration. JSON indexing and explicit scalar projection do not require that suppression themselves."
+          ],
+          "stabilityLimitations": [
+            "RC2 compilation and bounded execution are not GA proof.",
+            "SQL Server vector index/search is preview; newer EF11 search execution not-tested."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/DuneArchive/DuneArchive.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "EF Core 11 authoring changes",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+    },
+    {
+      "title": "EF Core scalar and JSON path indexes",
+      "url": "https://learn.microsoft.com/en-us/ef/core/modeling/indexes"
+    },
+    {
+      "title": "SQL Server CREATE JSON INDEX prerequisites",
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17"
+    },
+    {
+      "title": "EF Core SQL Server vector search and loading",
+      "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/vector-search"
+    },
+    {
+      "title": "SQL Server VECTOR_SEARCH syntax and availability",
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-search-transact-sql?view=sql-server-ver17"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/DuneArchive/DuneArchive.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "scope": "Real local SQL2025 execution: computed JSON index/query, exact VectorDistance, entity SQL including vectors and explicit persisted vector read. No vector-index DDL or VectorSearch is generated by this EF10 comparison."
+    },
+    {
+      "sample": "samples/net11.0/DuneArchive/DuneArchive.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "scope": "Real local SQL2025: JSON index/query, exact VectorDistance, entity SQL projection and persisted vector read. Current vector index/search DDL and SQL generation only; no EF11 VectorSearch execution or recall proof."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/DuneArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/DuneArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/DuneArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/DuneArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-dunearchive-csproj": {
+      "path": "samples/net10.0/DuneArchive/DuneArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/DuneArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/DuneArchive/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/DuneArchive/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/DuneArchive/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/DuneArchive/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-dunearchive-csproj": {
+      "path": "samples/net11.0/DuneArchive/DuneArchive.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/DuneArchive/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "loading": {
+      "path": "samples/net11.0/DuneArchive/Program.cs",
+      "region": "loading",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net11.0/DuneArchive/DuneArchive.csproj"
+    ],
+    "scope": "Pingu authorized publication without unavailable database execution on 2 November 2026. EF11 vector index application and exact/approximate VectorSearch not executed: supplied Docker engine rejects WITH APPROXIMATE. JSON, exact VectorDistance and loading remain locally required checks. No new Human gate or cloud provisioning obligation."
+  }
+}
