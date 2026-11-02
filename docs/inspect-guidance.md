@@ -2894,3 +2894,34 @@ Missing/stale proof or changed canonical content fails. No ETW/EventPipe, native
 AOT, self-contained/single-file, other-platform or final-GA execution is claimed.
 The eight foundations, PIN-959/PIN-962 and existing Human gates remain open; no
 recurring native/client/OS matrix is added.
+
+## Group winners and two-sided reconciliation
+
+The paired original MarshSurvey consumers execute deterministic group winners with
+related station names and matched/left-only/right-only reconciliation on the
+approved isolated SQL Server route. Refresh their exact compilation/execution
+records with `eng/Test-MarshSurvey.ps1 -Record`. The runner creates and removes
+unique restricted databases and stops the server. It requires the existing SDK
+10.0.402 and SDK11.0.100-rc.2.26504.105 installations and locked EF10/11 packages.
+This is SQL2025/Windows consumer and RC2 evidence, without a SQLite or GA promise.
+
+The following block is exercised from an unrelated starting directory. It builds
+and packs the ordinary tool, installs it through an isolated local feed/cache and
+calls real stdio list/get from an unrelated temporary working directory. Setup
+may restore online; unusable retrieval proxies prove proxy independence rather
+than operating-system network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-453d1143'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.compose-group-winner','ef.reconcile-unmatched-records') `
+  -Query 'marsh-survey' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin849-850' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/marsh-survey/inspection'
+```
+
+Expect ID/title/goal, complete canonical Markdown, applicability and fresh paired
+compilation/execution evidence for both target11/edition11 recipes. Target10 must
+return no_applicable_edition. No additional .NET10 foundation is introduced.
