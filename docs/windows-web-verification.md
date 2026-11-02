@@ -99,9 +99,17 @@ $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $work = 'C:\Users\pingu\AppData\Local\Temp\pb-web-pin680-check'
 $access = Get-Content -LiteralPath "$work/access.json" -Raw | ConvertFrom-Json
+$port = 54483 # Owner-selected port, never taken from the scratch manifest.
+$sid = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+$appId = [guid]::Empty
+if ($access.ipport -cne "127.0.0.1:$port" -or
+    $access.prefix -cnotmatch "^https://127\.0\.0\.1:$port/playbook-[0-9a-f]{32}/$" -or
+    $access.sid -cne $sid -or
+    -not [guid]::TryParseExact([string]$access.appId, 'B', [ref]$appId)) {
+    throw 'Manifest is outside the approved loopback/account scope. Stop.'
+}
 $netsh = 'C:\Windows\System32\netsh.exe'
 $bindings = & $netsh http show sslcert
-$port = ($access.ipport -split ':')[-1]
 if ($bindings | Select-String -SimpleMatch ":$port") {
     throw 'Port appears in an existing binding. Stop; prepare a different port.'
 }
@@ -137,17 +145,33 @@ deletions for resources actually created; do not delete somebody else's binding.
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7731f343'
+$ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $true
 $work = 'C:\Users\pingu\AppData\Local\Temp\pb-web-pin680-check'
 $access = Get-Content -LiteralPath "$work/access.json" -Raw | ConvertFrom-Json
+$port = 54483
+$sid = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+$appId = [guid]::Empty
+if ($access.ipport -cne "127.0.0.1:$port" -or
+    $access.prefix -cnotmatch "^https://127\.0\.0\.1:$port/playbook-[0-9a-f]{32}/$" -or
+    $access.sid -cne $sid -or
+    -not [guid]::TryParseExact([string]$access.appId, 'B', [ref]$appId)) {
+    throw 'Manifest is outside the approved loopback/account scope. Stop.'
+}
 $thumbprint = (Get-Content -LiteralPath "$work/certificate.txt" -Raw).Trim()
+if ($thumbprint -notmatch '^[A-Fa-f0-9]{40}$') { throw 'Invalid certificate thumbprint.' }
 $netsh = 'C:\Windows\System32\netsh.exe'
-& $netsh http show sslcert "ipport=$($access.ipport)"
-& $netsh http show urlacl "url=$($access.prefix)"
-# Only after checking the ownership above:
-& $netsh http delete urlacl "url=$($access.prefix)"
-& $netsh http delete sslcert "ipport=$($access.ipport)"
+$binding = (& $netsh http show sslcert "ipport=$($access.ipport)") -join "`n"
+$reservation = (& $netsh http show urlacl "url=$($access.prefix)") -join "`n"
+if ($binding -notmatch [regex]::Escape($access.appId) -or
+    $binding -notmatch [regex]::Escape($thumbprint) -or
+    $reservation -notmatch [regex]::Escape("D:(A;;GX;;;$sid)")) {
+    throw 'Binding or URL reservation ownership differs. Stop.'
+}
 $cert = Get-Item -LiteralPath "Cert:\LocalMachine\My\$thumbprint"
 if ($cert.FriendlyName -ne "Playbook access $($access.appId)") { throw 'Certificate ownership differs.' }
+& $netsh http delete urlacl "url=$($access.prefix)"
+& $netsh http delete sslcert "ipport=$($access.ipport)"
 Remove-Item -LiteralPath "Cert:\LocalMachine\My\$thumbprint" -DeleteKey
 ```
 
