@@ -53,7 +53,7 @@
           ],
           "packages": [],
           "packageAssets": [
-            "Matching exact Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler packages; locked 10.0.13 and 11 RC2 test artifacts."
+            "PublishAot implicitly restores Microsoft.DotNet.ILCompiler and runtime.win-x64.Microsoft.DotNet.ILCompiler at publish time; no explicit PackageReference is required. Comparison lock files pin actual 10.0.13 and 11 RC2 assets."
           ],
           "workloads": [],
           "prerequisites": [
@@ -76,12 +76,8 @@
           ]
         },
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/core-libraries/11/named-mutexes-unix-default-scope.md",
-          "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md",
           "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs"
         ],
         "selectionNotes": [
@@ -96,28 +92,12 @@
   },
   "sources": [
     {
-      "title": "Official pinned docs/core/compatibility/core-libraries/11/named-mutexes-unix-default-scope.md",
-      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/core-libraries/11/named-mutexes-unix-default-scope.md"
-    },
-    {
-      "title": "Official pinned docs/core/whats-new/dotnet-11/runtime.md",
-      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/whats-new/dotnet-11/runtime.md"
-    },
-    {
       "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
       "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
     },
     {
-      "title": "Official pinned src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs"
-    },
-    {
       "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
       "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
-    },
-    {
-      "title": "Official pinned src/runtime/src/libraries/System.Threading/ref/System.Threading.cs",
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading/ref/System.Threading.cs"
     },
     {
       "title": "Official pinned src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs",
@@ -143,7 +123,7 @@
     }
   ],
   "humanProof": {
-    "scope": "All bounded checks run on existing Windows/Docker. Other platforms and actual GA remain unverified.",
+    "scope": "All bounded checks execute on Windows x64 Native AOT with an independent C loader. Other ABIs/platforms and actual GA remain unverified.",
     "status": "not-required"
   },
   "snippets": {

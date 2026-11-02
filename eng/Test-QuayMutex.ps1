@@ -17,7 +17,11 @@ try {
   if(-not(Test-Path $file)){Invoke-WebRequest "https://builds.dotnet.microsoft.com/dotnet/Runtime/$version/dotnet-runtime-$version-linux-x64.tar.gz" -OutFile $file}
   $log.Add("RUNTIME_ARCHIVE=$version;sha256=$((Get-FileHash $file).Hash)")
  }
- $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.402','--format','{{.Id}}')).Trim()
+ try {
+  $image=(Invoke-Estuary $Docker $root @('image','inspect','mcr.microsoft.com/dotnet/sdk:10.0.402','--format','{{.Id}}')).Trim()
+ } catch {
+  throw "Required local Docker image mcr.microsoft.com/dotnet/sdk:10.0.402 is unavailable. Fetch it first with '$Docker' pull mcr.microsoft.com/dotnet/sdk:10.0.402. $($_.Exception.Message)"
+ }
  $log.Add("DOCKER_IMAGE=$image")
  $null=Invoke-Estuary $Docker $root @('run','--detach','--name',$container,'--network','none','--mount',"type=bind,source=$root,target=/src,readonly",'--mount',"type=bind,source=$scratch,target=/proof,readonly",$image,'sleep','600')
  $created=$true
@@ -58,6 +62,8 @@ echo CROSS_USER_VERIFIED
    $actual=Invoke-Estuary $Docker $root @('exec',$container,'sh','-ec',$test.Replace("`r`n","`n"))
    Assert-Estuary $actual 'SAME_USER_EXCLUDED'
    Assert-Estuary $actual 'CROSS_USER_VERIFIED'
+   $expectedVersion=if($mode -eq 'historical'){'.NET 10.0.12'}elseif($major -eq '10'){'.NET 10.0.13'}else{'.NET 11.0.0-rc.2.26504.105'}
+   Assert-Estuary $actual $expectedVersion
   }
   $unknown=Invoke-Estuary $Docker $root @('exec','--user','24103',$container,'env','-u','XDG_RUNTIME_DIR','HOME=/home/quay_a',$runtime,$dll,'default',"unknown-$major") -Exit 21
   Assert-Estuary $unknown 'EXPECTED_STORAGE_FAILURE='

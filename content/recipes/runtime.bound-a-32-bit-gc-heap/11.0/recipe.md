@@ -6,6 +6,8 @@ Bound the managed heap of Marsh Observatory's disposable x86 image worker. Use
 .NET 11's runtime limit rather than treating an application tile counter as a
 limit on all managed allocations. This is a managed-heap budget, not a process
 memory cap, address-space reservation or guarantee that an allocation succeeds.
+System.GC.HeapHardLimit is a runtime-configuration setting dating to .NET Core 3.0,
+not a System.GC member introduced in .NET 11. The change here is x86 enforcement.
 
 ## Older approach
 
@@ -15,6 +17,11 @@ application budget on that runtime. The original worker stops at sixteen 1 MiB
 tiles before allocating another tile. This bounds only these retained payloads;
 object headers, temporary objects and other components are outside that counter.
 It is not an equivalent whole-heap enforcement mechanism.
+
+The older project deliberately carries the same ignored setting, so the two
+executions isolate the runtime behaviour instead of comparing different settings.
+
+{{snippet:older-project}}
 
 {{snippet:older}}
 
@@ -81,6 +88,11 @@ records retain commands, inputs, actual compiler/reference/runtime identities,
 configured limit, bounded retained bytes, RSS and observed OOM/control outcomes.
 The records distinguish actual SDK10.0.402 and SDK11.0.100-rc.2.26504.105 from
 application prerequisites. No actual GA or other-platform execution is claimed.
+The pinned GC configuration documentation establishes decimal JSON versus
+hexadecimal environment values but still describes a 64-bit-only restriction.
+The paired official GC implementation resolves that stale limitation: the old
+compute_hard_limit reads settings under HOST_64BIT; current init.cpp reads them
+outside that guard. The actual x86 executions establish the bounded behaviour.
 Installed ordinary-package stdio inspection checks the complete canonical
 Markdown, applicability and evidence. PIN-959/PIN-962 remain open; no ninth .NET10
 foundation, recurring native matrix, release or persistent environment change is added.

@@ -96,6 +96,37 @@
       "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/InteropServices/UnmanagedCallersOnlyAttribute.cs",
       "sha256": "c651945e550a41c8f73cc79329a331f76fc7704c5186de8fd49ad7b4daa60512",
       "headings": []
+    },
+    {
+      "commit": "9b5f5f81de8fd9851fc46273e93e8664d9cc3556",
+      "repository": "dotnet/docs",
+      "sha256": "ae7c23eff29a354d45e18d806b65a03baf67cd8d2d747994003dca8970e6d399",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/runtime-config/garbage-collector.md",
+      "headings": [],
+      "path": "docs/core/runtime-config/garbage-collector.md"
+    },
+    {
+      "commit": "4099f83977f4d29604a9aeb971fb0a7bc1d5f699",
+      "repository": "dotnet/dotnet",
+      "sha256": "5b1394edf34d08b18550b582940ab0a28079c44d4e8ae3a7cb7ace30636f37b6",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/coreclr/gc/gc.cpp",
+      "headings": [],
+      "path": "src/runtime/src/coreclr/gc/gc.cpp"
+    },
+    {
+      "commit": "820230c386db5b0106c5430b3e5aee92a7826bf5",
+      "repository": "dotnet/dotnet",
+      "sha256": "a3bbc82e61f6d013a804c70c92f53894eeadb57dd2f5dc04134312a16c6f1e91",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/coreclr/gc/init.cpp",
+      "headings": [],
+      "path": "src/runtime/src/coreclr/gc/init.cpp"
+    }
+  ],
+  "runtimeArchives": [
+    {
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.2.26504.105/dotnet-runtime-11.0.0-rc.2.26504.105-win-x86.zip",
+      "name": "win-x86-net11-rc2",
+      "sha256": "af8f4eac0ac98fe6b6e85a7baf276cd9654e5ea3d8014e7483e7bf95dca2b321"
     }
   ]
 }
