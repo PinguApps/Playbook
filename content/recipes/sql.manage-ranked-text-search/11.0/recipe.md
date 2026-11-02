@@ -72,7 +72,7 @@ EF11 models the catalog and index, generates migration commands from the model d
 
 ## Migration
 
-1. Move explicit full-text schema SQL into EF11 model configuration and scaffold a reviewed migration.
+1. Move explicit full-text schema SQL into EF11 model configuration and scaffold a reviewed migration. The model-driven DDL uses nvarchar(450) for Text by convention, whereas the older explicit SQL uses nvarchar(max). Configure and verify the intended column type before applying the migration; narrowing an existing column can fail or put longer notes at risk.
 2. Keep the unique key index, language and catalog names consistent. A catalog can serve multiple tables; avoid dropping a shared catalog during a single-table rollback. Both comparisons intentionally own their catalog.
 3. EF10 parameterized SQL remains appropriate where upgrading the provider is unnecessary. Predicates remain sufficient when you only need filtering. For a large hybrid corpus, evaluate candidate selection and supported approximate-search syntax separately; this sample establishes neither approximate recall nor index performance.
 
