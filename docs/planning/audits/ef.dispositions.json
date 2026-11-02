@@ -188,7 +188,7 @@
       "pattern": "FullText|FreeTextTable|ContainsTable",
       "disposition": "grouped",
       "owner": "PIN-857",
-      "reason": "Dedicated catalog/index/ranked-query owner; hybrid composition remains PIN-858.",
+      "reason": "Delivered sql.manage-ranked-text-search/11.0 (PIN-857): original EF10/11 catalog/index migration commands and real ContainsTable/FreeTextTable ranks. PIN-858 delivers sql.combine-semantic-and-text-search/11.0 with experimental exact VectorDistance and lexical weighted SQL ranking on SQL2025 CU10; no VectorSearch/approximate index or GA claim.",
       "assetPattern": "^microsoft.entityframeworkcore.sqlserver/"
     },
     {

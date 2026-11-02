@@ -3083,3 +3083,41 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-089cc025'
 
 Expect three complete entries and exact-artifact PASS; target10 has no applicable
 edition. Older samples remain comparisons rather than additional foundations.
+
+## Ranked text and combined vector relevance
+
+Requires PowerShell7, the existing SDK10.0.402 and SDK11 RC2, locked EF/SqlClient
+packages and the approved local SQL2025 Docker route. The paired consumers create
+restricted disposable databases and remove them in finally, then stop the server.
+Full-text requires its installed component and English language support. The
+combined exact-distance query uses experimental EF vector APIs (EF9105), without
+preview VECTOR_SEARCH/index syntax or a PREVIEW_FEATURES opt-in.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e1fdee5a'
+& ./eng/Test-QuarrySearch.ps1 -Record
+```
+
+Expect both builds and actual catalog/index, ranked table-function, combined
+weighted SQL query and reverse-schema checks to pass. The semantic-only fixture
+must remain in the result. These controlled vectors prove query mechanics, not
+embedding quality, approximate recall, other engines or EF11 GA.
+
+This example was run from an unrelated directory. It builds/packs the server,
+installs the exact package in an isolated feed/cache and invokes real stdio
+list/get. Output includes ID/title/goal, full Markdown, applicability and edition.
+Unusable proxies establish proxy independence, not OS network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e1fdee5a'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sql.manage-ranked-text-search','sql.combine-semantic-and-text-search') `
+  -Query 'quarry-search' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin857-858' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/quarry-search/inspection'
+```
+
+Expect two complete recipe entries and exact-artifact PASS; target10 returns
+no_applicable_edition. Previous samples are comparisons, not extra foundations.
