@@ -25,9 +25,21 @@ On 2 November 2026:
   No source mounts or published ports were needed. This proves executable Linux
   access, not Windows/WSL certificate propagation or HTTP.sys behaviour.
 - Visual Studio Community 2026 **18.11.12306.390** is installed and launchable
-  according to `vswhere`; `NuGet.Console.dll` is present. Actual interactive PMC
-  opening and command execution remain **pending Pingu**. Build Tools alone
-  would not establish PMC access.
+  according to `vswhere`; `NuGet.Console.dll` is present. Pingu opened the real
+  PMC and returned `$PSVersionTable.PSVersion` = **5.1.26100.9711** and
+  `Get-Host` = **Package Manager Host 7.11.0.24**, with NuGet's
+  `NuGetConsole.Host.PowerShell.Implementation.NuGetPSHost+Commander` private data.
+  This confirms interactive PMC access, not EF command behaviour. Build Tools
+  alone would not establish PMC access.
+- The same digest-pinned Linux SDK was extracted from Docker into the dedicated
+  Ubuntu user cache `/home/pingu/.cache/playbook-access-pin680/sdk`. From outside
+  the repository, its absolute `dotnet` executable returned SDK
+  **11.0.100-rc.2.26504.105** and successfully ran `dev-certs https --help`.
+  No certificate command with trust, import, clean or generation was executed.
+  The extracted installation changes neither PATH nor shell profiles. A first
+  attempt from the inherited repository directory correctly rejected its .NET 10
+  `global.json`; run from the isolated SDK directory instead. `/tmp` did not
+  survive between WSL invocations here, so use the dedicated cache directory.
 
 After Pingu performed the dedicated setup, the normal non-elevated agent session
 ran the prepared probe on 2 November 2026: HTTP.sys returned **200 OK**, the
@@ -38,10 +50,10 @@ agent independently confirmed that the exact SSL binding, URL reservation and
 `LocalMachine\My` certificate were absent, with zero listeners. Shutdown alone
 does not remove those persistent resources; owner cleanup is required each run.
 
-These are capability observations, not compilation/execution evidence for future
-recipes. WSL trust is **not tested**. Installed PMC files do not satisfy the
-interactive availability criterion. Keep PIN-680 open until those access gates
-have actual observations.
+These observations establish the Windows/WSL command route, HTTP.sys HTTPS access
+and actual interactive PMC availability required by PIN-680. They are not
+compilation/execution evidence for future recipes. WSL trust is **not tested**;
+the actual trust operation remains separate Human proof for the later recipe.
 Future recipe authors still own canonical sample checks, including authentication,
 channel binding, native request properties and EF NoBuild/stale-build behaviour.
 
@@ -143,6 +155,43 @@ Confirm both exact reservations are absent afterward. Keep needed observations
 before removing the exact scratch directory; do not recursively delete a computed
 parent. No helper installs tools or changes persistent environment variables.
 
+## Reproduce the WSL command route
+
+The following preparation uses the already approved, repository-pinned SDK image;
+it needs no network inside the container, host certificate mounts or sudo.
+It leaves a disposable SDK archive and an isolated Ubuntu SDK directory for
+inspection. Use PowerShell 7.4+ and the existing Ubuntu distro. The exact image
+digest remains author-maintained; it is not permission for automatic SDK updates.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7731f343'
+$ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $true
+$docker = 'C:\Program Files\Docker\Docker\resources\bin\docker.exe'
+$wsl = 'C:\Windows\System32\wsl.exe'
+$image = 'mcr.microsoft.com/dotnet/sdk@sha256:bfabf51e74c5a7cf2fc4eac852145db86f4867d475257d809518d6a2b0fe71e1'
+$tag = [guid]::NewGuid().ToString('N')
+$work = Join-Path ([IO.Path]::GetTempPath()) "pb-wsl-$tag"
+New-Item -ItemType Directory -Path $work | Out-Null
+$id = & $docker create --network none $image /bin/tar -C /usr/share/dotnet -czf /tmp/sdk.tgz .
+try {
+    & $docker start --attach $id
+    & $docker cp "${id}:/tmp/sdk.tgz" "$work/sdk.tgz"
+}
+finally { & $docker rm $id }
+$archive = & $wsl --distribution Ubuntu --exec /usr/bin/wslpath -u "$work/sdk.tgz"
+$linuxRoot = "/home/pingu/.cache/playbook-access-$tag"
+& $wsl --distribution Ubuntu --exec /bin/sh -c 'set -eu; mkdir "$1"; /bin/tar -xzf "$2" -C "$1"; cd "$1"; /usr/bin/env DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 DOTNET_GENERATE_ASPNET_CERTIFICATE=false DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_CLI_HOME="$1/home" DOTNET_ROOT="$1" DOTNET_ROOT_X64="$1" "$1/dotnet" --version; /usr/bin/env DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0 DOTNET_GENERATE_ASPNET_CERTIFICATE=false DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_CLI_HOME="$1/home" DOTNET_ROOT="$1" DOTNET_ROOT_X64="$1" "$1/dotnet" dev-certs https --help' sh $linuxRoot $archive
+"Windows scratch: $work"
+"Ubuntu SDK: $linuxRoot"
+```
+
+Expect the pinned SDK version followed by the development-certificate command's
+help, including `--trust`, without actually running trust. Stop on any nonzero
+exit code. The .NET 11 RC2 command route does not establish a .NET 10 comparison
+or GA behaviour. Retain or remove only the exact printed scratch/SDK directories
+after inspecting their resolved paths; never delete the parent cache or home.
+
 ## WSL trust and Visual Studio Human handoff
 
 **WSL:** use the existing Ubuntu distro for read-only inspection and isolated
@@ -150,14 +199,15 @@ sample files. Before an actual trust check, its author must supply a pinned SDK
 installation path, exact canonical sample/input hashes, certificate identity,
 Windows and Linux store changes, expected observations and precise cleanup.
 Use absolute executables and `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=0` for any isolated
-CLI home. Pingu explicitly approves and performs the proposed trust operation.
+CLI home. The command route above establishes SDK access, not trust execution.
+Pingu explicitly approves and performs the proposed trust operation.
 Do not run `dotnet dev-certs https --clean`, trust a general-purpose test root,
 replace existing development certificates or change shell profiles merely to
 demonstrate access. Docker's Linux trust store cannot establish WSL-to-Windows
-propagation. The missing SDK and actual cross-store observation remain gates;
-do not relabel them as successful access or an unavailable-hardware exclusion.
+propagation. The actual cross-store observation remains a later recipe proof gate;
+do not relabel command help as trusted connectivity or a hardware exclusion.
 
-**PMC availability:** in the installed Visual Studio, Pingu opens **Tools → NuGet
+**PMC availability (observed above):** in the installed Visual Studio, Pingu opens **Tools → NuGet
 Package Manager → Package Manager Console** and runs `$PSVersionTable.PSVersion`
 and `Get-Host`. Return the displayed host/version and any initialization failure.
 This is the minimum interactive access observation; it does not run EF commands
