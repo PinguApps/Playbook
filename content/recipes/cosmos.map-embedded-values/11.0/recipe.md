@@ -1,0 +1,94 @@
+# Treat nested document content as values rather than entities
+
+## Goal
+
+Store nested objects and collections inside a Cosmos document using value semantics when those parts need no independent identity.
+
+## Older approach
+
+EF10 OwnsOne and OwnsMany embed related content in the same document. Owned objects are still tracked entity types with identity. This is a valid model when ownership and entity tracking are intended.
+
+{{snippet:n10-query}}
+
+## Newer approach
+
+EF11 Cosmos supports ComplexProperty and ComplexCollection. The fictional reef manifest has one location and a list of specimens. Nested values have no entity key or separate entity entry; the containing document remains the unit of persistence. Complex values do not automatically acquire CLR record equality or immutability.
+
+{{snippet:n11-query}}
+
+## Migration
+
+1. Choose the complete previous or current project below. Preserve its independent build/package files and SDK pin. Restore with the selected SDK, then build in Release with RestoreLockedMode=true and run. SQLite uses a private in-memory database. Cosmos requires the disposable database and child-only environment supplied by eng/Cosmos.ps1; see docs/cosmos-verification.md for the complete trusted local route. Repository authors run eng/Test-EmbeddedValues.ps1, which removes only its marked databases and stops an empty emulator.
+
+## Complete .NET 10 comparison
+
+global.json
+
+{{snippet:n10-global-json}}
+
+Directory.Build.props
+
+{{snippet:n10-directory-build-props}}
+
+Directory.Build.targets
+
+{{snippet:n10-directory-build-targets}}
+
+Directory.Packages.props
+
+{{snippet:n10-directory-packages-props}}
+
+ReefManifest.csproj
+
+{{snippet:n10-reefmanifest-csproj}}
+
+Program.cs
+
+{{snippet:n10-program-cs}}
+
+EmulatorTransport.cs
+
+{{snippet:n10-emulatortransport-cs}}
+
+## Complete .NET 11 comparison
+
+global.json
+
+{{snippet:n11-global-json}}
+
+Directory.Build.props
+
+{{snippet:n11-directory-build-props}}
+
+Directory.Build.targets
+
+{{snippet:n11-directory-build-targets}}
+
+Directory.Packages.props
+
+{{snippet:n11-directory-packages-props}}
+
+ReefManifest.csproj
+
+{{snippet:n11-reefmanifest-csproj}}
+
+Program.cs
+
+{{snippet:n11-program-cs}}
+
+EmulatorTransport.cs
+
+{{snippet:n11-emulatortransport-cs}}
+
+## Constraints
+
+Requires Cosmos EF Core 11 on net11.0. Both Complex types sections in the release inventory describe this one capability and are reconciled here. This local route is the approved legacy Linux NoSQL emulator, not cloud parity. The example replaces Location and edits and extends Samples, clears tracking and reloads, and reads the physical JSON independently. Migrating an existing owned model requires checking stored property names, discriminator/id conventions and partition keys before changing production mappings. No automatic data migration is claimed.
+
+Stable API contract using RC2 evidence, without experimental opt-in; actual GA remains unverified. No web renderer, browser or workload is required. The previous sample is a comparison, not another .NET10 foundation.
+
+## Evidence
+
+Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim. Exact SDKs, dependencies, input hashes and actual output are retained in the paired verification records. Compilation and real execution are distinguished from source review. Offline installed MCP checks use the existing isolated feed/cache harness; unusable proxies demonstrate proxy independence, not operating-system network isolation.
+
+
+

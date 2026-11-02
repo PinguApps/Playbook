@@ -3152,3 +3152,43 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e1fdee5a'
 
 Expect two complete recipe entries and exact-artifact PASS; target10 returns
 no_applicable_edition. Previous samples are comparisons, not extra foundations.
+
+## Ordered SQLite summaries and Cosmos embedded values
+
+Requires PowerShell7, the existing SDK10.0.402/runtime10.0.13 and SDK11 RC2,
+locked EF10/11 packages and Docker Desktop Linux for the approved isolated Cosmos
+route. No Azure account or cloud credentials are needed. Refresh actual paired
+compilation and execution records with:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a94f7d1b'
+& ./eng/Test-EmbeddedValues.ps1 -Record
+```
+
+Expect ordered summaries on native SQLite3.44+ (including tied positions), and
+Cosmos nested object/array round trips, value replacement, collection edits and
+independent SDK document inspection. EF11 tracks one root entity; EF10 tracks
+owned entries. Only uniquely marked test databases are removed; the empty emulator
+is stopped. No cloud parity, performance, other-platform or GA proof is claimed.
+
+This builds and packs the ordinary tool, installs its exact artifact using the
+existing isolated local feed/cache and calls real stdio list/get from an unrelated
+directory. Node22.19+ and the existing SDK10 installation are required. Setup may
+restore online; unusable proxies during retrieval prove proxy independence rather
+than operating-system network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-a94f7d1b'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sqlite.order-concatenated-values','cosmos.map-embedded-values') `
+  -Query 'embedded-values' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin861-865' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/embedded-values/inspection'
+```
+
+Expect ID/title/goal, full canonical Markdown, applicability and fresh paired
+execution evidence for target11/edition11. Target10 returns no_applicable_edition;
+previous examples add no .NET10 foundation. Missing/stale evidence or canonical
+content drift fails. Existing Human and GA reconciliation gates remain open.
