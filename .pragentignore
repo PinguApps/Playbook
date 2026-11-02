@@ -497,3 +497,9 @@
 # Generated BeaconHistory command/hash receipts; review canonical consumers, locks and runner.
 /samples/net10.0/BeaconHistory/verification-evidence.json
 /samples/net11.0/BeaconHistory/verification-evidence.json
+
+# Record-Evidence generated embedded-value receipts; review consumers, locks and runner.
+/samples/net10.0/HarbourLabels/verification-evidence.json
+/samples/net11.0/HarbourLabels/verification-evidence.json
+/samples/net10.0/ReefManifest/verification-evidence.json
+/samples/net11.0/ReefManifest/verification-evidence.json
