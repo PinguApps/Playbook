@@ -33,7 +33,7 @@ does not recognize the new aggregate-field contract.
 Copy either layout into a separate file with the imports/namespace above. Copy
 this complete consumer into another file. Enable AllowUnsafeBlocks in the project.
 For example, Revise(new Packet { Kind = 3, Depth = -12.25, Count = 9 }, fullPath)
-returns kind4, depth-11.75 and count11. The helper owns no retained pointer.
+returns kind 4, depth -11.75 and count 11. The helper owns no retained pointer.
 
 {{snippet:consumer}}
 
@@ -48,8 +48,10 @@ general cross-platform C build recipe.
 ## Migration
 
 1. Establish the actual compiler, target architecture, packing switches and native
-   declarations. Use a .NET 11 SDK/runtime and net11.0. The sample declares C#15.0,
-   nullable/implicit usings and AllowUnsafeBlocks=true. .NET10/C#14 uses the older
+   declarations. Use a .NET 11 SDK/runtime and net11.0. The sample declares C# 15.0
+   and AllowUnsafeBlocks=true, and inherits nullable/implicit usings from
+   samples/Directory.Build.props. Enable those settings in a standalone project.
+   .NET 10/C# 14 uses the older
    explicit types. Neither route adds a managed NuGet package, provider or workload.
 2. Build the helper with the existing compiler and linker by absolute path. From
    the repository, eng/Test-InteropSoundings.ps1 performs these exact operations:
@@ -62,14 +64,14 @@ general cross-platform C build recipe.
    when the native ABI matches. Preserve the explicit implementation for older
    targets or native contracts whose packing does not match the runtime algorithm.
 4. Compare native sizeof, __alignof and field offsets with managed size, field
-   addresses and nested aggregate alignment. On this ABI the packet is24 bytes,
-   alignment8, offsets0/8/16; the union is8 bytes, alignment8, both offsets0.
+   addresses and nested aggregate alignment. On this ABI the packet is 24 bytes,
+   alignment 8, offsets 0/8/16; the union is 8 bytes, alignment 8, both offsets 0.
    The included checks verify these independently for both actual runtimes.
 5. Exercise real pointer round trips for the struct and each union interpretation.
    The native protocol must identify which union member is meaningful. Keep the
    native library loaded and managed storage valid throughout every call.
 6. Reject a mismatched size/alignment/offset before invocation. The negative control
-   uses a packed13-byte struct and never passes it to native code. Re-run the ABI
+   uses a packed 13-byte struct and never passes it to native code. Re-run the ABI
    checks after changing compiler options, native headers, architecture or runtime.
 
 ## Constraints and alternatives
