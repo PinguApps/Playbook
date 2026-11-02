@@ -1,0 +1,217 @@
+{
+  "id": "ef.compose-group-winner",
+  "edition": "11.0",
+  "title": "Query related data from each group's selected item",
+  "goal": "Select a deterministic winner per group, then compose its related station name in a server-side relational query.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "marsh-survey",
+    "sql-server",
+    "relational-query"
+  ],
+  "apis": [
+    "Queryable.GroupBy",
+    "Queryable.First",
+    "Queryable.Select"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#groupby-enhancements",
+          "https://learn.microsoft.com/en-us/ef/core/querying/complex-query-operators",
+          "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/"
+        ],
+        "selectionNotes": [
+          "Select a deterministic winner per group, then compose its related station name in a server-side relational query.",
+          "Only the executed SQL Server query shape is verified; no blanket provider or SQLite promise."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C#15-specific syntax is required."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+            }
+          ],
+          "packageAssets": [
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+          ],
+          "providers": [
+            "EF Core SQL Server11 with SQL Server2025 17.0.5035.5 Developer on Linux. FullJoin needs a relational provider and server supporting FULL OUTER JOIN."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 consumer against local Docker Linux SQL Server. Other platforms not executed."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Select a deterministic winner per group, then compose its related station name in a server-side relational query.",
+            "Relational translation depends on query shape and provider. No SQLite support is assumed.",
+            "EF11 requires .NET11. The .NET10 comparison is not a supported target10 edition or an additional foundation.",
+            "Stable API contract checked with RC2 artifacts; GA reconciliation, other providers and other client platforms remain unverified."
+          ],
+          "prerequisites": [
+            "Copy the complete standalone sample into its own directory, install the pinned SDK/runtime and restore the locked packages.",
+            "Supply PLAYBOOK_SQL_CONNECTION_STRING privately for an empty exclusively owned disposable playbook_ database. The sample creates tables and seeds records; remove the database afterwards.",
+            "Repository authors use eng/Test-MarshSurvey.ps1 -Record through the approved local SQL route. No cloud resource or account is needed."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/MarshSurvey/MarshSurvey.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "EF11 GroupBy navigation and join composition",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#groupby-enhancements"
+    },
+    {
+      "title": "Relational translation of complex query operators",
+      "url": "https://learn.microsoft.com/en-us/ef/core/querying/complex-query-operators"
+    },
+    {
+      "title": "EF Core SQL Server provider requirements",
+      "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MarshSurvey/MarshSurvey.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Real SQL Server execution: deterministic tied winner IDs12/21 and related names, plus matched B/B, left-only A/null and right-only null/C. Previous EF10 uses anti-existence winner selection and left join plus right-only concatenation; EF11 uses GroupBy/First followed by navigation and translated FullJoin. Exact SDK/package closure retained in sample evidence; RC2 is not GA proof."
+    },
+    {
+      "sample": "samples/net11.0/MarshSurvey/MarshSurvey.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real SQL Server execution: deterministic tied winner IDs12/21 and related names, plus matched B/B, left-only A/null and right-only null/C. Previous EF10 uses anti-existence winner selection and left join plus right-only concatenation; EF11 uses GroupBy/First followed by navigation and translated FullJoin. Exact SDK/package closure retained in sample evidence; RC2 is not GA proof."
+    }
+  ],
+  "snippets": {
+    "n10-query": {
+      "path": "samples/net10.0/MarshSurvey/Program.cs",
+      "language": "csharp",
+      "region": "winner"
+    },
+    "n11-query": {
+      "path": "samples/net11.0/MarshSurvey/Program.cs",
+      "language": "csharp",
+      "region": "winner"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MarshSurvey/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MarshSurvey/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-marshsurvey-csproj": {
+      "path": "samples/net11.0/MarshSurvey/MarshSurvey.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MarshSurvey/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/MarshSurvey/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MarshSurvey/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MarshSurvey/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-marshsurvey-csproj": {
+      "path": "samples/net10.0/MarshSurvey/MarshSurvey.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MarshSurvey/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MarshSurvey/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MarshSurvey/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MarshSurvey/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated real SQL Server checks cover these bounded query shapes. Other providers/platforms and actual GA remain unverified."
+  }
+}

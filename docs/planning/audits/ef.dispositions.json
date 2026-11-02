@@ -258,9 +258,9 @@
     {
       "id": "fulljoin-expression",
       "pattern": "FullJoinExpression|QueryableMethodTranslatingExpressionVisitor::TranslateFullJoin|QueryableMethods::.*FullJoin",
-      "disposition": "grouped",
+      "disposition": "delivered",
       "owner": "PIN-850",
-      "reason": "Queryable/provider full-join scaffolding is supporting surface for the already owned full reconciliation goal."
+      "reason": "ef.reconcile-unmatched-records/11.0: paired MarshSurvey samples execute EF10 left join plus right-only Concat and EF11 translated FullJoin on SQL Server2025, verifying matched/left-only/right-only rows. RC2 proof; no SQLite or GA claim."
     },
     {
       "id": "compiled-provider-identity",
