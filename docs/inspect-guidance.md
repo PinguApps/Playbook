@@ -4,6 +4,45 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## SQL JSON presence and membership
+
+The original paired consumers need the existing SDK10.0.402 and SDK11 RC2,
+their locked EF/SqlClient packages, and the approved local Docker SQL2025 route.
+The runner creates and removes separate restricted databases; it stops the server
+afterward. It changes no PATH or persistent environment setting.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72623943'
+& ./eng/Test-JsonDocuments.ps1 -Record
+```
+
+Expect both actual consumers to pass missing/null/empty path, numeric and LIKE
+containment, primitive membership and nullable OPENJSON fallback checks. EF11's
+JsonContains is experimental EF9106; the current sample explicitly opts in.
+Native json columns are required by this measured containment route. SQL2022
+path-existence support is source-backed, not actual2022 engine execution.
+
+This block builds/packs the ordinary tool and installs the exact artifact using
+an isolated feed/cache and unrelated working directory. Real installed stdio
+list/get prints ID/title/goal, full canonical Markdown, target/edition11,
+applicability and fresh sample evidence. Unusable proxies establish proxy
+independence, not OS network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-72623943'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sql.test-json-path','sql.query-json-membership') `
+  -Query 'json-documents' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin853-854' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/json-documents/inspection'
+```
+
+Expect two complete entries and exact-artifact PASS; target10 returns
+no_applicable_edition. Older samples are comparisons, not extra foundations.
+Actual EF11 GA, other client platforms and older SQL engines remain unverified.
+
 ## Native export retention, Unix mutex scope and x86 heap limits
 
 Requires the existing SDK10.0.402/runtime10.0.13 and separate SDK11 RC2,

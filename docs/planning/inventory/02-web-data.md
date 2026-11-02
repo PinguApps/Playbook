@@ -1,5 +1,12 @@
 # Web and data authoring inventory
 
+**WEB-109/WEB-114 (PIN-853/PIN-854)** have original FenDocuments EF10/11
+consumers and the editions `sql.test-json-path/11.0` and
+`sql.query-json-membership/11.0`. The latter explicitly discloses experimental
+EF9106, native json/SQL2025 compatibility170 and nullable OPENJSON fallback.
+The common sample uses SQL2025; SQL2022 path support is source-backed only.
+Exact RC2 evidence is separate from actual GA and comprehensive coverage.
+
 **W12–W14 / PIN-1182–1184** supply three original 11.0 editions:
 `hosting.configure-http3-budgets`, `json-patch.serialize-operation-intent`, and
 `testing.configure-web-application-builder`. Original paired .NET10/11 consumers

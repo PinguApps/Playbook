@@ -1,0 +1,217 @@
+{
+  "id": "sql.query-json-membership",
+  "edition": "11.0",
+  "title": "Search JSON content with experimental JsonContains",
+  "goal": "Experimental EF9106: Use SQL Server 2025 compatibility170 with JsonContains path/search-mode options and understand when nullable collection membership retains OPENJSON.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "json-documents",
+    "sql-server",
+    "json"
+  ],
+  "apis": [
+    "JsonContains",
+    "Contains",
+    "UseCompatibilityLevel"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#effunctionsjsonpathexists",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#contains-operations-using-json_contains",
+          "https://learn.microsoft.com/en-us/sql/t-sql/functions/json-path-exists-transact-sql?view=sql-server-ver17",
+          "https://learn.microsoft.com/en-us/sql/t-sql/functions/json-contains-transact-sql?view=sql-server-ver17",
+          "https://learn.microsoft.com/en-us/ef/core/querying/user-defined-function-mapping"
+        ],
+        "selectionNotes": [
+          "Use SQL Server 2025 compatibility170 with JsonContains path/search-mode options and understand when nullable collection membership retains OPENJSON."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C# 15-only feature is needed."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+            }
+          ],
+          "packageAssets": [
+            "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.SqlServer; path existence requires SQL Server2022+, containment SQL Server2025/compatibility170. Executed on supplied SQL2025 17.0.5035.5 Developer Linux container at170, not an actual2022 engine."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 console against local Docker Linux SQL2025; no other client platform or older server execution."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Use SQL Server 2025 compatibility170 with JsonContains path/search-mode options and understand when nullable collection membership retains OPENJSON.",
+            "EF11 requires net11.0. EF10 comparison is not a supported target10 edition or a ninth foundation. No older engine, cloud identity, performance, JSON indexes or GA EF11 verification is claimed.",
+            "Actual combined samples require SQL2025 native json columns. SQL8116 rejected nvarchar(max) JSON_CONTAINS on 17.0.5035.5 despite official character-input wording; no textual-column containment claim."
+          ],
+          "prerequisites": [
+            "Copy every file of one complete project into its own directory. Install its pinned SDK/runtime and restore locked packages online; serving this recipe remains offline.",
+            "The complete sample creates dbo.FieldNotes and sets compatibility170 in an empty, exclusively owned disposable playbook_ database. Supply PLAYBOOK_SQL_CONNECTION_STRING privately; never log it or use production.",
+            "The repository authoring helper reuses the authorized PIN-676 SQL container, creates/removes a unique restricted database per release, and stops the server afterwards. External users must arrange their own isolated test database."
+          ],
+          "optIns": [
+            "Explicit local #pragma warning disable EF9106 around JsonContains calls; accept possible API change/removal."
+          ],
+          "stabilityLimitations": [
+            "Pinned EF11 RC2 marks JsonContains experimental with EF9106; its CLR result is int, although SQL can return NULL. JsonPathExists is not marked experimental. SQL2025 JSON_CONTAINS documentation has no preview label. These are separate API/server stability boundaries; no actual EF11 GA verification."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/FenDocuments/FenDocuments.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#effunctionsjsonpathexists",
+      "title": "Official EF or SQL function reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#contains-operations-using-json_contains",
+      "title": "Official EF or SQL function reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/json-path-exists-transact-sql?view=sql-server-ver17",
+      "title": "Official EF or SQL function reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/json-contains-transact-sql?view=sql-server-ver17",
+      "title": "Official EF or SQL function reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/querying/user-defined-function-mapping",
+      "title": "Official EF or SQL function reference"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/FenDocuments/FenDocuments.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Actual isolated SQL2025/170 queries: missing/null/empty nested fields, numeric containment, explicit LIKE mode, missing path/SQL NULL results, non-null primitive membership and nullable column membership. EF10 custom built-in mappings and OPENJSON; EF11 built-in APIs and JSON_CONTAINS with nullable OPENJSON fallback. eng/Test-JsonDocuments.ps1 -Record owns setup and cleanup; RC2 is not GA."
+    },
+    {
+      "sample": "samples/net11.0/FenDocuments/FenDocuments.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual isolated SQL2025/170 queries: missing/null/empty nested fields, numeric containment, explicit LIKE mode, missing path/SQL NULL results, non-null primitive membership and nullable column membership. EF10 custom built-in mappings and OPENJSON; EF11 built-in APIs and JSON_CONTAINS with nullable OPENJSON fallback. eng/Test-JsonDocuments.ps1 -Record owns setup and cleanup; RC2 is not GA."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/FenDocuments/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/FenDocuments/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/FenDocuments/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/FenDocuments/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendocuments-csproj": {
+      "path": "samples/net10.0/FenDocuments/FenDocuments.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/FenDocuments/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/FenDocuments/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/FenDocuments/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/FenDocuments/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/FenDocuments/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendocuments-csproj": {
+      "path": "samples/net11.0/FenDocuments/FenDocuments.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/FenDocuments/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable isolated SQL2025 checks; no Human approval is needed. Actual SQL2022 engine, other platforms and EF11 GA remain unverified."
+  }
+}

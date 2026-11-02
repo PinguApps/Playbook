@@ -481,3 +481,7 @@
 # Review canonical samples, locks, manifests and runner; build/pack checks freshness.
 /samples/net10.0/MarshSurvey/verification-evidence.json
 /samples/net11.0/MarshSurvey/verification-evidence.json
+
+# Record-Evidence generated SQL command/input receipts; review canonical sources, locks and runner.
+/samples/net10.0/FenDocuments/verification-evidence.json
+/samples/net11.0/FenDocuments/verification-evidence.json
