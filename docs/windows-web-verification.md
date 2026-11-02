@@ -29,10 +29,17 @@ On 2 November 2026:
   opening and command execution remain **pending Pingu**. Build Tools alone
   would not establish PMC access.
 
+After Pingu performed the dedicated setup, the normal non-elevated agent session
+ran the prepared probe on 2 November 2026: HTTP.sys returned **200 OK**, the
+expected response body matched, and the exact certificate pin passed on
+**.NET 10.0.13**. The server shut down and a separate TCP listener inspection
+found zero listeners on port 54483 afterward. Persistent binding/reservation and
+certificate cleanup still require the owner; shutdown alone does not remove them.
+
 These are capability observations, not compilation/execution evidence for future
-recipes. HTTP.sys HTTPS execution is **pending owner setup**. WSL trust is
-**not tested**. Installed PMC files do not satisfy the interactive availability
-criterion. Keep PIN-680 open until those access gates have actual observations.
+recipes. WSL trust is **not tested**. Installed PMC files do not satisfy the
+interactive availability criterion. Keep PIN-680 open until those access gates
+have actual observations.
 Future recipe authors still own canonical sample checks, including authentication,
 channel binding, native request properties and EF NoBuild/stale-build behaviour.
 
@@ -62,7 +69,8 @@ $access.work # Save this exact scratch path for setup, execution and cleanup.
 
 The prepared, successfully built probe for the current handoff is at
 `C:\Users\pingu\AppData\Local\Temp\pb-web-pin680-check`. The following owner
-commands are prepared for review but have **not been executed**. Pingu runs setup
+setup commands were executed by Pingu for the observation above; cleanup remains
+pending. Pingu runs setup
 in an elevated PowerShell window. Inspect the source and generated `access.json`
 before execution. It creates one short-lived self-signed certificate in
 `LocalMachine\My` (not a trusted root), one loopback-only binding and one URL
