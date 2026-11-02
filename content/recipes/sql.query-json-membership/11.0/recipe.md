@@ -42,7 +42,7 @@ Save all six files together in a standalone FenDocuments directory. Local build/
 
 ## Newer approach — .NET11 / EF11
 
-EF11 removes the custom mapping for these operations. JsonPathExists returns a Boolean predicate; The pinned JsonContains API returns int despite SQL permitting NULL. Use it in a predicate compared with 1; do not materialize a potentially NULL result into int. The separate raw SQL assertion is verification of SQL NULL behavior, not a suggested query implementation. Keep the path explicit: the current SQL reference still lists a required path and an array wildcard requirement despite documenting optional syntax. The scalar paths here avoid that ambiguity.
+EF11 provides built-in methods, making the custom mappings unnecessary for these operations. JsonPathExists returns a Boolean predicate. The pinned JsonContains API returns int despite SQL permitting NULL. Use it in a predicate compared with 1; do not materialize a potentially NULL result into int. The separate raw SQL assertion is verification of SQL NULL behavior, not a suggested query implementation. Keep the path explicit: the current SQL reference still lists a required path and an array wildcard requirement despite documenting optional syntax. The scalar paths here avoid that ambiguity.
 
 Save all six files together in a standalone FenDocuments directory. Local build/package files deliberately stop repository inheritance. Restore online once, retain the generated packages.lock.json, then build with RestoreLockedMode=true. Serving this guidance requires no network.
 

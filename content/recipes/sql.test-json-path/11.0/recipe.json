@@ -109,23 +109,23 @@
   "sources": [
     {
       "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#effunctionsjsonpathexists",
-      "title": "Official EF or SQL function reference"
+      "title": "EF Core 11: JsonPathExists"
     },
     {
       "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#contains-operations-using-json_contains",
-      "title": "Official EF or SQL function reference"
+      "title": "EF Core 11: JSON containment and nullable membership"
     },
     {
       "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/json-path-exists-transact-sql?view=sql-server-ver17",
-      "title": "Official EF or SQL function reference"
+      "title": "SQL Server JSON_PATH_EXISTS"
     },
     {
       "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/json-contains-transact-sql?view=sql-server-ver17",
-      "title": "Official EF or SQL function reference"
+      "title": "SQL Server JSON_CONTAINS"
     },
     {
       "url": "https://learn.microsoft.com/en-us/ef/core/querying/user-defined-function-mapping",
-      "title": "Official EF or SQL function reference"
+      "title": "EF Core user-defined function mapping"
     }
   ],
   "evidence": [
