@@ -40,7 +40,7 @@
       "id": "tls-binding",
       "pattern": " Microsoft\\.AspNetCore\\.(Http\\.Features\\.ITlsConnectionFeature::TryGetChannelBindingBytes|Server\\.HttpSys\\.(HttpAuthenticationHardeningLevel|HttpSysOptions::.*HttpAuthenticationHardeningLevel))",
       "owner": "PIN-831",
-      "disposition": "grouped"
+      "disposition": "delivered; hosting.enforce-channel-binding/11.0; paired real HTTPS and explicit Legacy/Medium/Strict token exposure; authenticated relay rejection not claimed"
     },
     {
       "id": "old-token-binding",
@@ -51,8 +51,8 @@
     {
       "id": "native-request-property",
       "pattern": " Microsoft\\.AspNetCore\\.Server\\.HttpSys\\.IHttpSysRequestPropertyFeature::TryGetRequestProperty",
-      "owner": "W05",
-      "disposition": "included"
+      "owner": "W05 / PIN-1175",
+      "disposition": "delivered; hosting.read-native-request-property/11.0; real SNI fixed-layout buffer checks and native error87; absent-native-API OS not tested"
     },
     {
       "id": "direct-tls",
