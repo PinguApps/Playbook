@@ -3046,3 +3046,39 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-453d1143'
 Expect ID/title/goal, complete canonical Markdown, applicability and fresh paired
 compilation/execution evidence for both target11/edition11 recipes. Target10 must
 return no_applicable_edition. No additional .NET10 foundation is introduced.
+## Document indexes and vector reads
+
+The paired consumers need the existing .NET10 SDK10.0.402 and .NET11 RC2 SDK,
+locked EF/SqlClient packages, PowerShell7 and Docker Desktop Linux containers.
+This runner creates/removes isolated databases and stops the server afterward:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-089cc025'
+& ./eng/Test-DuneArchive.ps1 -Record
+```
+
+Expect JSON index/query, exact distance, default entity projection and explicit
+persisted-vector PASS checks. EF11 vector DDL/query generation also passes;
+EF11 index application and exact/approximate VectorSearch execution are explicitly
+NOT TESTED: local SQL2025 CU10 rejects WITH APPROXIMATE. Pingu authorized this
+execution exclusion on 2 November 2026. No GA or measured recall claim is made.
+
+This builds/packs and installs the exact local tool artifact with an isolated
+feed/cache and unrelated working directory. Real stdio list/get prints discovery
+ID/title/goal, full canonical Markdown, applicability and target/edition11.
+Setup restores packages online; retrieval uses unusable proxies, which establishes
+proxy independence rather than operating-system network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-089cc025'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sql.index-json-path','sql.search-vector-index','sql.read-vector-explicitly') `
+  -Query 'dune-archive' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin855-856' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/sql-indexes/inspection'
+```
+
+Expect three complete entries and exact-artifact PASS; target10 has no applicable
+edition. Older samples remain comparisons rather than additional foundations.

@@ -484,3 +484,7 @@ often simpler alternative. The packed stdio scenario checks full canonical bodie
 applicability, evidence and target11 edition offline. No extra .NET10 foundation,
 older-target EF11 route, provider-wide guarantee, publication or GA claim is added.
 PIN-959/PIN-965 and unrelated Human gates remain open.
+
+### SQL index and vector delivery (PIN-855 / PIN-856)
+
+`sql.index-json-path`, `sql.search-vector-index` and `sql.read-vector-explicitly` now have original 11.0 editions and complete DuneArchive .NET10/11 comparisons. JSON indexing, exact VectorDistance and explicit/default vector projection execute on local Docker SQL2025 CU10. EF11 vector-index DDL and exact/approximate VectorSearch are generation-only evidence: CU10 rejects WITH APPROXIMATE. Pingu authorized this unavailable-engine execution exclusion on 2 November 2026; it does not establish runtime compatibility, recall or GA proof. EF11 RC2 requires HasVectorIndex(...).HasMetric("cosine"), unlike the currently published shorthand example. Reverse-engineering CLI execution remains untested. Stable IDs and the eight .NET10 foundations are unchanged.

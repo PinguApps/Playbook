@@ -179,9 +179,9 @@
     {
       "id": "sql-vector",
       "pattern": "VectorSearch|VectorIndex|VectorMetric|VectorType|WithApproximate|IsVectorIndex|VectorDistance",
-      "disposition": "grouped",
+      "disposition": "delivered",
       "owner": "PIN-856",
-      "reason": "Actual experimental vector query/index/loading owner; no native execution inferred."
+      "reason": "sql.search-vector-index and sql.read-vector-explicitly/11.0: original DuneArchive comparisons, real exact-distance/projection execution, experimental EF9105 model/query SQL generation; EF11 vector index/search execution explicitly not-tested under owner authorization (2 November 2026), supplied CU10 rejects WITH APPROXIMATE. No GA/recall proof."
     },
     {
       "id": "sql-fulltext",
