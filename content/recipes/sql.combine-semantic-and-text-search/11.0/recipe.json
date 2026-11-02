@@ -1,0 +1,200 @@
+{
+  "id": "sql.combine-semantic-and-text-search",
+  "edition": "11.0",
+  "title": "Combine word matches and vector similarity in one ranking",
+  "goal": "Combine full-text rank and experimental exact vector distance in one server-side weighted query, retaining semantic-only matches.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quarry-search",
+    "sql-server",
+    "full-text"
+  ],
+  "apis": [
+    "ContainsTable",
+    "VectorDistance"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/full-text-search",
+          "https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-distance-transact-sql?view=sql-server-ver17"
+        ],
+        "selectionNotes": [
+          "Combine full-text rank and experimental exact vector distance in one server-side weighted query, retaining semantic-only matches.",
+          "Measured Windows x64 / SQL2025 CU10; EF11 RC2 evidence is not GA proof."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C# 15-only feature is needed."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "EF11 SQL translation/defaults; actual baseline 11.0.0-rc.2.26504.105. Pin SqlClient7.1.0 and Pkcs10.0.13 as in the complete standalone project."
+            }
+          ],
+          "packageAssets": [
+            "EF11/Relational/SQLServer lib/net11.0; SqlClient7.1.0 ref/net9.0 and Windows runtime assets. Previous EF10 lib/net10.0 and SqlClient6.1.7 ref/net9.0. Exact dependency closure is locked."
+          ],
+          "providers": [
+            "SQL Server 2025 with full-text installed, English word breaker, native vector(3), compatibility170 for the combined executable. Full-text alone does not require vectors."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 console against local Docker Linux SQL2025; no other client platform or older server execution."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Rank is an integer relevance score, not a probability. Full-text population is asynchronous.",
+            "Exact cosine distance scans candidates; no approximate index, recall or performance claim. No older-engine execution is established."
+          ],
+          "prerequisites": [
+            "Use an empty exclusively owned playbook_ database through eng/Test-QuarrySearch.ps1. Restore locked dependencies online before running."
+          ],
+          "optIns": [
+            "EF9105 suppression accepts experimental vector API risk in the combined sample. Exact VECTOR_DISTANCE needs no PREVIEW_FEATURES opt-in. Preview vector indexes and VECTOR_SEARCH are outside this example."
+          ],
+          "stabilityLimitations": [
+            "Current sample uses EF11 RC2, not GA. Other client platforms and database engines unverified.",
+            "Weighted similarity is application policy, not measured relevance quality. Embeddings are controlled fixtures, not generated semantic representations."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/QuarrySearch/QuarrySearch.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "EF SQL Server full-text modeling and ranked functions",
+      "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/full-text-search"
+    },
+    {
+      "title": "SQL Server vector distance",
+      "url": "https://learn.microsoft.com/en-us/sql/t-sql/functions/vector-distance-transact-sql?view=sql-server-ver17"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuarrySearch/QuarrySearch.csproj",
+      "target": "net10.0",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "scope": "Real SQL2025 CU10 full-text creation, CONTAINSTABLE/FREETEXTTABLE ranking, combined exact cosine-distance weighted query retaining semantic-only rows, and reverse cleanup. EF11 additionally generates forward/reverse migration commands from its model. No mocks or cross-compilation."
+    },
+    {
+      "sample": "samples/net11.0/QuarrySearch/QuarrySearch.csproj",
+      "target": "net11.0",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Real SQL2025 CU10 full-text creation, CONTAINSTABLE/FREETEXTTABLE ranking, combined exact cosine-distance weighted query retaining semantic-only rows, and reverse cleanup. EF11 additionally generates forward/reverse migration commands from its model. No mocks or cross-compilation."
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/QuarrySearch/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/QuarrySearch/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/QuarrySearch/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/QuarrySearch/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-quarrysearch-csproj": {
+      "path": "samples/net10.0/QuarrySearch/QuarrySearch.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/QuarrySearch/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/QuarrySearch/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/QuarrySearch/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/QuarrySearch/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/QuarrySearch/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-quarrysearch-csproj": {
+      "path": "samples/net11.0/QuarrySearch/QuarrySearch.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/QuarrySearch/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable isolated SQL2025 checks. No actual older engine, other client platform or EF11 GA execution claimed."
+  }
+}
