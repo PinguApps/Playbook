@@ -61,7 +61,10 @@ foreach (var level in Enum.GetValues<HttpAuthenticationHardeningLevel>())
                     properties.TryGetRequestProperty(int.MaxValue, [], buffer, out _);
                     throw new InvalidOperationException("Invalid property unexpectedly succeeded.");
                 }
-                catch (HttpSysException error) { Console.WriteLine($"Native invalid property: {error.NativeErrorCode}"); }
+                catch (HttpSysException error) when (error.NativeErrorCode == 87)
+                {
+                    Console.WriteLine($"Native invalid property: {error.NativeErrorCode}");
+                }
             }
             await context.Response.WriteAsync("Harbour diagnostics checked");
         }

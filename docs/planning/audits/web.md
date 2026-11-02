@@ -831,3 +831,26 @@ count, other backend/platform or actual-GA claim. Installed ordinary-artifact
 list/get inspection uses the existing parameterized Inspector harness. The eight
 .NET10 foundations, retained identities, Human gates, PIN-959 and PIN-964 remain
 unchanged. This bounded delivery does not change the other outstanding drafts.
+
+## Windows HTTPS recipes: PIN-818, PIN-831 and W05 / PIN-1175
+
+The three 11.0 editions preserve their original goal identities and the eight
+.NET10 foundations. HarbourRequests compiles and executes against actual
+SDK10.0.402/framework10.0.13 and SDK11.0.100-rc.2.26504.105/framework11 RC2.
+The old consumer retains HTTPS without inventing the unavailable new public APIs.
+The current anonymous HTTP.sys requests verify Legacy/Medium/Strict token exposure,
+fixed SNI layout (Windows SDK10.0.26100.0 http.h, property4, empty qualifier,
+WCHAR[256]+ULONG=516 bytes), false/zero empty and undersized results, exact success,
+NO_SNI flags2 and invalid-property native error87. The zero required-size result
+qualifies the XML documentation's size-discovery guidance. Authenticated relay
+rejection, IIS and an OS missing the native API were not executed or inferred.
+
+EstuaryHttps compiles on both declared SDKs; WSL SDK11 RC2 dev-certs help was
+executed without trust/generation/import/clean. Current official documentation
+also describes the operation for .NET10: release-note placement does not establish
+novelty on every serviced older SDK. No verified Linux .NET10 route is advertised.
+H_WSL_PROOF/PIN-956 retains real owner trust and trusted connectivity; generation
+and compilation do not clear that gate. PIN-959 and PIN-964 remain open.
+The existing installed-artifact Inspector harness validates the three complete
+bodies, canonical sources, applicability, evidence and target/edition offline.
+No recurring native/client/OS matrix, production provisioning or publication is added.

@@ -2894,3 +2894,45 @@ Missing/stale proof or changed canonical content fails. No ETW/EventPipe, native
 AOT, self-contained/single-file, other-platform or final-GA execution is claimed.
 The eight foundations, PIN-959/PIN-962 and existing Human gates remain open; no
 recurring native/client/OS matrix is added.
+
+## Windows HTTP.sys requests and WSL trust guidance
+
+Requires the existing Windows host, SDK10.0.402/runtime10.0.13 and separate
+SDK11.0.100-rc.2.26504.105/runtime11 RC2. Owner setup uses the
+[controlled HTTPS runbook](windows-web-verification.md); preserve the dedicated
+resources until review completes, then have the owner clean only those resources.
+Refresh the paired canonical request records with:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-312f5fa1'
+& ./eng/Test-WindowsRequests.ps1 `
+  -AccessDirectory 'C:\Users\pingu\AppData\Local\Temp\pb-web-pin818-831-1175' -Record
+```
+
+Expect old HTTPS success and current Legacy=false/Medium=true/Strict=true endpoint
+binding, SNI empty/small false with zero bytesReturned, exact516 success with no
+SNI/flags2, and native error87 for the invalid property. These are anonymous HTTPS
+checks, not authenticated relay-rejection proof. WSL trust/connectivity remains
+pending H_WSL_PROOF/PIN-956; canonical EstuaryHttps projects have compilation only.
+
+This block was checked from unrelated C:\. It builds/packs the ordinary tool,
+installs that exact package through isolated local feed/cache, calls real stdio
+list/get from an unrelated directory and displays ID/title/goal, full canonical
+Markdown, target11/edition11, applicability and current evidence. Setup may use
+network; unusable proxies during retrieval prove proxy independence, not OS
+network isolation. Node22.19+ and the existing SDK10 installation are required.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-312f5fa1'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('hosting.enforce-channel-binding','hosting.read-native-request-property','web.trust-wsl-development-certificate') `
+  -Query 'windows-web' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin818-831-1175' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/windows-inspection'
+```
+
+Expect three complete recipes and target10 no_applicable_edition controls. Pending
+Human trust remains visible. This does not establish GA or comprehensive release
+readiness; missing/stale compilation or canonical/applicability drift fails.
