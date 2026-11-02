@@ -246,4 +246,7 @@
   <ItemGroup>
     <EmbeddedResource Include="../../samples/net*/Soundings/*.cs;../../samples/net*/Soundings/*.csproj;../../samples/net*/Soundings/*.props;../../samples/net*/Soundings/*.targets;../../samples/net*/Soundings/global.json;../../samples/net*/Soundings/verification-evidence.json;../../content/recipes/signalr.cancel-active-operation/11.0/recipe.json;../../content/recipes/signalr.cancel-active-operation/11.0/recipe.md" LogicalName="SdkInput.%(Identity)" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../samples/net*/FenStore/*.cs;../../samples/net*/FenStore/*.csproj;../../samples/net*/FenStore/*.props;../../samples/net*/FenStore/*.targets;../../samples/net*/FenStore/global.json;../../samples/net*/FenStore/verification-evidence.json;../../content/recipes/ef.key-nested-value/11.0/recipe.json;../../content/recipes/ef.key-nested-value/11.0/recipe.md;../../content/recipes/ef.map-nested-values-with-inheritance/11.0/recipe.json;../../content/recipes/ef.map-nested-values-with-inheritance/11.0/recipe.md" LogicalName="SdkInput.%(Identity)" />
+  </ItemGroup>
 </Project>

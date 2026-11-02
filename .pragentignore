@@ -454,6 +454,11 @@
 /samples/net10.0/MoorlandDispatch/verification-evidence.json
 /samples/net11.0/MoorlandDispatch/verification-evidence.json
 
+# Record-Evidence generated FenStore SDK/provider command receipts and input hashes.
+# Review canonical consumers, locks, manifests and SQL runner; build/pack validates
+# freshness and the installed scenario compares full served content.
+/samples/net10.0/FenStore/verification-evidence.json
+/samples/net11.0/FenStore/verification-evidence.json
 # Record-Evidence/Test-InteropSoundings generated command/inventory/hash receipts.
 # Review original consumers, C helper, locks, manifests and recorder; installed
 # content checks prove freshness and canonical retrieval of these observations.
