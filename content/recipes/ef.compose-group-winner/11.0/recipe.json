@@ -28,7 +28,7 @@
     "routes": [
       {
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#groupby-enhancements",
           "https://learn.microsoft.com/en-us/ef/core/querying/complex-query-operators",
           "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/"
         ],
@@ -108,15 +108,15 @@
   },
   "sources": [
     {
-      "title": "Official EF query and provider documentation",
-      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+      "title": "EF11 GroupBy navigation and join composition",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#groupby-enhancements"
     },
     {
-      "title": "Official EF query and provider documentation",
+      "title": "Relational translation of complex query operators",
       "url": "https://learn.microsoft.com/en-us/ef/core/querying/complex-query-operators"
     },
     {
-      "title": "Official EF query and provider documentation",
+      "title": "EF Core SQL Server provider requirements",
       "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/"
     }
   ],

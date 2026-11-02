@@ -26,7 +26,7 @@
     "routes": [
       {
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#support-for-the-new-net-11-fulljoin-operator",
           "https://learn.microsoft.com/en-us/ef/core/querying/complex-query-operators",
           "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/"
         ],
@@ -106,15 +106,15 @@
   },
   "sources": [
     {
-      "title": "Official EF query and provider documentation",
-      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+      "title": "EF11 translation of the .NET11 FullJoin operator",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#support-for-the-new-net-11-fulljoin-operator"
     },
     {
-      "title": "Official EF query and provider documentation",
+      "title": "Relational translation of complex query operators",
       "url": "https://learn.microsoft.com/en-us/ef/core/querying/complex-query-operators"
     },
     {
-      "title": "Official EF query and provider documentation",
+      "title": "EF Core SQL Server provider requirements",
       "url": "https://learn.microsoft.com/en-us/ef/core/providers/sql-server/"
     }
   ],
