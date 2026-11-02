@@ -90,7 +90,8 @@ The prepared, successfully built probe for the current handoff is at
 setup and cleanup commands were executed by Pingu for the observation above.
 Use a newly prepared scratch directory for another run; the retained handoff
 directory still contains its historical certificate thumbprint marker. Pingu runs setup
-in an elevated PowerShell window. Inspect the source and generated `access.json`
+in an elevated **PowerShell 7.4+** window, using the same Windows account as
+Prepare. Inspect the source and generated `access.json`
 before execution. It creates one short-lived self-signed certificate in
 `LocalMachine\My` (not a trusted root), one loopback-only binding and one URL
 reservation for the original user's SID. No existing resource may be reused.
@@ -142,7 +143,7 @@ directory. Return failure output without broadening permissions or disabling TLS
 The .NET 10 access probe does not establish the .NET 11 recipe APIs or GA proof.
 
 Pingu then inspects and removes only the resources from this run in elevated
-PowerShell. First compare the displayed binding's certificate hash and application
+PowerShell 7.4+, using the same Windows account. First compare the displayed binding's certificate hash and application
 ID with `certificate.txt` and `access.json`, and the URL reservation with its
 recorded prefix/SID. Stop if ownership differs. For partial setup, run only the
 deletions for resources actually created; do not delete somebody else's binding.
