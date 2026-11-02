@@ -489,3 +489,7 @@
 # Generated DuneArchive command/input receipts; canonical consumers and runner remain reviewed.
 /samples/net10.0/DuneArchive/verification-evidence.json
 /samples/net11.0/DuneArchive/verification-evidence.json
+
+# Record-Evidence generated QuarrySearch receipts; canonical samples, locks and runner remain reviewed.
+/samples/net10.0/QuarrySearch/verification-evidence.json
+/samples/net11.0/QuarrySearch/verification-evidence.json
