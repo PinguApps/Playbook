@@ -279,9 +279,9 @@
     {
       "id": "model-snapshot",
       "pattern": "ModelSnapshot::.*MigrationId|MigrationsAssembly::.*MigrationId",
-      "disposition": "grouped",
+      "disposition": "delivered",
       "owner": "PIN-877",
-      "reason": "Snapshot migration identity remains the existing branch divergence goal."
+      "reason": "PIN-877: ef.resolve-migration-branch-divergence/11.0, original competing BeaconMigrations EF10/11 scaffolds and re-scaffolding, latest snapshot identity, pending-model and SQLite application checks; exact RC2 is not GA proof."
     },
     {
       "id": "scaffold-selector",

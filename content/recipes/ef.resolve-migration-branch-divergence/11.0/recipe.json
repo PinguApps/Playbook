@@ -1,0 +1,217 @@
+{
+  "id": "ef.resolve-migration-branch-divergence",
+  "edition": "11.0",
+  "title": "Reconcile competing migration histories before merging",
+  "goal": "Re-scaffold one unpublished branch migration after adopting the other branch history so the merged snapshot represents one coherent sequence.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "branch-document-guidance",
+    "beaconmigrations"
+  ],
+  "apis": [
+    "ModelSnapshot",
+    "MigrationId",
+    "dotnet ef migrations add"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/teams"
+        ],
+        "selectionNotes": [
+          "Re-scaffold one unpublished branch migration after adopting the other branch history so the merged snapshot represents one coherent sequence.",
+          "Team migration workflow; do not silently accept both histories."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF11 consumer requires net11.0; no EF11-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact current-release proof uses SDK11 RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Design",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+            }
+          ],
+          "packageAssets": [
+            "EF11 lib/net11.0 and EF10 lib/net10.0; SQLitePCLRaw native assets and full transitive dependencies pinned in locks. dotnet-ef11 RC2 and10.0.13 tools run on net10.0."
+          ],
+          "providers": [
+            "SQLite local disposable file; no external database or account."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Team migration workflow; do not silently accept both histories.",
+            "Historical .NET10 comparison adds no foundation or target10 edition."
+          ],
+          "prerequisites": [
+            "Copy complete projects below and restore exact locked pins.",
+            "Run eng/Test-BeaconMigrations.ps1."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/teams",
+      "title": "Official team migration workflow"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BeaconMigrations/BeaconMigrations.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual canonical authoring project compilation; separate scaffolding execution record."
+    },
+    {
+      "sample": "samples/net10.0/BeaconMigrations/BeaconMigrations.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "scope": "Actual competing scaffolds, snapshot latest IDs, re-scaffolding, no pending changes and SQLite application.",
+      "record": "samples/net10.0/BeaconMigrations/migration-checks.evidence.json"
+    },
+    {
+      "sample": "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual canonical authoring project compilation; separate scaffolding execution record."
+    },
+    {
+      "sample": "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "scope": "Actual competing scaffolds, snapshot latest IDs, re-scaffolding, no pending changes and SQLite application.",
+      "record": "samples/net11.0/BeaconMigrations/migration-checks.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-program-cs": {
+      "path": "samples/net10.0/BeaconMigrations/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/BeaconMigrations/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/BeaconMigrations/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/BeaconMigrations/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/BeaconMigrations/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-beaconmigrations-csproj": {
+      "path": "samples/net10.0/BeaconMigrations/BeaconMigrations.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/BeaconMigrations/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/BeaconMigrations/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/BeaconMigrations/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/BeaconMigrations/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/BeaconMigrations/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-beaconmigrations-csproj": {
+      "path": "samples/net11.0/BeaconMigrations/BeaconMigrations.csproj",
+      "region": "complete",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable local verification; actual GA reconciliation remains pending."
+  }
+}
