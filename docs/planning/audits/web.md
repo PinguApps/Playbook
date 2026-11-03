@@ -6,6 +6,17 @@ decisions through [PIN-986](https://linear.app/pinguapps/issue/PIN-986).
 Closing this audit does not clear comprehensive coverage, compilation, installed
 content or GA publication gates. No served recipe or MCP contract changes here.
 
+## Documentation-first follow-up, 3 November 2026
+
+Pingu requested guidance before full testing for PIN-1181. The
+[direct TLS decision guide](../guidance/select-direct-tls.md) preserves the
+intended hosting.select-direct-tls/11.0 identity outside the served catalogue.
+NuGet still listed only 11.0.0-rc.1.26425.128; its DLL has no public
+DirectTlsEndpoint despite XML references to that type. The draft explains the
+decision and migration gates without presenting an unavailable API as code.
+Matching artifacts, canonical samples, Linux native execution and installed
+MCP evidence remain outstanding; PIN-959/PIN-964 and GA gates stay open.
+
 ## Boundary and reproducible evidence
 
 PIN-813's `signalr.refresh-live-credentials/11.0` comparison qualifies actual
