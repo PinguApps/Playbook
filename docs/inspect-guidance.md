@@ -3580,3 +3580,37 @@ real stdio list/get from an unrelated directory. Expect two discovery entries
 with ID/title/goal, complete canonical Markdown and applicability, target11 and
 edition11; target10 has no applicable edition. Proxy independence is not OS
 network isolation. This is local emulator/RC2 evidence, not cloud or GA proof.
+## Windows Forms control rendering, startup and update scopes
+
+Use the existing Windows Desktop runtimes, SDK10.0.402 and the separate SDK11 RC2,
+PowerShell7.4+ and Node.js. No settings changes or account setup are needed for
+the automatic samples. The settings check below is a separate owner action.
+From an unrelated directory, select this checkout explicitly:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-9746a30f'
+& ./eng/Test-FenDesktop.ps1 -Record
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('winforms.author-adaptive-control-rendering','winforms.control-initial-form-reveal','winforms.batch-control-mutations') `
+  -Query 'fen-desktop' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin892-894' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/fen-desktop/inspection'
+```
+
+Expect eight successful paired sample runs: system-color painting/current
+renderer selection, C#/VB startup and exception-safe update resumption. The
+actual installed package is called over stdio from an unrelated directory with
+an isolated feed/cache. It prints ID/title/goal, complete canonical Markdown,
+target11/edition11 applicability and current evidence. Target10 has no applicable
+edition; previous examples add no foundations. Unusable retrieval proxies test
+proxy independence, not OS network isolation. No GA, visual timing, flicker or
+performance claim follows from these checks.
+
+For PIN-897, Pingu runs the current FenStatus DLL with `--manual`, keeps it open
+while applying a Windows Contrast theme, checks readable text and disappearance
+of the accent strip, restores the exact original theme and checks recovery.
+The console records `SETTINGS` categories and `STATE` values. Record the actual
+result before changing pending Human evidence. Use the
+[Windows Contrast themes instructions](https://support.microsoft.com/en-US/accessibility/windows/change-color-contrast-in-windows).
