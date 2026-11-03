@@ -118,8 +118,12 @@ try {
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
         foreach ($route in $metadata.applicability.routes) {
           if ($route.PSObject.Properties['targetBasis']) {
-            $discovered = @($found[0].applicability.routes | Where-Object target -CEQ $route.target)
-            if ($discovered.Count -ne 1 -or $discovered[0].targetBasis -cne $route.targetBasis) { throw "Discovery target basis drift: $id" }
+            $discovered = @($found[0].applicability.routes | Where-Object {
+              $_.target -ceq $route.target -and $_.usage -ceq $route.usage -and
+              $_.conditional -eq $route.conditional -and $_.PSObject.Properties['targetBasis'] -and
+              $_.targetBasis -ceq $route.targetBasis
+            })
+            if ($discovered.Count -eq 0) { throw "Discovery target basis drift: $id" }
           }
         }
         if ($CheckDemonstratedLanguages) {

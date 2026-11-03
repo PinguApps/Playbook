@@ -63,7 +63,8 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Docker Linux x64, network for isolated setup, Mono reference assemblies or Clang/linker/zlib development inputs as appropriate."
+            "Linux x64 authoring with Clang/linker and zlib development inputs; macOS authoring requires native platform tools and remains not-tested.",
+            "PowerShell7, existing Docker Linux x64 and network for the isolated authoring runner."
           ],
           "constraints": [
             "No persistent environment changes; no public publication.",
@@ -136,7 +137,11 @@
     }
   },
   "humanProof": {
-    "scope": "Automated Linux checks cover the bounded route; macOS checks are explicitly not-tested, no Human gate substituted.",
-    "status": "not-required"
+    "scope": "Unavailable macOS native checks: .NET10/11 shared-library publication, default/opt-out .dylib names, symbols, packaging and C invocation. Excluded under PIN-699; Linux x64 compilation/execution retained.",
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/TideWindow/TideWindow.csproj",
+      "samples/net11.0/TideWindow/TideWindow.csproj"
+    ]
   }
 }

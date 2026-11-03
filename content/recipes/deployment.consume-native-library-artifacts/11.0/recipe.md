@@ -31,7 +31,8 @@ The original export has a stable explicit entry point:
 Select exactly one intended library from a clean publish directory. Do not add
 `lib` to an already prefixed filename. The packaging script accepts the publish
 directory, a fresh destination, and `so` on Linux or `dylib` on macOS. It rejects
-missing and ambiguous outputs rather than copying a debug companion or stale file.
+missing and ambiguous outputs and excludes debug companions. A fresh publish
+directory prevents selection of a stale library.
 
 {{snippet:package}}
 
@@ -81,7 +82,7 @@ rendering mode or workload is involved. RC2 evidence does not establish GA.
 opt-out artifacts, symbol inspection, exact-old-name failure, packaged contents
 and C invocation. Saved sample records retain input hashes, dependency closures,
 SDK/OS/compiler/linker/package inventory and command output. macOS checks remain
-explicitly not-tested under the native testing policy. No native CI matrix is added.
+explicitly not-tested under the [PIN-699 native testing policy](https://linear.app/pinguapps/issue/PIN-699). No native CI matrix is added.
 
 Official references: [prefix migration](https://learn.microsoft.com/en-us/dotnet/core/compatibility/interop/11/nativeaot-lib-prefix)
 and [shared-library support and unloading](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/libraries).

@@ -61,9 +61,15 @@ touch 'working directory/observatory.input' observatory.input
 status=0; @@dotnet@@ run -c Release > /tmp/default-@@major@@.log 2>&1 || status=$?
 cat /tmp/default-@@major@@.log
 test "$status" -eq @@defaultExit@@
-status=0; @@dotnet@@ run -c Release -p:ExplicitMono=true || status=$?
+rm observatory.input
+status=0; @@dotnet@@ run -c Release -p:ExplicitMono=true > /tmp/explicit-@@major@@.log 2>&1 || status=$?
+cat /tmp/explicit-@@major@@.log
 test "$status" -eq 7
-rm observatory.input 'working directory/observatory.input'
+grep -Fx 'Working directory: @@directory@@/working directory' /tmp/explicit-@@major@@.log
+# A broken working-directory setting must fail even though the quoted launch works.
+status=0; /usr/bin/mono 'bin/importer output/net472/ObservatoryImporter.exe' 'night survey' 7 || status=$?
+test "$status" -eq 9
+rm 'working directory/observatory.input'
 test ! -e observatory.input
 test ! -e 'working directory/observatory.input'
 echo PASS_MONO_@@major@@

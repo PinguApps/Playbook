@@ -66,7 +66,8 @@
           ],
           "renderingModes": [],
           "prerequisites": [
-            "Docker Linux x64, network for isolated setup, Mono reference assemblies or Clang/linker/zlib development inputs as appropriate."
+            "Linux x64 with Mono and its 4.7.2-api Framework reference assemblies.",
+            "PowerShell7, existing Docker Linux x64 and network for the isolated authoring runner."
           ],
           "constraints": [
             "No persistent environment changes; no public publication.",
@@ -120,7 +121,7 @@
     }
   },
   "humanProof": {
-    "scope": "Automated Linux checks cover the bounded route; macOS checks are explicitly not-tested, no Human gate substituted.",
+    "scope": "Automated Linux x64 net472/Mono checks cover the retained launch behavior; no Human approval is required.",
     "status": "not-required"
   }
 }
