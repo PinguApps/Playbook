@@ -11,6 +11,46 @@ The six GitHub Actions roles follow the examples in `V:/Aspire.Hosting.Dashboard
 
 The production project declares no package version. `eng/Test-Smoke.ps1` and `eng/Verify.ps1` have local development defaults; Actions passes its CI/release version explicitly through build and pack.
 
+## Categories and package versions
+
+Select a category and a version checkbox in the PR template. The automatic labeller
+reads those checkboxes; Release Drafter groups merged PRs using those labels.
+
+| Example change | Labels | Draft section | Version after 1.2.3 |
+| --- | --- | --- | --- |
+| Correct recipe guidance | `docs`, `patch` | Documentation | 1.2.4 |
+| Add a compatible recipe or capability | `feature`, `minor` | Features | 1.3.0 |
+| Break a public tool contract or change a stable recipe ID | `feature`, `major` | Features | 2.0.0 |
+| Fix a defect | `bug`, `patch` | Bug Fixes | 1.2.4 |
+| Security correction | `security`, `patch` | Security | 1.2.4 |
+| Dependency maintenance | `dependencies`, `patch` | Dependencies | 1.2.4 |
+| Repository maintenance | `meta`, `patch` | Meta | 1.2.4 |
+
+The highest version label across merged PRs wins; an absent version label defaults
+to patch. Categories do not automatically imply a version increment. Package SemVer
+is independent of .NET coverage: adding .NET 11 guidance does not imply package 11.
+Before the first stable release, the workflow explicitly requests `1.0.0` for the
+stable draft. Early previews are manually chosen `1.0.0-preview.N` prereleases,
+subject to the [release readiness gates](planning/release-plan.md); neither a preview
+nor a draft authorizes stable publication or activates weekly publishing.
+
+`eng/Test-ReleaseDraft.mjs` exercises the actual pinned Release Drafter parser,
+category matcher and version resolver against this repository's configuration.
+It uses synthetic merged PRs and makes no GitHub writes. Run the PowerShell wrapper
+with Node.js 24 and its bundled npm; it downloads the pinned upstream source and
+installs its fixture dependencies with lifecycle scripts disabled.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-747466ca'
+& ./eng/Test-ReleaseDraft.ps1
+```
+
+Expect seven category/version examples and a final `PASS` summary. The fixture's
+npm lock file and downloaded source remain under ignored `artifacts/`; these are
+verification dependencies, outside the production package and automatic update
+permissions. This checks draft content/version logic locally; hosted labelling
+permissions and GitHub release writes require the normal hosted runs.
+
 ## Verification output
 
 Use [the contribution check-selection and retention policy](contributing.md#choose-the-check-and-retain-its-result). Routine local output defaults to ignored `artifacts/`; CI keeps its existing artifact uploads. Report commands/results/limits in the PR rather than adding a ticket report. Required sample evidence and exceptional release/product proof remain durable and cannot depend solely on expiring CI artifacts.
