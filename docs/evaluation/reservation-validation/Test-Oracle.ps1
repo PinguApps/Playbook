@@ -16,7 +16,14 @@ function Assert($claim, $condition) {
 }
 try {
     New-Item -ItemType Directory $workspace | Out-Null
-    Get-ChildItem -LiteralPath $Submission -File | Copy-Item -Destination $workspace
+    $submissionRoot = (Resolve-Path -LiteralPath $Submission).Path
+    Get-ChildItem -LiteralPath $submissionRoot -File -Recurse -Force | ForEach-Object {
+        $relative = [IO.Path]::GetRelativePath($submissionRoot, $_.FullName)
+        if ($relative -match '(^|[\\/])(bin|obj|\.git)([\\/]|$)') { return }
+        $destination = Join-Path $workspace $relative
+        New-Item -ItemType Directory -Force (Split-Path $destination) | Out-Null
+        Copy-Item -LiteralPath $_.FullName -Destination $destination
+    }
     if ($Reference) {
         Copy-Item (Join-Path $PSScriptRoot 'Reference.cs') (Join-Path $workspace 'Reservation.cs')
         $program = Join-Path $workspace 'Program.cs'
@@ -41,7 +48,7 @@ try {
     $process = [Diagnostics.Process]::Start($start)
     $client = [Net.Http.HttpClient]::new()
     $client.BaseAddress = "http://127.0.0.1:$port"
-    $client.Timeout = [TimeSpan]::FromSeconds(5)
+    $client.Timeout = [TimeSpan]::FromSeconds(30)
     function Snapshot($code) {
         $response = $client.GetStringAsync("/control/$code").GetAwaiter().GetResult()
         $response | ConvertFrom-Json
@@ -74,22 +81,22 @@ try {
         Control arm $code
         $cancellation = [Threading.CancellationTokenSource]::new()
         $pending = Send $code 2 $cancellation.Token
-        for ($i = 0; $i -lt 100; $i++) {
+        for ($i = 0; $i -lt 500; $i++) {
             $state = Snapshot $code
             if ($state.entered -gt 0 -or $pending.IsCompleted) { break }
             Start-Sleep -Milliseconds 20
         }
-        Assert "$code entered rule" ($state.entered -eq 1)
+        Assert "$code entered rule" ($state.entered -gt 0)
         Assert "$code awaits before handler" (!$pending.IsCompleted -and $state.completed -eq 0 -and $state.accepted -eq 0)
         if ($code -eq 'open-cancel') {
             $cancellation.Cancel()
             try { $response = $pending.GetAwaiter().GetResult(); $response.Dispose() } catch [OperationCanceledException] { }
-            for ($i = 0; $i -lt 100; $i++) {
+            for ($i = 0; $i -lt 500; $i++) {
                 $state = Snapshot $code
                 if ($state.canceled -gt 0) { break }
                 Start-Sleep -Milliseconds 20
             }
-            Assert 'request token reaches rule' ($state.canceled -eq 1 -and $state.completed -eq 0 -and $state.accepted -eq 0)
+            Assert 'request token reaches rule' ($state.canceled -gt 0 -and $state.completed -eq 0 -and $state.accepted -eq 0)
             Control release $code
             Start-Sleep -Milliseconds 100
             Assert 'canceled request never books after release' ((Snapshot $code).accepted -eq 0)
@@ -100,12 +107,13 @@ try {
                 $state = Snapshot $code
                 if ($code.StartsWith('closed')) {
                     $body = $response.Content.ReadAsStringAsync().GetAwaiter().GetResult() | ConvertFrom-Json
-                    Assert 'unavailable rejected before handler' ($response.StatusCode -eq 400 -and $null -ne $body.errors.Code -and $state.accepted -eq 0 -and $state.completed -eq 1)
+                    Assert 'unavailable rejected before handler' ($response.StatusCode -eq 400 -and $null -ne $body.errors.Code -and $state.accepted -eq 0 -and $state.completed -gt 0)
                 } else {
-                    Assert 'valid accepted exactly once after completion' ($response.StatusCode -eq 204 -and $state.completed -eq 1 -and $state.accepted -eq 1)
+                    Assert 'valid accepted exactly once after completion' ($response.StatusCode -eq 204 -and $state.completed -gt 0 -and $state.accepted -eq 1)
                 }
             } finally { $response.Dispose() }
         }
+        Write-Host "OBSERVATION: $code counters $((Snapshot $code) | ConvertTo-Json -Compress)"
         $cancellation.Dispose()
     }
     Write-Host "Oracle: $failures failed"
@@ -116,7 +124,14 @@ try {
     $resolvedWorkspace = [IO.Path]::GetFullPath($workspace)
     $tempRoot = [IO.Path]::GetFullPath([IO.Path]::GetTempPath()).TrimEnd('\') + '\'
     if (!$resolvedWorkspace.StartsWith($tempRoot, [StringComparison]::OrdinalIgnoreCase)) { throw 'Cleanup target outside temporary directory' }
-    if (Test-Path -LiteralPath $resolvedWorkspace) { Remove-Item -LiteralPath $resolvedWorkspace -Recurse -Force }
+    # Child processes can briefly retain assembly handles after the launcher exits.
+    for ($attempt = 0; (Test-Path -LiteralPath $resolvedWorkspace) -and $attempt -lt 30; $attempt++) {
+        try { Remove-Item -LiteralPath $resolvedWorkspace -Recurse -Force }
+        catch {
+            if ($attempt -eq 29) { throw }
+            Start-Sleep -Milliseconds 100
+        }
+    }
     foreach ($scope in 'User', 'Machine') {
         if ([Environment]::GetEnvironmentVariable('PATH', $scope) -cne $savedPaths[$scope]) { Write-Warning "$scope PATH changed unexpectedly; shared setting preserved" }
     }

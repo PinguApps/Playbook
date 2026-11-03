@@ -29,7 +29,7 @@ accepts invalid input. This preparation creates no agent evaluation results.
 ## Private behavior oracle
 
 Run Test-Oracle.ps1 against a submitted export. It copies source into a disposable
-directory, builds with the submission's pinned SDK, starts actual Kestrel on a
+directory (including source subdirectories, excluding bin/obj/.git), builds with the submission's pinned SDK, starts actual Kestrel on a
 loopback ephemeral port and observes the unchanged availability service/handler.
 Keep the original submission and console diagnostics. Each assertion is scored
 separately: required code, party limits, field errors, unavailable rejection, held
@@ -37,6 +37,9 @@ valid/invalid requests unfinished before release, one valid acceptance afterward
 and client cancellation reaching the rule without later acceptance. An exception,
 timeout or setup/build failure is not a pass. Model-level declaration is inspected
 separately; controls and service must remain unchanged. Never repair a submission.
+Entry and cancellation polling allow ten seconds; HTTP requests allow thirty.
+Repeated rule executions are printed as observations for unnecessary-code scoring,
+not failed merely for being repeated. Handler acceptance must still happen once.
 
 `-Reference` replaces only the disposable model with Reference.cs and registers
 validation. This is a calibration solution, never an agent run. The actual RC2
