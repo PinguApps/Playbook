@@ -113,6 +113,16 @@ try {
               $route.requirements | Add-Member -NotePropertyName stabilityLimitations -NotePropertyValue @()
             }
             if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
+            $sourceOnly = @($route.evidenceSamples | Where-Object {
+              $sample = $_
+              $sample -cin $metadata.humanProof.untestedSamples -and
+                @($metadata.evidence | Where-Object { $_.sample -ceq $sample -and $_.kind -in @('compile','cross-compile','compile-and-run') }).Count -eq 0
+            }).Count -gt 0
+            if ($sourceOnly) {
+              $warning = 'Source review only: excluded sample has not been compiled or executed.'
+              if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }
+              if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
+            }
           }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }

@@ -1,0 +1,269 @@
+{
+  "id": "maui.author-view-local-csharp-in-xaml",
+  "edition": "11.0",
+  "title": "Preview: keep small C# page logic in XAML",
+  "goal": "Use preview SourceGen x:Code and C# expressions for small view-local operations, including namespace-qualified calls and attached-property reads; understand opt-ins and initialization limits.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quay-board",
+    "sourcegen",
+    "xaml"
+  ],
+  "apis": [
+    "x:Code",
+    "EnablePreviewFeatures",
+    "C# XAML expressions"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Windows MAUI target net11.0-windows10.0.20348.0; native execution is not tested.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended SDK11.0.100-rc.2.26504.105 and workload set11.0.100-rc.2.26513.2; local SDK pack unavailable.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit C#15 sample mode; XAML preview opt-in is separate from C# language mode.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "MAUI Windows"
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Pinned RC2 preparation artifact, not GA evidence.",
+              "version": "11.0.0-rc.2.26505.5"
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls net11.0-windows10.0.20348 assets and buildTransitive SourceGen analyzer/targets; older comparison pins Controls10.0.110."
+          ],
+          "workloads": [
+            {
+              "match": "exact",
+              "name": "maui-windows",
+              "reason": "Intended Microsoft.Maui.Sdk pack; not installed in the local SDK11 root.",
+              "version": "11.0.0-rc.2.26505.5"
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Windows x64; target binding20348, minimum OS17763; local host26200."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Use a matching installed MAUI SDK pack; workload-list labels alone do not establish availability."
+          ],
+          "constraints": [
+            "Current native sample is source-reviewed only under PIN-699. Standard generator migration does not require preview C# expressions."
+          ],
+          "optIns": [
+            "MauiXamlInflator=SourceGen",
+            "EnablePreviewFeatures=true"
+          ],
+          "stabilityLimitations": [
+            "RC2 preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/QuayBoard/QuayBoard.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target package route."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
+      "title": "Official MAUI source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+      "title": "Official MAUI source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
+      "title": "Official MAUI source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "title": "Official MAUI source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
+      "title": "Official MAUI source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
+      "title": "Official MAUI source"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/QuayBoard/QuayBoard.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0-windows10.0.19041.0",
+      "kind": "compile",
+      "scope": "Actual Windows XamlC comparison build; no native interaction claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/QuayBoard/QuayBoard.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0-windows10.0.20348.0",
+      "kind": "official-review",
+      "scope": "Pinned official SourceGen source reviewed; build failed NETSDK1147 before compilation. No generated-output or execution proof."
+    }
+  ],
+  "humanProof": {
+    "untestedSamples": [
+      "samples/net11.0/QuayBoard/QuayBoard.csproj"
+    ],
+    "scope": "QuayBoard .NET11 Windows compilation and execution unavailable: SDK11 root lacks Microsoft.Maui.Sdk. No Android/Apple/native-device/GA checks. PIN-699 excludes unavailable native routes; no pending owner action.",
+    "status": "not-tested"
+  },
+  "snippets": {
+    "n11-quayboard-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/QuayBoard.csproj"
+    },
+    "n11-directory-build-targets": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/Directory.Build.targets"
+    },
+    "n10-mauiprogram-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/MauiProgram.cs"
+    },
+    "n10-boardpage-xaml": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/BoardPage.xaml"
+    },
+    "n10-quayboard-csproj": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/QuayBoard.csproj"
+    },
+    "n10-global-json": {
+      "language": "json",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/global.json"
+    },
+    "n11-platforms-windows-app-xaml": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/Platforms/Windows/App.xaml"
+    },
+    "n11-boardpage-xaml-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/BoardPage.xaml.cs"
+    },
+    "n10-platforms-windows-app-xaml": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/Platforms/Windows/App.xaml"
+    },
+    "n10-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/Directory.Build.props"
+    },
+    "n11-directory-build-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/Directory.Build.props"
+    },
+    "n11-directory-packages-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/Directory.Packages.props"
+    },
+    "n10-platforms-windows-app-xaml-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/Platforms/Windows/App.xaml.cs"
+    },
+    "n11-boardpage-xaml": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/BoardPage.xaml"
+    },
+    "n11-mauiprogram-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/MauiProgram.cs"
+    },
+    "n10-directory-build-targets": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/Directory.Build.targets"
+    },
+    "n11-platforms-windows-app-xaml-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/Platforms/Windows/App.xaml.cs"
+    },
+    "n10-directory-packages-props": {
+      "language": "xml",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/Directory.Packages.props"
+    },
+    "n11-global-json": {
+      "language": "json",
+      "region": "complete",
+      "path": "samples/net11.0/QuayBoard/global.json"
+    },
+    "n10-boardpage-xaml-cs": {
+      "language": "csharp",
+      "region": "complete",
+      "path": "samples/net10.0/QuayBoard/BoardPage.xaml.cs"
+    }
+  }
+}
