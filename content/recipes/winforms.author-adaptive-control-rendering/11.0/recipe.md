@@ -22,7 +22,7 @@ The status tile reads the immutable current settings snapshot rather than cachin
 
 ## Owner check: recorded PIN-897
 
-Run the current compiled sample with --manual. Keep it open while changing Windows Settings > Accessibility > Contrast themes, then restore the original theme. Inspect message legibility, the removed accent strip and STATE/SETTINGS console receipts. Pingu performed this check on 3 November 2026 and reported that it worked. The retained owner execution record shows AccentColor/HighContrast notifications and effective Net11 -> Classic -> Net11, with High Contrast restored to its initial disabled state. The source, project and DLL still match the prepared sample. The exact contrast-theme name was not reported; visual success is owner-reported, not a pixel assertion or broad accessibility certification. This bounded Human gate is satisfied; comprehensive coverage and GA gates remain separate.
+Run the current compiled sample with --manual. Keep it open while changing Windows Settings > Accessibility > Contrast themes, then restore the original theme. Inspect message legibility, the removed accent strip and STATE/SETTINGS console receipts. Pingu performed this check on 3 November 2026 and reported: "It seemed to work to me." The retained owner execution record shows AccentColor/HighContrast notifications and effective Net11 -> Classic -> Net11, with High Contrast restored to its initial disabled state. The source, project and DLL still match the prepared sample. The exact contrast-theme name was not reported; visual success is owner-reported, not a pixel assertion or broad accessibility certification. This bounded Human gate is satisfied; comprehensive coverage and GA gates remain separate.
 
 ## Migration
 

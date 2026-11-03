@@ -126,7 +126,7 @@
     }
   ],
   "humanProof": {
-    "scope": "PIN-897 owner check recorded 3 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu reported that the requested contrast-theme visual check worked; the transcript confirms High Contrast enabled/disabled notifications and Net11 -> Classic -> Net11. Source/project/DLL identity matched the prepared sample. This bounded Windows RC2 result is not broad visual/accessibility or GA certification.",
+    "scope": "PIN-897 owner check recorded 3 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu reported: \"It seemed to work to me.\"; the transcript confirms High Contrast enabled/disabled notifications and Net11 -> Classic -> Net11. Source/project/DLL identity matched the prepared sample. This bounded Windows RC2 result is not broad visual/accessibility or GA certification.",
     "status": "verified"
   },
   "snippets": {
