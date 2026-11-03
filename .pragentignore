@@ -527,3 +527,7 @@
 # Record-Evidence generated identity/projection receipts; review samples, pins and runner.
 /samples/net10.0/ReefIdentity/verification-evidence.json
 /samples/net11.0/ReefIdentity/verification-evidence.json
+
+# Record-Evidence generated materialization receipts; review sources, locks and runner.
+/samples/net10.0/ReefMaterialization/verification-evidence.json
+/samples/net11.0/ReefMaterialization/verification-evidence.json
