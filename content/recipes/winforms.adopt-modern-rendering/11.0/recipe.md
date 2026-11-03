@@ -12,7 +12,7 @@ The .NET 10 screen uses supported styled controls and automatic layout. It keeps
 
 {{snippet:n11-program-cs}}
 
-Enable visual styles, then select Net11 before creating windows. Defaults are selected once; repeating the same selection is allowed, changing it is rejected. Latest follows the runtime's newest stable renderer; choose Net11 for a deliberate version. Classic retains themed controls; Disabled turns visual styles off. Dark mode is independent.
+Enable visual styles, then select Net11 before creating windows. Select the application default once before creating windows. Latest follows the runtime's newest stable renderer; choose Net11 for a deliberate version. Classic retains themed controls; Disabled turns visual styles off. Dark mode is independent.
 
 Children request Inherit; that getter is not their effective renderer. An explicit child selection survives parent changes until reset to Inherit. Inherit is invalid as the application default. High Contrast forces classic styled rendering; disabled stays disabled.
 
@@ -72,7 +72,7 @@ Windows desktop, STA execution, SDK10.0.402/C#14 and SDK11.0.100-rc.2.26504.105/
 
 ## Evidence
 
-Both canonical projects compile and execute on Windows x64 with runtime10.0.13 or runtime11RC2. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No external clipboard-owner failure, pixel-level rendering, High Contrast transition, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
+Both canonical projects compile and execute on Windows x64 with runtime10.0.13 or runtime11RC2. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No pixel-level rendering, High Contrast transition, visual accessibility judgment, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
 
 ## References
 

@@ -125,7 +125,7 @@
     }
   ],
   "humanProof": {
-    "scope": "Agent checks require no owner settings change. Visual accessibility transitions and external clipboard-owner failures are not executed; no separate Human proof is claimed.",
+    "scope": "Agent checks require no owner settings change. High Contrast transitions, pixel-level visual/accessibility judgment and Designer behavior are not executed; no separate Human proof is claimed.",
     "status": "not-required"
   },
   "snippets": {
