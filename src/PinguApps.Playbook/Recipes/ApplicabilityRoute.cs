@@ -1,8 +1,12 @@
+using System.Text.Json.Serialization;
+
 namespace PinguApps.Playbook.Recipes;
 
 internal sealed record ApplicabilityRoute
 {
     public required string Target { get; init; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? TargetBasis { get; init; }
     public IReadOnlyList<string> SharedAreas { get; init; } = [];
     public IReadOnlyList<string> NeutralLanguages { get; init; } = [];
     public required bool Conditional { get; init; }

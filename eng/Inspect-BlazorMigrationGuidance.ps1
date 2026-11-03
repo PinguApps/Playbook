@@ -126,6 +126,16 @@ try {
           }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
+        foreach ($route in $metadata.applicability.routes) {
+          if ($route.PSObject.Properties['targetBasis']) {
+            $discovered = @($found[0].applicability.routes | Where-Object {
+              $_.target -ceq $route.target -and $_.usage -ceq $route.usage -and
+              $_.conditional -eq $route.conditional -and $_.PSObject.Properties['targetBasis'] -and
+              $_.targetBasis -ceq $route.targetBasis
+            })
+            if ($discovered.Count -eq 0) { throw "Discovery target basis drift: $id" }
+          }
+        }
         if ($CheckDemonstratedLanguages) {
           foreach ($language in 'csharp','vb','fsharp') {
             $filtered = (Invoke-RecipeTool 'list_recipes' @("query=$($metadata.title)", ('languages=["' + $language + '"]'), 'limit=50')).result.structuredContent

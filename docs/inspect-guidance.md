@@ -29,6 +29,39 @@ Markdown, applicability and fresh paired evidence to pass. Edition 11/target 11,
 preview labels and source-only/native exclusion warnings remain visible.
 Structured/text results agree; target 10 returns no_applicable_edition.
 The older page is a comparison, not an additional .NET 10 foundation.
+## Unix library filenames and explicit Mono launch
+
+The local authoring runner uses disposable Linux x64 Docker containers, Mono
+reference assemblies, Clang/linker/zlib and SDK10.0.402/11 RC2. It checks shared
+library default/opt-out names, symbols, C calls, packaging failures, legacy launch
+defaults and explicit quoted paths/arguments, working directory and exit7.
+It removes its container and preserves PATH. macOS execution is not-tested;
+static libraries remain unsupported/unresolved. Mono launch remains unsupported
+by Microsoft. Network is needed for isolated setup; no public publication occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+& ./eng/Test-TideAndMono.ps1 -Record
+```
+
+Build/pack the ordinary tool, install that exact artifact in an isolated local
+feed/cache and retrieve both recipes through real installed stdio from an
+unrelated directory. Expect IDs/titles/goals, complete canonical Markdown,
+target/edition11, applicability and current evidence; target10 has no edition.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('deployment.consume-native-library-artifacts','sdk.configure-legacy-mono-launch') `
+  -Query 'tide-mono' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1065-1067' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/tide-mono/inspection'
+```
+
+The SDK pins and RC evidence do not establish actual GA. The eight historical
+foundations, PIN-959 comprehensive gate and PIN-963 reconciliation stay separate.
 
 ## Temporal bounds and server time reports
 
@@ -3276,3 +3309,69 @@ complete canonical Markdown, applicability and fresh target11/edition11 evidence
 Target10 has no applicable edition. Unusable retrieval proxies establish proxy
 independence, not OS network isolation. No throughput, cloud consistency enforcement,
 multi-region or GA claim is made. Existing Human/GA gates remain open.
+
+## Cosmos identity and absent projections
+
+Use the approved disposable local emulator with the existing SDK10.0.402 and
+SDK11 RC3 below. This checks real EF10/11 identity and projection behavior;
+RC evidence does not establish GA or Azure service parity.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+$metadata = Invoke-RestMethod 'https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json'
+$asset = ($metadata.releases | Where-Object 'release-version' -eq '11.0.0-rc.3').sdk.files |
+  Where-Object { $_.rid -eq 'win-x64' -and $_.url.EndsWith('.zip') }
+$sdk = Join-Path (Get-Location) 'artifacts/sdk11rc3'
+New-Item -ItemType Directory -Path $sdk -Force | Out-Null
+$archive = Join-Path $sdk 'sdk.zip'
+Invoke-WebRequest $asset.url -OutFile $archive
+if ((Get-FileHash $archive -Algorithm SHA512).Hash -ine $asset.hash) { throw 'SDK checksum mismatch' }
+Expand-Archive -LiteralPath $archive -DestinationPath $sdk -Force
+& ./eng/Test-ReefIdentity.ps1 -Record
+```
+
+Build and pack the real server, install through the existing isolated-feed/cache
+harness and retrieve full Markdown, applicability and target11/edition11 over stdio:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('cosmos.retain-document-key-identity','cosmos.handle-missing-projection') `
+  -Query 'reef-identity' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin871-872' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/reef-identity/inspection'
+```
+
+Expect two complete entries and exact-artifact PASS. The provider runner records the RC undefined-projection mismatch without treating it as GA proof; retest the documented exception contract against real GA artifacts as approved by Pingu on 3 November 2026. Target10 has no applicable
+edition; the older consumers remain comparisons rather than extra foundations.
+
+## Observatory numeric results and Windows composite signatures
+
+Requires PowerShell7, SDK 10.0.402/runtime10.0.13, the separate SDK 11 RC2 installation,
+Node.js and public access for exact RC1 runtime/source downloads. No host install
+or PATH integration occurs. The sample runner verifies source hashes, builds and
+runs both consumers, and records compiler/reference/runtime/native identity.
+It tests one agreed 44/P256 composite set, actual older RSA success and current
+rejection, plus numerical drift and reversible disposable persistence.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d562a2f3'
+& ./eng/Test-ObservatoryContracts.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.compare-ieee-decimal-results','crypto.select-supported-composite-signature') `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1038-1058' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/observatory/inspection'
+```
+
+The exact ordinary package is installed through a private local feed/cache and
+called over real stdio from an unrelated directory. Expect both discovery
+ID/title/goal entries, full canonical Markdown, target11/edition11, applicability
+and fresh evidence; target10 returns no_applicable_edition. Older samples are
+comparisons, not new foundations. Unusable proxies show proxy independence,
+not OS network isolation. GA, other Windows providers and other composite sets
+are not claimed.

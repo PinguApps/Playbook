@@ -1,0 +1,45 @@
+{
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.Transcendental.cs",
+      "sha256": "a09b680eca11539c215bda58144514a7a0a1bf97dcaa72e117d2b8c6153bb5aa",
+      "id": "rc1-Number.DecimalIeee754.Transcendental.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128InvTrig.cs",
+      "sha256": "d23f428843cb512f0be82f848028d3771f9d8dc93beb74312993a792f67eb2ba",
+      "id": "rc1-Number.DecimalIeee754.DiyFp128InvTrig.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128Log.cs",
+      "sha256": "04fcf89e450460dd6a0c6b5ec66790daabb26ab75f0f0d22d2f345775a80a7db",
+      "id": "rc1-Number.DecimalIeee754.DiyFp128Log.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128PiTrig.cs",
+      "sha256": "690e8eeceffb54438530ce35a4d2d185d50ee2bdece6071ad03b4ad8c8079b8b",
+      "id": "rc1-Number.DecimalIeee754.DiyFp128PiTrig.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.Transcendental.cs",
+      "sha256": "331076411dae63c13cfd2016b9003df403acd1afccb71781a84ae3c1c9c37b84",
+      "id": "rc2-Number.DecimalIeee754.Transcendental.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128InvTrig.cs",
+      "sha256": "5c66c8077996bf6e76c784352b6d4caa7fe42de72d9ae9ed7ea3dc7c9cd3f0d5",
+      "id": "rc2-Number.DecimalIeee754.DiyFp128InvTrig.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128Log.cs",
+      "sha256": "05f48ccafaefb40bd8f3b54d5eaf5da72ab76eec210aa712a6debef7ee0d5a8e",
+      "id": "rc2-Number.DecimalIeee754.DiyFp128Log.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128PiTrig.cs",
+      "sha256": "1f3376a2e3c575a6f61eb5de94be2abc17ec057f38a827f2f6c317da3e741672",
+      "id": "rc2-Number.DecimalIeee754.DiyFp128PiTrig.cs"
+    }
+  ],
+  "scope": "PIN-1038 exact RC1/RC2 implementation comparison; source hashes are not execution proof"
+}

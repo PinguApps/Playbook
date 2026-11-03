@@ -513,3 +513,13 @@
 # canonical ReefDocuments consumers, locks and runner; build checks freshness.
 /samples/net10.0/ReefDocuments/verification-evidence.json
 /samples/net11.0/ReefDocuments/verification-evidence.json
+
+# Test-TideAndMono generated receipts; review canonical samples, locks and runner.
+/samples/net10.0/TideWindow/verification-evidence.json
+/samples/net11.0/TideWindow/verification-evidence.json
+/samples/net10.0/ObservatoryImporter/verification-evidence.json
+/samples/net11.0/ObservatoryImporter/verification-evidence.json
+
+# Record-Evidence generated identity/projection receipts; review samples, pins and runner.
+/samples/net10.0/ReefIdentity/verification-evidence.json
+/samples/net11.0/ReefIdentity/verification-evidence.json

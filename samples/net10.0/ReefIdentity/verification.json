@@ -1,0 +1,39 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Cosmos.ps1",
+    "eng/Test-ReefIdentity.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Azure.Core/1.44.1",
+    "Microsoft.Azure.Cosmos/3.63.1",
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0",
+    "Microsoft.Bcl.HashCode/1.1.0",
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.13",
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.13",
+    "Microsoft.EntityFrameworkCore.Cosmos/10.0.13",
+    "Microsoft.EntityFrameworkCore/10.0.13",
+    "Microsoft.Extensions.Caching.Abstractions/10.0.13",
+    "Microsoft.Extensions.Caching.Memory/10.0.13",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.13",
+    "Microsoft.Extensions.DependencyInjection/10.0.13",
+    "Microsoft.Extensions.Logging.Abstractions/10.0.13",
+    "Microsoft.Extensions.Logging/10.0.13",
+    "Microsoft.Extensions.Options/10.0.13",
+    "Microsoft.Extensions.Primitives/10.0.13",
+    "Microsoft.Win32.SystemEvents/6.0.0",
+    "Newtonsoft.Json/13.0.4",
+    "System.ClientModel/1.1.0",
+    "System.Configuration.ConfigurationManager/6.0.0",
+    "System.Drawing.Common/6.0.0",
+    "System.Memory.Data/6.0.0",
+    "System.Security.Cryptography.ProtectedData/6.0.0",
+    "System.Security.Permissions/6.0.0",
+    "System.Windows.Extensions/6.0.0"
+  ]
+}

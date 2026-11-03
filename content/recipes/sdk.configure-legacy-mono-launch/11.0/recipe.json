@@ -1,0 +1,127 @@
+{
+  "id": "sdk.configure-legacy-mono-launch",
+  "edition": "11.0",
+  "title": "Configure an explicit legacy Mono launch",
+  "goal": "Deliberately retain an unsupported Framework command-line application on Linux with Mono, explicit launch properties, quoted paths and a chosen working directory.",
+  "areas": [
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "tide-mono"
+  ],
+  "apis": [
+    "RunCommand",
+    "RunArguments",
+    "RunWorkingDirectory"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Linux x64 Docker execution; SDK 10.0.402 and SDK 11 RC2 comparison. RC2 is not GA evidence.",
+          "Catalogue target 11.0 selects the SDK family; the actual consumer remains net472, not net11.0."
+        ],
+        "sharedAreas": [],
+        "requirements": {
+          "runtime": {
+            "version": "6.8.0.105",
+            "name": "Mono",
+            "match": "exact",
+            "reason": "Retained unsupported Linux Framework execution, not a .NET 11 runtime requirement."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The current launch/output evaluation is SDK 11; historical comparison uses SDK 10."
+          },
+          "language": {
+            "version": "7.3",
+            "name": "C#",
+            "match": "exact",
+            "reason": "Explicit original sample language mode."
+          },
+          "frameworks": [
+            ".NET Framework 4.7.2 (net472), executed by Mono on Linux"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Mono 4.7.2-api reference assemblies from Ubuntu mono-devel 6.8.0.105+dfsg-3.6ubuntu2"
+          ],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Linux x64, actual Ubuntu 24.04 container"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Linux x64 with Mono and its 4.7.2-api Framework reference assemblies.",
+            "PowerShell7, existing Docker Linux x64 and network for the isolated authoring runner."
+          ],
+          "constraints": [
+            "No persistent environment changes; no public publication.",
+            "Microsoft no longer officially supports Framework applications on Linux through Mono. Prefer migration to supported .NET.",
+            "No universal Framework compatibility or Windows-to-Linux emulation; this sample targets net472 on both SDKs."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Current evidence uses SDK 11 RC2, not GA."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/mono-launch-target-removed"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ObservatoryImporter/ObservatoryImporter.csproj"
+        ],
+        "targetBasis": "sdk"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Configure an explicit legacy Mono launch",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/sdk/11/mono-launch-target-removed"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/ObservatoryImporter/ObservatoryImporter.csproj",
+      "language": "7.3",
+      "target": "net472",
+      "scope": "Real Linux x64 compilation and focused execution; exact commands, inputs and measured toolchains in saved evidence."
+    },
+    {
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/ObservatoryImporter/ObservatoryImporter.csproj",
+      "language": "7.3",
+      "target": "net472",
+      "scope": "Real Linux x64 compilation and focused execution; exact commands, inputs and measured toolchains in saved evidence."
+    }
+  ],
+  "snippets": {
+    "launch": {
+      "region": "launch",
+      "path": "samples/net11.0/ObservatoryImporter/ObservatoryImporter.csproj",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "scope": "Automated Linux x64 net472/Mono checks cover the retained launch behavior; no Human approval is required.",
+    "status": "not-required"
+  }
+}

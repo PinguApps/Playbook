@@ -1,5 +1,6 @@
 [CmdletBinding()]
-param([switch]$Pack)
+param([switch]$Pack,
+  [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source)
 
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $false
@@ -20,14 +21,14 @@ try {
     [regex]::Replace($narrative, '(?ms)(## Migration\r?\n).*?(?=^## )', '$1' + "`n[Read the implementation](https://example.invalid/steps)`n`n") |
       Set-Content (Join-Path $edition 'recipe.md') -NoNewline
     $packArgs = @('pack', (Join-Path $root 'src/PinguApps.Playbook'), '-c', 'Release', '--no-build', '-p:PackageVersion=0.0.0-content-fixture', "-p:RecipeRoot=$recipes", '--output', (Join-Path $fixture 'packages'))
-    $result = & dotnet @packArgs 2>&1 | Out-String
+    $result = & $Dotnet @packArgs 2>&1 | Out-String
     if ($LASTEXITCODE -eq 0 -or $result -notlike '*Migration requires offline implementation steps*') { throw "Pack accepted incomplete content: $result" }
     Write-Host 'Pack --no-build rejected incomplete content.'
     $narrative | Set-Content (Join-Path $edition 'recipe.md') -NoNewline
     $recipe = ConvertFrom-Json $original -AsHashtable
     $recipe.applicability.routes[0].requirements.sdk = '10.0.402 (verification baseline)'
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $edition 'recipe.json')
-    $result = & dotnet @packArgs 2>&1 | Out-String
+    $result = & $Dotnet @packArgs 2>&1 | Out-String
     if ($LASTEXITCODE -eq 0 -or $result -notlike '*Invalid recipe metadata*') { throw "Pack accepted an ambiguous requirement: $result" }
     Write-Host 'Pack --no-build rejected a prose verification pin in requirements.'
     $original | Set-Content (Join-Path $edition 'recipe.json')
@@ -36,7 +37,7 @@ try {
     $recipe = ConvertFrom-Json $original -AsHashtable
     $recipe.goal += ' Changed since compilation.'
     $recipe | ConvertTo-Json -Depth 30 | Set-Content (Join-Path $edition 'recipe.json')
-    $result = & dotnet @packArgs 2>&1 | Out-String
+    $result = & $Dotnet @packArgs 2>&1 | Out-String
     if ($LASTEXITCODE -eq 0 -or $result -notlike '*differs from the compiled catalogue*') { throw "Pack accepted stale compiled content: $result" }
     if (Get-ChildItem (Join-Path $fixture 'packages') -Filter *.nupkg -ErrorAction SilentlyContinue) { throw 'Rejected content produced a package.' }
     Write-Host 'Pack --no-build rejected valid content changed since compilation; no package produced.'
@@ -51,6 +52,8 @@ try {
     @{ Name = 'incompatible edition'; Change = { $recipe.edition = '9.0' }; Error = 'Edition predates introduction' },
     @{ Name = 'missing route'; Change = { $recipe.applicability.routes = @($recipe.applicability.routes | Where-Object target -ne '11.0') }; Error = 'Missing applicability route' },
     @{ Name = 'wrong target evidence'; Change = { $recipe.applicability.routes[2].evidenceSamples = @($recipe.evidence[1].sample) }; Error = 'Route evidence must reference a sample for the exact target' },
+    @{ Name = 'wrong SDK target evidence'; Change = { $recipe.applicability.routes[2].targetBasis = 'sdk'; $recipe.applicability.routes[2].evidenceSamples = @($recipe.evidence[0].sample) }; Error = 'SDK-based route evidence must reference a sample built with the exact target SDK family' },
+    @{ Name = 'unknown target basis'; Change = { $recipe.applicability.routes[0].targetBasis = 'anything' }; Error = 'Invalid recipe metadata' },
     @{ Name = 'unverified conditional route'; Change = { $recipe.introducedIn = '11.0'; $recipe.edition = '11.0' }; Error = 'explicit conditional route' },
     @{ Name = 'missing selection declaration'; Change = { $recipe.applicability.routes[0].Remove('selectionNotes') }; Error = 'Invalid recipe metadata' },
     @{ Name = 'missing source reference'; Change = { $recipe.applicability.routes[0].sourceUrls = @('https://example.invalid/missing') }; Error = 'Route source' },
