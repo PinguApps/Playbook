@@ -48,8 +48,8 @@
             "version": "11.0"
           },
           "constraints": [
-            "Network changes do not establish service reachability. Thread support does not promise a speedup.",
-            "Browser/WASI require an explicit network guard before the RC2 NetworkChange.IsSupported getter."
+            "Address events are invalidation hints, not service reachability. A supported platform can still fail to subscribe for environmental reasons.",
+            "Exclude browser/WASI before reading the RC2 NetworkChange.IsSupported getter; dispose the subscription with its owner. Unsubscription does not drain already queued callbacks."
           ]
         },
         "sharedAreas": [
@@ -62,14 +62,12 @@
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs"
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj"
         ],
         "selectionNotes": [
-          "Use the selected capability guard before scheduling work or subscribing; explicit fallback is required."
+          "Guard before subscribing and retain an application-owned manual Refresh action when notifications are unavailable."
         ],
         "evidenceSamples": [
           "samples/net11.0/ReedStation/ReedStation.csproj"
@@ -124,13 +122,13 @@
           ],
           "runtime": {
             "match": "release-family",
-            "reason": "Uses .NET 11 shared-framework contracts.",
+            "reason": "Matching interpreted Mono browser runtime assets; the explicit platform guard selects manual refresh before accessing the unsupported RC2 network getter.",
             "name": ".NET",
             "version": "11.0"
           },
           "constraints": [
-            "Network changes do not establish service reachability. Thread support does not promise a speedup.",
-            "Browser/WASI require an explicit network guard before the RC2 NetworkChange.IsSupported getter."
+            "Address events are invalidation hints, not service reachability. A supported platform can still fail to subscribe for environmental reasons.",
+            "Exclude browser/WASI before reading the RC2 NetworkChange.IsSupported getter; dispose the subscription with its owner. Unsubscription does not drain already queued callbacks."
           ]
         },
         "sharedAreas": [
@@ -143,14 +141,12 @@
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
           "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs"
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj"
         ],
         "selectionNotes": [
-          "Use the sequential/manual-refresh fallback on a single-thread Mono browser."
+          "Use manual refresh on Mono browser; exclude browser before accessing the unsupported RC2 network capability getter."
         ],
         "evidenceSamples": [
           "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj"
@@ -175,10 +171,6 @@
       "title": "Official pinned source System.Net.NetworkInformation.csproj"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
-      "title": "Official pinned source RuntimeFeature.cs"
-    },
-    {
       "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
       "title": "Official pinned source System.Net.NetworkInformation.cs"
     },
@@ -189,10 +181,6 @@
     {
       "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
       "title": "Official pinned source System.Net.NetworkInformation.csproj"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
-      "title": "Official pinned source RuntimeFeature.cs"
     }
   ],
   "snippets": {
@@ -233,13 +221,13 @@
       "kind": "compile-and-run",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStation/ReedStation.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned Windows compilation and network subscription/disposal; real Linux events and browser fallback execute in the separate behavior receipt.",
       "language": "14.0"
     },
     {
       "kind": "execution",
       "target": "net10.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStation/ReedStation.csproj",
       "record": "samples/net10.0/ReedStation/behavior.evidence.json",
@@ -250,13 +238,13 @@
       "kind": "compile",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStationBrowser/ReedStationBrowser.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned Mono browser compilation; guarded manual-refresh fallback executes in the separate behavior receipt.",
       "language": "14.0"
     },
     {
       "kind": "execution",
       "target": "net10.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net10.0/ReedStationBrowser/behavior.evidence.json",
@@ -267,13 +255,13 @@
       "kind": "compile-and-run",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned Windows compilation and network subscription/disposal; real Linux events and browser fallback execute in the separate behavior receipt.",
       "language": "15.0"
     },
     {
       "kind": "execution",
       "target": "net11.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "record": "samples/net11.0/ReedStation/behavior.evidence.json",
@@ -284,13 +272,13 @@
       "kind": "compile",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned Mono browser compilation; guarded manual-refresh fallback executes in the separate behavior receipt.",
       "language": "15.0"
     },
     {
       "kind": "execution",
       "target": "net11.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Linux address-change event and unsubscription, plus Mono Chromium manual-refresh fallback. No reachability, queued-callback-draining, other-platform or GA claim.",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net11.0/ReedStationBrowser/behavior.evidence.json",

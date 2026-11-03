@@ -3455,7 +3455,8 @@ are not claimed.
 
 Requires PowerShell7, Node24, the pinned .NET10/.NET11 SDK/runtime installations,
 the existing Docker Desktop Linux engine, and the authoring Chromium/Playwright
-paths declared in eng/Record-SupportPaths.ps1. Browser proof uses interpreted Mono;
+paths declared in eng/Record-SupportPaths.ps1. The pinned local SDK10.0.402 Docker
+image is required; the driver uses --pull never. Browser proof uses interpreted Mono;
 no wasm-tools installation or persistent environment change is required.
 
 Refresh affected evidence, then inspect the ordinary installed artifact from any
@@ -3473,11 +3474,14 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-19bf5428'
   -OutputDirectory './artifacts/support-paths/inspection'
 ```
 
-Expect score48/cancellation on both desktop and single-thread browsers, real Linux
+Expect the real missing-image startup cleanup regression to pass, then
+score48/cancellation on both desktop and single-thread browsers, real Linux
 address events and no callback for the separate post-disposal change, plus browser
 manual-refresh fallback. The RC2 browser NetworkChange.IsSupported getter throws
 without an explicit browser/WASI exclusion; the delivered route keeps that guard.
-Docker resources are removed. The installed inspector prints ID/title/goal,
+The cleanup control intentionally prints Docker's No such image error, followed by
+a cleanup PASS; it performs no pull. Docker resources are removed. The installed
+inspector prints ID/title/goal,
 complete canonical Markdown, explicit target11/edition11, applicability and fresh
 evidence, then exact-artifact PASS. Target10 returns no_applicable_edition.
 No worker-count/speedup, in-flight browser cancellation, WASI, threaded-browser,

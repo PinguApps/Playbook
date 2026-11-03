@@ -11,7 +11,8 @@
     ".editorconfig",
     "docs/planning/audits/runtime-security.assets.json",
     "eng/Record-SupportPaths.ps1",
-    "samples/NetworkBuffers/RuntimeIdentity.cs"
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Test-SupportPathsCleanup.ps1"
   ],
   "nativeToolchains": []
 }

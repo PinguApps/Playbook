@@ -33,6 +33,8 @@ try {
    if($name -eq 'ReedStationBrowser'){Push-Location (Split-Path $sample);try{& $dn publish -c Release --no-restore -p:PublishTrimmed=false}finally{Pop-Location}}
   }
  }
+ $cleanup=(& "$PSScriptRoot/Test-SupportPathsCleanup.ps1" | Out-String)
+ Write-Host $cleanup
  $network=(& "$PSScriptRoot/Test-SupportPaths.ps1" | Out-String)
  Write-Host $network
  & 'C:/Program Files/nodejs/node.exe' "$PSScriptRoot/Test-SupportPaths.mjs" 'C:/Users/pingu/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules/playwright-core' 'C:/Users/pingu/AppData/Local/ms-playwright/chromium-1248/chrome-win64/chrome.exe'
@@ -40,8 +42,8 @@ try {
   $directory="samples/net$major.0/$name"
   $receipt=Get-Content "$directory/verification-evidence.json" -Raw|ConvertFrom-Json -AsHashtable
   $receipt.kind='execution';$receipt.recordedAt=[DateTimeOffset]::UtcNow.ToString('O')
-  $receipt.command='eng/Record-SupportPaths.ps1 -Record: actual paired compile/publish, Docker internal interface attach/detach and Chromium browser consumers'
-  $receipt.output+= "`n" + $network + "`n" + (Get-Content artifacts/support-paths/browser.json -Raw)
+  $receipt.command='eng/Record-SupportPaths.ps1 -Record: actual paired compile/publish, real Docker missing-image cleanup regression, internal interface attach/detach and Chromium browser consumers'
+  $receipt.output+= "`n" + $cleanup + "`n" + $network + "`n" + (Get-Content artifacts/support-paths/browser.json -Raw)
   $receipt.scope='Actual paired Windows desktop/Mono single-thread Chromium and Linux Docker consumers: score48, pre-cancellation, real address event, no callback for change after disposal, browser manual-refresh fallback. No other platforms, WASI, threaded browser, in-flight cancellation or GA proof.'
   [IO.File]::WriteAllText((Join-Path $root "$directory/behavior.evidence.json"),($receipt|ConvertTo-Json -Depth 40).Replace("`r`n","`n")+"`n")
  }}}

@@ -29,8 +29,8 @@
           ],
           "workloads": [],
           "prerequisites": [
-            "Copy the complete class and required imports into a net11.0 project; use implicit usings and nullable enabled.",
-            "Choose application-owned invalidation and manual-refresh callbacks; dispose subscriptions with their owner."
+            "Use the complete PlotScorer class with implicit usings and nullable enabled in a net11.0 project.",
+            "Provide a caller-owned CancellationToken and immutable input counts; each iteration must own its output slot."
           ],
           "platforms": [
             "Windows x64 and Linux x64 desktop measured; other desktop platforms unverified."
@@ -48,8 +48,9 @@
             "version": "11.0"
           },
           "constraints": [
-            "Network changes do not establish service reachability. Thread support does not promise a speedup.",
-            "Browser/WASI require an explicit network guard before the RC2 NetworkChange.IsSupported getter."
+            "Thread support is a capability, not a guarantee of multiple concurrent workers or a speedup.",
+            "Keep the sequential fallback free of Task.Run, Parallel APIs, thread creation and blocking waits.",
+            "Cancellation is cooperative. A synchronous browser call blocks its event loop; pre-cancellation is verified, not externally signaled in-flight browser cancellation."
           ]
         },
         "sharedAreas": [
@@ -59,17 +60,13 @@
           "wpf"
         ],
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs"
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading.Tasks.Parallel/src/System/Threading/Tasks/Parallel.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading.Tasks.Parallel/src/System/Threading/Tasks/Parallel.cs"
         ],
         "selectionNotes": [
-          "Use the selected capability guard before scheduling work or subscribing; explicit fallback is required."
+          "Choose this route for independent work that can use threads when available and retain the same result and cancellation in a sequential fallback."
         ],
         "evidenceSamples": [
           "samples/net11.0/ReedStation/ReedStation.csproj"
@@ -108,8 +105,8 @@
           ],
           "workloads": [],
           "prerequisites": [
-            "Copy the complete class and required imports into a net11.0 project; use implicit usings and nullable enabled.",
-            "Choose application-owned invalidation and manual-refresh callbacks; dispose subscriptions with their owner."
+            "Use the complete PlotScorer class with implicit usings and nullable enabled in a net11.0 project.",
+            "Provide a caller-owned CancellationToken and immutable input counts; each iteration must own its output slot."
           ],
           "platforms": [
             "Single-thread interpreted Mono browser in Windows Chromium measured; other browsers, WASI and threaded browser unverified."
@@ -124,13 +121,14 @@
           ],
           "runtime": {
             "match": "release-family",
-            "reason": "Uses .NET 11 shared-framework contracts.",
+            "reason": "Matching Mono browser runtime assets expose the .NET11 threading capability; the actual single-thread route selects the ordinary loop.",
             "name": ".NET",
             "version": "11.0"
           },
           "constraints": [
-            "Network changes do not establish service reachability. Thread support does not promise a speedup.",
-            "Browser/WASI require an explicit network guard before the RC2 NetworkChange.IsSupported getter."
+            "Thread support is a capability, not a guarantee of multiple concurrent workers or a speedup.",
+            "Keep the sequential fallback free of Task.Run, Parallel APIs, thread creation and blocking waits.",
+            "Cancellation is cooperative. A synchronous browser call blocks its event loop; pre-cancellation is verified, not externally signaled in-flight browser cancellation."
           ]
         },
         "sharedAreas": [
@@ -140,17 +138,13 @@
           "wpf"
         ],
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
           "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs"
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading.Tasks.Parallel/src/System/Threading/Tasks/Parallel.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading.Tasks.Parallel/src/System/Threading/Tasks/Parallel.cs"
         ],
         "selectionNotes": [
-          "Use the sequential/manual-refresh fallback on a single-thread Mono browser."
+          "Use the ordinary sequential loop on a single-thread Mono browser; do not schedule unsupported threads or use blocking synchronization."
         ],
         "evidenceSamples": [
           "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj"
@@ -163,36 +157,20 @@
   },
   "sources": [
     {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
-      "title": "Official pinned source System.Net.NetworkInformation.cs"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-      "title": "Official pinned source NetworkAddressChange.cs"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-      "title": "Official pinned source System.Net.NetworkInformation.csproj"
-    },
-    {
       "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
-      "title": "Official pinned source RuntimeFeature.cs"
+      "title": "Official pinned RuntimeFeature (4099f83)"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs",
-      "title": "Official pinned source System.Net.NetworkInformation.cs"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs",
-      "title": "Official pinned source NetworkAddressChange.cs"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj",
-      "title": "Official pinned source System.Net.NetworkInformation.csproj"
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Threading.Tasks.Parallel/src/System/Threading/Tasks/Parallel.cs",
+      "title": "Official pinned Parallel and cancellation options (4099f83)"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs",
-      "title": "Official pinned source RuntimeFeature.cs"
+      "title": "Official pinned RuntimeFeature (820230c)"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Threading.Tasks.Parallel/src/System/Threading/Tasks/Parallel.cs",
+      "title": "Official pinned Parallel and cancellation options (820230c)"
     }
   ],
   "snippets": {
@@ -233,13 +211,13 @@
       "kind": "compile-and-run",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStation/ReedStation.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned desktop compilation and execution: threading capability, deterministic score48 and caller pre-cancellation.",
       "language": "14.0"
     },
     {
       "kind": "execution",
       "target": "net10.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStation/ReedStation.csproj",
       "record": "samples/net10.0/ReedStation/behavior.evidence.json",
@@ -250,13 +228,13 @@
       "kind": "compile",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStationBrowser/ReedStationBrowser.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned Mono browser compilation; capability selection and sequential result/cancellation execute in the separate behavior receipt.",
       "language": "14.0"
     },
     {
       "kind": "execution",
       "target": "net10.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
       "sdk": "10.0.402",
       "sample": "samples/net10.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net10.0/ReedStationBrowser/behavior.evidence.json",
@@ -267,13 +245,13 @@
       "kind": "compile-and-run",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned desktop compilation and execution: threading capability, deterministic score48 and caller pre-cancellation.",
       "language": "15.0"
     },
     {
       "kind": "execution",
       "target": "net11.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStation/ReedStation.csproj",
       "record": "samples/net11.0/ReedStation/behavior.evidence.json",
@@ -284,13 +262,13 @@
       "kind": "compile",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
-      "scope": "Real paired compilation; desktop execution or browser publish, with runtime-specific behavior captured separately.",
+      "scope": "Actual pinned Mono browser compilation; capability selection and sequential result/cancellation execute in the separate behavior receipt.",
       "language": "15.0"
     },
     {
       "kind": "execution",
       "target": "net11.0",
-      "scope": "Real Windows/Linux and Mono Chromium checks: result48, cancellation, supported subscription/event/disposal and browser manual-refresh fallback.",
+      "scope": "Real paired Windows/Linux threaded and Mono Chromium sequential execution: identical score48 and pre-cancellation; no scheduling in the false branch. No speedup, worker-count, in-flight browser cancellation, WASI or GA claim.",
       "sdk": "11.0.100-rc.2.26504.105",
       "sample": "samples/net11.0/ReedStationBrowser/ReedStationBrowser.csproj",
       "record": "samples/net11.0/ReedStationBrowser/behavior.evidence.json",

@@ -43,7 +43,8 @@
     "eng/Record-SupportPaths.ps1",
     "samples/net10.0/ReedStation/SupportPaths.cs",
     "samples/net10.0/ReedStation/StationNetwork.cs",
-    "samples/net10.0/ReedStation/PlotScorer.cs"
+    "samples/net10.0/ReedStation/PlotScorer.cs",
+    "eng/Test-SupportPathsCleanup.ps1"
   ],
   "nativeToolchains": []
 }

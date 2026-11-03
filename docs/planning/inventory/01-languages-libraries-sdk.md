@@ -372,8 +372,7 @@ manifest preserves every declaration delta and complete bounded obsolete lists;
 the disposition rules assign every delta, including annotation-only changes.
 
 New included draft goals: MAC verification, registered certificate identifiers,
-non-SRV DNS records, parallel dual-stack connections, endpoint buffers, guarded
-network monitoring/threading, atomic enum flags, C layout, emitted function-pointer
+non-SRV DNS records, parallel dual-stack connections, endpoint buffers, atomic enum flags, C layout, emitted function-pointer
 calls, JS float buffers, trimmed native exports, generated COM properties, custom
 WASM hosts, provider-backed keys, AEAD key-size inspection, Windows-auth HTTP
 workaround removal, SOCKS proxy DNS, MIME mappings, asynchronous mobile HTTP,
@@ -381,6 +380,11 @@ zstd responses, aligned type-lifetime memory, Unix mutex scope, 32-bit GC budget
 and XML signature-reference budgets. Each has its own native estimate,
 prerequisites and real evidence acceptance in the audit; delivery updates below
 and in the audit distinguish completed slices from outstanding drafts.
+
+Network monitoring and supported threading paths are delivered as
+[PIN-1092](../../../content/recipes/networking.guard-change-monitoring/11.0/recipe.md)
+and [PIN-1093](../../../content/recipes/runtime.select-threading-path/11.0/recipe.md),
+both edition11.0, with the bounded evidence and limitations recorded below.
 
 | Goal | Authoring impact and actual artifacts | Disposition and evidence |
 | --- | --- | --- |
@@ -390,6 +394,8 @@ and in the audit distinguish completed slices from outstanding drafts.
 | `dns.inspect-typed-records` | Framework .NET11 typed A/AAAA/MX/TXT/CNAME/PTR/NS versus actual DnsClient1.8.0/net8.0 on .NET10; SRV/shared envelope stays PIN-754. | [PIN-1089 edition11.0](../../../content/recipes/dns.inspect-typed-records/11.0/recipe.md): actual Windows/Linux authoritative loopback fields/TTLs, statuses/SOA negative TTL, server override and pre/in-flight cancellation. Exact images, commands and separate Linux records. No public zone/connection/system-resolver/GA claim. |
 | `sockets.race-dual-stack-connections` | .NET11 static event-args ConnectAlgorithm overload versus original .NET10 explicit address scheduling; framework-only, checked localhost answers and isolated IPv4/IPv6 listeners/refusals. | [PIN-1090 edition11.0](../../../content/recipes/sockets.race-dual-stack-connections/11.0/recipe.md): actual Windows Default/Parallel success/fallback/failure, selected-peer payload, event contract and cancellation/draining/cleanup. No fixed latency, WAN, DNS-outage or GA claim. |
 | `networking.parse-endpoint-buffers` | .NET11 IPEndPoint UTF8 Parse/TryParse and byte/char TryFormat/interfaces versus valid .NET10 string adapter; no package/native dependency. | [PIN-1091 edition11.0](../../../content/recipes/networking.parse-endpoint-buffers/11.0/recipe.md): paired real parsing/port/malformed/short-buffer/boundary checks; current char and generic interfaces. Avoids intermediate text strings, not endpoint objects; no performance/GA claim. |
+| `networking.guard-change-monitoring` | .NET11 NetworkChange.IsSupported versus a bounded .NET10 desktop allowlist; explicit browser/WASI exclusion before the throwing RC2 browser getter. | [PIN-1092 edition11.0](../../../content/recipes/networking.guard-change-monitoring/11.0/recipe.md): actual paired Linux interface-change events/unsubscription and Mono browser manual-refresh fallback; fresh artifact evidence and installed offline retrieval. No reachability, queued-callback-draining, other-platform or GA claim. |
+| `runtime.select-threading-path` | .NET11 RuntimeFeature.IsMultithreadingSupported versus a bounded .NET10 browser/WASI exclusion; same ordinary sequential fallback without thread scheduling. | [PIN-1093 edition11.0](../../../content/recipes/runtime.select-threading-path/11.0/recipe.md): actual Windows/Linux threaded and Mono Chromium single-thread score48 and pre-cancellation. No speedup, worker count, in-flight browser cancellation, WASI or GA claim. |
 | `threading.update-enum-flags-atomically` | .NET11 generic enum/integer And/Or versus valid .NET10 int-backed CAS; framework-only, no unsafe caller code. | [PIN-1094 edition11.0](../../../content/recipes/threading.update-enum-flags-atomically/11.0/recipe.md): paired Windows contention, prior-value chains and unrelated-bit preservation; current backing sizes/high bits and unsupported structs. Per-location atomicity only; no multi-field/performance/GA claim. |
 | `reflection.emit-function-pointer-calls` | .NET11 DynamicMethod EmitCalli(Type) versus .NET10 explicit managed Standard/native StdCall signatures; dynamic code and unsafe C# required. | [PIN-1096 edition11.0](../../../content/recipes/reflection.emit-function-pointer-calls/11.0/recipe.md): paired real managed/Windows MulDiv calls, signed rounding/failure sentinels, direct typed-pointer comparison and signature rejection. Windows x64 unified ABI only; no x86, AOT, marshalling or GA claim. |
 | `interop.match-native-c-layout` | .NET11 CStruct/CUnion runtime layout versus explicit .NET10 offsets for a known ABI. | [PIN-1095 edition11.0](../../../content/recipes/interop.match-native-c-layout/11.0/recipe.md): actual MSVC Windows x64 size/alignment/offset agreement, struct/union pointer round trips and packed-layout rejection. No universal ABI, by-value-call, other-platform or GA claim. |
