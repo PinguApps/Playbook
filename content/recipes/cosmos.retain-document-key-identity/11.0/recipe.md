@@ -64,7 +64,7 @@ EF Cosmos11 requires net11.0, SDK11 and C#15 in this sample; the EF10 comparison
 
 Paired exact-artifact records retain actual SDKs, dependencies, input hashes, compilation and local-emulator execution. They cover historical composite IDs, compatibility/collision checks and explicit undefined filtering/fallback versus JSON null. The EF11 consumer additionally checks default reachability and a legal new composite ID in a separate process.
 
-**GA retest required:** the official .NET11 documentation defines the intended contract. Actual EF11 RC2 and RC3 single-property projections still emit `SELECT VALUE` and silently omit the absent nested path. The sample records both single- and multi-property observations; it does not label them GA proof. Pingu approved delivery with this discrepancy disclosed on 3 November 2026. When .NET11 goes GA, refresh the SDK/package pins, rerun against the real provider and verify that both projection shapes throw. The sample's `--verify-ga` mode enforces both exceptions. Keep the safe IsDefined/CoalesceUndefined guidance regardless of query shape.
+The shared consumer also records projection observations for `cosmos.handle-missing-projection`. Its documented undefined-exception contract requires a real GA retest; that separate limitation does not weaken the identity checks above. Actual GA reconciliation of this identity guidance also remains pending.
 
 No mocks, cloud service parity, production data migration, performance result or GA execution is claimed. Installed offline retrieval separately checks canonical full Markdown, applicability and target11/edition11; older comparison samples add no target10 edition.
 
