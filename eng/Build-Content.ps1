@@ -84,8 +84,14 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
       if ($url -cnotin $recipe.sources.url) { throw 'Route source must reference a declared official source.' }
     }
     foreach ($sample in $route.evidenceSamples) {
-      $baseline = @($recipe.evidence | Where-Object { $_.sample -ceq $sample -and $_.target -cmatch "^net$([regex]::Escape($route.target))(-|$)" })
+      $sdkBased = $route.ContainsKey('targetBasis') -and $route.targetBasis -ceq 'sdk'
+      $baseline = @($recipe.evidence | Where-Object {
+        $_.sample -ceq $sample -and $(if ($sdkBased) {
+          $_.sdk -cmatch "^$([regex]::Escape($route.target))([.-]|$)"
+        } else { $_.target -cmatch "^net$([regex]::Escape($route.target))(-|$)" })
+      })
       if ($baseline.Count -eq 0) {
+        if ($sdkBased) { throw 'SDK-based route evidence must reference a sample built with the exact target SDK family.' }
         throw 'Route evidence must reference a sample for the exact target.'
       }
       foreach ($field in @('sdk', 'language')) {
@@ -125,8 +131,11 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
     }
     else {
       [xml]$project = Get-Content -LiteralPath $projectPath -Raw
-      $sampleTarget = $project.Project.PropertyGroup.TargetFramework
-      $sampleLanguage = $project.Project.PropertyGroup.LangVersion
+      $targets = $project.SelectNodes('/Project/PropertyGroup/TargetFramework')
+      $languages = $project.SelectNodes('/Project/PropertyGroup/LangVersion')
+      if ($targets.Count -ne 1 -or $languages.Count -ne 1) { throw 'Evidence projects require one explicit TargetFramework and LangVersion.' }
+      $sampleTarget = $targets[0].InnerText
+      $sampleLanguage = $languages[0].InnerText
     }
     $pin = Get-Content -LiteralPath (Join-Path (Split-Path $projectPath) 'global.json') -Raw | ConvertFrom-Json
     if ($sampleTarget -cne $evidence.target -or
