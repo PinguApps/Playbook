@@ -56,6 +56,8 @@ Cosmos; no switch restores sync in EF Core 11. Requires EF11/net11.0/SDK11/C#15;
 
 ## Evidence
 
+The official EF11 breaking-change reference establishes that no opt-in restores synchronous I/O. The executable sample verifies default-path rejection and working asynchronous operations; it does not enumerate configuration switches.
+
 Canonical compilation and focused real local execution are distinct from source review, mocks and cross-compilation. Exact SDKs, packages, input hashes and outputs are retained in the evidence records. Installed offline list/get checks full body, applicability and target11/edition11; target10 has no applicable edition. No cloud parity or GA execution is claimed.
 
 ## References

@@ -90,7 +90,7 @@
           ],
           "prerequisites": [
             "Copy complete projects below and restore exact locked pins.",
-            "Run eng/Test-BeaconMigrations.ps1."
+            "Run eng/Test-BeaconMigrations.ps1 -Record."
           ],
           "optIns": [],
           "stabilityLimitations": [
