@@ -509,3 +509,7 @@
 /samples/net11.0/HarbourIndexes/verification-evidence.json
 /samples/net10.0/HarbourSaves/verification-evidence.json
 /samples/net11.0/HarbourSaves/verification-evidence.json
+# Record-Evidence emits generated SDK/dependency/compiler receipts. Review the
+# canonical ReefDocuments consumers, locks and runner; build checks freshness.
+/samples/net10.0/ReefDocuments/verification-evidence.json
+/samples/net11.0/ReefDocuments/verification-evidence.json

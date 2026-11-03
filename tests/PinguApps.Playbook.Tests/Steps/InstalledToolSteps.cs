@@ -1301,6 +1301,14 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("Cosmos ingestion session and document ownership retain complete offline guidance")]
+    public async Task CheckReefDocumentsAsync()
+    {
+        string[] ids = ["cosmos.carry-session-consistency", "cosmos.enable-bulk-writes", "cosmos.preserve-document-fields", "cosmos.read-raw-document"];
+        await CheckWebRecipesAsync(ids, "reef-documents", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
     [Then("Cosmos policy and save scope retain complete offline guidance")]
     public async Task CheckCosmosPolicyGuidanceAsync()
     {

@@ -1,6 +1,14 @@
 Feature: Installed offline guidance
   Coding agents retrieve original guidance from the distributed artifact without a checkout.
 
+  @ReefDocuments
+  Scenario: Cosmos ingestion session and document ownership retain complete offline guidance
+    Given the actual package is installed from an isolated local feed and cache
+    When a client initializes the installed stdio server outside the checkout
+    Then Cosmos ingestion session and document ownership retain complete offline guidance
+    When the client closes its input
+    Then the server exits cleanly with diagnostics on stderr
+
   @CosmosPolicyGuidance
   Scenario: Cosmos policy and save scope retain complete offline guidance
     Given the actual package is installed from an isolated local feed and cache

@@ -3217,3 +3217,36 @@ Policy acceptance proves no vector/full-text query behavior or performance.
 This is RC2/local emulator evidence, not GA or cloud parity. The installed-package
 CosmosPolicyGuidance scenario separately verifies offline feed/cache retrieval,
 complete canonical body, applicability, target edition and older-target refusal.
+## Cosmos ingestion, session handoff and document ownership
+
+The paired ReefDocuments consumers require the existing SDK10.0.402 and SDK11 RC2,
+locked EF10/11 and Cosmos3.63.1 packages, PowerShell7 and the approved local Docker
+Cosmos route. They create/remove uniquely marked databases and stop the empty
+emulator. No Azure account, cloud credentials or production resources are used.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-fb519fff'
+& ./eng/Test-ReefDocuments.ps1 -Record
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('cosmos.carry-session-consistency','cosmos.enable-bulk-writes','cosmos.preserve-document-fields','cosmos.read-raw-document') `
+  -Query 'reef-documents' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin868-870' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/reef-documents/inspection'
+```
+
+Expect bulk persistence/duplicate rejection, owner-scoped actual token handoff
+between independent clients, old preservation/new removal of an unmapped field,
+raw JSON round trip and stale-ETag rejection. Bulk uses automatic SDK sessions;
+manual token work uses a separate non-bulk client. The pinned SDK rejects explicit
+session request options with bulk enabled. Docs spell BulkExecutionEnabled;
+the pinned RC2 assembly exposes BulkExecutionAllowed, used in the compiled sample.
+
+The inspection block is checked from unrelated C:\. It packs/builds the ordinary
+tool, installs the exact local artifact in an isolated feed/cache and retrieves
+real stdio list/get from an unrelated temporary directory. It prints ID/title/goal,
+complete canonical Markdown, applicability and fresh target11/edition11 evidence.
+Target10 has no applicable edition. Unusable retrieval proxies establish proxy
+independence, not OS network isolation. No throughput, cloud consistency enforcement,
+multi-region or GA claim is made. Existing Human/GA gates remain open.
