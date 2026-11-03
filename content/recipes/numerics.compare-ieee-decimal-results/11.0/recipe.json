@@ -1,0 +1,183 @@
+{
+  "id": "numerics.compare-ieee-decimal-results",
+  "edition": "11.0",
+  "title": "Choose a contract for IEEE-decimal function results",
+  "goal": "Compare and retain calculated IEEE-decimal results after numerical corrections using explicit tolerances and reversible, versioned output migration.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "numerics",
+    "comparison",
+    "persistence"
+  ],
+  "apis": [
+    "Decimal128.Acos",
+    "Decimal128.Log",
+    "Decimal128.SinPi",
+    "IFloatingPointIeee754<T>"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Compare and retain calculated IEEE-decimal results after numerical corrections using explicit tolerances and reversible, versioned output migration.",
+          "Exact RC evidence does not establish final GA verification."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Execute the selected framework contracts; exact runtime artifacts are separate verification baselines."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [],
+          "platforms": [
+            "Platforms supported by .NET11; Windows x64 measured"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Workload-free net11.0 console project; ImplicitUsings and Nullable enabled; namespace Observatory; canonical helpers in separate files."
+          ],
+          "constraints": [
+            "Framework IEEE decimal is distinct from System.Decimal and from Math/double; no framework .NET10 equivalent.",
+            "No correct-rounding guarantee or universal epsilon. Keep exact input IDs and historical outputs."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC1/RC2 numeric outputs differ; these functions are not guaranteed correctly rounded. Actual GA reconciliation remains open."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Decimal32.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Decimal64.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Decimal128.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.Transcendental.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128InvTrig.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128Log.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128PiTrig.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.Transcendental.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128InvTrig.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128Log.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128PiTrig.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ObservatoryResults/ObservatoryResults.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft .NET 11 library release guidance",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Decimal32.cs"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Decimal64.cs"
+    },
+    {
+      "title": "Microsoft numeric contract or compatibility source",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Numerics/Decimal128.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.Transcendental.cs",
+      "title": "rc1-Number.DecimalIeee754.Transcendental.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128InvTrig.cs",
+      "title": "rc1-Number.DecimalIeee754.DiyFp128InvTrig.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128Log.cs",
+      "title": "rc1-Number.DecimalIeee754.DiyFp128Log.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/3551975be08744f0418857c5bed8ab1545c5dd47/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128PiTrig.cs",
+      "title": "rc1-Number.DecimalIeee754.DiyFp128PiTrig.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.Transcendental.cs",
+      "title": "rc2-Number.DecimalIeee754.Transcendental.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128InvTrig.cs",
+      "title": "rc2-Number.DecimalIeee754.DiyFp128InvTrig.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128Log.cs",
+      "title": "rc2-Number.DecimalIeee754.DiyFp128Log.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Number.DecimalIeee754.DiyFp128PiTrig.cs",
+      "title": "rc2-Number.DecimalIeee754.DiyFp128PiTrig.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "scope": "Actual .NET10 Math/double bounded leading-term comparison, unacceptable drift and nonfinite rejection, overflow fail-closed regression and shared reversible versioned proposal checks. Different representation from IEEE decimal; no decimal emulation or GA claim.",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ObservatoryResults/ObservatoryResults.csproj",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual .NET11RC2 cancellation-sensitive independent bound, alternate decimal input representations, Decimal32/64 ordinary controls, explicit-base Log, signed zero/nonfinite policy, stale-RC1 rejection, overflow fail-closed regression and reversible versioned proposal checks. Actual RC1 execution compares the same compiled consumer using the pinned RC1 runtime; no RC1 compilation or GA claim.",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ObservatoryResults/ObservatoryResults.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "contract",
+      "path": "samples/net10.0/ObservatoryResults/Results.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "contract",
+      "path": "samples/net11.0/ObservatoryResults/Results.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual local Windows provider and managed checks require no interactive approval; no production keys, trust stores or data touched."
+  }
+}

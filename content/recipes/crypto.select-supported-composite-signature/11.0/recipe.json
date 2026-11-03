@@ -1,0 +1,145 @@
+{
+  "id": "crypto.select-supported-composite-signature",
+  "edition": "11.0",
+  "title": "Gate Windows composite signatures by the exact algorithm",
+  "goal": "Require the agreed composite signature parameter set when signing Windows bulletins; reject unavailable algorithms without substituting a different signature contract.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "cryptography",
+    "composite-signatures",
+    "windows"
+  ],
+  "apis": [
+    "CompositeMLDsa.IsAlgorithmSupported",
+    "CompositeMLDsa.GenerateKey"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Require the agreed composite signature parameter set when signing Windows bulletins; reject unavailable algorithms without substituting a different signature contract.",
+          "Exact RC evidence does not establish final GA verification."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Execute the selected framework contracts; exact runtime artifacts are separate verification baselines."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build against the .NET 11 reference assemblies; exact RC2 is the recorded test baseline."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample language mode; no experimental language feature is required."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "providers": [
+            "Windows CNG provider supporting the exact agreed CompositeMLDsaAlgorithm"
+          ],
+          "platforms": [
+            "Windows with measured exact-algorithm support; ordinary OS version alone is insufficient"
+          ],
+          "renderingModes": [],
+          "workloads": [],
+          "prerequisites": [
+            "Workload-free net11.0 console project; ImplicitUsings and Nullable enabled; namespace Observatory; canonical helpers in separate files."
+          ],
+          "constraints": [
+            "No algorithm substitution or classical-only fallback; peer agreement includes parameter set, public key and exact payload bytes.",
+            "No Windows composite certificate support is claimed. Probe results do not prove successful operations."
+          ],
+          "optIns": [
+            "Explicit SYSLIB5006 opt-in in the sample project; no blanket warning suppression"
+          ],
+          "stabilityLimitations": [
+            "Experimental SYSLIB5006; API/provider contract may change. Actual GA reconciliation remains open."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/compositemldsa-windows-native.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/PqcBlobHelpers.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ObservatoryBulletins/ObservatoryBulletins.csproj"
+        ],
+        "sharedAreas": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "composite-native",
+      "url": "https://raw.githubusercontent.com/dotnet/docs/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/cryptography/11/compositemldsa-windows-native.md"
+    },
+    {
+      "title": "composite-windows-10",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs"
+    },
+    {
+      "title": "composite-windows-11",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/CompositeMLDsaImplementation.Windows.cs"
+    },
+    {
+      "title": "composite-parameters",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/Common/src/System/Security/Cryptography/PqcBlobHelpers.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "scope": "Actual .NET10 Windows support probes, 44/P256 sign/verify/tamper rejection and managed RSA2048/PSS sign/verify/tamper success. Exact native/compiler/reference/runtime hashes retained. No other ECDSA set, certificate or GA claim.",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ObservatoryBulletins/ObservatoryBulletins.csproj",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Actual .NET11RC2 Windows support probes, native44/P256 sign/verify/tamper rejection and unsupported RSA2048/PSS failure. Exact native/compiler/reference/runtime hashes retained. No other ECDSA set, certificate or GA claim.",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ObservatoryBulletins/ObservatoryBulletins.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "older": {
+      "region": "contract",
+      "path": "samples/net10.0/ObservatoryBulletins/Bulletin.cs",
+      "language": "csharp"
+    },
+    "newer": {
+      "region": "contract",
+      "path": "samples/net11.0/ObservatoryBulletins/Bulletin.cs",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Actual local Windows provider and managed checks require no interactive approval; no production keys, trust stores or data touched."
+  }
+}

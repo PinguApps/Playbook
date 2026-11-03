@@ -3250,3 +3250,32 @@ complete canonical Markdown, applicability and fresh target11/edition11 evidence
 Target10 has no applicable edition. Unusable retrieval proxies establish proxy
 independence, not OS network isolation. No throughput, cloud consistency enforcement,
 multi-region or GA claim is made. Existing Human/GA gates remain open.
+
+## Observatory numeric results and Windows composite signatures
+
+Requires PowerShell7, SDK 10.0.402/runtime10.0.13, the separate SDK 11 RC2 installation,
+Node.js and public access for exact RC1 runtime/source downloads. No host install
+or PATH integration occurs. The sample runner verifies source hashes, builds and
+runs both consumers, and records compiler/reference/runtime/native identity.
+It tests one agreed 44/P256 composite set, actual older RSA success and current
+rejection, plus numerical drift and reversible disposable persistence.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d562a2f3'
+& ./eng/Test-ObservatoryContracts.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.compare-ieee-decimal-results','crypto.select-supported-composite-signature') `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1038-1058' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/observatory/inspection'
+```
+
+The exact ordinary package is installed through a private local feed/cache and
+called over real stdio from an unrelated directory. Expect both discovery
+ID/title/goal entries, full canonical Markdown, target11/edition11, applicability
+and fresh evidence; target10 returns no_applicable_edition. Older samples are
+comparisons, not new foundations. Unusable proxies show proxy independence,
+not OS network isolation. GA, other Windows providers and other composite sets
+are not claimed.
