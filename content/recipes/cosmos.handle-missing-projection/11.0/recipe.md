@@ -6,7 +6,7 @@ Filter absent paths or supply a fallback when optional JSON navigation can evalu
 
 ## Older approach
 
-The EF10 comparison uses the same original reef labels and actual provider. EF10 single-property projections may omit undefined results, while multi-property projections can throw. Do not rely on a query shape to implement a business rule. Both explicit functions are useful in the older provider too.
+The EF10 comparison uses the same original reef labels and actual provider. The actual EF10 single-property comparison omits the undefined row and asserts the two present ranks. Microsoft documents that older multi-property projections could throw; this comparison does not execute that older query shape. Do not rely on a query shape to implement a business rule. Both explicit functions are useful in the older provider too.
 
 {{snippet:n10-program-cs}}
 

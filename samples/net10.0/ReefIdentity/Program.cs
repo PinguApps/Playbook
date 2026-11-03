@@ -5,7 +5,6 @@ using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 using PlaybookCosmos;
 
-AppContext.SetSwitch("Microsoft.EntityFrameworkCore.EscapeIllegalCosmosIdCharacters", !args.Contains("--modern", StringComparer.Ordinal));
 string Required(string name) => Environment.GetEnvironmentVariable(name) ?? throw new InvalidOperationException(name);
 var endpoint = Required("PLAYBOOK_COSMOS_ENDPOINT");
 var key = Required("PLAYBOOK_COSMOS_KEY");
@@ -51,7 +50,11 @@ if (fallback.Count != 3 || fallback.Count(x => x.Note == "unrecorded") != 1 || f
     throw new InvalidOperationException("Undefined fallback changed JSON null.");
 Console.WriteLine("PASS IsDefined excludes absent path, retains JSON null; CoalesceUndefined replaces only absent path");
 var failed = false;
-try { _ = await db.Set<Label>().Select(x => new { x.Detail!.Survey!.Rank }).ToListAsync(); }
+try {
+    var ranks = await db.Set<Label>().Select(x => new { x.Detail!.Survey!.Rank }).ToListAsync();
+    if (ranks.Count != 2 || !ranks.Select(x => x.Rank).Order().SequenceEqual([7, 8]))
+        throw new InvalidOperationException("Expected exactly the two present nested ranks.");
+}
 catch (InvalidOperationException) { failed = true; }
 if (failed) throw new InvalidOperationException("EF10 single projection should filter undefined.");
 Console.WriteLine("PASS EF10 single projection filters undefined");
