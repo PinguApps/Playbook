@@ -19,7 +19,7 @@ EF11 translates ordering inside string.Join to group_concat with ORDER BY. Order
 ## Migration
 
 1. Copy the complete HarbourLabels project below, including the independent build/package files and SDK pin, into its own directory.
-2. Use the pinned SDK from that directory: `dotnet restore HarbourLabels.csproj --locked-mode`, then `dotnet build HarbourLabels.csproj -c Release -p:RestoreLockedMode=true`.
+2. Use the pinned SDK from that directory: `dotnet restore HarbourLabels.csproj --use-lock-file`, then `dotnet build HarbourLabels.csproj -c Release -p:RestoreLockedMode=true`.
 3. Run `dotnet run --project HarbourLabels.csproj -c Release --no-build`. It creates a private in-memory SQLite database; no Docker, external database or account is needed.
 4. Expect `PASS ordered harbour summaries`, West = Anchor / Buoy / Chain and East = Lamp. The current query prints group_concat with its internal ORDER BY; outer ordering alone is insufficient. The database disappears when the consumer exits.
 

@@ -19,7 +19,7 @@ EF11 Cosmos supports ComplexProperty and ComplexCollection. The fictional reef m
 ## Migration
 
 1. Copy the complete ReefManifest project below, including its transport, package boundary and SDK pin, into its own directory.
-2. Use the pinned SDK: `dotnet restore ReefManifest.csproj --locked-mode`, then `dotnet build ReefManifest.csproj -c Release -p:RestoreLockedMode=true`.
+2. Use the pinned SDK: `dotnet restore ReefManifest.csproj --use-lock-file`, then `dotnet build ReefManifest.csproj -c Release -p:RestoreLockedMode=true`.
 3. Use the approved isolated local emulator route in docs/cosmos-verification.md to supply PLAYBOOK_COSMOS_ENDPOINT, PLAYBOOK_COSMOS_KEY, PLAYBOOK_COSMOS_DATABASE and PLAYBOOK_COSMOS_CERT_SHA256 only to the child. Never substitute a production account. Repository authors run `eng/Test-EmbeddedValues.ps1 -Record` to create and remove marked databases and save fresh proof.
 4. Expect `PASS real Cosmos nested values`, Location.Bay = Lagoon and three Samples with Kelp.Count = 7 in independent JSON read-back. EF11 tracks only the root; EF10 tracks owned entries. Remove your marked database after use and stop the empty emulator. No cloud parity or automatic existing-document migration is implied.
 
