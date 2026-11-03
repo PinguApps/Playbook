@@ -129,7 +129,7 @@ lines, including repeated target-asset comparisons.
 | Typed DNS envelopes, resolver/server options and Address/SRV/MX/TXT/CNAME/PTR/NS records | **PIN-754** retains SRV selection and shared resolver/envelope explanation. **Delivered PIN-1089 / R3** covers non-SRV records, response codes, TTL and best-effort negative TTL with real Windows/Linux execution. Preview 7's Windows-only claim is superseded by RC1 Linux support; no universal OS claim. |
 | Socket.ConnectAsync(..., ConnectAlgorithm), Default/Parallel | **Delivered PIN-1090 / R4:** static event-args overload, original explicit older scheduler and real Windows dual-family success/refusal, selected-peer payload, completion and cancellation/draining. No fixed latency claim. |
 | IPEndPoint UTF-8 Parse/TryParse, char/byte TryFormat, parsing/formatting interfaces and nullable adjustments | **Delivered PIN-1091 / R5:** real paired caller-buffer consumers, malformed/range/short-destination and boundary checks; char/generic interfaces executed. Existing constructor/address APIs are annotation changes, not removed functionality. |
-| NetworkChange.IsSupported; NetworkInterface/IPGlobalProperties/event platform annotations | **Included R6:** guard network-change monitoring and provide an explicit fallback. Other annotation corrections are supporting platform constraints, not distinct networking features. |
+| NetworkChange.IsSupported; NetworkInterface/IPGlobalProperties/event platform annotations | **Delivered PIN-1092 / R6:** guard network-change monitoring and provide an explicit fallback; real Linux events/unsubscription and Mono browser manual refresh, with the RC2 getter guarded before access. Other annotation corrections are supporting platform constraints, not distinct networking features. |
 | Experimental TlsContext/TlsSession/TlsBufferSession/TlsSocketSession/status | **Grouped PIN-752:** SYSLIB5007, ownership, state/certificate transitions and actual I/O remain its required evidence. This audit does not claim a handshake. |
 | QUIC Priority/DefaultPriority | **Grouped PIN-755:** actual native transport/support checks; a relative scheduler hint is not guaranteed bandwidth/order. |
 | HTTP compressed-content wrappers, connection IDs/eviction contexts, ShouldEvictConnection and initial HTTP/2 stream bound | **Grouped PIN-753:** all compression options, correlation and pool-lifetime support belong to its existing HTTP connection goals. Preserve experimental eviction diagnostic/opt-in and peer SETTINGS constraints. |
@@ -137,7 +137,7 @@ lines, including repeated target-asset comparisons.
 | Synchronous HttpClient/handler/invoker Send adds Android/iOS/tvOS unsupported annotations | **Included R20:** source/analyzer migration to asynchronous I/O on affected platforms; no claim that synchronous mobile I/O previously worked. |
 | Video MIME constants | **Delivered PIN-744** in [the original URI/media capture](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-742-744.md). **Delivered PIN-1105 / R19** separately covers actual MediaTypeMap string/span/path/reverse lookups; constants alone do not deliver mapping, and mapping does not validate file bytes or upload safety. |
 | Generic Interlocked.And/Or; CompareExchange/Exchange annotations | **Delivered PIN-1094 / R8:** paired real CAS/enum contention, prior-value chains, retained unrelated bits, integer/enum backing sizes and unsupported-struct rejection. One atomic location per call, not multi-field transactions. Annotation-only overload pairs are not new operations. |
-| RuntimeFeature.IsMultithreadingSupported | **Included R7:** choose a supported threading path with a useful single-thread fallback; compile-time platform guards are not evidence of actual parallelism. |
+| RuntimeFeature.IsMultithreadingSupported | **Delivered PIN-1093 / R7:** actual threaded desktop/Linux and single-thread Mono browser paths, same score and pre-cancellation; no worker-count/speedup or in-flight browser cancellation claim. |
 | ExtendedLayoutAttribute/Kind.CStruct/CUnion, LayoutKind.Extended, TypeAttributes.ExtendedLayout | **Delivered PIN-1095 / R9:** paired explicit/runtime C struct and union layouts, measured MSVC Windows x64 size/alignment/offsets, real pointer round trips and packed-layout rejection. No universal ABI claim. |
 | ILGenerator.EmitCalli(Type) | **Delivered PIN-1096 / R10:** actual paired DynamicMethod managed/native calls with typed signatures versus explicit old setup; real Windows x64 MulDiv inputs, returns and failure sentinels. Dynamic code required; unified x64 ABI does not establish x86 convention differences or Native AOT execution. |
 | JSMarshalerArgument float[], Span<float>, ArraySegment<float> ToJS/ToManaged | **Delivered PIN-1097 / R11:** direct float buffers versus original double conversion/copy-back in real published Mono browser consumers; offsets, generated imports/exports, specials and lifetime/disposal checks. No CoreCLR-browser/AOT claim. |
@@ -515,3 +515,33 @@ Both 10.0.13 and RC2 have the changed mutex default; actual10.0.12 is a historic
 control. Real x86 .NET10 ignores the heap limit; RC2 enforces it, with RSS separate.
 The exact eight .NET10 foundations, PIN-959/PIN-962 and Human/actual-GA gates
 remain unchanged. No publication, recurring native matrix or persistent setup is added.
+
+## Network and threading support paths — PIN-1092 / PIN-1093
+
+R6/R7 are implemented as networking.guard-change-monitoring and
+runtime.select-threading-path, edition11.0. Original Reed Station consumers retain
+SDK10.0.402/runtime10.0.13 versus SDK11RC2/runtime11RC2. The paired immutable
+contracts/implementations are pinned in samples/SupportPaths/sources.json.
+
+The network comparison retains a conservative older desktop allowlist. On RC2,
+the browser NetworkChange.IsSupported getter itself throws from the unsupported
+assembly stub, so the new route explicitly excludes browser/WASI before reading
+it. Real Linux Docker interface attachment produces an address-change event;
+a separate detach after disposal produces no further callback. Internal networks
+and the disposable container are removed; host adapters are not changed. Manual
+refresh is the browser fallback, not polling another unsupported API.
+
+The threading comparison uses a conservative older browser/WASI exclusion versus
+RuntimeFeature.IsMultithreadingSupported. Windows/Linux use the threaded branch;
+actual single-thread Mono Chromium uses the ordinary loop without scheduling
+unsupported threads. Both produce score48 and propagate pre-cancellation. No
+speedup, worker count, in-flight browser cancellation, threaded-browser, WASI or
+other-platform proof is inferred.
+
+eng/Record-SupportPaths.ps1 -Record captures exact inputs/dependencies and
+compilation/execution receipts; framework hashes reconcile with the original audit.
+The installed walkthrough verifies the ordinary package's offline stdio discovery,
+complete canonical Markdown, target11/edition11, applicability and evidence.
+The eight .NET10 foundations, PIN-959/PIN-962 and existing Human gates retain
+their obligations. RC2 preparation is not final-GA verification. No publication,
+production resource or recurring platform matrix is introduced.

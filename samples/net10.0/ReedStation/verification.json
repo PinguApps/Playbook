@@ -1,0 +1,18 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "buildArguments": [],
+  "additionalInputs": [
+    "samples/SupportPaths/sources.json",
+    "eng/Test-SupportPaths.ps1",
+    "eng/Test-SupportPaths.mjs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    ".editorconfig",
+    "docs/planning/audits/runtime-security.assets.json",
+    "eng/Record-SupportPaths.ps1",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Test-SupportPathsCleanup.ps1"
+  ],
+  "nativeToolchains": []
+}

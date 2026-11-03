@@ -528,6 +528,17 @@
 /samples/net10.0/ReefIdentity/verification-evidence.json
 /samples/net11.0/ReefIdentity/verification-evidence.json
 
+# Record-SupportPaths generated command/hash receipts; review canonical consumers,
+# locked dependencies and runners; build/pack checks freshness.
+/samples/net10.0/ReedStation/verification-evidence.json
+/samples/net10.0/ReedStation/behavior.evidence.json
+/samples/net10.0/ReedStationBrowser/verification-evidence.json
+/samples/net10.0/ReedStationBrowser/behavior.evidence.json
+/samples/net11.0/ReedStation/verification-evidence.json
+/samples/net11.0/ReedStation/behavior.evidence.json
+/samples/net11.0/ReedStationBrowser/verification-evidence.json
+/samples/net11.0/ReedStationBrowser/behavior.evidence.json
+
 # Record-Evidence generated materialization receipts; review sources, locks and runner.
 /samples/net10.0/ReefMaterialization/verification-evidence.json
 /samples/net11.0/ReefMaterialization/verification-evidence.json
