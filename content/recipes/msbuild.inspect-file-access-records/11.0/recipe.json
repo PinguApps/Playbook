@@ -1,0 +1,168 @@
+{
+  "id": "msbuild.inspect-file-access-records",
+  "edition": "11.0",
+  "title": "Read experimental build file-access records correctly",
+  "goal": "Decode enumeration patterns and opened attributes separately from requested access when maintaining an experimental MSBuild project-cache observer; live capture proof remains pending.",
+  "areas": [
+    "msbuild",
+    "sdk"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "experimental-build-guidance",
+    "buildaccessobserver"
+  ],
+  "apis": [
+    "FileAccessData",
+    "EnumeratePattern",
+    "OpenedFileOrDirectoryAttributes",
+    "ProjectCachePluginBase.HandleFileAccess"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
+          "Target 11 only; older examples are comparisons, not additional .NET 10 foundations.",
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended managed sample target, not an observed execution result or build-host requirement."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Documented target family; sample pin 11.0.100-rc.2.26504.105 is unbuilt. Host/native/extension requirements are separate."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Intended newer sample language; older comparison uses C#14. No C#15-specific feature is required."
+          },
+          "frameworks": [
+            "Existing MSBuild ProjectCachePluginBase observer. Example libraries are decoders, not complete deployable plugins."
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Sample compilation references Microsoft.Build.dll and Microsoft.Build.Framework.dll under MSBuildBinPath, with Private=false. No external NuGet closure is asserted."
+          ],
+          "workloads": [],
+          "providers": [
+            "Host-provided Detours reporting to an existing project-cache plugin; actual native payload/version and callback delivery remain unverified."
+          ],
+          "platforms": [
+            "Publisher documents Visual Studio MSBuild.exe Windows x64 command-line reporting. Not dotnet msbuild, IDE, x86 or Arm64."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Reconcile matching build host, plugin, managed and native assets; record product version separately from assembly version.",
+            "Use disposable input/output paths and an existing supported plugin. The example decoder target/runtime is separate from the reporting host."
+          ],
+          "constraints": [
+            "No production resources, remote storage or public package publication. No recurring native/platform matrix.",
+            "Pending sample proof blocks release-ready packaging. Installed guidance retrieval does not establish sample behaviour.",
+            "Eleven-argument FileAccessData construction remains available; new fields default to null/0.",
+            "EnumerationPattern absence is not a wildcard; requested FlagsAndAttributes are not kernel-observed OpenedFileOrDirectoryAttributes.",
+            "Preserve context/errors, bound observer storage and do not publish cancelled/failed partial data as a successful cache result."
+          ],
+          "optIns": [
+            "/reportFileAccesses or BuildParameters.ReportFileAccesses on the documented Windows x64 host.",
+            "No blanket diagnostic suppression or unrelated experimental switch."
+          ],
+          "stabilityLimitations": [
+            "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
+            "Experimental contracts may change. Source input freshness is not compilation or runtime evidence. PIN-959 and actual-GA reconciliation remain open.",
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
+          "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs",
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Project cache and supported instrumentation host",
+      "url": "https://github.com/dotnet/msbuild/blob/main/documentation/specs/project-cache.md"
+    },
+    {
+      "title": "Current file access data",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/FileAccess/FileAccessData.cs"
+    },
+    {
+      "title": "Previous file access data",
+      "url": "https://github.com/dotnet/dotnet/blob/a8dd0577c5c13f43a2f57fe33b4ff11b90f6371e/src/msbuild/src/Build/FileAccess/FileAccessData.cs"
+    },
+    {
+      "title": "Project cache callbacks",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/msbuild/src/Build/BackEnd/Components/ProjectCache/ProjectCachePluginBase.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "official-review",
+      "sample": "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
+      "record": "samples/net10.0/BuildAccessObserver/source-review.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj",
+      "record": "samples/net11.0/BuildAccessObserver/source-review.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+    }
+  ],
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/BuildAccessObserver/AccessDecoder.cs",
+      "region": "decoder",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/BuildAccessObserver/AccessDecoder.cs",
+      "region": "decoder",
+      "language": "csharp"
+    },
+    "observer": {
+      "path": "samples/net11.0/BuildAccessObserver/Observer.cs.txt",
+      "region": "observer",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized documentation-based delivery on 3 November 2026. Sample compilation, composed-consumer compatibility and all experimental behaviour/failure checks remain pending. Do not block provisional content on unreleased execution; release-ready and actual-GA gates remain open."
+  }
+}

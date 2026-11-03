@@ -1,0 +1,22 @@
+// snippet:observer
+// Integrate into the repository's existing ProjectCachePluginBase subclass.
+// This callback observes records. It does not request cache hits or enable Detours.
+private readonly System.Collections.Concurrent.ConcurrentQueue<
+    (FileAccessContext Context, AccessObservation Access)> observations = new();
+
+public override void HandleFileAccess(FileAccessContext context, FileAccessData access)
+{
+    // Preserve context when forwarding to an application-owned, thread-safe sink.
+    // Do not log ProcessArgs: a child command can contain credentials.
+    observations.Enqueue((context, AccessDecoder.Read(access)));
+}
+
+public override Task HandleProjectFinishedAsync(FileAccessContext context,
+    BuildResult result, PluginLoggerBase logger, CancellationToken cancellationToken)
+{
+    cancellationToken.ThrowIfCancellationRequested();
+    // Finalize only this context after MSBuild flushes its file-access reports.
+    // A failed/cancelled build must not publish a reusable successful cache entry.
+    return Task.CompletedTask;
+}
+// endsnippet:observer

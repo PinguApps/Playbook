@@ -134,6 +134,20 @@ Original proposal and evidence remain in Git history. No recipe is required.
 
 Proposed `msbuild.inspect-file-access-records`. An original build observer handles changed FileAccessData construction, enumerated patterns and opened-file attributes. Prerequisites: publisher-supported instrumentation/OS route, exact binary/diagnostic opt-ins and disposable inputs. Capture real read/write/enumeration events, compare old/new decoding and cancellation; preserve experimental status. If no accessible real instrumentation route exists, delivery stays blocked rather than using hand-created events as runtime proof.
 
+Provisional delivery, 3 November 2026: **PIN-1123** adds the proposed stable ID,
+edition 11.0, as documentation-based experimental guidance. Pingu authorized
+following the documentation while unreleased execution remains unverified,
+superseding B06's live execution prerequisite for provisional delivery only.
+Original older/current decoders and observer integration fragment retain the
+eleven-argument constructor (new fields default null/0), new extended constructor,
+enumeration-pattern and requested-versus-opened-attribute distinction, context,
+error and cancellation boundaries. Official Windows x64 Visual Studio MSBuild.exe
+reporting restrictions are explicit. Two installed hosts accepted the switch on
+a disposable build without a plugin; no callback/native capture proof is claimed.
+Paired `official-review` input records remain pending compilation and real events.
+The source-disposition ownership stays B06; release-ready, PIN-959 comprehensive
+evidence and actual-GA gates remain open. No recurring native/OS matrix is added.
+
 ### B07. Upload packages to a V3 staging endpoint — L (5)
 
 Proposed `nuget.stage-package-uploads`. An original publisher discovers PackageStagingResourceV3 from a real service index and stages an original nupkg/snupkg with optional group metadata. Require an authorized disposable staging service or faithful local HTTP server implementing the pinned protocol; record which one ran. Verify actual multipart payload/routes, status/cancellation/timeout, missing-resource handling and secure transport controls; do not push to nuget.org or print API keys. A local protocol check does not establish any hosted service's support. L includes the new endpoint contract and actual transport evidence.

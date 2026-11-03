@@ -1,0 +1,30 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj",
+  "target": "net11.0",
+  "sdk": "11.0.100-rc.2.26504.105",
+  "language": "15.0",
+  "command": "Read official command documentation, pinned contract sources and original source audit; author original examples. No sample build or experimental command executed.",
+  "scope": "Documentation-based provisional guidance authorized by Pingu on 3 November 2026. Sample compilation, composed-consumer and experimental behaviour proof remain pending.",
+  "recordedAt": "2026-11-03T17:50:30.1930997+00:00",
+  "sourceCommit": "714b5f78734a68aa6c327640b82185c4b8b24604",
+  "sourceDirty": true,
+  "inputs": {
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net11.0/BuildAccessObserver/AccessDecoder.cs": "b29ca22e1ac472e10cf77c9ab47d582a79e0dba2346a07e538bbe2673f1d2a48",
+    "samples/net11.0/BuildAccessObserver/BuildAccessObserver.csproj": "084cbe7537763b9a4c1fba54b5058ba2f3c6e2e3c5723dd16193a9b457ab381a",
+    "samples/net11.0/BuildAccessObserver/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+    "samples/net11.0/BuildAccessObserver/Observer.cs.txt": "00514d80be991c96e101e409db3e4ce5bd642e474dc3fc19595d8463176b2047",
+    "samples/net11.0/BuildAccessObserver/verification.json": "69deeb654058ff092031a07a2bf40daa732d175cac180a96bf510844a549e83c"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Source authoring on Windows; no sample execution host qualified.",
+  "sdkInfo": "Intended global.json pin only, not executed compiler/runtime proof.",
+  "workloadInfo": "No sample workloads declared; no native instrumentation qualified.",
+  "output": "Reviewed official references in the recipe. Original canonical samples remain uncompiled; no test-map collection/selection, file-access callback capture or cancellation evidence. Package/hash and host switch preflights are separate discovery observations, not sample execution."
+}

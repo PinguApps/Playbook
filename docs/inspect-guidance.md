@@ -4,6 +4,39 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Experimental affected tests and file-access observation
+
+PIN-1074/PIN-1123 provide documentation-based experimental guidance authorized by
+Pingu on 3 November 2026. Their original samples remain source-reviewed, with
+compilation and experimental behaviour pending. Local affected-test registration
+documentation is unavailable; no configuration contract is invented. The decoder
+has no real event-stream proof. These limitations remain visible in discovery and
+detail, and release-ready packaging stays gated.
+
+From an unrelated directory, this selects the verified task worktree, builds and
+packs the ordinary tool, installs the exact artifact using an isolated local
+feed/cache, and calls real stdio list/get from another directory. Requires
+PowerShell 7, SDK10.0.402 and Node22.19+. Online setup is permitted; retrieval uses
+unusable proxies to establish proxy independence, not OS-level network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4f33aeba'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sdk.select-affected-tests','msbuild.inspect-file-access-records') `
+  -Query 'experimental-build-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1074-1123' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/experimental-discovery/inspection'
+```
+
+Expect both IDs/titles/goals, complete expanded Markdown and canonical snippets,
+target/edition11, experimental applicability and current source-review input
+records with pending proof. Target10 returns no applicable edition. This validates
+the served documentation, not collection/selection, native event capture,
+cancellation, sample compilation or GA support. The exact eight .NET 10
+foundations and PIN-959/PIN-963 gates remain unchanged.
+
 ## Experimental frontend tools and approval continuation
 
 The paired HarbourDispatch consumers demonstrate declaration-only frontend tools,

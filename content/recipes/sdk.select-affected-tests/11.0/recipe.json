@@ -1,0 +1,198 @@
+{
+  "id": "sdk.select-affected-tests",
+  "edition": "11.0",
+  "title": "Select affected tests with an experimental source map",
+  "goal": "Use the documented experimental source-to-test mapping workflow to plan a faster validation lane while retaining a full-suite fallback; local setup and execution proof remain pending.",
+  "areas": [
+    "sdk",
+    "testing"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "languageNeutral": false,
+  "tags": [
+    "experimental-build-guidance",
+    "seedbankmap"
+  ],
+  "apis": [
+    "--collect-test-map",
+    "--affected-tests",
+    "DOTNET_CLI_ENABLE_AFFECTED_TESTS"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
+          "Target 11 only; older examples are comparisons, not additional .NET 10 foundations.",
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended managed sample target, not an observed execution result or build-host requirement."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Documented target family; sample pin 11.0.100-rc.2.26504.105 is unbuilt. Host/native/extension requirements are separate."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Intended newer sample language; older comparison uses C#14. No C#15-specific feature is required."
+          },
+          "frameworks": [
+            "MTP-managed test hosts; illustrative test bodies must be placed in two separately built modules with independent product sources."
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.Testing.Extensions.AffectedTests",
+              "version": "18.13.0-preview.26519.2",
+              "match": "exact",
+              "reason": "Audited starting artifact, not a verified composed-consumer pin."
+            },
+            {
+              "name": "Microsoft.Testing.Extensions.CodeCoverage",
+              "version": "18.13.0-preview.26519.2",
+              "match": "exact",
+              "reason": "Audited starting artifact, not a verified composed-consumer pin."
+            },
+            {
+              "name": "Microsoft.Testing.Platform",
+              "version": "2.6.0-preview.26515.10",
+              "match": "exact",
+              "reason": "Audited starting artifact, not a verified composed-consumer pin."
+            }
+          ],
+          "packageAssets": [
+            "Audited extension: netstandard2.0/net10.0 and packaged win-x64 collector. Complete restored closure is unverified.",
+            "MTP value is the declared minimum. TestFx independently pins 2.6.0-preview.26519.1; SDK12 alpha rollout does not establish SDK11 RC2 compatibility."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local .cts/mappings documented by the package readme; exact configuration and registration contract remain unavailable. No Azure provider."
+          ],
+          "platforms": [
+            "Windows x64 collector for the audited package. No native execution or other platform claim."
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Review the actual Microsoft .NET Library package license and third-party notices. Public feed availability is not stable support.",
+            "Register the compatible extension in every MTP host. CodeCoverage alone is insufficient. Exact local configuration/registration documentation is unavailable (404); do not invent it.",
+            "Keep an ordinary full-test baseline. TestFx known-good orchestration uses SDK12.0.100-alpha.1.26509.101; net11 under it is not verified here."
+          ],
+          "constraints": [
+            "No production resources, remote storage or public package publication. No recurring native/platform matrix.",
+            "Pending sample proof blocks release-ready packaging. Installed guidance retrieval does not establish sample behaviour.",
+            "Do not combine collection/selection or use device tests, parallel modules or minimum-test policies.",
+            "Collection inventory is not passing-test evidence; unselected modules are not passed or skipped tests. Unknown mapping validity requires a full-test fallback.",
+            "Keep startup/protocol failures and cancellation visible; no global zero-test-success or ignored-handshake workaround."
+          ],
+          "optIns": [
+            "MTP runner selection in global.json and DOTNET_CLI_ENABLE_AFFECTED_TESTS=1 in affected-command children only.",
+            "Never set the SDK-owned DOTNET_CLI_TEST_AFFECTED_TESTS_MODE marker."
+          ],
+          "stabilityLimitations": [
+            "Documentation-based experimental guidance authorized by Pingu on 3 November 2026. Original samples are source-reviewed only; compilation and experimental execution proof remain pending.",
+            "Experimental contracts may change. Source input freshness is not compilation or runtime evidence. PIN-959 and actual-GA reconciliation remain open.",
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/tools/dotnet-test-mtp.md",
+          "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/docs/affected-test-selection.md",
+          "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/eng/Versions.props",
+          "https://pkgs.dev.azure.com/dnceng/public/_packaging/test-tools/nuget/v3/index.json",
+          "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/SeedBankMap/SeedBankMap.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Documented MTP options and restrictions",
+      "url": "https://github.com/dotnet/docs/blob/f0021fde66c59559fa1ba3c9a044148738f12faf/docs/core/tools/dotnet-test-mtp.md"
+    },
+    {
+      "title": "Pinned TestFx rollout",
+      "url": "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/docs/affected-test-selection.md"
+    },
+    {
+      "title": "Pinned TestFx package versions",
+      "url": "https://github.com/microsoft/testfx/blob/e3d67c4458315461201f6620374af1fbb9c4a722/eng/Versions.props"
+    },
+    {
+      "title": "Microsoft public test-tools feed",
+      "url": "https://pkgs.dev.azure.com/dnceng/public/_packaging/test-tools/nuget/v3/index.json"
+    },
+    {
+      "title": "Publisher storage pointer (404 at review)",
+      "url": "https://github.com/microsoft/codecoverage/blob/main/docs/cts/affectedteststorage.md"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "official-review",
+      "sample": "samples/net10.0/SeedBankMap/SeedBankMap.csproj",
+      "record": "samples/net10.0/SeedBankMap/source-review.evidence.json",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+    },
+    {
+      "kind": "official-review",
+      "sample": "samples/net11.0/SeedBankMap/SeedBankMap.csproj",
+      "record": "samples/net11.0/SeedBankMap/source-review.evidence.json",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Official documentation/source review and original examples only. Intended sample inputs are uncompiled. No composed consumer, native capture or experimental execution proof."
+    }
+  ],
+  "snippets": {
+    "rules": {
+      "path": "samples/net10.0/SeedBankMap/SeedRules.cs",
+      "region": "rules",
+      "language": "csharp"
+    },
+    "tests": {
+      "path": "samples/net10.0/SeedBankMap/ModuleTests.cs.txt",
+      "region": "tests",
+      "language": "csharp"
+    },
+    "baseline": {
+      "path": "samples/net10.0/SeedBankMap/Commands.ps1",
+      "region": "baseline",
+      "language": "powershell"
+    },
+    "affected": {
+      "path": "samples/net11.0/SeedBankMap/Commands.ps1",
+      "region": "affected",
+      "language": "powershell"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized documentation-based delivery on 3 November 2026. Sample compilation, composed-consumer compatibility and all experimental behaviour/failure checks remain pending. Do not block provisional content on unreleased execution; release-ready and actual-GA gates remain open."
+  }
+}
