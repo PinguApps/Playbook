@@ -3450,3 +3450,35 @@ and fresh evidence; target10 returns no_applicable_edition. Older samples are
 comparisons, not new foundations. Unusable proxies show proxy independence,
 not OS network isolation. GA, other Windows providers and other composite sets
 are not claimed.
+
+## Network monitoring and supported threading paths
+
+Requires PowerShell7, Node24, the pinned .NET10/.NET11 SDK/runtime installations,
+the existing Docker Desktop Linux engine, and the authoring Chromium/Playwright
+paths declared in eng/Record-SupportPaths.ps1. Browser proof uses interpreted Mono;
+no wasm-tools installation or persistent environment change is required.
+
+Refresh affected evidence, then inspect the ordinary installed artifact from any
+starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-19bf5428'
+& ./eng/Record-SupportPaths.ps1 -Record
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('networking.guard-change-monitoring','runtime.select-threading-path') `
+  -Query 'support-paths' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1092-1093' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/support-paths/inspection'
+```
+
+Expect score48/cancellation on both desktop and single-thread browsers, real Linux
+address events and no callback for the separate post-disposal change, plus browser
+manual-refresh fallback. The RC2 browser NetworkChange.IsSupported getter throws
+without an explicit browser/WASI exclusion; the delivered route keeps that guard.
+Docker resources are removed. The installed inspector prints ID/title/goal,
+complete canonical Markdown, explicit target11/edition11, applicability and fresh
+evidence, then exact-artifact PASS. Target10 returns no_applicable_edition.
+No worker-count/speedup, in-flight browser cancellation, WASI, threaded-browser,
+other-browser/platform or final-GA proof is claimed. PIN-959 and PIN-962 remain open.
