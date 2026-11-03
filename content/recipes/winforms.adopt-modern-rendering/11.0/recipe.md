@@ -77,4 +77,3 @@ All four canonical projects compile and execute on Windows x64 with runtime10.0.
 ## References
 
 [Official RC2 desktop contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).
-
