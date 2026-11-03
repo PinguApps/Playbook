@@ -10,7 +10,8 @@ public static class Results
         if (!T.IsFinite(actual) || !T.IsFinite(expected) ||
             !T.IsFinite(absolute) || !T.IsFinite(relative) || absolute < T.Zero || relative < T.Zero)
             return false;
-        return T.Abs(actual - expected) <= T.Max(absolute, relative * T.Max(T.Abs(actual), T.Abs(expected)));
+        T bound = T.Max(absolute, relative * T.Max(T.Abs(actual), T.Abs(expected)));
+        return T.IsFinite(bound) && T.Abs(actual - expected) <= bound;
     }
 
     public sealed record Saved(string InputId, string AlgorithmVersion, string Output);

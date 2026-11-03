@@ -3253,11 +3253,11 @@ multi-region or GA claim is made. Existing Human/GA gates remain open.
 
 ## Observatory numeric results and Windows composite signatures
 
-Requires PowerShell7, SDK10.0.402/runtime10.0.13, the separate SDK11RC2 installation,
+Requires PowerShell7, SDK 10.0.402/runtime10.0.13, the separate SDK 11 RC2 installation,
 Node.js and public access for exact RC1 runtime/source downloads. No host install
 or PATH integration occurs. The sample runner verifies source hashes, builds and
 runs both consumers, and records compiler/reference/runtime/native identity.
-It tests one agreed44/P256 composite set, actual older RSA success and current
+It tests one agreed 44/P256 composite set, actual older RSA success and current
 rejection, plus numerical drift and reversible disposable persistence.
 
 ```powershell

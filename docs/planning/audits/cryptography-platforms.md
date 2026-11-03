@@ -271,8 +271,8 @@ Expected: A–G headings followed by PASS. A failed download, hash, section or p
 ## B delivery reconciliation — PIN-1058
 
 Original ObservatoryBulletins consumers gate the exact agreed parameter set.
-On measured Windows10.0.26200, SDK10.0.402/runtime10.0.13 and SDK11RC2/runtime11RC2
-both perform actual44/P256 signing, verification and tamper rejection. Old managed
+On measured Windows 10.0.26200, SDK 10.0.402/runtime10.0.13 and SDK 11 RC2/runtime11RC2
+both perform actual 44/P256 signing, verification and tamper rejection. Old managed
 RSA2048/PSS composition succeeds; current native dispatch reports unsupported and
 the canonical boundary fails closed. Other three documented ECDSA sets are not
 claimed as exercised; no certificate support or substitution is introduced.

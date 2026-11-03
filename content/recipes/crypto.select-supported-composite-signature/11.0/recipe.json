@@ -112,7 +112,7 @@
     {
       "language": "14.0",
       "sdk": "10.0.402",
-      "scope": "Real Windows support probes, 44/P256 signing/verification and tamper rejection; old RSA-composite success and current unsupported-set failure. Native DLL versions/hashes retained. Other three ECDSA sets not executed; no certificate or GA claim.",
+      "scope": "Actual .NET10 Windows support probes, 44/P256 sign/verify/tamper rejection and managed RSA2048/PSS sign/verify/tamper success. Exact native/compiler/reference/runtime hashes retained. No other ECDSA set, certificate or GA claim.",
       "kind": "compile-and-run",
       "sample": "samples/net10.0/ObservatoryBulletins/ObservatoryBulletins.csproj",
       "target": "net10.0"
@@ -120,7 +120,7 @@
     {
       "language": "15.0",
       "sdk": "11.0.100-rc.2.26504.105",
-      "scope": "Real Windows support probes, 44/P256 signing/verification and tamper rejection; old RSA-composite success and current unsupported-set failure. Native DLL versions/hashes retained. Other three ECDSA sets not executed; no certificate or GA claim.",
+      "scope": "Actual .NET11RC2 Windows support probes, native44/P256 sign/verify/tamper rejection and unsupported RSA2048/PSS failure. Exact native/compiler/reference/runtime hashes retained. No other ECDSA set, certificate or GA claim.",
       "kind": "compile-and-run",
       "sample": "samples/net11.0/ObservatoryBulletins/ObservatoryBulletins.csproj",
       "target": "net11.0"

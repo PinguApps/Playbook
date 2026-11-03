@@ -308,8 +308,8 @@ tool, served recipe, dependency, project, CI or update-policy change is made.
 
 The original ObservatoryResults consumers compare bounded calculated outputs with
 explicit absolute/relative tolerances and preserve exact input IDs and historical
-versions. Actual .NET10 Math/double is a different representation, not old IEEE
-decimal emulation. .NET11 RC1/RC2 execution reproduces cancellation-sensitive
+versions. Actual .NET 10 Math/double is a different representation, not old IEEE
+decimal emulation. .NET 11 RC1/RC2 execution reproduces cancellation-sensitive
 Acos/Log/SinPi drift; current checks reject a stale expected result. The independent
 near-one Acos expansion bounds the selected case, without promising correct
 rounding. Canonical samples, pins and Test-ObservatoryContracts.ps1 retain actual

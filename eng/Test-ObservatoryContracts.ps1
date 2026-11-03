@@ -21,8 +21,8 @@ try {
  $zip=Join-Path $work 'rc1.zip'
  if(-not(Test-Path $zip)) {Invoke-WebRequest $file.url -OutFile $zip}
  if((Get-FileHash $zip -Algorithm SHA512).Hash -ine $file.hash) {throw 'RC1 archive hash mismatch'}
- $rc1=Join-Path $work 'rc1'
- if(-not(Test-Path (Join-Path $rc1 'dotnet.exe'))) {Expand-Archive -LiteralPath $zip -DestinationPath $rc1}
+ $rc1=Join-Path $work ('rc1-'+[guid]::NewGuid().ToString('N'))
+ Expand-Archive -LiteralPath $zip -DestinationPath $rc1 -Force
  foreach($manifestName in 'decimal-results','cryptography-platforms') {
   $manifest=Get-Content (Join-Path $root "docs/planning/audits/$manifestName.sources.json") -Raw | ConvertFrom-Json
   foreach($source in $manifest.sources) {
@@ -63,6 +63,11 @@ try {
   }
  }
 } finally {
+ if($rc1 -and (Test-Path -LiteralPath $rc1)) {
+  $target=[IO.Path]::GetFullPath($rc1)
+  if((Split-Path -Parent $target) -cne [IO.Path]::GetFullPath($work) -or (Split-Path -Leaf $target) -notlike 'rc1-*') {throw 'Unsafe RC1 cleanup target'}
+  Remove-Item -LiteralPath $target -Recurse -Force
+ }
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=$previous
  foreach($scope in $paths.Keys) {if($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) {throw "Unexpected $scope PATH change"}}
 }

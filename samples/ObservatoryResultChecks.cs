@@ -29,6 +29,7 @@ Check(!Results.Accept(value, value + 0.01, 1e-15, 1e-12), "unacceptable binary d
 Check(!Results.Accept(double.NaN, double.NaN, 1e-15, 1e-12), "nonfinite binary rejected");
 Console.WriteLine("Math/double is a different representation; not old IEEE decimal emulation.");
 #endif
+Check(!Results.Accept(1.7e308, -1.7e308, 1e-15, 2.0), "overflowed tolerance fails closed");
 var history = new Results.Saved("angle:exact-source-text", "historical-v1", "preserved");
 var proposal = Results.Propose(history, "recomputed-v2", "candidate");
 Check(history.Output == "preserved" && proposal.InputId == history.InputId && proposal.AlgorithmVersion != history.AlgorithmVersion, "versioned disposable proposal preserves original and exact ID");
