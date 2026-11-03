@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net11.0</TargetFramework><LangVersion>15.0</LangVersion><AllowUnsafeBlocks>true</AllowUnsafeBlocks><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><RuntimeFrameworkVersion>11.0.0-rc.2.26504.105</RuntimeFrameworkVersion><EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles></PropertyGroup>
+  <ItemGroup><Compile Include="../../BeaconContracts/Checks.cs" Link="Checks.cs" /></ItemGroup>
+</Project>
