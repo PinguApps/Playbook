@@ -267,3 +267,17 @@ Expected: A–G headings followed by PASS. A failed download, hash, section or p
 [raw]: https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0065.md
 [rsa]: https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/fundamentals/syslib-diagnostics/syslib0064.md
 [tls]: https://github.com/dotnet/docs/blob/9b5f5f81de8fd9851fc46273e93e8664d9cc3556/docs/core/compatibility/networking/11/sslstream-aia-downloads-disabled.md
+
+## B delivery reconciliation — PIN-1058
+
+Original ObservatoryBulletins consumers gate the exact agreed parameter set.
+On measured Windows10.0.26200, SDK10.0.402/runtime10.0.13 and SDK11RC2/runtime11RC2
+both perform actual44/P256 signing, verification and tamper rejection. Old managed
+RSA2048/PSS composition succeeds; current native dispatch reports unsupported and
+the canonical boundary fails closed. Other three documented ECDSA sets are not
+claimed as exercised; no certificate support or substitution is introduced.
+Canonical projects and Test-ObservatoryContracts.ps1 retain native DLL versions,
+hashes and compiler/reference/runtime identity through existing sample evidence.
+The new recipe is crypto.select-supported-composite-signature, edition11.0,
+experimental SYSLIB5006 with narrowly scoped opt-in. Existing eight foundations,
+comprehensive coverage and actual-GA/Human gates remain under their own owners.

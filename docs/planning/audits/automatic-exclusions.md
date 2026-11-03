@@ -303,3 +303,17 @@ numerical accuracy, RC1 output, GA or release claim is established. Earlier audi
 unknowns remain with their named owners and PIN-986/PIN-959; the partial reversals
 cannot be closed as recipe coverage merely by merging this source audit. No MCP
 tool, served recipe, dependency, project, CI or update-policy change is made.
+
+## B delivery reconciliation — PIN-1038
+
+The original ObservatoryResults consumers compare bounded calculated outputs with
+explicit absolute/relative tolerances and preserve exact input IDs and historical
+versions. Actual .NET10 Math/double is a different representation, not old IEEE
+decimal emulation. .NET11 RC1/RC2 execution reproduces cancellation-sensitive
+Acos/Log/SinPi drift; current checks reject a stale expected result. The independent
+near-one Acos expansion bounds the selected case, without promising correct
+rounding. Canonical samples, pins and Test-ObservatoryContracts.ps1 retain actual
+commands and compiler/reference/runtime hashes through existing sample evidence.
+The new recipe is numerics.compare-ieee-decimal-results, edition11.0.
+Exact eight foundations and existing recipe identities remain intact.
+Comprehensive coverage and actual-GA reconciliation keep their own open gates.
