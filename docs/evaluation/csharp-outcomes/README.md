@@ -31,6 +31,8 @@ Copy Oracle.cs over Program.cs in a disposable copy of each submitted solution,
 then build and run using the pinned SDK. Keep the submitted original. Score each
 assertion separately and keep actual diagnostics; do not repair the submission.
 The same checks apply to both conditions. Do not compare JSON text/property order.
+Rejection may throw an exception or return a Rejected outcome; an absent result
+does not count as rejection. The oracle prints every assertion and a failure total.
 
 Additionally test an ambiguous document in the solution's chosen JSON format
 (two case discriminators/payloads), and verify rejection. Review the actual public
