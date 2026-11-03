@@ -1,0 +1,29 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "Read official command documentation, pinned contract sources and original source audit; author original examples. No sample build or experimental command executed.",
+  "scope": "Documentation-based provisional guidance authorized by Pingu on 3 November 2026. Sample compilation, composed-consumer and experimental behaviour proof remain pending.",
+  "recordedAt": "2026-11-03T17:50:30.0366909+00:00",
+  "sourceCommit": "714b5f78734a68aa6c327640b82185c4b8b24604",
+  "sourceDirty": true,
+  "inputs": {
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+    "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+    "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+    "samples/net10.0/BuildAccessObserver/AccessDecoder.cs": "076e0e6add8079a5577904472fba26190a13bdef6788d85a66f67cfacfd3a8ca",
+    "samples/net10.0/BuildAccessObserver/BuildAccessObserver.csproj": "d11351e341c24cf4323e527f0c67bea6584a945281efd70f7762340f6f04549d",
+    "samples/net10.0/BuildAccessObserver/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+    "samples/net10.0/BuildAccessObserver/verification.json": "69deeb654058ff092031a07a2bf40daa732d175cac180a96bf510844a549e83c"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Source authoring on Windows; no sample execution host qualified.",
+  "sdkInfo": "Intended global.json pin only, not executed compiler/runtime proof.",
+  "workloadInfo": "No sample workloads declared; no native instrumentation qualified.",
+  "output": "Reviewed official references in the recipe. Original canonical samples remain uncompiled; no test-map collection/selection, file-access callback capture or cancellation evidence. Package/hash and host switch preflights are separate discovery observations, not sample execution."
+}

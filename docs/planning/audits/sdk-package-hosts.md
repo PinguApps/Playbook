@@ -1,5 +1,22 @@
 # SDK/package hosts and affected-test availability: PIN-688
 
+Provisional delivery update, 3 November 2026: **PIN-1074 / proposal I** adds
+`sdk.select-affected-tests`, edition 11.0, as documentation-based experimental
+guidance. Pingu explicitly authorized using the documentation now while unreleased
+behaviour cannot yet be validated. This supersedes proposal I's mandatory live
+execution gate for this provisional delivery only. Original seed-bank rules,
+two-module test bodies, full-run/affected command shapes, migration and the complete
+future behaviour/failure checklist are retained. The exact local registration and
+storage pointer remains unavailable; no schema or builder hook is invented.
+The audited 26519.2 extension was re-downloaded with its matching recorded hash;
+the moving TestFx rollout now uses 26530.1, without changing this recipe's pin.
+Both intended sample TFMs have fresh `official-review` input records and pending
+proof, not compiler/resolved-dependency/native/selection evidence. SDK12 rollout
+does not establish SDK11 RC2 or SDK12/net11 composed-consumer compatibility.
+Ordinary tool/installed retrieval checks qualify serving the guidance only.
+Release-ready proof, PIN-959 qualifying coverage and PIN-963 actual-GA gates remain
+open. This adds no .NET 10 foundation, .NET 12 recipe or remote storage route.
+
 Delivery update: PIN-1067 adds `sdk.configure-legacy-mono-launch`, edition 11.0. Linux net472 compilation under SDK10/11, actual defaults and explicit Mono launch, quoted path/arguments, working directory and exit7. Unsupported status retained. Fresh evidence and installed offline inspection qualify this bounded delivery only; PIN-959/PIN-963 comprehensive and actual-GA gates remain open.
 
 Delivery update, 29 October 2026: proposal A is implemented by

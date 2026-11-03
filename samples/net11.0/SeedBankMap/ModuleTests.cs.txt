@@ -1,0 +1,20 @@
+// snippet:tests
+// Place these in TWO independently built MTP test modules using the repository's
+// chosen framework. These xUnit-style bodies are illustrative, not registered hosts.
+// Germination.Tests references only the Germination product project:
+public sealed class GerminationTests
+{
+    [Fact]
+    public void EightyPercentIsReady() => Assert.True(Germination.Ready(8, 10));
+    [Fact]
+    public void BelowThresholdIsNotReady() => Assert.False(Germination.Ready(7, 10));
+}
+// ColdStore.Tests references only the ColdStore product project:
+public sealed class ColdStoreTests
+{
+    [Fact]
+    public void MinusEighteenIsSafe() => Assert.True(ColdStore.InRange(-18));
+    [Fact]
+    public void MinusTenIsUnsafe() => Assert.False(ColdStore.InRange(-10));
+}
+// endsnippet:tests
