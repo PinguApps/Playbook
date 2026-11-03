@@ -3580,6 +3580,7 @@ real stdio list/get from an unrelated directory. Expect two discovery entries
 with ID/title/goal, complete canonical Markdown and applicability, target11 and
 edition11; target10 has no applicable edition. Proxy independence is not OS
 network isolation. This is local emulator/RC2 evidence, not cloud or GA proof.
+
 ## Windows Forms control rendering, startup and update scopes
 
 Use the existing Windows Desktop runtimes, SDK10.0.402 and the separate SDK11 RC2,
@@ -3589,7 +3590,9 @@ From an unrelated directory, select this checkout explicitly:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-9746a30f'
-& ./eng/Test-FenDesktop.ps1 -Record
+& ./eng/Test-FenDesktop.ps1 -Record `
+  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('winforms.author-adaptive-control-rendering','winforms.control-initial-form-reveal','winforms.batch-control-mutations') `
   -Query 'fen-desktop' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
