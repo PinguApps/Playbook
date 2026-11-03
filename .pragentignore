@@ -551,6 +551,16 @@
 /samples/net10.0/ReefMaterialization/verification-evidence.json
 /samples/net11.0/ReefMaterialization/verification-evidence.json
 
+# Generated SDK/command/input receipts from Record-Evidence and the named
+# Beacon migration check. Review canonical consumers, lockfiles, scripts and
+# assertions; build/pack enforce freshness.
+/samples/net10.0/HarbourQueries/verification-evidence.json
+/samples/net11.0/HarbourQueries/verification-evidence.json
+/samples/net10.0/BeaconMigrations/verification-evidence.json
+/samples/net11.0/BeaconMigrations/verification-evidence.json
+/samples/net10.0/BeaconMigrations/migration-checks.evidence.json
+/samples/net11.0/BeaconMigrations/migration-checks.evidence.json
+
 # Record-Evidence generated Fen desktop receipts; review canonical samples, locks and runner.
 /samples/net10.0/FenStatus/verification-evidence.json
 /samples/net10.0/FenStartup/verification-evidence.json

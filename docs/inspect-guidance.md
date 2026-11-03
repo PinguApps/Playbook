@@ -3581,6 +3581,28 @@ with ID/title/goal, complete canonical Markdown and applicability, target11 and
 edition11; target10 has no applicable edition. Proxy independence is not OS
 network isolation. This is local emulator/RC2 evidence, not cloud or GA proof.
 
+## Cosmos I/O, discriminator names and migration histories
+
+From PowerShell7 with the approved Docker Cosmos route and the existing SDK10
+and isolated SDK11 RC2 installations:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-57fde2bf'
+& ./eng/Test-HarbourQueries.ps1 -Record
+& ./eng/Test-BeaconMigrations.ps1 -Record
+& ./eng/Inspect-Guidance.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -RecipeId @('cosmos.use-async-io', 'cosmos.reference-model-discriminator', 'ef.resolve-migration-branch-divergence') `
+  -TargetVersion '11.0'
+```
+
+Expect actual EF10/11 async query/save, sync-path controls, model/storage-name
+checks and competing migration re-scaffolding checks. Inspector builds the real
+server and displays each ID, title, goal, full Markdown and applicability. The
+CosmosPolicyGuidance installed-package scenario additionally checks all three
+through real stdio from an unrelated working directory and isolated feed/cache,
+including canonical bodies and absence from the curated target10 catalogue.
+Local execution uses exact RC2 artifacts, not GA or cloud Cosmos evidence.
+
 ## Windows Forms control rendering, startup and update scopes
 
 Use the existing Windows Desktop runtimes, SDK10.0.402 and the separate SDK11 RC2,
