@@ -1,0 +1,165 @@
+{
+  "id": "interop.generate-com-properties",
+  "edition": "11.0",
+  "title": "Generate COM property contracts",
+  "goal": "Expose a generated COM interface with complete property accessors on .NET 11; use this when replacing explicit accessor methods while preserving the native HRESULT, vtable and string ownership contract.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "host-contracts",
+    "com"
+  ],
+  "apis": [
+    "GeneratedComInterfaceAttribute",
+    "GeneratedComClassAttribute",
+    "MarshalUsingAttribute",
+    "ComInterfaceMarshaller"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical C# 15; preview safety opt-in is a separate diagnostic check.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Framework COM generator/reference pack; no added managed package."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Windows x64 console project, unsafe blocks, generated COM class/interface and an independently compiled native consumer.",
+            "Use a new interface IID for a changed binary contract; do not assume a property preserves an existing method order."
+          ],
+          "platforms": [
+            "Measured Windows x64 CoreCLR and MSVC native consumer; other ABIs and COM activation models unverified."
+          ],
+          "providers": [
+            "No provider selection."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Measured RC2 artifacts are not GA verification; PIN-959/PIN-962 and existing Human gates remain open."
+          ],
+          "constraints": [
+            "Both generated property accessors must be abstract declarations, or both default implementations; count-only MarshalUsing on an accessor is rejected.",
+            "This is IUnknown vtable interop, not IDispatch, a type library, registration or automatic compatibility with arbitrary COM clients.",
+            "StringMarshalling.Utf16 outputs transfer CoTaskMem ownership to the native caller."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/Common/MemorySafetyRules.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs"
+        ],
+        "selectionNotes": [
+          "Both generated property accessors must be abstract declarations, or both default implementations; count-only MarshalUsing on an accessor is rejected.",
+          "This is IUnknown vtable interop, not IDispatch, a type library, registration or automatic compatibility with arbitrary COM clients.",
+          "StringMarshalling.Utf16 outputs transfer CoTaskMem ownership to the native caller."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/BeaconContracts/BeaconContracts.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
+    },
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/gen/Common/MemorySafetyRules.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/Common/MemorySafetyRules.cs"
+    },
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs"
+    },
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/ref/System.Runtime.InteropServices.cs"
+    },
+    {
+      "title": "Official pinned src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Runtime.InteropServices/gen/ComInterfaceGenerator/GeneratorDiagnostics.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BeaconContracts/BeaconContracts.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows x64 C vtable get/set and UTF16 ownership; separate actual compiler/generator diagnostics."
+    },
+    {
+      "sample": "samples/net11.0/BeaconContracts/BeaconContracts.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Real Windows x64 C vtable get/set and UTF16 ownership; separate actual compiler/generator diagnostics."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "All bounded checks use local MSVC/Emscripten and Chromium; no production resources or interactive approval. Other platforms and GA remain unverified."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/BeaconContracts/Beacon.cs",
+      "language": "csharp",
+      "region": "contract"
+    },
+    "newer": {
+      "path": "samples/net11.0/BeaconContracts/Beacon.cs",
+      "language": "csharp",
+      "region": "contract"
+    },
+    "native": {
+      "path": "samples/net11.0/BeaconContracts/beacon.c",
+      "language": "c",
+      "region": "native-consumer"
+    },
+    "consumer": {
+      "path": "samples/net11.0/BeaconContracts/Checks.cs",
+      "language": "csharp",
+      "region": "managed-consumer"
+    }
+  }
+}

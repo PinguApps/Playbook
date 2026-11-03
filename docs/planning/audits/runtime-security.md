@@ -545,3 +545,44 @@ complete canonical Markdown, target11/edition11, applicability and evidence.
 The eight .NET10 foundations, PIN-959/PIN-962 and existing Human gates retain
 their obligations. RC2 preparation is not final-GA verification. No publication,
 production resource or recurring platform matrix is introduced.
+
+## COM properties and custom browser hosts — PIN-1099 / PIN-1100
+
+R13 is delivered as `interop.generate-com-properties`, edition11.0. Original
+Mere Beacon interfaces compare explicit .NET10 methods with generated .NET11
+properties. A separately compiled, header/CRT-free MSVC Windows x64 C consumer
+calls the actual IUnknown vtable, checks HRESULT/out parameters, reads/writes
+numeric and UTF16 properties and releases returned allocations. The original
+explicit-method route remains valid. Actual mixed accessors fail CS0525; invalid
+count-only accessor MarshalUsing fails SYSLIB1090. A separate preview compiler
+feature check requires explicit safety (CS9389), accepts `safe`, and preserves
+the ordinary no-opt-in declaration. Neither source diagnostic names nor property
+support imply that every memory-safety rule was executed.
+
+R14 is delivered as `wasm.migrate-custom-runtime-hosts`, edition11.0. Original
+Lantern Station consumers compile TypeScript against the actual .NET10 Mono,
+RC2 Mono and RC2 CoreCLR dotnet.d.ts and publish/run all three runtimes in Chromium.
+They verify configured environment/arguments, Main return17, live exports versus
+post-exit rejection, resource callbacks and native-asset404 rejection. Real traces
+contain the selected Lantern-Station provider: old provider_name versus current
+providerName. Diagnostic-enabled native relinking uses Emscripten3.1.56/6.0.2;
+missing RC2 packs were prepared in an ignored worktree-local SDK layout.
+
+Actual contracts refine the draft: configSrc belonged to DotnetModuleConfig,
+not MonoConfig. A missing withConfigSrc URL fails on .NET10; RC2 Mono/CoreCLR
+ignore the override and still start. The current loader requires a string URL
+for JavaScript modules. CoreCLR's productVersion can say11.0.0 while the actual
+package remains RC2. Mono removals, deprecations and new CoreCLR contracts remain
+separate, with the packaged declarations' lack of compatibility guarantees explicit.
+
+`eng/Test-BeaconContracts.ps1 -Record -VerifySources` and
+`eng/Test-LanternHosts.ps1 -Record -VerifySources` capture exact commands, inputs,
+compiler/reference/generator/package/declaration/native/deployed identities and
+fresh sample-evidence records. Immutable publisher sources are retained in
+host-contracts.sources.json and artifact hashes reconcile with this original audit.
+The installed walkthrough checks the ordinary packed artifact's offline stdio
+discovery ID/title/goal, complete canonical Markdown, target11/edition11,
+applicability and evidence. No recurring native/browser matrix or public release
+is added. Other ABIs/browsers/platforms/AOT and actual GA remain unverified; the
+exact eight .NET10 foundations, PIN-959/PIN-962 and existing Human gates retain
+their independent obligations.
