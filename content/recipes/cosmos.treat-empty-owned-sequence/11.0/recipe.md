@@ -18,7 +18,7 @@ EF11 initializes the empty owned list. Count or enumerate it directly and remove
 
 ## Migration
 
-1. Keep the previous and current projects separate. Copy all files below, restore their exact dependencies with `dotnet restore --use-lock-file`, and build with `dotnet build -c Release -p:RestoreLockedMode=true`. The .NET10 comparison is historical, not a new foundation or target10 edition.
+1. Keep the previous and current projects separate. Copy all files below, restore their exact dependencies with `dotnet restore --use-lock-file`, and build with `dotnet build -c Release -p:RestoreLockedMode=true`. The .NET10 comparison is historical, not a new foundation or target10 edition. Standalone copies generate their own lock files during restore; the repository retains the tested locks.
 
 2. In this repository run `eng/Test-ReefMaterialization.ps1 -Record`. The approved local route supplies PLAYBOOK_COSMOS_ENDPOINT, PLAYBOOK_COSMOS_KEY, PLAYBOOK_COSMOS_DATABASE and PLAYBOOK_COSMOS_CERT_SHA256 only to each child. Gateway transport pins the owned emulator certificate; do not reuse that emulator transport for production. Each run creates and removes its own marked database. No Azure provisioning or production migration is needed.
 
@@ -67,4 +67,7 @@ Canonical samples execute real queries and persistence against the disposable em
 
 [Official EF11 Cosmos breaking changes](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes).
 
+
+
+[Pinned official source](https://raw.githubusercontent.com/dotnet/EntityFramework.Docs/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md).
 

@@ -3453,7 +3453,7 @@ are not claimed.
 
 ## Empty owned lists and numeric materialization
 
-From PowerShell7 with Docker Desktop running, SDK10.0.402 and the existing isolated SDK11 RC2 installation, run:
+From PowerShell7 with Docker Desktop running, SDK10.0.402 and the existing isolated SDK11 RC2 installation at `C:\Users\pingu\.dotnet-playbook-11\dotnet.exe`, run (or pass `-Net11Dotnet` with its actual absolute path):
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-90e54020'

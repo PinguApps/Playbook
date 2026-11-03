@@ -15,7 +15,6 @@
     "reef-materialization"
   ],
   "apis": [
-    "OwnsMany",
     "Math.Round"
   ],
   "introducedIn": "11.0",
@@ -27,7 +26,8 @@
     "routes": [
       {
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes",
+          "https://raw.githubusercontent.com/dotnet/EntityFramework.Docs/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md"
         ],
         "selectionNotes": [
           "Choose explicit rounding for integer business results when upgrading Cosmos materialization, checking each CLR type separately.",
@@ -116,6 +116,10 @@
     {
       "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes",
       "title": "Official EF Cosmos guidance"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/EntityFramework.Docs/aa051c4c1cad21b2dc03fa401ac0e925c3644606/entity-framework/core/what-is-new/ef-core-11.0/breaking-changes.md",
+      "title": "Pinned official EF11 breaking-change source"
     }
   ],
   "evidence": [
