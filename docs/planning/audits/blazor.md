@@ -1,5 +1,23 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+## Usable documentation-based AI recipes, 3 November 2026
+
+PIN-807 and B16/PIN-1170 now deliver the 11.0 editions of
+`blazor.synchronize-agent-view-state` and `blazor.restore-agent-conversation`.
+Pingu revised their criteria to permit source-reviewed behaviour before GA.
+Original MuseumCaptions and ObservatoryLog .NET10/11 consumers compile against
+their actual SDK10.0.402 / SDK11 RC2 and locked dependencies. Current AI uses
+0.1.0-preview.1.26466.103; no older-target AI package route is invented.
+The full canonical sources, migration steps and explicit pending proof are served
+offline. `eng/Record-AgentStateGuidance.ps1` retains compile/input-freshness records.
+MuseumCaptions uses actual AGUI.Client0.0.6 contracts with snapshot validation,
+explicit delta rejection and user decisions; its remote endpoint is a prerequisite,
+not an executed provider. ObservatoryLog uses the actual thread/restore interface
+with text-only completed-turn storage; browser/storage/renderer execution remains
+deferred. [Source review and artifact boundary](agent-state.sources.json).
+No sample was executed. PIN-959/PIN-964 and actual-GA gates remain open; the
+following draft/audit sections retain their historical availability observations.
+
 ## Documentation-first follow-up, 3 November 2026
 
 Pingu requested guidance before full testing for PIN-807 and PIN-1170.

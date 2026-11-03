@@ -1,5 +1,9 @@
 # Restore completed conversation turns (experimental draft)
 
+Historical planning draft, superseded by the
+[served recipe and compiled canonical examples](../../../content/recipes/blazor.restore-agent-conversation/11.0/recipe.md).
+The unexecuted checks below remain deferred; use the recipe's current Evidence section.
+
 Use this when a view is recreated but its completed conversation should remain.
 Intended identity: `blazor.restore-agent-conversation/11.0` (PIN-1170 / B16).
 No storage or renderer path has run for this draft.

@@ -1,0 +1,15 @@
+// snippet:complete
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.1.26425.128, )",
+        "resolved": "11.0.0-rc.1.26425.128",
+        "contentHash": "/Th3JOTqcwHVb2mhucQxwp+xTEG72KNlTOwdDW6cv+GPXtahCtQmnTim1jBabR6eTMEu6lqIqqVKmnNKHR04nA=="
+      }
+    }
+  }
+}
+// endsnippet:complete

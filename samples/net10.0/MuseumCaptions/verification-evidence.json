@@ -1,0 +1,39 @@
+{
+  "kind": "compile",
+  "sample": "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
+  "target": "net10.0",
+  "sdk": "10.0.402",
+  "language": "14.0",
+  "command": "C:\\Program Files\\dotnet\\dotnet.exe build MuseumCaptions.csproj --configuration Release -p:RestoreLockedMode=true",
+  "scope": "See recipe scope; output records only the commands actually performed.",
+  "recordedAt": "2026-11-03T19:35:40.5179373+00:00",
+  "sourceCommit": "83cfa969027929dcbe4580bfe2bdc758b5f0812b",
+  "sourceDirty": false,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "docs/planning/audits/agent-state.sources.json": "5646ca592025b7a94a83e75f78233bb846bbb87615807119779d9062510f031b",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-AgentStateGuidance.ps1": "e76cf820a36cbad5d314baeaa03c35b6906d7b03ba3a0c1f9264efd5764d5fa7",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net10.0/MuseumCaptions/App.razor": "bfab85eee84ac08269fadeabf5624df6e3b18000f6d90b47b98ae1486ac27234",
+    "samples/net10.0/MuseumCaptions/CaptionPanel.razor": "a2c871ab45780ee85a564bb258d328d6f9752ec2d2f92563bf0dab1510c7394c",
+    "samples/net10.0/MuseumCaptions/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/MuseumCaptions/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/MuseumCaptions/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/MuseumCaptions/global.json": "0339ed1b5623ebd587c7b8878d4fa7a07f7e9ef850016f0118994a62caace646",
+    "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj": "a87a443e6ecef37c43fa7f8fd48fa70e3ef7137c2622ee840fedc361e67954bc",
+    "samples/net10.0/MuseumCaptions/packages.lock.json": "07b82177c1635d7f7fb13d95a458a8f10f049c594f2eb6ab3b3241d4583e3e0c",
+    "samples/net10.0/MuseumCaptions/Program.cs": "16b50a33ab38e18ccdbe07d9230ff6107ea7a2d44a8e2e88615bd3842638c6ef",
+    "samples/net10.0/MuseumCaptions/verification.json": "e7856bc914ddc4ca331cd72efd18cac8a6255a275614018796507dacc6e660d1"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200 / X64",
+  "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_GENERATE_ASPNET_CERTIFICATE       [false]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net10.0\\MuseumCaptions\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+  "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+  "output": "Determining projects to restore...\r\n  Restored V:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net10.0\\MuseumCaptions\\MuseumCaptions.csproj (in 364 ms).\r\n  MuseumCaptions -> V:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net10.0\\MuseumCaptions\\bin\\Release\\net10.0\\MuseumCaptions.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:03.98"
+}

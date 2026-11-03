@@ -154,6 +154,9 @@ foreach ($file in (Get-ChildItem $RecipeRoot -Filter recipe.json -Recurse | Sort
         throw "Missing compilation evidence: $sample. Source review, mocks and execution alone cannot satisfy compilation."
       }
       $warning = if ($excluded) { 'Source review only: excluded sample has not been compiled or executed.' }
+        elseif (@($verified | Where-Object { $_.sample -cne $sample -and $_.kind -in @('compile', 'cross-compile', 'compile-and-run') }).Count -gt 0) {
+          "Theoretical guidance: source review only for $sample; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks release-ready packaging."
+        }
         else { 'Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging.' }
       foreach ($route in ($recipe.applicability.routes | Where-Object { $sample -cin $_.evidenceSamples })) {
         if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }

@@ -1,0 +1,66 @@
+<!-- snippet:complete -->
+@namespace MuseumCaptions
+@using Microsoft.AspNetCore.Components.AI
+@using Microsoft.Extensions.AI
+@implements IDisposable
+@inject IConfiguration Configuration
+<p>Experimental AG-UI editor. Supply CaptionAgentEndpoint for your compatible agent.</p>
+<label>Caption <input value="@_session.Agent.State.Value.Caption" @onchange="Edit" disabled="@(_busy || _session.Agent.State.HasPendingPredictiveState)" /></label>
+<label>Request <input @bind="_request" disabled="@_busy" /></label>
+<button @onclick="SendAsync" disabled="@_busy">Send</button>
+<button @onclick="Cancel" disabled="@(!_busy)">Cancel</button>
+<p role="status">@_status</p>
+@if (_session.Agent.State.HasPendingPredictiveState) { <p>Baseline: @_session.Baseline</p><p>Proposed: @_session.Agent.State.Value.Caption</p> }
+@foreach (var action in _actions.Where(a => !a.IsComplete))
+{
+ <button @onclick="() => DecideAsync(action, true)">Accept</button><button @onclick="() => DecideAsync(action, false)">Reject</button>
+}
+@code {
+ private CaptionSession _session = default!;
+ private IDisposable? _subscription;
+ private CancellationTokenSource? _run;
+ private readonly List<UIActionBlock> _actions = [];
+ private string _request = "Propose a shorter caption";
+ private string _status = "Ready; remote endpoint not checked";
+ private bool _busy;
+ protected override void OnInitialized()
+ {
+     _session = new(Configuration["CaptionAgentEndpoint"] ?? "http://127.0.0.1:6161/agent");
+     _subscription = _session.Agent.State.OnChanged(() => { _ = InvokeAsync(StateHasChanged); });
+ }
+ private void Edit(ChangeEventArgs e)
+ {
+     if (_busy) { return; }
+     try { _session.Edit(e.Value?.ToString() ?? ""); } catch (Exception ex) { _status = ex.Message; }
+ }
+ private async Task SendAsync()
+ {
+     if (_busy) { return; }
+     _busy = true; _actions.Clear(); _run = new();
+     try
+     {
+         await foreach (var block in _session.Agent.SendMessageAsync(new ChatMessage(ChatRole.User, _request), _run.Token))
+         {
+             if (block is UIActionBlock action && !_actions.Contains(action)) { _actions.Add(action); }
+             await InvokeAsync(StateHasChanged);
+         }
+         _status = "Run completed";
+     }
+     catch (OperationCanceledException) { _status = "Canceled"; }
+     catch (Exception ex) { _status = ex.Message; }
+     finally { _session.Agent.State.RejectPredictiveState(); _busy = false; _actions.Clear(); _run.Dispose(); _run = null; }
+ }
+ private async Task DecideAsync(UIActionBlock action, bool accepted)
+ {
+     try
+     {
+         action.Call.Arguments ??= new Dictionary<string, object?>();
+         action.Call.Arguments["accepted"] = accepted;
+         await action.InvokeAsync();
+     }
+     catch (Exception ex) { _status = ex.Message; }
+ }
+ private void Cancel() => _run?.Cancel();
+ public void Dispose() { _run?.Cancel(); _subscription?.Dispose(); _session.Dispose(); }
+}
+<!-- endsnippet:complete -->

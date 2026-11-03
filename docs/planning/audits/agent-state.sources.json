@@ -1,0 +1,56 @@
+{
+  "reviewedAt": "2026-11-03T19:28:46.091114+00:00",
+  "scope": "Documentation-based guidance authorized by Pingu, 3 November 2026. Compilation is separate; browser/provider/storage/native TLS and GA execution remain deferred.",
+  "sources": [
+    {
+      "title": "Experimental Blazor AI documentation",
+      "url": "https://devblogs.microsoft.com/dotnet/build-agentic-ui-blazor/"
+    },
+    {
+      "title": "Exact Components.AI package",
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103"
+    },
+    {
+      "title": "AG-UI client package",
+      "url": "https://www.nuget.org/packages/AGUI.Client/0.0.6"
+    },
+    {
+      "title": "Pinned DirectTls documentation",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/direct-tls-transport.md"
+    },
+    {
+      "title": "Inspected DirectTls RC1 package",
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls/11.0.0-rc.1.26425.128"
+    },
+    {
+      "title": "Kestrel endpoints",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/endpoints"
+    },
+    {
+      "title": "Protected browser storage",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/protected-browser-storage"
+    }
+  ],
+  "artifactFindings": {
+    "ai": "0.1.0-preview.1.26466.103 net11.0; member signatures verified by actual sample compilation and package XML. Nuspec source commit is provenance, not a guarantee all later member behaviour is explained by that snapshot.",
+    "directTls": "11.0.0-rc.1.26425.128 lacks public DirectTlsEndpoint; current documentation sample compilation produces CS0246."
+  },
+  "immutableDocumentation": {
+    "url": "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/direct-tls-transport.md",
+    "sha256": "f9b114f148f3ad068b2dbe007a0b8918b31a3a2e7056766cec5a44997dae7e8b"
+  },
+  "reviewedArtifacts": [
+    {
+      "repositoryCommit": "b2f96bd7ac75c07fb8067c05c54767d3d5e12e8d",
+      "version": "0.1.0-preview.1.26466.103",
+      "package": "Microsoft.AspNetCore.Components.AI",
+      "sha256": "eab6ca276be5a6a94289d5ea2fb15ed8cddcb63478408caaf42aa57fd763393a"
+    },
+    {
+      "repositoryCommit": "3551975be08744f0418857c5bed8ab1545c5dd47",
+      "version": "11.0.0-rc.1.26425.128",
+      "package": "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls",
+      "sha256": "6d4a815c5e8f68151ffdd8e5c09517c505d06178f832a1758981727180b1e460"
+    }
+  ]
+}

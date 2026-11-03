@@ -8,6 +8,17 @@ content or GA publication gates. No served recipe or MCP contract changes here.
 
 ## Documentation-first follow-up, 3 November 2026
 
+Subsequent authorized delivery: W11/PIN-1181 now provides
+`hosting.select-direct-tls/11.0` as usable documentation-based guidance.
+The original HarbourTls .NET10 socket consumer compiles; current documented
+DirectTlsEndpoint configuration reproduces CS0246 against RC1 and is explicitly
+source-reviewed, not a working package route. Its full canonical source and
+availability gate are served offline. Linux/OpenSSL/HTTPS/transport controls and
+GA qualification remain deferred under Pingu's revised acceptance criteria.
+The [reviewed source/artifact record](agent-state.sources.json), pinned locks and
+`eng/Record-AgentStateGuidance.ps1` preserve that distinction. PIN-959/PIN-964
+remain open. The paragraph below describes the earlier planning-only delivery.
+
 Pingu requested guidance before full testing for PIN-1181. The
 [direct TLS decision guide](../guidance/select-direct-tls.md) preserves the
 intended hosting.select-direct-tls/11.0 identity outside the served catalogue.

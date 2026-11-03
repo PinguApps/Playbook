@@ -1,0 +1,56 @@
+<!-- snippet:complete -->
+@namespace ObservatoryLog
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@implements IDisposable
+@inject ProtectedSessionStorage Storage
+<p>Storage is scoped to this browser tab and running host; restart durability is not promised.</p>
+<label>Question <input @bind="_question" disabled="@(!_ready || _busy || _saveFailed)" /></label>
+<button @onclick="SendAsync" disabled="@(!_ready || _busy || _saveFailed)">Send</button>
+<button @onclick="RetrySaveAsync" disabled="@(!_saveFailed || _busy)">Retry save</button>
+<button @onclick="Cancel" disabled="@(!_busy)">Cancel</button>
+@foreach (var turn in _saved.Turns) { <p>User: @turn.Question</p><p>Assistant: @turn.Answer</p> }
+<p role="status">@_status</p>
+@code {
+ private const string Key = "observatory-completed-v1";
+ private SavedLog _saved = new(Guid.NewGuid().ToString("N"), []);
+ private string _question = "Can we observe Saturn?";
+ private string _status = "Loading completed turns";
+ private bool _ready, _busy, _saveFailed;
+ private CancellationTokenSource? _run;
+
+ protected override async Task OnAfterRenderAsync(bool firstRender)
+ {
+     if (!firstRender) { return; }
+     try
+     {
+         var result = await Storage.GetAsync<SavedLog>(Key);
+         if (result.Success && result.Value is { } value) { _saved = value; }
+         // The application renders its completed-turn list directly.
+         _ready = true; _status = "Restored; ready";
+     }
+     catch (Exception ex) { _status = $"Load failed; stored history left unchanged: {ex.Message}"; }
+     await InvokeAsync(StateHasChanged);
+ }
+ private async Task SendAsync()
+ {
+     if (!_ready || _busy || _saveFailed || string.IsNullOrWhiteSpace(_question)) { return; }
+     _busy = true; _run = new();
+     try
+     {
+         await Task.Delay(100, _run.Token);
+         _saved.Turns.Add(new(_question, $"Observation noted: {_question}"));
+         await RetrySaveAsync();
+     }
+     catch (OperationCanceledException) { _status = "Incomplete turn excluded"; }
+     catch (Exception ex) { _status = ex.Message; }
+     finally { _busy = false; _run.Dispose(); _run = null; }
+ }
+ private async Task RetrySaveAsync()
+ {
+     try { await Storage.SetAsync(Key, _saved); _saveFailed = false; _status = "Completed turns saved"; }
+     catch (Exception ex) { _saveFailed = true; _status = $"Save failed; retry before continuing: {ex.Message}"; }
+ }
+ private void Cancel() => _run?.Cancel();
+ public void Dispose() { _run?.Cancel();  }
+}
+<!-- endsnippet:complete -->

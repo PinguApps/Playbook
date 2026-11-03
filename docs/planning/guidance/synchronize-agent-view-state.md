@@ -1,5 +1,9 @@
 # Synchronize agent and view state (experimental draft)
 
+Historical planning draft, superseded by the
+[served recipe and compiled canonical examples](../../../content/recipes/blazor.synchronize-agent-view-state/11.0/recipe.md).
+The unexecuted checks below remain deferred; use the recipe's current Evidence section.
+
 Use this when a person and an assistant edit the same data, and the interface
 must distinguish a saved edit from a proposal. Intended identity:
 `blazor.synchronize-agent-view-state/11.0` (PIN-807 / WEB-035).

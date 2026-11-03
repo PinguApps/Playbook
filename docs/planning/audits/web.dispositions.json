@@ -57,8 +57,8 @@
     {
       "id": "direct-tls",
       "pattern": " Microsoft\\.AspNetCore\\.(Hosting\\.WebHostBuilderDirectTlsExtensions|Server\\.Kestrel\\.Transport\\.DirectTls\\.)",
-      "owner": "W11; RC1-only artifact/source conflict",
-      "disposition": "unresolved"
+      "owner": "W11/PIN-1181; hosting.select-direct-tls/11.0 documentation delivered under Pingu's revised criteria; original socket consumer compiled, current endpoint CS0246 reproduced. RC1 artifact/source conflict and native/GA qualification remain explicit; docs/planning/audits/agent-state.sources.json",
+      "disposition": "documentation delivered; matching endpoint artifact/native qualification unresolved"
     },
     {
       "id": "http3-budgets",

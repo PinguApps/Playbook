@@ -1,0 +1,261 @@
+{
+  "id": "blazor.restore-agent-conversation",
+  "edition": "11.0",
+  "title": "Restore completed conversation turns (Experimental)",
+  "goal": "Recreate an observatory conversation view from completed local text turns, explicitly restore the experimental agent history and continue without replaying stored turns as new writes.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "agent-state-guidance",
+    "observatorylog"
+  ],
+  "apis": [
+    "IConversationThread",
+    "UIAgentOptions.Thread",
+    "UIAgent.RestoreAsync",
+    "AppendUserMessage",
+    "AppendUpdate",
+    "CompleteTurn",
+    "GetUpdates",
+    "ProtectedSessionStorage"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Experimental documentation-based recipe; expected behaviour is source-reviewed, not executed. Matching-SDK compilation is recorded separately where the actual contract is available."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended net11.0 consumer; exact RC compilation baseline is recorded separately, not GA behaviour proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use matching Razor/compiler assets; sample pins RC2. Documentation-only blocked TLS sample has no successful current build."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit current compiler mode; no new language syntax required."
+          },
+          "frameworks": [
+            "ASP.NET Core Blazor"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.AI",
+              "version": "0.1.0-preview.1.26466.103",
+              "match": "exact",
+              "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
+            },
+            {
+              "name": "Microsoft.Extensions.AI.Abstractions",
+              "version": "10.6.0",
+              "match": "exact",
+              "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
+            }
+          ],
+          "packageAssets": [
+            "Only net11.0 Components.AI compile assets; no net10.0 backport claimed."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local deterministic text-only IChatClient; no remote model/provider"
+          ],
+          "platforms": [
+            "ASP.NET Core server and browser; compilation on Windows x64 only"
+          ],
+          "renderingModes": [
+            "Blazor Interactive Server, prerender disabled"
+          ],
+          "prerequisites": [
+            "Save every listed canonical file in its own directory. Restore package pins/lock before offline builds. Directory files isolate repository inheritance. Read Evidence before treating any example as verified."
+          ],
+          "constraints": [
+            "Experimental Components.AI has only a net11.0 asset. The newer 0.1.0-preview.1.26466.103 exposes thread/restore APIs absent from the historical preview-7 audit; actual compilation confirms signatures, not runtime behaviour.",
+            "Local browser-tab session storage, text-only completed turns and one active component owner are the bounded design. Host-process restart, key persistence, quota/tampering recovery, arbitrary tool/media/state serialization and multiple concurrent writers are not implemented guarantees.",
+            "ThreadId identifies this application thread; IsStateful=false and ConversationId=null do not invent remote provider state. No remote model, provider conversation, AG-UI run/thread ID or resume behaviour is exercised.",
+            "All five available sample builds are compilation only; no browser storage or framework restoration was executed. The scripted client is explicitly not a model."
+          ],
+          "optIns": [
+            "Explicit experimental Components.AI package reference; compilation required no experimental diagnostic suppression"
+          ],
+          "stabilityLimitations": [
+            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated."
+          ]
+        },
+        "sourceUrls": [
+          "https://www.nuget.org/packages/Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103",
+          "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/protected-browser-storage"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Exact Components.AI package",
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103"
+    },
+    {
+      "title": "Protected browser storage",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/state-management/protected-browser-storage"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation only. Browser, remote state, local storage, TLS behaviour and GA execution are deferred; no runtime result inferred."
+    },
+    {
+      "sample": "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation only. Browser, remote state, local storage, TLS behaviour and GA execution are deferred; no runtime result inferred."
+    }
+  ],
+  "snippets": {
+    "n10-app-razor": {
+      "path": "samples/net10.0/ObservatoryLog/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ObservatoryLog/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ObservatoryLog/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ObservatoryLog/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-logpanel-razor": {
+      "path": "samples/net10.0/ObservatoryLog/LogPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-observatorylog-csproj": {
+      "path": "samples/net10.0/ObservatoryLog/ObservatoryLog.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ObservatoryLog/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-savedturn-cs": {
+      "path": "samples/net10.0/ObservatoryLog/SavedTurn.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ObservatoryLog/global.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n10-packages-lock-json": {
+      "path": "samples/net10.0/ObservatoryLog/packages.lock.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/ObservatoryLog/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ObservatoryLog/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ObservatoryLog/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ObservatoryLog/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-localthread-cs": {
+      "path": "samples/net11.0/ObservatoryLog/LocalThread.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-logpanel-razor": {
+      "path": "samples/net11.0/ObservatoryLog/LogPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-observatorylog-csproj": {
+      "path": "samples/net11.0/ObservatoryLog/ObservatoryLog.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ObservatoryLog/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-savedturn-cs": {
+      "path": "samples/net11.0/ObservatoryLog/SavedTurn.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-visitorclient-cs": {
+      "path": "samples/net11.0/ObservatoryLog/VisitorClient.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ObservatoryLog/global.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n11-packages-lock-json": {
+      "path": "samples/net11.0/ObservatoryLog/packages.lock.json",
+      "region": "complete",
+      "language": "jsonc"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated."
+  }
+}

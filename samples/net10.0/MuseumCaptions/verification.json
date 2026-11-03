@@ -1,0 +1,15 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Record-AgentStateGuidance.ps1",
+    "docs/planning/audits/agent-state.sources.json"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.13"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}
