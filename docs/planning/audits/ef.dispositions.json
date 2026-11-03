@@ -217,14 +217,14 @@
       "pattern": "SessionToken",
       "disposition": "grouped",
       "owner": "PIN-869",
-      "reason": "Explicit token propagation and consistency mode remain existing scope."
+      "reason": "PIN-869 delivered cosmos.carry-session-consistency/11.0 with paired ReefDocuments actual owner-scoped independent-client token handoff. Manual tokens use a non-bulk client; local emulator does not establish cloud consistency enforcement."
     },
     {
       "id": "cosmos-bulk",
       "pattern": "BulkExecutionAllowed",
       "disposition": "grouped",
       "owner": "PIN-868",
-      "reason": "Bulk configuration is distinct from atomicity."
+      "reason": "PIN-868 delivered cosmos.enable-bulk-writes/11.0 with paired ReefDocuments actual opt-in persistence and duplicate-error checks. RC2 exposes BulkExecutionAllowed, not the documentation spelling BulkExecutionEnabled. No throughput or global atomicity claim."
     },
     {
       "id": "cosmos-index",

@@ -1,0 +1,217 @@
+{
+  "id": "cosmos.preserve-document-fields",
+  "edition": "11.0",
+  "title": "Preserve fields owned by another Cosmos writer",
+  "goal": "Review document ownership before an EF11 upgrade so replacement saves do not erase fields absent from the model.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "cosmos",
+    "data-access",
+    "reef-documents"
+  ],
+  "apis": [
+    "SaveChangesAsync",
+    "CosmosClient",
+    "ReplaceItemStreamAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+        ],
+        "selectionNotes": [
+          "Review document ownership before an EF11 upgrade so replacement saves do not erase fields absent from the model.",
+          "Real EF10 save preserves an unmapped field; EF11 save removes it. Complete-document replacement preserves it and rejects a stale ETag."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C#15-specific syntax is required."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Cosmos",
+              "reason": "Exact RC2 baseline 11.0.0-rc.2.26504.105; previous comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.Azure.Cosmos",
+              "reason": "Independent document read-back and approved emulator transport; both comparison consumers pin this SDK.",
+              "match": "exact",
+              "version": "3.63.1"
+            },
+            {
+              "name": "Newtonsoft.Json",
+              "reason": "Actual EF10 JObject shadow read and Cosmos SDK dependency; EF11 uses System.Text.Json internally.",
+              "match": "exact",
+              "version": "13.0.4"
+            }
+          ],
+          "packageAssets": [
+            "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. Both consumers select Microsoft.Azure.Cosmos3.63.1 lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Cosmos11.0.0-rc.2.26504.105 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Real EF10 save preserves an unmapped field; EF11 save removes it. Complete-document replacement preserves it and rejects a stale ETag.",
+            "Cosmos NoSQL; preserve document ID and complete partition keys. Caller-bound token ownership is not authorization. No cloud, performance or GA claim.",
+            "Previous samples add no .NET10 foundation or target10 edition."
+          ],
+          "prerequisites": [
+            "Copy complete projects and restore exact pins.",
+            "Run eng/Test-ReefDocuments.ps1 -Record with the approved isolated local emulator."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/ReefDocuments/ReefDocuments.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes",
+      "title": "Official EF Cosmos guidance"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/ReefDocuments/ReefDocuments.csproj",
+      "language": "14.0",
+      "scope": "Real EF10 save preserves an unmapped field; EF11 save removes it. Complete-document replacement preserves it and rejects a stale ETag.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sample": "samples/net11.0/ReefDocuments/ReefDocuments.csproj",
+      "language": "15.0",
+      "scope": "Real EF10 save preserves an unmapped field; EF11 save removes it. Complete-document replacement preserves it and rejects a stale ETag.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "n11-program-cs": {
+      "path": "samples/net11.0/ReefDocuments/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/ReefDocuments/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ReefDocuments/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ReefDocuments/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ReefDocuments/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ReefDocuments/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ReefDocuments/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-emulatortransport-cs": {
+      "path": "samples/net11.0/ReefDocuments/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-reefdocuments-csproj": {
+      "path": "samples/net11.0/ReefDocuments/ReefDocuments.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ReefDocuments/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-emulatortransport-cs": {
+      "path": "samples/net10.0/ReefDocuments/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ReefDocuments/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-reefdocuments-csproj": {
+      "path": "samples/net10.0/ReefDocuments/ReefDocuments.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ReefDocuments/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "scope": "Real EF10 save preserves an unmapped field; EF11 save removes it. Complete-document replacement preserves it and rejects a stale ETag.",
+    "status": "not-required"
+  }
+}
