@@ -44,6 +44,11 @@ for (const [category, increment, section, expected] of cases) {
   console.log(`${category}/${increment ?? 'default'} -> ${section}, ${expected}`);
 }
 assert.equal(version([{ number: 1, title: 'Mixed', labels: ['patch', 'minor', 'major'] }]), '2.0.0');
+assert.equal(version([
+  { number: 1, title: 'Correction', labels: ['patch'] },
+  { number: 2, title: 'Addition', labels: ['minor'] },
+]), '1.3.0');
+assert.equal(version([], { version: '' }), '1.2.4');
 assert.equal(version([], { version: '1.0.0' }, undefined), '1.0.0');
 assert.equal(version([], { version: '1.0.0-preview.1' }, undefined), '1.0.0-preview.1');
 console.log('PASS: pinned Release Drafter categories, Markdown, precedence, stable and manual preview versions');

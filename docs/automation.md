@@ -15,6 +15,7 @@ The production project declares no package version. `eng/Test-Smoke.ps1` and `en
 
 Select a category and a version checkbox in the PR template. The automatic labeller
 reads those checkboxes; Release Drafter groups merged PRs using those labels.
+Dependency PRs receive `dependencies` from Renovate rather than a template checkbox.
 
 | Example change | Labels | Draft section | Version after 1.2.3 |
 | --- | --- | --- | --- |
