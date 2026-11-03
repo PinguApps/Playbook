@@ -1,5 +1,19 @@
 # Blazor and Razor authoring coverage: PIN-708
 
+## Documentation-first follow-up, 3 November 2026
+
+Pingu requested guidance before full testing for PIN-807 and PIN-1170.
+The [state synchronization](../guidance/synchronize-agent-view-state.md) and
+[completed-turn restoration](../guidance/restore-agent-conversation.md) drafts
+preserve their intended 11.0 identities outside the served catalogue.
+Components.AI `0.1.0-preview.1.26466.103` now documents typed/predictive state,
+IConversationThread, Thread and RestoreAsync, unlike the older preview-7 baseline.
+Its nuspec uses net11.0 with Components.Web RC1 and AI.Abstractions 10.6.0
+dependency minima. This is artifact inspection, not a restored application or
+a replacement for the historical audit. Canonical samples, dependency
+qualification, renderer/storage/AG-UI checks and installed MCP evidence remain
+outstanding. PIN-959/PIN-964 and actual-GA gates remain open.
+
 ## Withdrawn compiler guidance: B12–B14 / PIN-1166–1168
 
 On 30 October 2026, Pingu withdrew these three delivered recipes after the
