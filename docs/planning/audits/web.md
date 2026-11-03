@@ -1,5 +1,16 @@
 # Non-Blazor web authoring coverage: PIN-709
 
+## Documentation-first follow-up, 3 November 2026
+
+Pingu requested guidance before full testing for PIN-1181. The
+[direct TLS decision guide](../guidance/select-direct-tls.md) preserves the
+intended hosting.select-direct-tls/11.0 identity outside the served catalogue.
+NuGet still listed only 11.0.0-rc.1.26425.128; its DLL has no public
+DirectTlsEndpoint despite XML references to that type. The draft explains the
+decision and migration gates without presenting an unavailable API as code.
+Matching artifacts, canonical samples, Linux native execution and installed
+MCP evidence remain outstanding; PIN-959/PIN-964 and GA gates stay open.
+
 Reviewed **24 October 2026**. This is a bounded artifact/source audit, not recipe
 delivery. Every proposal below is **delivery outstanding** and awaits Pingu's
 decisions through [PIN-986](https://linear.app/pinguapps/issue/PIN-986).
