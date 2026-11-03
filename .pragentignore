@@ -554,3 +554,11 @@
 # diagnostics, artifact reconciliation and capture scripts remain reviewable.
 /samples/net10.0/BeaconContracts/verification-evidence.json
 /samples/net11.0/BeaconContracts/verification-evidence.json
+# Generated WebAssembly compiler/runtime/browser receipts. Review canonical C#/TS,
+# projects, pins, source manifests and capture/behavior scripts; pack checks freshness.
+/samples/net10.0/LanternHostMono/verification-evidence.json
+/samples/net10.0/LanternHostMono/browser.evidence.json
+/samples/net11.0/LanternHostMono/verification-evidence.json
+/samples/net11.0/LanternHostMono/browser.evidence.json
+/samples/net11.0/LanternHostCoreCLR/verification-evidence.json
+/samples/net11.0/LanternHostCoreCLR/browser.evidence.json

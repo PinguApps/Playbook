@@ -34,4 +34,3 @@ try {
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=$old
  foreach($scope in 'Process','User','Machine'){if([Environment]::GetEnvironmentVariable('PATH',$scope) -cne $before[$scope]){throw "PATH changed: $scope"}}
 }
-

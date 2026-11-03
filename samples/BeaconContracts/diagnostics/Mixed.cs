@@ -7,4 +7,3 @@ internal partial interface IMixed
 {
     int Value { get; set { _ = value; } }
 }
-

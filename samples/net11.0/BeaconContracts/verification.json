@@ -1,7 +1,7 @@
 {
   "additionalInputs": [
-    "samples/BeaconContracts/Checks.cs",
-    "samples/BeaconContracts/beacon.c",
+    "samples/net11.0/BeaconContracts/Checks.cs",
+    "samples/net11.0/BeaconContracts/beacon.c",
     "eng/Test-BeaconContracts.ps1",
     "eng/Record-Evidence.ps1",
     "eng/Evidence.ps1",

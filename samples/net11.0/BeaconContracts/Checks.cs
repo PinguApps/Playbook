@@ -1,3 +1,4 @@
+// snippet:managed-consumer
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
@@ -10,9 +11,10 @@ internal static unsafe class Checks
         if (!OperatingSystem.IsWindows()) throw new PlatformNotSupportedException("Windows COM proof");
         var beacon = new Beacon();
         void* pointer = ComInterfaceMarshaller<IBeacon>.ConvertToUnmanaged(beacon);
-        nint library = NativeLibrary.Load(Path.Combine(AppContext.BaseDirectory, "beacon.dll"));
+        nint library = 0;
         try
         {
+            library = NativeLibrary.Load(Path.Combine(AppContext.BaseDirectory, "beacon.dll"));
             var exercise = (delegate* unmanaged<void*, delegate* unmanaged<void*, void>, int>)NativeLibrary.GetExport(library, "exercise");
             int result = exercise(pointer, &Free);
             if (result != 0 || beacon.CurrentReading != 29 || beacon.CurrentCaption != "Quay Ω")
@@ -23,11 +25,11 @@ internal static unsafe class Checks
         finally
         {
             ComInterfaceMarshaller<IBeacon>.Free(pointer);
-            NativeLibrary.Free(library);
+            if (library != 0) NativeLibrary.Free(library);
         }
     }
 
     [UnmanagedCallersOnly]
     private static void Free(void* value) => Marshal.FreeCoTaskMem((nint)value);
 }
-
+// endsnippet:managed-consumer

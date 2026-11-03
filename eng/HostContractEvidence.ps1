@@ -12,7 +12,7 @@ function Get-HostArtifactProof([string]$Dotnet,[string]$Project,[string]$Target,
  $pin=Get-Content (Join-Path (Split-Path $Project) 'global.json') -Raw | ConvertFrom-Json
  $compiler=Join-Path (Split-Path $Dotnet) "sdk/$($pin.sdk.version)/Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll"
  Push-Location (Split-Path $Project)
- try {$pack=(& $Dotnet msbuild $Project -t:ResolveFrameworkReferences -getItem:ResolvedTargetingPack | ConvertFrom-Json).Items.ResolvedTargetingPack | Where-Object Identity -CEQ 'Microsoft.NETCore.App'}
+ try {$pack=(& $Dotnet msbuild $Project -p:PublishTrimmed=false -t:ResolveFrameworkReferences -getItem:ResolvedTargetingPack | ConvertFrom-Json).Items.ResolvedTargetingPack | Where-Object Identity -CEQ 'Microsoft.NETCore.App'}
  finally {Pop-Location}
  if($pack.NuGetPackageVersion -cne $baseline.referencePack){throw 'Reference version drift'}
  $paths=@($compiler)

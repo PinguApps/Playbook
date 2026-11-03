@@ -14,7 +14,7 @@ try {
  $compiler='C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/cl.exe'
  $linker='C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/bin/Hostx64/x64/link.exe'
  $native=Join-Path $root 'artifacts/beacon';New-Item -ItemType Directory -Force $native | Out-Null
- & $compiler /nologo /c /GS- /TC "/Fo$native/beacon.obj" samples/BeaconContracts/beacon.c
+ & $compiler /nologo /c /GS- /TC "/Fo$native/beacon.obj" samples/net11.0/BeaconContracts/beacon.c
  & $linker /NOLOGO /DLL /NOENTRY /NODEFAULTLIB /MACHINE:X64 "/OUT:$native/beacon.dll" "$native/beacon.obj"
  $toolchains=@("MSVC/$((Get-Item $compiler).VersionInfo.FileVersion)","MSVC-link/$((Get-Item $linker).VersionInfo.FileVersion)")
  foreach($target in 'net10.0','net11.0') {
@@ -29,7 +29,7 @@ try {
    & ./eng/Record-Evidence.ps1 -Sample $sample -Dotnet $dotnet -NativeToolchains $toolchains
    $receiptPath=Join-Path (Split-Path $sample) 'verification-evidence.json'
    $receipt=Get-Content $receiptPath -Raw | ConvertFrom-Json -AsHashtable
-   $receipt.command="$compiler /nologo /c /GS- /TC /Fo$native/beacon.obj $root/samples/BeaconContracts/beacon.c; $linker /NOLOGO /DLL /NOENTRY /NODEFAULTLIB /MACHINE:X64 /OUT:$native/beacon.dll $native/beacon.obj; Copy-Item beacon.dll beside managed output; " + $receipt.command + "; $root/eng/Test-BeaconDiagnostics.ps1; Get-HostArtifactProof"
+   $receipt.command="$compiler /nologo /c /GS- /TC /Fo$native/beacon.obj $root/samples/net11.0/BeaconContracts/beacon.c; $linker /NOLOGO /DLL /NOENTRY /NODEFAULTLIB /MACHINE:X64 /OUT:$native/beacon.dll $native/beacon.obj; Copy-Item beacon.dll beside managed output; " + $receipt.command + "; $root/eng/Test-BeaconDiagnostics.ps1; Get-HostArtifactProof"
    $receipt.scope='Real Windows x64 native C consumer invokes generated COM HRESULT/UTF16 accessors; original audit reference/generator hashes agree; actual mixed-accessor/count-only-marshalling and separate preview-safety compiler checks.'
    $receipt.output+="`n"+($identities -join "`n")+"`n"+[IO.File]::ReadAllText("$root/artifacts/com-diagnostics/results.json")
    [IO.File]::WriteAllText((Join-Path $root $receiptPath),($receipt | ConvertTo-Json -Depth 40).Replace("`r`n","`n")+"`n")

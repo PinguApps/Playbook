@@ -21,4 +21,3 @@ internal partial class Beacon : IBeacon
     public string Caption { get => CurrentCaption; set => CurrentCaption = value; }
 }
 // endsnippet:contract
-
