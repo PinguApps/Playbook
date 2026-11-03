@@ -17,7 +17,7 @@
  private string _status = "Loading completed turns";
  private bool _ready, _busy, _saveFailed;
  private CancellationTokenSource? _run;
- 
+
  protected override async Task OnAfterRenderAsync(bool firstRender)
  {
      if (!firstRender) { return; }
