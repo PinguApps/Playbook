@@ -3,7 +3,7 @@
   "nativeToolchains": [],
   "sourceDirty": true,
   "kind": "official-review",
-  "sourceCommit": "74029c4e208e2ea953856029f221497bf949ec19",
+  "sourceCommit": "7deeaa45c9ae48f9f218705a98eed562fbd7a2ea",
   "dependencies": [],
   "recordedAt": "2026-11-03T10:54:02.7237404+00:00",
   "workloadInfo": "No Microsoft.Maui.Sdk pack in separate SDK11 root; workload labels do not establish availability.",
