@@ -551,6 +551,16 @@
 /samples/net10.0/ReefMaterialization/verification-evidence.json
 /samples/net11.0/ReefMaterialization/verification-evidence.json
 
+# Record-Evidence generated Fen desktop receipts; review canonical samples, locks and runner.
+/samples/net10.0/FenStatus/verification-evidence.json
+/samples/net10.0/FenStartup/verification-evidence.json
+/samples/net10.0/FenStartupVb/verification-evidence.json
+/samples/net10.0/FenBatch/verification-evidence.json
+/samples/net11.0/FenStatus/verification-evidence.json
+/samples/net11.0/FenStartup/verification-evidence.json
+/samples/net11.0/FenStartupVb/verification-evidence.json
+/samples/net11.0/FenBatch/verification-evidence.json
+
 # Record-Evidence generated SDK/build/input receipt; review SignalDeck sources,
 # pins and lock; content generation validates freshness and installed list/get.
 /samples/net10.0/SignalDeck/verification-evidence.json
