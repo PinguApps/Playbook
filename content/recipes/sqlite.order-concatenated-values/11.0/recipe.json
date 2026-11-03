@@ -1,0 +1,203 @@
+{
+  "id": "sqlite.order-concatenated-values",
+  "edition": "11.0",
+  "title": "Return an ordered textual summary per group",
+  "goal": "Combine each group into predictable text in SQLite, ordering values inside server-side aggregation.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "embedded-values",
+    "data-access",
+    "sqlite"
+  ],
+  "apis": [
+    "string.Join",
+    "Queryable.OrderBy"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#ordering-in-string-aggregation"
+        ],
+        "selectionNotes": [
+          "Combine each group into predictable text in SQLite, ordering values inside server-side aggregation.",
+          "SQLite 3.44+ is required for aggregate ORDER BY. The real current sample uses the provider native bundle and SQLite 3.53.4; the older sample uses 3.53.3. EF11 requires net11.0. This replaces client evaluation/workaround for the demonstrated query shape. Nulls, collation and separators require application-specific rules; this fixture has non-null text and integer order keys. No allocation or throughput improvement is measured."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C#15-specific syntax is required."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "reason": "Exact RC2 baseline 11.0.0-rc.2.26504.105; previous comparison 10.0.13."
+            }
+          ],
+          "packageAssets": [
+            "EF SQLite11 lib/net11.0 and EF SQLite10 lib/net10.0. Current SQLitePCLRaw config/core/provider3.0.5 select lib/net8.0; previous bundle/core2.1.13 select lib/netstandard2.0 and provider.e_sqlite3 selects lib/net6.0. Windows x64 native SQLite3.53.4 current/3.53.3 previous is executed. Exact managed/native closures remain in the sample locks."
+          ],
+          "providers": [
+            "EF Core SQLite11.0.0-rc.2.26504.105; native SQLite3.53.4 via SQLitePCLRaw bundle_e_sqlite3/config/core/provider3.0.5 and SQLite3.53.4 package. Previous EF10.0.13 uses SQLitePCLRaw2.1.13 and SQLite3.53.3. Aggregate ORDER BY requires SQLite3.44+."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "SQLite 3.44+ is required for aggregate ORDER BY. The real current sample uses the provider native bundle and SQLite 3.53.4; the older sample uses 3.53.3. EF11 requires net11.0. This replaces client evaluation/workaround for the demonstrated query shape. Nulls, collation and separators require application-specific rules; this fixture has non-null text and integer order keys. No allocation or throughput improvement is measured.",
+            "The .NET10 comparison adds no target10 edition or foundation."
+          ],
+          "prerequisites": [
+            "Install the exact sample SDK and restore its locked dependencies. Copy every complete project file below into an isolated directory.",
+            "SQLite uses a private in-memory database; no external resource or account is required."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/HarbourLabels/HarbourLabels.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#ordering-in-string-aggregation",
+      "title": "EF11 ordering in SQLite string aggregation"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim.",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/HarbourLabels/HarbourLabels.csproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim.",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/HarbourLabels/HarbourLabels.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/HarbourLabels/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/HarbourLabels/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/HarbourLabels/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/HarbourLabels/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-harbourlabels-csproj": {
+      "path": "samples/net11.0/HarbourLabels/HarbourLabels.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/HarbourLabels/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/HarbourLabels/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/HarbourLabels/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/HarbourLabels/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/HarbourLabels/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-harbourlabels-csproj": {
+      "path": "samples/net10.0/HarbourLabels/HarbourLabels.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/HarbourLabels/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-query": {
+      "path": "samples/net10.0/HarbourLabels/Program.cs",
+      "region": "query",
+      "language": "csharp"
+    },
+    "n11-query": {
+      "path": "samples/net11.0/HarbourLabels/Program.cs",
+      "region": "query",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim.",
+    "status": "not-required"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "id": "cosmos.map-embedded-values",
+  "edition": "11.0",
+  "title": "Treat nested document content as values rather than entities",
+  "goal": "Store nested objects and collections inside a Cosmos document using value semantics when those parts need no independent identity.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "embedded-values",
+    "data-access",
+    "cosmos"
+  ],
+  "apis": [
+    "ComplexProperty",
+    "ComplexCollection"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#complex-types-in-azure-cosmos-db"
+        ],
+        "selectionNotes": [
+          "Store nested objects and collections inside a Cosmos document using value semantics when those parts need no independent identity.",
+          "Requires Cosmos EF Core 11 on net11.0. Both Complex types sections in the release inventory describe this one capability and are reconciled here. This local route is the approved legacy Linux NoSQL emulator, not cloud parity. The example replaces Location and edits and extends Samples, clears tracking and reloads, and reads the physical JSON independently. Migrating an existing owned model requires checking stored property names, discriminator/id conventions and partition keys before changing production mappings. No automatic data migration is claimed."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C#15-specific syntax is required."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Cosmos",
+              "reason": "Exact RC2 baseline 11.0.0-rc.2.26504.105; previous comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.Azure.Cosmos",
+              "reason": "Independent document read-back and approved emulator transport; both comparison consumers pin this SDK.",
+              "match": "exact",
+              "version": "3.63.1"
+            },
+            {
+              "name": "Newtonsoft.Json",
+              "reason": "JObject/JArray document-shape inspection; both comparison consumers pin this package.",
+              "match": "exact",
+              "version": "13.0.4"
+            }
+          ],
+          "packageAssets": [
+            "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. Both consumers select Microsoft.Azure.Cosmos3.63.1 lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Cosmos11.0.0-rc.2.26504.105 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Requires Cosmos EF Core 11 on net11.0. Both Complex types sections in the release inventory describe this one capability and are reconciled here. This local route is the approved legacy Linux NoSQL emulator, not cloud parity. The example replaces Location and edits and extends Samples, clears tracking and reloads, and reads the physical JSON independently. Migrating an existing owned model requires checking stored property names, discriminator/id conventions and partition keys before changing production mappings. No automatic data migration is claimed.",
+            "The .NET10 comparison adds no target10 edition or foundation."
+          ],
+          "prerequisites": [
+            "Install the exact sample SDK and restore its locked dependencies. Copy every complete project file below into an isolated directory.",
+            "Cosmos authors use eng/Test-EmbeddedValues.ps1 and the approved local emulator; do not use a production database or Azure credentials. SQLite needs no external resource."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/ReefManifest/ReefManifest.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#complex-types-in-azure-cosmos-db",
+      "title": "EF11 complex types in Azure Cosmos DB"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim.",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/ReefManifest/ReefManifest.csproj",
+      "target": "net10.0"
+    },
+    {
+      "scope": "Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim.",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/ReefManifest/ReefManifest.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n10-program-cs": {
+      "path": "samples/net10.0/ReefManifest/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/ReefManifest/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-emulatortransport-cs": {
+      "path": "samples/net10.0/ReefManifest/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-reefmanifest-csproj": {
+      "path": "samples/net11.0/ReefManifest/ReefManifest.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-emulatortransport-cs": {
+      "path": "samples/net11.0/ReefManifest/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/ReefManifest/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/ReefManifest/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/ReefManifest/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/ReefManifest/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/ReefManifest/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/ReefManifest/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-reefmanifest-csproj": {
+      "path": "samples/net10.0/ReefManifest/ReefManifest.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/ReefManifest/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/ReefManifest/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-query": {
+      "path": "samples/net10.0/ReefManifest/Program.cs",
+      "region": "mapping",
+      "language": "csharp"
+    },
+    "n11-query": {
+      "path": "samples/net11.0/ReefManifest/Program.cs",
+      "region": "mapping",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim.",
+    "status": "not-required"
+  }
+}

@@ -239,7 +239,7 @@
       "pattern": "CosmosComplex",
       "disposition": "grouped",
       "owner": "PIN-865",
-      "reason": "Nested complex documents retain their existing real-service consumer owner."
+      "reason": "cosmos.map-embedded-values/11.0: paired ReefManifest consumers execute actual isolated Cosmos insert/read/update and independent JSON object/array read-back; root-only complex-value tracking versus owned identity entries. Repeated Complex types coverage is grouped here; RC2, not GA or cloud parity."
     },
     {
       "id": "diagnostic-support",
@@ -338,6 +338,13 @@
       "disposition": "unresolved",
       "owner": "U3",
       "reason": "Finite remaining metadata, conventions, query/scaffolding and provider extension differences remain visible; no exclusion or compatibility conclusion inferred."
+    },
+    {
+      "owner": "PIN-861",
+      "disposition": "grouped",
+      "id": "sqlite-ordered-summary",
+      "pattern": "Sqlite.*Aggregate|Sqlite.*StringAggregate",
+      "reason": "sqlite.order-concatenated-values/11.0: original paired HarbourLabels consumers execute native SQLite3.44+ ordered summaries, EF11 ordered group_concat versus EF10 local materialization. Exact native versions retained in output; no GA claim."
     }
   ]
 }
