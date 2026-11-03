@@ -33,6 +33,12 @@ databases, certificate-pinned gateway access, real EF/provider checks and cleanu
 ownership. Its limits and the future vNext migration gate remain explicit; each
 recipe still needs its own focused execution evidence.
 
+Desktop recipe authoring uses the local eng/Test-DesktopPolicy.ps1 runner. It is
+intentionally outside the general verification loop: those samples require Windows
+and an interactive desktop, while package CI remains portable. Run without -Record
+for checks; use -Record only to refresh committed sample evidence after relevant
+input changes. Build/pack still enforce saved evidence freshness.
+
 ## Native testing policy
 
 Pingu approved this boundary through PIN-699 on 30 October 2026. Run authoring

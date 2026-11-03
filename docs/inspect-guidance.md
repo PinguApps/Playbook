@@ -3352,6 +3352,39 @@ Target10 has no applicable edition. Unusable retrieval proxies establish proxy
 independence, not OS network isolation. No throughput, cloud consistency enforcement,
 multi-region or GA claim is made. Existing Human/GA gates remain open.
 
+## Desktop clipboard policy and appearance
+
+Requires PowerShell7.4+, the existing SDK10.0.402 and separate SDK11 RC2,
+WindowsDesktop reference/runtime assets and Node22.19+. No workload installation,
+clipboard replacement, global settings change, service or account is needed.
+The paired samples self-close. Source-reviewed appearance restrictions are distinct
+from measured settings/lifecycle checks; visual/accessibility transitions and
+external clipboard-owner failures are not executed. No GA proof is claimed.
+
+Run from an unrelated starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-97b1816d'
+& ./eng/Test-DesktopPolicy.ps1 `
+  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('wpf.restore-clipboard-error-handling','winforms.adopt-modern-rendering') `
+  -Query 'desktop-policy' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin890-891' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/desktop-policy/inspection'
+```
+
+Expect EMPTY for the older/default WPF reads and ERROR80004005 for the current
+opt-in in a separate process. Expect two settings lifecycle passes and current
+inheritance/override/PropertyGrid checks. Installed real stdio list/get prints
+ID/title/goal, full canonical Markdown and target11/edition11 applicability;
+target10 has no applicable edition. The harness uses an isolated local feed/cache
+and unrelated working directory; unusable proxies prove proxy independence, not
+OS network isolation. Existing Human/GA gates remain open.
+
 ## Cosmos identity and absent projections
 
 Use the approved disposable local emulator with the existing SDK10.0.402 and

@@ -2,8 +2,9 @@
 
 Reviewed **25 October 2026**, against the inventory's **.NET 11 RC2 preparation
 baseline**. This closes the assigned source/reference/diagnostic audit, not the
-desktop recipe backlog. No sample, inspected analyzer, Designer, clipboard or
-native UI was executed. No GA verification is claimed.
+desktop recipe backlog. That original 25 October audit executed no sample,
+analyzer, Designer, clipboard or native UI. Subsequent recipe evidence is
+identified in the register below. No GA verification is claimed.
 
 ## Evidence boundary
 
@@ -83,8 +84,8 @@ of the seven existing desktop delivery slices.
 
 | Source/API family | Authored decision and disposition | Existing owner |
 | --- | --- | --- |
-| `wpf.restore-clipboard-error-handling` | **Included, delivery outstanding.** RC2 WinForms notes document `Windows.Clipboard.ThrowExceptionsForGetAPIs`; `rc2-clipboard-2` defines/caches it and `rc2-native-adapter` changes exception/HRESULT handling. WPF uses the shared clipboard pipeline. Choose empty data versus propagated retrieval errors before reading; never recommend enabling it universally or call it a new WinForms Clipboard member. WPF RC2's separate `autoConvert` repair is not this opt-in. | [PIN-890](https://linear.app/pinguapps/issue/PIN-890) |
-| `winforms.adopt-modern-rendering`, toggle options and small appearance details | **Grouped.** `preview7-api-*`, RC1/RC2 notes and actual declarations cover application/control ambient modes, padding, toggle constraints, grid sort glyph color and PrintPreviewControl foreground. Retain High Contrast, Classic/Disabled/Latest/inheritance and composite-control fallbacks; the two composite opt-ins do not make every control modern. ForeColor affects empty preview presentation, not printed document colors. | [PIN-891](https://linear.app/pinguapps/issue/PIN-891) |
+| `wpf.restore-clipboard-error-handling` | **Implemented in the `wpf.restore-clipboard-error-handling` 11.0 edition.** Paired QuayTransfer samples compile/run; controlled COM provider failure is checked without replacing the clipboard. External clipboard-owner failures remain unexecuted. RC2 WinForms notes document `Windows.Clipboard.ThrowExceptionsForGetAPIs`; `rc2-clipboard-2` defines/caches it and `rc2-native-adapter` changes exception/HRESULT handling. WPF uses the shared clipboard pipeline. Choose empty data versus propagated retrieval errors before reading; never recommend enabling it universally or call it a new WinForms Clipboard member. WPF RC2's separate `autoConvert` repair is not this opt-in. | [PIN-890](https://linear.app/pinguapps/issue/PIN-890) |
+| `winforms.adopt-modern-rendering`, toggle options and small appearance details | **Implemented in the `winforms.adopt-modern-rendering` 11.0 edition.** Paired BrackenSettings samples compile/run; requested-mode inheritance, child overrides and PropertyGrid fallback are checked. Visual/accessibility transitions remain unexecuted. `preview7-api-*`, RC1/RC2 notes and actual declarations cover application/control ambient modes, padding, toggle constraints, grid sort glyph color and PrintPreviewControl foreground. Retain High Contrast, Classic/Disabled/Latest/inheritance and composite-control fallbacks; the two composite opt-ins do not make every control modern. ForeColor affects empty preview presentation, not printed document colors. | [PIN-891](https://linear.app/pinguapps/issue/PIN-891) |
 | `winforms.author-adaptive-control-rendering`, `winforms.follow-system-visual-settings` | **Grouped.** Protected effective-mode/change-impact/base notification hooks and settings snapshot/category events change custom-control code. Framework-added overrides for paint, colors, DPI, focus, disposal and padding support that implementation; they are not independent application goals. Preview 1 removes ButtonBase's declared OnBackColorChanged/OnForeColorChanged overrides, but the overridable Control methods remain inherited. Do not prescribe renaming an application override merely because its intermediate implementation moved. | [PIN-892](https://linear.app/pinguapps/issue/PIN-892); settings judgment remains [PIN-897](https://linear.app/pinguapps/issue/PIN-897) |
 | `winforms.control-initial-form-reveal`, `winforms.configure-vb-application-defaults` | **Grouped.** Default/resolved reveal, form overrides and splash/top-level exceptions share one goal. Actual Microsoft.VisualBasic.Forms additions expose ApplyApplicationDefaultsEventArgs values and protected WindowsFormsApplicationBase properties; pinned VB source retains Classic defaults. These require real VB ApplicationEvents authoring, not translated C# startup. No new VB language version is inferred. | [PIN-893](https://linear.app/pinguapps/issue/PIN-893) |
 | `winforms.batch-control-mutations` | **Grouped.** ControlMutationExtensions, LayoutSuspendTraversal, ISupportSuspendPainting and protected begin/end core hooks own exception-safe painting/layout scopes. Acquire the right subtree scope before changing an ambient value. Internal control interface/override plumbing is infrastructure; low-level begin/end calls are not the ordinary recipe. | [PIN-894](https://linear.app/pinguapps/issue/PIN-894) |
@@ -191,9 +192,10 @@ inspect it before updating a baseline. This frozen replay does not discover new
 releases.
 
 The inventory's stable audit ID is now reconciled. Its historical counts stay
-unchanged; there is no new recipe count claim. The seven existing delivery
-tickets still owe original older/newer samples, exact native prerequisites,
-compilation, claim-specific behavior and installed offline list/get evidence.
+unchanged; there is no new recipe count claim. PIN-890/891 now deliver paired
+older/newer samples, explicit native prerequisites, compilation, bounded runtime
+checks and installed offline list/get evidence. Their limits are recorded in each
+recipe. The other five delivery slices remain outstanding.
 PIN-897/898 retain their separately owned Human checks. PIN-986 owns proposal
 approval/reconciliation and PIN-959 the comprehensive publication gate. No
 related issue or estimate is changed by this audit, and none is created.
