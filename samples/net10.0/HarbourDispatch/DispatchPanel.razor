@@ -1,0 +1,72 @@
+<!-- snippet:complete -->
+@namespace HarbourDispatch
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.AI
+@inject DispatchClient ChatClient
+
+<p>Selected berth: @_berth. Dispatches: @ChatClient.Dispatches</p>
+<button @onclick='() => SendAsync(new(ChatRole.User, "berth"))' disabled="@_busy">Request berth</button>
+<button @onclick='() => SendAsync(new(ChatRole.User, "dispatch"))' disabled="@_busy">Request dispatch</button>
+@if (_action is not null)
+{
+    <p>Tool: @_action.Name — Waiting</p>
+    <button @onclick="InvokeToolAsync">Select berth</button>
+}
+@if (_approval is not null)
+{
+    <p>Dispatch crate H-17? Pending</p>
+    <button @onclick="() => DecideAsync(true)">Approve dispatch</button>
+    <button @onclick="() => DecideAsync(false)">Deny dispatch</button>
+}
+<p role="status">@_status</p>
+
+@code {
+    private readonly List<ChatMessage> _history = [];
+    private FunctionCallContent? _action;
+    private ToolApprovalRequestContent? _approval;
+    private bool _busy;
+    private string _status = "Ready";
+    private string _berth = "None";
+    private AIFunction _tool = default!;
+    protected override void OnInitialized() => _tool = AIFunctionFactory.Create((string berth) =>
+    {
+        _berth = berth;
+        return $"Selected {berth}";
+    }, name: "select_berth");
+
+    private async Task SendAsync(ChatMessage message)
+    {
+        _busy = true;
+        _history.Add(message);
+        try
+        {
+            await foreach (ChatResponseUpdate update in ChatClient.GetStreamingResponseAsync(
+                _history, new() { Tools = [_tool.AsDeclarationOnly()] }))
+            {
+                if (update.RawRepresentation is BerthProgress progress) { _status = progress.Stage; }
+                _history.Add(new(ChatRole.Assistant, update.Contents));
+                foreach (AIContent content in update.Contents)
+                {
+                    if (content is FunctionCallContent call) { _action = call; _status = "Awaiting input"; }
+                    if (content is ToolApprovalRequestContent request) { _approval = request; _status = "Awaiting approval"; }
+                    if (content is TextContent text) { _status = text.Text; }
+                }
+            }
+        }
+        finally { _busy = _action is not null || _approval is not null; }
+    }
+    private async Task InvokeToolAsync()
+    {
+        FunctionCallContent call = _action!;
+        _action = null;
+        object? result = await _tool.InvokeAsync(new(call.Arguments!));
+        await SendAsync(new(ChatRole.Tool, [new FunctionResultContent(call.CallId, result)]));
+    }
+    private async Task DecideAsync(bool approved)
+    {
+        ToolApprovalRequestContent request = _approval!;
+        _approval = null;
+        await SendAsync(new(ChatRole.User, [request.CreateResponse(approved)]));
+    }
+}
+<!-- endsnippet:complete -->

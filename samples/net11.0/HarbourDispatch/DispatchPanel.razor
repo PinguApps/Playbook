@@ -1,0 +1,50 @@
+<!-- snippet:complete -->
+@namespace HarbourDispatch
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.AI
+@using Microsoft.Extensions.AI
+@implements IDisposable
+@inject DispatchClient ChatClient
+
+<p>Selected berth: @_berth</p>
+<AgentBoundary Agent="_agent">
+    <MessageList>
+        <ChildContent>
+            <BlockRenderer TBlock="BerthActivity" Context="activity">
+                <p role="status">@activity.Content.GetProperty("Stage").GetString()</p>
+            </BlockRenderer>
+            <BlockRenderer TBlock="RichContentBlock" Context="text">
+                <p>@text.RawText</p>
+                <p>Dispatch ledger: @ChatClient.Dispatches</p>
+            </BlockRenderer>
+            <BlockRenderer TBlock="UIActionBlock" Context="action">
+                <p>Tool: @action.ToolName — @(action.IsComplete ? "Complete" : "Waiting")</p>
+                <button @onclick="() => action.InvokeAsync()" disabled="@action.IsComplete">Select berth</button>
+            </BlockRenderer>
+            <BlockRenderer TBlock="FunctionApprovalBlock" Context="approval">
+                <p>Dispatch crate H-17? @approval.Status</p>
+                <button @onclick="approval.Approve" disabled="@(approval.Status != ApprovalStatus.Pending)">Approve dispatch</button>
+                <button @onclick='() => approval.Reject("Operator declined")' disabled="@(approval.Status != ApprovalStatus.Pending)">Deny dispatch</button>
+            </BlockRenderer>
+        </ChildContent>
+        <Footer Context="conversation"><p role="status">@conversation.Status</p></Footer>
+    </MessageList>
+    <MessageInput Placeholder="Enter berth or dispatch" />
+</AgentBoundary>
+
+@code {
+    private UIAgent _agent = default!;
+    private string _berth = "None";
+    protected override void OnInitialized() => _agent = new(ChatClient, options =>
+    {
+        options.AddBlockHandler(new BerthActivityHandler());
+        options.RegisterUIAction(AIFunctionFactory.Create(async (string berth) =>
+        {
+            _berth = berth;
+            await InvokeAsync(StateHasChanged);
+            return $"Selected {berth}";
+        }, name: "select_berth"));
+    });
+    public void Dispose() => _agent.Dispose();
+}
+<!-- endsnippet:complete -->
