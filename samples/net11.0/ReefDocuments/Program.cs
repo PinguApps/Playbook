@@ -42,7 +42,7 @@ var ownerTokens = new Dictionary<string, IReadOnlyDictionary<string, string?>>(S
 if (ownerTokens["reef-team"].Count == 0) throw new InvalidOperationException("Missing actual tokens.");
 using var readHttp = EmulatorTransport.CreateClient(endpoint, certificate);
 await using var reader = new ReefContext(Options(readHttp));
-if (ReferenceEquals(writer.Database.GetCosmosClient(), reader.Database.GetCosmosClient())) throw new InvalidOperationException("Clients must be independent.");
+if (ReferenceEquals(sessionWriter.Database.GetCosmosClient(), reader.Database.GetCosmosClient())) throw new InvalidOperationException("Clients must be independent.");
 reader.Database.UseSessionTokens(ownerTokens["reef-team"]);
 var recent = await reader.Set<Observation>().WithPartitionKey("reef-team").SingleAsync(x => x.Id == "session-recent");
 if (recent.Value != 7 || ownerTokens.ContainsKey("other-team")) throw new InvalidOperationException("Owner-scoped handoff failed.");
@@ -95,7 +95,3 @@ sealed class ReefContext(DbContextOptions<ReefContext> options) : DbContext(opti
 }
 sealed class Observation { public required string Id { get; set; } public required string Owner { get; set; } public int Value { get; set; } }
 // endsnippet:complete
-
-
-
-
