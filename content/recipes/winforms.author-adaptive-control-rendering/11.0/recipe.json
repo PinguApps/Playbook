@@ -1,0 +1,185 @@
+{
+  "id": "winforms.author-adaptive-control-rendering",
+  "edition": "11.0",
+  "title": "Keep custom Windows Forms rendering aligned with Windows preferences",
+  "goal": "Build a custom status control that reacts to renderer and Windows preference changes while retaining the owner contrast palette.",
+  "areas": [
+    "winforms"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fen-desktop"
+  ],
+  "apis": [
+    "Control.EffectiveVisualStylesMode",
+    "Control.GetVisualStylesModeChangeImpact",
+    "Control.OnSystemVisualSettingsChanged",
+    "Application.SystemVisualSettings"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit sample language mode; .NET 10 comparison uses C# 14. No experimental language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "Windows Desktop winforms"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.WindowsDesktop.App framework assets; no additional NuGet dependency. net10.0-windows comparison and net11.0-windows current sample."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local Windows desktop; no account or remote service"
+          ],
+          "platforms": [
+            "Windows with Windows Desktop runtime"
+          ],
+          "renderingModes": [
+            "Native Windows Forms desktop; no Blazor render mode. See the recipe for renderer and reveal selection."
+          ],
+          "prerequisites": [
+            "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
+          ],
+          "constraints": [
+            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+          ],
+          "optIns": [
+            "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
+          ],
+          "stabilityLimitations": [
+            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/FenStatus/FenStatus.csproj"
+        ],
+        "selectionNotes": [
+          "Previous release remains a comparison, not an additional .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official RC2 desktop contract",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Real .NET10 previous-release compilation and shown-window lifecycle, using existing APIs only. No newer API/backport claim.",
+      "kind": "compile-and-run",
+      "target": "net10.0-windows",
+      "sample": "samples/net10.0/FenStatus/FenStatus.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "scope": "Real control handle, renderer selection, inherited requested mode and paint. No Windows preference or High Contrast transition; PIN-897 is pending.",
+      "kind": "compile-and-run",
+      "target": "net11.0-windows",
+      "sample": "samples/net11.0/FenStatus/FenStatus.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0"
+    }
+  ],
+  "humanProof": {
+    "scope": "PIN-897: Pingu must change and restore Windows Contrast themes while the canonical FenStatus sample runs with --manual, then report notification, effective renderer and visual legibility. No settings transition has been executed by the agent.",
+    "status": "pending"
+  },
+  "snippets": {
+    "n10-fenstatus-directory-build-props": {
+      "path": "samples/net10.0/FenStatus/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstatus-directory-build-targets": {
+      "path": "samples/net10.0/FenStatus/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstatus-directory-packages-props": {
+      "path": "samples/net10.0/FenStatus/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstatus-fenstatus-csproj": {
+      "path": "samples/net10.0/FenStatus/FenStatus.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstatus-global-json": {
+      "path": "samples/net10.0/FenStatus/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-fenstatus-program-cs": {
+      "path": "samples/net10.0/FenStatus/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-fenstatus-directory-build-props": {
+      "path": "samples/net11.0/FenStatus/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstatus-directory-build-targets": {
+      "path": "samples/net11.0/FenStatus/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstatus-directory-packages-props": {
+      "path": "samples/net11.0/FenStatus/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstatus-fenstatus-csproj": {
+      "path": "samples/net11.0/FenStatus/FenStatus.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstatus-global-json": {
+      "path": "samples/net11.0/FenStatus/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-fenstatus-program-cs": {
+      "path": "samples/net11.0/FenStatus/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  }
+}
