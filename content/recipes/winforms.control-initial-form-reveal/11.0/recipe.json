@@ -1,0 +1,327 @@
+{
+  "id": "winforms.control-initial-form-reveal",
+  "edition": "11.0",
+  "title": "Choose when a Windows Forms startup window first appears",
+  "goal": "Select startup presentation in C# or VB ApplicationEvents when automatic dark-mode reveal or an immediate splash requires a deliberate choice.",
+  "areas": [
+    "winforms"
+  ],
+  "exampleLanguages": [
+    "csharp",
+    "vb"
+  ],
+  "tags": [
+    "fen-desktop"
+  ],
+  "apis": [
+    "Application.SetDefaultFormRevealMode",
+    "Application.IsFormRevealDeferred",
+    "Form.FormRevealMode",
+    "ApplyApplicationDefaultsEventArgs.FormRevealMode"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C#15 current/C#14 previous. VB examples explicitly use VB16.9 on both targets; no new VB language release is inferred.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "Windows Desktop winforms"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.WindowsDesktop.App framework assets; no additional NuGet dependency. net10.0-windows comparison and net11.0-windows current sample."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local Windows desktop; no account or remote service"
+          ],
+          "platforms": [
+            "Windows with Windows Desktop runtime"
+          ],
+          "renderingModes": [
+            "Native Windows Forms desktop; no Blazor render mode. See the recipe for renderer and reveal selection."
+          ],
+          "prerequisites": [
+            "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
+          ],
+          "constraints": [
+            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+          ],
+          "optIns": [
+            "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
+          ],
+          "stabilityLimitations": [
+            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/FenStartup/FenStartup.csproj"
+        ],
+        "selectionNotes": [
+          "Previous release remains a comparison, not an additional .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+        ]
+      },
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "reason": "Explicit unchanged VB language mode on both runtime targets; WindowsFormsApplicationBase owns startup.",
+            "version": "16.9",
+            "match": "exact",
+            "name": "VB"
+          },
+          "frameworks": [
+            "Windows Desktop winforms"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.WindowsDesktop.App framework assets; no additional NuGet dependency. net10.0-windows comparison and net11.0-windows current sample."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local Windows desktop; no account or remote service"
+          ],
+          "platforms": [
+            "Windows with Windows Desktop runtime"
+          ],
+          "renderingModes": [
+            "Native Windows Forms desktop; no Blazor render mode. See the recipe for renderer and reveal selection."
+          ],
+          "prerequisites": [
+            "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
+          ],
+          "constraints": [
+            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+          ],
+          "optIns": [
+            "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
+          ],
+          "stabilityLimitations": [
+            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/FenStartupVb/FenStartupVb.vbproj"
+        ],
+        "selectionNotes": [
+          "Previous release remains a comparison, not an additional .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official RC2 desktop contract",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Real .NET10 previous-release compilation and shown-window lifecycle, using existing APIs only. No newer API/backport claim.",
+      "kind": "compile-and-run",
+      "target": "net10.0-windows",
+      "sample": "samples/net10.0/FenStartup/FenStartup.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "scope": "Real .NET10 previous-release compilation and shown-window lifecycle, using existing APIs only. No newer API/backport claim.",
+      "kind": "compile-and-run",
+      "target": "net10.0-windows",
+      "sample": "samples/net10.0/FenStartupVb/FenStartupVb.vbproj",
+      "sdk": "10.0.402",
+      "language": "16.9"
+    },
+    {
+      "scope": "Real C# default/resolved form selection and explicit override; real VB ApplyApplicationDefaults handler; both main forms reach Shown. No pixel timing or splash window execution.",
+      "kind": "compile-and-run",
+      "target": "net11.0-windows",
+      "sample": "samples/net11.0/FenStartup/FenStartup.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0"
+    },
+    {
+      "scope": "Real C# default/resolved form selection and explicit override; real VB ApplyApplicationDefaults handler; both main forms reach Shown. No pixel timing or splash window execution.",
+      "kind": "compile-and-run",
+      "target": "net11.0-windows",
+      "sample": "samples/net11.0/FenStartupVb/FenStartupVb.vbproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "16.9"
+    }
+  ],
+  "humanProof": {
+    "scope": "No additional owner action required for the bounded executed claim. Visual timing and performance are not claimed.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "n10-fenstartup-directory-build-props": {
+      "path": "samples/net10.0/FenStartup/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartup-directory-build-targets": {
+      "path": "samples/net10.0/FenStartup/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartup-directory-packages-props": {
+      "path": "samples/net10.0/FenStartup/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartup-fenstartup-csproj": {
+      "path": "samples/net10.0/FenStartup/FenStartup.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartup-global-json": {
+      "path": "samples/net10.0/FenStartup/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-fenstartup-program-cs": {
+      "path": "samples/net10.0/FenStartup/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-fenstartupvb-applicationevents-vb": {
+      "path": "samples/net10.0/FenStartupVb/ApplicationEvents.vb",
+      "language": "vb",
+      "region": "complete"
+    },
+    "n10-fenstartupvb-directory-build-props": {
+      "path": "samples/net10.0/FenStartupVb/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartupvb-directory-build-targets": {
+      "path": "samples/net10.0/FenStartupVb/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartupvb-directory-packages-props": {
+      "path": "samples/net10.0/FenStartupVb/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartupvb-fenstartupvb-vbproj": {
+      "path": "samples/net10.0/FenStartupVb/FenStartupVb.vbproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenstartupvb-global-json": {
+      "path": "samples/net10.0/FenStartupVb/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-fenstartup-directory-build-props": {
+      "path": "samples/net11.0/FenStartup/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartup-directory-build-targets": {
+      "path": "samples/net11.0/FenStartup/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartup-directory-packages-props": {
+      "path": "samples/net11.0/FenStartup/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartup-fenstartup-csproj": {
+      "path": "samples/net11.0/FenStartup/FenStartup.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartup-global-json": {
+      "path": "samples/net11.0/FenStartup/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-fenstartup-program-cs": {
+      "path": "samples/net11.0/FenStartup/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-fenstartupvb-applicationevents-vb": {
+      "path": "samples/net11.0/FenStartupVb/ApplicationEvents.vb",
+      "language": "vb",
+      "region": "complete"
+    },
+    "n11-fenstartupvb-directory-build-props": {
+      "path": "samples/net11.0/FenStartupVb/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartupvb-directory-build-targets": {
+      "path": "samples/net11.0/FenStartupVb/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartupvb-directory-packages-props": {
+      "path": "samples/net11.0/FenStartupVb/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartupvb-fenstartupvb-vbproj": {
+      "path": "samples/net11.0/FenStartupVb/FenStartupVb.vbproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenstartupvb-global-json": {
+      "path": "samples/net11.0/FenStartupVb/global.json",
+      "language": "json",
+      "region": "complete"
+    }
+  }
+}

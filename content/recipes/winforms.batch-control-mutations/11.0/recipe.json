@@ -1,0 +1,185 @@
+{
+  "id": "winforms.batch-control-mutations",
+  "edition": "11.0",
+  "title": "Resume nested Windows Forms updates safely after a batch",
+  "goal": "Group ambient changes to a control subtree and resume painting and layout even when an update throws.",
+  "areas": [
+    "winforms"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fen-desktop"
+  ],
+  "apis": [
+    "ControlMutationExtensions.SuspendPainting",
+    "LayoutSuspendTraversal",
+    "Control.BeginSuspendPaintingCore",
+    "Control.EndSuspendPaintingCore"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET 11 RC2 execution, not GA verification.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit sample language mode; .NET 10 comparison uses C# 14. No experimental language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "Windows Desktop winforms"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.WindowsDesktop.App framework assets; no additional NuGet dependency. net10.0-windows comparison and net11.0-windows current sample."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local Windows desktop; no account or remote service"
+          ],
+          "platforms": [
+            "Windows with Windows Desktop runtime"
+          ],
+          "renderingModes": [
+            "Native Windows Forms desktop; no Blazor render mode. See the recipe for renderer and reveal selection."
+          ],
+          "prerequisites": [
+            "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
+          ],
+          "constraints": [
+            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+          ],
+          "optIns": [
+            "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
+          ],
+          "stabilityLimitations": [
+            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/FenBatch/FenBatch.csproj"
+        ],
+        "selectionNotes": [
+          "Previous release remains a comparison, not an additional .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official RC2 desktop contract",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+    }
+  ],
+  "evidence": [
+    {
+      "scope": "Real .NET10 previous-release compilation and shown-window lifecycle, using existing APIs only. No newer API/backport claim.",
+      "kind": "compile-and-run",
+      "target": "net10.0-windows",
+      "sample": "samples/net10.0/FenBatch/FenBatch.csproj",
+      "sdk": "10.0.402",
+      "language": "14.0"
+    },
+    {
+      "scope": "Real shown controls, descendant layout suspension, target painting hooks, exception disposal and subsequent layout/list mutation. No flicker or throughput measurement.",
+      "kind": "compile-and-run",
+      "target": "net11.0-windows",
+      "sample": "samples/net11.0/FenBatch/FenBatch.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0"
+    }
+  ],
+  "humanProof": {
+    "scope": "No additional owner action required for the bounded executed claim. Visual timing and performance are not claimed.",
+    "status": "not-required"
+  },
+  "snippets": {
+    "n10-fenbatch-directory-build-props": {
+      "path": "samples/net10.0/FenBatch/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenbatch-directory-build-targets": {
+      "path": "samples/net10.0/FenBatch/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenbatch-directory-packages-props": {
+      "path": "samples/net10.0/FenBatch/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenbatch-fenbatch-csproj": {
+      "path": "samples/net10.0/FenBatch/FenBatch.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-fenbatch-global-json": {
+      "path": "samples/net10.0/FenBatch/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-fenbatch-program-cs": {
+      "path": "samples/net10.0/FenBatch/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-fenbatch-directory-build-props": {
+      "path": "samples/net11.0/FenBatch/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenbatch-directory-build-targets": {
+      "path": "samples/net11.0/FenBatch/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenbatch-directory-packages-props": {
+      "path": "samples/net11.0/FenBatch/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenbatch-fenbatch-csproj": {
+      "path": "samples/net11.0/FenBatch/FenBatch.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fenbatch-global-json": {
+      "path": "samples/net11.0/FenBatch/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n11-fenbatch-program-cs": {
+      "path": "samples/net11.0/FenBatch/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  }
+}
