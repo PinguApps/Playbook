@@ -1,4 +1,12 @@
 # PR Agent review scope; Git tracking and verification gates are unchanged.
+# Record-AgentStateGuidance/Record-Evidence generated compilation receipts.
+# Review canonical consumers, pins/locks, recorder and metadata; build/pack
+# validates input freshness. The TLS source-review failure record stays reviewable.
+/samples/net10.0/MuseumCaptions/verification-evidence.json
+/samples/net11.0/MuseumCaptions/verification-evidence.json
+/samples/net10.0/ObservatoryLog/verification-evidence.json
+/samples/net11.0/ObservatoryLog/verification-evidence.json
+/samples/net10.0/HarbourTls/verification-evidence.json
 # Record-Evidence generated SDK/package/command receipts. Canonical consumers,
 # pins, locks and manifests remain reviewable; build/pack checks freshness.
 /samples/net10.0/HarbourDispatch/verification-evidence.json

@@ -1,0 +1,37 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/HarbourTls/HarbourTls.csproj",
+  "target": "net11.0",
+  "sdk": "11.0.100-rc.2.26504.105",
+  "language": "15.0",
+  "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe restore HarbourTls.csproj --force-evaluate; C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build HarbourTls.csproj -c Release --no-restore (expected CS0246); review pinned DirectTls documentation and exact package metadata",
+  "scope": "Documentation-based current example; compilation attempted and blocked by absent DirectTlsEndpoint in pinned RC1. Not a successful compilation or native Linux execution record.",
+  "recordedAt": "2026-11-03T19:30:42.9012934+00:00",
+  "sourceCommit": "b29ed9d5aad5d7f344e787c623abdc48ca827fe1",
+  "sourceDirty": true,
+  "inputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "docs/planning/audits/agent-state.sources.json": "659bc3c02588bacf90893b8acaf9fd717a028168751dd878f1ac88326cdca488",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-AgentStateGuidance.ps1": "e76cf820a36cbad5d314baeaa03c35b6906d7b03ba3a0c1f9264efd5764d5fa7",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net11.0/HarbourTls/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/HarbourTls/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/HarbourTls/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/HarbourTls/global.json": "e608edfd2abefa08b8a119d721f5d48b35b1ca2add0d201a028354c2fb09945b",
+    "samples/net11.0/HarbourTls/HarbourTls.csproj": "b1f97339ef9b9113dedf67ee7f53e079b2098cd9897ad42aedd3505c28233e4a",
+    "samples/net11.0/HarbourTls/packages.lock.json": "39f0af92985800188a80a94d0ee6419c9902191174af37d7496b7d19d0a22068",
+    "samples/net11.0/HarbourTls/Program.cs": "9af896eed67bb73cd5e5444e913047314935efee94f92358a36876674857fd1a",
+    "samples/net11.0/HarbourTls/verification.json": "2d14004a32d65753dbee4fbd0907ed5597898ea705472fe010fd602bdc1448a2"
+  },
+  "dependencies": [
+    "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls/11.0.0-rc.1.26425.128"
+  ],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended SDK11 RC2; actual command failed at missing documented package API.",
+  "workloadInfo": "No workloads or native OpenSSL runtime qualified",
+  "output": "C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\nV:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net11.0\\HarbourTls\\Program.cs(17,22): error CS0246: The type or namespace name 'DirectTlsEndpoint' could not be found (are you missing a using directive or an assembly reference?) [V:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\n\r\nBuild FAILED.\r\n\r\nV:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net11.0\\HarbourTls\\Program.cs(17,22): error CS0246: The type or namespace name 'DirectTlsEndpoint' could not be found (are you missing a using directive or an assembly reference?) [V:\\_worktrees\\Playbook\\t3-41a45a43\\samples\\net11.0\\HarbourTls\\HarbourTls.csproj]\r\n    0 Warning(s)\r\n    1 Error(s)\r\n\r\nTime Elapsed 00:00:00.73"
+}

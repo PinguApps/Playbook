@@ -1,0 +1,14 @@
+<!-- snippet:complete -->
+@namespace MuseumCaptions
+<label>Caption <input @bind="_caption" disabled="@(_proposal is not null)" /></label>
+<button @onclick="Propose" disabled="@(_proposal is not null)">Preview example proposal</button>
+@if (_proposal is not null) { <p>Saved: @_caption</p><p>Proposed: @_proposal</p><button @onclick="Accept">Accept</button><button @onclick="Reject">Reject</button> }
+<p>Application-owned .NET 10 example; no model or remote protocol.</p>
+@code {
+ private string _caption = "Tide clock";
+ private string? _proposal;
+ private void Propose() => _proposal = "Tide clock from the west quay";
+ private void Accept() { if (_proposal is not null) { _caption = _proposal; } _proposal = null; }
+ private void Reject() => _proposal = null;
+}
+<!-- endsnippet:complete -->

@@ -1,0 +1,65 @@
+<!-- snippet:complete -->
+@namespace ObservatoryLog
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@implements IDisposable
+@inject ProtectedSessionStorage Storage
+<p>Storage is scoped to this browser tab and running host; restart durability is not promised.</p>
+<label>Question <input @bind="_question" disabled="@(!_ready || _busy || _saveFailed)" /></label>
+<button @onclick="SendAsync" disabled="@(!_ready || _busy || _saveFailed)">Send</button>
+<button @onclick="RetrySaveAsync" disabled="@(!_saveFailed || _busy)">Retry save</button>
+<button @onclick="Cancel" disabled="@(!_busy)">Cancel</button>
+@foreach (var block in _blocks.OfType<Microsoft.AspNetCore.Components.AI.RichContentBlock>()) { <p>@block.RawText</p> }
+<p role="status">@_status</p>
+@code {
+ private const string Key = "observatory-completed-v1";
+ private SavedLog _saved = new(Guid.NewGuid().ToString("N"), []);
+ private string _question = "Can we observe Saturn?";
+ private string _status = "Loading completed turns";
+ private bool _ready, _busy, _saveFailed;
+ private CancellationTokenSource? _run;
+ private LocalThread? _thread;
+ private readonly VisitorClient _client = new();
+ private Microsoft.AspNetCore.Components.AI.UIAgent? _agent;
+ private readonly List<Microsoft.AspNetCore.Components.AI.ContentBlock> _blocks = [];
+ protected override async Task OnAfterRenderAsync(bool firstRender)
+ {
+     if (!firstRender) { return; }
+     try
+     {
+         var result = await Storage.GetAsync<SavedLog>(Key);
+         if (result.Success && result.Value is { } value) { _saved = value; }
+         _thread = new(_saved);
+         _agent = new(_client, options => options.Thread = _thread);
+         _blocks.AddRange(await _agent.RestoreAsync()); // Once per recreated view; never append replay back to storage.
+         _ready = true; _status = "Restored; ready";
+     }
+     catch (Exception ex) { _status = $"Load failed; stored history left unchanged: {ex.Message}"; }
+     await InvokeAsync(StateHasChanged);
+ }
+ private async Task SendAsync()
+ {
+     if (!_ready || _busy || _saveFailed || string.IsNullOrWhiteSpace(_question)) { return; }
+     _busy = true; _run = new();
+     try
+     {
+         await foreach (var block in _agent!.SendMessageAsync(new Microsoft.Extensions.AI.ChatMessage(Microsoft.Extensions.AI.ChatRole.User, _question), _run.Token))
+         {
+             if (!_blocks.Contains(block)) { _blocks.Add(block); }
+             await InvokeAsync(StateHasChanged);
+         }
+         _saved = _thread!.Snapshot;
+         await RetrySaveAsync();
+     }
+     catch (OperationCanceledException) { _status = "Incomplete turn excluded"; }
+     catch (Exception ex) { _status = ex.Message; }
+     finally { _busy = false; _run.Dispose(); _run = null; }
+ }
+ private async Task RetrySaveAsync()
+ {
+     try { await Storage.SetAsync(Key, _saved); _saveFailed = false; _status = "Completed turns saved"; }
+     catch (Exception ex) { _saveFailed = true; _status = $"Save failed; retry before continuing: {ex.Message}"; }
+ }
+ private void Cancel() => _run?.Cancel();
+ public void Dispose() { _run?.Cancel(); _agent?.Dispose(); _client.Dispose(); }
+}
+<!-- endsnippet:complete -->

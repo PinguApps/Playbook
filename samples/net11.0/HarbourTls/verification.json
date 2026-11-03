@@ -1,0 +1,15 @@
+{
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Record-AgentStateGuidance.ps1",
+    "docs/planning/audits/agent-state.sources.json"
+  ],
+  "dependencies": [
+    "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls/11.0.0-rc.1.26425.128"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}
