@@ -66,7 +66,7 @@
             }
           ],
           "packageAssets": [
-            "EF SQLite11 lib/net11.0 and EF SQLite10 lib/net10.0. SQLitePCLRaw managed netstandard2.0 assets and Windows x64 native SQLite selected for the actual runs; native engine3.53.4 current/3.53.3 previous. See exact per-sample locks for the full native and managed closure."
+            "EF SQLite11 lib/net11.0 and EF SQLite10 lib/net10.0. Current SQLitePCLRaw config/core/provider3.0.5 select lib/net8.0; previous bundle/core2.1.13 select lib/netstandard2.0 and provider.e_sqlite3 selects lib/net6.0. Windows x64 native SQLite3.53.4 current/3.53.3 previous is executed. Exact managed/native closures remain in the sample locks."
           ],
           "providers": [
             "EF Core SQLite11.0.0-rc.2.26504.105; native SQLite3.53.4 via SQLitePCLRaw bundle_e_sqlite3/config/core/provider3.0.5 and SQLite3.53.4 package. Previous EF10.0.13 uses SQLitePCLRaw2.1.13 and SQLite3.53.3. Aggregate ORDER BY requires SQLite3.44+."
