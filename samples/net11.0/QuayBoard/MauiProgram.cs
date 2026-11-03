@@ -1,0 +1,20 @@
+// snippet:complete
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Hosting;
+namespace QuayBoard;
+public static class MauiProgram
+{
+    public static MauiApp CreateMauiApp() => MauiApp.CreateBuilder().UseMauiApp<BoardApp>().Build();
+}
+public sealed class BoardApp : Application
+{
+    protected override Window CreateWindow(IActivationState? activationState) => new(new BoardPage());
+}
+public sealed class BerthBadge : Label { }
+public static class BerthText
+{
+    public static string Ready() => "Quay inspection ready";
+}
+
+// endsnippet:complete

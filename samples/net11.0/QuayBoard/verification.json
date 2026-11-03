@@ -1,0 +1,9 @@
+{
+  "additionalInputs": [
+    "samples/QuayBoard/sources.json"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}

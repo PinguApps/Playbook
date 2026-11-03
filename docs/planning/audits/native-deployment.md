@@ -1,5 +1,7 @@
 # Native deployment-artifact migrations: PIN-687
 
+Delivery update: PIN-1065 adds `deployment.consume-native-library-artifacts`, edition 11.0. Linux old/new/default opt-out shared-library output, symbol, packaging failure and C-call checks; macOS execution explicitly not-tested. Static support remains unresolved. Fresh evidence and installed offline inspection qualify this bounded delivery only; PIN-959/PIN-963 comprehensive and actual-GA gates remain open.
+
 Reviewed **22 October 2026**. This source-only audit resolves the three assigned
 findings. Two additional delivery proposals await backlog approval. It creates no
 recipe and does not complete comprehensive coverage or permit publication.

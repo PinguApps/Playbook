@@ -44,6 +44,9 @@ Docker Desktop's CLI, `C:\Program Files\dotnet\dotnet.exe`, and
 the temporary projects inherit no root build/package configuration. Docker is not
 an enabled Renovate manager; no automatic update permissions are added.
 
+The ReefIdentity consumers use a separate portable SDK11 RC3 / EF11 RC3 baseline.
+See [their setup and GA retest notes](inspect-guidance.md#cosmos-identity-and-absent-projections); the access probes below retain their measured RC2 baseline.
+
 ## Agent access and test-data ownership
 
 Choose a fresh name per recipe/run. `New` refuses existing databases. `Remove`
