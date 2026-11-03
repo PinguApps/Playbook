@@ -34,8 +34,8 @@
         "conditional": false,
         "usage": "primary",
         "selectionNotes": [
-          "Experimental documentation-based recipe; expected behaviour is source-reviewed, not executed. Matching-SDK compilation is recorded separately where the actual contract is available.",
-          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+          "Experimental documentation-based recipe: the older socket consumer compiled; the current DirectTls example reproduces CS0246 against RC1 and has no successful compilation. Neither sample was executed.",
+          "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks release-ready packaging."
         ],
         "requirements": {
           "runtime": {
@@ -92,7 +92,7 @@
           ],
           "stabilityLimitations": [
             "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.",
-            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+            "Theoretical guidance: source review only for samples/net11.0/HarbourTls/HarbourTls.csproj; this sample has not been compiled successfully or executed. Compilation of other samples is recorded separately. Pending proof blocks release-ready packaging."
           ]
         },
         "sourceUrls": [

@@ -8,7 +8,7 @@ This is usable documentation-based guidance, authorized before full testing. Rea
 
 ## Older approach
 
-The .NET 10 harbour archive serves /catalogue over ordinary Kestrel socket HTTPS on loopback port5443. Supply CertificatePath and CertificatePassword through local secure configuration. The code neither creates nor trusts certificates. This remains the usable fallback; no older direct-native equivalent is invented.
+The .NET 10 harbour archive serves /catalogue over ordinary Kestrel socket HTTPS on loopback port 5443. Supply CertificatePath and CertificatePassword through local secure configuration. The code neither creates nor trusts certificates. This remains the usable fallback; no older direct-native equivalent is invented.
 
 ### .NET 10: `Directory.Build.props`
 
@@ -40,9 +40,9 @@ The .NET 10 harbour archive serves /catalogue over ordinary Kestrel socket HTTPS
 
 ## Newer approach
 
-This original current example follows the pinned official endpoint design and keeps the socket control on5443 beside the explicitly selected direct-TLS endpoint on5444. Both use HTTP/1 and the same supplied certificate so protocol policy is explicit.
+This original current example follows the pinned official endpoint design and keeps the socket control on port 5443 beside the explicitly selected direct-TLS endpoint on port 5444. Both use HTTP/1 and the same supplied certificate so protocol policy is explicit.
 
-**Documentation-based configuration, not runnable against the inspected package:** NuGet currently lists only DirectTls11.0.0-rc.1.26425.128. Its public assembly has UseDirectTls/transport options but no DirectTlsEndpoint. Building the current sample reproduces CS0246. Do not add a fabricated shim, remove endpoint selection or relabel registration as a working direct-TLS migration. The package reference records the inspected artifact, not a usable pin for this documented code. Replace it only after obtaining and qualifying a matching artifact.
+**Documentation-based configuration, not runnable against the inspected package:** NuGet currently lists only Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls version 11.0.0-rc.1.26425.128. Its public assembly has UseDirectTls/transport options but no DirectTlsEndpoint. Building the current sample reproduces CS0246. Do not add a fabricated shim, remove endpoint selection or relabel registration as a working direct-TLS migration. The package reference records the inspected artifact, not a usable pin for this documented code. Replace it only after obtaining and qualifying a matching artifact.
 
 ### .NET 11: `Directory.Build.props`
 
