@@ -3614,6 +3614,8 @@ performance claim follows from these checks.
 For PIN-897, Pingu runs the current FenStatus DLL with `--manual`, keeps it open
 while applying a Windows Contrast theme, checks readable text and disappearance
 of the accent strip, restores the exact original theme and checks recovery.
-The console records `SETTINGS` categories and `STATE` values. Record the actual
-result before changing pending Human evidence. Use the
+The console records `SETTINGS` categories and `STATE` values. The 3 November 2026 owner result is retained in
+samples/net11.0/FenStatus/owner-settings.evidence.json: actual settings notifications,
+Net11 -> Classic -> Net11 and restoration, with owner-reported visual success.
+Refresh that bounded evidence after relevant sample or toolchain changes. Use the
 [Windows Contrast themes instructions](https://support.microsoft.com/en-US/accessibility/windows/change-color-contrast-in-windows).

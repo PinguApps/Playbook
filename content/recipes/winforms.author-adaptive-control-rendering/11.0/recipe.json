@@ -108,17 +108,26 @@
       "language": "14.0"
     },
     {
-      "scope": "Real control handle, renderer selection, inherited requested mode and paint. No Windows preference or High Contrast transition; PIN-897 is pending.",
+      "scope": "Real control handle, renderer selection, inherited requested mode and paint. Owner settings transitions are recorded separately as execution evidence.",
       "kind": "compile-and-run",
       "target": "net11.0-windows",
       "sample": "samples/net11.0/FenStatus/FenStatus.csproj",
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "scope": "PIN-897: owner-reported visual check and actual AccentColor/HighContrast notifications with Net11 -> Classic -> Net11, restoring High Contrast to its initial disabled state. No automated pixel, broad accessibility or GA verification.",
+      "sample": "samples/net11.0/FenStatus/FenStatus.csproj",
+      "record": "samples/net11.0/FenStatus/owner-settings.evidence.json",
+      "target": "net11.0-windows"
     }
   ],
   "humanProof": {
-    "scope": "PIN-897: Pingu must change and restore Windows Contrast themes while the canonical FenStatus sample runs with --manual, then report notification, effective renderer and visual legibility. No settings transition has been executed by the agent.",
-    "status": "pending"
+    "scope": "PIN-897 owner check recorded 3 November 2026 in samples/net11.0/FenStatus/owner-settings.evidence.json. Pingu reported that the requested contrast-theme visual check worked; the transcript confirms High Contrast enabled/disabled notifications and Net11 -> Classic -> Net11. Source/project/DLL identity matched the prepared sample. This bounded Windows RC2 result is not broad visual/accessibility or GA certification.",
+    "status": "verified"
   },
   "snippets": {
     "n10-fenstatus-directory-build-props": {

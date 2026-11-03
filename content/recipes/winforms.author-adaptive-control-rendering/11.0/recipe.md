@@ -20,15 +20,15 @@ GetVisualStylesModeChangeImpact returns Repaint because this tile changes decora
 
 The status tile reads the immutable current settings snapshot rather than caching it. It suppresses the accent decoration in High Contrast and always paints semantic content with system colors. It does not animate, so the animation preference requires no new animation mechanism. Text scaling and DPI geometry are separate concerns; this sample does not claim a full adaptive layout or accessibility certification.
 
-## Owner check: pending PIN-897
+## Owner check: recorded PIN-897
 
-Run the current compiled sample with --manual. Keep it open while changing Windows Settings > Accessibility > Contrast themes, then restore the original theme. Inspect message legibility, the removed accent strip and STATE/SETTINGS console receipts. No owner setting transition is reported as executed until Pingu supplies the result. This pending proof remains a comprehensive publication gate.
+Run the current compiled sample with --manual. Keep it open while changing Windows Settings > Accessibility > Contrast themes, then restore the original theme. Inspect message legibility, the removed accent strip and STATE/SETTINGS console receipts. Pingu performed this check on 3 November 2026 and reported that it worked. The retained owner execution record shows AccentColor/HighContrast notifications and effective Net11 -> Classic -> Net11, with High Contrast restored to its initial disabled state. The source, project and DLL still match the prepared sample. The exact contrast-theme name was not reported; visual success is owner-reported, not a pixel assertion or broad accessibility certification. This bounded Human gate is satisfied; comprehensive coverage and GA gates remain separate.
 
 ## Migration
 
 1. Build the previous example with its pinned SDK and retain its behavior as the comparison.
 2. Use the current canonical implementation with the declared Windows Desktop assets.
-3. Run Test-FenDesktop.ps1 and inspect the bounded evidence; retain pending owner checks.
+3. Run Test-FenDesktop.ps1 and inspect the bounded evidence; refresh owner evidence after relevant sample or toolchain changes.
 
 ## Constraints
 
@@ -86,7 +86,7 @@ Windows desktop and STA execution are required. Current C# uses language15; prev
 
 ## Evidence
 
-Real control handle, renderer selection, inherited requested mode and paint. No Windows preference or High Contrast transition; PIN-897 is pending. Exact SDK pins, locked dependency closure and input hashes are recorded beside each sample. The older build is a comparison, not a new .NET10 foundation. Windows x64 RC2 proof is not GA or other-platform proof. No service account, remote provider, workload installation or package publication is required.
+Real control handle, renderer selection, inherited requested mode and paint. Pingu separately executed the Contrast-theme change/restoration recorded in owner-settings.evidence.json; visual judgment is owner-reported. Exact SDK pins, locked dependency closure and input hashes are recorded beside each sample. The older build is a comparison, not a new .NET10 foundation. Windows x64 RC2 proof is not GA or other-platform proof. No service account, remote provider, workload installation or package publication is required.
 
 ## References
 
