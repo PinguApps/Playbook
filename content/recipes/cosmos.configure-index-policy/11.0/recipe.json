@@ -1,0 +1,218 @@
+{
+  "id": "cosmos.configure-index-policy",
+  "edition": "11.0",
+  "title": "Provision only the document indexes the workload needs",
+  "goal": "Choose paths and specialized Cosmos indexes from the queries your container must support.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "cosmos",
+    "data-access",
+    "cosmos-policy-save"
+  ],
+  "apis": [
+    "HasAutomaticIndexing",
+    "HasIndex",
+    "IsVectorIndex",
+    "IsFullTextIndex"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/providers/cosmos/modeling"
+        ],
+        "selectionNotes": [
+          "Choose paths and specialized Cosmos indexes from the queries your container must support.",
+          "Actual new-container policy creation and independent policy read-back, including nested object/collection paths; no index query execution or performance claim."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires net11.0; no EF11-on-net10.0 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the declared target. Exact recorded SDKs are verification baselines; current-release proof uses RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode; no C#15-specific syntax is required."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Cosmos",
+              "reason": "Exact RC2 baseline 11.0.0-rc.2.26504.105; previous comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.Azure.Cosmos",
+              "reason": "Independent document read-back and approved emulator transport; both comparison consumers pin this SDK.",
+              "match": "exact",
+              "version": "3.63.1"
+            },
+            {
+              "name": "Newtonsoft.Json",
+              "reason": "JObject/JArray document-shape inspection; both comparison consumers pin this package.",
+              "match": "exact",
+              "version": "13.0.4"
+            }
+          ],
+          "packageAssets": [
+            "EF Cosmos11 lib/net11.0; EF Cosmos10 lib/net10.0. Both consumers select Microsoft.Azure.Cosmos3.63.1 lib/netstandard2.0 (Client, Core, Direct and Serialization.HybridRow) and Newtonsoft.Json13.0.4 lib/net6.0. Full transitive and native assets are pinned by each package lock."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Cosmos11.0.0-rc.2.26504.105 and Microsoft.Azure.Cosmos3.63.1 against the approved legacy Linux NoSQL emulator2.14.28.0, loopback HTTPS gateway and a uniquely marked playbook_ database. No cloud/account parity."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Cosmos account/container capabilities are prerequisites. Verify new container policy before use; EnsureCreated is not a migration mechanism.",
+            "Transactions are bounded by one container and complete partition key, 100 operations and 2 MB. Automatic batching is not global atomicity.",
+            "Comparison samples add no .NET10 foundation or target10 edition."
+          ],
+          "prerequisites": [
+            "Copy the complete sample project and restore its exact package/SDK pins.",
+            "Use eng/Test-CosmosPolicies.ps1 -Record with the approved disposable local emulator. No cloud resources or production data."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/HarbourIndexes/HarbourIndexes.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/providers/cosmos/modeling",
+      "title": "EF Cosmos modeling"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/HarbourIndexes/HarbourIndexes.csproj",
+      "language": "14.0",
+      "scope": "Actual new-container policy creation and independent policy read-back, including nested object/collection paths; no index query execution or performance claim.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile-and-run"
+    },
+    {
+      "sample": "samples/net11.0/HarbourIndexes/HarbourIndexes.csproj",
+      "language": "15.0",
+      "scope": "Actual new-container policy creation and independent policy read-back, including nested object/collection paths; no index query execution or performance claim.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "snippets": {
+    "n11-program-cs": {
+      "path": "samples/net11.0/HarbourIndexes/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/HarbourIndexes/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/HarbourIndexes/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/HarbourIndexes/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/HarbourIndexes/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-harbourindexes-csproj": {
+      "path": "samples/net10.0/HarbourIndexes/HarbourIndexes.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/HarbourIndexes/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/HarbourIndexes/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-emulatortransport-cs": {
+      "path": "samples/net11.0/HarbourIndexes/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/HarbourIndexes/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-harbourindexes-csproj": {
+      "path": "samples/net11.0/HarbourIndexes/HarbourIndexes.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-emulatortransport-cs": {
+      "path": "samples/net10.0/HarbourIndexes/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/HarbourIndexes/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/HarbourIndexes/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "scope": "Actual new-container policy creation and independent policy read-back, including nested object/collection paths; no index query execution or performance claim.",
+    "status": "not-required"
+  }
+}

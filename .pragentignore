@@ -503,3 +503,9 @@
 /samples/net11.0/HarbourLabels/verification-evidence.json
 /samples/net10.0/ReefManifest/verification-evidence.json
 /samples/net11.0/ReefManifest/verification-evidence.json
+
+# Record-Evidence generated Cosmos policy/save receipts; review samples, pins, locks and runner.
+/samples/net10.0/HarbourIndexes/verification-evidence.json
+/samples/net11.0/HarbourIndexes/verification-evidence.json
+/samples/net10.0/HarbourSaves/verification-evidence.json
+/samples/net11.0/HarbourSaves/verification-evidence.json

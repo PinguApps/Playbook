@@ -1301,6 +1301,14 @@ public sealed class InstalledToolSteps : IDisposable
         }
     }
 
+    [Then("Cosmos policy and save scope retain complete offline guidance")]
+    public async Task CheckCosmosPolicyGuidanceAsync()
+    {
+        string[] ids = ["cosmos.choose-save-atomicity", "cosmos.configure-index-policy"];
+        await CheckWebRecipesAsync(ids, "cosmos-policy-save", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);
+    }
+
     private async Task CheckWebRecipesAsync(string[] ids, string query, int evidenceCount = 2, string evidenceKind = "compile", string[]? expectedCatalogueIds = null, string? additionalEvidenceKind = null, string targetVersion = "11.0", string? edition = null, bool absentOnNet10 = true)
     {
         edition ??= targetVersion;

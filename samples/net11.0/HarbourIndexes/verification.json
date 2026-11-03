@@ -1,0 +1,34 @@
+{
+  "nativeToolchains": [],
+  "workloads": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Cosmos.ps1",
+    "eng/Test-CosmosPolicies.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Azure.Core/1.44.1",
+    "Microsoft.Azure.Cosmos/3.63.1",
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0",
+    "Microsoft.Bcl.HashCode/1.1.0",
+    "Microsoft.EntityFrameworkCore.Abstractions/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Analyzers/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore.Cosmos/11.0.0-rc.2.26504.105",
+    "Microsoft.EntityFrameworkCore/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Caching.Memory/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.DependencyInjection/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Logging/11.0.0-rc.2.26504.105",
+    "Microsoft.Win32.SystemEvents/6.0.0",
+    "Newtonsoft.Json/13.0.4",
+    "System.ClientModel/1.1.0",
+    "System.Configuration.ConfigurationManager/6.0.0",
+    "System.Drawing.Common/6.0.0",
+    "System.Memory.Data/6.0.0",
+    "System.Security.Cryptography.ProtectedData/6.0.0",
+    "System.Security.Permissions/6.0.0",
+    "System.Windows.Extensions/6.0.0"
+  ]
+}

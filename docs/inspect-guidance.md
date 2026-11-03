@@ -3192,3 +3192,28 @@ Expect ID/title/goal, full canonical Markdown, applicability and fresh paired
 execution evidence for target11/edition11. Target10 returns no_applicable_edition;
 previous examples add no .NET10 foundation. Missing/stale evidence or canonical
 content drift fails. Existing Human and GA reconciliation gates remain open.
+
+## Cosmos index policy and save scope
+
+Requires the existing pinned .NET10/11 SDKs, PowerShell7 and approved local Docker
+Cosmos route. The samples use disposable marked databases and leave no cloud
+resources. Run from any directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-22fc6aea'
+& ./eng/Test-CosmosPolicies.ps1 -Record
+& ./eng/Inspect-Guidance.ps1 `
+  -RecipeId @('cosmos.configure-index-policy','cosmos.choose-save-atomicity') `
+  -TargetVersion '11.0' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe'
+```
+
+Expect real policy read-back and transaction-mode PASS lines, followed by each
+recipe's ID, title, goal, complete Markdown and applicability from real stdio.
+Automatic mode is named WhenNeeded in the pinned API. Always rejects saves across
+partitions/containers; Never permits partial persistence after a conflict.
+Policy acceptance proves no vector/full-text query behavior or performance.
+This is RC2/local emulator evidence, not GA or cloud parity. The installed-package
+CosmosPolicyGuidance scenario separately verifies offline feed/cache retrieval,
+complete canonical body, applicability, target edition and older-target refusal.
