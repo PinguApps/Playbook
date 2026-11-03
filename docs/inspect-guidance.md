@@ -3251,6 +3251,43 @@ Target10 has no applicable edition. Unusable retrieval proxies establish proxy
 independence, not OS network isolation. No throughput, cloud consistency enforcement,
 multi-region or GA claim is made. Existing Human/GA gates remain open.
 
+## Cosmos identity and absent projections
+
+Use the approved disposable local emulator with the existing SDK10.0.402 and
+SDK11 RC3 below. This checks real EF10/11 identity and projection behavior;
+RC evidence does not establish GA or Azure service parity.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+$metadata = Invoke-RestMethod 'https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json'
+$asset = ($metadata.releases | Where-Object 'release-version' -eq '11.0.0-rc.3').sdk.files |
+  Where-Object { $_.rid -eq 'win-x64' -and $_.url.EndsWith('.zip') }
+$sdk = Join-Path (Get-Location) 'artifacts/sdk11rc3'
+New-Item -ItemType Directory -Path $sdk -Force | Out-Null
+$archive = Join-Path $sdk 'sdk.zip'
+Invoke-WebRequest $asset.url -OutFile $archive
+if ((Get-FileHash $archive -Algorithm SHA512).Hash -ine $asset.hash) { throw 'SDK checksum mismatch' }
+Expand-Archive -LiteralPath $archive -DestinationPath $sdk -Force
+& ./eng/Test-ReefIdentity.ps1 -Record
+```
+
+Build and pack the real server, install through the existing isolated-feed/cache
+harness and retrieve full Markdown, applicability and target11/edition11 over stdio:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('cosmos.retain-document-key-identity','cosmos.handle-missing-projection') `
+  -Query 'reef-identity' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin871-872' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/reef-identity/inspection'
+```
+
+Expect two complete entries and exact-artifact PASS. The provider runner records the RC undefined-projection mismatch without treating it as GA proof; retest the documented exception contract against real GA artifacts as approved by Pingu on 3 November 2026. Target10 has no applicable
+edition; the older consumers remain comparisons rather than extra foundations.
+
 ## Observatory numeric results and Windows composite signatures
 
 Requires PowerShell7, SDK 10.0.402/runtime10.0.13, the separate SDK 11 RC2 installation,
