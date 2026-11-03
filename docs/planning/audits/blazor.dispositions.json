@@ -146,8 +146,8 @@
     {
       "id": "ai",
       "pattern": " Microsoft\\.AspNetCore\\.Components\\.AI\\.",
-      "owner": "PIN-804-PIN-807; preview-7 availability gaps retained",
-      "disposition": "grouped/unresolved"
+      "owner": "PIN-804-PIN-807; PIN-807 and B16/PIN-1170 now serve documentation-based 11.0 recipes using AI0.1.0-preview.1.26466.103 with actual compilation; browser/AG-UI/storage and GA behaviour deferred. Historical preview-7 availability baseline retained; docs/planning/audits/agent-state.sources.json",
+      "disposition": "grouped; documentation delivered, runtime qualification unresolved"
     },
     {
       "id": "asset-paths",
@@ -227,7 +227,7 @@
       "id": "package-ai",
       "pattern": "^packageFiles/microsoft\\.aspnetcore\\.components\\.ai/",
       "disposition": "grouped/unresolved",
-      "owner": "PIN-804-PIN-807; B16 availability"
+      "owner": "PIN-804-PIN-807; B16/PIN-1170 documentation delivered with newer pinned AI artifact and compiled consumers; historical preview-7 package baseline and deferred behaviour/GA gates retained"
     },
     {
       "id": "package-grid",

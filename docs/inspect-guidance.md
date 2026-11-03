@@ -4,6 +4,39 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Agent state, completed-turn restoration and direct TLS
+
+PIN-807/PIN-1170/PIN-1181 provide complete documentation-based recipes authorized
+by Pingu on 3 November 2026. MuseumCaptions and ObservatoryLog compile against
+their actual .NET10/11 dependency sets; the older HarbourTls socket host compiles.
+The current documented DirectTlsEndpoint configuration reproduces CS0246 against
+the inspected RC1 package and is source-reviewed only. No sample was executed.
+Browser/AG-UI/provider, renderer/storage, Linux/OpenSSL TLS and GA checks remain
+deferred; pending proof still blocks broader release-ready packaging.
+
+From an unrelated directory, this selects the task worktree, builds and packs the
+ordinary tool, then installs that exact artifact into an isolated local feed/cache
+and calls real stdio list/get from another directory. Requires PowerShell7,
+SDK10.0.402 and Node22.19+. Setup may use network; retrieval uses unusable proxies,
+which proves proxy independence rather than network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-41a45a43'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('blazor.synchronize-agent-view-state','blazor.restore-agent-conversation','hosting.select-direct-tls') `
+  -Query 'agent-state-guidance' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin807-1170-1181' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/agent-guidance/inspection'
+```
+
+Expect all three IDs/titles/goals, complete canonical Markdown, applicability,
+edition11, experimental labels, fresh compile/source-review records and explicit
+pending behaviour proof. Target10 must return no_applicable_edition. The TLS
+recipe must disclose its missing endpoint API, never a successful current build.
+No new platform matrix, provisioning or public publication is involved.
+
 ## Experimental affected tests and file-access observation
 
 PIN-1074/PIN-1123 provide documentation-based experimental guidance authorized by

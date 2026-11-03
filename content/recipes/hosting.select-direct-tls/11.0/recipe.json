@@ -1,0 +1,218 @@
+{
+  "id": "hosting.select-direct-tls",
+  "edition": "11.0",
+  "title": "Select a direct TLS transport (Experimental; artifact gap)",
+  "goal": "Prepare the documented Linux direct-TLS endpoint configuration while retaining ordinary socket HTTPS and recognizing when the available package cannot supply the documented endpoint API.",
+  "areas": [
+    "hosting"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "agent-state-guidance",
+    "harbourtls"
+  ],
+  "apis": [
+    "UseDirectTls",
+    "DirectTlsEndpoint",
+    "ASPNETCORE_DIRECTTLS_001",
+    "KestrelServerOptions.Listen",
+    "UseHttps"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Experimental documentation-based recipe; expected behaviour is source-reviewed, not executed. Matching-SDK compilation is recorded separately where the actual contract is available.",
+          "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended net11.0 consumer; exact RC compilation baseline is recorded separately, not GA behaviour proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use matching Razor/compiler assets; sample pins RC2. Documentation-only blocked TLS sample has no successful current build."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit current compiler mode; no new language syntax required."
+          },
+          "frameworks": [
+            "ASP.NET Core Kestrel"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls",
+              "version": "11.0.0-rc.1.26425.128",
+              "match": "exact",
+              "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
+            }
+          ],
+          "packageAssets": [
+            "DirectTls net11.0 RC1 artifact lacks the documented DirectTlsEndpoint type. Do not run current code against that artifact."
+          ],
+          "workloads": [],
+          "providers": [
+            "Certificate from local secure configuration; no trust change"
+          ],
+          "platforms": [
+            "Linux/OpenSSL and matching native runtime required for documented direct TLS; unqualified"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Save every listed canonical file in its own directory. Restore package pins/lock before offline builds. Directory files isolate repository inheritance. Read Evidence before treating any example as verified."
+          ],
+          "constraints": [
+            "Experimental Linux-only direct TLS; requires OpenSSL and matching runtime native TLS facilities. No exact supported native combination, Windows transport or GA support is established.",
+            "Only ordinary socket HTTPS compilation succeeded. The newer documented endpoint failed compilation against RC1 with CS0246; XML references to DirectTlsEndpoint do not make that public type available.",
+            "Certificates come from existing local secure configuration; no certificate trust, production resource, hardware, public package or native installation is authorized. No TLS handshake, failure/control or transport-selection check was executed.",
+            "The .NET 10 route remains valid. The current source example teaches the intended contract with an explicit availability gate, not a temporary preview substitute or a working RC1 package route."
+          ],
+          "optIns": [
+            "Explicit experimental package adoption; ASPNETCORE_DIRECTTLS_001 scoped to transport registration"
+          ],
+          "stabilityLimitations": [
+            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated.",
+            "Theoretical guidance: source review only; samples have not been compiled or executed. Pending proof blocks release-ready packaging."
+          ]
+        },
+        "sourceUrls": [
+          "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/direct-tls-transport.md",
+          "https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls/11.0.0-rc.1.26425.128",
+          "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/endpoints"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/HarbourTls/HarbourTls.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned DirectTls documentation",
+      "url": "https://github.com/dotnet/AspNetCore.Docs/blob/ecf7aca5136aea60aa8db7330f66ac799d3edcf7/aspnetcore/release-notes/aspnetcore-11/includes/direct-tls-transport.md"
+    },
+    {
+      "title": "Inspected DirectTls RC1 package",
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel.Transport.DirectTls/11.0.0-rc.1.26425.128"
+    },
+    {
+      "title": "Kestrel endpoints",
+      "url": "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/endpoints"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/HarbourTls/HarbourTls.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation only. Browser, remote state, local storage, TLS behaviour and GA execution are deferred; no runtime result inferred."
+    },
+    {
+      "sample": "samples/net11.0/HarbourTls/HarbourTls.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "official-review",
+      "scope": "Documentation-based endpoint example; actual compilation blocked with CS0246 for absent DirectTlsEndpoint. Native Linux/OpenSSL/TLS behaviour and GA support unverified.",
+      "record": "samples/net11.0/HarbourTls/source-review.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/HarbourTls/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/HarbourTls/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/HarbourTls/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-harbourtls-csproj": {
+      "path": "samples/net10.0/HarbourTls/HarbourTls.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/HarbourTls/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/HarbourTls/global.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n10-packages-lock-json": {
+      "path": "samples/net10.0/HarbourTls/packages.lock.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/HarbourTls/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/HarbourTls/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/HarbourTls/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-harbourtls-csproj": {
+      "path": "samples/net11.0/HarbourTls/HarbourTls.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/HarbourTls/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/HarbourTls/global.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n11-packages-lock-json": {
+      "path": "samples/net11.0/HarbourTls/packages.lock.json",
+      "region": "complete",
+      "language": "jsonc"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated."
+  }
+}

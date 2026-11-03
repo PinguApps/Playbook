@@ -1,15 +1,17 @@
-# Guidance awaiting sample verification
+# Guidance delivered with deferred behaviour checks
 
 Pingu requested documentation first for PIN-807, PIN-1170 and PIN-1181 on
-3 November 2026. These original drafts explain the approaches before compilation
-and behaviour qualification. They are outside the served catalogue and do not
-establish compatible dependency closures, working samples or release readiness.
+3 November 2026, then authorized usable served recipes with runtime qualification
+deferred. The canonical recipes below supersede these planning drafts. Five
+available consumers have compilation records; current direct TLS has an explicit
+source-review record for the reproduced missing endpoint API. No sample execution
+or GA support is claimed. Broader release readiness remains gated.
 
-| Intended recipe / edition | Draft | Remaining qualification |
+| Served recipe / edition | Canonical recipe | Deferred qualification |
 | --- | --- | --- |
-| `blazor.restore-agent-conversation/11.0` | [Restore completed turns](restore-agent-conversation.md) | Canonical samples, storage/renderer execution, installed-tool retrieval |
-| `blazor.synchronize-agent-view-state/11.0` | [Synchronize state](synchronize-agent-view-state.md) | Canonical samples, real AG-UI updates/reconciliation, installed-tool retrieval |
-| `hosting.select-direct-tls/11.0` | [Select direct TLS](select-direct-tls.md) | Matching public endpoint API, native Linux execution, canonical samples, installed-tool retrieval |
+| `blazor.restore-agent-conversation/11.0` | [Restore completed turns](../../../content/recipes/blazor.restore-agent-conversation/11.0/recipe.md) | Storage/renderer execution and GA |
+| `blazor.synchronize-agent-view-state/11.0` | [Synchronize state](../../../content/recipes/blazor.synchronize-agent-view-state/11.0/recipe.md) | Real AG-UI/provider, browser/reconciliation and GA |
+| `hosting.select-direct-tls/11.0` | [Select direct TLS](../../../content/recipes/hosting.select-direct-tls/11.0/recipe.md) | Matching endpoint API, successful current compilation and native Linux TLS/GA execution |
 
 The intended comparison is .NET 10 to .NET 11. The eight approved .NET 10
 foundations and existing editions remain unchanged. PIN-959's coverage/evidence
@@ -27,6 +29,8 @@ The newer AI artifact changes the October availability finding; it does not prov
 the application works. Preserve historical audit baselines and qualify the new
 dependency set separately. Follow the [dependency policy](../../dependency-updates.md)
 and [sample evidence workflow](../../contributing.md#choose-the-check-and-retain-its-result).
-Before serving these recipes, author canonical snippets and accurate metadata,
-then reuse the ordinary installed-tool [Inspector procedure](../../inspect-guidance.md).
+Current sample pins, locks, canonical snippets and fresh compilation/source-review
+records live beside MuseumCaptions, ObservatoryLog and HarbourTls. Use
+`eng/Record-AgentStateGuidance.ps1` to refresh those records, and the ordinary
+installed-tool [Inspector procedure](../../inspect-guidance.md) to inspect delivery.
 No new native/client/OS matrix is planned.

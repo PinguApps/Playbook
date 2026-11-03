@@ -1,6 +1,6 @@
 # PinguApps.Playbook: agreed plan
 
-Documentation-first work awaiting sample qualification:
+Documentation-based recipes delivered with explicit deferred behaviour checks:
 [AI state, conversation restoration and direct TLS drafts](guidance/README.md).
 
 Status: shared understanding confirmed by Pingu on 16 October 2026, after eight design rounds and 51 decisions. Planning is complete. This is a repository/package delivery plan; no tool, samples or workflows have been implemented, and nothing has been published.

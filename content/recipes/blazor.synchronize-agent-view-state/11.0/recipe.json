@@ -1,0 +1,259 @@
+{
+  "id": "blazor.synchronize-agent-view-state",
+  "edition": "11.0",
+  "title": "Synchronize agent and view state (Experimental)",
+  "goal": "Keep a curator\u2019s caption and an assistant\u2019s proposed caption coordinated when both can change the same museum record; use typed state and an explicit accept/reject boundary with the experimental AG-UI integration.",
+  "areas": [
+    "blazor"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "agent-state-guidance",
+    "museumcaptions"
+  ],
+  "apis": [
+    "UIAgent<TState>",
+    "AgentState<TState>",
+    "StateMapper",
+    "SetState",
+    "SetPredictiveState",
+    "AcceptPredictiveState",
+    "RejectPredictiveState",
+    "RunAgentInput.State",
+    "StateSnapshotEvent",
+    "StateDeltaEvent"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "sharedAreas": [],
+        "neutralLanguages": [],
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Experimental documentation-based recipe; expected behaviour is source-reviewed, not executed. Matching-SDK compilation is recorded separately where the actual contract is available."
+        ],
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Intended net11.0 consumer; exact RC compilation baseline is recorded separately, not GA behaviour proof."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use matching Razor/compiler assets; sample pins RC2. Documentation-only blocked TLS sample has no successful current build."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Explicit current compiler mode; no new language syntax required."
+          },
+          "frameworks": [
+            "ASP.NET Core Blazor"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.AspNetCore.Components.AI",
+              "version": "0.1.0-preview.1.26466.103",
+              "match": "exact",
+              "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
+            },
+            {
+              "name": "Microsoft.Extensions.AI.Abstractions",
+              "version": "10.6.0",
+              "match": "exact",
+              "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
+            },
+            {
+              "name": "AGUI.Client",
+              "version": "0.0.6",
+              "match": "exact",
+              "reason": "Exact reviewed package; availability and compile status are disclosed in Evidence, not an assertion of runtime support."
+            }
+          ],
+          "packageAssets": [
+            "Only net11.0 Components.AI compile assets; no net10.0 backport claimed."
+          ],
+          "workloads": [],
+          "providers": [
+            "AGUI.Client 0.0.6 with a compatible remote state endpoint; no provider execution proof"
+          ],
+          "platforms": [
+            "ASP.NET Core server and browser; compilation on Windows x64 only"
+          ],
+          "renderingModes": [
+            "Blazor Interactive Server, prerender disabled"
+          ],
+          "prerequisites": [
+            "Save every listed canonical file in its own directory. Restore package pins/lock before offline builds. Directory files isolate repository inheritance. Read Evidence before treating any example as verified."
+          ],
+          "constraints": [
+            "Same experimental Components.AI package as the conversation components. AG-UI is required for the remote state protocol; ordinary IChatClient text is not shared-state proof.",
+            "The only compiled rendering mode here is Interactive Server with prerender disabled. Rendering, event flow, provider authentication, network failure/retry and concurrent-agent behaviour are untested. Do not infer WASM/Hybrid, trimming/AOT or GA support.",
+            "This sample accepts complete snapshots and rejects deltas. Its disabled-editor policy avoids concurrent local edits; unrelated clients require server-side revision/authorization enforcement. The pending baseline is displayed only, not durable saved data.",
+            "No runtime or performance claims. After building, running the current app still requires a separately configured AG-UI endpoint; the compilation record does not qualify that integration."
+          ],
+          "optIns": [
+            "Explicit experimental Components.AI package reference; compilation required no experimental diagnostic suppression"
+          ],
+          "stabilityLimitations": [
+            "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated."
+          ]
+        },
+        "sourceUrls": [
+          "https://devblogs.microsoft.com/dotnet/build-agentic-ui-blazor/",
+          "https://www.nuget.org/packages/Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103",
+          "https://www.nuget.org/packages/AGUI.Client/0.0.6"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Experimental Blazor AI documentation",
+      "url": "https://devblogs.microsoft.com/dotnet/build-agentic-ui-blazor/"
+    },
+    {
+      "title": "Exact Components.AI package",
+      "url": "https://www.nuget.org/packages/Microsoft.AspNetCore.Components.AI/0.1.0-preview.1.26466.103"
+    },
+    {
+      "title": "AG-UI client package",
+      "url": "https://www.nuget.org/packages/AGUI.Client/0.0.6"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation only. Browser, remote state, local storage, TLS behaviour and GA execution are deferred; no runtime result inferred."
+    },
+    {
+      "sample": "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual matching-SDK compilation only. Browser, remote state, local storage, TLS behaviour and GA execution are deferred; no runtime result inferred."
+    }
+  ],
+  "snippets": {
+    "n10-app-razor": {
+      "path": "samples/net10.0/MuseumCaptions/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-captionpanel-razor": {
+      "path": "samples/net10.0/MuseumCaptions/CaptionPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/MuseumCaptions/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/MuseumCaptions/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/MuseumCaptions/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-museumcaptions-csproj": {
+      "path": "samples/net10.0/MuseumCaptions/MuseumCaptions.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/MuseumCaptions/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/MuseumCaptions/global.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n10-packages-lock-json": {
+      "path": "samples/net10.0/MuseumCaptions/packages.lock.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n11-app-razor": {
+      "path": "samples/net11.0/MuseumCaptions/App.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-captionpanel-razor": {
+      "path": "samples/net11.0/MuseumCaptions/CaptionPanel.razor",
+      "region": "complete",
+      "language": "razor"
+    },
+    "n11-captionsession-cs": {
+      "path": "samples/net11.0/MuseumCaptions/CaptionSession.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/MuseumCaptions/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/MuseumCaptions/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/MuseumCaptions/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-museumcaptions-csproj": {
+      "path": "samples/net11.0/MuseumCaptions/MuseumCaptions.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/MuseumCaptions/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/MuseumCaptions/global.json",
+      "region": "complete",
+      "language": "jsonc"
+    },
+    "n11-packages-lock-json": {
+      "path": "samples/net11.0/MuseumCaptions/packages.lock.json",
+      "region": "complete",
+      "language": "jsonc"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized documentation-based recipe delivery on 3 November 2026. Final GA, browser/provider/AG-UI, renderer/storage and Linux native TLS behaviour checks remain pending and are not claimed. These deferred checks do not block this ticket; broader release readiness remains gated."
+  }
+}
