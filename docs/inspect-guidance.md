@@ -4,6 +4,35 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Trim-safe MAUI bindings and native CLI reload
+
+PIN-901/PIN-902 add SignalDeck comparisons and complete offline .NET11 recipes.
+The reload engine is preview. The .NET10 Windows example compiled; current native
+compilation, trimming and live reload remain explicit sample-specific exclusions
+under PIN-699. Retrieval does not prove native behavior.
+
+Run from any directory with PowerShell7, SDK10.0.402 and Node22.19+. The existing
+harness builds and packs, installs that exact artifact with an isolated local
+feed/cache, then calls real stdio list/get from an unrelated directory using
+unusable proxies. This proves proxy independence, not network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-6b6058ce'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.author-trim-safe-relative-bindings','maui.iterate-with-native-hot-reload') `
+  -Query 'signaldeck' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin901-902' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/signaldeck/inspection'
+```
+
+Expect both IDs/titles/goals, full canonical Markdown, complete applicability,
+edition11, preview reload status and current compilation/source-review records.
+Target10 must return no_applicable_edition. The helper verifies the full body,
+JSON-text equality, constraints and input freshness; it also checks saved PATH
+values without changing shared settings. It installs no native workload.
+
 ## Agent state, completed-turn restoration and direct TLS
 
 PIN-807/PIN-1170/PIN-1181 provide complete documentation-based recipes authorized
