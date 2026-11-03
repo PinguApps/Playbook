@@ -1,0 +1,14 @@
+{
+  "dependencies": [],
+  "workloads": [],
+  "additionalInputs": [
+    "samples/ObservatoryResultChecks.cs",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-ObservatoryContracts.ps1",
+    "docs/planning/audits/decimal-results.sources.json",
+    "docs/planning/audits/cryptography-platforms.sources.json"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": []
+}
