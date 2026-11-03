@@ -1,0 +1,434 @@
+{
+  "id": "maui.author-trim-safe-relative-bindings",
+  "edition": "11.0",
+  "title": "Keep ancestor and named-control bindings safe for trimming",
+  "goal": "Use resolvable ancestor and named-control types when a MAUI screen must retain its bound members under trimming.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "signaldeck",
+    "bindings"
+  ],
+  "apis": [
+    "RelativeSource",
+    "x:Reference",
+    "TypedBinding"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 native application; CoreCLR is the default mobile runtime. No NativeAOT execution claim.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC2.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample pins C#15; no preview C# expressions.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Controls11 SourceGen compiler and preview incremental reload engine; sample pins 11.0.0-rc.2.26505.5.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Controls11 Windows20348, Android37.2 and iOS27.0 target assets plus Build.Tasks SourceGen analyzer/targets. Intended native dependency closure is unresolved on this host."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Windows x64 (binding20348, minimum17763); Android (binding37.2, minimum24); iOS (binding27.0, minimum18.2). iOS CLI requires a Mac, compatible Xcode and selected simulator/device."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Matching native SDK pack, platform tooling and a configured device/emulator for live checks; workload labels alone do not establish availability.",
+            "Android preparation uses JDK25 and Android SDK/build tools matching the reviewed workload; Apple preparation uses the reviewed Xcode27.0 RC2 composition."
+          ],
+          "constraints": [
+            "No provider/account for Playbook retrieval. Device signing/trust is separate and not provisioned by this guidance.",
+            "Windows cannot launch an iOS app through this CLI route.",
+            "Compilation, trimming and live reload are distinct claims; see Evidence."
+          ],
+          "optIns": [
+            "MauiXamlInflator=SourceGen; no EnablePreviewFeatures needed for these bindings."
+          ],
+          "stabilityLimitations": [
+            "RC2 preparation only, no GA verification. Native current sample is official-source reviewed only."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/SignalDeck/SignalDeck.csproj",
+          "samples/net11.0/SignalDeckAndroid/SignalDeckAndroid.csproj",
+          "samples/net11.0/SignalDeckiOS/SignalDeckiOS.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/dotnetmaui.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+          "https://raw.githubusercontent.com/dotnet/docs-maui/e4fe7f5b5fbb367c030227c6ef0db6a2c8afa21b/docs/whats-new/dotnet-11.md",
+          "https://raw.githubusercontent.com/dotnet/docs-maui/e4fe7f5b5fbb367c030227c6ef0db6a2c8afa21b/docs/xaml/hot-reload.md",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/InitializeComponent/RelativeSourceBindings.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/InitializeComponent/CompiledBindings.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/BindingDiagnosticsTests.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+          "https://raw.githubusercontent.com/wiki/dotnet/macios/Known-issues-in-.NET11.md",
+          "https://github.com/dotnet/macios/issues/25295#issuecomment-4994500229"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview7/dotnetmaui.md",
+      "title": "Preview7 official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+      "title": "Rc2 official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/docs-maui/e4fe7f5b5fbb367c030227c6ef0db6a2c8afa21b/docs/whats-new/dotnet-11.md",
+      "title": "Overview official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/docs-maui/e4fe7f5b5fbb367c030227c6ef0db6a2c8afa21b/docs/xaml/hot-reload.md",
+      "title": "Reload official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/InitializeComponent/RelativeSourceBindings.cs",
+      "title": "Relative Tests official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/InitializeComponent/CompiledBindings.cs",
+      "title": "Compiled Tests official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/BindingDiagnosticsTests.cs",
+      "title": "Diagnostics official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "title": "Xaml Targets official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wiki/dotnet/macios/Known-issues-in-.NET11.md",
+      "title": "Known official source"
+    },
+    {
+      "url": "https://github.com/dotnet/macios/issues/25295#issuecomment-4994500229",
+      "title": "Ios Fix official source"
+    },
+    {
+      "title": "MAUI RC2 iOS scene bootstrap template",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-mobile/Platforms/iOS/Info.plist"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/SignalDeck/SignalDeck.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0-windows10.0.19041.0",
+      "kind": "compile",
+      "scope": "Actual Release Windows comparison build; no native interaction or trimming claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/SignalDeck/SignalDeck.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0-windows10.0.20348.0",
+      "kind": "official-review",
+      "scope": "Intended SDK/target. NETSDK1147 prevents compilation; pinned official binding tests, reload targets and release notes reviewed. No generated-output, trim or execution proof."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/SignalDeckAndroid/SignalDeckAndroid.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0-android37.2",
+      "kind": "official-review",
+      "scope": "Intended target/SDK. Official review only; matching native workload and device unavailable. No compilation or live reload observed."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/SignalDeckiOS/SignalDeckiOS.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0-ios27.0",
+      "kind": "official-review",
+      "scope": "Intended target/SDK. Official review only; matching native workload and device unavailable. No compilation or live reload observed."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net11.0/SignalDeck/SignalDeck.csproj",
+      "samples/net11.0/SignalDeckAndroid/SignalDeckAndroid.csproj",
+      "samples/net11.0/SignalDeckiOS/SignalDeckiOS.csproj"
+    ],
+    "scope": "SignalDeck .NET11 Windows compilation, generated binding diagnostics/output and trimmed execution unavailable because SDK11 lacks MAUI SDK pack; Android/iOS compilation and live CLI reload unavailable because native toolchains/devices are absent. PIN-699 excludes these exact checks, with no pending owner action. .NET10 Windows compilation is retained; its native runtime and trimming were not exercised."
+  },
+  "snippets": {
+    "samples-net10-0-signaldeck-directory-build-props": {
+      "path": "samples/net10.0/SignalDeck/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-signaldeck-directory-build-targets": {
+      "path": "samples/net10.0/SignalDeck/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-signaldeck-directory-packages-props": {
+      "path": "samples/net10.0/SignalDeck/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-signaldeck-global-json": {
+      "path": "samples/net10.0/SignalDeck/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-signaldeck-mauiprogram-cs": {
+      "path": "samples/net10.0/SignalDeck/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-signaldeck-platforms-windows-app-xaml": {
+      "path": "samples/net10.0/SignalDeck/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-signaldeck-platforms-windows-app-xaml-cs": {
+      "path": "samples/net10.0/SignalDeck/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-signaldeck-signaldeck-csproj": {
+      "path": "samples/net10.0/SignalDeck/SignalDeck.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-signaldeck-signalpage-xaml": {
+      "path": "samples/net10.0/SignalDeck/SignalPage.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-signaldeck-signalpage-xaml-cs": {
+      "path": "samples/net10.0/SignalDeck/SignalPage.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeck-bindingfailures-txt": {
+      "path": "samples/net11.0/SignalDeck/BindingFailures.txt",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeck-directory-build-props": {
+      "path": "samples/net11.0/SignalDeck/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeck-directory-build-targets": {
+      "path": "samples/net11.0/SignalDeck/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeck-directory-packages-props": {
+      "path": "samples/net11.0/SignalDeck/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeck-global-json": {
+      "path": "samples/net11.0/SignalDeck/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-signaldeck-mauiprogram-cs": {
+      "path": "samples/net11.0/SignalDeck/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeck-platforms-windows-app-xaml": {
+      "path": "samples/net11.0/SignalDeck/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeck-platforms-windows-app-xaml-cs": {
+      "path": "samples/net11.0/SignalDeck/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeck-signaldeck-csproj": {
+      "path": "samples/net11.0/SignalDeck/SignalDeck.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeck-signalpage-xaml": {
+      "path": "samples/net11.0/SignalDeck/SignalPage.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeck-signalpage-xaml-cs": {
+      "path": "samples/net11.0/SignalDeck/SignalPage.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckandroid-directory-build-props": {
+      "path": "samples/net11.0/SignalDeckAndroid/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckandroid-directory-build-targets": {
+      "path": "samples/net11.0/SignalDeckAndroid/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckandroid-directory-packages-props": {
+      "path": "samples/net11.0/SignalDeckAndroid/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckandroid-global-json": {
+      "path": "samples/net11.0/SignalDeckAndroid/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-signaldeckandroid-mauiprogram-cs": {
+      "path": "samples/net11.0/SignalDeckAndroid/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckandroid-platforms-android-androidmanifest-xml": {
+      "path": "samples/net11.0/SignalDeckAndroid/Platforms/Android/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckandroid-platforms-android-mainactivity-cs": {
+      "path": "samples/net11.0/SignalDeckAndroid/Platforms/Android/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckandroid-platforms-android-mainapplication-cs": {
+      "path": "samples/net11.0/SignalDeckAndroid/Platforms/Android/MainApplication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckandroid-signaldeckandroid-csproj": {
+      "path": "samples/net11.0/SignalDeckAndroid/SignalDeckAndroid.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckandroid-signalpage-xaml": {
+      "path": "samples/net11.0/SignalDeckAndroid/SignalPage.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckandroid-signalpage-xaml-cs": {
+      "path": "samples/net11.0/SignalDeckAndroid/SignalPage.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckios-directory-build-props": {
+      "path": "samples/net11.0/SignalDeckiOS/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckios-directory-build-targets": {
+      "path": "samples/net11.0/SignalDeckiOS/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckios-directory-packages-props": {
+      "path": "samples/net11.0/SignalDeckiOS/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckios-global-json": {
+      "path": "samples/net11.0/SignalDeckiOS/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-signaldeckios-mauiprogram-cs": {
+      "path": "samples/net11.0/SignalDeckiOS/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckios-platforms-ios-appdelegate-cs": {
+      "path": "samples/net11.0/SignalDeckiOS/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckios-platforms-ios-info-plist": {
+      "path": "samples/net11.0/SignalDeckiOS/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckios-platforms-ios-program-cs": {
+      "path": "samples/net11.0/SignalDeckiOS/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckios-signaldeckios-csproj": {
+      "path": "samples/net11.0/SignalDeckiOS/SignalDeckiOS.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckios-signalpage-xaml": {
+      "path": "samples/net11.0/SignalDeckiOS/SignalPage.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-signaldeckios-signalpage-xaml-cs": {
+      "path": "samples/net11.0/SignalDeckiOS/SignalPage.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-signaldeckios-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net11.0/SignalDeckiOS/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}
