@@ -1,0 +1,13 @@
+{
+  "additionalInputs": [
+    "eng/Test-TideAndMono.ps1",
+    "eng/EstuaryProof.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [
+    "Mono/6.8.0.105 Clang/18.1.3"
+  ]
+}
