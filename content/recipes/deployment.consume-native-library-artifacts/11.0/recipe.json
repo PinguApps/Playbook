@@ -1,0 +1,147 @@
+{
+  "id": "deployment.consume-native-library-artifacts",
+  "edition": "11.0",
+  "title": "Keep Unix native-library packaging and callers aligned with output names",
+  "goal": "Publish a shared native library and select its actual output when packaging or loading it across the Unix lib-prefix change.",
+  "areas": [
+    "deployment"
+  ],
+  "exampleLanguages": [
+    "csharp",
+    "c"
+  ],
+  "tags": [
+    "tide-mono"
+  ],
+  "apis": [
+    "UnmanagedCallersOnly",
+    "NativeLib",
+    "UseNativeLibPrefix"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "conditional": false,
+        "usage": "primary",
+        "selectionNotes": [
+          "Linux x64 Docker execution; SDK 10.0.402 and SDK 11 RC2 comparison. RC2 is not GA evidence.",
+          "macOS publication, .dylib naming, packaging, symbols and C invocation are source-reviewed and not-tested; static libraries remain unsupported/unresolved."
+        ],
+        "sharedAreas": [],
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "name": ".NET",
+            "match": "release-family",
+            "reason": "Native AOT build inputs; the produced shared library is self-contained."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "The current launch/output evaluation is SDK 11; historical comparison uses SDK 10."
+          },
+          "language": {
+            "version": "15.0",
+            "name": "C#",
+            "match": "exact",
+            "reason": "Explicit original sample language mode."
+          },
+          "frameworks": [],
+          "packages": [],
+          "packageAssets": [],
+          "workloads": [],
+          "providers": [],
+          "platforms": [
+            "Linux x64, actual Ubuntu 24.04 container"
+          ],
+          "renderingModes": [],
+          "prerequisites": [
+            "Linux x64 authoring with Clang/linker and zlib development inputs; macOS authoring requires native platform tools and remains not-tested.",
+            "PowerShell7, existing Docker Linux x64 and network for the isolated authoring runner."
+          ],
+          "constraints": [
+            "No persistent environment changes; no public publication.",
+            "Only shared libraries; do not unload Native AOT libraries.",
+            "Windows/executable prefix conditions are source-reviewed, not executed by these Linux checks."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Current evidence uses SDK 11 RC2, not GA."
+          ]
+        },
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/dotnet/core/compatibility/interop/11/nativeaot-lib-prefix",
+          "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/libraries"
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/TideWindow/TideWindow.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Keep Unix native-library packaging and callers aligned with output names",
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/compatibility/interop/11/nativeaot-lib-prefix"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/libraries",
+      "title": "Supported native shared libraries and unloading restriction"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sdk": "10.0.402",
+      "sample": "samples/net10.0/TideWindow/TideWindow.csproj",
+      "language": "14.0",
+      "target": "net10.0",
+      "scope": "Real Linux x64 compilation and focused execution; exact commands, inputs and measured toolchains in saved evidence."
+    },
+    {
+      "kind": "compile-and-run",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/TideWindow/TideWindow.csproj",
+      "language": "15.0",
+      "target": "net11.0",
+      "scope": "Real Linux x64 compilation and focused execution; exact commands, inputs and measured toolchains in saved evidence."
+    }
+  ],
+  "snippets": {
+    "export": {
+      "region": "export",
+      "path": "samples/net11.0/TideWindow/Exports.cs",
+      "language": "csharp"
+    },
+    "package": {
+      "region": "package",
+      "path": "samples/net11.0/TideWindow/package.sh",
+      "language": "sh"
+    },
+    "caller": {
+      "region": "caller",
+      "path": "samples/net11.0/TideWindow/caller.c",
+      "language": "c"
+    },
+    "project": {
+      "region": "project",
+      "path": "samples/net11.0/TideWindow/TideWindow.csproj",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "scope": "Unavailable macOS native checks: .NET10/11 shared-library publication, default/opt-out .dylib names, symbols, packaging and C invocation. Excluded under PIN-699; Linux x64 compilation/execution retained.",
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/TideWindow/TideWindow.csproj",
+      "samples/net11.0/TideWindow/TideWindow.csproj"
+    ]
+  }
+}

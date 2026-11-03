@@ -156,3 +156,19 @@ This is an authoring-time evidence constraint within the accepted compilation re
 [AppleRelease]: https://github.com/dotnet/macios/releases/tag/dotnet-11.0.1xx-rc2-12212
 [AppleKnown]: https://github.com/dotnet/macios/wiki/Known-issues-in-.NET11
 [Breaking]: https://learn.microsoft.com/en-us/dotnet/core/compatibility/11
+
+## Quay Board delivery (PIN-899 / PIN-900)
+
+The 11.0 edition of maui.choose-xaml-generation groups
+maui.simplify-xaml-namespaces. The 11.0 edition of
+maui.author-view-local-csharp-in-xaml groups maui.bind-xaml-csharp-expressions.
+Stable goal IDs are retained; no additional .NET10 foundation is introduced.
+Original paired QuayBoard pages retain custom mappings and compare ordinary
+code-behind with preview x:Code, qualified expressions and attached-property reads.
+
+The .NET10 Windows page is compiled on the existing local route. The .NET11
+page is official-review only and explicitly not-tested: the local SDK11 root
+lacks Microsoft.Maui.Sdk and fails NETSDK1147 before compilation. Source and
+actual Controls/Build.Tasks artifact identities are retained in
+samples/QuayBoard/sources.json. No generated-output, native execution, performance,
+other-platform or GA verification is claimed; PIN-699 permits this native exclusion.

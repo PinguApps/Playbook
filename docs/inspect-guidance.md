@@ -4,6 +4,107 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Experimental frontend tools and approval continuation
+
+The paired HarbourDispatch consumers demonstrate declaration-only frontend tools,
+an app-defined progress block and an approval decision enforced by the scripted
+provider before changing its ledger. Components.AI remains experimental throughout
+.NET 11. Run from the pinned sample directory; the older comparison uses a manual
+AI.Abstractions loop because the checked Components.AI package has only net11.0.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4a223dd4'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+Push-Location -LiteralPath './samples/net11.0/HarbourDispatch'
+try {
+  & 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' run -c Release -- --check
+} finally { Pop-Location }
+```
+
+Expect actual Components.AI declaration/single-invocation/continuation checks and
+real loopback HTTP/SSE AGUI.Client approval/denial checks: denial leaves zero
+dispatches, approval records one. The endpoint is scripted; remote model/provider,
+multi-turn remote rejection history, production authorization and GA are unverified.
+The UI runs with `dotnet run -c Release -- --urls http://127.0.0.1:6072` in that
+directory. Send berth, select it, then send dispatch and deny/approve separate
+requests. The .NET 10 comparison offers Request berth/Request dispatch buttons.
+
+The following builds/packs the actual tool, installs it into an isolated
+feed/cache and calls real stdio list/get from an unrelated directory. It prints
+ID/title/goal, full expanded Markdown, applicability and edition 11.0. The harness
+checks the entire canonical body and rejects a .NET 10 target for these editions.
+Unusable proxies establish proxy independence, not OS-level network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4a223dd4'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('blazor.render-agent-tools','blazor.approve-agent-action') `
+  -Query 'harbour-dispatch' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin805-806' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/agent-api/inspection'
+```
+
+## MAUI SourceGen and preview page logic
+
+QuayBoard compares .NET 10 XamlC/code-behind with SourceGen and preview page logic.
+The older Windows page compiled with SDK 10.0.402 and Controls 10.0.110.
+The current page is source-reviewed only: SDK 11 RC2 lacks Microsoft.Maui.Sdk
+locally and fails NETSDK1147. PIN-699 excludes its native compilation/execution.
+The actual Controls 11.0.0-rc.2.26505.5 Windows dependency group targets 20348.
+No native execution, performance, Android/Apple or GA proof is claimed.
+
+This block is exercised from unrelated C:\. Requires PowerShell 7, the existing
+SDK 10 and Node 22.19+. It builds/packs, installs the exact artifact through an
+isolated local feed/cache and calls real stdio from an unrelated directory.
+Setup can use network; retrieval uses unusable proxies, not OS network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-46d2c603'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -PackageVersion '0.0.0-pin899-900'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId @('maui.choose-xaml-generation','maui.author-view-local-csharp-in-xaml') -Query 'quay-board' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' -PackageVersion '0.0.0-pin899-900' -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/quay-inspection'
+```
+
+Expect the installed smoke, both discovery IDs/titles/goals, complete canonical
+Markdown, applicability and fresh paired evidence to pass. Edition 11/target 11,
+preview labels and source-only/native exclusion warnings remain visible.
+Structured/text results agree; target 10 returns no_applicable_edition.
+The older page is a comparison, not an additional .NET 10 foundation.
+## Unix library filenames and explicit Mono launch
+
+The local authoring runner uses disposable Linux x64 Docker containers, Mono
+reference assemblies, Clang/linker/zlib and SDK10.0.402/11 RC2. It checks shared
+library default/opt-out names, symbols, C calls, packaging failures, legacy launch
+defaults and explicit quoted paths/arguments, working directory and exit7.
+It removes its container and preserves PATH. macOS execution is not-tested;
+static libraries remain unsupported/unresolved. Mono launch remains unsupported
+by Microsoft. Network is needed for isolated setup; no public publication occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+& ./eng/Test-TideAndMono.ps1 -Record
+```
+
+Build/pack the ordinary tool, install that exact artifact in an isolated local
+feed/cache and retrieve both recipes through real installed stdio from an
+unrelated directory. Expect IDs/titles/goals, complete canonical Markdown,
+target/edition11, applicability and current evidence; target10 has no edition.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('deployment.consume-native-library-artifacts','sdk.configure-legacy-mono-launch') `
+  -Query 'tide-mono' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1065-1067' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/tide-mono/inspection'
+```
+
+The SDK pins and RC evidence do not establish actual GA. The eight historical
+foundations, PIN-959 comprehensive gate and PIN-963 reconciliation stay separate.
+
 ## Temporal bounds and server time reports
 
 Run the paired original consumers against the authorized isolated SQL2025 container.
@@ -3283,3 +3384,69 @@ ID/title/goal, full canonical Markdown and target11/edition11 applicability;
 target10 has no applicable edition. The harness uses an isolated local feed/cache
 and unrelated working directory; unusable proxies prove proxy independence, not
 OS network isolation. Existing Human/GA gates remain open.
+
+## Cosmos identity and absent projections
+
+Use the approved disposable local emulator with the existing SDK10.0.402 and
+SDK11 RC3 below. This checks real EF10/11 identity and projection behavior;
+RC evidence does not establish GA or Azure service parity.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+$metadata = Invoke-RestMethod 'https://builds.dotnet.microsoft.com/dotnet/release-metadata/11.0/releases.json'
+$asset = ($metadata.releases | Where-Object 'release-version' -eq '11.0.0-rc.3').sdk.files |
+  Where-Object { $_.rid -eq 'win-x64' -and $_.url.EndsWith('.zip') }
+$sdk = Join-Path (Get-Location) 'artifacts/sdk11rc3'
+New-Item -ItemType Directory -Path $sdk -Force | Out-Null
+$archive = Join-Path $sdk 'sdk.zip'
+Invoke-WebRequest $asset.url -OutFile $archive
+if ((Get-FileHash $archive -Algorithm SHA512).Hash -ine $asset.hash) { throw 'SDK checksum mismatch' }
+Expand-Archive -LiteralPath $archive -DestinationPath $sdk -Force
+& ./eng/Test-ReefIdentity.ps1 -Record
+```
+
+Build and pack the real server, install through the existing isolated-feed/cache
+harness and retrieve full Markdown, applicability and target11/edition11 over stdio:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-47bb31a3'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('cosmos.retain-document-key-identity','cosmos.handle-missing-projection') `
+  -Query 'reef-identity' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin871-872' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/reef-identity/inspection'
+```
+
+Expect two complete entries and exact-artifact PASS. The provider runner records the RC undefined-projection mismatch without treating it as GA proof; retest the documented exception contract against real GA artifacts as approved by Pingu on 3 November 2026. Target10 has no applicable
+edition; the older consumers remain comparisons rather than extra foundations.
+
+## Observatory numeric results and Windows composite signatures
+
+Requires PowerShell7, SDK 10.0.402/runtime10.0.13, the separate SDK 11 RC2 installation,
+Node.js and public access for exact RC1 runtime/source downloads. No host install
+or PATH integration occurs. The sample runner verifies source hashes, builds and
+runs both consumers, and records compiler/reference/runtime/native identity.
+It tests one agreed 44/P256 composite set, actual older RSA success and current
+rejection, plus numerical drift and reversible disposable persistence.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d562a2f3'
+& ./eng/Test-ObservatoryContracts.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('numerics.compare-ieee-decimal-results','crypto.select-supported-composite-signature') `
+  -Query '' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1038-1058' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/observatory/inspection'
+```
+
+The exact ordinary package is installed through a private local feed/cache and
+called over real stdio from an unrelated directory. Expect both discovery
+ID/title/goal entries, full canonical Markdown, target11/edition11, applicability
+and fresh evidence; target10 returns no_applicable_edition. Older samples are
+comparisons, not new foundations. Unusable proxies show proxy independence,
+not OS network isolation. GA, other Windows providers and other composite sets
+are not claimed.

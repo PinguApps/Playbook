@@ -128,6 +128,18 @@ One brief real check per T3 Code, Codex CLI, Claude Code, and VS Code Copilot, e
 
 ## Technical defaults for implementation
 
+### SDK-based applicability
+
+Routes may explicitly declare `targetBasis: sdk` when their selected release is
+the authoring SDK family rather than the consumer framework. Omitted basis (or
+`framework`) retains exact target-framework evidence matching. SDK-based routes
+must cite evidence built by that exact SDK family; normal SDK/language checks,
+sample target/pin identity, compilation and freshness gates still apply. The
+consumer's actual target remains in evidence and framework requirements. Both
+discovery and detail retain the optional basis; existing routes omit it unchanged.
+The legacy Mono route selects SDK11 while its real consumer remains net472.
+This additive metadata does not add a catalogue release or imply runtime support.
+
 These fill in routine details of the accepted contract without adding another tool or service:
 
 - Initially support consumer targets `10.0` (curated foundations and verified conditional routes) and `11.0` (the comprehensive release-family commitment). A .NET 9 comparison sample does not add .NET 9 catalogue support. Discovery must disclose curated versus comprehensive coverage; empty results do not prove an older release has no eligible capabilities.

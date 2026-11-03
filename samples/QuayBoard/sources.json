@@ -1,0 +1,59 @@
+{
+  "scope": "Original QuayBoard SourceGen migration and preview expressions; source review is not native compilation.",
+  "sources": [
+    {
+      "sha256": "def97ef9290544122efd39f0af7fe8e8144d8aca88e1d9aef5818d4b87c5757f",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
+      "id": "expression-spec"
+    },
+    {
+      "sha256": "27cda450b8c3a46afd09ef19a638e279f2dd05f4d343f8e47b4afd57834c8872",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
+      "id": "implicit-namespace-attribute"
+    },
+    {
+      "sha256": "70669ef19c2b724f6ab5e8b012f3db7f4360d6c643c133ae05809e0a73e1df5a",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
+      "id": "code-behind-tests"
+    },
+    {
+      "id": "rc2-notes",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
+      "sha256": "ce8de3f99ea7b5c9e0b51b2d0fc3c558770f65b654486690950bde5008a38917"
+    },
+    {
+      "id": "preview4-notes",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
+      "sha256": "85adfdfe1f9303440126543e2f5e083c9e02af08fac00b9e7221e5ac2bff7cf0"
+    },
+    {
+      "id": "xaml-targets",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "sha256": "24ffd4f2231b792c987cec4b669bf7f288359d5614caa212202e01eb10826b4c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
+      "id": "expression-diagnostic-tests",
+      "sha256": "e06d7a19486948d752c6e07882d0e380503e9678101bb07403b4649d05c2087c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs",
+      "id": "expression-interpolation-tests",
+      "sha256": "12e01bac8f934953142a01f32d27582fa054325589fd435c36937de89b264704"
+    }
+  ],
+  "artifacts": [
+    {
+      "sha256": "e26b653395cf06be107cf51b16c6d2f9c14fb3fdc4c82d4faa78b3c316b10e8b",
+      "id": "Microsoft.Maui.Controls",
+      "version": "11.0.0-rc.2.26505.5",
+      "scope": "Actual Windows dependency group net11.0-windows10.0.20348; source commit d32b79928709cf53b671336dabd0caef5a679fc2."
+    },
+    {
+      "sha256": "07bc50cef5dec003ae7dae0ae197716f12ba105724cccad353d8640cbf7688ec",
+      "id": "Microsoft.Maui.Controls.Build.Tasks",
+      "version": "11.0.0-rc.2.26505.5",
+      "scope": "Actual buildTransitive/netstandard2.0 SourceGen analyzer and targets present."
+    }
+  ]
+}

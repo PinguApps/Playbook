@@ -113,9 +113,29 @@ try {
               $route.requirements | Add-Member -NotePropertyName stabilityLimitations -NotePropertyValue @()
             }
             if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
+            $sourceOnly = @($route.evidenceSamples | Where-Object {
+              $sample = $_
+              $sample -cin $metadata.humanProof.untestedSamples -and
+                @($metadata.evidence | Where-Object { $_.sample -ceq $sample -and $_.kind -in @('compile','cross-compile','compile-and-run') }).Count -eq 0
+            }).Count -gt 0
+            if ($sourceOnly) {
+              $warning = 'Source review only: excluded sample has not been compiled or executed.'
+              if ($warning -cnotin $route.selectionNotes) { $route.selectionNotes += $warning }
+              if ($warning -cnotin $route.requirements.stabilityLimitations) { $route.requirements.stabilityLimitations += $warning }
+            }
           }
         }
         if ($found[0].title -cne $metadata.title -or $found[0].goal -cne $metadata.goal) { throw "Discovery drift: $id" }
+        foreach ($route in $metadata.applicability.routes) {
+          if ($route.PSObject.Properties['targetBasis']) {
+            $discovered = @($found[0].applicability.routes | Where-Object {
+              $_.target -ceq $route.target -and $_.usage -ceq $route.usage -and
+              $_.conditional -eq $route.conditional -and $_.PSObject.Properties['targetBasis'] -and
+              $_.targetBasis -ceq $route.targetBasis
+            })
+            if ($discovered.Count -eq 0) { throw "Discovery target basis drift: $id" }
+          }
+        }
         if ($CheckDemonstratedLanguages) {
           foreach ($language in 'csharp','vb','fsharp') {
             $filtered = (Invoke-RecipeTool 'list_recipes' @("query=$($metadata.title)", ('languages=["' + $language + '"]'), 'limit=50')).result.structuredContent

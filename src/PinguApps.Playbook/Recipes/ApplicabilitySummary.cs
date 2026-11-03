@@ -11,6 +11,7 @@ internal sealed record ApplicabilitySummary
             Routes = [.. applicability.Routes.Select(route => new SelectionRoute
             {
                 Target = route.Target,
+                TargetBasis = route.TargetBasis,
                 SharedAreas = route.SharedAreas,
                 NeutralLanguages = route.NeutralLanguages,
                 Conditional = route.Conditional,

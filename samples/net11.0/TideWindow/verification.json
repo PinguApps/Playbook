@@ -1,0 +1,18 @@
+{
+  "additionalInputs": [
+    "eng/Test-TideAndMono.ps1",
+    "eng/EstuaryProof.ps1",
+    "eng/Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "dependencies": [
+    "Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105",
+    "Microsoft.NET.ILLink.Tasks/11.0.0-rc.2.26504.105",
+    "runtime.linux-x64.Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [],
+  "nativeToolchains": [
+    "Mono/6.8.0.105",
+    "Clang/18.1.3"
+  ]
+}
