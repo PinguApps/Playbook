@@ -66,10 +66,10 @@
             }
           ],
           "packageAssets": [
-            "EF11 lib/net11.0; EF10 lib/net10.0. Full transitive assets and exact native dependencies are pinned by the complete per-sample package lock files."
+            "EF SQLite11 lib/net11.0 and EF SQLite10 lib/net10.0. SQLitePCLRaw managed netstandard2.0 assets and Windows x64 native SQLite selected for the actual runs; native engine3.53.4 current/3.53.3 previous. See exact per-sample locks for the full native and managed closure."
           ],
           "providers": [
-            "SQLite 3.44+ is required for aggregate ORDER BY. The real current sample uses the provider native bundle and SQLite 3.53.4; the older sample uses 3.53.3. EF11 requires net11.0. This replaces client evaluation/workaround for the demonstrated query shape. Nulls, collation and separators require application-specific rules; this fixture has non-null text and integer order keys. No allocation or throughput improvement is measured."
+            "EF Core SQLite11.0.0-rc.2.26504.105; native SQLite3.53.4 via SQLitePCLRaw bundle_e_sqlite3/config/core/provider3.0.5 and SQLite3.53.4 package. Previous EF10.0.13 uses SQLitePCLRaw2.1.13 and SQLite3.53.3. Aggregate ORDER BY requires SQLite3.44+."
           ],
           "workloads": [],
           "platforms": [
@@ -84,7 +84,7 @@
           ],
           "prerequisites": [
             "Install the exact sample SDK and restore its locked dependencies. Copy every complete project file below into an isolated directory.",
-            "Cosmos authors use eng/Test-EmbeddedValues.ps1 and the approved local emulator; do not use a production database or Azure credentials. SQLite needs no external resource."
+            "SQLite uses a private in-memory database; no external resource or account is required."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -103,7 +103,7 @@
   "sources": [
     {
       "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew#ordering-in-string-aggregation",
-      "title": "EF11 provider capabilities"
+      "title": "EF11 ordering in SQLite string aggregation"
     }
   ],
   "evidence": [

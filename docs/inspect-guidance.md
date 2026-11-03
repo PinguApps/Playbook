@@ -3155,7 +3155,7 @@ no_applicable_edition. Previous samples are comparisons, not extra foundations.
 
 ## Ordered SQLite summaries and Cosmos embedded values
 
-Requires PowerShell7, the existing SDK10.0.402/runtime10.0.13 and SDK11 RC2,
+Requires PowerShell7.3+, the existing SDK10.0.402/runtime10.0.13 and SDK11 RC2,
 locked EF10/11 packages and Docker Desktop Linux for the approved isolated Cosmos
 route. No Azure account or cloud credentials are needed. Refresh actual paired
 compilation and execution records with:

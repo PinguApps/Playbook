@@ -1,3 +1,4 @@
+#Requires -Version 7.3
 [CmdletBinding()]
 param([switch]$Record)
 $ErrorActionPreference = 'Stop'
@@ -7,13 +8,21 @@ $route = Join-Path $PSScriptRoot 'Cosmos.ps1'
 $paths = @{}
 foreach ($scope in 'Process','User','Machine') { $paths[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+$started = $false
+$failure = $null
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     & $route -Action Start
+    $started = $true
     foreach ($release in '10','11') {
         $dotnet = if ($release -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
         if ($Record) {
             & "$PSScriptRoot/Record-Evidence.ps1" -Sample "samples/net$release.0/HarbourLabels/HarbourLabels.csproj" -Dotnet $dotnet
+        }
+        else {
+            Push-Location (Join-Path $root "samples/net$release.0/HarbourLabels")
+            try { & $dotnet run -c Release -p:RestoreLockedMode=true }
+            finally { Pop-Location }
         }
         $directory = Join-Path $root "samples/net$release.0/ReefManifest"
         $database = 'playbook_manifest_' + [guid]::NewGuid().ToString('N')
@@ -29,10 +38,20 @@ try {
         finally { & $route -Action Remove -Database $database }
     }
 }
+catch { $failure = $_; throw }
 finally {
-    & $route -Action Stop
-    $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previous
-    foreach ($scope in $paths.Keys) {
-        if ($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "Unexpected $scope PATH change; shared settings preserved." }
+    try { if ($started) { & $route -Action Stop } }
+    catch {
+        if ($failure) { Write-Warning "Cleanup also failed: $_" }
+        else { $failure = $_; throw }
+    }
+    finally {
+        $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $previous
+        foreach ($scope in $paths.Keys) {
+            if ($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) {
+                $message = "Unexpected $scope PATH change; shared settings preserved."
+                if ($failure) { Write-Warning $message } else { throw $message }
+            }
+        }
     }
 }

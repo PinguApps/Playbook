@@ -18,9 +18,12 @@ EF11 translates ordering inside string.Join to group_concat with ORDER BY. Order
 
 ## Migration
 
-1. Choose the complete previous or current project below. Preserve its independent build/package files and SDK pin. Restore with the selected SDK, then build in Release with RestoreLockedMode=true and run. SQLite uses a private in-memory database. Cosmos requires the disposable database and child-only environment supplied by eng/Cosmos.ps1; see docs/cosmos-verification.md for the complete trusted local route. Repository authors run eng/Test-EmbeddedValues.ps1, which removes only its marked databases and stops an empty emulator.
+1. Copy the complete HarbourLabels project below, including the independent build/package files and SDK pin, into its own directory.
+2. Use the pinned SDK from that directory: `dotnet restore HarbourLabels.csproj --locked-mode`, then `dotnet build HarbourLabels.csproj -c Release -p:RestoreLockedMode=true`.
+3. Run `dotnet run --project HarbourLabels.csproj -c Release --no-build`. It creates a private in-memory SQLite database; no Docker, external database or account is needed.
+4. Expect `PASS ordered harbour summaries`, West = Anchor / Buoy / Chain and East = Lamp. The current query prints group_concat with its internal ORDER BY; outer ordering alone is insufficient. The database disappears when the consumer exits.
 
-## Complete .NET 10 comparison
+## Complete previous project — .NET 10
 
 global.json
 
@@ -46,7 +49,7 @@ Program.cs
 
 {{snippet:n10-program-cs}}
 
-## Complete .NET 11 comparison
+## Complete current project — .NET 11
 
 global.json
 
@@ -81,6 +84,3 @@ Stable API contract using RC2 evidence, without experimental opt-in; actual GA r
 ## Evidence
 
 Actual in-memory native SQLite, deterministic two-group summaries including tied positions; EF11 generated SQL contains ordered group_concat. EF10 materializes rows before local grouping. Windows x64 only; no GA claim. Exact SDKs, dependencies, input hashes and actual output are retained in the paired verification records. Compilation and real execution are distinguished from source review. Offline installed MCP checks use the existing isolated feed/cache harness; unusable proxies demonstrate proxy independence, not operating-system network isolation.
-
-
-

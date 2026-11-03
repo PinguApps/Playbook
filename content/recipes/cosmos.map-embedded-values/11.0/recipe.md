@@ -18,9 +18,12 @@ EF11 Cosmos supports ComplexProperty and ComplexCollection. The fictional reef m
 
 ## Migration
 
-1. Choose the complete previous or current project below. Preserve its independent build/package files and SDK pin. Restore with the selected SDK, then build in Release with RestoreLockedMode=true and run. SQLite uses a private in-memory database. Cosmos requires the disposable database and child-only environment supplied by eng/Cosmos.ps1; see docs/cosmos-verification.md for the complete trusted local route. Repository authors run eng/Test-EmbeddedValues.ps1, which removes only its marked databases and stops an empty emulator.
+1. Copy the complete ReefManifest project below, including its transport, package boundary and SDK pin, into its own directory.
+2. Use the pinned SDK: `dotnet restore ReefManifest.csproj --locked-mode`, then `dotnet build ReefManifest.csproj -c Release -p:RestoreLockedMode=true`.
+3. Use the approved isolated local emulator route in docs/cosmos-verification.md to supply PLAYBOOK_COSMOS_ENDPOINT, PLAYBOOK_COSMOS_KEY, PLAYBOOK_COSMOS_DATABASE and PLAYBOOK_COSMOS_CERT_SHA256 only to the child. Never substitute a production account. Repository authors run `eng/Test-EmbeddedValues.ps1 -Record` to create and remove marked databases and save fresh proof.
+4. Expect `PASS real Cosmos nested values`, Location.Bay = Lagoon and three Samples with Kelp.Count = 7 in independent JSON read-back. EF11 tracks only the root; EF10 tracks owned entries. Remove your marked database after use and stop the empty emulator. No cloud parity or automatic existing-document migration is implied.
 
-## Complete .NET 10 comparison
+## Complete previous project — .NET 10
 
 global.json
 
@@ -50,7 +53,7 @@ EmulatorTransport.cs
 
 {{snippet:n10-emulatortransport-cs}}
 
-## Complete .NET 11 comparison
+## Complete current project — .NET 11
 
 global.json
 
@@ -89,6 +92,3 @@ Stable API contract using RC2 evidence, without experimental opt-in; actual GA r
 ## Evidence
 
 Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim. Exact SDKs, dependencies, input hashes and actual output are retained in the paired verification records. Compilation and real execution are distinguished from source review. Offline installed MCP checks use the existing isolated feed/cache harness; unusable proxies demonstrate proxy independence, not operating-system network isolation.
-
-
-
