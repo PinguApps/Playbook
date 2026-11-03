@@ -550,3 +550,7 @@
 # Record-Evidence generated materialization receipts; review sources, locks and runner.
 /samples/net10.0/ReefMaterialization/verification-evidence.json
 /samples/net11.0/ReefMaterialization/verification-evidence.json
+
+# Record-Evidence generated SDK/build/input receipt; review SignalDeck sources,
+# pins and lock; content generation validates freshness and installed list/get.
+/samples/net10.0/SignalDeck/verification-evidence.json

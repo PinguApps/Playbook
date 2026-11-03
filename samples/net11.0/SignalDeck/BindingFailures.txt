@@ -1,0 +1,8 @@
+<!-- snippet:complete -->
+<!-- Deliberate unresolved-name probe: substitute for Echo's Text binding. -->
+<Label Text="{Binding Text, Source={x:Reference MissingCallsign}}" />
+<!-- Resolvable source, untyped BindingContext: runtime-path fallback, not trim-safe. -->
+<Label Text="{Binding BindingContext.DisplayName, Source={x:Reference Callsign}}" />
+<!-- Self and TemplatedParent also retain runtime binding paths. -->
+<Label Text="{Binding StyleId, Source={RelativeSource Self}}" />
+<!-- endsnippet:complete -->

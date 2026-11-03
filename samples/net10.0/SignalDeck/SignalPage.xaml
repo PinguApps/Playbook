@@ -1,0 +1,14 @@
+<!-- snippet:complete -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SignalDeck"
+             x:Class="SignalDeck.SignalPage" Title="Signal deck">
+  <VerticalStackLayout Padding="24" Spacing="12">
+    <Entry x:Name="Callsign" Text="Beacon Alder" />
+    <Label x:Name="Echo"  />
+    <Label x:Name="Deck"  />
+    <Label x:Name="Status" Text="Awaiting inspection" />
+    <Button Text="Inspect signal" Clicked="OnInspect" />
+  </VerticalStackLayout>
+</ContentPage>
+<!-- endsnippet:complete -->
