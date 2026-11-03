@@ -1,0 +1,15 @@
+<!-- snippet:complete -->
+<ContentPage xmlns:local="clr-namespace:QuayBoard" x:Class="QuayBoard.BoardPage">
+  <x:Code><![CDATA[
+    private void OnInspect(object? sender, System.EventArgs e) => Status.Text = "Inspection recorded";
+  ]]></x:Code>
+  <VerticalStackLayout>
+    <local:BerthBadge x:Name="Status" Text="{= local:BerthText.Ready()}" />
+    <Grid RowDefinitions="Auto,Auto">
+      <Button x:Name="Inspect" Grid.Row="1" Text="Inspect berth" Clicked="OnInspect" />
+    </Grid>
+    <Label Text="{$'Inspection row {Inspect.(Grid.Row)}'}" />
+  </VerticalStackLayout>
+</ContentPage>
+
+<!-- endsnippet:complete -->

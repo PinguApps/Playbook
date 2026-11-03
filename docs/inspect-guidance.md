@@ -4,6 +4,31 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## MAUI SourceGen and preview page logic
+
+QuayBoard compares .NET 10 XamlC/code-behind with SourceGen and preview page logic.
+The older Windows page compiled with SDK 10.0.402 and Controls 10.0.110.
+The current page is source-reviewed only: SDK 11 RC2 lacks Microsoft.Maui.Sdk
+locally and fails NETSDK1147. PIN-699 excludes its native compilation/execution.
+The actual Controls 11.0.0-rc.2.26505.5 Windows dependency group targets 20348.
+No native execution, performance, Android/Apple or GA proof is claimed.
+
+This block is exercised from unrelated C:\. Requires PowerShell 7, the existing
+SDK 10 and Node 22.19+. It builds/packs, installs the exact artifact through an
+isolated local feed/cache and calls real stdio from an unrelated directory.
+Setup can use network; retrieval uses unusable proxies, not OS network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-46d2c603'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -PackageVersion '0.0.0-pin899-900'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 -RecipeId @('maui.choose-xaml-generation','maui.author-view-local-csharp-in-xaml') -Query 'quay-board' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' -PackageVersion '0.0.0-pin899-900' -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' -OutputDirectory './artifacts/quay-inspection'
+```
+
+Expect the installed smoke, both discovery IDs/titles/goals, complete canonical
+Markdown, applicability and fresh paired evidence to pass. Edition 11/target 11,
+preview labels and source-only/native exclusion warnings remain visible.
+Structured/text results agree; target 10 returns no_applicable_edition.
+The older page is a comparison, not an additional .NET 10 foundation.
 ## Unix library filenames and explicit Mono launch
 
 The local authoring runner uses disposable Linux x64 Docker containers, Mono
