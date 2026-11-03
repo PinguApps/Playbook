@@ -3450,3 +3450,31 @@ and fresh evidence; target10 returns no_applicable_edition. Older samples are
 comparisons, not new foundations. Unusable proxies show proxy independence,
 not OS network isolation. GA, other Windows providers and other composite sets
 are not claimed.
+
+## Empty owned lists and numeric materialization
+
+From PowerShell7 with Docker Desktop running, SDK10.0.402 and the existing isolated SDK11 RC2 installation at `C:\Users\pingu\.dotnet-playbook-11\dotnet.exe`, run (or pass `-Net11Dotnet` with its actual absolute path):
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-90e54020'
+& ./eng/Test-ReefMaterialization.ps1 -Record
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('cosmos.treat-empty-owned-sequence','cosmos.preserve-rounding-intent') `
+  -Query 'reef-materialization' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin873-874' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/reef-materialization/inspection'
+```
+
+Expect real old/new consumer PASS: EF10's uninitialized empty owned list is null;
+EF11 returns an empty list, while optional references retain absence. For 1.75,
+EF10 int returns2 and EF11 int returns1; long returns1 and decimal1.75 in both.
+Explicit rounding returns2; negative fixtures verify the corresponding signed
+results. Midpoints, overflow and other numeric types are not covered.
+
+The Inspector installs the exact package from an isolated feed/cache and calls
+real stdio list/get from an unrelated directory. Expect two discovery entries
+with ID/title/goal, complete canonical Markdown and applicability, target11 and
+edition11; target10 has no applicable edition. Proxy independence is not OS
+network isolation. This is local emulator/RC2 evidence, not cloud or GA proof.
