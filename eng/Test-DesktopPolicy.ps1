@@ -1,6 +1,10 @@
 #Requires -Version 7.4
 [CmdletBinding()]
-param([switch]$Record)
+param(
+  [switch]$Record,
+  [string]$Net10Dotnet = 'C:/Program Files/dotnet/dotnet.exe',
+  [string]$Net11Dotnet = 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe'
+)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
@@ -10,7 +14,7 @@ $previous = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   foreach ($version in 10,11) {
-    $dotnet = if ($version -eq 10) { 'C:/Program Files/dotnet/dotnet.exe' } else { 'C:/Users/pingu/.dotnet-playbook-11/dotnet.exe' }
+    $dotnet = if ($version -eq 10) { $Net10Dotnet } else { $Net11Dotnet }
     foreach ($name in 'QuayTransfer','BrackenSettings') {
       $sample = "samples/net$version.0/$name/$name.csproj"
       if ($Record) { & "$PSScriptRoot/Record-Evidence.ps1" -Sample $sample -Dotnet $dotnet }

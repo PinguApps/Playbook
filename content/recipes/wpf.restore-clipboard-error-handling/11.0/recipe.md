@@ -75,8 +75,10 @@ Windows desktop, STA execution, SDK10.0.402/C#14 and SDK11.0.100-rc.2.26504.105/
 
 ## Evidence
 
-All four canonical projects compile and execute on Windows x64 with runtime10.0.13 or runtime11RC2. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No external clipboard-owner failure, pixel-level rendering, High Contrast transition, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
+Both canonical projects compile and execute on Windows x64 with runtime10.0.13 or runtime11RC2. Saved verification-evidence.json records exact inputs and commands. See metadata for each sample's actual scope. No global Windows settings are changed. No external clipboard-owner failure, pixel-level rendering, High Contrast transition, Designer round trip or GA behavior is claimed. Existing Human and final-release gates remain open.
 
 ## References
 
 [Official RC2 desktop contracts](https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md).
+
+[Pinned shared clipboard switch caching implementation](https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Private.Windows.Core/src/System/Private/Windows/CoreAppContextSwitches.cs).

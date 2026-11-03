@@ -3264,7 +3264,9 @@ Run from an unrelated starting directory:
 
 ```powershell
 Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-97b1816d'
-& ./eng/Test-DesktopPolicy.ps1 -Record
+& ./eng/Test-DesktopPolicy.ps1 -Record `
+  -Net10Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Net11Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
 & ./eng/Inspect-BlazorMigrationGuidance.ps1 `
   -RecipeId @('wpf.restore-clipboard-error-handling','winforms.adopt-modern-rendering') `
   -Query 'desktop-policy' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `

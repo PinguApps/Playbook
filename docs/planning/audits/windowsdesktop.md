@@ -2,8 +2,9 @@
 
 Reviewed **25 October 2026**, against the inventory's **.NET 11 RC2 preparation
 baseline**. This closes the assigned source/reference/diagnostic audit, not the
-desktop recipe backlog. No sample, inspected analyzer, Designer, clipboard or
-native UI was executed. No GA verification is claimed.
+desktop recipe backlog. That original 25 October audit executed no sample,
+analyzer, Designer, clipboard or native UI. Subsequent recipe evidence is
+identified in the register below. No GA verification is claimed.
 
 ## Evidence boundary
 
@@ -191,9 +192,10 @@ inspect it before updating a baseline. This frozen replay does not discover new
 releases.
 
 The inventory's stable audit ID is now reconciled. Its historical counts stay
-unchanged; there is no new recipe count claim. The seven existing delivery
-tickets still owe original older/newer samples, exact native prerequisites,
-compilation, claim-specific behavior and installed offline list/get evidence.
+unchanged; there is no new recipe count claim. PIN-890/891 now deliver paired
+older/newer samples, explicit native prerequisites, compilation, bounded runtime
+checks and installed offline list/get evidence. Their limits are recorded in each
+recipe. The other five delivery slices remain outstanding.
 PIN-897/898 retain their separately owned Human checks. PIN-986 owns proposal
 approval/reconciliation and PIN-959 the comprehensive publication gate. No
 related issue or estimate is changed by this audit, and none is created.

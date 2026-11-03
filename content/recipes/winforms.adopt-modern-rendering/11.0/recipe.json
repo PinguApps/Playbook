@@ -16,7 +16,10 @@
   "apis": [
     "Application.SetDefaultVisualStylesMode",
     "Control.VisualStylesMode",
-    "Appearance.ToggleSwitch"
+    "Appearance.ToggleSwitch",
+    "DataGridViewCellStyle.SortGlyphColor",
+    "PrintPreviewControl.ForeColor",
+    "TreeView.ItemHeight"
   ],
   "introducedIn": "11.0",
   "supportedTargets": [
@@ -87,7 +90,8 @@
           "Previous release remains a comparison, not an additional .NET10 foundation."
         ],
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md",
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/winforms.md"
         ]
       }
     ]
@@ -96,6 +100,10 @@
     {
       "title": "Official desktop RC2 contracts and compatibility",
       "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+    },
+    {
+      "title": "Official RC1 preview-only TreeView migration",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc1/winforms.md"
     }
   ],
   "evidence": [
@@ -104,7 +112,7 @@
       "target": "net10.0-windows",
       "sdk": "10.0.402",
       "language": "14.0",
-      "scope": "Real shown settings screen, state retention and self-close; .NET11 checks inherited requested mode, explicit child override and PropertyGrid fallback. No visual or accessibility judgment claimed.",
+      "scope": "Real .NET10 shown settings screen, state retention and self-close only. No modern-renderer assertions or visual/accessibility judgment.",
       "kind": "compile-and-run"
     },
     {
@@ -112,7 +120,7 @@
       "target": "net11.0-windows",
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
-      "scope": "Real shown settings screen, state retention and self-close; .NET11 checks inherited requested mode, explicit child override and PropertyGrid fallback. No visual or accessibility judgment claimed.",
+      "scope": "Real .NET11 RC2 shown settings screen, state retention and self-close; inherited requested mode, explicit classic child override and PropertyGrid fallback. No visual/accessibility judgment.",
       "kind": "compile-and-run"
     }
   ],

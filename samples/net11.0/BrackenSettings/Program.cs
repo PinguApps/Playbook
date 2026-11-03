@@ -7,6 +7,7 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
+        Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
         Application.EnableVisualStyles();
 #if NET11_0_OR_GREATER
         Application.SetDefaultVisualStylesMode(VisualStylesMode.Net11);
