@@ -4,6 +4,40 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Unix library filenames and explicit Mono launch
+
+The local authoring runner uses disposable Linux x64 Docker containers, Mono
+reference assemblies, Clang/linker/zlib and SDK10.0.402/11 RC2. It checks shared
+library default/opt-out names, symbols, C calls, packaging failures, legacy launch
+defaults and explicit quoted paths/arguments, working directory and exit7.
+It removes its container and preserves PATH. macOS execution is not-tested;
+static libraries remain unsupported/unresolved. Mono launch remains unsupported
+by Microsoft. Network is needed for isolated setup; no public publication occurs.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+& ./eng/Test-TideAndMono.ps1 -Record
+```
+
+Build/pack the ordinary tool, install that exact artifact in an isolated local
+feed/cache and retrieve both recipes through real installed stdio from an
+unrelated directory. Expect IDs/titles/goals, complete canonical Markdown,
+target/edition11, applicability and current evidence; target10 has no edition.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7e5dd3a8'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('deployment.consume-native-library-artifacts','sdk.configure-legacy-mono-launch') `
+  -Query 'tide-mono' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1065-1067' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/tide-mono/inspection'
+```
+
+The SDK pins and RC evidence do not establish actual GA. The eight historical
+foundations, PIN-959 comprehensive gate and PIN-963 reconciliation stay separate.
+
 ## Temporal bounds and server time reports
 
 Run the paired original consumers against the authorized isolated SQL2025 container.

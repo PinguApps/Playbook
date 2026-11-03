@@ -1,5 +1,7 @@
 # SDK/package hosts and affected-test availability: PIN-688
 
+Delivery update: PIN-1067 adds `sdk.configure-legacy-mono-launch`, edition 11.0. Linux net472 compilation under SDK10/11, actual defaults and explicit Mono launch, quoted path/arguments, working directory and exit7. Unsupported status retained. Fresh evidence and installed offline inspection qualify this bounded delivery only; PIN-959/PIN-963 comprehensive and actual-GA gates remain open.
+
 Delivery update, 29 October 2026: proposal A is implemented by
 [PIN-1066](https://linear.app/pinguapps/issue/PIN-1066), stable
 `sdk.select-tool-execution-sdk`, edition 11.0. Actual local MuseumCatalogue
