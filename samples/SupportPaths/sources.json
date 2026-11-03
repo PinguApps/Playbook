@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "sha256": "1f341cf8f6e66b171bc36335df69f14be7af7a06eda1b4917836a6fc31ee7279",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs"
+    },
+    {
+      "sha256": "1f59b48c8adbb45bba469f41af2db8bd4765f257c16a068507c55323badd7c23",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs"
+    },
+    {
+      "sha256": "dea921e19dae2a84d065bd2886b87b229810b537333ee02f4ade1c1753d04495",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj"
+    },
+    {
+      "sha256": "91badb5399b08fe46ade4ce85d9d51f305b322e72224f5269534fb5ec9342a5a",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs"
+    },
+    {
+      "sha256": "f58962185a06c3bac95e40ecc0e7e6c285e146592995478edee046788b71a231",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/ref/System.Net.NetworkInformation.cs"
+    },
+    {
+      "sha256": "aaebb2fa7aefc508db28a4a3d9e3d396e50953485db3e807348c1f4e54213d8a",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System/Net/NetworkInformation/NetworkAddressChange.cs"
+    },
+    {
+      "sha256": "63c6ef093e8f2cfe35defec24eafc02c2f134c6a7c1f424b131ac0ce0ca2eaa5",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.NetworkInformation/src/System.Net.NetworkInformation.csproj"
+    },
+    {
+      "sha256": "ccafbc136c17c1ef6a243a9ccecc43e5388e61bcd4c70004e1d5f19d0349c4b1",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/RuntimeFeature.cs"
+    }
+  ]
+}
