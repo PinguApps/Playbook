@@ -4,6 +4,48 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Experimental frontend tools and approval continuation
+
+The paired HarbourDispatch consumers demonstrate declaration-only frontend tools,
+an app-defined progress block and an approval decision enforced by the scripted
+provider before changing its ledger. Components.AI remains experimental throughout
+.NET 11. Run from the pinned sample directory; the older comparison uses a manual
+AI.Abstractions loop because the checked Components.AI package has only net11.0.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4a223dd4'
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
+Push-Location -LiteralPath './samples/net11.0/HarbourDispatch'
+try {
+  & 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' run -c Release -- --check
+} finally { Pop-Location }
+```
+
+Expect actual Components.AI declaration/single-invocation/continuation checks and
+real loopback HTTP/SSE AGUI.Client approval/denial checks: denial leaves zero
+dispatches, approval records one. The endpoint is scripted; remote model/provider,
+multi-turn remote rejection history, production authorization and GA are unverified.
+The UI runs with `dotnet run -c Release -- --urls http://127.0.0.1:6072` in that
+directory. Send berth, select it, then send dispatch and deny/approve separate
+requests. The .NET 10 comparison offers Request berth/Request dispatch buttons.
+
+The following builds/packs the actual tool, installs it into an isolated
+feed/cache and calls real stdio list/get from an unrelated directory. It prints
+ID/title/goal, full expanded Markdown, applicability and edition 11.0. The harness
+checks the entire canonical body and rejects a .NET 10 target for these editions.
+Unusable proxies establish proxy independence, not OS-level network isolation.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-4a223dd4'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('blazor.render-agent-tools','blazor.approve-agent-action') `
+  -Query 'harbour-dispatch' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin805-806' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/agent-api/inspection'
+```
+
 ## Temporal bounds and server time reports
 
 Run the paired original consumers against the authorized isolated SQL2025 container.
