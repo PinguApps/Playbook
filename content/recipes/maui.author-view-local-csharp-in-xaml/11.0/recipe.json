@@ -37,7 +37,7 @@
           "sdk": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "Intended SDK11.0.100-rc.2.26504.105 and workload set11.0.100-rc.2.26513.2; local SDK pack unavailable.",
+            "reason": "MAUI .NET 11 SourceGen authoring requires a compatible .NET 11 SDK and installed platform workload; measured preparation versions are recorded separately.",
             "name": ".NET SDK"
           },
           "language": {
@@ -51,10 +51,10 @@
           ],
           "packages": [
             {
-              "match": "exact",
+              "match": "release-family",
               "name": "Microsoft.Maui.Controls",
-              "reason": "Pinned RC2 preparation artifact, not GA evidence.",
-              "version": "11.0.0-rc.2.26505.5"
+              "reason": "The .NET 11 Controls release supplies the SourceGen authoring model described here; use matching platform assets.",
+              "version": "11.0"
             }
           ],
           "packageAssets": [
@@ -62,10 +62,10 @@
           ],
           "workloads": [
             {
-              "match": "exact",
+              "match": "release-family",
               "name": "maui-windows",
-              "reason": "Intended Microsoft.Maui.Sdk pack; not installed in the local SDK11 root.",
-              "version": "11.0.0-rc.2.26505.5"
+              "reason": "Building the Windows page requires the MAUI Windows SDK pack for the .NET 11 release family.",
+              "version": "11.0"
             }
           ],
           "providers": [
@@ -88,7 +88,8 @@
             "EnablePreviewFeatures=true"
           ],
           "stabilityLimitations": [
-            "RC2 preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample."
+            "RC2 preparation evidence; no GA verification. x:Code/C# expressions are preview, including in the companion migration sample.",
+            "Reviewed Controls and Build.Tasks 11.0.0-rc.2.26505.5 artifacts; intended SDK 11.0.100-rc.2.26504.105. The current native dependency closure was not resolved because the SDK pack is unavailable; these are preparation baselines, not required downgrades."
           ]
         },
         "sharedAreas": [],
@@ -108,7 +109,9 @@
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs"
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
         ]
       }
     ]
@@ -116,27 +119,35 @@
   "sources": [
     {
       "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/preview4/dotnetmaui.md",
-      "title": "Official MAUI source"
+      "title": "MAUI Preview 4 x:Code opt-in release notes"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/dotnetmaui.md",
-      "title": "Official MAUI source"
+      "title": "MAUI RC2 authoring release notes"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/docs/specs/XamlCSharpExpressions.md",
-      "title": "Official MAUI source"
+      "title": "SourceGen C# expression syntax and limits"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
-      "title": "Official MAUI source"
+      "title": "Controls inflator defaults and deprecation diagnostics"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/AllowImplicitXmlnsDeclarationAttribute.cs",
-      "title": "Official MAUI source"
+      "title": "Obsolete implicit-namespace opt-out attribute"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/SourceGenXamlCodeBehindTests.cs",
-      "title": "Official MAUI source"
+      "title": "SourceGen implicit namespace and code-behind generator tests"
+    },
+    {
+      "title": "SourceGen expression diagnostic expectations",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionDiagnosticsTests.cs"
+    },
+    {
+      "title": "SourceGen interpolated-string syntax tests",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/tests/SourceGen.UnitTests/CSharpExpressionInterpolationTests.cs"
     }
   ],
   "evidence": [

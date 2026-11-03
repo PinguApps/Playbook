@@ -10,7 +10,7 @@ The .NET10 page uses ordinary code-behind: initialize controls, call BerthText.R
 
 ## Newer approach
 
-Enable both MauiXamlInflator=SourceGen and EnablePreviewFeatures=true. The current page puts only a tiny synchronous handler in x:Code CDATA. It keeps an explicit local namespace mapping and uses an explicit expression marker before the namespace-qualified helper call. The interpolation reads Inspect.(Grid.Row), which the generator lowers to the attached property's getter.
+Enable both MauiXamlInflator=SourceGen and EnablePreviewFeatures=true. The current page puts only a tiny synchronous handler in x:Code CDATA. It keeps an explicit local namespace mapping and uses an explicit expression marker before the namespace-qualified helper call. The dollar marker in the markup starts a C# interpolated string; single quotes delimit its text, and braces inside it insert values. This syntax is covered by the pinned SourceGen interpolation tests and expression specification. The interpolation reads Inspect.(Grid.Row), which the generator lowers to the attached property's getter.
 
 {{snippet:n11-boardpage-xaml}}
 
@@ -117,5 +117,7 @@ The project boundary files isolate these version-specific examples from shared r
 ## Evidence
 
 The .NET10 Windows comparison has actual Release compilation evidence with exact resolved packages and inputs. Compilation does not establish rendering, click handling or accessibility. The .NET11 source is official-review only: the existing SDK root lacks Microsoft.Maui.Sdk and the exact build fails NETSDK1147 before compilation. Its compilation, generated output and native execution are explicitly not-tested under PIN-699, not pending obligations to install a workload.
+
+The .NET11 dependency closure is unresolved because the native SDK pack is unavailable, so no lock file was captured. Its empty dependency evidence means unresolved, not dependency-free. The source manifest retains the separately inspected Controls and Build.Tasks artifact identities.
 
 The source manifest pins the reviewed SourceGen targets, implicit-namespace attribute, generator tests, expression specification and release notes. These establish factual authoring support; upstream tests were read, not run. No provider, account, signing, deployment, Android/Apple, performance or final-GA proof is claimed. Older comparison samples add no .NET10 foundation edition. See the recipe references and samples/QuayBoard/sources.json for provenance.

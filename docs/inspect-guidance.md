@@ -1,16 +1,20 @@
 # Inspect the guidance an agent receives
 
+`playbook mcp` speaks protocol over stdin/stdout. Use MCP Inspector as a client; it initializes and closes each connection automatically. `eng/Inspect-Guidance.ps1` builds the real server, installs pinned Inspector 2.11.0 under ignored `artifacts/` if needed, calls both tools, and prints **ID/title/goal, full expanded Markdown and applicability**. Responses default to `artifacts/inspection/<id>.json`.
+
+Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
+
 ## MAUI SourceGen and preview page logic
 
-QuayBoard compares .NET10 XamlC/code-behind with SourceGen and preview page logic.
-The older Windows page compiled with SDK10.0.402 and Controls10.0.110.
-The current page is source-reviewed only: SDK11 RC2 lacks Microsoft.Maui.Sdk
+QuayBoard compares .NET 10 XamlC/code-behind with SourceGen and preview page logic.
+The older Windows page compiled with SDK 10.0.402 and Controls 10.0.110.
+The current page is source-reviewed only: SDK 11 RC2 lacks Microsoft.Maui.Sdk
 locally and fails NETSDK1147. PIN-699 excludes its native compilation/execution.
-The actual Controls11.0.0-rc.2.26505.5 Windows dependency group targets20348.
+The actual Controls 11.0.0-rc.2.26505.5 Windows dependency group targets 20348.
 No native execution, performance, Android/Apple or GA proof is claimed.
 
-This block is exercised from unrelated C:\. Requires PowerShell7, the existing
-SDK10 and Node22.19+. It builds/packs, installs the exact artifact through an
+This block is exercised from unrelated C:\. Requires PowerShell 7, the existing
+SDK 10 and Node 22.19+. It builds/packs, installs the exact artifact through an
 isolated local feed/cache and calls real stdio from an unrelated directory.
 Setup can use network; retrieval uses unusable proxies, not OS network isolation.
 
@@ -21,14 +25,10 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-46d2c603'
 ```
 
 Expect the installed smoke, both discovery IDs/titles/goals, complete canonical
-Markdown, applicability and fresh paired evidence to pass. Edition11/target11,
+Markdown, applicability and fresh paired evidence to pass. Edition 11/target 11,
 preview labels and source-only/native exclusion warnings remain visible.
-Structured/text results agree; target10 returns no_applicable_edition.
-The older page is a comparison, not an additional .NET10 foundation.
-
-`playbook mcp` speaks protocol over stdin/stdout. Use MCP Inspector as a client; it initializes and closes each connection automatically. `eng/Inspect-Guidance.ps1` builds the real server, installs pinned Inspector 2.11.0 under ignored `artifacts/` if needed, calls both tools, and prints **ID/title/goal, full expanded Markdown and applicability**. Responses default to `artifacts/inspection/<id>.json`.
-
-Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
+Structured/text results agree; target 10 returns no_applicable_edition.
+The older page is a comparison, not an additional .NET 10 foundation.
 
 ## Temporal bounds and server time reports
 

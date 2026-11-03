@@ -5,12 +5,12 @@
   "kind": "official-review",
   "sourceCommit": "74029c4e208e2ea953856029f221497bf949ec19",
   "dependencies": [],
-  "recordedAt": "2026-11-03T09:22:24.6151558+00:00",
+  "recordedAt": "2026-11-03T10:54:02.7237404+00:00",
   "workloadInfo": "No Microsoft.Maui.Sdk pack in separate SDK11 root; workload labels do not establish availability.",
   "language": "15.0",
   "sdk": "11.0.100-rc.2.26504.105",
   "sdkInfo": "Intended SDK11 RC2; actual --version 11.0.100-rc.2.26504.105",
-  "output": "Reviewed default SourceGen targets, implicit namespace generator tests and obsolete opt-out, x:Code opt-in, expression grammar and attached-property getter/notification limits. NETSDK1147 before compilation; no native execution.",
+  "output": "Reviewed default SourceGen targets, implicit namespace generator tests and obsolete opt-out, x:Code opt-in, expression grammar and attached-property getter/notification limits. NETSDK1147 before compilation; no native execution. Pinned expression diagnostic and interpolation tests reviewed. Both UTF16 alignments in the actual SourceGen assembly contain MAUIX2007/2008/2009/2013; diagnostic IDs and meanings are corroborated by the pinned source tests. No upstream test execution or native generated output claimed.",
   "host": "Microsoft Windows 10.0.26200",
   "scope": "Source review only; missing MAUI SDK pack prevents native compilation and generated-output/execution checks.",
   "command": "Review immutable official sources in samples/QuayBoard/sources.json; build attempted using SDK11 RC2 (NETSDK1147).",
@@ -28,7 +28,7 @@
     "samples/net11.0/QuayBoard/Platforms/Windows/App.xaml.cs": "85c10eb0dee64cb06b7eb0b309e90bef7654963c7cdec9daa6910f6f1edc9271",
     "samples/net11.0/QuayBoard/QuayBoard.csproj": "0593f2f36d00eab7b96d900ceb3ea1d9be167dcba71d69957427e14fda848a18",
     "samples/net11.0/QuayBoard/verification.json": "662eade49938c9407031fda61d48ad37f6c3d7a7c84418dfa0488bae635718e8",
-    "samples/QuayBoard/sources.json": "b63c178b2bd9708e37302cad2d3a35a520d2948762c92baefda3ed6f8ca08120"
+    "samples/QuayBoard/sources.json": "e0f1773bd0e5eca964e472411f7a500ecf4b90a46e118d261193b2d090f2523e"
   },
   "target": "net11.0-windows10.0.20348.0"
 }

@@ -24,7 +24,7 @@ Implicit standard namespaces allow the current root to omit its default and x de
 
 First keep the explicit namespaces and code-behind, select SourceGen and resolve actual generator diagnostics. Preserve x:Class and x:Name values and event signatures. Only then remove redundant standard mappings. The companion current sample also moves its small handler into preview x:Code; that is an independent optional step, described by maui.author-view-local-csharp-in-xaml.
 
-To retain the XamlC route for ordinary markup, choose MauiXamlInflator=XamlC and restore explicit namespace declarations. Runtime inflation is a separate fallback; neither fallback supports the preview expressions. Remove those expressions/x:Code first and restore the older handler/property assignments. Rebuild rather than suppressing unknown diagnostics.
+To retain the XamlC route for ordinary markup, choose MauiXamlInflator=XamlC and restore explicit namespace declarations. The pinned RC2 targets emit MAUI1001 when selecting XamlC or Runtime because those inflators are deprecated; this is a compatibility fallback, not the preferred authoring route. Keep the warning visible. Runtime inflation is a separate fallback; neither fallback supports the preview expressions. Remove those expressions/x:Code first and restore the older handler/property assignments. Rebuild rather than suppressing unknown diagnostics.
 
 ## Constraints
 
@@ -117,5 +117,7 @@ The project boundary files isolate these version-specific examples from shared r
 ## Evidence
 
 The .NET10 Windows comparison has actual Release compilation evidence with exact resolved packages and inputs. Compilation does not establish rendering, click handling or accessibility. The .NET11 source is official-review only: the existing SDK root lacks Microsoft.Maui.Sdk and the exact build fails NETSDK1147 before compilation. Its compilation, generated output and native execution are explicitly not-tested under PIN-699, not pending obligations to install a workload.
+
+The .NET11 dependency closure is unresolved because the native SDK pack is unavailable, so no lock file was captured. Its empty dependency evidence means unresolved, not dependency-free. The source manifest retains the separately inspected Controls and Build.Tasks artifact identities.
 
 The source manifest pins the reviewed SourceGen targets, implicit-namespace attribute, generator tests, expression specification and release notes. These establish factual authoring support; upstream tests were read, not run. No provider, account, signing, deployment, Android/Apple, performance or final-GA proof is claimed. Older comparison samples add no .NET10 foundation edition. See the recipe references and samples/QuayBoard/sources.json for provenance.
