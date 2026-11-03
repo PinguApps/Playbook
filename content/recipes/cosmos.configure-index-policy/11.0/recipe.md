@@ -6,7 +6,7 @@ Choose paths and specialized Cosmos indexes from the queries your container must
 
 ## Older approach
 
-Provision the container policy explicitly through the Cosmos data-plane API. This remains valid when infrastructure owns container creation. EF10 does not offer the EF11 model index configuration shown below.
+Provision the container policy explicitly through the Cosmos data-plane API. This remains valid when infrastructure owns container creation. EF10 already supports vector and full-text model configuration. The comparison keeps provisioning outside EF; EF11 adds the automatic/explicit-path policy controls shown below. A more specific included path overrides the /* root exclusion, retaining Title while omitting unrelated scalar paths.
 
 {{snippet:n10-program-cs}}
 
@@ -64,5 +64,3 @@ Actual new-container policy creation and independent policy read-back, including
 ## References
 
 [Official EF Cosmos documentation](https://learn.microsoft.com/en-us/ef/core/providers/cosmos/modeling).
-
-

@@ -18,6 +18,10 @@ transport.Request("POST", $"/dbs/{database}/colls", "colls", $"dbs/{database}", 
 var saved = JObject.Parse(transport.Request("GET", $"/dbs/{database}/colls/catalog", "colls", $"dbs/{database}/colls/catalog"));
 foreach (var field in new[] { "includedPaths", "compositeIndexes", "vectorIndexes", "fullTextIndexes" })
     if (saved["indexingPolicy"]?[field] is not JArray items || items.Count == 0) throw new InvalidOperationException(field);
+if ((bool?)saved["indexingPolicy"]?["automatic"] != true
+    || (string?)saved["indexingPolicy"]?["includedPaths"]?[0]?["path"] != "/Title/?"
+    || !saved["indexingPolicy"]!["excludedPaths"]!.Any(x => (string?)x["path"] == "/*"))
+    throw new InvalidOperationException("Selective policy differs; the more specific Title path overrides the root exclusion.");
 Console.WriteLine(saved.ToString());
 Console.WriteLine("PASS externally provisioned policy read-back; no query/performance claim.");
 // endsnippet:complete

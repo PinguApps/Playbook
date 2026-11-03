@@ -18,6 +18,16 @@ var document = JObject.Parse(transport.Request("GET", $"/dbs/{database}/colls/ca
 var policy = document["indexingPolicy"] ?? throw new InvalidOperationException("No policy returned.");
 foreach (var field in new[] { "includedPaths", "compositeIndexes", "vectorIndexes", "fullTextIndexes" })
     if (policy[field] is not JArray items || items.Count == 0) throw new InvalidOperationException($"Missing {field}");
+var included = policy["includedPaths"]!.Select(x => (string?)x["path"]).ToArray();
+string[] expectedPaths = ["/Location/Bay/?", "/Shelves/[]/Bay/?", "/Title/?"];
+if ((bool?)policy["automatic"] != true || !included.Order().SequenceEqual(expectedPaths.Order()))
+    throw new InvalidOperationException("Automatic maintenance or selected nested paths differ.");
+var composite = policy["compositeIndexes"]![0]!;
+if ((string?)composite[0]?["path"] != "/Harbour" || (string?)composite[0]?["order"] != "ascending"
+    || (string?)composite[1]?["path"] != "/Priority" || (string?)composite[1]?["order"] != "descending"
+    || (string?)policy["vectorIndexes"]![0]?["path"] != "/Embedding" || (string?)policy["vectorIndexes"]![0]?["type"] != "flat"
+    || (string?)policy["fullTextIndexes"]![0]?["path"] != "/Description")
+    throw new InvalidOperationException("Composite directions or specialized index definitions differ.");
 Console.WriteLine(document.ToString());
 Console.WriteLine("PASS actual EF-created path/composite/vector/full-text index definitions read back; no query or performance claim.");
 

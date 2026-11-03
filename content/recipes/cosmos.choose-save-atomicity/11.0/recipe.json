@@ -210,7 +210,7 @@
     }
   },
   "humanProof": {
-    "scope": "Actual isolated Cosmos emulator insert/read/update; independent SDK JSON object and array read-back; root-only EF11 tracking versus EF10 owned entries. Windows x64 consumer; no cloud, performance, other-platform or GA claim.",
+    "scope": "Actual same-partition save success and conflict rollback, cross-partition and cross-container mode outcomes; previous-release explicit SDK batch success and conflict rollback. No global transaction claim.",
     "status": "not-required"
   }
 }

@@ -5,7 +5,8 @@
     ".editorconfig",
     "eng/Evidence.ps1",
     "eng/Record-Evidence.ps1",
-    "eng/Cosmos.ps1"
+    "eng/Cosmos.ps1",
+    "eng/Test-CosmosPolicies.ps1"
   ],
   "buildArguments": [],
   "dependencies": [

@@ -1,6 +1,11 @@
 #Requires -Version 7.3
 [CmdletBinding()]
-param([switch]$Record)
+param(
+    [switch]$Record,
+    [string]$Net10Dotnet = 'C:\Program Files\dotnet\dotnet.exe',
+    [string]$Net11Dotnet = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe',
+    [string]$Docker = 'C:\Program Files\Docker\Docker\resources\bin\docker.exe'
+)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
 $root = Split-Path $PSScriptRoot -Parent
@@ -12,29 +17,29 @@ $started = $false
 $failure = $null
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
-    & $route -Action Start
+    & $route -Docker $Docker -Action Start
     $started = $true
     foreach ($sampleName in 'HarbourIndexes','HarbourSaves') {
     foreach ($release in '10','11') {
-        $dotnet = if ($release -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+        $dotnet = if ($release -eq '10') { $Net10Dotnet } else { $Net11Dotnet }
         $directory = Join-Path $root "samples/net$release.0/$sampleName"
         $database = 'playbook_policies_' + [guid]::NewGuid().ToString('N')
-        & $route -Action New -Database $database
+        & $route -Docker $Docker -Action New -Database $database
         try {
             if ($Record) {
-                & $route -Action Run -Database $database -Executable (Get-Process -Id $PID).Path -WorkingDirectory $root -CommandArguments @('-NoProfile','-File',"$PSScriptRoot/Record-Evidence.ps1",'-Sample',"samples/net$release.0/$sampleName/$sampleName.csproj",'-Dotnet',$dotnet)
+                & $route -Docker $Docker -Action Run -Database $database -Executable (Get-Process -Id $PID).Path -WorkingDirectory $root -CommandArguments @('-NoProfile','-File',"$PSScriptRoot/Record-Evidence.ps1",'-Sample',"samples/net$release.0/$sampleName/$sampleName.csproj",'-Dotnet',$dotnet)
             }
             else {
-                & $route -Action Run -Database $database -Executable $dotnet -WorkingDirectory $directory -CommandArguments @('run','-c','Release','-p:RestoreLockedMode=true')
+                & $route -Docker $Docker -Action Run -Database $database -Executable $dotnet -WorkingDirectory $directory -CommandArguments @('run','-c','Release','-p:RestoreLockedMode=true')
             }
         }
-        finally { & $route -Action Remove -Database $database }
+        finally { & $route -Docker $Docker -Action Remove -Database $database }
     }
     }
 }
 catch { $failure = $_; throw }
 finally {
-    try { if ($started) { & $route -Action Stop } }
+    try { if ($started) { & $route -Docker $Docker -Action Stop } }
     catch {
         if ($failure) { Write-Warning "Cleanup also failed: $_" }
         else { $failure = $_; throw }

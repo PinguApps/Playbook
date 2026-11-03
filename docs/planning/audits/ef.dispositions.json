@@ -41,7 +41,7 @@
       "pattern": "::(?:get_|set_)?AutoTransactionsEnabled\\b",
       "disposition": "proposed",
       "owner": "E5",
-      "reason": "Removed Boolean control must migrate to explicit relational transaction behavior; Cosmos batching stays PIN-867."
+      "reason": "Removed Boolean control must migrate to explicit relational transaction behavior; PIN-867 delivers cosmos.choose-save-atomicity/11.0 with actual WhenNeeded/Never/Always save boundaries and conflicts plus previous-release SDK batch comparison; RC2, not GA or global atomicity."
     },
     {
       "id": "collection-translation",
@@ -231,7 +231,7 @@
       "pattern": "Cosmos.*Index|Cosmos.*AutomaticIndexing",
       "disposition": "grouped",
       "owner": "PIN-866",
-      "reason": "Cosmos policy paths, vector and full-text settings remain existing scope.",
+      "reason": "PIN-866 delivers cosmos.configure-index-policy/11.0: actual new-container policy creation and independent read-back of selected paths, composite directions, vector and full-text settings, including nested complex/collection paths. Previous-release external provisioning remains valid; RC2, not GA, query execution or cloud parity.",
       "assetPattern": "^microsoft.entityframeworkcore.cosmos/"
     },
     {
