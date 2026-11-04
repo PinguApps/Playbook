@@ -1,0 +1,22 @@
+{
+  "additionalInputs": [
+    "eng/Test-MarshDispatch.ps1"
+  ],
+  "dependencies": [
+    "Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105",
+    "Microsoft.Extensions.Configuration/11.0.0-rc.1.26425.128",
+    "Microsoft.Extensions.DependencyInjection/11.0.0-rc.1.26425.128",
+    "Microsoft.Extensions.Logging/11.0.0-rc.1.26425.128",
+    "Microsoft.Maui.Controls.Build.Tasks/11.0.0-rc.2.26505.5",
+    "Microsoft.Maui.Controls.Core/11.0.0-rc.2.26505.5",
+    "Microsoft.Maui.Controls.Xaml/11.0.0-rc.2.26505.5",
+    "Microsoft.Maui.Core/11.0.0-rc.2.26505.5",
+    "Microsoft.Maui.Essentials/11.0.0-rc.2.26505.5",
+    "Microsoft.Maui.Graphics/11.0.0-rc.2.26505.5",
+    "Microsoft.NET.ILLink.Tasks/11.0.0-rc.2.26504.105",
+    "runtime.win-x64.Microsoft.DotNet.ILCompiler/11.0.0-rc.2.26504.105"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}

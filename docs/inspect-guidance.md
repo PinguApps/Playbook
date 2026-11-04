@@ -1,5 +1,38 @@
 # Inspect the guidance an agent receives
 
+## Android Material customization and generated HybridWebView calls
+
+PIN-909/PIN-910 add the MarshEntry and MarshBridge comparisons. MarshEntry's
+.NET 10 Android app builds a signed APK. MarshDispatch exercises the actual
+neutral MAUI assemblies and packaged interceptor in a Windows x64 NativeAOT
+executable, including request and return JSON. This does not establish Android
+interaction, iOS compilation or iOS WebView/NativeAOT behavior; those checks are
+explicitly not-tested under PIN-699. The SDK 11 native Android workload is absent.
+The historical RC2 ILCompiler emits NU1903; the pinned check is preparation
+evidence, not a production toolchain recommendation.
+
+From an unrelated directory, build and inspect the actual installed package:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-f70e78b9'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.customize-material-handlers','maui.call-dotnet-from-hybrid-js-with-aot') `
+  -Query 'marsh-survey' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin909-910' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/marsh/inspection'
+```
+
+Expect ID/title/goal, complete expanded Markdown and applicability for both
+edition 11 recipes, with experimental Apple publishing and exact evidence limits.
+Target 10 returns `no_applicable_edition`. The existing harness installs from an
+isolated feed/cache outside the checkout and retrieves with unusable proxies;
+this proves offline content delivery, not OS network isolation. Nothing is
+published. Run `eng/Test-MarshInterop.ps1` for pinned source/package contracts and
+`eng/Test-MarshDispatch.ps1 -Dotnet <absolute SDK11 dotnet.exe>` for the actual
+neutral NativeAOT dispatch check.
+
 `playbook mcp` speaks protocol over stdin/stdout. Use MCP Inspector as a client; it initializes and closes each connection automatically. `eng/Inspect-Guidance.ps1` builds the real server, installs pinned Inspector 2.11.0 under ignored `artifacts/` if needed, calls both tools, and prints **ID/title/goal, full expanded Markdown and applicability**. Responses default to `artifacts/inspection/<id>.json`.
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
