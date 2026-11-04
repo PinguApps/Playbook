@@ -1,0 +1,358 @@
+[
+  {
+    "path": ".gitattributes",
+    "sha256": "067BC6AB8150B3C6A24E880F526F9025E50A1339CBD81041EAD546BE2E7B36B7"
+  },
+  {
+    "path": ".pragentignore",
+    "sha256": "55C6DE46BAD1BC1F2716CD0E598C34087DC4A234752258EC331389DA58E7E2A9"
+  },
+  {
+    "path": "Replay.ps1",
+    "sha256": "F5EF17810474A7E586220FF7421B1736F5CA6B8B6AC55FCDE814017A6DB04AC0"
+  },
+  {
+    "path": "Verify.ps1",
+    "sha256": "541A0FE6CB99D3EEFF6DFC89943F775E0153C203CA4A3972AAD93DBB835B3701"
+  },
+  {
+    "path": "controls/ambiguous-input.json",
+    "sha256": "79F537E781359799E718DED3988F3C474848E61B4A8A6EDA2CA6447C9BE21971"
+  },
+  {
+    "path": "controls/oracle-baseline.log",
+    "sha256": "6380BB37A51AC328E825589180B3AF0B2D2747E00212EC90173FCC84B29E191D"
+  },
+  {
+    "path": "controls/oracle-reference.log",
+    "sha256": "335EBF56BC02EE4A937D3EE2FEE28EEEAE1D435BD23666E4B2BF09703DF04D7C"
+  },
+  {
+    "path": "controls/Oracle.cs.txt",
+    "sha256": "448CED72DAECDD4A50500E8889A9B3AE52B9F080C9D4B9524F0BD6B82177DCCA"
+  },
+  {
+    "path": "controls/path-check.json",
+    "sha256": "BDF4BC0B21A9A72C88FDA267147C2CD984059BFF301AFD07A646A0AAF681AE28"
+  },
+  {
+    "path": "controls/PinguApps.Playbook.0.1.0-pin950.nupkg",
+    "sha256": "9A96E01473994BB854BB93D49C4E8B4CFE90805003DC249D7A7BE60505F2243C"
+  },
+  {
+    "path": "controls/preflight-probe.ps1.txt",
+    "sha256": "CDCD314D34D748742A32D81AF1A9AB451C4D7F7701A5DC7C5A122176843F7AFF"
+  },
+  {
+    "path": "controls/README.md",
+    "sha256": "B8CE9CC33C57FEC338BED8184F926D7FCF44A465E0E105C31FE52CD78007B2FD"
+  },
+  {
+    "path": "controls/runtime-inventory.txt",
+    "sha256": "F85E8FA919D3FFAFB44ACEA9B6F7A8207EAD971432A60654D57B985797DFB48A"
+  },
+  {
+    "path": "controls/supervisor.ps1.txt",
+    "sha256": "73063F6367877BEEFF62E8C688F4AF7A36AA65E0031BA7DA118B0FE73B89BA50"
+  },
+  {
+    "path": "csharp/with/agent-report.md",
+    "sha256": "9397E4A1B8D407974F4E909C8B3B95ADC4D303B7ECC2F79616436DF01EA458F1"
+  },
+  {
+    "path": "csharp/with/ambiguous-with.log",
+    "sha256": "84918769F488AFB418D65F20311E32B5944BFE76A34AA530237A2C52ED5801F0"
+  },
+  {
+    "path": "csharp/with/config-with.toml",
+    "sha256": "73823EF848783FDA68C51E21140993FAF911E3CE661A49E926AD769B72E80CE5"
+  },
+  {
+    "path": "csharp/with/consultation.json",
+    "sha256": "3899D1945222E3731F7276FFA2513ED40B4F30617A7C6B354F7B26FDB2D4F5B6"
+  },
+  {
+    "path": "csharp/with/input-with.json",
+    "sha256": "1B0D7B18C3F1A15E0C929DC17E7C46CC299E6C109B0B0B51952D5518611EFF7B"
+  },
+  {
+    "path": "csharp/with/missing-absence.log",
+    "sha256": "60B32139AD4BDBDAA6EDA2BB3D96F8437D3999C9632E5C9CE5186FB0CBBFE5E9"
+  },
+  {
+    "path": "csharp/with/missing-case-compiler.log",
+    "sha256": "3EF1DCC91EC344C611D86A844A23B91962D5E77A106D622A429FDBB90CB0512A"
+  },
+  {
+    "path": "csharp/with/missing-rejected.log",
+    "sha256": "8084B7B242E863D3F5CEFB4663F097DBC889C723703405C94E124A6F4D51D5B0"
+  },
+  {
+    "path": "csharp/with/omitted-generated-files.json",
+    "sha256": "A5338D955B09046EC0B16F3A9625B7955C763AAE07DC722E474E6078745F932F"
+  },
+  {
+    "path": "csharp/with/oracle-with.log",
+    "sha256": "335EBF56BC02EE4A937D3EE2FEE28EEEAE1D435BD23666E4B2BF09703DF04D7C"
+  },
+  {
+    "path": "csharp/with/preflight-with.jsonl",
+    "sha256": "20F981E6EA554D8FEAA1D1229C1A9964CAC82C2CE165EBDF890997D59BA489E2"
+  },
+  {
+    "path": "csharp/with/preflight-with.stderr",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "csharp/with/preflight-with.timing.json",
+    "sha256": "AEA0330E373068E7771A11A8B64650088568ECE3CCF18C6C5973BF17E5183F47"
+  },
+  {
+    "path": "csharp/with/probe-with-fourth.cs.txt",
+    "sha256": "A487B3D31954F225D272720505AE4D9EF9A31A8FEBF0CA898766597859A6F041"
+  },
+  {
+    "path": "csharp/with/probe-with-fourth.log",
+    "sha256": "5F492715D9DB25DF1C0ACB51B913AEC6EA4D646A806E8050269E9E630679FEC3"
+  },
+  {
+    "path": "csharp/with/probe-with-unrelated.cs.txt",
+    "sha256": "0ADF8E9496181102E724312AE103C279B79AF86D188C7D097538D9E1C7F9559D"
+  },
+  {
+    "path": "csharp/with/probe-with-unrelated.log",
+    "sha256": "EA6D8A138FDE66A3AFE1DD783724A1C2AA26A703B34D66EEB5FB323160D97F76"
+  },
+  {
+    "path": "csharp/with/prompt-with.txt",
+    "sha256": "6ED791560C36D4E75C655B559E746E8F485F3A1EDF619ACDD492B76D932544FD"
+  },
+  {
+    "path": "csharp/with/scored-with.jsonl",
+    "sha256": "9FFAB5003632E52E217ADFF7272EBB2F41EC1B2042B1E8ECEB35375856255EFF"
+  },
+  {
+    "path": "csharp/with/scored-with.stderr",
+    "sha256": "48D35E732495E98AC9274607C63CC4D2F7C9C2C4CA611B73F4EFADF490D3CFD2"
+  },
+  {
+    "path": "csharp/with/scored-with.timing.json",
+    "sha256": "61A26443CC2F100643F634C1D31ED5668649379542668CB8589EC5780157400D"
+  },
+  {
+    "path": "csharp/with/source.diff",
+    "sha256": "2317E2216E0A73D86C057B2C30D3F4778A883FC0423D52CD2F9BBF76F4398E73"
+  },
+  {
+    "path": "csharp/with/submission-manifest.json",
+    "sha256": "806A8FEC71C12D94F8BD1153A0CFB133EC5A7053D8DAE364CD8CBBDD744CF4B7"
+  },
+  {
+    "path": "csharp/with/submitted-build-launcher.txt",
+    "sha256": "ADA653C8A3CDA0C483FA4CE98B5E0948B124F358E4C339F90E3A527344F8B713"
+  },
+  {
+    "path": "csharp/with/submitted-build-with.log",
+    "sha256": "58181C9FAF4B46D262764BE845068EA1AA3148D566F226BCA35A0127083675E8"
+  },
+  {
+    "path": "csharp/with/submitted-runtime-with.log",
+    "sha256": "45F10549E6E46BFF9B42C5867F0C632DC03B490DB99D15D4359C9682CAD1F560"
+  },
+  {
+    "path": "csharp/with/usage.json",
+    "sha256": "1DF9C104390F77387085A5BF99C060757C27192B4BAB886675D9D9C8BB87CA9C"
+  },
+  {
+    "path": "csharp/with/submission/build.log",
+    "sha256": "7F61759A295E9E0E397A2DD02220B45FA4B862C6F3D0628BDBC63215F76F9EF1"
+  },
+  {
+    "path": "csharp/with/submission/Directory.Build.props.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "csharp/with/submission/Directory.Build.targets.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "csharp/with/submission/Directory.Packages.props.txt",
+    "sha256": "F522D8864E6C8D712B746F77823E9336BD2CD718E6E9456C277B53BF3320C26F"
+  },
+  {
+    "path": "csharp/with/submission/global.json",
+    "sha256": "9D1FC68BD59431178FB44D43D06E7F8D59BBF920D452B46022224FAEC9F9A675"
+  },
+  {
+    "path": "csharp/with/submission/NuGet.Config",
+    "sha256": "D240B9AFFA63E3D05D49F0463BC05947ED2FF1D6C97159E1A4CE73FEC946D5EF"
+  },
+  {
+    "path": "csharp/with/submission/Program.cs",
+    "sha256": "AE045FD431457925E765A8E06392E59C07E3BB12BEB3380872B4E183344E424F"
+  },
+  {
+    "path": "csharp/with/submission/README.md",
+    "sha256": "81E838E25B7D090D0831C2FDD7AE468015212F55EC4FA7AB238447D7EE30D304"
+  },
+  {
+    "path": "csharp/with/submission/Task.csproj.txt",
+    "sha256": "189DA4F496A86F967775E2308CC64F1B8A965E80416EA494112491C2E918F4A9"
+  },
+  {
+    "path": "csharp/with/submission/TASK.md",
+    "sha256": "6E13E8CCB007FF27A201AAEEB4F09F910C79B3CFDD16573C98E6DAAD30B91CA0"
+  },
+  {
+    "path": "csharp/with/submission/Verify.ps1",
+    "sha256": "B7908E8D080645F4DF348170A6E853FCCF92E58A41C73B11564D5DBCD8FC4C05"
+  },
+  {
+    "path": "csharp/with/submission/Workflow.cs",
+    "sha256": "EAFEC87573A401199A31A883EDD4BBD0DDC35E40BED0AD7A70831DEB4046801F"
+  },
+  {
+    "path": "csharp/without/agent-report.md",
+    "sha256": "058BF9020404528BC49318A100B37C3E08E38BC5E591EA657FA569015CA08463"
+  },
+  {
+    "path": "csharp/without/ambiguous-without.log",
+    "sha256": "84918769F488AFB418D65F20311E32B5944BFE76A34AA530237A2C52ED5801F0"
+  },
+  {
+    "path": "csharp/without/config-without.toml",
+    "sha256": "7279F4451CD09B92F32542B6DDCAEA15B7AAD1FC943525EAF66CC804A84B82FE"
+  },
+  {
+    "path": "csharp/without/consultation.json",
+    "sha256": "A5338D955B09046EC0B16F3A9625B7955C763AAE07DC722E474E6078745F932F"
+  },
+  {
+    "path": "csharp/without/input-without.json",
+    "sha256": "1B0D7B18C3F1A15E0C929DC17E7C46CC299E6C109B0B0B51952D5518611EFF7B"
+  },
+  {
+    "path": "csharp/without/missing-case-compiler.log",
+    "sha256": "4DBA7C0935FC6B23AE6C30EAD41EC6CB14D40EB339584496BEF8536AF941ECB9"
+  },
+  {
+    "path": "csharp/without/omitted-generated-files.json",
+    "sha256": "00351FF0067B62ADF69EA0FA2664B0608B1D75AA203C9BF46F9E74423F3CFCB2"
+  },
+  {
+    "path": "csharp/without/oracle-without.log",
+    "sha256": "335EBF56BC02EE4A937D3EE2FEE28EEEAE1D435BD23666E4B2BF09703DF04D7C"
+  },
+  {
+    "path": "csharp/without/preflight-without.jsonl",
+    "sha256": "F7AF2AF24355513F244A45235A9274B896A4C2FE54F02E2E7CA7686E13EA3C95"
+  },
+  {
+    "path": "csharp/without/preflight-without.stderr",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "csharp/without/preflight-without.timing.json",
+    "sha256": "7B3D6A09FAE7A2C86C42715D16F3124518284BD60722FE5E3D0985E51ED86626"
+  },
+  {
+    "path": "csharp/without/probe-without-fourth.cs.txt",
+    "sha256": "A487B3D31954F225D272720505AE4D9EF9A31A8FEBF0CA898766597859A6F041"
+  },
+  {
+    "path": "csharp/without/probe-without-fourth.log",
+    "sha256": "9DAD5B3EBFB74CB0A2885553DC9F1AAE5ECECB243793617BA701C27A34402BAA"
+  },
+  {
+    "path": "csharp/without/probe-without-unrelated.cs.txt",
+    "sha256": "0ADF8E9496181102E724312AE103C279B79AF86D188C7D097538D9E1C7F9559D"
+  },
+  {
+    "path": "csharp/without/probe-without-unrelated.log",
+    "sha256": "CE8879F3E42B20F9C5E74D8FD1B0815D64F52E42FB06FAF8A450B450424C5ACD"
+  },
+  {
+    "path": "csharp/without/prompt-without.txt",
+    "sha256": "6E13E8CCB007FF27A201AAEEB4F09F910C79B3CFDD16573C98E6DAAD30B91CA0"
+  },
+  {
+    "path": "csharp/without/scored-without.jsonl",
+    "sha256": "604424682FA7E8AE25DAF64E9F97EA1AAD04BAD192E13627FDCA328460D9D596"
+  },
+  {
+    "path": "csharp/without/scored-without.stderr",
+    "sha256": "BA21DFB0DAFE94BBEDDA5EAAC873D01EBD137DB2FAE470A99EE1817C91367732"
+  },
+  {
+    "path": "csharp/without/scored-without.timing.json",
+    "sha256": "8A41521E8D9E5941ED01BD7A8C577420B2C3AFC88F2D219E58F11A4D05F2ECCB"
+  },
+  {
+    "path": "csharp/without/source.diff",
+    "sha256": "BD69B67E8BEAEF4B6CA7F49398DE1E8B36EA895DB6D252C289CA7D7A444A33D8"
+  },
+  {
+    "path": "csharp/without/submission-manifest.json",
+    "sha256": "2558512709362CD7E135AAC7A5CBAB00ACBA691917DA6D7964C4B846F4F7934A"
+  },
+  {
+    "path": "csharp/without/submitted-build-without.log",
+    "sha256": "EA5EAD4E5D8AE2AE0750933CDA336FCE6915655D2DA53C2CD74F01CCFDAAC8C1"
+  },
+  {
+    "path": "csharp/without/submitted-runtime-without.log",
+    "sha256": "4FE26A6666C351AA82F7CD75F3835A809C734C4D98CB221732D34E0275D21AB6"
+  },
+  {
+    "path": "csharp/without/usage.json",
+    "sha256": "908712F934CB179CF24B8147A26696A8CEB1E01E8D8B0EC47652AE7C25DDF86C"
+  },
+  {
+    "path": "csharp/without/submission/Check.ps1",
+    "sha256": "F72869946A7EEE34902B387F0EEE763814B47EE01ACF8BAE2FC7DA5DC97C966F"
+  },
+  {
+    "path": "csharp/without/submission/CompileFailures.cs.txt",
+    "sha256": "9CB7FE68710FABEADBA92CD067C80337095F730F4B015BA56CFB6D476EDDC565"
+  },
+  {
+    "path": "csharp/without/submission/Directory.Build.props.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "csharp/without/submission/Directory.Build.targets.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "csharp/without/submission/Directory.Packages.props.txt",
+    "sha256": "F522D8864E6C8D712B746F77823E9336BD2CD718E6E9456C277B53BF3320C26F"
+  },
+  {
+    "path": "csharp/without/submission/global.json",
+    "sha256": "9D1FC68BD59431178FB44D43D06E7F8D59BBF920D452B46022224FAEC9F9A675"
+  },
+  {
+    "path": "csharp/without/submission/NuGet.Config",
+    "sha256": "D240B9AFFA63E3D05D49F0463BC05947ED2FF1D6C97159E1A4CE73FEC946D5EF"
+  },
+  {
+    "path": "csharp/without/submission/Program.cs",
+    "sha256": "7C7A1BD3A8C88C2601A138FFD3FF346ED425460EEDB76D47F2D9778331C7927E"
+  },
+  {
+    "path": "csharp/without/submission/README.md",
+    "sha256": "C2A0DD65AB3B062EF4F2FF700ABC636450B09FE8F3D4F5BE41F8A8F72A8ABD41"
+  },
+  {
+    "path": "csharp/without/submission/Task.csproj.txt",
+    "sha256": "189DA4F496A86F967775E2308CC64F1B8A965E80416EA494112491C2E918F4A9"
+  },
+  {
+    "path": "csharp/without/submission/TASK.md",
+    "sha256": "6E13E8CCB007FF27A201AAEEB4F09F910C79B3CFDD16573C98E6DAAD30B91CA0"
+  },
+  {
+    "path": "csharp/without/submission/Workflow.cs",
+    "sha256": "7A181E8A843067506E09F239232D6C9906D6A7BC394B074B007D56ABD9FA9CD7"
+  }
+]

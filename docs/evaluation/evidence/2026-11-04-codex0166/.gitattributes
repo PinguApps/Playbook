@@ -1,0 +1,3 @@
+* -text whitespace=cr-at-eol
+# Preserve the exact executed TOML, including its harmless final blank lines.
+csharp/*/config-*.toml whitespace=cr-at-eol,-blank-at-eof

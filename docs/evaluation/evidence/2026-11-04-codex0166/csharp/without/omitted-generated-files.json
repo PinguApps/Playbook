@@ -1,0 +1,5 @@
+{
+  "path": "Microsoft/Windows/PowerShell/ModuleAnalysisCache",
+  "sha256": "5F9F3B6B5EA72E3354E4967DAB7BFA2507EBAF600E4FC6ACE4456EECBDDBFCDA",
+  "reason": "Generated PowerShell module-analysis cache; not submitted source or meaningful diagnostics"
+}

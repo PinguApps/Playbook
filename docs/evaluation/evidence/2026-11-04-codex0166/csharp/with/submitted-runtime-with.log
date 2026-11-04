@@ -1,0 +1,7 @@
+applied:r17 -> {"case":"applied","revision":"r17"}
+unchanged:r17 -> {"case":"unchanged","revision":"r17"}
+rejected:sensor offline -> {"case":"rejected","reason":"sensor offline"}
+absent -> null
+Missing absence arm: SwitchExpressionException (no compiler diagnostic).
+Missing-case handling: Caller omitted an outcome case.
+PASS: cases, payloads, absence, JSON round trips and 22 invalid inputs.

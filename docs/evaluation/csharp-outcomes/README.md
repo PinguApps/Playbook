@@ -1,12 +1,16 @@
 # C# comparison preparation (PIN-946)
 
+The [4 November paired results](results.md) retain the actual PIN-951 attempts and
+their separate correctness, applicability, consultation and adoption observations.
+
 Current comparison controls: [the owner-approved protocol](../comparison-protocol.md) refreshes these scaffolds to RC3. The RC2 pins and export commits below describe the original preparation only; use the refreshed committed revision for the next comparison.
 
 Evaluator material. Never mount this directory, repository history, recipe sources
 or either condition's outputs in a run. Export only `samples/OutcomeEvaluation/`
 at scaffold commit `80e41846f1a7c43d0f606978aed571e08e09f219` into two independent clean directories. Supply
 TASK.md verbatim to both fresh contexts. The baseline intentionally builds but
-does not solve the task. This preparation records no agent evaluation results.
+does not solve the task. This preparation record is unchanged; actual agent
+evaluation results are recorded separately in [results.md](results.md).
 
 ## Frozen controls
 

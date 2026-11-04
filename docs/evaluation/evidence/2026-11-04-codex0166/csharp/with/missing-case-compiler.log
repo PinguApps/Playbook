@@ -1,0 +1,4 @@
+Missing-case handling: Caller omitted an outcome case.
+PASS compiler rejection: omitted Rejected
+CONFIRMED compiler limitation: omitted absence compiles without a diagnostic.
+PASS compiler rejection: unrelated value

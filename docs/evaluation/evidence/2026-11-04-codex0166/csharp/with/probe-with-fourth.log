@@ -1,0 +1,12 @@
+  Determining projects to restore...
+  Restored C:\Users\pingu\AppData\Local\Temp\playbook-pin951-with-fourth\Task.csproj (in 89 ms).
+V:\_worktrees\Playbook\t3-0f031b59\artifacts\protocol\sdk\sdk\11.0.100-rc.3.26522.148\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [C:\Users\pingu\AppData\Local\Temp\playbook-pin951-with-fourth\Task.csproj]
+C:\Users\pingu\AppData\Local\Temp\playbook-pin951-with-fourth\Program.cs(1,46): error CS0509: 'Fourth': cannot derive from sealed type 'SyncOutcome' [C:\Users\pingu\AppData\Local\Temp\playbook-pin951-with-fourth\Task.csproj]
+
+Build FAILED.
+
+C:\Users\pingu\AppData\Local\Temp\playbook-pin951-with-fourth\Program.cs(1,46): error CS0509: 'Fourth': cannot derive from sealed type 'SyncOutcome' [C:\Users\pingu\AppData\Local\Temp\playbook-pin951-with-fourth\Task.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:01.05

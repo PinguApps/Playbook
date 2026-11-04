@@ -1,0 +1,13 @@
+FAIL: matching applied: NotImplementedException: The method or operation is not implemented.
+FAIL: matching unchanged: NotImplementedException: The method or operation is not implemented.
+FAIL: matching rejected: NotImplementedException: The method or operation is not implemented.
+FAIL: persistence applied: NotImplementedException: The method or operation is not implemented.
+FAIL: persistence unchanged: NotImplementedException: The method or operation is not implemented.
+FAIL: persistence rejected: NotImplementedException: The method or operation is not implemented.
+FAIL: default: NotImplementedException: The method or operation is not implemented.
+FAIL: null persistence: NotImplementedException: The method or operation is not implemented.
+FAIL: null restore: NotImplementedException: The method or operation is not implemented.
+PASS: invalid JSON rejected: {
+PASS: invalid JSON rejected: {}
+PASS: invalid JSON rejected: {"Unknown":true}
+Oracle: 9 failed

@@ -1,0 +1,44 @@
+param([ValidateSet('without','with')][string]$Condition,[ValidateSet('preflight','scored')][string]$Phase='preflight')
+$ErrorActionPreference='Stop'
+$capture='V:\_worktrees\Playbook\t3-b1556af3\artifacts\pin951'
+$tools=Get-Content "$capture/tools.json" -Raw | ConvertFrom-Json
+$run=Join-Path $tools.root $Condition
+$env:CODEX_HOME="$run/home"
+$env:TEMP="$run/temp"
+$env:TMP="$run/temp"
+$env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH='0'
+$env:DOTNET_CLI_TELEMETRY_OPTOUT='1'
+$skillFiles=@(Get-ChildItem 'C:\Users\pingu\.agents\skills\*\SKILL.md')
+$skillPaths=@($skillFiles.FullName)+@('imagegen','openai-docs','skill-creator','skill-installer' | ForEach-Object {"$run/home/skills/.system/$_/SKILL.md"})
+$skillConfig='skills.config=['+(($skillPaths | ForEach-Object {'{path="'+$_.Replace('\','/')+'",enabled=false}'}) -join ',')+']'
+if ($Phase -eq 'scored') {
+    if (!(Test-Path "$capture/preflight-$Condition.passed")) {throw 'Preflight gate missing'}
+    if (Test-Path "$capture/scored-$Condition.jsonl") {throw 'No corrective retries'}
+    $prompt=[IO.File]::ReadAllText("$capture/prompt-$Condition.txt")
+} else {
+    $prompt="This is an unscored environment preflight. Do not read TASK.md or existing application source and do not solve a programming task. List the actual available tools and skills, then execute C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -ExecutionPolicy Bypass -File $($run.Replace('\','/'))/temp/probe.ps1 using the shell tool with the explicit Windows PowerShell executable. Report the actual output and any failure. " + $(if($Condition -eq 'with'){'Also verify the Playbook MCP server is available by calling list_recipes for target 11.0, query property, then get_recipe for an ID returned by that call. Report returned applicability.'}else{'No MCP servers or skills should be available.'})
+}
+$start=[Diagnostics.ProcessStartInfo]::new($tools.cli)
+$start.UseShellExecute=$false
+$start.WorkingDirectory="$run/workspace"
+$start.RedirectStandardInput=$true
+$start.RedirectStandardOutput=$true
+$start.RedirectStandardError=$true
+foreach($arg in @('exec','--ignore-rules','--ephemeral','--skip-git-repo-check','--json','--strict-config','-c',$skillConfig,'-C',"$run/workspace",'-')) {$start.ArgumentList.Add($arg)}
+$outFile=[IO.File]::CreateText("$capture/$Phase-$Condition.jsonl")
+$errFile=[IO.File]::CreateText("$capture/$Phase-$Condition.stderr")
+$process=[Diagnostics.Process]::new();$process.StartInfo=$start
+$started=[DateTimeOffset]::UtcNow
+$clock=[Diagnostics.Stopwatch]::StartNew()
+try {
+    if(!$process.Start()){throw 'Runner failed to start'}
+    $stdout=$process.StandardOutput.ReadToEndAsync()
+    $stderr=$process.StandardError.ReadToEndAsync()
+    $process.StandardInput.Write($prompt);$process.StandardInput.Close()
+    $timeout=$false
+    if(!$process.WaitForExit(600000)) {$timeout=$true;$process.Kill($true);$process.WaitForExit()}
+    $clock.Stop()
+    $outFile.Write($stdout.GetAwaiter().GetResult());$errFile.Write($stderr.GetAwaiter().GetResult())
+    [ordered]@{condition=$Condition;phase=$Phase;startedUtc=$started.ToString('o');endedUtc=[DateTimeOffset]::UtcNow.ToString('o');elapsedSeconds=$clock.Elapsed.TotalSeconds;timeout=$timeout;exitCode=$process.ExitCode;deadlineSeconds=600;promptSha256=$(if($Phase -eq 'scored'){(Get-FileHash "$capture/prompt-$Condition.txt").Hash}else{$null})} | ConvertTo-Json | Set-Content "$capture/$Phase-$Condition.timing.json"
+} finally {$outFile.Dispose();$errFile.Dispose();$process.Dispose()}
+Get-Content "$capture/$Phase-$Condition.timing.json"
