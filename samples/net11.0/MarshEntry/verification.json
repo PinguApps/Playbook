@@ -1,0 +1,10 @@
+{
+  "additionalInputs": [
+    "samples/MarshInterop/sources.json",
+    "eng/Test-MarshInterop.ps1"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}

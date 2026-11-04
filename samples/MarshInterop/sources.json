@@ -1,0 +1,64 @@
+{
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs",
+      "sha256": "c3e657c0c2da34df6323e346f9a091b21db8838cc66e2aded46d4be0b8939d50",
+      "tokens": [
+        "public class EntryHandler2",
+        "MauiMaterialTextInputLayout"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs",
+      "sha256": "907134726fe13b0ba23dcec17a337522e6049039533196382f0314961b646763",
+      "tokens": [
+        "public class MauiMaterialEditText"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+      "sha256": "6f9e3068fcf77334dfce426352360e39165ee41ee9035011e36e4d9e2d295ef0",
+      "tokens": [
+        "must be intercepted",
+        "ReflectionHybridWebViewInvoker"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs",
+      "sha256": "55e2f8d06f2079a5171f7606b6940e169ab22c2fa49d00e52080d957ddc1666f",
+      "tokens": [
+        "HybridWebViewInterceptors",
+        "jsonSerializerContext"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "sha256": "24ffd4f2231b792c987cec4b669bf7f288359d5614caa212202e01eb10826b4c",
+      "tokens": [
+        "_MauiHybridWebViewInterceptorsSupport",
+        "InterceptorsPreviewNamespaces"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs",
+      "sha256": "1add1f79853dcd224aa6fa51c4a7db88db7cfd360375c6091402cacf0eb07b81",
+      "tokens": [
+        "public partial class EntryHandler"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+      "sha256": "90a0d26dc0b408e23a481dbd5cce1e2968b709f40113cea577a6404d2bfc3235",
+      "tokens": [
+        "SetInvokeJavaScriptTarget"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs",
+      "sha256": "79f8a206823bdd2aa3a4af1b29e3cc828cf53df72ac7ce69ae3a18bd655a5b1c",
+      "tokens": [
+        "_framework/hybridwebview.js"
+      ]
+    }
+  ]
+}
