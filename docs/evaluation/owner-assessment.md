@@ -1,6 +1,6 @@
 # Four-pair assessment recommendation
 
-Status: **accepted by Pingu under PIN-955 on 5 November 2026**.
+Status: **accepted by Pingu under PIN-955 on 4 November 2026**.
 Release authorization remains pending. This agent-assisted assessment concerns the
 eight retained RC3 attempts, not a new benchmark or GA verification.
 
