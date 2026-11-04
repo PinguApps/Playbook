@@ -1,0 +1,33 @@
+{
+  "kind": "official-review",
+  "sample": "samples/net11.0/HarbourAndroid/HarbourAndroid.csproj",
+  "target": "net11.0-android37.0",
+  "sdk": "11.0.100-rc.2.26504.105",
+  "language": "15.0",
+  "command": "eng/Test-HarbourNavigation.ps1 -Record",
+  "scope": "Pinned official source and actual Controls.Core RC2 artifact review; not compilation or native execution.",
+  "recordedAt": "2026-11-04T17:55:47.5987117+00:00",
+  "sourceCommit": "9c33a8bfc1fbe4359a9da20e792a64a7814af218",
+  "sourceDirty": false,
+  "inputs": {
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/HarbourNavigation/sources.json": "0d4405bbc60125e3c3f79d4ac67def558c7ffe5a575288dfd044670d968dd3d1",
+    "samples/net11.0/HarbourAndroid/Directory.Build.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net11.0/HarbourAndroid/Directory.Build.targets": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net11.0/HarbourAndroid/Directory.Packages.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net11.0/HarbourAndroid/global.json": "19ce5ff8ab290e88de559da739f8b5e40d4de4fe64a650328f444da8dd383bb7",
+    "samples/net11.0/HarbourAndroid/HarbourAndroid.csproj": "e268bedb3b603edf2691ae46b9a3fe89e020e0af00f70cb962f7adfe3f5fe2f8",
+    "samples/net11.0/HarbourAndroid/MauiProgram.cs": "b3f746a20cb383e90453e890ea68788310b86037e055ec2e10ba19208342b0c0",
+    "samples/net11.0/HarbourAndroid/Platforms/Android/AndroidManifest.xml": "b071d1db0f7e7b97bd482014295fa96a5d4c32a774dbcd795b383f6f0f4ea6d9",
+    "samples/net11.0/HarbourAndroid/Platforms/Android/MainActivity.cs": "57800e5d23daba94e07ab4d92b8388af77a110706295cdeae8e28235096243cc",
+    "samples/net11.0/HarbourAndroid/Platforms/Android/MainApplication.cs": "ddd106d0e458ae60adc95e14b5dad83b96806fc3fc064fc2440484a0273da9d4",
+    "samples/net11.0/HarbourAndroid/verification.json": "8eec5ce6c003ce59ff9a3973590bbd646492a757d91fb95baaaf9a89e4118765"
+  },
+  "dependencies": [],
+  "workloads": [],
+  "nativeToolchains": [],
+  "host": "Microsoft Windows 10.0.26200",
+  "sdkInfo": "Intended SDK11 RC2 pin; Windows build attempted and failed NETSDK1147 because Microsoft.Maui.Sdk is absent.",
+  "workloadInfo": "SDK11 native MAUI SDK pack unavailable. No workload installed by this check.",
+  "output": "Official source hashes and Controls.Core package hash/member/Android37 asset checks passed. Android/Windows native behavior not executed."
+}

@@ -1,0 +1,41 @@
+{
+  "scope": "PIN-905/PIN-906 pinned implementation review; no upstream tests executed.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Routing.cs",
+      "sha256": "19dd2ed38bb7e865135e7940fe9bd834a6a92c00cada6cf9fe5944ee8ecbec35"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TabbedPage/TabbedPage.cs",
+      "sha256": "050d29f5759b047cd100860b05dc76b8edd76ac268b2f90547c68751857ab2b1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/SwipeView/SwipeItem.cs",
+      "sha256": "66c5600a5c5ea41424889d8a2020fd1bb30e838162210225c0e768b8dc8b5326"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/NavigationPage/NavigationPage.cs",
+      "sha256": "ecf0366946f88a3202192e94d336564edc374027f0a69765e0ecfab8399d8b8f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.Android.cs",
+      "sha256": "db8dfb72754a2ef3231213b3b10a5a356a773a234645991ec7094e1363a43563"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.cs",
+      "sha256": "a9b6b905e9770d1faeaede94eff44f21a51223de345b7d95b9e2e60d5befd95a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+      "sha256": "865675e3bae1fb23c9ec690cf838e982250e27c2dbfd5db56f504aa1f40daeb0"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Shell/BackButtonBehavior.cs",
+      "sha256": "74f714cdb82b68eacfe75f107ef6c8f6f3a917f4bc25d4dcdbc7f50793ef30a1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+      "sha256": "d107f298a079d013b85cce41beb52d37469d9b6269b3b163f73743adaf1828cd"
+    }
+  ]
+}

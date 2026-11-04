@@ -1,0 +1,9 @@
+{
+  "additionalInputs": [
+    "samples/HarbourNavigation/sources.json"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}

@@ -1,0 +1,293 @@
+{
+  "id": "maui.navigate-with-path-parameters",
+  "edition": "11.0",
+  "title": "Navigate to a named pier with accessible action state",
+  "goal": "Use MAUI Shell route templates to carry identifiers, and add independent back-button labels, explicit swipe colours and departure-tab badges.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "harbour-navigation",
+    "navigation"
+  ],
+  "apis": [
+    "Shell",
+    "IQueryAttributable",
+    "BackButtonBehavior",
+    "SwipeItem",
+    "TabbedPage"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 native application; CoreCLR is the default mobile runtime. No NativeAOT execution claim.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC2.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample uses C#15, no preview language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Controls.Core11.0.0-rc.2.26505.5; net11.0 Windows20348 and Android37 platform contracts. Native workloads remain required."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Windows x64 binding20348/minimum17763; Android binding37/minimum24. Apple badge and tint exceptions are documented, not executed."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Compatible MAUI SDK and platform workload. Current SDK11 installation lacks Microsoft.Maui.Sdk; Android tools/devices are unavailable here."
+          ],
+          "constraints": [
+            "No provider/account. Native rendering and screen-reader behaviour are not established by source review or MCP retrieval. TabbedPage is a separate window, never nested in Shell."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API guidance based on pinned RC2 artifacts, not GA verification. No NativeAOT or trimming execution claim."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/HarbourNavigation/HarbourNavigation.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Routing.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TabbedPage/TabbedPage.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/SwipeView/SwipeItem.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/NavigationPage/NavigationPage.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.Android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Shell/BackButtonBehavior.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+          "https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Routing.cs",
+      "title": "Routing.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TabbedPage/TabbedPage.cs",
+      "title": "TabbedPage.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/SwipeView/SwipeItem.cs",
+      "title": "SwipeItem.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/NavigationPage/NavigationPage.cs",
+      "title": "NavigationPage.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.Android.cs",
+      "title": "ShellHandler.Android.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.cs",
+      "title": "ShellHandler.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+      "title": "ShellRenderer.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Shell/BackButtonBehavior.cs",
+      "title": "BackButtonBehavior.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+      "title": "ShellRenderer.cs official implementation"
+    },
+    {
+      "url": "https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11",
+      "title": "MAUI 11 navigation and compatibility migration"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/HarbourNavigation/HarbourNavigation.csproj",
+      "kind": "compile",
+      "target": "net10.0-windows10.0.19041.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Windows Release build; no screen-reader or rendering proof."
+    },
+    {
+      "sample": "samples/net11.0/HarbourNavigation/HarbourNavigation.csproj",
+      "kind": "official-review",
+      "target": "net11.0-windows10.0.20348.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Pinned official source review only; unavailable native toolchain. No compilation or execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/HarbourNavigation/HarbourNavigation.csproj",
+      "samples/net11.0/HarbourNavigation/HarbourNavigation.csproj"
+    ],
+    "scope": "Current Windows and Android compilation lack usable SDK11 MAUI workloads. Current native behavior, Android device interaction and Apple behavior are not-tested under PIN-699. Older Windows compilation and controlled routing execution are recorded separately; older Android compilation is also available. No separately ticketed Human proof linked to these targets."
+  },
+  "snippets": {
+    "samples-net10-0-harbournavigation-directory-build-props": {
+      "path": "samples/net10.0/HarbourNavigation/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-harbournavigation-directory-build-targets": {
+      "path": "samples/net10.0/HarbourNavigation/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-harbournavigation-directory-packages-props": {
+      "path": "samples/net10.0/HarbourNavigation/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-harbournavigation-global-json": {
+      "path": "samples/net10.0/HarbourNavigation/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-harbournavigation-harbournavigation-csproj": {
+      "path": "samples/net10.0/HarbourNavigation/HarbourNavigation.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-harbournavigation-mauiprogram-cs": {
+      "path": "samples/net10.0/HarbourNavigation/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-harbournavigation-navigation-cs": {
+      "path": "samples/net10.0/HarbourNavigation/Navigation.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-harbournavigation-platforms-windows-app-xaml": {
+      "path": "samples/net10.0/HarbourNavigation/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-harbournavigation-platforms-windows-app-xaml-cs": {
+      "path": "samples/net10.0/HarbourNavigation/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-harbournavigation-resources-appicon-appicon-svg": {
+      "path": "samples/net10.0/HarbourNavigation/Resources/AppIcon/appicon.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-harbournavigation-directory-build-props": {
+      "path": "samples/net11.0/HarbourNavigation/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-harbournavigation-directory-build-targets": {
+      "path": "samples/net11.0/HarbourNavigation/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-harbournavigation-directory-packages-props": {
+      "path": "samples/net11.0/HarbourNavigation/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-harbournavigation-global-json": {
+      "path": "samples/net11.0/HarbourNavigation/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-harbournavigation-harbournavigation-csproj": {
+      "path": "samples/net11.0/HarbourNavigation/HarbourNavigation.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-harbournavigation-mauiprogram-cs": {
+      "path": "samples/net11.0/HarbourNavigation/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-harbournavigation-navigation-cs": {
+      "path": "samples/net11.0/HarbourNavigation/Navigation.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-harbournavigation-platforms-windows-app-xaml": {
+      "path": "samples/net11.0/HarbourNavigation/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-harbournavigation-platforms-windows-app-xaml-cs": {
+      "path": "samples/net11.0/HarbourNavigation/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-harbournavigation-resources-appicon-appicon-svg": {
+      "path": "samples/net11.0/HarbourNavigation/Resources/AppIcon/appicon.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-harbournavigation-navigationcheck-cs": {
+      "path": "samples/net10.0/HarbourNavigation/NavigationCheck.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}

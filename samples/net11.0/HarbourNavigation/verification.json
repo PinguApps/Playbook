@@ -1,0 +1,10 @@
+{
+  "additionalInputs": [
+    "samples/HarbourNavigation/sources.json",
+    "docs/planning/audits/mobile-baselines.sources.json"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}
