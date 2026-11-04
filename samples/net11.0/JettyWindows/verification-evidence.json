@@ -6,12 +6,13 @@
   "language": "15.0",
   "command": "eng/Test-JettyHandlers.ps1 -Record",
   "scope": "Pinned official source and platform API review only; no native compilation or execution.",
-  "recordedAt": "2026-11-04T18:36:02.1609814+00:00",
-  "sourceCommit": "b60a5e0e9aad7993ef037e02d0184ffb79720dac",
+  "recordedAt": "2026-11-04T19:08:47.0702538+00:00",
+  "sourceCommit": "126d6357aa72ae3af120a3976557b08c474e8876",
   "sourceDirty": true,
   "inputs": {
+    "eng/Test-JettyHandlers.ps1": "b4367376a7e2ed3c132a1b60402b2ff0f90e340ee7a611958252abbf1574103b",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/JettyHandlers/sources.json": "6d23f9e423ff06a2d9e4cdb9379855f6c15d2a809b6155f3f5265fab119d235f",
+    "samples/JettyHandlers/sources.json": "2cc423a72ef30b2aab41b5cb0de70fe100ace1c8ef35c4aae9f324dbd4647558",
     "samples/net11.0/JettyWindows/Directory.Build.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
     "samples/net11.0/JettyWindows/Directory.Build.targets": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
     "samples/net11.0/JettyWindows/Directory.Packages.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
@@ -24,7 +25,7 @@
     "samples/net11.0/JettyWindows/Platforms/Windows/App.xaml": "abf750d71ef823685ca6e114eb372adbb952f94b0b21cafdab52946837013e51",
     "samples/net11.0/JettyWindows/Platforms/Windows/App.xaml.cs": "896c11e64b87e4173aa588a128aaf695c409af28ea405548063b9fe785b2cf55",
     "samples/net11.0/JettyWindows/Resources/AppIcon/appicon.svg": "ef67756b17afbc28be6af06797a6779a494064a41a6423a60f83d1b1cd2bc3f5",
-    "samples/net11.0/JettyWindows/verification.json": "fa316161b9b877ad4effabeb61c6a296a788d32fa269f8bf9c0e43a569a88b10"
+    "samples/net11.0/JettyWindows/verification.json": "0fb8cf90902daa3bcece9341c85eac3bc3cd037f6c763770b2b07832ee865296"
   },
   "dependencies": [],
   "workloads": [],

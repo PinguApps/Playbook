@@ -1,1 +1,10 @@
-{"additionalInputs":["samples/JettyHandlers/sources.json"],"dependencies":[],"buildArguments":[],"nativeToolchains":[],"workloads":[]}
+{
+  "additionalInputs": [
+    "samples/JettyHandlers/sources.json",
+    "eng/Test-JettyHandlers.ps1"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}

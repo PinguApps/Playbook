@@ -89,6 +89,27 @@
       ],
       "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
       "sha256": "b413a7cafd2e2868fbb1b18954b0211d1397f75f0487bdbc494e0dfe8637ced1"
+    },
+    {
+      "sha256": "0f431a0c45da6eabfd362d31f45a2d75ed6b8a202cebbf515663f62afe406050",
+      "tokens": [
+        "public partial class NavigationViewHandler"
+      ],
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/NavigationPage/NavigationViewHandler.iOS.cs"
+    },
+    {
+      "sha256": "f5b69a4f72a6e5bb62ffb2534ed39684e0dfd58cc474406691f6c843be4c36af",
+      "tokens": [
+        "public partial class TabbedViewHandler"
+      ],
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/TabbedView/TabbedViewHandler.iOS.cs"
+    },
+    {
+      "sha256": "cfaaeccf60803910e7a8d677c3faa32c0edb318cca276c7a8dbe5200e3ddd466",
+      "tokens": [
+        "public partial class FlyoutViewHandler"
+      ],
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/FlyoutView/FlyoutViewHandler.iOS.cs"
     }
   ]
 }

@@ -48,7 +48,8 @@ try {
                 $receipt = [ordered]@{
                     kind='official-review'; sample=$sample; target=$target; sdk=$pin.sdk.version; language=$(if ($edition -eq 'net10.0') {'14.0'} else {'15.0'})
                     command='eng/Test-JettyHandlers.ps1 -Record'; scope='Pinned official source and platform API review only; no native compilation or execution.'
-                    recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true
+                    recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim()
+                    sourceDirty=[bool](& 'C:/Program Files/Git/cmd/git.exe' -C $root status --porcelain -- samples/JettyHandlers "samples/$edition/$name" eng/Test-JettyHandlers.ps1)
                     inputs=(Get-EvidenceInputs $root $sample); dependencies=@(); workloads=@(); nativeToolchains=@()
                     host=[Runtime.InteropServices.RuntimeInformation]::OSDescription
                     sdkInfo='Intended SDK pin; no native dependency closure resolved.'

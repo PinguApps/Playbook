@@ -193,15 +193,13 @@
           "No verified older-target route; .NET 10 is comparison-only."
         ],
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CarouselViewHandler.iOS.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CollectionViewHandler.iOS.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.iOS.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/TabbedPage/iOS/TabbedRenderer.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CarouselViewHandler2.iOS.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/NavigationPage/iOS/NavigationRenderer.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/FlyoutPage/iOS/PhoneFlyoutPageRenderer.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.Windows.cs"
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/NavigationPage/NavigationViewHandler.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/TabbedView/TabbedViewHandler.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/FlyoutView/FlyoutViewHandler.iOS.cs"
         ]
       }
     ]
@@ -248,28 +246,12 @@
       "title": "MAUI 11 navigation and compatibility migration"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CarouselViewHandler.iOS.cs",
-      "title": "CarouselViewHandler.iOS.cs pinned official implementation"
-    },
-    {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
       "title": "AppHostBuilderExtensions.cs pinned official implementation"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CollectionViewHandler.iOS.cs",
-      "title": "CollectionViewHandler.iOS.cs pinned official implementation"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.iOS.cs",
-      "title": "CollectionViewHandler2.iOS.cs pinned official implementation"
-    },
-    {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/TabbedPage/iOS/TabbedRenderer.cs",
       "title": "TabbedRenderer.cs pinned official implementation"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CarouselViewHandler2.iOS.cs",
-      "title": "CarouselViewHandler2.iOS.cs pinned official implementation"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/NavigationPage/iOS/NavigationRenderer.cs",
@@ -280,8 +262,16 @@
       "title": "PhoneFlyoutPageRenderer.cs pinned official implementation"
     },
     {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.Windows.cs",
-      "title": "CollectionViewHandler2.Windows.cs pinned official implementation"
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/NavigationPage/NavigationViewHandler.iOS.cs",
+      "title": "NavigationViewHandler.iOS.cs pinned Apple handler implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/TabbedView/TabbedViewHandler.iOS.cs",
+      "title": "TabbedViewHandler.iOS.cs pinned Apple handler implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/FlyoutView/FlyoutViewHandler.iOS.cs",
+      "title": "FlyoutViewHandler.iOS.cs pinned Apple handler implementation"
     }
   ],
   "evidence": [
