@@ -76,7 +76,9 @@ void CheckScalars()
         Require(!sql.Text.Last(t => t.StartsWith("UPDATE", StringComparison.Ordinal)).Contains("\"Count\"", StringComparison.Ordinal), "UPDATE omits scalar");
         using var reload = new NestContext(options);
         Require(reload.Nests.Single(n => n.Id == 1).Count == 42, "unread value preserved");
-        scalar.IsLoaded = true; // Does not fetch data. Deliberately write the default value.
+        int commandsBeforeEnable = sql.Text.Count;
+        scalar.IsLoaded = true; // Does not fetch data.
+        Require(scalar.CurrentValue == 0 && sql.Text.Count == commandsBeforeEnable, "re-enable does not fetch or change the value"); // Deliberately write the default value.
         scalar.CurrentValue = 0;
         scalar.IsModified = true;
         db.SaveChanges();
@@ -143,5 +145,6 @@ sealed class Commands : DbCommandInterceptor
     }
 }
 // endsnippet:complete
+
 
 

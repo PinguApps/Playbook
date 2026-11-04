@@ -84,4 +84,3 @@ Run eng/Test-WrenTracking.ps1 to execute both locked graphs; -Record refreshes s
 - [Package-matched EF11 source](https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/ChangeTracking/PropertyEntry.cs)
 - [EF change tracking](https://learn.microsoft.com/en-us/ef/core/change-tracking/)
 - [Context pooling and state ownership](https://learn.microsoft.com/en-us/ef/core/performance/advanced-performance-topics)
-
