@@ -11,6 +11,10 @@ The [reservation validation preparation](../evaluation/reservation-validation/RE
 freezes the original HTTP scaffold, private oracle and controls for PIN-947.
 It records no paired agent runs.
 
+The [independent static grid preparation](../evaluation/grid-links/README.md)
+freezes the original scaffold, private behavior oracle and controls for PIN-948.
+It records no paired agent runs.
+
 Use four small, independently authored scaffolds, each addressing an accepted recipe goal. Task prompts describe developer outcomes without naming a new API or recipe.
 
 1. **C# outcome modelling.** Represent three unrelated synchronization result types as a type-safe closed set and simplify caller handling. Check valid cases, rejection of unrelated values, and honest handling of missing cases/defaults/nulls. Candidate guidance: C# 15 unions; verify exact compiler diagnostics before freezing checks.
