@@ -49,5 +49,24 @@
     "No pointer auto-hide or global-shortcut test",
     "No Windows lockdown, trust or persistent settings changes"
   ],
-  "ownerVerdict": "Pingu: Yes, both looked correct"
+  "ownerVerdict": "Pingu: Yes, both looked correct",
+  "sourceNormalization": {
+    "inputs": [
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenPresentation/FenPresentation.csproj",
+        "canonicalLfSha256": "74af65657d820e9a3e99fd51be29fa96a2d34dd43ed5653f43cc0980038b1ea9",
+        "testedSha256": "342bd8d5c5141adb2282cefda2432d0ee02eea6c88c96dddfd7bbb5acd51ed2c"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenPresentation/verification.json",
+        "canonicalLfSha256": "f0d20a8fc539b1b291ae40199b32452b2774e981e0cf1e9aad09c64322ad5a13",
+        "testedSha256": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+      }
+    ],
+    "reason": "CI checkout uses repository-required LF, while original authoring used CRLF. Only newline bytes were normalized; source text/behaviour did not change. Original proof hashes and saved-source values remain the identities actually observed. Refreshed verification-evidence.json records compile/run the canonical LF inputs.",
+    "refreshedDllSha256": "3117a955241fd456b4789660368a0c2d3b52dd55a560520d8029b668719a40d1",
+    "matchesOwnerTestedDll": false
+  }
 }

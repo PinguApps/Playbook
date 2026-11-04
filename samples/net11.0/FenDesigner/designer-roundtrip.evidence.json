@@ -67,5 +67,58 @@
   "issue": "PIN-896",
   "status": "verified",
   "os": "Microsoft Windows 10.0.26200",
-  "scope": "C# and VB .NET11 RC2 original source copied byte-for-byte to disposable scratch before editing. Bounded Designer edit/save/reopen plus actual saved-source build/execution; no code-fix or full diagnostic-trigger matrix."
+  "scope": "C# and VB .NET11 RC2 original source copied byte-for-byte to disposable scratch before editing. Bounded Designer edit/save/reopen plus actual saved-source build/execution; no code-fix or full diagnostic-trigger matrix.",
+  "sourceNormalization": {
+    "inputs": [
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/BriefingForm.cs",
+        "canonicalLfSha256": "34f77816fd5a799e8de6e7ee255b77bac4d0e6e409719d65dcec21155593185d",
+        "testedSha256": "deac8ab59289a32e0f1394df8764d0da3d070bab24d98ae265afee0f42899216"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/BriefingForm.Designer.cs",
+        "canonicalLfSha256": "444cb754ada8af8d2713245c92e067cd36ac5d2397ae77a831113b25813cc853",
+        "testedSha256": "e45cd22983e3fc91d41faf81fd571e3a9fb5d2e3896088f7c6c6c93c8e3c0a2a"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/FenDesigner.csproj",
+        "canonicalLfSha256": "bd87c4005ebf647625fc5a611ddec6c74a963a8b4d87433bbcdad9a8bb72dd03",
+        "testedSha256": "03daedc79c93f898137880c97fed3727b6f76d0d8a87802b24d955d4679c1551"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/verification.json",
+        "canonicalLfSha256": "f0d20a8fc539b1b291ae40199b32452b2774e981e0cf1e9aad09c64322ad5a13",
+        "testedSha256": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/BriefingForm.Designer.vb",
+        "canonicalLfSha256": "3addf4a6f97a788e2eee0cc67eb9ec6fd2078fcaba25ede6ad7b34d52375cb0a",
+        "testedSha256": "a60ade233521a3e0512bc1475426c58bf312110c4390db8ae9c7ce59f6f78cc2"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/BriefingForm.vb",
+        "canonicalLfSha256": "30b1f05dace2c6beb3606e5a3c454c9a80e1c3c25af5c1f2184920de657df4bc",
+        "testedSha256": "d16c5b6b6a07a8b8fd018b2407ce83ddfc1d1fd8aaa889517d13161dee4913a7"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/FenDesignerVb.vbproj",
+        "canonicalLfSha256": "1e4afdd43cdbc23f057574a42a69a2ae83bc6f8b5b5a6c76a8d9fe6e7bce63c2",
+        "testedSha256": "d34b9be5cdf28f7cd810ea8f5bccfb09554903eea9643c02620023ba4b3e1039"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/verification.json",
+        "canonicalLfSha256": "f0d20a8fc539b1b291ae40199b32452b2774e981e0cf1e9aad09c64322ad5a13",
+        "testedSha256": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+      }
+    ],
+    "reason": "CI checkout uses repository-required LF, while original authoring used CRLF. Only newline bytes were normalized; source text/behaviour did not change. Original proof hashes and saved-source values remain the identities actually observed. Refreshed verification-evidence.json records compile/run the canonical LF inputs."
+  }
 }
