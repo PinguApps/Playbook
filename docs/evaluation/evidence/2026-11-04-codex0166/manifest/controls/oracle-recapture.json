@@ -1,0 +1,13 @@
+{
+  "submissionRepairs": 0,
+  "capturedUtc": "2026-11-04T23:25:54.8151434+00:00",
+  "expectedFailures": {
+    "reference": 0,
+    "with": 0,
+    "without": 0,
+    "baseline": 9
+  },
+  "kind": "post-review evaluator recapture",
+  "modelReruns": 0,
+  "reason": "Capture native stdout at outer process boundary; original PowerShell redirection lost inherited child output"
+}

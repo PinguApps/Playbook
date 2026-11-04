@@ -1,1 +1,12 @@
-Disposable source retained at C:\Users\pingu\AppData\Local\Temp\manifest-oracle-62c33d22-f1d2-43b5-919b-61bab960e017
+PASS: matched, left-only, right-only and real zero
+PASS: both empty
+PASS: left empty
+PASS: right empty
+PASS: ordinal case and whitespace
+PASS: permuted inputs
+PASS: duplicate left matched
+PASS: duplicate right matched
+PASS: identical unmatched left duplicates
+PASS: identical unmatched right duplicates
+Failed assertions: 0
+Disposable source retained at C:\Users\pingu\AppData\Local\Temp\manifest-oracle-785986e0-df28-40bd-86e2-d0fdaf05a69d

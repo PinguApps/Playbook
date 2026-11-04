@@ -12,20 +12,24 @@ package in ../controls was extracted without rebuilding. Pingu approved relocati
 before scoring; controls/sdk-identity.json records all 5,467 ZIP files matching.
 
 Each condition retains its exact prompt/config/input hashes, sanitized native
-captures, timing/termination/usage and unchanged submitted source. Authentication,
+captures (committed but excluded from source review), timing/termination/usage and unchanged submitted source. Authentication,
 bin/obj caches and generated module-analysis caches are excluded. Project/build
 files have .txt suffixes to prevent repository build discovery. The agent's
 checks/Program.cs.txt filename is original and its project explicitly includes it.
 Replay.ps1 restores only project/build suffixes in disposable copies. Source is
 never repaired. submission.patch records the implementation diff from the scaffold.
 
-Controls retain the original oracle/reference, calibration and scored outputs,
+Controls retain the original oracle/reference/baseline and full evaluator assertion outputs,
 actual supervisor/tools, probes, host network control and PATH comparison. Both
 preflights succeeded before either scored launch. Verify.ps1 checks exact retained
 file-set integrity, package identity, equal exports, input preservation, independent
 contexts, order, consultation, preflight and the complete eight-run budget.
-Replay.ps1 re-executes the private oracle for both preserved submissions without
-model calls. Expect ten PASS assertions and zero failures per condition.
+Replay.ps1 re-executes the private oracle for both preserved submissions and the
+baseline/reference calibration without model calls. Expect ten assertions each:
+nine failures for the unfinished baseline, zero for reference and both submissions.
+The full logs were recaptured after review identified that the original PowerShell
+redirection retained only temporary paths; native child output bypassed it. This
+is evaluator recapture, not new scored attempts or backdated pre-launch evidence.
 
 Native JSONL duplicates tool responses and patches and has narrow review exclusions;
 configs, submitted source, consultation projection and assessment remain reviewable.
@@ -42,5 +46,7 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-02322dc8'
 & ./docs/evaluation/evidence/2026-11-04-codex0166/manifest/Replay.ps1
 ```
 
-This evidence changes no served recipe or MCP tool. Estimate remains M (3), a
+The absolute worktree in the example is this task's verified checkout; substitute
+your checkout location after merge. The scripts themselves resolve retained inputs
+relative to their own directory. This evidence changes no served recipe or MCP tool. Estimate remains M (3), a
 bounded two-run action plus evidence handoff. No related Linear issues changed.

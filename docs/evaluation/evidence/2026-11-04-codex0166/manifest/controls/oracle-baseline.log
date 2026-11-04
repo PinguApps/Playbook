@@ -1,1 +1,17 @@
-Disposable source retained at C:\Users\pingu\AppData\Local\Temp\manifest-oracle-b62278d0-8ae8-457c-ab25-10127d3c7be3
+FAIL: matched, left-only, right-only and real zero
+PASS: both empty
+FAIL: left empty
+FAIL: right empty
+FAIL: ordinal case and whitespace
+FAIL: permuted inputs
+FAIL: duplicate left matched
+FAIL: duplicate right matched
+FAIL: identical unmatched left duplicates
+FAIL: identical unmatched right duplicates
+Failed assertions: 9
+Disposable source retained at C:\Users\pingu\AppData\Local\Temp\manifest-oracle-0a5850fa-bbe1-49a6-a6b1-bbee929b5c1f
+Exception: C:\Users\pingu\AppData\Local\Temp\manifest-replay-e44ec684f6634b24bf3f6701da57c1ae\evaluator\Test-Oracle.ps1:28
+Line |
+  28 |  … de -ne 0) { throw 'Oracle failed; retain diagnostics, do not repair a …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Oracle failed; retain diagnostics, do not repair a submission

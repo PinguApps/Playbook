@@ -1,0 +1,9 @@
+namespace ManifestEvaluation;
+
+public sealed record Entry(string Key, int Units);
+public sealed record Row(string Key, int? ExpectedUnits, int? ObservedUnits);
+
+public static class Reconciliation
+{
+    public static Row[] Compare(Entry[] expected, Entry[] observed) => [];
+}

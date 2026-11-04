@@ -12,8 +12,14 @@ foreach ($receipt in $receipts) {
 $identity = Get-Content "$root/controls/sdk-identity.json" -Raw | ConvertFrom-Json
 if ($identity.comparedFiles -ne 5467 -or @($identity.mismatches).Count) { throw 'SDK relocation identity not established' }
 $ids = @()
+foreach ($case in @('baseline','reference','with','without')) {
+    $log = [IO.File]::ReadAllText("$root/controls/oracle-$case.log")
+    $failures = if ($case -eq 'baseline') { 9 } else { 0 }
+    if ([regex]::Matches($log, '(?m)^(PASS|FAIL):').Count -ne 10 -or [regex]::Matches($log, '(?m)^FAIL:').Count -ne $failures -or $log -notmatch "Failed assertions: $failures(?:\r?\n|$)") { throw "Retained oracle counts differ: $case" }
+}
 $leftInputs = Get-Content "$root/with/input-with.json" -Raw | ConvertFrom-Json
 $rightInputs = Get-Content "$root/without/input-without.json" -Raw | ConvertFrom-Json
+if ((Get-FileHash -LiteralPath "$root/controls/Baseline.cs.txt").Hash -cne ($leftInputs | Where-Object path -eq 'Reconciliation.cs').sha256) { throw 'Calibration baseline differs from frozen export' }
 if (@(Compare-Object ($leftInputs | ForEach-Object { "$($_.path):$($_.sha256)" }) ($rightInputs | ForEach-Object { "$($_.path):$($_.sha256)" })).Count) { throw 'Export inputs differ' }
 $before = Get-Content "$root/controls/path-before.json" -Raw | ConvertFrom-Json
 $after = Get-Content "$root/controls/path-after.json" -Raw | ConvertFrom-Json
@@ -40,6 +46,12 @@ foreach ($condition in @('with', 'without')) {
     $previousEnd = [DateTimeOffset]$timing.endedUtc
     $elapsed += $timing.elapsedSeconds
     $events = @(Get-Content "$directory/scored-$condition.jsonl" | ForEach-Object { $_ | ConvertFrom-Json })
+    $usageEvents = @($events | Where-Object type -eq 'turn.completed')
+    if ($usageEvents.Count -ne 1) { throw 'Expected one usage event' }
+    $usage = Get-Content "$directory/usage.json" -Raw | ConvertFrom-Json
+    foreach ($property in $usageEvents[0].usage.PSObject.Properties) {
+        if ($usage.($property.Name) -ne $property.Value) { throw "Usage mismatch: $condition/$($property.Name)" }
+    }
     $starts = @($events | Where-Object type -eq 'thread.started')
     if ($starts.Count -ne 1 -or @($events | Where-Object type -eq 'turn.started').Count -ne 1) { throw 'Expected one fresh attempt' }
     $ids += $starts[0].thread_id

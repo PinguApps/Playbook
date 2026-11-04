@@ -34,7 +34,8 @@ Both attempts encountered denied SDK-wrapper requests to builds.dotnet.microsoft
 then built with the pinned SDK's local MSBuild.dll. Denials, the baseline's blocked
 cleanup commands and autonomous recovery remain in native captures/stderr. No
 operator coaching, corrective prompt, replacement attempt or submission repair occurred.
-An initial preparation restore named the wrong project; it was corrected before
+The parent observed an initial preparation restore naming the wrong project
+(disposable setup output was not retained); it was corrected before
 preflight or scoring and consumed no scored attempt.
 
 ## Limits and owner review
