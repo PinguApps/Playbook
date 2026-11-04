@@ -172,3 +172,9 @@ lacks Microsoft.Maui.Sdk and fails NETSDK1147 before compilation. Source and
 actual Controls/Build.Tasks artifact identities are retained in
 samples/QuayBoard/sources.json. No generated-output, native execution, performance,
 other-platform or GA verification is claimed; PIN-699 permits this native exclusion.
+
+## Android and routed navigation delivery (PIN-905 / PIN-906)
+
+- maui.navigate-with-path-parameters edition11.0 groups maui.show-tab-badges, maui.control-swipe-action-colors and maui.describe-navigation-for-accessibility: HarbourNavigation provides original previous/current sources, absolute templates, explicit tint, independent spoken labels and platform exceptions. Older Windows compilation and controlled forward/query/back execution are distinct from current source review.
+- maui.migrate-navigation-handlers edition11.0 covers only the Android portion and groups maui.remove-compatibility-package: HarbourAndroid removes an explicit legacy registration, preserves Shell styling and distinguishes the unshipped optional package from surviving Controls.Core ShellRenderer. Older Android compilation is retained. Apple portions remain assigned to their existing slices.
+- Current SDK11 MAUI compilation and native interaction scopes are explicitly not-tested under PIN-699. Existing Human gates elsewhere and the eight .NET10 foundations are unchanged. See canonical recipe requirements, sample evidence and samples/HarbourNavigation/sources.json for exact identities.

@@ -4,6 +4,39 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Routed navigation and Android Shell migration
+
+PIN-905/PIN-906 add HarbourNavigation and HarbourAndroid comparisons. Older
+Windows and Android samples compile; the controlled Windows probe verifies
+forward/query delivery/back navigation. Current native compilation lacks the
+SDK11 MAUI SDK pack. Current native interaction, Android device and Apple checks
+remain explicitly not-tested under PIN-699. No new native matrix is introduced.
+
+From any directory, select this exact worktree, build/pack and inspect the actual
+installed tool. Requires PowerShell7, SDK10.0.402 and Node22.19+; setup restores
+packages. The existing harness uses an isolated feed/cache and unrelated working
+directory, and prints ID/title/goal, full expanded Markdown and applicability.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e464cf25'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.navigate-with-path-parameters','maui.migrate-navigation-handlers') `
+  -Query 'harbour-navigation' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin905-906' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/navigation/inspection'
+```
+
+Expect both edition11 recipes with complete canonical files, fresh saved evidence,
+absolute-template constraints, badge/tint/accessibility exceptions and the Android
+package/type distinction. Target10 returns no_applicable_edition. Retrieval uses
+unusable proxies, proving proxy independence rather than OS network isolation or
+native behavior. No package is published. For the source/artifact assertions use
+`eng/Test-HarbourNavigation.ps1`; add `-Windows` after building the older Windows
+sample to run its controlled native probe. `-Record` refreshes current source-review
+evidence, never compilation evidence.
+
 ## Visual resources and cancellable holds
 
 PIN-903/PIN-904 add original BeaconBoard comparisons. The .NET10 Windows sample

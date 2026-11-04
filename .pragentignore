@@ -604,3 +604,8 @@
 /samples/net11.0/RookeryProperty/verification-evidence.json
 /samples/net11.0/MoorlandReports/verification-evidence.json
 /samples/net11.0/RookeryKeys/provider.evidence.json
+
+# Record-Evidence compilation receipts; canonical projects, pins, locks, checks
+# and source-review records remain reviewable. Build/pack verifies freshness.
+/samples/net10.0/HarbourNavigation/verification-evidence.json
+/samples/net10.0/HarbourAndroid/verification-evidence.json
