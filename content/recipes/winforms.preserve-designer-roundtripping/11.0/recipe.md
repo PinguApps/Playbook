@@ -158,3 +158,19 @@ All four actual projects compiled and executed a real shown form, one button cli
 
 {{snippet:n11-fendesignervb-program-vb}}
 
+
+### 10 / FenDesigner / BriefingForm.cs
+
+{{snippet:n10-fendesigner-briefingform-cs}}
+
+### 10 / FenDesignerVb / BriefingForm.vb
+
+{{snippet:n10-fendesignervb-briefingform-vb}}
+
+### 11 / FenDesigner / BriefingForm.cs
+
+{{snippet:n11-fendesigner-briefingform-cs}}
+
+### 11 / FenDesignerVb / BriefingForm.vb
+
+{{snippet:n11-fendesignervb-briefingform-vb}}

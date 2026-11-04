@@ -370,6 +370,26 @@
       "path": "samples/net11.0/FenDesignerVb/Directory.Build.props",
       "region": "complete",
       "language": "xml"
+    },
+    "n10-fendesigner-briefingform-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/FenDesigner/BriefingForm.cs",
+      "region": "complete"
+    },
+    "n10-fendesignervb-briefingform-vb": {
+      "language": "vb",
+      "path": "samples/net10.0/FenDesignerVb/BriefingForm.vb",
+      "region": "complete"
+    },
+    "n11-fendesigner-briefingform-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/FenDesigner/BriefingForm.cs",
+      "region": "complete"
+    },
+    "n11-fendesignervb-briefingform-vb": {
+      "language": "vb",
+      "path": "samples/net11.0/FenDesignerVb/BriefingForm.vb",
+      "region": "complete"
     }
   }
 }
