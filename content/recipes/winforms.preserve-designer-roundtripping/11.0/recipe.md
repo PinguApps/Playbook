@@ -42,7 +42,7 @@ Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.2.26504.105
 
 ## Evidence
 
-All four actual projects compiled and executed a real shown form, one button click, a stable collection getter and independently allocated snapshots. The first current C# build rejected a field placed before InitializeComponent with WFO3002; moving it after the method fixed the emitted error. Visual Studio reopen/save remains pending. No Designer round-trip execution, complete diagnostic-trigger matrix or code-fix execution is claimed.
+All four actual projects compiled and executed a real shown form, one button click, a stable collection getter and independently allocated snapshots. The first current C# build rejected a field placed before InitializeComponent with WFO3002; moving it after the method fixed the emitted error. Native Visual Studio C# and VB Designer edit/save/close/reopen passed on exact canonical-source scratch copies: confirm moved from X20 to X21 and reopened correctly. Saved C# Click wiring and VB WithEvents/Handles remained intact. Both Designer-saved projects built and passed real click/identity checks. The compact designer-roundtrip.evidence.json retains original input identities and actual saved Designer source. No complete diagnostic-trigger matrix, code-fix execution or GA claim.
 
 ## Complete canonical inputs
 

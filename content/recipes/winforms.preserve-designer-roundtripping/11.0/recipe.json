@@ -227,8 +227,8 @@
     }
   ],
   "humanProof": {
-    "status": "pending",
-    "scope": "Visual Studio Designer reopen/save remains pending. Runtime click checks do not establish round-tripping."
+    "scope": "Native Visual Studio C# and VB Designer edit/save/close/reopen verified on exact canonical-source scratch copies; actual Designer-saved projects build and execute click/identity checks. See samples/net11.0/FenDesigner/designer-roundtrip.evidence.json. No complete diagnostics/code-fix matrix or GA claim.",
+    "status": "verified"
   },
   "snippets": {
     "n11-fendesignervb-directory-build-targets": {
