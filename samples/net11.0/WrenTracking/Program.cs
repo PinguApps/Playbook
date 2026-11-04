@@ -145,6 +145,3 @@ sealed class Commands : DbCommandInterceptor
     }
 }
 // endsnippet:complete
-
-
-
