@@ -1,7 +1,10 @@
 # Inspect retained evidence only. Never launch another scored model attempt.
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
-foreach ($receipt in (Get-Content "$root/sha256.json" -Raw | ConvertFrom-Json)) {
+$receipts = @(Get-Content "$root/sha256.json" -Raw | ConvertFrom-Json)
+$actual = @(Get-ChildItem -LiteralPath $root -File -Recurse | Where-Object Name -ne 'sha256.json' | ForEach-Object { [IO.Path]::GetRelativePath($root, $_.FullName) })
+if (@(Compare-Object ($receipts.path | Sort-Object) ($actual | Sort-Object)).Count) { throw 'Evidence manifest does not cover the retained file set' }
+foreach ($receipt in $receipts) {
     $path = [IO.Path]::GetFullPath((Join-Path $root $receipt.path))
     if (!$path.StartsWith($root + [IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) { throw 'Evidence path escapes bundle' }
     if ((Get-FileHash -LiteralPath $path).Hash -cne $receipt.sha256) { throw "Changed evidence: $($receipt.path)" }
@@ -14,7 +17,7 @@ $previousEnd = $null
 foreach ($condition in @('with', 'without')) {
     $directory = Join-Path $root $condition
     $timing = Get-Content "$directory/scored-$condition.timing.json" -Raw | ConvertFrom-Json
-    if ($timing.deadlineSeconds -ne 600 -or $timing.elapsedSeconds -gt 605) { throw 'Run deadline discrepancy' }
+    if ($timing.deadlineSeconds -ne 600 -or $timing.elapsedSeconds -gt 600 -or $timing.timeout -ne $false -or $timing.exitCode -ne 0) { throw 'Recorded successful-run receipt changed' }
     if ($previousEnd -and $previousEnd -gt [DateTimeOffset]$timing.startedUtc) { throw 'Runs overlap or order differs' }
     $previousEnd = [DateTimeOffset]$timing.endedUtc
     $elapsed += $timing.elapsedSeconds
@@ -26,6 +29,7 @@ foreach ($condition in @('with', 'without')) {
     if (!($preflight | Where-Object { $_.type -eq 'item.completed' -and $_.item.type -eq 'command_execution' -and $_.item.exit_code -eq 0 -and $_.item.aggregated_output -match 'PREFLIGHT_PASS' })) { throw 'Successful preflight missing' }
     $calls = @($events | Where-Object { $_.type -eq 'item.completed' -and $_.item.type -eq 'mcp_tool_call' -and $_.item.server -eq 'playbook' })
     if ($condition -eq 'without' -and $calls.Count) { throw 'Baseline consulted Playbook' }
+    if ($condition -eq 'with' -and !($calls | Where-Object { $_.item.tool -eq 'get_recipe' -and $_.item.status -eq 'completed' })) { throw 'With-condition consultation missing' }
     foreach ($inputFile in (Get-Content "$directory/input-$condition.json" -Raw | ConvertFrom-Json)) {
         if ($inputFile.path -in @('Program.cs', 'Reservation.cs')) { continue }
         $relative = $inputFile.path

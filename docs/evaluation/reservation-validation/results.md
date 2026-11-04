@@ -21,7 +21,7 @@ paths are retained. This post-launch amendment is part of the evidence's limits.
 | Correctness | All 15 private HTTP assertions pass | All 15 pass |
 | Applicability | net11.0/C# 15.0 pins retained; RC3 ASP.NET Core assets supply async validation without an extra package | Same pins/assets; ordinary awaited model method and endpoint filter |
 | Newer API | AsyncValidationAttribute and AddValidation; generated endpoint validation | No async-attribute/generated-pipeline adoption |
-| Unnecessary code | Small custom availability attribute; framework performs validation and error mapping | Manual DataAnnotations collection, grouping and field-error mapping plus endpoint adapter; this implements the older approach, not a correctness failure |
+| Unnecessary code | No redundant logic observed; the custom availability attribute declares the required rule, and the framework maps errors | Manual DataAnnotations collection, grouping and field-error mapping plus endpoint adapter; this implements the older approach, not a correctness failure |
 | Execution seconds | 198.5460576 | 139.4623859 |
 | Reported input tokens | 650590 | 236624 |
 | Reported cached input tokens | 589312 | 200576 |
@@ -48,7 +48,10 @@ the with registration uses the actual RC3 generated validation route.
 Both attempts encountered a blocked SDK build-launcher network request and used
 the pinned SDK's local MSBuild to build offline. The with attempt also reported
 blocked temporary-log cleanup. Failures remain retained. The parent scored disposable
-copies without repairing submissions. RC3 execution is not GA evidence.
+copies without repairing submissions. The submitted build.log and its projection
+are empty; the attempted build commands remain in the transcript, while the
+independent oracle/replay builds supply the retained compiler results.
+RC3 execution is not GA evidence.
 
 Both MXC preflights passed shell/edit/build/application-loopback checks; actual
 repository, evaluator, paired-output, user-config and package reads were denied,

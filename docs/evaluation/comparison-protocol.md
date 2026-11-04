@@ -62,7 +62,7 @@ The original preparation directories had been removed. All 5,467 files from the
 SDK ZIP identified above match the installed files byte for byte under
 `C:\Users\pingu\AppData\Local\dotnetup\dotnet`; the ZIP's SHA-512 also matches.
 The exact-hash retained Playbook package was extracted without rebuilding.
-Actual relocated SDK/server paths, configurations and identity receipts are
+Actual relocated SDK/server paths, configurations and the SDK identity receipt are
 retained in the reservation evidence. Additional installed SDK versions are not
 selected by the scaffold's exact global.json pin.
 
@@ -70,7 +70,9 @@ This amendment accepts the recorded relocation for this pair. It does not
 authorize a replacement run, change the model or inputs, or remove the requirement
 to disclose the post-launch amendment. The original with attempt remains the
 sole scored with attempt. Both reservation conditions use the same relocated
-configuration and passed their MXC preflights before either scored launch.
+configuration and passed their MXC preflights before either scored launch. The
+with scored attempt used the installed SDK path before relocation was accepted;
+identity verification and Pingu's conditional amendment preceded the without launch.
 
 | Runs | Task/export subtree | First | Second |
 | --- | --- | --- | --- |
