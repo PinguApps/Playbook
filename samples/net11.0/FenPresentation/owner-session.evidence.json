@@ -1,6 +1,6 @@
 {
   "issue": "PIN-898",
-  "status": "pending-owner-verdict",
+  "status": "verified",
   "ownerAuthorization": "Pingu: Yes, use this session",
   "os": "Microsoft Windows 10.0.26200",
   "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj",
@@ -47,8 +47,7 @@
   "limitations": [
     "No timed sleep/screensaver or policy-override guarantee tested",
     "No pointer auto-hide or global-shortcut test",
-    "No Windows lockdown, trust or persistent settings changes",
-    "Owner visual verdict remains pending"
+    "No Windows lockdown, trust or persistent settings changes"
   ],
-  "ownerVerdict": null
+  "ownerVerdict": "Pingu: Yes, both looked correct"
 }

@@ -113,14 +113,14 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "kind": "compile-and-run",
       "target": "net11.0-windows",
-      "scope": "Actual child-container resolution, normal restoration and maximized restoration on disposal; UI F11/Escape transitions and elevated display/system request creation/removal observed separately in owner-session.evidence.json. Owner visual verdict pending.",
+      "scope": "Actual child-container resolution, normal restoration and maximized restoration on disposal; UI F11/Escape transitions and elevated display/system request creation/removal observed separately in owner-session.evidence.json. Pingu confirmed both transitions looked correct.",
       "language": "15.0",
       "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj"
     }
   ],
   "humanProof": {
-    "status": "pending",
-    "scope": "PIN-898: Pingu authorized this session. Automated native restoration passed; UI normal/maximized F11/Escape transitions and elevated display/system idle request creation/removal observed on Windows build26200. Sample and observers exited. Owner visual verdict pending in samples/net11.0/FenPresentation/owner-session.evidence.json. No timed sleep/screensaver or policy override claim."
+    "status": "verified",
+    "scope": "PIN-898: Pingu authorized this session. Automated native restoration passed; UI normal/maximized F11/Escape transitions and elevated display/system idle request creation/removal observed on Windows build26200. Sample and observers exited. Pingu confirmed: Yes, both looked correct. Evidence in samples/net11.0/FenPresentation/owner-session.evidence.json. No timed sleep/screensaver or policy override claim."
   },
   "snippets": {
     "n10-fenpresentation-directory-packages-props": {
