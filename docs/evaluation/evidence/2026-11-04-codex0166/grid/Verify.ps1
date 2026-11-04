@@ -14,6 +14,11 @@ if ($identity.comparedFiles -ne 5467 -or @($identity.mismatches).Count) { throw 
 $ids = @()
 $identity = Get-Content "$root/controls/frozen-identity.json" -Raw | ConvertFrom-Json
 if ($identity.cli -cne '9D563EE4E0441FF9D59D612013E0460DDF8E5709735C2D9F6B98B7EF8CA4EB42' -or $identity.package -cne '9A96E01473994BB854BB93D49C4E8B4CFE90805003DC249D7A7BE60505F2243C' -or $identity.scaffold -cne '6d53662cdba54551a74b3ade063c49009c63561c') { throw 'Frozen identities differ' }
+if ((Get-FileHash -LiteralPath "$root/../controls/PinguApps.Playbook.0.1.0-pin950.nupkg").Hash -cne $identity.package) { throw 'Retained package changed' }
+# The CLI receipt records the historical executable; replay does not require it.
+foreach ($pair in @(@('Test-Oracle.ps1.txt', 'Test-Oracle.ps1'), @('Reference.razor', 'Reference.razor'))) {
+    if ((Get-FileHash -LiteralPath "$root/controls/$($pair[0])").Hash -cne (Get-FileHash -LiteralPath "$root/../../../grid-links/$($pair[1])").Hash) { throw 'Retained evaluator differs from repository original' }
+}
 $firstLaunch = [DateTimeOffset](Get-Content "$root/without/scored-without.timing.json" -Raw | ConvertFrom-Json).startedUtc
 foreach ($condition in @('without', 'with')) {
     $preflightTiming = Get-Content "$root/$condition/preflight-$condition.timing.json" -Raw | ConvertFrom-Json
@@ -51,5 +56,7 @@ foreach ($condition in @('without', 'with')) {
 if ($ids[0] -eq $ids[1]) { throw 'Contexts reused' }
 $csharp = 0.0
 foreach ($condition in @('without', 'with')) { $csharp += (Get-Content "$root/../csharp/$condition/scored-$condition.timing.json" -Raw | ConvertFrom-Json).elapsedSeconds }
-if ($elapsed + $csharp + 338.0084435 + 1200 -gt 4800) { throw 'Insufficient budget for two remaining bounded attempts' }
-"Retained hashes and receipts pass. Six observed attempts: $($elapsed + $csharp + 338.0084435) seconds."
+$reservation = 0.0
+foreach ($condition in @('without', 'with')) { $reservation += (Get-Content "$root/../reservation/$condition/scored-$condition.timing.json" -Raw | ConvertFrom-Json).elapsedSeconds }
+if ($elapsed + $csharp + $reservation + 1200 -gt 4800) { throw 'Insufficient budget for two remaining bounded attempts' }
+"Retained hashes and receipts pass. Six observed attempts: $($elapsed + $csharp + $reservation) seconds."

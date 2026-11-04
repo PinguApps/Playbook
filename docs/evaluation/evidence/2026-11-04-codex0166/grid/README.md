@@ -31,3 +31,12 @@ review exclusions; hashes, effective configs, submitted source, consultation
 projection and assessment remain reviewable. Pingu owns final assessment under
 PIN-955. Estimate remains M (3), one bounded pair plus capture/review handoff.
 No related Linear issues changed. No release or deployment is authorized.
+
+Replay is intentionally machine-specific: the recorded SDK, Node and Chromium
+paths must exist. The historical CLI hash is a capture receipt; Verify.ps1 hashes
+the retained package bytes and checks the retained evaluator against repository
+originals, without requiring the historical CLI to remain installed. Effective
+configs retain absolute local paths and the inherited PATH to make the isolation
+controls auditable. These reveal the local username/tool layout, contain no
+credentials, and are retained deliberately. The redundant process-PATH snapshot
+is omitted from the before/after control, which compares user and machine scope.

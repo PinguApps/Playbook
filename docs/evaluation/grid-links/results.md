@@ -9,7 +9,7 @@ retains actual prompts, configs, preflights, transcripts, submissions and checks
 | --- | --- | --- |
 | Consultation | No Playbook server/calls | One list_recipes and one get_recipe: blazor.share-grid-view, target/edition 11.0 |
 | Frozen HTTP oracle | 15 passes, one false negative | 12 passes, two false negatives; two dependent assertions skipped |
-| Focused browser checks | Pass with JavaScript disabled | Pass with JavaScript disabled |
+| Focused browser checks | Pass with JavaScript disabled; selects the requested sort column | Pass with JavaScript disabled; selects the requested sort column and accepts an omitted first-page default |
 | Applicability | Frozen net11.0/C# 15.0/QuickGrid RC3 pins preserved; manual tables and query links | Same pins; real QuickGrid query-state support, PaginationState, QueryParameterNameOptions and Paginator |
 | Newer API adoption | None | Independent QueryParameterNameOptions and PaginationState per grid |
 | Unnecessary code | Manual query parsing, sorting, paging and table rendering implement the older approach; no extra dependencies | Framework restores sorting/paging; explicit heading anchors remain necessary in static rendering |

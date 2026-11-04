@@ -1,6 +1,10 @@
 # Re-evaluate unchanged source in disposable copies. No model calls.
 param([string]$Dotnet = 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe')
 $ErrorActionPreference = 'Stop'
+$environmentNames = @('DOTNET_ADD_GLOBAL_TOOLS_TO_PATH', 'DOTNET_GENERATE_ASPNET_CERTIFICATE', 'DOTNET_CLI_HOME', 'DOTNET_CLI_TELEMETRY_OPTOUT')
+$savedEnvironment = @{}
+foreach ($name in $environmentNames) { $savedEnvironment[$name] = [Environment]::GetEnvironmentVariable($name, 'Process') }
+try {
 $output = Join-Path ([IO.Path]::GetTempPath()) ('grid-replay-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path "$output/evaluator" | Out-Null
 Copy-Item "$PSScriptRoot/controls/Test-Oracle.ps1.txt" "$output/evaluator/Test-Oracle.ps1"
@@ -39,3 +43,10 @@ foreach ($condition in @('without', 'with')) {
     } finally { Pop-Location }
 }
 "Disposable evaluation output: $output"
+
+} finally {
+    foreach ($name in $environmentNames) {
+        if ($null -eq $savedEnvironment[$name]) { Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue }
+        else { [Environment]::SetEnvironmentVariable($name, $savedEnvironment[$name], 'Process') }
+    }
+}
