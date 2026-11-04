@@ -4,6 +4,7 @@
   "title": "Cache selected local BlazorWebView assets",
   "goal": "Choose cache headers for versioned bundled assets while retaining no-store for everything else.",
   "areas": [
+    "blazor",
     "maui"
   ],
   "exampleLanguages": [

@@ -50,7 +50,7 @@
           "packages": [
             {
               "match": "exact",
-              "name": "Microsoft.Maui.Controls.Core",
+              "name": "Microsoft.Maui.Controls",
               "version": "11.0.0-rc.2.26505.5",
               "reason": "Reviewed current MAUI artifact baseline."
             },
@@ -65,19 +65,18 @@
               "name": "Avalonia.Controls.Maui.Desktop",
               "version": "11.0.0-rc.2.26287.618",
               "reason": "Explicit third-party template integration prerequisite."
+            },
+            {
+              "match": "exact",
+              "name": "Microsoft.Maui.Resizetizer",
+              "version": "11.0.0-rc.2.26505.5",
+              "reason": "Explicit neutral asset consumer prerequisite; ordinary generated UseMaui heads obtain matched asset tooling through the MAUI workload."
             }
           ],
           "packageAssets": [
             "Actual net11.0 neutral MAUI assets; native heads require the corresponding platform-specific assets."
           ],
-          "workloads": [
-            {
-              "name": "Matching MAUI native target workload",
-              "version": "11.0",
-              "match": "release-family",
-              "reason": "Required only for generated native heads; SDK11 native MAUI pack is unavailable on authoring machine."
-            }
-          ],
+          "workloads": [],
           "providers": [
             "No external provider or account"
           ],
@@ -88,13 +87,14 @@
             "MAUI/native or Avalonia desktop; contract-only tests do not render."
           ],
           "prerequisites": [
-            "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload."
+            "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload.",
+            "Neutral package consumer is workload-free; ordinary generated native heads require matched MAUI workloads and platform toolchains."
           ],
           "constraints": [
             "RC2 preparation evidence, not GA verification. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
           ],
           "optIns": [
-            "Template options are opt-in; no preview C# language opt-in."
+            "--with-avalonia or maui-multiproject --avalonia; AvaloniaControlsMauiGenerateBootstrap=true."
           ],
           "stabilityLimitations": [
             "Avalonia integration packages are prerelease."

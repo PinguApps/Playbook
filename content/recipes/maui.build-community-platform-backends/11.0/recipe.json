@@ -56,6 +56,12 @@
               "name": "Microsoft.Maui.Controls.Core",
               "version": "11.0.0-rc.2.26505.5",
               "reason": "Reviewed current MAUI artifact baseline."
+            },
+            {
+              "match": "exact",
+              "name": "Microsoft.AspNetCore.Components.WebView.Maui",
+              "version": "11.0.0-rc.2.26505.5",
+              "reason": "Public custom Blazor handler registration contract."
             }
           ],
           "packageAssets": [
@@ -72,7 +78,8 @@
             "MAUI/native or Avalonia desktop; contract-only tests do not render."
           ],
           "prerequisites": [
-            "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload."
+            "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload.",
+            "Supplemental raw-asset consumer additionally uses Avalonia.Controls.Maui/Desktop11.0.0-rc.2.26287.618 and Microsoft.Maui.Resizetizer11.0.0-rc.2.26505.5; those are not prerequisites for the service-only backend."
           ],
           "constraints": [
             "RC2 preparation evidence, not GA verification. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."

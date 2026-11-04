@@ -49,13 +49,13 @@
           "packages": [
             {
               "match": "exact",
-              "name": "Microsoft.Maui.Controls.Core",
+              "name": "Microsoft.Maui.Controls",
               "version": "11.0.0-rc.2.26505.5",
               "reason": "Reviewed current MAUI artifact baseline."
             }
           ],
           "packageAssets": [
-            "Actual net11.0 neutral MAUI assets; native heads require the corresponding platform-specific assets."
+            "Microsoft.Maui.Controls/Core 11.0.0-rc.2.26505.5 Windows assets; canonical target net11.0-windows10.0.20348.0."
           ],
           "workloads": [
             {
@@ -69,7 +69,7 @@
             "No external provider or account"
           ],
           "platforms": [
-            "Windows authoring; net11.0 neutral contract/desktop consumer or explicitly declared Windows native target. Android/Apple native targets are not tested."
+            "Windows x64; net11.0-windows10.0.20348.0 target binding; declared deployment floor10.0.17763.0. Native11 toolchain unavailable on authoring machine."
           ],
           "renderingModes": [
             "MAUI/native or Avalonia desktop; contract-only tests do not render."
