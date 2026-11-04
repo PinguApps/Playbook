@@ -6,6 +6,11 @@ paired outputs to a run. Export only samples/ManifestEvaluation at scaffold comm
 directories. Supply TASK.md verbatim to each fresh context. The baseline builds
 but deliberately returns no rows. Preparation records no agent evaluation results.
 
+The repository uses squash merges. In a fresh maintainer clone, fetch the retained
+PR head before resolving the scaffold commit: `git fetch origin refs/pull/238/head`.
+That ref retains the original preparation commits; export only the scaffold subtree,
+never the evaluator material.
+
 ## Frozen controls
 
 SDK 11.0.100-rc.2.26504.105, net11.0, C# 15.0. No NuGet dependencies,
