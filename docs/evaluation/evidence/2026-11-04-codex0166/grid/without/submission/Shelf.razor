@@ -1,0 +1,82 @@
+@using Microsoft.AspNetCore.WebUtilities
+
+<section id="@Id">
+    <h2>@Id stores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col" aria-sort="@AriaSort("code")">
+                    code
+                    <a href="@Link(CurrentPage, "code", "asc")" aria-label="Sort code ascending">Ascending</a>
+                    <a href="@Link(CurrentPage, "code", "desc")" aria-label="Sort code descending">Descending</a>
+                </th>
+                <th scope="col" aria-sort="@AriaSort("units")">
+                    units
+                    <a href="@Link(CurrentPage, "units", "asc")" aria-label="Sort units ascending">Ascending</a>
+                    <a href="@Link(CurrentPage, "units", "desc")" aria-label="Sort units descending">Descending</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Rows)
+            {
+                <tr><td>@item.Code</td><td>@item.Units</td></tr>
+            }
+        </tbody>
+    </table>
+    <nav aria-label="@($"{Id} stores pages")">
+        @if (CurrentPage > 1)
+        {
+            <a href="@Link(CurrentPage - 1, Sort, Direction)">Previous</a>
+        }
+        @for (var number = 1; number <= PageCount; number++)
+        {
+            <a href="@Link(number, Sort, Direction)" aria-current="@(number == CurrentPage ? "page" : null)">@number</a>
+        }
+        @if (CurrentPage < PageCount)
+        {
+            <a href="@Link(CurrentPage + 1, Sort, Direction)">Next</a>
+        }
+        <span>Page @CurrentPage of @PageCount</span>
+    </nav>
+</section>
+@code {
+    [Parameter, EditorRequired] public string Id { get; set; } = "";
+    [Parameter, EditorRequired] public IQueryable<Stock> Items { get; set; } = default!;
+    [Parameter, EditorRequired] public IReadOnlyDictionary<string, string?> Query { get; set; } = default!;
+
+    private const int PageSize = 2;
+    private string Sort => Query.GetValueOrDefault($"{Id}.sort") == "units" ? "units" : "code";
+    private string Direction => Query.GetValueOrDefault($"{Id}.direction") == "desc" ? "desc" : "asc";
+    private int PageCount => Math.Max(1, (int)Math.Ceiling(Items.Count() / (double)PageSize));
+    private int CurrentPage => int.TryParse(Query.GetValueOrDefault($"{Id}.page"), out var page)
+        ? Math.Clamp(page, 1, PageCount) : 1;
+    private IEnumerable<Stock> Rows
+    {
+        get
+        {
+            var ordered = (Sort, Direction) switch
+            {
+                ("units", "asc") => Items.OrderBy(x => x.Units).ThenBy(x => x.Code),
+                ("units", "desc") => Items.OrderByDescending(x => x.Units).ThenBy(x => x.Code),
+                ("code", "desc") => Items.OrderByDescending(x => x.Code),
+                _ => Items.OrderBy(x => x.Code)
+            };
+            return ordered.Skip((CurrentPage - 1) * PageSize).Take(PageSize);
+        }
+    }
+
+    private string AriaSort(string column) => Sort != column ? "none"
+        : Direction == "asc" ? "ascending" : "descending";
+
+    private string Link(int page, string sort, string direction)
+    {
+        var query = new Dictionary<string, string?>(Query)
+        {
+            [$"{Id}.page"] = page.ToString(System.Globalization.CultureInfo.InvariantCulture),
+            [$"{Id}.sort"] = sort,
+            [$"{Id}.direction"] = direction
+        };
+        return QueryHelpers.AddQueryString("/", query);
+    }
+}

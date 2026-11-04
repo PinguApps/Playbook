@@ -1,0 +1,18 @@
+PASS: north bookmark restores units ascending page two
+PASS: south bookmark independently restores code descending
+PASS: refresh restores both tables and excludes closed rows
+PASS: ordinary link exists: north.page=1
+PASS: navigation preserves filter and independent rows: north.page
+PASS: re-fetching the bookmark restores state
+PASS: ordinary link exists: south.page=2
+PASS: navigation preserves filter and independent rows: south.page
+PASS: re-fetching the bookmark restores state
+PASS: ordinary link exists: north.direction=desc
+PASS: navigation preserves filter and independent rows: north.direction
+PASS: re-fetching the bookmark restores state
+PASS: ordinary link exists: south.direction=asc
+PASS: navigation preserves filter and independent rows: south.direction
+PASS: re-fetching the bookmark restores state
+PASS: default view is page one code ascending
+Failed assertions: 0
+Disposable source retained at C:\Users\pingu\AppData\Local\Temp\grid-oracle-0d2ebedd-1c86-49cb-b5b0-89a5d974448f

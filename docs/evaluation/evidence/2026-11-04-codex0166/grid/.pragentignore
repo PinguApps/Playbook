@@ -1,0 +1,8 @@
+# CLI-owned captures duplicate responses/patches. Parent audited actual calls and
+# failures; Verify.ps1 checks their hashes and fresh-run/preflight/order receipts.
+# Submitted source, effective config, consultation projection and assessment remain
+# reviewable. No model reruns are authorized to regenerate these observations.
+/*/scored-*.jsonl
+/*/preflight-*.jsonl
+# Windows PowerShell emits UTF-16 redirection; UTF-8 projections remain reviewable.
+/*/submission/build.log
