@@ -3,11 +3,16 @@ using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
+using Microsoft.Extensions.Logging;
 namespace QuayAvalonia;
 public static class MauiProgram
 {
-    public static MauiApp CreateMauiApp(bool useSingleViewLifetime = false) =>
-        MauiApp.CreateBuilder().UseMauiApp<QuayApp>().UseAvaloniaApp(useSingleViewLifetime).Build();
+    public static MauiApp CreateMauiApp(bool useSingleViewLifetime = false)
+    {
+        var builder = MauiApp.CreateBuilder().UseMauiApp<QuayApp>().UseAvaloniaApp(useSingleViewLifetime);
+        builder.Logging.AddDebug();
+        return builder.Build();
+    }
 }
 public sealed class QuayApp : Application
 {

@@ -34,6 +34,15 @@
           "Avalonia.Desktop": "12.1.4"
         }
       },
+      "Microsoft.Extensions.Logging.Debug": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "Gq+d0iQ0I5LiPkcO8jpIYf6W1hTkqbLyIinpfsfu9/OBe1zldveKQe5QoiVxSfIJPhaFJTGwdchD4ij7zXz/Fg==",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "11.0.0-rc.2.26504.105"
+        }
+      },
       "Microsoft.Maui.Controls": {
         "type": "Direct",
         "requested": "[11.0.0-rc.2.26505.5, )",
@@ -225,15 +234,15 @@
       },
       "Microsoft.Extensions.DependencyInjection": {
         "type": "Transitive",
-        "resolved": "11.0.0-rc.1.26425.128",
-        "contentHash": "r9VvtUpwM0MZ21DaTQWDqmsm6ABmuuXA/4aqa9LJVZET0HGlIG0Z5eN2esarFAQW2xtgGFyIYcnWs5uxUUizgg=="
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "yjotWRNS6RNuJE1UNlVWgRTPfEhavYoGMdORt3Y90rB8bJo+GNVAsrnvclyPn830Ws2etLC94QcYBZ13Naszgw=="
       },
       "Microsoft.Extensions.Logging": {
         "type": "Transitive",
-        "resolved": "11.0.0-rc.1.26425.128",
-        "contentHash": "SxnI3xH/jZ11sRY5l1DqaqH4z7tyEqAa0ehQ6xsBGenst1mFy91iGWGZfUA0MnyPxQCdjmAlvPmuCvLsrv/ufw==",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "tGZ8lo15pCx32vlCtKprvLFtnNmPykudpw/62pkf4hN4kzwhZTiRkxgZwjl5PSwsaNmVDdwnZiYkqeBBxqRSiQ==",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection": "11.0.0-rc.1.26425.128"
+          "Microsoft.Extensions.DependencyInjection": "11.0.0-rc.2.26504.105"
         }
       },
       "Microsoft.Maui.Controls.Build.Tasks": {

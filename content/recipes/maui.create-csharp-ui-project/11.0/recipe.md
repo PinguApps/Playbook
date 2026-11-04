@@ -32,7 +32,7 @@ Before restoring, replace the generated Controls $(MauiVersion) and floating Log
 
 ## Evidence
 
-The actual first-party package was installed into an isolated template hive and exercised for C# UI, resource retention and the incompatible sample-content option. The original net10 Windows app compiled and reached Label.Loaded; a managed button event updated its count, then its window closed. That check is not pointer interaction or visual/accessibility approval. The exact net11 Windows sample failed before compilation with NETSDK1147 because the SDK11 installation has no usable MAUI SDK pack. Its native compilation/interaction is explicitly not-tested under PIN-699. Do not turn a template-generation pass into native app proof.
+The actual first-party package was installed into an isolated template hive and exercised for C# UI, resource retention and the incompatible sample-content option. The original net10 Windows app compiled and reached Label.Loaded; a managed button event updated its count, then its window closed. That check is not pointer interaction or visual/accessibility approval. The exact net11 Windows sample failed before compilation with NETSDK1147 because the SDK11 installation has no usable MAUI SDK pack. Its native compilation/interaction is explicitly not-tested under PIN-699. The native11 restore never completed, so that sample has no packages.lock.json and its dependency/workload declarations remain empty. RestorePackagesWithLockFile requests a lock on a future successful restore; it is not proof that a resolved lock exists. Do not invent a lock or treat this head as a locked build. Do not turn a template-generation pass into native app proof.
 
 ## Canonical sources
 

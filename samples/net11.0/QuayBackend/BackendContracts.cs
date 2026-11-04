@@ -19,6 +19,21 @@ internal static class BackendContracts
         var handlers = app.Services.GetRequiredService<IMauiHandlersFactory>();
         if (handlers.GetHandler(typeof(IBlazorWebView)) is not QuayBlazorHandler)
             throw new InvalidOperationException("Custom Blazor handler registration lost.");
+
+        var competing = MauiApp.CreateBuilder();
+        competing.Services.AddMauiBlazorWebView().UsePlatformHandler<QuayBlazorHandler>();
+        competing.Services.AddMauiBlazorWebView().UsePlatformHandler<ReplacementBlazorHandler>();
+        using var competingApp = competing.Build();
+        if (competingApp.Services.GetRequiredService<IMauiHandlersFactory>().GetHandler(typeof(IBlazorWebView)) is not ReplacementBlazorHandler)
+            throw new InvalidOperationException("Last custom Blazor handler did not win.");
+
+        var reset = MauiApp.CreateBuilder();
+        reset.Services.AddMauiBlazorWebView().UsePlatformHandler<QuayBlazorHandler>();
+        reset.Services.AddMauiBlazorWebView();
+        using var resetApp = reset.Build();
+        if (resetApp.Services.GetRequiredService<IMauiHandlersFactory>().GetHandler(typeof(IBlazorWebView))?.GetType() != typeof(BlazorWebViewHandler))
+            throw new InvalidOperationException("Later default Blazor registration did not replace the custom handler.");
+        Console.WriteLine("PASS: competing custom handler wins; later default registration restores the default.");
         var services = new ServiceCollection();
         services.AddSingleton<IScreenshot, ContractScreenshot>();
         services.AddSingleton<IGesturePlatformManagerFactory, QuayGestureFactory>();
@@ -64,6 +79,11 @@ internal static class BackendContracts
 internal sealed class QuayBlazorHandler : BlazorWebViewHandler
 {
     protected override object CreatePlatformView() => throw new NotSupportedException("Contract-only backend has no WebView renderer.");
+}
+
+internal sealed class ReplacementBlazorHandler : BlazorWebViewHandler
+{
+    protected override object CreatePlatformView() => throw new NotSupportedException("Contract-only replacement has no WebView renderer.");
 }
 
 internal sealed class QuayAlerts : IAlertManager
