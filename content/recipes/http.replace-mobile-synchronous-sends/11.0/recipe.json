@@ -1,0 +1,176 @@
+{
+  "id": "http.replace-mobile-synchronous-sends",
+  "edition": "11.0",
+  "title": "Replace synchronous mobile HTTP sends",
+  "goal": "Replace synchronous HTTP sends with awaited requests and cancellation; use when migrating Android, iOS or tvOS callers affected by unsupported-platform annotations.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "provider-requests",
+    "http"
+  ],
+  "apis": [
+    "HttpClient.Send",
+    "HttpMessageInvoker.Send",
+    "HttpClient.SendAsync"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App reference/runtime assemblies; no package dependency or older package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings project; invoke canonical internal types from the same assembly."
+          ],
+          "platforms": [
+            "Android, iOS and tvOS migration guidance; actual native build/execution not-tested. Windows desktop execution only."
+          ],
+          "providers": [
+            "Use the application platform HTTP handler; desktop fixture uses SocketsHttpHandler and does not verify a mobile handler."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Await through the caller chain; no Result/Wait/GetAwaiter().GetResult or Task.Run wrapper.",
+            "Existing async .NET10 code remains valid. New annotations do not prove synchronous mobile requests worked before."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c"
+        ],
+        "selectionNotes": [
+          "Await through the caller chain; no Result/Wait/GetAwaiter().GetResult or Task.Run wrapper.",
+          "Existing async .NET10 code remains valid. New annotations do not prove synchronous mobile requests worked before."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/MoorlandReports/MoorlandReports.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official System.Security.Cryptography.cs (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Pinned official System.Net.Http.cs (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs"
+    },
+    {
+      "title": "Pinned official SafeEvpPKeyHandle.OpenSsl.cs (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs"
+    },
+    {
+      "title": "Pinned official pal_evp_pkey.c (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c"
+    },
+    {
+      "title": "Pinned official System.Security.Cryptography.cs (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Pinned official System.Net.Http.cs (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs"
+    },
+    {
+      "title": "Pinned official SafeEvpPKeyHandle.OpenSsl.cs (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs"
+    },
+    {
+      "title": "Pinned official pal_evp_pkey.c (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/MoorlandReports/MoorlandReports.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real Windows desktop HTTP success, status failure, in-flight cancellation and transport failure. Synthetic Android analyzer call site; actual Android/iOS/tvOS native build/runtime not-tested under PIN-699."
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/MoorlandReports/MoorlandReports.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real Windows desktop HTTP success, status failure, in-flight cancellation and transport failure. Synthetic Android analyzer call site; actual Android/iOS/tvOS native build/runtime not-tested under PIN-699."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/MoorlandReports/MoorlandReports.csproj",
+      "samples/net11.0/MoorlandReports/MoorlandReports.csproj"
+    ],
+    "scope": "MoorlandReports on Android/iOS/tvOS: actual native-target compilation/platform warnings, native HTTP handler success, cancellation, status/transport failure and UI responsiveness not-tested because device/emulator/Apple toolchains are unavailable. Windows desktop and synthetic analyzer checks are separate evidence. PIN-699 permits these exclusions; Pingu owns feasible approvals and refresh coordination."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/MoorlandReports/MoorlandReports.cs",
+      "region": "moorland-async",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/MoorlandReports/MoorlandReports.cs",
+      "region": "moorland-async",
+      "language": "csharp"
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "id": "crypto.configure-provider-backed-keys",
+  "edition": "11.0",
+  "title": "Select cryptographic providers for key operations",
+  "goal": "Open an existing signing key with explicit OpenSSL providers and a store property query; use when a key store needs more than one provider loaded.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "provider-requests",
+    "cryptography"
+  ],
+  "apis": [
+    "SafeEvpPKeyHandle.OpenKeyFromProvider",
+    "RSAOpenSsl",
+    "CngProperty"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Canonical declared language mode; no preview syntax switch.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.NETCore.App reference/runtime assemblies; no package dependency or older package route."
+          ],
+          "workloads": [],
+          "prerequisites": [
+            "Nullable/implicit-usings project; invoke canonical internal types from the same assembly.",
+            "Provision a key and provider configuration under application policy; sample fixture creates a disposable RSA key inside network-isolated Docker."
+          ],
+          "platforms": [
+            "Linux x64 OpenSSL provider route; Windows CNG property-copy subcase only."
+          ],
+          "providers": [
+            "OpenSSL3 default/base, accessible provider-specific key URI and permitted store property query; no FIPS/HSM assumed."
+          ],
+          "renderingModes": [],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+          ],
+          "constraints": [
+            "Provider load order is preserved, not a guaranteed preference/routing policy for every operation. Property query constrains the store-open operation.",
+            "No silent fallback when provider/key/query fails; contexts are cached for process lifetime, while key wrappers must be disposed."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c"
+        ],
+        "selectionNotes": [
+          "Provider load order is preserved, not a guaranteed preference/routing policy for every operation. Property query constrains the store-open operation.",
+          "No silent fallback when provider/key/query fails; contexts are cached for process lifetime, while key wrappers must be disposed."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/RookeryKeys/RookeryKeys.csproj"
+        ],
+        "sharedAreas": [
+          "aspnetcore",
+          "blazor",
+          "winforms",
+          "wpf"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Pinned official System.Security.Cryptography.cs (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Pinned official System.Net.Http.cs (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs"
+    },
+    {
+      "title": "Pinned official SafeEvpPKeyHandle.OpenSsl.cs (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs"
+    },
+    {
+      "title": "Pinned official pal_evp_pkey.c (4099f83)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c"
+    },
+    {
+      "title": "Pinned official System.Security.Cryptography.cs (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs"
+    },
+    {
+      "title": "Pinned official System.Net.Http.cs (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs"
+    },
+    {
+      "title": "Pinned official SafeEvpPKeyHandle.OpenSsl.cs (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs"
+    },
+    {
+      "title": "Pinned official pal_evp_pkey.c (820230c)",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c"
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "compile",
+      "sample": "samples/net10.0/RookeryKeys/RookeryKeys.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Paired Windows compilation; real Linux x64 OpenSSL provider execution recorded separately."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net10.0/RookeryKeys/RookeryKeys.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real Linux x64 OpenSSL default/base RSA sign/verify/tamper, provider/key failures, handle ownership/disposal; .NET11 ordered provider lists and property-query success/rejection. No FIPS/HSM/custom-provider/GA proof.",
+      "record": "samples/net10.0/RookeryKeys/provider.evidence.json"
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net10.0/RookeryProperty/RookeryProperty.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Real Windows CngProperty constructor/getter copy checks; array10 versus span11, no native key operation."
+    },
+    {
+      "kind": "compile",
+      "sample": "samples/net11.0/RookeryKeys/RookeryKeys.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Paired Windows compilation; real Linux x64 OpenSSL provider execution recorded separately."
+    },
+    {
+      "kind": "execution",
+      "sample": "samples/net11.0/RookeryKeys/RookeryKeys.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real Linux x64 OpenSSL default/base RSA sign/verify/tamper, provider/key failures, handle ownership/disposal; .NET11 ordered provider lists and property-query success/rejection. No FIPS/HSM/custom-provider/GA proof.",
+      "record": "samples/net11.0/RookeryKeys/provider.evidence.json"
+    },
+    {
+      "kind": "compile-and-run",
+      "sample": "samples/net11.0/RookeryProperty/RookeryProperty.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Real Windows CngProperty constructor/getter copy checks; array10 versus span11, no native key operation."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Real Linux OpenSSL default/base provider fixture and Windows CNG copy case; no interactive operation. No HSM/FIPS/custom-provider or GA evidence."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/RookeryKeys/RookerySigner.cs",
+      "region": "rookery-provider",
+      "language": "csharp"
+    },
+    "newer": {
+      "path": "samples/net11.0/RookeryKeys/RookerySigner.cs",
+      "region": "rookery-provider",
+      "language": "csharp"
+    }
+  }
+}
