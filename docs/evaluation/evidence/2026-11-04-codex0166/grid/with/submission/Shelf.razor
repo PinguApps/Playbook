@@ -1,0 +1,32 @@
+@inject NavigationManager Navigation
+<section id="@Id">
+    <h2>@Id stores</h2>
+    <QuickGrid Items="Items" Pagination="page" QueryParameterNameOptions="names">
+        <PropertyColumn Property="x => x.Code" Title="code" Sortable="true" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Ascending">
+            <HeaderTemplate>
+                code <a href="@SortUrl("code", "asc")">ascending</a> <a href="@SortUrl("code", "desc")">descending</a>
+            </HeaderTemplate>
+        </PropertyColumn>
+        <PropertyColumn Property="x => x.Units" Title="units" Sortable="true">
+            <HeaderTemplate>
+                units <a href="@SortUrl("units", "asc")">ascending</a> <a href="@SortUrl("units", "desc")">descending</a>
+            </HeaderTemplate>
+        </PropertyColumn>
+    </QuickGrid>
+    <Paginator State="page" />
+</section>
+@code {
+    [Parameter, EditorRequired] public string Id { get; set; } = "";
+    [Parameter, EditorRequired] public IQueryable<Stock> Items { get; set; } = default!;
+    private readonly PaginationState page = new() { ItemsPerPage = 2 };
+    private QueryParameterNameOptions names = new();
+
+    protected override void OnParametersSet() => names = new(Id + ".");
+
+    private string SortUrl(string column, string direction) =>
+        Navigation.GetUriWithQueryParameters(new Dictionary<string, object?>
+        {
+            [Id + ".sort"] = column,
+            [Id + ".direction"] = direction
+        });
+}

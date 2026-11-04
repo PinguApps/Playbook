@@ -1,0 +1,138 @@
+[
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\.nupkg.metadata",
+    "sha256": "D258C3F176345DFD479FD3D61EE36C0B5943E37B4400F0C2BFA9CB24FE1ECB55"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\.signature.p7s",
+    "sha256": "33C00E9A1B107184330D4C564DB3A51A3C50661503764EC6AF5DC3263391187C"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\Icon.png",
+    "sha256": "8FCF6F6CD575C0F8C643691765A7DB2A4B3B104BFBFF34646555F5CCFFDB2895"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\microsoft.aspnetcore.app.internal.assets.11.0.0-rc.3.26522.148.nupkg",
+    "sha256": "2D98D92E2F8ECCF4162D2AE9EF682089F3330F54157128A66CEDFBE96052AD38"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\microsoft.aspnetcore.app.internal.assets.11.0.0-rc.3.26522.148.nupkg.sha512",
+    "sha256": "310AAB5F97D5E851FAE301EF990D5D960839DA3A3EC0C6027FB1E4AAF121579F"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\microsoft.aspnetcore.app.internal.assets.nuspec",
+    "sha256": "86D2E50D1B355AD6847C1525A621A3E3DB6C666A9D69C0C3C051E428C2454E07"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\THIRD-PARTY-NOTICES.TXT",
+    "sha256": "C7448ED684305802981EF06C3EB142EEAC58A48FFC98E8789A010B75FA07F123"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\build\\Microsoft.AspNetCore.App.Internal.Assets.PackageAssets.json",
+    "sha256": "19828B597A4FE383E47106A711D8B220A252D6368A919961CBC43C8C2B3D2F44"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\build\\Microsoft.AspNetCore.App.Internal.Assets.targets",
+    "sha256": "5722B5112EF9117717C057151A98804916F993B15E63FF82A453BC0B57682CA7"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\build\\Microsoft.AspNetCore.StaticWebAssets.targets",
+    "sha256": "309AD509A0B95FA39CA9631475CA11E3DE8D5354562260846000F715759F90D1"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\build\\StaticWebAssets.Groups.targets",
+    "sha256": "EB2722934077864000237715BD2B6D8F84CAA07406E83E5F5B9B9EC01D5DCDCE"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\buildMultiTargeting\\Microsoft.AspNetCore.App.Internal.Assets.targets",
+    "sha256": "4C25EF8819CFFAEA50E404D0B122C586EFE8EA969EA7EA5909A18E9736DF1238"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\buildTransitive\\Microsoft.AspNetCore.App.Internal.Assets.targets",
+    "sha256": "9FEF15F670CC01304F47F209DD1CE91BCE5664307C5930ABA1A755EE32CD5DFE"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\staticwebassets\\_framework\\blazor.server.js",
+    "sha256": "69D919FDB4E369488C9EE2D2F1E5D260244090E5C1D7D2E91726BA5EF9C44F92"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\staticwebassets\\_framework\\blazor.server.js.map",
+    "sha256": "83C737AB2C9EA7360199697B4532DCE64867E6E3D44AF4FC3D1EBA7469205EDF"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\staticwebassets\\_framework\\blazor.web.js",
+    "sha256": "79728F577616593B254F06297DBF177F68A15ECE5E90E0B6D9BB4443AE948321"
+  },
+  {
+    "path": "microsoft.aspnetcore.app.internal.assets\\11.0.0-rc.3.26522.148\\staticwebassets\\_framework\\blazor.web.js.map",
+    "sha256": "A04E1A06449C05DFCE1F6870F50A35AABB272A8E037D619C156EE120B4202677"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\.nupkg.metadata",
+    "sha256": "429D45A051CA0E141D94DBE0FC868BC6AF8BA2F11B0D987ADC0416C4E08D8303"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\.signature.p7s",
+    "sha256": "6D7D3E84D116F7734781A63A380A0F17F90FDD46070CFD28F010CB709F6E2D75"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\Icon.png",
+    "sha256": "8FCF6F6CD575C0F8C643691765A7DB2A4B3B104BFBFF34646555F5CCFFDB2895"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\microsoft.aspnetcore.components.quickgrid.11.0.0-rc.3.26522.148.nupkg",
+    "sha256": "A9C2FE176535391B1B4F7327F20EC4A7FC870C4A9BB3938E1BC6EDFE4060C341"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\microsoft.aspnetcore.components.quickgrid.11.0.0-rc.3.26522.148.nupkg.sha512",
+    "sha256": "F595CB9D98187A0CE48377EE7FD5243DA2161F9C39FB70ABF1E59D61FCD2B26B"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\microsoft.aspnetcore.components.quickgrid.nuspec",
+    "sha256": "5F71AEF579ECF5E6FADB013F8F14DCB43D33F6549D57E69521C6ADEDE745414E"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\PACKAGE.md",
+    "sha256": "BD0E2A04412D7B014FF6DC2AC3A0D83F98C6FFB761094384A9FD2B3971591555"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\THIRD-PARTY-NOTICES.txt",
+    "sha256": "AE45A01FA3062E9D9932760CF834DAE3BA23DBD75A75A2B919654F9C738D1ED9"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\build\\Microsoft.AspNetCore.Components.QuickGrid.PackageAssets.json",
+    "sha256": "45C3983926D1EA097D7ED18750DA70ACB874B6D89BB4A13E120FA974391D52D0"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\build\\Microsoft.AspNetCore.Components.QuickGrid.targets",
+    "sha256": "B55F7D47431FAE35C577B963757A5FC2100BBACF445DC20AA24B1CEF16145B06"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\build\\Microsoft.AspNetCore.StaticWebAssets.targets",
+    "sha256": "60801009A8351C8F15A0ADE683D34DABB1E9B09F8CA56B216404F7649EDE12A5"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\buildMultiTargeting\\Microsoft.AspNetCore.Components.QuickGrid.targets",
+    "sha256": "A4CAF9831F5B86DD7A1B068B20D15C0772D94AD48FD02EECBB5532C1A5775CB5"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\buildTransitive\\Microsoft.AspNetCore.Components.QuickGrid.targets",
+    "sha256": "4F458431DC339A47A1BFD27E7F8E5426B1FA4677ECCB54991A2DC5AF98CD0CBB"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\lib\\net11.0\\Microsoft.AspNetCore.Components.QuickGrid.dll",
+    "sha256": "E3F8759ACD0C9878D0DAE38A109E81EB15625A2DD3CE76A8937460BF791C0C56"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\lib\\net11.0\\Microsoft.AspNetCore.Components.QuickGrid.xml",
+    "sha256": "8905941F7BF1CEAB6F327AC7C5A8EAB8C636702295599624145133693A44263D"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.i2w4e4ntkp.bundle.scp.css",
+    "sha256": "5A89448F56F8E66A381062C23B77D1F0F6662BC2264C611C4CAFC3C399E11F8F"
+  },
+  {
+    "path": "microsoft.aspnetcore.components.quickgrid\\11.0.0-rc.3.26522.148\\staticwebassets\\QuickGrid.razor.js",
+    "sha256": "B676A65AE43617923627C85BB41B78FFD8BC31BDB2DA8FBD4DEA63E6D52B49D5"
+  }
+]

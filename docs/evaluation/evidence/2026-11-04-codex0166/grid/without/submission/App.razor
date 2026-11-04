@@ -1,0 +1,32 @@
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Estuary stores</title></head>
+<body>
+    <h1>Estuary stores</h1>
+    <p id="filter">Filter: @Filter</p>
+    <Shelf Id="north" Items="North" Query="Query" />
+    <Shelf Id="south" Items="South" Query="Query" />
+</body>
+</html>
+@code {
+    [SupplyParameterFromQuery(Name = "filter")] public string? Filter { get; set; }
+    [SupplyParameterFromQuery(Name = "north.page")] public string? NorthPage { get; set; }
+    [SupplyParameterFromQuery(Name = "north.sort")] public string? NorthSort { get; set; }
+    [SupplyParameterFromQuery(Name = "north.direction")] public string? NorthDirection { get; set; }
+    [SupplyParameterFromQuery(Name = "south.page")] public string? SouthPage { get; set; }
+    [SupplyParameterFromQuery(Name = "south.sort")] public string? SouthSort { get; set; }
+    [SupplyParameterFromQuery(Name = "south.direction")] public string? SouthDirection { get; set; }
+    private IReadOnlyDictionary<string, string?> Query => new Dictionary<string, string?>
+    {
+        ["filter"] = Filter,
+        ["north.page"] = NorthPage,
+        ["north.sort"] = NorthSort,
+        ["north.direction"] = NorthDirection,
+        ["south.page"] = SouthPage,
+        ["south.sort"] = SouthSort,
+        ["south.direction"] = SouthDirection
+    };
+    private IQueryable<Stock> North => Stock.North.Where(x => Filter == null || x.Group == Filter).AsQueryable();
+    private IQueryable<Stock> South => Stock.South.Where(x => Filter == null || x.Group == Filter).AsQueryable();
+}

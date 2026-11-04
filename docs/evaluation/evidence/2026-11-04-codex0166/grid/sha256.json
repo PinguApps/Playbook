@@ -1,0 +1,322 @@
+[
+  {
+    "sha256": "E562D897F80E1C4B8A03E7495E19A1DE06613F08FE5942C69039FEFD1311D4F1",
+    "path": ".pragentignore"
+  },
+  {
+    "sha256": "5BD8076EBCE526D485578839DC7CEEA099616FB23080FE969B038310FA5F9384",
+    "path": "README.md"
+  },
+  {
+    "sha256": "92841E1BFD5753350C4436C53B955399BA8F7349F8F9DAA11854086D2641FD30",
+    "path": "Replay.ps1"
+  },
+  {
+    "sha256": "D5E07043FD5BA6B5D1525567B215C7E2DE7E567DFEE97D02DF9EC1E32A4ADB04",
+    "path": "Verify.ps1"
+  },
+  {
+    "sha256": "618596F1B8B1EB34F9589D68A69983AB742CCF182E1AD3730D2765E1A7628DA8",
+    "path": "controls\\browser-with.log"
+  },
+  {
+    "sha256": "5B2900DFA1788D3298FC4DA9FC9BB0C76AE4F0C2CDC76AF4C717736BBD6D81F1",
+    "path": "controls\\browser-without.log"
+  },
+  {
+    "sha256": "BF62CB4EF415438557922D69974558E5F62576A273BC1C0B239805720B18F64D",
+    "path": "controls\\Browser.cjs"
+  },
+  {
+    "sha256": "BB7B9E83A2B774F7E8C5B6EF55D5D74E8081F4AD899241F3546BB49C01D8670D",
+    "path": "controls\\cache-with.json"
+  },
+  {
+    "sha256": "BB7B9E83A2B774F7E8C5B6EF55D5D74E8081F4AD899241F3546BB49C01D8670D",
+    "path": "controls\\cache-without.json"
+  },
+  {
+    "sha256": "F3FF186B51FEDD981E54F4EC38987706538C7027C1DB5C10C5F00EBD1900279D",
+    "path": "controls\\frozen-identity.json"
+  },
+  {
+    "sha256": "75369F88499B8B97741C06DCBBE3C16840EDA152B8C3C8FC27B11CF2FD440956",
+    "path": "controls\\host-network.json"
+  },
+  {
+    "sha256": "20CA0F7D6825B0C89EABDBB6BA5A3EEDBBFC975B1D5FDD5FEAE8A9127A21145D",
+    "path": "controls\\oracle-baseline.log"
+  },
+  {
+    "sha256": "57970E1AD1F93738E9C8C2A4CEB1AE605890B2835132D4CC05EADB6297C57C40",
+    "path": "controls\\oracle-reference.log"
+  },
+  {
+    "sha256": "254CEB5A44486BB23B411D4C75F8F7DDA536319876676561640DFB210BF10A04",
+    "path": "controls\\oracle-with.log"
+  },
+  {
+    "sha256": "F860F4619AF630F653E1B9664C2829BE70FAFF8B8E97CD2FCD5A9637F76CA509",
+    "path": "controls\\oracle-without.log"
+  },
+  {
+    "sha256": "7D191F2FC0358284A20DA72DCA11B7419D746F395B41A3F381F51561F7A24D38",
+    "path": "controls\\path-after.json"
+  },
+  {
+    "sha256": "961A3A687338981E19265F7534F4ADCFC8F9FB0CC8AAD2C78C61AD6C3211A370",
+    "path": "controls\\path-before.json"
+  },
+  {
+    "sha256": "D856521B03F7BD409AB868E5D757797D31EA32129FEEBBEC3DA136C589F12490",
+    "path": "controls\\preflight-with.ps1.txt"
+  },
+  {
+    "sha256": "BC49C0660CEF44723A033343CD15F3DF53EFB8F5C8B79FEB2F71EBE07517877E",
+    "path": "controls\\preflight-without.ps1.txt"
+  },
+  {
+    "sha256": "63E673E9029EEE4EF84329E8010966D34F285A91EC3936D366378F009BA2E69B",
+    "path": "controls\\Reference.razor"
+  },
+  {
+    "sha256": "678004CA2E87036DEA880DBED1363E6E262E05435BEF413CDF0347663146ABE2",
+    "path": "controls\\RunBrowser.cjs"
+  },
+  {
+    "sha256": "738F1AC5F8AB7FA4BB9265082E422B7E9483990570D2CC44B56DF6201BDC05D9",
+    "path": "controls\\sdk-identity.json"
+  },
+  {
+    "sha256": "CE0256B8AE1C2313B35408874C8C36B59AA80D16D97F4A9E326BD135C6D64DA4",
+    "path": "controls\\supervisor.ps1.txt"
+  },
+  {
+    "sha256": "82EF85573F3CA83D6C34D72014A562C57F7B06FE708FCC623F94479EB4DDD1E6",
+    "path": "controls\\Test-Oracle.ps1.txt"
+  },
+  {
+    "sha256": "79DB7403883412D09A8155F7BE665A169BE52B63D830FAF7122B82F12DD6A051",
+    "path": "controls\\tools.json"
+  },
+  {
+    "sha256": "9C52F6214E703B65BD9620288657D8D93BF66609CE274D54D475B29269412F11",
+    "path": "with\\agent-report.md"
+  },
+  {
+    "sha256": "8E53652C7A29270D2C4FBD42797C1630F0AC4ACBF0F96C8B5036C67292A2C033",
+    "path": "with\\config-with.toml"
+  },
+  {
+    "sha256": "A4828E5A05DB9B2843B98410AB63AF2C71DF9AA75CE6E8B3F0ADF926C7CD5F88",
+    "path": "with\\consultation.json"
+  },
+  {
+    "sha256": "9A9A2EAFF7CB39F0D9F4034C44FE77ED8CCD47925A55782545A0927EB22B0E2D",
+    "path": "with\\input-with.json"
+  },
+  {
+    "sha256": "00351FF0067B62ADF69EA0FA2664B0608B1D75AA203C9BF46F9E74423F3CFCB2",
+    "path": "with\\omitted-generated-files.json"
+  },
+  {
+    "sha256": "5BCEA330C3E1CEC2601F7B37123A43A285397686A9C3A0235108D3D5AE975C10",
+    "path": "with\\preflight-with.jsonl"
+  },
+  {
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "with\\preflight-with.stderr"
+  },
+  {
+    "sha256": "1792F6573558DA1A48C3C3B196E2F7B9FC8C3F3A8766CF24CF1C9F463B04DD33",
+    "path": "with\\preflight-with.timing.json"
+  },
+  {
+    "sha256": "91DF22EEA699B582D42BD44CEC716AF0F366968B2A0B4BAA85F189849E3B86CA",
+    "path": "with\\prompt-with.txt"
+  },
+  {
+    "sha256": "BFA159D74399E33F6392E9FD45C04C258A0B5DA8C8D9C21E79171B9752268B85",
+    "path": "with\\scored-with.jsonl"
+  },
+  {
+    "sha256": "D4F253BD5BF8CED4942C2BA06D15CF025EBD76C0B4F7D7AD5427FECEE1E15B70",
+    "path": "with\\scored-with.stderr"
+  },
+  {
+    "sha256": "887CA5FB6CA0840B415CD1A56F14C5C5AEF6DD720D657CA84DD01E855F160F02",
+    "path": "with\\scored-with.timing.json"
+  },
+  {
+    "sha256": "CCEA3320F7EF6665BE9C5CF48336E5CEF17C71228AB0DA6E2209FE5B97A754A7",
+    "path": "with\\submission-manifest.json"
+  },
+  {
+    "sha256": "3D6E222B901E63FBEB6820F26C01D7A4D2D2F90BCB57E22CF7F08721593F6B9D",
+    "path": "with\\usage.json"
+  },
+  {
+    "sha256": "B6C0F22F67CDAD4B8AA2976029A95BD1E38D3DEAE9C2AF1471BB85DDE63B5B7B",
+    "path": "with\\submission\\_Imports.razor"
+  },
+  {
+    "sha256": "43C2E2B14BEAA5AAD1AB5D350E0797B4B804CE09FC0F76421ABD4E108F864A53",
+    "path": "with\\submission\\App.razor"
+  },
+  {
+    "sha256": "C834D2110FB44110265FB31286341156FFAF78465939DB126771C3BA9BACF1BE",
+    "path": "with\\submission\\Check-Views.ps1"
+  },
+  {
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6",
+    "path": "with\\submission\\Directory.Build.props.txt"
+  },
+  {
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6",
+    "path": "with\\submission\\Directory.Build.targets.txt"
+  },
+  {
+    "sha256": "A96E6B8834DBDB32E1410ABFDB50D0483C028BBA2EDD5FED4B6E5CFC583C6E46",
+    "path": "with\\submission\\Directory.Packages.props.txt"
+  },
+  {
+    "sha256": "9D1FC68BD59431178FB44D43D06E7F8D59BBF920D452B46022224FAEC9F9A675",
+    "path": "with\\submission\\global.json"
+  },
+  {
+    "sha256": "6EFD23EAC7B3A586395C1CBA59EA2CC81168ADB0B522259A7F1C752368F8B307",
+    "path": "with\\submission\\GridLinksEvaluation.csproj.txt"
+  },
+  {
+    "sha256": "66DDD0E1DCD226563C53D17A30C0381EEEFEF12D5E12B570137D0FF679B6112F",
+    "path": "with\\submission\\NuGet.Config"
+  },
+  {
+    "sha256": "F17EFA975A628C5348E145067B4A6602D7390C7C1C10785753340083899A3841",
+    "path": "with\\submission\\packages.lock.json"
+  },
+  {
+    "sha256": "C1FE8C6560B78AF788813560F7557405EB0D40A8A15546D509C92C9D91E2CF8B",
+    "path": "with\\submission\\Program.cs"
+  },
+  {
+    "sha256": "652BCF0A815C235F4FFEF6B97722476C2540C0F96D293C968228F76E05296458",
+    "path": "with\\submission\\Shelf.razor"
+  },
+  {
+    "sha256": "C4AA7370BC16593E497B4A54A3D0C38B9F8BF2D68ECCF7F09EAD2E19539FED5F",
+    "path": "with\\submission\\Stock.cs"
+  },
+  {
+    "sha256": "756997BC44150A751BA9D8F7475D8069FD747605C6B8B9ABC51052ADE4DFF2F5",
+    "path": "with\\submission\\TASK.md"
+  },
+  {
+    "sha256": "53038CD08EBC8ED9962F13EE76EFAEBF8DBBB3C1102C1879A896A067520AEB04",
+    "path": "without\\agent-report.md"
+  },
+  {
+    "sha256": "006C68A606C411BD3F6AA1E3478CE0266F1D058F7C15E00712D1A6BBF95931D8",
+    "path": "without\\config-without.toml"
+  },
+  {
+    "sha256": "9A9A2EAFF7CB39F0D9F4034C44FE77ED8CCD47925A55782545A0927EB22B0E2D",
+    "path": "without\\input-without.json"
+  },
+  {
+    "sha256": "00351FF0067B62ADF69EA0FA2664B0608B1D75AA203C9BF46F9E74423F3CFCB2",
+    "path": "without\\omitted-generated-files.json"
+  },
+  {
+    "sha256": "F4A7623C57C2A917333BE0FB60FA810335EF3CC0D5C8F9C576C3DE2C548284FC",
+    "path": "without\\preflight-without.jsonl"
+  },
+  {
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "path": "without\\preflight-without.stderr"
+  },
+  {
+    "sha256": "196A23D37EE091A13323447D24F039D7E57681629C1D4E1D0CEDF34E8886D973",
+    "path": "without\\preflight-without.timing.json"
+  },
+  {
+    "sha256": "756997BC44150A751BA9D8F7475D8069FD747605C6B8B9ABC51052ADE4DFF2F5",
+    "path": "without\\prompt-without.txt"
+  },
+  {
+    "sha256": "0CD77AC1E474C02A0F7D891F5C2FB47AE4E831E2F759AEC3A11187FFBAB4E8FA",
+    "path": "without\\scored-without.jsonl"
+  },
+  {
+    "sha256": "5DF47BD66EB9A00CBD48BDD0B6571CAD762A401915DA60A30F3BE27DE45E6A51",
+    "path": "without\\scored-without.stderr"
+  },
+  {
+    "sha256": "E90CB692891C065C3F59B5D6A02C4ACD2AF4CAB89717868A7AE3EE6E06C1AE4F",
+    "path": "without\\scored-without.timing.json"
+  },
+  {
+    "sha256": "65D375DF9CD013F3749E50942522A5C12B33ECE875AACCC70A7549F1BC4D4466",
+    "path": "without\\submission-manifest.json"
+  },
+  {
+    "sha256": "243007FB7DC980A0BF81B5C99E22B2BC2F745EA2FE746A0A63BA8944D71D5E49",
+    "path": "without\\usage.json"
+  },
+  {
+    "sha256": "B6C0F22F67CDAD4B8AA2976029A95BD1E38D3DEAE9C2AF1471BB85DDE63B5B7B",
+    "path": "without\\submission\\_Imports.razor"
+  },
+  {
+    "sha256": "16ECD6C5BD276BCFA4924BAD73F9C01BC9AEEBF53C04A067C79C24B3E05986B5",
+    "path": "without\\submission\\App.razor"
+  },
+  {
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6",
+    "path": "without\\submission\\Directory.Build.props.txt"
+  },
+  {
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6",
+    "path": "without\\submission\\Directory.Build.targets.txt"
+  },
+  {
+    "sha256": "A96E6B8834DBDB32E1410ABFDB50D0483C028BBA2EDD5FED4B6E5CFC583C6E46",
+    "path": "without\\submission\\Directory.Packages.props.txt"
+  },
+  {
+    "sha256": "9D1FC68BD59431178FB44D43D06E7F8D59BBF920D452B46022224FAEC9F9A675",
+    "path": "without\\submission\\global.json"
+  },
+  {
+    "sha256": "6EFD23EAC7B3A586395C1CBA59EA2CC81168ADB0B522259A7F1C752368F8B307",
+    "path": "without\\submission\\GridLinksEvaluation.csproj.txt"
+  },
+  {
+    "sha256": "66DDD0E1DCD226563C53D17A30C0381EEEFEF12D5E12B570137D0FF679B6112F",
+    "path": "without\\submission\\NuGet.Config"
+  },
+  {
+    "sha256": "F17EFA975A628C5348E145067B4A6602D7390C7C1C10785753340083899A3841",
+    "path": "without\\submission\\packages.lock.json"
+  },
+  {
+    "sha256": "C1FE8C6560B78AF788813560F7557405EB0D40A8A15546D509C92C9D91E2CF8B",
+    "path": "without\\submission\\Program.cs"
+  },
+  {
+    "sha256": "47EE11C1887840C77C7059B36D7C9B040A7A361A8C0F706653AF71798573490E",
+    "path": "without\\submission\\Shelf.razor"
+  },
+  {
+    "sha256": "C4AA7370BC16593E497B4A54A3D0C38B9F8BF2D68ECCF7F09EAD2E19539FED5F",
+    "path": "without\\submission\\Stock.cs"
+  },
+  {
+    "sha256": "756997BC44150A751BA9D8F7475D8069FD747605C6B8B9ABC51052ADE4DFF2F5",
+    "path": "without\\submission\\TASK.md"
+  },
+  {
+    "sha256": "35CB421D371A7D6CEFAD8CB766A14EB331DB2665DB6C7331BEE5A25CD2A2696D",
+    "path": "without\\submission\\checks\\Check-Views.ps1"
+  }
+]
