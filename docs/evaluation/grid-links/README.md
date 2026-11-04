@@ -1,5 +1,7 @@
 # Independent static grid links preparation (PIN-948)
 
+Current comparison controls: [the owner-approved protocol](../comparison-protocol.md) refreshes these scaffolds to RC3. The RC2 pins and export commits below describe the original preparation only; use the refreshed committed revision for the next comparison.
+
 Evaluator material: export only `samples/GridLinksEvaluation/` at scaffold commit
 `dbed01e8fa21279260846221f19445664681eb1b` into two separate clean directories.
 Give TASK.md verbatim to both fresh contexts. Never expose this directory,

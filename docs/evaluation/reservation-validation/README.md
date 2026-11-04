@@ -1,5 +1,7 @@
 # Reservation validation comparison preparation (PIN-947)
 
+Current comparison controls: [the owner-approved protocol](../comparison-protocol.md) refreshes these scaffolds to RC3. The RC2 pins and export commits below describe the original preparation only; use the refreshed committed revision for the next comparison.
+
 Evaluator material: never expose this directory, the repository/history, recipe
 sources or paired outputs to either run. Export only `samples/ReservationEvaluation/`
 at commit `64908b8c92ac186b722348371746656b35618568` into independent clean directories.
