@@ -782,3 +782,5 @@ Offline removal executes against an unreachable configured endpoint and rejects
 force; explicit connected selection against that endpoint fails without removal.
 No applied-state knowledge follows from offline removal. PMC stays PIN-957;
 GA and catalogue closure stay PIN-965/PIN-959. No new .NET10 foundation is added.
+
+PIN-879 owns the offline/connection CLI option guidance (WEB-130), recorded in the inventory and this section. Command-option delivery does not introduce a separate public-member ownership regex; PIN-887 retains its distinct build-task contracts.

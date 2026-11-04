@@ -34,25 +34,34 @@ try {
     & $dotnet $tool @Arguments --project (Join-Path $run 'QuarryMigrations.csproj')
     if ($LASTEXITCODE -ne 0) { throw 'EF command failed.' }
    }
+   function Get-ScaffoldFingerprint {
+    (@(Get-ChildItem Migrations -File | Sort-Object Name | ForEach-Object {
+     "$($_.Name):$((Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash)"
+    }) -join "`n")
+   }
    Invoke-Ef @('migrations','add','Unpublished')
    if ($release -eq '11') {
+    $unpublishedFiles=Get-ScaffoldFingerprint
     # Explicit connected selection must attempt the selected unavailable server.
     $PSNativeCommandUseErrorActionPreference=$false
     $connected=& $dotnet $tool migrations remove --connection 'Server=127.0.0.1,1;Database=offline;User ID=offline;Password=not-a-secret;Encrypt=False;Connect Timeout=1;ConnectRetryCount=0' --project (Join-Path $run 'QuarryMigrations.csproj') 2>&1 | Out-String
     $connectedExit=$LASTEXITCODE
     $PSNativeCommandUseErrorActionPreference=$true
-    if ($connectedExit -eq 0 -or $connected -notmatch 'network|server|connection') { throw 'Expected selected unreachable connection failure.' }
-    if (!(Get-ChildItem Migrations -Filter '*_Unpublished.cs')) { throw 'Failed connected removal changed files.' }
+    if ($connectedExit -eq 0 -or $connected -notmatch 'Microsoft.Data.SqlClient.SqlException' -or $connected -notmatch 'network-related or instance-specific error') { throw 'Expected actual SqlClient network failure, not an option parsing error.' }
+    if ((Get-ScaffoldFingerprint) -cne $unpublishedFiles) { throw 'Failed connected removal changed migration, designer or snapshot.' }
+    Write-Host $connected.Trim()
     # An unreachable configured server must not be consulted by offline removal.
     Invoke-Ef @('migrations','remove','--offline')
     if (@(Get-ChildItem Migrations -File -ErrorAction SilentlyContinue).Count) { throw 'Offline removal left generated files.' }
     Invoke-Ef @('migrations','add','ForceControl')
+    $forceFiles=Get-ScaffoldFingerprint
     $PSNativeCommandUseErrorActionPreference=$false
     $rejection=& $dotnet $tool migrations remove --offline --force --project (Join-Path $run 'QuarryMigrations.csproj') 2>&1 | Out-String
     $exit=$LASTEXITCODE
     $PSNativeCommandUseErrorActionPreference=$true
     if ($exit -eq 0 -or $rejection -notmatch '(?is)(offline.*force|force.*offline)') { throw 'Expected incompatible offline/force rejection.' }
-    if (!(Get-ChildItem Migrations -Filter '*_ForceControl.cs')) { throw 'Rejected command changed migration.' }
+    if ((Get-ScaffoldFingerprint) -cne $forceFiles) { throw 'Rejected command changed migration, designer or snapshot.' }
+    Write-Host $rejection.Trim()
     Invoke-Ef @('migrations','remove','--offline')
    } else {
     # Older EF has no offline switch: remove only the known-unpublished generated
@@ -85,7 +94,7 @@ try {
     $receipt.kind='execution'
     $receipt.command="eng/Test-QuarryMigrations.ps1 -Record; actual dotnet-ef $version CLI, isolated SQL2025 database and compiled inspection consumer"
     $receipt.scope=if ($release -eq '10') { 'EF10 actual two-step scaffold/apply, manual removal of known-unpublished first migration files, applied SQL history/schema, retained model/index, excluded database FK and accepted orphan insert. No EF11, PMC or GA execution in this record.' } else { 'EF11 actual combined add/apply with retained generated files, applied SQL history/schema, retained model/index, excluded database FK and accepted orphan insert. Unreachable offline removal, rejected offline/force and selected unreachable --connection failure with files preserved. No successful connected removal, PMC or GA execution.' }
-    $receipt.output=$result
+    $receipt.output=if ($release -eq '11') { $result+"`nConnected failure diagnostic:`n"+$connected.Trim()+"`nOffline/force rejection:`n"+$rejection.Trim() } else { $result }
     $receipt.inputs=$after
     $receipt.recordedAt=[DateTimeOffset]::UtcNow.ToString('O')
     $receipt|ConvertTo-Json -Depth 30|Set-Content (Join-Path $source 'migration-checks.evidence.json') -Encoding utf8

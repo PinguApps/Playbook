@@ -95,10 +95,8 @@
             "Not applicable: console/database consumer; no renderer or browser"
           ],
           "constraints": [
-            "Only known-unpublished local migrations may be removed offline; applied-state is not checked. Offline excludes force.",
-            "Combined scaffold/apply mutates live schema: explicitly select an isolated development database.",
             "Omitting a migration constraint retains model relationship and index; application and import owners must prevent invalid references. Query join semantics are a separate concern.",
-            "Historical EF10 comparison adds no target10 edition or foundation."
+            "Historical .NET10 comparison adds no target10 edition or foundation."
           ],
           "prerequisites": [
             "Existing approved local Docker SQL Server route from PIN-676; no new resource provisioning.",
@@ -140,7 +138,7 @@
       "sdk": "10.0.402",
       "language": "14.0",
       "kind": "execution",
-      "scope": "Real generated files and SQL history/schema/index inspection, retained model relationship, missing-principal insert; EF11 combined CLI and offline/force rejection; EF10 explicit two-step and manual unpublished-file workflow.",
+      "scope": "EF10 two-step scaffold/apply, manual removal of known-unpublished first-migration files, real SQL history/schema, retained model/index and accepted orphan insert. No EF11, PMC or GA execution.",
       "record": "samples/net10.0/QuarryMigrations/migration-checks.evidence.json"
     },
     {
@@ -157,7 +155,7 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "kind": "execution",
-      "scope": "Real generated files and SQL history/schema/index inspection, retained model relationship, missing-principal insert; EF11 combined CLI and offline/force rejection; EF10 explicit two-step and manual unpublished-file workflow.",
+      "scope": "EF11 combined add/apply with retained generated files, real SQL history/schema, retained model/index and accepted orphan insert. Unreachable offline removal, rejected offline/force and actual SqlClient network failure for explicit connection with all generated files preserved. No successful connected removal, PMC or GA execution.",
       "record": "samples/net11.0/QuarryMigrations/migration-checks.evidence.json"
     }
   ],
