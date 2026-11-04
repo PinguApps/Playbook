@@ -1,0 +1,124 @@
+{
+  "results": [
+    {
+      "savedDesignerSha256": "f91e656062d61aa657ff0edbad2eb33852b9145df260df620b6ff992b5d78ffa",
+      "originalDesignerSha256": "e45cd22983e3fc91d41faf81fd571e3a9fb5d2e3896088f7c6c6c93c8e3c0a2a",
+      "actions": [
+        "Opened in native Visual Studio Designer",
+        "Selected confirm button and pressed Right: X20 -> X21",
+        "Saved, closed document, reopened Designer successfully",
+        "Built actual Designer-saved scratch project on SDK11.0.100-rc.2.26504.105",
+        "Executed real shown-form click/identity checks successfully"
+      ],
+      "savedDesignerSource": "// snippet:complete\nusing System.Drawing;\nusing System.Windows.Forms;\n\ninternal partial class BriefingForm\n{\n    private void InitializeComponent()\n    {\n        confirm = new Button();\n        SuspendLayout();\n        // \n        // confirm\n        // \n        confirm.Location = new Point(21, 20);\n        confirm.Name = \"confirm\";\n        confirm.Size = new Size(180, 32);\n        confirm.TabIndex = 0;\n        confirm.Text = \"Confirm reading\";\n        confirm.Click += ConfirmClick;\n        // \n        // BriefingForm\n        // \n        ClientSize = new Size(360, 180);\n        Controls.Add(confirm);\n        Name = \"BriefingForm\";\n        Text = \"Fen instrument briefing\";\n        ResumeLayout(false);\n    }\n    private Button confirm = null!;\n}\n// endsnippet:complete\r\n",
+      "sourceInputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/net11.0/FenDesigner/BriefingForm.cs": "deac8ab59289a32e0f1394df8764d0da3d070bab24d98ae265afee0f42899216",
+        "samples/net11.0/FenDesigner/BriefingForm.Designer.cs": "e45cd22983e3fc91d41faf81fd571e3a9fb5d2e3896088f7c6c6c93c8e3c0a2a",
+        "samples/net11.0/FenDesigner/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net11.0/FenDesigner/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net11.0/FenDesigner/Directory.Packages.props": "8ab8b3576f7e9410226e0f440f4cbfd47e46cf50d5c56102fd0e5966374c10e5",
+        "samples/net11.0/FenDesigner/FenDesigner.csproj": "03daedc79c93f898137880c97fed3727b6f76d0d8a87802b24d955d4679c1551",
+        "samples/net11.0/FenDesigner/global.json": "7bb56d5a448af37906c78d0644283e0ba955324cb4bc5ead213a494f0a4bd795",
+        "samples/net11.0/FenDesigner/packages.lock.json": "2ae0110448e48b6fa70be1911a169431575bd0d8744d98cb54f06f9bc366d171",
+        "samples/net11.0/FenDesigner/Program.cs": "4a0c8838a21af96b7f42736cf8688edf83cae5d33d73aa7b26888cc6703d2511",
+        "samples/net11.0/FenDesigner/verification.json": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+      },
+      "sample": "samples/net11.0/FenDesigner/FenDesigner.csproj",
+      "originalUserSha256": "deac8ab59289a32e0f1394df8764d0da3d070bab24d98ae265afee0f42899216",
+      "savedUserSha256": "deac8ab59289a32e0f1394df8764d0da3d070bab24d98ae265afee0f42899216"
+    },
+    {
+      "savedDesignerSha256": "8cca7326333cfda042c757b6a353e9e8f0f1a5ba2085cbc438eb7847969edb14",
+      "originalDesignerSha256": "a60ade233521a3e0512bc1475426c58bf312110c4390db8ae9c7ce59f6f78cc2",
+      "actions": [
+        "Opened in native Visual Studio Designer",
+        "Selected confirm button and pressed Right: X20 -> X21",
+        "Saved, closed document, reopened Designer successfully",
+        "Built actual Designer-saved scratch project on SDK11.0.100-rc.2.26504.105",
+        "Executed real shown-form click/identity checks successfully"
+      ],
+      "savedDesignerSource": "' snippet:complete\nImports System.Drawing\nImports System.Windows.Forms\n\n<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>\nPartial Friend Class BriefingForm\n    Inherits Form\n  Private Sub InitializeComponent()\n    confirm = New Button()\n    SuspendLayout()\n    ' \n    ' confirm\n    ' \n    confirm.Location = New Point(21, 20)\n    confirm.Name = \"confirm\"\n    confirm.Size = New Size(180, 32)\n    confirm.TabIndex = 0\n    confirm.Text = \"Confirm reading\"\n    ' \n    ' BriefingForm\n    ' \n    ClientSize = New Size(360, 180)\n    Controls.Add(confirm)\n    Name = \"BriefingForm\"\n    Text = \"Fen instrument briefing\"\n    ResumeLayout(False)\n  End Sub\n  Friend WithEvents confirm As Button\nEnd Class\n' endsnippet:complete\r\n",
+      "sourceInputs": {
+        ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+        "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+        "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+        "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+        "samples/net11.0/FenDesignerVb/BriefingForm.Designer.vb": "a60ade233521a3e0512bc1475426c58bf312110c4390db8ae9c7ce59f6f78cc2",
+        "samples/net11.0/FenDesignerVb/BriefingForm.vb": "d16c5b6b6a07a8b8fd018b2407ce83ddfc1d1fd8aaa889517d13161dee4913a7",
+        "samples/net11.0/FenDesignerVb/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net11.0/FenDesignerVb/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+        "samples/net11.0/FenDesignerVb/Directory.Packages.props": "8ab8b3576f7e9410226e0f440f4cbfd47e46cf50d5c56102fd0e5966374c10e5",
+        "samples/net11.0/FenDesignerVb/FenDesignerVb.vbproj": "d34b9be5cdf28f7cd810ea8f5bccfb09554903eea9643c02620023ba4b3e1039",
+        "samples/net11.0/FenDesignerVb/global.json": "7bb56d5a448af37906c78d0644283e0ba955324cb4bc5ead213a494f0a4bd795",
+        "samples/net11.0/FenDesignerVb/packages.lock.json": "2ae0110448e48b6fa70be1911a169431575bd0d8744d98cb54f06f9bc366d171",
+        "samples/net11.0/FenDesignerVb/Program.vb": "c0bcfb354090c59dced498c6933039fbe54a2e829ab14184649b357c9dd7f308",
+        "samples/net11.0/FenDesignerVb/verification.json": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+      },
+      "sample": "samples/net11.0/FenDesignerVb/FenDesignerVb.vbproj",
+      "originalUserSha256": "d16c5b6b6a07a8b8fd018b2407ce83ddfc1d1fd8aaa889517d13161dee4913a7",
+      "savedUserSha256": "d16c5b6b6a07a8b8fd018b2407ce83ddfc1d1fd8aaa889517d13161dee4913a7"
+    }
+  ],
+  "visualStudio": "18.11.12306.390 built by: stable",
+  "issue": "PIN-896",
+  "status": "verified",
+  "os": "Microsoft Windows 10.0.26200",
+  "scope": "C# and VB .NET11 RC2 original source copied byte-for-byte to disposable scratch before editing. Bounded Designer edit/save/reopen plus actual saved-source build/execution; no code-fix or full diagnostic-trigger matrix.",
+  "sourceNormalization": {
+    "inputs": [
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/BriefingForm.cs",
+        "canonicalLfSha256": "34f77816fd5a799e8de6e7ee255b77bac4d0e6e409719d65dcec21155593185d",
+        "testedSha256": "deac8ab59289a32e0f1394df8764d0da3d070bab24d98ae265afee0f42899216"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/BriefingForm.Designer.cs",
+        "canonicalLfSha256": "444cb754ada8af8d2713245c92e067cd36ac5d2397ae77a831113b25813cc853",
+        "testedSha256": "e45cd22983e3fc91d41faf81fd571e3a9fb5d2e3896088f7c6c6c93c8e3c0a2a"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/FenDesigner.csproj",
+        "canonicalLfSha256": "bd87c4005ebf647625fc5a611ddec6c74a963a8b4d87433bbcdad9a8bb72dd03",
+        "testedSha256": "03daedc79c93f898137880c97fed3727b6f76d0d8a87802b24d955d4679c1551"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesigner/verification.json",
+        "canonicalLfSha256": "f0d20a8fc539b1b291ae40199b32452b2774e981e0cf1e9aad09c64322ad5a13",
+        "testedSha256": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/BriefingForm.Designer.vb",
+        "canonicalLfSha256": "3addf4a6f97a788e2eee0cc67eb9ec6fd2078fcaba25ede6ad7b34d52375cb0a",
+        "testedSha256": "a60ade233521a3e0512bc1475426c58bf312110c4390db8ae9c7ce59f6f78cc2"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/BriefingForm.vb",
+        "canonicalLfSha256": "30b1f05dace2c6beb3606e5a3c454c9a80e1c3c25af5c1f2184920de657df4bc",
+        "testedSha256": "d16c5b6b6a07a8b8fd018b2407ce83ddfc1d1fd8aaa889517d13161dee4913a7"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/FenDesignerVb.vbproj",
+        "canonicalLfSha256": "1e4afdd43cdbc23f057574a42a69a2ae83bc6f8b5b5a6c76a8d9fe6e7bce63c2",
+        "testedSha256": "d34b9be5cdf28f7cd810ea8f5bccfb09554903eea9643c02620023ba4b3e1039"
+      },
+      {
+        "change": "CRLF to LF only; text and behaviour unchanged",
+        "path": "samples/net11.0/FenDesignerVb/verification.json",
+        "canonicalLfSha256": "f0d20a8fc539b1b291ae40199b32452b2774e981e0cf1e9aad09c64322ad5a13",
+        "testedSha256": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+      }
+    ],
+    "reason": "CI checkout uses repository-required LF, while original authoring used CRLF. Only newline bytes were normalized; source text/behaviour did not change. Original proof hashes and saved-source values remain the identities actually observed. Refreshed verification-evidence.json records compile/run the canonical LF inputs."
+  }
+}

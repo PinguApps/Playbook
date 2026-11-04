@@ -1,0 +1,4 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net11.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms><LangVersion>16.9</LangVersion><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><TreatWarningsAsErrors>true</TreatWarningsAsErrors><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><RootNamespace>FenDesigner</RootNamespace><StartupObject>FenDesigner.EntryPoint</StartupObject><OptionStrict>On</OptionStrict></PropertyGroup><ItemGroup><Compile Update="BriefingForm.vb"><SubType>Form</SubType></Compile><Compile Update="BriefingForm.Designer.vb"><DependentUpon>BriefingForm.vb</DependentUpon></Compile></ItemGroup></Project>
+<!-- endsnippet:complete -->
+
