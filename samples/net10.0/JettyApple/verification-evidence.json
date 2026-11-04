@@ -6,13 +6,13 @@
   "language": "14.0",
   "command": "eng/Test-JettyHandlers.ps1 -Record",
   "scope": "Pinned official source and platform API review only; no native compilation or execution.",
-  "recordedAt": "2026-11-04T19:08:46.4156248+00:00",
-  "sourceCommit": "126d6357aa72ae3af120a3976557b08c474e8876",
+  "recordedAt": "2026-11-04T19:16:37.1407570+00:00",
+  "sourceCommit": "d14fa9fc977c67e2b45df9e65aad5a6ce4a282e6",
   "sourceDirty": true,
   "inputs": {
     "eng/Test-JettyHandlers.ps1": "b4367376a7e2ed3c132a1b60402b2ff0f90e340ee7a611958252abbf1574103b",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/JettyHandlers/sources.json": "2cc423a72ef30b2aab41b5cb0de70fe100ace1c8ef35c4aae9f324dbd4647558",
+    "samples/JettyHandlers/sources.json": "6e67a337f91528c9aaa4bc9e60c6531adf493834359c9623c96bc1fb558dfefe",
     "samples/net10.0/JettyApple/Directory.Build.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
     "samples/net10.0/JettyApple/Directory.Build.targets": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
     "samples/net10.0/JettyApple/Directory.Packages.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
@@ -25,7 +25,7 @@
     "samples/net10.0/JettyApple/Platforms/iOS/Program.cs": "b59891c10c5e58a35167ac4d95b0ae15531e65c98be8e29b0af96517eab0744e",
     "samples/net10.0/JettyApple/Platforms/iOS/SceneDelegate.cs": "fa4135687ad716d966d49783064ab027b38f0a7b4c0f68148ef3ff6cdb187483",
     "samples/net10.0/JettyApple/Resources/AppIcon/appicon.svg": "ef67756b17afbc28be6af06797a6779a494064a41a6423a60f83d1b1cd2bc3f5",
-    "samples/net10.0/JettyApple/verification.json": "0fb8cf90902daa3bcece9341c85eac3bc3cd037f6c763770b2b07832ee865296"
+    "samples/net10.0/JettyApple/verification.json": "bc9a398f1d681b59a59d949b36f627ebaff63a40eb62ee5a1e9e8e8c98172eb9"
   },
   "dependencies": [],
   "workloads": [],
