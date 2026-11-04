@@ -1,0 +1,11 @@
+{
+  "condition": "without",
+  "phase": "scored",
+  "startedUtc": "2026-11-04T23:05:09.4895725+00:00",
+  "endedUtc": "2026-11-04T23:07:45.2360200+00:00",
+  "elapsedSeconds": 155.7301164,
+  "timeout": false,
+  "exitCode": 0,
+  "deadlineSeconds": 600,
+  "promptSha256": "410029BED730F67F4A7C1929B6EAD14ECC8EA00EB4134EDB32A425AE7F567415"
+}

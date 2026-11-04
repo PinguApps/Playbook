@@ -1,0 +1,282 @@
+[
+  {
+    "path": ".pragentignore",
+    "sha256": "031E350358E7E1269606DDB7C0AF9FF4C4BB48BBEE125289BC31B7A2FBAEDE81"
+  },
+  {
+    "path": "README.md",
+    "sha256": "CD0DF008A3314C34F3144888C56834A8D5127B09253669AB540EDE70478EDE0A"
+  },
+  {
+    "path": "Replay.ps1",
+    "sha256": "F7B354C2A0C196B551D3229A3BAD5662A1ECBBCE69E8B57B61528C2BEC5431FE"
+  },
+  {
+    "path": "Verify.ps1",
+    "sha256": "5FD20A975AF4BC61E554853F877FCABE09E15CFA15ED5A6C4EEBB04F0D6B05AE"
+  },
+  {
+    "path": "controls/Baseline.cs.txt",
+    "sha256": "DDCA11A40C923E8C9F8D9AA2622D375D80648B0C1BD4F071D97A3590CE83D0F8"
+  },
+  {
+    "path": "controls/frozen-identity.json",
+    "sha256": "F3FF186B51FEDD981E54F4EC38987706538C7027C1DB5C10C5F00EBD1900279D"
+  },
+  {
+    "path": "controls/host-network.json",
+    "sha256": "A8D2341994C79274592DD1AB0CA90B85C7973C30295C7460AB1F1F2BE4274D3E"
+  },
+  {
+    "path": "controls/oracle-baseline.log",
+    "sha256": "69FB65F5FC77757D0264B539DCE022A61B2F39226B6F9CB2A82E0F76EC170F30"
+  },
+  {
+    "path": "controls/oracle-recapture.json",
+    "sha256": "E7DBBF7992C6464D54328C95B9554DB9AE9BC150BC21FFC715A8B1021DEE4C0A"
+  },
+  {
+    "path": "controls/oracle-reference.log",
+    "sha256": "AB72E89FC441ABCB4F7C6B90C5923C012254C9E4DC411E41D0215E9E667BDD10"
+  },
+  {
+    "path": "controls/oracle-with.log",
+    "sha256": "D1BCF45225CE74DCE5CBFDA1FAFE11A3CB08FDD7467FCA625EEE5A112E258FAC"
+  },
+  {
+    "path": "controls/oracle-without.log",
+    "sha256": "99E3AD40AABDAD44343AF00F8C455253E2F6FC28DBB910F813DC810D344897FA"
+  },
+  {
+    "path": "controls/Oracle.cs.txt",
+    "sha256": "4E03A8B425997C9DA806F8D2AE01974A2466F56EFD572382A68C89D9E5E869AD"
+  },
+  {
+    "path": "controls/path-after.json",
+    "sha256": "04CFC9FC407F07804EF848938A1C35FD554824964F1558504F434197AD558B1A"
+  },
+  {
+    "path": "controls/path-before.json",
+    "sha256": "04CFC9FC407F07804EF848938A1C35FD554824964F1558504F434197AD558B1A"
+  },
+  {
+    "path": "controls/preflight-with.ps1.txt",
+    "sha256": "EF2A20A62759D45F2AFF142E5CFBC756F36E8FC34FD2BD577D902D91A771D2A8"
+  },
+  {
+    "path": "controls/preflight-without.ps1.txt",
+    "sha256": "3084F3937BC8DAB0088D57006B4CF9B8536385F3041FDF44C67660464D5647A6"
+  },
+  {
+    "path": "controls/Reference.cs.txt",
+    "sha256": "D3BFC1A0F055992941CE579CB4B481C038C059BD05E8CB5C7ED443E8FCFAF853"
+  },
+  {
+    "path": "controls/sdk-identity.json",
+    "sha256": "778012B3988FFFA6B4A2FFAE5EC6CC39B59794E2F95BB77DF9CAEA6A80897770"
+  },
+  {
+    "path": "controls/supervisor.ps1.txt",
+    "sha256": "2243625E86F28F0427D9CA215EAE1FD9E51974843EEC83C99CF8A708FEF55743"
+  },
+  {
+    "path": "controls/Test-Oracle.ps1.txt",
+    "sha256": "350A9FF5295FBD6BE7642A496F1000EB4C8BE121E98EE327DF3CF0DCE79B4D4D"
+  },
+  {
+    "path": "controls/tools.json",
+    "sha256": "60F6C8DE3E5C10B0D19624C5CF04B01AD443BAFB3D8B03F0DE5C3F8BAF75988C"
+  },
+  {
+    "path": "with/agent-report.md",
+    "sha256": "DA9D5AFF4527DEFB1E3C4353F8DECD38D4C1E42A9AC889F629B3C49D2EF5A82A"
+  },
+  {
+    "path": "with/config-with.toml",
+    "sha256": "6FB4F51EDCF2DFBA78C31D043F0781D99DF09664BFD0050A42DDE66179C78A4A"
+  },
+  {
+    "path": "with/consultation.json",
+    "sha256": "E9C6751DFF365BFF7C9AB50CD759793D0621F344FA46DF72D40B1CD3C47AB47A"
+  },
+  {
+    "path": "with/input-with.json",
+    "sha256": "3CAEF4F26DB915500C6DA4A07F803F85847AA63CF86E1C65E20F6970E97A4CB2"
+  },
+  {
+    "path": "with/preflight-with.jsonl",
+    "sha256": "B55785F68FF6E2A885F9A9544CA2DE210F9B5403415F2B61FD404CC581111A14"
+  },
+  {
+    "path": "with/preflight-with.stderr",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "with/preflight-with.timing.json",
+    "sha256": "C2DEFE27A6CAB5F0674BCB0A50F9B2F20B2FDB2F644B9737F253501F471BBFD7"
+  },
+  {
+    "path": "with/prompt-with.txt",
+    "sha256": "E5F8BCAAB316D01B6EAE72B185E3B9CF8EC99E22E89762279DDF5F16ECAA89BB"
+  },
+  {
+    "path": "with/scored-with.jsonl",
+    "sha256": "5826AEB190C1CA196F7716BEA343F1F91266C2846ABEDEB143CFD7A3FE053D37"
+  },
+  {
+    "path": "with/scored-with.stderr",
+    "sha256": "479E6FF4C763683FB0EEDA55D1E33B89DAA8F60E3B9EB5C72C3C1CB6DEDDD996"
+  },
+  {
+    "path": "with/scored-with.timing.json",
+    "sha256": "AA01EB45EA54E650DE1C4AA03D1340E5EFB5CB2CC4D45E0B4768A2B6F4ACCCAB"
+  },
+  {
+    "path": "with/submission-manifest.json",
+    "sha256": "9B1A6EBEDD1C9A016B276733926F201F3ACA3FCB56C6132337720AE86A28DF34"
+  },
+  {
+    "path": "with/submission.patch",
+    "sha256": "4601FAD8C6D7C63462D8C7C05706430A94DE799496A521E0C940E1386AD539A8"
+  },
+  {
+    "path": "with/usage.json",
+    "sha256": "28DDF5FF0A1DFE48E03B75E6E7B5676BF5CECA3E6F9E62864E8F4EBA1C71DD89"
+  },
+  {
+    "path": "with/submission/Directory.Build.props.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "with/submission/Directory.Build.targets.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "with/submission/Directory.Packages.props.txt",
+    "sha256": "F522D8864E6C8D712B746F77823E9336BD2CD718E6E9456C277B53BF3320C26F"
+  },
+  {
+    "path": "with/submission/global.json",
+    "sha256": "9D1FC68BD59431178FB44D43D06E7F8D59BBF920D452B46022224FAEC9F9A675"
+  },
+  {
+    "path": "with/submission/NuGet.Config",
+    "sha256": "D240B9AFFA63E3D05D49F0463BC05947ED2FF1D6C97159E1A4CE73FEC946D5EF"
+  },
+  {
+    "path": "with/submission/Program.cs",
+    "sha256": "0370B16865AF64CBB6C7CCF309011BB3C390FDC039B74D4CA19C06C38932C4A0"
+  },
+  {
+    "path": "with/submission/Reconciliation.cs",
+    "sha256": "F768D8B010D97E762303044A38C8AA5F1BC375BB0E995D3A5B2506BD3396040C"
+  },
+  {
+    "path": "with/submission/Task.csproj.txt",
+    "sha256": "189DA4F496A86F967775E2308CC64F1B8A965E80416EA494112491C2E918F4A9"
+  },
+  {
+    "path": "with/submission/TASK.md",
+    "sha256": "410029BED730F67F4A7C1929B6EAD14ECC8EA00EB4134EDB32A425AE7F567415"
+  },
+  {
+    "path": "with/submission/checks/Checks.csproj.txt",
+    "sha256": "9EBF68F7B07596CAA75F1EDE78C3F90F39F80BD4043F33E316DBD79DFE65D0E7"
+  },
+  {
+    "path": "with/submission/checks/Directory.Build.props.txt",
+    "sha256": "FCCFFC00997F2C9F70AAB5D3B3875CAE1AC3A31C74DC6F5486AA664BD9644539"
+  },
+  {
+    "path": "with/submission/checks/Program.cs.txt",
+    "sha256": "ABF99FC88BDEBB6E31DE6912146D4530878B164A8A8F3074A63FAD47BE63E1C3"
+  },
+  {
+    "path": "without/agent-report.md",
+    "sha256": "1C5884BE3470E2BFE2F7EE21ACD877415F279BC8AA10DAAD4687C4A347B74201"
+  },
+  {
+    "path": "without/config-without.toml",
+    "sha256": "2F58A8CB5955C45277166ED6FC2D17492BAFE983503855814A4BE664714578BE"
+  },
+  {
+    "path": "without/input-without.json",
+    "sha256": "3CAEF4F26DB915500C6DA4A07F803F85847AA63CF86E1C65E20F6970E97A4CB2"
+  },
+  {
+    "path": "without/preflight-without.jsonl",
+    "sha256": "2592DBA3424F7D38A8A74CD9173751FAB484438CAA871E959D64657759B8082B"
+  },
+  {
+    "path": "without/preflight-without.stderr",
+    "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+  },
+  {
+    "path": "without/preflight-without.timing.json",
+    "sha256": "3FF8EE86038B290BE826C8B056A09D4A3918F0AE588DC39ED54E18EAFA52A928"
+  },
+  {
+    "path": "without/prompt-without.txt",
+    "sha256": "410029BED730F67F4A7C1929B6EAD14ECC8EA00EB4134EDB32A425AE7F567415"
+  },
+  {
+    "path": "without/scored-without.jsonl",
+    "sha256": "DFF970D7C43683798000505C75921E587E5692B1CB54C8E50286DD6C720DC1DC"
+  },
+  {
+    "path": "without/scored-without.stderr",
+    "sha256": "549426ED7C42B2A096088AF122BF11E040D0948C1B57289490BF6D08C898CC1F"
+  },
+  {
+    "path": "without/scored-without.timing.json",
+    "sha256": "D16F72B0D4C6B1529956CAE9F06F33F1D25AC92FD9D78A4BCBCC72FA70B8AA96"
+  },
+  {
+    "path": "without/submission-manifest.json",
+    "sha256": "B66CB6154C7CF1FACAD3D157971B1C9561D31F9AB8DFC898C2A534404C4B102B"
+  },
+  {
+    "path": "without/submission.patch",
+    "sha256": "1C860C0F9C01BD77621D3CA18A7644DFC9BEFE0928E56E71FE199759DF58CA2C"
+  },
+  {
+    "path": "without/usage.json",
+    "sha256": "7ABB81A79D3EF2FA81B23C52F91983CB69A6DE52D1419DC75C218350A4416978"
+  },
+  {
+    "path": "without/submission/Directory.Build.props.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "without/submission/Directory.Build.targets.txt",
+    "sha256": "5C10E0DCA89D53FA828E2B8AD817F7DDECCB7775BEF36C1E75DBA0D87A103EE6"
+  },
+  {
+    "path": "without/submission/Directory.Packages.props.txt",
+    "sha256": "F522D8864E6C8D712B746F77823E9336BD2CD718E6E9456C277B53BF3320C26F"
+  },
+  {
+    "path": "without/submission/global.json",
+    "sha256": "9D1FC68BD59431178FB44D43D06E7F8D59BBF920D452B46022224FAEC9F9A675"
+  },
+  {
+    "path": "without/submission/NuGet.Config",
+    "sha256": "D240B9AFFA63E3D05D49F0463BC05947ED2FF1D6C97159E1A4CE73FEC946D5EF"
+  },
+  {
+    "path": "without/submission/Program.cs",
+    "sha256": "0370B16865AF64CBB6C7CCF309011BB3C390FDC039B74D4CA19C06C38932C4A0"
+  },
+  {
+    "path": "without/submission/Reconciliation.cs",
+    "sha256": "766EF50C6754919C3AB9FB8EEFAE1ECBC15994AE59FB6B3E8073916EE66A51FC"
+  },
+  {
+    "path": "without/submission/Task.csproj.txt",
+    "sha256": "189DA4F496A86F967775E2308CC64F1B8A965E80416EA494112491C2E918F4A9"
+  },
+  {
+    "path": "without/submission/TASK.md",
+    "sha256": "410029BED730F67F4A7C1929B6EAD14ECC8EA00EB4134EDB32A425AE7F567415"
+  }
+]

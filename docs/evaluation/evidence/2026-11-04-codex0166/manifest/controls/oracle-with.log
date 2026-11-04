@@ -1,0 +1,24 @@
+PASS: matched, left-only, right-only and real zero
+PASS: both empty
+PASS: left empty
+PASS: right empty
+PASS: ordinal case and whitespace
+PASS: permuted inputs
+PASS: duplicate left matched
+PASS: duplicate right matched
+PASS: identical unmatched left duplicates
+PASS: identical unmatched right duplicates
+Failed assertions: 0
+Disposable source retained at C:\Users\pingu\AppData\Local\Temp\manifest-oracle-b02d039d-cdec-4cad-944e-3a0b9a146a86
+
+Welcome to .NET 11.0!
+---------------------
+SDK Version: 11.0.100-rc.3.26522.148
+
+----------------
+Write your first app: https://aka.ms/dotnet-hello-world
+Find out what's new: https://aka.ms/dotnet-whats-new
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------

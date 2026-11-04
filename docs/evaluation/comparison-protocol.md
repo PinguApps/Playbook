@@ -84,6 +84,15 @@ same retained exact-hash Playbook package without rebuilding. This extends the
 relocation permission to this pair; it changes no model, scaffold, budget or
 one-attempt rule. Retain the identity and preflight receipts with grid evidence.
 
+### PIN-954 relocation amendment
+
+Before either manifest scored launch, Pingu approved extending the verified RC3
+SDK relocation to this pair. All 5,467 files in the frozen SDK ZIP match the
+installation at `C:\Users\pingu\AppData\Local\dotnetup\dotnet`; the ZIP hash
+also matches. Both exact-context MXC preflights passed before scoring. The CLI,
+scaffold, retained package, model, budgets and one-attempt rule remain frozen.
+Identity, actual paths and preflight receipts are retained with manifest evidence.
+
 | Runs | Task/export subtree | First | Second |
 | --- | --- | --- | --- |
 | 1–2 | C# outcomes: samples/OutcomeEvaluation | without | with |
