@@ -74,6 +74,16 @@ configuration and passed their MXC preflights before either scored launch. The
 with scored attempt used the installed SDK path before relocation was accepted;
 identity verification and Pingu's conditional amendment preceded the without launch.
 
+### PIN-953 relocation amendment
+
+Before either grid scored launch, Pingu approved using the same relocated SDK
+accepted for PIN-952: C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe.
+Reverify the frozen ZIP and installed file identity, retain actual SDK/server
+paths, and pass both exact-context sandbox preflights before scoring. Extract the
+same retained exact-hash Playbook package without rebuilding. This extends the
+relocation permission to this pair; it changes no model, scaffold, budget or
+one-attempt rule. Retain the identity and preflight receipts with grid evidence.
+
 | Runs | Task/export subtree | First | Second |
 | --- | --- | --- | --- |
 | 1–2 | C# outcomes: samples/OutcomeEvaluation | without | with |
