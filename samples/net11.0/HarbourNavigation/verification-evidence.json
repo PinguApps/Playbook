@@ -6,9 +6,9 @@
   "language": "15.0",
   "command": "eng/Test-HarbourNavigation.ps1 -Record",
   "scope": "Pinned official source and actual Controls.Core RC2 artifact review; not compilation or native execution.",
-  "recordedAt": "2026-11-04T17:36:41.9361305+00:00",
-  "sourceCommit": "fac115aac01111c1177523f4cfa281c1b05ac486",
-  "sourceDirty": true,
+  "recordedAt": "2026-11-04T17:55:47.4036346+00:00",
+  "sourceCommit": "9c33a8bfc1fbe4359a9da20e792a64a7814af218",
+  "sourceDirty": false,
   "inputs": {
     "docs/planning/audits/mobile-baselines.sources.json": "5f78b99d3d2c7f01f384499246584b5a376acaa656cfde357520da85b13f663d",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
