@@ -9,7 +9,7 @@ work; no retry or replacement of either scored attempt is permitted.
 - Client: standalone Codex CLI 0.166.0, gpt-6.1-sol, medium reasoning.
 - Scaffold: `6d53662cdba54551a74b3ade063c49009c63561c`, subtree
   `samples/OutcomeEvaluation`. Both exports have the same nine input-file hashes.
-- SDK: 11.0.100-rc.3.26522.148, net11.0, C#15.0. Microsoft release metadata
+- SDK: 11.0.100-rc.3.26522.148, net11.0, C# 15.0. Microsoft release metadata
   checked on 4 November 2026 still identifies this SDK as latest. The NuGet
   QuickGrid index also still ends at 11.0.0-rc.3.26522.148; no input refresh was needed.
 - Package: retained `PinguApps.Playbook.0.1.0-pin950.nupkg`, SHA-256

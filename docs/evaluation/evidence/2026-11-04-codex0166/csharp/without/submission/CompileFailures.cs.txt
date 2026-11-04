@@ -1,0 +1,16 @@
+using TideSync;
+
+static class CompileFailures
+{
+    static SyncOutcome UnrelatedValue() => "not an outcome";
+
+    static string MissingRejected(SyncOutcome outcome) => outcome.Match<string>(
+        onApplied: _ => "applied",
+        onUnchanged: _ => "unchanged",
+        onAbsent: () => "absent");
+
+    static string MissingAbsence(SyncOutcome outcome) => outcome.Match<string>(
+        onApplied: _ => "applied",
+        onUnchanged: _ => "unchanged",
+        onRejected: _ => "rejected");
+}

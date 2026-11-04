@@ -1,0 +1,210 @@
+diff --git a/artifacts/pin951/original-input/Workflow.cs b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/with/submission/Workflow.cs
+index 618867ea..80d75f43 100644
+--- a/artifacts/pin951/original-input/Workflow.cs
++++ b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/with/submission/Workflow.cs
+@@ -1,16 +1,94 @@
+-namespace TideSync;
+-
+-public sealed record Applied(string Revision);
+-public sealed record Unchanged(string Revision);
+-public sealed record Rejected(string Reason);
+-
+-public static class SyncWorkflow
+-{
+-    // Replace the unbounded object result with a type-safe closed set.
+-    public static object Apply(string revision) => new Applied(revision);
+-    public static object Skip(string revision) => new Unchanged(revision);
+-    public static object Reject(string reason) => new Rejected(reason);
+-    public static string Describe(object? result) => throw new NotImplementedException();
+-    public static string Serialize(object? result) => throw new NotImplementedException();
+-    public static object? Deserialize(string json) => throw new NotImplementedException();
+-}
++using System.Text.Json;
++using System.Text.Json.Serialization;
++
++namespace TideSync;
++
++public sealed record Applied(string Revision);
++public sealed record Unchanged(string Revision);
++public sealed record Rejected(string Reason);
++
++[JsonConverter(typeof(SyncOutcomeConverter))]
++public union SyncOutcome(Applied, Unchanged, Rejected);
++
++public static class SyncWorkflow
++{
++    public static SyncOutcome Apply(string revision) => new Applied(RequirePayload(revision));
++    public static SyncOutcome Skip(string revision) => new Unchanged(RequirePayload(revision));
++    public static SyncOutcome Reject(string reason) => new Rejected(RequirePayload(reason));
++
++    public static string Describe(SyncOutcome result) => result switch
++    {
++        Applied applied => "applied:" + RequirePayload(applied.Revision),
++        Unchanged unchanged => "unchanged:" + RequirePayload(unchanged.Revision),
++        Rejected rejected => "rejected:" + RequirePayload(rejected.Reason),
++        null => "absent"
++    };
++
++    public static string Serialize(SyncOutcome result) => JsonSerializer.Serialize(result);
++    public static SyncOutcome Deserialize(string json) => JsonSerializer.Deserialize<SyncOutcome>(json);
++
++    internal static string RequirePayload(string payload) =>
++        payload ?? throw new ArgumentNullException(nameof(payload));
++}
++
++// A tag is essential: Applied and Unchanged both have a Revision property.
++// Keep validation here so direct JsonSerializer calls use the same strict contract.
++public sealed class SyncOutcomeConverter : JsonConverter<SyncOutcome>
++{
++    public override SyncOutcome Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
++    {
++        if (reader.TokenType == JsonTokenType.Null) return default;
++        using JsonDocument document = JsonDocument.ParseValue(ref reader);
++        JsonElement root = document.RootElement;
++        if (root.ValueKind != JsonValueKind.Object) throw new JsonException("Expected an outcome object or null.");
++
++        var properties = new Dictionary<string, JsonElement>(StringComparer.Ordinal);
++        foreach (JsonProperty property in root.EnumerateObject())
++        {
++            if (!properties.TryAdd(property.Name, property.Value))
++                throw new JsonException("Duplicate outcome property.");
++        }
++
++        if (properties.Count != 2 || !properties.TryGetValue("case", out JsonElement tag) ||
++            tag.ValueKind != JsonValueKind.String)
++            throw new JsonException("Expected exactly a case tag and its payload.");
++
++        string payloadName = tag.GetString() switch
++        {
++            "applied" or "unchanged" => "revision",
++            "rejected" => "reason",
++            _ => throw new JsonException("Unknown outcome case.")
++        };
++        if (!properties.TryGetValue(payloadName, out JsonElement payload) || payload.ValueKind != JsonValueKind.String)
++            throw new JsonException("Expected a non-null string payload for the selected case.");
++
++        return tag.GetString() switch
++        {
++            "applied" => new Applied(payload.GetString()!),
++            "unchanged" => new Unchanged(payload.GetString()!),
++            "rejected" => new Rejected(payload.GetString()!),
++            _ => throw new JsonException("Unknown outcome case.")
++        };
++    }
++
++    public override void Write(Utf8JsonWriter writer, SyncOutcome value, JsonSerializerOptions options)
++    {
++        // An expression makes additions to the union visible to exhaustiveness analysis.
++        (string Tag, string Name, string Payload)? fields = value switch
++        {
++            Applied applied => ("applied", "revision", SyncWorkflow.RequirePayload(applied.Revision)),
++            Unchanged unchanged => ("unchanged", "revision", SyncWorkflow.RequirePayload(unchanged.Revision)),
++            Rejected rejected => ("rejected", "reason", SyncWorkflow.RequirePayload(rejected.Reason)),
++            null => null
++        };
++        if (fields is not { } active)
++        {
++            writer.WriteNullValue();
++            return;
++        }
++        writer.WriteStartObject();
++        writer.WriteString("case", active.Tag);
++        writer.WriteString(active.Name, active.Payload);
++        writer.WriteEndObject();
++    }
++}
+diff --git a/artifacts/pin951/original-input/Program.cs b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/with/submission/Program.cs
+index de9d4d2f..33f95406 100644
+--- a/artifacts/pin951/original-input/Program.cs
++++ b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/with/submission/Program.cs
+@@ -1 +1,89 @@
+-Console.WriteLine("Synchronization outcome task: implement SyncWorkflow in Workflow.cs.");
++using System.Text.Json;
++using TideSync;
++
++static void Equal(string expected, string actual)
++{
++    if (actual != expected) throw new Exception($"Expected {expected}; got {actual}.");
++}
++
++foreach ((SyncOutcome outcome, string expected) in new (SyncOutcome, string)[]
++{
++    (SyncWorkflow.Apply("r17"), "applied:r17"),
++    (SyncWorkflow.Skip("r17"), "unchanged:r17"),
++    (SyncWorkflow.Reject("sensor offline"), "rejected:sensor offline"),
++    (default, "absent")
++})
++{
++    Equal(expected, SyncWorkflow.Describe(outcome));
++    string json = SyncWorkflow.Serialize(outcome);
++    Equal(expected, SyncWorkflow.Describe(SyncWorkflow.Deserialize(json)));
++    Equal(json, SyncWorkflow.Serialize(SyncWorkflow.Deserialize(json)));
++    Console.WriteLine($"{expected} -> {json}");
++}
++Equal("null", SyncWorkflow.Serialize(default));
++Equal("absent", SyncWorkflow.Describe(SyncWorkflow.Deserialize(" \n null \t")));
++
++// Include escaped, Unicode and empty payloads; there is no nonempty domain constraint.
++foreach (string payload in new[] { "", "tide \"A\"\n\\", "marée 🌊" })
++{
++    foreach (SyncOutcome outcome in new[] { SyncWorkflow.Apply(payload), SyncWorkflow.Skip(payload), SyncWorkflow.Reject(payload) })
++        Equal(SyncWorkflow.Describe(outcome), SyncWorkflow.Describe(SyncWorkflow.Deserialize(SyncWorkflow.Serialize(outcome))));
++}
++
++string[] invalid =
++[
++    "", "{", "{}", "[]", "42", "true", "\"applied\"", "null null",
++    """{"revision":"r17"}""",
++    """{"case":"unknown","revision":"r17"}""",
++    """{"case":"Applied","revision":"r17"}""",
++    """{"case":"applied"}""",
++    """{"case":null,"revision":"r17"}""",
++    """{"case":"applied","revision":null}""",
++    """{"case":"unchanged","revision":17}""",
++    """{"case":"rejected","reason":{}}""",
++    """{"case":"rejected","revision":"r17"}""",
++    """{"case":"applied","revision":"r17","reason":"failed"}""",
++    """{"case":"applied","case":"rejected","reason":"failed"}""",
++    """{"case":"applied","revision":"r17","revision":"r18"}""",
++    """{"case":"applied","revision":"r17","extra":true}""",
++    """{"case":"applied","revision":"r17",}"""
++];
++foreach (string json in invalid)
++{
++    try { SyncWorkflow.Deserialize(json); }
++    catch (JsonException) { continue; }
++    throw new Exception("Invalid persisted outcome was accepted: " + json);
++}
++
++// This SDK accepts the missing null arm even though default union storage is possible.
++static string MissingAbsence(SyncOutcome outcome) => outcome switch
++{
++    Applied applied => applied.Revision,
++    Unchanged unchanged => unchanged.Revision,
++    Rejected rejected => rejected.Reason
++};
++bool absenceThrew = false;
++try { MissingAbsence(default); }
++catch (System.Runtime.CompilerServices.SwitchExpressionException)
++{
++    absenceThrew = true;
++    Console.WriteLine("Missing absence arm: SwitchExpressionException (no compiler diagnostic).");
++}
++if (!absenceThrew) throw new Exception("Missing absence arm unexpectedly succeeded.");
++
++// A catch-all suppresses exhaustiveness diagnostics; fail loudly if a caller uses one.
++static string IncompleteCaller(SyncOutcome outcome) => outcome switch
++{
++    Applied applied => applied.Revision,
++    Unchanged unchanged => unchanged.Revision,
++    null => "absent",
++    _ => throw new InvalidOperationException("Caller omitted an outcome case.")
++};
++try { IncompleteCaller(SyncWorkflow.Reject("failed")); }
++catch (InvalidOperationException exception)
++{
++    Console.WriteLine("Missing-case handling: " + exception.Message);
++    Console.WriteLine($"PASS: cases, payloads, absence, JSON round trips and {invalid.Length} invalid inputs.");
++    return;
++}
++throw new Exception("An incomplete caller silently accepted rejection.");

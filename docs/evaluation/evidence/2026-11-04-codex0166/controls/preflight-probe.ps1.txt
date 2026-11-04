@@ -16,5 +16,3 @@ $probe=Join-Path $PSScriptRoot 'build-probe';[IO.Directory]::CreateDirectory($pr
 & 'V:\_worktrees\Playbook\t3-0f031b59\artifacts\protocol\sdk\dotnet.exe' run --project (Join-Path $probe 'Probe.csproj') --no-launch-profile -p:RestoreConfigFile=C:\Users\pingu\AppData\Local\Temp\playbook-comparison-20261104\without/workspace/NuGet.Config -p:RestoreSources= -p:NuGetAudit=false
 if($LASTEXITCODE){throw 'FAIL SDK build/execute'}
 'PREFLIGHT_PASS'
-
-

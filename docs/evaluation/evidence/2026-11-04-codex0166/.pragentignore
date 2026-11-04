@@ -1,3 +1,8 @@
 # Frozen offline package from PIN-950. Hash is checked by Verify.ps1; source identity
 # and applicability remain reviewable in controls and the actual response records.
 /controls/PinguApps.Playbook.0.1.0-pin950.nupkg
+# CLI-owned JSONL captures duplicate tool responses and generated patches. Parent
+# audited actual calls/failures; Verify.ps1 checks hashes, fresh turns, preflight,
+# order/budget and consultation. Submitted source/configs/assessment stay reviewable.
+/csharp/*/scored-*.jsonl
+/csharp/*/preflight-*.jsonl

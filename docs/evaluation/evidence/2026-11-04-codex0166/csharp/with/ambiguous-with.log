@@ -1,0 +1,14 @@
+PASS: matching applied
+PASS: matching unchanged
+PASS: matching rejected
+PASS: persistence applied
+PASS: persistence unchanged
+PASS: persistence rejected
+PASS: default
+PASS: null persistence
+PASS: null restore
+PASS: invalid JSON rejected: {
+PASS: invalid JSON rejected: {}
+PASS: invalid JSON rejected: {"Unknown":true}
+PASS: ambiguous JSON rejected
+Oracle: 0 failed

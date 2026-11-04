@@ -1,0 +1,5 @@
+applied:r17 -> {"case":"applied","revision":"r17"} -> applied:r17
+unchanged:r18 -> {"case":"unchanged","revision":"r18"} -> unchanged:r18
+rejected:station offline -> {"case":"rejected","reason":"station offline"} -> rejected:station offline
+absent -> null -> absent
+Passed 62 checks, including 27 invalid JSON inputs.

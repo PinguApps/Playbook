@@ -1,0 +1,1 @@
+using TideSync; public sealed class Fourth : SyncOutcome { }

@@ -1,5 +1,8 @@
 # C# comparison preparation (PIN-946)
 
+The [4 November paired results](results.md) retain the actual PIN-951 attempts and
+their separate correctness, applicability, consultation and adoption observations.
+
 Current comparison controls: [the owner-approved protocol](../comparison-protocol.md) refreshes these scaffolds to RC3. The RC2 pins and export commits below describe the original preparation only; use the refreshed committed revision for the next comparison.
 
 Evaluator material. Never mount this directory, repository history, recipe sources

@@ -1,0 +1,250 @@
+diff --git a/artifacts/pin951/original-input/Workflow.cs b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/without/submission/Workflow.cs
+index 618867ea..c415ec91 100644
+--- a/artifacts/pin951/original-input/Workflow.cs
++++ b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/without/submission/Workflow.cs
+@@ -1,16 +1,136 @@
+-namespace TideSync;
+-
+-public sealed record Applied(string Revision);
+-public sealed record Unchanged(string Revision);
+-public sealed record Rejected(string Reason);
+-
+-public static class SyncWorkflow
+-{
+-    // Replace the unbounded object result with a type-safe closed set.
+-    public static object Apply(string revision) => new Applied(revision);
+-    public static object Skip(string revision) => new Unchanged(revision);
+-    public static object Reject(string reason) => new Rejected(reason);
+-    public static string Describe(object? result) => throw new NotImplementedException();
+-    public static string Serialize(object? result) => throw new NotImplementedException();
+-    public static object? Deserialize(string json) => throw new NotImplementedException();
+-}
++using System.Text.Json;
++using System.Text.Json.Serialization;
++
++namespace TideSync;
++
++public sealed record Applied(string Revision);
++public sealed record Unchanged(string Revision);
++public sealed record Rejected(string Reason);
++
++[JsonConverter(typeof(SyncOutcomeJsonConverter))]
++public readonly struct SyncOutcome
++{
++    private readonly Applied? applied;
++    private readonly Unchanged? unchanged;
++    private readonly Rejected? rejected;
++
++    private SyncOutcome(Applied value) => applied = value;
++    private SyncOutcome(Unchanged value) => unchanged = value;
++    private SyncOutcome(Rejected value) => rejected = value;
++
++    public static implicit operator SyncOutcome(Applied value)
++    {
++        ArgumentNullException.ThrowIfNull(value);
++        ArgumentNullException.ThrowIfNull(value.Revision);
++        return new(value);
++    }
++
++    public static implicit operator SyncOutcome(Unchanged value)
++    {
++        ArgumentNullException.ThrowIfNull(value);
++        ArgumentNullException.ThrowIfNull(value.Revision);
++        return new(value);
++    }
++
++    public static implicit operator SyncOutcome(Rejected value)
++    {
++        ArgumentNullException.ThrowIfNull(value);
++        ArgumentNullException.ThrowIfNull(value.Reason);
++        return new(value);
++    }
++
++    // Every handler is required, including absence. No public constructor can
++    // create multiple active cases or admit an unrelated value.
++    public T Match<T>(Func<Applied, T> onApplied, Func<Unchanged, T> onUnchanged,
++        Func<Rejected, T> onRejected, Func<T> onAbsent)
++    {
++        ArgumentNullException.ThrowIfNull(onApplied);
++        ArgumentNullException.ThrowIfNull(onUnchanged);
++        ArgumentNullException.ThrowIfNull(onRejected);
++        ArgumentNullException.ThrowIfNull(onAbsent);
++
++        if (applied is not null) return onApplied(applied);
++        if (unchanged is not null) return onUnchanged(unchanged);
++        if (rejected is not null) return onRejected(rejected);
++        return onAbsent();
++    }
++}
++
++public sealed class SyncOutcomeJsonConverter : JsonConverter<SyncOutcome>
++{
++    public override bool HandleNull => true;
++
++    public override SyncOutcome Read(ref Utf8JsonReader reader, Type typeToConvert,
++        JsonSerializerOptions options)
++    {
++        if (reader.TokenType == JsonTokenType.Null) return default;
++        using var document = JsonDocument.ParseValue(ref reader);
++        if (document.RootElement.ValueKind != JsonValueKind.Object)
++            throw new JsonException("Expected an outcome object or null.");
++
++        var properties = new Dictionary<string, JsonElement>(StringComparer.Ordinal);
++        foreach (var property in document.RootElement.EnumerateObject())
++        {
++            if (!properties.TryAdd(property.Name, property.Value))
++                throw new JsonException($"Duplicate property: {property.Name}.");
++        }
++
++        if (properties.Count != 2 || !properties.TryGetValue("case", out var caseElement)
++            || caseElement.ValueKind != JsonValueKind.String)
++            throw new JsonException("Expected exactly a case and its payload.");
++
++        var caseName = caseElement.GetString();
++        var payloadName = caseName switch
++        {
++            "applied" or "unchanged" => "revision",
++            "rejected" => "reason",
++            _ => throw new JsonException("Unknown outcome case.")
++        };
++        if (!properties.TryGetValue(payloadName, out var payload)
++            || payload.ValueKind != JsonValueKind.String)
++            throw new JsonException($"Expected a string {payloadName}.");
++
++        var value = payload.GetString()!;
++        return caseName switch
++        {
++            "applied" => new Applied(value),
++            "unchanged" => new Unchanged(value),
++            "rejected" => new Rejected(value),
++            _ => throw new JsonException("Unknown outcome case.")
++        };
++    }
++
++    public override void Write(Utf8JsonWriter writer, SyncOutcome value,
++        JsonSerializerOptions options)
++    {
++        value.Match(
++            applied => WriteCase(writer, "applied", "revision", applied.Revision),
++            unchanged => WriteCase(writer, "unchanged", "revision", unchanged.Revision),
++            rejected => WriteCase(writer, "rejected", "reason", rejected.Reason),
++            () => { writer.WriteNullValue(); return true; });
++    }
++
++    private static bool WriteCase(Utf8JsonWriter writer, string caseName,
++        string payloadName, string payload)
++    {
++        writer.WriteStartObject();
++        writer.WriteString("case", caseName);
++        writer.WriteString(payloadName, payload);
++        writer.WriteEndObject();
++        return true;
++    }
++}
++
++public static class SyncWorkflow
++{
++    public static SyncOutcome Apply(string revision) => new Applied(revision);
++    public static SyncOutcome Skip(string revision) => new Unchanged(revision);
++    public static SyncOutcome Reject(string reason) => new Rejected(reason);
++    public static string Describe(SyncOutcome result) => result.Match(
++        applied => $"applied:{applied.Revision}",
++        unchanged => $"unchanged:{unchanged.Revision}",
++        rejected => $"rejected:{rejected.Reason}",
++        () => "absent");
++    public static string Serialize(SyncOutcome result) => JsonSerializer.Serialize(result);
++    public static SyncOutcome Deserialize(string json) => JsonSerializer.Deserialize<SyncOutcome>(json);
++}
+diff --git a/artifacts/pin951/original-input/Program.cs b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/without/submission/Program.cs
+index de9d4d2f..696755a4 100644
+--- a/artifacts/pin951/original-input/Program.cs
++++ b/docs/evaluation/evidence/2026-11-04-codex0166/csharp/without/submission/Program.cs
+@@ -1 +1,87 @@
+-Console.WriteLine("Synchronization outcome task: implement SyncWorkflow in Workflow.cs.");
++using System.Text.Json;
++using TideSync;
++
++var checks = 0;
++void Equal<T>(T expected, T actual)
++{
++    checks++;
++    if (!EqualityComparer<T>.Default.Equals(expected, actual))
++        throw new Exception($"Expected {expected}, got {actual}.");
++}
++void Throws<T>(Action action) where T : Exception
++{
++    checks++;
++    try { action(); }
++    catch (T) { return; }
++    throw new Exception($"Expected {typeof(T).Name}.");
++}
++
++(SyncOutcome Outcome, string Description)[] examples =
++[
++    (SyncWorkflow.Apply("r17"), "applied:r17"),
++    (SyncWorkflow.Skip("r18"), "unchanged:r18"),
++    (SyncWorkflow.Reject("station offline"), "rejected:station offline"),
++    (default, "absent")
++];
++foreach (var (outcome, description) in examples)
++{
++    Equal(description, SyncWorkflow.Describe(outcome));
++    var json = SyncWorkflow.Serialize(outcome);
++    var restored = SyncWorkflow.Deserialize(json);
++    Equal(description, SyncWorkflow.Describe(restored));
++    Equal(outcome, restored);
++    Equal(json, JsonSerializer.Serialize(restored));
++    Console.WriteLine($"{description} -> {json} -> {SyncWorkflow.Describe(restored)}");
++}
++Equal("null", SyncWorkflow.Serialize(default));
++Equal("absent", SyncWorkflow.Describe(SyncWorkflow.Deserialize(" null ")));
++Equal("absent", SyncWorkflow.Describe(new SyncOutcome()));
++
++// Check payload preservation, including empty strings and JSON escaping.
++foreach (var payload in new[] { "", "quote\" slash\\ newline\n tide \u6f6e \ud83c\udf0a" })
++{
++    foreach (var outcome in new[] { SyncWorkflow.Apply(payload), SyncWorkflow.Skip(payload), SyncWorkflow.Reject(payload) })
++        Equal(outcome, SyncWorkflow.Deserialize(SyncWorkflow.Serialize(outcome)));
++}
++Equal("applied:r1", SyncWorkflow.Describe(SyncWorkflow.Deserialize("{\"revision\":\"r1\",\"case\":\"applied\"}")));
++
++string[] invalid =
++[
++    "", " ", "{", "null null", "[]", "true", "42", "\"applied\"", "{}",
++    "{\"case\":\"unknown\",\"revision\":\"r1\"}",
++    "{\"case\":\"Applied\",\"revision\":\"r1\"}",
++    "{\"case\":null,\"revision\":\"r1\"}",
++    "{\"case\":1,\"revision\":\"r1\"}",
++    "{\"case\":\"applied\"}",
++    "{\"revision\":\"r1\"}",
++    "{\"case\":\"applied\",\"revision\":null}",
++    "{\"case\":\"applied\",\"revision\":5}",
++    "{\"case\":\"unchanged\",\"revision\":[]}",
++    "{\"case\":\"rejected\",\"reason\":null}",
++    "{\"case\":\"rejected\",\"revision\":\"r1\"}",
++    "{\"case\":\"applied\",\"reason\":\"failure\"}",
++    "{\"case\":\"applied\",\"revision\":\"r1\",\"reason\":\"failure\"}",
++    "{\"case\":\"applied\",\"case\":\"rejected\",\"revision\":\"r1\"}",
++    "{\"case\":\"applied\",\"revision\":\"r1\",\"revision\":\"r2\"}",
++    "{\"case\":\"applied\",\"revision\":\"r1\",\"extra\":true}",
++    "{\"case\":\"applied\",\"revision\":\"r1\",}",
++    "{/*comment*/\"case\":\"applied\",\"revision\":\"r1\"}"
++];
++foreach (var json in invalid)
++    Throws<JsonException>(() => SyncWorkflow.Deserialize(json));
++
++Throws<ArgumentNullException>(() => SyncWorkflow.Apply(null!));
++Throws<ArgumentNullException>(() => SyncWorkflow.Skip(null!));
++Throws<ArgumentNullException>(() => SyncWorkflow.Reject(null!));
++Throws<ArgumentNullException>(() => { SyncOutcome outcome = (Applied)null!; });
++Throws<ArgumentNullException>(() => { SyncOutcome outcome = (Unchanged)null!; });
++Throws<ArgumentNullException>(() => { SyncOutcome outcome = (Rejected)null!; });
++Throws<ArgumentNullException>(() => examples[0].Outcome.Match(
++    _ => "applied", _ => "unchanged", (Func<Rejected, string>)null!, () => "absent"));
++
++// All four handlers are mandatory; rejection and absence have distinct paths.
++Equal("failure:blocked", SyncWorkflow.Reject("blocked").Match(
++    _ => "success", _ => "unchanged", r => $"failure:{r.Reason}", () => "missing"));
++Equal("missing", default(SyncOutcome).Match(
++    _ => "success", _ => "unchanged", _ => "failure", () => "missing"));
++Console.WriteLine($"Passed {checks} checks, including {invalid.Length} invalid JSON inputs.");

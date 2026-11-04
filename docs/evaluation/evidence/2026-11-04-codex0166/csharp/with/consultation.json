@@ -1,0 +1,696 @@
+[
+  {
+    "tool": "list_recipes",
+    "arguments": {
+      "targetVersion": "11",
+      "query": "union"
+    },
+    "status": "completed",
+    "resolvedTarget": "11.0",
+    "recipes": [
+      {
+        "id": "blazor.accept-alternative-parameter-shapes",
+        "title": "Offer one component setting for alternative UI values",
+        "goal": "Accept text or markup through one Blazor parameter; transfer only JSON data.",
+        "edition": "11.0",
+        "applicability": {
+          "routes": [
+            {
+              "target": "11.0",
+              "sharedAreas": [],
+              "neutralLanguages": [],
+              "conditional": false,
+              "usage": "primary",
+              "selectionNotes": [
+                "C# 15; Blazor/Razor; fragments differ from JSON data."
+              ],
+              "requirements": {
+                "runtime": {
+                  "name": ".NET",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "sdk": {
+                  "name": ".NET SDK",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "language": {
+                  "name": "C#",
+                  "version": "15.0",
+                  "match": "exact"
+                },
+                "frameworks": [
+                  "ASP.NET Core 11"
+                ],
+                "packages": [],
+                "workloads": [],
+                "packageAssets": [
+                  "SDK Internal.Assets 11"
+                ],
+                "providers": [],
+                "platforms": [
+                  "ASP.NET Core server"
+                ],
+                "renderingModes": [
+                  "SSR; Interactive Server"
+                ],
+                "optIns": [],
+                "stabilityLimitations": [
+                  "RC2; GA reconciliation pending."
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "csharp.closed-results",
+        "title": "Model distinct outcomes with a C# union",
+        "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+        "edition": "11.0",
+        "applicability": {
+          "routes": [
+            {
+              "target": "11.0",
+              "sharedAreas": [
+                "blazor",
+                "aspnetcore",
+                "wpf",
+                "winforms",
+                "maui"
+              ],
+              "neutralLanguages": [],
+              "conditional": false,
+              "usage": "primary",
+              "selectionNotes": [
+                "Handle null/default explicitly.",
+                "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+              ],
+              "requirements": {
+                "runtime": {
+                  "name": ".NET",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "sdk": {
+                  "name": ".NET SDK",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "language": {
+                  "name": "C#",
+                  "version": "15.0",
+                  "match": "exact"
+                },
+                "frameworks": [],
+                "packages": [],
+                "workloads": [],
+                "packageAssets": [],
+                "providers": [],
+                "platforms": [
+                  "Any platform supported by .NET 11"
+                ],
+                "renderingModes": [],
+                "optIns": [],
+                "stabilityLimitations": [
+                  "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "fsharp.format-without-reflection",
+        "title": "Render record and union diagnostics without reflection formatting",
+        "goal": "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application.",
+        "edition": "11.0",
+        "applicability": {
+          "routes": [
+            {
+              "target": "11.0",
+              "sharedAreas": [
+                "blazor",
+                "aspnetcore",
+                "wpf",
+                "winforms",
+                "maui"
+              ],
+              "neutralLanguages": [],
+              "conditional": false,
+              "usage": "primary",
+              "selectionNotes": [
+                "Use generated record and union ToString implementations with --reflectionfree when diagnostics need field values in a trimming-conscious F# application."
+              ],
+              "requirements": {
+                "runtime": {
+                  "name": ".NET",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "sdk": {
+                  "name": ".NET SDK",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "language": {
+                  "name": "F#",
+                  "version": "11.0",
+                  "match": "exact"
+                },
+                "frameworks": [],
+                "packages": [
+                  {
+                    "name": "FSharp.Core",
+                    "version": "11.0",
+                    "match": "release-family"
+                  }
+                ],
+                "workloads": [],
+                "packageAssets": [
+                  "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package"
+                ],
+                "providers": [],
+                "platforms": [
+                  "Any platform supported by .NET 11"
+                ],
+                "renderingModes": [],
+                "optIns": [
+                  "OtherFlags=--reflectionfree"
+                ],
+                "stabilityLimitations": [
+                  "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required."
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "interop.match-native-c-layout",
+        "title": "Match native C structure and union layouts",
+        "goal": "Match a C struct or union when exchanging native aggregates; use runtime C layout on .NET 11 and verify size, alignment and offsets against the actual target ABI before calling native code.",
+        "edition": "11.0",
+        "applicability": {
+          "routes": [
+            {
+              "target": "11.0",
+              "sharedAreas": [],
+              "neutralLanguages": [],
+              "conditional": false,
+              "usage": "primary",
+              "selectionNotes": [
+                "C layout is ABI-specific; validate against the actual native compiler, packing options and architecture.",
+                "Explicit older offsets remain valid for their stated ABI. Incorrect layouts are rejected without native invocation.",
+                "Union fields overlap; read only the member whose interpretation the native protocol defines. No ownership or marshalling is inferred."
+              ],
+              "requirements": {
+                "runtime": {
+                  "name": ".NET",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "sdk": {
+                  "name": ".NET SDK",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "language": {
+                  "name": "C#",
+                  "version": "15.0",
+                  "match": "exact"
+                },
+                "frameworks": [
+                  "Microsoft.NETCore.App 11 shared framework"
+                ],
+                "packages": [],
+                "workloads": [],
+                "packageAssets": [
+                  "Framework references/runtime; no new managed NuGet dependency."
+                ],
+                "providers": [
+                  "No provider selection."
+                ],
+                "platforms": [
+                  "Measured Windows x64 CoreCLR, MSVC 19.51.36260.0/linker14.51.36260.0; no universal ABI, Unix, Arm, Mono or AOT claim."
+                ],
+                "renderingModes": [],
+                "optIns": [],
+                "stabilityLimitations": [
+                  "Actual RC2 verification, not final-GA proof; PIN-962 and PIN-959 remain open."
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "json.serialize-closed-results",
+        "title": "Preserve a union's distinct cases through JSON",
+        "goal": "Persist and restore C# union outcomes with generated metadata and deliberate case selection. Apply structural classification when required root property names distinguish object payloads.",
+        "edition": "11.0",
+        "applicability": {
+          "routes": [
+            {
+              "target": "11.0",
+              "sharedAreas": [
+                "blazor",
+                "aspnetcore",
+                "wpf",
+                "winforms",
+                "maui"
+              ],
+              "neutralLanguages": [],
+              "conditional": false,
+              "usage": "primary",
+              "selectionNotes": [
+                "Handle null/default explicitly.",
+                "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+              ],
+              "requirements": {
+                "runtime": {
+                  "name": ".NET",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "sdk": {
+                  "name": ".NET SDK",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "language": {
+                  "name": "C#",
+                  "version": "15.0",
+                  "match": "exact"
+                },
+                "frameworks": [],
+                "packages": [],
+                "workloads": [],
+                "packageAssets": [],
+                "providers": [],
+                "platforms": [
+                  "Any platform supported by .NET 11"
+                ],
+                "renderingModes": [],
+                "optIns": [],
+                "stabilityLimitations": [
+                  "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "json.serialize-fsharp-unions",
+        "title": "Round-trip F# union values with built-in JSON support",
+        "goal": "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+        "edition": "11.0",
+        "applicability": {
+          "routes": [
+            {
+              "target": "11.0",
+              "sharedAreas": [
+                "blazor",
+                "aspnetcore",
+                "wpf",
+                "winforms",
+                "maui"
+              ],
+              "neutralLanguages": [],
+              "conditional": false,
+              "usage": "primary",
+              "selectionNotes": [
+                "Use built-in reflection-based System.Text.Json serialization when F# union cases and payload values must round-trip in an untrimmed JIT application.",
+                "Reflection-only; no source generation, trimming or Native AOT."
+              ],
+              "requirements": {
+                "runtime": {
+                  "name": ".NET",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "sdk": {
+                  "name": ".NET SDK",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "language": {
+                  "name": "F#",
+                  "version": "11.0",
+                  "match": "exact"
+                },
+                "frameworks": [],
+                "packages": [
+                  {
+                    "name": "FSharp.Core",
+                    "version": "11.0",
+                    "match": "release-family"
+                  }
+                ],
+                "workloads": [],
+                "packageAssets": [
+                  "FSharp.Core lib/net10.0/FSharp.Core.dll selected for net11.0; see evidence for the exact verified package",
+                  "System.Text.Json 11.0.0-rc.2.26504.105 from Microsoft.NETCore.App; framework asset, no separate package"
+                ],
+                "providers": [],
+                "platforms": [
+                  "Any platform supported by .NET 11"
+                ],
+                "renderingModes": [],
+                "optIns": [],
+                "stabilityLimitations": [
+                  "Verified using .NET 11 RC2 artifacts only; GA reconciliation remains required."
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "web.accept-union-payloads",
+        "title": "Accept several JSON body shapes through one explicit contract",
+        "goal": "Use a C# 15 native union and a JSON structural classifier when one body contract permits distinct object shapes across Minimal APIs, MVC or the SignalR JSON protocol.",
+        "edition": "11.0",
+        "applicability": {
+          "routes": [
+            {
+              "target": "11.0",
+              "sharedAreas": [],
+              "neutralLanguages": [],
+              "conditional": false,
+              "usage": "primary",
+              "selectionNotes": [
+                "Use a C# 15 native union and a JSON structural classifier when one body contract permits distinct object shapes across Minimal APIs, MVC or the SignalR JSON protocol.",
+                "Minimal API/MVC JSON bodies and SignalR JsonHubProtocol only. Do not apply this binding to route/query/header/form values, MessagePack or Newtonsoft.Json protocols."
+              ],
+              "requirements": {
+                "runtime": {
+                  "name": ".NET",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "sdk": {
+                  "name": ".NET SDK",
+                  "version": "11.0",
+                  "match": "release-family"
+                },
+                "language": {
+                  "name": "C#",
+                  "version": "15.0",
+                  "match": "exact"
+                },
+                "frameworks": [
+                  "ASP.NET Core Minimal APIs, MVC and SignalR JSON"
+                ],
+                "packages": [],
+                "workloads": [],
+                "packageAssets": [
+                  "Microsoft.AspNetCore.App and System.Text.Json net11.0 framework/reference assets; no additional package."
+                ],
+                "providers": [
+                  "System.Text.Json structural classifier and real ASP.NET Core endpoints; no data provider."
+                ],
+                "platforms": [
+                  "ASP.NET Core supported server platforms; execution measured on Windows x64 only."
+                ],
+                "renderingModes": [
+                  "Server HTTP APIs; no Blazor rendering mode required."
+                ],
+                "optIns": [],
+                "stabilityLimitations": [
+                  "The .NET 11 baseline is RC2, not GA verification. Final release artifacts must be reconciled separately."
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "tool": "get_recipe",
+    "arguments": {
+      "targetVersion": "11",
+      "id": "json.serialize-closed-results"
+    },
+    "status": "completed",
+    "resolvedTarget": "11.0",
+    "recipes": {
+      "id": "json.serialize-closed-results",
+      "title": "Preserve a union's distinct cases through JSON",
+      "goal": "Persist and restore C# union outcomes with generated metadata and deliberate case selection. Apply structural classification when required root property names distinguish object payloads.",
+      "edition": "11.0",
+      "applicability": {
+        "routes": [
+          {
+            "target": "11.0",
+            "sharedAreas": [
+              "blazor",
+              "aspnetcore",
+              "wpf",
+              "winforms",
+              "maui"
+            ],
+            "neutralLanguages": [],
+            "conditional": false,
+            "usage": "primary",
+            "selectionNotes": [
+              "Handle null/default explicitly.",
+              "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+            ],
+            "requirements": {
+              "runtime": {
+                "name": ".NET",
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "The union and closed-family runtime contracts are supplied by .NET 11."
+              },
+              "sdk": {
+                "name": ".NET SDK",
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "Compile the net11.0 application with the SDK family providing C# 15 and matching reference assemblies."
+              },
+              "language": {
+                "name": "C#",
+                "version": "15.0",
+                "match": "exact",
+                "reason": "This route uses C# 15 union and closed declarations, stabilized in the canonical RC1 notes."
+              },
+              "frameworks": [],
+              "packages": [],
+              "workloads": [],
+              "packageAssets": [],
+              "providers": [],
+              "platforms": [
+                "Any platform supported by .NET 11"
+              ],
+              "renderingModes": [],
+              "prerequisites": [
+                "Target net11.0 and set LangVersion to 15.0; use framework System.Text.Json and the supplied metadata contexts."
+              ],
+              "constraints": [
+                "Default union storage has no active case; handle null explicitly.",
+                "Two object cases require deliberate classification; root-property matching does not inspect values or nested content.",
+                "Structural classification excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+              ],
+              "optIns": [],
+              "stabilityLimitations": [
+                "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+              ]
+            },
+            "sourceUrls": [
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed",
+              "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
+              "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
+              "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+            ],
+            "evidenceSamples": [
+              "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "tool": "get_recipe",
+    "arguments": {
+      "targetVersion": "11",
+      "id": "csharp.closed-results"
+    },
+    "status": "completed",
+    "resolvedTarget": "11.0",
+    "recipes": {
+      "id": "csharp.closed-results",
+      "title": "Model distinct outcomes with a C# union",
+      "goal": "Use a C# 15 union when an operation returns one of several unrelated payload types and callers must handle every case, including unassigned storage.",
+      "edition": "11.0",
+      "applicability": {
+        "routes": [
+          {
+            "target": "11.0",
+            "sharedAreas": [
+              "blazor",
+              "aspnetcore",
+              "wpf",
+              "winforms",
+              "maui"
+            ],
+            "neutralLanguages": [],
+            "conditional": false,
+            "usage": "primary",
+            "selectionNotes": [
+              "Handle null/default explicitly.",
+              "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+            ],
+            "requirements": {
+              "runtime": {
+                "name": ".NET",
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "The union and closed-family runtime contracts are supplied by .NET 11."
+              },
+              "sdk": {
+                "name": ".NET SDK",
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "Compile the net11.0 application with the SDK family providing C# 15 and matching reference assemblies."
+              },
+              "language": {
+                "name": "C#",
+                "version": "15.0",
+                "match": "exact",
+                "reason": "This route uses C# 15 union and closed declarations, stabilized in the canonical RC1 notes."
+              },
+              "frameworks": [],
+              "packages": [],
+              "workloads": [],
+              "packageAssets": [],
+              "providers": [],
+              "platforms": [
+                "Any platform supported by .NET 11"
+              ],
+              "renderingModes": [],
+              "prerequisites": [
+                "Target net11.0 and set LangVersion to 15.0; use framework System.Text.Json and the supplied metadata contexts."
+              ],
+              "constraints": [
+                "Default union storage has no active case; handle null explicitly.",
+                "Two object cases require deliberate classification; root-property matching does not inspect values or nested content.",
+                "Structural classification excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+              ],
+              "optIns": [],
+              "stabilityLimitations": [
+                "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+              ]
+            },
+            "sourceUrls": [
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed",
+              "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
+              "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
+              "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+            ],
+            "evidenceSamples": [
+              "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "tool": "get_recipe",
+    "arguments": {
+      "targetVersion": "11",
+      "id": "json.serialize-closed-results"
+    },
+    "status": "completed",
+    "resolvedTarget": "11.0",
+    "recipes": {
+      "id": "json.serialize-closed-results",
+      "title": "Preserve a union's distinct cases through JSON",
+      "goal": "Persist and restore C# union outcomes with generated metadata and deliberate case selection. Apply structural classification when required root property names distinguish object payloads.",
+      "edition": "11.0",
+      "applicability": {
+        "routes": [
+          {
+            "target": "11.0",
+            "sharedAreas": [
+              "blazor",
+              "aspnetcore",
+              "wpf",
+              "winforms",
+              "maui"
+            ],
+            "neutralLanguages": [],
+            "conditional": false,
+            "usage": "primary",
+            "selectionNotes": [
+              "Handle null/default explicitly.",
+              "Object cases need an unambiguous classifier; structural matching excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+            ],
+            "requirements": {
+              "runtime": {
+                "name": ".NET",
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "The union and closed-family runtime contracts are supplied by .NET 11."
+              },
+              "sdk": {
+                "name": ".NET SDK",
+                "version": "11.0",
+                "match": "release-family",
+                "reason": "Compile the net11.0 application with the SDK family providing C# 15 and matching reference assemblies."
+              },
+              "language": {
+                "name": "C#",
+                "version": "15.0",
+                "match": "exact",
+                "reason": "This route uses C# 15 union and closed declarations, stabilized in the canonical RC1 notes."
+              },
+              "frameworks": [],
+              "packages": [],
+              "workloads": [],
+              "packageAssets": [],
+              "providers": [],
+              "platforms": [
+                "Any platform supported by .NET 11"
+              ],
+              "renderingModes": [],
+              "prerequisites": [
+                "Target net11.0 and set LangVersion to 15.0; use framework System.Text.Json and the supplied metadata contexts."
+              ],
+              "constraints": [
+                "Default union storage has no active case; handle null explicitly.",
+                "Two object cases require deliberate classification; root-property matching does not inspect values or nested content.",
+                "Structural classification excludes nested unions, polymorphic cases and ReferenceHandler.Preserve."
+              ],
+              "optIns": [],
+              "stabilityLimitations": [
+                "Verified using .NET 11 RC2 artifacts only; GA reconciliation is pending."
+              ]
+            },
+            "sourceUrls": [
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/union",
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/closed",
+              "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/union-types",
+              "https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/polymorphism",
+              "https://github.com/dotnet/core/blob/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/rc1/csharp.md",
+              "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-versioning"
+            ],
+            "evidenceSamples": [
+              "samples/net11.0/ClosedOutcomes/ClosedOutcomes.csproj"
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

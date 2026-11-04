@@ -1,0 +1,18 @@
+# Synchronization outcomes
+
+A tidal survey station synchronizes observations. Its three existing result records
+are unrelated: Applied, Unchanged and Rejected. Replace the unbounded object result
+with a type-safe closed set and simplify callers. Preserve the records and the
+SyncWorkflow method names and arguments; change result types as needed.
+
+Describe each result as `applied:<revision>`, `unchanged:<revision>` or
+`rejected:<reason>`. Persist and restore every case and payload as JSON. Treat an
+absent/default result explicitly as `absent`; it must round trip through JSON null.
+Reject unknown, ambiguous and malformed persisted inputs. Do not silently map a
+failed result to success. Unrelated values must not be accepted as outcomes.
+
+Demonstrate all three cases, persistence and missing-case handling. Explain any
+compiler limitations honestly. Keep the pinned SDK, framework and language settings.
+No extra packages are needed. Any implementation satisfying these behaviors is
+acceptable. You have ten minutes including your own checks; report what ran and
+anything unfinished. Do not seek follow-up corrections.

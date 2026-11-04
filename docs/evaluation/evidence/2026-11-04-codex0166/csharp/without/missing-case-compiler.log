@@ -1,0 +1,4 @@
+C:\Users\pingu\AppData\Local\Temp\playbook-pin951-evaluation-without\CompileFailures.cs.txt(5,44): error CS0029: Cannot implicitly convert type 'string' to 'TideSync.SyncOutcome'
+C:\Users\pingu\AppData\Local\Temp\playbook-pin951-evaluation-without\CompileFailures.cs.txt(7,67): error CS7036: There is no argument given that corresponds to the required parameter 'onRejected' of 'SyncOutcome.Match<T>(Func<Applied, T>, Func<Unchanged, T>, Func<Rejected, T>, Func<T>)'
+C:\Users\pingu\AppData\Local\Temp\playbook-pin951-evaluation-without\CompileFailures.cs.txt(12,66): error CS7036: There is no argument given that corresponds to the required parameter 'onAbsent' of 'SyncOutcome.Match<T>(Func<Applied, T>, Func<Unchanged, T>, Func<Rejected, T>, Func<T>)'
+Passed compiler rejection checks for unrelated values and missing handlers.
