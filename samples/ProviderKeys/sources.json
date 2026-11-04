@@ -1,0 +1,36 @@
+{
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "adb14229c9a2cdd8e24cfddb5c6c40e8a1fd39b9514cf143e487f107c02ac5df"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+      "sha256": "2b467fbbc9becdbf58c07e71304d65ec3e6dffb931a6a8fa84d88d54ad33ab74"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+      "sha256": "6216b36bfc23f00277e940dff5d033da9cd4186f61acd54c8cf3262a6cf58e73"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c",
+      "sha256": "c239f5f98ada8f143c18fc2e93760f38e4acb5c200b3c611cfda093368c778cb"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/ref/System.Security.Cryptography.cs",
+      "sha256": "1c65691229ae9e41e823bb65951ddc888fdf7abe16b7a0f4387297190288cb66"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Net.Http/ref/System.Net.Http.cs",
+      "sha256": "5794c590c72138c9ebf598a4f1a2471bba1ff48510d2855f75a096fe238d1198"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Security.Cryptography/src/System/Security/Cryptography/SafeEvpPKeyHandle.OpenSsl.cs",
+      "sha256": "7bce2bbfbbe42f4c3e53aedb38fc59318bea20d364edbbbeb0e356afa2962f68"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/native/libs/System.Security.Cryptography.Native/pal_evp_pkey.c",
+      "sha256": "a887ff22e590ede1d7b9249e3870a32a0fd4bf160ef4a95a3413d708a7608781"
+    }
+  ]
+}

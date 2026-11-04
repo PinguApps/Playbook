@@ -586,3 +586,13 @@
 # Record-Evidence generated SDK/build/input receipt; review SignalDeck sources,
 # pins and lock; content generation validates freshness and installed list/get.
 /samples/net10.0/SignalDeck/verification-evidence.json
+
+# Test-ProviderRequests/Record-Evidence generated receipts; review sources, pins, locks and runner.
+/samples/net10.0/RookeryKeys/verification-evidence.json
+/samples/net10.0/RookeryProperty/verification-evidence.json
+/samples/net10.0/MoorlandReports/verification-evidence.json
+/samples/net10.0/RookeryKeys/provider.evidence.json
+/samples/net11.0/RookeryKeys/verification-evidence.json
+/samples/net11.0/RookeryProperty/verification-evidence.json
+/samples/net11.0/MoorlandReports/verification-evidence.json
+/samples/net11.0/RookeryKeys/provider.evidence.json

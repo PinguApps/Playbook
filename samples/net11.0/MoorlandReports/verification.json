@@ -1,0 +1,15 @@
+{
+  "additionalInputs": [
+    "samples/MobileRequests/RequestChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "samples/MobileRequests/PlatformProbe.cs",
+    "eng/Test-ProviderRequests.ps1",
+    "samples/ProviderKeys/sources.json",
+    "docs/planning/audits/runtime-security.assets.json",
+    "samples/MobileRequests/.editorconfig"
+  ],
+  "dependencies": [],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}
