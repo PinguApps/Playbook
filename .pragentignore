@@ -647,3 +647,6 @@
 /samples/net11.0/FleetDesign/verification-evidence.json
 /samples/net10.0/FleetTooling/verification-evidence.json
 /samples/net11.0/FleetTooling/verification-evidence.json
+# Record-Evidence WrenTracking receipts; canonical consumers, locks, manifests and runner remain reviewable.
+/samples/net10.0/WrenTracking/verification-evidence.json
+/samples/net11.0/WrenTracking/verification-evidence.json

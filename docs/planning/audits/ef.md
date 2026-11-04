@@ -825,3 +825,32 @@ reads retain each tenant when history includes archived rows. EF9 uses a context
 switch; EF10 disables only the named archival filter. Disabling all filters exposes
 all four fixture rows. Neither approach is authorization or write protection.
 Goal/edition identities stay stable; PIN-965/PIN-959 reconciliation remains separate.
+
+## Known states, pooled configuration and unread scalars — PIN-1189/1191/1192
+
+Original WrenTracking consumers deliver E1/E3/E4 as
+`ef.select-known-tracked-states/11.0`, `ef.reuse-pooled-factory-configuration/11.0`
+and `ef.preserve-unloaded-scalar-values/11.0`. The exact independently locked
+SDK10.0.402/EF10.0.13 and SDK11 RC2/EF11 RC2 consumers compile and execute real
+Windows x64 bundled SQLite3.53.3/3.53.4. The older equivalents remain valid:
+materialized Entries filtering with detection temporarily disabled/restored,
+a required empty pooled-factory callback composing shared configuration, and
+IsModified selection after broad entity modification. No extra foundation is added.
+
+Both current state-selection overloads execute every flag and empty defaults,
+with stale/detected mutation, measured detection counts and insert/update/delete
+reload. Pooled contexts consume shared Singleton options, return/reuse the same
+instance, clear EF tracking and explicit application RequestLabel, discard an
+unsaved mutation and persist an intentional save. Cleanup is application-owned;
+no general tenant/session-state or asynchronous-interaction proof is inferred.
+Partial scalar SELECT omits Count; IsLoaded=false suppresses its UPDATE, fresh
+reload preserves 42, explicit re-enable writes default 0, and normal loaded update
+writes 8. Attach does not infer missing columns; setting IsLoaded=true fetches none.
+
+This is bounded scalar write-state delivery. The original broad auto-load metadata/
+convention ownership and promised vector fluent loader remain unverified. No
+security/general partial-entity guarantee or provider/platform matrix is added.
+Canonical files, package graphs and fresh compilation/runtime records feed the
+ordinary installed offline MCP inspection. Original audit baselines remain
+immutable. Each M(3) retains its state/lifecycle proof scope; PIN-959, PIN-965 and
+existing Human gates are unchanged and open where previously outstanding.

@@ -11,9 +11,9 @@
     {
       "id": "tracker-state",
       "pattern": "ChangeTracker::GetEntriesForState",
-      "disposition": "proposed",
-      "owner": "E1",
-      "reason": "Explicit state selection avoids implicit DetectChanges; stale state must be taught."
+      "disposition": "delivered",
+      "owner": "PIN-1189",
+      "reason": "ef.select-known-tracked-states/11.0: WrenTracking EF10/11 real SQLite checks cover both overloads, all default-false flags, stale/detected states, detection counts and persisted changes. RC2 evidence; GA and comprehensive closure remain separate."
     },
     {
       "id": "provider-replacement",
@@ -25,16 +25,16 @@
     {
       "id": "pooled-factory",
       "pattern": "EntityFrameworkServiceCollectionExtensions::AddPooledDbContextFactory",
-      "disposition": "proposed",
-      "owner": "E3",
-      "reason": "New configuration-free overload composes existing ConfigureDbContext; pool lifecycle remains explicit."
+      "disposition": "delivered",
+      "owner": "PIN-1191",
+      "reason": "ef.reuse-pooled-factory-configuration/11.0: WrenTracking verifies shared Singleton options, disposed instance reuse, tracking and explicit RequestLabel cleanup, unsaved-mutation exclusion and SQLite save/reload. No general pooling safety guarantee or GA proof."
     },
     {
       "id": "scalar-load-state",
       "pattern": "PropertyEntry::(?:get_|set_)?IsLoaded|::.*(?:IsAutoLoaded|AutoLoadChanged)|\\.AutoLoadConvention\\b|IPropertyAutoLoadChangedConvention|SqlServerAutoLoadConvention",
       "disposition": "proposed",
       "owner": "E4",
-      "reason": "Suppressing writes of unloaded scalar values is distinct from vector query projection."
+      "reason": "PIN-1192 delivers bounded PropertyEntry.IsLoaded write omission as ef.preserve-unloaded-scalar-values/11.0 with real EF10 IsModified alternative and EF11 SQLite SELECT/UPDATE/reload/default/re-enable checks. Remaining auto-load metadata/convention and future vector fluent-loader contracts in this broad audit group remain unverified; do not infer their delivery."
     },
     {
       "id": "legacy-transactions",

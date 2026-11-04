@@ -3997,3 +3997,32 @@ installs the exact package from an isolated local feed/cache, invokes real stdio
 list/get outside the checkout and compares complete bodies and JSON/structured
 results. Unusable proxies establish proxy independence, not OS network isolation.
 The target10 foundation currently has no target11 route; EF9 remains comparison-only.
+
+## Known tracked states, shared pooled options and unread scalars
+
+PIN-1189/PIN-1191/PIN-1192 add original WrenTracking EF10/EF11 comparisons.
+Both pinned projects execute real SQLite states/scans/persistence, pooled lease
+reuse with explicit application cleanup, and partial SELECT/scalar UPDATE omission
+with re-enable/default/loaded controls. RC2 evidence does not establish GA or
+other providers/platforms, arbitrary request state or a vector fluent loader.
+
+From an unrelated directory, in PowerShell7 with SDK10.0.402 and Node22.19+:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-d3181f01'
+& ./eng/Test-WrenTracking.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.select-known-tracked-states','ef.reuse-pooled-factory-configuration','ef.preserve-unloaded-scalar-values') `
+  -Query 'wren-tracking' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1189-1191-1192' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/wren/inspection'
+```
+
+Expect three ID/title/goal results, complete canonical Markdown, applicability and
+fresh sample evidence at edition11. Target10 returns no_applicable_edition.
+The harness installs the exact ordinary local artifact in an isolated feed/cache,
+then calls real stdio list/get from outside the checkout with unusable proxies.
+Setup can restore packages; retrieval is embedded and offline. No package is
+published. This establishes proxy independence, not OS network isolation.
