@@ -1,0 +1,187 @@
+{
+  "id": "winforms.manage-fullscreen-experience",
+  "edition": "11.0",
+  "title": "Own and restore fullscreen presentation",
+  "goal": "Enter fullscreen while preserving window state and managing display/system idle requests deliberately.",
+  "areas": [
+    "winforms"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fen-presentation-designer"
+  ],
+  "apis": [
+    "KioskModeManager"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "See exact recorded artifacts and claim-specific execution scope; owner proof is separately pending.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C#15 current, C#14 previous; VB16.9 on both targets where demonstrated.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "Windows Desktop winforms"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.WindowsDesktop.App framework assets; no additional NuGet dependency. net10.0-windows comparison and net11.0-windows current sample."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local Windows desktop; no account or remote service"
+          ],
+          "platforms": [
+            "Windows with Windows Desktop runtime"
+          ],
+          "renderingModes": [
+            "Native Windows Forms desktop; no Blazor render mode."
+          ],
+          "prerequisites": [
+            "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
+          ],
+          "constraints": [
+            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+          ],
+          "optIns": [
+            "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
+          ],
+          "stabilityLimitations": [
+            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/FenPresentation/FenPresentation.csproj"
+        ],
+        "selectionNotes": [
+          "Previous release remains a comparison, not an additional .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/Components/KioskModeManager/KioskModeManager.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official RC2 desktop contract",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+    },
+    {
+      "title": "Pinned official contract: rc2-KioskModeManager.cs-14",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms/System/Windows/Forms/Components/KioskModeManager/KioskModeManager.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "kind": "compile",
+      "target": "net10.0-windows",
+      "scope": "Actual canonical project compilation only; fullscreen and idle execution pending PIN-898.",
+      "language": "14.0",
+      "sample": "samples/net10.0/FenPresentation/FenPresentation.csproj"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile",
+      "target": "net11.0-windows",
+      "scope": "Actual canonical project compilation only; fullscreen and idle execution pending PIN-898.",
+      "language": "15.0",
+      "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj"
+    }
+  ],
+  "humanProof": {
+    "status": "pending",
+    "scope": "PIN-898 owner session and idle-request observations remain pending. Compilation only."
+  },
+  "snippets": {
+    "n10-fenpresentation-directory-packages-props": {
+      "path": "samples/net10.0/FenPresentation/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fenpresentation-program-cs": {
+      "path": "samples/net11.0/FenPresentation/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-fenpresentation-fenpresentation-csproj": {
+      "path": "samples/net11.0/FenPresentation/FenPresentation.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fenpresentation-directory-build-targets": {
+      "path": "samples/net10.0/FenPresentation/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fenpresentation-directory-build-props": {
+      "path": "samples/net10.0/FenPresentation/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fenpresentation-global-json": {
+      "path": "samples/net10.0/FenPresentation/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-fenpresentation-directory-packages-props": {
+      "path": "samples/net11.0/FenPresentation/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fenpresentation-fenpresentation-csproj": {
+      "path": "samples/net10.0/FenPresentation/FenPresentation.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fenpresentation-program-cs": {
+      "path": "samples/net10.0/FenPresentation/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-fenpresentation-directory-build-props": {
+      "path": "samples/net11.0/FenPresentation/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fenpresentation-global-json": {
+      "path": "samples/net11.0/FenPresentation/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-fenpresentation-directory-build-targets": {
+      "path": "samples/net11.0/FenPresentation/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    }
+  }
+}
