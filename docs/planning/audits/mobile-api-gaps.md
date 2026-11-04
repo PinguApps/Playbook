@@ -144,3 +144,7 @@ are made, so no new guidance retrieval is claimed.
 
 The [criterion and Linear ledger](https://github.com/PinguApps/Playbook/blob/e60419660a082da40dfc1bd8f0667401677c53f3/docs/verification/PIN-694.md) records coverage,
 source provenance, scoped owner decisions and the verification actually run.
+
+## Backend delivery follow-through
+
+PIN-913 now has edition11 `maui.build-community-platform-backends`: the original Quay consumer exercises public registration/service contracts, screenshot dispatch with an explicit contract double, and actual packaged SingleProject selection targets. Pingu approved excluding rendering and real-view capture. The screenshot double supplies no pixel data; dialog rendering and native gesture recognition are excluded. The asset consumer compiles separately against the exact Avalonia/MAUI packages. [Evidence and limits](../../verification/quay-integration.md) preserve these distinctions; this supplements the source dispositions above without relabelling the historical audit as execution.

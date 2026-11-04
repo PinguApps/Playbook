@@ -1,0 +1,311 @@
+{
+  "id": "maui.include-avalonia-template-output",
+  "edition": "11.0",
+  "title": "Generate a MAUI project with an Avalonia desktop head",
+  "goal": "Use the first-party MAUI template integration to add an Avalonia desktop target with pinned third-party prerequisites.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quay-integration",
+    "avalonia"
+  ],
+  "apis": [
+    "dotnet new maui --with-avalonia",
+    "AvaloniaControlsMauiGenerateBootstrap"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Actual .NET11 package or native application target; older .NET10 example is comparison-only.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK11 and matching MAUI workload for native heads; neutral contract consumer is workload-free.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical current samples use C#15 without preview syntax.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "exact",
+              "name": "Microsoft.Maui.Controls",
+              "version": "11.0.0-rc.2.26505.5",
+              "reason": "Reviewed current MAUI artifact baseline."
+            },
+            {
+              "match": "exact",
+              "name": "Avalonia.Controls.Maui",
+              "version": "11.0.0-rc.2.26287.618",
+              "reason": "Explicit third-party template integration prerequisite."
+            },
+            {
+              "match": "exact",
+              "name": "Avalonia.Controls.Maui.Desktop",
+              "version": "11.0.0-rc.2.26287.618",
+              "reason": "Explicit third-party template integration prerequisite."
+            },
+            {
+              "match": "exact",
+              "name": "Microsoft.Maui.Resizetizer",
+              "version": "11.0.0-rc.2.26505.5",
+              "reason": "Explicit neutral asset consumer prerequisite; ordinary generated UseMaui heads obtain matched asset tooling through the MAUI workload."
+            },
+            {
+              "name": "Microsoft.Extensions.Logging.Debug",
+              "version": "11.0.0-rc.2.26504.105",
+              "match": "exact",
+              "reason": "Generated logging pin compiled in the canonical neutral consumer with AddDebug."
+            }
+          ],
+          "packageAssets": [
+            "Actual net11.0 neutral MAUI assets; native heads require the corresponding platform-specific assets."
+          ],
+          "workloads": [],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Windows authoring; net11.0 neutral contract/desktop consumer or explicitly declared Windows native target. Android/Apple native targets are not tested."
+          ],
+          "renderingModes": [
+            "MAUI/native or Avalonia desktop; contract-only tests do not render."
+          ],
+          "prerequisites": [
+            "See exact canonical pins and independent package locks; tool host itself requires no MAUI workload.",
+            "Neutral package consumer is workload-free; ordinary generated native heads require matched MAUI workloads and platform toolchains."
+          ],
+          "constraints": [
+            "RC2 preparation evidence, not GA verification. No verified older-target route. Native behavior exclusions and contract doubles are explicit in Evidence."
+          ],
+          "optIns": [
+            "--with-avalonia or maui-multiproject --avalonia; AvaloniaControlsMauiGenerateBootstrap=true."
+          ],
+          "stabilityLimitations": [
+            "Avalonia integration packages are prerelease."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/QuayAvalonia/QuayAvalonia.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/AlertManager/IAlertManager.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.After.targets",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/MauiBlazorWebViewBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/IGesturePlatformManagerFactory.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/ScreenshotDispatch.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.SingleProject.targets",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/BlazorWebView.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/BlazorWebViewStaticContentRequest.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/StaticContentCacheControl.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/Windows/StaticContentProvider.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-mobile/.template.config/template.json",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-multiproject/.template.config/template.json",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/IGesturePlatformManager.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/AlertManager/IAlertManagerSubscription.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/BlazorWebView/src/Maui/BlazorWebView.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/AlertManager/IAlertManager.cs",
+      "title": "Official pinned IAlertManager.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.After.targets",
+      "title": "Official pinned Microsoft.Maui.Resizetizer.After.targets"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/MauiBlazorWebViewBuilderExtensions.cs",
+      "title": "Official pinned MauiBlazorWebViewBuilderExtensions.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/IGesturePlatformManagerFactory.cs",
+      "title": "Official pinned IGesturePlatformManagerFactory.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/ScreenshotDispatch.cs",
+      "title": "Official pinned ScreenshotDispatch.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.SingleProject.targets",
+      "title": "Official pinned Microsoft.Maui.Controls.SingleProject.targets"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/BlazorWebView.cs",
+      "title": "Official pinned BlazorWebView.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/BlazorWebViewStaticContentRequest.cs",
+      "title": "Official pinned BlazorWebViewStaticContentRequest.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/StaticContentCacheControl.cs",
+      "title": "Official pinned StaticContentCacheControl.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/Windows/StaticContentProvider.cs",
+      "title": "Official pinned StaticContentProvider.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-mobile/.template.config/template.json",
+      "title": "Official pinned template.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-multiproject/.template.config/template.json",
+      "title": "Official pinned template.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/IGesturePlatformManager.cs",
+      "title": "Official pinned IGesturePlatformManager.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/AlertManager/IAlertManagerSubscription.cs",
+      "title": "Official pinned IAlertManagerSubscription.cs"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/BlazorWebView/src/Maui/BlazorWebView.cs",
+      "title": "Official pinned BlazorWebView.cs"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuayCSharp/QuayCSharp.csproj",
+      "kind": "compile",
+      "target": "net10.0-windows10.0.19041.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual compilation/execution classification; native and template limits are documented below."
+    },
+    {
+      "sample": "samples/net11.0/QuayAvalonia/QuayAvalonia.csproj",
+      "kind": "compile",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Actual compilation/execution classification; native and template limits are documented below."
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "No Human approval required for approved contract/compilation scope. Native rendering, real-view capture and untested generated heads are excluded, not verified."
+  },
+  "snippets": {
+    "samples-net10-0-quaycsharp-directory-build-props": {
+      "path": "samples/net10.0/QuayCSharp/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaycsharp-directory-build-targets": {
+      "path": "samples/net10.0/QuayCSharp/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaycsharp-directory-packages-props": {
+      "path": "samples/net10.0/QuayCSharp/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaycsharp-global-json": {
+      "path": "samples/net10.0/QuayCSharp/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-quaycsharp-mauiprogram-cs": {
+      "path": "samples/net10.0/QuayCSharp/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quaycsharp-platforms-windows-app-xaml": {
+      "path": "samples/net10.0/QuayCSharp/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaycsharp-platforms-windows-app-xaml-cs": {
+      "path": "samples/net10.0/QuayCSharp/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-quaycsharp-quaycsharp-csproj": {
+      "path": "samples/net10.0/QuayCSharp/QuayCSharp.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaycsharp-resources-appicon-quay-svg": {
+      "path": "samples/net10.0/QuayCSharp/Resources/AppIcon/quay.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-quaycsharp-resources-styles-quay-xaml": {
+      "path": "samples/net10.0/QuayCSharp/Resources/Styles/Quay.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayavalonia-directory-build-props": {
+      "path": "samples/net11.0/QuayAvalonia/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayavalonia-directory-build-targets": {
+      "path": "samples/net11.0/QuayAvalonia/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayavalonia-directory-packages-props": {
+      "path": "samples/net11.0/QuayAvalonia/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayavalonia-global-json": {
+      "path": "samples/net11.0/QuayAvalonia/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-quayavalonia-mauiprogram-cs": {
+      "path": "samples/net11.0/QuayAvalonia/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-quayavalonia-quayavalonia-csproj": {
+      "path": "samples/net11.0/QuayAvalonia/QuayAvalonia.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-quayavalonia-resources-raw-quay-txt": {
+      "path": "samples/net11.0/QuayAvalonia/Resources/Raw/quay.txt",
+      "region": "complete",
+      "language": "text"
+    }
+  }
+}

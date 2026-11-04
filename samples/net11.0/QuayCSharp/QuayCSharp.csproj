@@ -1,0 +1,17 @@
+<!-- snippet:complete -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0-windows10.0.20348.0</TargetFramework><OutputType>WinExe</OutputType>
+    <UseMaui>true</UseMaui><SingleProject>true</SingleProject><LangVersion>15.0</LangVersion>
+    <Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationTitle>Quay Ledger</ApplicationTitle><ApplicationId>org.playbook.quayledger</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion><ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <WindowsPackageType>None</WindowsPackageType><WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier><SelfContained>false</SelfContained>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup><PackageReference Include="Microsoft.Maui.Controls" Version="11.0.0-rc.2.26505.5" /></ItemGroup>
+  <ItemGroup><MauiIcon Include="Resources/AppIcon/quay.svg" /></ItemGroup>
+</Project>
+<!-- endsnippet:complete -->

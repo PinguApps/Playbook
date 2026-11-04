@@ -1,0 +1,90 @@
+{
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/AlertManager/IAlertManager.cs",
+      "sha256": "b646ce988f5d26e0412f382e08739e9bad93bde059d2cfad674a74dee1780298"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/SingleProject/Resizetizer/src/nuget/buildTransitive/Microsoft.Maui.Resizetizer.After.targets",
+      "sha256": "51d223922f2187c45d219e0bad4fc2392a08cf4cc766403d5f38943bcd800000"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/MauiBlazorWebViewBuilderExtensions.cs",
+      "sha256": "13723c189870d6c059d12928cb1f71b3bc06649ce4aa1ed775eec095c377bc12"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/IGesturePlatformManagerFactory.cs",
+      "sha256": "128e6686ee0c21045a58a1d341aaa7de4e1db7ea8dbb99009a997f457a259293"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/ScreenshotDispatch.cs",
+      "sha256": "d85b32763eb8791a4ed6b92441c1440090674ce2060fbc37a8f0bcfec7935320"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.SingleProject.targets",
+      "sha256": "bd03b6ad5f785cf5688d04d22cbab59b1bf917e746bd4b08f1a8ac1373c6ce62"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/BlazorWebView.cs",
+      "sha256": "c45b7f89f262861825b6321dbc069225161212f41c05b5e0c157f82f54376c9a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/BlazorWebViewStaticContentRequest.cs",
+      "sha256": "4284c1ff1cd33706960895d5140a37629a98ed56197c15e82d85a1949de6996a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/StaticContentCacheControl.cs",
+      "sha256": "5865e1f2cc92017a409704f92cef964804e0a7ca9c1264d425f61d1514f3f935"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/Windows/StaticContentProvider.cs",
+      "sha256": "ca7968e76b855894d19b5e32b07027294ae97e83ec55b970ed3736b44c114773"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-mobile/.template.config/template.json",
+      "sha256": "5d4600472d57ad7bbe916d984a6e8171b60049c2e4e6109f8cac2d4918a0b065"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Templates/src/templates/maui-multiproject/.template.config/template.json",
+      "sha256": "1e2a72b13ba132220993e263513581749b00df8380e99b03f7273155f3ef6588"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/IGesturePlatformManager.cs",
+      "sha256": "f8a390bcf4a552387756dd7bc27209c647dfe2d3cb9c81b78cf8d6d402ccd131"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/AlertManager/IAlertManagerSubscription.cs",
+      "sha256": "98bfb8d1f916a176ad52cba93c285bcd9246458786fe24faf3d868045979b684"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/BlazorWebView/src/Maui/BlazorWebView.cs",
+      "sha256": "24656f40468a63a34c5c97d0e8ae53ccd5faa2c014d8a0c0d986359fd91cbfb9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/Android/WebKitWebViewClient.cs",
+      "sha256": "4ba3fc9fd8299c3aa427894a30f26fcb60d74c7424c65faaf435173e242d6f11"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/StaticContentResponseCache.cs",
+      "sha256": "e3332270698f73ed7e23cdd0ae986e61bc9f53f41ac1714dafff89e2e2d54388"
+    }
+  ],
+  "packages": [
+    {
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.templates.net11/11.0.0-rc.2.26505.5/microsoft.maui.templates.net11.11.0.0-rc.2.26505.5.nupkg",
+      "sha256": "f79b83f8c93756b9ba812043ef204c06b51640bedf5b807012f04db916b710b7"
+    },
+    {
+      "url": "https://api.nuget.org/v3-flatcontainer/avalonia.controls.maui/11.0.0-rc.2.26287.618/avalonia.controls.maui.11.0.0-rc.2.26287.618.nupkg",
+      "sha256": "e2471997a26be4984026b0d270485365487f56f69aa52570ba84fb7657f1552a"
+    },
+    {
+      "url": "https://api.nuget.org/v3-flatcontainer/avalonia.controls.maui.desktop/11.0.0-rc.2.26287.618/avalonia.controls.maui.desktop.11.0.0-rc.2.26287.618.nupkg",
+      "sha256": "4ecc25d3714d1dd1460851be65f053ba795f35013bf00572b13c74606587c9fb"
+    },
+    {
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.components.webview.maui/11.0.0-rc.2.26505.5/microsoft.aspnetcore.components.webview.maui.11.0.0-rc.2.26505.5.nupkg",
+      "sha256": "9414d9f05bbbf29d87cbf447bd0e64388499614b13c082f7e78762b8fb423d55"
+    }
+  ]
+}

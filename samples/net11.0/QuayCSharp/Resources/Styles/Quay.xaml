@@ -1,0 +1,3 @@
+<!-- snippet:complete -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"><Color x:Key="QuayInk">#173E56</Color></ResourceDictionary>
+<!-- endsnippet:complete -->
