@@ -31,7 +31,7 @@ Windows Desktop runtime and STA are required. Current SDK11.0.100-rc.2.26504.105
 
 ## Evidence
 
-Both actual canonical projects compiled. Fullscreen execution and idle behaviour remain pending PIN-898: run the current sample with --interactive, observe F11/Escape restoration and inspect the display/system power request while enabled and its removal after closing. Record OS/session and actual result; change no Windows lockdown settings or unrelated applications. Compilation is not execution.
+Both actual canonical projects compiled and ran. The .NET10 sample checked manual normal-window restoration. The .NET11 sample checked child-container resolution, normal restoration and maximized restoration on component disposal. In Pingu's approved Windows build26200 session, UI automation observed F11/Escape restoration from normal and maximized windows. Elevated powercfg /requests reported the component's display and system requests while the visible sample ran; both were absent before launch and after normal close. The sample and observer processes exited. The compact owner-session.evidence.json retains exact input/DLL identity and observations; Pingu's visual verdict is still pending PIN-898. No timed idle-to-sleep, screensaver, policy override, pointer hiding, other-platform or GA behaviour is proved.
 
 ## Complete canonical inputs
 

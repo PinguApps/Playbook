@@ -1,0 +1,54 @@
+{
+  "issue": "PIN-898",
+  "status": "pending-owner-verdict",
+  "ownerAuthorization": "Pingu: Yes, use this session",
+  "os": "Microsoft Windows 10.0.26200",
+  "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj",
+  "sdk": "11.0.100-rc.2.26504.105",
+  "runtime": "11.0.0-rc.2.26504.105",
+  "sourceInputs": {
+    ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
+    "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+    "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+    "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+    "samples/net11.0/FenPresentation/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/FenPresentation/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/FenPresentation/Directory.Packages.props": "8ab8b3576f7e9410226e0f440f4cbfd47e46cf50d5c56102fd0e5966374c10e5",
+    "samples/net11.0/FenPresentation/FenPresentation.csproj": "342bd8d5c5141adb2282cefda2432d0ee02eea6c88c96dddfd7bbb5acd51ed2c",
+    "samples/net11.0/FenPresentation/global.json": "7bb56d5a448af37906c78d0644283e0ba955324cb4bc5ead213a494f0a4bd795",
+    "samples/net11.0/FenPresentation/packages.lock.json": "2ae0110448e48b6fa70be1911a169431575bd0d8744d98cb54f06f9bc366d171",
+    "samples/net11.0/FenPresentation/Program.cs": "6dc1e69c9f1337e6164822379920a8ea7247df6e6107861b4fd0ad6eb55325af",
+    "samples/net11.0/FenPresentation/verification.json": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+  },
+  "dllSha256": "a4cbca6b3b2238a8c1d497457caece3c6eaec7a2f3893ae124443acc8957f133",
+  "visibleSamplePid": 704112,
+  "automatedObservations": [
+    "F11 removed title bar and expanded the normal window to fullscreen",
+    "Escape restored the normal window and title bar",
+    "Maximize -> F11 -> Escape restored maximized state with Restore title-bar action",
+    "Close removed the sample window and exited its process"
+  ],
+  "powerInspection": {
+    "beforeDisplayAndSystem": "None",
+    "allExitCodes": [
+      0,
+      0,
+      0
+    ],
+    "afterUtc": "2026-11-04T08:31:24.9660719+00:00",
+    "beforeUtc": "2026-11-04T08:27:37.7092872+00:00",
+    "afterDisplayAndSystem": "None",
+    "privilege": "Owner-approved elevated read-only observer",
+    "duringUtc": "2026-11-04T08:30:38.062139+00:00",
+    "duringDisplayAndSystem": "dotnet.exe: WinForms KioskModeManager: Preventing screen saver and sleep",
+    "command": "C:/Windows/System32/powercfg.exe /requests"
+  },
+  "cleanup": "Visible sample closed through its Close button. Both elevated observers exited. Initial hidden launch was stopped by exact launched PID before visible relaunch; no other process stopped.",
+  "limitations": [
+    "No timed sleep/screensaver or policy-override guarantee tested",
+    "No pointer auto-hide or global-shortcut test",
+    "No Windows lockdown, trust or persistent settings changes",
+    "Owner visual verdict remains pending"
+  ],
+  "ownerVerdict": null
+}
