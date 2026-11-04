@@ -1,0 +1,48 @@
+{
+  "additionalInputs": [
+    "samples/JettyHandlers/sources.json"
+  ],
+  "dependencies": [
+    "Microsoft.Extensions.Configuration.Abstractions/10.0.0",
+    "Microsoft.Extensions.Configuration/10.0.0",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0",
+    "Microsoft.Extensions.DependencyInjection/10.0.0",
+    "Microsoft.Extensions.Diagnostics.Abstractions/10.0.0",
+    "Microsoft.Extensions.FileProviders.Abstractions/10.0.0",
+    "Microsoft.Extensions.Hosting.Abstractions/10.0.0",
+    "Microsoft.Extensions.Logging.Abstractions/10.0.0",
+    "Microsoft.Extensions.Logging/10.0.0",
+    "Microsoft.Extensions.Options/10.0.0",
+    "Microsoft.Extensions.Primitives/10.0.0",
+    "Microsoft.Graphics.Win2D/1.4.0",
+    "Microsoft.IO.RecyclableMemoryStream/3.0.1",
+    "Microsoft.Maui.Controls.Build.Tasks/10.0.110",
+    "Microsoft.Maui.Controls.Core/10.0.110",
+    "Microsoft.Maui.Controls.Xaml/10.0.110",
+    "Microsoft.Maui.Controls/10.0.110",
+    "Microsoft.Maui.Core/10.0.110",
+    "Microsoft.Maui.Essentials/10.0.110",
+    "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop/10.0.110",
+    "Microsoft.Maui.Graphics/10.0.110",
+    "Microsoft.Maui.Resizetizer/10.0.110",
+    "Microsoft.Web.WebView2/1.0.3179.45",
+    "Microsoft.Windows.SDK.BuildTools.MSIX/1.7.20250829.1",
+    "Microsoft.Windows.SDK.BuildTools/10.0.26100.8249",
+    "Microsoft.WindowsAppSDK.AI/1.8.76",
+    "Microsoft.WindowsAppSDK.Base/1.8.251216001",
+    "Microsoft.WindowsAppSDK.DWrite/1.8.25122902",
+    "Microsoft.WindowsAppSDK.Foundation/1.8.260527000",
+    "Microsoft.WindowsAppSDK.InteractiveExperiences/1.8.260525001",
+    "Microsoft.WindowsAppSDK.ML/1.8.2197",
+    "Microsoft.WindowsAppSDK.Runtime/1.8.260529003",
+    "Microsoft.WindowsAppSDK.Widgets/1.8.251231004",
+    "Microsoft.WindowsAppSDK.WinUI/1.8.260528001",
+    "Microsoft.WindowsAppSDK/1.8.260529003",
+    "System.Numerics.Tensors/9.0.0"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": [
+    "maui-windows/10.0.110/10.0.100"
+  ]
+}

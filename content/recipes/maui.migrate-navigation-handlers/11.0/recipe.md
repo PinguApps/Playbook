@@ -2,7 +2,7 @@
 
 ## Goal
 
-Preserve an Android Shell flyout's harbour colours and destinations while removing an obsolete renderer registration and the optional compatibility-package dependency. This is the Android portion of the shared navigation-handler goal; Apple NavigationPage, TabbedPage, FlyoutPage and opt-in Apple Shell migration remain separate work.
+Preserve an Android Shell flyout's harbour colours and destinations while removing an obsolete renderer registration and the optional compatibility-package dependency. This is the Android portion of the shared navigation-handler goal; Apple migration is covered below.
 
 ## Older approach
 
@@ -125,3 +125,151 @@ The older Android project built in Release with the actual installed Android36.1
 - [ShellRenderer.cs official implementation](https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs)
 
 - [MAUI 11 navigation and compatibility migration](https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11)
+
+## Apple navigation and visible-page work
+
+The fictional jetty inspection app announces arrival and requests focus when its
+page is visible. The .NET 10 Apple renderer delivered Appearing after visibility;
+that was a valid place for this work. In .NET 11 the NavigationViewHandler delivers
+Appearing before pushing the page. JettyApple moves this work to OnNavigatedTo;
+keep preparation that does not require visibility in Appearing. Call the base
+implementation. Re-pushing a popped page creates a fresh native view controller:
+do not cache that controller or assume its identity survives a pop.
+
+NavigationPage, TabbedPage and FlyoutPage use NavigationViewHandler,
+TabbedViewHandler and FlyoutViewHandler by default on Apple. Move renderer
+subclass work to the corresponding handler's connect/disconnect lifecycle;
+pair native event subscription with unsubscription, and avoid assuming the old
+renderer platform-view type. Preserve tab titles, icons, selection and bar colours
+through public properties before porting native overrides. Secondary toolbar items
+now appear in the navigation bar overflow, rather than the bottom toolbar.
+
+For a temporary Apple renderer fallback, configure the exact affected page types
+after UseMauiApp. The compatibility-named types below live in Controls.Core;
+the removed optional Compatibility package is not required:
+
+{{snippet:jetty-apple-fallback}}
+
+Choose one host: NavigationPage, TabbedPage, FlyoutPage or Shell. Do not wrap
+Shell in NavigationPage. The sample deliberately uses NavigationPage. Apple Shell
+still defaults to ShellRenderer; setting UseiOSShellHandler=true in the project
+opts into ShellHandler plus ShellItemHandler, ShellSectionHandler and
+ShellContentHandler together. Registering only ShellHandler is not equivalent.
+Android Shell's handler default does not imply an Apple default switch.
+
+{{snippet:jetty-apple-shell}}
+
+## Apple evidence and setup
+
+The canonical Apple projects pin SDK10.0.402/Controls10.0.110/C#14 and
+SDK11 RC2/Controls11 RC2/C#15 respectively, with native iOS26/27 assets and
+minimum iOS18.2. No preview language, provider or account is involved. API guidance
+is stable, based on RC2 contracts rather than GA execution. Mac Catalyst uses the
+same migration but is not a separately compiled sample. Apple compilation and all
+native interactions are explicitly not-tested under PIN-699 because Mac/Xcode is
+unavailable. Exact source hashes and sample inputs are retained; installed stdio
+retrieval proves content delivery only. No owner-only proof is pending for this
+excluded native scope. Existing unrelated Human and release gates remain.
+
+## Canonical Apple files
+
+### samples/net10.0/JettyApple/Directory.Build.props
+
+{{snippet:samples-net10-0-jettyapple-directory-build-props}}
+
+### samples/net10.0/JettyApple/Directory.Build.targets
+
+{{snippet:samples-net10-0-jettyapple-directory-build-targets}}
+
+### samples/net10.0/JettyApple/Directory.Packages.props
+
+{{snippet:samples-net10-0-jettyapple-directory-packages-props}}
+
+### samples/net10.0/JettyApple/global.json
+
+{{snippet:samples-net10-0-jettyapple-global-json}}
+
+### samples/net10.0/JettyApple/JettyApple.csproj
+
+{{snippet:samples-net10-0-jettyapple-jettyapple-csproj}}
+
+### samples/net10.0/JettyApple/JettyPage.cs
+
+{{snippet:samples-net10-0-jettyapple-jettypage-cs}}
+
+### samples/net10.0/JettyApple/MauiProgram.cs
+
+{{snippet:samples-net10-0-jettyapple-mauiprogram-cs}}
+
+### samples/net10.0/JettyApple/Platforms/iOS/AppDelegate.cs
+
+{{snippet:samples-net10-0-jettyapple-platforms-ios-appdelegate-cs}}
+
+### samples/net10.0/JettyApple/Platforms/iOS/Info.plist
+
+{{snippet:samples-net10-0-jettyapple-platforms-ios-info-plist}}
+
+### samples/net10.0/JettyApple/Platforms/iOS/Program.cs
+
+{{snippet:samples-net10-0-jettyapple-platforms-ios-program-cs}}
+
+### samples/net10.0/JettyApple/Platforms/iOS/SceneDelegate.cs
+
+{{snippet:samples-net10-0-jettyapple-platforms-ios-scenedelegate-cs}}
+
+### samples/net11.0/JettyApple/Directory.Build.props
+
+{{snippet:samples-net11-0-jettyapple-directory-build-props}}
+
+### samples/net11.0/JettyApple/Directory.Build.targets
+
+{{snippet:samples-net11-0-jettyapple-directory-build-targets}}
+
+### samples/net11.0/JettyApple/Directory.Packages.props
+
+{{snippet:samples-net11-0-jettyapple-directory-packages-props}}
+
+### samples/net11.0/JettyApple/global.json
+
+{{snippet:samples-net11-0-jettyapple-global-json}}
+
+### samples/net11.0/JettyApple/JettyApple.csproj
+
+{{snippet:samples-net11-0-jettyapple-jettyapple-csproj}}
+
+### samples/net11.0/JettyApple/JettyPage.cs
+
+{{snippet:samples-net11-0-jettyapple-jettypage-cs}}
+
+### samples/net11.0/JettyApple/MauiProgram.cs
+
+{{snippet:samples-net11-0-jettyapple-mauiprogram-cs}}
+
+### samples/net11.0/JettyApple/Platforms/iOS/AppDelegate.cs
+
+{{snippet:samples-net11-0-jettyapple-platforms-ios-appdelegate-cs}}
+
+### samples/net11.0/JettyApple/Platforms/iOS/Info.plist
+
+{{snippet:samples-net11-0-jettyapple-platforms-ios-info-plist}}
+
+### samples/net11.0/JettyApple/Platforms/iOS/Program.cs
+
+{{snippet:samples-net11-0-jettyapple-platforms-ios-program-cs}}
+
+### samples/net11.0/JettyApple/Platforms/iOS/SceneDelegate.cs
+
+{{snippet:samples-net11-0-jettyapple-platforms-ios-scenedelegate-cs}}
+
+### samples/net11.0/JettyApple/RendererFallback.cs
+
+{{snippet:samples-net11-0-jettyapple-rendererfallback-cs}}
+
+### samples/net11.0/JettyApple/ShellOptIn.props
+
+{{snippet:samples-net11-0-jettyapple-shelloptin-props}}
+
+ShellOptIn.props is an optional fragment: copy its property into the application
+project PropertyGroup or import that file explicitly. It is not enabled by its
+presence beside the canonical NavigationPage project. To use the fallback, call
+UseLegacyApplePages after UseMauiApp; otherwise the sample uses the new defaults.

@@ -1,0 +1,94 @@
+{
+  "scope": "PIN-907/PIN-908 source contracts, not upstream test execution",
+  "sources": [
+    {
+      "sha256": "7f49f04533ce498d246faa5e7d289ec0d938106fc9c90ddf215f93759916c7ef",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CarouselViewHandler.iOS.cs",
+      "tokens": [
+        "Obsolete",
+        "Items2.CarouselViewHandler2"
+      ]
+    },
+    {
+      "sha256": "4ad8880cd1c0b791a4734590cfcebffd52f88dc05734d83298bdeb0af3b74076",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
+      "tokens": [
+        "new NavigationViewHandler()",
+        "new TabbedViewHandler()",
+        "new FlyoutViewHandler()",
+        "IsiOSShellHandlerEnabled"
+      ]
+    },
+    {
+      "sha256": "cfe2c29b56009c7bb4e47d8a905937a8b4ef7b10f04afc7a1cd8f5c41adc43ec",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CollectionViewHandler.iOS.cs",
+      "tokens": [
+        "Obsolete",
+        "Items2.CollectionViewHandler2"
+      ]
+    },
+    {
+      "sha256": "2c7f048f08b1ab101dd1483d01cc7fe355095a624c8590d24955e22619d97887",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.iOS.cs",
+      "tokens": [
+        "CollectionViewHandler2"
+      ]
+    },
+    {
+      "sha256": "9f350707bc0a1138c12ed01bc1b8923042febfaa9b44fb117e095ecbbdfdc3fb",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/TabbedPage/iOS/TabbedRenderer.cs",
+      "tokens": [
+        "TabbedRenderer"
+      ]
+    },
+    {
+      "sha256": "a9c2cd5a480b72832bad6c2347e2618b1655e1495451908704bed96ac416b969",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CarouselViewHandler2.iOS.cs",
+      "tokens": [
+        "CarouselViewHandler2"
+      ]
+    },
+    {
+      "sha256": "fa95494b7e17788a9897fec8b0181e5020ebe007939434751db24869167bef13",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/NavigationPage/iOS/NavigationRenderer.cs",
+      "tokens": [
+        "NavigationRenderer"
+      ]
+    },
+    {
+      "sha256": "18332b25a963cacf4891a32fbc4b858112cd353a1d70f67147cf8a6f3751d103",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/FlyoutPage/iOS/PhoneFlyoutPageRenderer.cs",
+      "tokens": [
+        "PhoneFlyoutPageRenderer"
+      ]
+    },
+    {
+      "sha256": "faefb8f2ff134207dd5595573fa00b450e25aaa613fcdcb44afad2d9f65c161d",
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.Windows.cs",
+      "tokens": [
+        "CollectionViewHandler2"
+      ]
+    },
+    {
+      "tokens": [
+        "class"
+      ],
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Handlers/Items/CollectionViewHandler.iOS.cs",
+      "sha256": "07a9c166b31d143c047627e719909d4f591d24080b570871a6eb77342413da45"
+    },
+    {
+      "tokens": [
+        "class"
+      ],
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Handlers/Items/CarouselViewHandler.iOS.cs",
+      "sha256": "bfa4bba5156741da0705f2009cca619ad8f451de13048379e487b2d244be321b"
+    },
+    {
+      "tokens": [
+        "class"
+      ],
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
+      "sha256": "b413a7cafd2e2868fbb1b18954b0211d1397f75f0487bdbc494e0dfe8637ced1"
+    }
+  ]
+}

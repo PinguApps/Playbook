@@ -3866,3 +3866,31 @@ fresh evidence, selecting target11/edition11. Target10 has no applicable edition
 Unusable proxies verify proxy independence, not OS network isolation. These are
 actual RC2/default/base and Windows desktop observations, not HSM/FIPS/mobile/GA
 verification. PIN-959 and PIN-962 remain open; the eight .NET10 foundations stay.
+
+## Apple navigation and custom item handlers
+
+PIN-907 extends the existing navigation edition; PIN-908 adds item-handler
+migration. Requires PowerShell7.4+, SDK10.0.402 and Node22.19+. The existing
+isolated SDK11 root lacks the MAUI SDK pack; Apple requires unavailable Xcode.
+Older Windows compilation passes; all new native interactions remain not-tested
+under PIN-699. Source/artifact review is distinct from native execution.
+
+From any directory, build and inspect the exact installed package:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-ef321365'
+& ./eng/Test-JettyHandlers.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.migrate-navigation-handlers','maui.migrate-custom-items-handlers') `
+  -Query 'jetty-handlers' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin907-908' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/jetty-authoring/inspection'
+```
+
+Expect ID/title/goal, complete canonical Markdown and applicability, target11 and
+edition11. Target10 has no applicable edition. The existing harness installs from
+an isolated feed/cache, retrieves both through real stdio from an unrelated working
+directory and checks complete bodies with unusable retrieval proxies. That proves
+proxy independence, not OS network isolation. No native behavior or GA claim follows.

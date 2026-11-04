@@ -1,0 +1,473 @@
+{
+  "id": "maui.migrate-custom-items-handlers",
+  "edition": "11.0",
+  "title": "Migrate custom collection and carousel handlers by platform",
+  "goal": "Apply when upgrading custom MAUI item controls: use Items2 on Apple, adopt Windows CollectionView2 or retain its supported legacy fallback.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "jetty-handlers",
+    "collectionview",
+    "carouselview"
+  ],
+  "apis": [
+    "CollectionViewHandler2",
+    "CarouselViewHandler2",
+    "UseWindowsCollectionView2Handler"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 native application; CoreCLR is the default mobile runtime. No NativeAOT execution claim.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC2.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample uses C#15, no preview language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Controls.Core11 RC2 net11.0-ios27.0 and net11.0-windows10.0.20348 assets; matching native SDK/workloads required."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "iOS27/minimum18.2 and Windows20348/minimum17763 in canonical projects; Apple obsoletion also applies to Mac Catalyst."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Compatible Apple workload, Mac/Xcode and native SDK; unavailable on this Windows authoring machine."
+          ],
+          "constraints": [
+            "Apple legacy item handlers are obsolete. Windows legacy CollectionViewHandler remains supported. Windows CarouselView does not use the Apple Items2 carousel handler."
+          ],
+          "optIns": [
+            "UseWindowsCollectionView2Handler=false temporarily selects the legacy Windows default; custom registrations must also select their intended base class."
+          ],
+          "stabilityLimitations": [
+            "Stable API guidance based on pinned RC2 artifacts, not GA verification. No NativeAOT or trimming execution claim."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/JettyItems/JettyItems.csproj",
+          "samples/net11.0/JettyWindows/JettyWindows.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CarouselViewHandler.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CollectionViewHandler.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/TabbedPage/iOS/TabbedRenderer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CarouselViewHandler2.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/NavigationPage/iOS/NavigationRenderer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/FlyoutPage/iOS/PhoneFlyoutPageRenderer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.Windows.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Routing.cs",
+      "title": "Routing.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/TabbedPage/TabbedPage.cs",
+      "title": "TabbedPage.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/SwipeView/SwipeItem.cs",
+      "title": "SwipeItem.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/NavigationPage/NavigationPage.cs",
+      "title": "NavigationPage.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.Android.cs",
+      "title": "ShellHandler.Android.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.cs",
+      "title": "ShellHandler.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+      "title": "ShellRenderer.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Shell/BackButtonBehavior.cs",
+      "title": "BackButtonBehavior.cs official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+      "title": "ShellRenderer.cs official implementation"
+    },
+    {
+      "url": "https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11",
+      "title": "MAUI 11 navigation and compatibility migration"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CarouselViewHandler.iOS.cs",
+      "title": "CarouselViewHandler.iOS.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
+      "title": "AppHostBuilderExtensions.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items/CollectionViewHandler.iOS.cs",
+      "title": "CollectionViewHandler.iOS.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.iOS.cs",
+      "title": "CollectionViewHandler2.iOS.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/TabbedPage/iOS/TabbedRenderer.cs",
+      "title": "TabbedRenderer.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CarouselViewHandler2.iOS.cs",
+      "title": "CarouselViewHandler2.iOS.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/NavigationPage/iOS/NavigationRenderer.cs",
+      "title": "NavigationRenderer.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/FlyoutPage/iOS/PhoneFlyoutPageRenderer.cs",
+      "title": "PhoneFlyoutPageRenderer.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Items2/CollectionViewHandler2.Windows.cs",
+      "title": "CollectionViewHandler2.Windows.cs pinned official implementation"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/JettyItems/JettyItems.csproj",
+      "kind": "official-review",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Official source/artifact review; native compilation and execution not-tested under PIN-699."
+    },
+    {
+      "sample": "samples/net10.0/JettyWindows/JettyWindows.csproj",
+      "kind": "compile",
+      "target": "net10.0-windows10.0.19041.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual older Windows Release compilation only."
+    },
+    {
+      "sample": "samples/net11.0/JettyItems/JettyItems.csproj",
+      "kind": "official-review",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Official source/artifact review; native compilation and execution not-tested under PIN-699."
+    },
+    {
+      "sample": "samples/net11.0/JettyWindows/JettyWindows.csproj",
+      "kind": "official-review",
+      "target": "net11.0-windows10.0.20348.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Official source/artifact review; native compilation and execution not-tested under PIN-699."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/JettyItems/JettyItems.csproj",
+      "samples/net10.0/JettyWindows/JettyWindows.csproj",
+      "samples/net11.0/JettyItems/JettyItems.csproj",
+      "samples/net11.0/JettyWindows/JettyWindows.csproj"
+    ],
+    "scope": "All native selection, scrolling, recycling and carousel interactions not-tested. Apple compilation requires unavailable Mac/Xcode; current Windows compilation lacks SDK11 MAUI pack. Older Windows compilation is retained separately. No pending Human obligation for unavailable native scope."
+  },
+  "snippets": {
+    "samples-net10-0-jettyitems-directory-build-props": {
+      "path": "samples/net10.0/JettyItems/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyitems-directory-build-targets": {
+      "path": "samples/net10.0/JettyItems/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyitems-directory-packages-props": {
+      "path": "samples/net10.0/JettyItems/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyitems-global-json": {
+      "path": "samples/net10.0/JettyItems/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-jettyitems-handlers-cs": {
+      "path": "samples/net10.0/JettyItems/Handlers.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyitems-jettyitems-csproj": {
+      "path": "samples/net10.0/JettyItems/JettyItems.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyitems-jettypage-cs": {
+      "path": "samples/net10.0/JettyItems/JettyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyitems-mauiprogram-cs": {
+      "path": "samples/net10.0/JettyItems/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyitems-platforms-ios-appdelegate-cs": {
+      "path": "samples/net10.0/JettyItems/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyitems-platforms-ios-info-plist": {
+      "path": "samples/net10.0/JettyItems/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyitems-platforms-ios-program-cs": {
+      "path": "samples/net10.0/JettyItems/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyitems-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net10.0/JettyItems/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettywindows-directory-build-props": {
+      "path": "samples/net10.0/JettyWindows/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettywindows-directory-build-targets": {
+      "path": "samples/net10.0/JettyWindows/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettywindows-directory-packages-props": {
+      "path": "samples/net10.0/JettyWindows/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettywindows-global-json": {
+      "path": "samples/net10.0/JettyWindows/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-jettywindows-handlers-cs": {
+      "path": "samples/net10.0/JettyWindows/Handlers.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettywindows-jettypage-cs": {
+      "path": "samples/net10.0/JettyWindows/JettyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettywindows-jettywindows-csproj": {
+      "path": "samples/net10.0/JettyWindows/JettyWindows.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettywindows-mauiprogram-cs": {
+      "path": "samples/net10.0/JettyWindows/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettywindows-platforms-windows-app-xaml": {
+      "path": "samples/net10.0/JettyWindows/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettywindows-platforms-windows-app-xaml-cs": {
+      "path": "samples/net10.0/JettyWindows/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyitems-directory-build-props": {
+      "path": "samples/net11.0/JettyItems/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyitems-directory-build-targets": {
+      "path": "samples/net11.0/JettyItems/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyitems-directory-packages-props": {
+      "path": "samples/net11.0/JettyItems/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyitems-global-json": {
+      "path": "samples/net11.0/JettyItems/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-jettyitems-handlers-cs": {
+      "path": "samples/net11.0/JettyItems/Handlers.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyitems-jettyitems-csproj": {
+      "path": "samples/net11.0/JettyItems/JettyItems.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyitems-jettypage-cs": {
+      "path": "samples/net11.0/JettyItems/JettyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyitems-mauiprogram-cs": {
+      "path": "samples/net11.0/JettyItems/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyitems-platforms-ios-appdelegate-cs": {
+      "path": "samples/net11.0/JettyItems/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyitems-platforms-ios-info-plist": {
+      "path": "samples/net11.0/JettyItems/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyitems-platforms-ios-program-cs": {
+      "path": "samples/net11.0/JettyItems/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyitems-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net11.0/JettyItems/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettywindows-directory-build-props": {
+      "path": "samples/net11.0/JettyWindows/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettywindows-directory-build-targets": {
+      "path": "samples/net11.0/JettyWindows/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettywindows-directory-packages-props": {
+      "path": "samples/net11.0/JettyWindows/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettywindows-global-json": {
+      "path": "samples/net11.0/JettyWindows/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-jettywindows-handlers-cs": {
+      "path": "samples/net11.0/JettyWindows/Handlers.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettywindows-jettypage-cs": {
+      "path": "samples/net11.0/JettyWindows/JettyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettywindows-jettywindows-csproj": {
+      "path": "samples/net11.0/JettyWindows/JettyWindows.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettywindows-legacydefault-props": {
+      "path": "samples/net11.0/JettyWindows/LegacyDefault.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettywindows-mauiprogram-cs": {
+      "path": "samples/net11.0/JettyWindows/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettywindows-platforms-windows-app-xaml": {
+      "path": "samples/net11.0/JettyWindows/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettywindows-platforms-windows-app-xaml-cs": {
+      "path": "samples/net11.0/JettyWindows/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "jetty-windows-fallback": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/JettyWindows/LegacyDefault.props"
+    }
+  }
+}

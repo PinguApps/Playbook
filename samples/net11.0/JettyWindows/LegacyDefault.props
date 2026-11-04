@@ -1,0 +1,5 @@
+<!-- snippet:complete -->
+<Project>
+  <PropertyGroup><UseWindowsCollectionView2Handler>false</UseWindowsCollectionView2Handler></PropertyGroup>
+</Project>
+<!-- endsnippet:complete -->
