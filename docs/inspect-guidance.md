@@ -4,6 +4,34 @@
 
 Requires PowerShell 7, the repository's .NET SDK 10.0.402 and Node 22.19+. Setup may restore/download packages online; guidance itself is embedded and offline. The helper invokes the resolved executables by absolute path without changing PATH or global tools. It disables .NET first-run PATH integration. No native workloads or account are required for server inspection.
 
+## Visual resources and cancellable holds
+
+PIN-903/PIN-904 add original BeaconBoard comparisons. The .NET10 Windows sample
+compiles; current Windows compilation lacks its MAUI SDK pack. Apple/Android
+toolchains and devices are unavailable. Native rendering and gesture/animation
+interaction remain explicitly `not-tested`; no additional hardware is requested.
+The full live long-press lifecycle is documented on Apple; Android/Windows provide
+completion-only notifications in the reviewed implementation.
+
+From any directory, build/pack and inspect the actual installed tool:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-16d251dd'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('maui.reapply-mutated-style-state','maui.handle-long-press') `
+  -Query 'beaconboard' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin903-904' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/beacon/inspection'
+```
+
+Expect both IDs/titles/goals, complete expanded Markdown and applicability,
+edition11, fresh compilation/source-review records and explicit native exclusions.
+Target10 returns `no_applicable_edition`. The isolated local feed/cache and unrelated
+working directory exercise real stdio list/get with unusable proxies; this proves
+proxy independence, not OS network isolation or native behavior.
+
 ## Trim-safe MAUI bindings and native CLI reload
 
 PIN-901/PIN-902 add SignalDeck comparisons and complete offline .NET11 recipes.

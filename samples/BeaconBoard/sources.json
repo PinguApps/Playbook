@@ -1,0 +1,44 @@
+{
+  "scope": "Pinned RC2 implementation review; upstream tests were not executed.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/StyleableElement/StyleableElement.cs",
+      "sha256": "64581c950ca2a63adaef2e2ce55d26acbb65330c2cdca7d53905f093e6ee19ee"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/VisualStateManager.cs",
+      "sha256": "d0c5ae9554b948301e1979767bca4d3bf4435d3961adc1ec0e49f8613c55e728"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/BoxView/BoxView.cs",
+      "sha256": "eb781771a64690c6ee173f2a36b541a37870a10d9c53e26a4ce3408fd93da242"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/Color.cs",
+      "sha256": "9913b250c296918d83bb4e573ac2715b564b4a0fa0ac483906805cef63c736a9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/LongPressGestureRecognizer.cs",
+      "sha256": "dcc1c3e09e141cda47eff4774c43591026f06af46f9d3b93cba312e4ba644e32"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/ViewExtensions.cs",
+      "sha256": "fe6796868ef5780175a20cb634f820f98b9ff84475d30c91ea815995e58a3d99"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/Android/LongPressGestureHandler.cs",
+      "sha256": "79be23799b7c5b253b19c95a9385c540cabe67f613c17e929d3fea9282758c69"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/LongPressGestureHandler.Windows.cs",
+      "sha256": "978b43982f04b2dd2f0bb445ed234f347e0ee488b6eeb1e3c3878f01c2626189"
+    }
+  ],
+  "artifacts": [
+    {
+      "url": "https://api.nuget.org/v3-flatcontainer/microsoft.maui.controls.core/11.0.0-rc.2.26505.5/microsoft.maui.controls.core.11.0.0-rc.2.26505.5.nupkg",
+      "sha256": "92787cfc8a46b941b88adefc9966624ec2f183f73bf08c25102b04fff1833fcc",
+      "scope": "Downloaded actual package; inspected XML member contracts and platform asset directories. Not native execution."
+    }
+  ]
+}
