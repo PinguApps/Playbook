@@ -24,6 +24,17 @@ using (var db = new Alder(Sql()))
     db.Database.EnsureCreated();
     Console.WriteLine("SQL Server " + db.Database.SqlQueryRaw<string>("SELECT CAST(SERVERPROPERTY('ProductVersion') AS nvarchar(128)) AS [Value]").Single());
 }
+using (var oldBoolean = new Alder(Sql()))
+{
+    oldBoolean.Database.ExecuteSql($"DELETE FROM [Parcels]");
+#pragma warning disable CS0618 // Measure the old boolean without setting its replacement enum.
+    oldBoolean.Database.AutoTransactionsEnabled = true;
+#pragma warning restore CS0618
+    transactionStarts = 0;
+    oldBoolean.Parcels.Add(new Parcel { Id = 98, Label = "Old boolean single" });
+    oldBoolean.SaveChanges();
+    Check(transactionStarts == 0, "old boolean true single-command save starts no transaction (WhenNeeded, not Always)");
+}
 foreach (var behavior in Enum.GetValues<AutoTransactionBehavior>())
 {
     using (var reset = new Alder(Sql())) reset.Database.ExecuteSql($"DELETE FROM [Parcels]");

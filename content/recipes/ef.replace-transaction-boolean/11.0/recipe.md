@@ -6,7 +6,7 @@ Preserve automatic transaction and rollback behavior when replacing an obsolete 
 
 ## When to use
 
-EF10 AutoTransactionsEnabled=true selects WhenNeeded, not Always; false selects Never. EF11 removes that boolean. AutoTransactionBehavior already exists in EF10 and is a valid migration before upgrading. Never can leave earlier commands committed after a later command fails. WhenNeeded wraps the multi-command save; Always also starts a transaction for a single command. The fixture forces separate commands with MaxBatchSize(1), rejects the second insert with a CHECK constraint and reads persisted IDs through a fresh context. Separate single-command saves measure TransactionStarted. No ambient/explicit transaction, retry strategy, Cosmos mode or distributed atomicity guarantee.
+EF10 AutoTransactionsEnabled=true selects WhenNeeded, not Always (measured by an old-boolean-only single-command save with zero transaction starts); false selects Never. EF11 removes that boolean. AutoTransactionBehavior already exists in EF10 and is a valid migration before upgrading. Never can leave earlier commands committed after a later command fails. WhenNeeded wraps the multi-command save; Always also starts a transaction for a single command. The fixture forces separate commands with MaxBatchSize(1), rejects the second insert with a CHECK constraint and reads persisted IDs through a fresh context. Separate single-command saves measure TransactionStarted. No ambient/explicit transaction, retry strategy, Cosmos mode or distributed atomicity guarantee.
 
 ## Older approach
 
@@ -75,7 +75,7 @@ Use the EF11 comparison below. The full AlderQueries projects exercise all three
 
 Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100-rc.2.26504.105, EF11.0.0-rc.2.26504.105 versus SDK10.0.402, C#14, runtime10.0.13 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies.
 
-EF10 AutoTransactionsEnabled=true selects WhenNeeded, not Always; false selects Never. EF11 removes that boolean. AutoTransactionBehavior already exists in EF10 and is a valid migration before upgrading. Never can leave earlier commands committed after a later command fails. WhenNeeded wraps the multi-command save; Always also starts a transaction for a single command. The fixture forces separate commands with MaxBatchSize(1), rejects the second insert with a CHECK constraint and reads persisted IDs through a fresh context. Separate single-command saves measure TransactionStarted. No ambient/explicit transaction, retry strategy, Cosmos mode or distributed atomicity guarantee.
+EF10 AutoTransactionsEnabled=true selects WhenNeeded, not Always (measured by an old-boolean-only single-command save with zero transaction starts); false selects Never. EF11 removes that boolean. AutoTransactionBehavior already exists in EF10 and is a valid migration before upgrading. Never can leave earlier commands committed after a later command fails. WhenNeeded wraps the multi-command save; Always also starts a transaction for a single command. The fixture forces separate commands with MaxBatchSize(1), rejects the second insert with a CHECK constraint and reads persisted IDs through a fresh context. Separate single-command saves measure TransactionStarted. No ambient/explicit transaction, retry strategy, Cosmos mode or distributed atomicity guarantee.
 
 ## Evidence
 
@@ -90,7 +90,7 @@ Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It
 
 ## Compile-only negative diagnostic controls
 
-These files are excluded by default. The runner defines DIAGNOSTIC_PROBE only during compilation; never execute these intentionally unsafe call forms.
+The probe methods are excluded from normal compilation by #if DIAGNOSTIC_PROBE. The runner defines DIAGNOSTIC_PROBE only during compilation; never execute these intentionally unsafe call forms.
 
 ### EF10
 

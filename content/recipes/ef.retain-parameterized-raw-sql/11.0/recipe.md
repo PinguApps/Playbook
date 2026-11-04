@@ -90,7 +90,7 @@ Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It
 
 ## Compile-only negative diagnostic controls
 
-These files are excluded by default. The runner defines DIAGNOSTIC_PROBE only during compilation; never execute these intentionally unsafe call forms.
+The probe methods are excluded from normal compilation by #if DIAGNOSTIC_PROBE. The runner defines DIAGNOSTIC_PROBE only during compilation; never execute these intentionally unsafe call forms.
 
 ### EF10
 
