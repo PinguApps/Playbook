@@ -619,3 +619,10 @@
 # sample; parent inspects the rendered icon and real sample build/pack retains it.
 /samples/net10.0/HarbourNavigation/Resources/AppIcon/appicon.svg
 /samples/net11.0/HarbourNavigation/Resources/AppIcon/appicon.svg
+
+# Record-Evidence generated compilation receipts. Review Fleet sources, locks,
+# manifests and named checks; content build enforces exact input freshness.
+/samples/net10.0/FleetDesign/verification-evidence.json
+/samples/net11.0/FleetDesign/verification-evidence.json
+/samples/net10.0/FleetTooling/verification-evidence.json
+/samples/net11.0/FleetTooling/verification-evidence.json
