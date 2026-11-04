@@ -1,8 +1,8 @@
 {
   "id": "maui.migrate-navigation-handlers",
   "edition": "11.0",
-  "title": "Move Android Shell customization to the default handler",
-  "goal": "Apply when upgrading Android Shell navigation: remove the unshipped Compatibility package, move supported styling to Shell properties and retain unaffected Controls.Core APIs.",
+  "title": "Migrate native navigation customizations and page lifecycle work",
+  "goal": "Apply when upgrading MAUI navigation: migrate Android Shell and Apple page customizations to supported handlers, choose explicit renderer fallbacks and run visible-page work at the correct lifecycle point.",
   "areas": [
     "maui"
   ],
@@ -11,12 +11,18 @@
   ],
   "tags": [
     "harbour-navigation",
-    "navigation"
+    "navigation",
+    "jetty-handlers"
   ],
   "apis": [
     "ShellHandler",
     "ShellRenderer",
-    "ConfigureMauiHandlers"
+    "ConfigureMauiHandlers",
+    "NavigationViewHandler",
+    "TabbedViewHandler",
+    "FlyoutViewHandler",
+    "NavigatedTo",
+    "UseiOSShellHandler"
   ],
   "introducedIn": "11.0",
   "supportedTargets": [
@@ -110,6 +116,91 @@
           "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
           "https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11"
         ]
+      },
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 native application; CoreCLR is the default mobile runtime. No NativeAOT execution claim.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC2.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample uses C#15, no preview language feature.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls.Core11.0.0-rc.2.26505.5 net11.0-ios27.0; matching Microsoft.Maui.Core and Apple workload."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "iOS27 binding/minimum18.2 in canonical samples; Mac Catalyst requires its matching workload and native toolchain."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Compatible Apple workload, Mac/Xcode and native SDK; unavailable on this Windows authoring machine."
+          ],
+          "constraints": [
+            "Apple page handlers are defaults; Apple Shell remains opt-in. NavigationPage cannot be nested in Shell."
+          ],
+          "optIns": [
+            "UseiOSShellHandler=true only when choosing the complete Apple Shell handler hierarchy."
+          ],
+          "stabilityLimitations": [
+            "Stable API guidance based on pinned RC2 artifacts, not GA verification. No NativeAOT or trimming execution claim."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/JettyApple/JettyApple.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/TabbedPage/iOS/TabbedRenderer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/NavigationPage/iOS/NavigationRenderer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/FlyoutPage/iOS/PhoneFlyoutPageRenderer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/NavigationPage/NavigationViewHandler.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/TabbedView/TabbedViewHandler.iOS.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/FlyoutView/FlyoutViewHandler.iOS.cs"
+        ]
       }
     ]
   },
@@ -153,6 +244,34 @@
     {
       "url": "https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11",
       "title": "MAUI 11 navigation and compatibility migration"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Hosting/AppHostBuilderExtensions.cs",
+      "title": "AppHostBuilderExtensions.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/TabbedPage/iOS/TabbedRenderer.cs",
+      "title": "TabbedRenderer.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/NavigationPage/iOS/NavigationRenderer.cs",
+      "title": "NavigationRenderer.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/FlyoutPage/iOS/PhoneFlyoutPageRenderer.cs",
+      "title": "PhoneFlyoutPageRenderer.cs pinned official implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/NavigationPage/NavigationViewHandler.iOS.cs",
+      "title": "NavigationViewHandler.iOS.cs pinned Apple handler implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/TabbedView/TabbedViewHandler.iOS.cs",
+      "title": "TabbedViewHandler.iOS.cs pinned Apple handler implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/FlyoutView/FlyoutViewHandler.iOS.cs",
+      "title": "FlyoutViewHandler.iOS.cs pinned Apple handler implementation"
     }
   ],
   "evidence": [
@@ -171,15 +290,33 @@
       "sdk": "11.0.100-rc.2.26504.105",
       "language": "15.0",
       "scope": "Pinned official source review only; unavailable native toolchain. No compilation or execution."
+    },
+    {
+      "sample": "samples/net10.0/JettyApple/JettyApple.csproj",
+      "kind": "official-review",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Pinned official source/artifact review; Apple compilation and native lifecycle behavior not-tested under PIN-699."
+    },
+    {
+      "sample": "samples/net11.0/JettyApple/JettyApple.csproj",
+      "kind": "official-review",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Pinned official source/artifact review; Apple compilation and native lifecycle behavior not-tested under PIN-699."
     }
   ],
   "humanProof": {
     "status": "not-tested",
     "untestedSamples": [
       "samples/net10.0/HarbourAndroid/HarbourAndroid.csproj",
-      "samples/net11.0/HarbourAndroid/HarbourAndroid.csproj"
+      "samples/net11.0/HarbourAndroid/HarbourAndroid.csproj",
+      "samples/net10.0/JettyApple/JettyApple.csproj",
+      "samples/net11.0/JettyApple/JettyApple.csproj"
     ],
-    "scope": "SDK11 lacks the MAUI SDK pack. Current native builds and all Android device/Apple interactions are not-tested. Older Android compilation is recorded separately; no pending Human obligation."
+    "scope": "SDK11 lacks the MAUI SDK pack. Current native builds and all Android device/Apple interactions are not-tested. Older Android compilation is recorded separately; no pending Human obligation. Apple JettyApple older/current compilation, on-screen timing, focus, repush controller lifetime, tabs, flyout and Shell interaction not-tested: Mac/Xcode unavailable. No pending Human action for this exclusion."
   },
   "snippets": {
     "samples-net10-0-harbourandroid-directory-build-props": {
@@ -271,6 +408,136 @@
       "path": "samples/net11.0/HarbourAndroid/Platforms/Android/MainApplication.cs",
       "region": "complete",
       "language": "csharp"
+    },
+    "samples-net10-0-jettyapple-directory-build-props": {
+      "path": "samples/net10.0/JettyApple/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyapple-directory-build-targets": {
+      "path": "samples/net10.0/JettyApple/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyapple-directory-packages-props": {
+      "path": "samples/net10.0/JettyApple/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyapple-global-json": {
+      "path": "samples/net10.0/JettyApple/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-jettyapple-jettyapple-csproj": {
+      "path": "samples/net10.0/JettyApple/JettyApple.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyapple-jettypage-cs": {
+      "path": "samples/net10.0/JettyApple/JettyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyapple-mauiprogram-cs": {
+      "path": "samples/net10.0/JettyApple/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyapple-platforms-ios-appdelegate-cs": {
+      "path": "samples/net10.0/JettyApple/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyapple-platforms-ios-info-plist": {
+      "path": "samples/net10.0/JettyApple/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-jettyapple-platforms-ios-program-cs": {
+      "path": "samples/net10.0/JettyApple/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-jettyapple-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net10.0/JettyApple/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyapple-directory-build-props": {
+      "path": "samples/net11.0/JettyApple/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyapple-directory-build-targets": {
+      "path": "samples/net11.0/JettyApple/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyapple-directory-packages-props": {
+      "path": "samples/net11.0/JettyApple/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyapple-global-json": {
+      "path": "samples/net11.0/JettyApple/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-jettyapple-jettyapple-csproj": {
+      "path": "samples/net11.0/JettyApple/JettyApple.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyapple-jettypage-cs": {
+      "path": "samples/net11.0/JettyApple/JettyPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyapple-mauiprogram-cs": {
+      "path": "samples/net11.0/JettyApple/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyapple-platforms-ios-appdelegate-cs": {
+      "path": "samples/net11.0/JettyApple/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyapple-platforms-ios-info-plist": {
+      "path": "samples/net11.0/JettyApple/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-jettyapple-platforms-ios-program-cs": {
+      "path": "samples/net11.0/JettyApple/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyapple-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net11.0/JettyApple/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyapple-rendererfallback-cs": {
+      "path": "samples/net11.0/JettyApple/RendererFallback.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-jettyapple-shelloptin-props": {
+      "path": "samples/net11.0/JettyApple/ShellOptIn.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "jetty-apple-fallback": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/JettyApple/RendererFallback.cs"
+    },
+    "jetty-apple-shell": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/JettyApple/ShellOptIn.props"
     }
   }
 }
