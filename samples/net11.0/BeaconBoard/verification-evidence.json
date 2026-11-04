@@ -14,7 +14,7 @@
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/BeaconBoard/sources.json": "e9d659b5a64f2e1d1dccbe303b148cbcaf23ac37f3671dfcd4d7b672ad027a41",
     "samples/net11.0/BeaconBoard/BeaconBoard.csproj": "0648c8f4b5ac54ba8de54d14651ae90c70ee489e6a91346da0df0b622f71fb6e",
-    "samples/net11.0/BeaconBoard/BoardPage.cs": "b1be6c60f05bb2bdb784dc89eabc70c74998e3cb08788b66afc6850b3e845dee",
+    "samples/net11.0/BeaconBoard/BoardPage.cs": "a10788facac0db35cf8f3d35a69a91e5b492660f62b174867ebd34e3ed59765d",
     "samples/net11.0/BeaconBoard/Directory.Build.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
     "samples/net11.0/BeaconBoard/Directory.Build.targets": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
     "samples/net11.0/BeaconBoard/Directory.Packages.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",

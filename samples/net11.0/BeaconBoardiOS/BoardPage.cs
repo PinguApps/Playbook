@@ -1,4 +1,5 @@
 // snippet:complete
+using Microsoft.Maui;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Graphics;
 namespace BeaconBoard;
@@ -33,7 +34,7 @@ public sealed class BoardPage : ContentPage
     {
         var accent = new NamedSwatch("Night watch", Colors.DarkCyan);
         // Mutate the existing shared style, then explicitly reapply it.
-        heading.Style.Setters[0].Value = accent.Value;
+        heading.Style!.Setters[0].Value = accent.Value;
         heading.InvalidateStyle();
         // Let inference follow the concrete VisualStateGroupList return type.
         var groups = VisualStateManager.GetVisualStateGroups(heading);
