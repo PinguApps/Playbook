@@ -138,3 +138,5 @@ The older Windows project compiled in Release. Its optional NavigationCheck actu
 - [ShellRenderer.cs official implementation](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs)
 - [BackButtonBehavior.cs official implementation](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Shell/BackButtonBehavior.cs)
 - [ShellRenderer.cs official implementation](https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs)
+
+- [MAUI 11 navigation and compatibility migration](https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11)

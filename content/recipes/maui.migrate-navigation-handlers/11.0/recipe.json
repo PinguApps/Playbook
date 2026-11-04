@@ -107,7 +107,8 @@
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Handlers/Shell/ShellHandler.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Shell/BackButtonBehavior.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs"
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
+          "https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11"
         ]
       }
     ]
@@ -148,6 +149,10 @@
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/Compatibility/Handlers/Shell/Android/ShellRenderer.cs",
       "title": "ShellRenderer.cs official implementation"
+    },
+    {
+      "url": "https://learn.microsoft.com/dotnet/maui/whats-new/dotnet-11",
+      "title": "MAUI 11 navigation and compatibility migration"
     }
   ],
   "evidence": [

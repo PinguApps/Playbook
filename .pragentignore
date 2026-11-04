@@ -609,3 +609,8 @@
 # and source-review records remain reviewable. Build/pack verifies freshness.
 /samples/net10.0/HarbourNavigation/verification-evidence.json
 /samples/net10.0/HarbourAndroid/verification-evidence.json
+
+# Unchanged lighthouse app-icon media reused from the existing BeaconBoard
+# sample; parent inspects the rendered icon and real sample build/pack retains it.
+/samples/net10.0/HarbourNavigation/Resources/AppIcon/appicon.svg
+/samples/net11.0/HarbourNavigation/Resources/AppIcon/appicon.svg
