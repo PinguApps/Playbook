@@ -1,7 +1,7 @@
 # Four-pair assessment recommendation
 
-Status: **proposed; Pingu's Human acceptance under PIN-955 is pending**.
-Release authorization is also pending. This agent-assisted assessment concerns the
+Status: **accepted by Pingu under PIN-955 on 5 November 2026**.
+Release authorization remains pending. This agent-assisted assessment concerns the
 eight retained RC3 attempts, not a new benchmark or GA verification.
 
 ## Recommendation
@@ -69,7 +69,7 @@ general efficiency. Usage excludes preparation/evaluation and is not a billing a
   pass. This is a repaired evidence defect, not a newly executed runtime inventory.
 - No concrete served-recipe/tool defect is established by these bounded results.
   The oracle and retention defects concern evaluation infrastructure. No product
-  corrective blocker is proposed from them; owner acceptance remains pending.
+  corrective blocker is proposed from them; Pingu accepted this assessment.
 - Preserve existing GA reconciliation, source/API findings and release gates.
   RC3 behaviour and this recommendation do not clear them or authorize release.
 
@@ -81,9 +81,9 @@ retention repair. They check retained integrity/contexts/budgets, not current
 behaviour. No replay, model run, GA check or new browser exercise was performed;
 behaviour findings above reuse the linked unchanged historical evidence.
 
-Pingu should accept or amend the recommendation, particularly the grid failure
-disposition and reservation amendment. Until that judgement is recorded, PIN-955
-is incomplete and its downstream release decisions remain gated.
+Pingu approved the recommendation in the implementation conversation, including
+the grid failure disposition and reservation amendment. This satisfies the owner
+assessment gate; downstream release decisions retain their own prerequisites.
 
 Sources: [frozen protocol](comparison-protocol.md),
 [approved evaluation plan](../planning/evaluation-plan.md), SPEC.md stories
