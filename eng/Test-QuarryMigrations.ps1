@@ -51,7 +51,7 @@ try {
     $rejection=& $dotnet $tool migrations remove --offline --force --project (Join-Path $run 'QuarryMigrations.csproj') 2>&1 | Out-String
     $exit=$LASTEXITCODE
     $PSNativeCommandUseErrorActionPreference=$true
-    if ($exit -eq 0 -or $rejection -notmatch 'offline|force') { throw 'Expected incompatible offline/force rejection.' }
+    if ($exit -eq 0 -or $rejection -notmatch '(?is)(offline.*force|force.*offline)') { throw 'Expected incompatible offline/force rejection.' }
     if (!(Get-ChildItem Migrations -Filter '*_ForceControl.cs')) { throw 'Rejected command changed migration.' }
     Invoke-Ef @('migrations','remove','--offline')
    } else {
@@ -84,7 +84,7 @@ try {
     $receipt=Get-Content (Join-Path $source 'verification-evidence.json') -Raw | ConvertFrom-Json -AsHashtable
     $receipt.kind='execution'
     $receipt.command="eng/Test-QuarryMigrations.ps1 -Record; actual dotnet-ef $version CLI, isolated SQL2025 database and compiled inspection consumer"
-    $receipt.scope='Actual migration files/history/schema; retained model/index and accepted missing principal. EF11 combined add/apply and unreachable offline removal plus force rejection; EF10 two-step/manual unpublished-file removal. Connected --connection failure against unreachable endpoint verified; no successful connected removal, PMC or GA execution.'
+    $receipt.scope=if ($release -eq '10') { 'EF10 actual two-step scaffold/apply, manual removal of known-unpublished first migration files, applied SQL history/schema, retained model/index, excluded database FK and accepted orphan insert. No EF11, PMC or GA execution in this record.' } else { 'EF11 actual combined add/apply with retained generated files, applied SQL history/schema, retained model/index, excluded database FK and accepted orphan insert. Unreachable offline removal, rejected offline/force and selected unreachable --connection failure with files preserved. No successful connected removal, PMC or GA execution.' }
     $receipt.output=$result
     $receipt.inputs=$after
     $receipt.recordedAt=[DateTimeOffset]::UtcNow.ToString('O')
@@ -99,6 +99,3 @@ try {
  $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=$previous
  foreach ($scope in $paths.Keys) { if ($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "Unexpected $scope PATH change; shared settings preserved." } }
 }
-
-
-

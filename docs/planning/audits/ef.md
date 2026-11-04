@@ -767,3 +767,18 @@ and re-scaffolds its model change on the first. Snapshot IDs, pending-model chec
 and application to disposable SQLite validate the coherent result. No shared
 migration removal, cloud parity, extra .NET10 foundation or GA proof is claimed.
 Exact RC2 artifacts remain subject to PIN-965/PIN-959 reconciliation.
+
+## Local migration authoring — PIN-878–880
+
+Original QuarryMigrations pairs retain WEB-127/129/130 goal identities as
+`ef.omit-database-foreign-key/11.0`, `ef.scaffold-and-apply-migration/11.0` and
+`ef.remove-unapplied-migration-offline/11.0`. The exact EF10.0.13 and EF11 RC2
+consumers compile and run actual dotnet-ef against uniquely owned SQL2025 test
+databases. EF10 deliberately edits a generated constraint operation before its
+separate apply; EF11 configures exclusion and uses database update --add.
+Generated source files, applied history/schema, model relationship and database
+index are inspected. An orphan insert succeeds, making integrity ownership explicit.
+Offline removal executes against an unreachable configured endpoint and rejects
+force; explicit connected selection against that endpoint fails without removal.
+No applied-state knowledge follows from offline removal. PMC stays PIN-957;
+GA and catalogue closure stay PIN-965/PIN-959. No new .NET10 foundation is added.
