@@ -85,7 +85,7 @@
           ],
           "optIns": [],
           "stabilityLimitations": [
-            "Exact recorded artifacts establish only the exercised routes; EF11 uses RC2 rather than GA."
+            "Exact recorded artifacts establish EF9/EF10 SQLite behavior only; no EF11 route or other-provider execution is verified."
           ]
         },
         "conditional": false,
@@ -101,10 +101,6 @@
     {
       "title": "Official EF querying guidance",
       "url": "https://learn.microsoft.com/en-us/ef/core/querying/filters"
-    },
-    {
-      "title": "Official EF11 breaking changes",
-      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
     }
   ],
   "evidence": [
