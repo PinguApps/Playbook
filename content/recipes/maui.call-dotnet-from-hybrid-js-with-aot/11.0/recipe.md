@@ -139,15 +139,12 @@ The workload-free MarshDispatch consumer uses the actual neutral MAUI assemblies
 
 ## Evidence
 
-Official source hashes are retained in samples/MarshInterop/sources.json and checked by eng/Test-MarshInterop.ps1. Evidence records distinguish source review from compilation. iOS compilation, trimming, NativeAOT publication and WebView interaction excluded: Mac/Xcode unavailable. No native execution or GA verification is claimed. Installed-package list/get verifies offline content delivery only. No older-target .NET11 route is declared.
+Official source hashes are retained in samples/MarshInterop/sources.json and checked by eng/Test-MarshInterop.ps1. Evidence records distinguish source review from compilation. iOS compilation, trimming, NativeAOT publication and WebView interaction excluded: Mac/Xcode unavailable. No native execution or GA verification is claimed. Installed-package list/get verifies offline content delivery only. No verified older-target route is declared for this edition.
 
 ## Official references
 
-- [EntryHandler2.Android.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs)
-- [MauiMaterialEditText.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs)
 - [HybridWebView.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs)
 - [HybridWebViewInvokeTargetGenerator.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs)
 - [Microsoft.Maui.Controls.targets official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets)
-- [EntryHandler.Android.cs official source](https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs)
 - [HybridWebView.cs official source](https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs)
 - [HybridWebViewHandler.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs)

@@ -27,8 +27,8 @@ Use the net11.0 canonical project below with its matched platform packages.
 ## Migration
 
 1. Select the matched SDK, workload and package pins from the canonical project.
-2. Apply the registration from the current sample to the custom control or invocation target.
-3. Keep the older project when its behavior is sufficient; do not suppress trim diagnostics.
+2. Register SurveyHandler for SurveyEntry only; keep the stock Entry registration unchanged.
+3. Call base.CreatePlatformView before setting the custom native accessibility description. Keep the older public EntryHandler route when it meets the app requirements.
 4. Build Release and run the described native checks before relying on platform behavior.
 
 ## Canonical previous and current samples
@@ -107,15 +107,10 @@ Use the net11.0 canonical project below with its matched platform packages.
 
 ## Evidence
 
-Official source hashes are retained in samples/MarshInterop/sources.json and checked by eng/Test-MarshInterop.ps1. Evidence records distinguish source review from compilation. Android device rendering and accessibility interaction not tested; .NET11 Android compilation excluded where matched SDK11 MAUI workload unavailable. No pending Human obligation under PIN-699. No native execution or GA verification is claimed. Installed-package list/get verifies offline content delivery only. No older-target .NET11 route is declared.
+Official source hashes are retained in samples/MarshInterop/sources.json and checked by eng/Test-MarshInterop.ps1. Evidence records distinguish source review from compilation. Android device rendering and accessibility interaction not tested; .NET11 Android compilation excluded where matched SDK11 MAUI workload unavailable. No pending Human obligation under PIN-699. No native execution or GA verification is claimed. Installed-package list/get verifies offline content delivery only. No verified older-target route is declared for this edition.
 
 ## Official references
 
 - [EntryHandler2.Android.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs)
 - [MauiMaterialEditText.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs)
-- [HybridWebView.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs)
-- [HybridWebViewInvokeTargetGenerator.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs)
-- [Microsoft.Maui.Controls.targets official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets)
 - [EntryHandler.Android.cs official source](https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs)
-- [HybridWebView.cs official source](https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs)
-- [HybridWebViewHandler.cs official source](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs)

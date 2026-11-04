@@ -101,12 +101,9 @@
           "No verified older-target route; .NET 10 is comparison-only."
         ],
         "sourceUrls": [
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs",
-          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
-          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs",
           "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
           "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs"
         ]
@@ -114,14 +111,6 @@
     ]
   },
   "sources": [
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs",
-      "title": "EntryHandler2.Android.cs official source"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs",
-      "title": "MauiMaterialEditText.cs official source"
-    },
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
       "title": "HybridWebView.cs official source"
@@ -133,10 +122,6 @@
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
       "title": "Microsoft.Maui.Controls.targets official source"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs",
-      "title": "EntryHandler.Android.cs official source"
     },
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs",

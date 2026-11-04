@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-MarshInterop.ps1 -Record",
   "scope": "Pinned official source and platform API review only; no native compilation or execution.",
-  "recordedAt": "2026-11-04T19:49:53.6499744+00:00",
-  "sourceCommit": "1fdc9df07f3bc4213b7265a5a5fb0b5b8a3c49eb",
+  "recordedAt": "2026-11-04T20:37:14.0356797+00:00",
+  "sourceCommit": "599c66e6c0b23ee6550c07349113cfa1532ce17f",
   "sourceDirty": true,
   "inputs": {
     "eng/Test-MarshInterop.ps1": "3e9ccacd5b434a5bf2be700f1aae108f1b66844896a246a24d86241effe05f25",
