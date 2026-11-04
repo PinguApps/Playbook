@@ -65,4 +65,3 @@ Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-380759ad'
 & ./docs/evaluation/manifest-reconciliation/Test-Oracle.ps1 -Submission ./samples/ManifestEvaluation -Dotnet 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' -Reference
 # Expect ten PASS assertions and zero failures. Omit -Reference to score a submission.
 ```
-
