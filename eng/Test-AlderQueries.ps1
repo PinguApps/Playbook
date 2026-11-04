@@ -48,4 +48,3 @@ try {
         if ($paths[$scope] -cne [Environment]::GetEnvironmentVariable('PATH',$scope)) { throw "Unexpected $scope PATH change; shared settings preserved." }
     }
 }
-

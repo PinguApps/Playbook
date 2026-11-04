@@ -854,3 +854,30 @@ Canonical files, package graphs and fresh compilation/runtime records feed the
 ordinary installed offline MCP inspection. Original audit baselines remain
 immutable. Each M(3) retains its state/lifecycle proof scope; PIN-959, PIN-965 and
 existing Human gates are unchanged and open where previously outstanding.
+
+## Transactions, collection modes and raw SQL — PIN-1193–1195
+
+Original AlderQueries EF10/EF11 consumers deliver E5/E6/E7 as
+`ef.replace-transaction-boolean/11.0`,
+`ef.migrate-collection-parameter-mode/11.0` and
+`ef.retain-parameterized-raw-sql/11.0`. Pinned SDK10.0.402/EF10.0.13 versus
+SDK11 RC2/EF11 RC2 compile independently. Real isolated SQL2025 rejects a second
+insert and verifies fresh-context persisted rows for Never/WhenNeeded/Always;
+single-command saves count actual transaction starts. The old true boolean maps
+to WhenNeeded, not Always. Both enums/mode APIs already exist on EF10.
+
+SQL Server Contains queries verify constants, one OPENJSON parameter and multiple
+scalar parameters plus query-level overrides and result equivalence. Each mode
+owns separate internal services: the first comparison reproduced reuse of a
+previous compiled SQL shape when switching mode on shared services. No dynamic
+shared-cache configuration, plan or performance guarantee follows.
+
+Real Windows x64 bundled SQLite3.53.3/3.53.4 retains metacharacter-bearing values
+as parameters, verifies query/update/table persistence and already-canceled async
+calls. Fixed authored unsafe SQL is a negative control, never untrusted
+concatenation. Compile-only controls retain EF1002 interpolation on both versions,
+EF11 EF1003 Format/Concat recognition and new CS0618 replacement warnings.
+Canonical source/pins/locks and fresh compilation/runtime receipts are retained.
+Native hashes/source IDs identify actual engines. No active-query interruption,
+Cosmos, other-provider/platform, GA, comprehensive coverage or new foundation
+claim is made. PIN-959/PIN-965 and all existing Human gates remain unchanged.

@@ -4026,3 +4026,36 @@ The harness installs the exact ordinary local artifact in an isolated feed/cache
 then calls real stdio list/get from outside the checkout with unusable proxies.
 Setup can restore packages; retrieval is embedded and offline. No package is
 published. This establishes proxy independence, not OS network isolation.
+
+## Transaction switches, collection SQL modes and parameterized raw SQL
+
+PIN-1193–1195 add original AlderQueries EF10/EF11 comparisons. Requires
+PowerShell7, pinned SDK10.0.402 and isolated SDK11 RC2, Node22.19+ and the approved
+local SQL2025 Docker route. The runner creates/removes only unique owned databases,
+uses restricted child credentials and in-memory bundled SQLite, and does not
+publish packages or change persistent environment settings. From an unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-49f4328d'
+& ./eng/SqlServer.ps1 -Action Start
+& ./eng/Test-AlderQueries.ps1 -Record
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.replace-transaction-boolean','ef.migrate-collection-parameter-mode','ef.retain-parameterized-raw-sql') `
+  -Query 'alder-queries' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1193-1195' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/alder/inspection'
+```
+
+Expect real rollback/persisted-row and single-command transaction checks,
+collection SQL/parameter/result checks, native SQLite parameter/metacharacter and
+already-canceled query/write controls, and actual compiler diagnostics. Each
+collection mode has separate internal services to avoid compiled-query cache reuse.
+The Inspector installs the exact ordinary package from an isolated feed/cache,
+calls real stdio list/get from outside the checkout, and prints ID/title/goal,
+complete canonical Markdown, target11/edition11, applicability and fresh evidence.
+Target10 returns no_applicable_edition. Unusable retrieval proxies prove embedded
+offline retrieval, not OS network isolation. No active-query cancellation, query
+plan/performance, Cosmos, arbitrary provider/platform or actual GA proof follows;
+PIN-959/PIN-965 and the eight foundations remain unchanged.

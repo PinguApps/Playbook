@@ -650,3 +650,10 @@
 # Record-Evidence WrenTracking receipts; canonical consumers, locks, manifests and runner remain reviewable.
 /samples/net10.0/WrenTracking/verification-evidence.json
 /samples/net11.0/WrenTracking/verification-evidence.json
+
+# Test-AlderQueries/Record-Evidence generated receipts. Review original consumers,
+# locks, assertions, diagnostics and runner; ordinary build/pack checks freshness.
+/samples/net10.0/AlderQueries/verification-evidence.json
+/samples/net10.0/AlderQueries/behavior.evidence.json
+/samples/net11.0/AlderQueries/verification-evidence.json
+/samples/net11.0/AlderQueries/behavior.evidence.json

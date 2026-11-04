@@ -133,8 +133,3 @@ sealed class Commands : DbCommandInterceptor
     public override ValueTask<InterceptionResult<int>> NonQueryExecutingAsync(DbCommand command, CommandEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = default) { Capture(command); return ValueTask.FromResult(result); }
 }
 // endsnippet:complete
-
-
-
-
-

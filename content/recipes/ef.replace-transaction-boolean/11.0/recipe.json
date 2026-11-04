@@ -1,0 +1,235 @@
+{
+  "id": "ef.replace-transaction-boolean",
+  "edition": "11.0",
+  "title": "Preserve relational automatic-transaction intent",
+  "goal": "Preserve automatic transaction and rollback behavior when replacing an obsolete transaction switch.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "alder-queries",
+    "sql-server",
+    "sqlite",
+    "migration"
+  ],
+  "apis": [
+    "AutoTransactionBehavior",
+    "AutoTransactionsEnabled",
+    "SaveChanges"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Infrastructure/DatabaseFacade.cs",
+          "https://learn.microsoft.com/en-us/ef/core/querying/sql-queries",
+          "https://learn.microsoft.com/en-us/ef/core/saving/transactions"
+        ],
+        "selectionNotes": [
+          "EF10 AutoTransactionsEnabled=true selects WhenNeeded, not Always; false selects Never. EF11 removes that boolean. AutoTransactionBehavior already exists in EF10 and is a valid migration before upgrading. Never can leave earlier commands committed after a later command fails. WhenNeeded wraps the multi-command save; Always also starts a transaction for a single command. The fixture forces separate commands with MaxBatchSize(1), rejects the second insert with a CHECK constraint and reads persisted IDs through a fresh context. Separate single-command saves measure TransactionStarted. No ambient/explicit transaction, retry strategy, Cosmos mode or distributed atomicity guarantee."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer; no ASP.NET Core requirement"
+          ],
+          "packages": [
+            {
+              "reason": "Matched EF11 SQL provider graph; actual RC2 locked.",
+              "version": "11.0",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.SqlServer"
+            },
+            {
+              "reason": "Matched native SQLite graph; actual RC2 locked.",
+              "version": "11.0",
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite"
+            }
+          ],
+          "packageAssets": [
+            "Exact independently locked SQL Server/SQLite graphs; Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100-rc.2.26504.105, EF11.0.0-rc.2.26504.105 versus SDK10.0.402, C#14, runtime10.0.13 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
+          ],
+          "providers": [
+            "Isolated SQL Server2025 17.0.5035.5, compatibility170; Windows x64 bundled SQLite3.53.3/3.53.4"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64 with packaged e_sqlite3 native library. Other OS/architecture/native routes require their own suitable SQLite assets; none executed here."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database model; no browser or rendering mode"
+          ],
+          "constraints": [
+            "EF10 AutoTransactionsEnabled=true selects WhenNeeded, not Always; false selects Never. EF11 removes that boolean. AutoTransactionBehavior already exists in EF10 and is a valid migration before upgrading. Never can leave earlier commands committed after a later command fails. WhenNeeded wraps the multi-command save; Always also starts a transaction for a single command. The fixture forces separate commands with MaxBatchSize(1), rejects the second insert with a CHECK constraint and reads persisted IDs through a fresh context. Separate single-command saves measure TransactionStarted. No ambient/explicit transaction, retry strategy, Cosmos mode or distributed atomicity guarantee.",
+            "Current supported route: .NET/SDK11, C#15 and matching EF11 packages. Measured SDK11.0.100-rc.2.26504.105, EF11.0.0-rc.2.26504.105 versus SDK10.0.402, C#14, runtime10.0.13 and EF10.0.13. Stable API shapes on RC2 are not GA proof. EF11/Core/Relational select net11.0; direct Sqlite11 selects net10.0. EF10 selects net10.0 and direct Sqlite10 net8.0. SQL Server provider uses SqlClient6.1.7 versus7.1.0; locked graphs pin Pkcs10.0.13. Windows x64 native SQLite3.53.3/SQLitePCLRaw2.1.13 versus3.53.4/3.0.5. Both native hashes/source IDs are recorded. No older-runtime EF11 route, new .NET10 foundation, encryption, other OS/provider, Cosmos transaction or GA claim. No workload, rendering mode or experimental opt-in applies."
+          ],
+          "prerequisites": [
+            "PowerShell7, both pinned SDKs, running approved local SQL2025 Docker route and NuGet restore. Use eng/Test-AlderQueries.ps1; it injects credentials only in the child environment. Never print credentials. Copy the complete independent projects. Restore before offline execution."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API shape in GA-targeted guidance, measured on RC2 packages and SDK. No experimental API suppression required. Actual GA reconciliation remains outstanding."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/AlderQueries/AlderQueries.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF contract and guidance",
+      "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/efcore/src/EFCore/Infrastructure/DatabaseFacade.cs"
+    },
+    {
+      "title": "Official EF contract and guidance",
+      "url": "https://learn.microsoft.com/en-us/ef/core/querying/sql-queries"
+    },
+    {
+      "title": "Official EF contract and guidance",
+      "url": "https://learn.microsoft.com/en-us/ef/core/saving/transactions"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/AlderQueries/AlderQueries.csproj",
+      "kind": "compile",
+      "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
+      "sdk": "10.0.402",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/AlderQueries/AlderQueries.csproj",
+      "kind": "compile",
+      "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0"
+    },
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/AlderQueries/AlderQueries.csproj",
+      "kind": "execution",
+      "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "record": "samples/net10.0/AlderQueries/behavior.evidence.json"
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/AlderQueries/AlderQueries.csproj",
+      "kind": "execution",
+      "scope": "Run eng/Test-AlderQueries.ps1 -Record with the approved SQL2025 Docker route. It compiles both independent locked graphs, records fresh input hashes/dependencies/SDK/runtime, creates unique restricted databases, runs real SQL and native SQLite checks, and removes owned databases/logins in finally. behavior.evidence.json retains SQL, parameter values, runtime checks and compile-only diagnostics. verification-evidence.json retains compilation. Never execute DiagnosticProbe: it deliberately contains insecure compiler controls. Actual installed offline stdio inspection separately verifies discovery, full canonical body, target11/edition11, applicability and evidence. Unusable retrieval proxies prove proxy independence, not OS network isolation. PIN-959/PIN-965 and existing Human gates remain open.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "record": "samples/net11.0/AlderQueries/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n11-alderqueries-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AlderQueries/AlderQueries.csproj"
+    },
+    "n10-alderqueries-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AlderQueries/AlderQueries.csproj"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net10.0/AlderQueries/global.json"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AlderQueries/Directory.Packages.props"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AlderQueries/Directory.Build.props"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AlderQueries/Directory.Build.targets"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net11.0/AlderQueries/global.json"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AlderQueries/Directory.Packages.props"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/AlderQueries/Program.cs"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/AlderQueries/Directory.Build.props"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/AlderQueries/Directory.Build.targets"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/AlderQueries/Program.cs"
+    },
+    "n10-diagnostic-probe": {
+      "path": "samples/net10.0/AlderQueries/DiagnosticProbe.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-diagnostic-probe": {
+      "path": "samples/net11.0/AlderQueries/DiagnosticProbe.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Automated real SQL and native SQLite on Windows x64; no GA/other-provider/platform or active-query interruption proof."
+  }
+}
