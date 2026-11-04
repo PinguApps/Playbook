@@ -1,0 +1,1 @@
+V:\_worktrees\Playbook\t3-0f031b59\artifacts\protocol\sdk\sdk\11.0.100-rc.3.26522.148\MSBuild.exe --nologo --property:Configuration=Release --property:NuGetInteractive=false --verbosity:m --verbosity:diag -consoleloggerparameters:Summary -maxcpucount -restore:false -tlp:default=auto -tlp:DISABLENODEDISPLAY Task.csproj

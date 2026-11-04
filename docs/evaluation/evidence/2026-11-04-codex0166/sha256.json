@@ -5,7 +5,7 @@
   },
   {
     "path": ".pragentignore",
-    "sha256": "D46432DD71F11A23EAC360527604DD64364044D09564C9273F9CAFB558328379"
+    "sha256": "55C6DE46BAD1BC1F2716CD0E598C34087DC4A234752258EC331389DA58E7E2A9"
   },
   {
     "path": "Replay.ps1",
@@ -142,6 +142,10 @@
   {
     "path": "csharp/with/submission-manifest.json",
     "sha256": "806A8FEC71C12D94F8BD1153A0CFB133EC5A7053D8DAE364CD8CBBDD744CF4B7"
+  },
+  {
+    "path": "csharp/with/submitted-build-launcher.txt",
+    "sha256": "ADA653C8A3CDA0C483FA4CE98B5E0948B124F358E4C339F90E3A527344F8B713"
   },
   {
     "path": "csharp/with/submitted-build-with.log",
