@@ -1,0 +1,3 @@
+# Frozen offline package from PIN-950. Hash is checked by Verify.ps1; source identity
+# and applicability remain reviewable in controls and the actual response records.
+/controls/PinguApps.Playbook.0.1.0-pin950.nupkg
