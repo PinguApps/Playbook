@@ -3894,3 +3894,35 @@ edition11. Target10 has no applicable edition. The existing harness installs fro
 an isolated feed/cache, retrieves both through real stdio from an unrelated working
 directory and checks complete bodies with unusable retrieval proxies. That proves
 proxy independence, not OS network isolation. No native behavior or GA claim follows.
+## EF design dependencies, multiple contexts and clean SQL
+
+PIN-884/PIN-885/PIN-886 add FleetDesign and FleetTooling EF10/EF11 comparisons.
+Real checks reproduce the removed transitive Design dependency, restore service
+registration, execute scripts, verify both updated SQLite schemas and drop both
+scratch databases. EF11 RC2 wildcard list fails with a literal-context lookup;
+Pingu authorized publication with that explicit gap on 4 November 2026. Use
+explicit names for list until a fixed official artifact is verified. Wildcard
+script combines both models; deploy separate per-context scripts to separate databases.
+
+From an unrelated directory in PowerShell7, with the pinned SDK and Node22.19+:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-c6ed1780'
+& ./eng/Test-FleetDesign.ps1
+& ./eng/Test-FleetTooling.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.reference-design-services','ef.operate-across-contexts','ef.capture-clean-migration-script') `
+  -Query 'fleet-tooling' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin884-886' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/fleet/inspection'
+```
+
+Expect all three ID/title/goal summaries, full expanded Markdown, applicability
+and edition11. Target10 returns no_applicable_edition. The harness installs the
+actual package using isolated feed/cache and calls real stdio list/get from an
+unrelated directory with unusable proxies. This proves offline guidance retrieval
+under those conditions, not OS network isolation. No package is published.
+Windows x64 RC2 execution does not establish GA or other provider/platform proof;
+successful wildcard-list proof remains pending despite the publication exception.

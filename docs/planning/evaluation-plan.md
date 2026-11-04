@@ -38,3 +38,7 @@ Keep this a small manual launch exercise, not recurring CI, an automated benchma
 The [manifest reconciliation preparation](../evaluation/manifest-reconciliation/README.md)
 freezes the original console scaffold, private oracle and controls for PIN-949.
 It records no paired agent runs.
+
+## Owner-approved protocol
+
+[The single-client protocol](../evaluation/comparison-protocol.md) records Pingu's PIN-950 decisions, update/freeze policy, exact agent, run order, isolation preflight, evidence and review rules. It supersedes the original preparations' RC2 controls for the next comparison. No scored runs are recorded by this freeze.

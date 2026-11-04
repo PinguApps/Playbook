@@ -1,5 +1,7 @@
 # Manifest reconciliation preparation (PIN-949)
 
+Current comparison controls: [the owner-approved protocol](../comparison-protocol.md) refreshes these scaffolds to RC3. The RC2 pins and export commits below describe the original preparation only; use the refreshed committed revision for the next comparison.
+
 Evaluator material: never expose this directory, repository/history, recipes or
 paired outputs to a run. Export only samples/ManifestEvaluation at scaffold commit
 5ad10da77aba1bf658a2308f7d9d39cae108e2b0 to two independent clean

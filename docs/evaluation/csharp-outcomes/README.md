@@ -1,5 +1,7 @@
 # C# comparison preparation (PIN-946)
 
+Current comparison controls: [the owner-approved protocol](../comparison-protocol.md) refreshes these scaffolds to RC3. The RC2 pins and export commits below describe the original preparation only; use the refreshed committed revision for the next comparison.
+
 Evaluator material. Never mount this directory, repository history, recipe sources
 or either condition's outputs in a run. Export only `samples/OutcomeEvaluation/`
 at scaffold commit `80e41846f1a7c43d0f606978aed571e08e09f219` into two independent clean directories. Supply

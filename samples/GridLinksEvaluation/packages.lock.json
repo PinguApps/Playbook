@@ -4,15 +4,15 @@
     "net11.0": {
       "Microsoft.AspNetCore.App.Internal.Assets": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "8jhYltmAmcMGPcyQO7eQrjVGtHgPgGCFl4IlykellniNYLNiI0Q5aiJ8mG4s78dc1IDs5wWQ/qmJzy08WJLjoA=="
+        "requested": "[11.0.0-rc.3.26522.148, )",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "/2GrzIWKEE0NRw6e6ZIH468uCw8OUyOoQFISNed1HyztoUevG6q1df+fxJpH6+a97+b4DhKlKHie7hpBZfpWEA=="
       },
       "Microsoft.AspNetCore.Components.QuickGrid": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.2.26504.105, )",
-        "resolved": "11.0.0-rc.2.26504.105",
-        "contentHash": "4r1uDgO6vNtLpCctj6FssnSTXPd9bx7MeVZVUy/R56qgXljF1zwoGhYvvzEuik+OqmjNQiPsDQjrm5ARiru6rQ=="
+        "requested": "[11.0.0-rc.3.26522.148, )",
+        "resolved": "11.0.0-rc.3.26522.148",
+        "contentHash": "a2q8H89cfNQN5tfWa95TY9nQLXbVupp8suoxwxfa7ODy1y1NZl0iP63PwwCZXVcx+ioca3JZsDEpUC1mL1vRnQ=="
       }
     }
   }
