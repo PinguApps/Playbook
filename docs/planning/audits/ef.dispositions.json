@@ -60,23 +60,23 @@
     {
       "id": "azure-defaults",
       "pattern": "::UseAzureSqlDefaults\\b",
-      "disposition": "proposed",
-      "owner": "E8",
-      "reason": "Removed helper is replaced with UseAzureSql rather than silently changing provider assumptions."
+      "disposition": "delivered",
+      "owner": "PIN-1196",
+      "reason": "Removed helper is replaced with UseAzureSql rather than silently changing provider assumptions. EstuarySql/EstuaryParcels EF10/11 consumers compile and execute on approved local SQL2025/legacy Cosmos routes, with fresh package/input/runtime evidence. Azure service behaviour is explicitly excluded by Pingu; actual GA and comprehensive readiness remain separate."
     },
     {
       "id": "cosmos-partition-api",
       "pattern": "Cosmos.*::(?:CanSetPartitionKey|HasPartitionKey|GetPartitionKeyProperty|GetPartitionKeyPropertyName|GetPartitionKeyPropertyNameConfigurationSource|SetPartitionKeyPropertyName)\\b",
-      "disposition": "proposed",
-      "owner": "E9",
-      "reason": "Removed singular partition metadata/configuration; preserve existing stored partition keys."
+      "disposition": "delivered",
+      "owner": "PIN-1197",
+      "reason": "Removed singular partition metadata/configuration; preserve existing stored partition keys. EstuarySql/EstuaryParcels EF10/11 consumers compile and execute on approved local SQL2025/legacy Cosmos routes, with fresh package/input/runtime evidence. Azure service behaviour is explicitly excluded by Pingu; actual GA and comprehensive readiness remain separate."
     },
     {
       "id": "cosmos-content-response",
       "pattern": "CosmosDbContextOptionsBuilder::ContentResponseOnWriteEnabled",
-      "disposition": "proposed",
-      "owner": "E10",
-      "reason": "New obsolete warning and nullable/default contract; remove ineffectual configuration without promising SDK-wide behavior."
+      "disposition": "delivered",
+      "owner": "PIN-1198",
+      "reason": "New obsolete warning and nullable/default contract; remove ineffectual configuration without promising SDK-wide behavior. EstuarySql/EstuaryParcels EF10/11 consumers compile and execute on approved local SQL2025/legacy Cosmos routes, with fresh package/input/runtime evidence. Azure service behaviour is explicitly excluded by Pingu; actual GA and comprehensive readiness remain separate."
     },
     {
       "id": "generic-mapping",

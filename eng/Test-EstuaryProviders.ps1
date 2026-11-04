@@ -7,10 +7,14 @@ $root = Split-Path $PSScriptRoot -Parent
 $before = @{}
 foreach ($scope in 'Process','User','Machine') { $before[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
 $integration = $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH
+$cosmosDatabase = $null
 try {
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
     & "$PSScriptRoot/SqlServer.ps1" -Action Start
     & "$PSScriptRoot/Cosmos.ps1" -Action Start
+    $sharedDatabase = 'playbook_estuary_' + [guid]::NewGuid().ToString('N')
+    & "$PSScriptRoot/Cosmos.ps1" -Action New -Database $sharedDatabase
+    $cosmosDatabase = $sharedDatabase
     foreach ($release in '10','11') {
         $dotnet = if ($release -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
         foreach ($name in 'EstuarySql','EstuaryParcels') {
@@ -37,10 +41,12 @@ try {
                 try { & $dotnet build -c Release -p:RestoreLockedMode=true } finally { Pop-Location }
             }
             $route = if ($name -eq 'EstuarySql') { "$PSScriptRoot/SqlServer.ps1" } else { "$PSScriptRoot/Cosmos.ps1" }
-            $database = 'playbook_estuary_' + [guid]::NewGuid().ToString('N')
-            & $route -Action New -Database $database
+            $database = if ($name -eq 'EstuaryParcels') { $cosmosDatabase } else { 'playbook_estuary_' + [guid]::NewGuid().ToString('N') }
+            if ($name -eq 'EstuarySql') { & $route -Action New -Database $database }
             try {
-                $output = & $route -Action Run -Database $database -Executable $dotnet -CommandArguments @("$directory/bin/Release/net$release.0/$name.dll") -WorkingDirectory $directory | Out-String
+                $arguments = @("$directory/bin/Release/net$release.0/$name.dll")
+                if ($name -eq 'EstuaryParcels' -and $release -eq '11') { $arguments += '--reuse' }
+                $output = & $route -Action Run -Database $database -Executable $dotnet -CommandArguments $arguments -WorkingDirectory $directory | Out-String
                 Write-Host $output
                 $expected = if ($name -eq 'EstuarySql') { 2 } else { 3 }
                 if ([regex]::Matches($output,'PASS (SQL|Cosmos)').Count -ne $expected) { throw 'Missing execution checks.' }
@@ -51,15 +57,16 @@ try {
                     $receipt.scope = 'Real local SQL2025 configuration and round-trip; legacy Cosmos emulator key identity, option removal, reload, ETag and stale-write checks. No Azure cloud, Entra or GA proof.'
                     $receipt.output = $output.Trim()
                     $receipt.output += "`nCOMPILE-ONLY CONTROLS:`n" + $diagnostics.Trim()
-                    foreach ($file in Get-ChildItem "$directory/bin/Release/net$release.0" -Filter '*Service.Interop*') {
+                    foreach ($file in Get-ChildItem "$directory/bin/Release/net$release.0" -Filter '*ServiceInterop*') {
                         $receipt.output += "`nNATIVE $($file.Name) sha256=$((Get-FileHash $file.FullName).Hash)"
                     }
                     $receipt | ConvertTo-Json -Depth 30 | Set-Content "$directory/behavior.evidence.json"
                 }
-            } finally { & $route -Action Remove -Database $database }
+            } finally { if ($name -eq 'EstuarySql') { & $route -Action Remove -Database $database } }
         }
     }
 } finally {
+    if ($cosmosDatabase) { & "$PSScriptRoot/Cosmos.ps1" -Action Remove -Database $cosmosDatabase }
     # Shared SQL service can be in use by other authors; leave its lifecycle unchanged.
     $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = $integration
     foreach ($scope in $before.Keys) {

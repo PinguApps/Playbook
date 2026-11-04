@@ -6,6 +6,7 @@ using PlaybookCosmos;
 string Required(string key) => Environment.GetEnvironmentVariable(key) ?? throw new InvalidOperationException(key);
 var endpoint = Required("PLAYBOOK_COSMOS_ENDPOINT");
 var database = Required("PLAYBOOK_COSMOS_DATABASE");
+var reuse = args.Contains("--reuse");
 
 DbContextOptions<ParcelContext> Options(bool? content, HttpClient http) => new DbContextOptionsBuilder<ParcelContext>()
     .UseCosmos(endpoint, Required("PLAYBOOK_COSMOS_KEY"), database, cosmos =>
@@ -33,24 +34,23 @@ foreach (var content in new bool?[] { true, false, null })
 #pragma warning restore CS0618
 #endif
     var id = "parcel-" + (content?.ToString() ?? "omitted");
-    context.Add(new Parcel { Id = id, Depot = "estuary", Count = 4 });
-    await context.SaveChangesAsync();
+    if (!reuse) { context.Add(new Parcel { Id = id, Depot = "estuary", Count = 4 }); await context.SaveChangesAsync(); }
     await using var first = new ParcelContext(options);
     await using var stale = new ParcelContext(options);
     var saved = await first.Set<Parcel>().WithPartitionKey("estuary").SingleAsync(x => x.Id == id);
     var rival = await stale.Set<Parcel>().WithPartitionKey("estuary").SingleAsync(x => x.Id == id);
     var tag = saved.ETag;
-    if (string.IsNullOrWhiteSpace(tag) || saved.Count != 4) throw new Exception("Save/reload missing value or ETag.");
-    saved.Count = 5;
+    if (string.IsNullOrWhiteSpace(tag) || saved.Count != (reuse ? 5 : 4)) throw new Exception("Save/reload missing value or ETag.");
+    saved.Count = reuse ? 6 : 5;
     await first.SaveChangesAsync();
     if (saved.ETag == tag) throw new Exception("ETag did not refresh.");
     rival.Count = 99;
     try { await stale.SaveChangesAsync(); throw new Exception("Stale write succeeded."); }
     catch (DbUpdateConcurrencyException) { }
     await using var reload = new ParcelContext(options);
-    if ((await reload.Set<Parcel>().WithPartitionKey("estuary").SingleAsync(x => x.Id == id)).Count != 5) throw new Exception("Update lost.");
+    if ((await reload.Set<Parcel>().WithPartitionKey("estuary").SingleAsync(x => x.Id == id)).Count != (reuse ? 6 : 5)) throw new Exception("Update lost.");
     if ((await reload.Set<Parcel>().WithPartitionKey("wrong").Where(x => x.Id == id).ToListAsync()).Count != 0) throw new Exception("Incorrect partition found document.");
-    Console.WriteLine($"PASS Cosmos content={content?.ToString() ?? "omitted/null"}; key order=Depot; save/reload/update/ETag/stale-write/wrong-key");
+    Console.WriteLine($"PASS Cosmos reuse={reuse} content={content?.ToString() ?? "omitted/null"}; key order=Depot; save/reload/update/ETag/stale-write/wrong-key");
 }
 sealed class ParcelContext(DbContextOptions<ParcelContext> options) : DbContext(options)
 {

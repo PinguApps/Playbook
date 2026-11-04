@@ -881,3 +881,35 @@ Canonical source/pins/locks and fresh compilation/runtime receipts are retained.
 Native hashes/source IDs identify actual engines. No active-query interruption,
 Cosmos, other-provider/platform, GA, comprehensive coverage or new foundation
 claim is made. PIN-959/PIN-965 and all existing Human gates remain unchanged.
+
+## Provider configuration and Cosmos identity — PIN-1196–1198
+
+Original EstuarySql/EstuaryParcels consumers deliver E8/E9/E10 as
+`sql.migrate-azure-provider-configuration/11.0`,
+`cosmos.migrate-partition-metadata/11.0` and
+`cosmos.remove-write-content-option/11.0`. Independent SDK10.0.402/EF10.0.13
+and SDK11 RC2/EF11 RC2 graphs compile and run. UseAzureSql already exists in
+EF10; six retries/30-second delay cap and real insert/fresh query pass on the
+approved SQL2025 compatibility170 route. Pingu approved this bounded local
+configuration/query evidence on 4 November 2026, excluding Azure service
+behaviour. No cloud resource or Entra identity is provisioned.
+
+Cosmos SDK3.63.1/Newtonsoft.Json13.0.4 run against the approved legacy emulator.
+EF11 reopens and updates the exact documents seeded by EF10 in the same isolated database. The singular Depot partition maps to the same ordered one-element list;
+true/false/omitted write-content controls preserve saved values, refresh ETags,
+reject stale writes and return no document for a wrong partition. Null means
+omit the public bool call; compile controls reject passing null on both editions.
+EF11's obsolete warning is observed. Internal setting reflection is diagnostic
+inspection, not a supported application API or SDK-wide performance claim.
+An AnyAsync wrong-key control failed with SC2001 on EF10/emulator; the executed
+filtered ToListAsync control is used instead. No hierarchical partition service,
+data repartitioning, restart durability or cloud parity is established.
+
+Canonical sources, locked graphs, compilation/runtime evidence and ordinary
+installed offline stdio inspection accompany delivery. No new .NET10 foundation,
+source audit baseline relabel, recurring platform matrix or GA claim is added.
+PIN-959/PIN-965 and outstanding Human gates remain open. Existing M(3), M(3),
+S(2) estimates retain the bounded configuration, identity and single-option scopes.
+Package-matched raw source URLs attempted during authoring returned 404;
+the retained audit, actual package APIs/diagnostics and executable consumers
+remain the source/artifact boundary rather than an invented successful fetch.
