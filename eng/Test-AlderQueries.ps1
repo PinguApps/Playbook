@@ -15,7 +15,7 @@ try {
         $directory = Split-Path (Join-Path $root $sample)
         Push-Location $directory
         try {
-            $diagnostics = & $dotnet build -t:Rebuild -c Release -p:DefineConstants=DIAGNOSTIC_PROBE -v:q | Out-String
+            $diagnostics = & $dotnet build -t:Rebuild -c Release -p:RestoreLockedMode=true -p:DefineConstants=DIAGNOSTIC_PROBE -v:q | Out-String
             if ($diagnostics -notmatch 'EF1002' -or ($release -eq '11' -and ($diagnostics -notmatch 'EF1003' -or $diagnostics -notmatch 'CS0618'))) { throw 'Expected raw SQL diagnostics absent.' }
             if ($release -eq '10' -and $diagnostics -match 'EF1003') { throw 'Unexpected older Format/Concat diagnostic.' }
             Write-Host "PASS: EF$release actual compiler/analyzer diagnostics"

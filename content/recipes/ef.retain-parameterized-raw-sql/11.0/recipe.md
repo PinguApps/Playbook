@@ -10,7 +10,7 @@ EF10 FromSqlInterpolated/ExecuteSqlInterpolated/ExecuteSqlInterpolatedAsync rema
 
 ## Older approach
 
-Use the EF10 comparison below. Its original parameterized calls remain valid. The transaction enum and collection mode API can also be adopted before upgrading.
+Use the EF10 comparison below. Its original parameterized calls remain valid.
 
 ### .NET 10 global.json
 
