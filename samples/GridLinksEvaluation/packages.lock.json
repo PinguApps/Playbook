@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.AspNetCore.App.Internal.Assets": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "8jhYltmAmcMGPcyQO7eQrjVGtHgPgGCFl4IlykellniNYLNiI0Q5aiJ8mG4s78dc1IDs5wWQ/qmJzy08WJLjoA=="
+      },
+      "Microsoft.AspNetCore.Components.QuickGrid": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "4r1uDgO6vNtLpCctj6FssnSTXPd9bx7MeVZVUy/R56qgXljF1zwoGhYvvzEuik+OqmjNQiPsDQjrm5ARiru6rQ=="
+      }
+    }
+  }
+}
