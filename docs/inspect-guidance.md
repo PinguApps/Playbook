@@ -3712,7 +3712,8 @@ Refresh that bounded evidence after relevant sample or toolchain changes. Use th
 Requires PowerShell 7, the existing pinned .NET10 SDK/runtime and isolated .NET11
 RC2 installation, Node24 and Docker Desktop's Linux engine with the SDK10.0.402
 image pinned by eng/Test-ProviderRequests.ps1 already available locally. The runner
-fetches immutable official sources and the exact RC2 Linux runtime archive. It
+fetches immutable official sources and the exact RC2 Linux runtime archive,
+verifying its pinned Microsoft SHA512 before extraction. It
 uses network-none disposable containers and removes their generated private keys.
 No HSM/FIPS provider or native mobile toolchain is assumed.
 

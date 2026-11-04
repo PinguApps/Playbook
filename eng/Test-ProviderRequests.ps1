@@ -16,10 +16,24 @@ try {
  foreach($source in (Get-Content samples/ProviderKeys/sources.json -Raw|ConvertFrom-Json).sources){
   $bytes=(Invoke-WebRequest $source.url).RawContentStream.ToArray()
   if([Convert]::ToHexStringLower([Security.Cryptography.SHA256]::HashData($bytes)) -cne $source.sha256){throw "Source drift: $($source.url)"}
+  if($source.url.EndsWith('/SafeEvpPKeyHandle.OpenSsl.cs')){
+   $text=[Text.Encoding]::UTF8.GetString($bytes)
+   $methods=[regex]::Matches($text,'(?s)((?:\s*\[UnsupportedOSPlatform\("[^"]+"\)\])+\s*)public static SafeEvpPKeyHandle OpenKeyFromProvider\(')
+   $expected=if($source.url.Contains('/820230c')){2}else{1}
+   if($methods.Count -ne $expected){throw 'Provider overload source count changed'}
+   foreach($method in $methods){foreach($platform in 'android','browser','ios','tvos','windows'){
+    if(!$method.Groups[1].Value.Contains('[UnsupportedOSPlatform("'+$platform+'")]')){throw "Missing provider platform annotation: $platform"}
+   }}
+   Write-Output "SOURCE provider overloads=$expected unsupported=android,browser,ios,tvos,windows sha256=$($source.sha256)"
+  }
  }
  $archive=Join-Path $root 'artifacts/provider-keys/runtime11.tar.gz'
  $null=New-Item -ItemType Directory (Split-Path $archive) -Force
  if(!(Test-Path $archive)){Invoke-WebRequest 'https://builds.dotnet.microsoft.com/dotnet/Runtime/11.0.0-rc.2.26504.105/dotnet-runtime-11.0.0-rc.2.26504.105-linux-x64.tar.gz' -OutFile $archive}
+ # Microsoft's versioned archive .sha512: check both cached and newly downloaded bytes before extraction.
+ $expectedArchiveHash='59db88134fdd9012fc6c43f4018189d33f3ff3cc871722f8a6205d75f114f2d9f5bc71605361888ca0f74911ace06f97f9b419eeb316d520be0c241031233920'
+ if((Get-FileHash $archive -Algorithm SHA512).Hash.ToLowerInvariant() -cne $expectedArchiveHash){throw 'Runtime archive SHA512 mismatch; no extraction performed.'}
+ Write-Output "RUNTIME_ARCHIVE verified SHA512=$expectedArchiveHash"
  $image='mcr.microsoft.com/dotnet/sdk@sha256:0d99ebf1ccad15037b5c98c9fe8979d6b8dbac23812feae2277a0b277b5c5ffa'
  & $docker run --pull never -d --name $container --network none --mount "type=bind,source=$root,target=/src,readonly" $image sleep 1800
  $native=(& $docker exec $container sh -ec 'mkdir /proof /runtime11; tar -xzf /src/artifacts/provider-keys/runtime11.tar.gz -C /runtime11; openssl version -a; openssl list -providers -provider default -provider base; sha256sum /usr/lib/x86_64-linux-gnu/libcrypto.so.3 /usr/lib/x86_64-linux-gnu/libssl.so.3 /runtime11/shared/Microsoft.NETCore.App/*/libSystem.Security.Cryptography.Native.OpenSsl.so; openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out /proof/rookery.pem 2>/dev/null' | Out-String)
