@@ -1,0 +1,375 @@
+{
+  "id": "winforms.preserve-designer-roundtripping",
+  "edition": "11.0",
+  "title": "Keep generated Windows Forms editable in the Designer",
+  "goal": "Repair generated C# and VB initialization, event wiring and property identity while retaining useful diagnostics.",
+  "areas": [
+    "winforms"
+  ],
+  "exampleLanguages": [
+    "csharp",
+    "vb"
+  ],
+  "tags": [
+    "fen-presentation-designer"
+  ],
+  "apis": [
+    "WFO2000",
+    "WFO3000",
+    "WFO3001",
+    "WFO3002",
+    "WFO3003",
+    "WFO3004",
+    "WFO3005",
+    "WFO3006",
+    "WFO3007",
+    "WFO3008",
+    "WFO3009",
+    "WFO3010",
+    "WFO3011",
+    "WFO3012"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "See exact recorded artifacts and claim-specific execution scope; owner proof is separately pending.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "C#15 current, C#14 previous; VB16.9 on both targets where demonstrated.",
+            "name": "C#"
+          },
+          "frameworks": [
+            "Windows Desktop winforms"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.WindowsDesktop.App framework assets; no additional NuGet dependency. net10.0-windows comparison and net11.0-windows current sample."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local Windows desktop; no account or remote service"
+          ],
+          "platforms": [
+            "Windows with Windows Desktop runtime"
+          ],
+          "renderingModes": [
+            "Native Windows Forms desktop; no Blazor render mode."
+          ],
+          "prerequisites": [
+            "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
+          ],
+          "constraints": [
+            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+          ],
+          "optIns": [
+            "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
+          ],
+          "stabilityLimitations": [
+            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/FenDesigner/FenDesigner.csproj"
+        ],
+        "selectionNotes": [
+          "Previous release remains a comparison, not an additional .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers/src/System/Windows/Forms/Analyzers/Diagnostics/SharedDiagnosticDescriptors.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.CSharp/src/System/Windows/Forms/CSharp/Analyzers/Diagnostics/CSharpDiagnosticDescriptors.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.VisualBasic/src/Diagnostic/VisualBasicDiagnosticDescriptors.vb"
+        ]
+      },
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "See exact recorded artifacts and claim-specific execution scope; owner proof is separately pending.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact recorded pin 11.0.100-rc.2.26504.105; older sample 10.0.402.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "match": "exact",
+            "version": "16.9",
+            "name": "Visual Basic",
+            "reason": "Explicit VB16.9 on both targets; no new VB language version inferred."
+          },
+          "frameworks": [
+            "Windows Desktop winforms"
+          ],
+          "packages": [],
+          "packageAssets": [
+            "Microsoft.WindowsDesktop.App framework assets; no additional NuGet dependency. net10.0-windows comparison and net11.0-windows current sample."
+          ],
+          "workloads": [],
+          "providers": [
+            "Local Windows desktop; no account or remote service"
+          ],
+          "platforms": [
+            "Windows with Windows Desktop runtime"
+          ],
+          "renderingModes": [
+            "Native Windows Forms desktop; no Blazor render mode."
+          ],
+          "prerequisites": [
+            "Use an STA thread and the declared exact SDK; available Windows Desktop reference packs are required."
+          ],
+          "constraints": [
+            "Recorded .NET11 RC2 and .NET10 comparison only; no GA or other-platform behavior claim."
+          ],
+          "optIns": [
+            "STA entry point and Windows Desktop runtime. No experimental API diagnostic suppression is required."
+          ],
+          "stabilityLimitations": [
+            "Actual .NET11 RC2 evidence; GA reconciliation remains open."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/FenDesignerVb/FenDesignerVb.vbproj"
+        ],
+        "selectionNotes": [
+          "Previous release remains a comparison, not an additional .NET10 foundation."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers/src/System/Windows/Forms/Analyzers/Diagnostics/SharedDiagnosticDescriptors.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.CSharp/src/System/Windows/Forms/CSharp/Analyzers/Diagnostics/CSharpDiagnosticDescriptors.cs",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.VisualBasic/src/Diagnostic/VisualBasicDiagnosticDescriptors.vb"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official RC2 desktop contract",
+      "url": "https://raw.githubusercontent.com/dotnet/core/60871330fce2b3da383461be027ebdf3ce30f8fb/release-notes/11.0/preview/rc2/winforms.md"
+    },
+    {
+      "title": "Pinned official contract: rc2-SharedDiagnosticDescriptors.cs-7",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers/src/System/Windows/Forms/Analyzers/Diagnostics/SharedDiagnosticDescriptors.cs"
+    },
+    {
+      "title": "Pinned official contract: rc2-CSharpDiagnosticDescriptors.cs-8",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.CSharp/src/System/Windows/Forms/CSharp/Analyzers/Diagnostics/CSharpDiagnosticDescriptors.cs"
+    },
+    {
+      "title": "Pinned official contract: rc2-VisualBasicDiagnosticDescriptors.vb-9",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/winforms/src/System.Windows.Forms.Analyzers.VisualBasic/src/Diagnostic/VisualBasicDiagnosticDescriptors.vb"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "target": "net10.0-windows",
+      "scope": "Actual compilation and real shown form click wiring, stable collection getter and separate snapshot identity. No Visual Studio Designer reopen/save.",
+      "language": "14.0",
+      "sample": "samples/net10.0/FenDesigner/FenDesigner.csproj"
+    },
+    {
+      "sdk": "10.0.402",
+      "kind": "compile-and-run",
+      "target": "net10.0-windows",
+      "scope": "Actual compilation and real shown form click wiring, stable collection getter and separate snapshot identity. No Visual Studio Designer reopen/save.",
+      "language": "16.9",
+      "sample": "samples/net10.0/FenDesignerVb/FenDesignerVb.vbproj"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "target": "net11.0-windows",
+      "scope": "Actual compilation and real shown form click wiring, stable collection getter and separate snapshot identity. No Visual Studio Designer reopen/save.",
+      "language": "15.0",
+      "sample": "samples/net11.0/FenDesigner/FenDesigner.csproj"
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "kind": "compile-and-run",
+      "target": "net11.0-windows",
+      "scope": "Actual compilation and real shown form click wiring, stable collection getter and separate snapshot identity. No Visual Studio Designer reopen/save.",
+      "language": "16.9",
+      "sample": "samples/net11.0/FenDesignerVb/FenDesignerVb.vbproj"
+    }
+  ],
+  "humanProof": {
+    "status": "pending",
+    "scope": "Visual Studio Designer reopen/save remains pending. Runtime click checks do not establish round-tripping."
+  },
+  "snippets": {
+    "n11-fendesignervb-directory-build-targets": {
+      "path": "samples/net11.0/FenDesignerVb/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendesigner-directory-build-props": {
+      "path": "samples/net11.0/FenDesigner/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendesigner-briefingform-designer-cs": {
+      "path": "samples/net11.0/FenDesigner/BriefingForm.Designer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-fendesigner-global-json": {
+      "path": "samples/net10.0/FenDesigner/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-fendesigner-program-cs": {
+      "path": "samples/net11.0/FenDesigner/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-fendesigner-directory-build-targets": {
+      "path": "samples/net11.0/FenDesigner/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendesignervb-global-json": {
+      "path": "samples/net11.0/FenDesignerVb/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-fendesignervb-fendesignervb-vbproj": {
+      "path": "samples/net10.0/FenDesignerVb/FenDesignerVb.vbproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendesigner-directory-packages-props": {
+      "path": "samples/net11.0/FenDesigner/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesigner-fendesigner-csproj": {
+      "path": "samples/net10.0/FenDesigner/FenDesigner.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesignervb-directory-build-targets": {
+      "path": "samples/net10.0/FenDesignerVb/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendesignervb-program-vb": {
+      "path": "samples/net11.0/FenDesignerVb/Program.vb",
+      "region": "complete",
+      "language": "vb"
+    },
+    "n10-fendesigner-directory-packages-props": {
+      "path": "samples/net10.0/FenDesigner/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesignervb-directory-packages-props": {
+      "path": "samples/net10.0/FenDesignerVb/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesignervb-global-json": {
+      "path": "samples/net10.0/FenDesignerVb/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-fendesignervb-fendesignervb-vbproj": {
+      "path": "samples/net11.0/FenDesignerVb/FenDesignerVb.vbproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesigner-directory-build-props": {
+      "path": "samples/net10.0/FenDesigner/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendesignervb-briefingform-designer-vb": {
+      "path": "samples/net11.0/FenDesignerVb/BriefingForm.Designer.vb",
+      "region": "complete",
+      "language": "vb"
+    },
+    "n10-fendesignervb-briefingform-designer-vb": {
+      "path": "samples/net10.0/FenDesignerVb/BriefingForm.Designer.vb",
+      "region": "complete",
+      "language": "vb"
+    },
+    "n10-fendesignervb-program-vb": {
+      "path": "samples/net10.0/FenDesignerVb/Program.vb",
+      "region": "complete",
+      "language": "vb"
+    },
+    "n11-fendesignervb-directory-packages-props": {
+      "path": "samples/net11.0/FenDesignerVb/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesigner-program-cs": {
+      "path": "samples/net10.0/FenDesigner/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-fendesignervb-directory-build-props": {
+      "path": "samples/net10.0/FenDesignerVb/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesigner-directory-build-targets": {
+      "path": "samples/net10.0/FenDesigner/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-fendesigner-briefingform-designer-cs": {
+      "path": "samples/net10.0/FenDesigner/BriefingForm.Designer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-fendesigner-global-json": {
+      "path": "samples/net11.0/FenDesigner/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-fendesigner-fendesigner-csproj": {
+      "path": "samples/net11.0/FenDesigner/FenDesigner.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-fendesignervb-directory-build-props": {
+      "path": "samples/net11.0/FenDesignerVb/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    }
+  }
+}
