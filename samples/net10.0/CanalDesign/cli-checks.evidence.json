@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Test-CanalDesign.ps1 -Record; dotnet-ef 10.0.13 dbcontext info from commands/deep with default and overridden context",
   "scope": "Real CLI directory lookup, config-relative project/startup paths and context override; EF10 uses explicit options. No PMC, cross-platform or GA execution.",
-  "recordedAt": "2026-11-04T14:51:56.6534487+00:00",
-  "sourceCommit": "306445b5269152997e2ed3af0a03115cee7b82f3",
+  "recordedAt": "2026-11-04T14:57:07.9529330+00:00",
+  "sourceCommit": "476e8dfc452447d796c009c64a302e92c8789c41",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",

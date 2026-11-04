@@ -1,0 +1,247 @@
+{
+  "id": "ef.configure-migration-commands",
+  "edition": "11.0",
+  "title": "Share predictable design-time command defaults",
+  "goal": "Share EF command projects and build settings across teammates while retaining deliberate command-line overrides.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "canal-design",
+    "migrations",
+    "design-time",
+    "sqlite"
+  ],
+  "apis": [
+    "dotnet-ef.json"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+        ],
+        "selectionNotes": [
+          "Share EF command projects and build settings across teammates while retaining deliberate command-line overrides."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF11 consumer requires net11.0; no EF11-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact current-release proof uses SDK11 RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Design",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Tools",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "dotnet-ef",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "System.Security.Cryptography.Pkcs",
+              "version": "10.0.13",
+              "match": "exact",
+              "reason": "Explicit secure transitive override in locked samples."
+            }
+          ],
+          "packageAssets": [
+            "EF11 lib/net11.0; EF10 lib/net10.0. Exact SQLite native and transitive assets in canonical locks; Tools supplies PMC commands, Design is explicitly referenced."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite; disposable in-memory runtime checks and local design-time connection strings, no external resources."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Historical .NET10 comparison adds no target10 edition or foundation.",
+            "No migrations is distinct from no pending migrations. Resolve wrong assembly/project selection before choosing schema ownership."
+          ],
+          "prerequisites": [
+            "Exact SDK10.0.402 and SDK11 11.0.100-rc.2.26504.105 with matching locked EF packages.",
+            "Matching local dotnet-ef; run eng/Test-CanalDesign.ps1 -Record."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/CanalDesign/CanalDesign.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF11 changes"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/cli/dotnet",
+      "title": "Official EF CLI reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes",
+      "title": "Official EF11 breaking changes"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/CanalDesign/CanalDesign.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile-and-run",
+      "scope": "Canonical compilation, real sync/async empty-migration behavior and external-owner SQLite read; no PMC or GA proof."
+    },
+    {
+      "sample": "samples/net10.0/CanalDesign/CanalDesign.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "scope": "Real dotnet-ef context selection from a nested working directory; configured relative paths and explicit context override; EF10 explicit options.",
+      "record": "samples/net10.0/CanalDesign/cli-checks.evidence.json"
+    },
+    {
+      "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile-and-run",
+      "scope": "Canonical compilation, real sync/async empty-migration behavior and external-owner SQLite read; no PMC or GA proof."
+    },
+    {
+      "sample": "samples/net11.0/CanalDesign/CanalDesign.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "scope": "Real dotnet-ef context selection from a nested working directory; configured relative paths and explicit context override; EF10 explicit options.",
+      "record": "samples/net11.0/CanalDesign/cli-checks.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-program-cs": {
+      "path": "samples/net10.0/CanalDesign/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-canaldesign-csproj": {
+      "path": "samples/net10.0/CanalDesign/CanalDesign.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/CanalDesign/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/CanalDesign/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/CanalDesign/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/CanalDesign/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/CanalDesign/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-canaldesign-csproj": {
+      "path": "samples/net11.0/CanalDesign/CanalDesign.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/CanalDesign/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/CanalDesign/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/CanalDesign/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/CanalDesign/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-configure-ps1": {
+      "path": "samples/net11.0/CanalDesign/Configure.ps1",
+      "region": "complete",
+      "language": "powershell"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executed SQLite and CLI checks only; no Visual Studio or GA execution claimed."
+  }
+}

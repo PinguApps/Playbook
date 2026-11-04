@@ -17,7 +17,7 @@ if (!args.Contains("--design-only"))
             #pragma warning disable CA1849 // Exercise both real sync and async APIs.
             if (asynchronous) await context.Database.MigrateAsync(); else context.Database.Migrate();
 #pragma warning restore CA1849
-            throw new InvalidOperationException("Expected MigrationsNotFound diagnostic.");
+            throw new InvalidOperationException("Expected an empty-assembly failure.");
         }
         catch (InvalidOperationException exception) when (exception.Message.Contains("MigrationsNotFound", StringComparison.Ordinal))
         {
