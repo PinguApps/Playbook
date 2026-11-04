@@ -1,0 +1,19 @@
+FAIL: invalid Code returns field error
+FAIL: invalid Guests returns field error
+FAIL: invalid party never enters handler
+FAIL: invalid Guests returns field error
+FAIL: invalid party never enters handler
+FAIL: open-held entered rule
+FAIL: open-held awaits before handler
+FAIL: valid accepted exactly once after completion
+OBSERVATION: open-held counters {"entered":0,"completed":0,"canceled":0,"accepted":1}
+FAIL: closed-held entered rule
+FAIL: closed-held awaits before handler
+FAIL: unavailable rejected before handler
+OBSERVATION: closed-held counters {"entered":0,"completed":0,"canceled":0,"accepted":1}
+FAIL: open-cancel entered rule
+FAIL: open-cancel awaits before handler
+FAIL: request token reaches rule
+FAIL: canceled request never books after release
+OBSERVATION: open-cancel counters {"entered":0,"completed":0,"canceled":0,"accepted":1}
+Oracle: 15 failed

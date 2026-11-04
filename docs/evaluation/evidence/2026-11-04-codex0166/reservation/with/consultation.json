@@ -1,0 +1,22 @@
+[
+  {
+    "server": "playbook",
+    "tool": "list_recipes",
+    "arguments": {
+      "targetVersion": "11",
+      "query": "validation"
+    },
+    "status": "completed",
+    "error": null
+  },
+  {
+    "server": "playbook",
+    "tool": "get_recipe",
+    "arguments": {
+      "id": "minimal-api.await-model-rules",
+      "targetVersion": "11"
+    },
+    "status": "completed",
+    "error": null
+  }
+]

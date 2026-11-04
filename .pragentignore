@@ -658,3 +658,6 @@
 /samples/net11.0/QuayAvalonia/verification-evidence.json
 /samples/net10.0/QuayCSharp/Resources/AppIcon/quay.svg
 /samples/net11.0/QuayCSharp/Resources/AppIcon/quay.svg
+# Record-Evidence WrenTracking receipts; canonical consumers, locks, manifests and runner remain reviewable.
+/samples/net10.0/WrenTracking/verification-evidence.json
+/samples/net11.0/WrenTracking/verification-evidence.json
