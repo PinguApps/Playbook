@@ -586,3 +586,11 @@
 # Record-Evidence generated SDK/build/input receipt; review SignalDeck sources,
 # pins and lock; content generation validates freshness and installed list/get.
 /samples/net10.0/SignalDeck/verification-evidence.json
+
+# Record-Evidence/Test-QuarryMigrations generated command, SDK and input receipts.
+# Review canonical consumers, locks, metadata and runner; build/pack checks freshness
+# and the installed inspector compares full bodies and applicability.
+/samples/net10.0/QuarryMigrations/verification-evidence.json
+/samples/net10.0/QuarryMigrations/migration-checks.evidence.json
+/samples/net11.0/QuarryMigrations/verification-evidence.json
+/samples/net11.0/QuarryMigrations/migration-checks.evidence.json

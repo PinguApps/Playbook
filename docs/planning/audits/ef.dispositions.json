@@ -151,9 +151,9 @@
     {
       "id": "foreign-keys",
       "pattern": "::.*(?:ExcludeForeignKeyFromMigrations|IsExcludedFromMigrations)",
-      "disposition": "grouped",
+      "disposition": "delivered",
       "owner": "PIN-880",
-      "reason": "Separate unconstrained query semantics from constraint omission; retain existing FK goal with explicit scope qualification in report."
+      "reason": "PIN-880: ef.omit-database-foreign-key/11.0; original QuarryMigrations EF10 manual operation removal versus EF11 exclusion. Actual SQL2025 migration, absent constraint, retained model/index and accepted orphan insert. Query constrainedness stays E15; RC2 is not GA."
     },
     {
       "id": "split-concurrency",
@@ -272,9 +272,9 @@
     {
       "id": "migration-operation",
       "pattern": "OperationExecutor\\+AddAndApplyMigration",
-      "disposition": "grouped",
+      "disposition": "delivered",
       "owner": "PIN-878",
-      "reason": "The command implementation supports the existing scaffold/apply goal."
+      "reason": "PIN-878: ef.scaffold-and-apply-migration/11.0; actual SQL2025 dotnet-ef database update --add, retained migration/designer/snapshot and applied schema/history. EF10 two-step comparison; PMC remains PIN-957 and GA remains PIN-965."
     },
     {
       "id": "model-snapshot",

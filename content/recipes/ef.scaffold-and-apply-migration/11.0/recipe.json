@@ -1,0 +1,228 @@
+{
+  "id": "ef.scaffold-and-apply-migration",
+  "edition": "11.0",
+  "title": "Create and apply a migration in one command",
+  "goal": "Generate a named local migration and apply it to an explicitly selected development database while retaining the generated source files.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "quarry-migrations",
+    "migrations",
+    "sql-server"
+  ],
+  "apis": [
+    "dotnet ef database update --add"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+        ],
+        "selectionNotes": [
+          "Generate a named local migration and apply it to an explicitly selected development database while retaining the generated source files."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF11 consumer requires net11.0; no EF11-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact current-release proof uses SDK11 RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Design",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Pinned 11.0.0-rc.2.26504.105; historical comparison10.0.13."
+            },
+            {
+              "version": "10.0.13",
+              "reason": "Explicit secure transitive override in both canonical locked consumers.",
+              "match": "exact",
+              "name": "System.Security.Cryptography.Pkcs"
+            },
+            {
+              "version": "11.0",
+              "reason": "Local CLI11.0.0-rc.2.26504.105; historical10.0.13; no global install.",
+              "name": "dotnet-ef",
+              "match": "release-family"
+            }
+          ],
+          "packageAssets": [
+            "EF11 lib/net11.0 and EF10 lib/net10.0; SqlClient7.1.0/6.1.7; exact transitive assets in canonical locks. Matching dotnet-ef11 RC2/10.0.13 installed locally, no global tools. The inspected dotnet-ef11 launcher is tools/net10.0/any/dotnet-ef.dll; the actual EF11 application still requires net11.0."
+          ],
+          "providers": [
+            "Approved isolated SQL Server2025 CU10 Docker database, unique per run; no external server."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Combined scaffold/apply mutates live schema: explicitly select an isolated development database.",
+            "Historical .NET10 comparison adds no target10 edition or foundation."
+          ],
+          "prerequisites": [
+            "Existing approved local Docker SQL Server route from PIN-676; no new resource provisioning.",
+            "Exact SDK10.0.402 and SDK11 RC2 installations, matching dotnet-ef and Design package pins.",
+            "Run eng/Test-QuarryMigrations.ps1 -Record; SQL credentials enter only the child environment."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/QuarryMigrations/QuarryMigrations.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF Core 11 migration changes"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/QuarryMigrations/QuarryMigrations.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Canonical authoring consumer compilation."
+    },
+    {
+      "sample": "samples/net10.0/QuarryMigrations/QuarryMigrations.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "scope": "EF10 two-step scaffold/apply, manual removal of known-unpublished first-migration files, real SQL history/schema, retained model/index and accepted orphan insert. No EF11, PMC or GA execution.",
+      "record": "samples/net10.0/QuarryMigrations/migration-checks.evidence.json"
+    },
+    {
+      "sample": "samples/net11.0/QuarryMigrations/QuarryMigrations.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Canonical authoring consumer compilation."
+    },
+    {
+      "sample": "samples/net11.0/QuarryMigrations/QuarryMigrations.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "scope": "EF11 combined add/apply with retained generated files, real SQL history/schema, retained model/index and accepted orphan insert. Unreachable offline removal, rejected offline/force and actual SqlClient network failure for explicit connection with all generated files preserved. No successful connected removal, PMC or GA execution.",
+      "record": "samples/net11.0/QuarryMigrations/migration-checks.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-program-cs": {
+      "path": "samples/net10.0/QuarryMigrations/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/QuarryMigrations/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/QuarryMigrations/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/QuarryMigrations/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/QuarryMigrations/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-quarrymigrations-csproj": {
+      "path": "samples/net10.0/QuarryMigrations/QuarryMigrations.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/QuarryMigrations/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/QuarryMigrations/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/QuarryMigrations/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/QuarryMigrations/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/QuarryMigrations/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-quarrymigrations-csproj": {
+      "path": "samples/net11.0/QuarryMigrations/QuarryMigrations.csproj",
+      "region": "complete",
+      "language": "xml"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executed dotnet-ef route only; Visual Studio PMC execution remains PIN-957. Exact RC2 evidence is not GA proof."
+  }
+}
