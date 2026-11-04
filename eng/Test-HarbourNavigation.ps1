@@ -43,6 +43,7 @@ try {
         } finally { $pe.Dispose(); $reference.Dispose() }
     } finally { $zip.Dispose() }
     if ($Record) {
+        $sourceDirty = [bool](& 'C:/Program Files/Git/cmd/git.exe' -C $root status --porcelain -- samples eng/Test-HarbourNavigation.ps1)
         foreach ($sample in @('samples/net11.0/HarbourNavigation/HarbourNavigation.csproj','samples/net11.0/HarbourAndroid/HarbourAndroid.csproj')) {
             $directory = Split-Path (Join-Path $root $sample)
             $target = if ($sample -like '*HarbourAndroid*') { 'net11.0-android37.0' } else { 'net11.0-windows10.0.20348.0' }
@@ -50,7 +51,7 @@ try {
                 kind='official-review'; sample=$sample; target=$target; sdk='11.0.100-rc.2.26504.105'; language='15.0'
                 command='eng/Test-HarbourNavigation.ps1 -Record'
                 scope='Pinned official source and actual Controls.Core RC2 artifact review; not compilation or native execution.'
-                recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$true
+                recordedAt=[DateTimeOffset]::UtcNow.ToString('O'); sourceCommit=(& 'C:/Program Files/Git/cmd/git.exe' -C $root rev-parse HEAD).Trim(); sourceDirty=$sourceDirty
                 inputs=(Get-EvidenceInputs $root $sample); dependencies=@(); workloads=@(); nativeToolchains=@()
                 host=[Runtime.InteropServices.RuntimeInformation]::OSDescription
                 sdkInfo='Intended SDK11 RC2 pin; Windows build attempted and failed NETSDK1147 because Microsoft.Maui.Sdk is absent.'
