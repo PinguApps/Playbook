@@ -1,0 +1,226 @@
+{
+  "id": "ef.reference-design-services",
+  "edition": "11.0",
+  "title": "Restore required EF design services",
+  "goal": "Restore missing EF design-time services after upgrading Tools or Tasks without adding tooling to application-only projects.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fleet-tooling",
+    "migrations",
+    "design-time",
+    "sqlite"
+  ],
+  "apis": [
+    "dotnet-ef",
+    "Microsoft.EntityFrameworkCore.Design"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+        ],
+        "selectionNotes": [
+          "Restore missing EF design-time services after upgrading Tools or Tasks without adding tooling to application-only projects."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF11 consumer requires net11.0; no EF11-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact current-release proof uses SDK11 RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Design",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Tools",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            }
+          ],
+          "packageAssets": [
+            "EF11 Design lib/net11.0 and explicit compile assets via IncludeAssets=all; PrivateAssets=all prevents propagation. EF10 Tools supplies Design transitively; exact assets in locks."
+          ],
+          "providers": [
+            "Provider-neutral Design service-registration consumer; no database connection is opened."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Tools and Tasks no longer depend on Design in EF11; direct Design belongs only in the project needing those services.",
+            "Historical EF10 comparison is not a target10 edition.",
+            "Tasks dependency change is source/package review; actual consumer reproduction uses Tools."
+          ],
+          "prerequisites": [
+            "SDK10.0.402 / SDK11 11.0.100-rc.2.26504.105; EF10.0.13 / EF11.0.0-rc.2.26504.105.",
+            "Run eng/Test-FleetDesign.ps1 and eng/Test-FleetTooling.ps1; no external resources."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/FleetDesign/FleetDesign.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF11 changes"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/cli/dotnet",
+      "title": "Official EF CLI reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes",
+      "title": "Official EF11 breaking changes"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "scope": "Locked canonical compilation and sample execution. CLI checks recorded separately; no GA or cross-platform claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/FleetDesign/FleetDesign.csproj",
+      "sdk": "10.0.402"
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "scope": "Locked canonical compilation and sample execution. CLI checks recorded separately; no GA or cross-platform claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/FleetDesign/FleetDesign.csproj",
+      "sdk": "11.0.100-rc.2.26504.105"
+    },
+    {
+      "target": "net10.0",
+      "sample": "samples/net10.0/FleetDesign/FleetDesign.csproj",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "record": "samples/net10.0/FleetDesign/behavior.evidence.json",
+      "scope": "Actual EF10 transitive build, EF11 missing Design compile failure, explicit Design service registration succeeds. No Tasks/PMC/GA execution.",
+      "kind": "execution"
+    },
+    {
+      "target": "net11.0",
+      "sample": "samples/net11.0/FleetDesign/FleetDesign.csproj",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "record": "samples/net11.0/FleetDesign/behavior.evidence.json",
+      "scope": "Actual EF10 transitive build, EF11 missing Design compile failure, explicit Design service registration succeeds. No Tasks/PMC/GA execution.",
+      "kind": "execution"
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/FleetDesign/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/FleetDesign/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-fleetdesign-csproj": {
+      "path": "samples/net10.0/FleetDesign/FleetDesign.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fleetdesign-csproj": {
+      "path": "samples/net11.0/FleetDesign/FleetDesign.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/FleetDesign/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/FleetDesign/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/FleetDesign/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/FleetDesign/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/FleetDesign/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/FleetDesign/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/FleetDesign/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/FleetDesign/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "scope": "Agent local Windows checks. Pingu authorized publishing with reproduced RC2 wildcard-list failure on 4 November 2026. Successful list proof remains unavailable.",
+    "status": "not-required"
+  }
+}

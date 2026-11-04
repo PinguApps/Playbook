@@ -1,0 +1,319 @@
+{
+  "id": "ef.capture-clean-migration-script",
+  "edition": "11.0",
+  "title": "Capture clean migration SQL",
+  "goal": "Save migration SQL separately from diagnostic messages without filtering log lines.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fleet-tooling",
+    "migrations",
+    "design-time",
+    "sqlite"
+  ],
+  "apis": [
+    "dotnet-ef",
+    "Microsoft.EntityFrameworkCore.Design"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
+        ],
+        "selectionNotes": [
+          "Save migration SQL separately from diagnostic messages without filtering log lines."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF11 consumer requires net11.0; no EF11-on-net10 route."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Exact current-release proof uses SDK11 RC2, not GA."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Design",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "Microsoft.EntityFrameworkCore.Tools",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            },
+            {
+              "name": "dotnet-ef",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical pin 11.0.0-rc.2.26504.105; historical comparison 10.0.13."
+            }
+          ],
+          "packageAssets": [
+            "EF11 lib/net11.0; EF10 lib/net10.0. Exact SQLite native and transitive assets in canonical locks; Tools supplies PMC commands, Design is explicitly referenced."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite; disposable in-memory runtime checks and local design-time connection strings, no external resources."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Historical .NET10 comparison adds no target10 edition or foundation.",
+            "Tools/Tasks no longer depend on Design. Add Design to the actual tooling consumer only.",
+            "Wildcard is command-specific: list/script/update/drop. RC2 wildcard list fails; select explicit contexts for list.",
+            "Wildcard script concatenates SQL; use explicit per-context scripts for separate databases."
+          ],
+          "prerequisites": [
+            "SDK10.0.402 / SDK11 11.0.100-rc.2.26504.105; EF10.0.13 / EF11.0.0-rc.2.26504.105.",
+            "Run eng/Test-FleetDesign.ps1 and eng/Test-FleetTooling.ps1; no external resources."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API guidance prepared with exact RC2 packages; GA reconciliation remains pending."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/FleetTooling/FleetTooling.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF11 changes"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/cli/dotnet",
+      "title": "Official EF CLI reference"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes",
+      "title": "Official EF11 breaking changes"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "scope": "Locked canonical compilation and sample execution. CLI checks recorded separately; no GA or cross-platform claim.",
+      "language": "14.0",
+      "sample": "samples/net10.0/FleetTooling/FleetTooling.csproj",
+      "sdk": "10.0.402"
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "scope": "Locked canonical compilation and sample execution. CLI checks recorded separately; no GA or cross-platform claim.",
+      "language": "15.0",
+      "sample": "samples/net11.0/FleetTooling/FleetTooling.csproj",
+      "sdk": "11.0.100-rc.2.26504.105"
+    },
+    {
+      "target": "net10.0",
+      "sample": "samples/net10.0/FleetTooling/FleetTooling.csproj",
+      "language": "14.0",
+      "sdk": "10.0.402",
+      "record": "samples/net10.0/FleetTooling/behavior.evidence.json",
+      "scope": "Actual explicit-context SQL execution on EF10/11; EF11 wildcard script contains both models, update verifies each database table, drop removes both files; clean stdout SQL executes with separate nonempty stderr. Wildcard list exits 1; successful list proof unavailable, publication exception authorized by Pingu 4 November 2026.",
+      "kind": "execution"
+    },
+    {
+      "target": "net11.0",
+      "sample": "samples/net11.0/FleetTooling/FleetTooling.csproj",
+      "language": "15.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "record": "samples/net11.0/FleetTooling/behavior.evidence.json",
+      "scope": "Actual explicit-context SQL execution on EF10/11; EF11 wildcard script contains both models, update verifies each database table, drop removes both files; clean stdout SQL executes with separate nonempty stderr. Wildcard list exits 1; successful list proof unavailable, publication exception authorized by Pingu 4 November 2026.",
+      "kind": "execution"
+    }
+  ],
+  "snippets": {
+    "n10-commands": {
+      "path": "samples/net10.0/FleetTooling/Commands.ps1",
+      "language": "powershell",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/FleetTooling/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/FleetTooling/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/FleetTooling/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/FleetTooling/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-fleettooling-csproj": {
+      "path": "samples/net10.0/FleetTooling/FleetTooling.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-capture": {
+      "path": "samples/net10.0/FleetTooling/Capture.ps1",
+      "language": "powershell",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/FleetTooling/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-commands": {
+      "path": "samples/net11.0/FleetTooling/Commands.ps1",
+      "language": "powershell",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/FleetTooling/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-capture": {
+      "path": "samples/net11.0/FleetTooling/Capture.ps1",
+      "language": "powershell",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/FleetTooling/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/FleetTooling/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-fleettooling-csproj": {
+      "path": "samples/net11.0/FleetTooling/FleetTooling.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/FleetTooling/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/FleetTooling/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-migration-20261104182917-initialbeacon": {
+      "path": "samples/net10.0/FleetTooling/Migrations/Beacon/20261104182917_InitialBeacon.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-migration-20261104182917-initialbeacon-designer": {
+      "path": "samples/net10.0/FleetTooling/Migrations/Beacon/20261104182917_InitialBeacon.Designer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-migration-beaconcontextmodelsnapshot": {
+      "path": "samples/net10.0/FleetTooling/Migrations/Beacon/BeaconContextModelSnapshot.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-migration-20261104182857-initialberth": {
+      "path": "samples/net10.0/FleetTooling/Migrations/Berth/20261104182857_InitialBerth.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-migration-20261104182857-initialberth-designer": {
+      "path": "samples/net10.0/FleetTooling/Migrations/Berth/20261104182857_InitialBerth.Designer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-migration-berthcontextmodelsnapshot": {
+      "path": "samples/net10.0/FleetTooling/Migrations/Berth/BerthContextModelSnapshot.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-migration-20261104182926-initialbeacon": {
+      "path": "samples/net11.0/FleetTooling/Migrations/Beacon/20261104182926_InitialBeacon.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-migration-20261104182926-initialbeacon-designer": {
+      "path": "samples/net11.0/FleetTooling/Migrations/Beacon/20261104182926_InitialBeacon.Designer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-migration-beaconcontextmodelsnapshot": {
+      "path": "samples/net11.0/FleetTooling/Migrations/Beacon/BeaconContextModelSnapshot.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-migration-20261104182923-initialberth": {
+      "path": "samples/net11.0/FleetTooling/Migrations/Berth/20261104182923_InitialBerth.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-migration-20261104182923-initialberth-designer": {
+      "path": "samples/net11.0/FleetTooling/Migrations/Berth/20261104182923_InitialBerth.Designer.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-migration-berthcontextmodelsnapshot": {
+      "path": "samples/net11.0/FleetTooling/Migrations/Berth/BerthContextModelSnapshot.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "scope": "Agent local Windows checks. Pingu authorized publishing with reproduced RC2 wildcard-list failure on 4 November 2026. Successful list proof remains unavailable.",
+    "status": "not-required"
+  }
+}
