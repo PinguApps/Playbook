@@ -59,6 +59,14 @@
     {
       "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/BlazorWebView/src/Maui/BlazorWebView.cs",
       "sha256": "24656f40468a63a34c5c97d0e8ae53ccd5faa2c014d8a0c0d986359fd91cbfb9"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/Android/WebKitWebViewClient.cs",
+      "sha256": "4ba3fc9fd8299c3aa427894a30f26fcb60d74c7424c65faaf435173e242d6f11"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/BlazorWebView/src/Maui/StaticContentResponseCache.cs",
+      "sha256": "e3332270698f73ed7e23cdd0ae986e61bc9f53f41ac1714dafff89e2e2d54388"
     }
   ],
   "packages": [

@@ -647,3 +647,14 @@
 /samples/net11.0/FleetDesign/verification-evidence.json
 /samples/net10.0/FleetTooling/verification-evidence.json
 /samples/net11.0/FleetTooling/verification-evidence.json
+
+# Quay Record-Evidence/Test-QuayContracts generated receipts; review canonical
+# consumers, pins, locks, source manifest and capture/check scripts. Build/pack
+# checks exact input freshness. The identical decorative icons have no visual claim.
+/samples/net10.0/QuayBackend/verification-evidence.json
+/samples/net11.0/QuayBackend/verification-evidence.json
+/samples/net10.0/QuayCSharp/verification-evidence.json
+/samples/net11.0/QuayCSharp/verification-evidence.json
+/samples/net11.0/QuayAvalonia/verification-evidence.json
+/samples/net10.0/QuayCSharp/Resources/AppIcon/quay.svg
+/samples/net11.0/QuayCSharp/Resources/AppIcon/quay.svg

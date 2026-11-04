@@ -14,6 +14,14 @@ $session = Join-Path $work ([guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $session -Force | Out-Null
 $client = [Net.Http.HttpClient]::new()
 try {
+    $olderBytes = $client.GetByteArrayAsync('https://api.nuget.org/v3-flatcontainer/microsoft.maui.templates.net10/10.0.110/microsoft.maui.templates.net10.10.0.110.nupkg').GetAwaiter().GetResult()
+    if ([Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($olderBytes)).ToLowerInvariant() -cne '7c1b8f504316c187ce4c6e113b674b9d3d7d31997d03d39c42ff45f37460aeac') { throw 'Older template identity changed.' }
+    $zip = [IO.Compression.ZipArchive]::new([IO.MemoryStream]::new($olderBytes))
+    try {
+        $reader = [IO.StreamReader]::new($zip.GetEntry('content/templates/maui-mobile/.template.config/template.json').Open())
+        try { $older = $reader.ReadToEnd() | ConvertFrom-Json } finally { $reader.Dispose() }
+        if ($older.symbols.UI -or $older.symbols.WithAvalonia) { throw 'Reconcile older template equivalence before serving this comparison.' }
+    } finally { $zip.Dispose() }
     $version = '11.0.0-rc.2.26505.5'
     $package = Join-Path $session "Microsoft.Maui.Templates.net11.$version.nupkg"
     [IO.File]::WriteAllBytes($package, $client.GetByteArrayAsync("https://api.nuget.org/v3-flatcontainer/microsoft.maui.templates.net11/$version/microsoft.maui.templates.net11.$version.nupkg").GetAwaiter().GetResult())
@@ -25,6 +33,8 @@ try {
         & $Dotnet new maui -n QuayCSharp -o (Join-Path $session 'csharp') --ui csharp --no-restore --debug:custom-hive $hive
         & $Dotnet new maui -n QuayDesktop -o (Join-Path $session 'avalonia') --with-avalonia --avaloniaControlsMauiVersion '11.0.0-rc.2.26287.618' --no-restore --debug:custom-hive $hive
         & $Dotnet new maui -n QuayRestricted -o (Join-Path $session 'restricted') --ui csharp --sample-content --no-restore --debug:custom-hive $hive
+        & $Dotnet new maui -n QuayXaml -o (Join-Path $session 'xaml') --with-avalonia --sample-content --no-restore --debug:custom-hive $hive
+        & $Dotnet new maui-multiproject -n QuaySeparate -o (Join-Path $session 'separate') --avalonia --avaloniaControlsMauiVersion '11.0.0-rc.2.26287.618' --debug:custom-hive $hive
     } finally { Pop-Location }
     # The template also emits floating logging and an SDK-selected MAUI version.
     # Freeze these generated inputs before a restore; never grant sample auto-updates.
@@ -43,6 +53,8 @@ try {
         if (-not $project.Contains($token)) { throw "Missing generated Avalonia input $token" }
     }
     if ($project.Contains('preview.6.*')) { throw 'Generated dependency is floating.' }
+    if ([IO.File]::ReadAllText((Join-Path $session 'xaml/QuayXaml.csproj')).Contains('Avalonia.Controls.Maui')) { throw 'XAML sample-content restriction ignored.' }
+    if (-not (Test-Path (Join-Path $session 'separate/QuaySeparate.Desktop/QuaySeparate.Desktop.csproj'))) { throw 'Separate desktop head missing.' }
     Write-Host "PASS: real pinned template generation, retained resource XAML, sample-content restriction, exact Avalonia options. Output: $session"
     Write-Host "Template SHA256: $((Get-FileHash $package -Algorithm SHA256).Hash.ToLowerInvariant())"
 } finally {
