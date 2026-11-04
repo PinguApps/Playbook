@@ -67,6 +67,7 @@
     ],
     "reason": "CI checkout uses repository-required LF, while original authoring used CRLF. Only newline bytes were normalized; source text/behaviour did not change. Original proof hashes and saved-source values remain the identities actually observed. Refreshed verification-evidence.json records compile/run the canonical LF inputs.",
     "refreshedDllSha256": "3117a955241fd456b4789660368a0c2d3b52dd55a560520d8029b668719a40d1",
-    "matchesOwnerTestedDll": false
+    "matchesOwnerTestedDll": false,
+    "artifactScope": "The original owner session applies to the recorded dllSha256. Rebuild DLL identity is reported separately and differs; generated informational-version metadata includes the current Git revision. No repeated owner session is claimed after newline normalization. Authored executable source is unchanged; current LF canonical inputs were compiled and restoration checks executed again."
   }
 }
