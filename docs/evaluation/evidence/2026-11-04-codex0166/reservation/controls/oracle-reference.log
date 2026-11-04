@@ -1,0 +1,19 @@
+PASS: invalid Code returns field error
+PASS: invalid Guests returns field error
+PASS: invalid party never enters handler
+PASS: invalid Guests returns field error
+PASS: invalid party never enters handler
+PASS: open-held entered rule
+PASS: open-held awaits before handler
+PASS: valid accepted exactly once after completion
+OBSERVATION: open-held counters {"entered":1,"completed":1,"canceled":0,"accepted":1}
+PASS: closed-held entered rule
+PASS: closed-held awaits before handler
+PASS: unavailable rejected before handler
+OBSERVATION: closed-held counters {"entered":1,"completed":1,"canceled":0,"accepted":0}
+PASS: open-cancel entered rule
+PASS: open-cancel awaits before handler
+PASS: request token reaches rule
+PASS: canceled request never books after release
+OBSERVATION: open-cancel counters {"entered":1,"completed":0,"canceled":1,"accepted":0}
+Oracle: 0 failed
