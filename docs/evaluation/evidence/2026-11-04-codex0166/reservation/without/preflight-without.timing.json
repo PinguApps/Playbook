@@ -1,0 +1,11 @@
+{
+  "condition": "without",
+  "phase": "preflight",
+  "startedUtc": "2026-11-04T21:23:26.6842898+00:00",
+  "endedUtc": "2026-11-04T21:23:54.4402271+00:00",
+  "elapsedSeconds": 27.7413045,
+  "timeout": false,
+  "exitCode": 0,
+  "deadlineSeconds": 600,
+  "promptSha256": null
+}

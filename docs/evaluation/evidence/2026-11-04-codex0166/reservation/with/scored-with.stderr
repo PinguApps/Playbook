@@ -1,0 +1,4 @@
+2026-11-04T21:24:51.250707Z ERROR codex_core::tools::router: error=exec_command failed: ProcessFailed { message: "Network access to \"builds.dotnet.microsoft.com\" was blocked: domain is not on the allowlist for the current sandbox mode." }
+2026-11-04T21:25:14.077291Z ERROR codex_core::tools::router: error=exec_command failed: ProcessFailed { message: "Network access to \"builds.dotnet.microsoft.com\" was blocked: domain is not on the allowlist for the current sandbox mode." }
+2026-11-04T21:25:31.253388Z ERROR codex_core::tools::router: error=exec_command failed: ProcessFailed { message: "Network access to \"builds.dotnet.microsoft.com\" was blocked: domain is not on the allowlist for the current sandbox mode." }
+2026-11-04T21:25:39.964151Z ERROR codex_core::tools::router: error=exec_command failed: ProcessFailed { message: "Network access to \"builds.dotnet.microsoft.com\" was blocked: domain is not on the allowlist for the current sandbox mode." }
