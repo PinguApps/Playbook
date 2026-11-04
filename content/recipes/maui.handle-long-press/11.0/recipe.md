@@ -163,3 +163,15 @@ The actual .NET10 Windows comparison compiles in Release. The token-aware overlo
 - [ViewExtensions.cs implementation](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/ViewExtensions.cs)
 - [LongPressGestureHandler.cs implementation](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/Android/LongPressGestureHandler.cs)
 - [LongPressGestureHandler.Windows.cs implementation](https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/LongPressGestureHandler.Windows.cs)
+
+### samples/net10.0/BeaconBoard/Resources/AppIcon/appicon.svg
+
+{{snippet:samples-net10-0-beaconboard-resources-appicon-appicon-svg}}
+
+### samples/net11.0/BeaconBoard/Resources/AppIcon/appicon.svg
+
+{{snippet:samples-net11-0-beaconboard-resources-appicon-appicon-svg}}
+
+### samples/net11.0/BeaconBoardiOS/Resources/AppIcon/appicon.svg
+
+{{snippet:samples-net11-0-beaconboardios-resources-appicon-appicon-svg}}

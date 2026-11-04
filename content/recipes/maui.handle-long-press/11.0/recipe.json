@@ -327,6 +327,21 @@
       "path": "samples/net11.0/BeaconBoardiOS/Platforms/iOS/SceneDelegate.cs",
       "region": "complete",
       "language": "csharp"
+    },
+    "samples-net10-0-beaconboard-resources-appicon-appicon-svg": {
+      "path": "samples/net10.0/BeaconBoard/Resources/AppIcon/appicon.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboard-resources-appicon-appicon-svg": {
+      "path": "samples/net11.0/BeaconBoard/Resources/AppIcon/appicon.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboardios-resources-appicon-appicon-svg": {
+      "path": "samples/net11.0/BeaconBoardiOS/Resources/AppIcon/appicon.svg",
+      "region": "complete",
+      "language": "xml"
     }
   }
 }
