@@ -1,0 +1,21 @@
+{
+  "additionalInputs": [
+    "samples/net11.0/BeaconContracts/Checks.cs",
+    "samples/net11.0/BeaconContracts/beacon.c",
+    "eng/Test-BeaconContracts.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "eng/Test-BeaconDiagnostics.ps1",
+    "samples/BeaconContracts/diagnostics",
+    "docs/planning/audits/host-contracts.sources.json",
+    "docs/planning/audits/runtime-security.assets.json",
+    "eng/HostContractEvidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [
+    "MSVC/19.51.36260.0",
+    "MSVC-link/14.51.36260.0"
+  ],
+  "dependencies": [],
+  "workloads": []
+}

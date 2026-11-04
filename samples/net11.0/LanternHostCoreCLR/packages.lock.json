@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net11.0": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack": {
+        "type": "Direct",
+        "requested": "[11.0.0-rc.2.26504.105, )",
+        "resolved": "11.0.0-rc.2.26504.105",
+        "contentHash": "q4bssLD3lFnzmc1vYcyRvTt9y+uXkUfTBl2wY9ft/D9OB/UoO3Q5ygj8ieigyxAWx28ls6ZmgRboDRf11xKZGQ=="
+      }
+    },
+    "net11.0/browser-wasm": {}
+  }
+}

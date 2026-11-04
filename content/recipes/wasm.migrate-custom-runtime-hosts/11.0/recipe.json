@@ -1,0 +1,211 @@
+{
+  "id": "wasm.migrate-custom-runtime-hosts",
+  "edition": "11.0",
+  "title": "Migrate custom browser runtime hosts",
+  "goal": "Update a hand-written browser loader against its shipped Mono or opt-in CoreCLR package; verify startup lifetime, resource loading and diagnostic provider options for the actual runtime.",
+  "areas": [
+    "libraries"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "host-contracts",
+    "wasm"
+  ],
+  "apis": [
+    "DotnetHostBuilder",
+    "withConfigSrc",
+    "withResourceLoader",
+    "runMain",
+    "runMainAndExit",
+    "collectMetrics"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "preview",
+  "applicability": {
+    "routes": [
+      {
+        "target": "11.0",
+        "usage": "primary",
+        "conditional": false,
+        "requirements": {
+          "sdk": {
+            "match": "release-family",
+            "reason": "Build against .NET 11 references; exact RC2 pins record measured artifacts.",
+            "name": ".NET SDK",
+            "version": "11.0"
+          },
+          "runtime": {
+            "match": "release-family",
+            "reason": "Uses .NET 11 shared-framework contracts.",
+            "name": ".NET",
+            "version": "11.0"
+          },
+          "language": {
+            "match": "exact",
+            "reason": "Managed export source uses C# 15; host TypeScript is compiled with 5.9.3 against each exact package declaration.",
+            "name": "C#",
+            "version": "15.0"
+          },
+          "frameworks": [
+            "Microsoft.NETCore.App 11 shared framework"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.NET.Sdk.WebAssembly.Pack",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "The WebAssembly SDK resolves its matching pack; actual RC2 dependencies are locked and recorded."
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.NET.Sdk.WebAssembly.Pack 11; actual Mono.browser-wasm or browser-wasm runtime assets."
+          ],
+          "workloads": [
+            {
+              "name": "wasm-tools",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Diagnostic-enabled browser native relinking requires the matching .NET 11 WebAssembly and Emscripten toolchain; actual RC2 manifest pins are retained in sample evidence."
+            }
+          ],
+          "prerequisites": [
+            "Browser with WebAssembly/SIMD/exception handling, HTTP static host, TypeScript compiler, matching .NET WebAssembly SDK and runtime pack.",
+            "UseMonoRuntime=false selects the experimental CoreCLR browser route; there is no .NET 10 CoreCLR-browser equivalent."
+          ],
+          "platforms": [
+            "Measured Chromium on Windows with .NET 10 Mono and RC2 Mono/CoreCLR; no other-browser/platform/AOT performance claim."
+          ],
+          "providers": [
+            "Local EventPipe/EventSource diagnostic providers; no external provider service."
+          ],
+          "renderingModes": [],
+          "optIns": [
+            "UseMonoRuntime=false only for the CoreCLR sample.",
+            "EnableDiagnostics=true for actual trace collection, with a matching native toolchain."
+          ],
+          "stabilityLimitations": [
+            "Measured RC2 artifacts are not GA verification; PIN-959/PIN-962 and existing Human gates remain open.",
+            "CoreCLR browser is opt-in preview; custom host APIs have no backwards compatibility guarantee."
+          ],
+          "constraints": [
+            "Packaged dotnet.d.ts is authoritative for the measured build; VMR source and Mono/CoreCLR declarations differ.",
+            "Browser host declarations explicitly provide no backwards-compatibility guarantee; retest custom hosts after package changes.",
+            "Deprecated withConfigSrc/run/environment setter are distinct from removed asset members; retain supported older methods."
+          ]
+        },
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/runtime.md",
+          "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/mono/browser/runtime/dotnet.d.ts",
+          "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/mono/browser/runtime/dotnet.d.ts"
+        ],
+        "selectionNotes": [
+          "Packaged dotnet.d.ts is authoritative for the measured build; VMR source and Mono/CoreCLR declarations differ.",
+          "Browser host declarations explicitly provide no backwards-compatibility guarantee; retest custom hosts after package changes.",
+          "Deprecated withConfigSrc/run/environment setter are distinct from removed asset members; retain supported older methods."
+        ],
+        "evidenceSamples": [
+          "samples/net11.0/LanternHostMono/LanternHostMono.csproj",
+          "samples/net11.0/LanternHostCoreCLR/LanternHostCoreCLR.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official pinned release-notes/11.0/preview/preview5/runtime.md",
+      "url": "https://raw.githubusercontent.com/dotnet/core/ffed591b0fb8f9aab50ecc28f2c765049fb28d8f/release-notes/11.0/preview/preview5/runtime.md"
+    },
+    {
+      "title": "Official pinned src/runtime/src/mono/browser/runtime/dotnet.d.ts",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/4099f83977f4d29604a9aeb971fb0a7bc1d5f699/src/runtime/src/mono/browser/runtime/dotnet.d.ts"
+    },
+    {
+      "title": "Official pinned src/runtime/src/mono/browser/runtime/dotnet.d.ts",
+      "url": "https://raw.githubusercontent.com/dotnet/dotnet/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/mono/browser/runtime/dotnet.d.ts"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/LanternHostMono/LanternHostMono.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "compile",
+      "scope": "Actual managed browser build and TypeScript compilation against the exact shipped runtime declaration."
+    },
+    {
+      "sample": "samples/net10.0/LanternHostMono/LanternHostMono.csproj",
+      "target": "net10.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "kind": "execution",
+      "scope": "Real Chromium startup, main return/keep-alive/exit rejection, configuration/arguments, resource loading/failure and diagnostic provider trace.",
+      "record": "samples/net10.0/LanternHostMono/browser.evidence.json"
+    },
+    {
+      "sample": "samples/net11.0/LanternHostMono/LanternHostMono.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual managed browser build and TypeScript compilation against the exact shipped runtime declaration."
+    },
+    {
+      "sample": "samples/net11.0/LanternHostMono/LanternHostMono.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "scope": "Real Chromium startup, main return/keep-alive/exit rejection, configuration/arguments, resource loading/failure and diagnostic provider trace.",
+      "record": "samples/net11.0/LanternHostMono/browser.evidence.json"
+    },
+    {
+      "sample": "samples/net11.0/LanternHostCoreCLR/LanternHostCoreCLR.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "compile",
+      "scope": "Actual managed browser build and TypeScript compilation against the exact shipped runtime declaration."
+    },
+    {
+      "sample": "samples/net11.0/LanternHostCoreCLR/LanternHostCoreCLR.csproj",
+      "target": "net11.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "kind": "execution",
+      "scope": "Real Chromium startup, main return/keep-alive/exit rejection, configuration/arguments, resource loading/failure and diagnostic provider trace.",
+      "record": "samples/net11.0/LanternHostCoreCLR/browser.evidence.json"
+    }
+  ],
+  "humanProof": {
+    "status": "not-required",
+    "scope": "All bounded checks use local MSVC/Emscripten and Chromium; no production resources or interactive approval. Other platforms and GA remain unverified."
+  },
+  "snippets": {
+    "older": {
+      "path": "samples/net10.0/LanternHostMono/main.ts",
+      "language": "typescript",
+      "region": "browser-host"
+    },
+    "newer": {
+      "path": "samples/net11.0/LanternHostMono/main.ts",
+      "language": "typescript",
+      "region": "browser-host"
+    },
+    "coreclr": {
+      "path": "samples/net11.0/LanternHostCoreCLR/LanternHostCoreCLR.csproj",
+      "language": "xml",
+      "region": "host-project"
+    },
+    "managed": {
+      "path": "samples/net11.0/LanternHostMono/Program.cs",
+      "language": "csharp",
+      "region": "managed-host"
+    }
+  }
+}

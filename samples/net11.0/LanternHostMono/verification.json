@@ -1,0 +1,25 @@
+{
+  "additionalInputs": [
+    "samples/net11.0/LanternHostMono/Program.cs",
+    "eng/Test-LanternHosts.ps1",
+    "eng/Test-LanternHosts.mjs",
+    "eng/Initialize-LanternToolchain.ps1",
+    "eng/Record-Evidence.ps1",
+    "eng/Evidence.ps1",
+    "docs/planning/audits/host-contracts.sources.json",
+    "docs/planning/audits/runtime-security.assets.json",
+    "eng/HostContractEvidence.ps1"
+  ],
+  "buildArguments": [
+    "-p:PublishTrimmed=false"
+  ],
+  "nativeToolchains": [
+    "Emscripten/6.0.2"
+  ],
+  "dependencies": [
+    "Microsoft.NET.Sdk.WebAssembly.Pack/11.0.0-rc.2.26504.105"
+  ],
+  "workloads": [
+    "wasm-tools/11.0.100-rc.2.26504.105/11.0.100-rc.2"
+  ]
+}

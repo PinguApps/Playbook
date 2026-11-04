@@ -550,6 +550,18 @@
 # Record-Evidence generated materialization receipts; review sources, locks and runner.
 /samples/net10.0/ReefMaterialization/verification-evidence.json
 /samples/net11.0/ReefMaterialization/verification-evidence.json
+# Generated COM execution/SDK/native receipts; canonical contracts, C consumer,
+# diagnostics, artifact reconciliation and capture scripts remain reviewable.
+/samples/net10.0/BeaconContracts/verification-evidence.json
+/samples/net11.0/BeaconContracts/verification-evidence.json
+# Generated WebAssembly compiler/runtime/browser receipts. Review canonical C#/TS,
+# projects, pins, source manifests and capture/behavior scripts; pack checks freshness.
+/samples/net10.0/LanternHostMono/verification-evidence.json
+/samples/net10.0/LanternHostMono/browser.evidence.json
+/samples/net11.0/LanternHostMono/verification-evidence.json
+/samples/net11.0/LanternHostMono/browser.evidence.json
+/samples/net11.0/LanternHostCoreCLR/verification-evidence.json
+/samples/net11.0/LanternHostCoreCLR/browser.evidence.json
 
 # Generated SDK/command/input receipts from Record-Evidence and the named
 # Beacon migration check. Review canonical consumers, lockfiles, scripts and

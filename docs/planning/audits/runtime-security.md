@@ -143,14 +143,14 @@ lines, including repeated target-asset comparisons.
 | JSMarshalerArgument float[], Span<float>, ArraySegment<float> ToJS/ToManaged | **Delivered PIN-1097 / R11:** direct float buffers versus original double conversion/copy-back in real published Mono browser consumers; offsets, generated imports/exports, specials and lifetime/disposal checks. No CoreCLR-browser/AOT claim. |
 | UnmanagedCallersOnly.AssociatedSourceType; EntryPoint/type nullable metadata | **Delivered PIN-1098 / R12:** condition a native export on retention of its associated type. EntryPoint already existed; named exports themselves are not new. Actual trimming/export-table evidence is required. |
 | LibraryImport SYSLIB1064 and broad RequiresUnsafe/MemorySafetyRules annotations on Marshal, COM, Java/Objective-C/Swift, GC handles, MemoryMarshal, Unsafe, SafeBuffer, crypto/native handles and reflection pointers | **Grouped PIN-715:** caller/declaration safety obligations; its existing measured compiler tests do not certify every API here. Keep safe/unsafe/preview/build flags precise. MarshalUsing property AttributeUsage additionally supports **R13**. |
-| COM generator property/accessor support and new diagnostics under existing IDs | **Included R13:** author complete generated COM properties with correct accessor marshalling; not merely warning suppression. |
+| COM generator property/accessor support and new diagnostics under existing IDs | **Delivered PIN-1099 / R13:** real Windows x64 native get/set/UTF16 calls and separate accessor/marshalling/preview-safety compiler checks. Explicit older methods remain valid. |
 | RuntimeHelpers.AllocateTypeAssociatedMemory(type,size,alignment), Box | **Delivered PIN-1108 / R22:** measured aligned storage, explicit old allocator/free ownership and collectible type lifetime safety. No pointer access after owner release or exact native reclamation timing claim. Box's RequiresUnsafe annotation stays PIN-715. |
 | ConstructorInfo.GetGenericArguments/nullable adjustments, TypeDelegator and Emit-builder nullable overrides; AssemblyLoadContext location override | **Delivered PIN-742:** [metadata/deployment evidence](../../verification/assembly-deployments.md). Constructor generic arguments are distinct from constructor value parameters. |
 | AsyncHelpers/await intrinsic shapes | **Grouped PIN-757**, original F# builder PIN-980. Compiler-targeted helpers must not be called as general application helpers. |
 | IUnion/UnionAttribute/IsClosedTypeAttribute | **Grouped PIN-711**, serialization/closed-hierarchy behavior PIN-704. Compiler infrastructure does not create an extra runtime recipe. |
 | NFloat partial parsing; PosixSignal.SIGKILL | **Grouped PIN-737** numeric parsing and **PIN-721/722** process signalling. SIGKILL is not a catchable signal registration. |
 | CurrencyWrapper/Objective-C EditorBrowsable metadata; other nullable/readonly/AttributeUsage-only pairs | **Excluded as standalone goals:** no distinct implementation outcome established; raw differences remain visible. This does not exclude the separate safety/COM property changes above. |
-| Actual Mono/CoreCLR dotnet.d.ts changes | **Included R14:** custom startup/run lifetime, deprecated withConfigSrc/run/environment setter, changed asset exports/configuration and diagnostic naming. New CoreCLR types are tracked separately from a changed Mono contract. |
+| Actual Mono/CoreCLR dotnet.d.ts changes | **Delivered PIN-1100 / R14:** three actual package/compiler/browser routes verify startup/main lifetime, resources/configuration and diagnostic provider traces. Deprecations, removals and opt-in CoreCLR contracts remain distinct. |
 | Zero-delta selected forwarding, claims/access-control, WebSocket, HTTP JSON/SSE, XML/ProtectedData/WinHTTP/access-control package contracts | **No additional API recipe:** zero declarations do not imply identical behavior. Source-only changes and unknowns below remain visible. |
 
 ## Complete source-only and obsolete-index ownership
@@ -545,3 +545,44 @@ complete canonical Markdown, target11/edition11, applicability and evidence.
 The eight .NET10 foundations, PIN-959/PIN-962 and existing Human gates retain
 their obligations. RC2 preparation is not final-GA verification. No publication,
 production resource or recurring platform matrix is introduced.
+
+## COM properties and custom browser hosts — PIN-1099 / PIN-1100
+
+R13 is delivered as `interop.generate-com-properties`, edition11.0. Original
+Mere Beacon interfaces compare explicit .NET10 methods with generated .NET11
+properties. A separately compiled, header/CRT-free MSVC Windows x64 C consumer
+calls the actual IUnknown vtable, checks HRESULT/out parameters, reads/writes
+numeric and UTF16 properties and releases returned allocations. The original
+explicit-method route remains valid. Actual mixed accessors fail CS0525; invalid
+count-only accessor MarshalUsing fails SYSLIB1090. A separate preview compiler
+feature check requires explicit safety (CS9389), accepts `safe`, and preserves
+the ordinary no-opt-in declaration. Neither source diagnostic names nor property
+support imply that every memory-safety rule was executed.
+
+R14 is delivered as `wasm.migrate-custom-runtime-hosts`, edition11.0. Original
+Lantern Station consumers compile TypeScript against the actual .NET10 Mono,
+RC2 Mono and RC2 CoreCLR dotnet.d.ts and publish/run all three runtimes in Chromium.
+They verify configured environment/arguments, Main return17, live exports versus
+post-exit rejection, resource callbacks and native-asset404 rejection. Real traces
+contain the selected Lantern-Station provider: old provider_name versus current
+providerName. Diagnostic-enabled native relinking uses Emscripten3.1.56/6.0.2;
+missing RC2 packs were prepared in an ignored worktree-local SDK layout.
+
+Actual contracts refine the draft: configSrc belonged to DotnetModuleConfig,
+not MonoConfig. A missing withConfigSrc URL fails on .NET10; RC2 Mono/CoreCLR
+ignore the override and still start. The current loader requires a string URL
+for JavaScript modules. CoreCLR's productVersion can say11.0.0 while the actual
+package remains RC2. Mono removals, deprecations and new CoreCLR contracts remain
+separate, with the packaged declarations' lack of compatibility guarantees explicit.
+
+`eng/Test-BeaconContracts.ps1 -Record -VerifySources` and
+`eng/Test-LanternHosts.ps1 -Record -VerifySources` capture exact commands, inputs,
+compiler/reference/generator/package/declaration/native/deployed identities and
+fresh sample-evidence records. Immutable publisher sources are retained in
+host-contracts.sources.json and artifact hashes reconcile with this original audit.
+The installed walkthrough checks the ordinary packed artifact's offline stdio
+discovery ID/title/goal, complete canonical Markdown, target11/edition11,
+applicability and evidence. No recurring native/browser matrix or public release
+is added. Other ABIs/browsers/platforms/AOT and actual GA remain unverified; the
+exact eight .NET10 foundations, PIN-959/PIN-962 and existing Human gates retain
+their independent obligations.

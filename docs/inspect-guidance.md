@@ -3632,6 +3632,42 @@ through real stdio from an unrelated working directory and isolated feed/cache,
 including canonical bodies and absence from the curated target10 catalogue.
 Local execution uses exact RC2 artifacts, not GA or cloud Cosmos evidence.
 
+## COM property contracts and custom browser hosts
+
+These edition11 recipes compare actual .NET10 and RC2 .NET11 dependencies.
+COM checks use MSVC Windows x64 and a real native IUnknown consumer. Browser
+checks compile against the shipped TypeScript declarations and execute Mono10,
+Mono11 and opt-in CoreCLR11 in Chromium, including real diagnostic provider traces.
+No other ABI/browser/platform/AOT or final-GA verification is implied.
+
+The setup prepares missing RC2 wasm-tools packs under ignored artifacts/native-dotnet;
+it reuses the existing exact RC2 SDK without changing PATH or global tools. It
+requires the existing .NET10 wasm-tools installation, MSVC, Node24 and the
+Playwright/Chromium paths declared in eng/Test-LanternHosts.mjs. Run the following
+from any directory; it was exercised from unrelated C:\.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-32af0853'
+& ./eng/Test-Smoke.ps1 -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -PackageVersion '0.0.0-pin1099-1100'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('interop.generate-com-properties','wasm.migrate-custom-runtime-hosts') `
+  -Query 'host-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1099-1100' `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/host-contracts/inspection'
+```
+
+The saved native evidence covers COM success, rejected marshalling/mixed-accessor
+cases and separate preview-safety controls. Three browser routes cover return17,
+configured report, keep-alive/exit checks, failed-resource handling and selected-provider
+traces. Expect Inspector to print both discovery IDs/titles/goals and full expanded
+Markdown/applicability. The isolated local-feed/cache installation consumes the
+exact ordinary package, with real stdio calls from an unrelated directory and
+unusable proxies during retrieval. This is proxy-independent offline operation,
+not OS network isolation. Both complete bodies and fresh evidence must match;
+target10 returns no_applicable_edition. Saved responses are disposable artifacts.
+PIN-959/PIN-962, Human gates and the eight .NET10 foundations remain unchanged.
+
 ## Windows Forms control rendering, startup and update scopes
 
 Use the existing Windows Desktop runtimes, SDK10.0.402 and the separate SDK11 RC2,
