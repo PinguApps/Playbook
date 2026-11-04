@@ -34,3 +34,7 @@ These are accepted task goals, not tested API claims. Scope each scaffold so dep
 - Record consultation, generated result, compilation/behavior checks, unsupported assumptions, time, and token usage where available. Repair Playbook content/tool defects exposed by the exercise before stable launch; do not require Playbook to outperform the baseline on every task.
 
 Keep this a small manual launch exercise, not recurring CI, an automated benchmark platform, or evidence of broad agent/model knowledge. Report actual observations and their limits.
+
+The [manifest reconciliation preparation](../evaluation/manifest-reconciliation/README.md)
+freezes the original console scaffold, private oracle and controls for PIN-949.
+It records no paired agent runs.
