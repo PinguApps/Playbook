@@ -1,6 +1,6 @@
 # Re-evaluate frozen submissions in disposable copies; never rerun the agents.
 param(
-    [string]$Dotnet = 'V:\_worktrees\Playbook\t3-0f031b59\artifacts\protocol\sdk\dotnet.exe',
+    [string]$Dotnet = 'C:\Users\pingu\AppData\Local\dotnetup\dotnet\dotnet.exe',
     [string]$OutputDirectory = (Join-Path ([IO.Path]::GetTempPath()) ('playbook-outcome-replay-' + [guid]::NewGuid().ToString('N')))
 )
 $ErrorActionPreference = 'Stop'
@@ -29,7 +29,12 @@ foreach ($condition in @('without', 'with')) {
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'controls/Oracle.cs.txt') -Destination "$work/Program.cs" -Force
     Push-Location $work
     try {
-        & $Dotnet run --project Task.csproj --no-launch-profile -- '{"case":"applied","case":"rejected","revision":"r"}' *> "$work/oracle.log"
+        $version = & $Dotnet --version
+        if ($LASTEXITCODE -ne 0 -or $version -ne '11.0.100-rc.3.26522.148') {
+            throw 'Replay requires the original pinned SDK 11.0.100-rc.3.26522.148'
+        }
+        $ambiguous = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'controls/ambiguous-input.json') -Raw
+        & $Dotnet run --project Task.csproj --no-launch-profile -- $ambiguous *> "$work/oracle.log"
         if ($LASTEXITCODE -ne 0) { Get-Content "$work/oracle.log"; throw "Oracle failed: $condition" }
         $output = Get-Content "$work/oracle.log" -Raw
         if ($output -notmatch 'PASS: ambiguous JSON rejected' -or $output -notmatch 'Oracle: 0 failed') { throw 'Missing oracle observations' }

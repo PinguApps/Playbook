@@ -16,7 +16,7 @@ $elapsed = 0.0
 foreach ($condition in @('without', 'with')) {
     $directory = Join-Path $root "csharp/$condition"
     $timing = Get-Content -LiteralPath "$directory/scored-$condition.timing.json" -Raw | ConvertFrom-Json
-    if ($timing.deadlineSeconds -ne 600 -or $timing.elapsedSeconds -gt 605) {
+    if ($timing.deadlineSeconds -ne 600 -or $timing.elapsedSeconds -gt 600 -or $timing.timeout -ne $false) {
         throw "Execution budget exceeded: $condition"
     }
     $elapsed += $timing.elapsedSeconds
@@ -45,6 +45,7 @@ foreach ($condition in @('without', 'with')) {
     }
     [pscustomobject]@{
         Condition = $condition
+        ContextId = $started[0].thread_id
         Seconds = $timing.elapsedSeconds
         Timeout = $timing.timeout
         PlaybookCalls = $mcp.Count
