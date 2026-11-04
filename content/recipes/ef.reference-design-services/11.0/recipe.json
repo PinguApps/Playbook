@@ -91,7 +91,7 @@
           ],
           "prerequisites": [
             "SDK10.0.402 / SDK11 11.0.100-rc.2.26504.105; EF10.0.13 / EF11.0.0-rc.2.26504.105.",
-            "Run eng/Test-FleetDesign.ps1 and eng/Test-FleetTooling.ps1; no external resources."
+            "Restore packages and install the matching dotnet-ef from NuGet online before running the checks. Setup is separate from offline Playbook retrieval; no provisioned service or account is required."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -144,7 +144,7 @@
       "language": "14.0",
       "sdk": "10.0.402",
       "record": "samples/net10.0/FleetDesign/behavior.evidence.json",
-      "scope": "Actual EF10 transitive build, EF11 missing Design compile failure, explicit Design service registration succeeds. No Tasks/PMC/GA execution.",
+      "scope": "EF10 actual Tools dependency consumer: missing direct Design build exit 0; explicit Design restores real service registration. No Tasks/PMC/GA execution.",
       "kind": "execution"
     },
     {
@@ -153,7 +153,7 @@
       "language": "15.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "record": "samples/net11.0/FleetDesign/behavior.evidence.json",
-      "scope": "Actual EF10 transitive build, EF11 missing Design compile failure, explicit Design service registration succeeds. No Tasks/PMC/GA execution.",
+      "scope": "EF11 actual Tools dependency consumer: missing direct Design build exit 1; explicit Design restores real service registration. No Tasks/PMC/GA execution.",
       "kind": "execution"
     }
   ],
@@ -220,7 +220,7 @@
     }
   },
   "humanProof": {
-    "scope": "Agent local Windows checks. Pingu authorized publishing with reproduced RC2 wildcard-list failure on 4 November 2026. Successful list proof remains unavailable.",
+    "scope": "Agent local Windows Design service registration checks; no Tasks, PMC, Visual Studio or GA execution claimed.",
     "status": "not-required"
   }
 }

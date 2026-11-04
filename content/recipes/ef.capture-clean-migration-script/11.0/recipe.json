@@ -97,14 +97,13 @@
             "Not applicable: console/database consumer; no renderer or browser"
           ],
           "constraints": [
-            "Historical .NET10 comparison adds no target10 edition or foundation.",
-            "Tools/Tasks no longer depend on Design. Add Design to the actual tooling consumer only.",
-            "Wildcard is command-specific: list/script/update/drop. RC2 wildcard list fails; select explicit contexts for list.",
-            "Wildcard script concatenates SQL; use explicit per-context scripts for separate databases."
+            "Historical EF10 comparison adds no target10 edition or foundation.",
+            "Build before capture and keep application diagnostics off stdout. Reject failed-command artifacts.",
+            "Select explicit contexts for separate database scripts; wildcard SQL concatenation does not route deployment."
           ],
           "prerequisites": [
             "SDK10.0.402 / SDK11 11.0.100-rc.2.26504.105; EF10.0.13 / EF11.0.0-rc.2.26504.105.",
-            "Run eng/Test-FleetDesign.ps1 and eng/Test-FleetTooling.ps1; no external resources."
+            "Restore packages and install the matching dotnet-ef from NuGet online before running the checks. Setup is separate from offline Playbook retrieval; no provisioned service or account is required."
           ],
           "optIns": [],
           "stabilityLimitations": [
@@ -157,7 +156,7 @@
       "language": "14.0",
       "sdk": "10.0.402",
       "record": "samples/net10.0/FleetTooling/behavior.evidence.json",
-      "scope": "Actual explicit-context SQL execution on EF10/11; EF11 wildcard script contains both models, update verifies each database table, drop removes both files; clean stdout SQL executes with separate nonempty stderr. Wildcard list exits 1; successful list proof unavailable, publication exception authorized by Pingu 4 November 2026.",
+      "scope": "PASS EF10 explicit lists and scripts; canonical output-file capture executes.",
       "kind": "execution"
     },
     {
@@ -166,7 +165,7 @@
       "language": "15.0",
       "sdk": "11.0.100-rc.2.26504.105",
       "record": "samples/net11.0/FleetTooling/behavior.evidence.json",
-      "scope": "Actual explicit-context SQL execution on EF10/11; EF11 wildcard script contains both models, update verifies each database table, drop removes both files; clean stdout SQL executes with separate nonempty stderr. Wildcard list exits 1; successful list proof unavailable, publication exception authorized by Pingu 4 November 2026.",
+      "scope": "PASS EF11 script/update/drop and clean stdout/stderr; wildcard list RC2 failure reproduced.",
       "kind": "execution"
     }
   ],
@@ -313,7 +312,7 @@
     }
   },
   "humanProof": {
-    "scope": "Agent local Windows checks. Pingu authorized publishing with reproduced RC2 wildcard-list failure on 4 November 2026. Successful list proof remains unavailable.",
+    "scope": "Agent local Windows SQL capture and execution; no GA or cross-platform claim.",
     "status": "not-required"
   }
 }

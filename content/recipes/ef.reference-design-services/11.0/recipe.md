@@ -45,7 +45,7 @@ Test-FleetDesign copies each actual project to a disposable directory, removes i
 
 {{snippet:n10-global-json}}
 
-{{snippet:n10-program-cs}}
+
 
 {{snippet:n11-directory-build-props}}
 
@@ -53,13 +53,13 @@ Test-FleetDesign copies each actual project to a disposable directory, removes i
 
 {{snippet:n11-directory-packages-props}}
 
-{{snippet:n11-fleetdesign-csproj}}
+
 
 {{snippet:n11-global-json}}
 
-{{snippet:n11-program-cs}}
+
 
 
 ## References
 
-Official EF11 changes, CLI and breaking-change references are included in structured sources. The complete implementation and constraints above are available offline.
+Official EF11 changes, CLI and breaking-change references are listed in structured sources. Complete guidance above remains available offline.

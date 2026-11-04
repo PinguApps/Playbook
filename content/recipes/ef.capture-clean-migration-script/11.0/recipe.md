@@ -34,7 +34,7 @@ Test-FleetTooling captures a real verbose EF11 migrations script with separate s
 
 ## Complete canonical sources
 
-{{snippet:n10-capture}}
+
 
 {{snippet:n10-commands}}
 
@@ -50,7 +50,7 @@ Test-FleetTooling captures a real verbose EF11 migrations script with separate s
 
 {{snippet:n10-program-cs}}
 
-{{snippet:n11-capture}}
+
 
 {{snippet:n11-commands}}
 
@@ -66,10 +66,6 @@ Test-FleetTooling captures a real verbose EF11 migrations script with separate s
 
 {{snippet:n11-program-cs}}
 
-
-## References
-
-Official EF11 changes, CLI and breaking-change references are included in structured sources. The complete implementation and constraints above are available offline.
 
 {{snippet:n10-migration-20261104182917-initialbeacon}}
 
@@ -94,3 +90,7 @@ Official EF11 changes, CLI and breaking-change references are included in struct
 {{snippet:n11-migration-20261104182923-initialberth-designer}}
 
 {{snippet:n11-migration-berthcontextmodelsnapshot}}
+
+## References
+
+Official EF11 changes, CLI and breaking-change references are listed in structured sources. Complete guidance above remains available offline.

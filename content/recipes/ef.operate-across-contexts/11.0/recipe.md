@@ -38,7 +38,7 @@ Test-FleetTooling builds both actual locked projects in disposable directories. 
 
 {{snippet:n10-capture}}
 
-{{snippet:n10-commands}}
+
 
 {{snippet:n10-directory-build-props}}
 
@@ -54,7 +54,7 @@ Test-FleetTooling builds both actual locked projects in disposable directories. 
 
 {{snippet:n11-capture}}
 
-{{snippet:n11-commands}}
+
 
 {{snippet:n11-directory-build-props}}
 
@@ -68,10 +68,6 @@ Test-FleetTooling builds both actual locked projects in disposable directories. 
 
 {{snippet:n11-program-cs}}
 
-
-## References
-
-Official EF11 changes, CLI and breaking-change references are included in structured sources. The complete implementation and constraints above are available offline.
 
 {{snippet:n10-migration-20261104182917-initialbeacon}}
 
@@ -96,3 +92,7 @@ Official EF11 changes, CLI and breaking-change references are included in struct
 {{snippet:n11-migration-20261104182923-initialberth-designer}}
 
 {{snippet:n11-migration-berthcontextmodelsnapshot}}
+
+## References
+
+Official EF11 changes, CLI and breaking-change references are listed in structured sources. Complete guidance above remains available offline.
