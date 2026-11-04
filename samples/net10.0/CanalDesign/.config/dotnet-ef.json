@@ -1,0 +1,7 @@
+{
+  "project": ".",
+  "startupProject": ".",
+  "context": "CanalContext",
+  "configuration": "Release",
+  "framework": "net10.0"
+}
