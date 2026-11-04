@@ -1,0 +1,13 @@
+<section id="@Id">
+    <h2>@Id stores</h2>
+    <QuickGrid Items="Items" Pagination="page">
+        <PropertyColumn Property="x => x.Code" Title="code" Sortable="true" />
+        <PropertyColumn Property="x => x.Units" Title="units" Sortable="true" />
+    </QuickGrid>
+    <Paginator State="page" />
+</section>
+@code {
+    [Parameter, EditorRequired] public string Id { get; set; } = "";
+    [Parameter, EditorRequired] public IQueryable<Stock> Items { get; set; } = default!;
+    private readonly PaginationState page = new() { ItemsPerPage = 2 };
+}

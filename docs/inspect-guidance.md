@@ -3707,6 +3707,35 @@ Net11 -> Classic -> Net11 and restoration, with owner-reported visual success.
 Refresh that bounded evidence after relevant sample or toolchain changes. Use the
 [Windows Contrast themes instructions](https://support.microsoft.com/en-US/accessibility/windows/change-color-contrast-in-windows).
 
+## Combined migrations, offline removal and omitted constraints
+
+Use PowerShell7, existing SDK10.0.402 and isolated SDK11 RC2, Node.js and the
+approved local SQL Server Docker route. The check creates and removes only unique
+owned databases. It does not publish a package or deploy a consumer. From an
+unrelated directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-45a58fbe'
+& ./eng/Test-QuarryMigrations.ps1 -Record
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.scaffold-and-apply-migration','ef.remove-unapplied-migration-offline','ef.omit-database-foreign-key') `
+  -Query 'quarry-migrations' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin878-880' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/quarry-migrations/inspection'
+```
+
+Expect paired compilation and SQL schema/history/model/index PASS, EF11 combined
+scaffold/apply with retained source files, unreachable offline removal and rejected
+offline/force. Explicit connected removal fails at the unreachable selected server
+without deleting the migration. An orphan insert succeeds after constraint omission.
+The inspector installs the exact ordinary package through its isolated local feed
+and cache, calls real stdio list/get from an unrelated directory, and prints each
+ID/title/goal, complete canonical Markdown, applicability and fresh evidence.
+Target11 selects edition11; target10 has no applicable edition. Proxy independence
+is not OS network isolation. These are actual RC2 SQL/CLI checks, not PMC or GA
+proof; PIN-957/PIN-965 and existing Human gates remain open.
+
 ## Provider-backed keys and mobile HTTP sends
 
 Requires PowerShell 7, the existing pinned .NET10 SDK/runtime and isolated .NET11

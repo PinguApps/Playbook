@@ -1,0 +1,30 @@
+@inject NavigationManager Navigation
+<section id="@Id">
+    <h2>@Id stores</h2>
+    <table>
+        <thead><tr><th><a href="@Link("sort", "code")">code</a></th><th><a href="@Link("sort", "units")">units</a></th></tr></thead>
+        <tbody>@foreach (var item in Rows) { <tr><td>@item.Code</td><td>@item.Units</td></tr> }</tbody>
+    </table>
+    @if (Page > 1) { <a href="@Link("page", (Page - 1).ToString())">Previous</a> }
+    @if (Page * 2 < Items.Count()) { <a href="@Link("page", (Page + 1).ToString())">Next</a> }
+</section>
+@code {
+    [Parameter, EditorRequired] public string Id { get; set; } = "";
+    [Parameter, EditorRequired] public IQueryable<Stock> Items { get; set; } = default!;
+    private Dictionary<string, Microsoft.Extensions.Primitives.StringValues> Query => Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(Navigation.Uri).Query);
+    private string Value(string key, string fallback) => Query.TryGetValue(Id + "." + key, out var value) ? value.ToString() : fallback;
+    private int Page => int.TryParse(Value("page", "1"), out int page) && page > 0 ? page : 1;
+    private IEnumerable<Stock> Rows {
+        get {
+            IEnumerable<Stock> sorted = Value("sort", "code") == "units" ? Items.OrderBy(x => x.Units) : Items.OrderBy(x => x.Code);
+            if (Value("direction", "asc") == "desc") sorted = sorted.Reverse();
+            return sorted.Skip((Page - 1) * 2).Take(2);
+        }
+    }
+    private string Link(string action, string value) {
+        var changes = new Dictionary<string, object?>();
+        changes[Id + "." + action] = value;
+        if (action == "sort") changes[Id + ".direction"] = Value("sort", "code") == value && Value("direction", "asc") == "asc" ? "desc" : "asc";
+        return Navigation.GetUriWithQueryParameters(changes);
+    }
+}
