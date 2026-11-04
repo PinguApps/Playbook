@@ -44,14 +44,17 @@ try {
     }
     if (!$ready) { throw 'Server did not become ready' }
     function Fetch($url) { (Invoke-WebRequest $url -TimeoutSec 10).Content }
-    function Section($html, $id) { [regex]::Match($html, "(?s)<section\b[^>]*id=`"$id`"[^>]*>(.*?)</section>").Groups[1].Value }
+    function Section($html, $id) { [regex]::Match($html, ('(?is)<section\b[^>]*\bid\s*=\s*(["''])' + [regex]::Escape($id) + '\1[^>]*>(.*?)</section>')).Groups[2].Value }
     function Codes($html, $id) {
         $body = Section $html $id
-        @([regex]::Matches($body, '<td\b[^>]*>\s*([NS][1-4X])\s*</td>') | ForEach-Object {$_.Groups[1].Value}) -join ','
+        @([regex]::Matches($body, '(?is)<td\b[^>]*>(.*?)</td>') | ForEach-Object {
+            $cell = [Net.WebUtility]::HtmlDecode([regex]::Replace($_.Groups[1].Value, '<[^>]+>', '')).Trim()
+            if ($cell -cmatch '^[NS][1-4X]$') { $cell }
+        }) -join ','
     }
     function Anchor($html, $id, $key, $value) {
-        foreach ($match in [regex]::Matches((Section $html $id), '<a\b[^>]*href="([^"]+)"[^>]*>')) {
-            $href = [Net.WebUtility]::HtmlDecode($match.Groups[1].Value)
+        foreach ($match in [regex]::Matches((Section $html $id), '(?is)<a\b[^>]*\bhref\s*=\s*(["''])(.*?)\1[^>]*>')) {
+            $href = [Net.WebUtility]::HtmlDecode($match.Groups[2].Value)
             $uri = [Uri]::new([Uri]$base, $href)
             if ($uri.Query -match "(?:[?&])$([regex]::Escape($key))=$value(?:&|$)") { return $uri.AbsoluteUri }
         }
@@ -61,14 +64,15 @@ try {
     $html = Fetch $bookmark
     Assert 'north bookmark restores units ascending page two' ((Codes $html north) -eq 'N1,N3')
     Assert 'south bookmark independently restores code descending' ((Codes $html south) -eq 'S4,S3')
-    Assert 'refresh restores both tables and excludes closed rows' ((Fetch $bookmark) -match 'Filter: open water' -and (Codes (Fetch $bookmark) north) -eq 'N1,N3' -and $html -notmatch '>NX<|>SX<')
+    $refreshed = Fetch $bookmark
+    Assert 'refresh restores both tables and excludes closed rows' ($refreshed -match 'Filter: open water' -and (Codes $refreshed north) -eq 'N1,N3' -and (Codes $refreshed south) -eq 'S4,S3')
     foreach ($case in @(@('north','north.page','1','N2,N4','S4,S3'), @('south','south.page','2','N1,N3','S2,S1'), @('north','north.direction','desc','N4,N2','S4,S3'), @('south','south.direction','asc','N1,N3','S1,S2'))) {
         $url = Anchor $html $case[0] $case[1] $case[2]
         Assert "ordinary link exists: $($case[1])=$($case[2])" ($null -ne $url)
         if ($url) {
             $next = Fetch $url
             Assert "navigation preserves filter and independent rows: $($case[1])" ($next -match 'Filter: open water' -and (Codes $next north) -eq $case[3] -and (Codes $next south) -eq $case[4])
-            Assert 'returning to bookmarked history entry restores state' ((Codes (Fetch $bookmark) north) -eq 'N1,N3' -and (Codes (Fetch $bookmark) south) -eq 'S4,S3')
+            Assert 're-fetching the bookmark restores state' ((Codes (Fetch $bookmark) north) -eq 'N1,N3' -and (Codes (Fetch $bookmark) south) -eq 'S4,S3')
         }
     }
     $default = Fetch ($base + '?filter=open%20water')
