@@ -1,0 +1,221 @@
+{
+  "id": "ef.configure-generated-model-stage",
+  "edition": "11.0",
+  "title": "Choose when to generate compiled models and queries",
+  "goal": "Choose build or publish stages independently for compiled-model scaffolding and query precompilation when preparing an EF application.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "fern-generation",
+    "msbuild",
+    "compiled-model",
+    "precompiled-query",
+    "aot"
+  ],
+  "apis": [
+    "EFScaffoldModelStage",
+    "EFPrecompileQueriesStage",
+    "EFOptimizeContext"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/cli/msbuild"
+        ],
+        "selectionNotes": [
+          "Experimental MSBuild integration; documented stage properties. RC2/RC3 clean build generation failed; generated-artifact and NativeAOT proof pending."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current sample target; historical sample is comparison only."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use a matching SDK; exact tested pins appear below."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "reason": "Exact matching RC2 packages pinned in canonical project; Design explicitly referenced.",
+              "match": "release-family"
+            },
+            {
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Design",
+              "reason": "Exact matching RC2 packages pinned in canonical project; Design explicitly referenced.",
+              "match": "release-family"
+            },
+            {
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Tasks",
+              "reason": "Exact matching RC2 packages pinned in canonical project; Design explicitly referenced.",
+              "match": "release-family"
+            }
+          ],
+          "packageAssets": [
+            "EF11 lib/net11.0; Tasks Core MSBuild host; older EF10 lib/net10.0. No EF11-on-net10 route."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite; fixed seed-packet query. Other providers and arbitrary query shapes unverified."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Build/publish/AOT; do not assume all query shapes support precompilation.",
+            "Context must configure itself at design time; publish needs explicit RID.",
+            "RC generation failed; user authorized documentation-based delivery on 4 November 2026."
+          ],
+          "prerequisites": [
+            "Pinned SDK11 RC2/EF11 RC2; historical SDK10.0.402/EF10.0.13.",
+            "win-x64 RID for intended publication; NativeAOT additionally needs a platform compiler."
+          ],
+          "optIns": [
+            "Explicit matching Tasks and Design package references.",
+            "EFScaffoldModelStage=build; EFPrecompileQueriesStage=publish; generated interceptor namespace."
+          ],
+          "stabilityLimitations": [
+            "Microsoft labels MSBuild integration, precompilation and NativeAOT experimental and unsuitable for production.",
+            "Source compilation disables generation; generated artifacts and NativeAOT remain unverified.",
+            "No evidence that GA fixes RC failures."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/FernGeneration/FernGeneration.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/cli/msbuild",
+      "title": "Official experimental MSBuild integration and limitations"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes",
+      "title": "Official EF11 breaking changes"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/performance/nativeaot-and-precompiled-queries",
+      "title": "Official NativeAOT and precompilation limits"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "kind": "compile",
+      "sdk": "10.0.402",
+      "scope": "Ordinary source compilation with both generation stages explicitly disabled. No generated-artifact, build/publish generation, runtime or NativeAOT success claimed.",
+      "sample": "samples/net10.0/FernGeneration/FernGeneration.csproj",
+      "target": "net10.0"
+    },
+    {
+      "language": "15.0",
+      "kind": "compile",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "scope": "Ordinary source compilation with both generation stages explicitly disabled. No generated-artifact, build/publish generation, runtime or NativeAOT success claimed.",
+      "sample": "samples/net11.0/FernGeneration/FernGeneration.csproj",
+      "target": "net11.0"
+    }
+  ],
+  "snippets": {
+    "n10-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/FernGeneration/Directory.Build.props"
+    },
+    "n11-ferngeneration-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/FernGeneration/FernGeneration.csproj"
+    },
+    "n10-ferngeneration-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/FernGeneration/FernGeneration.csproj"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/FernGeneration/Directory.Build.props"
+    },
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/FernGeneration/Directory.Packages.props"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/FernGeneration/Program.cs"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/FernGeneration/Directory.Build.targets"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/FernGeneration/Directory.Packages.props"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/FernGeneration/Program.cs"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/FernGeneration/Directory.Build.targets"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net11.0/FernGeneration/global.json"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net10.0/FernGeneration/global.json"
+    }
+  },
+  "humanProof": {
+    "status": "pending",
+    "scope": "Pingu authorized documentation-based PR delivery on 4 November 2026 despite RC2/RC3 generation failure. Actual generated model/query build/publish/AOT evidence remains pending until a working release; this is not GA proof."
+  }
+}

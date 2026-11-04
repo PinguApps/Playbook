@@ -1,0 +1,190 @@
+{
+  "id": "ef.include-archived-with-tenant-filter",
+  "edition": "10.0",
+  "title": "Include archived records while retaining tenant filtering",
+  "goal": "Read active and archived records for one tenant without disabling the tenant query predicate.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "moss-archive",
+    "query",
+    "relational"
+  ],
+  "apis": [
+    "HasQueryFilter",
+    "IgnoreQueryFilters"
+  ],
+  "introducedIn": "10.0",
+  "supportedTargets": [
+    "10.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/querying/filters"
+        ],
+        "selectionNotes": [
+          "Read active and archived records for one tenant without disabling the tenant query predicate."
+        ],
+        "usage": "primary",
+        "target": "10.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Current sample target; historical sample is comparison only."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "10.0",
+            "match": "release-family",
+            "reason": "Use a matching SDK; exact tested pins appear below."
+          },
+          "language": {
+            "name": "C#",
+            "version": "14.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "version": "10.0",
+              "match": "release-family",
+              "reason": "Canonical independently pinned package graph in the supplied project and lock."
+            }
+          ],
+          "packageAssets": [
+            "EF10 lib/net10.0; historical EF9 lib/net9.0. No newer EF package on an older target."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.Sqlite"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Query behavior only: no authorization or write protection; no blanket cross-provider consistency guarantee."
+          ],
+          "prerequisites": [
+            "Restore the exact canonical SDK/package pins before building."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact recorded artifacts establish EF9/EF10 SQLite behavior only; no EF11 route or other-provider execution is verified."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net10.0/MossArchive/MossArchive.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF querying guidance",
+      "url": "https://learn.microsoft.com/en-us/ef/core/querying/filters"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net9.0",
+      "kind": "compile-and-run",
+      "language": "13.0",
+      "scope": "Actual SQLite tenant/archival reads and disabled-filter negative control.",
+      "sample": "samples/net9.0/MossArchive/MossArchive.csproj",
+      "sdk": "9.0.319"
+    },
+    {
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "scope": "Actual SQLite tenant/archival reads and disabled-filter negative control.",
+      "sample": "samples/net10.0/MossArchive/MossArchive.csproj",
+      "sdk": "10.0.402"
+    }
+  ],
+  "snippets": {
+    "n10-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/MossArchive/Program.cs",
+      "region": "complete"
+    },
+    "n9-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net9.0/MossArchive/Directory.Build.props",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/MossArchive/global.json",
+      "region": "complete"
+    },
+    "n9-program-cs": {
+      "language": "csharp",
+      "path": "samples/net9.0/MossArchive/Program.cs",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/MossArchive/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n10-mossarchive-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/MossArchive/MossArchive.csproj",
+      "region": "complete"
+    },
+    "n9-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net9.0/MossArchive/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n9-mossarchive-csproj": {
+      "language": "xml",
+      "path": "samples/net9.0/MossArchive/MossArchive.csproj",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/MossArchive/Directory.Build.props",
+      "region": "complete"
+    },
+    "n9-global-json": {
+      "language": "json",
+      "path": "samples/net9.0/MossArchive/global.json",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/MossArchive/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n9-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net9.0/MossArchive/Directory.Packages.props",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable local provider checks; no native interaction."
+  }
+}
