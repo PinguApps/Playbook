@@ -57,7 +57,7 @@
             }
           ],
           "packageAssets": [
-            "Microsoft.Maui.Controls.Core and Microsoft.Maui.Core 11.0.0-rc.2.26505.5: net11.0-android37.2 package assets (net11.0-android37.0 asset is selected by the android37.2 app target)."
+            "Microsoft.Maui.Controls.Core and Microsoft.Maui.Core 11.0.0-rc.2.26505.5: net11.0-android37.0 package assets, selected by the net11.0-android37.2 app target."
           ],
           "workloads": [
             {
