@@ -16,9 +16,11 @@ try {
   Push-Location $directory
   try {
    & $dotnet restore --force-evaluate
+   $lock = Join-Path $directory 'packages.lock.json'
+   [IO.File]::WriteAllText($lock, [IO.File]::ReadAllText($lock).Replace("`r`n","`n"))
    $assets=Get-Content obj/project.assets.json -Raw | ConvertFrom-Json -AsHashtable
    $manifest=@{dependencies=@($assets.libraries.Keys | Sort-Object -CaseSensitive);workloads=@();nativeToolchains=@();additionalInputs=@('.editorconfig','eng/Evidence.ps1','eng/Record-Evidence.ps1','eng/Record-FernGeneration.ps1');buildArguments=@('-p:EFScaffoldModelStage=none','-p:EFPrecompileQueriesStage=none')}
-   $manifest | ConvertTo-Json -Depth 10 | Set-Content verification.json
+   [IO.File]::WriteAllText((Join-Path $directory 'verification.json'), ($manifest | ConvertTo-Json -Depth 10).Replace("`r`n","`n") + "`n")
   } finally {Pop-Location}
   & "$PSScriptRoot/Record-Evidence.ps1" -Sample $sample -Dotnet $dotnet -Kind compile
  }

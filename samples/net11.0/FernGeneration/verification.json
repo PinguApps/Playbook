@@ -37,16 +37,16 @@
     "System.Composition.TypedParts/10.0.1",
     "System.Composition/10.0.1"
   ],
-  "buildArguments": [
-    "-p:EFScaffoldModelStage=none",
-    "-p:EFPrecompileQueriesStage=none"
-  ],
-  "nativeToolchains": [],
-  "workloads": [],
   "additionalInputs": [
     ".editorconfig",
     "eng/Evidence.ps1",
     "eng/Record-Evidence.ps1",
     "eng/Record-FernGeneration.ps1"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": [
+    "-p:EFScaffoldModelStage=none",
+    "-p:EFPrecompileQueriesStage=none"
   ]
 }

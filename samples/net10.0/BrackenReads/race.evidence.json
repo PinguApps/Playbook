@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Test-BrackenReads.ps1 -Record; restricted disposable SQL2025 database",
   "scope": "Real SQL2025 concurrent writer between split SELECTs; EF10 original roots and fresh-context whole-read retry. No snapshot, NativeAOT, other-provider or GA proof.",
-  "recordedAt": "2026-11-04T20:14:39.0946786+00:00",
-  "sourceCommit": "d16de8c96888d89ebe8b6717d2472a8f6e552df4",
+  "recordedAt": "2026-11-04T20:36:01.8707202+00:00",
+  "sourceCommit": "63208e71edbc25e835e4c1a123fcaa08d1a3f8ea",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -17,14 +17,14 @@
     "eng/SqlServer.ps1": "20d1f0d083fcb06c767beabd93c518d59b0f62ed955ec41a12e55dc750d07646",
     "eng/Test-BrackenReads.ps1": "c6a5325b2e83f3b4b1c8a677303b9a3621abced43bd6c83bf0746d6acbad5239",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/net10.0/BrackenReads/BrackenReads.csproj": "5dcedb6c77c2e3193680985d148b4eff46e99c6626d5c5db47911fa34003e790",
-    "samples/net10.0/BrackenReads/Directory.Build.props": "9f2a9c465dd0b73944c85c635ab1c47dcbebdce3224af9bc5ad8742cbb8da8ec",
-    "samples/net10.0/BrackenReads/Directory.Build.targets": "9f2a9c465dd0b73944c85c635ab1c47dcbebdce3224af9bc5ad8742cbb8da8ec",
-    "samples/net10.0/BrackenReads/Directory.Packages.props": "9f2a9c465dd0b73944c85c635ab1c47dcbebdce3224af9bc5ad8742cbb8da8ec",
-    "samples/net10.0/BrackenReads/global.json": "ab3e2c98331366edbb90ff1646bd0475d5240fadf0731e48a628299d2809992e",
-    "samples/net10.0/BrackenReads/packages.lock.json": "c9df573a57335a2c662612ff2ffbd29a71998950f68d518e6b4414661c95214a",
+    "samples/net10.0/BrackenReads/BrackenReads.csproj": "0c87766fb34bff870328ba77859e08b8bb100a6e8da38fb6a47f9d96fb47ffb7",
+    "samples/net10.0/BrackenReads/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BrackenReads/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BrackenReads/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net10.0/BrackenReads/global.json": "ab2caa6e4ef1f42453610974b76b7917e38432e9cbc4b530b3fb8f6652a54fa5",
+    "samples/net10.0/BrackenReads/packages.lock.json": "95d0e9c0eb70253bb892ad70cadc39bab924f2633e4951df2efab05c201271ca",
     "samples/net10.0/BrackenReads/Program.cs": "291355cb536c2999fe1f6ae31ee60e3d287a12b2007dd09d7f8042d2859bcc4f",
-    "samples/net10.0/BrackenReads/verification.json": "00836b559db372ef9bdb552f6f870b44e5a88969e63714c781be25a34c94003e"
+    "samples/net10.0/BrackenReads/verification.json": "410010b67ef39b016c729d0ee7117bc71525f6f366dd785e9d9afa8a4723b5c0"
   },
   "dependencies": [
     "Azure.Core/1.50.0",

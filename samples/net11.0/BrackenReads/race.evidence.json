@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-BrackenReads.ps1 -Record; restricted disposable SQL2025 database",
   "scope": "Real SQL2025 concurrent writer between split SELECTs; EF11 DbQueryConcurrencyException and fresh-context whole-read retry. No snapshot, NativeAOT, other-provider or GA proof.",
-  "recordedAt": "2026-11-04T20:14:47.2361553+00:00",
-  "sourceCommit": "d16de8c96888d89ebe8b6717d2472a8f6e552df4",
+  "recordedAt": "2026-11-04T20:36:09.9458334+00:00",
+  "sourceCommit": "63208e71edbc25e835e4c1a123fcaa08d1a3f8ea",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -17,14 +17,14 @@
     "eng/SqlServer.ps1": "20d1f0d083fcb06c767beabd93c518d59b0f62ed955ec41a12e55dc750d07646",
     "eng/Test-BrackenReads.ps1": "c6a5325b2e83f3b4b1c8a677303b9a3621abced43bd6c83bf0746d6acbad5239",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/net11.0/BrackenReads/BrackenReads.csproj": "79345b69205c3b80bf5b1299ed0234308ede0ab985d0c038d3796907f25692c7",
-    "samples/net11.0/BrackenReads/Directory.Build.props": "9f2a9c465dd0b73944c85c635ab1c47dcbebdce3224af9bc5ad8742cbb8da8ec",
-    "samples/net11.0/BrackenReads/Directory.Build.targets": "9f2a9c465dd0b73944c85c635ab1c47dcbebdce3224af9bc5ad8742cbb8da8ec",
-    "samples/net11.0/BrackenReads/Directory.Packages.props": "9f2a9c465dd0b73944c85c635ab1c47dcbebdce3224af9bc5ad8742cbb8da8ec",
-    "samples/net11.0/BrackenReads/global.json": "333d453c2f7aa9922179e47bb3e9bbcbcc693d6f0bba90dc381fbd8704709e8d",
-    "samples/net11.0/BrackenReads/packages.lock.json": "5be5eaef32df6bb29d0a4d7cd5bb52bc50f62916316ae161ffc0f70b0ead61c0",
+    "samples/net11.0/BrackenReads/BrackenReads.csproj": "3a923e63b1f190d13a9f037ba6005245bdfaddcfddcb2ce886b59d21b4b05e22",
+    "samples/net11.0/BrackenReads/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/BrackenReads/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/BrackenReads/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
+    "samples/net11.0/BrackenReads/global.json": "ac1f3f1509d112fbaa40af236b27aa336c53aeb234e12b51eebd3f9cbc670277",
+    "samples/net11.0/BrackenReads/packages.lock.json": "ffb0fe515151a3cbbc70cd5b46b3362c9a84bf572f72b9db6147ff51523f8d46",
     "samples/net11.0/BrackenReads/Program.cs": "af8aa7468117055d47ba3763652aaa52093b5524ba127555c27db9e342d1922c",
-    "samples/net11.0/BrackenReads/verification.json": "0145632be6657492d9cd75effd70c95d95bdb6fa4aefc5d7330599dd077973da"
+    "samples/net11.0/BrackenReads/verification.json": "6631444b0ab24add377ed3e2122f868e8b13bc20d2d65320f8944fb1ae444622"
   },
   "dependencies": [
     "Microsoft.Bcl.Cryptography/9.0.18",
