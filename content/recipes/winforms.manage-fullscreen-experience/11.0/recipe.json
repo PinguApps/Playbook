@@ -27,7 +27,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "See exact recorded artifacts and claim-specific execution scope; owner proof is separately pending.",
+            "reason": "Actual .NET11 RC2 execution with bounded PIN-898 owner restoration and power-request proof; not GA verification.",
             "name": ".NET"
           },
           "sdk": {

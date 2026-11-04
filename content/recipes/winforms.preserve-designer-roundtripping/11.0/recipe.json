@@ -41,7 +41,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "See exact recorded artifacts and claim-specific execution scope; owner proof is separately pending.",
+            "reason": "Actual .NET11 RC2 execution with bounded C# and VB Designer edit/save/reopen proof; not GA verification.",
             "name": ".NET"
           },
           "sdk": {
@@ -109,7 +109,7 @@
           "runtime": {
             "version": "11.0",
             "match": "release-family",
-            "reason": "See exact recorded artifacts and claim-specific execution scope; owner proof is separately pending.",
+            "reason": "Actual .NET11 RC2 execution with bounded C# and VB Designer edit/save/reopen proof; not GA verification.",
             "name": ".NET"
           },
           "sdk": {

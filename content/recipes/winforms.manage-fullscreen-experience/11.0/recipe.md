@@ -23,7 +23,7 @@ AlwaysOn defaults false and is independent of FullScreen. Enabling it requests b
 1. Keep the previous example as a normal-window restoration baseline.
 2. Replace manual state bookkeeping with a component owned by the presentation window.
 3. Choose shortcuts, topmost and pointer policy deliberately; acquire idle suppression only for the required lifetime.
-4. Check normal and maximized restoration and disposal. Complete PIN-898 before claiming owner-visible or idle behaviour.
+4. Check normal and maximized restoration and disposal. Consult the recorded bounded PIN-898 restoration and power-request evidence; retain its execution limits.
 
 ## Constraints
 
