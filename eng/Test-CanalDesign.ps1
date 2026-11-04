@@ -25,22 +25,32 @@ try {
         $before = Get-EvidenceInputs $root $sample
         $run = Join-Path $root ('artifacts/canal-design-' + [guid]::NewGuid().ToString('N'))
         New-Item -ItemType Directory $run -Force | Out-Null
-        foreach ($file in 'Program.cs','CanalDesign.csproj','Directory.Build.props','Directory.Build.targets','Directory.Packages.props','global.json','packages.lock.json','.config') {
+        foreach ($file in 'Program.cs','CanalDesign.csproj','Directory.Build.props','Directory.Build.targets','Directory.Packages.props','global.json','packages.lock.json') {
             Copy-Item -LiteralPath (Join-Path $source $file) -Destination $run -Recurse
         }
+        $commands = if ($release -eq '10') { 'Commands.ps1' } else { 'Configure.ps1' }
+        Copy-Item -LiteralPath (Join-Path $source $commands) -Destination $run
         Push-Location $run
         try {
+            if ($release -eq '11') {
+                & ./Configure.ps1
+                $actual = Get-Content .config/dotnet-ef.json -Raw | ConvertFrom-Json
+                $expected = Get-Content "$source/.config/dotnet-ef.json" -Raw | ConvertFrom-Json
+                if (($actual | ConvertTo-Json -Compress) -cne ($expected | ConvertTo-Json -Compress)) { throw 'Configuration script differs from canonical JSON.' }
+            }
             & $dotnet build -c Release -p:RestoreLockedMode=true
             & $dotnet tool install dotnet-ef --version $version --tool-path "$run/tools"
             $tool = @(Get-ChildItem "$run/tools" -Recurse -Filter dotnet-ef.dll)[0].FullName
             New-Item -ItemType Directory "$run/commands/deep" -Force | Out-Null
             Push-Location "$run/commands/deep"
             try {
-                $common = if ($release -eq '10') { @('--project',$run,'--startup-project',$run,'--context','CanalContext','--configuration','Release') } else { @() }
-                $default = & $dotnet $tool dbcontext info @common --no-build | Out-String
+                $default = if ($release -eq '10') {
+                    & "$run/Commands.ps1" -Dotnet $dotnet -EfTool $tool -ProjectDirectory $run | Out-String
+                } else { & $dotnet $tool dbcontext info --no-build | Out-String }
                 if ($default -notmatch 'Type: CanalSamples.CanalContext') { throw 'Wrong default context or configured relative project path.' }
-                $override = if ($release -eq '10') { @('--project',$run,'--startup-project',$run,'--configuration','Release') } else { @() }
-                $selected = & $dotnet $tool dbcontext info @override --context ArchiveContext --no-build | Out-String
+                $selected = if ($release -eq '10') {
+                    & "$run/Commands.ps1" -Dotnet $dotnet -EfTool $tool -ProjectDirectory $run -Context ArchiveContext | Out-String
+                } else { & $dotnet $tool dbcontext info --context ArchiveContext --no-build | Out-String }
                 if ($selected -notmatch 'Type: CanalSamples.ArchiveContext') { throw 'Explicit context did not override configured default.' }
                 Write-Host $default.Trim()
                 Write-Host $selected.Trim()

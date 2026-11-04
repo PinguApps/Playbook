@@ -17,6 +17,12 @@ if (!args.Contains("--design-only"))
 #pragma warning restore CA1849
         Console.WriteLine($"PASS EF10 empty migrations returns (async={asynchronous}).");
 
+    }
+
+    {
+        using var connection = new SqliteConnection("Data Source=:memory:");
+        await connection.OpenAsync();
+        using var context = new CanalContext(new DbContextOptionsBuilder<CanalContext>().UseSqlite(connection).Options);
         // Another schema owner creates this table; the application only reads it.
         using var create = connection.CreateCommand();
         create.CommandText = "CREATE TABLE Moorings (Id INTEGER PRIMARY KEY, Label TEXT NOT NULL); INSERT INTO Moorings VALUES (7, 'West basin')";

@@ -35,8 +35,7 @@
     "System.Composition.Hosting/10.0.1",
     "System.Composition.Runtime/10.0.1",
     "System.Composition.TypedParts/10.0.1",
-    "System.Composition/10.0.1",
-    "System.Security.Cryptography.Pkcs/10.0.13"
+    "System.Composition/10.0.1"
   ],
   "workloads": [],
   "nativeToolchains": [],

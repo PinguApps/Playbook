@@ -6,25 +6,25 @@
   "language": "14.0",
   "command": "eng/Test-CanalDesign.ps1 -Record; dotnet-ef 10.0.13 dbcontext info from commands/deep with default and overridden context",
   "scope": "Real CLI directory lookup, config-relative project/startup paths and context override; EF10 uses explicit options. No PMC, cross-platform or GA execution.",
-  "recordedAt": "2026-11-04T14:57:07.9529330+00:00",
-  "sourceCommit": "476e8dfc452447d796c009c64a302e92c8789c41",
+  "recordedAt": "2026-11-04T15:26:48.8363366+00:00",
+  "sourceCommit": "0c849936c080d988af41aafb95c1c604e7a1baec",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
     "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
-    "eng/Test-CanalDesign.ps1": "51c9a9b4cfad00d146ff13e944b1ecc097bc7c1f5145690d2b214d94fcf8bcf0",
+    "eng/Test-CanalDesign.ps1": "0eb0f85de6f367654513434973418e0ebfde04a2f59b05fbee759beba46935d7",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/net10.0/CanalDesign/.config/dotnet-ef.json": "e1ccbf094646117eba2cdf3078323db8c031122c01d5be6110f7df2194ce8e46",
-    "samples/net10.0/CanalDesign/CanalDesign.csproj": "618a0e5748e37997f07b8247cb576d34a2fd053d20272b1331a6a8666da95a2a",
+    "samples/net10.0/CanalDesign/CanalDesign.csproj": "58c76b79909bf6332fd5c2c8376cc0b14a63a614e021b03a1992c6039633bf90",
+    "samples/net10.0/CanalDesign/Commands.ps1": "b7a2498f4ba5f9746a0533d4b4127331e3c62cd07a202ad66a60bc1587432194",
     "samples/net10.0/CanalDesign/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/CanalDesign/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/CanalDesign/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/CanalDesign/global.json": "af712830472cb9b263a23c1943996e69f866ea2d8f4db5a5d16169bd2613274f",
-    "samples/net10.0/CanalDesign/packages.lock.json": "101d8306b1fc470a172be30130b035063caeab25ec2aec04237cb257e79c533d",
+    "samples/net10.0/CanalDesign/packages.lock.json": "9415f465fa54398510031e055cc4248a5e6e90d924cc71cf65cd662815f9aa49",
     "samples/net10.0/CanalDesign/Pmc.ps1": "b60ed311f3b911ce93223a811735994d75c8ba8f5c13c3f712319e62dadaf2f7",
-    "samples/net10.0/CanalDesign/Program.cs": "f711a957cfb476f408a72c04d0152965bf70ce9956c959213a87cf3cabf49296",
-    "samples/net10.0/CanalDesign/verification.json": "cbc1dca9533c288eb4bda2e6b08331e27323eeeee1485a1372a3154b8833867d"
+    "samples/net10.0/CanalDesign/Program.cs": "d9884480fd25f765965e4ccd5d35ef8693c2982c1e7f90a74781ee2560490326",
+    "samples/net10.0/CanalDesign/verification.json": "4669ca36bb99a99e6706e59c581ca234ea953ca019feae7056c928a00e2c8f65"
   },
   "dependencies": [
     "Humanizer.Core/2.14.1",
@@ -67,8 +67,7 @@
     "System.Composition.Hosting/9.0.0",
     "System.Composition.Runtime/9.0.0",
     "System.Composition.TypedParts/9.0.0",
-    "System.Composition/9.0.0",
-    "System.Security.Cryptography.Pkcs/10.0.13"
+    "System.Composition/9.0.0"
   ],
   "workloads": [],
   "nativeToolchains": [],

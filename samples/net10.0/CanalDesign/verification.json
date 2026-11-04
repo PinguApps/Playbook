@@ -40,8 +40,7 @@
     "System.Composition.Hosting/9.0.0",
     "System.Composition.Runtime/9.0.0",
     "System.Composition.TypedParts/9.0.0",
-    "System.Composition/9.0.0",
-    "System.Security.Cryptography.Pkcs/10.0.13"
+    "System.Composition/9.0.0"
   ],
   "workloads": [],
   "nativeToolchains": [],

@@ -8,6 +8,8 @@ Give Canal contributors consistent design-time context and project selection whi
 
 EF10 has no dotnet-ef JSON defaults feature. Use explicit project, startup-project, context and configuration options, or a repository script containing those options. From a descendant directory, pass the absolute CanalDesign project directory to both project options and CanalContext to context; add --configuration Release. Explicit arguments remain useful on EF11 too.
 
+{{snippet:n10-commands-ps1}}
+
 {{snippet:n10-program-cs}}
 
 ## Newer approach
@@ -32,7 +34,7 @@ The file is interpreted by dotnet-ef11, not by the runtime or EF10 tools. This e
 
 ## Evidence
 
-The real EF10 CLI uses explicit options from a nested directory. EF11 discovers the file from commands/deep, resolves both relative project paths and selects CanalContext. An explicit context option then selects ArchiveContext. The runner executes actual tool/application artifacts; it neither mocks parsing nor runs Visual Studio PMC. Windows x64 RC2 results do not prove GA or another provider/platform. Installed retrieval separately checks the complete offline body, applicability, target and text fallback.
+The real EF10 CLI executes Commands.ps1 with explicit options from a nested directory. The runner executes Configure.ps1, verifies its JSON equals the committed defaults, and EF11 discovers that generated file from commands/deep, resolves both relative project paths and selects CanalContext. An explicit context option then selects ArchiveContext. The runner executes actual tool/application artifacts; it neither mocks parsing nor runs Visual Studio PMC. Windows x64 RC2 results do not prove GA or another provider/platform. Installed retrieval separately checks the complete offline body, applicability, target and text fallback.
 
 ## Complete canonical projects
 
