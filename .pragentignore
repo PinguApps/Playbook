@@ -1,4 +1,9 @@
 # PR Agent review scope; Git tracking and verification gates are unchanged.
+# MarshBridge copies the unchanged JettyApple build icon (SHA256 ef67756b17afbc28be6af06797a6779a494064a41a6423a60f83d1b1cd2bc3f5).
+# Decorative boilerplate has no new visual claim; review the canonical projects,
+# source/evidence manifests and served guidance. Input freshness still covers it.
+/samples/net10.0/MarshBridge/Resources/AppIcon/appicon.svg
+/samples/net11.0/MarshBridge/Resources/AppIcon/appicon.svg
 # Record-Evidence/Test-CanalDesign receipts; review canonical sources, locks and runner.
 /samples/net10.0/CanalDesign/verification-evidence.json
 /samples/net10.0/CanalDesign/cli-checks.evidence.json
