@@ -1,0 +1,15 @@
+# Share the estuary stores view
+
+Make both tables work using static server rendering, without adding interactivity,
+JavaScript or services. Each table shows two rows per page and has ordinary links
+to sort by code or units in either direction and move between pages. The default
+is code ascending, page one. Sorting keeps the current page. Links must preserve
+the other table's state and the existing filter, including its spaces. A copied
+address, refresh, and back/forward navigation must restore both views.
+
+Use north.page/north.sort/north.direction and south.page/south.sort/south.direction
+as independent query keys. Page numbers are one-based; sort values are code/units
+and direction values asc/desc. Keep the route, data, section IDs and filter behavior.
+Keep SDK/framework/package pins. Dependencies are prepared; no extra packages are
+needed. Any implementation meeting the behavior is acceptable. You have ten
+minutes including checks. Report what ran and what remains unfinished.

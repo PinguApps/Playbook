@@ -1,0 +1,16 @@
+@page "/"
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Estuary stores</title></head>
+<body>
+    <h1>Estuary stores</h1>
+    <p id="filter">Filter: @Filter</p>
+    <Shelf Id="north" Items="North" />
+    <Shelf Id="south" Items="South" />
+</body>
+</html>
+@code {
+    [SupplyParameterFromQuery(Name = "filter")] public string? Filter { get; set; }
+    private IQueryable<Stock> North => Stock.North.Where(x => Filter == null || x.Group == Filter).AsQueryable();
+    private IQueryable<Stock> South => Stock.South.Where(x => Filter == null || x.Group == Filter).AsQueryable();
+}
