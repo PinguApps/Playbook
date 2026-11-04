@@ -3926,3 +3926,41 @@ unrelated directory with unusable proxies. This proves offline guidance retrieva
 under those conditions, not OS network isolation. No package is published.
 Windows x64 RC2 execution does not establish GA or other provider/platform proof;
 successful wildcard-list proof remains pending despite the publication exception.
+
+## EF generation stages, split-read recovery and tenant history
+
+PIN-887–889 add original FernGeneration, BrackenReads and MossArchive comparisons.
+The stage selectors are officially documented and experimental. Pingu approved
+PR delivery with generation proof pending on 4 November 2026. Ordinary compilation
+disables generation; failed RC2/RC3 generation is not GA or NativeAOT proof.
+Real SQL2025 checks reproduce split-query concurrency and whole-read recovery;
+real EF9/10 SQLite checks retain tenant filtering when history includes archived rows.
+
+From any directory, select this worktree. PowerShell7, SDK10.0.402 and Node22.19+
+are required. Setup restores/builds locally; no package is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-7b8bbeba'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.configure-generated-model-stage','ef.recover-split-query-consistency') `
+  -Query '' -TargetVersion 11.0 -UnsupportedTargetVersion 10.0 `
+  -PackageVersion 0.0.0-pin887-889 -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin887-889/inspection11
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.include-archived-with-tenant-filter') -RecipeEdition 10.0 `
+  -Query moss-archive -TargetVersion 10.0 -UnsupportedTargetVersion 11.0 `
+  -PackageVersion 0.0.0-pin887-889 `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory ./artifacts/pin887-889/inspection10
+```
+
+Expect ID/title/goal, full canonical Markdown, matching applicability, current
+source-compilation evidence and the correct editions. Generated-stage detail
+retains experimental status and pending generation proof. The existing harness
+installs the exact package from an isolated local feed/cache, invokes real stdio
+list/get outside the checkout and compares complete bodies and JSON/structured
+results. Unusable proxies establish proxy independence, not OS network isolation.
+The target10 foundation currently has no target11 route; EF9 remains comparison-only.

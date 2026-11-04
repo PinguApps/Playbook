@@ -3,6 +3,7 @@
 param(
   [string[]]$RecipeId = @('blazor.bound-upload-read','blazor.create-typed-event-callback'),
   [string[]]$RemovedRecipeId = @(),
+  [ValidateSet('10.0','11.0')][string]$RecipeEdition = '11.0',
   [string]$PackageVersion = '0.0.0-blazor-migrations',
   [string]$Dotnet = (Get-Command dotnet -CommandType Application | Select-Object -First 1).Source,
   [string]$Node = (Get-Command node -CommandType Application | Select-Object -First 1).Source,
@@ -98,7 +99,7 @@ try {
       foreach ($id in $RecipeId) {
         $found = @($entries | Where-Object id -CEQ $id)
         if ($found.Count -ne 1) { throw "Missing or duplicate discovery: $id" }
-        $metadata = Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/11.0/recipe.json") -Raw | ConvertFrom-Json
+        $metadata = Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/$RecipeEdition/recipe.json") -Raw | ConvertFrom-Json
         $metadata.applicability.routes = @($metadata.applicability.routes | Where-Object target -CEQ $TargetVersion)
         foreach ($route in $metadata.applicability.routes) {
           if (-not $route.PSObject.Properties['sharedAreas']) { $route | Add-Member -NotePropertyName sharedAreas -NotePropertyValue @() }
@@ -147,7 +148,7 @@ try {
         $response = Invoke-RecipeTool 'get_recipe' @("id=$id")
         if ($page.resolvedTarget -cne $TargetVersion -or $response.result.structuredContent.resolvedTarget -cne $TargetVersion) { throw "Wrong resolved target: $id" }
         $recipe = $response.result.structuredContent.recipe
-        if ($recipe.id -cne $id -or $recipe.edition -cne '11.0' -or $recipe.markdown.Contains('{{snippet:')) { throw "Wrong edition or unexpanded body: $id" }
+        if ($recipe.id -cne $id -or ${recipe}.edition -cne $RecipeEdition -or $recipe.markdown.Contains('{{snippet:')) { throw "Wrong edition or unexpanded body: $id" }
         $actualApplicability = [System.Text.Json.Nodes.JsonNode]::Parse(($recipe.applicability | ConvertTo-Json -Depth 100))
         $expectedApplicability = [System.Text.Json.Nodes.JsonNode]::Parse(($metadata.applicability | ConvertTo-Json -Depth 100))
         if (-not [System.Text.Json.Nodes.JsonNode]::DeepEquals($actualApplicability,$expectedApplicability)) {
@@ -156,7 +157,7 @@ try {
           throw "Applicability drift: $id"
         }
         foreach ($evidence in $recipe.evidence) { if ($evidence.freshness -cne 'current') { throw "Stale sample: $($evidence.sample)" } }
-        $expectedBody = (Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/11.0/recipe.md") -Raw).Replace("`r`n","`n")
+        $expectedBody = (Get-Content -LiteralPath (Join-Path $root "content/recipes/$id/$RecipeEdition/recipe.md") -Raw).Replace("`r`n","`n")
         foreach ($snippet in $metadata.snippets.PSObject.Properties) {
           $value = $snippet.Value
           $source = (Get-Content -LiteralPath (Join-Path $root $value.path) -Raw).Replace("`r`n","`n")

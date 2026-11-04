@@ -804,3 +804,24 @@ H_PMC_PROOF / PIN-957. Pingu approved PR publication with that proof pending on
 .NET10 foundation or older-target EF11 route is added. These command/diagnostic
 inventory dispositions add no public-member ownership regex; comprehensive and
 GA reconciliation remain PIN-959/PIN-965.
+
+## Generated stages, split reads and tenant history — PIN-887–889
+
+FernGeneration compares EF10/11 and delivers documented stage selectors as
+experimental guidance. Ordinary compilation overrides both stages to none.
+RC2/RC3 clean generation fails before the output DLL exists. No generated model,
+query, publish or NativeAOT success is claimed. On 4 November 2026 Pingu explicitly
+accepted documentation-based PR delivery, preserving pending proof and the existing
+release-ready gate. Actual GA behavior still needs refresh; no fix is assumed.
+
+BrackenReads uses the approved isolated SQL2025 route. A separate writer commits
+an intervening tray/card before the child SELECT. EF11 throws the actual
+DbQueryConcurrencyException; a bounded whole-read retry in a fresh context returns
+all three roots and children. EF10 completes with its original roots. No snapshot,
+serializable, single-query or arbitrary-provider consistency is inferred.
+
+MossArchive is the approved .NET10 foundation with EF9 comparison. Real SQLite
+reads retain each tenant when history includes archived rows. EF9 uses a context
+switch; EF10 disables only the named archival filter. Disabling all filters exposes
+all four fixture rows. Neither approach is authorization or write protection.
+Goal/edition identities stay stable; PIN-965/PIN-959 reconciliation remains separate.
