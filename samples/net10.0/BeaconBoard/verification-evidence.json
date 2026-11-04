@@ -6,24 +6,24 @@
   "language": "14.0",
   "command": "C:\\Program Files\\dotnet\\dotnet.exe build BeaconBoard.csproj --configuration Release -p:RestoreLockedMode=true",
   "scope": "See recipe scope; output records only the commands actually performed.",
-  "recordedAt": "2026-11-04T00:37:48.3670877+00:00",
-  "sourceCommit": "85fd1f7b90f8f6aa644b9b6d95d0fe09afdd095a",
+  "recordedAt": "2026-11-04T00:41:52.4591385+00:00",
+  "sourceCommit": "2332705f01b30c2bd3b41142ee7ca873f21ec38c",
   "sourceDirty": true,
   "inputs": {
     "docs/planning/audits/mobile-baselines.sources.json": "5f78b99d3d2c7f01f384499246584b5a376acaa656cfde357520da85b13f663d",
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
-    "samples/BeaconBoard/sources.json": "8a44bc73c023f24434c6864b04b00692b995208bee1a5254b62537111547ef3a",
-    "samples/net10.0/BeaconBoard/BeaconBoard.csproj": "c7bee50daa55f333e82be4a4408177f351f7d21c47619d2d1fdfc419efab9d3b",
-    "samples/net10.0/BeaconBoard/BoardPage.cs": "54b09ee074b17dc5daaf53e1be1dc56ccb7f24900f0a36ffc28f35c611424815",
-    "samples/net10.0/BeaconBoard/Directory.Build.props": "07dff18f2c75fd34d599e59b0ef7445f2d013eb9b328cb77ab30313d0947cfaf",
-    "samples/net10.0/BeaconBoard/Directory.Build.targets": "07dff18f2c75fd34d599e59b0ef7445f2d013eb9b328cb77ab30313d0947cfaf",
-    "samples/net10.0/BeaconBoard/Directory.Packages.props": "07dff18f2c75fd34d599e59b0ef7445f2d013eb9b328cb77ab30313d0947cfaf",
-    "samples/net10.0/BeaconBoard/global.json": "c3cb7fe18e724047c0ea5a9bad2849e0f23aae0593030f988f3ca39d4736bb7a",
-    "samples/net10.0/BeaconBoard/MauiProgram.cs": "52ee5e91a436912300d5ae232d80047b13d70131f53951986ef72711fe2338c6",
-    "samples/net10.0/BeaconBoard/packages.lock.json": "c56b3606fdf3c58e08891f82f4f9d5301027b61e49ae40cae7eb1f4037221e19",
-    "samples/net10.0/BeaconBoard/Platforms/Windows/App.xaml": "c883bcc4e32577e7a054f11554b21e8f05177f24b63ce6cec8ebcbe8aadf0eaa",
-    "samples/net10.0/BeaconBoard/Platforms/Windows/App.xaml.cs": "508e558ec2fd102ec396df351a73917137e2fac9c350c6a41d87b99baa98f871",
-    "samples/net10.0/BeaconBoard/verification.json": "e1602cd280818f477085c19fa2fd2c166825ecd80a46f3cbbdddce4fad0b9f38"
+    "samples/BeaconBoard/sources.json": "e9d659b5a64f2e1d1dccbe303b148cbcaf23ac37f3671dfcd4d7b672ad027a41",
+    "samples/net10.0/BeaconBoard/BeaconBoard.csproj": "a2c80eb2eca74ca619e38a80b0a45d76dbd247c2b46a6e8cae46d031868ca448",
+    "samples/net10.0/BeaconBoard/BoardPage.cs": "9ae61bc740503437b02010a2485a0d6db38e3303ae5fd283df47d7e7b5b5d3ed",
+    "samples/net10.0/BeaconBoard/Directory.Build.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net10.0/BeaconBoard/Directory.Build.targets": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net10.0/BeaconBoard/Directory.Packages.props": "36ff4a49e0044fabdecea940fb07fcfbfb344bc7c9e4ea84204ecaa7d4fe45c1",
+    "samples/net10.0/BeaconBoard/global.json": "f6b10d068540f230025b36443176b06be881e23450ff4a6f65dc90100dc5a01e",
+    "samples/net10.0/BeaconBoard/MauiProgram.cs": "64a2f396d9ea45e81bb0c679a2bcb23488433a59cfa0cf6e495729362ec8b79c",
+    "samples/net10.0/BeaconBoard/packages.lock.json": "a9e9c1eff4de024c53fea016a53cb4b834260f89edce872c7496ca5695187c26",
+    "samples/net10.0/BeaconBoard/Platforms/Windows/App.xaml": "55c97fbbbc8e5188f539de8321ddfe6df11341c939e8213495927a74e90c57fb",
+    "samples/net10.0/BeaconBoard/Platforms/Windows/App.xaml.cs": "28c8e0a7edadef8bb52ce3163d27963172149c4d954364f1f9a23665197f6dc9",
+    "samples/net10.0/BeaconBoard/verification.json": "ee129d2d117dc17b6eb415a0ff19659b4fe9a3838891109ca7df99e4c5c0aad1"
   },
   "dependencies": [
     "Microsoft.Extensions.Configuration.Abstractions/10.0.0",
@@ -70,5 +70,5 @@
   "host": "Microsoft Windows 10.0.26200 / X64",
   "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_ROOT                              [C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16d251dd\\samples\\net10.0\\BeaconBoard\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
   "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
-  "output": "Determining projects to restore...\r\n  Restored V:\\_worktrees\\Playbook\\t3-16d251dd\\samples\\net10.0\\BeaconBoard\\BeaconBoard.csproj (in 565 ms).\r\n  BeaconBoard -> V:\\_worktrees\\Playbook\\t3-16d251dd\\samples\\net10.0\\BeaconBoard\\bin\\Release\\net10.0-windows10.0.19041.0\\win-x64\\BeaconBoard.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:08.08"
+  "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  BeaconBoard -> V:\\_worktrees\\Playbook\\t3-16d251dd\\samples\\net10.0\\BeaconBoard\\bin\\Release\\net10.0-windows10.0.19041.0\\win-x64\\BeaconBoard.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:15.94"
 }

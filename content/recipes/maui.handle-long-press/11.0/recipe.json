@@ -1,0 +1,332 @@
+{
+  "id": "maui.handle-long-press",
+  "edition": "11.0",
+  "title": "Cancel an animation when a recognized hold ends",
+  "goal": "Use MAUI long-press state changes to own one awaited animation; apply the full lifecycle on Apple and recognize completion-only backend limits.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "beaconboard",
+    "gestures"
+  ],
+  "apis": [
+    "LongPressGestureRecognizer",
+    "LongPressing",
+    "ScaleToAsync",
+    "CancellationToken"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 native application; CoreCLR is the default mobile runtime. No NativeAOT execution claim.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Compatible .NET 11 SDK and the selected native workload are required; sample pins SDK11 RC2.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical sample pins C#15; no preview C# expressions.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls.Core11.0.0-rc.2.26505.5: net11.0, net11.0-windows10.0.20348 and net11.0-ios27.0 assets reviewed. Matching native SDK packs required for builds."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Windows x64 binding20348/minimum17763; iOS binding27.0/minimum18.2. Full long-press state lifecycle documented on iOS/Mac Catalyst; Android/Windows completion-only."
+          ],
+          "renderingModes": [
+            "Native MAUI controls; no Blazor rendering mode"
+          ],
+          "prerequisites": [
+            "Matching MAUI SDK pack and native platform tools. Apple build/run requires Mac/Xcode; unavailable here and excluded."
+          ],
+          "constraints": [
+            "No provider/account. No native interaction tested. Do not assume Started/Running notifications on Android/Windows."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Stable API guidance prepared against RC2; no GA verification. Native sample-specific not-tested exclusions apply."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/BeaconBoard/BeaconBoard.csproj",
+          "samples/net11.0/BeaconBoardiOS/BeaconBoardiOS.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/StyleableElement/StyleableElement.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/VisualStateManager.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/BoxView/BoxView.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/Color.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/LongPressGestureRecognizer.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/ViewExtensions.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/Android/LongPressGestureHandler.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/LongPressGestureHandler.Windows.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/StyleableElement/StyleableElement.cs",
+      "title": "StyleableElement.cs implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/VisualStateManager.cs",
+      "title": "VisualStateManager.cs implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/BoxView/BoxView.cs",
+      "title": "BoxView.cs implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Graphics/src/Graphics/Color.cs",
+      "title": "Color.cs implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/LongPressGestureRecognizer.cs",
+      "title": "LongPressGestureRecognizer.cs implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/ViewExtensions.cs",
+      "title": "ViewExtensions.cs implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/Android/LongPressGestureHandler.cs",
+      "title": "LongPressGestureHandler.cs implementation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/Platform/GestureManager/LongPressGestureHandler.Windows.cs",
+      "title": "LongPressGestureHandler.Windows.cs implementation"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/BeaconBoard/BeaconBoard.csproj",
+      "kind": "compile",
+      "target": "net10.0-windows10.0.19041.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Release Windows compilation; no UI interaction."
+    },
+    {
+      "sample": "samples/net11.0/BeaconBoard/BeaconBoard.csproj",
+      "kind": "official-review",
+      "target": "net11.0-windows10.0.20348.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Pinned source/artifact review only; native toolchain unavailable. No compilation or execution."
+    },
+    {
+      "sample": "samples/net11.0/BeaconBoardiOS/BeaconBoardiOS.csproj",
+      "kind": "official-review",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Pinned source/artifact review only; native toolchain unavailable. No compilation or execution."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/BeaconBoard/BeaconBoard.csproj",
+      "samples/net11.0/BeaconBoard/BeaconBoard.csproj",
+      "samples/net11.0/BeaconBoardiOS/BeaconBoardiOS.csproj"
+    ],
+    "scope": "Current Windows MAUI compilation lacks SDK11 MAUI SDK pack; Apple/Android toolchains and devices unavailable. All sample UI rendering, gesture and animation interactions not-tested, including the older Windows comparison. No pending Human obligation under PIN-699 and Pingu clarification 4 November 2026."
+  },
+  "snippets": {
+    "samples-net10-0-beaconboard-beaconboard-csproj": {
+      "path": "samples/net10.0/BeaconBoard/BeaconBoard.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-beaconboard-boardpage-cs": {
+      "path": "samples/net10.0/BeaconBoard/BoardPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-beaconboard-directory-build-props": {
+      "path": "samples/net10.0/BeaconBoard/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-beaconboard-directory-build-targets": {
+      "path": "samples/net10.0/BeaconBoard/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-beaconboard-directory-packages-props": {
+      "path": "samples/net10.0/BeaconBoard/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-beaconboard-global-json": {
+      "path": "samples/net10.0/BeaconBoard/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-beaconboard-mauiprogram-cs": {
+      "path": "samples/net10.0/BeaconBoard/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-beaconboard-platforms-windows-app-xaml": {
+      "path": "samples/net10.0/BeaconBoard/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-beaconboard-platforms-windows-app-xaml-cs": {
+      "path": "samples/net10.0/BeaconBoard/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboard-beaconboard-csproj": {
+      "path": "samples/net11.0/BeaconBoard/BeaconBoard.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboard-boardpage-cs": {
+      "path": "samples/net11.0/BeaconBoard/BoardPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboard-directory-build-props": {
+      "path": "samples/net11.0/BeaconBoard/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboard-directory-build-targets": {
+      "path": "samples/net11.0/BeaconBoard/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboard-directory-packages-props": {
+      "path": "samples/net11.0/BeaconBoard/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboard-global-json": {
+      "path": "samples/net11.0/BeaconBoard/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-beaconboard-mauiprogram-cs": {
+      "path": "samples/net11.0/BeaconBoard/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboard-platforms-windows-app-xaml": {
+      "path": "samples/net11.0/BeaconBoard/Platforms/Windows/App.xaml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboard-platforms-windows-app-xaml-cs": {
+      "path": "samples/net11.0/BeaconBoard/Platforms/Windows/App.xaml.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboardios-beaconboardios-csproj": {
+      "path": "samples/net11.0/BeaconBoardiOS/BeaconBoardiOS.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboardios-boardpage-cs": {
+      "path": "samples/net11.0/BeaconBoardiOS/BoardPage.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboardios-directory-build-props": {
+      "path": "samples/net11.0/BeaconBoardiOS/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboardios-directory-build-targets": {
+      "path": "samples/net11.0/BeaconBoardiOS/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboardios-directory-packages-props": {
+      "path": "samples/net11.0/BeaconBoardiOS/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboardios-global-json": {
+      "path": "samples/net11.0/BeaconBoardiOS/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-beaconboardios-mauiprogram-cs": {
+      "path": "samples/net11.0/BeaconBoardiOS/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboardios-platforms-ios-appdelegate-cs": {
+      "path": "samples/net11.0/BeaconBoardiOS/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboardios-platforms-ios-info-plist": {
+      "path": "samples/net11.0/BeaconBoardiOS/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-beaconboardios-platforms-ios-program-cs": {
+      "path": "samples/net11.0/BeaconBoardiOS/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-beaconboardios-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net11.0/BeaconBoardiOS/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}
