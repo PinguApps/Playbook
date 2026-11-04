@@ -37,6 +37,37 @@ native behavior. No package is published. For the source/artifact assertions use
 sample to run its controlled native probe. `-Record` refreshes current source-review
 evidence, never compilation evidence.
 
+## Schema ownership and design-time command defaults
+
+PIN-881/PIN-882/PIN-883 add original CanalDesign comparisons. Both locked EF10
+and EF11 RC2 consumers compile and run. Real SQLite checks distinguish empty
+migration assemblies from externally owned schemas. Real dotnet-ef checks cover
+nested-directory defaults, config-relative projects and explicit context overrides.
+Actual Visual Studio PMC NoBuild execution remains pending H_PMC_PROOF / PIN-957;
+Pingu approved publishing this PR with that gap on 4 November 2026. Pending proof
+still blocks release-ready packaging; CLI execution does not substitute for PMC.
+
+From any unrelated directory, in PowerShell7 with SDK10.0.402 and Node22.19+:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-e433106e'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.handle-empty-migration-assembly','ef.configure-migration-commands','ef.reuse-current-build-in-pmc') `
+  -Query 'canal-design' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin881-883' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/canal/inspection'
+```
+
+Expect all three IDs/titles/goals, full expanded Markdown, applicability and
+edition11 with fresh compilation/runtime records and explicit pending PMC proof.
+Target10 returns no_applicable_edition. The existing harness installs the exact
+local artifact in an isolated feed/cache and calls real stdio list/get from an
+unrelated directory with unusable proxies. This proves proxy independence, not
+OS network isolation or interactive PMC behavior. Setup can download packages;
+retrieved guidance is embedded and needs no account or network service.
+
 ## Visual resources and cancellable holds
 
 PIN-903/PIN-904 add original BeaconBoard comparisons. The .NET10 Windows sample

@@ -784,3 +784,23 @@ No applied-state knowledge follows from offline removal. PMC stays PIN-957;
 GA and catalogue closure stay PIN-965/PIN-959. No new .NET10 foundation is added.
 
 PIN-879 owns the offline/connection CLI option guidance (WEB-130), recorded in the inventory and this section. Command-option delivery does not introduce a separate public-member ownership regex; PIN-887 retains its distinct build-task contracts.
+
+## Schema ownership and design-time defaults — PIN-881–883
+
+Original CanalDesign consumers preserve WEB-143, WEB-131 and WEB-132 as
+`ef.handle-empty-migration-assembly/11.0`, `ef.configure-migration-commands/11.0`
+and `ef.reuse-current-build-in-pmc/11.0`. EF10.0.13 and EF11 RC2 are separate
+locked, compiled consumers. In-memory SQLite checks exercise sync/async empty
+migration calls and read a table created by another schema owner without an
+application migration call. Actual dotnet-ef checks use a nested directory,
+config-relative project/startup selection and an explicit context override.
+No diagnostic suppression execution, cloud/provider parity or GA proof is claimed.
+
+PMC NoBuild is limited to Add-Migration and Update-Database. The pinned Tools
+package contains both switches; compilation and CLI execution do not prove their
+Visual Studio behavior. Actual current/stale-build PMC execution remains pending
+H_PMC_PROOF / PIN-957. Pingu approved PR publication with that proof pending on
+4 November 2026; the pending flag still blocks release-ready packaging. No extra
+.NET10 foundation or older-target EF11 route is added. These command/diagnostic
+inventory dispositions add no public-member ownership regex; comprehensive and
+GA reconciliation remain PIN-959/PIN-965.
