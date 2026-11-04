@@ -113,7 +113,7 @@
       "target": "net10.0",
       "kind": "compile",
       "language": "14.0",
-      "scope": "Compilation; separate race.evidence.json records actual SQL2025 concurrent-writer and whole-read retry execution.",
+      "scope": "Canonical source compilation against its declared locked EF/SDK baseline; execution is recorded separately.",
       "sample": "samples/net10.0/BrackenReads/BrackenReads.csproj",
       "sdk": "10.0.402"
     },
@@ -121,9 +121,27 @@
       "target": "net11.0",
       "kind": "compile",
       "language": "15.0",
-      "scope": "Compilation; separate race.evidence.json records actual SQL2025 concurrent-writer and whole-read retry execution.",
+      "scope": "Canonical source compilation against its declared locked EF/SDK baseline; execution is recorded separately.",
       "sample": "samples/net11.0/BrackenReads/BrackenReads.csproj",
       "sdk": "11.0.100-rc.2.26504.105"
+    },
+    {
+      "target": "net10.0",
+      "kind": "execution",
+      "language": "14.0",
+      "scope": "Real SQL2025 concurrent insert between split commands; EF10 completed with original roots; fresh-context whole-read retry returned 10/20/30 with one card each. No isolation, other-provider or GA proof.",
+      "sample": "samples/net10.0/BrackenReads/BrackenReads.csproj",
+      "sdk": "10.0.402",
+      "record": "samples/net10.0/BrackenReads/race.evidence.json"
+    },
+    {
+      "target": "net11.0",
+      "kind": "execution",
+      "language": "15.0",
+      "scope": "Real SQL2025 concurrent insert caused DbQueryConcurrencyException; failed context discarded; one whole-read retry in a fresh context returned 10/20/30 with one card each. No isolation, other-provider or GA proof.",
+      "sample": "samples/net11.0/BrackenReads/BrackenReads.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "record": "samples/net11.0/BrackenReads/race.evidence.json"
     }
   ],
   "snippets": {

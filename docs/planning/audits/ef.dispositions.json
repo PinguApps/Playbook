@@ -160,7 +160,7 @@
       "pattern": "DbQueryConcurrencyException|SplitQuery",
       "disposition": "grouped",
       "owner": "PIN-888",
-      "reason": "Real concurrent-provider proof remains with the existing migration owner."
+      "reason": "Delivered ef.recover-split-query-consistency/11.0 (PIN-888): real SQL2025 concurrent insert between split commands, EF11 exception, EF10 original roots and fresh-context bounded whole-read retry. Both actual execution receipts are served offline; no blanket isolation/provider claim."
     },
     {
       "id": "owned-json-warning",
@@ -267,7 +267,7 @@
       "pattern": "DbContextModelAttribute|CompiledModelCodeGenerationOptions|RuntimeConstant|CSharpRuntimeAnnotationCodeGenerator",
       "disposition": "grouped",
       "owner": "PIN-887",
-      "reason": "Actual compiled-model/precompiled-query artifact capture must use the pinned provider identity/runtime-constant contract."
+      "reason": "PIN-887 delivers experimental ef.configure-generated-model-stage/11.0 as documented guidance. Generated artifact/provider-identity/runtime-constant proof remains pending under the explicit 4 November 2026 user exception; ordinary compilation disables generation. No successful generation or GA fix is claimed."
     },
     {
       "id": "migration-operation",
@@ -302,7 +302,7 @@
       "pattern": "^\\w+ Microsoft\\.EntityFrameworkCore\\.Tools\\.|^\\w+ Microsoft\\.EntityFrameworkCore\\.Tasks\\.",
       "disposition": "grouped",
       "owner": "PIN-887",
-      "reason": "Public build-task parameter changes and stage selection require actual generated artifact evidence."
+      "reason": "PIN-887 delivers documented independent EFScaffoldModelStage/EFPrecompileQueriesStage and EFOptimizeContext removal in ef.configure-generated-model-stage/11.0. RC2/RC3 clean generation fails; actual generated-artifact/build/publish/AOT proof remains pending under the 4 November 2026 exception and release-ready gate."
     },
     {
       "id": "sqlite-direct",

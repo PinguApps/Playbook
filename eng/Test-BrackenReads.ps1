@@ -28,7 +28,7 @@ try {
                 $receipt = Get-Content "$directory/verification-evidence.json" -Raw | ConvertFrom-Json -AsHashtable
                 $receipt.kind = 'execution'
                 $receipt.command = 'eng/Test-BrackenReads.ps1 -Record; restricted disposable SQL2025 database'
-                $receipt.scope = 'Real concurrent writer between split SELECTs; EF11 exception, EF10 original roots, fresh-context whole-read retry. No snapshot, NativeAOT, other-provider or GA proof.'
+                $receipt.scope = if ($release -eq '10') { 'Real SQL2025 concurrent writer between split SELECTs; EF10 original roots and fresh-context whole-read retry. No snapshot, NativeAOT, other-provider or GA proof.' } else { 'Real SQL2025 concurrent writer between split SELECTs; EF11 DbQueryConcurrencyException and fresh-context whole-read retry. No snapshot, NativeAOT, other-provider or GA proof.' }
                 $receipt.output = $output.Trim()
                 $receipt | ConvertTo-Json -Depth 30 | Set-Content "$directory/race.evidence.json"
             }
