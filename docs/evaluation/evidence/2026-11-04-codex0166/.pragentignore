@@ -6,7 +6,6 @@
 # order/budget and consultation. Submitted source/configs/assessment stay reviewable.
 /csharp/*/scored-*.jsonl
 /csharp/*/preflight-*.jsonl
-# Original Windows PowerShell UTF-16 build redirection. Its UTF-8 command-line
-# projection is in csharp/with/submitted-build-launcher.txt; separate compiler
-# diagnostics remain reviewable in csharp/with/submitted-build-with.log.
+# Original Windows PowerShell UTF-16 build redirection. Its UTF-8 diagnostic
+# projection is retained in csharp/with/submitted-build-launcher.txt.
 /csharp/with/submission/build.log

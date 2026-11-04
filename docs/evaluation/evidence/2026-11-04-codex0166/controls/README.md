@@ -55,5 +55,8 @@ calibration logs show nine baseline failures and zero reference failures.
 
 The submitted sources and final assessment remain reviewable. Machine transcripts
 and the package have narrow review exclusions; integrity is checked separately.
+The excluded UTF-16 `build.log` contains a launcher command line, projected as
+`csharp/with/submitted-build-launcher.txt`; actual compiler diagnostics remain
+in `csharp/with/submitted-build-with.log`.
 Pingu owns the final four-pair assessment under PIN-955. This bundle authorizes
 no deployment, release or general model-performance claim.
