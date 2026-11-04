@@ -1,0 +1,195 @@
+{
+  "id": "ef.recover-split-query-consistency",
+  "edition": "11.0",
+  "title": "Recover a split read disrupted by concurrent writes",
+  "goal": "Retry an entire bounded split read when concurrent inserts prevent correlation of its separate result sets.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "bracken-reads",
+    "query",
+    "relational"
+  ],
+  "apis": [
+    "DbQueryConcurrencyException",
+    "AsSplitQuery"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/querying/single-split-queries"
+        ],
+        "selectionNotes": [
+          "Retry an entire bounded split read when concurrent inserts prevent correlation of its separate result sets."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current sample target; historical sample is comparison only."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Use a matching SDK; exact tested pins appear below."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared sample language mode."
+          },
+          "frameworks": [
+            "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.SqlServer",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Canonical independently pinned package graph in the supplied project and lock."
+            }
+          ],
+          "packageAssets": [
+            "EF11 lib/net11.0; historical EF10 lib/net10.0. No newer EF package on an older target."
+          ],
+          "providers": [
+            "Microsoft.EntityFrameworkCore.SqlServer"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 actual execution; other platforms unverified"
+          ],
+          "renderingModes": [
+            "Not applicable: console/database consumer; no renderer or browser"
+          ],
+          "constraints": [
+            "Query behavior only: no authorization or write protection; no blanket cross-provider consistency guarantee."
+          ],
+          "prerequisites": [
+            "Restore the exact canonical SDK/package pins before building.",
+            "Use the approved isolated SQL Server route; do not point this destructive setup at a shared database."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Exact recorded artifacts establish only the exercised routes; EF11 uses RC2 rather than GA."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/BrackenReads/BrackenReads.csproj"
+        ],
+        "sharedAreas": [],
+        "neutralLanguages": []
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF querying guidance",
+      "url": "https://learn.microsoft.com/en-us/ef/core/querying/single-split-queries"
+    },
+    {
+      "title": "Official EF11 breaking changes",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+    }
+  ],
+  "evidence": [
+    {
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0",
+      "scope": "Compilation; separate race.evidence.json records actual SQL2025 concurrent-writer and whole-read retry execution.",
+      "sample": "samples/net10.0/BrackenReads/BrackenReads.csproj",
+      "sdk": "10.0.402"
+    },
+    {
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0",
+      "scope": "Compilation; separate race.evidence.json records actual SQL2025 concurrent-writer and whole-read retry execution.",
+      "sample": "samples/net11.0/BrackenReads/BrackenReads.csproj",
+      "sdk": "11.0.100-rc.2.26504.105"
+    }
+  ],
+  "snippets": {
+    "n11-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net11.0/BrackenReads/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "language": "json",
+      "path": "samples/net11.0/BrackenReads/global.json",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "language": "json",
+      "path": "samples/net10.0/BrackenReads/global.json",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net10.0/BrackenReads/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n10-brackenreads-csproj": {
+      "language": "xml",
+      "path": "samples/net10.0/BrackenReads/BrackenReads.csproj",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "language": "xml",
+      "path": "samples/net10.0/BrackenReads/Directory.Packages.props",
+      "region": "complete"
+    },
+    "n11-brackenreads-csproj": {
+      "language": "xml",
+      "path": "samples/net11.0/BrackenReads/BrackenReads.csproj",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net10.0/BrackenReads/Directory.Build.props",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "language": "csharp",
+      "path": "samples/net10.0/BrackenReads/Program.cs",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "language": "xml",
+      "path": "samples/net11.0/BrackenReads/Directory.Build.props",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "language": "xml",
+      "path": "samples/net11.0/BrackenReads/Directory.Build.targets",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "language": "csharp",
+      "path": "samples/net11.0/BrackenReads/Program.cs",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable local provider checks; no native interaction."
+  }
+}

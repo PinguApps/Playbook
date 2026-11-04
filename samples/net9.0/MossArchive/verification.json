@@ -1,0 +1,35 @@
+{
+  "workloads": [],
+  "additionalInputs": [
+    ".editorconfig",
+    "eng/Evidence.ps1",
+    "eng/Record-Evidence.ps1"
+  ],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "dependencies": [
+    "Microsoft.Data.Sqlite.Core/9.0.13",
+    "Microsoft.EntityFrameworkCore.Abstractions/9.0.13",
+    "Microsoft.EntityFrameworkCore.Analyzers/9.0.13",
+    "Microsoft.EntityFrameworkCore.Relational/9.0.13",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/9.0.13",
+    "Microsoft.EntityFrameworkCore.Sqlite/9.0.13",
+    "Microsoft.EntityFrameworkCore/9.0.13",
+    "Microsoft.Extensions.Caching.Abstractions/9.0.13",
+    "Microsoft.Extensions.Caching.Memory/9.0.13",
+    "Microsoft.Extensions.Configuration.Abstractions/9.0.13",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.13",
+    "Microsoft.Extensions.DependencyInjection/9.0.13",
+    "Microsoft.Extensions.DependencyModel/9.0.13",
+    "Microsoft.Extensions.Logging.Abstractions/9.0.13",
+    "Microsoft.Extensions.Logging/9.0.13",
+    "Microsoft.Extensions.Options/9.0.13",
+    "Microsoft.Extensions.Primitives/9.0.13",
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.10",
+    "SQLitePCLRaw.core/2.1.10",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.10",
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.10",
+    "System.Memory/4.5.3",
+    "System.Text.Json/9.0.13"
+  ]
+}
