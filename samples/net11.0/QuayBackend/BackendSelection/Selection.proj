@@ -1,0 +1,20 @@
+<!-- snippet:complete -->
+<Project>
+  <PropertyGroup>
+    <SingleProject>true</SingleProject><EnableDefaultItems>true</EnableDefaultItems>
+    <DefaultLanguageSourceExtension>.cs</DefaultLanguageSourceExtension>
+    <MauiActiveBackend Condition="'$(MauiActiveBackend)' == ''">quay</MauiActiveBackend>
+  </PropertyGroup>
+  <Import Project="$(MauiBuildTasksRoot)/Microsoft.Maui.Controls.SingleProject.Before.targets" />
+  <ItemGroup>
+    <Compile Include="Platforms/**/*.cs" />
+    <MauiPlatformSpecificFolder Include="Platforms/Quay" BackendIdentity="quay" />
+  </ItemGroup>
+  <Import Project="$(MauiBuildTasksRoot)/Microsoft.Maui.Controls.SingleProject.targets" />
+  <Target Name="VerifySelection" DependsOnTargets="_MauiRemovePlatformCompileItems">
+    <Error Condition="'$(MauiActiveBackend)' == 'quay' and '@(Compile->'%(Filename)')' != 'QuayMarker'" Text="Active neutral backend selection failed: @(Compile)" />
+    <Error Condition="'$(MauiActiveBackend)' != 'quay' and '@(Compile)' != ''" Text="Inactive backend leaked: @(Compile)" />
+    <Message Text="PASS: backend=$(MauiActiveBackend), selected=@(Compile)" Importance="high" />
+  </Target>
+</Project>
+<!-- endsnippet:complete -->

@@ -1,0 +1,10 @@
+{
+  "additionalInputs": [
+    "samples/QuayIntegration/sources.json",
+    "eng/Test-QuayContracts.ps1"
+  ],
+  "dependencies": [],
+  "buildArguments": [],
+  "nativeToolchains": [],
+  "workloads": []
+}
