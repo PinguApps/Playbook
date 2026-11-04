@@ -1,0 +1,311 @@
+{
+  "id": "maui.call-dotnet-from-hybrid-js-with-aot",
+  "edition": "11.0",
+  "title": "Call a typed .NET action from local HybridWebView content",
+  "goal": "Register a generated HybridWebView invocation target and JSON context for trimmed JavaScript-to-.NET dispatch; Apple NativeAOT publishing remains experimental.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "marsh-survey",
+    "interop"
+  ],
+  "apis": [
+    "HybridWebView",
+    "SetInvokeJavaScriptTarget",
+    "JsonSerializerContext"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "experimental",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 application; the canonical target is iOS.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching .NET 11 SDK and native workload required; pins below are intended RC2 authoring inputs.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical samples use C#15; no preview language constructs.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls.Core and Microsoft.Maui.Core 11.0.0-rc.2.26505.5: net11.0-ios27.0 platform assets."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "iOS27.0 binding, deployment minimum18.2; Mac/Xcode27.0 required."
+          ],
+          "renderingModes": [
+            "Local HTML in native HybridWebView; no Blazor rendering mode."
+          ],
+          "prerequisites": [
+            "Matching native toolchain. No provider, credentials or external service."
+          ],
+          "constraints": [
+            "No device or native interaction verified; see sample-specific Evidence."
+          ],
+          "optIns": [
+            "MauiHybridWebViewSupported=true; analyzers enabled; generated interceptor namespace enabled; PublishAot=true only for experimental Apple publishing."
+          ],
+          "stabilityLimitations": [
+            "RC2 preparation, not GA verification. Apple NativeAOT remains experimental."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/MarshBridge/MarshBridge.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs",
+      "title": "EntryHandler2.Android.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs",
+      "title": "MauiMaterialEditText.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+      "title": "HybridWebView.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs",
+      "title": "HybridWebViewInvokeTargetGenerator.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "title": "Microsoft.Maui.Controls.targets official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs",
+      "title": "EntryHandler.Android.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+      "title": "HybridWebView.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs",
+      "title": "HybridWebViewHandler.cs official source"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MarshBridge/MarshBridge.csproj",
+      "kind": "official-review",
+      "target": "net10.0-ios26.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Pinned official source and package contract review; native runtime behaviour not tested."
+    },
+    {
+      "sample": "samples/net11.0/MarshBridge/MarshBridge.csproj",
+      "kind": "official-review",
+      "target": "net11.0-ios27.0",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Pinned official source and package contract review; native runtime behaviour not tested."
+    },
+    {
+      "sdk": "11.0.100-rc.2.26504.105",
+      "sample": "samples/net11.0/MarshDispatch/MarshDispatch.csproj",
+      "language": "15.0",
+      "scope": "Actual neutral MAUI package generated invocation and JSON executed as a Windows x64 NativeAOT executable; no iOS or native WebView execution.",
+      "target": "net11.0",
+      "kind": "compile-and-run"
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/MarshBridge/MarshBridge.csproj",
+      "samples/net11.0/MarshBridge/MarshBridge.csproj"
+    ],
+    "scope": "iOS compilation, trimming, NativeAOT publication and WebView interaction excluded: Mac/Xcode unavailable."
+  },
+  "snippets": {
+    "samples-net10-0-marshbridge-directory-build-props": {
+      "path": "samples/net10.0/MarshBridge/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshbridge-directory-build-targets": {
+      "path": "samples/net10.0/MarshBridge/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshbridge-directory-packages-props": {
+      "path": "samples/net10.0/MarshBridge/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshbridge-global-json": {
+      "path": "samples/net10.0/MarshBridge/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-marshbridge-marshbridge-csproj": {
+      "path": "samples/net10.0/MarshBridge/MarshBridge.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshbridge-mauiprogram-cs": {
+      "path": "samples/net10.0/MarshBridge/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-marshbridge-platforms-ios-appdelegate-cs": {
+      "path": "samples/net10.0/MarshBridge/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-marshbridge-platforms-ios-info-plist": {
+      "path": "samples/net10.0/MarshBridge/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshbridge-platforms-ios-program-cs": {
+      "path": "samples/net10.0/MarshBridge/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-marshbridge-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net10.0/MarshBridge/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-marshbridge-resources-appicon-appicon-svg": {
+      "path": "samples/net10.0/MarshBridge/Resources/AppIcon/appicon.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshbridge-resources-raw-wwwroot-index-html": {
+      "path": "samples/net10.0/MarshBridge/Resources/Raw/wwwroot/index.html",
+      "region": "complete",
+      "language": "html"
+    },
+    "samples-net11-0-marshbridge-directory-build-props": {
+      "path": "samples/net11.0/MarshBridge/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshbridge-directory-build-targets": {
+      "path": "samples/net11.0/MarshBridge/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshbridge-directory-packages-props": {
+      "path": "samples/net11.0/MarshBridge/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshbridge-global-json": {
+      "path": "samples/net11.0/MarshBridge/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-marshbridge-marshbridge-csproj": {
+      "path": "samples/net11.0/MarshBridge/MarshBridge.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshbridge-mauiprogram-cs": {
+      "path": "samples/net11.0/MarshBridge/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-marshbridge-platforms-ios-appdelegate-cs": {
+      "path": "samples/net11.0/MarshBridge/Platforms/iOS/AppDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-marshbridge-platforms-ios-info-plist": {
+      "path": "samples/net11.0/MarshBridge/Platforms/iOS/Info.plist",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshbridge-platforms-ios-program-cs": {
+      "path": "samples/net11.0/MarshBridge/Platforms/iOS/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-marshbridge-platforms-ios-scenedelegate-cs": {
+      "path": "samples/net11.0/MarshBridge/Platforms/iOS/SceneDelegate.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-marshbridge-resources-appicon-appicon-svg": {
+      "path": "samples/net11.0/MarshBridge/Resources/AppIcon/appicon.svg",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshbridge-resources-raw-wwwroot-index-html": {
+      "path": "samples/net11.0/MarshBridge/Resources/Raw/wwwroot/index.html",
+      "region": "complete",
+      "language": "html"
+    },
+    "marsh-dispatch": {
+      "region": "complete",
+      "path": "samples/net11.0/MarshDispatch/Program.cs",
+      "language": "csharp"
+    }
+  }
+}

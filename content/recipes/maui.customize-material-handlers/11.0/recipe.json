@@ -1,0 +1,266 @@
+{
+  "id": "maui.customize-material-handlers",
+  "edition": "11.0",
+  "title": "Customize a scoped Android entry through public Material handlers",
+  "goal": "Replace access to internal Material helpers with a public handler extension for one custom entry type; leave stock control styling to MAUI.",
+  "areas": [
+    "maui"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "marsh-survey",
+    "handlers"
+  ],
+  "apis": [
+    "EntryHandler2",
+    "MauiMaterialTextInputLayout",
+    "ConfigureMauiHandlers"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "requirements": {
+          "runtime": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "MAUI .NET 11 application; the canonical target is Android.",
+            "name": ".NET"
+          },
+          "sdk": {
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Matching .NET 11 SDK and native workload required; pins below are intended RC2 authoring inputs.",
+            "name": ".NET SDK"
+          },
+          "language": {
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Canonical samples use C#15; no preview language constructs.",
+            "name": "C#"
+          },
+          "frameworks": [
+            ".NET MAUI"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.Maui.Controls",
+              "reason": "Canonical samples pin Controls11.0.0-rc.2.26505.5; exact Core package downloaded and inspected.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Microsoft.Maui.Controls.Core and Microsoft.Maui.Core 11.0.0-rc.2.26505.5: net11.0-android37.2 package assets (net11.0-android37.0 asset is selected by the android37.2 app target)."
+          ],
+          "workloads": [
+            {
+              "name": "maui-android / maui-ios / maui-windows (choose target)",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Install the workload matching the selected target. Reviewed set11.0.100-rc.2.26513.2 selects MAUI11.0.0-rc.2.26505.5, Android37.2.0-rc.2.84 and Apple27.0.12212-net11-rc.2."
+            }
+          ],
+          "providers": [
+            "No external provider or account"
+          ],
+          "platforms": [
+            "Android37.2 binding, deployment minimum24.0; matching Android SDK and JDK21 required."
+          ],
+          "renderingModes": [
+            "Native MAUI Android controls; no web rendering mode."
+          ],
+          "prerequisites": [
+            "Matching native toolchain. No provider, credentials or external service."
+          ],
+          "constraints": [
+            "No device or native interaction verified; see sample-specific Evidence."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "RC2 preparation, not GA verification. Automatic stock Material restyling is outside this authored claim."
+          ]
+        },
+        "sharedAreas": [],
+        "conditional": false,
+        "target": "11.0",
+        "neutralLanguages": [],
+        "usage": "primary",
+        "evidenceSamples": [
+          "samples/net11.0/MarshEntry/MarshEntry.csproj"
+        ],
+        "selectionNotes": [
+          "No verified older-target route; .NET 10 is comparison-only."
+        ],
+        "sourceUrls": [
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+          "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/Entry/EntryHandler2.Android.cs",
+      "title": "EntryHandler2.Android.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Platform/Android/Material3Controls/MauiMaterialEditText.cs",
+      "title": "MauiMaterialEditText.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+      "title": "HybridWebView.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/HybridWebViewSourceGen/HybridWebViewInvokeTargetGenerator.cs",
+      "title": "HybridWebViewInvokeTargetGenerator.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Controls/src/Build.Tasks/nuget/buildTransitive/netstandard2.0/Microsoft.Maui.Controls.targets",
+      "title": "Microsoft.Maui.Controls.targets official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Core/src/Handlers/Entry/EntryHandler.Android.cs",
+      "title": "EntryHandler.Android.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/9d881e94b1c56692e40a16262897677a3bb46fcb/src/Controls/src/Core/HybridWebView/HybridWebView.cs",
+      "title": "HybridWebView.cs official source"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dotnet/maui/d32b79928709cf53b671336dabd0caef5a679fc2/src/Core/src/Handlers/HybridWebView/HybridWebViewHandler.cs",
+      "title": "HybridWebViewHandler.cs official source"
+    }
+  ],
+  "evidence": [
+    {
+      "sample": "samples/net10.0/MarshEntry/MarshEntry.csproj",
+      "kind": "compile",
+      "target": "net10.0-android36.0",
+      "sdk": "10.0.402",
+      "language": "14.0",
+      "scope": "Actual Release Android build with a signed APK; no device execution."
+    },
+    {
+      "sample": "samples/net11.0/MarshEntry/MarshEntry.csproj",
+      "kind": "official-review",
+      "target": "net11.0-android37.2",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "language": "15.0",
+      "scope": "Pinned official source and package contract review; native runtime behaviour not tested."
+    }
+  ],
+  "humanProof": {
+    "status": "not-tested",
+    "untestedSamples": [
+      "samples/net10.0/MarshEntry/MarshEntry.csproj",
+      "samples/net11.0/MarshEntry/MarshEntry.csproj"
+    ],
+    "scope": "Android device rendering and accessibility interaction not tested; .NET11 Android compilation excluded where matched SDK11 MAUI workload unavailable. No pending Human obligation under PIN-699."
+  },
+  "snippets": {
+    "samples-net10-0-marshentry-directory-build-props": {
+      "path": "samples/net10.0/MarshEntry/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshentry-directory-build-targets": {
+      "path": "samples/net10.0/MarshEntry/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshentry-directory-packages-props": {
+      "path": "samples/net10.0/MarshEntry/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshentry-global-json": {
+      "path": "samples/net10.0/MarshEntry/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net10-0-marshentry-marshentry-csproj": {
+      "path": "samples/net10.0/MarshEntry/MarshEntry.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshentry-mauiprogram-cs": {
+      "path": "samples/net10.0/MarshEntry/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-marshentry-platforms-android-androidmanifest-xml": {
+      "path": "samples/net10.0/MarshEntry/Platforms/Android/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net10-0-marshentry-platforms-android-mainactivity-cs": {
+      "path": "samples/net10.0/MarshEntry/Platforms/Android/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net10-0-marshentry-platforms-android-mainapplication-cs": {
+      "path": "samples/net10.0/MarshEntry/Platforms/Android/MainApplication.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-marshentry-directory-build-props": {
+      "path": "samples/net11.0/MarshEntry/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshentry-directory-build-targets": {
+      "path": "samples/net11.0/MarshEntry/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshentry-directory-packages-props": {
+      "path": "samples/net11.0/MarshEntry/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshentry-global-json": {
+      "path": "samples/net11.0/MarshEntry/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "samples-net11-0-marshentry-marshentry-csproj": {
+      "path": "samples/net11.0/MarshEntry/MarshEntry.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshentry-mauiprogram-cs": {
+      "path": "samples/net11.0/MarshEntry/MauiProgram.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-marshentry-platforms-android-androidmanifest-xml": {
+      "path": "samples/net11.0/MarshEntry/Platforms/Android/AndroidManifest.xml",
+      "region": "complete",
+      "language": "xml"
+    },
+    "samples-net11-0-marshentry-platforms-android-mainactivity-cs": {
+      "path": "samples/net11.0/MarshEntry/Platforms/Android/MainActivity.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "samples-net11-0-marshentry-platforms-android-mainapplication-cs": {
+      "path": "samples/net11.0/MarshEntry/Platforms/Android/MainApplication.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  }
+}
