@@ -1312,6 +1312,12 @@ public sealed class InstalledToolSteps : IDisposable
     [Then("Cosmos policy and save scope retain complete offline guidance")]
     public async Task CheckCosmosPolicyGuidanceAsync()
     {
+        string[] queryIds = ["cosmos.reference-model-discriminator", "cosmos.use-async-io"];
+        await CheckWebRecipesAsync(queryIds, "harbourqueries", evidenceKind: "compile-and-run").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(queryIds).ConfigureAwait(false);
+        string[] migrationIds = ["ef.resolve-migration-branch-divergence"];
+        await CheckWebRecipesAsync(migrationIds, "beaconmigrations", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckCompleteOpenApiMetadataAsync(migrationIds).ConfigureAwait(false);
         string[] ids = ["cosmos.choose-save-atomicity", "cosmos.configure-index-policy"];
         await CheckWebRecipesAsync(ids, "cosmos-policy-save", evidenceKind: "compile-and-run").ConfigureAwait(false);
         await CheckCompleteOpenApiMetadataAsync(ids).ConfigureAwait(false);

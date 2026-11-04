@@ -753,3 +753,17 @@ build fix, GA reconciliation, other provider or query-plan claim is made.
 Existing E17 metadata-extension ownership and PIN-965/PIN-959 release gates are
 unchanged. Both recipe metadata files cite official complex-type/key/index and
 SQL Server JSON-index references plus the immutable reviewed EF11 documentation.
+
+## Cosmos I/O, model identity and migration histories — PIN-875–877
+
+Delivered `cosmos.use-async-io/11.0` (WEB-137),
+`cosmos.reference-model-discriminator/11.0` (WEB-148) and
+`ef.resolve-migration-branch-divergence/11.0` (WEB-128).
+Original HarbourQueries consumers compare the EF10 diagnostic opt-in with EF11
+sync query/save rejection and async persistence. Independent SDK read-back retains
+`$type` while the EF11 model uses `Discriminator`. BeaconMigrations creates two
+histories from one baseline, discards the unpublished second generated history,
+and re-scaffolds its model change on the first. Snapshot IDs, pending-model checks
+and application to disposable SQLite validate the coherent result. No shared
+migration removal, cloud parity, extra .NET10 foundation or GA proof is claimed.
+Exact RC2 artifacts remain subject to PIN-965/PIN-959 reconciliation.
