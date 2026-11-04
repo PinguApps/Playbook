@@ -1,0 +1,64 @@
+using System.Globalization;
+using ManifestEvaluation;
+
+int checks = 0;
+void Check(Entry[] expected, Entry[] observed, params Row[] wanted)
+{
+    var expectedBefore = expected.ToArray();
+    var observedBefore = observed.ToArray();
+    var actual = Reconciliation.Compare(expected, observed);
+    if (!actual.SequenceEqual(wanted))
+        throw new Exception($"Unexpected rows: {string.Join(", ", actual.AsEnumerable())}");
+    if (!expected.SequenceEqual(expectedBefore) || !observed.SequenceEqual(observedBefore))
+        throw new Exception("Inputs were modified.");
+    checks++;
+}
+
+Check([], []);
+Check([new("A", 0)], [], new Row("A", 0, null));
+Check([], [new("A", 0)], new Row("A", null, 0));
+Check([new("A", 7)], [new("A", 7)], new Row("A", 7, 7));
+Check([new("A", 0)], [new("A", 0)], new Row("A", 0, 0));
+Check([new("Kite", 0), new("Anchor", 7)], [new("Kite", 2), new("Buoy", 4)],
+    new("Anchor", 7, null), new("Buoy", null, 4), new("Kite", 0, 2));
+Check([new("Max", int.MaxValue)], [new("Max", 0)], new Row("Max", int.MaxValue, 0));
+
+// Ordinal rules must survive culture changes, input shuffling, and distinct Unicode forms.
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("tr-TR");
+string[] keys = [" A", "A", "A ", "I", "a", "e\u0301", "i", "\u00e9", "\u0131"];
+var random = new Random(42);
+for (int iteration = 0; iteration < 50; iteration++)
+{
+    Entry[] expected = keys.Select((key, i) => new Entry(key, i)).ToArray();
+    Entry[] observed = keys.Where((_, i) => i % 2 == 0)
+        .Select(key => new Entry(key, 0)).Append(new Entry("Z", 9)).ToArray();
+    random.Shuffle(expected);
+    random.Shuffle(observed);
+    Check(expected, observed,
+        new(" A", 0, 0), new("A", 1, null), new("A ", 2, 0), new("I", 3, null),
+        new("Z", null, 9), new("a", 4, 0), new("e\u0301", 5, null), new("i", 6, 0),
+        new("\u00e9", 7, null), new("\u0131", 8, 0));
+}
+
+// Identical and differing duplicates must fail, with or without a counterpart.
+foreach (bool duplicateExpected in new[] { true, false })
+foreach (bool counterpart in new[] { true, false })
+foreach (int repeatedUnits in new[] { 0, 5 })
+{
+    Entry[] duplicates = [new("Other", 1), new("A", 0), new("A", repeatedUnits)];
+    Entry[] other = counterpart ? [new("A", 2)] : [];
+    try
+    {
+        Reconciliation.Compare(duplicateExpected ? duplicates : other,
+            duplicateExpected ? other : duplicates);
+        throw new Exception("Duplicate keys were accepted.");
+    }
+    catch (ArgumentException exception)
+    {
+        if (exception.ParamName != (duplicateExpected ? "expected" : "observed"))
+            throw new Exception("Wrong duplicate parameter.");
+        checks++;
+    }
+}
+
+Console.WriteLine($"PASS: {checks} reconciliation checks.");

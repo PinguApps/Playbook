@@ -1,0 +1,616 @@
+[
+  {
+    "id": "item_4",
+    "type": "mcp_tool_call",
+    "server": "playbook",
+    "tool": "list_recipes",
+    "arguments": {
+      "targetVersion": "11",
+      "query": "join",
+      "limit": 50
+    },
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"resolvedTarget\":\"11.0\",\"requestedTarget\":\"11\",\"targetAssumed\":false,\"supportedTargets\":[\"10.0\",\"11.0\"],\"supportedAreas\":[\"aspnetcore\",\"blazor\",\"containers\",\"csharp\",\"deployment\",\"ef-core\",\"fsharp\",\"hosting\",\"json\",\"libraries\",\"maui\",\"msbuild\",\"nuget\",\"runtime\",\"sdk\",\"sqlite\",\"testing\",\"vb\",\"winforms\",\"wpf\"],\"supportedExampleLanguages\":[\"c\",\"csharp\",\"fsharp\",\"powershell\",\"typescript\",\"vb\"],\"coverage\":[{\"target\":\"10.0\",\"scope\":\"curated\",\"complete\":false,\"description\":\"Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10.\"},{\"target\":\"11.0\",\"scope\":\"comprehensive\",\"complete\":false,\"description\":\"Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification.\"}],\"total\":4,\"offset\":0,\"limit\":50,\"nextOffset\":null,\"recipes\":[{\"id\":\"ef.reconcile-unmatched-records\",\"edition\":\"11.0\",\"title\":\"Preserve both sides of a database reconciliation\",\"goal\":\"Compare planned and observed records with translated FullJoin while retaining matched, left-only and right-only rows.\",\"introducedIn\":\"11.0\",\"areas\":[\"ef-core\"],\"exampleLanguages\":[\"csharp\"],\"languageNeutral\":false,\"supportedTargets\":[\"11.0\"],\"stability\":\"stable\",\"applicability\":{\"routes\":[{\"target\":\"11.0\",\"sharedAreas\":[],\"neutralLanguages\":[],\"conditional\":false,\"usage\":\"primary\",\"selectionNotes\":[\"Compare planned and observed records with translated FullJoin while retaining matched, left-only and right-only rows.\",\"Only the executed SQL Server query shape is verified; no blanket provider or SQLite promise.\"],\"requirements\":{\"runtime\":{\"name\":\".NET\",\"version\":\"11.0\",\"match\":\"release-family\"},\"sdk\":{\"name\":\".NET SDK\",\"version\":\"11.0\",\"match\":\"release-family\"},\"language\":{\"name\":\"C#\",\"version\":\"15.0\",\"match\":\"exact\"},\"frameworks\":[\"Standalone Microsoft.NET.Sdk console; no web framework requirement\"],\"packages\":[{\"name\":\"Microsoft.EntityFrameworkCore.SqlServer\",\"version\":\"11.0\",\"match\":\"release-family\"}],\"workloads\":[],\"packageAssets\":[\"EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest.\"],\"providers\":[\"EF Core SQL Server11 with SQL Server2025 17.0.5035.5 Developer on Linux. FullJoin needs a relational provider and server supporting FULL OUTER JOIN.\"],\"platforms\":[\"Windows x64 consumer against local Docker Linux SQL Server. Other platforms not executed.\"],\"renderingModes\":[\"Not applicable: console/database consumer; no renderer or browser\"],\"optIns\":[],\"stabilityLimitations\":[\"Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding.\"]}}]}},{\"id\":\"linq.reconcile-all-rows\",\"edition\":\"11.0\",\"title\":\"Reconcile records while preserving both unmatched sides\",\"goal\":\"Find matched, missing and unexpected records in one reconciliation without losing entries from either input.\",\"introducedIn\":\"11.0\",\"areas\":[\"libraries\"],\"exampleLanguages\":[\"csharp\"],\"languageNeutral\":false,\"supportedTargets\":[\"11.0\"],\"stability\":\"stable\",\"applicability\":{\"routes\":[{\"target\":\"11.0\",\"sharedAreas\":[\"aspnetcore\",\"blazor\",\"maui\",\"winforms\",\"wpf\"],\"neutralLanguages\":[],\"conditional\":false,\"usage\":\"primary\",\"selectionNotes\":[\"FullJoin retains both unmatched sides; duplicate keys produce every matching pair.\",\"Async joins build a lookup; they are not an unbounded constant-memory stream transform.\",\"Queryable availability does not establish database-provider translation.\"],\"requirements\":{\"runtime\":{\"name\":\".NET\",\"version\":\"11.0\",\"match\":\"release-family\"},\"sdk\":{\"name\":\".NET SDK\",\"version\":\"11.0\",\"match\":\"release-family\"},\"language\":{\"name\":\"C#\",\"version\":\"15.0\",\"match\":\"exact\"},\"frameworks\":[],\"packages\":[],\"workloads\":[],\"packageAssets\":[],\"providers\":[],\"platforms\":[\"Any platform supported by .NET 11\"],\"renderingModes\":[],\"optIns\":[],\"stabilityLimitations\":[\"Verified using .NET 11 RC2; GA reconciliation remains pending.\"]}}]}},{\"id\":\"linq.retain-unmatched-rows\",\"edition\":\"10.0\",\"title\":\"Preserve unmatched records on the required side of a join\",\"goal\":\"Compare expected and observed records while retaining every entry from the side that must remain complete.\",\"introducedIn\":\"10.0\",\"areas\":[\"libraries\"],\"exampleLanguages\":[\"csharp\"],\"languageNeutral\":false,\"supportedTargets\":[\"10.0\",\"11.0\"],\"stability\":\"stable\",\"applicability\":{\"routes\":[{\"target\":\"11.0\",\"sharedAreas\":[\"aspnetcore\",\"blazor\",\"maui\",\"winforms\",\"wpf\"],\"neutralLanguages\":[],\"conditional\":false,\"usage\":\"primary\",\"selectionNotes\":[\"Choose LeftJoin to retain expected rows or RightJoin to retain observed rows; neither retains both unmatched sides.\",\"Queryable availability does not establish database-provider translation.\"],\"requirements\":{\"runtime\":{\"name\":\".NET\",\"version\":\"11.0\",\"match\":\"release-family\"},\"sdk\":{\"name\":\".NET SDK\",\"version\":\"11.0\",\"match\":\"release-family\"},\"language\":{\"name\":\"C#\",\"version\":\"15.0\",\"match\":\"exact\"},\"frameworks\":[],\"packages\":[],\"workloads\":[],\"packageAssets\":[],\"providers\":[],\"platforms\":[\"Any platform supported by .NET 11\"],\"renderingModes\":[],\"optIns\":[],\"stabilityLimitations\":[\"Verified using .NET 11 RC2; GA reconciliation remains pending.\"]}}]}},{\"id\":\"sqlite.order-concatenated-values\",\"edition\":\"11.0\",\"title\":\"Return an ordered textual summary per group\",\"goal\":\"Combine each group into predictable text in SQLite, ordering values inside server-side aggregation.\",\"introducedIn\":\"11.0\",\"areas\":[\"ef-core\"],\"exampleLanguages\":[\"csharp\"],\"languageNeutral\":false,\"supportedTargets\":[\"11.0\"],\"stability\":\"stable\",\"applicability\":{\"routes\":[{\"target\":\"11.0\",\"sharedAreas\":[],\"neutralLanguages\":[],\"conditional\":false,\"usage\":\"primary\",\"selectionNotes\":[\"Combine each group into predictable text in SQLite, ordering values inside server-side aggregation.\",\"SQLite 3.44\\u002B is required for aggregate ORDER BY. The real current sample uses the provider native bundle and SQLite 3.53.4; the older sample uses 3.53.3. EF11 requires net11.0. This replaces client evaluation/workaround for the demonstrated query shape. Nulls, collation and separators require application-specific rules; this fixture has non-null text and integer order keys. No allocation or throughput improvement is measured.\"],\"requirements\":{\"runtime\":{\"name\":\".NET\",\"version\":\"11.0\",\"match\":\"release-family\"},\"sdk\":{\"name\":\".NET SDK\",\"version\":\"11.0\",\"match\":\"release-family\"},\"language\":{\"name\":\"C#\",\"version\":\"15.0\",\"match\":\"exact\"},\"frameworks\":[\"Standalone Microsoft.NET.Sdk console; no web framework requirement\"],\"packages\":[{\"name\":\"Microsoft.EntityFrameworkCore.Sqlite\",\"version\":\"11.0\",\"match\":\"release-family\"}],\"workloads\":[],\"packageAssets\":[\"EF SQLite11 lib/net11.0 and EF SQLite10 lib/net10.0. Current SQLitePCLRaw config/core/provider3.0.5 select lib/net8.0; previous bundle/core2.1.13 select lib/netstandard2.0 and provider.e_sqlite3 selects lib/net6.0. Windows x64 native SQLite3.53.4 current/3.53.3 previous is executed. Exact managed/native closures remain in the sample locks.\"],\"providers\":[\"EF Core SQLite11.0.0-rc.2.26504.105; native SQLite3.53.4 via SQLitePCLRaw bundle_e_sqlite3/config/core/provider3.0.5 and SQLite3.53.4 package. Previous EF10.0.13 uses SQLitePCLRaw2.1.13 and SQLite3.53.3. Aggregate ORDER BY requires SQLite3.44\\u002B.\"],\"platforms\":[\"Windows x64 actual execution; other platforms unverified\"],\"renderingModes\":[\"Not applicable: console/database consumer; no renderer or browser\"],\"optIns\":[],\"stabilityLimitations\":[\"Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding.\"]}}]}}]}"
+        }
+      ],
+      "structured_content": {
+        "resolvedTarget": "11.0",
+        "requestedTarget": "11",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "supportedAreas": [
+          "aspnetcore",
+          "blazor",
+          "containers",
+          "csharp",
+          "deployment",
+          "ef-core",
+          "fsharp",
+          "hosting",
+          "json",
+          "libraries",
+          "maui",
+          "msbuild",
+          "nuget",
+          "runtime",
+          "sdk",
+          "sqlite",
+          "testing",
+          "vb",
+          "winforms",
+          "wpf"
+        ],
+        "supportedExampleLanguages": [
+          "c",
+          "csharp",
+          "fsharp",
+          "powershell",
+          "typescript",
+          "vb"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "total": 4,
+        "offset": 0,
+        "limit": 50,
+        "nextOffset": null,
+        "recipes": [
+          {
+            "id": "ef.reconcile-unmatched-records",
+            "edition": "11.0",
+            "title": "Preserve both sides of a database reconciliation",
+            "goal": "Compare planned and observed records with translated FullJoin while retaining matched, left-only and right-only rows.",
+            "introducedIn": "11.0",
+            "areas": [
+              "ef-core"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Compare planned and observed records with translated FullJoin while retaining matched, left-only and right-only rows.",
+                    "Only the executed SQL Server query shape is verified; no blanket provider or SQLite promise."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [
+                      "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+                    ],
+                    "packages": [
+                      {
+                        "name": "Microsoft.EntityFrameworkCore.SqlServer",
+                        "version": "11.0",
+                        "match": "release-family"
+                      }
+                    ],
+                    "workloads": [],
+                    "packageAssets": [
+                      "EF Core/Relational/SQL Server11 lib/net11.0; Microsoft.Data.SqlClient7.1.0 ref/net9.0 with runtimes/win/lib/net9.0 selected for net11.0. Previous EF10 lib/net10.0, SqlClient6.1.7 ref/net9.0 with runtimes/win/lib/net9.0. Resolved transitive closure is recorded in each lock and verification manifest."
+                    ],
+                    "providers": [
+                      "EF Core SQL Server11 with SQL Server2025 17.0.5035.5 Developer on Linux. FullJoin needs a relational provider and server supporting FULL OUTER JOIN."
+                    ],
+                    "platforms": [
+                      "Windows x64 consumer against local Docker Linux SQL Server. Other platforms not executed."
+                    ],
+                    "renderingModes": [
+                      "Not applicable: console/database consumer; no renderer or browser"
+                    ],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "linq.reconcile-all-rows",
+            "edition": "11.0",
+            "title": "Reconcile records while preserving both unmatched sides",
+            "goal": "Find matched, missing and unexpected records in one reconciliation without losing entries from either input.",
+            "introducedIn": "11.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "FullJoin retains both unmatched sides; duplicate keys produce every matching pair.",
+                    "Async joins build a lookup; they are not an unbounded constant-memory stream transform.",
+                    "Queryable availability does not establish database-provider translation."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2; GA reconciliation remains pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "linq.retain-unmatched-rows",
+            "edition": "10.0",
+            "title": "Preserve unmatched records on the required side of a join",
+            "goal": "Compare expected and observed records while retaining every entry from the side that must remain complete.",
+            "introducedIn": "10.0",
+            "areas": [
+              "libraries"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "10.0",
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [
+                    "aspnetcore",
+                    "blazor",
+                    "maui",
+                    "winforms",
+                    "wpf"
+                  ],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Choose LeftJoin to retain expected rows or RightJoin to retain observed rows; neither retains both unmatched sides.",
+                    "Queryable availability does not establish database-provider translation."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [],
+                    "packages": [],
+                    "workloads": [],
+                    "packageAssets": [],
+                    "providers": [],
+                    "platforms": [
+                      "Any platform supported by .NET 11"
+                    ],
+                    "renderingModes": [],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Verified using .NET 11 RC2; GA reconciliation remains pending."
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "sqlite.order-concatenated-values",
+            "edition": "11.0",
+            "title": "Return an ordered textual summary per group",
+            "goal": "Combine each group into predictable text in SQLite, ordering values inside server-side aggregation.",
+            "introducedIn": "11.0",
+            "areas": [
+              "ef-core"
+            ],
+            "exampleLanguages": [
+              "csharp"
+            ],
+            "languageNeutral": false,
+            "supportedTargets": [
+              "11.0"
+            ],
+            "stability": "stable",
+            "applicability": {
+              "routes": [
+                {
+                  "target": "11.0",
+                  "sharedAreas": [],
+                  "neutralLanguages": [],
+                  "conditional": false,
+                  "usage": "primary",
+                  "selectionNotes": [
+                    "Combine each group into predictable text in SQLite, ordering values inside server-side aggregation.",
+                    "SQLite 3.44+ is required for aggregate ORDER BY. The real current sample uses the provider native bundle and SQLite 3.53.4; the older sample uses 3.53.3. EF11 requires net11.0. This replaces client evaluation/workaround for the demonstrated query shape. Nulls, collation and separators require application-specific rules; this fixture has non-null text and integer order keys. No allocation or throughput improvement is measured."
+                  ],
+                  "requirements": {
+                    "runtime": {
+                      "name": ".NET",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "sdk": {
+                      "name": ".NET SDK",
+                      "version": "11.0",
+                      "match": "release-family"
+                    },
+                    "language": {
+                      "name": "C#",
+                      "version": "15.0",
+                      "match": "exact"
+                    },
+                    "frameworks": [
+                      "Standalone Microsoft.NET.Sdk console; no web framework requirement"
+                    ],
+                    "packages": [
+                      {
+                        "name": "Microsoft.EntityFrameworkCore.Sqlite",
+                        "version": "11.0",
+                        "match": "release-family"
+                      }
+                    ],
+                    "workloads": [],
+                    "packageAssets": [
+                      "EF SQLite11 lib/net11.0 and EF SQLite10 lib/net10.0. Current SQLitePCLRaw config/core/provider3.0.5 select lib/net8.0; previous bundle/core2.1.13 select lib/netstandard2.0 and provider.e_sqlite3 selects lib/net6.0. Windows x64 native SQLite3.53.4 current/3.53.3 previous is executed. Exact managed/native closures remain in the sample locks."
+                    ],
+                    "providers": [
+                      "EF Core SQLite11.0.0-rc.2.26504.105; native SQLite3.53.4 via SQLitePCLRaw bundle_e_sqlite3/config/core/provider3.0.5 and SQLite3.53.4 package. Previous EF10.0.13 uses SQLitePCLRaw2.1.13 and SQLite3.53.3. Aggregate ORDER BY requires SQLite3.44+."
+                    ],
+                    "platforms": [
+                      "Windows x64 actual execution; other platforms unverified"
+                    ],
+                    "renderingModes": [
+                      "Not applicable: console/database consumer; no renderer or browser"
+                    ],
+                    "optIns": [],
+                    "stabilityLimitations": [
+                      "Stable API contract prepared using .NET11 RC2 SDK/runtime/EF packages; no experimental opt-in. Actual GA reconciliation remains outstanding."
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "error": null,
+    "status": "completed"
+  },
+  {
+    "id": "item_5",
+    "type": "mcp_tool_call",
+    "server": "playbook",
+    "tool": "get_recipe",
+    "arguments": {
+      "targetVersion": "11",
+      "id": "linq.reconcile-all-rows"
+    },
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"resolvedTarget\":\"11.0\",\"requestedTarget\":\"11\",\"targetAssumed\":false,\"supportedTargets\":[\"10.0\",\"11.0\"],\"coverage\":[{\"target\":\"10.0\",\"scope\":\"curated\",\"complete\":false,\"description\":\"Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10.\"},{\"target\":\"11.0\",\"scope\":\"comprehensive\",\"complete\":false,\"description\":\"Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification.\"}],\"recipe\":{\"id\":\"linq.reconcile-all-rows\",\"edition\":\"11.0\",\"title\":\"Reconcile records while preserving both unmatched sides\",\"goal\":\"Find matched, missing and unexpected records in one reconciliation without losing entries from either input.\",\"areas\":[\"libraries\"],\"exampleLanguages\":[\"csharp\"],\"languageNeutral\":false,\"tags\":[\"linq\",\"reconcile-all-rows\"],\"apis\":[\"Enumerable.FullJoin\",\"Queryable.FullJoin\",\"AsyncEnumerable.FullJoin\",\"Enumerable.Join\",\"Enumerable.GroupJoin\",\"Enumerable.LeftJoin\",\"Enumerable.RightJoin\"],\"introducedIn\":\"11.0\",\"supportedTargets\":[\"11.0\"],\"stability\":\"stable\",\"applicability\":{\"routes\":[{\"target\":\"11.0\",\"sharedAreas\":[\"aspnetcore\",\"blazor\",\"maui\",\"winforms\",\"wpf\"],\"neutralLanguages\":[],\"conditional\":false,\"usage\":\"primary\",\"selectionNotes\":[\"FullJoin retains both unmatched sides; duplicate keys produce every matching pair.\",\"Async joins build a lookup; they are not an unbounded constant-memory stream transform.\",\"Queryable availability does not establish database-provider translation.\"],\"requirements\":{\"runtime\":{\"name\":\".NET\",\"version\":\"11.0\",\"match\":\"release-family\",\"reason\":\"Use the selected target\\u0027s framework LINQ implementation.\"},\"sdk\":{\"name\":\".NET SDK\",\"version\":\"11.0\",\"match\":\"release-family\",\"reason\":\"Build against the selected target\\u0027s reference assemblies.\"},\"language\":{\"name\":\"C#\",\"version\":\"15.0\",\"match\":\"exact\",\"reason\":\"Canonical language mode for these examples.\"},\"frameworks\":[],\"packages\":[],\"workloads\":[],\"packageAssets\":[],\"providers\":[],\"platforms\":[\"Any platform supported by .NET 11\"],\"renderingModes\":[],\"prerequisites\":[\"Use ImplicitUsings=enable and Nullable=enable in an SDK console project; all required supporting declarations are included in the recipe.\"],\"constraints\":[\"FullJoin retains both unmatched sides; duplicate keys produce every matching pair.\",\"Async joins build a lookup; they are not an unbounded constant-memory stream transform.\",\"Queryable availability does not establish database-provider translation.\",\"No package, workload, UI rendering or provider is required for the in-memory route. No older-target package, trimming or Native AOT route is established.\"],\"optIns\":[],\"stabilityLimitations\":[\"Verified using .NET 11 RC2; GA reconciliation remains pending.\"]},\"sourceUrls\":[\"https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#linq\",\"https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq/src/System/Linq/FullJoin.cs\",\"https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/FullJoin.cs\",\"https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs\"],\"evidenceSamples\":[\"samples/net11.0/Reconciliation/Reconciliation.csproj\"]}]},\"sources\":[{\"title\":\"Microsoft LINQ contracts and release guidance\",\"url\":\"https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#linq\"},{\"title\":\"Microsoft LINQ contracts and release guidance\",\"url\":\"https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq/src/System/Linq/FullJoin.cs\"},{\"title\":\"Microsoft LINQ contracts and release guidance\",\"url\":\"https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/FullJoin.cs\"},{\"title\":\"Microsoft LINQ contracts and release guidance\",\"url\":\"https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs\"}],\"evidence\":[{\"role\":\"verification-baseline\",\"kind\":\"compile-and-run\",\"sample\":\"samples/net10.0/Reconciliation/Reconciliation.csproj\",\"target\":\"net10.0\",\"sdk\":\"10.0.402\",\"language\":\"14.0\",\"command\":\"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe build Reconciliation.csproj --configuration Release -p:RestoreLockedMode=true; C:\\\\Program Files\\\\dotnet\\\\dotnet.exe V:\\\\_worktrees\\\\Playbook\\\\t3-16ef26d1\\\\samples\\\\net10.0\\\\Reconciliation\\\\bin\\\\Release\\\\net10.0\\\\Reconciliation.dll\",\"scope\":\"Actual managed unmatched/duplicate/empty-input checks; Queryable uses only the in-memory provider. No database translation or AOT execution proof.\",\"recordedAt\":\"2026-10-21T13:23:27.3969383\\u002B01:00\",\"sourceCommit\":\"3d68900361bba315780b98e0b3cc9970e4f79470\",\"sourceDirty\":true,\"inputs\":{\"eng/Evidence.ps1\":\"b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849\",\"eng/Record-Evidence.ps1\":\"653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498\",\"NuGet.Config\":\"aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055\",\"samples/Directory.Build.props\":\"ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6\",\"samples/Directory.Build.targets\":\"17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea\",\"samples/Directory.Packages.props\":\"7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1\",\"samples/net10.0/Reconciliation/global.json\":\"30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d\",\"samples/net10.0/Reconciliation/Manifests.cs\":\"440087f442ff14cdaca4bd500781b5e4a61d0d6495164c217621d321decf7218\",\"samples/net10.0/Reconciliation/Reconciliation.csproj\":\"0ecc34a781c3207895c5052034a45d4466cbbe25f1f9b381317b238907f56eec\",\"samples/net10.0/Reconciliation/verification.json\":\"d7b405511b3281aab6bb630b38617819dcf89110e5e028f0e2639f4c13f0122e\",\"samples/ReconciliationChecks.cs\":\"f57aa556bc6f47449213411fdb19c072cf067e320d0d261ec34a8602ba1c5338\"},\"dependencies\":[],\"workloads\":[],\"nativeToolchains\":[],\"host\":\"Microsoft Windows 10.0.26200 / X64\",\"sdkInfo\":\".NET SDK:\\r\\n Version:           10.0.402\\r\\n Commit:            a8dd0577c5\\r\\n Workload version:  10.0.400-manifests.6055ec36\\r\\n MSBuild version:   18.9.15\\u002Ba8dd0577c\\r\\n\\r\\nRuntime Environment:\\r\\n OS Name:     Windows\\r\\n OS Version:  10.0.26200\\r\\n OS Platform: Windows\\r\\n RID:         win-x64\\r\\n Base Path:   C:\\\\Program Files\\\\dotnet\\\\sdk\\\\10.0.402\\\\\\r\\n\\r\\n.NET workloads installed:\\r\\n [wasm-tools]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    10.0.113/10.0.100\\r\\n   Manifest Path:       C:\\\\Program Files\\\\dotnet\\\\sdk-manifests\\\\10.0.100\\\\microsoft.net.workload.mono.toolchain.current\\\\10.0.113\\\\WorkloadManifest.json\\r\\n   Install Type:              Msi\\r\\n\\r\\n [maui-windows]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    10.0.110/10.0.100\\r\\n   Manifest Path:       C:\\\\Program Files\\\\dotnet\\\\sdk-manifests\\\\10.0.100\\\\microsoft.net.sdk.maui\\\\10.0.110\\\\WorkloadManifest.json\\r\\n   Install Type:              Msi\\r\\n\\r\\n [maccatalyst]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    26.5.10315/10.0.100\\r\\n   Manifest Path:       C:\\\\Program Files\\\\dotnet\\\\sdk-manifests\\\\10.0.100\\\\microsoft.net.sdk.maccatalyst\\\\26.5.10315\\\\WorkloadManifest.json\\r\\n   Install Type:              Msi\\r\\n\\r\\n [ios]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    26.5.10315/10.0.100\\r\\n   Manifest Path:       C:\\\\Program Files\\\\dotnet\\\\sdk-manifests\\\\10.0.100\\\\microsoft.net.sdk.ios\\\\26.5.10315\\\\WorkloadManifest.json\\r\\n   Install Type:              Msi\\r\\n\\r\\n [android]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    36.1.118/10.0.100\\r\\n   Manifest Path:       C:\\\\Program Files\\\\dotnet\\\\sdk-manifests\\\\10.0.100\\\\microsoft.net.sdk.android\\\\36.1.118\\\\WorkloadManifest.json\\r\\n   Install Type:              Msi\\r\\n\\r\\nConfigured to use workload sets when installing new manifests.\\r\\nNo workload sets are installed. Run \\u0022dotnet workload restore\\u0022 to install a workload set.\\r\\n\\r\\nHost:\\r\\n  Version:      10.0.13\\r\\n  Architecture: x64\\r\\n  Commit:       4099f83977\\r\\n\\r\\n.NET SDKs installed:\\r\\n  10.0.300 [C:\\\\Program Files\\\\dotnet\\\\sdk]\\r\\n  10.0.402 [C:\\\\Program Files\\\\dotnet\\\\sdk]\\r\\n\\r\\n.NET runtimes installed:\\r\\n  Microsoft.AspNetCore.App 10.0.8 [C:\\\\Program Files\\\\dotnet\\\\shared\\\\Microsoft.AspNetCore.App]\\r\\n  Microsoft.AspNetCore.App 10.0.13 [C:\\\\Program Files\\\\dotnet\\\\shared\\\\Microsoft.AspNetCore.App]\\r\\n  Microsoft.NETCore.App 10.0.8 [C:\\\\Program Files\\\\dotnet\\\\shared\\\\Microsoft.NETCore.App]\\r\\n  Microsoft.NETCore.App 10.0.13 [C:\\\\Program Files\\\\dotnet\\\\shared\\\\Microsoft.NETCore.App]\\r\\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\\\Program Files\\\\dotnet\\\\shared\\\\Microsoft.WindowsDesktop.App]\\r\\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\\\Program Files\\\\dotnet\\\\shared\\\\Microsoft.WindowsDesktop.App]\\r\\n\\r\\nOther architectures found:\\r\\n  x86   [C:\\\\Program Files (x86)\\\\dotnet]\\r\\n    registered at [HKLM\\\\SOFTWARE\\\\dotnet\\\\Setup\\\\InstalledVersions\\\\x86\\\\InstallLocation]\\r\\n\\r\\nEnvironment variables:\\r\\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\\r\\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\\r\\n\\r\\nglobal.json file:\\r\\n  V:\\\\_worktrees\\\\Playbook\\\\t3-16ef26d1\\\\samples\\\\net10.0\\\\Reconciliation\\\\global.json\\r\\n\\r\\nLearn more:\\r\\n  https://aka.ms/dotnet/info\\r\\n\\r\\nDownload .NET:\\r\\n  https://aka.ms/dotnet/download\",\"workloadInfo\":\"Workload version: 10.0.400-manifests.6055ec36\\r\\n\\r\\nInstalled Workload Id      Manifest Version         Installation Source\\r\\n-----------------------------------------------------------------------\\r\\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \\r\\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \\r\\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \\r\\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \\r\\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \\r\\n\\r\\nUse \\u0060dotnet workload search\\u0060 to find additional workloads to install.\",\"output\":\"Determining projects to restore...\\r\\n  All projects are up-to-date for restore.\\r\\n  Reconciliation -\\u003E V:\\\\_worktrees\\\\Playbook\\\\t3-16ef26d1\\\\samples\\\\net10.0\\\\Reconciliation\\\\bin\\\\Release\\\\net10.0\\\\Reconciliation.dll\\r\\n\\r\\nBuild succeeded.\\r\\n    0 Warning(s)\\r\\n    0 Error(s)\\r\\n\\r\\nTime Elapsed 00:00:01.71\\nPASS reconciliation: unmatched sides, empty inputs and duplicate matches; .NET 10.0.13\\r\\nPASS Enumerable, Queryable (in-memory only) and AsyncEnumerable operators.\",\"freshness\":\"current\"},{\"role\":\"verification-baseline\",\"kind\":\"compile-and-run\",\"sample\":\"samples/net11.0/Reconciliation/Reconciliation.csproj\",\"target\":\"net11.0\",\"sdk\":\"11.0.100-rc.2.26504.105\",\"language\":\"15.0\",\"command\":\"C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\dotnet.exe build Reconciliation.csproj --configuration Release -p:RestoreLockedMode=true; C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\dotnet.exe V:\\\\_worktrees\\\\Playbook\\\\t3-16ef26d1\\\\samples\\\\net11.0\\\\Reconciliation\\\\bin\\\\Release\\\\net11.0\\\\Reconciliation.dll\",\"scope\":\"Actual managed unmatched/duplicate/empty-input checks; Queryable uses only the in-memory provider. No database translation or AOT execution proof.\",\"recordedAt\":\"2026-10-21T13:25:51.3496109\\u002B01:00\",\"sourceCommit\":\"3d68900361bba315780b98e0b3cc9970e4f79470\",\"sourceDirty\":true,\"inputs\":{\"eng/Evidence.ps1\":\"b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849\",\"eng/Record-Evidence.ps1\":\"653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498\",\"NuGet.Config\":\"aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055\",\"samples/Directory.Build.props\":\"ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6\",\"samples/Directory.Build.targets\":\"17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea\",\"samples/Directory.Packages.props\":\"7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1\",\"samples/net11.0/Reconciliation/global.json\":\"99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116\",\"samples/net11.0/Reconciliation/Manifests.cs\":\"cb4572c852ba77384a4801153b3c82ede0d420fa88011eea06950208f67cf417\",\"samples/net11.0/Reconciliation/Reconciliation.csproj\":\"cf40aa80cd14a03c73ee71b510518453aa882f0510d7f2c8dc36aeea9dea646f\",\"samples/net11.0/Reconciliation/verification.json\":\"d7b405511b3281aab6bb630b38617819dcf89110e5e028f0e2639f4c13f0122e\",\"samples/ReconciliationChecks.cs\":\"f57aa556bc6f47449213411fdb19c072cf067e320d0d261ec34a8602ba1c5338\"},\"dependencies\":[],\"workloads\":[],\"nativeToolchains\":[],\"host\":\"Microsoft Windows 10.0.26200 / X64\",\"sdkInfo\":\".NET SDK:\\r\\n Version:           11.0.100-rc.2.26504.105\\r\\n Commit:            820230c386\\r\\n Workload version:  11.0.100-manifests.4d7a54d2\\r\\n MSBuild version:   18.12.0-1.26504.105\\u002B820230c38\\r\\n\\r\\nRuntime Environment:\\r\\n OS Name:     Windows\\r\\n OS Version:  10.0.26200\\r\\n OS Platform: Windows\\r\\n RID:         win-x64\\r\\n Base Path:   C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk\\\\11.0.100-rc.2.26504.105\\r\\n\\r\\n.NET workloads installed:\\r\\n [wasm-tools]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\\r\\n   Manifest Path:       C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk-manifests\\\\11.0.100-rc.2\\\\microsoft.net.workload.mono.toolchain.current\\\\11.0.100-rc.2.26504.105\\\\WorkloadManifest.json\\r\\n   Install Type:        FileBased\\r\\n\\r\\n [maui-windows]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\\r\\n   Manifest Path:       C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk-manifests\\\\11.0.100-preview.6\\\\microsoft.net.sdk.maui\\\\11.0.0-preview.6.26360.8\\\\WorkloadManifest.json\\r\\n   Install Type:        FileBased\\r\\n\\r\\n [maccatalyst]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\\r\\n   Manifest Path:       C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk-manifests\\\\11.0.100-preview.6\\\\microsoft.net.sdk.maccatalyst\\\\26.5.11720-net11-p6\\\\WorkloadManifest.json\\r\\n   Install Type:        FileBased\\r\\n\\r\\n [ios]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\\r\\n   Manifest Path:       C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk-manifests\\\\11.0.100-preview.6\\\\microsoft.net.sdk.ios\\\\26.5.11720-net11-p6\\\\WorkloadManifest.json\\r\\n   Install Type:        FileBased\\r\\n\\r\\n [android]\\r\\n   Installation Source: VS 18.11.12306.390\\r\\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\\r\\n   Manifest Path:       C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk-manifests\\\\11.0.100-preview.6\\\\microsoft.net.sdk.android\\\\37.0.0-preview.6.59\\\\WorkloadManifest.json\\r\\n   Install Type:        FileBased\\r\\n\\r\\nConfigured to use workload sets when installing new manifests.\\r\\nNo workload sets are installed. Run \\u0022dotnet workload restore\\u0022 to install a workload set.\\r\\n\\r\\nHost:\\r\\n  Version:      11.0.0-rc.2.26504.105\\r\\n  Architecture: x64\\r\\n  Commit:       820230c386\\r\\n\\r\\n.NET SDKs installed:\\r\\n  11.0.100-rc.2.26504.105 [C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk]\\r\\n\\r\\n.NET runtimes installed:\\r\\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\shared\\\\Microsoft.AspNetCore.App]\\r\\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\shared\\\\Microsoft.NETCore.App]\\r\\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\shared\\\\Microsoft.WindowsDesktop.App]\\r\\n\\r\\nOther architectures found:\\r\\n  x86   [C:\\\\Program Files (x86)\\\\dotnet]\\r\\n    registered at [HKLM\\\\SOFTWARE\\\\dotnet\\\\Setup\\\\InstalledVersions\\\\x86\\\\InstallLocation]\\r\\n\\r\\nEnvironment variables:\\r\\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\\r\\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\\r\\n\\r\\nglobal.json file:\\r\\n  V:\\\\_worktrees\\\\Playbook\\\\t3-16ef26d1\\\\samples\\\\net11.0\\\\Reconciliation\\\\global.json\\r\\n\\r\\nLearn more:\\r\\n  https://aka.ms/dotnet/info\\r\\n\\r\\nDownload .NET:\\r\\n  https://aka.ms/dotnet/download\",\"workloadInfo\":\"Workload version: 11.0.100-manifests.4d7a54d2\\r\\n\\r\\nInstalled Workload Id      Manifest Version                                 Installation Source\\r\\n-----------------------------------------------------------------------------------------------\\r\\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \\r\\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \\r\\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \\r\\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \\r\\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \\r\\n\\r\\nUse \\u0060dotnet workload search\\u0060 to find additional workloads to install.\",\"output\":\"Determining projects to restore...\\r\\n  All projects are up-to-date for restore.\\r\\nC:\\\\Users\\\\pingu\\\\.dotnet-playbook-11\\\\sdk\\\\11.0.100-rc.2.26504.105\\\\Sdks\\\\Microsoft.NET.Sdk\\\\targets\\\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\\\_worktrees\\\\Playbook\\\\t3-16ef26d1\\\\samples\\\\net11.0\\\\Reconciliation\\\\Reconciliation.csproj]\\r\\n  Reconciliation -\\u003E V:\\\\_worktrees\\\\Playbook\\\\t3-16ef26d1\\\\samples\\\\net11.0\\\\Reconciliation\\\\bin\\\\Release\\\\net11.0\\\\Reconciliation.dll\\r\\n\\r\\nBuild succeeded.\\r\\n    0 Warning(s)\\r\\n    0 Error(s)\\r\\n\\r\\nTime Elapsed 00:00:01.66\\nPASS reconciliation: unmatched sides, empty inputs and duplicate matches; .NET 11.0.0-rc.2.26504.105\\r\\nPASS Enumerable, Queryable (in-memory only) and AsyncEnumerable operators.\",\"freshness\":\"current\"}],\"humanProof\":{\"status\":\"not-required\",\"scope\":\"Direct managed behavior and actual installed retrieval cover this bounded guidance; no native UI/device/provider Human action is needed.\"},\"markdown\":\"# Reconcile records while preserving both unmatched sides\\n\\n## Goal\\n\\nReconcile the harbour\\u0027s expected crate manifest against observed crates. Report matches, expected crates without observations and observations without expected crates, without silently dropping either unmatched side. Multiple rows sharing a code are retained as all matching pairs; enforcing unique keys is a separate domain rule.\\n\\n## Older approach\\n\\nUse a net10.0 / C# 14 console project, Nullable and ImplicitUsings enabled, namespace Playbook.Samples. These supporting declarations are complete and also work on .NET 11:\\n\\n\\u0060\\u0060\\u0060csharp\\npublic sealed record ManifestLine(string Code, int Units);\\npublic sealed record Difference(ManifestLine? Expected, ManifestLine? Observed);\\n\\npublic static partial class Manifests\\n{\\n    public static IEnumerable\\u003CDifference\\u003E KeepExpected(IEnumerable\\u003CManifestLine\\u003E expected, IEnumerable\\u003CManifestLine\\u003E observed) =\\u003E\\n        expected.LeftJoin(observed, x =\\u003E x.Code, x =\\u003E x.Code,\\n            (left, right) =\\u003E new Difference(left, right), StringComparer.OrdinalIgnoreCase);\\n\\n    public static IEnumerable\\u003CDifference\\u003E KeepObserved(IEnumerable\\u003CManifestLine\\u003E expected, IEnumerable\\u003CManifestLine\\u003E observed) =\\u003E\\n        expected.RightJoin(observed, x =\\u003E x.Code, x =\\u003E x.Code,\\n            (left, right) =\\u003E new Difference(left, right), StringComparer.OrdinalIgnoreCase);\\n}\\n\\u0060\\u0060\\u0060\\n\\nCompose the left report with right-only rows. Materialize each input once because this valid composition reuses both inputs; it is suitable for bounded manifests, not an endless feed.\\n\\n\\u0060\\u0060\\u0060csharp\\npublic static partial class Manifests\\n{\\n    // Materialize once because this composition reads both inputs more than once.\\n    public static IEnumerable\\u003CDifference\\u003E All(IEnumerable\\u003CManifestLine\\u003E expected, IEnumerable\\u003CManifestLine\\u003E observed)\\n    {\\n        ManifestLine[] left = expected.ToArray();\\n        ManifestLine[] right = observed.ToArray();\\n        return KeepExpected(left, right)\\n            .Concat(KeepObserved(left, right).Where(row =\\u003E row.Expected is null));\\n    }\\n}\\n\\u0060\\u0060\\u0060\\n\\n## Newer approach\\n\\nTarget net11.0 / C# 15 and retain the supporting declarations above. Replace the older All method with this partial class. Framework Enumerable.FullJoin expresses the two-sided result directly:\\n\\n\\u0060\\u0060\\u0060csharp\\npublic static partial class Manifests\\n{\\n    public static IEnumerable\\u003CDifference\\u003E All(IEnumerable\\u003CManifestLine\\u003E expected, IEnumerable\\u003CManifestLine\\u003E observed) =\\u003E\\n        expected.FullJoin(observed, x =\\u003E x.Code, x =\\u003E x.Code,\\n            (left, right) =\\u003E new Difference(left, right), StringComparer.OrdinalIgnoreCase);\\n}\\n\\u0060\\u0060\\u0060\\n\\nA null Expected is an unexpected observation; a null Observed is a missing crate. Compare Units only after classifying the row. Do not replace a missing record with a zero-valued record, since zero can be legitimate data.\\n\\nWhen the next step wants the two records themselves, omit the result selector using the new tuple-returning overload:\\n\\n\\u0060\\u0060\\u0060csharp\\npublic static partial class Manifests\\n{\\n    public static IEnumerable\\u003C(ManifestLine? Outer, ManifestLine? Inner)\\u003E Pairs(\\n        IEnumerable\\u003CManifestLine\\u003E expected, IEnumerable\\u003CManifestLine\\u003E observed) =\\u003E\\n        expected.FullJoin(observed, x =\\u003E x.Code, x =\\u003E x.Code, StringComparer.OrdinalIgnoreCase);\\n}\\n\\u0060\\u0060\\u0060\\n\\nThe pair names are Outer and Inner. The same selector-free pattern is available for Join, GroupJoin, LeftJoin and RightJoin in .NET 11 across Enumerable, Queryable and AsyncEnumerable. GroupJoin returns an outer row plus its matching group, rather than flattening pairs. Tuple convenience does not change the join\\u0027s inclusion rules. .NET 10\\u0027s existing selector overloads remain valid.\\n\\n## Migration\\n\\n1. Decide whether the report needs both unmatched sides. Keep LeftJoin/RightJoin for one-sided goals.\\n2. Preserve non-null key validation, key selectors and the equality policy; this example uses OrdinalIgnoreCase.\\n3. Replace All\\u0027s composed joins with FullJoin. Do not union distinct rows: that can discard meaningful duplicates.\\n4. Preserve both nullable sides in the result projection and test missing, unexpected, matched and empty-input results.\\n5. Select the tuple overload only when its shape fits the next operation; keep an explicit projection for a domain-specific Difference.\\n6. Bound the inputs and sort explicitly if a downstream report requires a particular order. Validate database translation separately.\\n\\n## Constraints\\n\\nFullJoin is introduced in the .NET 11 framework. Enumerable performs an in-memory join; Queryable builds an expression for a provider; AsyncEnumerable takes asynchronous inputs and has both synchronous and cancellation-aware ValueTask selector overloads. For the latter, pass the enumeration token with WithCancellation and honor the supplied token in asynchronous selectors. Async does not mean no buffering: this implementation builds an inner lookup before producing matched rows, so it is unsuitable for an unbounded inner feed. Cancellation remains cooperative.\\n\\nQueryable\\u0027s FullJoin and tuple-returning contracts do not guarantee that an EF/provider version translates them. This recipe tests only EnumerableQuery, never a relational provider. Full outer join SQL support and comparer/tuple projection translation are separate provider/database requirements; no SQLite or blanket EF promise is made. Explicitly moving data into Enumerable changes execution location, memory use and query behavior.\\n\\nNo package, workload, rendering mode or experimental opt-in is required for this framework route. No .NET 10 FullJoin package route, trimming or Native AOT behavior is established. The recipe is stable API guidance prepared with .NET 11 RC2 evidence; final GA reconciliation is separate.\\n\\n## Evidence\\n\\nActual net10.0 and net11.0 projects build and execute on .NET 10.0.13 and .NET 11.0.0-rc.2.26504.105. Checks retain both unmatched sides, four duplicate-key matches and empty-input results. The .NET 11 checks compile and execute FullJoin and every tuple join family for Enumerable, in-memory Queryable and AsyncEnumerable, plus cancellation-aware selectors and canceled enumeration. Those checks establish operator availability and managed results, not provider translation, every overload, cross-compilation or AOT execution. Existing immutable source/asset audit records identify the framework contracts. Real installed stdio retrieval verifies full Markdown, edition 11.0 and target-specific applicability offline. No mocks or required Human proof are used.\\n\"}}"
+        }
+      ],
+      "structured_content": {
+        "resolvedTarget": "11.0",
+        "requestedTarget": "11",
+        "targetAssumed": false,
+        "supportedTargets": [
+          "10.0",
+          "11.0"
+        ],
+        "coverage": [
+          {
+            "target": "10.0",
+            "scope": "curated",
+            "complete": false,
+            "description": "Curated .NET 10 foundations and verified conditional routes. This development catalogue is incomplete; an empty result is not an exhaustive finding about .NET 10."
+          },
+          {
+            "target": "11.0",
+            "scope": "comprehensive",
+            "complete": false,
+            "description": "Comprehensive .NET 11 author-facing coverage is the launch commitment, not the current completion state. This development catalogue is incomplete and records RC evidence separately from GA verification."
+          }
+        ],
+        "recipe": {
+          "id": "linq.reconcile-all-rows",
+          "edition": "11.0",
+          "title": "Reconcile records while preserving both unmatched sides",
+          "goal": "Find matched, missing and unexpected records in one reconciliation without losing entries from either input.",
+          "areas": [
+            "libraries"
+          ],
+          "exampleLanguages": [
+            "csharp"
+          ],
+          "languageNeutral": false,
+          "tags": [
+            "linq",
+            "reconcile-all-rows"
+          ],
+          "apis": [
+            "Enumerable.FullJoin",
+            "Queryable.FullJoin",
+            "AsyncEnumerable.FullJoin",
+            "Enumerable.Join",
+            "Enumerable.GroupJoin",
+            "Enumerable.LeftJoin",
+            "Enumerable.RightJoin"
+          ],
+          "introducedIn": "11.0",
+          "supportedTargets": [
+            "11.0"
+          ],
+          "stability": "stable",
+          "applicability": {
+            "routes": [
+              {
+                "target": "11.0",
+                "sharedAreas": [
+                  "aspnetcore",
+                  "blazor",
+                  "maui",
+                  "winforms",
+                  "wpf"
+                ],
+                "neutralLanguages": [],
+                "conditional": false,
+                "usage": "primary",
+                "selectionNotes": [
+                  "FullJoin retains both unmatched sides; duplicate keys produce every matching pair.",
+                  "Async joins build a lookup; they are not an unbounded constant-memory stream transform.",
+                  "Queryable availability does not establish database-provider translation."
+                ],
+                "requirements": {
+                  "runtime": {
+                    "name": ".NET",
+                    "version": "11.0",
+                    "match": "release-family",
+                    "reason": "Use the selected target's framework LINQ implementation."
+                  },
+                  "sdk": {
+                    "name": ".NET SDK",
+                    "version": "11.0",
+                    "match": "release-family",
+                    "reason": "Build against the selected target's reference assemblies."
+                  },
+                  "language": {
+                    "name": "C#",
+                    "version": "15.0",
+                    "match": "exact",
+                    "reason": "Canonical language mode for these examples."
+                  },
+                  "frameworks": [],
+                  "packages": [],
+                  "workloads": [],
+                  "packageAssets": [],
+                  "providers": [],
+                  "platforms": [
+                    "Any platform supported by .NET 11"
+                  ],
+                  "renderingModes": [],
+                  "prerequisites": [
+                    "Use ImplicitUsings=enable and Nullable=enable in an SDK console project; all required supporting declarations are included in the recipe."
+                  ],
+                  "constraints": [
+                    "FullJoin retains both unmatched sides; duplicate keys produce every matching pair.",
+                    "Async joins build a lookup; they are not an unbounded constant-memory stream transform.",
+                    "Queryable availability does not establish database-provider translation.",
+                    "No package, workload, UI rendering or provider is required for the in-memory route. No older-target package, trimming or Native AOT route is established."
+                  ],
+                  "optIns": [],
+                  "stabilityLimitations": [
+                    "Verified using .NET 11 RC2; GA reconciliation remains pending."
+                  ]
+                },
+                "sourceUrls": [
+                  "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#linq",
+                  "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq/src/System/Linq/FullJoin.cs",
+                  "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/FullJoin.cs",
+                  "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs"
+                ],
+                "evidenceSamples": [
+                  "samples/net11.0/Reconciliation/Reconciliation.csproj"
+                ]
+              }
+            ]
+          },
+          "sources": [
+            {
+              "title": "Microsoft LINQ contracts and release guidance",
+              "url": "https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-11/libraries#linq"
+            },
+            {
+              "title": "Microsoft LINQ contracts and release guidance",
+              "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq/src/System/Linq/FullJoin.cs"
+            },
+            {
+              "title": "Microsoft LINQ contracts and release guidance",
+              "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.AsyncEnumerable/src/System/Linq/FullJoin.cs"
+            },
+            {
+              "title": "Microsoft LINQ contracts and release guidance",
+              "url": "https://github.com/dotnet/dotnet/blob/820230c386db5b0106c5430b3e5aee92a7826bf5/src/runtime/src/libraries/System.Linq.Queryable/src/System/Linq/Queryable.cs"
+            }
+          ],
+          "evidence": [
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net10.0/Reconciliation/Reconciliation.csproj",
+              "target": "net10.0",
+              "sdk": "10.0.402",
+              "language": "14.0",
+              "command": "C:\\Program Files\\dotnet\\dotnet.exe build Reconciliation.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Program Files\\dotnet\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\Reconciliation\\bin\\Release\\net10.0\\Reconciliation.dll",
+              "scope": "Actual managed unmatched/duplicate/empty-input checks; Queryable uses only the in-memory provider. No database translation or AOT execution proof.",
+              "recordedAt": "2026-10-21T13:23:27.3969383+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net10.0/Reconciliation/global.json": "30fdf1d1d5cfadd6447ab39d18cc5eec405cf1a5ec5b2e4b1d228a6fe757846d",
+                "samples/net10.0/Reconciliation/Manifests.cs": "440087f442ff14cdaca4bd500781b5e4a61d0d6495164c217621d321decf7218",
+                "samples/net10.0/Reconciliation/Reconciliation.csproj": "0ecc34a781c3207895c5052034a45d4466cbbe25f1f9b381317b238907f56eec",
+                "samples/net10.0/Reconciliation/verification.json": "d7b405511b3281aab6bb630b38617819dcf89110e5e028f0e2639f4c13f0122e",
+                "samples/ReconciliationChecks.cs": "f57aa556bc6f47449213411fdb19c072cf067e320d0d261ec34a8602ba1c5338"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           10.0.402\r\n Commit:            a8dd0577c5\r\n Workload version:  10.0.400-manifests.6055ec36\r\n MSBuild version:   18.9.15+a8dd0577c\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Program Files\\dotnet\\sdk\\10.0.402\\\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.113/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.workload.mono.toolchain.current\\10.0.113\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    10.0.110/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maui\\10.0.110\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.maccatalyst\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.10315/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.ios\\26.5.10315\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    36.1.118/10.0.100\r\n   Manifest Path:       C:\\Program Files\\dotnet\\sdk-manifests\\10.0.100\\microsoft.net.sdk.android\\36.1.118\\WorkloadManifest.json\r\n   Install Type:              Msi\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      10.0.13\r\n  Architecture: x64\r\n  Commit:       4099f83977\r\n\r\n.NET SDKs installed:\r\n  10.0.300 [C:\\Program Files\\dotnet\\sdk]\r\n  10.0.402 [C:\\Program Files\\dotnet\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.AspNetCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.NETCore.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 10.0.8 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n  Microsoft.WindowsDesktop.App 10.0.13 [C:\\Program Files\\dotnet\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\Reconciliation\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 10.0.400-manifests.6055ec36\r\n\r\nInstalled Workload Id      Manifest Version         Installation Source\r\n-----------------------------------------------------------------------\r\nandroid                    36.1.118/10.0.100        VS 18.11.12306.390 \r\nios                        26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaccatalyst                26.5.10315/10.0.100      VS 18.11.12306.390 \r\nmaui-windows               10.0.110/10.0.100        VS 18.11.12306.390 \r\nwasm-tools                 10.0.113/10.0.100        VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\n  Reconciliation -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net10.0\\Reconciliation\\bin\\Release\\net10.0\\Reconciliation.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.71\nPASS reconciliation: unmatched sides, empty inputs and duplicate matches; .NET 10.0.13\r\nPASS Enumerable, Queryable (in-memory only) and AsyncEnumerable operators.",
+              "freshness": "current"
+            },
+            {
+              "role": "verification-baseline",
+              "kind": "compile-and-run",
+              "sample": "samples/net11.0/Reconciliation/Reconciliation.csproj",
+              "target": "net11.0",
+              "sdk": "11.0.100-rc.2.26504.105",
+              "language": "15.0",
+              "command": "C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe build Reconciliation.csproj --configuration Release -p:RestoreLockedMode=true; C:\\Users\\pingu\\.dotnet-playbook-11\\dotnet.exe V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\Reconciliation\\bin\\Release\\net11.0\\Reconciliation.dll",
+              "scope": "Actual managed unmatched/duplicate/empty-input checks; Queryable uses only the in-memory provider. No database translation or AOT execution proof.",
+              "recordedAt": "2026-10-21T13:25:51.3496109+01:00",
+              "sourceCommit": "3d68900361bba315780b98e0b3cc9970e4f79470",
+              "sourceDirty": true,
+              "inputs": {
+                "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
+                "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
+                "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
+                "samples/Directory.Build.props": "ac524510d3e5112332f8c69b4c7b367c90642848dfd249163bd084405502def6",
+                "samples/Directory.Build.targets": "17284cb74605517cbec8a8153505da71a685b28694b67b5ef80608cd79b1c0ea",
+                "samples/Directory.Packages.props": "7209dd1e4245a84c619bada1f05c2505db0eb84ee6123af21759267b9c7e36a1",
+                "samples/net11.0/Reconciliation/global.json": "99e21c134d643fe49fe2df0d5c3b961f91c7ffe806ab12033266c7203b457116",
+                "samples/net11.0/Reconciliation/Manifests.cs": "cb4572c852ba77384a4801153b3c82ede0d420fa88011eea06950208f67cf417",
+                "samples/net11.0/Reconciliation/Reconciliation.csproj": "cf40aa80cd14a03c73ee71b510518453aa882f0510d7f2c8dc36aeea9dea646f",
+                "samples/net11.0/Reconciliation/verification.json": "d7b405511b3281aab6bb630b38617819dcf89110e5e028f0e2639f4c13f0122e",
+                "samples/ReconciliationChecks.cs": "f57aa556bc6f47449213411fdb19c072cf067e320d0d261ec34a8602ba1c5338"
+              },
+              "dependencies": [],
+              "workloads": [],
+              "nativeToolchains": [],
+              "host": "Microsoft Windows 10.0.26200 / X64",
+              "sdkInfo": ".NET SDK:\r\n Version:           11.0.100-rc.2.26504.105\r\n Commit:            820230c386\r\n Workload version:  11.0.100-manifests.4d7a54d2\r\n MSBuild version:   18.12.0-1.26504.105+820230c38\r\n\r\nRuntime Environment:\r\n OS Name:     Windows\r\n OS Version:  10.0.26200\r\n OS Platform: Windows\r\n RID:         win-x64\r\n Base Path:   C:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\r\n\r\n.NET workloads installed:\r\n [wasm-tools]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.100-rc.2.26504.105/11.0.100-rc.2\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-rc.2\\microsoft.net.workload.mono.toolchain.current\\11.0.100-rc.2.26504.105\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maui-windows]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    11.0.0-preview.6.26360.8/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maui\\11.0.0-preview.6.26360.8\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [maccatalyst]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.maccatalyst\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [ios]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    26.5.11720-net11-p6/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.ios\\26.5.11720-net11-p6\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\n [android]\r\n   Installation Source: VS 18.11.12306.390\r\n   Manifest Version:    37.0.0-preview.6.59/11.0.100-preview.6\r\n   Manifest Path:       C:\\Users\\pingu\\.dotnet-playbook-11\\sdk-manifests\\11.0.100-preview.6\\microsoft.net.sdk.android\\37.0.0-preview.6.59\\WorkloadManifest.json\r\n   Install Type:        FileBased\r\n\r\nConfigured to use workload sets when installing new manifests.\r\nNo workload sets are installed. Run \"dotnet workload restore\" to install a workload set.\r\n\r\nHost:\r\n  Version:      11.0.0-rc.2.26504.105\r\n  Architecture: x64\r\n  Commit:       820230c386\r\n\r\n.NET SDKs installed:\r\n  11.0.100-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\sdk]\r\n\r\n.NET runtimes installed:\r\n  Microsoft.AspNetCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.AspNetCore.App]\r\n  Microsoft.NETCore.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.NETCore.App]\r\n  Microsoft.WindowsDesktop.App 11.0.0-rc.2.26504.105 [C:\\Users\\pingu\\.dotnet-playbook-11\\shared\\Microsoft.WindowsDesktop.App]\r\n\r\nOther architectures found:\r\n  x86   [C:\\Program Files (x86)\\dotnet]\r\n    registered at [HKLM\\SOFTWARE\\dotnet\\Setup\\InstalledVersions\\x86\\InstallLocation]\r\n\r\nEnvironment variables:\r\n  DOTNET_ADD_GLOBAL_TOOLS_TO_PATH          [0]\r\n  DOTNET_CLI_USE_MSBUILD_SERVER            [0]\r\n\r\nglobal.json file:\r\n  V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\Reconciliation\\global.json\r\n\r\nLearn more:\r\n  https://aka.ms/dotnet/info\r\n\r\nDownload .NET:\r\n  https://aka.ms/dotnet/download",
+              "workloadInfo": "Workload version: 11.0.100-manifests.4d7a54d2\r\n\r\nInstalled Workload Id      Manifest Version                                 Installation Source\r\n-----------------------------------------------------------------------------------------------\r\nandroid                    37.0.0-preview.6.59/11.0.100-preview.6           VS 18.11.12306.390 \r\nios                        26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaccatalyst                26.5.11720-net11-p6/11.0.100-preview.6           VS 18.11.12306.390 \r\nmaui-windows               11.0.0-preview.6.26360.8/11.0.100-preview.6      VS 18.11.12306.390 \r\nwasm-tools                 11.0.100-rc.2.26504.105/11.0.100-rc.2            VS 18.11.12306.390 \r\n\r\nUse `dotnet workload search` to find additional workloads to install.",
+              "output": "Determining projects to restore...\r\n  All projects are up-to-date for restore.\r\nC:\\Users\\pingu\\.dotnet-playbook-11\\sdk\\11.0.100-rc.2.26504.105\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.RuntimeIdentifierInference.targets(385,5): message NETSDK1057: You are using a preview version of .NET. See: https://aka.ms/dotnet-support-policy [V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\Reconciliation\\Reconciliation.csproj]\r\n  Reconciliation -> V:\\_worktrees\\Playbook\\t3-16ef26d1\\samples\\net11.0\\Reconciliation\\bin\\Release\\net11.0\\Reconciliation.dll\r\n\r\nBuild succeeded.\r\n    0 Warning(s)\r\n    0 Error(s)\r\n\r\nTime Elapsed 00:00:01.66\nPASS reconciliation: unmatched sides, empty inputs and duplicate matches; .NET 11.0.0-rc.2.26504.105\r\nPASS Enumerable, Queryable (in-memory only) and AsyncEnumerable operators.",
+              "freshness": "current"
+            }
+          ],
+          "humanProof": {
+            "status": "not-required",
+            "scope": "Direct managed behavior and actual installed retrieval cover this bounded guidance; no native UI/device/provider Human action is needed."
+          },
+          "markdown": "# Reconcile records while preserving both unmatched sides\n\n## Goal\n\nReconcile the harbour's expected crate manifest against observed crates. Report matches, expected crates without observations and observations without expected crates, without silently dropping either unmatched side. Multiple rows sharing a code are retained as all matching pairs; enforcing unique keys is a separate domain rule.\n\n## Older approach\n\nUse a net10.0 / C# 14 console project, Nullable and ImplicitUsings enabled, namespace Playbook.Samples. These supporting declarations are complete and also work on .NET 11:\n\n```csharp\npublic sealed record ManifestLine(string Code, int Units);\npublic sealed record Difference(ManifestLine? Expected, ManifestLine? Observed);\n\npublic static partial class Manifests\n{\n    public static IEnumerable<Difference> KeepExpected(IEnumerable<ManifestLine> expected, IEnumerable<ManifestLine> observed) =>\n        expected.LeftJoin(observed, x => x.Code, x => x.Code,\n            (left, right) => new Difference(left, right), StringComparer.OrdinalIgnoreCase);\n\n    public static IEnumerable<Difference> KeepObserved(IEnumerable<ManifestLine> expected, IEnumerable<ManifestLine> observed) =>\n        expected.RightJoin(observed, x => x.Code, x => x.Code,\n            (left, right) => new Difference(left, right), StringComparer.OrdinalIgnoreCase);\n}\n```\n\nCompose the left report with right-only rows. Materialize each input once because this valid composition reuses both inputs; it is suitable for bounded manifests, not an endless feed.\n\n```csharp\npublic static partial class Manifests\n{\n    // Materialize once because this composition reads both inputs more than once.\n    public static IEnumerable<Difference> All(IEnumerable<ManifestLine> expected, IEnumerable<ManifestLine> observed)\n    {\n        ManifestLine[] left = expected.ToArray();\n        ManifestLine[] right = observed.ToArray();\n        return KeepExpected(left, right)\n            .Concat(KeepObserved(left, right).Where(row => row.Expected is null));\n    }\n}\n```\n\n## Newer approach\n\nTarget net11.0 / C# 15 and retain the supporting declarations above. Replace the older All method with this partial class. Framework Enumerable.FullJoin expresses the two-sided result directly:\n\n```csharp\npublic static partial class Manifests\n{\n    public static IEnumerable<Difference> All(IEnumerable<ManifestLine> expected, IEnumerable<ManifestLine> observed) =>\n        expected.FullJoin(observed, x => x.Code, x => x.Code,\n            (left, right) => new Difference(left, right), StringComparer.OrdinalIgnoreCase);\n}\n```\n\nA null Expected is an unexpected observation; a null Observed is a missing crate. Compare Units only after classifying the row. Do not replace a missing record with a zero-valued record, since zero can be legitimate data.\n\nWhen the next step wants the two records themselves, omit the result selector using the new tuple-returning overload:\n\n```csharp\npublic static partial class Manifests\n{\n    public static IEnumerable<(ManifestLine? Outer, ManifestLine? Inner)> Pairs(\n        IEnumerable<ManifestLine> expected, IEnumerable<ManifestLine> observed) =>\n        expected.FullJoin(observed, x => x.Code, x => x.Code, StringComparer.OrdinalIgnoreCase);\n}\n```\n\nThe pair names are Outer and Inner. The same selector-free pattern is available for Join, GroupJoin, LeftJoin and RightJoin in .NET 11 across Enumerable, Queryable and AsyncEnumerable. GroupJoin returns an outer row plus its matching group, rather than flattening pairs. Tuple convenience does not change the join's inclusion rules. .NET 10's existing selector overloads remain valid.\n\n## Migration\n\n1. Decide whether the report needs both unmatched sides. Keep LeftJoin/RightJoin for one-sided goals.\n2. Preserve non-null key validation, key selectors and the equality policy; this example uses OrdinalIgnoreCase.\n3. Replace All's composed joins with FullJoin. Do not union distinct rows: that can discard meaningful duplicates.\n4. Preserve both nullable sides in the result projection and test missing, unexpected, matched and empty-input results.\n5. Select the tuple overload only when its shape fits the next operation; keep an explicit projection for a domain-specific Difference.\n6. Bound the inputs and sort explicitly if a downstream report requires a particular order. Validate database translation separately.\n\n## Constraints\n\nFullJoin is introduced in the .NET 11 framework. Enumerable performs an in-memory join; Queryable builds an expression for a provider; AsyncEnumerable takes asynchronous inputs and has both synchronous and cancellation-aware ValueTask selector overloads. For the latter, pass the enumeration token with WithCancellation and honor the supplied token in asynchronous selectors. Async does not mean no buffering: this implementation builds an inner lookup before producing matched rows, so it is unsuitable for an unbounded inner feed. Cancellation remains cooperative.\n\nQueryable's FullJoin and tuple-returning contracts do not guarantee that an EF/provider version translates them. This recipe tests only EnumerableQuery, never a relational provider. Full outer join SQL support and comparer/tuple projection translation are separate provider/database requirements; no SQLite or blanket EF promise is made. Explicitly moving data into Enumerable changes execution location, memory use and query behavior.\n\nNo package, workload, rendering mode or experimental opt-in is required for this framework route. No .NET 10 FullJoin package route, trimming or Native AOT behavior is established. The recipe is stable API guidance prepared with .NET 11 RC2 evidence; final GA reconciliation is separate.\n\n## Evidence\n\nActual net10.0 and net11.0 projects build and execute on .NET 10.0.13 and .NET 11.0.0-rc.2.26504.105. Checks retain both unmatched sides, four duplicate-key matches and empty-input results. The .NET 11 checks compile and execute FullJoin and every tuple join family for Enumerable, in-memory Queryable and AsyncEnumerable, plus cancellation-aware selectors and canceled enumeration. Those checks establish operator availability and managed results, not provider translation, every overload, cross-compilation or AOT execution. Existing immutable source/asset audit records identify the framework contracts. Real installed stdio retrieval verifies full Markdown, edition 11.0 and target-specific applicability offline. No mocks or required Human proof are used.\n"
+        }
+      }
+    },
+    "error": null,
+    "status": "completed"
+  }
+]

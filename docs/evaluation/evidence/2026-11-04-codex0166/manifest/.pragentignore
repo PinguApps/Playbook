@@ -1,0 +1,5 @@
+# CLI-owned captures duplicate tool responses and source patches. Parent inspected
+# actual calls/failures; Verify.ps1 checks hashes, context/order and preflight.
+# Source, configs, consultation projection and assessment remain reviewable.
+/*/scored-*.jsonl
+/*/preflight-*.jsonl

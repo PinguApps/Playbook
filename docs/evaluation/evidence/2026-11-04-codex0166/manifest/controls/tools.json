@@ -1,0 +1,9 @@
+{
+  "cli": "C:\\Users\\pingu\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe",
+  "sdk": "C:\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe",
+  "host": "C:\\Program Files\\dotnet\\dotnet.exe",
+  "assembly": "V:\\_worktrees\\Playbook\\t3-02322dc8\\artifacts\\pin954\\server\\tools\\net10.0\\any\\PinguApps.Playbook.dll",
+  "package": "V:\\_worktrees\\Playbook\\t3-02322dc8\\docs\\evaluation\\evidence\\2026-11-04-codex0166\\controls\\PinguApps.Playbook.0.1.0-pin950.nupkg",
+  "scaffold": "6d53662cdba54551a74b3ade063c49009c63561c",
+  "root": "C:\\Users\\pingu\\AppData\\Local\\Temp\\playbook-manifest-20261104"
+}
