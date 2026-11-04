@@ -54,6 +54,24 @@ and recheck actual discovery/applicability for all four tasks before freezing it
 
 ## Order and isolation
 
+### PIN-952 relocation amendment
+
+Pingu authorized accepting a verified relocation of identical SDK assets after
+the PIN-952 with-condition launch and before its without-condition launch.
+The original preparation directories had been removed. All 5,467 files from the
+SDK ZIP identified above match the installed files byte for byte under
+`C:\Users\pingu\AppData\Local\dotnetup\dotnet`; the ZIP's SHA-512 also matches.
+The exact-hash retained Playbook package was extracted without rebuilding.
+Actual relocated SDK/server paths, configurations and identity receipts are
+retained in the reservation evidence. Additional installed SDK versions are not
+selected by the scaffold's exact global.json pin.
+
+This amendment accepts the recorded relocation for this pair. It does not
+authorize a replacement run, change the model or inputs, or remove the requirement
+to disclose the post-launch amendment. The original with attempt remains the
+sole scored with attempt. Both reservation conditions use the same relocated
+configuration and passed their MXC preflights before either scored launch.
+
 | Runs | Task/export subtree | First | Second |
 | --- | --- | --- | --- |
 | 1–2 | C# outcomes: samples/OutcomeEvaluation | without | with |
