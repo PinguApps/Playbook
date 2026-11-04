@@ -65,9 +65,9 @@ sealed class ParcelContext(DbContextOptions<ParcelContext> options) : DbContext(
 #pragma warning disable CS0618
         parcel.Metadata.SetPartitionKeyPropertyName(nameof(Parcel.Depot));
 #pragma warning restore CS0618
-#else
-        parcel.Metadata.SetPartitionKeyPropertyNames(new[] { nameof(Parcel.Depot) });
 #endif
+        // The plural setter is already supported before upgrading; preserve the same key.
+        parcel.Metadata.SetPartitionKeyPropertyNames(new[] { nameof(Parcel.Depot) });
     }
 }
 sealed class Parcel

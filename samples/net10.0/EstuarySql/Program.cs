@@ -6,10 +6,11 @@ var connection = Environment.GetEnvironmentVariable("PLAYBOOK_SQL_CONNECTION_STR
     ?? throw new InvalidOperationException("Use the approved SqlServer.ps1 Run route.");
 foreach (var legacy in new[] { true, false })
 {
+    var route = "UseAzureSql";
     var builder = new DbContextOptionsBuilder<DispatchContext>();
 #if NET10_0
 #pragma warning disable CS0618 // Deliberate before-upgrade comparison only.
-    if (legacy) builder.UseSqlServer(connection, sql => sql.UseAzureSqlDefaults());
+    if (legacy) { builder.UseSqlServer(connection, sql => sql.UseAzureSqlDefaults()); route = "UseAzureSqlDefaults"; }
     else
 #endif
         builder.UseAzureSql(connection);
@@ -27,7 +28,7 @@ foreach (var legacy in new[] { true, false })
         throw new InvalidOperationException("Round-trip failed.");
     var compatibility = await fresh.Database.SqlQueryRaw<int>("SELECT CAST(compatibility_level AS int) AS [Value] FROM sys.databases WHERE name = DB_NAME()").SingleAsync();
     if (compatibility != 170) throw new InvalidOperationException("Expected server compatibility 170.");
-    Console.WriteLine($"PASS SQL legacy={legacy}; {context.Database.ProviderName}; server compatibility={compatibility}; retries={retry.MaxRetryCount}; delay={retry.MaxRetryDelay}; insert/fresh query");
+    Console.WriteLine($"PASS SQL route={route}; {context.Database.ProviderName}; server compatibility={compatibility}; retries={retry.MaxRetryCount}; delay={retry.MaxRetryDelay}; insert/fresh query");
 }
 sealed class DispatchContext(DbContextOptions<DispatchContext> options) : DbContext(options) { public DbSet<Dispatch> Dispatches => Set<Dispatch>(); protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.Entity<Dispatch>().Property(x => x.Id).ValueGeneratedNever(); }
 sealed class Dispatch { public int Id { get; set; } public string Destination { get; set; } = ""; }

@@ -1,8 +1,15 @@
 #Requires -Version 7.3
 [CmdletBinding()]
-param([switch]$Record)
+param(
+    [switch]$Record,
+    [string]$Dotnet10 = 'C:\Program Files\dotnet\dotnet.exe',
+    [string]$Dotnet11 = 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe'
+)
 $ErrorActionPreference = 'Stop'
 $PSNativeCommandUseErrorActionPreference = $true
+foreach ($executable in $Dotnet10,$Dotnet11) {
+    if (-not [IO.Path]::IsPathFullyQualified($executable) -or -not (Test-Path -LiteralPath $executable -PathType Leaf)) { throw 'Supply existing absolute -Dotnet10 and -Dotnet11 executable paths.' }
+}
 $root = Split-Path $PSScriptRoot -Parent
 $before = @{}
 foreach ($scope in 'Process','User','Machine') { $before[$scope] = [Environment]::GetEnvironmentVariable('PATH',$scope) }
@@ -16,7 +23,7 @@ try {
     & "$PSScriptRoot/Cosmos.ps1" -Action New -Database $sharedDatabase
     $cosmosDatabase = $sharedDatabase
     foreach ($release in '10','11') {
-        $dotnet = if ($release -eq '10') { 'C:\Program Files\dotnet\dotnet.exe' } else { 'C:\Users\pingu\.dotnet-playbook-11\dotnet.exe' }
+        $dotnet = if ($release -eq '10') { $Dotnet10 } else { $Dotnet11 }
         foreach ($name in 'EstuarySql','EstuaryParcels') {
             $sample = "samples/net$release.0/$name/$name.csproj"
             $directory = Split-Path (Join-Path $root $sample)

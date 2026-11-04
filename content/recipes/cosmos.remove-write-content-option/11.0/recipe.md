@@ -82,8 +82,8 @@ The EF11 comparison uses the supported metadata/configuration route. The obsolet
 
 ## Migration
 
-1. Record the existing provider configuration, partition property names/order and stored document identities.
-2. Apply the supported replacement described above; preserve explicit settings and the original stored key.
+1. Locate each ContentResponseOnWriteEnabled call and record its configured value, saved document values and ETags.
+2. Remove that option call while preserving the remaining provider configuration, document identity and ETag concurrency mapping.
 3. Run both pinned consumers on isolated data. Compare fresh reads, updates and the negative controls before accepting the change.
 4. Remove obsolete comparison controls from application code. Verify your actual provider and authentication route; reconcile GA packages separately.
 

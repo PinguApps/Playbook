@@ -66,8 +66,8 @@ UseAzureSql selects the supported entry point.
 
 ## Migration
 
-1. Record the existing provider configuration, partition property names/order and stored document identities.
-2. Apply the supported replacement described above; preserve explicit settings and the original stored key.
+1. Record the existing UseSqlServer/UseAzureSql configuration, connection/database, explicit retry and compatibility overrides, and table rows to compare.
+2. Replace the defaults helper with UseAzureSql, preserving the connection and intentional retry/compatibility overrides.
 3. Run both pinned consumers on isolated data. Compare fresh reads, updates and the negative controls before accepting the change.
 4. Remove obsolete comparison controls from application code. Verify your actual provider and authentication route; reconcile GA packages separately.
 
@@ -79,7 +79,7 @@ EF10 UseSqlServer(..., sql => sql.UseAzureSqlDefaults()) is replaced by UseAzure
 
 ## Evidence
 
-The sample-evidence workflow captures each exact locked graph, SDK/runtime, inputs and fresh compilation separately from real provider execution. Run `eng/Test-EstuaryProviders.ps1 -Record`. SQL checks insert and query through fresh contexts and inspect retry defaults. Cosmos checks enabled/disabled/omitted options, partition names, persisted values, ETag refresh, stale-write rejection and wrong-partition exclusion. The installed local package is inspected with real stdio list/get from an unrelated directory. PIN-959 comprehensive readiness and PIN-965 GA reconciliation remain open.
+The sample-evidence workflow captures each exact locked graph, SDK/runtime, inputs and fresh compilation separately from real provider execution. Run `eng/Test-EstuaryProviders.ps1 -Record`. SQL checks insert and query through fresh contexts and inspect retry defaults. The sibling Cosmos recipes own their separate document and concurrency checks. The installed local package is inspected with real stdio list/get from an unrelated directory. PIN-959 comprehensive readiness and PIN-965 GA reconciliation remain open.
 
 ## References
 
