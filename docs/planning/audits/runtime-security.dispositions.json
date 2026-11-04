@@ -40,8 +40,8 @@
     {
       "id": "provider-keys",
       "pattern": "^\\w+ System\\.Security\\.Cryptography\\.(SafeEvpPKeyHandle|CngProperty)",
-      "disposition": "proposed",
-      "owner": "R15"
+      "disposition": "delivered",
+      "owner": "PIN-1101; crypto.configure-provider-backed-keys"
     },
     {
       "id": "crypto-keysize",
@@ -94,8 +94,8 @@
     {
       "id": "sync-http-platforms",
       "pattern": "^method System\\.Net\\.Http\\.(HttpClient|HttpClientHandler|HttpMessageInvoker)::Send ",
-      "disposition": "proposed",
-      "owner": "R20"
+      "disposition": "delivered",
+      "owner": "PIN-1106; http.replace-mobile-synchronous-sends; native checks not-tested under PIN-699"
     },
     {
       "id": "http-capacity-compression",

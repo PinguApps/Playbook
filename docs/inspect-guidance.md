@@ -3763,3 +3763,42 @@ ID/title/goal, complete canonical Markdown, applicability and fresh evidence.
 Target11 selects edition11; target10 has no applicable edition. Proxy independence
 is not OS network isolation. These are actual RC2 SQL/CLI checks, not PMC or GA
 proof; PIN-957/PIN-965 and existing Human gates remain open.
+
+## Provider-backed keys and mobile HTTP sends
+
+Requires PowerShell 7, the existing pinned .NET10 SDK/runtime and isolated .NET11
+RC2 installation, Node24 and Docker Desktop's Linux engine with the SDK10.0.402
+image pinned by eng/Test-ProviderRequests.ps1 already available locally. The runner
+fetches immutable official sources and the exact RC2 Linux runtime archive,
+verifying its pinned Microsoft SHA512 before extraction. It
+uses network-none disposable containers and removes their generated private keys.
+No HSM/FIPS provider or native mobile toolchain is assumed.
+
+From any starting directory:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-23c9a8a3'
+& ./eng/Test-ProviderRequests.ps1 -Record
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('crypto.configure-provider-backed-keys','http.replace-mobile-synchronous-sends') `
+  -Query 'provider-requests' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1101-1106' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/provider-keys/inspection'
+```
+
+Expect paired OpenSSL sign/verify/tamper, missing provider/key, ownership/disposal,
+.NET11 ordered lists/property-query success/rejection, Windows CNG property-copy
+checks and real desktop HTTP success/status/transport/cancellation checks to pass.
+The synthetic Android call-site emits CA1416 only on .NET11; this is not a mobile
+target build. Actual Android/iOS/tvOS native builds, handlers, device execution
+and UI responsiveness remain explicitly not-tested under PIN-699.
+
+Inspector builds/packs the ordinary tool, installs that exact package through an
+isolated local feed/cache and calls real stdio list/get from an unrelated directory.
+It prints discovery ID/title/goal, complete canonical Markdown, applicability and
+fresh evidence, selecting target11/edition11. Target10 has no applicable edition.
+Unusable proxies verify proxy independence, not OS network isolation. These are
+actual RC2/default/base and Windows desktop observations, not HSM/FIPS/mobile/GA
+verification. PIN-959 and PIN-962 remain open; the eight .NET10 foundations stay.

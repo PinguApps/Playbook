@@ -1,0 +1,13 @@
+{
+  "dependencies": [],
+  "additionalInputs": [
+    "samples/ProviderKeys/ProviderChecks.cs",
+    "samples/NetworkBuffers/RuntimeIdentity.cs",
+    "eng/Test-ProviderRequests.ps1",
+    "samples/ProviderKeys/sources.json",
+    "docs/planning/audits/runtime-security.assets.json"
+  ],
+  "nativeToolchains": [],
+  "workloads": [],
+  "buildArguments": []
+}
