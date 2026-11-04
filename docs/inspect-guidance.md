@@ -4059,3 +4059,33 @@ Target10 returns no_applicable_edition. Unusable retrieval proxies prove embedde
 offline retrieval, not OS network isolation. No active-query cancellation, query
 plan/performance, Cosmos, arbitrary provider/platform or actual GA proof follows;
 PIN-959/PIN-965 and the eight foundations remain unchanged.
+
+## Provider configuration and Cosmos identity
+
+PIN-1196–1198 compare original EstuarySql/EstuaryParcels EF10/EF11 consumers.
+PowerShell7, both pinned SDKs, Node22.19+, NuGet access and approved Docker
+routes are required. Execute the focused database checks with
+`eng/Test-EstuaryProviders.ps1 -Record`; owned unique databases are removed.
+Leave shared SQL running while other authors use it; stop the empty Cosmos
+emulator with `eng/Cosmos.ps1 -Action Stop` when finished.
+
+From an unrelated directory, select this exact worktree and inspect the ordinary
+packed/installed tool through real stdio. Nothing is published:
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-62cd123b'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('sql.migrate-azure-provider-configuration','cosmos.migrate-partition-metadata','cosmos.remove-write-content-option') `
+  -Query 'estuary-providers' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1196-1198' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/estuary/inspection'
+```
+
+Expect all three IDs/titles/goals, complete canonical Markdown, edition11,
+applicability and fresh compilation/execution evidence; target10 has no applicable
+edition. Local SQL2025 configuration/query proof excludes Azure service behaviour.
+Cosmos proof is the approved legacy emulator, not cloud parity. Unusable retrieval
+proxies prove proxy independence rather than OS network isolation. GA and
+comprehensive-readiness gates remain outstanding.

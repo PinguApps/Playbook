@@ -1,0 +1,231 @@
+{
+  "id": "cosmos.remove-write-content-option",
+  "edition": "11.0",
+  "title": "Remove ineffective EF write-content configuration",
+  "goal": "Remove obsolete EF Cosmos write-content configuration while preserving saved values and concurrency protection.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "estuary-providers",
+    "migration",
+    "cosmos"
+  ],
+  "apis": [
+    "ContentResponseOnWriteEnabled"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/providers/cosmos/modeling",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+        ],
+        "selectionNotes": [
+          "Remove the ContentResponseOnWriteEnabled call from EF configuration. The comparison deliberately retains enabled, disabled and omitted controls; null here means omit the call, not pass null to the bool parameter. The current option is obsolete; its nullable internal setting is not a new public nullable parameter. Saved values, refreshed ETags and stale-write rejection must still work. The direct Cosmos SDK has its own response options: this recipe makes no SDK-wide network, CPU, RU or performance claim."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer; no ASP.NET Core requirement"
+          ],
+          "packages": [
+            {
+              "name": "Microsoft.EntityFrameworkCore.Cosmos",
+              "version": "11.0",
+              "match": "release-family",
+              "reason": "Matching EF11 provider and net11.0 consumer; exact RC2 graph locked."
+            }
+          ],
+          "packageAssets": [
+            "SDK10.0.402 / C#14 / EF10.0.13 versus SDK11.0.100-rc.2.26504.105 / C#15 / EF11.0.0-rc.2.26504.105. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC2 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. Cosmos SDK3.63.1 and Newtonsoft.Json13.0.4 explicitly pinned in both graphs. Legacy Linux emulator2.14.28.0 uses pinned HTTPS gateway transport on Windows x64. The public local emulator key is not production authentication. Data lasts only for the running emulator session; no restart/cloud durability claim."
+          ],
+          "providers": [
+            "Legacy Linux Cosmos emulator2.14.28.0; gateway"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Windows x64 authoring machine with approved Linux Docker provider route; other platforms untested."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database model; no browser or rendering mode"
+          ],
+          "constraints": [
+            "Remove the ContentResponseOnWriteEnabled call from EF configuration. The comparison deliberately retains enabled, disabled and omitted controls; null here means omit the call, not pass null to the bool parameter. The current option is obsolete; its nullable internal setting is not a new public nullable parameter. Saved values, refreshed ETags and stale-write rejection must still work. The direct Cosmos SDK has its own response options: this recipe makes no SDK-wide network, CPU, RU or performance claim.",
+            "SDK10.0.402 / C#14 / EF10.0.13 versus SDK11.0.100-rc.2.26504.105 / C#15 / EF11.0.0-rc.2.26504.105. Both EF consumers select net10.0 versus net11.0 assets. No EF11 on an older runtime or extra .NET10 foundation is offered. RC2 evidence is not actual GA proof. No workload, rendering mode or experimental opt-in applies. Cosmos SDK3.63.1 and Newtonsoft.Json13.0.4 explicitly pinned in both graphs. Legacy Linux emulator2.14.28.0 uses pinned HTTPS gateway transport on Windows x64. The public local emulator key is not production authentication. Data lasts only for the running emulator session; no restart/cloud durability claim."
+          ],
+          "prerequisites": [
+            "PowerShell7, both pinned SDKs, NuGet restore and running approved Docker routes. Run eng/Test-EstuaryProviders.ps1; unique databases are removed in finally. Copy the complete independent project for each release. Never print injected credentials."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "GA-targeted guidance measured on RC2; PIN-965 owns actual GA reconciliation."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/EstuaryParcels/EstuaryParcels.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF provider contract",
+      "url": "https://learn.microsoft.com/en-us/ef/core/providers/cosmos/modeling"
+    },
+    {
+      "title": "Official EF provider contract",
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/breaking-changes"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/EstuaryParcels/EstuaryParcels.csproj",
+      "kind": "compile",
+      "scope": "Run eng/Test-EstuaryProviders.ps1 -Record. Fresh compilation and real isolated provider checks; saved behavior.evidence.json includes actual outcomes. Installed ordinary tool retrieval separately proves offline discovery and complete canonical body. No Azure cloud, Entra, other-platform or actual GA proof.",
+      "sdk": "10.0.402",
+      "target": "net10.0"
+    },
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/EstuaryParcels/EstuaryParcels.csproj",
+      "kind": "execution",
+      "scope": "Run eng/Test-EstuaryProviders.ps1 -Record. Fresh compilation and real isolated provider checks; saved behavior.evidence.json includes actual outcomes. Installed ordinary tool retrieval separately proves offline discovery and complete canonical body. No Azure cloud, Entra, other-platform or actual GA proof.",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "record": "samples/net10.0/EstuaryParcels/behavior.evidence.json"
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/EstuaryParcels/EstuaryParcels.csproj",
+      "kind": "compile",
+      "scope": "Run eng/Test-EstuaryProviders.ps1 -Record. Fresh compilation and real isolated provider checks; saved behavior.evidence.json includes actual outcomes. Installed ordinary tool retrieval separately proves offline discovery and complete canonical body. No Azure cloud, Entra, other-platform or actual GA proof.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0"
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/EstuaryParcels/EstuaryParcels.csproj",
+      "kind": "execution",
+      "scope": "Run eng/Test-EstuaryProviders.ps1 -Record. Fresh compilation and real isolated provider checks; saved behavior.evidence.json includes actual outcomes. Installed ordinary tool retrieval separately proves offline discovery and complete canonical body. No Azure cloud, Entra, other-platform or actual GA proof.",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "record": "samples/net11.0/EstuaryParcels/behavior.evidence.json"
+    }
+  ],
+  "snippets": {
+    "n10-global-json": {
+      "path": "samples/net10.0/EstuaryParcels/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/EstuaryParcels/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/EstuaryParcels/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/EstuaryParcels/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-estuaryparcels-csproj": {
+      "path": "samples/net10.0/EstuaryParcels/EstuaryParcels.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/EstuaryParcels/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-emulatortransport-cs": {
+      "path": "samples/net10.0/EstuaryParcels/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n10-diagnosticprobe-cs": {
+      "path": "samples/net10.0/EstuaryParcels/DiagnosticProbe.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/EstuaryParcels/global.json",
+      "region": "complete",
+      "language": "json"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/EstuaryParcels/Directory.Build.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/EstuaryParcels/Directory.Build.targets",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/EstuaryParcels/Directory.Packages.props",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-estuaryparcels-csproj": {
+      "path": "samples/net11.0/EstuaryParcels/EstuaryParcels.csproj",
+      "region": "complete",
+      "language": "xml"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/EstuaryParcels/Program.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-emulatortransport-cs": {
+      "path": "samples/net11.0/EstuaryParcels/EmulatorTransport.cs",
+      "region": "complete",
+      "language": "csharp"
+    },
+    "n11-diagnosticprobe-cs": {
+      "path": "samples/net11.0/EstuaryParcels/DiagnosticProbe.cs",
+      "region": "complete",
+      "language": "csharp"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Approved local SQL2025 configuration/query and legacy Cosmos emulator checks; Azure service behaviour explicitly excluded by Pingu. No actual GA proof."
+  }
+}

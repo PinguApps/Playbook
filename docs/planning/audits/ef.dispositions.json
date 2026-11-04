@@ -60,23 +60,23 @@
     {
       "id": "azure-defaults",
       "pattern": "::UseAzureSqlDefaults\\b",
-      "disposition": "proposed",
-      "owner": "E8",
-      "reason": "Removed helper is replaced with UseAzureSql rather than silently changing provider assumptions."
+      "disposition": "delivered",
+      "owner": "PIN-1196",
+      "reason": "sql.migrate-azure-provider-configuration/11.0: EstuarySql EF10/11 consumers verify the supported UseAzureSql replacement, retry defaults and insert/fresh-query results on approved local SQL2025 compatibility170. Azure service behaviour is explicitly excluded by Pingu; actual GA and comprehensive readiness remain separate."
     },
     {
       "id": "cosmos-partition-api",
       "pattern": "Cosmos.*::(?:CanSetPartitionKey|HasPartitionKey|GetPartitionKeyProperty|GetPartitionKeyPropertyName|GetPartitionKeyPropertyNameConfigurationSource|SetPartitionKeyPropertyName)\\b",
-      "disposition": "proposed",
-      "owner": "E9",
-      "reason": "Removed singular partition metadata/configuration; preserve existing stored partition keys."
+      "disposition": "delivered",
+      "owner": "PIN-1197",
+      "reason": "cosmos.migrate-partition-metadata/11.0: EstuaryParcels compiles singular and plural setters on EF10 and plural metadata on EF11. The approved legacy Cosmos emulator verifies EF11 reads/updates EF10-seeded documents with the same Depot key and excludes a wrong partition. No repartitioning/cloud parity; GA and comprehensive readiness remain separate."
     },
     {
       "id": "cosmos-content-response",
       "pattern": "CosmosDbContextOptionsBuilder::ContentResponseOnWriteEnabled",
-      "disposition": "proposed",
-      "owner": "E10",
-      "reason": "New obsolete warning and nullable/default contract; remove ineffectual configuration without promising SDK-wide behavior."
+      "disposition": "delivered",
+      "owner": "PIN-1198",
+      "reason": "cosmos.remove-write-content-option/11.0: EstuaryParcels EF10/11 legacy Cosmos emulator checks enabled/disabled/omitted writes, reload, ETag refresh and stale-write rejection. Compiler controls cover EF11 obsoletion and public bool/null rejection. No direct-SDK performance claim; GA and comprehensive readiness remain separate."
     },
     {
       "id": "generic-mapping",

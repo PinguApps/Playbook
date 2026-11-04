@@ -668,3 +668,14 @@
 /samples/net10.0/AlderQueries/behavior.evidence.json
 /samples/net11.0/AlderQueries/verification-evidence.json
 /samples/net11.0/AlderQueries/behavior.evidence.json
+
+# Test-EstuaryProviders/Record-Evidence generated receipts; original consumers,
+# locked graphs, assertions and recorder remain reviewable; build checks freshness.
+/samples/net10.0/EstuarySql/verification-evidence.json
+/samples/net10.0/EstuarySql/behavior.evidence.json
+/samples/net11.0/EstuarySql/verification-evidence.json
+/samples/net11.0/EstuarySql/behavior.evidence.json
+/samples/net10.0/EstuaryParcels/verification-evidence.json
+/samples/net10.0/EstuaryParcels/behavior.evidence.json
+/samples/net11.0/EstuaryParcels/verification-evidence.json
+/samples/net11.0/EstuaryParcels/behavior.evidence.json
