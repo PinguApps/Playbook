@@ -34,3 +34,9 @@ records live beside MuseumCaptions, ObservatoryLog and HarbourTls. Use
 `eng/Record-AgentStateGuidance.ps1` to refresh those records, and the ordinary
 installed-tool [Inspector procedure](../../inspect-guidance.md) to inspect delivery.
 No new native/client/OS matrix is planned.
+
+Pingu also authorized documentation-based E25 delivery on 5 November 2026:
+[Preserve missing non-entity join results](../../../content/recipes/ef.materialize-missing-projection/11.0/recipe.md).
+The paired Plover consumers compile and reproduce RC failures; the explicit marker
+works. Direct DTO/anonymous/nullable and default struct semantics need final-package
+qualification. This is an intentional deferred behavior boundary, not GA proof.

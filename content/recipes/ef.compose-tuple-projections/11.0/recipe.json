@@ -1,0 +1,203 @@
+{
+  "id": "ef.compose-tuple-projections",
+  "edition": "11.0",
+  "title": "Compose database queries over tuple-valued projections",
+  "goal": "Keep tuple constructor keys usable in later grouping, filtering and joins; retain anonymous keys on EF10.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "plover-guidance"
+  ],
+  "apis": [
+    "ValueTuple",
+    "Tuple",
+    "Queryable.GroupBy",
+    "Queryable.Join"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying",
+          "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
+        ],
+        "selectionNotes": [
+          "Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "SDK11 RC3 compiles the independently locked EF11 RC3 graph; source-audit RC2 and actual GA remain separate."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current C#15 mode; no preview language opt-in."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "reason": "Pinned RC3 graph; RC2 also probed, not final GA proof.",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "match": "release-family"
+            }
+          ],
+          "packageAssets": [
+            "Audit SDK10.0.402/11 RC2 pins remain historical. Consumers use SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/C#15. EF10.0.13 selects net10.0, EF11 selects net11.0. Direct Data.Sqlite.Core10 selects net8.0; version11 selects net10.0. No EF11-on-net10 route. Exact restored graphs are locked separately."
+          ],
+          "providers": [
+            "Windows x64 SQLite3.53.3/3.53.4 via actual bundled e_sqlite3 native assets. No InMemory or mock evidence."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed Windows x64 only; other platforms and GA unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded."
+          ],
+          "prerequisites": [
+            "Restore with each local global.json pin. Use PowerShell7.3+. No production resources or persistent environment changes."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/PloverQueries/PloverQueries.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF11 intended behavior"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying",
+      "title": "EF migrations deployment"
+    },
+    {
+      "url": "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md",
+      "title": "Bounded E24/E25/E26 source audit"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.403",
+      "target": "net10.0",
+      "kind": "compile-and-run",
+      "language": "14.0",
+      "sample": "samples/net10.0/PloverQueries/PloverQueries.csproj",
+      "scope": "Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded."
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "target": "net11.0",
+      "kind": "compile-and-run",
+      "language": "15.0",
+      "sample": "samples/net11.0/PloverQueries/PloverQueries.csproj",
+      "scope": "Actual SQLite execution: ValueTuple/Tuple grouped keys, ValueTuple joined key, one-element arity and nested Rest. EF10 rejects these shapes; anonymous grouped key works. Arbitrary record constructors, all tuple arities, other providers and GA are excluded."
+    }
+  ],
+  "snippets": {
+    "n11-program-cs": {
+      "path": "samples/net11.0/PloverQueries/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/PloverQueries/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-ploverqueries-csproj": {
+      "path": "samples/net11.0/PloverQueries/PloverQueries.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-ploverqueries-csproj": {
+      "path": "samples/net10.0/PloverQueries/PloverQueries.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/PloverQueries/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/PloverQueries/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/PloverQueries/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/PloverQueries/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/PloverQueries/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-finalprojection-cs": {
+      "path": "samples/net11.0/PloverQueries/FinalProjection.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/PloverQueries/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/PloverQueries/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/PloverQueries/global.json",
+      "language": "json",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable disposable SQLite consumers; no new Human gate."
+  }
+}

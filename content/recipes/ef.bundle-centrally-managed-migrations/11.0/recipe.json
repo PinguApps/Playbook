@@ -1,0 +1,229 @@
+{
+  "id": "ef.bundle-centrally-managed-migrations",
+  "edition": "11.0",
+  "title": "Produce a migration bundle with central package management",
+  "goal": "Build and execute a migration bundle with centrally managed application packages; inspect the temporary project and retain an EF10 workaround.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "plover-guidance"
+  ],
+  "apis": [
+    "dotnet-ef migrations bundle",
+    "ManagePackageVersionsCentrally"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+          "https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying",
+          "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md"
+        ],
+        "selectionNotes": [
+          "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Current SDK11 RC3 compiles the locked EF11 RC2 graph; not GA evidence."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current C#15 mode; no preview language opt-in."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "reason": "Pinned RC2 graph with matching Design and dotnet-ef.",
+              "version": "11.0",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "match": "release-family"
+            }
+          ],
+          "packageAssets": [
+            "Audit SDK10.0.402/11 RC2 pins remain historical. Consumers use SDK10.0.403/C#14 and SDK11.0.100-rc.3.26522.148/C#15. EF10.0.13 selects net10.0, EF11 selects net11.0. Direct Data.Sqlite.Core10 selects net8.0; version11 selects net10.0. No EF11-on-net10 route. Exact restored graphs are locked separately."
+          ],
+          "providers": [
+            "Windows x64 SQLite3.53.3/3.53.4 via actual bundled e_sqlite3 native assets. No InMemory or mock evidence."
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed Windows x64 only; other platforms and GA unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+          ],
+          "prerequisites": [
+            "Restore with each local global.json pin. Use PowerShell7.3+. No production resources or persistent environment changes."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/PloverBundle/PloverBundle.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "Official EF11 intended behavior"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying",
+      "title": "EF migrations deployment"
+    },
+    {
+      "url": "https://github.com/PinguApps/Playbook/blob/a7fd46cd658708c25a7e0d032735760c3fe6d63f/docs/planning/audits/ef.md",
+      "title": "Bounded E24/E25/E26 source audit"
+    }
+  ],
+  "evidence": [
+    {
+      "sdk": "10.0.403",
+      "target": "net10.0",
+      "kind": "compile",
+      "language": "14.0",
+      "sample": "samples/net10.0/PloverBundle/PloverBundle.csproj",
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "target": "net11.0",
+      "kind": "compile",
+      "language": "15.0",
+      "sample": "samples/net11.0/PloverBundle/PloverBundle.csproj",
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+    },
+    {
+      "sdk": "10.0.403",
+      "target": "net10.0",
+      "kind": "execution",
+      "language": "14.0",
+      "record": "samples/net10.0/PloverBundle/behavior.evidence.json",
+      "sample": "samples/net10.0/PloverBundle/PloverBundle.csproj",
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+    },
+    {
+      "sdk": "11.0.100-rc.3.26522.148",
+      "target": "net11.0",
+      "kind": "execution",
+      "language": "15.0",
+      "record": "samples/net11.0/PloverBundle/behavior.evidence.json",
+      "sample": "samples/net11.0/PloverBundle/PloverBundle.csproj",
+      "scope": "Real Windows x64 framework-dependent SQLite migration bundles; matching Design/tool versions, inherited CPM and non-CPM control. SDK10.0.403 / EF10.0.13 versus SDK11 RC3 / EF11 RC2. No self-contained, NativeAOT, multi-context, encrypted provider, other-platform or GA claim."
+    }
+  ],
+  "snippets": {
+    "n11-ploverbundle-csproj": {
+      "path": "samples/net11.0/PloverBundle/PloverBundle.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-directory-packages-props": {
+      "path": "samples/net10.0/PloverBundle/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-program-cs": {
+      "path": "samples/net11.0/PloverBundle/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-directory-build-props": {
+      "path": "samples/net10.0/PloverBundle/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-program-cs": {
+      "path": "samples/net10.0/PloverBundle/Program.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-ploverbundle-csproj": {
+      "path": "samples/net10.0/PloverBundle/PloverBundle.csproj",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-migrations-surveycontextmodelsnapshot-cs": {
+      "path": "samples/net10.0/PloverBundle/Migrations/SurveyContextModelSnapshot.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-directory-build-targets": {
+      "path": "samples/net10.0/PloverBundle/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-targets": {
+      "path": "samples/net11.0/PloverBundle/Directory.Build.targets",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-global-json": {
+      "path": "samples/net11.0/PloverBundle/global.json",
+      "language": "json",
+      "region": "complete"
+    },
+    "n10-migrations-20261105214826-initial-cs": {
+      "path": "samples/net10.0/PloverBundle/Migrations/20261105214826_Initial.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n11-directory-packages-props": {
+      "path": "samples/net11.0/PloverBundle/Directory.Packages.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n11-directory-build-props": {
+      "path": "samples/net11.0/PloverBundle/Directory.Build.props",
+      "language": "xml",
+      "region": "complete"
+    },
+    "n10-migrations-20261105214826-initial-designer-cs": {
+      "path": "samples/net10.0/PloverBundle/Migrations/20261105214826_Initial.Designer.cs",
+      "language": "csharp",
+      "region": "complete"
+    },
+    "n10-global-json": {
+      "path": "samples/net10.0/PloverBundle/global.json",
+      "language": "json",
+      "region": "complete"
+    }
+  },
+  "humanProof": {
+    "status": "not-required",
+    "scope": "Agent-executable disposable SQLite consumers; no new Human gate."
+  }
+}
