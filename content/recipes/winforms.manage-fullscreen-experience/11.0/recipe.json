@@ -113,14 +113,14 @@
       "sdk": "11.0.100-rc.3.26522.148",
       "kind": "compile-and-run",
       "target": "net11.0-windows",
-      "scope": "Actual RC3 child-container resolution, normal restoration and maximized restoration on disposal. The retained owner-session.evidence.json records the earlier RC2 UI and elevated idle-request observations; those owner checks still need refreshing on RC3.",
+      "scope": "Actual RC3 child-container resolution, normal restoration and maximized restoration on disposal. Pingu also verified normal/maximized F11/Escape transitions and elevated display/system request creation/removal on RC3 in owner-session.evidence.json.",
       "language": "15.0",
       "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj"
     }
   ],
   "humanProof": {
-    "status": "pending",
-    "scope": "RC3 automated native restoration passed. The historical PIN-898 RC2 owner session remains in samples/net11.0/FenPresentation/owner-session.evidence.json, but does not establish RC3 UI transitions or display/system idle request creation/removal. Refresh requires Pingu's elevated powercfg observer and visible F11/Escape check. No timed sleep/screensaver or policy override claim."
+    "status": "verified",
+    "scope": "Pingu refreshed the actual RC3 owner session on 5 November 2026: normal/maximized F11/Escape transitions passed, process exited 0, and elevated powercfg observed the named display/system idle request absent before, present while open and absent after closing. Saved source inputs and DLL identity are retained in samples/net11.0/FenPresentation/owner-session.evidence.json. No timed sleep/screensaver or policy override claim."
   },
   "snippets": {
     "n10-fenpresentation-directory-packages-props": {

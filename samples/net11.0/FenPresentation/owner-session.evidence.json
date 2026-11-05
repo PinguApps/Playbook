@@ -1,12 +1,8 @@
 {
-  "issue": "PIN-898",
-  "status": "verified",
-  "ownerAuthorization": "Pingu: Yes, use this session",
-  "os": "Microsoft Windows 10.0.26200",
-  "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj",
-  "sdk": "11.0.100-rc.2.26504.105",
-  "runtime": "11.0.0-rc.2.26504.105",
-  "sourceInputs": {
+  "recordedAt": "2026-11-05T08:19:48.7325057+00:00",
+  "sdk": "11.0.100-rc.3.26522.148",
+  "dllSha256": "88a9fe28cf5d0a3906d3ed680b6e0494f7f42744c6e8210597dc67191c18a900",
+  "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
     "eng/Evidence.ps1": "b3dbd6b3788e31aefe1533ef89fed66625f2a637993f9291e8d1d4fc8a2ba849",
     "eng/Record-Evidence.ps1": "653a32b1ebe5be60a5489afd9a7a963dbbabf5c2ecfd47fe480974fd5d939498",
@@ -14,60 +10,23 @@
     "samples/net11.0/FenPresentation/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/FenPresentation/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/FenPresentation/Directory.Packages.props": "8ab8b3576f7e9410226e0f440f4cbfd47e46cf50d5c56102fd0e5966374c10e5",
-    "samples/net11.0/FenPresentation/FenPresentation.csproj": "342bd8d5c5141adb2282cefda2432d0ee02eea6c88c96dddfd7bbb5acd51ed2c",
-    "samples/net11.0/FenPresentation/global.json": "7bb56d5a448af37906c78d0644283e0ba955324cb4bc5ead213a494f0a4bd795",
+    "samples/net11.0/FenPresentation/FenPresentation.csproj": "74af65657d820e9a3e99fd51be29fa96a2d34dd43ed5653f43cc0980038b1ea9",
+    "samples/net11.0/FenPresentation/global.json": "fdb2f2ab08dd415b1c522e1102430bf86a35760a91fe6fa72fee28f1cbe39a36",
     "samples/net11.0/FenPresentation/packages.lock.json": "2ae0110448e48b6fa70be1911a169431575bd0d8744d98cb54f06f9bc366d171",
     "samples/net11.0/FenPresentation/Program.cs": "6dc1e69c9f1337e6164822379920a8ea7247df6e6107861b4fd0ad6eb55325af",
-    "samples/net11.0/FenPresentation/verification.json": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
+    "samples/net11.0/FenPresentation/verification.json": "f0d20a8fc539b1b291ae40199b32452b2774e981e0cf1e9aad09c64322ad5a13"
   },
-  "dllSha256": "a4cbca6b3b2238a8c1d497457caece3c6eaec7a2f3893ae124443acc8957f133",
-  "visibleSamplePid": 704112,
-  "automatedObservations": [
-    "F11 removed title bar and expanded the normal window to fullscreen",
-    "Escape restored the normal window and title bar",
-    "Maximize -> F11 -> Escape restored maximized state with Restore title-bar action",
-    "Close removed the sample window and exited its process"
-  ],
-  "powerInspection": {
-    "beforeDisplayAndSystem": "None",
-    "allExitCodes": [
-      0,
-      0,
-      0
-    ],
-    "afterUtc": "2026-11-04T08:31:24.9660719+00:00",
-    "beforeUtc": "2026-11-04T08:27:37.7092872+00:00",
-    "afterDisplayAndSystem": "None",
-    "privilege": "Owner-approved elevated read-only observer",
-    "duringUtc": "2026-11-04T08:30:38.062139+00:00",
-    "duringDisplayAndSystem": "dotnet.exe: WinForms KioskModeManager: Preventing screen saver and sleep",
-    "command": "C:/Windows/System32/powercfg.exe /requests"
-  },
-  "cleanup": "Visible sample closed through its Close button. Both elevated observers exited. Initial hidden launch was stopped by exact launched PID before visible relaunch; no other process stopped.",
-  "limitations": [
-    "No timed sleep/screensaver or policy-override guarantee tested",
-    "No pointer auto-hide or global-shortcut test",
-    "No Windows lockdown, trust or persistent settings changes"
-  ],
-  "ownerVerdict": "Pingu: Yes, both looked correct",
-  "sourceNormalization": {
-    "inputs": [
-      {
-        "change": "CRLF to LF only; text and behaviour unchanged",
-        "path": "samples/net11.0/FenPresentation/FenPresentation.csproj",
-        "canonicalLfSha256": "74af65657d820e9a3e99fd51be29fa96a2d34dd43ed5653f43cc0980038b1ea9",
-        "testedSha256": "342bd8d5c5141adb2282cefda2432d0ee02eea6c88c96dddfd7bbb5acd51ed2c"
-      },
-      {
-        "change": "CRLF to LF only; text and behaviour unchanged",
-        "path": "samples/net11.0/FenPresentation/verification.json",
-        "canonicalLfSha256": "f0d20a8fc539b1b291ae40199b32452b2774e981e0cf1e9aad09c64322ad5a13",
-        "testedSha256": "3a65ccb1f7aaf9f64a97d88bc0243960fc8031d731df8eeae68a6122bf559daa"
-      }
-    ],
-    "reason": "CI checkout uses repository-required LF, while original authoring used CRLF. Only newline bytes were normalized; source text/behaviour did not change. Original proof hashes and saved-source values remain the identities actually observed. Refreshed verification-evidence.json records compile/run the canonical LF inputs.",
-    "refreshedDllSha256": "3117a955241fd456b4789660368a0c2d3b52dd55a560520d8029b668719a40d1",
-    "matchesOwnerTestedDll": false,
-    "artifactScope": "The original owner session applies to the recorded dllSha256. Rebuild DLL identity is reported separately and differs; generated informational-version metadata includes the current Git revision. No repeated owner session is claimed after newline normalization. Authored executable source is unchanged; current LF canonical inputs were compiled and restoration checks executed again."
-  }
+  "ownerVerdict": "pass",
+  "exitCode": 0,
+  "before": "DISPLAY:\r\nNone.\r\n\r\nSYSTEM:\r\nNone.\r\n\r\nAWAYMODE:\r\nNone.\r\n\r\nEXECUTION:\r\n[PROCESS] \\Device\\HarddiskVolume7\\Program Files\\WindowsApps\\OpenAI.Codex_26.1029.7803.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe\r\nElectron\r\n\r\nPERFBOOST:\r\nNone.\r\n\r\nACTIVELOCKSCREEN:\r\nNone.",
+  "during": "DISPLAY:\r\n[PROCESS] \\Device\\HarddiskVolume7\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe\r\nWinForms KioskModeManager: Preventing screen saver and sleep\r\n\r\nSYSTEM:\r\n[PROCESS] \\Device\\HarddiskVolume7\\Users\\pingu\\AppData\\Local\\dotnetup\\dotnet\\dotnet.exe\r\nWinForms KioskModeManager: Preventing screen saver and sleep\r\n\r\nAWAYMODE:\r\nNone.\r\n\r\nEXECUTION:\r\n[PROCESS] \\Device\\HarddiskVolume7\\Program Files\\WindowsApps\\OpenAI.Codex_26.1029.7803.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe\r\nElectron\r\n\r\nPERFBOOST:\r\nNone.\r\n\r\nACTIVELOCKSCREEN:\r\nNone.",
+  "after": "DISPLAY:\r\nNone.\r\n\r\nSYSTEM:\r\nNone.\r\n\r\nAWAYMODE:\r\nNone.\r\n\r\nEXECUTION:\r\n[PROCESS] \\Device\\HarddiskVolume7\\Program Files\\WindowsApps\\OpenAI.Codex_26.1029.7803.0_x64__2p2nqsd0c76g0\\app\\ChatGPT.exe\r\nElectron\r\n\r\nPERFBOOST:\r\nNone.\r\n\r\nACTIVELOCKSCREEN:\r\nNone.",
+  "idleRequestAbsentBefore": true,
+  "idleRequestPresentDuring": true,
+  "idleRequestRemovedAfter": true,
+  "issue": "PIN-898",
+  "status": "verified",
+  "sample": "samples/net11.0/FenPresentation/FenPresentation.csproj",
+  "command": "artifacts/sdk-upgrade/Refresh-FenPresentationOwner.ps1 (elevated owner session; dotnetup host; --interactive)",
+  "scope": "Pingu observed normal and maximized F11/Escape entry/restoration on the actual RC3 DLL. Elevated powercfg /requests showed the named dotnet display/system request absent before, present while open and absent after close. No timed sleep/screensaver or policy override claim."
 }
