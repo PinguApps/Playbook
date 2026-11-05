@@ -4,4 +4,3 @@
 <ItemGroup><PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="[11.0.0-rc.3.26522.148]" /></ItemGroup>
 </Project>
 <!-- endsnippet:complete -->
-

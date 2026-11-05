@@ -71,7 +71,3 @@ public class Rookery : DbContext
  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite("Data Source=:memory:").LogTo(Console.WriteLine, [Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.CommandExecuted]);
 }
 // endsnippet:complete
-
-
-
-

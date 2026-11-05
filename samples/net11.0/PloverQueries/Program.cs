@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PloverQueries;
 public static class Program { public static void Main(string[] args) {
-Console.WriteLine(typeof(Microsoft.EntityFrameworkCore.Query.SqlExpressions.SelectExpression).GetField("_nonEntityNullabilityMarkers", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance) == null ? "MARKER FIELD ABSENT" : "MARKER FIELD PRESENT");
 using var db = new Rookery();
 db.Database.OpenConnection();
 db.Database.EnsureCreated();
@@ -74,13 +73,3 @@ public class Rookery : DbContext
  protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite("Data Source=:memory:").LogTo(Console.WriteLine, [Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.CommandExecuted]);
 }
 // endsnippet:complete
-
-
-
-
-
-
-
-
-
-
