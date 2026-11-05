@@ -6,7 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="11.0.0-rc.2.26504.105" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="11.0.0-rc.2.26504.105" />
   </ItemGroup>
 </Project>
 <!-- endsnippet:complete -->

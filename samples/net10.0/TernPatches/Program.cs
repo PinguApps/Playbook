@@ -43,7 +43,7 @@ for(var i=0;i<paths.Length;i++)
     if(root.GetProperty("keep").GetInt32()!=42 || root.GetProperty("station").GetProperty("keep").GetInt32()!=17 || root.GetProperty("cards")[0].GetProperty("name").GetString()!="first") throw new InvalidOperationException("Untouched sibling changed.");
     var actual=i switch {0=>root.GetProperty("odd.name").GetString(),1=>root.GetProperty("station").GetProperty("name").GetString(),2=>root.GetProperty("cards")[1].GetProperty("name").GetString(),_=>root.GetProperty("odd.name").GetString()};
     if(actual!=(i==0?"old":values[i])) throw new InvalidOperationException("Wrong JSON location.");
-    Console.WriteLine($"PASS JSON case={i}; path={paths[i]}; intended value and untouched siblings");
+    Console.WriteLine($"PASS JSON case={i}; assignment={sql}; intended value and untouched siblings");
 }
 sealed class PatchGenerator(UpdateSqlGeneratorDependencies dependencies):UpdateSqlGenerator(dependencies)
 {
@@ -61,7 +61,19 @@ sealed class PatchGenerator(UpdateSqlGeneratorDependencies dependencies):UpdateS
         var text=path;
 #else
         var root=path.IsRoot;
-        var text=path.ToString('"');
+        var rendered=new StringBuilder("$");
+        var index=0;
+        foreach(var segment in path.Segments)
+        {
+            if(segment.IsArray)
+            {
+                var position=path.Indices?[index++] ?? throw new InvalidOperationException("An update needs a concrete array index.");
+                if(position<0) throw new InvalidOperationException("An update needs a nonnegative array index.");
+                rendered.Append('[').Append(position).Append(']');
+            }
+            else rendered.Append('.').Append(JsonSerializer.Serialize(segment.PropertyName));
+        }
+        var text=rendered.ToString();
 #endif
         if(root) { stringBuilder.Append("@value"); return; }
         stringBuilder.Append("JSON_MODIFY(");
@@ -70,4 +82,3 @@ sealed class PatchGenerator(UpdateSqlGeneratorDependencies dependencies):UpdateS
     }
 }
 // endsnippet:complete
-

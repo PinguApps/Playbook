@@ -43,7 +43,7 @@ for(var i=0;i<paths.Length;i++)
     if(root.GetProperty("keep").GetInt32()!=42 || root.GetProperty("station").GetProperty("keep").GetInt32()!=17 || root.GetProperty("cards")[0].GetProperty("name").GetString()!="first") throw new InvalidOperationException("Untouched sibling changed.");
     var actual=i switch {0=>root.GetProperty("odd.name").GetString(),1=>root.GetProperty("station").GetProperty("name").GetString(),2=>root.GetProperty("cards")[1].GetProperty("name").GetString(),_=>root.GetProperty("odd.name").GetString()};
     if(actual!=(i==0?"old":values[i])) throw new InvalidOperationException("Wrong JSON location.");
-    Console.WriteLine($"PASS JSON case={i}; path={paths[i]}; intended value and untouched siblings");
+    Console.WriteLine($"PASS JSON case={i}; assignment={sql}; intended value and untouched siblings");
 }
 sealed class PatchGenerator(UpdateSqlGeneratorDependencies dependencies):UpdateSqlGenerator(dependencies)
 {
@@ -82,6 +82,3 @@ sealed class PatchGenerator(UpdateSqlGeneratorDependencies dependencies):UpdateS
     }
 }
 // endsnippet:complete
-
-
-
