@@ -4089,3 +4089,32 @@ edition. Local SQL2025 configuration/query proof excludes Azure service behaviou
 Cosmos proof is the approved legacy emulator, not cloud parity. Unusable retrieval
 proxies prove proxy independence rather than OS network isolation. GA and
 comprehensive-readiness gates remain outstanding.
+
+## Query roots, missing principals and constructor bindings
+
+From an unrelated directory, select this worktree and inspect the exact ordinary
+packed tool. Requires PowerShell7, SDK10.0.402 and Node22.19+. Setup restores
+packages online; the isolated installed server returns bundled guidance offline.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-235a1bb5'
+& ./eng/Test-LarkContracts.ps1
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.migrate-structural-materializer','ef.query-unconstrained-relationship','ef.migrate-constructor-binding') `
+  -Query 'lark-contracts' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1202-1204' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/lark/inspection'
+```
+
+Expect ID/title/goal, complete expanded canonical Markdown, edition11,
+applicability and fresh evidence for all three recipes. Target10 has no applicable
+edition. The same isolated local feed/cache harness installs that exact package
+and calls real stdio list/get from outside the checkout with unusable proxies.
+This establishes offline content availability, not OS network isolation.
+SQLite and disposable SQL2025 execution are separate from MCP retrieval. Root
+construction is a contract check; no custom query-translator execution, GA,
+NativeAOT or other-provider/platform proof is claimed. Data owners must handle
+missing principals; GetBindings does not accept an arbitrary constructor choice.
+``Test-LarkContracts.ps1 -Record`` refreshes the committed sample receipts.

@@ -1,0 +1,206 @@
+{
+  "id": "ef.migrate-constructor-binding",
+  "edition": "11.0",
+  "title": "Migrate a constructor-binding consumer to binding selection",
+  "goal": "Replace a removed constructor-binding call and verify scalar and service parameters plus invalid bindings on the actual provider.",
+  "areas": [
+    "ef-core"
+  ],
+  "exampleLanguages": [
+    "csharp"
+  ],
+  "tags": [
+    "lark-contracts",
+    "migration"
+  ],
+  "apis": [
+    "IConstructorBindingFactory",
+    "TryBindConstructor",
+    "GetBindings"
+  ],
+  "introducedIn": "11.0",
+  "supportedTargets": [
+    "11.0"
+  ],
+  "stability": "stable",
+  "applicability": {
+    "routes": [
+      {
+        "sourceUrls": [
+          "https://learn.microsoft.com/en-us/ef/core/modeling/constructors"
+        ],
+        "selectionNotes": [
+          "EF10 TryBindConstructor accepts a specific ConstructorInfo and reports false plus unbound parameters. EF11 removes it; GetBindings selects constructor and service-only bindings for the type and throws for an unbindable type. GetBindings already exists in EF10 and is a valid earlier migration. It is not a drop-in replacement for arbitrary constructor preference: this bounded consumer has one constructor with two mapped scalar parameters and an injected DbContext. Preserve custom selection requirements before choosing this route. An original Bird is inserted with SQL and materialized in a fresh context, verifying scalar values and injected context identity. Independent mutable metadata checks the public factory and invalid Uri unknown parameter. Factory inspection does not itself install a custom factory or change EF conventions. The example consumes the public extension contract and never subclasses internal EF implementations. No lazy-loading, arbitrary service injection or generic object mapper is promised."
+        ],
+        "usage": "primary",
+        "target": "11.0",
+        "requirements": {
+          "runtime": {
+            "name": ".NET",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "EF Core 11 requires .NET 11. No older-runtime EF11 route is offered."
+          },
+          "sdk": {
+            "name": ".NET SDK",
+            "version": "11.0",
+            "match": "release-family",
+            "reason": "Build the net11.0 consumer; measured SDK 11.0.100-rc.2.26504.105 is RC2 evidence, not GA proof."
+          },
+          "language": {
+            "name": "C#",
+            "version": "15.0",
+            "match": "exact",
+            "reason": "Declared current language mode; no C# 15-specific syntax is required by the example."
+          },
+          "frameworks": [
+            "Microsoft.NET.Sdk console consumer"
+          ],
+          "packages": [
+            {
+              "match": "release-family",
+              "name": "Microsoft.EntityFrameworkCore.Sqlite",
+              "reason": "Exact RC2 graph is locked in the canonical project.",
+              "version": "11.0"
+            }
+          ],
+          "packageAssets": [
+            "Independent locked EF10.0.13/net10.0/SDK10.0.402/C#14 and EF11.0.0-rc.2.26504.105/net11.0/SDK11.0.100-rc.2.26504.105/C#15 graphs. EF11 requires .NET11; no older-runtime EF11 route. Current proof uses RC2, not GA. No experimental attribute or opt-in is required on the exercised public contracts."
+          ],
+          "providers": [
+            "Windows x64 bundled SQLite 3.53.3/3.53.4"
+          ],
+          "workloads": [],
+          "platforms": [
+            "Executed on Windows x64. SQL2025 runs in the existing Linux container. Other providers/platforms and NativeAOT are unverified."
+          ],
+          "renderingModes": [
+            "Not applicable: console/database extension."
+          ],
+          "constraints": [
+            "EF10 TryBindConstructor accepts a specific ConstructorInfo and reports false plus unbound parameters. EF11 removes it; GetBindings selects constructor and service-only bindings for the type and throws for an unbindable type. GetBindings already exists in EF10 and is a valid earlier migration. It is not a drop-in replacement for arbitrary constructor preference: this bounded consumer has one constructor with two mapped scalar parameters and an injected DbContext. Preserve custom selection requirements before choosing this route. An original Bird is inserted with SQL and materialized in a fresh context, verifying scalar values and injected context identity. Independent mutable metadata checks the public factory and invalid Uri unknown parameter. Factory inspection does not itself install a custom factory or change EF conventions. The example consumes the public extension contract and never subclasses internal EF implementations. No lazy-loading, arbitrary service injection or generic object mapper is promised."
+          ],
+          "prerequisites": [
+            "PowerShell7 and both pinned SDKs. Restore each complete project separately. Run eng/Test-LarkContracts.ps1 -Record. SQL checks require the approved isolated SqlServer.ps1 route; native SQLite runs on Windows x64."
+          ],
+          "optIns": [],
+          "stabilityLimitations": [
+            "Public extension contracts are upgrade-sensitive. Stable API shape measured on pinned RC2; reconcile actual GA separately."
+          ]
+        },
+        "conditional": false,
+        "evidenceSamples": [
+          "samples/net11.0/LarkBindings/LarkBindings.csproj"
+        ]
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Official EF guidance",
+      "url": "https://learn.microsoft.com/en-us/ef/core/modeling/constructors"
+    }
+  ],
+  "evidence": [
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/LarkBindings/LarkBindings.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "compile",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    },
+    {
+      "language": "14.0",
+      "sample": "samples/net10.0/LarkBindings/LarkBindings.csproj",
+      "sdk": "10.0.402",
+      "target": "net10.0",
+      "kind": "execution",
+      "record": "samples/net10.0/LarkBindings/behavior.evidence.json",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/LarkBindings/LarkBindings.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "compile",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    },
+    {
+      "language": "15.0",
+      "sample": "samples/net11.0/LarkBindings/LarkBindings.csproj",
+      "sdk": "11.0.100-rc.2.26504.105",
+      "target": "net11.0",
+      "kind": "execution",
+      "record": "samples/net11.0/LarkBindings/behavior.evidence.json",
+      "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim."
+    }
+  ],
+  "snippets": {
+    "n11-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkBindings/Directory.Packages.props"
+    },
+    "n10-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net10.0/LarkBindings/Program.cs"
+    },
+    "n11-program-cs": {
+      "region": "complete",
+      "language": "csharp",
+      "path": "samples/net11.0/LarkBindings/Program.cs"
+    },
+    "n10-larkbindings-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkBindings/LarkBindings.csproj"
+    },
+    "n10-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkBindings/Directory.Build.targets"
+    },
+    "n10-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkBindings/Directory.Build.props"
+    },
+    "n11-directory-build-targets": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkBindings/Directory.Build.targets"
+    },
+    "n10-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net10.0/LarkBindings/global.json"
+    },
+    "n10-directory-packages-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net10.0/LarkBindings/Directory.Packages.props"
+    },
+    "n11-directory-build-props": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkBindings/Directory.Build.props"
+    },
+    "n11-global-json": {
+      "region": "complete",
+      "language": "json",
+      "path": "samples/net11.0/LarkBindings/global.json"
+    },
+    "n11-larkbindings-csproj": {
+      "region": "complete",
+      "language": "xml",
+      "path": "samples/net11.0/LarkBindings/LarkBindings.csproj"
+    }
+  },
+  "humanProof": {
+    "scope": "eng/Test-LarkContracts.ps1 -Record: pinned real compilation and provider checks. No GA, NativeAOT or other-platform claim.",
+    "status": "not-required"
+  }
+}

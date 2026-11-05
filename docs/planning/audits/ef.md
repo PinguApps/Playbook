@@ -940,3 +940,28 @@ them through a fresh context. No globally coordinated identifier claim follows.
 Canonical projects, locked dependencies and fresh compilation/execution records
 support the offline recipes. No extra .NET10 foundation or recurring matrix is
 added. PIN-959 comprehensive readiness and PIN-965 actual GA remain open.
+
+## Structural consumers, missing principals and binding selection — PIN-1202–1204
+
+Original LarkMaterializers, LarkRelationships and LarkBindings compare the pinned
+SDK10.0.402/EF10.0.13 and SDK11 RC2/EF11 RC2 graphs. Pingu approved E14's callable
+parameter-root comparison on 5 November 2026: the entity-only materializer contract
+and collection-result legacy properties are already error-obsolete in EF10.
+Structural-service consumption and entity/nested/null SQLite reads execute on both;
+parameter-root construction is a contract check, not a custom provider rewrite.
+Broader InjectEntityMaterializers/provider contracts remain unverified.
+
+SQL2025 generated/actual constraints and indexes distinguish IsConstrained(false)
+from migration-only omission. A matched and orphan crate yield one row through
+required/omitted INNER JOINs and two through EF11's unconstrained LEFT JOIN.
+EF10's explicit left join retains both. Data integrity is application-owned.
+Constructor consumers compare explicit TryBindConstructor success/unbound parameters
+with GetBindings selection/exception. Actual fresh-context reads check two scalar
+parameters and injected DbContext identity. GetBindings already exists in EF10;
+it does not preserve arbitrary custom constructor preferences automatically.
+
+Canonical independent projects, locks and fresh compilation/execution receipts
+support offline recipes ef.migrate-structural-materializer/11.0,
+ef.query-unconstrained-relationship/11.0 and ef.migrate-constructor-binding/11.0.
+No older-runtime EF11 route, additional .NET10 foundation, native matrix or GA
+claim is added. PIN-959/PIN-965 and existing Human gates remain unchanged.
