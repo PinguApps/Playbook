@@ -43,7 +43,8 @@ public sealed class InstalledToolSteps : IDisposable
         }
 
         string[] assets = ["blazor.expand-component-asset-paths"];
-        await CheckWebRecipesAsync(assets, "static-assets", evidenceCount: 4, additionalEvidenceKind: "execution").ConfigureAwait(false);
+        await CheckWebRecipesAsync(assets, "static-assets", evidenceCount: 4, additionalEvidenceKind: "execution",
+            expectedCatalogueIds: ["blazor.expand-component-asset-paths", "web.order-static-asset-routes"]).ConfigureAwait(false);
         await CheckCompleteOpenApiMetadataAsync(assets).ConfigureAwait(false);
     }
 
@@ -1250,7 +1251,7 @@ public sealed class InstalledToolSteps : IDisposable
     public async Task CheckSoundingsAsync()
     {
         const string id = "signalr.cancel-active-operation";
-        await CheckWebRecipesAsync([id], "soundings").ConfigureAwait(false);
+        await CheckWebRecipesAsync([id], "signalr cancellation").ConfigureAwait(false);
         JsonElement recipe = AssertMatchingRepresentations(await CallAsync("get_recipe", new { id, targetVersion = "11.0" }).ConfigureAwait(false)).GetProperty("recipe");
         using JsonDocument metadata = JsonDocument.Parse(await ReadSdkInputAsync($"content/recipes/{id}/11.0/recipe.json").ConfigureAwait(false));
         foreach (string field in new[] { "applicability", "sources", "humanProof", "supportedTargets", "introducedIn", "stability" })

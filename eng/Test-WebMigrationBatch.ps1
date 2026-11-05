@@ -66,6 +66,14 @@ try {
       Push-Location $directory
       try {
         & $dotnetHost restore --locked-mode
+        if ($name -eq 'VolunteerAccess') {
+          # NuGet regeneration omits the comments used to embed this lock in the recipe.
+          $lockPath = Join-Path $directory 'packages.lock.json'
+          $lock = [IO.File]::ReadAllText($lockPath).Replace("`r`n", "`n").Trim()
+          if (-not $lock.StartsWith('// snippet:complete', [StringComparison]::Ordinal)) {
+            [IO.File]::WriteAllText($lockPath, "// snippet:complete`n$lock`n// endsnippet:complete`n")
+          }
+        }
         $properties = (& $dotnetHost msbuild -getProperty:NuGetPackageRoot,TargetFramework | ConvertFrom-Json).Properties
         # Preflight the actual restored graph and ZIPs before any sample executes
         # or Record-Evidence can write a new compilation record.

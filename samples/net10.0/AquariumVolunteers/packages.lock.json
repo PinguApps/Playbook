@@ -1,3 +1,4 @@
+// snippet:complete
 {
   "version": 1,
   "dependencies": {
@@ -118,3 +119,4 @@
     }
   }
 }
+// endsnippet:complete

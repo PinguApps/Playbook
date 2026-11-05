@@ -45,6 +45,14 @@ function Invoke-ProbeProcess([string[]]$Arguments) {
 try {
     if ($Action -eq 'Prepare') {
         if (Test-Path -LiteralPath $work) { throw 'Choose a new work directory; existing files are never overwritten.' }
+        $addresses = @([Net.IPAddress]::Loopback)
+        if ([Net.Sockets.Socket]::OSSupportsIPv6) { $addresses += [Net.IPAddress]::IPv6Loopback }
+        foreach ($address in $addresses) {
+            $probe = [Net.Sockets.TcpListener]::new($address, $Port)
+            try { $probe.Start() }
+            catch { throw "Port $Port cannot be bound. Choose an available, unreserved -Port; leave existing Windows reservations unchanged. $($_.Exception.GetBaseException().Message)" }
+            finally { $probe.Stop() }
+        }
         [IO.Directory]::CreateDirectory($work) | Out-Null
         $files = @{
             'Directory.Build.props' = '<Project />'

@@ -1,7 +1,7 @@
 // snippet:host-global-json
 {
   "sdk": {
-    "version": "11.0.100-rc.2.26504.105",
+    "version": "11.0.100-rc.3.26522.148",
     "rollForward": "disable",
     "allowPrerelease": true
   }
@@ -11,7 +11,7 @@
 // snippet:client-global-json
 {
   "sdk": {
-    "version": "11.0.100-rc.2.26504.105",
+    "version": "11.0.100-rc.3.26522.148",
     "rollForward": "disable",
     "allowPrerelease": true
   }

@@ -12,10 +12,10 @@ New-Item -ItemType Directory -Path $work | Out-Null
 try {
   $env:DOTNET_ADD_GLOBAL_TOOLS_TO_PATH = '0'
   $sdk = '11.0.100-rc.3.26522.148'
-  $runtime = '11.0.0-rc.2.26504.105'
+  $runtime = '11.0.0-rc.3.26522.148'
   $inventory = & $Dotnet --list-sdks
   $line = @($inventory | Where-Object { $_ -match ('^' + [regex]::Escape($sdk) + ' \[') })
-  if ($line.Count -ne 1 -or $line[0] -notmatch '\[(.+)\]') { throw 'Install the declared .NET 11 RC2 SDK before this check.' }
+  if ($line.Count -ne 1 -or $line[0] -notmatch '\[(.+)\]') { throw 'Install the declared .NET 11 RC3 SDK before this check.' }
   $dotnetRoot = Split-Path $Matches[1] -Parent
   $archivePath = Join-Path $dotnetRoot "templates/$runtime/microsoft.dotnet.web.projecttemplates.11.0.$runtime.nupkg"
   $archive = [IO.Compression.ZipFile]::OpenRead($archivePath)
