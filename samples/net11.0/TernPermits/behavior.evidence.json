@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-TernExtensions.ps1 -Record",
   "scope": "Actual SQL2025 scalar/JSON checks or Windows x64 bundled SQLite generator persistence. No NativeAOT, GA, provider replacement or other-platform proof.",
-  "recordedAt": "2026-11-05T00:54:19.0680134+00:00",
-  "sourceCommit": "c939e035dfd20887b266ac083d9399bb572ecadb",
+  "recordedAt": "2026-11-05T01:03:34.9834825+00:00",
+  "sourceCommit": "751ec94fd7aaae936d77d813f81a71709e2613bd",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -18,12 +18,12 @@
     "NuGet.Config": "aec93b5637ab6d62470979a008990a4a336a287ab83a3f2541849ae735674055",
     "samples/net11.0/TernPermits/Directory.Build.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/TernPermits/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
-    "samples/net11.0/TernPermits/Directory.Packages.props": "da578e7e91d7745befa494bc0ea37b861a1cdb37aa39304272c7bb444dd6cf60",
+    "samples/net11.0/TernPermits/Directory.Packages.props": "a2634c6fa3f2e3196cd2c8c628c5a670307a1f85ddd93082eea74287b5691426",
     "samples/net11.0/TernPermits/global.json": "a43df060b11b36c25c6e082f9d4f25875f05aaaff31160a17ec7bfdf03d0eb17",
-    "samples/net11.0/TernPermits/packages.lock.json": "47f65317123a9767164130450b2aa74a3f5767950d556de4fa23303f0c3423bf",
-    "samples/net11.0/TernPermits/Program.cs": "bcc1f146971df47ed309d0eb020727e1a7c0d424017c96ca04b80d618e1c3f74",
-    "samples/net11.0/TernPermits/TernPermits.csproj": "815a042cf8567023b51740bbac20922605358d2b343db0ef9d62beacd3d3d99f",
-    "samples/net11.0/TernPermits/verification.json": "a0759aaf0f8c7cff397788372e2abf33908302494cb01b4f0c2ea24a7cdf087e"
+    "samples/net11.0/TernPermits/packages.lock.json": "46c5c7b95e9721ed6e094e7ff2e3d697a3b32bce54f32210f6d38d832aa246e5",
+    "samples/net11.0/TernPermits/Program.cs": "d895d86a3adbbff073f49d4a6c9f4d17dd74e8477118a8155c4ca77065775efe",
+    "samples/net11.0/TernPermits/TernPermits.csproj": "ffca59e68e7ea6f2aefbe6c6323e9a32b9f7d2cc6a0abfbfbdffd64b6be91d32",
+    "samples/net11.0/TernPermits/verification.json": "d67fd2032fe14081fa2c653d0e423f44c3a032f3313d9af3fae209ee74824119"
   },
   "dependencies": [
     "Microsoft.Data.Sqlite.Core/11.0.0-rc.2.26504.105",

@@ -6,8 +6,8 @@
   "language": "14.0",
   "command": "eng/Test-TernExtensions.ps1 -Record",
   "scope": "Actual SQL2025 scalar/JSON checks or Windows x64 bundled SQLite generator persistence. No NativeAOT, GA, provider replacement or other-platform proof.",
-  "recordedAt": "2026-11-05T00:07:42.7872386+00:00",
-  "sourceCommit": "c25dc6cdd468c5863f1e878ec25636f55a73889a",
+  "recordedAt": "2026-11-05T01:02:50.9721384+00:00",
+  "sourceCommit": "751ec94fd7aaae936d77d813f81a71709e2613bd",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -20,10 +20,10 @@
     "samples/net10.0/TernGauges/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/TernGauges/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net10.0/TernGauges/global.json": "ab2caa6e4ef1f42453610974b76b7917e38432e9cbc4b530b3fb8f6652a54fa5",
-    "samples/net10.0/TernGauges/packages.lock.json": "c9df573a57335a2c662612ff2ffbd29a71998950f68d518e6b4414661c95214a",
-    "samples/net10.0/TernGauges/Program.cs": "0b2d0887c3a10305ef5cdd946218659a369d9d54745945bd66468eefd55c1ad9",
+    "samples/net10.0/TernGauges/packages.lock.json": "95d0e9c0eb70253bb892ad70cadc39bab924f2633e4951df2efab05c201271ca",
+    "samples/net10.0/TernGauges/Program.cs": "40ffff4150e52251cdfe06dad6ecc1ab36459ec2636759642ba36e1c22144397",
     "samples/net10.0/TernGauges/TernGauges.csproj": "0c87766fb34bff870328ba77859e08b8bb100a6e8da38fb6a47f9d96fb47ffb7",
-    "samples/net10.0/TernGauges/verification.json": "fc82919102dc4eac3ad1c2476df0cdad2ef54d12132d75192531a12deece8610"
+    "samples/net10.0/TernGauges/verification.json": "37283119f5b7a86afa8b3e9212952142920f5251e28c49b43d4e04523fef6970"
   },
   "dependencies": [
     "Azure.Core/1.50.0",

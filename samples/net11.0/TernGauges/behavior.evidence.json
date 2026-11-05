@@ -6,8 +6,8 @@
   "language": "15.0",
   "command": "eng/Test-TernExtensions.ps1 -Record",
   "scope": "Actual SQL2025 scalar/JSON checks or Windows x64 bundled SQLite generator persistence. No NativeAOT, GA, provider replacement or other-platform proof.",
-  "recordedAt": "2026-11-05T00:08:48.1860132+00:00",
-  "sourceCommit": "c25dc6cdd468c5863f1e878ec25636f55a73889a",
+  "recordedAt": "2026-11-05T01:03:19.6277079+00:00",
+  "sourceCommit": "751ec94fd7aaae936d77d813f81a71709e2613bd",
   "sourceDirty": true,
   "inputs": {
     ".editorconfig": "c99359640a7ebc05cb7e8246fa002e9cd12b3b10bc7773f1af574391e8e94664",
@@ -20,10 +20,10 @@
     "samples/net11.0/TernGauges/Directory.Build.targets": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/TernGauges/Directory.Packages.props": "347e2e29465c6a37869dd07b0b401c55743b8571fb513a4e42b6ee8facc06ca4",
     "samples/net11.0/TernGauges/global.json": "ac1f3f1509d112fbaa40af236b27aa336c53aeb234e12b51eebd3f9cbc670277",
-    "samples/net11.0/TernGauges/packages.lock.json": "5be5eaef32df6bb29d0a4d7cd5bb52bc50f62916316ae161ffc0f70b0ead61c0",
-    "samples/net11.0/TernGauges/Program.cs": "0b2d0887c3a10305ef5cdd946218659a369d9d54745945bd66468eefd55c1ad9",
+    "samples/net11.0/TernGauges/packages.lock.json": "ffb0fe515151a3cbbc70cd5b46b3362c9a84bf572f72b9db6147ff51523f8d46",
+    "samples/net11.0/TernGauges/Program.cs": "40ffff4150e52251cdfe06dad6ecc1ab36459ec2636759642ba36e1c22144397",
     "samples/net11.0/TernGauges/TernGauges.csproj": "3a923e63b1f190d13a9f037ba6005245bdfaddcfddcb2ce886b59d21b4b05e22",
-    "samples/net11.0/TernGauges/verification.json": "a02f31cde4d5fa5732cd236d82a34313cd5ad91050a8d5bb91e72cbe8bbc0bb1"
+    "samples/net11.0/TernGauges/verification.json": "918efcb27de505fea5904fde18963ff1820b87e867f22582634713f7e3873234"
   },
   "dependencies": [
     "Microsoft.Bcl.Cryptography/9.0.18",
