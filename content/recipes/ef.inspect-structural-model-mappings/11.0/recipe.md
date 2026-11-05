@@ -83,3 +83,5 @@ Independent SDK10.0.402 / C#14 / EF10.0.13 and SDK11 RC2 / C#15 / EF11 RC2 graph
 
 
 SQLite rejects indexing the whole non-JSON complex property in the executed negative control. The current route indexes Location.Code plus Sequence and verifies their ordered property list; the alternate key uses Location.Code plus Id. GetTableColumnMappings and GetViewColumnMappings verify real store mappings. No native JSON/container-index route is advertised.
+
+Migration call map: replace DeclaringEntityType assumptions with DeclaringType plus an entity/complex test; replace GetColumnBaseName/GetDefaultColumnBaseName with the store-aware column-name APIs; read container column mappings from IColumnBase.StoreTypeMapping. Do not carry removed metadata setters into a read-only inspector. Key/index lists may contain property bases; distinguish scalar and complex properties before resolving their store mappings.

@@ -28,7 +28,8 @@
     "routes": [
       {
         "sourceUrls": [
-          "https://learn.microsoft.com/en-us/ef/core/modeling/bulk-configuration#conventions"
+          "https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.relationalpropertyextensions",
+          "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew"
         ],
         "selectionNotes": [
           "Use DeclaringType and distinguish IEntityType from IComplexType. Resolve columns with StoreObjectIdentifier for the selected table or view. EF11 complex paths may occur in key/index property lists; preserve list order and walk structural declaring paths. The older comparison retains an explicit entity SiteCode for key/index membership while separately inspecting its nested Location.Code. These are different authored models; this example does not migrate existing data. SQLite executes nested filtering and a keyless view. Native JSON indexes, container mappings and arbitrary provider hooks remain outside this route."
@@ -98,8 +99,12 @@
   },
   "sources": [
     {
-      "url": "https://learn.microsoft.com/en-us/ef/core/modeling/bulk-configuration#conventions",
-      "title": "Official EF model conventions"
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.relationalpropertyextensions",
+      "title": "EF relational metadata API"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew",
+      "title": "EF complex types and model changes"
     }
   ],
   "evidence": [

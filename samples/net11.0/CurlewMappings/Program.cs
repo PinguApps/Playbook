@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 Marsh.InvalidComplexIndex = args.Contains("--invalid-complex-index");
 using var connection = new SqliteConnection("Data Source=:memory:");
 connection.Open();
+Console.WriteLine("SQLite " + connection.ServerVersion);
 var options = new DbContextOptionsBuilder<Marsh>().UseSqlite(connection).Options;
 using (var db = new Marsh(options))
 {
@@ -23,7 +24,7 @@ using (var db = new Marsh(options))
     if (string.Join(",", entity.GetIndexes().Single().Properties.Select(p => p.Name)) != "Code,Sequence") throw new Exception("Wrong index order.");
     if (string.Join(",", entity.GetKeys().Single(k => !k.IsPrimaryKey()).Properties.Select(p => p.Name)) != "Code,Id") throw new Exception("Wrong alternate key order");
     var mapping = code.GetTableColumnMappings().Single();
-    if (mapping.Column.Name != "site_code" || mapping.Property != code) throw new Exception("Wrong store mapping");
+    if (mapping.Column.Name != "site_code" || mapping.Property != code || mapping.Column.StoreTypeMapping.StoreType != "TEXT") throw new Exception("Wrong store mapping");
     foreach (var property in entity.GetProperties().Concat(entity.GetComplexProperties().SelectMany(p => p.ComplexType.GetProperties())))
         Console.WriteLine($"{property.DeclaringType.Name}.{property.Name} => {property.GetColumnName(table)}");
     db.Add(new Sighting { Id = 7, Sequence = 2, Location = new() { Code = "CUR-4" } });
@@ -59,9 +60,3 @@ sealed class Sighting { public int Id { get; set; } public int Sequence { get; s
 sealed class Location { public string Code { get; set; } = ""; }
 sealed class SeenSite { public string Code { get; set; } = ""; }
 // endsnippet:complete
-
-
-
-
-
-

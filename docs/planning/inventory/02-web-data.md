@@ -488,3 +488,33 @@ PIN-959/PIN-965 and unrelated Human gates remain open.
 ### SQL index and vector delivery (PIN-855 / PIN-856)
 
 `sql.index-json-path`, `sql.search-vector-index` and `sql.read-vector-explicitly` now have original 11.0 editions and complete DuneArchive .NET10/11 comparisons. JSON indexing, exact VectorDistance and explicit/default vector projection execute on local Docker SQL2025 CU10. EF11 vector-index DDL and exact/approximate VectorSearch are generation-only evidence: CU10 rejects WITH APPROXIMATE. Pingu authorized this unavailable-engine execution exclusion on 2 November 2026; it does not establish runtime compatibility, recall or GA proof. EF11 RC2 requires HasVectorIndex(...).HasMetric("cosine"), unlike the currently published shorthand example. Reverse-engineering CLI execution remains untested. Stable IDs and the eight .NET10 foundations are unchanged.
+
+## Structural inspection, ignored types and file tooling — PIN-1205–1207
+
+E17/E18/E19 have original Curlew comparisons on SDK10.0.402/EF10.0.13 and
+SDK11.0.100-rc.2.26504.105/EF11.0.0-rc.2.26504.105. Separate locks preserve
+actual package graphs. SQLite3.53.3/3.53.4 execute real schema and persistence.
+
+`ef.inspect-structural-model-mappings/11.0` distinguishes entity and complex
+declaring types, ordered scalar-path keys/indexes, table/view columns and
+StoreTypeMapping. Both inspectors execute nested and view lookups. SQLite rejects
+an index over the whole non-JSON complex object; use its scalar paths. No native
+JSON index, container mapping mutation or broad provider-hook compatibility follows.
+
+`ef.migrate-type-ignore-convention/11.0` records the already-obsolete EF10
+IEntityTypeIgnoredConvention callback not being dispatched. The working
+ITypeIgnoredConvention exists on both versions. Separate-process controls ignore
+before/after entity addition and verify included/ignored models, schema and writes.
+This observer does not need annotation removal or enforce a later explicit re-add.
+
+`ef.target-file-based-app/11.0` compares conventional EF10 migrations with EF11
+--file and a separate conventional-model/--startup-file route. Pingu approved
+that mixed route on 5 November 2026 after #:project Marsh.cs reproduced MSB4025.
+Generated migration files and the snapshot must both be included in the file app;
+the runner checks generation/list/script/update, no pending model changes and
+persisted rows. Target and startup selector conflicts are negative controls.
+No unsupported file-to-file project-reference route is taught.
+
+Compilation/runtime receipts and installed offline guidance are separate evidence.
+No additional .NET10 foundation, recurring native matrix or GA claim is added.
+PIN-959 comprehensive readiness, PIN-965 actual GA and existing Human gates remain.

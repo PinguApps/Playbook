@@ -4118,3 +4118,30 @@ construction is a contract check; no custom query-translator execution, GA,
 NativeAOT or other-provider/platform proof is claimed. Data owners must handle
 missing principals; GetBindings does not accept an arbitrary constructor choice.
 ``Test-LarkContracts.ps1 -Record`` refreshes the committed sample receipts.
+
+## Structural metadata, ignored types and file design commands
+
+From an unrelated directory, select this worktree. Requires PowerShell7,
+SDK10.0.402, isolated SDK11 RC2 and Node22.19+. Setup restores NuGet packages;
+the tool then serves complete guidance offline. No package is published.
+
+```powershell
+Set-Location -LiteralPath 'V:\_worktrees\Playbook\t3-1b46e3e3'
+& ./eng/Inspect-BlazorMigrationGuidance.ps1 `
+  -RecipeId @('ef.inspect-structural-model-mappings','ef.migrate-type-ignore-convention','ef.target-file-based-app') `
+  -Query 'curlew' -TargetVersion '11.0' -UnsupportedTargetVersion '10.0' `
+  -PackageVersion '0.0.0-pin1205-1207' -BuildAndPack `
+  -Dotnet 'C:\Program Files\dotnet\dotnet.exe' `
+  -Node 'C:\Program Files\nodejs\node.exe' `
+  -OutputDirectory './artifacts/curlew/inspection'
+```
+
+Expect real SQLite metadata/lookup and callback controls, generated migrations,
+snapshot checks and persisted rows for conventional, file-target and mixed
+project/startup-file routes. The last command installs that exact ordinary artifact
+through an isolated local feed/cache, calls real stdio list/get outside the checkout,
+and displays ID/title/goal, full canonical Markdown, edition11, applicability and
+fresh evidence. Target10 has no applicable edition. Unusable retrieval proxies prove
+embedded offline guidance, not OS network isolation. No native JSON-index,
+file-to-file project reference, NativeAOT, other-platform or actual GA proof follows.
+The separate mixed startup route was approved by Pingu; PIN-959/PIN-965 remain open.

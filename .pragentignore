@@ -713,3 +713,12 @@
 /samples/net11.0/CurlewMappings/behavior.evidence.json
 /samples/net11.0/CurlewConventions/verification-evidence.json
 /samples/net11.0/CurlewConventions/behavior.evidence.json
+
+# Record-Evidence/Test-CurlewDesign generated receipts; review consumers, locks, manifests and CLI checks.
+/samples/net10.0/CurlewDesign/verification-evidence.json
+/samples/net10.0/CurlewDesign/behavior.evidence.json
+/samples/net11.0/CurlewFile/verification-evidence.json
+/samples/net11.0/CurlewFile/behavior.evidence.json
+/samples/net11.0/CurlewFileModel/verification-evidence.json
+/samples/net11.0/CurlewStartup/verification-evidence.json
+/samples/net11.0/CurlewStartup/behavior.evidence.json
